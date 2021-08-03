@@ -10,7 +10,7 @@ import React from "react";
 import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
 import theme from "./theme";
 import { Home } from "./pages";
-import RadioButton from "./pages/RadioButton/[ComponentName]";
+import RadioButton from "./pages/RadioButton/RadioButton";
 const jss = create({
   plugins: [...jssPreset().plugins, jssPluginExtend()],
 });
@@ -30,6 +30,9 @@ const App: React.FC<Props> = () => {
                 <Home />
               </Route>
             </Switch>
+            <Route path={"/radio"}>
+              <RadioButton />
+            </Route>
           </Router>
         </ThemeProvider>
       </StylesProvider>

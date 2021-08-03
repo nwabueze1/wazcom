@@ -20,7 +20,7 @@ declare module "@material-ui/core/styles/createTheme" {
   }
 }
 
-export default createMuiTheme({
+export default createTheme({
   typography: {
     fontFamily: ["Nunito, sans-serif"].join(","),
     fontSize: 14,
