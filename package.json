@@ -32,7 +32,7 @@
     "eject": "react-scripts eject",
     "lint": "eslint 'src/**/*.{ts,js,tsx}' -c .eslintrc.json",
     "lint-fix": "eslint --fix 'src/**/*.{ts,js,tsx}' -c .eslintrc.json",
-    "lint-check": "eslint 'src/**/*.{ts,js,tsx}' -c .eslintrc.json",
+    "lint-check": "eslint 'src/**/*.{ts,js,tsx}' -c .eslintrc-prod.json",
     "config-check": "eslint --print-config 'src/**/*.{ts,js,tsx}' -c .eslintrc.json | eslint-config-prettier-check",
     "format": "prettier --write 'src/**/*.{js,ts,tsx}'"
   },
