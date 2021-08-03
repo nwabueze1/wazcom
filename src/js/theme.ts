@@ -1,7 +1,7 @@
 import { createTheme } from "@material-ui/core";
 // import type '@material-ui/lab/Autocomplete';
 
-declare module "@material-ui/core/styles/createMuiTheme" {
+declare module "@material-ui/core/styles/createTheme" {
   interface Theme {
     include: { [key: string]: any };
     design: {
