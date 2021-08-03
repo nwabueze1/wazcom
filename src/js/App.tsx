@@ -22,7 +22,7 @@ interface Props {
 }
 
 const App: React.FC<Props> = () => {
-  const taskList = ["q", "q", "q"];
+  const taskList = ["Reaxt", "Recta", "RAect"];
   return (
     <CssBaseline>
       <StylesProvider jss={jss}>
@@ -33,7 +33,10 @@ const App: React.FC<Props> = () => {
             </Switch>
             <Route path={"/radio"}>
               <RadioButton />
-              <Selector items={taskList} styles={{ borderRadius: "10px" }} />
+              <Selector
+                items={taskList}
+                styles={{ borderRadius: "10px", width: "150px" }}
+              />
             </Route>
           </Router>
         </ThemeProvider>
