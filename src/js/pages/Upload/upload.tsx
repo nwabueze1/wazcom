@@ -1,24 +1,27 @@
 import React, { FC } from "react";
-import { useComponentNameStyles } from "./styles";
+import { uploadStyles } from "./styles";
 import { ComponentNameProps } from "./types";
 import { Typography } from "@material-ui/core";
 import { FaRegFileAlt } from "react-icons/fa";
 import clx from "classnames";
 
 const Upload: FC<ComponentNameProps> = ({ className }) => {
-  const classes = useComponentNameStyles();
+  const classes = uploadStyles();
 
   return (
     <div className={clx(className, classes.root)}>
-      <div className={classes.bigform}>
-        <Typography variant="h3" className={classes.UploadFile}>
+      <div>
+        <Typography className={classes.upload} variant="h4">
           Upload File
         </Typography>
-        <div className={classes.container}>
+        <div className={classes.child}>
           <FaRegFileAlt className={classes.uploadlogo} />
-          <Typography>
+          <Typography variant="h5">
             Drag and drop here
-            <br /> or <br /> Browse
+            <br /> or
+            <Typography className={classes.upload} variant="h4">
+              Browse
+            </Typography>
           </Typography>
         </div>
       </div>
