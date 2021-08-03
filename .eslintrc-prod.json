@@ -36,8 +36,8 @@
     },
     "settings": {
       "react": {
-        "pragma": "React", // Pragma to use, default to "React"
-        "fragment": "Fragment", // Fragment to use (may be a property of <pragma>), default to "Fragment"
+        "pragma": "React",
+        "fragment": "Fragment",
         "version": "detect",
         "typescriptVersion": "0.53"
       },
