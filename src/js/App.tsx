@@ -10,6 +10,7 @@ import React from "react";
 import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
 import theme from "./theme";
 import { Home } from "./pages";
+import Upload from "./pages/Upload/upload";
 
 const jss = create({
   plugins: [...jssPreset().plugins, jssPluginExtend()],
@@ -28,6 +29,9 @@ const App: React.FC<Props> = () => {
             <Switch>
               <Route path={"/"}>
                 <Home />
+              </Route>
+              <Route path={"/"}>
+                <Upload />
               </Route>
             </Switch>
           </Router>
