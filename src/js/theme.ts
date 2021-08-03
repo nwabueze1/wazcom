@@ -110,7 +110,7 @@ export default createMuiTheme({
     colors: {
       red70: "#FF4C4C",
       red90: '#FF1919',
-
+      grey4: '#BDBDBD',
 
       width: "1366px",
       blue: "#0889F7",

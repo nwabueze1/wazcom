@@ -4,9 +4,9 @@ import theme from "js/theme";
 /** !!-- Remember to update the function name !! */
 export const useComponentNameStyles = makeStyles(() => ({
     root: {
-        width:"386px",
-        height:"325px",
-        border:"2px red",
+        width:"384px",
+        height:"328px",
+        border:`10px${theme.design.colors.grey4}`,
         color:theme.design.colors.grey2,   
     },
     UploadFile:{
@@ -19,5 +19,10 @@ export const useComponentNameStyles = makeStyles(() => ({
     },
     uploadlogo:{
         fontSize:100
+    }, 
+    bigform:{
+        width:"384px",
+        height:"328px",
+        border:`10px${theme.design.colors.red}`
     }
 }));

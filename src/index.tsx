@@ -1,4 +1,3 @@
-import Upload from "js/pages/Upload/upload";
 import React from "react";
 import ReactDOM from "react-dom";
 import App from "./js/App";
@@ -7,7 +6,6 @@ import reportWebVitals from "./reportWebVitals";
 ReactDOM.render(
   <React.StrictMode>
     <App />
-    <Upload />
   </React.StrictMode>,
   document.getElementById("root"),
 );

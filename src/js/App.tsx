@@ -9,7 +9,6 @@ import jssPluginExtend from "jss-plugin-extend";
 import React from "react";
 import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
 import theme from "./theme";
-import { Home } from "./pages";
 import Upload from "./pages/Upload/upload";
 
 const jss = create({
@@ -27,9 +26,6 @@ const App: React.FC<Props> = () => {
         <ThemeProvider theme={theme}>
           <Router>
             <Switch>
-              <Route path={"/"}>
-                <Home />
-              </Route>
               <Route path={"/"}>
                 <Upload />
               </Route>

@@ -10,7 +10,7 @@ const Upload: FC<ComponentNameProps> = ({ className }) => {
 
   return (
     <div className={clx(className, classes.root)}>
-      <div>
+      <div className={classes.bigform}>
         <Typography variant="h3" className={classes.UploadFile}>
           Upload File
         </Typography>
