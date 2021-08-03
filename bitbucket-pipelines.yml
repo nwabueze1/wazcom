@@ -1,0 +1,9 @@
+image: node:14.6.0
+
+pipelines:
+  default:
+    - step:
+        name: "Building Wazcom..."
+        script:
+          - yarn install
+          - yarn lint-check
