@@ -1,13 +1,15 @@
-import React from 'react';
-import ReactDOM from 'react-dom';
-import App from './js/App';
-import reportWebVitals from './reportWebVitals';
+import Upload from "js/pages/Upload/upload";
+import React from "react";
+import ReactDOM from "react-dom";
+import App from "./js/App";
+import reportWebVitals from "./reportWebVitals";
 
 ReactDOM.render(
   <React.StrictMode>
     <App />
+    <Upload />
   </React.StrictMode>,
-  document.getElementById('root')
+  document.getElementById("root"),
 );
 
 // If you want to start measuring performance in your app, pass a function
