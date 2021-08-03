@@ -18,6 +18,9 @@ export const uploadStyles = makeStyles(() => ({
         color:theme.design.colors.grey2,
         margin:theme.spacing(3,0),
         border:`2px dashed ${theme.design.colors.grey4}`,
+        "&:hover": {
+            border: `2px dashed ${theme.design.colors.red}`
+        }
     },
     uploadlogo:{
         fontSize:50,
