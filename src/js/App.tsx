@@ -10,7 +10,9 @@ import React from "react";
 import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
 import theme from "./theme";
 import { Home } from "./pages";
+import Selector from "./pages/Selector/Selector";
 import RadioButton from "./pages/RadioButton/RadioButton";
+
 const jss = create({
   plugins: [...jssPreset().plugins, jssPluginExtend()],
 });
@@ -20,6 +22,7 @@ interface Props {
 }
 
 const App: React.FC<Props> = () => {
+  const taskList = ["q", "q", "q"];
   return (
     <CssBaseline>
       <StylesProvider jss={jss}>
@@ -30,6 +33,7 @@ const App: React.FC<Props> = () => {
             </Switch>
             <Route path={"/radio"}>
               <RadioButton />
+              <Selector items={taskList} styles={{ borderRadius: "10px" }} />
             </Route>
           </Router>
         </ThemeProvider>
