@@ -9,7 +9,6 @@ import jssPluginExtend from "jss-plugin-extend";
 import React from "react";
 import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
 import theme from "./theme";
-
 import Button from "../js/pages/Button/Button";
 
 const jss = create({
