@@ -9,7 +9,6 @@ import jssPluginExtend from "jss-plugin-extend";
 import React from "react";
 import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
 import theme from "./theme";
-import { Home } from "./pages";
 
 import Button from "../js/pages/Button/Button";
 
@@ -28,9 +27,6 @@ const App: React.FC<Props> = () => {
         <ThemeProvider theme={theme}>
           <Router>
             <Switch>
-              <Route path={"/"}>
-                <Home />
-              </Route>
               <Route path={"/"}>
                 <Button />
               </Route>
