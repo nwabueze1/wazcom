@@ -9,7 +9,7 @@ import jssPluginExtend from "jss-plugin-extend";
 import React from "react";
 import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
 import theme from "./theme";
-import Upload from "./pages/Upload/upload";
+import Upload from "./pages/upload/Upload";
 
 const jss = create({
   plugins: [...jssPreset().plugins, jssPluginExtend()],
@@ -27,7 +27,7 @@ const App: React.FC<Props> = () => {
           <Router>
             <Switch>
               <Route path={"/"}>
-                <Upload width="60%" />
+                <Upload width="80%" />
               </Route>
             </Switch>
           </Router>

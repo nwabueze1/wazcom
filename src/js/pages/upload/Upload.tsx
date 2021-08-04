@@ -1,11 +1,11 @@
 import React, { FC, useState } from "react";
 import { uploadStyles } from "./styles";
-import { ComponentNameProps } from "./types";
+import { UploadProps } from "./types";
 import { Typography, withWidth } from "@material-ui/core";
 import { FaRegFileAlt } from "react-icons/fa";
 import clx from "classnames";
 
-const Upload: FC<ComponentNameProps> = ({ className }) => {
+const Upload: FC<UploadProps> = ({ className }) => {
   const classes = uploadStyles(withWidth);
   const [loading, setloading] = useState(false);
   const handleClick = () => {
