@@ -23,11 +23,7 @@ const BreadCrumb: FC<ComponentNameProps> = ({ className }) => {
           <HomeIcon className={classes.icon} />
           Home
         </Link>
-        <Link
-          color="inherit"
-          href="/getting-started/installation/"
-          onClick={handleClick}
-        >
+        <Link color="inherit" href="/" onClick={handleClick}>
           Detail
         </Link>
         <Typography color="textPrimary">Pricing</Typography>
