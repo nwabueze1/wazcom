@@ -10,6 +10,7 @@ import React from "react";
 import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
 import theme from "./theme";
 import { Home } from "./pages";
+import Toggle from "./pages/Toggle/Toggle";
 
 const jss = create({
   plugins: [...jssPreset().plugins, jssPluginExtend()],
@@ -27,7 +28,7 @@ const App: React.FC<Props> = () => {
           <Router>
             <Switch>
               <Route path={"/"}>
-                <Home />
+                <Toggle />
               </Route>
             </Switch>
           </Router>
