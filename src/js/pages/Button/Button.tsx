@@ -18,6 +18,7 @@ const getVariantClassName = (
 
 const Button: React.FC<ButtonProps> = ({
   children,
+  size,
   type,
   loading,
   variant,
@@ -32,7 +33,7 @@ const Button: React.FC<ButtonProps> = ({
       <MuiButton
         type={type}
         disabled={loading}
-        size="large"
+        size={size}
         classes={{ root: clx(classes.root, variantClassName) }}
         startIcon={
           loading && (

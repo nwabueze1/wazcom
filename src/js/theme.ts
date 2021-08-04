@@ -1,9 +1,7 @@
 import { createMuiTheme } from "@material-ui/core";
-
-
 declare module "@material-ui/core/styles/createTheme" {
                  
-  interface Theme {
+interface Theme {
     include: { [key: string]: any };
     design: {
       font: { [key: string]: any };
