@@ -32,7 +32,7 @@ const Button: React.FC<ButtonProps> = ({
       <MuiButton
         type={type}
         disabled={loading}
-        size="small"
+        size="large"
         className={clx(classes.root, variantClassName)}
         startIcon={
           loading && (
