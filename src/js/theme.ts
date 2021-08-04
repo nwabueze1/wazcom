@@ -131,6 +131,7 @@ export default createTheme({
       fauxBlack: "#121212",
       magicMint: "#FEDAA2",
       black: "#000000",
+      grey1: "#BEBEBE",
     },
   },
   overrides: {
