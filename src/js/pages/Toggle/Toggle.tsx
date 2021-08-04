@@ -13,10 +13,10 @@ interface Props extends SwitchProps {
   classes: Styles;
 }
 
-const IOSSwitch = withStyles((theme: Theme) =>
+const Toggle = withStyles((theme: Theme) =>
   createStyles({
     root: {
-      width: 44,
+      width: 46,
       height: 26,
       padding: 0,
       margin: theme.spacing(4),
@@ -81,7 +81,7 @@ export default function CustomizedSwitches() {
     <FormGroup>
       <FormControlLabel
         control={
-          <IOSSwitch
+          <Toggle
             checked={state.checkedB}
             onChange={handleChange}
             name="checkedB"
