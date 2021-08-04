@@ -1,14 +1,15 @@
 import React, { FC } from "react";
-import { useComponentNameStyles } from "./styles";
+import { BreadCrumbStyles } from "./styles";
 import { ComponentNameProps } from "./types";
 import clx from "classnames";
 import Breadcrumbs from "@material-ui/core/Breadcrumbs";
+import HomeIcon from "@material-ui/icons/Home";
 import Typography from "@material-ui/core/Typography";
 import Link from "@material-ui/core/Link";
 import NavigateNextIcon from "@material-ui/icons/NavigateNext";
 
 const BreadCrumb: FC<ComponentNameProps> = ({ className }) => {
-  const classes = useComponentNameStyles();
+  const classes = BreadCrumbStyles();
   const handleClick = () => {
     alert("basit");
   };
@@ -19,6 +20,7 @@ const BreadCrumb: FC<ComponentNameProps> = ({ className }) => {
         aria-label="breadcrumb"
       >
         <Link color="inherit" href="/" onClick={handleClick}>
+          <HomeIcon className={classes.icon} />
           Home
         </Link>
         <Link
