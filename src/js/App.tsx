@@ -27,7 +27,7 @@ const App: React.FC<Props> = () => {
           <Router>
             <Switch>
               <Route path={"/"}>
-                <Upload />
+                <Upload width="60%" />
               </Route>
             </Switch>
           </Router>
