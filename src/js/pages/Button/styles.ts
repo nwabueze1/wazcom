@@ -5,6 +5,8 @@ import { ButtonProps } from "./types";
 export const useButtonStyles = makeStyles((theme: Theme) =>
   createStyles({
     root: {
+      color: theme.design.colors.white,
+      background:theme.design.colors.orange,
       border: 0,
       display: "flex",
       borderRadius: theme.spacing(0.5),
@@ -27,7 +29,7 @@ export const useButtonStyles = makeStyles((theme: Theme) =>
       color: theme.design.colors.white,
     },
     normal: {
-      color: theme.design.colors.white,
+      color: theme.design.colors.blue,
       backgroundColor: theme.design.colors.primaryBlue,
       padding: `${theme.typography.fontSize * 0.5}px ${
         theme.typography.fontSize * 3

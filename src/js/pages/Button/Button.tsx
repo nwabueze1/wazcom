@@ -33,7 +33,7 @@ const Button: React.FC<ButtonProps> = ({
         type={type}
         disabled={loading}
         size="large"
-        className={clx(classes.root, variantClassName)}
+        classes={{ root: clx(classes.root, variantClassName) }}
         startIcon={
           loading && (
             <CircularProgress className={classes.progress} size="25px" />
