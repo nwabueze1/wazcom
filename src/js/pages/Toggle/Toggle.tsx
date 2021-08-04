@@ -16,25 +16,25 @@ interface Props extends SwitchProps {
 const IOSSwitch = withStyles((theme: Theme) =>
   createStyles({
     root: {
-      width: 42,
+      width: 44,
       height: 26,
       padding: 0,
-      margin: theme.spacing(1),
+      margin: theme.spacing(4),
     },
     switchBase: {
       padding: 1,
       "&$checked": {
         transform: "translateX(16px)",
-        color: theme.palette.common.white,
+        color: theme.design.colors.red70,
         "& + $track": {
-          backgroundColor: "#52d869",
+          backgroundColor: theme.design.colors.white,
           opacity: 1,
-          border: "none",
+          border: "6px solid fauxGrey",
         },
       },
       "&$focusVisible $thumb": {
-        color: "#52d869",
-        border: "6px solid #fff",
+        color: theme.design.colors.red70,
+        border: "6px solid fauxGrey",
       },
     },
     thumb: {
@@ -87,7 +87,7 @@ export default function CustomizedSwitches() {
             name="checkedB"
           />
         }
-        label="iOS style"
+        label="Toggle ON"
       />
     </FormGroup>
   );
