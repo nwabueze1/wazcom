@@ -11,18 +11,20 @@ const Upload: FC<ComponentNameProps> = ({ className }) => {
   return (
     <div className={clx(className, classes.root)}>
       <div>
-        <Typography className={classes.upload} variant="h4">
+        <Typography className={classes.upload} variant="h5">
           Upload File
         </Typography>
         <div className={classes.child}>
           <FaRegFileAlt className={classes.uploadlogo} />
-          <Typography variant="h5">
-            Drag and drop here
-            <br /> or
-            <Typography className={classes.upload} variant="h4">
-              Browse
+          <div className={classes.text}>
+            <Typography variant="h6">
+              Drag and drop here
+              <br /> or
+              <Typography className={classes.upload} variant="h5">
+                Browse
+              </Typography>
             </Typography>
-          </Typography>
+          </div>
         </div>
       </div>
     </div>

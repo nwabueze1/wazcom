@@ -4,8 +4,8 @@ import theme from "js/theme";
 /** !!-- Remember to update the function name !! */
 export const uploadStyles = makeStyles(() => ({
     root: {
-        width:"384px",
-        borderRadius:"5px",
+        minwidth:"384px",
+        borderRadius:theme.spacing(0.5),
         border:`2px solid ${theme.design.colors.grey4}`,
         color:theme.design.colors.grey2,   
         fontWeight:'bold',
@@ -27,6 +27,11 @@ export const uploadStyles = makeStyles(() => ({
         color:theme.design.colors.grey3, 
     }, 
     upload:{
-        color:theme.design.colors.red
+        color:theme.design.colors.red,
+        fontWeight:"bold"
+    },
+    text:{
+        marginTop:theme.spacing(3),
+        fontWeight:"bold"
     }
 }));
