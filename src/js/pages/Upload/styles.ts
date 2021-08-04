@@ -37,6 +37,7 @@ export const uploadStyles = makeStyles(() => ({
     outerbox: {
         width: "100%",
         borderRadius:theme.spacing(0.5),
+        backgroundColor:theme.design.colors.Gray40
       },
       innerbox: {
         width: ({ width }: any) => width,
