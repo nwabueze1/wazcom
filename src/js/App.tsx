@@ -9,7 +9,7 @@ import jssPluginExtend from "jss-plugin-extend";
 import React from "react";
 import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
 import theme from "./theme";
-import { Home } from "./pages";
+
 import Toggle from "./pages/Toggle/Toggle";
 
 const jss = create({

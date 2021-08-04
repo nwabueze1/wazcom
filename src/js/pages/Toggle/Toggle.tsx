@@ -1,6 +1,8 @@
 import React from "react";
 import { withStyles, Theme, createStyles } from "@material-ui/core/styles";
 
+import FormGroup from "@material-ui/core/FormGroup";
+import FormControlLabel from "@material-ui/core/FormControlLabel";
 import Switch, { SwitchClassKey, SwitchProps } from "@material-ui/core/Switch";
 
 interface Styles extends Partial<Record<SwitchClassKey, string>> {
@@ -11,7 +13,7 @@ interface Props extends SwitchProps {
   classes: Styles;
 }
 
-const Toggle = withStyles((theme: Theme) =>
+const IOSSwitch = withStyles((theme: Theme) =>
   createStyles({
     root: {
       width: 42,
@@ -65,4 +67,28 @@ const Toggle = withStyles((theme: Theme) =>
     />
   );
 });
-export default Toggle;
+
+export default function CustomizedSwitches() {
+  const [state, setState] = React.useState({
+    checkedB: true,
+  });
+
+  const handleChange = (event: React.ChangeEvent<HTMLInputElement>) => {
+    setState({ ...state, [event.target.name]: event.target.checked });
+  };
+
+  return (
+    <FormGroup>
+      <FormControlLabel
+        control={
+          <IOSSwitch
+            checked={state.checkedB}
+            onChange={handleChange}
+            name="checkedB"
+          />
+        }
+        label="iOS style"
+      />
+    </FormGroup>
+  );
+}
