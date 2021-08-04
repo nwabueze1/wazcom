@@ -15,6 +15,9 @@ export const useStyles = makeStyles<Theme, StyleProps>({
     height: "48px",
     color: "rgba(0,0,0,0.64)",
     boxSizing: "border-box",
+    "&active": {
+      outlineColor: "red",
+    },
   },
   label: {
     outline: "none",

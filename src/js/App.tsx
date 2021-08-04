@@ -29,14 +29,21 @@ const App: React.FC<Props> = () => {
         <ThemeProvider theme={theme}>
           <Router>
             <Switch>
-              <Route path={"/"}>{/* <Home /> */}</Route>
+              <Route path="/">{/* <Home /> */}</Route>
             </Switch>
-            <Route path={"/radio"}>
+            <Route path="/radio">
               <RadioButton />
+            </Route>
+            <Route path="/selector">
               <Selector
                 items={taskList}
-                styles={{ borderRadius: "10px", width: "150px" }}
+                styles={{ borderRadius: "10px", width: "200px" }}
               />
+              <Selector
+                items={taskList}
+                styles={{ borderRadius: "10px", width: "200px" }}
+              />
+              ;
             </Route>
           </Router>
         </ThemeProvider>
