@@ -27,7 +27,7 @@ const App: React.FC<Props> = () => {
           <Router>
             <Switch>
               <Route path={"/"}>
-                <Button>Test Button</Button>
+                <Button size="small">Test Button</Button>
               </Route>
             </Switch>
           </Router>

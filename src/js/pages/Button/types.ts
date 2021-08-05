@@ -14,6 +14,7 @@ export type ButtonSchemaProps = {
 export type ButtonProps = CommonProps &
   StyleProps &
   Omit<MuiButtonProps, "variant"> & {
+   
     name?: string;
     loading?: boolean;
     href?: MuiButtonProps["href"];
