@@ -28,12 +28,12 @@ const Toggle = withStyles((theme: Theme) =>
         "& + $track": {
           backgroundColor: theme.design.colors.white,
           opacity: 1,
-          border: "6px solid theme.design.colors.fauxGrey",
+          border: `2px solid ${theme.design.colors.fauxGrey}`,
         },
       },
       "&$focusVisible $thumb": {
         color: theme.design.colors.red70,
-        border: "6px solid theme.design.colors.fauxGrey",
+        border: `2px solid ${theme.design.colors.fauxGrey}`,
       },
     },
     thumb: {
