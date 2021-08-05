@@ -19,7 +19,6 @@ const Toggle = withStyles((theme: Theme) =>
       width: 46,
       height: 26,
       padding: 0,
-      margin: theme.spacing(4),
     },
     switchBase: {
       padding: 1,
@@ -29,12 +28,12 @@ const Toggle = withStyles((theme: Theme) =>
         "& + $track": {
           backgroundColor: theme.design.colors.white,
           opacity: 1,
-          border: "6px solid fauxGrey",
+          border: "6px solid theme.design.colors.fauxGrey",
         },
       },
       "&$focusVisible $thumb": {
         color: theme.design.colors.red70,
-        border: "6px solid fauxGrey",
+        border: "6px solid theme.design.colors.fauxGrey",
       },
     },
     thumb: {
@@ -42,7 +41,7 @@ const Toggle = withStyles((theme: Theme) =>
       height: 24,
     },
     track: {
-      borderRadius: 26 / 2,
+      borderRadius: 13,
       border: `1px solid ${theme.palette.grey[400]}`,
       backgroundColor: theme.palette.grey[50],
       opacity: 1,
@@ -70,7 +69,7 @@ const Toggle = withStyles((theme: Theme) =>
 
 export default function CustomizedSwitches() {
   const [state, setState] = React.useState({
-    checkedB: true,
+    checked: true,
   });
 
   const handleChange = (event: React.ChangeEvent<HTMLInputElement>) => {
@@ -82,9 +81,9 @@ export default function CustomizedSwitches() {
       <FormControlLabel
         control={
           <Toggle
-            checked={state.checkedB}
+            checked={state.checked}
             onChange={handleChange}
-            name="checkedB"
+            name="checked"
           />
         }
         label="Toggle ON"
