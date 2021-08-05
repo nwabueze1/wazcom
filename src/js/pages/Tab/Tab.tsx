@@ -17,8 +17,8 @@ export const Tab: FC<TabProps> = ({ className }) => {
     <Paper style={{ width: "500px" }}>
       <Tabs
         value={0}
-        indicatorColor="primary"
-        textColor="primary"
+        indicatorColor="secondary"
+        textColor="secondary"
         // onChange={handleChange}
         aria-label="disabled tabs example"
         variant="standard"
