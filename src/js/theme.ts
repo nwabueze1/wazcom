@@ -1,10 +1,7 @@
-<<<<<<< HEAD
-import { createMuiTheme } from "@material-ui/core";
-=======
+
 import { createTheme } from "@material-ui/core";
 // import type '@material-ui/lab/Autocomplete';
 
->>>>>>> 04e38f689a4400dec228b57d787c5f222c644d88
 declare module "@material-ui/core/styles/createTheme" {
                  
 interface Theme {
