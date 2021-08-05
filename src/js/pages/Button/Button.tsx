@@ -18,8 +18,8 @@ const getVariantClassName = (
 
 const Button: React.FC<ButtonProps> = ({
   children,
-  size,
   type,
+  size,
   loading,
   variant,
   ...props
