@@ -3,6 +3,7 @@ import Paper from "@material-ui/core/Paper";
 import Tabs from "@material-ui/core/Tabs";
 import { Tab as MuiTab } from "@material-ui/core";
 import { TabProps } from "./types";
+import { useStyles } from "./styles";
 
 export const Tab: FC<TabProps> = ({ className }) => {
   //   const [value, setValue] = React.useState(2);
@@ -11,18 +12,21 @@ export const Tab: FC<TabProps> = ({ className }) => {
   //     setValue(newValue);
   //   };
 
+  const classes = useStyles();
   return (
-    <Paper square>
+    <Paper style={{ width: "500px" }}>
       <Tabs
-        value={1}
+        value={0}
         indicatorColor="primary"
         textColor="primary"
         // onChange={handleChange}
         aria-label="disabled tabs example"
+        variant="standard"
+        className={classes.tabs}
       >
         <MuiTab label="Active" />
-        <MuiTab label="Disabled" disabled />
-        <MuiTab label="Active" />
+        <MuiTab label="Active" disabled />
+        <MuiTab label="Active" disabled />
       </Tabs>
     </Paper>
   );
