@@ -1,12 +1,12 @@
 import React, { FC, useState } from "react";
 import { uploadStyles } from "./styles";
 import { UploadProps } from "./types";
-import { Typography, withWidth } from "@material-ui/core";
+import { Typography } from "@material-ui/core";
 import { FaRegFileAlt } from "react-icons/fa";
 import clx from "classnames";
 
-const Upload: FC<UploadProps> = ({ className }) => {
-  const classes = uploadStyles(withWidth);
+const Upload: FC<UploadProps> = ({ className, width }) => {
+  const classes = uploadStyles({ width });
   const [loading, setloading] = useState(false);
   const handleClick = () => {
     setloading(true);
@@ -22,7 +22,7 @@ const Upload: FC<UploadProps> = ({ className }) => {
           {loading ? (
             <div className={classes.bar}>
               <div className={classes.outerbox}>
-                <div className={classes.innerbox}>100 %</div>
+                <div className={classes.innerbox}>{width}</div>
               </div>
             </div>
           ) : (
