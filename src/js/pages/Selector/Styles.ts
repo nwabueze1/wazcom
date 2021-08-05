@@ -11,7 +11,7 @@ export const useStyles = makeStyles<Theme, StyleProps>({
     width: ({ width }) => width,
     border: `1px solid ${theme.design.colors.grey1}`,
     borderRadius: ({ borderRadius }) => borderRadius,
-    padding: `${theme.spacing(0.25)} ${theme.spacing(2.5)}`,
+    padding: theme.spacing(0.25, 2.5),
     fontSize: "16px",
     height: "48px",
     color: "rgba(0,0,0,0.64)",
