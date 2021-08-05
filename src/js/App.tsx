@@ -12,6 +12,7 @@ import theme from "./theme";
 import { Home } from "./pages";
 import Selector from "./pages/Selector/Selector";
 import RadioButton from "./pages/RadioButton/RadioButton";
+import { StyleGuide } from "./pages/StyleGuide/StyleGuide";
 
 const jss = create({
   plugins: [...jssPreset().plugins, jssPluginExtend()],
@@ -43,7 +44,9 @@ const App: React.FC<Props> = () => {
                 items={taskList}
                 styles={{ borderRadius: "10px", width: "200px" }}
               />
-              ;
+            </Route>
+            <Route path="/styleguide/colors">
+              <StyleGuide />
             </Route>
           </Router>
         </ThemeProvider>

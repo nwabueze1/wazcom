@@ -3,7 +3,7 @@ import { useStyles } from "./style";
 import { LargeDiv } from "./LargeDiv";
 import { SmallDiv } from "./SmallDiv";
 import { Typography } from "@material-ui/core";
-import theme from "contexts/theme";
+import theme from "js/theme";
 export const StyleGuide = () => {
   const classes = useStyles();
   return (
