@@ -11,7 +11,7 @@ import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
 import theme from "./theme";
 
 import Toggle from "./pages/Toggle/Toggle";
-import { Home } from "./pages";
+
 import Selector from "./pages/Selector/Selector";
 import RadioButton from "./pages/RadioButton/RadioButton";
 
