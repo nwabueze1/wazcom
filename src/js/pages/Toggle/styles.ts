@@ -33,13 +33,12 @@ export const useToggle = withStyles((theme: Theme) =>
       height: 24,
     },
     track: {
-      borderRadius: 26 / 2,
+      borderRadius: 13,
       border: `1px solid ${theme.palette.grey[400]}`,
       backgroundColor: theme.palette.grey[50],
       opacity: 1,
       transition: theme.transitions.create(["background-color", "border"]),
     },
-    checked: {},
-    focusVisible: {},
+    
   }),
 )
