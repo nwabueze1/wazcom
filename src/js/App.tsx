@@ -10,7 +10,6 @@ import React from "react";
 import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
 import theme from "./theme";
 import Button from "../js/pages/Button/Button";
-import { Home } from "./pages";
 import Selector from "./pages/Selector/Selector";
 import RadioButton from "./pages/RadioButton/RadioButton";
 
@@ -31,7 +30,7 @@ const App: React.FC<Props> = () => {
           <Router>
             <Switch>
               <Route path={"/"}>
-                <Button size="small">Test Button</Button>
+                <Button size="large">Test Button</Button>
               </Route>
               <Route path="/">{/* <Home /> */}</Route>
             </Switch>
