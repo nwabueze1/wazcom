@@ -32,7 +32,6 @@ const App: React.FC<Props> = () => {
             <Route path="/tabs">
               <Tab />
             </Route>
-            ;
           </Router>
         </ThemeProvider>
       </StylesProvider>

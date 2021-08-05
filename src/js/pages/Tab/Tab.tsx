@@ -1,25 +1,25 @@
 import React, { FC } from "react";
+import clsx from "clsx";
 import Paper from "@material-ui/core/Paper";
 import Tabs from "@material-ui/core/Tabs";
 import { Tab as MuiTab } from "@material-ui/core";
 import { TabProps } from "./types";
 import { useStyles } from "./styles";
+import { ThemeProvider, createTheme } from "@material-ui/core/styles";
+import { red, green } from "@material-ui/core/colors";
 
+const theme = createTheme({
+  palette: {
+    primary: red,
+    secondary: green,
+  },
+});
 export const Tab: FC<TabProps> = ({ className }) => {
-  //   const [value, setValue] = React.useState(2);
-
-  //   const handleChange = (event: React.ChangeEvent<{}>, newValue: number) => {
-  //     setValue(newValue);
-  //   };
-
   const classes = useStyles();
   return (
-    <Paper style={{ width: "500px" }}>
+    <Paper style={{ width: "500px" }} color="secondary">
       <Tabs
         value={0}
-        indicatorColor="secondary"
-        textColor="secondary"
-        // onChange={handleChange}
         aria-label="disabled tabs example"
         variant="standard"
         className={classes.tabs}
