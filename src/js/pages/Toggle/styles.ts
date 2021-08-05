@@ -4,7 +4,7 @@ import { createStyles, withStyles } from "@material-ui/styles";
 
 
 
-export const useToggle = makeStyles((theme: Theme) =>
+export const useToggle = withStyles((theme: Theme) =>
   createStyles({
     root: {
       width: 46,
