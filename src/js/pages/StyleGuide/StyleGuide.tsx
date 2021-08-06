@@ -23,185 +23,141 @@ export const StyleGuide = () => {
         <div>
           <LargeDiv
             color={theme.design.colors.primary}
-            text="Primary/#4c7495"
+            text="Primary/#FF4C4C/Red 70"
           />
 
           <div className={classes.smallPrimaryDiv}>
             <SmallDiv
-              color={theme.design.colors.blu50}
-              text="Blu 50 #2F85F3"
+              color={theme.design.colors.red100}
+              text="Warning #FF0000"
               isNotBrandColor={false}
             />
             <SmallDiv
-              color={theme.design.colors.blu40}
-              text="Blu 40 #7090AA"
+              color={theme.design.colors.red90}
+              text="Red 90 #FF1919"
               isNotBrandColor={false}
             />
             <SmallDiv
-              color={theme.design.colors.blu30}
-              text="Blu 30 #94ACBF"
+              color={theme.design.colors.red80}
+              text="Red 80 #FF3333"
               isNotBrandColor={false}
             />
             <SmallDiv
-              color={theme.design.colors.blu20}
-              text="Blu 20 #B7C7D5"
+              color={theme.design.colors.red70}
+              text="Red 70 #FF4C4C"
               isNotBrandColor={false}
             />
             <SmallDiv
-              color={theme.design.colors.blu10}
-              text="Blu 10 #DBE3EA"
+              color={theme.design.colors.red60}
+              text="Red 60 #FF6666"
               isNotBrandColor={false}
             />
             <SmallDiv
-              color={theme.design.colors.blu60}
-              text="Blu 60 #1771E6"
+              color={theme.design.colors.red50}
+              text="Red 50 #FF8080"
               isNotBrandColor={false}
             />
             <SmallDiv
-              color={theme.design.colors.blu70}
-              text="Blu 70 #1465CE"
+              color={theme.design.colors.red40}
+              text="Red 40 #FF9999"
               isNotBrandColor={false}
             />
             <SmallDiv
-              color={theme.design.colors.blu80}
-              text="Blu 80 #1153A9"
+              color={theme.design.colors.red30}
+              text="Red 30 #FFB2B2"
               isNotBrandColor={false}
             />
             <SmallDiv
-              color={theme.design.colors.blu90}
-              text="Blu 90 #0D4185"
+              color={theme.design.colors.red20}
+              text="Red 20 #FFCCCC  "
               isNotBrandColor={false}
             />
             <SmallDiv
-              color={theme.design.colors.blu100}
-              text="Blu 100 #0D4185"
+              color={theme.design.colors.red10}
+              text="Red 10 #FFE5E5"
               isNotBrandColor={false}
             />
           </div>
         </div>
+        <div className={classes.spacediv}></div>
+        <div className={classes.top}>
+          <Typography variant="h2" className={classes.topText}>
+            State Colors
+          </Typography>
+        </div>
+
         <div>
           <div className={classes.smallPrimaryDiv}>
             <SmallDiv
-              color={theme.design.colors.darkblu50}
-              text="Dark Blu 50 #2F85F3"
+              color={theme.design.colors.info}
+              text="Info #2F80ED"
               isNotBrandColor={false}
             />
             <SmallDiv
-              color={theme.design.colors.darkblu40}
-              text="Dark Blu 40 #7090AA"
+              color={theme.design.colors.success}
+              text="Success #27AE60"
               isNotBrandColor={false}
-            />
-            <SmallDiv
-              color={theme.design.colors.darkblu30}
-              text="Dark Blu 30 #94ACBF"
-              isNotBrandColor={false}
-            />
-            <SmallDiv
-              color={theme.design.colors.darkblu20}
-              text="Dark Blu 20 #B7C7D5"
-              isNotBrandColor={false}
-            />
-            <SmallDiv
-              color={theme.design.colors.darkblu10}
-              text="Dark Blu 10 #DBE3EA"
-              isNotBrandColor={false}
-            />
-            <SmallDiv
-              color={theme.design.colors.darkblu60}
-              text="Dark Blu 60 #1771E6"
-              isNotBrandColor={false}
-            />
-            <SmallDiv
-              color={theme.design.colors.darkblu70}
-              text="Dark Blu 70 #1465CE"
-              isNotBrandColor={false}
-            />
-            <SmallDiv
-              color={theme.design.colors.darkblu80}
-              text="Dark Blu 80 #1153A9"
-              isNotBrandColor={false}
-            />
-            <SmallDiv
-              color={theme.design.colors.darkblu90}
-              text="Dark Blu 90 #0D4185"
-              isNotBrandColor={false}
-            />
-            <SmallDiv
-              color={theme.design.colors.darkblu100}
-              text="Dark Blu 100 #0A3061"
-              isNotBrandColor={false}
-            />
-          </div>
-          <Typography className={classes.colorType}>Accent Color</Typography>;
-          <div className={classes.smallPrimaryDiv}>
-            <SmallDiv
-              color={theme.design.colors.primaryOrange}
-              text="Orange #E2B93B"
-              isNotBrandColor={true}
-            />
-          </div>
-          <Typography className={classes.colorType}>State Colors</Typography>;
-          <div className={classes.smallPrimaryDiv}>
-            <SmallDiv
-              color={theme.design.colors.primaryblue}
-              text="Primary blu #1877F2"
-              isNotBrandColor={true}
-            />
-            <SmallDiv
-              color={theme.design.colors.primaryGreen}
-              text="Light green #27AE60"
-              isNotBrandColor={true}
             />
             <SmallDiv
               color={theme.design.colors.warning}
               text="Warning #E2B93B"
-              isNotBrandColor={true}
+              isNotBrandColor={false}
             />
             <SmallDiv
-              color={theme.design.colors.red}
-              text="error #E2B93B"
-              isNotBrandColor={true}
+              color={theme.design.colors.error}
+              text="Error #FF0000"
+              isNotBrandColor={false}
             />
-            <SmallDiv
-              color={theme.design.colors.lightOrange}
-              text="Light Orange #2F80ED"
-              isNotBrandColor={true}
-            />
-            <SmallDiv
-              color={theme.design.colors.darkGreen}
-              text="Success #27AE60"
-              isNotBrandColor={true}
-            />
-            <SmallDiv
-              color={theme.design.colors.lemon}
-              text="lemon #EB5757"
-              isNotBrandColor={true}
-            />
-            ;
           </div>
-          <Typography className={classes.colorType}>Black Colors</Typography>;
+          <Typography className={classes.colorType}>Black Colors</Typography>
           <div className={classes.smallPrimaryDiv}>
             <SmallDiv
-              color={theme.design.colors.black1}
-              text="Black 1 #000000"
+              color={theme.design.colors.simpleblack}
+              text="Simple Black"
               isNotBrandColor={true}
             />
             <SmallDiv
-              color={theme.design.colors.black2}
-              text="Black 2 #1D1D1D"
+              color={theme.design.colors.pureblack}
+              text="Pure Black"
               isNotBrandColor={true}
             />
-
+          </div>
+          <Typography className={classes.colorType}>Gray Colors</Typography>
+          <div className={classes.smallPrimaryDiv}>
             <SmallDiv
-              color={theme.design.colors.black3}
-              text="Black 3 #282828"
-              isNotBrandColor={true}
+              color={theme.design.colors.gray100}
+              text="Gray 100 #333333"
+              isNotBrandColor={false}
             />
-
             <SmallDiv
-              color={theme.design.colors.white}
-              text="White #282828"
-              isNotBrandColor={true}
+              color={theme.design.colors.gray80}
+              text="Gray 80 #5C5C5C"
+              isNotBrandColor={false}
+            />
+            <SmallDiv
+              color={theme.design.colors.gray60}
+              text="Gray 60 #ADADAD"
+              isNotBrandColor={false}
+            />
+            <SmallDiv
+              color={theme.design.colors.gray40}
+              text="Gray 40 #D6D6D6"
+              isNotBrandColor={false}
+            />
+            <SmallDiv
+              color={theme.design.colors.gray30}
+              text="Gray 30 #E5E5E5"
+              isNotBrandColor={false}
+            />{" "}
+            <SmallDiv
+              color={theme.design.colors.gray20}
+              text="Gray 20 #EBEBEB"
+              isNotBrandColor={false}
+            />
+            <SmallDiv
+              color={theme.design.colors.gray10}
+              text="Gray 10 #F5F5F5"
+              isNotBrandColor={false}
             />
           </div>
           <Typography className={classes.colorType}>Grey Colors</Typography>;

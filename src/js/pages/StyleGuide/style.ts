@@ -19,13 +19,17 @@ export const useStyles = makeStyles(() => ({
     height: "100px",
     marginTop: "4%",
     boxShadow: "0px 4px 24px rgba(9, 44, 76, 0.4)",
-    marginLeft: "30%",
+    marginLeft: "500px",
     marginBottom: "1%",
     borderRadius: "10px",
   },
   colorType: {
     color: theme.design.colors.grey3,
     fontSize: "40px",
+  },
+  spacediv: {
+    width: "1000px",
+    height: "50px",
   },
   smallPrimaryDiv: {
     display: "flex",
