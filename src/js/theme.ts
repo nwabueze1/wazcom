@@ -123,6 +123,7 @@ export default createMuiTheme({
       sunRed: "#FF4C4C",
       honey: "#F7FFF7",
       grey: "#3A3335",
+      grey4:"#BDBDBD",
       fauxGrey: "#5C5C5C",
       maroon: "#A33F50",
       charcoal: "#2A2D34",
@@ -132,6 +133,8 @@ export default createMuiTheme({
       fauxBlack: "#121212",
       magicMint: "#FEDAA2",
       black: "#000000",
+      bglight:"#EDF0F5",
+
     },
   },
   overrides: {
