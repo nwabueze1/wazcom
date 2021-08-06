@@ -5,10 +5,10 @@ import { ButtonProps } from "./types";
 export const useButtonStyles = makeStyles((theme: Theme) =>
   createStyles({
     root: {
-      background:theme.design.colors.orange,
+      background:theme.design.colors.lightRed,
       border: 0,
       display: "flex",
-      borderRadius: theme.spacing(0.5),
+      borderRadius: theme.spacing(1),
       justifyContent: "center",
       alignItems: "center",
       "&:focus": {

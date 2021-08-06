@@ -109,7 +109,7 @@ export default createTheme({
     colors: {
       red70: "#FF4C4C",
       red90: "#FF1919",
-
+      bgLight:'#EDF0F5',
       width: "1366px",
       blue: "#0889F7",
       lightGrey: "#F5F5F5",
@@ -121,6 +121,8 @@ export default createTheme({
       sunRed: "#FF4C4C",
       honey: "#F7FFF7",
       grey: "#3A3335",
+      grey2:'#4F4F4F',
+      grey4:'#BDBDBD',
       fauxGrey: "#5C5C5C",
       maroon: "#A33F50",
       charcoal: "#2A2D34",
