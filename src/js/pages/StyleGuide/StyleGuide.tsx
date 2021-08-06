@@ -3,12 +3,16 @@ import { useStyles } from "./style";
 import { LargeDiv } from "./LargeDiv";
 import { SmallDiv } from "./SmallDiv";
 import { Typography } from "@material-ui/core";
+import { useTheme } from "@material-ui/core/styles";
 import theme from "js/theme";
+
+// const theme = useTheme();
 
 export const StyleGuide = () => {
   const classes = useStyles();
   return (
     <div>
+      Spacing;
       <div>
         <div className={classes.top}>
           <Typography variant="h2" className={classes.topNumber}>
@@ -162,24 +166,41 @@ export const StyleGuide = () => {
             />
           </div>
           <Typography className={classes.colorType}>Grey Colors</Typography>;
-          <div className={classes.smallPrimaryDiv}>
+        </div>
+        <div className={classes.tagdiv}>
+          <div className={classes.tag}>
             <SmallDiv
-              text="Dark Shade"
-              isNotBrandColor={true}
-              hasGradient={true}
-              gradientName="darkshade #9FA7AF"
-            />
+              color={theme.design.colors.goldensand}
+              text="Background"
+            ></SmallDiv>
             <SmallDiv
-              text="Light Shade"
-              isNotBrandColor={true}
-              gradientName="lightshade #CFD3D7"
+              color={theme.design.colors.darkorange}
+              text="Background"
             />
-
+          </div>
+          <div className={classes.tag}>
             <SmallDiv
-              color={theme.design.colors.lightestblu}
-              text="Lighest Blu #ECF3F9 "
-              isNotBrandColor={true}
+              color={theme.design.colors.lightgoldensand}
+              text="Background"
+            ></SmallDiv>
+            <SmallDiv
+              color={theme.design.colors.lightorange}
+              text="Background"
             />
+          </div>
+          <div className={classes.tag}>
+            <SmallDiv
+              color={theme.design.colors.lemon}
+              text="Background"
+            ></SmallDiv>
+            <SmallDiv color={theme.design.colors.green2} text="Background" />
+          </div>
+          <div className={classes.tag}>
+            <SmallDiv
+              color={theme.design.colors.green1}
+              text="Background"
+            ></SmallDiv>
+            <SmallDiv color={theme.design.colors.green3} text="Background" />
           </div>
         </div>
       </div>

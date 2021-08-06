@@ -60,4 +60,17 @@ export const useStyles = makeStyles(() => ({
     color: theme.design.colors.primaryblue,
     fontWeight: "bold",
   },
+  tagdiv: {
+    height: "500px",
+    width: "700px",
+    display: "flex",
+    marginLeft: theme.spacing(62),
+    justifyContent: "space-between",
+  },
+  tag: {
+    height: "300px",
+    borderRadius: "5px",
+    border: `1px solid ${theme.design.colors.gray20}`,
+    margin: theme.spacing(1),
+  },
 }));

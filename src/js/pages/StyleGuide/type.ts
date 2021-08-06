@@ -1,7 +1,7 @@
 export interface SmallBoxProps {
   color?: string;
   text: string;
-  isNotBrandColor: boolean;
+  isNotBrandColor?: boolean;
   hasGradient?: boolean;
   gradientName?: string;
 }
