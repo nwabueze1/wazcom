@@ -15,8 +15,8 @@ export const useStyles = makeStyles(() => ({
     color: "#",
   },
   largeBox: {
-    width: "307px",
-    height: "307px",
+    width: "600px",
+    height: "100px",
     marginTop: "4%",
     boxShadow: "0px 4px 24px rgba(9, 44, 76, 0.4)",
     marginLeft: "30%",

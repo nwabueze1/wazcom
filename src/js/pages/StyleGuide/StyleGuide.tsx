@@ -22,7 +22,7 @@ export const StyleGuide = () => {
         <Typography className={classes.colorType}>Brand Colors</Typography>
         <div>
           <LargeDiv
-            color={theme.design.colors.primaryblue}
+            color={theme.design.colors.primary}
             text="Primary/#4c7495"
           />
 
@@ -80,11 +80,6 @@ export const StyleGuide = () => {
           </div>
         </div>
         <div>
-          <LargeDiv
-            color={theme.design.colors.secondaryblue}
-            text="Secondary/#26547C"
-          />
-          ;
           <div className={classes.smallPrimaryDiv}>
             <SmallDiv
               color={theme.design.colors.darkblu50}
