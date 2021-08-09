@@ -22,7 +22,7 @@ const ButtonGuide: React.FC<ButtonGuideProps> = ({ size }) => {
             <p className={classes.itemDesc}>color</p>
             <p className={classes.buttonDesc}>Primary</p>
 
-            <Button size="large" color="secondary">
+            <Button size="medium" color="secondary">
               Button Sample
             </Button>
 
@@ -79,7 +79,7 @@ const ButtonGuide: React.FC<ButtonGuideProps> = ({ size }) => {
             <Button size="small">Button Sample</Button>
 
             <p className={classes.buttonDesc}>Normal</p>
-            <Button size="small">Button Sample</Button>
+            <Button size="medium">Button Sample</Button>
 
             <p className={classes.buttonDesc}>Medium</p>
             <Button size="medium">Button Sample</Button>
@@ -128,7 +128,10 @@ const ButtonGuide: React.FC<ButtonGuideProps> = ({ size }) => {
             </div>
             <div className={classes.buttonItem}>
               <p className={classes.buttonDescIcon}>Icon Text</p>
-              <Button size="large">Button Sample</Button>
+              <Button size="large">
+                {" "}
+                <AddIcon /> Button Sample
+              </Button>
             </div>
             <div className={classes.buttonItem}>
               <p className={classes.buttonDescIcon}>Icon</p>
@@ -145,7 +148,11 @@ const ButtonGuide: React.FC<ButtonGuideProps> = ({ size }) => {
               <Button size="large">Button Sample</Button>
             </div>
             <div className={classes.buttonItem}>
-              <Button size="large">Button Sample</Button>
+              <Button size="large">
+                {" "}
+                <AddIcon />
+                Button Sample
+              </Button>
             </div>
             <div className={classes.buttonItem}>
               <AddIcon className={classes.addIcon} />
@@ -161,7 +168,11 @@ const ButtonGuide: React.FC<ButtonGuideProps> = ({ size }) => {
               <Button size="large">Button Sample</Button>
             </div>
             <div className={classes.buttonItem}>
-              <Button size="large">Button Sample</Button>
+              <Button size="large">
+                {" "}
+                <AddIcon />
+                Button Sample
+              </Button>
             </div>
             <div className={classes.buttonItem}>
               <AddIcon className={classes.addIcon} />
@@ -176,7 +187,10 @@ const ButtonGuide: React.FC<ButtonGuideProps> = ({ size }) => {
               <Button size="large">Button Sample</Button>
             </div>
             <div className={classes.buttonItem}>
-              <Button size="large">Button Sample</Button>
+              <Button size="large">
+                {" "}
+                <AddIcon /> Button Sample
+              </Button>
             </div>
             <div className={classes.buttonItem}>
               <AddIcon className={classes.addIcon} />

@@ -16,6 +16,25 @@ const getVariantClassName = (
   }
 };
 
+const getSizeClassName = (
+  classes: ReturnType<typeof useButtonStyles>,
+  size: ButtonProps["size"],
+) => {
+  switch (size) {
+    case "small":
+      return classes.small;
+      break;
+
+    case "medium":
+      return classes.medium;
+      break;
+    case "large":
+      return classes.large;
+      break;
+    default:
+      return classes.normal;
+  }
+};
 const Button: React.FC<ButtonProps> = ({
   children,
   type,
@@ -27,6 +46,7 @@ const Button: React.FC<ButtonProps> = ({
   const classes = useButtonStyles(props);
 
   const variantClassName = getVariantClassName(classes, variant);
+  const sizeClassName = getSizeClassName(classes, size);
 
   return (
     <div className={classes.wrapper}>
@@ -34,7 +54,7 @@ const Button: React.FC<ButtonProps> = ({
         type={type}
         disabled={loading}
         size={size}
-        classes={{ root: clx(classes.root, variantClassName) }}
+        classes={{ root: clx(classes.root, variantClassName, sizeClassName) }}
         startIcon={
           loading && (
             <CircularProgress className={classes.progress} size="25px" />

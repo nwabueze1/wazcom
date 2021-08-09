@@ -13,10 +13,10 @@ export const useStyles = makeStyles(() => ({
 
     },
     buttonRight:{
-      marginTop: theme.spacing(33)
+      marginTop: theme.spacing(26)
    },
     buttonMiddle:{
-     marginTop: theme.spacing(50)
+     marginTop: theme.spacing(45)
     },
     pageDescription:{
        '& span':{
@@ -82,7 +82,8 @@ export const useStyles = makeStyles(() => ({
     },
     buttonBottom:{
     display:'flex',
-    justifyContent:'space-around',
+    justifyContent:'space-evenly',
+    margin:theme.spacing(3)
     },
     buttonItem:{
    

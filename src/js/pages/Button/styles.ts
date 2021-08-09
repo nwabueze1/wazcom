@@ -35,6 +35,33 @@ export const useButtonStyles = makeStyles((theme: Theme) =>
       padding: `${theme.typography.fontSize * 0.5}px ${
         theme.typography.fontSize * 3
       }px`,
+      minWidth:theme.spacing(30),
+      minHeight:theme.spacing(7),
     },
+    small: {
+      color: theme.design.colors.white,
+      padding: `${theme.typography.fontSize * 0.5}px ${
+        theme.typography.fontSize * 3
+      }px`,
+      minWidth:theme.spacing(30),
+      minHeight:theme.spacing(6),
+    },
+    medium: {
+      color: theme.design.colors.white,
+      padding: `${theme.typography.fontSize * 0.5}px ${
+        theme.typography.fontSize * 3
+      }px`,
+      minWidth:theme.spacing(38),
+      minHeight:theme.spacing(7.5),
+    },
+    large: {
+      color: theme.design.colors.white,
+      padding: `${theme.typography.fontSize * 0.5}px ${
+        theme.typography.fontSize * 3
+      }px`,
+      minWidth:theme.spacing(40),
+      minHeight:theme.spacing(8),
+    },
+    
   }),
 );
