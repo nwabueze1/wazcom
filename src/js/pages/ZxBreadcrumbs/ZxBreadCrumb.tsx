@@ -3,8 +3,7 @@ import { BreadCrumbStyles } from "./styles";
 import { BreadCrumbsProps } from "./types";
 import clx from "classnames";
 import Breadcrumbs from "@material-ui/core/Breadcrumbs";
-import HomeIcon from "@material-ui/icons/Home";
-import Link from "@material-ui/core/Link";
+import { Link } from "react-router-dom";
 import NavigateNextIcon from "@material-ui/icons/NavigateNext";
 
 const ZxBreadCrumb: FC<BreadCrumbsProps> = ({ className, path }) => {
@@ -14,7 +13,6 @@ const ZxBreadCrumb: FC<BreadCrumbsProps> = ({ className, path }) => {
   };
   return (
     <div className={clx(className, classes.root)}>
-      <HomeIcon className={classes.icon} />
       {path.map((crumb, index) => {
         return (
           <Breadcrumbs
@@ -24,9 +22,10 @@ const ZxBreadCrumb: FC<BreadCrumbsProps> = ({ className, path }) => {
           >
             <Link
               color="inherit"
-              href={crumb.path}
+              to={crumb.path}
               onClick={handleClick}
               className={classes.link}
+              aria-current="page"
             >
               {crumb.label}
               <NavigateNextIcon fontSize="small" />

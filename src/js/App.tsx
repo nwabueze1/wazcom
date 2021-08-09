@@ -29,7 +29,9 @@ const App: React.FC<Props> = () => {
               <Route path={"/"}>
                 <ZxBreadCrumb
                   path={[
-                    { label: "Home", path: "./" },
+                    { label: "Home", path: "/abcd" },
+                    { label: "Pricing", path: "./" },
+                    { label: "Pricing", path: "./" },
                     { label: "Pricing", path: "./" },
                   ]}
                 />
