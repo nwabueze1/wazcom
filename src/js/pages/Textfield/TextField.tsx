@@ -105,7 +105,7 @@ const TextField = () => {
                 label="price"
                 InputProps={{
                   startAdornment: (
-                    <InputAdornment position="start">$</InputAdornment>
+                    <InputAdornment position="start">Kg</InputAdornment>
                   ),
                 }}
                 type="currency"

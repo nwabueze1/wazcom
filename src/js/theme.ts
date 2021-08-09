@@ -1,4 +1,4 @@
-import { createMuiTheme } from "@material-ui/core";
+import { createTheme } from "@material-ui/core";
 // import type '@material-ui/lab/Autocomplete';
 
 declare module "@material-ui/core/styles/createTheme" {
@@ -20,7 +20,7 @@ declare module "@material-ui/core/styles/createTheme" {
   }
 }
 
-export default createMuiTheme({
+export default createTheme({
   typography: {
     fontFamily: ["Nunito, sans-serif"].join(","),
     fontSize: 14,
@@ -109,8 +109,7 @@ export default createMuiTheme({
     },
     colors: {
       red70: "#FF4C4C",
-      red90: '#FF1919',
-
+      red90: "#FF1919",
 
       width: "1366px",
       blue: "#0889F7",
@@ -134,74 +133,74 @@ export default createMuiTheme({
       magicMint: "#FEDAA2",
       black: "#000000",
       bglight:"#EDF0F5",
-
+      grey1: "#BEBEBE",
     },
   },
   overrides: {
     MuiTypography: {
       h1: {
         fontSize: 64,
-        lineHeight: '75.14px'
+        lineHeight: "75.14px",
       },
       h2: {
         fontSize: 40,
-        lineHeight: '46.96px'
+        lineHeight: "46.96px",
       },
       h3: {
         fontSize: 32,
-        lineHeight: '37.57px'
+        lineHeight: "37.57px",
       },
       h4: {
         fontSize: 24,
-        lineHeight: '28.18px',
-        fontWeight: 700
-      }
+        lineHeight: "28.18px",
+        fontWeight: 700,
+      },
     },
     MuiSelect: {
       select: {
-        '&:focus': {
-          backgroundColor: '#ffffff'
-        }
-      }
+        "&:focus": {
+          backgroundColor: "#ffffff",
+        },
+      },
     },
     MuiChip: {
       root: {
-        width: 'auto'
-      }
+        width: "auto",
+      },
     },
     MuiOutlinedInput: {
       root: {
         minHeight: 40,
-        position: 'relative',
-        '& $notchedOutline': {
-            borderColor: 'rgba(0, 0, 0, 0.23)',
+        position: "relative",
+        "& $notchedOutline": {
+          borderColor: "rgba(0, 0, 0, 0.23)",
         },
-        '&:hover:not($disabled):not($focused):not($error) $notchedOutline': {
-            borderColor: '#4A90E2',
-            // Reset on touch devices, it doesn't add specificity
-            '@media (hover: none)': {
-                borderColor: 'rgba(0, 0, 0, 0.23)',
-            },
+        "&:hover:not($disabled):not($focused):not($error) $notchedOutline": {
+          borderColor: "#4A90E2",
+          // Reset on touch devices, it doesn't add specificity
+          "@media (hover: none)": {
+            borderColor: "rgba(0, 0, 0, 0.23)",
+          },
         },
-        '&$focused $notchedOutline': {
-            borderColor: 'rgba(255, 0, 0, 0.2)',
-            boxSizing: 'border-box',
-            boxShadow: '0px 0px 8px rgba(255, 0, 0, 0.2)',
+        "&$focused $notchedOutline": {
+          borderColor: "rgba(255, 0, 0, 0.2)",
+          boxSizing: "border-box",
+          boxShadow: "0px 0px 8px rgba(255, 0, 0, 0.2)",
         },
       },
       input: {
-        padding: '8px 12px',
+        padding: "8px 12px",
         minHeight: 40,
-        fontSize: '.9rem',
-        lineHeight: '13pt',
-        boxSizing: 'border-box'
+        fontSize: ".9rem",
+        lineHeight: "13pt",
+        boxSizing: "border-box",
       },
       notchedOutline: {
-        borderWidth: .3,
-        borderStyle: 'solid',
-        borderColor: '#ADADAD',
-        transition: 'border-color box-shadow .3s'
-      }
-    }
+        borderWidth: 0.3,
+        borderStyle: "solid",
+        borderColor: "#ADADAD",
+        transition: "border-color box-shadow .3s",
+      },
+    },
   },
 });
