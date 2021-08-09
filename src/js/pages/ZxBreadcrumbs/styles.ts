@@ -9,6 +9,7 @@ export const BreadCrumbStyles = makeStyles(() => ({
         '& > * + *': {
             marginTop:theme.spacing(2),
           },
+          display:'flex'
     },
     icon:{
         marginRight: theme.spacing(0.5),
@@ -17,5 +18,8 @@ export const BreadCrumbStyles = makeStyles(() => ({
     link:{
         display: "flex",
         fontWeight:"bold",
+    },
+    navicon:{
+        paddingTop:theme.spacing()
     }
 }));

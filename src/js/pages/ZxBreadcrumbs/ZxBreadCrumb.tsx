@@ -7,43 +7,33 @@ import HomeIcon from "@material-ui/icons/Home";
 import Link from "@material-ui/core/Link";
 import NavigateNextIcon from "@material-ui/icons/NavigateNext";
 
-const ZxBreadCrumb: FC<BreadCrumbsProps> = ({ className }) => {
+const ZxBreadCrumb: FC<BreadCrumbsProps> = ({ className, path }) => {
   const classes = BreadCrumbStyles();
   const handleClick = () => {
     return;
   };
   return (
     <div className={clx(className, classes.root)}>
-      <Breadcrumbs
-        separator={<NavigateNextIcon fontSize="small" />}
-        aria-label="breadcrumb"
-      >
-        <Link
-          color="inherit"
-          href="/"
-          onClick={handleClick}
-          className={classes.link}
-        >
-          <HomeIcon className={classes.icon} />
-          Home
-        </Link>
-        <Link
-          color="inherit"
-          href="/"
-          onClick={handleClick}
-          className={classes.link}
-        >
-          Detaill
-        </Link>
-        <Link
-          color="error"
-          href="/"
-          onClick={handleClick}
-          className={classes.link}
-        >
-          Pricing
-        </Link>
-      </Breadcrumbs>
+      <HomeIcon className={classes.icon} />
+      {path.map((crumb, index) => {
+        return (
+          <Breadcrumbs
+            key={index}
+            separator={<NavigateNextIcon fontSize="small" />}
+            aria-label="breadcrumb"
+          >
+            <Link
+              color="inherit"
+              href={crumb.path}
+              onClick={handleClick}
+              className={classes.link}
+            >
+              {crumb.label}
+              <NavigateNextIcon fontSize="small" />
+            </Link>
+          </Breadcrumbs>
+        );
+      })}
     </div>
   );
 };

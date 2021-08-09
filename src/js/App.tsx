@@ -27,7 +27,12 @@ const App: React.FC<Props> = () => {
           <Router>
             <Switch>
               <Route path={"/"}>
-                <ZxBreadCrumb />
+                <ZxBreadCrumb
+                  path={[
+                    { label: "Home", path: "./" },
+                    { label: "Pricing", path: "./" },
+                  ]}
+                />
               </Route>
             </Switch>
           </Router>
