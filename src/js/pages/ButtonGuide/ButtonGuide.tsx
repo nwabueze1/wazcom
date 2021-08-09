@@ -32,9 +32,10 @@ const ButtonGuide: React.FC<ButtonGuideProps> = ({ size }) => {
                   <ErrorOutlineIcon />
                 </div>
                 <div className={classes.ruleDetails}>
-                  <p className={classes.ruleHead}>Button Rules (Small): </p>
-                  <p>Padding Left Right -&gt; 65px</p>
-                  <p>Padding Top Bottom -&gt; 16px</p>
+                  <div className={classes.ruleHead}>Button Rules (Small): </div>
+                  <br />
+                  Padding Left Right -&gt; 65px <br />
+                  Padding Top Bottom -&gt; 16px
                 </div>
               </div>
               <div className={classes.ruleInfo}>
@@ -42,9 +43,10 @@ const ButtonGuide: React.FC<ButtonGuideProps> = ({ size }) => {
                   <ErrorOutlineIcon />
                 </div>
                 <div className={classes.ruleDetails}>
-                  <p className={classes.ruleHead}>Button Rules (Normal): </p>
-                  <p>Padding Left Right -&gt; 65px</p>
-                  <p>Padding Top Bottom -&gt; 16px</p>
+                  <div className={classes.ruleHead}>Button Rules (Small): </div>
+                  <br />
+                  Padding Left Right -&gt; 65px <br />
+                  Padding Top Bottom -&gt; 16px
                 </div>
               </div>
               <div className={classes.ruleInfo}>
@@ -52,9 +54,10 @@ const ButtonGuide: React.FC<ButtonGuideProps> = ({ size }) => {
                   <ErrorOutlineIcon />
                 </div>
                 <div className={classes.ruleDetails}>
-                  <p className={classes.ruleHead}>Button Rules (Medium): </p>
-                  <p>Padding Left Right -&gt; 65px</p>
-                  <p>Padding Top Bottom -&gt; 16px</p>
+                  <div className={classes.ruleHead}>Button Rules (Small): </div>
+                  <br />
+                  Padding Left Right -&gt; 65px <br />
+                  Padding Top Bottom -&gt; 16px
                 </div>
               </div>
               <div className={classes.ruleInfo}>
@@ -62,9 +65,10 @@ const ButtonGuide: React.FC<ButtonGuideProps> = ({ size }) => {
                   <ErrorOutlineIcon />
                 </div>
                 <div className={classes.ruleDetails}>
-                  <p className={classes.ruleHead}>Button Rules (Large): </p>
-                  <p>Padding Left Right -&gt; 65px</p>
-                  <p>Padding Top Bottom -&gt; 16px</p>
+                  <div className={classes.ruleHead}>Button Rules (Small): </div>
+                  <br />
+                  Padding Left Right -&gt; 65px <br />
+                  Padding Top Bottom -&gt; 16px
                 </div>
               </div>
             </div>
@@ -89,9 +93,10 @@ const ButtonGuide: React.FC<ButtonGuideProps> = ({ size }) => {
                 <ErrorOutlineIcon />
               </div>
               <div className={classes.ruleDetails}>
-                <p className={classes.ruleHead}>Full-width Button: </p>
-                <p>Padding Left Right -&gt; 65px</p>
-                <p>Padding Top Bottom -&gt; 16px</p>
+                <div className={classes.ruleHead}>Button Rules (Small): </div>
+                <br />
+                Padding Left Right -&gt; 65px <br />
+                Padding Top Bottom -&gt; 16px
               </div>
             </div>
             <p className={classes.itemDesc}>Full-width</p>

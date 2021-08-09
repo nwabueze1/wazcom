@@ -5,6 +5,8 @@ import { ButtonProps } from "./types";
 export const useButtonStyles = makeStyles((theme: Theme) =>
   createStyles({
     root: {
+      minWidth:theme.spacing(36),
+      minHeight:theme.spacing(7.5),
       background:theme.design.colors.lightRed,
       border: 0,
       display: "flex",

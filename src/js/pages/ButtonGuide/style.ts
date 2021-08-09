@@ -56,15 +56,17 @@ export const useStyles = makeStyles(() => ({
     },
     ruleInfo:{
        fontSize:'16px',
-       marginBottom:theme.spacing(0.13),
+       padding:theme.spacing(4, 2),
+       marginBottom:theme.spacing(0.5),
        display:'flex',
        justifyContent:'center',
        background:theme.design.colors.bgLight,
-       width:'280px',
+      
        lineHeight:'21px'
        
     },
     ruleHead:{
+       display:'inline',
       color:theme.design.colors.grey2,
       font:'Nunito',
       lineHeight:'21.8px',
@@ -73,10 +75,10 @@ export const useStyles = makeStyles(() => ({
       fontWeight: 700,
    },
     warningIcon:{
-    margin:theme.spacing(1.8, 1.4, 0, 0)
+    margin:theme.spacing(.1, 1.4, 0, 0)
     },
     ruleDetails:{
-       
+      
     },
     buttonBottom:{
     display:'flex',
