@@ -165,9 +165,10 @@ export const StyleGuide = () => {
               isNotBrandColor={false}
             />
           </div>
-          <Typography className={classes.colorType}>Grey Colors</Typography>;
+          <Typography className={classes.colorType}>Tag Colors</Typography>;
         </div>
         <div className={classes.tagdiv}>
+          <Typography>Pending Tag</Typography>
           <div className={classes.tag}>
             <SmallDiv
               color={theme.design.colors.goldensand}
@@ -179,6 +180,7 @@ export const StyleGuide = () => {
             />
           </div>
           <div className={classes.tag}>
+            <Typography>Pending Tag</Typography>
             <SmallDiv
               color={theme.design.colors.lightgoldensand}
               text="Background"
@@ -189,6 +191,7 @@ export const StyleGuide = () => {
             />
           </div>
           <div className={classes.tag}>
+            <Typography>Pending Tag</Typography>
             <SmallDiv
               color={theme.design.colors.lemon}
               text="Background"
@@ -196,6 +199,7 @@ export const StyleGuide = () => {
             <SmallDiv color={theme.design.colors.green2} text="Background" />
           </div>
           <div className={classes.tag}>
+            <Typography>Pending Tag</Typography>
             <SmallDiv
               color={theme.design.colors.green1}
               text="Background"
