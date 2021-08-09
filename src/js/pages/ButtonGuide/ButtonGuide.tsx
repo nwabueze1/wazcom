@@ -130,12 +130,13 @@ const ButtonGuide: React.FC<ButtonGuideProps> = ({ size }) => {
             </div>
             <div className={classes.buttonItem}>
               <p className={classes.buttonDescIcon}>Outline</p>
-              <Button size="large">Button Sample</Button>
+              <Button size="large" status="transparent">
+                Button Sample
+              </Button>
             </div>
             <div className={classes.buttonItem}>
               <p className={classes.buttonDescIcon}>Icon Text</p>
               <Button size="large">
-                {" "}
                 <AddIcon /> Button Sample
               </Button>
             </div>

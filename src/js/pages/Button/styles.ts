@@ -62,7 +62,7 @@ export const useButtonStyles = makeStyles((theme: Theme) =>
       minWidth:theme.spacing(40),
       minHeight:theme.spacing(8),
     },
-    status: {
+    hover: {
     backgroundColor:theme.design.colors.maroon,
     },
     
@@ -71,6 +71,10 @@ export const useButtonStyles = makeStyles((theme: Theme) =>
     },
     disable:{
       backgroundColor:theme.design.colors.paleGrey,
+    },
+    transparent:{
+      backgroundColor:'transparent',
+      color:theme.design.colors.lightRed,
     }
     
   }),

@@ -41,15 +41,18 @@ const getStatusClassName = (
 ) => {
   switch (status) {
     case "hover":
-      return classes.status;
+      return classes.hover;
       break;
-
     case "active":
       return classes.active;
       break;
     case "disable":
       return classes.disable;
       break;
+    case "transparent":
+      return classes.transparent;
+      break;
+
     default:
       return classes.normal;
   }
