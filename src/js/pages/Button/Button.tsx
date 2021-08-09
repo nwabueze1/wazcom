@@ -35,7 +35,27 @@ const getSizeClassName = (
       return classes.normal;
   }
 };
+const getStatusClassName = (
+  classes: ReturnType<typeof useButtonStyles>,
+  status: ButtonProps["status"],
+) => {
+  switch (status) {
+    case "hover":
+      return classes.status;
+      break;
+
+    case "active":
+      return classes.active;
+      break;
+    case "disable":
+      return classes.disable;
+      break;
+    default:
+      return classes.normal;
+  }
+};
 const Button: React.FC<ButtonProps> = ({
+  status,
   children,
   type,
   size,
@@ -47,6 +67,7 @@ const Button: React.FC<ButtonProps> = ({
 
   const variantClassName = getVariantClassName(classes, variant);
   const sizeClassName = getSizeClassName(classes, size);
+  const StatusClassName = getStatusClassName(classes, status);
 
   return (
     <div className={classes.wrapper}>
@@ -54,7 +75,14 @@ const Button: React.FC<ButtonProps> = ({
         type={type}
         disabled={loading}
         size={size}
-        classes={{ root: clx(classes.root, variantClassName, sizeClassName) }}
+        classes={{
+          root: clx(
+            classes.root,
+            variantClassName,
+            sizeClassName,
+            StatusClassName,
+          ),
+        }}
         startIcon={
           loading && (
             <CircularProgress className={classes.progress} size="25px" />

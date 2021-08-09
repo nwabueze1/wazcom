@@ -62,6 +62,16 @@ export const useButtonStyles = makeStyles((theme: Theme) =>
       minWidth:theme.spacing(40),
       minHeight:theme.spacing(8),
     },
+    status: {
+    backgroundColor:theme.design.colors.maroon,
+    },
+    
+    active:{
+      backgroundColor:theme.design.colors.orange,
+    },
+    disable:{
+      backgroundColor:theme.design.colors.paleGrey,
+    }
     
   }),
 );

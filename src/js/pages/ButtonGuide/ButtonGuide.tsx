@@ -103,13 +103,19 @@ const ButtonGuide: React.FC<ButtonGuideProps> = ({ size }) => {
             <p className={classes.buttonDesc}>Default</p>
             <Button size="large">Button Sample</Button>
             <p className={classes.buttonDesc}>Hover</p>
-            <Button size="large">Button Sample</Button>
+            <Button size="large" status="hover">
+              Button Sample
+            </Button>
 
             <p className={classes.buttonDesc}>Active</p>
-            <Button size="large">Button Sample</Button>
+            <Button size="large" status="active">
+              Button Sample
+            </Button>
 
             <p className={classes.buttonDesc}>Disable</p>
-            <Button size="large">Button Sample</Button>
+            <Button size="large" status="disable">
+              Button Sample
+            </Button>
           </div>
         </div>
 

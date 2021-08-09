@@ -94,7 +94,6 @@ export const useStyles = makeStyles(() => ({
        color:theme.design.colors.white,
        background: theme.design.colors.lightRed,
        borderRadius:'50%',
-      
     },
     buttonBottomWrapper:{
        marginTop:theme.spacing(4)
