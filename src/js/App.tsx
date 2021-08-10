@@ -32,13 +32,13 @@ const App: React.FC<Props> = () => {
         <ThemeProvider theme={theme}>
           <Router>
             <Switch>
-              <Route path="/">
+              <Route exact path="/">
                 <Home />
               </Route>
+              <Route exact path={"/breadcrumb"}>
+                <ZxBreadCrumb paths={paths} />
+              </Route>
             </Switch>
-            <Route path="/breadcrumb">
-              <ZxBreadCrumb paths={paths} />
-            </Route>
             <Route path="/selector">
               <Selector
                 items={taskList}
