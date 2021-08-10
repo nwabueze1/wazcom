@@ -9,6 +9,7 @@ import jssPluginExtend from "jss-plugin-extend";
 import React from "react";
 import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
 import theme from "./theme";
+import TextField from "./pages/Textfield/TextField";
 import { Home } from "./pages";
 import Selector from "./pages/Selector/Selector";
 import RadioButton from "./pages/RadioButton/RadioButton";
@@ -31,8 +32,11 @@ const App: React.FC<Props> = () => {
         <ThemeProvider theme={theme}>
           <Router>
             <Switch>
-              <Route path="/">
+              <Route exact path="/">
                 <Home />
+              </Route>
+              <Route exact path="/textfields">
+                <TextField />
               </Route>
             </Switch>
             <Route path="/radio">
