@@ -1,8 +1,7 @@
 import { createTheme } from "@material-ui/core";
-// import type '@material-ui/lab/Autocomplete';
-
 declare module "@material-ui/core/styles/createTheme" {
-  interface Theme {
+                 
+interface Theme {
     include: { [key: string]: any };
     design: {
       font: { [key: string]: any };
@@ -108,6 +107,9 @@ export default createTheme({
       regular: '"Nunito", sans-serif',
     },
     colors: {
+      red70: "#FF4C4C",
+      red90: "#FF1919",
+      bgLight:'#EDF0F5',
       width: "1366px",
       blue: "#0889F7",
       lightGrey: "#F5F5F5",
@@ -119,7 +121,9 @@ export default createTheme({
       sunRed: "#FF4C4C",
       honey: "#F7FFF7",
       grey: "#3A3335",
-      grey4:"#BDBDBD",
+      grey2:'#4F4F4F',
+      grey4:'#BDBDBD',
+      
       grey5:"# E0E0E0",
       fauxGrey: "#5C5C5C",
       maroon: "#A33F50",
@@ -133,16 +137,15 @@ export default createTheme({
       black: "#000000",
       bglight:"#EDF0F5",            
       grey1: "#BEBEBE",
+      red20:'#FFCCCC',
+      red10:'#FFE5E5',
+      red50:'#FF8080',
+
       red100: "#FF0000",
-      red90: "#FF1919",
       red80: "#FF3333",
-      red70: "#FF4C4C",
       red60: "#FF6666",
-      red50: "#FF8080",
       red40: "#FF8080",
       red30: "#FFB2B2",
-      red20: "#FFB2B2",
-      red10: "#FFE5E5",
       info: "#2F80ED",
       success: "#27AE60",
       warning: "#E2B93B",
