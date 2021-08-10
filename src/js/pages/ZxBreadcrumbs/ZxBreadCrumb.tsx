@@ -32,7 +32,6 @@ const ZxBreadCrumb: FC<BreadCrumbsProps> = ({ className, paths }) => {
               aria-current="page"
             >
               {crumb.label}
-
               {index !== paths.length - 1 && (
                 <NavigateNextIcon fontSize="small" />
               )}
