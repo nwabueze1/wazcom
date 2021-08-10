@@ -140,7 +140,6 @@ export default createTheme({
       red20:'#FFCCCC',
       red10:'#FFE5E5',
       red50:'#FF8080',
-
       red100: "#FF0000",
       red80: "#FF3333",
       red60: "#FF6666",
@@ -167,6 +166,7 @@ export default createTheme({
       green3: "#27AE60",
       darkorange: "#F4900C",
       lightorange: "#FFAA00",
+      grey80:"#5C5C5C",
     },
   },
   overrides: {
