@@ -48,7 +48,7 @@ export const useStyles = makeStyles(() => ({
         marginRight:theme.spacing(3),
         color:theme.design.colors.black
     },
-    inpput:{
+    input:{
         color:theme.design.colors.black,
         fontWeight:700
     },

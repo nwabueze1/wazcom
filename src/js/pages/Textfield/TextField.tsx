@@ -31,7 +31,7 @@ const TextField = () => {
         <div className={classes.inputrule}>
           <ErrorOutline className={classes.icon} />
           <div>
-            <div className={classes.inpput}>Input Rules:</div>
+            <div className={classes.input}>Input Rules:</div>
             Padding Left -&gt; 65px
             <br />
             Padding Top-Bottom -&gt; 16px
@@ -129,7 +129,7 @@ const TextField = () => {
       </div>
       <div
         style={{
-          width: "739px",
+          width: "50%",
           marginTop: theme.spacing(5),
         }}
       >
@@ -144,6 +144,7 @@ const TextField = () => {
                 className={classes.inputsize}
                 label="Label sample"
                 type=""
+                focused
                 name="status"
                 source=""
                 placeholder="john Doe"
@@ -153,6 +154,7 @@ const TextField = () => {
               <div>
                 <p>Disabled State</p>
                 <ZxText
+                  disabled={true}
                   className={classes.inputsize}
                   label="Label sample"
                   type=""
@@ -170,7 +172,7 @@ const TextField = () => {
           style={{
             display: "flex",
             justifyContent: "space-between",
-            width: "739px",
+            width: "50%",
             paddingTop: theme.spacing(7),
           }}
         >
