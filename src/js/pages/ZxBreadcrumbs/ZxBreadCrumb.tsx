@@ -25,11 +25,17 @@ const ZxBreadCrumb: FC<BreadCrumbsProps> = ({ className, paths }) => {
               color="inherit"
               to={crumb.path}
               onClick={handleClick}
-              className={classes.link}
+              className={clx(
+                classes.link,
+                index === paths.length - 1 && classes.lastlink,
+              )}
               aria-current="page"
             >
               {crumb.label}
-              <NavigateNextIcon fontSize="small" />
+
+              {index !== paths.length - 1 && (
+                <NavigateNextIcon fontSize="small" />
+              )}
             </Link>
           </Breadcrumbs>
         );
