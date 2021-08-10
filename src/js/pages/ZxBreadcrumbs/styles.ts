@@ -10,6 +10,7 @@ export const BreadCrumbStyles = makeStyles(() => ({
     link:{
         display: "flex",
         fontWeight:"bold",
+        color:theme.design.colors.grey80
     },
     navicon:{
         paddingTop:theme.spacing()

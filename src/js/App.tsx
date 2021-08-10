@@ -9,9 +9,10 @@ import jssPluginExtend from "jss-plugin-extend";
 import React from "react";
 import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
 import theme from "./theme";
+import Home from "./pages/Home";
 import ZxBreadCrumb from "./pages/ZxBreadcrumbs/ZxBreadCrumb";
 import Selector from "./pages/Selector/Selector";
-import { path } from "./pages/ZxBreadcrumbs/mock";
+import { paths } from "./pages/ZxBreadcrumbs/mock";
 
 const jss = create({
   plugins: [...jssPreset().plugins, jssPluginExtend()],
@@ -29,11 +30,12 @@ const App: React.FC<Props> = () => {
         <ThemeProvider theme={theme}>
           <Router>
             <Switch>
-              <Route path="/">{/* <Home /> */}</Route>
+              <Route exact path="/">
+                <Home />
+              </Route>
             </Switch>
-
-            <Route exact path="/breadcrumb">
-              <ZxBreadCrumb path={path} />
+            <Route path="/breadcrumb">
+              <ZxBreadCrumb paths={paths} />
             </Route>
             <Route path="/selector">
               <Selector

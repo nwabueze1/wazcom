@@ -6,14 +6,15 @@ import Breadcrumbs from "@material-ui/core/Breadcrumbs";
 import { Link } from "react-router-dom";
 import NavigateNextIcon from "@material-ui/icons/NavigateNext";
 
-const ZxBreadCrumb: FC<BreadCrumbsProps> = ({ className, path }) => {
+const ZxBreadCrumb: FC<BreadCrumbsProps> = ({ className, paths }) => {
   const classes = BreadCrumbStyles();
   const handleClick = () => {
     return;
   };
+
   return (
     <div className={clx(className, classes.root)}>
-      {path.map((crumb, index) => {
+      {paths.map((crumb, index) => {
         return (
           <Breadcrumbs
             key={index}

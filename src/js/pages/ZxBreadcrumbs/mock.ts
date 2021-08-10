@@ -1,6 +1,6 @@
- export const path= [
+ export const paths= [
     { label: "Home", path: "/" },
-    { label: "Pricing", path: "./pricing1" },
+    { label: "Details", path: "./pricing1" },
     { label: "Pricing", path: "./pricing2" },
-    { label: "Pricing", path: "./" },
+    { label: "Checkout", path: "./" },
   ]

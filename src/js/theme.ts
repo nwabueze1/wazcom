@@ -132,6 +132,7 @@ export default createTheme({
       magicMint: "#FEDAA2",
       black: "#000000",
       grey1: "#BEBEBE",
+      grey80:"#5C5C5C"
     },
   },
   overrides: {
