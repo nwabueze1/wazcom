@@ -9,6 +9,7 @@ import jssPluginExtend from "jss-plugin-extend";
 import React from "react";
 import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
 import theme from "./theme";
+import Home from "./pages/Home";
 import Selector from "./pages/Selector/Selector";
 import RadioButton from "./pages/RadioButton/RadioButton";
 import ButtonGuide from "./pages/ButtonGuide/ButtonGuide";
@@ -29,7 +30,12 @@ const App: React.FC<Props> = () => {
         <ThemeProvider theme={theme}>
           <Router>
             <Switch>
-              <Route path="/">{/* <Home /> */}</Route>
+              <Route exact path="/">
+                <Home />
+              </Route>
+              <Route path={"/buttonGuide"}>
+                <ButtonGuide />
+              </Route>
             </Switch>
             <Route path="/radio">
               <RadioButton />
@@ -44,9 +50,6 @@ const App: React.FC<Props> = () => {
                 styles={{ borderRadius: "10px", width: "200px" }}
               />
               ;
-            </Route>
-            <Route path={"/buttonguide"}>
-              <ButtonGuide />
             </Route>
           </Router>
         </ThemeProvider>

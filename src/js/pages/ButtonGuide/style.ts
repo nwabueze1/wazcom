@@ -9,9 +9,7 @@ export const useStyles = makeStyles(() => ({
       display:'flex',
       justifyContent:'space-around',
     },
-    buttonLeft:{
-
-    },
+  
     buttonRight:{
       marginTop: theme.spacing(26)
    },
@@ -40,8 +38,10 @@ export const useStyles = makeStyles(() => ({
        fontStyle:'bold',
        fontSize:'16px',
        fontWeight: 700,
-       marginBottom:theme.spacing(2.1)
+       marginBottom:theme.spacing(2.1),
+      
     }, 
+    
     buttonDesc:{
       color:theme.design.colors.grey2,
       font:'Nunito',
@@ -84,6 +84,7 @@ export const useStyles = makeStyles(() => ({
     display:'flex',
     justifyContent:'space-evenly',
     margin:theme.spacing(3)
+    
     },
     buttonItem:{
    
@@ -128,6 +129,28 @@ export const useStyles = makeStyles(() => ({
       color:theme.design.colors.Grey,
       borderRadius:'50%',
        backgroundColor:theme.design.colors.paleGrey,
-    }
+    },
   
+    statusDesc:{
+      color:theme.design.colors.grey2,
+      font:'Nunito',
+      lineHeight:'21.8px',
+      fontStyle:'bold',
+      fontSize:'16px',
+      fontWeight: 700,
+      marginTop:theme.spacing(-0.7)
+    },
+    buttonItemBottom:{
+    marginRight:theme.spacing(-1)
+    },
+    itemDescBottom:{
+      color:theme.design.colors.grey4,
+      font:'Nunito',
+      lineHeight:'21px',
+         fontStyle:'bold',
+         fontSize:'16px',
+         fontWeight: 700,
+         marginBottom:theme.spacing(2.1),
+         marginLeft:theme.spacing(7),
+    }
   }));

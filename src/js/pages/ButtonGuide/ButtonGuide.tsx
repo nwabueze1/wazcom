@@ -15,7 +15,7 @@ const ButtonGuide: React.FC<ButtonGuideProps> = ({ size }) => {
     <>
       <div className={classes.buttonWrapper}>
         <div className={classes.buttonTop}>
-          <div className={classes.buttonLeft}>
+          <div>
             <div className={classes.pageDescription}>
               04. <span>Buttons</span>
             </div>
@@ -43,9 +43,9 @@ const ButtonGuide: React.FC<ButtonGuideProps> = ({ size }) => {
                   <ErrorOutlineIcon />
                 </div>
                 <div className={classes.ruleDetails}>
-                  <div className={classes.ruleHead}>Button Rules (Small): </div>
+                  <div className={classes.ruleHead}>Button Rules (Normal):</div>
                   <br />
-                  Padding Left Right -&gt; 65px <br />
+                  Padding Left Right -&gt; 80px <br />
                   Padding Top Bottom -&gt; 16px
                 </div>
               </div>
@@ -54,10 +54,10 @@ const ButtonGuide: React.FC<ButtonGuideProps> = ({ size }) => {
                   <ErrorOutlineIcon />
                 </div>
                 <div className={classes.ruleDetails}>
-                  <div className={classes.ruleHead}>Button Rules (Small): </div>
+                  <div className={classes.ruleHead}>Button Rules (Medium):</div>
                   <br />
-                  Padding Left Right -&gt; 65px <br />
-                  Padding Top Bottom -&gt; 16px
+                  Padding Left Right -&gt; 88px <br />
+                  Padding Top Bottom -&gt; 18px
                 </div>
               </div>
               <div className={classes.ruleInfo}>
@@ -65,10 +65,10 @@ const ButtonGuide: React.FC<ButtonGuideProps> = ({ size }) => {
                   <ErrorOutlineIcon />
                 </div>
                 <div className={classes.ruleDetails}>
-                  <div className={classes.ruleHead}>Button Rules (Small): </div>
+                  <div className={classes.ruleHead}>Button Rules (Large): </div>
                   <br />
-                  Padding Left Right -&gt; 65px <br />
-                  Padding Top Bottom -&gt; 16px
+                  Padding Left Right -&gt; 100px <br />
+                  Padding Top Bottom -&gt; 20px
                 </div>
               </div>
             </div>
@@ -95,7 +95,7 @@ const ButtonGuide: React.FC<ButtonGuideProps> = ({ size }) => {
               <div className={classes.ruleDetails}>
                 <div className={classes.ruleHead}>Button Rules (Small): </div>
                 <br />
-                Padding Left Right -&gt; 65px <br />
+                Padding Left Right -&gt; 103px <br />
                 Padding Top Bottom -&gt; 16px
               </div>
             </div>
@@ -120,7 +120,7 @@ const ButtonGuide: React.FC<ButtonGuideProps> = ({ size }) => {
         </div>
 
         <div className={classes.buttonBottomWrapper}>
-          <p className={classes.itemDesc}>Variant</p>
+          <p className={classes.itemDescBottom}>Variant</p>
           <div className={classes.buttonBottom}>
             <p className={classes.buttonDescIcon}>Default</p>
 
@@ -146,55 +146,55 @@ const ButtonGuide: React.FC<ButtonGuideProps> = ({ size }) => {
             </div>
           </div>
           <div className={classes.buttonBottom}>
-            <p className={classes.buttonDesc}>Hover</p>
+            <p className={classes.statusDesc}>Hover</p>
 
-            <div className={classes.buttonItem}>
+            <div className={classes.buttonItemBottom}>
               <Button size="large" status="hover">
                 Button Sample
               </Button>
             </div>
-            <div className={classes.buttonItem}>
+            <div className={classes.buttonItemBottom}>
               <Button size="large" status="hoveroutline">
                 Button Sample
               </Button>
             </div>
-            <div className={classes.buttonItem}>
+            <div className={classes.buttonItemBottom}>
               <Button size="large" status="hover">
                 <AddIcon />
-                Button Sample
+                Button Samples
               </Button>
             </div>
-            <div className={classes.buttonItem}>
+            <div className={classes.buttonItemBottom}>
               <AddIcon
                 className={`${classes.addIcon} ${classes.addIconHover}`}
               />
             </div>
           </div>
           <div className={classes.buttonBottom}>
-            <p className={classes.buttonDesc}>Active</p>
+            <p className={classes.statusDesc}>Active</p>
 
-            <div className={classes.buttonItem}>
+            <div className={classes.buttonItemBottom}>
               <Button size="large">Button Sample</Button>
             </div>
-            <div className={classes.buttonItem}>
+            <div className={classes.buttonItemBottom}>
               <Button size="large" status="activeoutline">
                 Button Sample
               </Button>
             </div>
-            <div className={classes.buttonItem}>
+            <div className={classes.buttonItemBottom}>
               <Button size="large">
                 <AddIcon />
                 Button Sample
               </Button>
             </div>
-            <div className={classes.buttonItem}>
+            <div className={classes.buttonItemBottom}>
               <AddIcon
                 className={`${classes.addIcon} ${classes.addIconactive}`}
               />
             </div>
           </div>
           <div className={classes.buttonBottom}>
-            <p className={classes.buttonDesc}>Disable</p>
+            <p className={classes.statusDesc}>Disable</p>
             <div className={classes.buttonItem}>
               <Button size="large" status="disable">
                 Button Sample
