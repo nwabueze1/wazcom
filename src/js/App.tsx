@@ -13,6 +13,7 @@ import { Home } from "./pages";
 import Selector from "./pages/Selector/Selector";
 import RadioButton from "./pages/RadioButton/RadioButton";
 import { StyleGuide } from "./pages/StyleGuide/StyleGuide";
+import { Typography } from "../js/pages/Typography/Typography";
 
 const jss = create({
   plugins: [...jssPreset().plugins, jssPluginExtend()],
@@ -47,6 +48,9 @@ const App: React.FC<Props> = () => {
             </Route>
             <Route path="/styleguide/colors">
               <StyleGuide />
+            </Route>
+            <Route path="/styleguide/typography">
+              <Typography />
             </Route>
           </Router>
         </ThemeProvider>
