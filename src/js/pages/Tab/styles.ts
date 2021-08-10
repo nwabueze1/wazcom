@@ -6,6 +6,6 @@ export const useStyles = makeStyles({
   tabs: {
     width: "500px",
     color: theme.design.colors.red,
-    borderRadius: theme.spacing(2),
+    borderRadius: 9,
   },
 });

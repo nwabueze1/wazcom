@@ -17,12 +17,16 @@ const theme = createTheme({
 export const Tab: FC<TabProps> = ({ className }) => {
   const classes = useStyles();
   return (
-    <Paper style={{ width: "500px" }} color="secondary">
+    <Paper
+      style={{ width: "500px" }}
+      color="secondary"
+      className={classes.tabs}
+    >
       <Tabs
         value={0}
         aria-label="disabled tabs example"
         variant="standard"
-        className={classes.tabs}
+        style={{ borderRadius: "10px" }}
       >
         <MuiTab label="Active" />
         <MuiTab label="Active" disabled />
