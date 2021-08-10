@@ -52,6 +52,12 @@ const getStatusClassName = (
     case "transparent":
       return classes.transparent;
       break;
+    case "hoveroutline":
+      return classes.hoverOutline;
+      break;
+    case "activeoutline":
+      return classes.activeOutline;
+      break;
 
     default:
       return classes.normal;

@@ -5,6 +5,9 @@ import { ButtonProps } from "./types";
 export const useButtonStyles = makeStyles((theme: Theme) =>
   createStyles({
     root: {
+      fontSize:'16px',
+      textTransform:'capitalize',
+      fontWeight:600,
       minWidth:theme.spacing(36),
       minHeight:theme.spacing(7.5),
       background:theme.design.colors.lightRed,
@@ -75,6 +78,18 @@ export const useButtonStyles = makeStyles((theme: Theme) =>
     transparent:{
       backgroundColor:'transparent',
       color:theme.design.colors.lightRed,
+      border: `2px solid ${theme.design.colors.lightRed}`
+    }, 
+    hoverOutline:{
+      backgroundColor:theme.design.colors.red10,
+      color:theme.design.colors.maroon,
+      border: `2px solid ${theme.design.colors.maroon}`
+
+    }, 
+    activeOutline:{
+      backgroundColor:theme.design.colors.red20,
+      color:theme.design.colors.lightRed,
+      border: `2px solid ${theme.design.colors.lightRed}`
     }
     
   }),

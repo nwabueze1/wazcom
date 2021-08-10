@@ -136,7 +136,7 @@ const ButtonGuide: React.FC<ButtonGuideProps> = ({ size }) => {
             </div>
             <div className={classes.buttonItem}>
               <p className={classes.buttonDescIcon}>Icon Text</p>
-              <Button size="large">
+              <Button size="large" status="">
                 <AddIcon /> Button Sample
               </Button>
             </div>
@@ -149,14 +149,17 @@ const ButtonGuide: React.FC<ButtonGuideProps> = ({ size }) => {
             <p className={classes.buttonDesc}>Hover</p>
 
             <div className={classes.buttonItem}>
-              <Button size="large">Button Sample</Button>
+              <Button size="large" status="hover">
+                Button Sample
+              </Button>
             </div>
             <div className={classes.buttonItem}>
-              <Button size="large">Button Sample</Button>
+              <Button size="large" status="hoveroutline">
+                Button Sample
+              </Button>
             </div>
             <div className={classes.buttonItem}>
-              <Button size="large">
-                {" "}
+              <Button size="large" status="hover">
                 <AddIcon />
                 Button Sample
               </Button>
@@ -172,7 +175,9 @@ const ButtonGuide: React.FC<ButtonGuideProps> = ({ size }) => {
               <Button size="large">Button Sample</Button>
             </div>
             <div className={classes.buttonItem}>
-              <Button size="large">Button Sample</Button>
+              <Button size="large" status="activeoutline">
+                Button Sample
+              </Button>
             </div>
             <div className={classes.buttonItem}>
               <Button size="large">
@@ -195,7 +200,6 @@ const ButtonGuide: React.FC<ButtonGuideProps> = ({ size }) => {
             </div>
             <div className={classes.buttonItem}>
               <Button size="large">
-                {" "}
                 <AddIcon /> Button Sample
               </Button>
             </div>

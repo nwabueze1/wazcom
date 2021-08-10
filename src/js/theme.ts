@@ -133,6 +133,10 @@ export default createTheme({
       magicMint: "#FEDAA2",
       black: "#000000",
       grey1: "#BEBEBE",
+      red20:'#FFCCCC',
+      red10:'#FFE5E5',
+      red50:'#FF8080',
+
     },
   },
   overrides: {
