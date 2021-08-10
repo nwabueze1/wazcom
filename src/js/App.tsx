@@ -10,11 +10,13 @@ import React from "react";
 import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
 import theme from "./theme";
 import Home from "./pages/Home";
-import ZxBreadCrumb from "./pages/ZxBreadcrumbs/ZxBreadCrumb";
 import Selector from "./pages/Selector/Selector";
-import { paths } from "./pages/ZxBreadcrumbs/mock";
+import ButtonGuide from "./pages/ButtonGuide/ButtonGuide";
+import TextField from "./pages/Textfield/TextField";
 import { StyleGuide } from "./pages/StyleGuide/StyleGuide";
 import { Typography } from "../js/pages/Typography/Typography";
+import ZxBreadCrumb from "./pages/ZxBreadcrumbs/ZxBreadCrumb";
+import { paths } from "./pages/ZxBreadcrumbs/mock";
 
 const jss = create({
   plugins: [...jssPreset().plugins, jssPluginExtend()],
@@ -35,7 +37,13 @@ const App: React.FC<Props> = () => {
               <Route exact path="/">
                 <Home />
               </Route>
-              <Route exact path={"/breadcrumb"}>
+              <Route exact path="/textfields">
+                <TextField />
+              </Route>
+              <Route exact path="/buttonguide">
+                <ButtonGuide />
+              </Route>
+              <Route exact path="/breadcrumb">
                 <ZxBreadCrumb paths={paths} />
               </Route>
             </Switch>

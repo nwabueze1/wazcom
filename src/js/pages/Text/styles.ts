@@ -10,7 +10,7 @@ export const useStyles = makeStyles((theme: Theme) =>
     label: {
       marginBottom: theme.spacing(1),
       fontSize: `${Math.round(theme.typography.fontSize * 1.3)}px`,
-      fontWeight: theme.typography.fontWeightMedium,
+      fontWeight: theme.typography.fontWeightBold,
     },
     input: {
       cursor: "text",
