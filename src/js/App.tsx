@@ -13,6 +13,9 @@ import Home from "./pages/Home";
 import Selector from "./pages/Selector/Selector";
 import RadioButton from "./pages/RadioButton/RadioButton";
 import ButtonGuide from "./pages/ButtonGuide/ButtonGuide";
+import TextField from "./pages/Textfield/TextField";
+import { StyleGuide } from "./pages/StyleGuide/StyleGuide";
+import { Typography } from "../js/pages/Typography/Typography";
 
 const jss = create({
   plugins: [...jssPreset().plugins, jssPluginExtend()],
@@ -33,7 +36,10 @@ const App: React.FC<Props> = () => {
               <Route exact path="/">
                 <Home />
               </Route>
-              <Route path={"/buttonGuide"}>
+              <Route exact path="/textfields">
+                <TextField />
+              </Route>
+              <Route exact path="/buttonguide">
                 <ButtonGuide />
               </Route>
             </Switch>
@@ -49,7 +55,12 @@ const App: React.FC<Props> = () => {
                 items={taskList}
                 styles={{ borderRadius: "10px", width: "200px" }}
               />
-              ;
+            </Route>
+            <Route path="/styleguide/colors">
+              <StyleGuide />
+            </Route>
+            <Route path="/styleguide/typography">
+              <Typography />
             </Route>
           </Router>
         </ThemeProvider>
