@@ -110,21 +110,21 @@ const TextField = () => {
                 }}
                 type="currency"
                 source=""
-                placeholder="input Text icon"
+                placeholder="Enter Price"
               />
               <ZxText
                 style={{ width: "196px" }}
                 type=""
                 name="status"
                 source=""
-                placeholder="input Text icon"
+                placeholder="Enter price"
               />
               <ZxText
                 style={{ width: "196px" }}
                 type=""
                 name="status"
                 source=""
-                placeholder="input Text icon"
+                placeholder="Enter price"
               />
             </div>
           </div>

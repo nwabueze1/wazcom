@@ -21,7 +21,7 @@ export const useStyles = makeStyles(() => ({
     textbox:{
         minWidth:"320px",
         height:"268px",
-        border: `1px solid ${'#E0E0E0'}`,
+        border: `1px solid ${theme.design.colors.silver}`,
         borderRadius:"5px",
         padding:theme.spacing(3)
     },
@@ -31,7 +31,7 @@ export const useStyles = makeStyles(() => ({
         margin:theme.spacing(9,0)
     },
     bottomright:{
-        border:`0.5px solid ${'#BDBDBD'}`,
+        border:`0.5px solid ${theme.design.colors.silver}`,
         borderRadius:"5px",
         margin:theme.spacing(2),
         padding:theme.spacing(3),

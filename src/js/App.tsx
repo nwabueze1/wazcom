@@ -30,11 +30,9 @@ const App: React.FC<Props> = () => {
         <ThemeProvider theme={theme}>
           <Router>
             <Switch>
-              <Route path="/">
+              <Route exact path="/">
                 <Home />
               </Route>
-            </Switch>
-            <Switch>
               <Route exact path="/textfields">
                 <TextField />
               </Route>
