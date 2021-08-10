@@ -7,7 +7,7 @@ export const useButtonStyles = makeStyles((theme: Theme) =>
     root: {
       fontSize:'16px',
       textTransform:'capitalize',
-      fontWeight:600,
+      fontWeight:650,
       minWidth:theme.spacing(36),
       minHeight:theme.spacing(7.5),
       background:theme.design.colors.lightRed,
@@ -90,7 +90,10 @@ export const useButtonStyles = makeStyles((theme: Theme) =>
       backgroundColor:theme.design.colors.red20,
       color:theme.design.colors.lightRed,
       border: `2px solid ${theme.design.colors.lightRed}`
+    },
+    disableOutline:{
+      backgroundColor:theme.design.colors.white,
+      color:theme.design.colors.paleGrey
     }
-    
   }),
 );

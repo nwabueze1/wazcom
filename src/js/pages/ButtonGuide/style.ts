@@ -98,6 +98,7 @@ export const useStyles = makeStyles(() => ({
     buttonBottomWrapper:{
        marginTop:theme.spacing(4)
     },
+
     buttonDescIcon:{
       color:theme.design.colors.grey2,
       font:'Nunito',
@@ -107,5 +108,26 @@ export const useStyles = makeStyles(() => ({
          fontWeight: 700,
          marginBottom: theme.spacing(3)
     },
+    addIconHover:{
+      width:'56px',
+      height:'56px',
+      color:theme.design.colors.white,
+      borderRadius:'50%',
+       backgroundColor:theme.design.colors.maroon,
+    },
+    addIconactive:{
+      width:'56px',
+      height:'56px',
+      color:theme.design.colors.white,
+      borderRadius:'50%',
+       backgroundColor:theme.design.colors.orange,
+    },
+    addIconDisable:{
+      width:'56px',
+      height:'56px',
+      color:theme.design.colors.Grey,
+      borderRadius:'50%',
+       backgroundColor:theme.design.colors.paleGrey,
+    }
   
   }));

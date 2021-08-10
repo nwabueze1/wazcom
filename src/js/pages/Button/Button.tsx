@@ -58,6 +58,9 @@ const getStatusClassName = (
     case "activeoutline":
       return classes.activeOutline;
       break;
+    case "disableoutline":
+      return classes.disableOutline;
+      break;
 
     default:
       return classes.normal;

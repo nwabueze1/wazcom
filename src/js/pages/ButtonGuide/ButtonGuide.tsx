@@ -165,7 +165,9 @@ const ButtonGuide: React.FC<ButtonGuideProps> = ({ size }) => {
               </Button>
             </div>
             <div className={classes.buttonItem}>
-              <AddIcon className={classes.addIcon} />
+              <AddIcon
+                className={`${classes.addIcon} ${classes.addIconHover}`}
+              />
             </div>
           </div>
           <div className={classes.buttonBottom}>
@@ -181,30 +183,37 @@ const ButtonGuide: React.FC<ButtonGuideProps> = ({ size }) => {
             </div>
             <div className={classes.buttonItem}>
               <Button size="large">
-                {" "}
                 <AddIcon />
                 Button Sample
               </Button>
             </div>
             <div className={classes.buttonItem}>
-              <AddIcon className={classes.addIcon} />
+              <AddIcon
+                className={`${classes.addIcon} ${classes.addIconactive}`}
+              />
             </div>
           </div>
           <div className={classes.buttonBottom}>
             <p className={classes.buttonDesc}>Disable</p>
             <div className={classes.buttonItem}>
-              <Button size="large">Button Sample</Button>
+              <Button size="large" status="disable">
+                Button Sample
+              </Button>
             </div>
             <div className={classes.buttonItem}>
-              <Button size="large">Button Sample</Button>
+              <Button size="large" status="disableoutline">
+                Button Sample
+              </Button>
             </div>
             <div className={classes.buttonItem}>
-              <Button size="large">
+              <Button size="large" status="disable">
                 <AddIcon /> Button Sample
               </Button>
             </div>
             <div className={classes.buttonItem}>
-              <AddIcon className={classes.addIcon} />
+              <AddIcon
+                className={`${classes.addIcon} ${classes.addIconDisable}`}
+              />
             </div>
           </div>
         </div>
