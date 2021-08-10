@@ -1,7 +1,7 @@
 import React, { FC } from "react";
 import { RadioButtonStyles } from "./styles";
 import { RadioButtonProps } from "./types";
-import { Radio, createTheme } from "@material-ui/core";
+import { Radio } from "@material-ui/core";
 import clx from "classnames";
 import { useState } from "react";
 const RadioButton: FC<RadioButtonProps> = ({ className, color }) => {

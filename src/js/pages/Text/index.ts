@@ -1,3 +1,5 @@
-export * as Zxtext from './ZxText'; /** !!-- Remember to update the function name !! */
+import ZxText from './ZxText';
 export * from './styles';
 export * from './types';
+
+export default ZxText
