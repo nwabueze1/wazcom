@@ -52,8 +52,4 @@ export const useStyles = makeStyles(() => ({
         color:theme.design.colors.black,
         fontWeight:700
     },
-    passfield:{
-        margin:theme.spacing(3),
-        width:"320px"
-    },
 }))

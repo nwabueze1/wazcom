@@ -22,7 +22,6 @@ const TextField = () => {
             <ZxText
               className={classes.inputsize}
               label="Label"
-              type=""
               name="status"
               source=""
               placeholder="placeholder"
@@ -54,7 +53,6 @@ const TextField = () => {
         <div>
           <p>Input Form + Label</p>
           <ZxText
-            style={{ width: "320px" }}
             className={classes.inputsize}
             label="Label"
             type=""
@@ -66,7 +64,6 @@ const TextField = () => {
         <div>
           <p>Input Form + Label & Status </p>
           <ZxText
-            style={{ width: "320px" }}
             className={classes.inputsize}
             label="Label"
             type=""
@@ -78,7 +75,6 @@ const TextField = () => {
         <div>
           <p>Input Form + Label + Status</p>
           <ZxText
-            style={{ width: "320px" }}
             className={classes.inputsize}
             label="Label"
             type=""
@@ -145,7 +141,6 @@ const TextField = () => {
             <div>
               <p>Focused State</p>
               <ZxText
-                style={{ width: "320px" }}
                 className={classes.inputsize}
                 label="Label sample"
                 type=""
@@ -158,7 +153,6 @@ const TextField = () => {
               <div>
                 <p>Disabled State</p>
                 <ZxText
-                  style={{ width: "320px" }}
                   className={classes.inputsize}
                   label="Label sample"
                   type=""
@@ -182,7 +176,6 @@ const TextField = () => {
         >
           <div>
             <ZxText
-              style={{ width: "320px" }}
               className={classes.inputsize}
               label="Label Text"
               type=""
@@ -191,7 +184,6 @@ const TextField = () => {
               placeholder="placeholder"
             />
             <ZxText
-              style={{ width: "320px" }}
               className={classes.inputsize}
               label="Label Text"
               type=""
@@ -202,7 +194,6 @@ const TextField = () => {
           </div>
           <div>
             <ZxText
-              style={{ width: "320px" }}
               className={classes.inputsize}
               label="Label Text"
               type=""
@@ -216,7 +207,6 @@ const TextField = () => {
             Use Cases
           </Typography>
           <ZxText
-            // className={classes.passfield}
             label="Password"
             type="Password"
             name="status"
