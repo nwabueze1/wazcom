@@ -13,6 +13,8 @@ import Home from "./pages/Home";
 import ZxBreadCrumb from "./pages/ZxBreadcrumbs/ZxBreadCrumb";
 import Selector from "./pages/Selector/Selector";
 import { paths } from "./pages/ZxBreadcrumbs/mock";
+import { StyleGuide } from "./pages/StyleGuide/StyleGuide";
+import { Typography } from "../js/pages/Typography/Typography";
 
 const jss = create({
   plugins: [...jssPreset().plugins, jssPluginExtend()],
@@ -30,7 +32,7 @@ const App: React.FC<Props> = () => {
         <ThemeProvider theme={theme}>
           <Router>
             <Switch>
-              <Route exact path="/">
+              <Route path="/">
                 <Home />
               </Route>
             </Switch>
@@ -46,7 +48,12 @@ const App: React.FC<Props> = () => {
                 items={taskList}
                 styles={{ borderRadius: "10px", width: "200px" }}
               />
-              ;
+            </Route>
+            <Route path="/styleguide/colors">
+              <StyleGuide />
+            </Route>
+            <Route path="/styleguide/typography">
+              <Typography />
             </Route>
           </Router>
         </ThemeProvider>
