@@ -28,7 +28,9 @@ const App: React.FC<Props> = () => {
         <ThemeProvider theme={theme}>
           <Router>
             <Switch>
-              <Route path="/">{/*   <Home /> */}</Route>
+              <Route path="/">
+                <Home />
+              </Route>
             </Switch>
             <Route path="/tabs">
               <Tab label="Solo" arr={arr} />
