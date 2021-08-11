@@ -9,6 +9,9 @@ import jssPluginExtend from "jss-plugin-extend";
 import React from "react";
 import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
 import theme from "./theme";
+
+import Toggle from "./pages/Toggle/Toggle";
+
 import Home from "./pages/Home";
 import Selector from "./pages/Selector/Selector";
 import ButtonGuide from "./pages/ButtonGuide/ButtonGuide";
@@ -42,6 +45,9 @@ const App: React.FC<Props> = () => {
               </Route>
               <Route exact path="/buttonguide">
                 <ButtonGuide />
+              </Route>
+              <Route exact path="/toggle">
+                <Toggle />
               </Route>
               <Route exact path="/breadcrumb">
                 <ZxBreadCrumb paths={paths} />
