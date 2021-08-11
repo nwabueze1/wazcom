@@ -20,6 +20,7 @@ import { StyleGuide } from "./pages/StyleGuide/StyleGuide";
 import { Typography } from "../js/pages/Typography/Typography";
 import ZxBreadCrumb from "./pages/ZxBreadcrumbs/ZxBreadCrumb";
 import { paths } from "./pages/ZxBreadcrumbs/mock";
+import Page from "../js/pages/Page/Page";
 
 const jss = create({
   plugins: [...jssPreset().plugins, jssPluginExtend()],
@@ -42,6 +43,9 @@ const App: React.FC<Props> = () => {
               </Route>
               <Route exact path="/textfields">
                 <TextField />
+              </Route>
+              <Route exact path="/pagination">
+                <Page />
               </Route>
               <Route exact path="/buttonguide">
                 <ButtonGuide />
