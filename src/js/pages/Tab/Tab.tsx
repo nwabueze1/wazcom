@@ -1,4 +1,4 @@
-import React, { FC } from "react";
+import React, { FC, useState } from "react";
 import clsx from "clsx";
 import Paper from "@material-ui/core/Paper";
 import Tabs from "@material-ui/core/Tabs";
@@ -6,18 +6,26 @@ import { Tab as MuiTab } from "@material-ui/core";
 import { TabProps } from "./types";
 import { useStyles } from "./styles";
 
-export const Tab: FC<TabProps> = ({ className }) => {
+export const Tab: FC<TabProps> = ({ className, arr, color }) => {
   const classes = useStyles();
+  const [isSelected, changeIsSelected] = useState(false);
   return (
     <Paper
       style={{ width: "500px" }}
-      color="secondary"
+      color={color}
       className={clsx(classes.tabs, className)}
     >
-      <Tabs value={0} aria-label="disabled tabs example" variant="standard">
-        <MuiTab label="Active" />
-        <MuiTab label="Active" disabled />
-        <MuiTab label="Active" disabled />
+      <Tabs aria-label="disabled tabs example" variant="scrollable">
+        {arr.map((label, index) => {
+          return (
+            <MuiTab
+              label={label}
+              key={index}
+              onClick={() => changeIsSelected(!isSelected)}
+              selected={isSelected}
+            ></MuiTab>
+          );
+        })}
       </Tabs>
     </Paper>
   );

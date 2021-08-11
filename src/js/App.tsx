@@ -21,18 +21,17 @@ interface Props {
 }
 
 const App: React.FC<Props> = () => {
+  const arr = ["a", "b", "c", "d", "e", "f"];
   return (
     <CssBaseline>
       <StylesProvider jss={jss}>
         <ThemeProvider theme={theme}>
           <Router>
             <Switch>
-              <Route path="/">
-                <Home />
-              </Route>
+              <Route path="/">{/*   <Home /> */}</Route>
             </Switch>
             <Route path="/tabs">
-              <Tab />
+              <Tab label="Solo" arr={arr} />
             </Route>
           </Router>
         </ThemeProvider>
