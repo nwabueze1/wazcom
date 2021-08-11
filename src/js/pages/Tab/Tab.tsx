@@ -6,7 +6,7 @@ import { Tab as MuiTab } from "@material-ui/core";
 import { TabProps } from "./types";
 import { useStyles } from "./styles";
 
-export const Tab: FC<TabProps> = ({ className, tabNo }) => {
+export const Tab: FC<TabProps> = ({ className }) => {
   const classes = useStyles();
   return (
     <Paper
