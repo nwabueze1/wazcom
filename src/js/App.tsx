@@ -20,7 +20,7 @@ import ZxBreadCrumb from "./pages/ZxBreadcrumbs/ZxBreadCrumb";
 import { paths } from "./pages/ZxBreadcrumbs/mock";
 import Page from "../js/pages/Page/Page";
 import ZxCard from "./pages/Cards/ZxCard";
-import zximage from "../images/clipboard.svg";
+import Zximage from "../images/create1.png";
 
 const jss = create({
   plugins: [...jssPreset().plugins, jssPluginExtend()],
@@ -58,9 +58,9 @@ const App: React.FC<Props> = () => {
               </Route>
               <Route exact path="/card">
                 <ZxCard
-                  image={zximage}
+                  image={Zximage}
                   tittle="Register"
-                  content="kjhghskjdhgkjs/jmvhgrlkdgfk,js"
+                  content="Lorem ipsum, dolor sit amet consectetur adipisicing elit. Neque error blanditiis adipisci sint voluptates totam asperiores et hic placeat, accusamus quasi praesentium, ad sed illo nihil! Vero consequatur ut aliquid."
                 />
               </Route>
             </Switch>

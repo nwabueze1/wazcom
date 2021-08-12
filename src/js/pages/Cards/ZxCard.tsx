@@ -5,7 +5,7 @@ import CardContent from "@material-ui/core/CardContent";
 import Typography from "@material-ui/core/Typography";
 import { CardProps } from "./types";
 
-const ZxCard: FC<CardProps> = ({ tittle, content }) => {
+const ZxCard: FC<CardProps> = ({ tittle, content, image }) => {
   const classes = useCardStyles();
 
   return (
