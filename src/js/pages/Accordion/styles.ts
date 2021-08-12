@@ -3,13 +3,23 @@ const useStyles = makeStyles((theme: Theme) =>
   createStyles({
     root: {
       width: '100%',
-      backgroundColor:theme.design.colors.lightRed,
+     
+      '& .MuiAccordion':{
+      
+      },
+
+      overrides:{
+
+      }
     },
     heading: {
-        
+     color:theme.design.colors.white,
       fontSize: theme.typography.pxToRem(15),
       fontWeight: theme.typography.fontWeightRegular,
     },
+    headerDesc:{
+        backgroundColor:theme.design.colors.red50,
+    }
   }),
 );
 

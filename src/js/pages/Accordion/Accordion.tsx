@@ -6,6 +6,7 @@ import AccordionDetails from "@material-ui/core/AccordionDetails";
 import Typography from "@material-ui/core/Typography";
 import ExpandMoreIcon from "@material-ui/icons/ExpandMore";
 import clx from "classnames";
+import Table from "./Table/Table";
 
 interface AccordionProps {
   className?: string;
@@ -16,9 +17,10 @@ const Acordion: FC<AccordionProps> = ({ className }) => {
 
   return (
     <div className={clx(className, classes.root)}>
-      <div className={classes.root}>
-        <Accordion>
+      <div>
+        <Accordion className={classes.root}>
           <AccordionSummary
+            className={classes.headerDesc}
             expandIcon={<ExpandMoreIcon />}
             aria-controls="panel1a-content"
             id="panel1a-header"
@@ -27,9 +29,7 @@ const Acordion: FC<AccordionProps> = ({ className }) => {
           </AccordionSummary>
           <AccordionDetails>
             <Typography>
-              Lorem ipsum dolor sit amet, consectetur adipiscing elit.
-              Suspendisse malesuada lacus ex, sit amet blandit leo lobortis
-              eget.
+              <Table />
             </Typography>
           </AccordionDetails>
         </Accordion>
