@@ -3,7 +3,7 @@ import theme from "js/theme";
 
 export const useCardStyles = makeStyles(() => ({
     root: {
-        maxWidth: 384,
+        minWidth: 384,
         pading:theme.spacing(1,1),
         textAlign:"center",
         borderRadius:"25px"
