@@ -4,7 +4,7 @@ import { Typography } from "@material-ui/core";
 import Pagination from "@material-ui/lab/Pagination";
 
 const Page = () => {
-  const totalPage = 4;
+  const totalPages = 4;
   const classes = useStyles();
   const [page, setPage] = React.useState(1);
   const handleChange = (event: React.ChangeEvent<unknown>, value: number) => {
@@ -15,7 +15,7 @@ const Page = () => {
     <div className={classes.root}>
       <Typography className={classes.description}>Pagination</Typography>
       <Typography className={classes.pageNumber}>
-        Page: {`${page} of ${totalPage}`}
+        Page: {`${page} of ${totalPages}`}
       </Typography>
       <Pagination count={4} page={page} onChange={handleChange} />
     </div>
