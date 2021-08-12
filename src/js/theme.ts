@@ -110,7 +110,7 @@ export default createTheme({
     colors: {
       red70: "#FF4C4C",
       red90: "#FF1919",
-
+      gray: "#BEBEBE",
       width: "1366px",
       blue: "#0889F7",
       lightGrey: "#F5F5F5",
