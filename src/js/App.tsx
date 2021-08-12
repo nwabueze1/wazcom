@@ -21,6 +21,7 @@ import { Typography } from "../js/pages/Typography/Typography";
 import ZxBreadCrumb from "./pages/ZxBreadcrumbs/ZxBreadCrumb";
 import { paths } from "./pages/ZxBreadcrumbs/mock";
 import Page from "../js/pages/Page/Page";
+import Acordion from "./pages/Accordion/Accordion";
 
 const jss = create({
   plugins: [...jssPreset().plugins, jssPluginExtend()],
@@ -52,6 +53,9 @@ const App: React.FC<Props> = () => {
               </Route>
               <Route exact path="/toggle">
                 <Toggle />
+              </Route>
+              <Route path="/accordion">
+                <Acordion />
               </Route>
               <Route exact path="/breadcrumb">
                 <ZxBreadCrumb paths={paths} />
