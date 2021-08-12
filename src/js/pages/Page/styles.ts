@@ -14,14 +14,13 @@ import theme from "../../theme";
      },
      '& ul':{
       fontSize:'16px',
-     },
-     
-     description:{
-      fontFamily:'Nunito',
-      color:theme.design.colors.gray4,
-      fontSize:theme.typography.fontSize * 1,
-      padding:theme.spacing(1, 0),
-    }
+     }
+  },
+  description:{
+    fontFamily:'Nunito',
+    color:theme.design.colors.gray4,
+    fontSize:theme.typography.fontSize * 1,
+    padding:theme.spacing(1, 0),
   },
   pageNumber:{
     fontFamily:'Nunito',
@@ -29,6 +28,6 @@ import theme from "../../theme";
     fontSize:theme.typography.fontSize * 1,
     fontWeight: 'bold',
   },
-  
+ 
   }));
   export default useStyles
