@@ -9,16 +9,24 @@ import theme from "../../theme";
     '& .Mui-selected': {
       backgroundColor: 'transparent',
       color: theme.design.colors.gray80,
-      fontSize:'18px',
-      fontWeight: 700
+      fontSize:theme.typography.fontSize * 1.125,
+      fontWeight: 'bold'
      },
+     '& ul':{
+      fontSize:'16px',
+     }
   },
   pageNumber:{
     fontFamily:'Nunito',
     color:theme.design.colors.gray80,
-    fontSize:'16px',
-    fontWeight: 700,
-
+    fontSize:theme.typography.fontSize * 1,
+    fontWeight: 'bold',
+  },
+  description:{
+    fontFamily:'Nunito',
+    color:theme.design.colors.gray4,
+    fontSize:theme.typography.fontSize * 1,
+    padding:theme.spacing(1, 0),
   }
   }));
   export default useStyles
