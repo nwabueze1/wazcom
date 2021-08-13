@@ -3,7 +3,7 @@ const useStyles = makeStyles((theme: Theme) =>
   createStyles({
     root: {
       width: '100%',
-      paddingBottom:theme.spacing(10),
+     
      
       '& .MuiAccordion':{
       
@@ -23,10 +23,7 @@ const useStyles = makeStyles((theme: Theme) =>
         backgroundColor:theme.design.colors.red50,
     },
 
-    addTable:{
-      margin:theme.spacing(0, 5),
-    }
-    
+   
   }),
 );
 

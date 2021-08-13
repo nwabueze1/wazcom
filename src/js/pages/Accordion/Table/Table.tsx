@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import { makeStyles } from "@material-ui/core/styles";
 import Table from "@material-ui/core/Table";
 import TableBody from "@material-ui/core/TableBody";
@@ -11,6 +11,8 @@ import Select from "@material-ui/core/Select";
 import InputLabel from "@material-ui/core/InputLabel";
 import MenuItem from "@material-ui/core/MenuItem";
 import FormControl from "@material-ui/core/FormControl";
+import Button from "../../Button/Button";
+import AddIcon from "@material-ui/icons/Add";
 
 const useStyles = makeStyles((theme) => ({
   table: {
@@ -50,6 +52,9 @@ const useStyles = makeStyles((theme) => ({
       fontSize: "50px",
     },
   },
+  addTable: {
+    margin: theme.spacing(2, 0, 8, 0),
+  },
 }));
 
 function createData(
@@ -61,15 +66,32 @@ function createData(
   return { day, start, end, action };
 }
 
-const rows = [
-  createData("Pick a day/days", "enter start time", "Enter end time", ""),
-];
-
 export default function BasicTable() {
+  const [inputField, setInputField] = useState([
+    {
+      day: "Pick a day/days",
+      start: "Enter Start time",
+      end: "Enter End Time",
+      action: "Action",
+    },
+  ]);
+
   const classes = useStyles();
-  const [age, setAge] = React.useState("");
+  const [day, setDay] = React.useState("");
   const handleChange = (event: React.ChangeEvent<{ value: unknown }>) => {
-    setAge(event.target.value as string);
+    setDay(event.target.value as string);
+  };
+
+  const handleAddFields = () => {
+    setInputField([
+      ...inputField,
+      {
+        day: "Pick a day/days",
+        start: "Enter Start time",
+        end: "Enter End Time",
+        action: "Action",
+      },
+    ]);
   };
 
   return (
@@ -90,7 +112,7 @@ export default function BasicTable() {
           </TableRow>
         </TableHead>
         <TableBody>
-          {rows.map((row, index) => (
+          {inputField.map((inputField, index) => (
             <TableRow key={index}>
               <TableCell
                 className={classes.tableCell}
@@ -104,7 +126,7 @@ export default function BasicTable() {
                   <Select
                     labelId="demo-simple-select-outlined-label"
                     id="demo-simple-select-outlined"
-                    value={age}
+                    value={day}
                     onChange={handleChange}
                     label="Age"
                     className={classes.select}
@@ -112,25 +134,34 @@ export default function BasicTable() {
                     <MenuItem value="">
                       <em>None</em>
                     </MenuItem>
-                    <MenuItem value={10}>Ten</MenuItem>
+                    <MenuItem value={inputField.day}>Ten</MenuItem>
                     <MenuItem value={20}>Twenty</MenuItem>
                     <MenuItem value={30}>Thirty</MenuItem>
                   </Select>
                 </FormControl>
               </TableCell>
               <TableCell className={classes.tableCell} align="right">
-                {row.start}
+                {inputField.start}
               </TableCell>
               <TableCell className={classes.tableCell} align="right">
-                {row.end}
+                {inputField.end}
               </TableCell>
               <TableCell className={classes.tableCell} align="right">
-                {row.action}
+                {inputField.action}
               </TableCell>
             </TableRow>
           ))}
         </TableBody>
       </Table>
+
+      <Button
+        className={classes.addTable}
+        status="disable"
+        size="small"
+        onClick={() => handleAddFields()}
+      >
+        <AddIcon /> Add More
+      </Button>
     </TableContainer>
   );
 }
