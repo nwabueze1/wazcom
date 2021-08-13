@@ -1,12 +1,6 @@
 import { createTheme } from "@material-ui/core";
-<<<<<<< HEAD
-// import type '@material-ui/lab/Autocomplete';
-
-=======
->>>>>>> develop
 declare module "@material-ui/core/styles/createTheme" {
-                 
-interface Theme {
+  interface Theme {
     include: { [key: string]: any };
     design: {
       font: { [key: string]: any };
@@ -114,11 +108,10 @@ export default createTheme({
     colors: {
       red70: "#FF4C4C",
       red90: "#FF1919",
-<<<<<<< HEAD
       gray: "#BEBEBE",
-=======
-      bgLight:'#EDF0F5',
->>>>>>> develop
+
+      bgLight: "#EDF0F5",
+
       width: "1366px",
       blue: "#0889F7",
       lightGrey: "#F5F5F5",
@@ -130,25 +123,25 @@ export default createTheme({
       sunRed: "#FF4C4C",
       honey: "#F7FFF7",
       grey: "#3A3335",
-      grey2:'#4F4F4F',
-      grey4:'#BDBDBD',
-      
-      grey5:"# E0E0E0",
+      grey2: "#4F4F4F",
+      grey4: "#BDBDBD",
+
+      grey5: "# E0E0E0",
       fauxGrey: "#5C5C5C",
       maroon: "#A33F50",
       charcoal: "#2A2D34",
       harvestGold: "#F2DBB5",
-      silver:"#BDBDBD",
+      silver: "#BDBDBD",
       white: "#FFFFFF",
-      offWhite: "#D6D6D6",                       
+      offWhite: "#D6D6D6",
       fauxBlack: "#121212",
       magicMint: "#FEDAA2",
       black: "#000000",
-      bglight:"#EDF0F5",            
+      bglight: "#EDF0F5",
       grey1: "#BEBEBE",
-      red20:'#FFCCCC',
-      red10:'#FFE5E5',
-      red50:'#FF8080',
+      red20: "#FFCCCC",
+      red10: "#FFE5E5",
+      red50: "#FF8080",
       red100: "#FF0000",
       red80: "#FF3333",
       red60: "#FF6666",
@@ -175,7 +168,7 @@ export default createTheme({
       green3: "#27AE60",
       darkorange: "#F4900C",
       lightorange: "#FFAA00",
-      grey80:"#5C5C5C",
+      grey80: "#5C5C5C",
     },
   },
   overrides: {
