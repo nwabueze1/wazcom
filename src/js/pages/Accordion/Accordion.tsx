@@ -28,7 +28,7 @@ const Acordion: FC<AccordionProps> = ({ className }) => {
             <Typography className={classes.heading}>Opened Group 1</Typography>
           </AccordionSummary>
           <AccordionDetails>
-            <Table />
+            <Table day="" start="" end="" />
           </AccordionDetails>
         </Accordion>
       </div>

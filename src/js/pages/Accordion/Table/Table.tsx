@@ -1,12 +1,11 @@
-import React, { useState } from "react";
-import { makeStyles } from "@material-ui/core/styles";
+import React, { useState, FC } from "react";
+
 import Table from "@material-ui/core/Table";
 import TableBody from "@material-ui/core/TableBody";
 import TableCell from "@material-ui/core/TableCell";
 import TableContainer from "@material-ui/core/TableContainer";
 import TableHead from "@material-ui/core/TableHead";
 import TableRow from "@material-ui/core/TableRow";
-import Paper from "@material-ui/core/Paper";
 import Select from "@material-ui/core/Select";
 import InputLabel from "@material-ui/core/InputLabel";
 import MenuItem from "@material-ui/core/MenuItem";
@@ -14,60 +13,16 @@ import FormControl from "@material-ui/core/FormControl";
 import Button from "../../Button/Button";
 import AddIcon from "@material-ui/icons/Add";
 import DeleteIcon from "@material-ui/icons/Delete";
+import useStyles from "./Style";
 
-const useStyles = makeStyles((theme) => ({
-  table: {
-    minWidth: 681,
-  },
-  tableCont: {
-    border: "10px",
-
-    margin: theme.spacing(3),
-  },
-  tableHead: {
-    fontFamily: "Nunito",
-    fontWeight: "bold",
-    fontSize: "18px",
-    padding: theme.spacing(2, 1),
-    backgroundColor: theme.design.colors.gray30,
-    color: theme.design.colors.pureblack,
-    border: `2px solid ${theme.design.colors.gray60}`,
-    textAlign: "center",
-  },
-  tableCell: {
-    fontFamily: "Nunito",
-    fontSize: "16px",
-    padding: theme.spacing(2, 1),
-    color: theme.design.colors.pureblack,
-    border: `2px solid ${theme.design.colors.gray60}`,
-    textAlign: "center",
-  },
-  select: {
-    margin: "0px",
-    padding: theme.spacing(1, 7),
-
-    "&:before": {
-      borderColor: theme.design.colors.white,
-    },
-    icon: {
-      fontSize: "50px",
-    },
-  },
-  addTable: {
-    margin: theme.spacing(2, 0, 8, 0),
-  },
-}));
-
-function createData(
-  day: string | number,
-  start: string | number,
-  end: string | number,
-  action?: any,
-) {
-  return { day, start, end, action };
+interface fieldProps {
+  day: string | number;
+  start: string | number;
+  end: string | number;
+  action?: any;
 }
 
-export default function BasicTable() {
+const BasicTable: FC<fieldProps> = () => {
   const [inputField, setInputField] = useState([
     {
       day: "Pick a day/days",
@@ -98,10 +53,11 @@ export default function BasicTable() {
   const handleRemoveFields = (index: number) => {
     const values = [...inputField];
     values.splice(index, 1);
+    setInputField(values);
   };
 
   return (
-    <TableContainer component={Paper} className={classes.tableCont}>
+    <TableContainer className={classes.tableCont}>
       <Table className={classes.table} aria-label="simple table">
         <TableHead>
           <TableRow>
@@ -155,7 +111,7 @@ export default function BasicTable() {
               <TableCell className={classes.tableCell} align="right">
                 {index >= 1 ? (
                   <DeleteIcon
-                    style={{ color: "red", fontSize: "33" }}
+                    style={{ color: "red", fontSize: "33", cursor: "pointer" }}
                     onClick={() => handleRemoveFields(index)}
                   />
                 ) : (
@@ -177,4 +133,5 @@ export default function BasicTable() {
       </Button>
     </TableContainer>
   );
-}
+};
+export default BasicTable;
