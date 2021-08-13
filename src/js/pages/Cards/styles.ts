@@ -15,9 +15,11 @@ export const useCardStyles = makeStyles(() => ({
      regtext:{
          color:theme.design.colors.sunRed,
          fontWeight:"bold",
+         fontSize:"24px",
          margin:theme.spacing(2,0)
      },
      text:{
-         padding:theme.spacing(0,2)
+         padding:theme.spacing(0,2),
+         textAlign:"left"
      }
 }));
