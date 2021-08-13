@@ -33,7 +33,6 @@ const useStyles = makeStyles((theme) => ({
   },
   tableCell: {
     fontFamily: "Nunito",
-
     fontSize: "16px",
     padding: theme.spacing(2, 1),
     color: theme.design.colors.pureblack,
@@ -42,10 +41,13 @@ const useStyles = makeStyles((theme) => ({
   },
   select: {
     margin: "0px",
-    padding: theme.spacing(1, 9),
+    padding: theme.spacing(1, 7),
 
     "&:before": {
-      borderColor: "red",
+      borderColor: theme.design.colors.white,
+    },
+    icon: {
+      fontSize: "50px",
     },
   },
 }));
@@ -88,14 +90,14 @@ export default function BasicTable() {
           </TableRow>
         </TableHead>
         <TableBody>
-          {rows.map((row) => (
-            <TableRow key={row.day}>
+          {rows.map((row, index) => (
+            <TableRow key={index}>
               <TableCell
                 className={classes.tableCell}
                 component="th"
                 scope="row"
               >
-                <FormControl variant="outlined">
+                <FormControl>
                   <InputLabel id="demo-simple-select-outlined-label">
                     Pick a day / days
                   </InputLabel>

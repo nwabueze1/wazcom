@@ -7,6 +7,8 @@ import Typography from "@material-ui/core/Typography";
 import ExpandMoreIcon from "@material-ui/icons/ExpandMore";
 import clx from "classnames";
 import Table from "./Table/Table";
+import Button from "../Button/Button";
+import AddIcon from "@material-ui/icons/Add";
 
 interface AccordionProps {
   className?: string;
@@ -25,13 +27,17 @@ const Acordion: FC<AccordionProps> = ({ className }) => {
             aria-controls="panel1a-content"
             id="panel1a-header"
           >
-            <Typography className={classes.heading}>Accordion 1</Typography>
+            <Typography className={classes.heading}>Opened Group 1</Typography>
           </AccordionSummary>
           <AccordionDetails>
             <Typography>
               <Table />
             </Typography>
           </AccordionDetails>
+
+          <Button className={classes.addTable} status="disable" size="small">
+            <AddIcon /> Add More
+          </Button>
         </Accordion>
       </div>
     </div>
