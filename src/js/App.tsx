@@ -9,10 +9,6 @@ import jssPluginExtend from "jss-plugin-extend";
 import React from "react";
 import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
 import theme from "./theme";
-<<<<<<< HEAD
-import { Home } from "./pages";
-import { Tab } from "./pages/Tab/Tab";
-=======
 
 import Toggle from "./pages/Toggle/Toggle";
 
@@ -25,7 +21,6 @@ import { Typography } from "../js/pages/Typography/Typography";
 import ZxBreadCrumb from "./pages/ZxBreadcrumbs/ZxBreadCrumb";
 import { paths } from "./pages/ZxBreadcrumbs/mock";
 import Page from "../js/pages/Page/Page";
->>>>>>> develop
 
 const jss = create({
   plugins: [...jssPreset().plugins, jssPluginExtend()],
@@ -36,22 +31,15 @@ interface Props {
 }
 
 const App: React.FC<Props> = () => {
-<<<<<<< HEAD
-  const arr = ["a", "b", "c", "d", "e", "f"];
-=======
+  // const arr = ["a", "b", "c", "d", "e", "f"];
   const taskList = ["Reaxt", "Recta", "RAect"];
->>>>>>> develop
   return (
     <CssBaseline>
       <StylesProvider jss={jss}>
         <ThemeProvider theme={theme}>
           <Router>
             <Switch>
-<<<<<<< HEAD
-              <Route path="/">
-=======
               <Route exact path="/">
->>>>>>> develop
                 <Home />
               </Route>
               <Route exact path="/textfields">
@@ -70,10 +58,6 @@ const App: React.FC<Props> = () => {
                 <ZxBreadCrumb paths={paths} />
               </Route>
             </Switch>
-<<<<<<< HEAD
-            <Route path="/tabs">
-              <Tab label="Solo" arr={arr} />
-=======
             <Route path="/selector">
               <Selector
                 items={taskList}
@@ -89,7 +73,6 @@ const App: React.FC<Props> = () => {
             </Route>
             <Route path="/styleguide/typography">
               <Typography />
->>>>>>> develop
             </Route>
           </Router>
         </ThemeProvider>
