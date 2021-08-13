@@ -2,25 +2,16 @@ import { createStyles, makeStyles, Theme } from "@material-ui/core/styles";
 const useStyles = makeStyles((theme: Theme) =>
   createStyles({
     root: {
-      width: '100%',
+   '& .MuiTableCell':{
+     color:'red'
+   },
+   head:{
+     color:'red'
+   }
      
-      '& .MuiAccordion':{
-      
-      },
-
-      overrides:{
-
-      }
     },
-    heading: {
-     color:theme.design.colors.white,
-      fontSize: theme.typography.pxToRem(15),
-      fontWeight: theme.typography.fontWeightRegular,
-    },
-    headerDesc:{
-        backgroundColor:theme.design.colors.red50,
-    }
+   
   }),
 );
 
-export default useStyles
+export default useStyles;
