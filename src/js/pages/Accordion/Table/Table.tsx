@@ -13,6 +13,7 @@ import MenuItem from "@material-ui/core/MenuItem";
 import FormControl from "@material-ui/core/FormControl";
 import Button from "../../Button/Button";
 import AddIcon from "@material-ui/icons/Add";
+import DeleteIcon from "@material-ui/icons/Delete";
 
 const useStyles = makeStyles((theme) => ({
   table: {
@@ -61,7 +62,7 @@ function createData(
   day: string | number,
   start: string | number,
   end: string | number,
-  action: string | number,
+  action?: any,
 ) {
   return { day, start, end, action };
 }
@@ -72,7 +73,7 @@ export default function BasicTable() {
       day: "Pick a day/days",
       start: "Enter Start time",
       end: "Enter End Time",
-      action: "Action",
+      action: "",
     },
   ]);
 
@@ -89,9 +90,14 @@ export default function BasicTable() {
         day: "Pick a day/days",
         start: "Enter Start time",
         end: "Enter End Time",
-        action: "Action",
+        action: "",
       },
     ]);
+  };
+
+  const handleRemoveFields = (index: number) => {
+    const values = [...inputField];
+    values.splice(index, 1);
   };
 
   return (
@@ -147,7 +153,14 @@ export default function BasicTable() {
                 {inputField.end}
               </TableCell>
               <TableCell className={classes.tableCell} align="right">
-                {inputField.action}
+                {index >= 1 ? (
+                  <DeleteIcon
+                    style={{ color: "red", fontSize: "33" }}
+                    onClick={() => handleRemoveFields(index)}
+                  />
+                ) : (
+                  inputField.action
+                )}
               </TableCell>
             </TableRow>
           ))}
