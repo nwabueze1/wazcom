@@ -31,7 +31,6 @@ interface Props {
 }
 
 const App: React.FC<Props> = () => {
-  // const arr = ["a", "b", "c", "d", "e", "f"];
   const taskList = ["Reaxt", "Recta", "RAect"];
   return (
     <CssBaseline>
