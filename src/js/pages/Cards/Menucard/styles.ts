@@ -7,9 +7,6 @@ export const useMenuCardStyles = makeStyles(() => ({
         borderRadius:"15px",
         fontFamily:"nunito"
     },
-    menuimg:{
-       // margin:theme.spacing(1.25)
-    },
     mealname:{
         fontWeight:"bold",
         marginTop:theme.spacing(4)

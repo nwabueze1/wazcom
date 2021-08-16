@@ -8,9 +8,14 @@ import { Typography } from "@material-ui/core";
 import Naira from "../../../../images/Vector.svg";
 import MoreVertIcon from "@material-ui/icons/MoreVert";
 import Toggle from "../../Toggle/Toggle";
-import image from "../../../../images/34.png";
 
-const MenuCard: FC<MenuCardProps> = ({ className }) => {
+const MenuCard: FC<MenuCardProps> = ({
+  className,
+  amount,
+  details,
+  meal,
+  image,
+}) => {
   const classes = useMenuCardStyles();
 
   return (
@@ -26,14 +31,12 @@ const MenuCard: FC<MenuCardProps> = ({ className }) => {
         </div>
         <div className={classes.mealdetail}>
           <Typography className={classes.mealname} variant="h5">
-            Vegan Sandwich
+            {meal}
           </Typography>
-          <Typography className={classes.details}>
-            Neque placerat lectus eget faucibus odio.
-          </Typography>
+          <Typography className={classes.details}>{details}</Typography>
           <Typography className={classes.price}>
             <img src={Naira} alt="naira" />
-            1500.00
+            {amount}
           </Typography>
         </div>
         <div className={classes.icons}>

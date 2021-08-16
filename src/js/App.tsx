@@ -19,7 +19,7 @@ import { Typography } from "../js/pages/Typography/Typography";
 import ZxBreadCrumb from "./pages/ZxBreadcrumbs/ZxBreadCrumb";
 import { paths } from "./pages/ZxBreadcrumbs/mock";
 import Page from "../js/pages/Page/Page";
-import MenuCard from "./pages/Cards/Menucard/MenuCards";
+import CardPage from "./pages/Cards/CardPage/Card";
 
 const jss = create({
   plugins: [...jssPreset().plugins, jssPluginExtend()],
@@ -55,8 +55,8 @@ const App: React.FC<Props> = () => {
               <Route exact path="/breadcrumb">
                 <ZxBreadCrumb paths={paths} />
               </Route>
-              <Route exact path="/menucard">
-                <MenuCard />
+              <Route exact path="/card">
+                <CardPage />
               </Route>
             </Switch>
             <Route path="/selector">
