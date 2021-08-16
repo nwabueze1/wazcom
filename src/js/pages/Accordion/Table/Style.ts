@@ -31,6 +31,10 @@ const useStyles = makeStyles((theme) => ({
     margin: "0px",
     padding: theme.spacing(1, 7),
 
+    "& .MuiSvgIcon-root": {
+      display:'none'
+    },
+
     "&:before": {
       borderColor: theme.design.colors.white,
     },

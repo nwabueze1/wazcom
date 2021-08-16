@@ -3,17 +3,15 @@ const useStyles = makeStyles((theme: Theme) =>
   createStyles({
     root: {
       width: '100%',
-     
-     
       '& .MuiAccordion':{
       
       },
-
       overrides:{
-
       }
     },
-
+    expandIcon: {
+     color:theme.design.colors.white,
+    },
     heading: {
      color:theme.design.colors.white,
       fontSize: theme.typography.pxToRem(15),
@@ -22,8 +20,6 @@ const useStyles = makeStyles((theme: Theme) =>
     headerDesc:{
         backgroundColor:theme.design.colors.red50,
     },
-
-   
   }),
 );
 

@@ -66,7 +66,7 @@ const BasicTable: FC<fieldProps> = () => {
               Start time
             </TableCell>
             <TableCell className={classes.tableHead} align="right">
-              Ent Time
+              End Time
             </TableCell>
             <TableCell className={classes.tableHead} align="right">
               Action

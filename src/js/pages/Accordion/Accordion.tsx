@@ -21,7 +21,7 @@ const Acordion: FC<AccordionProps> = ({ className }) => {
         <Accordion className={classes.root}>
           <AccordionSummary
             className={classes.headerDesc}
-            expandIcon={<ExpandMoreIcon />}
+            expandIcon={<ExpandMoreIcon className={classes.expandIcon} />}
             aria-controls="panel1a-content"
             id="panel1a-header"
           >
