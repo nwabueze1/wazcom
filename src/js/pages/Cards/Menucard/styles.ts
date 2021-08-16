@@ -5,7 +5,9 @@ export const useMenuCardStyles = makeStyles(() => ({
     root: {
         width: "500px",
         borderRadius:"15px",
-        fontFamily:"nunito"
+        fontFamily:"nunito",
+        opacity:1,
+        transition:"opacity 0.5s ease-in"
     },
     mealname:{
         fontWeight:"bold",
@@ -30,7 +32,6 @@ export const useMenuCardStyles = makeStyles(() => ({
     },
     imgfield:{
         height:"142px",
-        // border:"2px solid yellow",
         borderRadius:"50%",
         backgroundSize:"contain",
         backgroundRepeat:"no-repeat",
@@ -45,5 +46,8 @@ export const useMenuCardStyles = makeStyles(() => ({
         flexDirection:"column",
         justifyContent:"space-between",
         marginLeft:theme.spacing(4),
+    },
+    disableState:{
+        opacity:0.1
     }
 }));

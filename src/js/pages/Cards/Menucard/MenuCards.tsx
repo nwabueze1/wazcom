@@ -19,7 +19,10 @@ const MenuCard: FC<MenuCardProps> = ({
   const classes = useMenuCardStyles();
 
   return (
-    <Card className={clx(className, classes.root)} variant="outlined">
+    <Card
+      className={clx(className, classes.root, classes.disableState)}
+      variant="outlined"
+    >
       <CardContent className={classes.cardcontents}>
         <div className={classes.outerbar}>
           <div
