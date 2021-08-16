@@ -20,12 +20,13 @@ interface fieldProps {
   start: string | number;
   end: string | number;
   action?: any;
+  choice?: any;
 }
 
 const BasicTable: FC<fieldProps> = () => {
-  const [inputField, setInputField] = useState([
+  const [inputFields, setInputField] = useState([
     {
-      day: "Pick a day/days",
+      day: "10",
       start: "Enter Start time",
       end: "Enter End Time",
       action: "",
@@ -33,16 +34,22 @@ const BasicTable: FC<fieldProps> = () => {
   ]);
 
   const classes = useStyles();
-  const [day, setDay] = React.useState("");
-  const handleChange = (event: React.ChangeEvent<{ value: unknown }>) => {
-    setDay(event.target.value as string);
+  // const [day, setDay] = React.useState("");
+
+  const handleChangeInput = (
+    index: number,
+    event: React.ChangeEvent<{ value: unknown }>,
+  ) => {
+    const newInputFields = [...inputFields];
+    newInputFields[index].day = event.target.value as string;
+    setInputField(newInputFields);
   };
 
   const handleAddFields = () => {
     setInputField([
-      ...inputField,
+      ...inputFields,
       {
-        day: "Pick a day/days",
+        day: "10",
         start: "Enter Start time",
         end: "Enter End Time",
         action: "",
@@ -51,7 +58,7 @@ const BasicTable: FC<fieldProps> = () => {
   };
 
   const handleRemoveFields = (index: number) => {
-    const values = [...inputField];
+    const values = [...inputFields];
     values.splice(index, 1);
     setInputField(values);
   };
@@ -74,7 +81,7 @@ const BasicTable: FC<fieldProps> = () => {
           </TableRow>
         </TableHead>
         <TableBody>
-          {inputField.map((inputField, index) => (
+          {inputFields.map((inputFields, index) => (
             <TableRow key={index}>
               <TableCell
                 className={classes.tableCell}
@@ -86,27 +93,32 @@ const BasicTable: FC<fieldProps> = () => {
                     Pick a day / days
                   </InputLabel>
                   <Select
+                    name="choice"
                     labelId="demo-simple-select-outlined-label"
                     id="demo-simple-select-outlined"
-                    value={day}
-                    onChange={handleChange}
+                    value={
+                      inputFields.day === ""
+                        ? "Pick a day / days"
+                        : inputFields.day
+                    }
+                    onChange={(event) => handleChangeInput(index, event)}
                     label="Age"
                     className={classes.select}
                   >
-                    <MenuItem value="">
+                    <MenuItem value="Pick a day / days">
                       <em>None</em>
                     </MenuItem>
-                    <MenuItem value={inputField.day}>Ten</MenuItem>
+                    <MenuItem value={10}>Ten</MenuItem>
                     <MenuItem value={20}>Twenty</MenuItem>
                     <MenuItem value={30}>Thirty</MenuItem>
                   </Select>
                 </FormControl>
               </TableCell>
               <TableCell className={classes.tableCell} align="right">
-                {inputField.start}
+                {inputFields.start}
               </TableCell>
               <TableCell className={classes.tableCell} align="right">
-                {inputField.end}
+                {inputFields.end}
               </TableCell>
               <TableCell className={classes.tableCell} align="right">
                 {index >= 1 ? (
@@ -115,7 +127,7 @@ const BasicTable: FC<fieldProps> = () => {
                     onClick={() => handleRemoveFields(index)}
                   />
                 ) : (
-                  inputField.action
+                  inputFields.action
                 )}
               </TableCell>
             </TableRow>
