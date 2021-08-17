@@ -51,7 +51,7 @@ export default function CustomizedSwitches() {
             name="checked"
           />
         }
-        label="Toggle ON"
+        label=""
       />
     </FormGroup>
   );

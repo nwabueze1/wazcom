@@ -12,8 +12,7 @@ export const useStyles = makeStyles(() => ({
         color:theme.design.colors.grey,
         '& span': {
             color:theme.design.colors.red
-        },
-       
+        },   
     },
     inputsize:{
         width:"320px"

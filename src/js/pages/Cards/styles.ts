@@ -3,15 +3,11 @@ import theme from "js/theme";
 
 export const useCardStyles = makeStyles(() => ({
     root: {
-        minWidth: 384,
+        width: "384px",
         pading:theme.spacing(1,1),
         textAlign:"center",
         borderRadius:"25px"
     },
-    media:{
-          height:"100px",
-          width:"30%"
-     },
      regtext:{
          color:theme.design.colors.sunRed,
          fontWeight:"bold",
