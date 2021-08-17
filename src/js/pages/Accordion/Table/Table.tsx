@@ -18,8 +18,8 @@ import TextField from "@material-ui/core/TextField";
 
 interface fieldProps {
   day: string | number;
-  start: string | number;
-  end: string | number;
+  start: string | number | Date;
+  end: string | number | Date;
   action?: any;
   choice?: any;
 }
@@ -28,8 +28,8 @@ const BasicTable: FC<fieldProps> = () => {
   const [inputFields, setInputField] = useState([
     {
       day: "",
-      start: "Enter Start time",
-      end: "Enter End Time",
+      start: "",
+      end: "",
       action: "",
     },
   ]);
@@ -42,17 +42,17 @@ const BasicTable: FC<fieldProps> = () => {
     event: React.ChangeEvent<{ value: unknown }>,
   ) => {
     const newInputFields = [...inputFields];
-    newInputFields[index].day = event.target.value as string;
-    setInputField(newInputFields);
+    newInputFields[index].end = event.target.value as string;
+    console.log(newInputFields);
   };
 
   const handleAddFields = () => {
     setInputField([
       ...inputFields,
       {
-        day: "Pick a day / days",
-        start: "Enter Start time",
-        end: "Enter End Time",
+        day: "",
+        start: "",
+        end: "",
         action: "",
       },
     ]);
@@ -93,7 +93,6 @@ const BasicTable: FC<fieldProps> = () => {
                   <InputLabel id="demo-simple-select-outlined-label"></InputLabel>
                   <Select
                     name="choice"
-                    labelId="demo-simple-select-outlined-label"
                     id="demo-simple-select-outlined"
                     value={
                       inputFields.day === ""
@@ -101,7 +100,6 @@ const BasicTable: FC<fieldProps> = () => {
                         : inputFields.day
                     }
                     onChange={(event) => handleChangeInput(index, event)}
-                    label="Age"
                     className={classes.select}
                   >
                     <MenuItem value="Pick a day / days">
@@ -115,20 +113,14 @@ const BasicTable: FC<fieldProps> = () => {
               </TableCell>
               <TableCell className={classes.tableCell} align="right">
                 <TextField
-                  value={inputFields.start}
                   onChange={(event) => handleChangeInput(index, event)}
-                  id="time"
                   type="time"
-                  defaultValue="07:30"
                 />
               </TableCell>
               <TableCell className={classes.tableCell} align="right">
                 <TextField
-                  value={inputFields.end}
                   onChange={(event) => handleChangeInput(index, event)}
-                  id="time"
                   type="time"
-                  defaultValue="07:30"
                 />
               </TableCell>
               <TableCell className={classes.tableCell} align="right">
