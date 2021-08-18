@@ -17,14 +17,18 @@ import useStyles from "./Style";
 import TextField from "@material-ui/core/TextField";
 
 interface fieldProps {
-  day: string | number;
-  start: string | number | Date;
-  end: string | number | Date;
   action?: any;
   choice?: any;
+  handleChangeInput: (
+    index: number,
+    event: React.ChangeEvent<{
+      name?: string | undefined;
+      value: unknown;
+    }>,
+  ) => void;
 }
 
-const BasicTable: FC<fieldProps> = () => {
+const BasicTable: FC<fieldProps> = ({ handleChangeInput }) => {
   const [inputFields, setInputField] = useState([
     {
       day: "",
@@ -36,15 +40,6 @@ const BasicTable: FC<fieldProps> = () => {
 
   const classes = useStyles();
   // const [day, setDay] = React.useState("");
-
-  const handleChangeInput = (
-    index: number,
-    event: React.ChangeEvent<{ value: unknown }>,
-  ) => {
-    const newInputFields = [...inputFields];
-    newInputFields[index].end = event.target.value as string;
-    console.log(newInputFields);
-  };
 
   const handleAddFields = () => {
     setInputField([
@@ -113,12 +108,14 @@ const BasicTable: FC<fieldProps> = () => {
               </TableCell>
               <TableCell className={classes.tableCell} align="right">
                 <TextField
+                  name="start"
                   onChange={(event) => handleChangeInput(index, event)}
                   type="time"
                 />
               </TableCell>
               <TableCell className={classes.tableCell} align="right">
                 <TextField
+                  name="end"
                   onChange={(event) => handleChangeInput(index, event)}
                   type="time"
                 />

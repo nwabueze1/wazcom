@@ -1,4 +1,4 @@
-import React, { FC } from "react";
+import React, { FC, useState } from "react";
 import useStyles from "./styles";
 import Accordion from "@material-ui/core/Accordion";
 import AccordionSummary from "@material-ui/core/AccordionSummary";
@@ -10,9 +10,16 @@ import Table from "./Table/Table";
 
 interface AccordionProps {
   className?: string;
+  handleChangeInput: (
+    index: number,
+    event: React.ChangeEvent<{
+      name?: string | undefined;
+      value: unknown;
+    }>,
+  ) => void;
 }
 
-const Acordion: FC<AccordionProps> = ({ className }) => {
+const Acordion: FC<AccordionProps> = ({ className, handleChangeInput }) => {
   const classes = useStyles();
 
   return (
@@ -28,7 +35,7 @@ const Acordion: FC<AccordionProps> = ({ className }) => {
             <Typography className={classes.heading}>Opened Group 1</Typography>
           </AccordionSummary>
           <AccordionDetails>
-            <Table day="" start="" end="" />
+            <Table handleChangeInput={handleChangeInput} />
           </AccordionDetails>
         </Accordion>
       </div>
