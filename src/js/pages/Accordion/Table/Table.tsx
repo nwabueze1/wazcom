@@ -1,5 +1,4 @@
 import React, { useState, FC } from "react";
-
 import Table from "@material-ui/core/Table";
 import TableBody from "@material-ui/core/TableBody";
 import TableCell from "@material-ui/core/TableCell";
@@ -39,7 +38,6 @@ const BasicTable: FC<fieldProps> = ({ handleChangeInput }) => {
   ]);
 
   const classes = useStyles();
-  // const [day, setDay] = React.useState("");
 
   const handleAddFields = () => {
     setInputField([

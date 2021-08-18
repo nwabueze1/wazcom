@@ -9,9 +9,7 @@ import jssPluginExtend from "jss-plugin-extend";
 import React from "react";
 import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
 import theme from "./theme";
-
 import Toggle from "./pages/Toggle/Toggle";
-
 import Home from "./pages/Home";
 import Selector from "./pages/Selector/Selector";
 import ButtonGuide from "./pages/ButtonGuide/ButtonGuide";
@@ -22,6 +20,7 @@ import ZxBreadCrumb from "./pages/ZxBreadcrumbs/ZxBreadCrumb";
 import { paths } from "./pages/ZxBreadcrumbs/mock";
 import Page from "../js/pages/Page/Page";
 import Acordion from "./pages/Accordion/Accordion";
+import CardPage from "./pages/Cards/CardPage/Card";
 
 const jss = create({
   plugins: [...jssPreset().plugins, jssPluginExtend()],
@@ -68,6 +67,9 @@ const App: React.FC<Props> = () => {
               </Route>
               <Route exact path="/breadcrumb">
                 <ZxBreadCrumb paths={paths} />
+              </Route>
+              <Route exact path="/card">
+                <CardPage />
               </Route>
             </Switch>
             <Route path="/selector">
