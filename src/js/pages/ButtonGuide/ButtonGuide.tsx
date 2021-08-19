@@ -207,7 +207,7 @@ const ButtonGuide: React.FC<ButtonGuideProps> = ({ size }) => {
             </div>
             <div className={classes.buttonItem}>
               <Button size="large" status="disable">
-                <AddIcon /> Button Sample
+                Button Sample
               </Button>
             </div>
             <div className={classes.buttonItem}>

@@ -19,6 +19,7 @@ import { Typography } from "../js/pages/Typography/Typography";
 import ZxBreadCrumb from "./pages/ZxBreadcrumbs/ZxBreadCrumb";
 import { paths } from "./pages/ZxBreadcrumbs/mock";
 import Page from "../js/pages/Page/Page";
+import Acordion from "./pages/Accordion/Accordion";
 import CardPage from "./pages/Cards/CardPage/Card";
 
 const jss = create({
@@ -31,6 +32,15 @@ interface Props {
 
 const App: React.FC<Props> = () => {
   const taskList = ["Reaxt", "Recta", "RAect"];
+
+  const handleChangeInput = (
+    index: number,
+    event: React.ChangeEvent<{ value: unknown; name?: string | undefined }>,
+  ) => {
+    console.log(event.target.value);
+    console.log(event.target.name);
+  };
+
   return (
     <CssBaseline>
       <StylesProvider jss={jss}>
@@ -51,6 +61,9 @@ const App: React.FC<Props> = () => {
               </Route>
               <Route exact path="/toggle">
                 <Toggle />
+              </Route>
+              <Route path="/accordion">
+                <Acordion handleChangeInput={handleChangeInput} />
               </Route>
               <Route exact path="/breadcrumb">
                 <ZxBreadCrumb paths={paths} />

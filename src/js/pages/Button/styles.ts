@@ -47,7 +47,7 @@ export const useButtonStyles = makeStyles((theme: Theme) =>
         theme.typography.fontSize * 3
       }px`,
       minWidth:theme.spacing(30),
-      minHeight:theme.spacing(6),
+      minHeight:theme.spacing(7),
     },
     medium: {
       color: theme.design.colors.white,
