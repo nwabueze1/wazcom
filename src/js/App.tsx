@@ -48,7 +48,7 @@ const App: React.FC<Props> = () => {
                 <Page />
               </Route>
               <Route exact path="/notification">
-                <Notification status="success" />
+                <Notification status="" />
               </Route>
               <Route exact path="/buttonguide">
                 <ButtonGuide />

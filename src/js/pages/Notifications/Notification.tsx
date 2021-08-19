@@ -12,11 +12,13 @@ const getStatusClassName = (
 ) => {
   switch (status) {
     case "success":
-      return classes.success;
+      return classes.success, classes;
       break;
-
+    case "failed":
+      return classes.failed;
+      break;
     default:
-      return classes;
+      return classes.success;
   }
 };
 
@@ -24,9 +26,9 @@ const Notification: FC<NotificationProps> = ({ status }) => {
   const classes = useStyles();
   const StatusClassName = getStatusClassName(classes, status);
   return (
-    <div className={clx()}>
+    <div className={clx(classes.card)}>
       <div className={classes.notificationCard}>
-        <div className={clx(StatusClassName)}>
+        <div className={clx(StatusClassName, classes.notificationHead)}>
           <NotificationsNoneIcon className={classes.alarm} />
           <Typography className={classes.report}>Action report</Typography>
           <CloseIcon className={classes.cancel} />
@@ -36,11 +38,11 @@ const Notification: FC<NotificationProps> = ({ status }) => {
             Image Successfully uploaded
           </Typography>
           <Typography className={classes.notificationText}>
-            Profile image successfully changed
+            Profile image successfully <br /> changed
           </Typography>
         </div>
-        <Typography className={classes.status}>Success Notification</Typography>
       </div>
+      <Typography className={classes.status}>Success Notification</Typography>
     </div>
   );
 };
