@@ -20,6 +20,7 @@ import ZxBreadCrumb from "./pages/ZxBreadcrumbs/ZxBreadCrumb";
 import { paths } from "./pages/ZxBreadcrumbs/mock";
 import Page from "../js/pages/Page/Page";
 import CardPage from "./pages/Cards/CardPage/Card";
+import Notification from "../js/pages/Notifications/Notification";
 
 const jss = create({
   plugins: [...jssPreset().plugins, jssPluginExtend()],
@@ -45,6 +46,9 @@ const App: React.FC<Props> = () => {
               </Route>
               <Route exact path="/pagination">
                 <Page />
+              </Route>
+              <Route exact path="/notification">
+                <Notification status="success" />
               </Route>
               <Route exact path="/buttonguide">
                 <ButtonGuide />
