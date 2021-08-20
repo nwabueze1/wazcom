@@ -12,22 +12,36 @@ const getStatusClassName = (
 ) => {
   switch (status) {
     case "success":
-      return classes.success, classes;
+      return `${classes.successBg} && ${classes.success}`;
       break;
     case "failed":
-      return classes.failed;
+      return `${classes.failedBg} && ${classes.failed}`;
+      break;
+    case "plain":
+      return `${classes.plainBg} && ${classes.plain}`;
       break;
     default:
-      return classes.success;
+      return `${classes.successBg} && ${classes.success}`;
   }
 };
 
-const Notification: FC<NotificationProps> = ({ status }) => {
+const Notification: FC<NotificationProps> = ({
+  status,
+  uploadStatus,
+  uploadFeedBack,
+  statusAlert,
+}) => {
   const classes = useStyles();
   const StatusClassName = getStatusClassName(classes, status);
   return (
     <div className={clx(classes.card)}>
-      <div className={classes.notificationCard}>
+      <div
+        className={clx(
+          classes.notificationCard,
+          classes.plainBg,
+          classes.successBg,
+        )}
+      >
         <div className={clx(StatusClassName, classes.notificationHead)}>
           <NotificationsNoneIcon className={classes.alarm} />
           <Typography className={classes.report}>Action report</Typography>
@@ -35,14 +49,14 @@ const Notification: FC<NotificationProps> = ({ status }) => {
         </div>
         <div className={classes.notificationInfo}>
           <Typography className={classes.notificationHeading}>
-            Image Successfully uploaded
+            {uploadStatus}
           </Typography>
           <Typography className={classes.notificationText}>
-            Profile image successfully <br /> changed
+            {uploadFeedBack}
           </Typography>
         </div>
       </div>
-      <Typography className={classes.status}>Success Notification</Typography>
+      <Typography className={classes.status}>{statusAlert}</Typography>
     </div>
   );
 };

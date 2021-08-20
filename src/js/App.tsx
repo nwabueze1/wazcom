@@ -48,7 +48,12 @@ const App: React.FC<Props> = () => {
                 <Page />
               </Route>
               <Route exact path="/notification">
-                <Notification status="" />
+                <Notification
+                  status="failed"
+                  uploadStatus="Image upload failed"
+                  uploadFeedBack="profile image couldn't be uploaded"
+                  statusAlert="Failed / alert Notification"
+                />
               </Route>
               <Route exact path="/buttonguide">
                 <ButtonGuide />

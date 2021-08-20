@@ -6,7 +6,7 @@ export const useStyles = makeStyles(() => ({
     notificationCard:{
         backgroundColor:theme.design.colors.white,
         borderRadius:'10px',
-        padding:theme.spacing(.5),
+        padding:theme.spacing(.5, .5, 3, .5),
         border:'8px',
     },
     card:{
@@ -22,12 +22,25 @@ export const useStyles = makeStyles(() => ({
         height:'32px',
         borderRadius: 8,
     },
+    successBg:{
+        backgroundColor:theme.design.colors.white,
+    },
     success:{
         backgroundColor:theme.design.colors.success,
+    },
+    failedBg:{
+        backgroundColor:theme.design.colors.gray20,
     },
     failed:{
         backgroundColor:theme.design.colors.red40,
     },
+    plainBg:{
+        backgroundColor:theme.design.colors.gray20,
+    },
+    plain:{
+        backgroundColor:theme.design.colors.gray40,
+    },
+   
     cancel:{
         backgroundColor:theme.design.colors.white,
         color:theme.design.colors.lightRed,
@@ -45,7 +58,7 @@ export const useStyles = makeStyles(() => ({
         fontWeight:400,
     },
     notificationInfo:{
-
+padding:theme.spacing(1)
     },
     notificationHeading:{
         color:theme.design.colors.pureblack,
