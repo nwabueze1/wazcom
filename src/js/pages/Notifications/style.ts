@@ -24,11 +24,10 @@ export const useStyles = makeStyles(() => ({
         height:'32px',
         borderRadius: 8,
     },
-    back:{
-        backgroundColor:theme.design.colors.red40
-    },
+   
     success:{
         backgroundColor:theme.design.colors.success,
+        opacity:.6,
     },
     failed:{
         backgroundColor:theme.design.colors.red40,
@@ -57,31 +56,35 @@ export const useStyles = makeStyles(() => ({
         color:theme.design.colors.gray80,
         fontFamily:'Nunito',
         fontSize:'14px',
+        fontStyle:'normal',
         marginLeft:theme.spacing(1),
         fontWeight:400,
     },
     notificationInfo:{
-padding:theme.spacing(1)
+     padding:theme.spacing(1)
     },
     notificationHeading:{
         color:theme.design.colors.pureblack,
         fontWeight:'bold',
         fontFamily:'nunito',
         fontSize:'14px',
-        marginLeft:'8px'
+        marginLeft:theme.spacing(1),
+        fontStyle:'normal',
     },
     notificationText:{
         color:theme.design.colors.gray80,
         fontFamily:'Nunito',
-    fontSize:'12px',
-    marginLeft:theme.spacing(1),
+         fontSize:'12px',
+         fontStyle:'normal',
+        marginLeft:theme.spacing(1),
     },
     status:{
         color:theme.design.colors.gray80,
         fontFamily:'Nunito',
         fontWeight:'bold',
-    fontSize:'16px',
-    marginTop:theme.spacing(2)
+        fontStyle:'normal',
+        fontSize:'16px',
+        marginTop:theme.spacing(2)
    
     }
   
