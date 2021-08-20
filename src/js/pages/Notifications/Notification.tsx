@@ -12,16 +12,16 @@ const getStatusClassName = (
 ) => {
   switch (status) {
     case "success":
-      return `${classes.successBg} && ${classes.success}`;
+      return classes.success;
       break;
     case "failed":
-      return `${classes.failedBg} && ${classes.failed}`;
+      return classes.failed;
       break;
     case "plain":
-      return `${classes.plainBg} && ${classes.plain}`;
+      return classes.plain;
       break;
     default:
-      return `${classes.successBg} && ${classes.success}`;
+      return classes.success;
   }
 };
 
@@ -33,31 +33,37 @@ const Notification: FC<NotificationProps> = ({
 }) => {
   const classes = useStyles();
   const StatusClassName = getStatusClassName(classes, status);
+
   return (
-    <div className={clx(classes.card)}>
-      <div
-        className={clx(
-          classes.notificationCard,
-          classes.plainBg,
-          classes.successBg,
-        )}
-      >
-        <div className={clx(StatusClassName, classes.notificationHead)}>
-          <img src={Icon} alt="notification image" className={classes.alarm} />
-          <Typography className={classes.report}>Action report</Typography>
-          <CloseIcon className={classes.cancel} />
+    <>
+      <div className={clx(classes.card)}>
+        <div
+          className={clx(
+            classes.notificationCard,
+            status !== "success" && classes.plainBg,
+          )}
+        >
+          <div className={clx(StatusClassName, classes.notificationHead)}>
+            <img
+              src={Icon}
+              alt="notification image"
+              className={classes.alarm}
+            />
+            <Typography className={classes.report}>Action report</Typography>
+            <CloseIcon className={classes.cancel} />
+          </div>
+          <div className={classes.notificationInfo}>
+            <Typography className={classes.notificationHeading}>
+              {uploadStatus}
+            </Typography>
+            <Typography className={classes.notificationText}>
+              {uploadFeedBack}
+            </Typography>
+          </div>
         </div>
-        <div className={classes.notificationInfo}>
-          <Typography className={classes.notificationHeading}>
-            {uploadStatus}s
-          </Typography>
-          <Typography className={classes.notificationText}>
-            {uploadFeedBack}
-          </Typography>
-        </div>
+        <Typography className={classes.status}>{statusAlert}</Typography>
       </div>
-      <Typography className={classes.status}>{statusAlert}</Typography>
-    </div>
+    </>
   );
 };
 

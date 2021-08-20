@@ -3,15 +3,17 @@ import { makeStyles, } from "@material-ui/core/styles";
 
 /** !!-- Remember to update the function name !! */
 export const useStyles = makeStyles(() => ({
+    
     notificationCard:{
-        backgroundColor:theme.design.colors.white,
         borderRadius:'10px',
         padding:theme.spacing(.5, .5, 3, .5),
         border:'8px',
     },
+    
     card:{
         width:'256px',
         backgroundColor:theme.design.colors.white,
+        marginRight:'40px'
     },
     notificationHead:{
         display:'flex',
@@ -22,18 +24,19 @@ export const useStyles = makeStyles(() => ({
         height:'32px',
         borderRadius: 8,
     },
-    successBg:{
-        backgroundColor:theme.design.colors.white,
+    back:{
+        backgroundColor:theme.design.colors.red40
     },
     success:{
         backgroundColor:theme.design.colors.success,
     },
-    failedBg:{
-        backgroundColor:theme.design.colors.gray20,
-    },
     failed:{
         backgroundColor:theme.design.colors.red40,
     },
+    failedBg:{
+        backgroundColor:theme.design.colors.gray20,
+    },
+    
     plainBg:{
         backgroundColor:theme.design.colors.gray20,
     },
@@ -63,7 +66,7 @@ padding:theme.spacing(1)
     notificationHeading:{
         color:theme.design.colors.pureblack,
         fontWeight:'bold',
-        fontFamily:'Nunito',
+        fontFamily:'nunito',
         fontSize:'14px',
         marginLeft:'8px'
     },

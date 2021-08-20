@@ -169,7 +169,8 @@ export default createTheme({
       darkorange: "#F4900C",
       lightorange: "#FFAA00",
       grey80:"#5C5C5C",
-      yellowsea:"#F5A53C"
+      yellowsea:"#F5A53C",
+      
     },
   },
   overrides: {
