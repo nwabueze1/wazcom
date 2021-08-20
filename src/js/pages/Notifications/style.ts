@@ -32,9 +32,6 @@ export const useStyles = makeStyles(() => ({
     failed:{
         backgroundColor:theme.design.colors.red40,
     },
-    failedBg:{
-        backgroundColor:theme.design.colors.gray20,
-    },
     
     plainBg:{
         backgroundColor:theme.design.colors.gray20,
@@ -54,7 +51,7 @@ export const useStyles = makeStyles(() => ({
     },
     report:{
         color:theme.design.colors.gray80,
-        fontFamily:'Nunito',
+        fontFamily:theme.typography.fontFamily,
         fontSize:'14px',
         fontStyle:'normal',
         marginLeft:theme.spacing(1),
@@ -66,21 +63,21 @@ export const useStyles = makeStyles(() => ({
     notificationHeading:{
         color:theme.design.colors.pureblack,
         fontWeight:'bold',
-        fontFamily:'nunito',
+        fontFamily:theme.typography.fontFamily,
         fontSize:'14px',
         marginLeft:theme.spacing(1),
         fontStyle:'normal',
     },
     notificationText:{
         color:theme.design.colors.gray80,
-        fontFamily:'Nunito',
+        fontFamily:theme.typography.fontFamily,
          fontSize:'12px',
          fontStyle:'normal',
         marginLeft:theme.spacing(1),
     },
     status:{
         color:theme.design.colors.gray80,
-        fontFamily:'Nunito',
+        fontFamily:theme.typography.fontFamily,
         fontWeight:'bold',
         fontStyle:'normal',
         fontSize:'16px',
