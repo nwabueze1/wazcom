@@ -32,7 +32,7 @@ interface Props {
 
 const App: React.FC<Props> = () => {
   const handleChange = (event: React.ChangeEvent<{ value: unknown }>) => {
-    return event;
+    return event.target.value;
   };
 
   return (

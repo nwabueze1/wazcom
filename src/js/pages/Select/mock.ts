@@ -1,4 +1,4 @@
- const array = [1, 2, 3]
+ const array = ["Option 1", "Option 2", "Option 3"]
 
  
  export default array

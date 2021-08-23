@@ -1,7 +1,7 @@
 import {CommonProps} from '../types';
 
 export type SelectProps = CommonProps & {
-    array:number[]  
+    array:string[]  
      handleChange : (event: React.ChangeEvent<{ value: unknown }>) => void
-    value?:number
+    value?:string
 }

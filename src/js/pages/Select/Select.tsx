@@ -23,7 +23,15 @@ const Selector: FC<SelectProps> = ({
         >
           {array.map((value, index) => {
             return (
-              <MenuItem key={index} value={value}>
+              <MenuItem
+                key={index}
+                value={value}
+                selected
+                classes={{
+                  selected: classes.selected,
+                  root: classes.rootMenuItem,
+                }}
+              >
                 {value}
               </MenuItem>
             );
