@@ -11,7 +11,6 @@ import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
 import theme from "./theme";
 import Toggle from "./pages/Toggle/Toggle";
 import Home from "./pages/Home";
-import Selector from "./pages/Selector/Selector";
 import ButtonGuide from "./pages/ButtonGuide/ButtonGuide";
 import TextField from "./pages/Textfield/TextField";
 import { StyleGuide } from "./pages/StyleGuide/StyleGuide";
@@ -21,6 +20,7 @@ import { paths } from "./pages/ZxBreadcrumbs/mock";
 import Page from "../js/pages/Page/Page";
 import Acordion from "./pages/Accordion/Accordion";
 import CardPage from "./pages/Cards/CardPage/Card";
+import CheckBox from "./pages/Checkbox/CheckBox";
 
 const jss = create({
   plugins: [...jssPreset().plugins, jssPluginExtend()],
@@ -31,8 +31,6 @@ interface Props {
 }
 
 const App: React.FC<Props> = () => {
-  const taskList = ["Reaxt", "Recta", "RAect"];
-
   const handleChangeInput = (
     index: number,
     event: React.ChangeEvent<{ value: unknown; name?: string | undefined }>,
@@ -71,17 +69,10 @@ const App: React.FC<Props> = () => {
               <Route exact path="/card">
                 <CardPage />
               </Route>
+              <Route exact path="/check">
+                <CheckBox />
+              </Route>
             </Switch>
-            <Route path="/selector">
-              <Selector
-                items={taskList}
-                styles={{ borderRadius: "10px", width: "200px" }}
-              />
-              <Selector
-                items={taskList}
-                styles={{ borderRadius: "10px", width: "200px" }}
-              />
-            </Route>
             <Route path="/styleguide/colors">
               <StyleGuide />
             </Route>
