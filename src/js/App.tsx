@@ -59,11 +59,7 @@ const App: React.FC<Props> = () => {
                 <ZxBreadCrumb paths={paths} />
               </Route>
               <Route exact path="/select">
-                <Selector
-                  array={array}
-                  value="Option 2"
-                  handleChange={handleChange}
-                />
+                <Selector array={array} handleChange={handleChange} />
               </Route>
             </Switch>
             <Route path="/styleguide/colors">
