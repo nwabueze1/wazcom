@@ -2,7 +2,7 @@ import React, { FC } from "react";
 import { useStyles } from "./styles";
 import { SelectProps } from "./types";
 import clx from "classnames";
-import { Select, FormControl, MenuItem } from "@material-ui/core";
+import { Select, FormControl } from "@material-ui/core";
 
 const Selector: FC<SelectProps> = ({
   className,
@@ -16,24 +16,20 @@ const Selector: FC<SelectProps> = ({
     <div className={clx(className)}>
       <FormControl variant="outlined" className={classes.formControl}>
         <Select
-          labelId="demo-simple-select-outlined-label"
+          classes={{
+            select: classes.selected,
+            root: classes.root,
+          }}
+          native
           id="demo-simple-select-outlined"
-          defaultValue={value}
+          value={value}
           onChange={handleChange}
         >
           {array.map((value, index) => {
             return (
-              <MenuItem
-                key={index}
-                value={value}
-                selected
-                classes={{
-                  selected: classes.selected,
-                  root: classes.rootMenuItem,
-                }}
-              >
+              <option key={index} value={value} className={clx()}>
                 {value}
-              </MenuItem>
+              </option>
             );
           })}
         </Select>

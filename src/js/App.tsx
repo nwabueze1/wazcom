@@ -11,7 +11,6 @@ import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
 import theme from "./theme";
 import Toggle from "./pages/Toggle/Toggle";
 import Home from "./pages/Home";
-// import Selector from "./pages/Selector/Selector";
 import ButtonGuide from "./pages/ButtonGuide/ButtonGuide";
 import TextField from "./pages/Textfield/TextField";
 import { StyleGuide } from "./pages/StyleGuide/StyleGuide";
@@ -60,19 +59,13 @@ const App: React.FC<Props> = () => {
                 <ZxBreadCrumb paths={paths} />
               </Route>
               <Route exact path="/select">
-                <Selector array={array} handleChange={handleChange} />
+                <Selector
+                  array={array}
+                  value="Option 2"
+                  handleChange={handleChange}
+                />
               </Route>
             </Switch>
-            {/* <Route path="/selector">
-              <Selector
-                items={taskList}
-                styles={{ borderRadius: "10px", width: "200px" }}
-              />
-              <Selector
-                items={taskList}
-                styles={{ borderRadius: "10px", width: "200px" }}
-              />
-            </Route> */}
             <Route path="/styleguide/colors">
               <StyleGuide />
             </Route>
