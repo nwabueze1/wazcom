@@ -35,8 +35,14 @@ const App: React.FC<Props> = () => {
     index: number,
     event: React.ChangeEvent<{ value: unknown; name?: string | undefined }>,
   ) => {
-    console.log(event.target.value);
-    console.log(event.target.name);
+    return event.target.value;
+  };
+
+  const [checked, setChecked] = React.useState(true);
+  const handlecheckChange = (
+    event: React.ChangeEvent<{ checked: boolean }>,
+  ) => {
+    setChecked(event.target.checked);
   };
 
   return (
@@ -70,7 +76,10 @@ const App: React.FC<Props> = () => {
                 <CardPage />
               </Route>
               <Route exact path="/check">
-                <CheckBox />
+                <CheckBox
+                  checked={checked}
+                  handlecheckChange={handlecheckChange}
+                />
               </Route>
             </Switch>
             <Route path="/styleguide/colors">

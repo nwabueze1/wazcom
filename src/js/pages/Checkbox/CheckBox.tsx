@@ -5,12 +5,13 @@ import clx from "classnames";
 import Checkbox from "@material-ui/core/Checkbox";
 import FormControlLabel from "@material-ui/core/FormControlLabel";
 
-const CheckBox: FC<CheckBoxProps> = ({ className }) => {
+const CheckBox: FC<CheckBoxProps> = ({
+  className,
+  label,
+  checked,
+  handlecheckChange,
+}) => {
   const classes = useCheckBoxStyles();
-  const [checked, setChecked] = React.useState(true);
-  const handleChange = (event: React.ChangeEvent<HTMLInputElement>) => {
-    setChecked(event.target.checked);
-  };
 
   return (
     <div className={clx(className, classes.root)}>
@@ -18,11 +19,11 @@ const CheckBox: FC<CheckBoxProps> = ({ className }) => {
         control={
           <Checkbox
             checked={checked}
-            onChange={handleChange}
+            onChange={handlecheckChange}
             inputProps={{ "aria-label": "primary checkbox" }}
           />
         }
-        label="Checkbox"
+        label={label}
       />
     </div>
   );
