@@ -27,8 +27,8 @@ const getStatusClassName = (
 
 const Notification: FC<NotificationProps> = ({
   status,
-  uploadStatus,
-  uploadFeedBack,
+  title,
+  message,
   statusAlert,
 }) => {
   const classes = useStyles();
@@ -54,10 +54,10 @@ const Notification: FC<NotificationProps> = ({
           </div>
           <div className={classes.notificationInfo}>
             <Typography className={classes.notificationHeading}>
-              {uploadStatus}
+              {title}
             </Typography>
             <Typography className={classes.notificationText}>
-              {uploadFeedBack}
+              {message}
             </Typography>
           </div>
         </div>

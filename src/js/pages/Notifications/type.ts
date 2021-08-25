@@ -4,8 +4,8 @@ import {CommonProps} from '../types';
 export type NotificationProps = CommonProps & {
   back?: string;
   status: string;
-  uploadStatus?: string;
-  uploadFeedBack?: string;
+  title?: string;
+  message?: string;
   statusAlert: string;
 }
 
