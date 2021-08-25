@@ -35,35 +35,29 @@ const Notification: FC<NotificationProps> = ({
   const StatusClassName = getStatusClassName(classes, status);
 
   return (
-    <>
-      <div className={clx(classes.card)}>
-        <div
-          className={clx(
-            classes.notificationCard,
-            status !== "success" && classes.plainBg,
-          )}
-        >
-          <div className={clx(StatusClassName, classes.notificationHead)}>
-            <img
-              src={Icon}
-              alt="notification image"
-              className={classes.alarm}
-            />
-            <Typography className={classes.report}>Action report</Typography>
-            <CloseIcon className={classes.cancel} />
-          </div>
-          <div className={classes.notificationInfo}>
-            <Typography className={classes.notificationHeading}>
-              {title}
-            </Typography>
-            <Typography className={classes.notificationText}>
-              {message}
-            </Typography>
-          </div>
+    <div className={clx(classes.card)}>
+      <div
+        className={clx(
+          classes.notificationCard,
+          status !== "success" && classes.plainBg,
+        )}
+      >
+        <div className={clx(StatusClassName, classes.notificationHead)}>
+          <img src={Icon} alt="notification image" className={classes.alarm} />
+          <Typography className={classes.report}>Action report</Typography>
+          <CloseIcon className={classes.cancel} />
         </div>
-        <Typography className={classes.status}>{statusAlert}</Typography>
+        <div className={classes.notificationInfo}>
+          <Typography className={classes.notificationHeading}>
+            {title}
+          </Typography>
+          <Typography className={classes.notificationText}>
+            {message}
+          </Typography>
+        </div>
       </div>
-    </>
+      <Typography className={classes.status}>{statusAlert}</Typography>
+    </div>
   );
 };
 

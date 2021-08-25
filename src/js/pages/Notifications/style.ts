@@ -7,22 +7,20 @@ export const useStyles = makeStyles(() => ({
     notificationCard:{
         borderRadius:'10px',
         padding:theme.spacing(.5, .5, 3, .5),
-        border:'8px',
+       
     },
     
     card:{
-        width:'256px',
+        width:'28%',
         backgroundColor:theme.design.colors.white,
-        marginRight:'40px'
+        marginRight:theme.spacing(5)
     },
     notificationHead:{
         display:'flex',
         alignItems:'center',
         backgroundColor:theme.design.colors.success,
-        width:'248px',
-        padding:theme.spacing(0, .5),
-        height:'32px',
-        borderRadius: 8,
+        padding:theme.spacing(.5, .5),
+        borderRadius: '8px',
     },
    
     success:{
@@ -52,10 +50,11 @@ export const useStyles = makeStyles(() => ({
     report:{
         color:theme.design.colors.gray80,
         fontFamily:theme.typography.fontFamily,
-        fontSize:'14px',
+        fontSize:theme.typography.fontSize,
+        fontWeight:400,
         fontStyle:'normal',
         marginLeft:theme.spacing(1),
-        fontWeight:400,
+       
     },
     notificationInfo:{
      padding:theme.spacing(1)
