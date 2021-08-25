@@ -12,8 +12,8 @@ export const useStyles = makeStyles(() => ({
         backgroundColor:theme.design.colors.gray20,
         backgroundRepeat:"no-repeat",
         backgroundSize:"cover",
+        backgroundPosition:"center",
         transition:"opacity 0.5s ease-in",
-        // display:"block",
         "&:hover":{
             opacity:0.5,
         }

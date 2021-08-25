@@ -1,5 +1,5 @@
 import {CommonProps} from '../types';
 
-export type HomeProps = CommonProps & {
+export type GalleryProps = CommonProps & {
     image:string
 }
