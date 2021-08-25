@@ -21,6 +21,7 @@ import { paths } from "./pages/ZxBreadcrumbs/mock";
 import Page from "../js/pages/Page/Page";
 import Acordion from "./pages/Accordion/Accordion";
 import CardPage from "./pages/Cards/CardPage/Card";
+import Gallery from "./pages/Gallery/Gallery";
 
 const jss = create({
   plugins: [...jssPreset().plugins, jssPluginExtend()],
@@ -70,6 +71,9 @@ const App: React.FC<Props> = () => {
               </Route>
               <Route exact path="/card">
                 <CardPage />
+              </Route>
+              <Route exact path="/gallery">
+                <Gallery image="https://cdn.britannica.com/w:400,h:300,c:crop/36/123536-004-1780EFF1/Variety-fruits-vegetables.jpg" />
               </Route>
             </Switch>
             <Route path="/selector">
