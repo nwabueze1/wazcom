@@ -2,10 +2,6 @@ import { makeStyles } from "@material-ui/core/styles";
 import theme from "js/theme";
 
 export const useStyles = makeStyles(() => ({
-    root: {
-        width: '100vw',
-        height: '100vh',
-    },
     galleryBox:{
         maxWidth:"322px",
         height:"322px",

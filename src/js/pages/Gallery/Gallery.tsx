@@ -7,14 +7,12 @@ const Gallery: FC<GalleryProps> = ({ className, image }) => {
   const classes = useStyles();
 
   return (
-    <div className={clx(className, classes.root)}>
-      <div
-        className={classes.galleryBox}
-        style={{ backgroundImage: `url(${image})` }}
-      >
-        <div className={classes.text}>
-          <p>Select post</p>
-        </div>
+    <div
+      className={clx(className, classes.galleryBox)}
+      style={{ backgroundImage: `url(${image})` }}
+    >
+      <div className={classes.text}>
+        <p>Select post</p>
       </div>
     </div>
   );
