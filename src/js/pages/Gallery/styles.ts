@@ -20,9 +20,16 @@ export const useStyles = makeStyles(() => ({
         paddingTop:"60%",
         textAlign:"center",
         opacity:0,
+        // visibility:"hidden",
         fontSize:theme.typography.fontSize * 1.7,
         "&:hover":{
             opacity:1,
         }
     },
+    checker:{
+        textAlign:"end",
+    },
+    border:{
+        border:`4px solid ${theme.design.colors.red70}`
+    }
 }));
