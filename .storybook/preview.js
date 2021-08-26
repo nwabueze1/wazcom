@@ -32,17 +32,3 @@ addDecorator((Story) => (
     </StylesProvider>
   </CssBaseline>
 ));
-
-// export const decorators = [
-//   (Story, context) => {
-//     return (
-//       <CssBaseline>
-//         <StylesProvider jss={jss}>
-//           <ThemeProvider theme={theme}>
-//             <Story {...context} />
-//           </ThemeProvider>
-//         </StylesProvider>
-//       </CssBaseline>
-//     );
-//   },
-// ];

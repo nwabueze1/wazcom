@@ -6,16 +6,12 @@ import { Tab as MuiTab } from "@material-ui/core";
 import { TabProps } from "./types";
 import { useStyles } from "./styles";
 
-export const Tab: FC<TabProps> = ({ className, arr, color }) => {
+export const Tab: FC<TabProps> = ({ className, arr, color, label }) => {
   const classes = useStyles();
   const [isSelected, changeIsSelected] = useState(false);
   return (
-    <Paper
-      style={{ width: "500px" }}
-      color={color}
-      className={clsx(classes.tabs, className)}
-    >
-      <Tabs aria-label="disabled tabs example" variant="scrollable">
+    <Paper color={color} className={clsx(classes.tabs, className)}>
+      <Tabs aria-label={label} variant="scrollable">
         {arr.map((label, index) => {
           return (
             <MuiTab

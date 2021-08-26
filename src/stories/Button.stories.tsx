@@ -21,20 +21,5 @@ Template.args = {
 export const Secondary = Template.bind({});
 Template.args = {
   color: "secondary",
-  variant: "outline",
+  variant: "contained",
 };
-
-// export const LoggedOut = Template.bind({});
-// LoggedOut.args = {
-//   ...HeaderStories.LoggedOut.args,
-// };
-
-// export const Primary: React.VFC<typeof Button> = () => (
-//   <Button color="primary">Button</Button>
-// );
-
-// export const Secondary: React.VFC<typeof Button> = () => (
-//   <Button color="secondary" variant="normal">
-//     Button
-//   </Button>
-// );

@@ -1,8 +1,6 @@
+import { ComponentMeta, ComponentStory } from "@storybook/react";
 import React from "react";
-import { ComponentStory, ComponentMeta } from "@storybook/react";
-import { Meta } from "@storybook/react";
-
-import { Text, TextProps } from "../components";
+import { Text } from "../components";
 
 export default {
   title: "Waz/Text",
@@ -10,8 +8,18 @@ export default {
   argTypes: {
     backgroundColor: { control: "color" },
   },
-} as Meta;
+} as ComponentMeta<typeof Text>;
 
-export const Primary: React.VFC<any> = () => (
-  <Text source="storybook">Button</Text>
+const Template: ComponentStory<typeof Text> = (args) => (
+  <Text {...args}>Text</Text>
 );
+
+export const Primary = Template.bind({});
+Template.args = {
+  color: "primary",
+};
+
+export const Secondary = Template.bind({});
+Template.args = {
+  color: "secondary",
+};

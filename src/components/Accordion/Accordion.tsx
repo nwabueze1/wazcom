@@ -1,46 +1,35 @@
-import React, { FC } from "react";
-import useStyles from "./styles";
-import Accordion from "@material-ui/core/Accordion";
+import React, { FC, useCallback } from "react";
+import { useAccordionStyles } from "./styles";
+import MuiAccordion from "@material-ui/core/Accordion";
 import AccordionSummary from "@material-ui/core/AccordionSummary";
 import AccordionDetails from "@material-ui/core/AccordionDetails";
 import Typography from "@material-ui/core/Typography";
 import ExpandMoreIcon from "@material-ui/icons/ExpandMore";
 import clx from "classnames";
 import Table from "./Table/Table";
+import { AccordionProps } from "./types";
 
-interface AccordionProps {
-  className?: string;
-  handleChangeInput: (
-    index: number,
-    event: React.ChangeEvent<{
-      name?: string | undefined;
-      value: unknown;
-    }>,
-  ) => void;
-}
+export const Accordion: FC<AccordionProps> = ({ className }) => {
+  const classes = useAccordionStyles();
 
-const Acordion: FC<AccordionProps> = ({ className, handleChangeInput }) => {
-  const classes = useStyles();
+  const handleChange = useCallback(() => {
+    // onChange && onChange();
+    // TODO: Handle onChange properly;
+  }, []);
 
   return (
-    <div className={clx(className, classes.root)}>
-      <div>
-        <Accordion className={classes.root}>
-          <AccordionSummary
-            className={classes.headerDesc}
-            expandIcon={<ExpandMoreIcon className={classes.expandIcon} />}
-            aria-controls="panel1a-content"
-            id="panel1a-header"
-          >
-            <Typography className={classes.heading}>Opened Group 1</Typography>
-          </AccordionSummary>
-          <AccordionDetails>
-            <Table handleChangeInput={handleChangeInput} />
-          </AccordionDetails>
-        </Accordion>
-      </div>
-    </div>
+    <MuiAccordion className={clx(className, classes.root)}>
+      <AccordionSummary
+        className={classes.headerDesc}
+        expandIcon={<ExpandMoreIcon className={classes.expandIcon} />}
+        aria-controls="panel1a-content"
+        id="panel1a-header"
+      >
+        <Typography className={classes.heading}>Opened Group 1</Typography>
+      </AccordionSummary>
+      <AccordionDetails>
+        <Table handleChangeInput={handleChange} />
+      </AccordionDetails>
+    </MuiAccordion>
   );
 };
-
-export default Acordion;

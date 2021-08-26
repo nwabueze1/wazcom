@@ -20,7 +20,7 @@ const CheckBox: FC<CheckBoxProps> = ({
           <Checkbox
             checked={checked}
             onChange={handlecheckChange}
-            inputProps={{ "aria-label": "primary checkbox" }}
+            inputProps={{ "aria-label": label }}
           />
         }
         label={label}
