@@ -1,4 +1,5 @@
 import { createTheme } from "@material-ui/core/styles";
+
 declare module "@material-ui/core/styles/createTheme" {
   interface Theme {
     include: { [key: string]: any };
@@ -18,7 +19,7 @@ declare module "@material-ui/core/styles/createTheme" {
   }
 }
 
-export default createTheme({
+export const theme: any = {
   typography: {
     fontFamily: ["Nunito, sans-serif"].join(","),
     fontSize: 14,
@@ -239,4 +240,6 @@ export default createTheme({
       },
     },
   },
-});
+};
+
+export default createTheme(theme);

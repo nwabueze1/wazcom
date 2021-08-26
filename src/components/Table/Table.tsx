@@ -9,10 +9,10 @@ import Select from "@material-ui/core/Select";
 import InputLabel from "@material-ui/core/InputLabel";
 import MenuItem from "@material-ui/core/MenuItem";
 import FormControl from "@material-ui/core/FormControl";
-import Button from "../../Button/Button";
+import { Button } from "../Button";
 import AddIcon from "@material-ui/icons/Add";
 import DeleteIcon from "@material-ui/icons/Delete";
-import useStyles from "./Style";
+import { useTableStyles } from "./styles";
 import TextField from "@material-ui/core/TextField";
 
 interface fieldProps {
@@ -37,7 +37,7 @@ const BasicTable: FC<fieldProps> = ({ handleChangeInput }) => {
     },
   ]);
 
-  const classes = useStyles();
+  const classes = useTableStyles();
 
   const handleAddFields = () => {
     setInputField([
@@ -135,7 +135,6 @@ const BasicTable: FC<fieldProps> = ({ handleChangeInput }) => {
 
       <Button
         className={classes.addTable}
-        status="disable"
         size="small"
         onClick={() => handleAddFields()}
       >

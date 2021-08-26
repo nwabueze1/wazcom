@@ -2,7 +2,7 @@ import { createStyles, makeStyles, Theme } from "@material-ui/core/styles";
 import { ButtonProps } from "./types";
 import theme from "../../theme";
 
-export const useButtonStyles = makeStyles((theme: Theme) =>
+export const useButtonStyles = makeStyles(() =>
   createStyles({
     root: {
       fontSize: "16px",

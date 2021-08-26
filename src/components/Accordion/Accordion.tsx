@@ -6,7 +6,7 @@ import AccordionDetails from "@material-ui/core/AccordionDetails";
 import Typography from "@material-ui/core/Typography";
 import ExpandMoreIcon from "@material-ui/icons/ExpandMore";
 import clx from "classnames";
-import Table from "./Table/Table";
+import Table from "../Table/Table";
 import { AccordionProps } from "./types";
 
 export const Accordion: FC<AccordionProps> = ({ className }) => {

@@ -1,6 +1,7 @@
 import { createStyles, makeStyles, Theme } from "@material-ui/core/styles";
+import theme from "../../theme";
 
-export const useStyles = makeStyles((theme: Theme) =>
+export const useStyles = makeStyles(() =>
   createStyles({
     root: {
       display: "flex",
