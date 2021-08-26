@@ -8,20 +8,15 @@ import { create } from "jss";
 import jssPluginExtend from "jss-plugin-extend";
 import React from "react";
 import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
-import theme from "./theme";
-import Toggle from "./pages/Toggle/Toggle";
-import Home from "./pages/Home";
-import ButtonGuide from "./pages/ButtonGuide/ButtonGuide";
-import TextField from "./pages/Textfield/TextField";
-import { StyleGuide } from "./pages/StyleGuide/StyleGuide";
-import { Typography } from "../js/pages/Typography/Typography";
-import ZxBreadCrumb from "./pages/ZxBreadcrumbs/ZxBreadCrumb";
-import { paths } from "./pages/ZxBreadcrumbs/mock";
-import Page from "../js/pages/Page/Page";
-import Acordion from "./pages/Accordion/Accordion";
-import CardPage from "./pages/Cards/CardPage/Card";
-import CheckBox from "./pages/Checkbox/CheckBox";
-import { TestGallery } from "./pages/Gallery/TestGallery";
+import theme from "../theme";
+import Toggle from "../components/Toggle/Toggle";
+import ZxBreadCrumb from "../components/ZxBreadcrumbs/ZxBreadCrumb";
+import { paths } from "../components/ZxBreadcrumbs/mock";
+import Page from "../components/Page/Page";
+import { Accordion } from "../components/Accordion/Accordion";
+import CardPage from "../components/Cards/CardPage/Card";
+import CheckBox from "../components/Checkbox/CheckBox";
+import { TestGallery } from "../components/Gallery/TestGallery";
 
 const jss = create({
   plugins: [...jssPreset().plugins, jssPluginExtend()],
@@ -32,13 +27,6 @@ interface Props {
 }
 
 const App: React.FC<Props> = () => {
-  const handleChangeInput = (
-    index: number,
-    event: React.ChangeEvent<{ value: unknown; name?: string | undefined }>,
-  ) => {
-    return event.target.value;
-  };
-
   const [checked, setChecked] = React.useState(true);
   const handlecheckChange = (
     event: React.ChangeEvent<{ checked: boolean }>,
@@ -52,23 +40,14 @@ const App: React.FC<Props> = () => {
         <ThemeProvider theme={theme}>
           <Router>
             <Switch>
-              <Route exact path="/">
-                <Home />
-              </Route>
-              <Route exact path="/textfields">
-                <TextField />
-              </Route>
               <Route exact path="/pagination">
                 <Page />
-              </Route>
-              <Route exact path="/buttonguide">
-                <ButtonGuide />
               </Route>
               <Route exact path="/toggle">
                 <Toggle />
               </Route>
               <Route path="/accordion">
-                <Acordion handleChangeInput={handleChangeInput} />
+                <Accordion />
               </Route>
               <Route exact path="/breadcrumb">
                 <ZxBreadCrumb paths={paths} />
@@ -86,12 +65,6 @@ const App: React.FC<Props> = () => {
                 <TestGallery />
               </Route>
             </Switch>
-            <Route path="/styleguide/colors">
-              <StyleGuide />
-            </Route>
-            <Route path="/styleguide/typography">
-              <Typography />
-            </Route>
           </Router>
         </ThemeProvider>
       </StylesProvider>
