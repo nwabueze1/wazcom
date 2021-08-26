@@ -1,5 +1,4 @@
 import { createStyles, makeStyles, Theme } from "@material-ui/core/styles";
-import theme from "../../theme";
 
 export const useAccordionStyles = makeStyles((theme: Theme) =>
   createStyles({
