@@ -1,11 +1,26 @@
 import { ComponentMeta, ComponentStory } from "@storybook/react";
 import React from "react";
 import { BreadCrumb } from "../components";
+import { MemoryRouter } from "react-router-dom";
 
 export default {
   title: "Waz/BreadCrumb",
   component: BreadCrumb,
-  argTypes: {},
+  decorators: [
+    (Story) => (
+      <MemoryRouter>
+        <Story />
+      </MemoryRouter>
+    ),
+  ],
+  args: {
+    paths: [
+      { label: "Home", path: "/" },
+      { label: "Details", path: "./pricing1" },
+      { label: "Pricing", path: "./pricing2" },
+      { label: "Checkout", path: "./" },
+    ],
+  },
 } as ComponentMeta<typeof BreadCrumb>;
 
 const Template: ComponentStory<typeof BreadCrumb> = (args) => (

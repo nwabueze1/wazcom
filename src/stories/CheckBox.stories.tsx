@@ -1,9 +1,9 @@
 import { ComponentMeta, ComponentStory } from "@storybook/react";
-import { CheckBox } from "../components";
 import React from "react";
+import { CheckBox } from "../components";
 
 export default {
-  title: "Waz/Checkbox",
+  title: "Waz/CheckBox",
   component: CheckBox,
   argTypes: {},
 } as ComponentMeta<typeof CheckBox>;
