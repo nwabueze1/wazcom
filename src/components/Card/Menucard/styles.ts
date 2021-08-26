@@ -5,7 +5,7 @@ export const useMenuCardStyles = makeStyles(() => ({
   root: {
     width: "500px",
     borderRadius: "15px",
-    fontFamily: "nunito",
+    fontFamily:theme.typography.fontFamily,
     opacity: 1,
     transition: "opacity 0.5s ease-in",
   },
