@@ -6,7 +6,9 @@ import { Button } from "../components";
 export default {
   title: "Waz/Button",
   component: Button,
-  argTypes: {},
+  args: {
+    color: "primary",
+  },
 } as ComponentMeta<typeof Button>;
 
 const Template: ComponentStory<typeof Button> = (args) => (

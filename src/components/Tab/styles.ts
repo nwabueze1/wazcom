@@ -1,7 +1,7 @@
 import { makeStyles } from "@material-ui/core";
 import theme from "../../theme";
 
-export const useStyles = makeStyles({
+export const useTabStyles = makeStyles({
   root: {},
   tabs: {
     width: "500px",

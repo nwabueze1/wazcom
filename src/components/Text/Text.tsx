@@ -1,5 +1,5 @@
 import React, { FC } from "react";
-import { useStyles } from "./styles";
+import { useTextStyles } from "./styles";
 import { TextProps } from "./types";
 import clx from "classnames";
 import { InputLabel, OutlinedInput } from "@material-ui/core";
@@ -16,7 +16,7 @@ export const Text: FC<TextProps> = ({
   onChange,
   placeholder,
 }) => {
-  const classes = useStyles();
+  const classes = useTextStyles();
 
   return (
     <div className={clx(classes.root, className)}>

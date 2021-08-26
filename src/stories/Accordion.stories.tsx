@@ -5,7 +5,9 @@ import { Accordion } from "../components";
 export default {
   title: "Waz/Accordion",
   component: Accordion,
-  argTypes: {},
+  args: {
+    title: "Testing",
+  },
 } as ComponentMeta<typeof Accordion>;
 
 const Template: ComponentStory<typeof Accordion> = (args) => (

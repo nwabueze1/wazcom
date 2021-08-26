@@ -1,24 +1,26 @@
 import React, { FC } from "react";
 import { useCardStyles } from "./styles";
-import Card from "@material-ui/core/Card";
+import { Card as MuiCard } from "@material-ui/core";
 import CardContent from "@material-ui/core/CardContent";
 import Typography from "@material-ui/core/Typography";
 import { CardProps } from "./types";
 
-const ZxCard: FC<CardProps> = ({ tittle, content, image }) => {
+export const Card: FC<CardProps> = ({
+  title,
+  content,
+  image: { src, alt },
+}) => {
   const classes = useCardStyles();
 
   return (
-    <Card className={classes.root} variant="outlined">
+    <MuiCard className={classes.root} variant="outlined">
       <CardContent>
         <div>
-          <img src={image} alt="image" />
+          <img src={src} alt={alt ?? title} />
         </div>
-        <Typography className={classes.regtext}>{tittle}</Typography>
+        <Typography className={classes.regtext}>{title}</Typography>
         <div className={classes.text}>{content}</div>
       </CardContent>
-    </Card>
+    </MuiCard>
   );
 };
-
-export default ZxCard;
