@@ -1,4 +1,4 @@
-import { createTheme } from "@material-ui/core";
+import { createTheme } from "@material-ui/core/styles";
 declare module "@material-ui/core/styles/createTheme" {
   interface Theme {
     include: { [key: string]: any };
@@ -10,10 +10,10 @@ declare module "@material-ui/core/styles/createTheme" {
 
   // allow configuration using `createMuiTheme`
   interface ThemeOptions {
-    include?: { [key: string]: any };
-    design?: {
-      font?: { [key: string]: any };
-      colors?: { [key: string]: string };
+    include: { [key: string]: any };
+    design: {
+      font: { [key: string]: any };
+      colors: { [key: string]: string };
     };
   }
 }
@@ -168,8 +168,8 @@ export default createTheme({
       green3: "#27AE60",
       darkorange: "#F4900C",
       lightorange: "#FFAA00",
-      grey80:"#5C5C5C",
-      yellowsea:"#F5A53C"
+      grey80: "#5C5C5C",
+      yellowsea: "#F5A53C",
     },
   },
   overrides: {

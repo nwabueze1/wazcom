@@ -38,12 +38,24 @@
     "lint-fix": "eslint --fix 'src/**/*.{ts,js,tsx}' -c .eslintrc.json",
     "lint-check": "eslint 'src/**/*.{ts,js,tsx}' -c .eslintrc-prod.json",
     "config-check": "eslint --print-config 'src/**/*.{ts,js,tsx}' -c .eslintrc.json | eslint-config-prettier-check",
-    "format": "prettier --write 'src/**/*.{js,ts,tsx}'"
+    "format": "prettier --write 'src/**/*.{js,ts,tsx}'",
+    "storybook": "start-storybook -p 6006 -s public",
+    "build-storybook": "build-storybook -s public"
   },
   "eslintConfig": {
     "extends": [
       "react-app",
       "react-app/jest"
+    ],
+    "overrides": [
+      {
+        "files": [
+          "**/*.stories.*"
+        ],
+        "rules": {
+          "import/no-anonymous-default-export": "off"
+        }
+      }
     ]
   },
   "browserslist": {
@@ -59,6 +71,12 @@
     ]
   },
   "devDependencies": {
+    "@storybook/addon-actions": "^6.3.7",
+    "@storybook/addon-essentials": "^6.3.7",
+    "@storybook/addon-links": "^6.3.7",
+    "@storybook/node-logger": "^6.3.7",
+    "@storybook/preset-create-react-app": "^3.2.0",
+    "@storybook/react": "^6.3.7",
     "@types/enzyme": "^3.10.8",
     "@types/enzyme-adapter-react-16": "^1.0.6",
     "@types/lodash": "^4.14.172",
@@ -76,6 +94,7 @@
     "prettier": "^2.3.2",
     "prettier-eslint": "^12.0.0",
     "react-test-renderer": "^17.0.2",
+    "storybook-addon-material-ui": "^0.9.0-alpha.24",
     "ts-jest": "^27.0.3",
     "typescript-eslint": "^0.0.1-alpha.0"
   }

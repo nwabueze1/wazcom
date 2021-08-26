@@ -13,12 +13,7 @@ export type ButtonSchemaProps = {
 /** !!-- Remember to update the interface name !! */
 export type ButtonProps = CommonProps &
   StyleProps &
-  Omit<MuiButtonProps, "variant"> & {
-  
-    size?: string | number;
-   status?: string;
+  MuiButtonProps & {
     name?: string;
     loading?: boolean;
-    href?: MuiButtonProps["href"];
-    variant?: "normal" | "outline";
   };

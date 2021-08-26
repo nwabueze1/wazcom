@@ -5,7 +5,7 @@ import clx from "classnames";
 import { InputLabel, OutlinedInput } from "@material-ui/core";
 import { startCase } from "lodash";
 
-const ZxText: FC<TextProps> = ({
+export const Text: FC<TextProps> = ({
   className,
   error,
   label,
@@ -35,5 +35,3 @@ const ZxText: FC<TextProps> = ({
     </div>
   );
 };
-
-export default ZxText;

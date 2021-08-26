@@ -1,8 +1,8 @@
 import { Typography, InputAdornment } from "@material-ui/core";
 import { ErrorOutline } from "@material-ui/icons";
-import theme from "js/theme";
+import theme from "../../theme";
 import React from "react";
-import ZxText from "../Text/ZxText";
+import { Text } from "../Text";
 import { useStyles } from "./styles";
 
 const TextField = () => {
@@ -19,7 +19,7 @@ const TextField = () => {
         <div>
           <div>
             <p>Label Status & Placeholder</p>
-            <ZxText
+            <Text
               className={classes.inputsize}
               label="Label"
               name="status"
@@ -52,7 +52,7 @@ const TextField = () => {
       >
         <div>
           <p>Input Form + Label</p>
-          <ZxText
+          <Text
             className={classes.inputsize}
             label="Label"
             type=""
@@ -63,7 +63,7 @@ const TextField = () => {
         </div>
         <div>
           <p>Input Form + Label & Status </p>
-          <ZxText
+          <Text
             className={classes.inputsize}
             label="Label"
             type=""
@@ -74,7 +74,7 @@ const TextField = () => {
         </div>
         <div>
           <p>Input Form + Label + Status</p>
-          <ZxText
+          <Text
             className={classes.inputsize}
             label="Label"
             type=""
@@ -87,7 +87,7 @@ const TextField = () => {
       <div style={{ marginTop: theme.spacing(5) }}>
         <div style={{ display: "flex", justifyContent: "space-between" }}>
           <div>
-            <ZxText
+            <Text
               style={{ width: "395px" }}
               label="Sub-domain"
               type=""
@@ -96,7 +96,7 @@ const TextField = () => {
               placeholder="Enter a sub-domain name"
             />
             <div>
-              <ZxText
+              <Text
                 style={{ width: "196px" }}
                 label="price"
                 InputProps={{
@@ -108,14 +108,14 @@ const TextField = () => {
                 source=""
                 placeholder="Enter Price"
               />
-              <ZxText
+              <Text
                 style={{ width: "196px" }}
                 type=""
                 name="status"
                 source=""
                 placeholder="Enter price"
               />
-              <ZxText
+              <Text
                 style={{ width: "196px" }}
                 type=""
                 name="status"
@@ -140,7 +140,7 @@ const TextField = () => {
           <div style={{ display: "flex", justifyContent: "space-between" }}>
             <div>
               <p>Focused State</p>
-              <ZxText
+              <Text
                 className={classes.inputsize}
                 label="Label sample"
                 type=""
@@ -153,7 +153,7 @@ const TextField = () => {
             <div>
               <div>
                 <p>Disabled State</p>
-                <ZxText
+                <Text
                   disabled={true}
                   className={classes.inputsize}
                   label="Label sample"
@@ -177,7 +177,7 @@ const TextField = () => {
           }}
         >
           <div>
-            <ZxText
+            <Text
               className={classes.inputsize}
               label="Label Text"
               type=""
@@ -185,7 +185,7 @@ const TextField = () => {
               source=""
               placeholder="placeholder"
             />
-            <ZxText
+            <Text
               className={classes.inputsize}
               label="Label Text"
               type=""
@@ -195,7 +195,7 @@ const TextField = () => {
             />
           </div>
           <div>
-            <ZxText
+            <Text
               className={classes.inputsize}
               label="Label Text"
               type=""
@@ -208,14 +208,14 @@ const TextField = () => {
           <Typography style={{ color: "red" }} variant="h4">
             Use Cases
           </Typography>
-          <ZxText
+          <Text
             label="Password"
             type="Password"
             name="status"
             source=""
             placeholder="Enter your password"
           />
-          <ZxText
+          <Text
             style={{ width: "320px", margin: theme.spacing(4) }}
             label="Email"
             type=""
