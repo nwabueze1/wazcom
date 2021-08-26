@@ -1,20 +1,17 @@
 import React, { FC } from "react";
-import { useCheckBoxStyles } from "./styles";
 import { CheckBoxProps } from "./types";
 import clx from "classnames";
 import Checkbox from "@material-ui/core/Checkbox";
 import FormControlLabel from "@material-ui/core/FormControlLabel";
 
-const CheckBox: FC<CheckBoxProps> = ({
+export const CheckBox: FC<CheckBoxProps> = ({
   className,
   label,
   checked,
   handlecheckChange,
 }) => {
-  const classes = useCheckBoxStyles();
-
   return (
-    <div className={clx(className, classes.root)}>
+    <div className={clx(className)}>
       <FormControlLabel
         control={
           <Checkbox
@@ -28,5 +25,3 @@ const CheckBox: FC<CheckBoxProps> = ({
     </div>
   );
 };
-
-export default CheckBox;
