@@ -7,7 +7,11 @@ import clx from "classnames";
 import { IoIosCloseCircle } from "react-icons/io";
 import { Typography } from "@material-ui/core";
 
-const DisplayCard: FC<DisplayCardProps> = ({ className, total }) => {
+export const DisplayCard: FC<DisplayCardProps> = ({
+  className,
+  total,
+  title,
+}) => {
   const classes = useStyles();
 
   return (
@@ -15,12 +19,10 @@ const DisplayCard: FC<DisplayCardProps> = ({ className, total }) => {
       <CardContent className={classes.content}>
         <div>
           <Typography variant="h3">{total}</Typography>
-          <div className={classes.pend}>Pending Orders</div>
+          <div className={classes.pend}>{title}</div>
         </div>
         <IoIosCloseCircle className={classes.icon} />
       </CardContent>
     </Card>
   );
 };
-
-export default DisplayCard;

@@ -4,3 +4,5 @@ export * from "./Card";
 export * from "./Text";
 export * from "./Checkbox";
 export * from "./Breadcrumb";
+export * from "./Menucard";
+export * from "./Displaycard";
