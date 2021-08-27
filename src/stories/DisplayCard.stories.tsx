@@ -3,7 +3,7 @@ import React from "react";
 import { DisplayCard } from "../components";
 
 export default {
-  title: "Waz/CheckBox",
+  title: "Waz/DisplayCard",
   component: DisplayCard,
   argTypes: {},
 } as ComponentMeta<typeof DisplayCard>;
