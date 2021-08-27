@@ -4,10 +4,10 @@ import Paper from "@material-ui/core/Paper";
 import Tabs from "@material-ui/core/Tabs";
 import { Tab as MuiTab } from "@material-ui/core";
 import { TabProps } from "./types";
-import { useStyles } from "./styles";
+import { useTabStyles } from "./styles";
 
 export const Tab: FC<TabProps> = ({ className, arr, color, label }) => {
-  const classes = useStyles();
+  const classes = useTabStyles();
   const [isSelected, changeIsSelected] = useState(false);
   return (
     <Paper color={color} className={clsx(classes.tabs, className)}>

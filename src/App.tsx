@@ -9,7 +9,7 @@ import jssPluginExtend from "jss-plugin-extend";
 import React from "react";
 import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
 import theme from "./theme";
-import { Button } from "./components";
+import { Accordion } from "./components";
 
 const jss = create({
   plugins: [...jssPreset().plugins, jssPluginExtend()],
@@ -26,9 +26,7 @@ const App: React.FC<Props> = () => {
         <ThemeProvider theme={theme}>
           <Router>
             <Switch>
-              <Route exact path="/">
-                <Button />
-              </Route>
+              <Route exact path="/"></Route>
             </Switch>
           </Router>
         </ThemeProvider>

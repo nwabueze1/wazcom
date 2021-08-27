@@ -7,6 +7,7 @@ export type fieldProps = {
 
 export type AccordionProps = {
   className?: string;
+  title: string;
   onChange?: (
     index: number,
     event: React.ChangeEvent<{

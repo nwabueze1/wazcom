@@ -1,6 +1,6 @@
 import { makeStyles } from "@material-ui/core/styles";
 
-const useStyles = makeStyles((theme) => ({
+export const useTableStyles = makeStyles((theme) => ({
   table: {
     minWidth: 681,
   },
@@ -10,9 +10,7 @@ const useStyles = makeStyles((theme) => ({
     margin: theme.spacing(3),
   },
   tableHead: {
-    fontFamily: "Nunito",
-    fontWeight: "bold",
-    fontSize: "18px",
+    fontSize: 18,
     padding: theme.spacing(2, 1),
     backgroundColor: theme.design.colors.gray30,
     color: theme.design.colors.pureblack,
@@ -20,8 +18,7 @@ const useStyles = makeStyles((theme) => ({
     textAlign: "center",
   },
   tableCell: {
-    fontFamily: "Nunito",
-    fontSize: "16px",
+    fontSize: 16,
     padding: theme.spacing(2, 1),
     color: theme.design.colors.pureblack,
     border: `2px solid ${theme.design.colors.gray60}`,
@@ -32,7 +29,7 @@ const useStyles = makeStyles((theme) => ({
     padding: theme.spacing(1, 7),
 
     "& .MuiSvgIcon-root": {
-      display:'none'
+      display: "none",
     },
 
     "&:before": {
@@ -46,4 +43,3 @@ const useStyles = makeStyles((theme) => ({
     margin: theme.spacing(2, 0, 8, 0),
   },
 }));
-export default useStyles;

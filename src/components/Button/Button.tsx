@@ -1,6 +1,6 @@
 import React from "react";
 import { ButtonProps } from "./types";
-import { CircularProgress, Button as MuiButton } from "@material-ui/core";
+import { Button as MuiButton } from "@material-ui/core";
 import { useButtonStyles } from "./styles";
 
 export const Button: React.FC<ButtonProps> = ({
@@ -11,12 +11,7 @@ export const Button: React.FC<ButtonProps> = ({
   const classes = useButtonStyles(props);
 
   return (
-    <MuiButton
-      disabled={loading}
-      className={classes.root}
-      startIcon={loading && <CircularProgress className={classes.progress} />}
-      {...props}
-    >
+    <MuiButton disabled={loading} className={classes.root} {...props}>
       {children}
     </MuiButton>
   );

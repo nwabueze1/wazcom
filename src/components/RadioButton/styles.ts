@@ -1,5 +1,5 @@
 import { makeStyles } from "@material-ui/core/styles";
-import theme from "js/theme";
+import theme from "../../theme";
 /** !!-- Remember to update the function name !! */
 export const RadioButtonStyles = makeStyles(() => ({
   root: {

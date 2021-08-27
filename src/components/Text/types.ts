@@ -1,5 +1,5 @@
 import { CommonProps } from "../types";
-import { TextFieldProps as MuiTextFieldProps } from "@material-ui/core";
+import { OutlinedInputProps, InputLabelProps } from "@material-ui/core";
 
 export type TextSchemaProps = {
   type: "text";
@@ -8,6 +8,7 @@ export type TextSchemaProps = {
 
 /** !!-- Remember to update the interface name !! */
 export type TextProps = CommonProps &
-  MuiTextFieldProps & {
+  InputLabelProps &
+  OutlinedInputProps & {
     source: string;
   };
