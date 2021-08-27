@@ -11,18 +11,19 @@ export const useMenuCardStyles = makeStyles(() => ({
   },
   mealname: {
     fontWeight: "bold",
-    marginTop: theme.spacing(4),
   },
   price: {
     fontSize: "12px",
     color: theme.design.colors.red100,
   },
   cardcontents: {
-    margin: theme.spacing(1.25),
+    margin: theme.spacing(1),
     display: "flex",
     justifyContent: "space-between",
   },
   mealdetail: {
+    width:"160px",
+    textOverflow:"ellipsis",
     marginLeft: theme.spacing(2),
     textAlign: "left",
   },
@@ -48,6 +49,6 @@ export const useMenuCardStyles = makeStyles(() => ({
     marginLeft: theme.spacing(4),
   },
   disableState: {
-    opacity: 0.1,
+    // opacity: 0.1,
   },
 }));
