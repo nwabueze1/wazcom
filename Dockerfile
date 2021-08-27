@@ -8,6 +8,6 @@ COPY . .
 
 RUN yarn install --silent
 
-EXPOSE 3000
+EXPOSE 6006
 
-CMD ["yarn", "run", "start"]
+CMD ["yarn", "run", "storybook"]
