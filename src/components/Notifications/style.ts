@@ -2,7 +2,7 @@ import theme from "../../theme";
 import { makeStyles } from "@material-ui/core/styles";
 
 /** !!-- Remember to update the function name !! */
-export const useStyles = makeStyles(() => ({
+export const useNotificationStyles = makeStyles(() => ({
     
     notificationCard:{
         borderRadius:'10px',
@@ -85,4 +85,3 @@ export const useStyles = makeStyles(() => ({
     }
   
 }));
-export default useStyles;

@@ -1,6 +1,6 @@
 import { createStyles, makeStyles, Theme } from "@material-ui/core/styles";
 
-const useStyles = makeStyles((theme: Theme) =>
+export const useToggleStyles = makeStyles((theme: Theme) =>
   createStyles({
     root: {
         width: 46,
@@ -39,4 +39,4 @@ const useStyles = makeStyles((theme: Theme) =>
   })
 );
 
-export default useStyles;
+

@@ -1,13 +1,13 @@
 import React, { FC } from "react";
-import useStyles from "./style";
+import { useNotificationStyles } from "./style";
 import clx from "classnames";
 import { NotificationProps } from "./type";
 import CloseIcon from "@material-ui/icons/Close";
 import { Typography } from "@material-ui/core";
-import Icon from ".././../../images/Vector.png";
+import Icon from "../../images/Vector.png";
 
 const getStatusClassName = (
-  classes: ReturnType<typeof useStyles>,
+  classes: ReturnType<typeof useNotificationStyles>,
   status: NotificationProps["status"],
 ) => {
   switch (status) {
@@ -25,13 +25,13 @@ const getStatusClassName = (
   }
 };
 
-const Notification: FC<NotificationProps> = ({
+export const Notification: FC<NotificationProps> = ({
   status,
   title,
   message,
   statusAlert,
 }) => {
-  const classes = useStyles();
+  const classes = useNotificationStyles();
   const StatusClassName = getStatusClassName(classes, status);
 
   return (
@@ -60,5 +60,3 @@ const Notification: FC<NotificationProps> = ({
     </div>
   );
 };
-
-export default Notification;

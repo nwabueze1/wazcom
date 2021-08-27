@@ -5,5 +5,5 @@ export interface Styles extends Partial<Record<SwitchClassKey, string>> {
   }
   
   export interface Props extends SwitchProps {
-    classes: Styles;
+    classes?: Styles;
   }
