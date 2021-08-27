@@ -1,17 +1,16 @@
 import { makeStyles } from "@material-ui/core/styles";
-import theme from "js/theme";
+import theme from "../../theme";
 
 export const useStyles = makeStyles(() => ({
     galleryBox:{
         maxWidth:"322px",
         height:"322px",
-        backgroundColor:theme.design.colors.gray20,
         backgroundRepeat:"no-repeat",
         backgroundSize:"cover",
         backgroundPosition:"center",
         transition:"opacity 0.5s ease-in",
         "&:hover":{
-            opacity:0.5,
+            opacity: 0.5,
         }
     },
     text:{
@@ -20,7 +19,6 @@ export const useStyles = makeStyles(() => ({
         paddingTop:"60%",
         textAlign:"center",
         opacity:0,
-        // visibility:"hidden",
         fontSize:theme.typography.fontSize * 1.7,
         "&:hover":{
             opacity:1,
@@ -31,5 +29,5 @@ export const useStyles = makeStyles(() => ({
     },
     border:{
         border:`4px solid ${theme.design.colors.red70}`
-    }
+    },
 }));
