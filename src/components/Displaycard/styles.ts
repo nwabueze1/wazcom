@@ -1,7 +1,7 @@
 import { makeStyles } from "@material-ui/core/styles";
-import theme from "../../../theme";
+import theme from "../../theme";
 
-export const useStyles = makeStyles(() => ({
+export const useDisplayCardStyles = makeStyles(() => ({
   root: {
     width: "233px",
     height: "112px",

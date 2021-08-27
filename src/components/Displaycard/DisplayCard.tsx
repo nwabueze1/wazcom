@@ -1,5 +1,5 @@
 import React, { FC } from "react";
-import { useStyles } from "./styles";
+import { useDisplayCardStyles } from "./styles";
 import { DisplayCardProps } from "./types";
 import Card from "@material-ui/core/Card";
 import CardContent from "@material-ui/core/CardContent";
@@ -12,7 +12,7 @@ export const DisplayCard: FC<DisplayCardProps> = ({
   total,
   title,
 }) => {
-  const classes = useStyles();
+  const classes = useDisplayCardStyles();
 
   return (
     <Card className={clx(className, classes.root)} variant="outlined">
