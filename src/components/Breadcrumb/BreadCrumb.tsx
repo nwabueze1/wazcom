@@ -3,7 +3,7 @@ import { BreadCrumbStyles } from "./styles";
 import { BreadCrumbProps } from "./types";
 import clx from "classnames";
 import Breadcrumbs from "@material-ui/core/Breadcrumbs";
-import { Link, Router } from "react-router-dom";
+import { Link } from "react-router-dom";
 import NavigateNextIcon from "@material-ui/icons/NavigateNext";
 
 export const BreadCrumb: FC<BreadCrumbProps> = ({ className, paths }) => {
@@ -21,23 +21,21 @@ export const BreadCrumb: FC<BreadCrumbProps> = ({ className, paths }) => {
             separator={<NavigateNextIcon fontSize="small" />}
             aria-label="breadcrumb"
           >
-            <Router>
-              <Link
-                color="inherit"
-                to={crumb.path}
-                onClick={handleClick}
-                className={clx(
-                  classes.link,
-                  index === paths.length - 1 && classes.lastlink,
-                )}
-                aria-current="page"
-              >
-                {crumb.label}
-                {index !== paths.length - 1 && (
-                  <NavigateNextIcon fontSize="small" />
-                )}
-              </Link>
-            </Router>
+            <Link
+              color="inherit"
+              to={crumb.path}
+              onClick={handleClick}
+              className={clx(
+                classes.link,
+                index === paths.length - 1 && classes.lastlink,
+              )}
+              aria-current="page"
+            >
+              {crumb.label}
+              {index !== paths.length - 1 && (
+                <NavigateNextIcon fontSize="small" />
+              )}
+            </Link>
           </Breadcrumbs>
         );
       })}
