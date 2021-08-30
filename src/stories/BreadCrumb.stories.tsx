@@ -7,9 +7,9 @@ export default {
   title: "Waz/BreadCrumb",
   component: BreadCrumb,
   decorators: [
-    (Story) => (
+    (BreadCrumb) => (
       <MemoryRouter>
-        <Story />
+        <BreadCrumb />
       </MemoryRouter>
     ),
   ],
