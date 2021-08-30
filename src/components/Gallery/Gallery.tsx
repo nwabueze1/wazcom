@@ -28,9 +28,9 @@ export const Gallery: FC<GalleryProps> = ({ image }) => {
             <CheckBox checked handlecheckChange={handlecheckChange} />
           </div>
         ) : null}
-        <div className={classes.text}>
-          <p>Select post</p>
-        </div>
+      </div>
+      <div className={classes.hover}>
+        <p>Select post</p>
       </div>
     </div>
   );

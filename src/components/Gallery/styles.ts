@@ -9,25 +9,37 @@ export const useStyles = makeStyles(() => ({
         backgroundSize:"cover",
         backgroundPosition:"center",
         transition:"opacity 0.5s ease-in",
-        "&:hover":{
-            opacity: 0.5,
-        }
-    },
-    text:{
-        color:theme.design.colors.white,
-        fontWeight:"bold",
-        paddingTop:"60%",
-        textAlign:"center",
-        opacity:0,
-        fontSize:theme.typography.fontSize * 1.7,
-        "&:hover":{
-            opacity:1,
-        }
+        position:"relative"  
     },
     checker:{
         textAlign:"end",
     },
     border:{
         border:`4px solid ${theme.design.colors.red70}`
+    },
+    hover:{
+        position:"absolute",
+        top:0,
+        left:0,
+        width:"100%",
+        height:"100%",
+        zIndex:5,
+        opacity:1,
+        background:"transparent",
+        "&:hover":{
+            background:"linear-gradient(rgba(0,0,0,0.2), rgba(0,0,0,0.7))",
+            "& p" :{
+                visibility:"visible",  
+            }
+        },
+        "& p":{
+        visibility:"hidden",
+        marginTop:"75%",
+          color:theme.design.colors.white,
+          textAlign:"center",
+          fontSize:"24px",
+          fontWeight:"bold",
+          cursor:"pointer"
+        }
     },
 }));
