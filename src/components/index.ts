@@ -3,3 +3,5 @@ export * from "./Button";
 export * from "./Card";
 export * from "./Text";
 export * from "./Gallery"
+export * from "./Card/Menucard";
+
