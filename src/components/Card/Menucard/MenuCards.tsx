@@ -7,7 +7,7 @@ import clx from "classnames";
 import { Typography } from "@material-ui/core";
 import Naira from "../../../../images/Vector.svg";
 import MoreVertIcon from "@material-ui/icons/MoreVert";
-import Toggle from "../../Toggle/Toggle";
+import { Toggle } from "../../Toggle/Toggle";
 
 const MenuCard: FC<MenuCardProps> = ({
   className,

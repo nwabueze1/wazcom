@@ -12,7 +12,7 @@ interface Props extends SwitchProps {
   classes: Styles;
 }
 
-export const Toggle = ({ classes, ...props }: Props) => {
+export const CustomizedSwitch = ({ classes, ...props }: Props) => {
   return (
     <Switch
       focusVisibleClassName={classes.focusVisible}
@@ -29,7 +29,7 @@ export const Toggle = ({ classes, ...props }: Props) => {
   );
 };
 
-export function CustomizedSwitch() {
+export function Toggle() {
   const [state, setState] = React.useState({
     checked: true,
   });
@@ -44,7 +44,7 @@ export function CustomizedSwitch() {
     <FormGroup>
       <FormControlLabel
         control={
-          <Toggle
+          <CustomizedSwitch
             classes={classes}
             checked={state.checked}
             onChange={handleChange}
