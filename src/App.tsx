@@ -28,11 +28,6 @@ const App: React.FC<Props> = () => {
             <Switch>
               <Route exact path="/"></Route>
             </Switch>
-            <Switch>
-              <Route exact path="/table">
-                <MenuTable />
-              </Route>
-            </Switch>
           </Router>
         </ThemeProvider>
       </StylesProvider>
