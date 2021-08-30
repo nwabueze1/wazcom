@@ -1,13 +1,18 @@
-import { makeStyles } from "@material-ui/core/styles";
+import { makeStyles, Theme } from "@material-ui/core/styles";
 import theme from "../../theme";
 
-export const useStyles = makeStyles(() => ({
+interface StyleProps {
+    image:string
+}
+
+export const useStyles = makeStyles<Theme,StyleProps>(() => ({
     galleryBox:{
         maxWidth:"322px",
         height:"322px",
+        background:({image}) => `url(${image})`,
         backgroundRepeat:"no-repeat",
-        backgroundSize:"cover",
-        backgroundPosition:"center",
+        backgroundSize:"cover !important",
+        backgroundPosition:"center !important",
         transition:"opacity 0.5s ease-in",
         position:"relative"  
     },

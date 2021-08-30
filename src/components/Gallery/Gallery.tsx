@@ -4,7 +4,7 @@ import { GalleryProps } from "./types";
 import CheckBox from "../Checkbox/CheckBox";
 
 export const Gallery: FC<GalleryProps> = ({ image }) => {
-  const classes = useStyles();
+  const classes = useStyles({ image });
   const onclick = () => setChecked(!checked);
   const [checked, setChecked] = useState(false);
 
@@ -18,9 +18,6 @@ export const Gallery: FC<GalleryProps> = ({ image }) => {
     <div
       onClick={onclick}
       className={`${classes.galleryBox} ${checked ? classes.border : null}`}
-      style={{
-        backgroundImage: `url(${image})`,
-      }}
     >
       <div>
         {checked ? (
