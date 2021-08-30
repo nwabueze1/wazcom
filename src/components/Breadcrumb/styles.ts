@@ -14,7 +14,7 @@ export const BreadCrumbStyles = makeStyles(() => ({
     color: theme.design.colors.grey80,
   },
   navicon: {
-    paddingTop: theme.spacing(),
+    paddingTop:"2px",
   },
   lastlink: {
     color: theme.design.colors.red,

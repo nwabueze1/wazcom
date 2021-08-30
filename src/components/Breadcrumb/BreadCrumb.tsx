@@ -33,7 +33,10 @@ export const BreadCrumb: FC<BreadCrumbProps> = ({ className, paths }) => {
             >
               {crumb.label}
               {index !== paths.length - 1 && (
-                <NavigateNextIcon fontSize="small" />
+                <NavigateNextIcon
+                  className={classes.navicon}
+                  fontSize="small"
+                />
               )}
             </Link>
           </Breadcrumbs>
