@@ -12,6 +12,10 @@ import TableContainer from "@material-ui/core/TableContainer";
 import TableHead from "@material-ui/core/TableHead";
 import TableRow from "@material-ui/core/TableRow";
 import Paper from "@material-ui/core/Paper";
+import DeleteIcon from "@material-ui/icons/Delete";
+import CreateIcon from "@material-ui/icons/Create";
+import theme from "theme";
+import Toggle from "components/Toggle/Toggle";
 
 const StyledTableCell = withStyles((theme: Theme) =>
   createStyles({
@@ -70,10 +74,10 @@ export const MenuTable = () => {
         <TableHead>
           <TableRow>
             <StyledTableCell>Menu</StyledTableCell>
-            <StyledTableCell align="right">Todays Schedule</StyledTableCell>
-            <StyledTableCell align="right">Last modified</StyledTableCell>
-            <StyledTableCell align="right">Active</StyledTableCell>
-            <StyledTableCell align="right">Action</StyledTableCell>
+            <StyledTableCell>Todays Schedule</StyledTableCell>
+            <StyledTableCell>Last modified</StyledTableCell>
+            <StyledTableCell>Active</StyledTableCell>
+            <StyledTableCell>Actions</StyledTableCell>
           </TableRow>
         </TableHead>
         <TableBody>
@@ -82,10 +86,20 @@ export const MenuTable = () => {
               <StyledTableCell component="th" scope="row">
                 {row.name}
               </StyledTableCell>
-              <StyledTableCell align="right">{row.calories}</StyledTableCell>
-              <StyledTableCell align="right">{row.fat}</StyledTableCell>
-              <StyledTableCell align="right">{row.carbs}</StyledTableCell>
-              <StyledTableCell align="right">{row.protein}</StyledTableCell>
+              <StyledTableCell></StyledTableCell>
+              <StyledTableCell>Yesterday</StyledTableCell>
+              <StyledTableCell>
+                <Toggle />
+              </StyledTableCell>
+              <StyledTableCell>
+                <CreateIcon />
+                <DeleteIcon
+                  style={{
+                    color: theme.design.colors.red70,
+                    marginLeft: theme.spacing(2.4),
+                  }}
+                />
+              </StyledTableCell>
             </StyledTableRow>
           ))}
         </TableBody>
