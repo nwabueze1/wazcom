@@ -41,23 +41,11 @@ const StyledTableRow = withStyles((theme: Theme) =>
   }),
 )(TableRow);
 
-function createData(
-  name: string,
-  calories: number,
-  fat: number,
-  carbs: number,
-  protein: number,
-) {
-  return { name, calories, fat, carbs, protein };
+function createData(Menu: string, Schedule: string, day: string) {
+  return { Menu, Schedule, day };
 }
 
-const rows = [
-  createData("Breakfast", 159, 6.0, 24, 4.0),
-  createData("Ice cream sandwich", 237, 9.0, 37, 4.3),
-  createData("Eclair", 262, 16.0, 24, 6.0),
-  createData("Cupcake", 305, 3.7, 67, 4.3),
-  createData("Gingerbread", 356, 16.0, 49, 3.9),
-];
+const rows = [createData("Breakfast", "08:00am-10:00am", "yesterday")];
 
 const useStyles = makeStyles({
   table: {
@@ -82,10 +70,8 @@ export const MenuTable = () => {
         </TableHead>
         <TableBody>
           {rows.map((row) => (
-            <StyledTableRow key={row.name}>
-              <StyledTableCell component="th" scope="row">
-                {row.name}
-              </StyledTableCell>
+            <StyledTableRow key={row.Menu}>
+              <StyledTableCell component="th" scope="row"></StyledTableCell>
               <StyledTableCell></StyledTableCell>
               <StyledTableCell>Yesterday</StyledTableCell>
               <StyledTableCell>
