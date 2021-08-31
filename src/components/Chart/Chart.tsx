@@ -1,6 +1,9 @@
 import React from "react";
 import { Line } from "react-chartjs-2";
 import { useChartStyles } from "./style";
+import MenuItem from "@material-ui/core/MenuItem";
+import InputLabel from "@material-ui/core/InputLabel";
+import Select from "@material-ui/core/Select";
 
 interface ChartProps {
   labels?: string;
@@ -8,15 +11,15 @@ interface ChartProps {
 export const Chart: React.FC<ChartProps> = () => {
   const classes = useChartStyles();
 
-  const data = {
+  const state = {
     labels: [
-      "Jan",
-      "Feb",
+      "January",
+      "February",
       "March",
-      "Apr",
+      "April",
       "May",
-      "Jun",
-      "Jul",
+      "jun",
+      "jul",
       "Aug",
       "Sept",
       "Oct",
@@ -25,36 +28,85 @@ export const Chart: React.FC<ChartProps> = () => {
     ],
     datasets: [
       {
-        label: "orders for the month (m)",
-        data: [2000, 4000, 6000, 800, 10000],
-        borderColor: ["red"],
-        backgroundColor: ["rgba(255, 206, 86, 0.2"],
-        pointBackgroundColor: ["rgba(255, 206, 86, 0.2"],
-        pointBorderColor: ["rgba(255, 206, 86, 0.2"],
+        label: "",
+        fill: false,
+        lineTension: 0.5,
+        backgroundColor: "rgba(75,192,192,1)",
+        borderColor: "rgba(0,0,0,1)",
+        borderWidth: 2,
+        data: [
+          2000, 3000, 3500, 3000, 3500, 2800, 3000, 2800, 3200, 3400, 2800,
+          2600,
+        ],
       },
     ],
   };
 
-  const options = {
-    title: {
-      display: true,
-      text: "Line Chart",
-    },
-    scales: {
-      yAxes: [
-        {
-          ticks: {
-            min: 0,
-            max: 5,
-            stepSize: 2000,
-          },
-        },
-      ],
-    },
+  // const options = {
+  //   title: {
+  //     display: true,
+  //     text: "Line Chart",
+  //   },
+  //   scales: {
+  //     yAxes: [
+  //       {
+  //         ticks: {
+  //           min: 0,
+  //           max: 2,
+  //           stepSize: 100,
+  //         },
+  //       },
+  //     ],
+  //   },
+  // };
+
+  const [age, setAge] = React.useState("");
+
+  const handleChange = (event: React.ChangeEvent<{ value: unknown }>) => {
+    setAge(event.target.value as string);
   };
   return (
-    <div className="">
-      <Line data={data} options={options} />
+    <div className={classes.chart}>
+      <div className={classes.chartHead}>
+        <div className={classes.text}> Total Revenue</div>
+        <div className={classes.text}>
+          <InputLabel id="demo-simple-select-outlined-label">Age</InputLabel>
+          <Select value={age} onChange={handleChange} label="Age">
+            <MenuItem value="">
+              <em>Month</em>
+            </MenuItem>
+            <MenuItem value={10}>Ten</MenuItem>
+            <MenuItem value={20}>Twenty</MenuItem>
+            <MenuItem value={30}>Thirty</MenuItem>
+          </Select>
+        </div>
+      </div>
+      <div>
+        <Line
+          data={state}
+          options={{
+            title: {
+              display: true,
+              fontSize: 20,
+            },
+            legend: {
+              display: true,
+              position: "right",
+            },
+            scales: {
+              yAxes: [
+                {
+                  ticks: {
+                    min: 0,
+                    max: 5,
+                    stepSize: 100,
+                  },
+                },
+              ],
+            },
+          }}
+        />
+      </div>
     </div>
   );
 };
