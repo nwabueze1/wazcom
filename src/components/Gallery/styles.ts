@@ -22,7 +22,7 @@ export const useStyles = makeStyles<Theme,StyleProps>(() => ({
     border:{
         border:`4px solid ${theme.design.colors.red70}`
     },
-    hover:{
+    galleryHover:{
         position:"absolute",
         top:0,
         left:0,

@@ -26,7 +26,7 @@ export const Gallery: FC<GalleryProps> = ({ image }) => {
           </div>
         ) : null}
       </div>
-      <div className={classes.hover}>
+      <div className={classes.galleryHover}>
         <p>Select post</p>
       </div>
     </div>
