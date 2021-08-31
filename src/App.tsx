@@ -27,7 +27,6 @@ const App: React.FC<Props> = () => {
             <Switch>
               <Route exact path="/"></Route>
             </Switch>
-            <Switch></Switch>
           </Router>
         </ThemeProvider>
       </StylesProvider>
