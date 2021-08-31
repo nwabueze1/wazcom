@@ -27,7 +27,7 @@ export const BreadCrumb: FC<BreadCrumbProps> = ({ className, paths }) => {
               onClick={handleClick}
               className={clx(
                 classes.link,
-                index === paths.length - 1 && classes.lastLink,
+                index === paths.length - 1 && classes.lastCrumb,
               )}
               aria-current="page"
             >
