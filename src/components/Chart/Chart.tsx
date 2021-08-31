@@ -65,46 +65,56 @@ export const Chart: React.FC<ChartProps> = () => {
     setAge(event.target.value as string);
   };
   return (
-    <div className={classes.chart}>
-      <div className={classes.chartHead}>
-        <div className={classes.text}> Total Revenue</div>
-        <div className={classes.select}>
-          <InputLabel id="demo-simple-select-outlined-label">Age</InputLabel>
-          <Select value={age} onChange={handleChange} label="Age">
-            <MenuItem value="">
-              <em>Month</em>
-            </MenuItem>
-            <MenuItem value={10}>Ten</MenuItem>
-            <MenuItem value={20}>Twenty</MenuItem>
-            <MenuItem value={30}>Thirty</MenuItem>
-          </Select>
+    <div className={classes.chartWrapper}>
+      <div className={classes.Desc}>Chart</div>
+      <div className={classes.chart}>
+        <div className={classes.chartHead}>
+          <div className={classes.text}> Total Revenue</div>
+          <div className={classes.select}>
+            <InputLabel id="demo-simple-select-outlined-label">Age</InputLabel>
+            <Select
+              style={{ width: 400, border: "1px solid red" }}
+              labelId="demo-simple-select-outlined-label"
+              id="demo-simple-select-outlined"
+              value={age}
+              onChange={handleChange}
+              label="Age"
+            >
+              <MenuItem value="">
+                <em>None</em>
+              </MenuItem>
+              <MenuItem value={10}>Ten</MenuItem>
+              <MenuItem value={20}>Twenty</MenuItem>
+              <MenuItem value={30}>Thirty</MenuItem>
+            </Select>
+          </div>
         </div>
-      </div>
-      <div>
-        <Line
-          data={state}
-          options={{
-            title: {
-              display: true,
-              fontSize: 20,
-            },
-            legend: {
-              display: true,
-              position: "right",
-            },
-            scales: {
-              yAxes: [
-                {
-                  ticks: {
-                    min: 0,
-                    max: 5,
-                    stepSize: 100,
+        <div>
+          <Line
+            data={state}
+            options={{
+              title: {
+                display: true,
+                fontSize: 20,
+              },
+              legend: {
+                display: true,
+                position: "right",
+              },
+              scales: {
+                yAxes: [
+                  {
+                    ticks: {
+                      min: 0,
+                      max: 5,
+                      stepSize: 100,
+                    },
                   },
-                },
-              ],
-            },
-          }}
-        />
+                ],
+              },
+            }}
+          />
+        </div>
       </div>
     </div>
   );
