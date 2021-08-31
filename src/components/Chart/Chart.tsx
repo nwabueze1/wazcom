@@ -31,8 +31,7 @@ export const Chart: React.FC<ChartProps> = () => {
         label: "",
         fill: false,
         lineTension: 0.5,
-        backgroundColor: "rgba(75,192,192,1)",
-        borderColor: "rgba(0,0,0,1)",
+        borderColor: "red",
         borderWidth: 2,
         data: [
           2000, 3000, 3500, 3000, 3500, 2800, 3000, 2800, 3200, 3400, 2800,
@@ -69,7 +68,7 @@ export const Chart: React.FC<ChartProps> = () => {
     <div className={classes.chart}>
       <div className={classes.chartHead}>
         <div className={classes.text}> Total Revenue</div>
-        <div className={classes.text}>
+        <div className={classes.select}>
           <InputLabel id="demo-simple-select-outlined-label">Age</InputLabel>
           <Select value={age} onChange={handleChange} label="Age">
             <MenuItem value="">

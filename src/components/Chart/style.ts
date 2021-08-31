@@ -12,5 +12,6 @@ padding:theme.spacing(4)
   },
   text:{
 
-  }
+  }, 
+  select:{}
 }));
