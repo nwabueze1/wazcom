@@ -23,17 +23,17 @@ export const MenuCard: FC<MenuCardProps> = ({
       className={clx(className, classes.root, classes.disableState)}
       variant="outlined"
     >
-      <CardContent className={classes.cardcontents}>
-        <div className={classes.outerbar}>
+      <CardContent className={classes.cardContents}>
+        <div className={classes.outerBar}>
           <div
-            className={classes.imgfield}
+            className={classes.imgField}
             style={{
               backgroundImage: `url(${image})`,
             }}
           ></div>
         </div>
-        <div className={classes.mealdetail}>
-          <Typography className={classes.mealname} variant="h5">
+        <div className={classes.mealDetail}>
+          <Typography className={classes.mealName} variant="h5">
             {meal}
           </Typography>
           <Typography className={classes.details}>{details}</Typography>

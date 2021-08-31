@@ -9,29 +9,29 @@ export const useMenuCardStyles = makeStyles(() => ({
     opacity: 1,
     transition: "opacity 0.5s ease-in",
   },
-  mealname: {
+  mealName: {
     fontWeight: "bold",
   },
   price: {
     fontSize: "12px",
     color: theme.design.colors.red100,
   },
-  cardcontents: {
+  cardContents: {
     margin: theme.spacing(1),
     display: "flex",
     justifyContent: "space-between",
   },
-  mealdetail: {
+  mealDetail: {
     width:"160px",
     textOverflow:"ellipsis",
     marginLeft: theme.spacing(2),
     textAlign: "left",
   },
-  outerbar: {
+  outerBar: {
     width: "142px",
     height: "142px",
   },
-  imgfield: {
+  imgField: {
     height: "142px",
     borderRadius: "50%",
     backgroundSize: "contain",

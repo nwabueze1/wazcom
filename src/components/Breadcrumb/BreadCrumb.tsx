@@ -27,14 +27,14 @@ export const BreadCrumb: FC<BreadCrumbProps> = ({ className, paths }) => {
               onClick={handleClick}
               className={clx(
                 classes.link,
-                index === paths.length - 1 && classes.lastlink,
+                index === paths.length - 1 && classes.lastLink,
               )}
               aria-current="page"
             >
               {crumb.label}
               {index !== paths.length - 1 && (
                 <NavigateNextIcon
-                  className={classes.navicon}
+                  className={classes.navIcon}
                   fontSize="small"
                 />
               )}
