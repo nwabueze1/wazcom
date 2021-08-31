@@ -9,7 +9,6 @@ import jssPluginExtend from "jss-plugin-extend";
 import React from "react";
 import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
 import theme from "./theme";
-import { Toggle } from "./components/Toggle/Toggle";
 const jss = create({
   plugins: [...jssPreset().plugins, jssPluginExtend()],
 });
@@ -26,10 +25,6 @@ const App: React.FC<Props> = () => {
           <Router>
             <Switch>
               <Route exact path="/"></Route>
-            </Switch>
-            <Switch>
-              <Route exact path="/toggle"></Route>
-              <Toggle />
             </Switch>
           </Router>
         </ThemeProvider>
