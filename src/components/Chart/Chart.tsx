@@ -3,10 +3,13 @@ import { Line } from "react-chartjs-2";
 import { useChartStyles } from "./style";
 import MenuItem from "@material-ui/core/MenuItem";
 import Select from "@material-ui/core/Select";
+import FormControl from "@material-ui/core/FormControl";
+import InputLabel from "@material-ui/core/InputLabel";
 
 interface ChartProps {
   labels?: string;
 }
+
 export const Chart: React.FC<ChartProps> = () => {
   const classes = useChartStyles();
   const state = {
@@ -31,32 +34,15 @@ export const Chart: React.FC<ChartProps> = () => {
         lineTension: 0.5,
         borderColor: "red",
         borderWidth: 2,
-        pointWidth: 0,
+        point: "none",
+        backgroundColor: "green",
         data: [
-          2000, 3000, 3500, 3000, 3500, 2800, 3000, 2800, 3200, 3400, 2800,
-          2600,
+          2000, 2600, 5500, 6000, 5000, 6000, 4000, 6000, 6000, 8000, 9000,
+          10000,
         ],
       },
     ],
   };
-
-  // const options = {
-  //   title: {
-  //     display: true,
-  //     text: "Line Chart",
-  //   },
-  //   scales: {
-  //     yAxes: [
-  //       {
-  //         ticks: {
-  //           min: 0,
-  //           max: 2,
-  //           stepSize: 100,
-  //         },
-  //       },
-  //     ],
-  //   },
-  // };
 
   const [age, setAge] = React.useState("");
 
@@ -70,20 +56,25 @@ export const Chart: React.FC<ChartProps> = () => {
         <div className={classes.chartHead}>
           <div className={classes.text}> Total Revenue</div>
 
-          <Select
-            style={{ width: 150 }}
-            value={age}
-            onChange={handleChange}
-            label="Age"
-            variant="outlined"
-          >
-            <MenuItem value="">
-              <em>None</em>
-            </MenuItem>
-            <MenuItem value={10}>Ten</MenuItem>
-            <MenuItem value={20}>Twenty</MenuItem>
-            <MenuItem value={30}>Thirty</MenuItem>
-          </Select>
+          <FormControl variant="outlined">
+            <InputLabel id="demo-simple-select-outlined-label">Age</InputLabel>
+
+            <Select
+              style={{ width: 100 }}
+              labelId="demo-simple-select-outlined-label"
+              id="demo-simple-select-outlined"
+              value={age}
+              onChange={handleChange}
+              label="Age"
+            >
+              <MenuItem value="">
+                <em>None</em>
+              </MenuItem>
+              <MenuItem value={10}>Ten</MenuItem>
+              <MenuItem value={20}>Twenty</MenuItem>
+              <MenuItem value={30}>Thirty</MenuItem>
+            </Select>
+          </FormControl>
         </div>
         <div>
           <Line
@@ -93,24 +84,34 @@ export const Chart: React.FC<ChartProps> = () => {
                 display: true,
                 fontSize: 20,
               },
-
+              plugins: {
+                legend: {
+                  display: false,
+                },
+              },
+              elements: {
+                point: {
+                  radius: 0,
+                },
+              },
               scales: {
                 yAxes: [
                   {
                     ticks: {
                       min: 0,
                       max: 5,
-                      stepSize: 100,
+                      stepSize: 5,
                     },
+
                     gridLines: {
-                      lineWidth: 0,
+                      display: false,
                     },
                   },
                 ],
                 xAxes: [
                   {
                     gridLines: {
-                      lineWidth: 0,
+                      display: false,
                     },
                   },
                 ],
