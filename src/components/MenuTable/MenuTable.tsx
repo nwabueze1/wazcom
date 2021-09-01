@@ -1,10 +1,5 @@
 import React from "react";
-import {
-  withStyles,
-  Theme,
-  createStyles,
-  makeStyles,
-} from "@material-ui/core/styles";
+import { withStyles, Theme, createStyles } from "@material-ui/core/styles";
 import Table from "@material-ui/core/Table";
 import TableBody from "@material-ui/core/TableBody";
 import TableCell from "@material-ui/core/TableCell";
@@ -14,7 +9,7 @@ import TableRow from "@material-ui/core/TableRow";
 import Paper from "@material-ui/core/Paper";
 import DeleteIcon from "@material-ui/icons/Delete";
 import CreateIcon from "@material-ui/icons/Create";
-import theme from "theme";
+import { MenuTableStyles } from "./styles";
 import Toggle from "components/Toggle/Toggle";
 
 const StyledTableCell = withStyles((theme: Theme) =>
@@ -35,7 +30,7 @@ const StyledTableRow = withStyles((theme: Theme) =>
   createStyles({
     root: {
       "&:nth-of-type(odd)": {
-        backgroundColor: theme.palette.action.hover,
+        backgroundColor: theme.design.colors.white,
       },
     },
   }),
@@ -47,44 +42,35 @@ function createData(Menu: string, Schedule: string, day: string) {
 
 const rows = [createData("Breakfast", "08:00am-10:00am", "yesterday")];
 
-const useStyles = makeStyles({
-  table: {
-    minWidth: 700,
-  },
-});
-
 export const MenuTable = () => {
-  const classes = useStyles();
+  const classes = MenuTableStyles();
 
   return (
     <TableContainer component={Paper}>
       <Table className={classes.table} aria-label="customized table">
         <TableHead>
           <TableRow>
-            <StyledTableCell>Menu</StyledTableCell>
-            <StyledTableCell>Todays Schedule</StyledTableCell>
-            <StyledTableCell>Last modified</StyledTableCell>
-            <StyledTableCell>Active</StyledTableCell>
-            <StyledTableCell>Actions</StyledTableCell>
+            <StyledTableCell align="center">Menu</StyledTableCell>
+            <StyledTableCell align="center">Todays Schedule</StyledTableCell>
+            <StyledTableCell align="center">Last modified</StyledTableCell>
+            <StyledTableCell align="center">Active</StyledTableCell>
+            <StyledTableCell align="center">Actions</StyledTableCell>
           </TableRow>
         </TableHead>
         <TableBody>
           {rows.map((row) => (
             <StyledTableRow key={row.Menu}>
-              <StyledTableCell component="th" scope="row"></StyledTableCell>
-              <StyledTableCell></StyledTableCell>
-              <StyledTableCell>Yesterday</StyledTableCell>
-              <StyledTableCell>
+              <StyledTableCell component="th" scope="row" align="center">
+                {row.Menu}
+              </StyledTableCell>
+              <StyledTableCell align="center">{row.Schedule}</StyledTableCell>
+              <StyledTableCell align="center">Yesterday</StyledTableCell>
+              <StyledTableCell className={classes.active}>
                 <Toggle />
               </StyledTableCell>
-              <StyledTableCell>
+              <StyledTableCell align="center">
                 <CreateIcon />
-                <DeleteIcon
-                  style={{
-                    color: theme.design.colors.red70,
-                    marginLeft: theme.spacing(2.4),
-                  }}
-                />
+                <DeleteIcon className={classes.deleteIcon} />
               </StyledTableCell>
             </StyledTableRow>
           ))}

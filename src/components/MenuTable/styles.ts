@@ -1,7 +1,19 @@
-import { createStyles, makeStyles, } from "@material-ui/core/styles";
+import {  makeStyles, } from "@material-ui/core/styles";
+import theme from "theme";
 
-export const useMenuTableStyles = makeStyles(() =>
-  createStyles({
-  
-  }),
-);
+export const MenuTableStyles = makeStyles(() => ({
+    deleteIcon:{
+      color: theme.design.colors.red70,
+      marginLeft: theme.spacing(2.4),
+     },
+     table: {
+      minWidth: 700,
+    },
+    active:{
+    display: "flex",
+    justifyContent: "center",
+    paddingLeft:theme.spacing(5)
+    }
+}));
+
+
