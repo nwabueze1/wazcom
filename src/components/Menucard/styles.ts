@@ -34,7 +34,7 @@ export const useMenuCardStyles = makeStyles(() => ({
   imgField: {
     height: "142px",
     borderRadius: "50%",
-    backgroundSize: "contain",
+    backgroundSize: "cover",
     backgroundRepeat: "no-repeat",
     backgroundPosition: "center",
   },
