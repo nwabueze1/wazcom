@@ -2,7 +2,6 @@ import React from "react";
 import { Line } from "react-chartjs-2";
 import { useChartStyles } from "./style";
 import MenuItem from "@material-ui/core/MenuItem";
-import InputLabel from "@material-ui/core/InputLabel";
 import Select from "@material-ui/core/Select";
 
 interface ChartProps {
@@ -10,7 +9,6 @@ interface ChartProps {
 }
 export const Chart: React.FC<ChartProps> = () => {
   const classes = useChartStyles();
-
   const state = {
     labels: [
       "January",
@@ -33,6 +31,7 @@ export const Chart: React.FC<ChartProps> = () => {
         lineTension: 0.5,
         borderColor: "red",
         borderWidth: 2,
+        pointWidth: 0,
         data: [
           2000, 3000, 3500, 3000, 3500, 2800, 3000, 2800, 3200, 3400, 2800,
           2600,
@@ -70,24 +69,21 @@ export const Chart: React.FC<ChartProps> = () => {
       <div className={classes.chart}>
         <div className={classes.chartHead}>
           <div className={classes.text}> Total Revenue</div>
-          <div className={classes.select}>
-            <InputLabel id="demo-simple-select-outlined-label">Age</InputLabel>
-            <Select
-              style={{ width: 400, border: "1px solid red" }}
-              labelId="demo-simple-select-outlined-label"
-              id="demo-simple-select-outlined"
-              value={age}
-              onChange={handleChange}
-              label="Age"
-            >
-              <MenuItem value="">
-                <em>None</em>
-              </MenuItem>
-              <MenuItem value={10}>Ten</MenuItem>
-              <MenuItem value={20}>Twenty</MenuItem>
-              <MenuItem value={30}>Thirty</MenuItem>
-            </Select>
-          </div>
+
+          <Select
+            style={{ width: 150 }}
+            value={age}
+            onChange={handleChange}
+            label="Age"
+            variant="outlined"
+          >
+            <MenuItem value="">
+              <em>None</em>
+            </MenuItem>
+            <MenuItem value={10}>Ten</MenuItem>
+            <MenuItem value={20}>Twenty</MenuItem>
+            <MenuItem value={30}>Thirty</MenuItem>
+          </Select>
         </div>
         <div>
           <Line
@@ -97,10 +93,7 @@ export const Chart: React.FC<ChartProps> = () => {
                 display: true,
                 fontSize: 20,
               },
-              legend: {
-                display: true,
-                position: "right",
-              },
+
               scales: {
                 yAxes: [
                   {
@@ -108,6 +101,16 @@ export const Chart: React.FC<ChartProps> = () => {
                       min: 0,
                       max: 5,
                       stepSize: 100,
+                    },
+                    gridLines: {
+                      lineWidth: 0,
+                    },
+                  },
+                ],
+                xAxes: [
+                  {
+                    gridLines: {
+                      lineWidth: 0,
                     },
                   },
                 ],

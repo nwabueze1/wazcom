@@ -28,7 +28,6 @@ fontStyle:'normal',
 fontWeight:'bold',
 color:theme.design.colors.pureblack,
   }, 
-  select:{
-    
-  }
+  
+
 }));
