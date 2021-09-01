@@ -101,17 +101,18 @@ export const Chart: React.FC<ChartProps> = () => {
                       min: 0,
                       max: 5,
                       stepSize: 5,
+                      display: false,
                     },
 
                     gridLines: {
-                      display: false,
+                      color: "red",
                     },
                   },
                 ],
                 xAxes: [
                   {
                     gridLines: {
-                      display: false,
+                      color: "red",
                     },
                   },
                 ],
