@@ -4,7 +4,6 @@ import { useChartStyles } from "./style";
 import MenuItem from "@material-ui/core/MenuItem";
 import Select from "@material-ui/core/Select";
 import FormControl from "@material-ui/core/FormControl";
-import InputLabel from "@material-ui/core/InputLabel";
 
 interface ChartProps {
   labels?: string;
@@ -30,7 +29,6 @@ export const Chart: React.FC<ChartProps> = () => {
     datasets: [
       {
         label: "",
-        fill: false,
         lineTension: 0.5,
         borderColor: "red",
         borderWidth: 2,
@@ -38,7 +36,7 @@ export const Chart: React.FC<ChartProps> = () => {
           2000, 2600, 5500, 6000, 5000, 6000, 4000, 6000, 6000, 8000, 9000,
           10000,
         ],
-        backgroundColor: "green",
+        backgroundColor: ["rgba(255, 99, 132, 0.2)"],
       },
     ],
   };
@@ -56,20 +54,16 @@ export const Chart: React.FC<ChartProps> = () => {
           <div className={classes.text}> Total Revenue</div>
 
           <FormControl variant="outlined">
-            <InputLabel id="demo-simple-select-outlined-label">Age</InputLabel>
-
             <Select
-              style={{ width: 100 }}
-              labelId="demo-simple-select-outlined-label"
-              id="demo-simple-select-outlined"
+              style={{ width: 120 }}
               value={age}
               onChange={handleChange}
-              label="Age"
+              label=""
             >
               <MenuItem value="">
                 <em>None</em>
               </MenuItem>
-              <MenuItem value={10}>Ten</MenuItem>
+              <MenuItem value={10}>Month</MenuItem>
               <MenuItem value={20}>Twenty</MenuItem>
               <MenuItem value={30}>Thirty</MenuItem>
             </Select>
