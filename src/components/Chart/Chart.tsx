@@ -34,12 +34,11 @@ export const Chart: React.FC<ChartProps> = () => {
         lineTension: 0.5,
         borderColor: "red",
         borderWidth: 2,
-        point: "none",
-        backgroundColor: "green",
         data: [
           2000, 2600, 5500, 6000, 5000, 6000, 4000, 6000, 6000, 8000, 9000,
           10000,
         ],
+        backgroundColor: "green",
       },
     ],
   };
@@ -80,39 +79,31 @@ export const Chart: React.FC<ChartProps> = () => {
           <Line
             data={state}
             options={{
-              title: {
-                display: true,
-                fontSize: 20,
-              },
-              plugins: {
-                legend: {
-                  display: false,
-                },
-              },
               elements: {
                 point: {
                   radius: 0,
                 },
               },
+              legend: {
+                display: false,
+              },
               scales: {
                 yAxes: [
                   {
                     ticks: {
-                      min: 0,
-                      max: 5,
-                      stepSize: 5,
-                      display: false,
+                      min: 2000,
+                      max: 10000,
                     },
 
                     gridLines: {
-                      color: "red",
+                      display: false,
                     },
                   },
                 ],
                 xAxes: [
                   {
                     gridLines: {
-                      color: "red",
+                      display: false,
                     },
                   },
                 ],
