@@ -43,7 +43,7 @@ function createData(Menu: string, Schedule: string, day: string) {
 
 const rows = [
   createData("Breakfast", "08:00am-10:00am", "yesterday"),
-  createData("Breakfast", "08:00am-10:00am", "yesterday"),
+  createData("Dinner", "09:00pm-11:00pm", "wednesday"),
 ];
 
 export const MenuTable: FC<MenuTableProps> = ({
@@ -71,7 +71,7 @@ export const MenuTable: FC<MenuTableProps> = ({
                 {row.Menu}
               </StyledTableCell>
               <StyledTableCell align="center">{row.Schedule}</StyledTableCell>
-              <StyledTableCell align="center">Yesterday</StyledTableCell>
+              <StyledTableCell align="center">{row.day}</StyledTableCell>
               <StyledTableCell align="center">
                 <div className={classes.active}>
                   <Toggle />
