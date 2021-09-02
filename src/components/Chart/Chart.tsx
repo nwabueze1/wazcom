@@ -6,10 +6,16 @@ import Select from "@material-ui/core/Select";
 import FormControl from "@material-ui/core/FormControl";
 
 interface ChartProps {
-  labels?: string;
+  handleChange?: (e: React.ChangeEvent<HTMLInputElement>) => void;
+  value?: number | string;
 }
 
 export const Chart: React.FC<ChartProps> = () => {
+  const [age, setAge] = React.useState("");
+
+  const handleChange = (event: React.ChangeEvent<{ value: unknown }>) => {
+    setAge(event.target.value as string);
+  };
   const classes = useChartStyles();
   const state = {
     labels: [
@@ -41,11 +47,6 @@ export const Chart: React.FC<ChartProps> = () => {
     ],
   };
 
-  const [age, setAge] = React.useState("");
-
-  const handleChange = (event: React.ChangeEvent<{ value: unknown }>) => {
-    setAge(event.target.value as string);
-  };
   return (
     <div className={classes.chartWrapper}>
       <div className={classes.Desc}>Chart</div>
@@ -88,7 +89,9 @@ export const Chart: React.FC<ChartProps> = () => {
                       min: 2000,
                       max: 10000,
                     },
-
+                    time: {
+                      unitStepSize: 3,
+                    },
                     gridLines: {
                       display: false,
                     },

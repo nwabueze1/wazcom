@@ -11,7 +11,7 @@ export default {
   },
 } as ComponentMeta<typeof Chart>;
 
-const Template: ComponentStory<typeof Chart> = () => <Chart />;
+const Template: ComponentStory<typeof Chart> = (args) => <Chart {...args} />;
 
 export const Primary = Template.bind({});
 Template.args = {};
