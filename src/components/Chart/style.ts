@@ -2,10 +2,6 @@ import { makeStyles, Theme } from "@material-ui/core/styles";
 
 
 export const useChartStyles = makeStyles((theme: Theme) => ({
-  chartWrapper:{
-
-  },
-
   Desc:{
     font: theme.typography.fontFamily,
     fontSize: theme.typography.fontSize*1.2,
