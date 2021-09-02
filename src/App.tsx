@@ -4,7 +4,6 @@ import {
   StylesProvider,
   ThemeProvider,
 } from "@material-ui/core/styles";
-import { MenuTable } from "components";
 import { create } from "jss";
 import jssPluginExtend from "jss-plugin-extend";
 import React from "react";
@@ -27,11 +26,6 @@ const App: React.FC<Props> = () => {
           <Router>
             <Switch>
               <Route exact path="/"></Route>
-            </Switch>
-            <Switch>
-              <Route exact path="/table">
-                <MenuTable />
-              </Route>
             </Switch>
           </Router>
         </ThemeProvider>

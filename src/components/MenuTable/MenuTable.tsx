@@ -1,4 +1,4 @@
-import React from "react";
+import React, { FC } from "react";
 import { withStyles, Theme, createStyles } from "@material-ui/core/styles";
 import Table from "@material-ui/core/Table";
 import TableBody from "@material-ui/core/TableBody";
@@ -10,6 +10,7 @@ import Paper from "@material-ui/core/Paper";
 import DeleteIcon from "@material-ui/icons/Delete";
 import CreateIcon from "@material-ui/icons/Create";
 import { MenuTableStyles } from "./styles";
+import { MenuTableProps } from "./types";
 import Toggle from "components/Toggle/Toggle";
 
 const StyledTableCell = withStyles((theme: Theme) =>
@@ -40,9 +41,15 @@ function createData(Menu: string, Schedule: string, day: string) {
   return { Menu, Schedule, day };
 }
 
-const rows = [createData("Breakfast", "08:00am-10:00am", "yesterday")];
+const rows = [
+  createData("Breakfast", "08:00am-10:00am", "yesterday"),
+  createData("Breakfast", "08:00am-10:00am", "yesterday"),
+];
 
-export const MenuTable = () => {
+export const MenuTable: FC<MenuTableProps> = ({
+  editHandler,
+  deleteHandler,
+}) => {
   const classes = MenuTableStyles();
 
   return (
@@ -58,19 +65,24 @@ export const MenuTable = () => {
           </TableRow>
         </TableHead>
         <TableBody>
-          {rows.map((row) => (
-            <StyledTableRow key={row.Menu}>
+          {rows.map((row, index) => (
+            <StyledTableRow key={index}>
               <StyledTableCell component="th" scope="row" align="center">
                 {row.Menu}
               </StyledTableCell>
               <StyledTableCell align="center">{row.Schedule}</StyledTableCell>
               <StyledTableCell align="center">Yesterday</StyledTableCell>
-              <StyledTableCell className={classes.active}>
-                <Toggle />
+              <StyledTableCell align="center">
+                <div className={classes.active}>
+                  <Toggle />
+                </div>
               </StyledTableCell>
               <StyledTableCell align="center">
-                <CreateIcon />
-                <DeleteIcon className={classes.deleteIcon} />
+                <CreateIcon onClick={() => editHandler(index)} />
+                <DeleteIcon
+                  onClick={() => deleteHandler(index)}
+                  className={classes.deleteIcon}
+                />
               </StyledTableCell>
             </StyledTableRow>
           ))}

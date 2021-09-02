@@ -12,7 +12,7 @@ export const MenuTableStyles = makeStyles(() => ({
     active:{
     display: "flex",
     justifyContent: "center",
-    paddingLeft:theme.spacing(5)
+    paddingLeft:theme.spacing(3)
     }
 }));
 

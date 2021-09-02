@@ -2,6 +2,7 @@ import {CommonProps} from '../types';
 
 /** !!-- Remember to update the interface name !! */
 export type MenuTableProps = CommonProps & {
-  
+  deleteHandler: (index: number) => void;
+  editHandler: (index: number) => void;
 }
 

@@ -8,7 +8,9 @@ export default {
   argTypes: {},
 } as ComponentMeta<typeof MenuTable>;
 
-const Template: ComponentStory<typeof MenuTable> = (argTypes) => <MenuTable />;
+const Template: ComponentStory<typeof MenuTable> = (args) => (
+  <MenuTable {...args} />
+);
 
 export const Primary = Template.bind({});
 Template.args = {};
