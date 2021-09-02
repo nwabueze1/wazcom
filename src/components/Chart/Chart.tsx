@@ -48,7 +48,7 @@ export const Chart: React.FC<ChartProps> = () => {
   };
 
   return (
-    <div className={classes.chartWrapper}>
+    <div>
       <div className={classes.Desc}>Chart</div>
       <div className={classes.chart}>
         <div className={classes.chartHead}>
