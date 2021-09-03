@@ -37,7 +37,7 @@ const StyledTableRow = withStyles((theme: Theme) =>
   }),
 )(TableRow);
 
-function createData(Menu: string, Schedule: string, day: string) {
+function createData(id: number, Menu: string, Schedule: string, day: string) {
   return { Menu, Schedule, day };
 }
 
@@ -47,6 +47,7 @@ const rows = [
 ];
 
 export const MenuTable: FC<MenuTableProps> = ({
+  rows,
   editHandler,
   deleteHandler,
 }) => {
@@ -65,8 +66,8 @@ export const MenuTable: FC<MenuTableProps> = ({
           </TableRow>
         </TableHead>
         <TableBody>
-          {rows.map((row, index) => (
-            <StyledTableRow key={index}>
+          {rows.map((row, id) => (
+            <StyledTableRow key={id}>
               <StyledTableCell component="th" scope="row" align="center">
                 {row.Menu}
               </StyledTableCell>
