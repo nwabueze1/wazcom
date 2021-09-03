@@ -37,15 +37,6 @@ const StyledTableRow = withStyles((theme: Theme) =>
   }),
 )(TableRow);
 
-function createData(id: number, Menu: string, Schedule: string, day: string) {
-  return { Menu, Schedule, day };
-}
-
-const rows = [
-  createData("Breakfast", "08:00am-10:00am", "yesterday"),
-  createData("Dinner", "09:00pm-11:00pm", "wednesday"),
-];
-
 export const MenuTable: FC<MenuTableProps> = ({
   rows,
   editHandler,
@@ -79,9 +70,9 @@ export const MenuTable: FC<MenuTableProps> = ({
                 </div>
               </StyledTableCell>
               <StyledTableCell align="center">
-                <CreateIcon onClick={() => editHandler(index)} />
+                <CreateIcon onClick={() => editHandler(id)} />
                 <DeleteIcon
-                  onClick={() => deleteHandler(index)}
+                  onClick={() => deleteHandler(id)}
                   className={classes.deleteIcon}
                 />
               </StyledTableCell>
