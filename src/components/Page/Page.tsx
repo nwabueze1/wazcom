@@ -20,8 +20,6 @@ const Page = () => {
       <Pagination count={4} page={page} onChange={handleChange} />
     </div>
   );
-
-  return <div></div>;
 };
 
 export default Page;
