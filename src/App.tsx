@@ -4,12 +4,12 @@ import {
   StylesProvider,
   ThemeProvider,
 } from "@material-ui/core/styles";
+import { Gallery } from "components";
 import { create } from "jss";
 import jssPluginExtend from "jss-plugin-extend";
 import React from "react";
 import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
 import theme from "./theme";
-import { Accordion } from "./components";
 
 const jss = create({
   plugins: [...jssPreset().plugins, jssPluginExtend()],
