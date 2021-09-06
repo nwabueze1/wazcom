@@ -28,5 +28,5 @@ export const useStyles = makeStyles(() => ({
     },
     activeOption:{
       backgroundColor:theme.design.colors.red70
-    }
+    },
 }));

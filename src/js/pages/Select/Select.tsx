@@ -21,7 +21,7 @@ const Selector: FC<SelectProps> = ({
             root: classes.root,
           }}
           native
-          id="demo-simple-select-outlined"
+          id="select"
           value={value}
           onChange={handleChange}
         >
