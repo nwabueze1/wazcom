@@ -6,10 +6,16 @@ const useStyles = makeStyles((theme: Theme) =>
         width: 46,
         height: 26,
         padding: 0,
+<<<<<<< HEAD
+        "& .MuiSwitch-track":{
+          height:"auto"
+          },
+=======
 
         "& .MuiSwitch-track":{
         height:"auto"
         }
+>>>>>>> develop
       },
       switchBase: {
         padding: 1,

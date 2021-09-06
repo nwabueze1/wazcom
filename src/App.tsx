@@ -4,7 +4,6 @@ import {
   StylesProvider,
   ThemeProvider,
 } from "@material-ui/core/styles";
-import { Gallery } from "components";
 import { create } from "jss";
 import jssPluginExtend from "jss-plugin-extend";
 import React from "react";
