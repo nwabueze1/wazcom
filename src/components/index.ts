@@ -2,10 +2,7 @@ export * from "./Accordion";
 export * from "./Button";
 export * from "./Card";
 export * from "./Text";
-<<<<<<< HEAD
 export * from "./MenuTable";
-=======
 export * from "./Gallery"
 export * from "./Card/Menucard";
 
->>>>>>> develop
