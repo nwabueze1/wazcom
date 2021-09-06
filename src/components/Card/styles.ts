@@ -4,7 +4,8 @@ import theme from "../../theme";
 export const useCardStyles = makeStyles(() => ({
   root: {
     width: "384px",
-    pading: theme.spacing(1, 1),
+    height:"480px",
+    padding: theme.spacing(1, 1),
     textAlign: "center",
     borderRadius: "25px",
   },
@@ -16,6 +17,7 @@ export const useCardStyles = makeStyles(() => ({
   },
   text: {
     padding: theme.spacing(0, 2),
-    textAlign: "left",
+    textAlign: "justify",
+    fontSize:"18px",
   },
 }));

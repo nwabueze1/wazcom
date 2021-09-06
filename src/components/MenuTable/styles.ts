@@ -1,6 +1,7 @@
 import {  makeStyles, } from "@material-ui/core/styles";
 import theme from "theme";
 
+<<<<<<< HEAD
 export const MenuTableStyles = makeStyles(() => ({
     deleteIcon:{
       color: theme.design.colors.red70,
@@ -17,3 +18,10 @@ export const MenuTableStyles = makeStyles(() => ({
 }));
 
 
+=======
+export const BreadCrumbStyles = makeStyles(() => ({
+  root: {
+    
+  }
+}));
+>>>>>>> develop
