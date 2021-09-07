@@ -5,7 +5,7 @@ import { Typography } from "@material-ui/core";
 import { FaRegFileAlt } from "react-icons/fa";
 import clx from "classnames";
 
-const Upload: FC<UploadProps> = ({ className, width }) => {
+export const Upload: FC<UploadProps> = ({ className, width }) => {
   const classes = uploadStyles({ width });
   const [loading, setloading] = useState(false);
   const handleClick = () => {
@@ -48,5 +48,3 @@ const Upload: FC<UploadProps> = ({ className, width }) => {
     </div>
   );
 };
-
-export default Upload;

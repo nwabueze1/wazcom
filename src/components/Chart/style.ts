@@ -35,6 +35,5 @@ color:theme.design.colors.pureblack,
     fontStyle:'normal',
     color:theme.design.colors.pureblack,
     margin:theme.spacing(0, 0, 4, 0)
-  }
- 
+  },
 }));

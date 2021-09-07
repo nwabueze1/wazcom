@@ -1,14 +1,11 @@
 import React from "react";
 import { Line } from "react-chartjs-2";
 import { useChartStyles } from "./style";
+import { ChartProps } from "./types";
 import MenuItem from "@material-ui/core/MenuItem";
 import Select from "@material-ui/core/Select";
 import FormControl from "@material-ui/core/FormControl";
-
-interface ChartProps {
-  handleChange?: (e: React.ChangeEvent<HTMLInputElement>) => void;
-  value?: number | string;
-}
+import Card from "@material-ui/core/Card";
 
 export const Chart: React.FC<ChartProps> = () => {
   const [age, setAge] = React.useState("");
@@ -16,6 +13,7 @@ export const Chart: React.FC<ChartProps> = () => {
   const handleChange = (event: React.ChangeEvent<{ value: unknown }>) => {
     setAge(event.target.value as string);
   };
+
   const classes = useChartStyles();
   const state = {
     labels: [
@@ -48,11 +46,10 @@ export const Chart: React.FC<ChartProps> = () => {
   };
 
   return (
-    <div>
+    <Card>
       <div className={classes.Desc}>Chart</div>
       <div className={classes.chartHead}>
         <div className={classes.text}> Total Revenue</div>
-
         <FormControl variant="outlined">
           <Select
             style={{ width: 120 }}
@@ -77,6 +74,9 @@ export const Chart: React.FC<ChartProps> = () => {
             },
             legend: {
               display: false,
+              labels: {
+                fontSize: "2px",
+              },
             },
             scales: {
               yAxes: [
@@ -104,6 +104,6 @@ export const Chart: React.FC<ChartProps> = () => {
           }}
         />
       </div>
-    </div>
+    </Card>
   );
 };
