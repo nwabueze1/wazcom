@@ -10,9 +10,6 @@ export const useChartStyles = makeStyles((theme: Theme) => ({
     color:theme.design.colors.lightRed,
     marginBottom:theme.spacing(2)
   },
-  chart:{
-border:'1px solid blue'
-  }, 
   chartHead:{
 display:'flex',
 justifyContent:'space-between',

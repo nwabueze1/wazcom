@@ -50,64 +50,59 @@ export const Chart: React.FC<ChartProps> = () => {
   return (
     <div>
       <div className={classes.Desc}>Chart</div>
-      <div className={classes.chart}>
-        <div className={classes.chartHead}>
-          <div className={classes.text}> Total Revenue</div>
+      <div className={classes.chartHead}>
+        <div className={classes.text}> Total Revenue</div>
 
-          <FormControl variant="outlined">
-            <Select
-              style={{ width: 120 }}
-              value={age}
-              onChange={handleChange}
-              label=""
-            >
-              <MenuItem value="">
-                <em>None</em>
-              </MenuItem>
-              <MenuItem value={10}>Month</MenuItem>
-              <MenuItem value={20}>Twenty</MenuItem>
-              <MenuItem value={30}>Thirty</MenuItem>
-            </Select>
-          </FormControl>
-        </div>
-        <div>
-          <Line
-            data={state}
-            options={{
-              elements: {
-                point: {
-                  radius: 0,
+        <FormControl variant="outlined">
+          <Select
+            style={{ width: 120 }}
+            value={age}
+            onChange={handleChange}
+            label=""
+          >
+            <MenuItem value={10}>Month</MenuItem>
+            <MenuItem value={20}>Twenty</MenuItem>
+            <MenuItem value={30}>Thirty</MenuItem>
+          </Select>
+        </FormControl>
+      </div>
+      <div>
+        <Line
+          data={state}
+          options={{
+            elements: {
+              point: {
+                radius: 0,
+              },
+            },
+            legend: {
+              display: false,
+            },
+            scales: {
+              yAxes: [
+                {
+                  ticks: {
+                    min: 2000,
+                    max: 10000,
+                  },
+                  time: {
+                    unitStepSize: 3,
+                  },
+                  gridLines: {
+                    display: false,
+                  },
                 },
-              },
-              legend: {
-                display: false,
-              },
-              scales: {
-                yAxes: [
-                  {
-                    ticks: {
-                      min: 2000,
-                      max: 10000,
-                    },
-                    time: {
-                      unitStepSize: 3,
-                    },
-                    gridLines: {
-                      display: false,
-                    },
+              ],
+              xAxes: [
+                {
+                  gridLines: {
+                    display: false,
                   },
-                ],
-                xAxes: [
-                  {
-                    gridLines: {
-                      display: false,
-                    },
-                  },
-                ],
-              },
-            }}
-          />
-        </div>
+                },
+              ],
+            },
+          }}
+        />
       </div>
     </div>
   );
