@@ -9,4 +9,5 @@ export * from "./Menucard";
 export * from "./Displaycard";
 export * from "./Gallery"
 export * from "./Menucard";
+export * from "./Page";
 
