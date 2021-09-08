@@ -9,7 +9,6 @@ import jssPluginExtend from "jss-plugin-extend";
 import React from "react";
 import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
 import theme from "./theme";
-import { Chart } from "./components/Chart/Chart";
 
 const jss = create({
   plugins: [...jssPreset().plugins, jssPluginExtend()],
@@ -27,10 +26,6 @@ const App: React.FC<Props> = () => {
           <Router>
             <Switch>
               <Route exact path="/"></Route>
-            </Switch>
-            <Switch>
-              <Route exact path="/chart"></Route>
-              <Chart />
             </Switch>
           </Router>
         </ThemeProvider>

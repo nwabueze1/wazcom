@@ -5,11 +5,11 @@ import CardContent from "@material-ui/core/CardContent";
 import { MenuCardProps } from "./types";
 import clx from "classnames";
 import { Typography } from "@material-ui/core";
-import Naira from "../../../../images/Vector.svg";
+import Naira from "../../images/Vector.svg";
 import MoreVertIcon from "@material-ui/icons/MoreVert";
-import Toggle from "../../Toggle/Toggle";
+import Toggle from "../Toggle/Toggle";
 
-const MenuCard: FC<MenuCardProps> = ({
+export const MenuCard: FC<MenuCardProps> = ({
   className,
   amount,
   details,
@@ -23,17 +23,17 @@ const MenuCard: FC<MenuCardProps> = ({
       className={clx(className, classes.root, classes.disableState)}
       variant="outlined"
     >
-      <CardContent className={classes.cardcontents}>
-        <div className={classes.outerbar}>
+      <CardContent className={classes.cardContents}>
+        <div className={classes.outerBar}>
           <div
-            className={classes.imgfield}
+            className={classes.imgField}
             style={{
               backgroundImage: `url(${image})`,
             }}
           ></div>
         </div>
-        <div className={classes.mealdetail}>
-          <Typography className={classes.mealname} variant="h5">
+        <div className={classes.mealDetail}>
+          <Typography className={classes.mealName} variant="h5">
             {meal}
           </Typography>
           <Typography className={classes.details}>{details}</Typography>
@@ -50,5 +50,3 @@ const MenuCard: FC<MenuCardProps> = ({
     </Card>
   );
 };
-
-export default MenuCard;
