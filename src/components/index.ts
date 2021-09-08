@@ -8,5 +8,5 @@ export * from "./Breadcrumb";
 export * from "./Menucard";
 export * from "./Displaycard";
 export * from "./Gallery"
-export * from "./Card/Menucard";
+export * from "./Menucard";
 
