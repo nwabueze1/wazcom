@@ -1,6 +1,6 @@
 import { ComponentMeta, ComponentStory } from "@storybook/react";
 import React from "react";
-import { Upload } from "../components";
+import { Upload } from "components/Upload";
 
 export default {
   title: "Waz/Upload",
