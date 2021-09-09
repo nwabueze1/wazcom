@@ -2,8 +2,8 @@ import React from "react";
 import FormGroup from "@material-ui/core/FormGroup";
 import FormControlLabel from "@material-ui/core/FormControlLabel";
 import Switch, { SwitchClassKey, SwitchProps } from "@material-ui/core/Switch";
-import useStyles from "./styles";
-import Styles from "./styles";
+import { useToggleStyles } from "./styles";
+
 interface Styles extends Partial<Record<SwitchClassKey, string>> {
   focusVisible?: string;
 }
@@ -12,7 +12,7 @@ interface Props extends SwitchProps {
   classes: Styles;
 }
 
-const Toggle = ({ classes, ...props }: Props) => {
+export const CustomizedSwitch = ({ classes, ...props }: Props) => {
   return (
     <Switch
       focusVisibleClassName={classes.focusVisible}
@@ -29,7 +29,7 @@ const Toggle = ({ classes, ...props }: Props) => {
   );
 };
 
-export default function CustomizedSwitches() {
+export function Toggle() {
   const [state, setState] = React.useState({
     checked: true,
   });
@@ -38,13 +38,13 @@ export default function CustomizedSwitches() {
     setState({ ...state, [event.target.name]: event.target.checked });
   };
 
-  const classes = useStyles();
+  const classes = useToggleStyles();
 
   return (
     <FormGroup>
       <FormControlLabel
         control={
-          <Toggle
+          <CustomizedSwitch
             classes={classes}
             checked={state.checked}
             onChange={handleChange}

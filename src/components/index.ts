@@ -10,4 +10,5 @@ export * from "./Displaycard";
 export * from "./Gallery"
 export * from "./Menucard";
 export * from "./Page";
-
+export * from "./Toggle";
+export * from "./Notifications";
