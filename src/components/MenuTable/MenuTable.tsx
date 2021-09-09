@@ -11,7 +11,7 @@ import DeleteIcon from "@material-ui/icons/Delete";
 import CreateIcon from "@material-ui/icons/Create";
 import { MenuTableStyles } from "./styles";
 import { MenuTableProps } from "./types";
-import Toggle from "components/Toggle/Toggle";
+import { Toggle } from "components/Toggle/Toggle";
 
 const StyledTableCell = withStyles((theme: Theme) =>
   createStyles({
