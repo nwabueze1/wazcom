@@ -1,9 +1,10 @@
-import React from "react";
+import React, { FC } from "react";
 import useStyles from "./styles";
 import { Typography } from "@material-ui/core";
 import Pagination from "@material-ui/lab/Pagination";
+import { pageProps } from "./types";
 
-export const Page = () => {
+export const Page: FC<pageProps> = () => {
   const totalPages = 4;
   const classes = useStyles();
   const [page, setPage] = React.useState(1);
