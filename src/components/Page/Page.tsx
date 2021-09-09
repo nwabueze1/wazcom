@@ -3,7 +3,7 @@ import useStyles from "./styles";
 import { Typography } from "@material-ui/core";
 import Pagination from "@material-ui/lab/Pagination";
 
-const Page = () => {
+export const Page = () => {
   const totalPages = 4;
   const classes = useStyles();
   const [page, setPage] = React.useState(1);
@@ -21,5 +21,3 @@ const Page = () => {
     </div>
   );
 };
-
-export default Page;

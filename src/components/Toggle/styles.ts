@@ -6,6 +6,10 @@ export const useToggleStyles = makeStyles((theme: Theme) =>
         width: 46,
         height: 26,
         padding: 0,
+
+        "& .MuiSwitch-track":{
+        height:"auto"
+        }
       },
       switchBase: {
         padding: 1,

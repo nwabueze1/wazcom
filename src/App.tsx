@@ -9,6 +9,10 @@ import jssPluginExtend from "jss-plugin-extend";
 import React from "react";
 import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
 import theme from "./theme";
+<<<<<<< HEAD
+=======
+
+>>>>>>> develop
 const jss = create({
   plugins: [...jssPreset().plugins, jssPluginExtend()],
 });
