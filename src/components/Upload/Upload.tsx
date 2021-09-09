@@ -1,16 +1,14 @@
-import React, { FC, useState } from "react";
+import React, { FC } from "react";
 import { uploadStyles } from "./styles";
 import { UploadProps } from "./types";
 import { Typography } from "@material-ui/core";
 import { FaRegFileAlt } from "react-icons/fa";
 import clx from "classnames";
 
-const Upload: FC<UploadProps> = ({ className, width }) => {
+export const Upload: FC<UploadProps> = ({ className, width }) => {
   const classes = uploadStyles({ width });
-  const [loading, setloading] = useState(false);
-  const handleClick = () => {
-    setloading(true);
-  };
+  const loading = false;
+
   return (
     <div className={clx(className, classes.root)}>
       <div>
@@ -31,14 +29,15 @@ const Upload: FC<UploadProps> = ({ className, width }) => {
               <div className={classes.text}>
                 <Typography variant="h6">
                   Drag and drop here
-                  <br /> or
-                  <Typography
-                    className={classes.upload}
-                    variant="h5"
-                    onClick={handleClick}
-                  >
+                  <br /> or <br />
+                  <input
+                    type="file"
+                    id="fileInput"
+                    style={{ display: "none" }}
+                  />
+                  <label htmlFor="fileInput" className={classes.upload}>
                     Browse
-                  </Typography>
+                  </label>
                 </Typography>
               </div>
             </>
@@ -48,5 +47,3 @@ const Upload: FC<UploadProps> = ({ className, width }) => {
     </div>
   );
 };
-
-export default Upload;

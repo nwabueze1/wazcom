@@ -3,7 +3,6 @@ import { CheckBoxProps } from "./types";
 import Checkbox from "@material-ui/core/Checkbox";
 import FormControlLabel from "@material-ui/core/FormControlLabel";
 
-<<<<<<< HEAD
 export const CheckBox: FC<CheckBoxProps> = ({
   className,
   label,
@@ -11,12 +10,7 @@ export const CheckBox: FC<CheckBoxProps> = ({
   handlecheckChange,
 }) => {
   return (
-    <div className={clx(className)}>
-=======
-const CheckBox: FC<CheckBoxProps> = ({ label, checked, handlecheckChange }) => {
-  return (
-    <div>
->>>>>>> develop
+    <div className={className}>
       <FormControlLabel
         control={
           <Checkbox

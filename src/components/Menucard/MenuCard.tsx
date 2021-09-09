@@ -5,11 +5,7 @@ import CardContent from "@material-ui/core/CardContent";
 import { MenuCardProps } from "./types";
 import clx from "classnames";
 import { Typography } from "@material-ui/core";
-<<<<<<< HEAD:src/components/Menucard/MenuCard.tsx
 import Naira from "../../images/Vector.svg";
-=======
-import Naira from "../../../images/Vector.svg";
->>>>>>> develop:src/components/Card/Menucard/MenuCards.tsx
 import MoreVertIcon from "@material-ui/icons/MoreVert";
 import Toggle from "../Toggle/Toggle";
 
