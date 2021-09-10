@@ -13,16 +13,19 @@
     "@types/react-dom": "^17.0.8",
     "@types/react-router-dom": "^5.1.7",
     "axios": "^0.21.1",
+    "chart.js": "^2.9.4",
     "classnames": "^2.3.1",
     "clsx": "^1.1.1",
     "jss-plugin-extend": "^10.7.1",
     "lodash.startcase": "^4.4.0",
     "moment": "^2.29.1",
     "react": "^17.0.2",
+    "react-chartjs-2": "^3.0.4",
     "react-dom": "^17.0.2",
     "react-icons": "^4.2.0",
     "react-router-dom": "^5.2.0",
     "react-scripts": "4.0.3",
+    "storybook": "^6.3.8",
     "typescript": "^4.3.4",
     "universal-cookie": "^4.0.4",
     "uuidv4": "^6.2.11",
@@ -38,12 +41,24 @@
     "lint-fix": "eslint --fix 'src/**/*.{ts,js,tsx}' -c .eslintrc.json",
     "lint-check": "eslint 'src/**/*.{ts,js,tsx}' -c .eslintrc-prod.json",
     "config-check": "eslint --print-config 'src/**/*.{ts,js,tsx}' -c .eslintrc.json | eslint-config-prettier-check",
-    "format": "prettier --write 'src/**/*.{js,ts,tsx}'"
+    "format": "prettier --write 'src/**/*.{js,ts,tsx}'",
+    "storybook": "start-storybook -p 6006 -s public",
+    "build-storybook": "build-storybook -s public"
   },
   "eslintConfig": {
     "extends": [
       "react-app",
       "react-app/jest"
+    ],
+    "overrides": [
+      {
+        "files": [
+          "**/*.stories.*"
+        ],
+        "rules": {
+          "import/no-anonymous-default-export": "off"
+        }
+      }
     ]
   },
   "browserslist": {
@@ -59,6 +74,13 @@
     ]
   },
   "devDependencies": {
+    "@react-theming/storybook-addon": "^1.1.1",
+    "@storybook/addon-actions": "^6.3.7",
+    "@storybook/addon-essentials": "^6.3.7",
+    "@storybook/addon-links": "^6.3.7",
+    "@storybook/node-logger": "^6.3.7",
+    "@storybook/preset-create-react-app": "^3.2.0",
+    "@storybook/react": "^6.3.7",
     "@types/enzyme": "^3.10.8",
     "@types/enzyme-adapter-react-16": "^1.0.6",
     "@types/lodash": "^4.14.172",
@@ -73,14 +95,11 @@
     "eslint-plugin-prettier": "^3.4.0",
     "eslint-plugin-react": "^7.24.0",
     "eslint-plugin-react-hooks": "^4.2.0",
-    "pre-commit": "^1.2.2",
     "prettier": "^2.3.2",
     "prettier-eslint": "^12.0.0",
     "react-test-renderer": "^17.0.2",
+    "storybook-addon-material-ui": "^0.9.0-alpha.24",
     "ts-jest": "^27.0.3",
     "typescript-eslint": "^0.0.1-alpha.0"
-  },
-  "pre-commit": [
-    "lint-check"
-  ]
+  }
 }
