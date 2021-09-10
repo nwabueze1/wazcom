@@ -12,3 +12,4 @@ export * from "./Menucard";
 export * from "./Page";
 export * from "./Toggle";
 export * from "./Notifications";
+export * from "./Chart"

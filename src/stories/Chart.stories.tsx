@@ -1,6 +1,6 @@
 import React from "react";
 import { ComponentMeta, ComponentStory } from "@storybook/react";
-import { Chart } from "../components/Chart/index";
+import { Chart } from "../components";
 
 export default {
   title: "Waz/Chart",
