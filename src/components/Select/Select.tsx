@@ -1,16 +1,16 @@
 import React, { FC } from "react";
-import { useStyles } from "./styles";
+import { useSelectStyles } from "./styles";
 import { SelectProps } from "./types";
 import clx from "classnames";
 import { Select, FormControl } from "@material-ui/core";
 
-const Selector: FC<SelectProps> = ({
+export const Selector: FC<SelectProps> = ({
   className,
   array,
   handleChange,
   value,
 }) => {
-  const classes = useStyles();
+  const classes = useSelectStyles();
 
   return (
     <div className={clx(className)}>
@@ -37,5 +37,3 @@ const Selector: FC<SelectProps> = ({
     </div>
   );
 };
-
-export default Selector;

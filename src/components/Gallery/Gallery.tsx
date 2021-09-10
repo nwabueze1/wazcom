@@ -1,10 +1,10 @@
 import React, { FC, useState } from "react";
-import { useStyles } from "./styles";
+import { useGalleryStyles } from "./styles";
 import { GalleryProps } from "./types";
 import { CheckBox } from "../Checkbox/CheckBox";
 
 export const Gallery: FC<GalleryProps> = ({ image }) => {
-  const classes = useStyles({ image });
+  const classes = useGalleryStyles({ image });
   const onclick = () => setChecked(!checked);
   const [checked, setChecked] = useState(false);
 

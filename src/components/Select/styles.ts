@@ -1,7 +1,7 @@
 import { makeStyles } from "@material-ui/core/styles";
-import theme from "js/theme";
+import theme from "../../theme";
 
-export const useStyles = makeStyles(() => ({
+export const useSelectStyles = makeStyles(() => ({
   selected: {
   },
   root: {
