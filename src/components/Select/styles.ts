@@ -8,7 +8,7 @@ export const useSelectStyles = makeStyles(() => ({
     "&$selected": {
       // backgroundColor:theme.design.colors.red70,
         "&:hover": {
-          backgroundColor: theme.design.colors.red70
+          // backgroundColor: theme.design.colors.red70
          }
       },
   },
@@ -23,7 +23,7 @@ export const useSelectStyles = makeStyles(() => ({
         border:theme.spacing(3),
         backgroundColor: `${theme.design.colors.red70} !important`,
         '&:hover': {
-            backgroundColor:` ${theme.design.colors.red70} !important`,
+            // backgroundColor:` ${theme.design.colors.red70} !important`,
         },
     },
     activeOption:{

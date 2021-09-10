@@ -1,23 +1,18 @@
 import { ComponentMeta, ComponentStory } from "@storybook/react";
 import React from "react";
-import { Text } from "../components";
+import { Selector } from "../components/Select";
 
 export default {
-  title: "Waz/Text",
-  component: Text,
-  argTypes: {},
-} as ComponentMeta<typeof Text>;
+  title: "Waz/Selector",
+  component: Selector,
+  args: {
+    array: ["Option 1", "Option 2", "Option 3"],
+  },
+} as ComponentMeta<typeof Selector>;
 
-const Template: ComponentStory<typeof Text> = (args) => (
-  <Text {...args}>Text</Text>
+const Template: ComponentStory<typeof Selector> = (args) => (
+  <Selector {...args} />
 );
 
 export const Primary = Template.bind({});
-Template.args = {
-  color: "primary",
-};
-
-export const Secondary = Template.bind({});
-Template.args = {
-  color: "secondary",
-};
+Template.args = {};
