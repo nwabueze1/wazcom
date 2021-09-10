@@ -5,7 +5,7 @@ interface StyleProps {
     image:string
 }
 
-export const useStyles = makeStyles<Theme,StyleProps>(() => ({
+export const useGalleryStyles = makeStyles<Theme,StyleProps>(() => ({
     galleryBox:{
         maxWidth:"322px",
         height:"322px",
