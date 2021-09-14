@@ -1,4 +1,4 @@
-import React, { FC } from "react";
+import { FC } from "react";
 import { useDisplayCardStyles } from "./styles";
 import { DisplayCardProps } from "./types";
 import Card from "@material-ui/core/Card";

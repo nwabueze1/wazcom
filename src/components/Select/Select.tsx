@@ -1,4 +1,4 @@
-import React, { FC } from "react";
+import { FC } from "react";
 import { useSelectStyles } from "./styles";
 import { SelectProps } from "./types";
 import clx from "classnames";

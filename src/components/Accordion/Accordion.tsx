@@ -1,14 +1,14 @@
-import React, { FC, useCallback } from "react";
-import { useAccordionStyles } from "./styles";
 import {
   Accordion as MuiAccordion,
-  AccordionSummary,
   AccordionDetails,
+  AccordionSummary,
 } from "@material-ui/core";
 import Typography from "@material-ui/core/Typography";
 import ExpandMoreIcon from "@material-ui/icons/ExpandMore";
 import clx from "classnames";
+import { FC, useCallback } from "react";
 import Table from "../Table/Table";
+import { useAccordionStyles } from "./styles";
 import { AccordionProps } from "./types";
 
 export const Accordion: FC<AccordionProps> = ({

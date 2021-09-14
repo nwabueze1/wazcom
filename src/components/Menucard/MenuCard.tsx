@@ -1,11 +1,11 @@
-import React, { FC } from "react";
+import { FC } from "react";
 import { useMenuCardStyles } from "./styles";
 import Card from "@material-ui/core/Card";
 import CardContent from "@material-ui/core/CardContent";
 import { MenuCardProps } from "./types";
 import clx from "classnames";
 import { Typography } from "@material-ui/core";
-import Naira from "../../images/Vector.svg";
+// import Naira from "../../images/Vector.png";
 import MoreVertIcon from "@material-ui/icons/MoreVert";
 import { Toggle } from "../Toggle/Toggle";
 
@@ -38,7 +38,7 @@ export const MenuCard: FC<MenuCardProps> = ({
           </Typography>
           <Typography className={classes.details}>{details}</Typography>
           <Typography className={classes.price}>
-            <img src={Naira} alt="naira" />
+            {/* <img src={Naira} alt="naira" /> */}
             {amount}
           </Typography>
         </div>

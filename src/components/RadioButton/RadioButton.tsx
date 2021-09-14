@@ -1,4 +1,4 @@
-import React, { FC } from "react";
+import { FC } from "react";
 import { RadioButtonStyles } from "./styles";
 import { RadioButtonProps } from "./types";
 import { Radio } from "@material-ui/core";

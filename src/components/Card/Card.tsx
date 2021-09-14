@@ -1,4 +1,4 @@
-import React, { FC } from "react";
+import { FC } from "react";
 import { useCardStyles } from "./styles";
 import { Card as MuiCard } from "@material-ui/core";
 import CardContent from "@material-ui/core/CardContent";

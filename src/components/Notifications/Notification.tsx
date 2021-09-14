@@ -1,10 +1,10 @@
-import React, { FC } from "react";
+import { FC } from "react";
 import { useNotificationStyles } from "./style";
 import clx from "classnames";
 import { NotificationProps } from "./type";
 import CloseIcon from "@material-ui/icons/Close";
 import { Typography } from "@material-ui/core";
-import Icon from "../../images/Vector.png";
+// import Icon from "../../images/Vector.png";
 
 const getStatusClassName = (
   classes: ReturnType<typeof useNotificationStyles>,
@@ -13,13 +13,10 @@ const getStatusClassName = (
   switch (status) {
     case "success":
       return classes.success;
-      break;
     case "failed":
       return classes.failed;
-      break;
     case "plain":
       return classes.plain;
-      break;
     default:
       return classes.success;
   }
@@ -43,7 +40,7 @@ export const Notification: FC<NotificationProps> = ({
         )}
       >
         <div className={clx(StatusClassName, classes.notificationHead)}>
-          <img src={Icon} alt="notification image" className={classes.alarm} />
+          {/* <img src={Icon} alt="notification image" className={classes.alarm} /> */}
           <Typography className={classes.report}>Action report</Typography>
           <CloseIcon className={classes.cancel} />
         </div>

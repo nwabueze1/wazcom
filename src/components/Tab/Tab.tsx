@@ -1,4 +1,4 @@
-import React, { FC, useState } from "react";
+import { FC, useState } from "react";
 import clsx from "classnames";
 import Paper from "@material-ui/core/Paper";
 import Tabs from "@material-ui/core/Tabs";

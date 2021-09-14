@@ -1,10 +1,10 @@
-import React, { FC } from "react";
+import Breadcrumbs from "@material-ui/core/Breadcrumbs";
+import NavigateNextIcon from "@material-ui/icons/NavigateNext";
+import clx from "classnames";
+import { FC } from "react";
+import { Link } from "react-router-dom";
 import { BreadCrumbStyles } from "./styles";
 import { BreadCrumbProps } from "./types";
-import clx from "classnames";
-import Breadcrumbs from "@material-ui/core/Breadcrumbs";
-import { Link } from "react-router-dom";
-import NavigateNextIcon from "@material-ui/icons/NavigateNext";
 
 export const BreadCrumb: FC<BreadCrumbProps> = ({ className, paths }) => {
   const classes = BreadCrumbStyles();

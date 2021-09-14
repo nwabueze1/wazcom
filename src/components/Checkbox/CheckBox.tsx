@@ -1,4 +1,4 @@
-import React, { FC } from "react";
+import { FC } from "react";
 import { CheckBoxProps } from "./types";
 import Checkbox from "@material-ui/core/Checkbox";
 import FormControlLabel from "@material-ui/core/FormControlLabel";
