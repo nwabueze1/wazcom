@@ -1,10 +1,10 @@
-import React, { FC } from "react";
+import { FC } from "react";
 import { useimageUploaderStyles } from "./styles";
 import clx from "classnames";
-import { imageUploaderProps } from "./type";
+import { imageUploaderProps } from "./types";
 import CameraAltIcon from "@material-ui/icons/CameraAlt";
 
-export const ImageSelector: FC<imageUploaderProps> = ({
+export const imageSelector: FC<imageUploaderProps> = ({
   variant,
   placeholder,
   onClick,

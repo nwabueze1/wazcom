@@ -13,3 +13,4 @@ export * from "./Page";
 export * from "./Toggle";
 export * from "./Notifications";
 export * from "./Chart"
+export * from "./ImageSelector"
