@@ -1,2 +1,2 @@
-declare const useStyles: (props?: any) => import("@material-ui/styles").ClassNameMap<"root" | "description" | "pageNumber">;
+declare const useStyles: (props?: any) => import("@material-ui/styles").ClassNameMap<"description" | "root" | "pageNumber">;
 export default useStyles;
