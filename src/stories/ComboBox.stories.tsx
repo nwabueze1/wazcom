@@ -1,6 +1,6 @@
 import { ComponentMeta, ComponentStory } from "@storybook/react";
 import React from "react";
-import { ComboBox } from "../components/ComboBox";
+import { ComboBox } from "../components";
 
 export default {
   title: "Waz/ComboBox",

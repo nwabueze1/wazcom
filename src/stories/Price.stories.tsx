@@ -1,6 +1,6 @@
 import { ComponentMeta, ComponentStory } from "@storybook/react";
 import React from "react";
-import { Price } from "../components/Price";
+import { Price } from "../components";
 
 export default {
   title: "Waz/Price",
