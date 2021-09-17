@@ -1,6 +1,6 @@
 import { ComponentMeta, ComponentStory } from "@storybook/react";
 import React from "react";
-import { PasswordFields } from "../components/Password/PasswordFields";
+import { PasswordFields } from "../components";
 
 export default {
   title: "Waz/PasswordFields",

@@ -1,6 +1,6 @@
 import { ComponentMeta, ComponentStory } from "@storybook/react";
 import React from "react";
-import { MediaLibrary } from "../components/MediaLibrary";
+import { MediaLibrary } from "../components";
 
 export default {
   title: "Waz/MediaLibrary",
