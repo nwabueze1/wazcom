@@ -12,13 +12,15 @@ export * from "./Menucard";
 export * from "./Page";
 export * from "./Toggle";
 export * from "./Notifications";
-export * from "./Chart"
 export * from "./ComboBox"
-export * from "./Email";
-export * from "./GqlSelect";
-export * from "./HeaderTitle";
-export * from "./ImageUpload";
-export * from "./Loader";
-export * from "./MediaLibrary";
-export * from "./Password";
-export * from "./Scheduler";
+export * from "./GqlSelect"
+export * from "./HeaderTitle"
+export * from "./Email"
+export * from "./ImageUpload"
+export * from "./Chart"
+export * from "./Loader"
+export * from "./MediaLibrary"
+export * from "./Chart"
+export * from "./Chart"
+export * from "./Chart"
+

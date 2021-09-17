@@ -4,7 +4,8 @@ import { RadioButtonProps } from "./types";
 import { Radio } from "@material-ui/core";
 import clx from "classnames";
 import { useState } from "react";
-const RadioButton: FC<RadioButtonProps> = ({ className, color }) => {
+
+export const RadioButton: FC<RadioButtonProps> = ({ className, color }) => {
   const classes = RadioButtonStyles();
 
   const [isChecked, setIsChecked] = useState(true);
@@ -18,5 +19,3 @@ const RadioButton: FC<RadioButtonProps> = ({ className, color }) => {
     </div>
   );
 };
-
-export default RadioButton;
