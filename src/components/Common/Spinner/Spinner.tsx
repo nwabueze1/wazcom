@@ -1,0 +1,17 @@
+import React, { FC } from "react";
+import { CircularProgress } from "@material-ui/core";
+import useStyles from "./styles";
+
+interface Props {
+  opacity: number;
+}
+
+export const Spinner: FC<Props> = (props) => {
+  const classes = useStyles(props);
+
+  return (
+    <div className={classes.spinner}>
+      <CircularProgress color="inherit" size="25px" />
+    </div>
+  );
+};
