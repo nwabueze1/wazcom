@@ -1,15 +1,16 @@
 import { FC } from "react";
-import { useimageUploaderStyles } from "./styles";
+import { useImageSelectorStyles } from "./styles";
 import clx from "classnames";
 import { imageUploaderProps } from "./types";
 import CameraAltIcon from "@material-ui/icons/CameraAlt";
 
-export const imageSelector: FC<imageUploaderProps> = ({
+export const ImageSelector: FC<imageUploaderProps> = ({
   variant,
   placeholder,
+  className,
   onClick,
 }) => {
-  const classes = useimageUploaderStyles({ placeholder });
+  const classes = useImageSelectorStyles({ placeholder });
   const getVariantClass = () => {
     let className;
     switch (variant) {
@@ -22,7 +23,7 @@ export const imageSelector: FC<imageUploaderProps> = ({
     return className;
   };
   return (
-    <div className={clx(classes.container, getVariantClass())}>
+    <div className={clx(className, classes.container, getVariantClass())}>
       <div className="cameraIcon">
         <CameraAltIcon style={{ fontSize: "50px" }} onClick={onClick} />
       </div>

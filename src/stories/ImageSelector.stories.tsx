@@ -1,23 +1,17 @@
 import { ComponentMeta, ComponentStory } from "@storybook/react";
 import React from "react";
-import { Text } from "../components";
+import { ImageSelector } from "../components";
 
 export default {
-  title: "Waz/Text",
-  component: Text,
+  title: "Waz/ImageSelector",
+  component: ImageSelector,
   argTypes: {},
-} as ComponentMeta<typeof Text>;
+} as ComponentMeta<typeof ImageSelector>;
 
-const Template: ComponentStory<typeof Text> = (args) => (
-  <Text {...args}>Text</Text>
+const Template: ComponentStory<typeof ImageSelector> = (args) => (
+  <ImageSelector {...args}/>
 );
 
 export const Primary = Template.bind({});
-Template.args = {
-  color: "primary",
-};
+Template.args = {};
 
-export const Secondary = Template.bind({});
-Template.args = {
-  color: "secondary",
-};

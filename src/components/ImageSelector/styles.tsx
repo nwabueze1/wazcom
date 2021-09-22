@@ -1,12 +1,12 @@
 import { makeStyles } from "@material-ui/styles";
 import { Theme } from "@material-ui/core";
-import theme from "js/theme";
+import theme from "../../theme";
 
 interface styleProps {
   placeholder: string;
 }
 
-export const useimageUploaderStyles = makeStyles<Theme, styleProps>(() => ({
+export const useImageSelectorStyles = makeStyles<Theme, styleProps>(() => ({
   container: {
     height: "325px",
     width: "386px",

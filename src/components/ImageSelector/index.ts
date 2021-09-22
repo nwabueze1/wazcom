@@ -1,3 +1,3 @@
 export * from "./styles";
 export * from "./types";
-export * from "./imageSelector";
+export * from "./ImageSelector";
