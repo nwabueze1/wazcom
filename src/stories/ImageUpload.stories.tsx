@@ -1,17 +1,17 @@
 import { ComponentMeta, ComponentStory } from "@storybook/react";
 import React from "react";
-import { Selector } from "../components/Select";
+import { ImageUpload } from "../components";
 
 export default {
-  title: "Waz/Selector",
-  component: Selector,
+  title: "Waz/ImageUpload",
+  component: ImageUpload,
   args: {
     array: ["Option 1", "Option 2", "Option 3"],
   },
-} as ComponentMeta<typeof Selector>;
+} as ComponentMeta<typeof ImageUpload>;
 
-const Template: ComponentStory<typeof Selector> = (args) => (
-  <Selector {...args} />
+const Template: ComponentStory<typeof ImageUpload> = (args) => (
+  <ImageUpload {...args} />
 );
 
 export const Primary = Template.bind({});

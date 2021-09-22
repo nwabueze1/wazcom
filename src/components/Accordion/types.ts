@@ -1,18 +1,7 @@
-export type fieldProps = {
-  day: string | number;
-  start: string | number;
-  end: string | number;
-  action?: any;
-};
+import { CommonProps } from "../types";
+import { AccordionProps as MuiAccordionProps } from "@material-ui/core";
 
-export type AccordionProps = {
-  className?: string;
-  title: string;
-  onChange?: (
-    index: number,
-    event: React.ChangeEvent<{
-      name?: string | undefined;
-      value: unknown;
-    }>,
-  ) => void;
-};
+export type AccordionProps = MuiAccordionProps &
+  CommonProps & {
+    title: string;
+  };
