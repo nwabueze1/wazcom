@@ -1,20 +1,26 @@
-import { makeStyles, Theme } from "@material-ui/core/styles";
+import { Theme } from "@material-ui/core/styles";
+import { makeStyles } from "@material-ui/styles";
 
-export const useAccordionStyles = makeStyles((theme: Theme) => ({
-  root: {
-    width: "100%",
-    "& .MuiAccordion": {},
-    overrides: {},
+export const useAccordionStyles = makeStyles((theme:Theme) => ({
+  root: {},
+  accordion: {
+    backgroundColor: theme.design.colors.grey10,
+    boxShadow: "0",
+    borderRadius: 4,
+    border: `1px solid ${theme.design.colors.red50}`,
   },
-  expandIcon: {
+  icon: {
     color: theme.design.colors.white,
   },
-  heading: {
-    color: theme.design.colors.white,
-    fontSize: theme.typography.pxToRem(15),
-    fontWeight: theme.typography.fontWeightRegular,
-  },
-  headerDesc: {
+  summary: {
     backgroundColor: theme.design.colors.red50,
+    // color: theme.design.colors.white,
   },
+  schedule: {
+    // fontSize: "1.4rem",
+    // fontFamily: " 'Nunito', sans-serif",
+    // fontWeight: "bold",
+    // margin: "0",
+  },
+  details: {},
 }));

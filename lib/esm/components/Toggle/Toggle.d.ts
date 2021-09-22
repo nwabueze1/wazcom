@@ -1,3 +1,4 @@
+/// <reference types="react" />
 import { SwitchClassKey, SwitchProps } from "@material-ui/core/Switch";
 interface Styles extends Partial<Record<SwitchClassKey, string>> {
     focusVisible?: string;

@@ -1,19 +1,17 @@
-import { CommonProps } from "../types";
 import { ButtonProps as MuiButtonProps } from "@material-ui/core";
 
-type StyleProps = {
-  align?: "right" | "left";
-};
+export type ButtonProps = MuiButtonProps;
 
-export type ButtonSchemaProps = {
-  type: "button";
-  props: ButtonProps;
-};
+export interface ButtonDimension extends ButtonProps {
+    dimension ?: {
+        width: string;
+        height: string;
+      };
+}
 
-/** !!-- Remember to update the interface name !! */
-export type ButtonProps = CommonProps &
-  StyleProps &
-  MuiButtonProps & {
-    name?: string;
-    loading?: boolean;
+export interface ButtonStyleProps {
+  dimension ?: {
+    width: string;
+    height: string;
   };
+}
