@@ -10,6 +10,7 @@ export const useImageSelectorStyles = makeStyles<Theme, styleProps>(() => ({
   container: {
     minHeight: "325px",
     minWidth: "386px",
+    position:"relative",
     background: ({ placeholder }) => `url(${placeholder})`,
     backgroundRepeat: "no-repeat",
     backgroundSize: "cover !important",
@@ -19,7 +20,9 @@ export const useImageSelectorStyles = makeStyles<Theme, styleProps>(() => ({
       color: theme.design.colors.white,
       display: "flex",
       justifyContent: "center",
-      paddingTop: "40%",
+      position: "absolute",
+      top:"43%",
+      left:"43%",
       cursor: "pointer",
       visibility: "hidden",
     },
