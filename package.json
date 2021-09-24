@@ -20,6 +20,7 @@
   },
   "scripts": {
     "build": "tsc",
+    "start": "react-scripts start",
     "test": "jest -c jest.config.json",
     "test:coverage": "jest test --coverage --runInBand --watchAll=false",
     "lint": "eslint 'src/**/*.{ts,js,tsx}' -c .eslintrc.json",
@@ -91,6 +92,7 @@
     "react": "^17.0.2",
     "react-dom": "^17.0.2",
     "react-router-dom": "^5.2.0",
+    "react-scripts": "^4.0.3",
     "react-test-renderer": "^17.0.2",
     "storybook": "^6.3.8",
     "storybook-addon-material-ui": "^0.9.0-alpha.24",
@@ -98,12 +100,12 @@
     "typescript-eslint": "^0.0.1-alpha.0"
   },
   "peerDependencies": {
-    "react": "^17.0.2",
-    "react-dom": "^17.0.2",
     "@material-ui/core": "^4.11.4",
     "@material-ui/icons": "^4.11.2",
     "@material-ui/lab": "^4.0.0-alpha.60",
     "@material-ui/styles": "^4.11.4",
-    "jss-plugin-extend": "^10.7.1"
+    "jss-plugin-extend": "^10.7.1",
+    "react": "^17.0.2",
+    "react-dom": "^17.0.2"
   }
 }
