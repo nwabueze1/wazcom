@@ -8,8 +8,8 @@ interface styleProps {
 
 export const useImageSelectorStyles = makeStyles<Theme, styleProps>(() => ({
   container: {
-    height: "325px",
-    width: "386px",
+    minHeight: "325px",
+    minWidth: "386px",
     background: ({ placeholder }) => `url(${placeholder})`,
     backgroundRepeat: "no-repeat",
     backgroundSize: "cover !important",

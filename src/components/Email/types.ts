@@ -1,6 +1,6 @@
-import { StyleProps } from "./styles";
+import { EmailStyleProps } from "./styles";
 import { OutlinedInputProps } from "@material-ui/core";
-export interface EmailFieldsProps extends OutlinedInputProps, StyleProps {
+export interface EmailFieldsProps extends OutlinedInputProps, EmailStyleProps {
   siteName?: string;
   onChange: (
     event: React.ChangeEvent<{ name: string; value: unknown }>,

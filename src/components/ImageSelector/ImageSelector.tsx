@@ -23,7 +23,7 @@ export const ImageSelector: FC<imageUploaderProps> = ({
     return className;
   };
   return (
-    <div className={clx(className, classes.container, getVariantClass())}>
+    <div className={clx(className, getVariantClass())}>
       <div className="cameraIcon">
         <CameraAltIcon style={{ fontSize: "50px" }} onClick={onClick} />
       </div>

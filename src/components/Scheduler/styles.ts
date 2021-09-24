@@ -1,4 +1,4 @@
-import { makeStyles, createStyles } from "@material-ui/core";
+import { makeStyles } from "@material-ui/core";
 
 export const useSchedulerStyles = makeStyles(() => ({
   button: {
