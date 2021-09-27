@@ -15,14 +15,13 @@ export const useImageSelectorStyles = makeStyles<Theme, styleProps>(() => ({
     backgroundRepeat: "no-repeat",
     backgroundSize: "cover !important",
     backgroundPosition: "center !important",
+    display: "flex",
+    justifyContent: "center",
+    alignItems: "center",
 
     "& .cameraIcon": {
       color: theme.design.colors.white,
-      display: "flex",
-      justifyContent: "center",
-      position: "absolute",
-      top:"43%",
-      left:"43%",
+     
       cursor: "pointer",
       visibility: "hidden",
     },
