@@ -1,4 +1,4 @@
-import React from "react";
+import * as React from "react";
 import { FormLabel, OutlinedInput } from "@material-ui/core";
 import { useSubDomainStyles } from "./styles";
 import { SubDomainProps } from "./types";

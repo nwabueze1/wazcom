@@ -6,7 +6,7 @@ import {
 } from "@material-ui/core/styles";
 import { create } from "jss";
 import jssPluginExtend from "jss-plugin-extend";
-import React from "react";
+import * as React from "react";
 import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
 import theme from "./theme";
 const jss = create({

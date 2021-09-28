@@ -1,4 +1,4 @@
-import React from "react";
+import * as React from "react";
 import { FormLabel, TextField } from "@material-ui/core";
 import { usePriceStyles } from "./styles";
 import Cookies from "universal-cookie";

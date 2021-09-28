@@ -1,4 +1,5 @@
-import React, { FC } from "react";
+import { FC } from "react";
+import * as React from "react";
 import { Select } from "@material-ui/core";
 import { useSelectorStyles } from "./styles";
 import { IsRequired } from "../Common/isRequired/isRequired";

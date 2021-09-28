@@ -31,7 +31,7 @@ export const MediaLibrary: FC<MediaLibraryProps> = ({ className }) => {
   const fileRef = useRef<any>();
   const classes = useMediaLibraryStyles();
   const [images, setImages] = useState<Image[]>();
-  const [getS3Images, { data, loading, }] = useLazyQuery(GET_S3_IMAGES, {
+    const [getS3Images, { data, loading }] = useLazyQuery(GET_S3_IMAGES, {
     fetchPolicy: "network-only",
   });
 

@@ -1,6 +1,7 @@
 import { ImageUpload } from "../ImageUpload";
 import { validateImg } from "../../helpers/imageValidator";
-import React, { FC, useCallback, useState } from "react";
+import { FC, useCallback, useState } from "react";
+import * as React from "react";
 import { useMenuStyles } from "./styles";
 import { S3ImageUploaderProps } from "./types";
 

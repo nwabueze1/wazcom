@@ -1,4 +1,4 @@
-import React from "react";
+import * as React from "react";
 import { FormLabel, OutlinedInput } from "@material-ui/core";
 import { useTextareaStyles } from "./styles";
 import { TextareaProps } from "./types";

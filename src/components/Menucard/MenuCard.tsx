@@ -44,7 +44,7 @@ export const MenuCard: FC<MenuCardProps> = ({
         </div>
         <div className={classes.icons}>
           <MoreVertIcon />
-          <Toggle name="menucarad"/>
+          <Toggle name=""/>
         </div>
       </CardContent>
     </Card>

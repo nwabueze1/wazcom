@@ -1,15 +1,14 @@
-import React, { useEffect, useContext, useState } from "react";
+import { useEffect, useContext, useState } from "react";
+import * as React from "react";
 import { ApolloError, useMutation } from "@apollo/client";
 import CssBaseline from "@material-ui/core/CssBaseline";
 import { Grid, Button } from "@material-ui/core";
 import { useStyles } from "./styles";
 import "react-toastify/dist/ReactToastify.css";
-import { PayPalScriptProvider} from "@paypal/react-paypal-js";
+import { PayPalScriptProvider } from "@paypal/react-paypal-js";
 import {
-  // MAKE_PAYMENT,
   ONBOARD_SELLER,
   ONBOARD_STATUS,
-  // VERIFY_PAYMENT,
   STORE_PAYPAL,
 } from "./graphql";
 import { toast } from "react-toastify";
@@ -27,8 +26,6 @@ export const Payment: React.FC = () => {
   const classes = useStyles();
   const [onBoardSeller] = useMutation(ONBOARD_SELLER);
   const [onboardStatus] = useMutation(ONBOARD_STATUS);
-  // const [makePayment] = useMutation(MAKE_PAYMENT);
-  // const [verifyPayment] = useMutation(VERIFY_PAYMENT);
   const [storeUserPayPal] = useMutation(STORE_PAYPAL);
   const [actionUrl, setActionUrl] = useState("");
 
@@ -73,30 +70,6 @@ export const Payment: React.FC = () => {
             "AduSSIF9NE4ZQVA8VNCdfSMYW1MGGsTWr1MeELD3dTS_gXmAI1XGh229OV_18bWioy2VfC2z7_vpXgsB",
         }}
       >
-        {/* <PayPalButtons
-          // style={{ color: "silver", shape: "pill", label: "pay", height: 40 }}
-          createOrder={async () => {
-            return await makePayment({ variables: { order_id: "10" } })
-              .then(({ data }) => {
-                return data?.makePayment?.orderId;
-              })
-              .catch(() => {
-                return "false";
-              });
-          }}
-          onApprove={async (data) => {
-            await verifyPayment({ variables: { token: data.orderID } })
-              .then(({ data }) => {
-                toast.success("Payment Success");
-                return data?.verifyPayment?.reference_id;
-              })
-              .catch((error: ApolloError) => {
-                error.graphQLErrors.map(({ message }) => {
-                  toast.error(message);
-                });
-              });
-          }}
-        /> */}
       </PayPalScriptProvider>
       <Content />
       <Button className={classes.button} style={{ background: "#F94C4C" }}>
