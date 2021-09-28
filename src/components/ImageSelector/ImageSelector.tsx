@@ -24,8 +24,9 @@ export const ImageSelector: FC<imageUploaderProps> = ({
   };
   return (
     <div className={clx(className, getVariantClass())}>
+      <div className="selectHover"></div>
       <div className="cameraIcon">
-        <CameraAltIcon style={{ fontSize: "50px" }} onClick={onClick} />
+        <CameraAltIcon style={{ fontSize: "64px" }} onClick={onClick} />
       </div>
     </div>
   );
