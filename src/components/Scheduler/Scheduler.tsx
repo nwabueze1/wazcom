@@ -1,5 +1,6 @@
 import { Table } from "../Table";
-import React, { useState, useCallback, useEffect } from "react";
+import { useState, useCallback, useEffect } from "react";
+import * as React from "react";
 import { useSchedulerStyles } from "./styles";
 import AddIcon from "@material-ui/icons/Add";
 import { SchedulerProps, RowType } from "./types";

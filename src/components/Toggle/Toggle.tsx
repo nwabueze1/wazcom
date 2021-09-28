@@ -1,4 +1,4 @@
-import React from "react";
+import * as React from "react";
 import { FormLabel, Switch } from "@material-ui/core";
 import { useToggleStyles } from "./styles";
 import { ToggleProps } from "./types";

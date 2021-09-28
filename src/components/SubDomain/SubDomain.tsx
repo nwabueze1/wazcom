@@ -1,8 +1,8 @@
-import React from "react";
+import * as React from "react";
 import { FormLabel, OutlinedInput } from "@material-ui/core";
 import { useSubDomainStyles } from "./styles";
 import { SubDomainProps } from "./types";
-import { IsRequired } from "js/_comp/Common/isRequired/isRequired";
+import { IsRequired } from "../Common/isRequired/isRequired";
 
 export const SubDomain: React.FC<SubDomainProps> = ({
   label,
