@@ -66,7 +66,7 @@ export const MenuTable: FC<MenuTableProps> = ({
               <StyledTableCell align="center">{row.day}</StyledTableCell>
               <StyledTableCell align="center">
                 <div className={classes.active}>
-                  <Toggle />
+                  <Toggle name=""/>
                 </div>
               </StyledTableCell>
               <StyledTableCell align="center">

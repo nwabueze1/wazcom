@@ -1,4 +1,4 @@
-import React, { FC } from "react";
+import { FC } from "react";
 import { useAccordionStyles } from "./styles";
 import { AccordionProps } from "./types";
 import {

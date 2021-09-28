@@ -1,3 +1,3 @@
-import { CommonProps } from "js/types";
+import { CommonProps } from "../types";
 
 export type MediaLibraryProps = CommonProps;

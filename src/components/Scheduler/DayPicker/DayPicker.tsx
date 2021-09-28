@@ -1,4 +1,4 @@
-import React from "react";
+import * as React from "react";
 import { Select, SelectProps } from "@material-ui/core";
 import { menuItemTableStyles, BootstrapInput } from "./styles";
 

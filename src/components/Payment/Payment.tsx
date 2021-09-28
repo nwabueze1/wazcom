@@ -1,19 +1,18 @@
-import React, { useEffect, useContext, useState } from "react";
+import { useEffect, useContext, useState } from "react";
+import * as React from "react";
 import { ApolloError, useMutation } from "@apollo/client";
 import CssBaseline from "@material-ui/core/CssBaseline";
 import { Grid, Button } from "@material-ui/core";
 import { useStyles } from "./styles";
 import "react-toastify/dist/ReactToastify.css";
-import { PayPalScriptProvider, PayPalButtons } from "@paypal/react-paypal-js";
+import { PayPalScriptProvider } from "@paypal/react-paypal-js";
 import {
-  MAKE_PAYMENT,
   ONBOARD_SELLER,
   ONBOARD_STATUS,
-  VERIFY_PAYMENT,
   STORE_PAYPAL,
 } from "./graphql";
 import { toast } from "react-toastify";
-import { AppStateContext } from "../../provider";
+import { AppStateContext } from "../provider";
 import { Content } from "./Content/Content";
 
 export const Payment: React.FC = () => {
@@ -27,8 +26,6 @@ export const Payment: React.FC = () => {
   const classes = useStyles();
   const [onBoardSeller] = useMutation(ONBOARD_SELLER);
   const [onboardStatus] = useMutation(ONBOARD_STATUS);
-  const [makePayment] = useMutation(MAKE_PAYMENT);
-  const [verifyPayment] = useMutation(VERIFY_PAYMENT);
   const [storeUserPayPal] = useMutation(STORE_PAYPAL);
   const [actionUrl, setActionUrl] = useState("");
 
