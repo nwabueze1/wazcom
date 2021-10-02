@@ -72,35 +72,6 @@ export const Chart: React.FC<ChartProps> = () => {
                 radius: 0,
               },
             },
-            legend: {
-              display: false,
-              labels: {
-                fontSize: "2px",
-              },
-            },
-            scales: {
-              yAxes: [
-                {
-                  ticks: {
-                    min: 2000,
-                    max: 10000,
-                  },
-                  time: {
-                    unitStepSize: 3,
-                  },
-                  gridLines: {
-                    display: false,
-                  },
-                },
-              ],
-              xAxes: [
-                {
-                  gridLines: {
-                    display: false,
-                  },
-                },
-              ],
-            },
           }}
         />
       </div>
