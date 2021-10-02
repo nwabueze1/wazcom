@@ -1,13 +1,17 @@
-FROM node:14.15.0-alpine
+FROM node:14.17.6 as builder
 
 WORKDIR /app
 
 ENV PATH /app/node_modules/.bin:$PATH
 
-COPY . .
+COPY ./package.json ./
 
 RUN yarn install
 
-EXPOSE 6006
+COPY . .
 
-CMD ["yarn", "run", "storybook"]
+FROM builder
+
+EXPOSE 3000
+
+CMD ["yarn", "start"]
