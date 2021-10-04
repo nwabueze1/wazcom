@@ -27,7 +27,6 @@
   "scripts": {
     "start": "react-scripts start",
     "build": "tsc",
-    "start": "react-scripts start",
     "test": "jest -c jest.config.json",
     "test:coverage": "jest test --coverage --runInBand --watchAll=false",
     "lint": "eslint 'src/**/*.{ts,js,tsx}' -c .eslintrc.json",
