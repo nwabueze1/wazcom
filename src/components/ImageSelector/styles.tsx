@@ -8,8 +8,8 @@ interface styleProps {
 
 export const useImageSelectorStyles = makeStyles<Theme, styleProps>(() => ({
   container: {
-    minHeight: "325px",
-    minWidth: "386px",
+    minHeight: "150px",
+    minWidth: "150px",
     position:"relative",
     background: ({ placeholder }) => `url(${placeholder})`,
     backgroundRepeat: "no-repeat",
@@ -18,6 +18,8 @@ export const useImageSelectorStyles = makeStyles<Theme, styleProps>(() => ({
     display: "flex",
     justifyContent: "center",
     alignItems: "center",
+    width: "320px",
+    height: "320px",
 
     "& .cameraIcon": {
       color: theme.design.colors.white,
@@ -44,49 +46,14 @@ export const useImageSelectorStyles = makeStyles<Theme, styleProps>(() => ({
       "&:hover":{
         background:"linear-gradient(rgba(0,0,0,0.2), rgba(0,0,0,0.7))",
       }
-    }
-  },
-
-  circleContainer: {
-    height: "321px",
-    width: "321px",
-    borderRadius: "50%",
-    position:"relative",
-    background: ({ placeholder }) => `url(${placeholder})`,
-    backgroundRepeat: "no-repeat",
-    backgroundSize: "cover !important",
-    backgroundPosition: "center !important",
-    display: "flex",
-    justifyContent: "center",
-    alignItems: "center",
-
-    "& .cameraIcon": {
-      color: theme.design.colors.white,
-      cursor: "pointer",
-      visibility: "hidden",
-      zIndex:5,
-      background: "transparent"
     },
 
-    "&:hover": {
-      "& .cameraIcon": {
-        visibility: "visible",
-      },
-    },
-
-    "& .selectHover": {
-      position:"absolute",
-      top:0,
-      left:0,
-      opacity:1,
-      width:"100%",
-      height:"100%",
+    "& .selectHover.circle": {
       borderRadius: "50%",
-      background: "transparent",
-      "&:hover":{
-        background:"linear-gradient(rgba(0,0,0,0.2), rgba(0,0,0,0.7))",
-      }
     }
   },
+  circle: {
+    borderRadius: "50%"
+  }
   
 }));

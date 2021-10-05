@@ -168,7 +168,6 @@ export const theme: any = {
       lightorange: "#FFAA00",
       grey80:"#5C5C5C",
       yellowsea:"#F5A53C",
-      
     },
   },
   overrides: {

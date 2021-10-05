@@ -25,7 +25,6 @@
     "web-vitals": "^1.0.1"
   },
   "scripts": {
-    "start": "react-scripts start",
     "build": "tsc",
     "test": "jest -c jest.config.json",
     "test:coverage": "jest test --coverage --runInBand --watchAll=false",

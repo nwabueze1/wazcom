@@ -11,20 +11,9 @@ export const ImageSelector: FC<imageUploaderProps> = ({
   onClick,
 }) => {
   const classes = useImageSelectorStyles({ placeholder });
-  const getVariantClass = () => {
-    let className;
-    switch (variant) {
-      case "circle":
-        className = classes.circleContainer;
-        break;
-      default:
-        className = classes.container;
-    }
-    return className;
-  };
   return (
-    <div className={clx(className, getVariantClass())}>
-      <div className="selectHover"></div>
+    <div className={clx(className, classes.container, variant === 'circle' && classes.circle)}>
+      <div className={`selectHover ${variant === 'circle' && "circle"}`}></div>
       <div className="cameraIcon">
         <CameraAltIcon style={{ fontSize: "64px" }} onClick={onClick} />
       </div>
