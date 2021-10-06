@@ -1,5 +1,5 @@
-import React from "react";
-import { Line } from "react-chartjs-2";
+import * as React from "react";
+// import { Line } from "react-chartjs-2";
 import { useChartStyles } from "./style";
 import { ChartProps } from "./types";
 import MenuItem from "@material-ui/core/MenuItem";
@@ -15,35 +15,35 @@ export const Chart: React.FC<ChartProps> = () => {
   };
 
   const classes = useChartStyles();
-  const state = {
-    labels: [
-      "January",
-      "February",
-      "March",
-      "April",
-      "May",
-      "jun",
-      "jul",
-      "Aug",
-      "Sept",
-      "Oct",
-      "Nov",
-      "Dec",
-    ],
-    datasets: [
-      {
-        label: "",
-        lineTension: 0.5,
-        borderColor: "red",
-        borderWidth: 2,
-        data: [
-          2000, 2600, 5500, 6000, 5000, 6000, 4000, 6000, 6000, 8000, 9000,
-          10000,
-        ],
-        backgroundColor: ["rgba(255, 99, 132, 0.2)"],
-      },
-    ],
-  };
+  // const state = {
+  //   labels: [
+  //     "January",
+  //     "February",
+  //     "March",
+  //     "April",
+  //     "May",
+  //     "jun",
+  //     "jul",
+  //     "Aug",
+  //     "Sept",
+  //     "Oct",
+  //     "Nov",
+  //     "Dec",
+  //   ],
+  //   datasets: [
+  //     {
+  //       label: "",
+  //       lineTension: 0.5,
+  //       borderColor: "red",
+  //       borderWidth: 2,
+  //       data: [
+  //         2000, 2600, 5500, 6000, 5000, 6000, 4000, 6000, 6000, 8000, 9000,
+  //         10000,
+  //       ],
+  //       backgroundColor: ["rgba(255, 99, 132, 0.2)"],
+  //     },
+  //   ],
+  // };
 
   return (
     <Card>
@@ -64,7 +64,7 @@ export const Chart: React.FC<ChartProps> = () => {
         </FormControl>
       </div>
       <div>
-        <Line
+        {/* <Line
           data={state}
           options={{
             elements: {
@@ -73,7 +73,7 @@ export const Chart: React.FC<ChartProps> = () => {
               },
             },
           }}
-        />
+        /> */}
       </div>
     </Card>
   );

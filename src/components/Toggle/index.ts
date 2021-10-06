@@ -1,2 +1,3 @@
-export * from './styles';
-export * from './Toggle';
+export * from "./Toggle";
+export * from "./styles";
+export * from "./types";
