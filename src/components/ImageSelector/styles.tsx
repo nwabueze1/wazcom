@@ -1,17 +1,12 @@
 import { makeStyles } from "@material-ui/styles";
-import { Theme } from "@material-ui/core";
 import theme from "../../theme";
 
-interface styleProps {
-  placeholder: string;
-}
 
-export const useImageSelectorStyles = makeStyles<Theme, styleProps>(() => ({
+export const useImageSelectorStyles = makeStyles(() => ({
   container: {
     minHeight: "150px",
     minWidth: "150px",
     position:"relative",
-    background: ({ placeholder }) => `url(${placeholder})`,
     backgroundRepeat: "no-repeat",
     backgroundSize: "cover !important",
     backgroundPosition: "center !important",

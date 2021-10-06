@@ -6,13 +6,15 @@ import CameraAltIcon from "@material-ui/icons/CameraAlt";
 
 export const ImageSelector: FC<imageUploaderProps> = ({
   variant,
-  placeholder,
   className,
+  height,
+  width,
+  placeholder,
   onClick,
 }) => {
-  const classes = useImageSelectorStyles({ placeholder });
+  const classes = useImageSelectorStyles();
   return (
-    <div className={clx(className, classes.container, variant === 'circle' && classes.circle)}>
+    <div className={clx(className, classes.container, variant === 'circle' && classes.circle)} style={{height, width, backgroundImage: `url(${placeholder})`,}}>
       <div className={`selectHover ${variant === 'circle' && "circle"}`}></div>
       <div className="cameraIcon">
         <CameraAltIcon style={{ fontSize: "64px" }} onClick={onClick} />
