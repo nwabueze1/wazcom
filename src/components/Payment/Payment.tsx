@@ -70,30 +70,6 @@ export const Payment: React.FC = () => {
             "AduSSIF9NE4ZQVA8VNCdfSMYW1MGGsTWr1MeELD3dTS_gXmAI1XGh229OV_18bWioy2VfC2z7_vpXgsB",
         }}
       >
-        {/* <PayPalButtons
-          // style={{ color: "silver", shape: "pill", label: "pay", height: 40 }}
-          createOrder={async () => {
-            return await makePayment({ variables: { order_id: "10" } })
-              .then(({ data }) => {
-                return data?.makePayment?.orderId;
-              })
-              .catch(() => {
-                return "false";
-              });
-          }}
-          onApprove={async (data) => {
-            await verifyPayment({ variables: { token: data.orderID } })
-              .then(({ data }) => {
-                toast.success("Payment Success");
-                return data?.verifyPayment?.reference_id;
-              })
-              .catch((error: ApolloError) => {
-                error.graphQLErrors.map(({ message }) => {
-                  toast.error(message);
-                });
-              });
-          }}
-        /> */}
       </PayPalScriptProvider>
       <Content />
       <Button className={classes.button} style={{ background: "#F94C4C" }}>

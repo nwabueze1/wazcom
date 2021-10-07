@@ -110,9 +110,7 @@ export const theme: any = {
       red70: "#FF4C4C",
       red90: "#FF1919",
       gray: "#BEBEBE",
-
       bgLight: "#EDF0F5",
-
       width: "1366px",
       blue: "#0889F7",
       lightGrey: "#F5F5F5",
@@ -126,8 +124,7 @@ export const theme: any = {
       grey: "#3A3335",
       grey2: "#4F4F4F",
       grey4: "#BDBDBD",
-
-      grey5: "# E0E0E0",
+      grey5: "#E0E0E0",
       fauxGrey: "#5C5C5C",
       maroon: "#A33F50",
       charcoal: "#2A2D34",
@@ -171,7 +168,6 @@ export const theme: any = {
       lightorange: "#FFAA00",
       grey80:"#5C5C5C",
       yellowsea:"#F5A53C",
-      
     },
   },
   overrides: {
