@@ -1,1 +1,1 @@
-export declare const useTextStyles: (props?: any) => import("@material-ui/styles").ClassNameMap<"input" | "label" | "root">;
+export declare const useTextStyles: (props?: any) => import("@material-ui/styles").ClassNameMap<"label" | "root">;

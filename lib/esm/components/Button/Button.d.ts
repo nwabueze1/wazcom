@@ -1,3 +1,3 @@
-import React from "react";
-import { ButtonProps } from "./types";
-export declare const Button: React.FC<ButtonProps>;
+/// <reference types="react" />
+import { ButtonDimension } from "./types";
+export declare const Button: ({ ...props }: ButtonDimension) => JSX.Element;

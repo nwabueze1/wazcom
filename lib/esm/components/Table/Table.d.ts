@@ -1,11 +1,3 @@
-import { FC } from "react";
-interface fieldProps {
-    action?: any;
-    choice?: any;
-    handleChangeInput: (index: number, event: React.ChangeEvent<{
-        name?: string | undefined;
-        value: unknown;
-    }>) => void;
-}
-declare const BasicTable: FC<fieldProps>;
-export default BasicTable;
+/// <reference types="react" />
+import { TableProps } from "./types";
+export declare const Table: ({ headers, data, ...props }: TableProps) => JSX.Element;

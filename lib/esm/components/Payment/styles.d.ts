@@ -1,0 +1,1 @@
+export declare const useStyles: (props?: any) => import("@material-ui/styles").ClassNameMap<"link" | "button" | "form" | "image" | "root" | "textfield" | "submit" | "paper" | "imageBox" | "social" | "social2" | "logo" | "forgot">;
