@@ -10,7 +10,7 @@ var __assign = (this && this.__assign) || function () {
     return __assign.apply(this, arguments);
 };
 import { jsx as _jsx, jsxs as _jsxs } from "react/jsx-runtime";
-import { FormLabel, Switch } from "@material-ui/core";
+import { FormLabel, Switch } from "@mui/material";
 import { useToggleStyles } from "./styles";
 export var Toggle = function (_a) {
     var name = _a.name, label = _a.label, value = _a.value, onChange = _a.onChange, helperText = _a.helperText;

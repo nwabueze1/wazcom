@@ -2,11 +2,11 @@ import { Table } from "../Table";
 import { useState, useCallback, useEffect } from "react";
 import * as React from "react";
 import { useSchedulerStyles } from "./styles";
-import AddIcon from "@material-ui/icons/Add";
+import AddIcon from "@mui/icons-material/Add";
 import { SchedulerProps, RowType } from "./types";
 import { TimeSelector } from "./TimePicker/TimePicker";
 import { DayPicker } from "./DayPicker/DayPicker";
-import CloseIcon from "@material-ui/icons/Close";
+import CloseIcon from "@mui/icons-material/Close";
 class Row implements RowType {
   day = "0";
   start_time = `00:00:00`;

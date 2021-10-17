@@ -10,8 +10,8 @@ var __assign = (this && this.__assign) || function () {
     return __assign.apply(this, arguments);
 };
 import { jsx as _jsx, jsxs as _jsxs } from "react/jsx-runtime";
-import Autocomplete from "@material-ui/lab/Autocomplete";
-import { InputLabel, TextField } from "@material-ui/core";
+import Autocomplete from '@mui/material/Autocomplete';
+import { InputLabel, TextField } from "@mui/material";
 import { useComboBoxStyles } from "./styles";
 export var ComboBox = function (_a) {
     var name = _a.name, onChange = _a.onChange, error = _a.error, comboData = _a.comboData, label = _a.label, value = _a.value;

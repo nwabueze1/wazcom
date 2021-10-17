@@ -22,7 +22,7 @@ var __rest = (this && this.__rest) || function (s, e) {
 };
 import { jsx as _jsx, jsxs as _jsxs } from "react/jsx-runtime";
 import { useTableStyles } from "./styles";
-import { Table as MuiTable, TableBody, TableCell, TableContainer, TableHead, TableRow, Paper, Checkbox, } from "@material-ui/core";
+import { Table as MuiTable, TableBody, TableCell, TableContainer, TableHead, TableRow, Paper, Checkbox, } from "@mui/material";
 export var Table = function (_a) {
     var headers = _a.headers, data = _a.data, props = __rest(_a, ["headers", "data"]);
     var classes = useTableStyles();

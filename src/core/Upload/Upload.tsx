@@ -1,7 +1,7 @@
 import { FC } from "react";
 import { uploadStyles } from "./styles";
 import { UploadProps } from "./types";
-import { Typography } from "@material-ui/core";
+import { Typography } from "@mui/material";
 import { FaRegFileAlt } from "react-icons/fa";
 import clx from "classnames";
 

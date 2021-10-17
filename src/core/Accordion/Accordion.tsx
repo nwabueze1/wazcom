@@ -6,8 +6,8 @@ import {
   AccordionSummary as MuiAccordionSummary,
   AccordionDetails as MuiAccordionDetails,
   Typography,
-} from "@material-ui/core";
-import ExpandMoreIcon from "@material-ui/icons/ExpandMore";
+} from "@mui/material";
+import ExpandMoreIcon from "@mui/icons-material/ExpandMore";
 import { kebabCase } from "lodash";
 import clx from "classnames";
 
@@ -31,9 +31,7 @@ export const Accordion: FC<AccordionProps> = ({
         id={kebabCase(title)}
         className={classes.summary}
       >
-        <Typography variant="body1" className={classes.schedule}>
-          {title}
-        </Typography>
+        <Typography variant="body1">{title}</Typography>
       </MuiAccordionSummary>
       <MuiAccordionDetails className={classes.details}>
         {children}

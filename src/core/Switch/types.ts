@@ -1,7 +1,7 @@
 import {
   SwitchClassKey,
   SwitchProps as IosSwitchProps,
-} from "@material-ui/core/Switch";
+} from "@mui/material/Switch";
 
 export type SwitchProps = IosSwitchProps & {
   onChange?: (

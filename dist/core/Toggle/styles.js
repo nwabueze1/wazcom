@@ -1,4 +1,4 @@
-import { makeStyles } from "@material-ui/core";
+import makeStyles from '@mui/styles/makeStyles';
 export var useToggleStyles = makeStyles(function (theme) { return ({
     root: {
         display: "flex",
@@ -22,7 +22,7 @@ export var useToggleStyles = makeStyles(function (theme) { return ({
         margin: "0",
     },
     toggle: {
-        // padding: `${theme.spacing(1)}px 0`,
-        margin: theme.spacing(1) + "px 0",
+        // padding: `${theme.spacing(1)} 0`,
+        margin: theme.spacing(1) + " 0",
     },
 }); });

@@ -1,6 +1,6 @@
 import  { FC } from "react";
-import Autocomplete from "@material-ui/lab/Autocomplete";
-import { Chip, TextField, InputLabel } from "@material-ui/core";
+import Autocomplete from '@mui/material/Autocomplete';
+import { Chip, TextField, InputLabel } from "@mui/material";
 import { TaggableProps } from "./types";
 import { useTaggableStyles } from "./styles";
 
@@ -25,12 +25,7 @@ export const Taggable: FC<TaggableProps> = ({
         onChange={onChange}
         renderTags={(value: string[], getTagProps) =>
           value.map((value: string, index: number) => (
-            <Chip
-              variant="default"
-              label={value}
-              key={index}
-              {...getTagProps({ index })}
-            />
+            <Chip label={value} key={index} {...getTagProps({ index })} />
           ))
         }
         renderInput={(params) => (

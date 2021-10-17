@@ -1,4 +1,7 @@
-import { createStyles, makeStyles, withStyles, InputBase, } from "@material-ui/core";
+import { InputBase } from "@mui/material";
+import createStyles from '@mui/styles/createStyles';
+import makeStyles from '@mui/styles/makeStyles';
+import withStyles from '@mui/styles/withStyles';
 export var menuItemTableStyles = makeStyles(function () {
     return createStyles({
         siteTypeSelect: {

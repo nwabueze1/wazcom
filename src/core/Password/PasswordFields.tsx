@@ -1,5 +1,5 @@
 import * as React from "react";
-import { FormLabel, OutlinedInput } from "@material-ui/core";
+import { FormLabel, OutlinedInput } from "@mui/material";
 import { useStyles } from "./styles";
 import { PasswordFieldsProps } from "./types";
 

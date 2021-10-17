@@ -11,7 +11,7 @@ var __assign = (this && this.__assign) || function () {
 };
 import { jsx as _jsx } from "react/jsx-runtime";
 import { RadioButtonStyles } from "./styles";
-import { Radio } from "@material-ui/core";
+import { Radio } from "@mui/material";
 import clx from "classnames";
 import { useState } from "react";
 export var RadioButton = function (_a) {

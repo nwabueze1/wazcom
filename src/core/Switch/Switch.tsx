@@ -1,7 +1,7 @@
-import  { FC } from "react";
+import { FC } from "react";
 import { useSwitchStyles } from "./styles";
 import { SwitchProps } from "./types";
-import { Switch as IosSwitch } from "@material-ui/core";
+import { Switch as IosSwitch } from "@mui/material";
 
 export const Switch: FC<SwitchProps> = ({
   onChange,
@@ -17,13 +17,6 @@ export const Switch: FC<SwitchProps> = ({
       <IosSwitch
         focusVisibleClassName={classes.focusVisible}
         disableRipple
-        // classes={{
-        //   root: classes.root,
-        //   switchBase: classes.switchBase,
-        //   thumb: classes.thumb,
-        //   track: classes.track,
-        //   checked: classes.checked,
-        // }}
         onClick={onClick}
         value={value}
         checked={value}

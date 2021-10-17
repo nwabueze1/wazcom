@@ -1,22 +1,21 @@
-import { makeStyles } from "@material-ui/core/styles";
-import theme from "../../theme";
-export var useCardStyles = makeStyles(function () { return ({
+import makeStyles from '@mui/styles/makeStyles';
+export var useCardStyles = makeStyles(function (theme) { return ({
     root: {
         width: "384px",
         height: "480px",
         padding: theme.spacing(1, 1),
         textAlign: "center",
-        borderRadius: "25px",
+        borderRadius: theme.spacing(1),
     },
     regtext: {
         color: theme.design.colors.sunRed,
         fontWeight: "bold",
-        fontSize: "24px",
+        fontSize: theme.typography.fontSize,
         margin: theme.spacing(2, 0),
     },
     text: {
-        padding: theme.spacing(0, 2),
         textAlign: "justify",
-        fontSize: "18px",
+        padding: theme.spacing(0, 2),
+        fontSize: theme.typography.fontSize,
     },
 }); });

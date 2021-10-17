@@ -1,11 +1,9 @@
 import * as React from "react";
-import { SelectProps } from "@material-ui/core";
-interface DayPickerProps extends SelectProps {
+import { SelectProps } from "@mui/material";
+import { SelectInputProps } from "@mui/material/Select/SelectInput";
+declare type DayPickerProps = SelectProps & {
     value?: string;
-    onChange: (event: React.ChangeEvent<{
-        name?: string;
-        value: unknown;
-    }>) => void;
-}
+    onChange: SelectInputProps["onChange"];
+};
 export declare const DayPicker: React.FC<DayPickerProps>;
 export {};

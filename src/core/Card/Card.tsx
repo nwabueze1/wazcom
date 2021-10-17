@@ -1,26 +1,28 @@
 import { FC } from "react";
-import { useCardStyles } from "./styles";
-import { Card as MuiCard } from "@material-ui/core";
-import CardContent from "@material-ui/core/CardContent";
-import Typography from "@material-ui/core/Typography";
+import { Card as MuiCard, CardActions, CardMedia } from "@mui/material";
+import CardContent from "@mui/material/CardContent";
+import Typography from "@mui/material/Typography";
 import { CardProps } from "./types";
+import { Button } from "core";
 
 export const Card: FC<CardProps> = ({
   title,
   content,
   image: { src, alt },
 }) => {
-  const classes = useCardStyles();
-
   return (
-    <MuiCard className={classes.root} variant="outlined">
+    <MuiCard>
+      <CardMedia component="img" height="140" image={src} alt={alt} />
       <CardContent>
-        <div>
-          <img src={src} alt={alt ?? title} />
-        </div>
-        <Typography className={classes.regtext}>{title}</Typography>
-        <div className={classes.text}>{content}</div>
+        <Typography gutterBottom variant="h5" component="div">
+          {title}
+        </Typography>
+        <Typography variant="body2">{content}</Typography>
       </CardContent>
+      <CardActions>
+        <Button size="small">Share</Button>
+        <Button size="small">Learn More</Button>
+      </CardActions>
     </MuiCard>
   );
 };

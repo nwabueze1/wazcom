@@ -11,12 +11,12 @@ var __assign = (this && this.__assign) || function () {
 };
 import { jsx as _jsx, jsxs as _jsxs } from "react/jsx-runtime";
 import { useMenuCardStyles } from "./styles";
-import Card from "@material-ui/core/Card";
-import CardContent from "@material-ui/core/CardContent";
+import Card from "@mui/material/Card";
+import CardContent from "@mui/material/CardContent";
 import clx from "classnames";
-import { Typography } from "@material-ui/core";
+import { Typography } from "@mui/material";
 // import Naira from "../../images/Vector.png";
-import MoreVertIcon from "@material-ui/icons/MoreVert";
+import MoreVertIcon from "@mui/icons-material/MoreVert";
 import { Toggle } from "../Toggle/Toggle";
 export var MenuCard = function (_a) {
     var className = _a.className, amount = _a.amount, details = _a.details, meal = _a.meal, image = _a.image;

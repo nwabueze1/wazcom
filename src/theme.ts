@@ -1,6 +1,6 @@
-import { createTheme } from "@material-ui/core/styles";
+import { createTheme, adaptV4Theme } from "@mui/material/styles";
 
-declare module "@material-ui/core/styles/createTheme" {
+declare module "@mui/material/styles/createTheme" {
   interface Theme {
     include: { [key: string]: any };
     design: {
@@ -10,7 +10,7 @@ declare module "@material-ui/core/styles/createTheme" {
   }
 
   // allow configuration using `createMuiTheme`
-  interface ThemeOptions {
+  interface DeprecatedThemeOptions {
     include: { [key: string]: any };
     design: {
       font: { [key: string]: any };
@@ -166,8 +166,8 @@ export const theme: any = {
       green3: "#27AE60",
       darkorange: "#F4900C",
       lightorange: "#FFAA00",
-      grey80:"#5C5C5C",
-      yellowsea:"#F5A53C",
+      grey80: "#5C5C5C",
+      yellowsea: "#F5A53C",
     },
   },
   overrides: {
@@ -239,4 +239,4 @@ export const theme: any = {
   },
 };
 
-export default createTheme(theme);
+export default createTheme(adaptV4Theme(theme));

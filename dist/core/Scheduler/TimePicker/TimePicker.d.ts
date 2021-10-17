@@ -1,5 +1,5 @@
 import * as React from "react";
-import { BaseTextFieldProps } from "@material-ui/core";
+import { BaseTextFieldProps } from "@mui/material";
 interface TimeSelectorProps extends BaseTextFieldProps {
     onChange: (event: React.ChangeEvent<{
         name?: string;

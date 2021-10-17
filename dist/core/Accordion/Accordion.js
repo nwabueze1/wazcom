@@ -11,12 +11,12 @@ var __assign = (this && this.__assign) || function () {
 };
 import { jsx as _jsx, jsxs as _jsxs } from "react/jsx-runtime";
 import { useAccordionStyles } from "./styles";
-import { Accordion as MuiAccordion, AccordionSummary as MuiAccordionSummary, AccordionDetails as MuiAccordionDetails, Typography, } from "@material-ui/core";
-import ExpandMoreIcon from "@material-ui/icons/ExpandMore";
+import { Accordion as MuiAccordion, AccordionSummary as MuiAccordionSummary, AccordionDetails as MuiAccordionDetails, Typography, } from "@mui/material";
+import ExpandMoreIcon from "@mui/icons-material/ExpandMore";
 import { kebabCase } from "lodash";
 import clx from "classnames";
 export var Accordion = function (_a) {
     var title = _a.title, className = _a.className, square = _a.square, defaultExpanded = _a.defaultExpanded, children = _a.children;
     var classes = useAccordionStyles();
-    return (_jsxs(MuiAccordion, __assign({ className: clx(classes.root, className), square: square, defaultExpanded: defaultExpanded }, { children: [_jsx(MuiAccordionSummary, __assign({ expandIcon: _jsx(ExpandMoreIcon, { className: classes.icon }, void 0), "aria-controls": kebabCase(title), id: kebabCase(title), className: classes.summary }, { children: _jsx(Typography, __assign({ variant: "body1", className: classes.schedule }, { children: title }), void 0) }), void 0), _jsx(MuiAccordionDetails, __assign({ className: classes.details }, { children: children }), void 0)] }), void 0));
+    return (_jsxs(MuiAccordion, __assign({ className: clx(classes.root, className), square: square, defaultExpanded: defaultExpanded }, { children: [_jsx(MuiAccordionSummary, __assign({ expandIcon: _jsx(ExpandMoreIcon, { className: classes.icon }, void 0), "aria-controls": kebabCase(title), id: kebabCase(title), className: classes.summary }, { children: _jsx(Typography, __assign({ variant: "body1" }, { children: title }), void 0) }), void 0), _jsx(MuiAccordionDetails, __assign({ className: classes.details }, { children: children }), void 0)] }), void 0));
 };

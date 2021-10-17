@@ -1,5 +1,5 @@
 import { useLazyQuery } from "@apollo/client";
-import { Grow } from "@material-ui/core";
+import { Grow } from "@mui/material";
 import clx from "classnames";
 import { Button } from "../Button";
 import { last } from "lodash";

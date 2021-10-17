@@ -7,4 +7,4 @@ export interface EmailStyleProps {
     marginError?: string;
     inputParrentPadding?: string;
 }
-export declare const useEmailStyles: (props: EmailStyleProps) => import("@material-ui/styles").ClassNameMap<string>;
+export declare const useEmailStyles: (props: EmailStyleProps) => import("@mui/styles").ClassNameMap<string>;

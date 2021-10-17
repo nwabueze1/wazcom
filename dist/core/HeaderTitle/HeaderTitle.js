@@ -10,7 +10,7 @@ var __assign = (this && this.__assign) || function () {
     return __assign.apply(this, arguments);
 };
 import { jsx as _jsx } from "react/jsx-runtime";
-import { Typography } from "@material-ui/core";
+import { Typography } from "@mui/material";
 import { useHeaderTitleStyles } from "./styles";
 import clx from "classnames";
 export var HeaderTitle = function (_a) {

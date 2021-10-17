@@ -12,8 +12,8 @@ var __assign = (this && this.__assign) || function () {
 import { jsx as _jsx, jsxs as _jsxs } from "react/jsx-runtime";
 import { useState } from "react";
 import useStyles from "./styles";
-import { Typography } from "@material-ui/core";
-import Pagination from "@material-ui/lab/Pagination";
+import { Typography } from "@mui/material";
+import Pagination from '@mui/material/Pagination';
 export var Page = function () {
     var totalPages = 4;
     var classes = useStyles();

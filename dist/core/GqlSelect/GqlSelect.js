@@ -11,7 +11,7 @@ var __assign = (this && this.__assign) || function () {
 };
 import { jsx as _jsx, jsxs as _jsxs } from "react/jsx-runtime";
 import { useState, useEffect } from "react";
-import { FormControl, InputLabel, MenuItem, Select as MuiSelect, CircularProgress } from "@material-ui/core";
+import { FormControl, InputLabel, MenuItem, Select as MuiSelect, CircularProgress } from "@mui/material";
 import { useSelectStyles } from "./styles";
 import { useQuery } from "@apollo/client";
 export var Select = function (_a) {

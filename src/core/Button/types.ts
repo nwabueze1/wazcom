@@ -1,3 +1,3 @@
-import { ButtonProps as MuiButtonProps } from "@material-ui/core";
+import { ButtonProps as MuiButtonProps } from "@mui/material";
 
 export type ButtonProps = MuiButtonProps;

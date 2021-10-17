@@ -1,8 +1,8 @@
 import { useEffect, useContext, useState } from "react";
 import * as React from "react";
 import { ApolloError, useMutation } from "@apollo/client";
-import CssBaseline from "@material-ui/core/CssBaseline";
-import { Grid, Button } from "@material-ui/core";
+import CssBaseline from "@mui/material/CssBaseline";
+import { Grid, Button } from "@mui/material";
 import { useStyles } from "./styles";
 import "react-toastify/dist/ReactToastify.css";
 import { PayPalScriptProvider } from "@paypal/react-paypal-js";

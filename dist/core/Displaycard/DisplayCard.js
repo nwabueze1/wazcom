@@ -11,11 +11,11 @@ var __assign = (this && this.__assign) || function () {
 };
 import { jsx as _jsx, jsxs as _jsxs } from "react/jsx-runtime";
 import { useDisplayCardStyles } from "./styles";
-import Card from "@material-ui/core/Card";
-import CardContent from "@material-ui/core/CardContent";
+import Card from "@mui/material/Card";
+import CardContent from "@mui/material/CardContent";
 import clx from "classnames";
 import { IoIosCloseCircle } from "react-icons/io";
-import { Typography } from "@material-ui/core";
+import { Typography } from "@mui/material";
 export var DisplayCard = function (_a) {
     var className = _a.className, total = _a.total, title = _a.title;
     var classes = useDisplayCardStyles();

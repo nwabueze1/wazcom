@@ -1,11 +1,11 @@
 import { FC } from "react";
 import { useDisplayCardStyles } from "./styles";
 import { DisplayCardProps } from "./types";
-import Card from "@material-ui/core/Card";
-import CardContent from "@material-ui/core/CardContent";
+import Card from "@mui/material/Card";
+import CardContent from "@mui/material/CardContent";
 import clx from "classnames";
 import { IoIosCloseCircle } from "react-icons/io";
-import { Typography } from "@material-ui/core";
+import { Typography } from "@mui/material";
 
 export const DisplayCard: FC<DisplayCardProps> = ({
   className,

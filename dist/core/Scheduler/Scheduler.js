@@ -22,10 +22,10 @@ import { jsx as _jsx, jsxs as _jsxs } from "react/jsx-runtime";
 import { Table } from "../Table";
 import { useState, useCallback, useEffect } from "react";
 import { useSchedulerStyles } from "./styles";
-import AddIcon from "@material-ui/icons/Add";
+import AddIcon from "@mui/icons-material/Add";
 import { TimeSelector } from "./TimePicker/TimePicker";
 import { DayPicker } from "./DayPicker/DayPicker";
-import CloseIcon from "@material-ui/icons/Close";
+import CloseIcon from "@mui/icons-material/Close";
 var Row = /** @class */ (function () {
     function Row() {
         this.day = "0";

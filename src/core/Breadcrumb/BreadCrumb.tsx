@@ -1,5 +1,5 @@
-import Breadcrumbs from "@material-ui/core/Breadcrumbs";
-import NavigateNextIcon from "@material-ui/icons/NavigateNext";
+import Breadcrumbs from "@mui/material/Breadcrumbs";
+import NavigateNextIcon from "@mui/icons-material/NavigateNext";
 import clx from "classnames";
 import { FC } from "react";
 import { Link } from "react-router-dom";

@@ -1,5 +1,5 @@
 import { CommonProps } from "../types";
-import { AccordionProps as MuiAccordionProps } from "@material-ui/core";
+import { AccordionProps as MuiAccordionProps } from "@mui/material";
 
 export type AccordionProps = MuiAccordionProps &
   CommonProps & {

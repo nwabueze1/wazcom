@@ -1,7 +1,7 @@
 import { FC, useState, ChangeEvent } from "react";
 import useStyles from "./styles";
-import { Typography } from "@material-ui/core";
-import Pagination from "@material-ui/lab/Pagination";
+import { Typography } from "@mui/material";
+import Pagination from '@mui/material/Pagination';
 import { pageProps } from "./types";
 
 export const Page: FC<pageProps> = () => {

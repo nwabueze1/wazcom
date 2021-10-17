@@ -12,7 +12,7 @@ var __assign = (this && this.__assign) || function () {
 import { jsx as _jsx, jsxs as _jsxs } from "react/jsx-runtime";
 import { useImageSelectorStyles } from "./styles";
 import clx from "classnames";
-import CameraAltIcon from "@material-ui/icons/CameraAlt";
+import CameraAltIcon from "@mui/icons-material/CameraAlt";
 export var ImageSelector = function (_a) {
     var variant = _a.variant, className = _a.className, height = _a.height, width = _a.width, placeholder = _a.placeholder, onClick = _a.onClick;
     var classes = useImageSelectorStyles();

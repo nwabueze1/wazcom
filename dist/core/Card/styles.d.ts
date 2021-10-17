@@ -1,1 +1,1 @@
-export declare const useCardStyles: (props?: any) => import("@material-ui/styles").ClassNameMap<"root" | "text" | "regtext">;
+export declare const useCardStyles: (props?: any) => import("@mui/styles").ClassNameMap<"root" | "text" | "regtext">;

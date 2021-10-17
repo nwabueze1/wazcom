@@ -12,8 +12,8 @@ var __assign = (this && this.__assign) || function () {
 import { jsx as _jsx, jsxs as _jsxs } from "react/jsx-runtime";
 import { useNotificationStyles } from "./style";
 import clx from "classnames";
-import CloseIcon from "@material-ui/icons/Close";
-import { Typography } from "@material-ui/core";
+import CloseIcon from "@mui/icons-material/Close";
+import { Typography } from "@mui/material";
 // import Icon from "../../images/Vector.png";
 var getStatusClassName = function (classes, status) {
     switch (status) {

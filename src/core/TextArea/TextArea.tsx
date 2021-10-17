@@ -1,5 +1,5 @@
 import * as React from "react";
-import { FormLabel, OutlinedInput } from "@material-ui/core";
+import { FormLabel, OutlinedInput } from "@mui/material";
 import { useTextareaStyles } from "./styles";
 import { TextareaProps } from "./types";
 import { IsRequired } from "../Common/isRequired/isRequired";

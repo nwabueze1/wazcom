@@ -21,7 +21,7 @@ var __rest = (this && this.__rest) || function (s, e) {
     return t;
 };
 import { jsx as _jsx } from "react/jsx-runtime";
-import { Button as MuiButton } from "@material-ui/core";
+import { Button as MuiButton } from "@mui/material";
 import { useButtonStyles } from "./styles";
 export var Button = function (_a) {
     var props = __rest(_a, []);

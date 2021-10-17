@@ -1,15 +1,14 @@
-import { makeStyles } from "@material-ui/core/styles";
-import theme from "../../theme";
+import makeStyles from '@mui/styles/makeStyles';
 /** !!-- Remember to update the function name !! */
-export var BreadCrumbStyles = makeStyles(function () { return ({
+export var BreadCrumbStyles = makeStyles(function (theme) { return ({
     root: {
-        fontFamily: theme.typography.fontFamily,
         display: "flex",
+        fontFamily: theme.typography.fontFamily,
     },
     link: {
         display: "flex",
-        fontWeight: "bold",
-        textDecoration: "None",
+        fontWeight: theme.typography.fontWeightBold,
+        textDecoration: "none",
         color: theme.design.colors.grey80,
     },
     navIcon: {

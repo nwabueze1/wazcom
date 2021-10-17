@@ -1,4 +1,4 @@
-import { OutlinedInputProps } from "@material-ui/core";
+import { OutlinedInputProps } from "@mui/material";
 export interface EmailFieldsProps extends OutlinedInputProps {
   siteName?: string;
   onChange: (

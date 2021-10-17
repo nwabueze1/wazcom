@@ -1,5 +1,5 @@
 import * as React from "react";
-import { FormLabel, TextField } from "@material-ui/core";
+import { FormLabel, TextField } from "@mui/material";
 import { usePriceStyles } from "./styles";
 import Cookies from "universal-cookie";
 import { PriceProps } from "./types";

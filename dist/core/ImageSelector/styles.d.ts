@@ -1,1 +1,1 @@
-export declare const useImageSelectorStyles: (props?: any) => import("@material-ui/styles").ClassNameMap<"circle" | "container">;
+export declare const useImageSelectorStyles: (props?: any) => import("@mui/styles").ClassNameMap<"circle" | "container">;

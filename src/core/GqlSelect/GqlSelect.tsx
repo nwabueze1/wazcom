@@ -6,7 +6,7 @@ import {
   MenuItem,
   Select as MuiSelect,
   CircularProgress
-} from "@material-ui/core";
+} from "@mui/material";
 import { useSelectStyles } from "./styles";
 import { useQuery } from "@apollo/client";
 

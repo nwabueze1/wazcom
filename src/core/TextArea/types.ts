@@ -1,5 +1,5 @@
 import { TextareaStyleProps } from "./styles";
-import { OutlinedInputProps } from "@material-ui/core";
+import { OutlinedInputProps } from "@mui/material";
 
 export interface TextareaProps extends OutlinedInputProps, TextareaStyleProps {
   error?: boolean;

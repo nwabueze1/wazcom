@@ -1,6 +1,5 @@
-import { makeStyles, } from "@material-ui/core/styles";
-import theme from "theme";
-export var MenuTableStyles = makeStyles(function () { return ({
+import makeStyles from '@mui/styles/makeStyles';
+export var MenuTableStyles = makeStyles(function (theme) { return ({
     deleteIcon: {
         color: theme.design.colors.red70,
         marginLeft: theme.spacing(2.4),
@@ -11,6 +10,6 @@ export var MenuTableStyles = makeStyles(function () { return ({
     active: {
         display: "flex",
         justifyContent: "center",
-        paddingLeft: theme.spacing(3)
-    }
+        paddingLeft: theme.spacing(3),
+    },
 }); });

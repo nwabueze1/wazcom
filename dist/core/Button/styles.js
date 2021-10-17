@@ -1,4 +1,4 @@
-import { makeStyles } from "@material-ui/core/styles";
+import makeStyles from '@mui/styles/makeStyles';
 export var useButtonStyles = makeStyles(function (theme) { return ({
     root: {
         padding: "16px 80px",

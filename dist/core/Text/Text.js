@@ -21,7 +21,7 @@ var __rest = (this && this.__rest) || function (s, e) {
     return t;
 };
 import { jsx as _jsx, jsxs as _jsxs } from "react/jsx-runtime";
-import { OutlinedInput, InputLabel } from "@material-ui/core";
+import { OutlinedInput, InputLabel } from "@mui/material";
 import { useTextStyles } from "./styles";
 export var Text = function (_a) {
     var label = _a.label, props = __rest(_a, ["label"]);

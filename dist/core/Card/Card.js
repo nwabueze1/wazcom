@@ -10,12 +10,11 @@ var __assign = (this && this.__assign) || function () {
     return __assign.apply(this, arguments);
 };
 import { jsx as _jsx, jsxs as _jsxs } from "react/jsx-runtime";
-import { useCardStyles } from "./styles";
-import { Card as MuiCard } from "@material-ui/core";
-import CardContent from "@material-ui/core/CardContent";
-import Typography from "@material-ui/core/Typography";
+import { Card as MuiCard, CardActions, CardMedia } from "@mui/material";
+import CardContent from "@mui/material/CardContent";
+import Typography from "@mui/material/Typography";
+import { Button } from "core";
 export var Card = function (_a) {
     var title = _a.title, content = _a.content, _b = _a.image, src = _b.src, alt = _b.alt;
-    var classes = useCardStyles();
-    return (_jsx(MuiCard, __assign({ className: classes.root, variant: "outlined" }, { children: _jsxs(CardContent, { children: [_jsx("div", { children: _jsx("img", { src: src, alt: alt !== null && alt !== void 0 ? alt : title }, void 0) }, void 0), _jsx(Typography, __assign({ className: classes.regtext }, { children: title }), void 0), _jsx("div", __assign({ className: classes.text }, { children: content }), void 0)] }, void 0) }), void 0));
+    return (_jsxs(MuiCard, { children: [_jsx(CardMedia, { component: "img", height: "140", image: src, alt: alt }, void 0), _jsxs(CardContent, { children: [_jsx(Typography, __assign({ gutterBottom: true, variant: "h5", component: "div" }, { children: title }), void 0), _jsx(Typography, __assign({ variant: "body2" }, { children: content }), void 0)] }, void 0), _jsxs(CardActions, { children: [_jsx(Button, __assign({ size: "small" }, { children: "Share" }), void 0), _jsx(Button, __assign({ size: "small" }, { children: "Learn More" }), void 0)] }, void 0)] }, void 0));
 };

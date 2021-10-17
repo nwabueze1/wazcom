@@ -1,2 +1,2 @@
-import { OutlinedInputProps } from "@material-ui/core";
+import { OutlinedInputProps } from "@mui/material";
 export declare type TextProps = OutlinedInputProps & any;

@@ -1,1 +1,1 @@
-export declare const useSchedulerStyles: (props?: any) => import("@material-ui/styles").ClassNameMap<"button" | "tableContainer" | "buttonText">;
+export declare const useSchedulerStyles: (props?: any) => import("@mui/styles").ClassNameMap<"button" | "tableContainer" | "buttonText">;

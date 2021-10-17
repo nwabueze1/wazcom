@@ -1,4 +1,4 @@
-import { SwitchClassKey, SwitchProps } from "@material-ui/core/Switch";
+import { SwitchClassKey, SwitchProps } from "@mui/material/Switch";
 
 export type IoSToggleProps = SwitchProps & {
   name?: string;

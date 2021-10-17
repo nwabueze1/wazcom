@@ -1,6 +1,7 @@
 import * as React from "react";
-import { Select, SelectProps } from "@material-ui/core";
+import { Select, SelectProps } from "@mui/material";
 import { menuItemTableStyles, BootstrapInput } from "./styles";
+import { SelectInputProps } from "@mui/material/Select/SelectInput";
 
 const days: { id: number; name: string }[] = [
   { id: 0, name: "Everyday" },
@@ -15,12 +16,10 @@ const days: { id: number; name: string }[] = [
   { id: 9, name: "Weekends" },
 ];
 
-interface DayPickerProps extends SelectProps {
+type DayPickerProps = SelectProps & {
   value?: string;
-  onChange: (
-    event: React.ChangeEvent<{ name?: string; value: unknown }>,
-  ) => void;
-}
+  onChange: SelectInputProps["onChange"];
+};
 
 export const DayPicker: React.FC<DayPickerProps> = ({
   value,

@@ -1,7 +1,7 @@
 import { FC } from "react";
 import { RadioButtonStyles } from "./styles";
 import { RadioButtonProps } from "./types";
-import { Radio } from "@material-ui/core";
+import { Radio } from "@mui/material";
 import clx from "classnames";
 import { useState } from "react";
 

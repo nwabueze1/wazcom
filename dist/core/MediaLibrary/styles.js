@@ -1,4 +1,4 @@
-import { makeStyles } from "@material-ui/core/styles";
+import makeStyles from '@mui/styles/makeStyles';
 export var useMediaLibraryStyles = makeStyles(function (theme) { return ({
     "@keyframes a": {
         "0%, 50%": {
@@ -14,7 +14,7 @@ export var useMediaLibraryStyles = makeStyles(function (theme) { return ({
         display: "flex",
         flexWrap: "wrap",
         marginTop: theme.spacing(1),
-        maxHeight: "calc(100vh - " + theme.spacing(20) + "px)",
+        maxHeight: "calc(100vh - " + theme.spacing(20) + ")",
         overflow: "scroll",
         position: "relative",
     },

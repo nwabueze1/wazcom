@@ -1,4 +1,4 @@
-import { makeStyles } from "@material-ui/core";
+import makeStyles from '@mui/styles/makeStyles';
 export var useSchedulerStyles = makeStyles(function () { return ({
     button: {
         background: "#F3F3F3",

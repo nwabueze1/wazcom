@@ -1,1 +1,1 @@
-export declare const useSelectStyles: (props?: any) => import("@material-ui/styles").ClassNameMap<"root" | "label" | "loader">;
+export declare const useSelectStyles: (props?: any) => import("@mui/styles").ClassNameMap<"root" | "label" | "loader">;

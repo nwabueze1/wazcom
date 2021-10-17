@@ -1,4 +1,4 @@
-import { SelectProps as MuiSelectProps } from "@material-ui/core";
+import { SelectProps as MuiSelectProps } from "@mui/material";
 export interface SelectProps extends MuiSelectProps {
     options: {
         type: "query";

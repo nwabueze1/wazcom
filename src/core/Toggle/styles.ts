@@ -1,4 +1,6 @@
-import { makeStyles, Theme } from "@material-ui/core";
+import { Theme } from "@mui/material";
+
+import makeStyles from '@mui/styles/makeStyles';
 
 export const useToggleStyles = makeStyles((theme: Theme) => ({
   root: {
@@ -23,7 +25,7 @@ export const useToggleStyles = makeStyles((theme: Theme) => ({
     margin: "0",
   },
   toggle: {
-    // padding: `${theme.spacing(1)}px 0`,
-    margin: `${theme.spacing(1)}px 0`,
+    // padding: `${theme.spacing(1)} 0`,
+    margin: `${theme.spacing(1)} 0`,
   },
 }));

@@ -2,8 +2,8 @@ import { FC } from "react";
 import { useNotificationStyles } from "./style";
 import clx from "classnames";
 import { NotificationProps } from "./type";
-import CloseIcon from "@material-ui/icons/Close";
-import { Typography } from "@material-ui/core";
+import CloseIcon from "@mui/icons-material/Close";
+import { Typography } from "@mui/material";
 // import Icon from "../../images/Vector.png";
 
 const getStatusClassName = (

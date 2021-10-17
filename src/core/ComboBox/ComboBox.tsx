@@ -1,6 +1,6 @@
 import { FC } from "react";
-import Autocomplete from "@material-ui/lab/Autocomplete";
-import { InputLabel, TextField } from "@material-ui/core";
+import Autocomplete from '@mui/material/Autocomplete';
+import { InputLabel, TextField } from "@mui/material";
 import { useComboBoxStyles } from "./styles";
 import { ComboBoxProps } from "./types";
 

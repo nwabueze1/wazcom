@@ -10,7 +10,7 @@ var __assign = (this && this.__assign) || function () {
     return __assign.apply(this, arguments);
 };
 import { jsxs as _jsxs, jsx as _jsx } from "react/jsx-runtime";
-import { FormLabel, TextField } from "@material-ui/core";
+import { FormLabel, TextField } from "@mui/material";
 import { usePriceStyles } from "./styles";
 import Cookies from "universal-cookie";
 export var Price = function (_a) {

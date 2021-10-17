@@ -1,6 +1,6 @@
 /// <reference types="react" />
 import { StyleProps } from "./styles";
-import { OutlinedInputProps } from "@material-ui/core";
+import { OutlinedInputProps } from "@mui/material";
 export interface PasswordFieldsProps extends OutlinedInputProps, StyleProps {
     siteName?: string;
     onChange: (event: React.ChangeEvent<{

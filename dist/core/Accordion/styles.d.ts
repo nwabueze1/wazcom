@@ -1,1 +1,1 @@
-export declare const useAccordionStyles: (props?: any) => import("@material-ui/styles").ClassNameMap<"root" | "icon" | "accordion" | "summary" | "schedule" | "details">;
+export declare const useAccordionStyles: (props?: any) => import("@mui/styles").ClassNameMap<"root" | "icon" | "accordion" | "summary" | "details">;

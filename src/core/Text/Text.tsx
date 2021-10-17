@@ -1,6 +1,6 @@
 import { FC } from "react";
 import { TextProps } from "./types";
-import { OutlinedInput, InputLabel } from "@material-ui/core";
+import { OutlinedInput, InputLabel } from "@mui/material";
 import { useTextStyles } from "./styles";
 
 export const Text: FC<TextProps> = ({ label, ...props }) => {

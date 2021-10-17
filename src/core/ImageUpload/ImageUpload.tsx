@@ -1,5 +1,5 @@
-import * as React from "react";
-import { Button } from "@material-ui/core";
+import React from "react";
+import { Button } from "@mui/material";
 import { useImageUploadStyles } from "./styles";
 import { ImageUploadProps } from "./types";
 import { AiFillCamera } from "react-icons/ai";
@@ -12,16 +12,8 @@ export const ImageUpload: React.FC<ImageUploadProps> = ({
   file,
   error,
 }) => {
-  const classes = useImageUploadStyles(props);
   const id = Math.random();
-
-  // const readFile = (file:File) => {
-  //   const reader = new FileReader();
-  //   reader.onload = function (e) {
-  //     const image = document.getElementById('image' + id);
-  //     if(image)
-  //   }
-  // }
+  const classes = useImageUploadStyles(props);
 
   return (
     <div className={classes.root}>
@@ -30,16 +22,13 @@ export const ImageUpload: React.FC<ImageUploadProps> = ({
           variant="contained"
           component="label"
           className={classes.uploadButton}
-          classes={{
-            label: classes.buttonLabel,
-          }}
         >
           <input
+            id="contained-button-file"
+            type="file"
             accept="image/*"
             hidden
             name="image_url"
-            id="contained-button-file"
-            type="file"
             onChange={handleFile}
           />
           <div className={classes.display}>
@@ -65,22 +54,21 @@ export const ImageUpload: React.FC<ImageUploadProps> = ({
             )}
           </div>
         </Button>
-        <>
-          {error ? (
-            <IsRequired error={error} name={"The image"} />
-          ) : (
-            <>
-              {fileName ? (
-                <div className={classes.imgNameContainer}>
-                  <p className={classes.imgName}>{fileName}</p>
-                  <span className={classes.changeButton}>
-                    Click on image to change image
-                  </span>
-                </div>
-              ) : null}
-            </>
-          )}
-        </>
+
+        {error ? (
+          <IsRequired error={error} name={"The image"} />
+        ) : (
+          <>
+            {fileName ? (
+              <div className={classes.imgNameContainer}>
+                <p className={classes.imgName}>{fileName}</p>
+                <span className={classes.changeButton}>
+                  Click on image to change image
+                </span>
+              </div>
+            ) : null}
+          </>
+        )}
       </div>
     </div>
   );

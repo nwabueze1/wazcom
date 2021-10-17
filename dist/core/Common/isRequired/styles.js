@@ -1,4 +1,4 @@
-import { makeStyles } from "@material-ui/core/styles";
+import makeStyles from '@mui/styles/makeStyles';
 export var useStyles = makeStyles(function () { return ({
     error_message: {
         color: "#EA3C53",

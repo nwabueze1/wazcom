@@ -1,7 +1,8 @@
-import { Theme } from "@material-ui/core/styles";
-import { makeStyles } from "@material-ui/styles";
+import { Theme } from "@mui/material/styles";
 
-export const useAccordionStyles = makeStyles((theme:Theme) => ({
+import makeStyles from '@mui/styles/makeStyles';
+
+export const useAccordionStyles = makeStyles((theme: Theme) => ({
   root: {},
   accordion: {
     backgroundColor: theme.design.colors.grey10,
@@ -14,13 +15,6 @@ export const useAccordionStyles = makeStyles((theme:Theme) => ({
   },
   summary: {
     backgroundColor: theme.design.colors.red50,
-    // color: theme.design.colors.white,
-  },
-  schedule: {
-    // fontSize: "1.4rem",
-    // fontFamily: " 'Nunito', sans-serif",
-    // fontWeight: "bold",
-    // margin: "0",
   },
   details: {},
 }));

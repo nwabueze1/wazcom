@@ -1,5 +1,5 @@
 import { SubDomainStyleProps } from "./styles";
-import { OutlinedInputProps } from "@material-ui/core";
+import { OutlinedInputProps } from "@mui/material";
 
 export interface SubDomainProps
   extends OutlinedInputProps,

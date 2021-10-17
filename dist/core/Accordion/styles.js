@@ -1,4 +1,4 @@
-import { makeStyles } from "@material-ui/styles";
+import makeStyles from '@mui/styles/makeStyles';
 export var useAccordionStyles = makeStyles(function (theme) { return ({
     root: {},
     accordion: {
@@ -12,13 +12,6 @@ export var useAccordionStyles = makeStyles(function (theme) { return ({
     },
     summary: {
         backgroundColor: theme.design.colors.red50,
-        // color: theme.design.colors.white,
-    },
-    schedule: {
-    // fontSize: "1.4rem",
-    // fontFamily: " 'Nunito', sans-serif",
-    // fontWeight: "bold",
-    // margin: "0",
     },
     details: {},
 }); });

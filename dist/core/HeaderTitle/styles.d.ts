@@ -1,1 +1,1 @@
-export declare const useHeaderTitleStyles: (props?: any) => import("@material-ui/styles").ClassNameMap<"root">;
+export declare const useHeaderTitleStyles: (props?: any) => import("@mui/styles").ClassNameMap<"root">;

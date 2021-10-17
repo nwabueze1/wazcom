@@ -1,1 +1,1 @@
-export declare const useDisplayCardStyles: (props?: any) => import("@material-ui/styles").ClassNameMap<"root" | "content" | "icon" | "pend">;
+export declare const useDisplayCardStyles: (props?: any) => import("@mui/styles").ClassNameMap<"root" | "content" | "icon" | "pend">;

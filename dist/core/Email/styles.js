@@ -1,4 +1,4 @@
-import { makeStyles } from "@material-ui/core/styles";
+import makeStyles from '@mui/styles/makeStyles';
 export var useEmailStyles = makeStyles(function () { return ({
     label: {
         fontSize: "18px",

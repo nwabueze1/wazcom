@@ -7,4 +7,4 @@ export interface StyleProps {
     marginError?: string;
     inputParrentPadding?: string;
 }
-export declare const useStyles: (props: StyleProps) => import("@material-ui/styles").ClassNameMap<string>;
+export declare const useStyles: (props: StyleProps) => import("@mui/styles").ClassNameMap<string>;

@@ -1,8 +1,8 @@
 import { FC, useState } from "react";
 import clsx from "classnames";
-import Paper from "@material-ui/core/Paper";
-import Tabs from "@material-ui/core/Tabs";
-import { Tab as MuiTab } from "@material-ui/core";
+import Paper from "@mui/material/Paper";
+import Tabs from "@mui/material/Tabs";
+import { Tab as MuiTab } from "@mui/material";
 import { TabProps } from "./types";
 import { useTabStyles } from "./styles";
 

@@ -1,4 +1,4 @@
-import { makeStyles } from "@material-ui/core/styles";
+import makeStyles from '@mui/styles/makeStyles';
 export var useLoaderStyles = makeStyles(function (theme) { return ({
     "@keyframes grow": {
         from: {
@@ -20,7 +20,7 @@ export var useLoaderStyles = makeStyles(function (theme) { return ({
     },
     root: {
         width: "100%",
-        padding: theme.spacing(2) + "px 0",
+        padding: theme.spacing(2) + " 0",
         display: "flex",
         opacity: 1,
         justifyContent: "center",

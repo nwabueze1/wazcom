@@ -20,7 +20,7 @@ var __spreadArray = (this && this.__spreadArray) || function (to, from, pack) {
 };
 import { jsx as _jsx, jsxs as _jsxs } from "react/jsx-runtime";
 import { useLazyQuery } from "@apollo/client";
-import { Grow } from "@material-ui/core";
+import { Grow } from "@mui/material";
 import clx from "classnames";
 import { Button } from "../Button";
 import { last } from "lodash";

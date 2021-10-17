@@ -10,7 +10,7 @@ var __assign = (this && this.__assign) || function () {
     return __assign.apply(this, arguments);
 };
 import { jsx as _jsx, Fragment as _Fragment } from "react/jsx-runtime";
-import { Select } from "@material-ui/core";
+import { Select } from "@mui/material";
 import { menuItemTableStyles, BootstrapInput } from "./styles";
 var days = [
     { id: 0, name: "Everyday" },

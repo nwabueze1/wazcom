@@ -10,7 +10,7 @@ var __assign = (this && this.__assign) || function () {
     return __assign.apply(this, arguments);
 };
 import { jsx as _jsx, jsxs as _jsxs } from "react/jsx-runtime";
-import { FormLabel, OutlinedInput } from "@material-ui/core";
+import { FormLabel, OutlinedInput } from "@mui/material";
 import { useEmailStyles } from "./styles";
 export var Email = function (_a) {
     var siteName = _a.siteName, placeholder = _a.placeholder, name = _a.name, onChange = _a.onChange, multiline = _a.multiline, props = _a.props, rows = _a.rows, error = _a.error, showInformation = _a.showInformation, information = _a.information;

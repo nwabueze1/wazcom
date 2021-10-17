@@ -1,4 +1,4 @@
-declare module "@material-ui/core/styles/createTheme" {
+declare module "@mui/material/styles/createTheme" {
     interface Theme {
         include: {
             [key: string]: any;
@@ -12,7 +12,7 @@ declare module "@material-ui/core/styles/createTheme" {
             };
         };
     }
-    interface ThemeOptions {
+    interface DeprecatedThemeOptions {
         include: {
             [key: string]: any;
         };
@@ -27,5 +27,5 @@ declare module "@material-ui/core/styles/createTheme" {
     }
 }
 export declare const theme: any;
-declare const _default: import("@material-ui/core/styles").Theme;
+declare const _default: import("@mui/material/styles").Theme;
 export default _default;

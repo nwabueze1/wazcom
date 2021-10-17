@@ -1,12 +1,12 @@
 import { FC } from "react";
 import { useMenuCardStyles } from "./styles";
-import Card from "@material-ui/core/Card";
-import CardContent from "@material-ui/core/CardContent";
+import Card from "@mui/material/Card";
+import CardContent from "@mui/material/CardContent";
 import { MenuCardProps } from "./types";
 import clx from "classnames";
-import { Typography } from "@material-ui/core";
+import { Typography } from "@mui/material";
 // import Naira from "../../images/Vector.png";
-import MoreVertIcon from "@material-ui/icons/MoreVert";
+import MoreVertIcon from "@mui/icons-material/MoreVert";
 import { Toggle } from "../Toggle/Toggle";
 
 export const MenuCard: FC<MenuCardProps> = ({

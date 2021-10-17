@@ -9,7 +9,7 @@ import {
   TableRow,
   Paper,
   Checkbox,
-} from "@material-ui/core";
+} from "@mui/material";
 
 export const Table = ({ headers, data, ...props }: TableProps) => {
   const classes = useTableStyles();
