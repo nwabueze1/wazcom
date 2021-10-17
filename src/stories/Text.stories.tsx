@@ -1,5 +1,5 @@
 import { ComponentMeta, ComponentStory } from "@storybook/react";
-import { Text } from "../components";
+import { Text } from "../core";
 
 export default {
   title: "Waz/Text",

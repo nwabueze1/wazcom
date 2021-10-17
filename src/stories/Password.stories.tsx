@@ -1,5 +1,5 @@
 import { ComponentMeta, ComponentStory } from "@storybook/react";
-import { PasswordFields } from "../components";
+import { PasswordFields } from "../core";
 
 export default {
   title: "Waz/PasswordFields",

@@ -1,5 +1,5 @@
 import { ComponentMeta, ComponentStory } from "@storybook/react";
-import { CheckBox } from "../components";
+import { CheckBox } from "../core";
 
 export default {
   title: "Waz/CheckBox",

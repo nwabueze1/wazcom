@@ -1,5 +1,5 @@
 import { ComponentMeta, ComponentStory } from "@storybook/react";
-import { Table } from "../components/Table";
+import { Table } from "../core/Table";
 
 export default {
   title: "Waz/Table",
@@ -7,9 +7,7 @@ export default {
   args: {},
 } as ComponentMeta<typeof Table>;
 
-const Template: ComponentStory<typeof Table> = (args) => (
-  <Table {...args} />
-);
+const Template: ComponentStory<typeof Table> = (args) => <Table {...args} />;
 
 export const Primary = Template.bind({});
 Template.args = {};

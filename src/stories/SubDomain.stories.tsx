@@ -1,6 +1,6 @@
 import { ComponentMeta, ComponentStory } from "@storybook/react";
 import React from "react";
-import { SubDomain } from "../components";
+import { SubDomain } from "../core";
 
 export default {
   title: "Waz/SubDomain",

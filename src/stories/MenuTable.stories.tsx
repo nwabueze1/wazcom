@@ -1,5 +1,5 @@
 import { ComponentMeta, ComponentStory } from "@storybook/react";
-import { MenuTable } from "../components";
+import { MenuTable } from "../core";
 
 export default {
   title: "Waz/MenuTable",

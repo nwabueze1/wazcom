@@ -1,6 +1,6 @@
 import { ComponentMeta, ComponentStory } from "@storybook/react";
 
-import { Toggle } from "../components";
+import { Toggle } from "../core";
 
 export default {
   title: "Waz/Toggle",

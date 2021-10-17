@@ -1,5 +1,5 @@
 import { ComponentMeta, ComponentStory } from "@storybook/react";
-import { Selector } from "../components/Selector";
+import { Selector } from "../core/Selector";
 
 export default {
   title: "Waz/Selector",

@@ -1,5 +1,5 @@
 import { ComponentMeta, ComponentStory } from "@storybook/react";
-import { RadioButton } from "../components/RadioButton";
+import { RadioButton } from "../core/RadioButton";
 
 export default {
   title: "Waz/RadioButton",

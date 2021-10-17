@@ -1,5 +1,5 @@
 import { ComponentMeta, ComponentStory } from "@storybook/react";
-import { Notification } from "../components";
+import { Notification } from "../core";
 
 export default {
   title: "Waz/Notification",

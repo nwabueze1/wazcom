@@ -1,5 +1,5 @@
 import { ComponentMeta, ComponentStory } from "@storybook/react";
-import { Taggable } from "../components/Taggable";
+import { Taggable } from "../core/Taggable";
 
 export default {
   title: "Waz/Taggable",

@@ -1,5 +1,5 @@
 import { ComponentMeta, ComponentStory } from "@storybook/react";
-import { DisplayCard } from "../components";
+import { DisplayCard } from "../core";
 
 export default {
   title: "Waz/DisplayCard",

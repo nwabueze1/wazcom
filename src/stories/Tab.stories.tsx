@@ -1,5 +1,5 @@
 import { ComponentMeta, ComponentStory } from "@storybook/react";
-import { Tab } from "components/Tab";
+import { Tab } from "../core/Tab";
 
 export default {
   title: "Waz/Tab",

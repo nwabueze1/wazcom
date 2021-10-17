@@ -1,5 +1,5 @@
 import { ComponentMeta, ComponentStory } from "@storybook/react";
-import { TextArea } from "../components/TextArea";
+import { TextArea } from "../core/TextArea";
 
 export default {
   title: "Waz/TextArea",

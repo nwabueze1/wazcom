@@ -1,5 +1,5 @@
 import { ComponentMeta, ComponentStory } from "@storybook/react";
-import { Page } from "../components";
+import { Page } from "../core";
 
 export default {
   title: "Waz/Page",

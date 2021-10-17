@@ -1,6 +1,6 @@
 import { ComponentMeta, ComponentStory } from "@storybook/react";
 import React from "react";
-import { ImageSelector } from "../components";
+import { ImageSelector } from "../core";
 
 export default {
   title: "Waz/ImageSelector",
@@ -9,9 +9,8 @@ export default {
 } as ComponentMeta<typeof ImageSelector>;
 
 const Template: ComponentStory<typeof ImageSelector> = (args) => (
-  <ImageSelector {...args}/>
+  <ImageSelector {...args} />
 );
 
 export const Primary = Template.bind({});
 Template.args = {};
-

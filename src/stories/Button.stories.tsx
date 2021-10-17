@@ -1,6 +1,6 @@
 import { ComponentMeta, ComponentStory } from "@storybook/react";
 
-import { Button } from "../components";
+import { Button } from "../core";
 
 export default {
   title: "Waz/Button",

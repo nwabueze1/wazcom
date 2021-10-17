@@ -1,5 +1,5 @@
 import { ComponentMeta, ComponentStory } from "@storybook/react";
-import { S3ImageUploader } from "../components/S3ImageUploader";
+import { S3ImageUploader } from "../core/S3ImageUploader";
 
 export default {
   title: "Waz/S3ImageUploader",

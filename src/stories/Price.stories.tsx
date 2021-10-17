@@ -1,5 +1,5 @@
 import { ComponentMeta, ComponentStory } from "@storybook/react";
-import { Price } from "../components";
+import { Price } from "../core";
 
 export default {
   title: "Waz/Price",
@@ -7,9 +7,7 @@ export default {
   args: {},
 } as ComponentMeta<typeof Price>;
 
-const Template: ComponentStory<typeof Price> = (args) => (
-  <Price {...args} />
-);
+const Template: ComponentStory<typeof Price> = (args) => <Price {...args} />;
 
 export const Primary = Template.bind({});
 Template.args = {};

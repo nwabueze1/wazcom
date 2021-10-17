@@ -1,5 +1,5 @@
 import { ComponentMeta, ComponentStory } from "@storybook/react";
-import { Scheduler } from "../components";
+import { Scheduler } from "../core";
 
 export default {
   title: "Waz/Scheduler",

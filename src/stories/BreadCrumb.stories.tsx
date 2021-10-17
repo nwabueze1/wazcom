@@ -1,5 +1,5 @@
 import { ComponentMeta, ComponentStory } from "@storybook/react";
-import { BreadCrumb } from "../components";
+import { BreadCrumb } from "../core";
 import { MemoryRouter } from "react-router-dom";
 
 export default {

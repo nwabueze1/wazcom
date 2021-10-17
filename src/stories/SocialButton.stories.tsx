@@ -1,11 +1,10 @@
 import { ComponentMeta, ComponentStory } from "@storybook/react";
-import { SocialButton } from "../components/SocialButton";
+import { SocialButton } from "../core/SocialButton";
 
 export default {
   title: "Waz/Selector",
   component: SocialButton,
-  args: {
-  },
+  args: {},
 } as ComponentMeta<typeof SocialButton>;
 
 const Template: ComponentStory<typeof SocialButton> = (args) => (

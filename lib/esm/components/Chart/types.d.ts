@@ -1,6 +1,0 @@
-/// <reference types="react" />
-import { CommonProps } from '../types';
-export declare type ChartProps = CommonProps & {
-    handleChange?: (e: React.ChangeEvent<HTMLInputElement>) => void;
-    value?: number | string;
-};

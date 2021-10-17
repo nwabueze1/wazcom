@@ -1,5 +1,5 @@
 import { ComponentMeta, ComponentStory } from "@storybook/react";
-import { HeaderTitle } from "../components";
+import { HeaderTitle } from "../core";
 
 export default {
   title: "Waz/HeaderTitle",

@@ -1,5 +1,5 @@
 import { ComponentMeta, ComponentStory } from "@storybook/react";
-import { MediaLibrary } from "../components";
+import { MediaLibrary } from "../core";
 
 export default {
   title: "Waz/MediaLibrary",
@@ -8,7 +8,7 @@ export default {
 } as ComponentMeta<typeof MediaLibrary>;
 
 const Template: ComponentStory<typeof MediaLibrary> = (args) => (
-  <MediaLibrary {...args}/>
+  <MediaLibrary {...args} />
 );
 
 export const Primary = Template.bind({});

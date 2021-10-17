@@ -1,5 +1,5 @@
 import { ComponentMeta, ComponentStory } from "@storybook/react";
-import { Accordion } from "../components";
+import { Accordion } from "../core";
 
 export default {
   title: "Waz/Accordion",

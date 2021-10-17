@@ -1,5 +1,5 @@
 import { ComponentMeta, ComponentStory } from "@storybook/react";
-import { Gallery } from "../components";
+import { Gallery } from "../core";
 
 export default {
   title: "Waz/Gallery",

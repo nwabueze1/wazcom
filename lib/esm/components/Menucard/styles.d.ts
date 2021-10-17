@@ -1,1 +1,0 @@
-export declare const useMenuCardStyles: (props?: any) => import("@material-ui/styles").ClassNameMap<"details" | "root" | "mealName" | "price" | "cardContents" | "mealDetail" | "outerBar" | "imgField" | "icons" | "disableState">;

@@ -1,5 +1,5 @@
 import { ComponentMeta, ComponentStory } from "@storybook/react";
-import { Email } from "../components";
+import { Email } from "../core";
 
 export default {
   title: "Waz/Email",
@@ -9,9 +9,7 @@ export default {
   },
 } as ComponentMeta<typeof Email>;
 
-const Template: ComponentStory<typeof Email> = (args) => (
-  <Email {...args} />
-);
+const Template: ComponentStory<typeof Email> = (args) => <Email {...args} />;
 
 export const Primary = Template.bind({});
 Template.args = {};
