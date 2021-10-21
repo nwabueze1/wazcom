@@ -1,24 +1,19 @@
-import makeStyles from '@mui/styles/makeStyles';
-import theme from "../../theme";
-export var useGalleryStyles = makeStyles(function () { return ({
+import { makeStyles } from "@mui/styles";
+export var useGalleryStyles = makeStyles(function (theme) { return ({
     galleryBox: {
         maxWidth: "322px",
         height: "322px",
-        background: function (_a) {
-            var image = _a.image;
-            return "url(" + image + ")";
-        },
         backgroundRepeat: "no-repeat",
         backgroundSize: "cover !important",
         backgroundPosition: "center !important",
         transition: "opacity 0.5s ease-in",
-        position: "relative"
+        position: "relative",
     },
     checker: {
         textAlign: "end",
     },
     border: {
-        border: "4px solid " + theme.design.colors.red70
+        border: "4px solid " + theme.design.colors.red70,
     },
     galleryHover: {
         position: "absolute",
@@ -33,7 +28,7 @@ export var useGalleryStyles = makeStyles(function () { return ({
             background: "linear-gradient(rgba(0,0,0,0.2), rgba(0,0,0,0.7))",
             "& p": {
                 visibility: "visible",
-            }
+            },
         },
         "& p": {
             visibility: "hidden",
@@ -42,7 +37,7 @@ export var useGalleryStyles = makeStyles(function () { return ({
             textAlign: "center",
             fontSize: "24px",
             fontWeight: "bold",
-            cursor: "pointer"
-        }
+            cursor: "pointer",
+        },
     },
 }); });

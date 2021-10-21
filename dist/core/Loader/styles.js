@@ -1,4 +1,4 @@
-import makeStyles from '@mui/styles/makeStyles';
+import makeStyles from "@mui/styles/makeStyles";
 export var useLoaderStyles = makeStyles(function (theme) { return ({
     "@keyframes grow": {
         from: {

@@ -1,4 +1,4 @@
-import makeStyles from '@mui/styles/makeStyles';
+import makeStyles from "@mui/styles/makeStyles";
 export var useSelectStyles = makeStyles(function (theme) { return ({
     root: {
         display: "flex",
@@ -13,5 +13,5 @@ export var useSelectStyles = makeStyles(function (theme) { return ({
     loader: {
         marginBottom: theme.spacing(2),
         color: theme.design.colors.red70,
-    }
+    },
 }); });

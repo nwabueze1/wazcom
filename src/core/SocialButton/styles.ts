@@ -1,11 +1,10 @@
-import { Theme } from "@mui/material/styles";
-import makeStyles from '@mui/styles/makeStyles';
+import { BaseTheme } from "theme";
+import makeStyles from "@mui/styles/makeStyles";
 export const useStyles = makeStyles((theme: Theme) => ({
   root: {
     backgroundColor: theme.design.colors.white,
     borderRadius: "15px",
-    border:`${theme.spacing(0.4)} solid ${theme.design.colors.lightGrey01} `,
-   
+    border: `${theme.spacing(0.4)} solid ${theme.design.colors.lightGrey01} `,
 
     "&  #customBtn": {
       display: "inline-block",

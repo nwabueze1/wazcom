@@ -40,53 +40,54 @@ export var Scheduler = function (_a) {
     var classes = useSchedulerStyles();
     var parseScheduleData = function (scheduleData) {
         var data = [];
-        scheduleData.forEach(function (schedule, index) {
+        scheduleData === null || scheduleData === void 0 ? void 0 : scheduleData.forEach(function (schedule, index) {
             var parsedSchedule = {};
-            parsedSchedule['day'] = (_jsx(DayPicker, { name: "day", label: "Enter Site Name", value: schedule['day'], onChange: function (event) { return handleChange(event, index); } }, void 0));
-            parsedSchedule['start_time'] = (_jsx(TimeSelector, { name: "start_time", value: schedule["start_time"], onChange: function (event) { return handleChange(event, index); } }, void 0));
-            parsedSchedule['end_time'] = (_jsx(TimeSelector, { name: "end_time", value: schedule["end_time"], onChange: function (event) { return handleChange(event, index); } }, void 0));
-            parsedSchedule['action'] = (_jsx(CloseIcon, { onClick: function () { return (handleChange(event, index, true)); }, style: { cursor: "pointer" }, color: "secondary" }, void 0));
+            parsedSchedule["day"] = (_jsx(DayPicker, { name: "day", label: "Enter Site Name", value: schedule["day"], onChange: function (event) { return handleChange(event, index); } }, void 0));
+            parsedSchedule["start_time"] = (_jsx(TimeSelector, { name: "start_time", value: schedule["start_time"], onChange: function (event) { return handleChange(event, index); } }, void 0));
+            parsedSchedule["end_time"] = (_jsx(TimeSelector, { name: "end_time", value: schedule["end_time"], onChange: function (event) { return handleChange(event, index); } }, void 0));
+            parsedSchedule["action"] = (_jsx(CloseIcon, { onClick: function () { return handleChange(event, index, true); }, style: { cursor: "pointer" }, color: "secondary" }, void 0));
             data.push(parsedSchedule);
         });
         return data;
     };
     var _b = useState(parseScheduleData(data)), tableData = _b[0], setTableData = _b[1];
     useEffect(function () {
-        // console.log(data);
         var newTableData = parseScheduleData(data);
         setTableData(newTableData);
     }, [data]);
     var handleChange = useCallback(function (_a, index, remove) {
         var _b = _a.target, name = _b.name, value = _b.value;
         if (remove === void 0) { remove = false; }
-        if (remove && data.length > 1) {
-            data.splice(index, 1);
+        if (data) {
+            if (remove && data.length > 1) {
+                data.splice(index, 1);
+            }
+            else {
+                data[index][name] = value;
+            }
+            onChange && onChange(__spreadArray([], data, true));
         }
-        else {
-            data[index][name] = value;
-        }
-        onChange(__spreadArray([], data, true));
-    }, [data]);
+    }, [data, onChange]);
     var addNewRow = function () {
-        onChange(__spreadArray(__spreadArray([], data, true), [new Row()], false));
+        data && onChange && onChange(__spreadArray(__spreadArray([], data, true), [new Row()], false));
     };
     var tableHeaders = [
         {
-            name: 'day',
-            label: 'Days/ No. of Days'
+            name: "day",
+            label: "Days/ No. of Days",
         },
         {
-            name: 'start_time',
-            label: "Start Time"
+            name: "start_time",
+            label: "Start Time",
         },
         {
-            name: 'end_time',
-            label: "End Time"
+            name: "end_time",
+            label: "End Time",
         },
         {
-            name: 'action',
-            label: "Action"
-        }
+            name: "action",
+            label: "Action",
+        },
     ];
     return (_jsxs("div", __assign({ className: classes.tableContainer }, { children: [_jsx(Table, { headers: tableHeaders, data: tableData }, void 0), _jsxs("div", __assign({ className: classes.button, onClick: addNewRow }, { children: [_jsx(AddIcon, { style: { fontSize: 19 } }, void 0), _jsx("p", __assign({ className: classes.buttonText }, { children: "Add more" }), void 0)] }), void 0)] }), void 0));
 };

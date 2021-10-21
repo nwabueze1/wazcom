@@ -1,8 +1,7 @@
-import { Theme } from "@mui/material/styles";
+import makeStyles from "@mui/styles/makeStyles";
+import { BaseTheme } from "theme";
 
-import makeStyles from '@mui/styles/makeStyles';
-
-export const useCardStyles = makeStyles((theme: Theme) => ({
+export const useCardStyles = makeStyles((theme: BaseTheme) => ({
   root: {
     width: "384px",
     height: "480px",

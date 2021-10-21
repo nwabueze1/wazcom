@@ -11,12 +11,12 @@ var __assign = (this && this.__assign) || function () {
 };
 import { jsx as _jsx, jsxs as _jsxs } from "react/jsx-runtime";
 import { useState } from "react";
-import useStyles from "./styles";
+import { usePageStyles } from "./styles";
 import { Typography } from "@mui/material";
-import Pagination from '@mui/material/Pagination';
+import Pagination from "@mui/material/Pagination";
 export var Page = function () {
     var totalPages = 4;
-    var classes = useStyles();
+    var classes = usePageStyles();
     var _a = useState(1), page = _a[0], setPage = _a[1];
     var handleChange = function (_, value) {
         setPage(value);

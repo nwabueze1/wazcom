@@ -1,7 +1,7 @@
-import { Theme } from "@mui/material/styles";
+import { BaseTheme } from "theme";
 
-import createStyles from '@mui/styles/createStyles';
-import makeStyles from '@mui/styles/makeStyles';
+import createStyles from "@mui/styles/createStyles";
+import makeStyles from "@mui/styles/makeStyles";
 
 export const useSelectorStyles = makeStyles((theme: Theme) =>
   createStyles({

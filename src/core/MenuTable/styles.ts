@@ -1,8 +1,7 @@
-import { Theme } from "@mui/material/styles";
+import makeStyles from "@mui/styles/makeStyles";
+import { BaseTheme } from "theme";
 
-import makeStyles from '@mui/styles/makeStyles';
-
-export const MenuTableStyles = makeStyles((theme: Theme) => ({
+export const MenuTableStyles = makeStyles((theme: BaseTheme) => ({
   deleteIcon: {
     color: theme.design.colors.red70,
     marginLeft: theme.spacing(2.4),

@@ -1,8 +1,7 @@
-import { Theme } from "@mui/material/styles";
+import makeStyles from "@mui/styles/makeStyles";
+import { BaseTheme } from "theme";
 
-import makeStyles from '@mui/styles/makeStyles';
-
-export const useLoaderStyles = makeStyles((theme:Theme) => ({
+export const useLoaderStyles = makeStyles((theme: BaseTheme) => ({
   "@keyframes grow": {
     from: {
       transform: "scale(0,0)",

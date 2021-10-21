@@ -1,4 +1,4 @@
-import makeStyles from '@mui/styles/makeStyles';
+import makeStyles from "@mui/styles/makeStyles";
 export var useStyles = makeStyles(function () { return ({
     label: {
         fontSize: "18px",

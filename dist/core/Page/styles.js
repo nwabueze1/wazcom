@@ -1,31 +1,29 @@
 import { makeStyles } from "@mui/styles";
-import theme from "../../theme";
-var useStyles = makeStyles(function () { return ({
+export var usePageStyles = makeStyles(function (theme) { return ({
     root: {
-        '& > * + *': {
+        "& > * + *": {
             marginTop: theme.spacing(2),
         },
-        '& .Mui-selected': {
-            backgroundColor: 'transparent',
+        "& .Mui-selected": {
+            backgroundColor: "transparent",
             color: theme.design.colors.gray80,
             fontSize: theme.typography.fontSize * 1.125,
-            fontWeight: 'bold'
+            fontWeight: "bold",
         },
-        '& ul': {
-            fontSize: '16px',
-        }
+        "& ul": {
+            fontSize: "16px",
+        },
     },
     description: {
-        fontFamily: 'Nunito',
+        fontFamily: "Nunito",
         color: theme.design.colors.gray4,
         fontSize: theme.typography.fontSize * 1,
         padding: theme.spacing(1, 0),
     },
     pageNumber: {
-        fontFamily: 'Nunito',
+        fontFamily: "Nunito",
         color: theme.design.colors.gray80,
         fontSize: theme.typography.fontSize * 1,
-        fontWeight: 'bold',
+        fontWeight: "bold",
     },
 }); });
-export default useStyles;

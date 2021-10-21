@@ -15,7 +15,6 @@ import Card from "@mui/material/Card";
 import CardContent from "@mui/material/CardContent";
 import clx from "classnames";
 import { Typography } from "@mui/material";
-// import Naira from "../../images/Vector.png";
 import MoreVertIcon from "@mui/icons-material/MoreVert";
 import { Toggle } from "../Toggle/Toggle";
 export var MenuCard = function (_a) {

@@ -1,6 +1,7 @@
-import { makeStyles, Theme } from "@mui/material/styles";
+import { makeStyles } from "@mui/styles";
+import { BaseTheme } from "theme";
 
-export const useImageSelectorStyles = makeStyles((theme: Theme) => ({
+export const useImageSelectorStyles = makeStyles((theme: BaseTheme) => ({
   container: {
     minHeight: "150px",
     minWidth: "150px",

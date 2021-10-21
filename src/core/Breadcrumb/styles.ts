@@ -1,9 +1,8 @@
-import { Theme } from "@mui/material/styles";
-
-import makeStyles from '@mui/styles/makeStyles';
+import makeStyles from "@mui/styles/makeStyles";
+import { BaseTheme } from "theme";
 
 /** !!-- Remember to update the function name !! */
-export const BreadCrumbStyles = makeStyles((theme: Theme) => ({
+export const BreadCrumbStyles = makeStyles((theme: BaseTheme) => ({
   root: {
     display: "flex",
     fontFamily: theme.typography.fontFamily,

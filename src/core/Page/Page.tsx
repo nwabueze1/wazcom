@@ -1,12 +1,12 @@
 import { FC, useState, ChangeEvent } from "react";
-import useStyles from "./styles";
+import { usePageStyles } from "./styles";
 import { Typography } from "@mui/material";
-import Pagination from '@mui/material/Pagination';
+import Pagination from "@mui/material/Pagination";
 import { pageProps } from "./types";
 
 export const Page: FC<pageProps> = () => {
   const totalPages = 4;
-  const classes = useStyles();
+  const classes = usePageStyles();
   const [page, setPage] = useState(1);
   const handleChange = (_: ChangeEvent<unknown>, value: number) => {
     setPage(value);

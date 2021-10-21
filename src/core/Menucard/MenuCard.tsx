@@ -5,7 +5,6 @@ import CardContent from "@mui/material/CardContent";
 import { MenuCardProps } from "./types";
 import clx from "classnames";
 import { Typography } from "@mui/material";
-// import Naira from "../../images/Vector.png";
 import MoreVertIcon from "@mui/icons-material/MoreVert";
 import { Toggle } from "../Toggle/Toggle";
 
@@ -44,7 +43,7 @@ export const MenuCard: FC<MenuCardProps> = ({
         </div>
         <div className={classes.icons}>
           <MoreVertIcon />
-          <Toggle name=""/>
+          <Toggle name="" />
         </div>
       </CardContent>
     </Card>

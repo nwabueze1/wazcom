@@ -1,4 +1,4 @@
-import makeStyles from '@mui/styles/makeStyles';
+import makeStyles from "@mui/styles/makeStyles";
 export var useCardStyles = makeStyles(function (theme) { return ({
     root: {
         width: "384px",

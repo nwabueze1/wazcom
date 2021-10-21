@@ -1,6 +1,5 @@
 import { makeStyles } from "@mui/styles";
-import theme from "../../theme";
-export var useImageSelectorStyles = makeStyles(function () { return ({
+export var useImageSelectorStyles = makeStyles(function (theme) { return ({
     container: {
         minHeight: "150px",
         minWidth: "150px",
@@ -18,7 +17,7 @@ export var useImageSelectorStyles = makeStyles(function () { return ({
             cursor: "pointer",
             visibility: "hidden",
             zIndex: 5,
-            background: "transparent"
+            background: "transparent",
         },
         "&:hover": {
             "& .cameraIcon": {
@@ -35,13 +34,13 @@ export var useImageSelectorStyles = makeStyles(function () { return ({
             background: "transparent",
             "&:hover": {
                 background: "linear-gradient(rgba(0,0,0,0.2), rgba(0,0,0,0.7))",
-            }
+            },
         },
         "& .selectHover.circle": {
             borderRadius: "50%",
-        }
+        },
     },
     circle: {
-        borderRadius: "50%"
-    }
+        borderRadius: "50%",
+    },
 }); });

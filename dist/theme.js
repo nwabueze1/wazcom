@@ -1,4 +1,4 @@
-import { createTheme, adaptV4Theme } from "@mui/material/styles";
+import { createTheme, adaptV4Theme, } from "@mui/material/styles";
 export var theme = {
     typography: {
         fontFamily: ["Nunito, sans-serif"].join(","),

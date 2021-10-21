@@ -1,11 +1,11 @@
 export interface SchedulerProps {
-    identifier?: string | number;
-    data: {
+    data?: {
         [key: string]: any;
     }[];
-    onChange: (data: {
+    onChange?: (data: {
         [key: string]: any;
     }[]) => void;
+    identifier?: string | number;
     deleteItem?: (itemToDelete: string) => void;
 }
 export interface RowType {

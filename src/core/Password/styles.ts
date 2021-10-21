@@ -1,6 +1,5 @@
-import { Theme } from "@mui/material/styles";
-
-import makeStyles from '@mui/styles/makeStyles';
+import makeStyles from "@mui/styles/makeStyles";
+import { BaseTheme } from "theme";
 
 export interface StyleProps {
   width?: string;
@@ -12,7 +11,7 @@ export interface StyleProps {
   inputParrentPadding?: string;
 }
 
-export const useStyles = makeStyles<Theme, StyleProps>(() => ({
+export const useStyles = makeStyles<BaseTheme, StyleProps>(() => ({
   label: {
     fontSize: "18px",
     fontWeight: 500,

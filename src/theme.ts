@@ -1,23 +1,27 @@
-import { createTheme, adaptV4Theme } from "@mui/material/styles";
+import {
+  createTheme,
+  adaptV4Theme,
+  Theme as MuiTheme,
+} from "@mui/material/styles";
+
+type ExtendedThemeOptions = {
+  include: { [key: string]: any };
+  design: {
+    font: { [key: string]: any };
+    colors: { [key: string]: string };
+  };
+};
 
 declare module "@mui/material/styles/createTheme" {
-  interface Theme {
-    include: { [key: string]: any };
-    design: {
-      font: { [key: string]: any };
-      colors: { [key: string]: string };
-    };
-  }
+  // eslint-disable-next-line @typescript-eslint/no-empty-interface
+  interface Theme extends ExtendedThemeOptions {}
 
   // allow configuration using `createMuiTheme`
-  interface DeprecatedThemeOptions {
-    include: { [key: string]: any };
-    design: {
-      font: { [key: string]: any };
-      colors: { [key: string]: string };
-    };
-  }
+  // eslint-disable-next-line @typescript-eslint/no-empty-interface
+  interface DeprecatedThemeOptions extends ExtendedThemeOptions {}
 }
+
+export type BaseTheme = MuiTheme & ExtendedThemeOptions;
 
 export const theme: any = {
   typography: {

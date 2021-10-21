@@ -60,9 +60,8 @@ export const Scheduler: React.FC<SchedulerProps> = ({ data, onChange }) => {
   );
 
   useEffect(() => {
-    // console.log(data);
-    // const newTableData = parseScheduleData(data);
-    // setTableData(newTableData);
+    const newTableData = parseScheduleData(data);
+    setTableData(newTableData);
   }, [data]);
 
   const handleChange = useCallback(

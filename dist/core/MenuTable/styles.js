@@ -1,4 +1,4 @@
-import makeStyles from '@mui/styles/makeStyles';
+import makeStyles from "@mui/styles/makeStyles";
 export var MenuTableStyles = makeStyles(function (theme) { return ({
     deleteIcon: {
         color: theme.design.colors.red70,

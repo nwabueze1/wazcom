@@ -1,12 +1,12 @@
 import { FC } from "react";
-import { RadioButtonStyles } from "./styles";
+import { useRadioButtonStyles } from "./styles";
 import { RadioButtonProps } from "./types";
 import { Radio } from "@mui/material";
 import clx from "classnames";
 import { useState } from "react";
 
 export const RadioButton: FC<RadioButtonProps> = ({ className, color }) => {
-  const classes = RadioButtonStyles();
+  const classes = useRadioButtonStyles();
 
   const [isChecked, setIsChecked] = useState(true);
   return (

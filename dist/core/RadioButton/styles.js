@@ -1,7 +1,6 @@
-import makeStyles from '@mui/styles/makeStyles';
-import theme from "../../theme";
+import { makeStyles } from "@mui/styles";
 /** !!-- Remember to update the function name !! */
-export var RadioButtonStyles = makeStyles(function () { return ({
+export var useRadioButtonStyles = makeStyles(function (theme) { return ({
     root: {
         color: theme.design.colors.sunRed,
     },

@@ -1,9 +1,8 @@
-import { Theme } from "@mui/material/styles";
-
-import makeStyles from '@mui/styles/makeStyles';
+import makeStyles from "@mui/styles/makeStyles";
+import { BaseTheme } from "theme";
 
 /** !!-- Remember to update the function name !! */
-export const useNotificationStyles = makeStyles((theme: Theme) => ({
+export const useNotificationStyles = makeStyles((theme: BaseTheme) => ({
   notificationCard: {
     borderRadius: "10px",
     padding: theme.spacing(0.5, 0.5, 3, 0.5),

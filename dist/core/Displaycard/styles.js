@@ -1,6 +1,5 @@
-import makeStyles from '@mui/styles/makeStyles';
-import theme from "../../theme";
-export var useDisplayCardStyles = makeStyles(function () { return ({
+import { makeStyles } from "@mui/styles";
+export var useDisplayCardStyles = makeStyles(function (theme) { return ({
     root: {
         width: "233px",
         height: "112px",

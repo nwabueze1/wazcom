@@ -1,7 +1,8 @@
-import { makeStyles, Theme } from "@mui/material/styles";
+import { makeStyles } from "@mui/styles";
+import { BaseTheme } from "theme";
 
 /** !!-- Remember to update the function name !! */
-export const RadioButtonStyles = makeStyles((theme: Theme) => ({
+export const useRadioButtonStyles = makeStyles((theme: BaseTheme) => ({
   root: {
     color: theme.design.colors.sunRed,
   },

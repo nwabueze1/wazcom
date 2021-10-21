@@ -1,8 +1,7 @@
-import { Theme } from "@mui/material/styles";
+import makeStyles from "@mui/styles/makeStyles";
+import { BaseTheme } from "theme";
 
-import makeStyles from '@mui/styles/makeStyles';
-
-export const useMediaLibraryStyles = makeStyles((theme:Theme) => ({
+export const useMediaLibraryStyles = makeStyles((theme: BaseTheme) => ({
   "@keyframes a": {
     "0%, 50%": {
       transform: "scale(0)",

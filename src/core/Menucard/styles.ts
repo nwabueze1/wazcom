@@ -1,6 +1,7 @@
-import { makeStyles, Theme } from "@mui/material/styles";
+import { makeStyles } from "@mui/styles";
+import { BaseTheme } from "theme";
 
-export const useMenuCardStyles = makeStyles((theme: Theme) => ({
+export const useMenuCardStyles = makeStyles((theme: BaseTheme) => ({
   root: {
     width: "500px",
     borderRadius: "15px",

@@ -1,6 +1,5 @@
-import { Theme } from "@mui/material/styles";
-
-import makeStyles from '@mui/styles/makeStyles';
+import makeStyles from "@mui/styles/makeStyles";
+import { BaseTheme } from "theme";
 
 export interface EmailStyleProps {
   width?: string;
@@ -12,7 +11,7 @@ export interface EmailStyleProps {
   inputParrentPadding?: string;
 }
 
-export const useEmailStyles = makeStyles<Theme, EmailStyleProps>(() => ({
+export const useEmailStyles = makeStyles<BaseTheme, EmailStyleProps>(() => ({
   label: {
     fontSize: "18px",
     fontWeight: 500,

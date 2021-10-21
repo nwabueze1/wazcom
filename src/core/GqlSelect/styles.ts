@@ -1,8 +1,7 @@
-import { Theme } from "@mui/material/styles";
+import makeStyles from "@mui/styles/makeStyles";
+import { BaseTheme } from "theme";
 
-import makeStyles from '@mui/styles/makeStyles';
-
-export const useSelectStyles = makeStyles((theme:Theme) => ({
+export const useSelectStyles = makeStyles((theme: BaseTheme) => ({
   root: {
     display: "flex",
     flexDirection: "column",
@@ -16,5 +15,5 @@ export const useSelectStyles = makeStyles((theme:Theme) => ({
   loader: {
     marginBottom: theme.spacing(2),
     color: theme.design.colors.red70,
-  }
+  },
 }));

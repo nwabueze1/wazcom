@@ -1,6 +1,7 @@
-import { makeStyles, Theme } from "@mui/material/styles";
+import { BaseTheme } from "theme";
+import { makeStyles } from "@mui/styles";
 
-const useStyles = makeStyles((theme: Theme) => ({
+export const usePageStyles = makeStyles((theme: BaseTheme) => ({
   root: {
     "& > * + *": {
       marginTop: theme.spacing(2),
@@ -28,4 +29,3 @@ const useStyles = makeStyles((theme: Theme) => ({
     fontWeight: "bold",
   },
 }));
-export default useStyles;

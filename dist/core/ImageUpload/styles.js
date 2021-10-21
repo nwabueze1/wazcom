@@ -1,4 +1,4 @@
-import makeStyles from '@mui/styles/makeStyles';
+import makeStyles from "@mui/styles/makeStyles";
 export var useImageUploadStyles = makeStyles(function (theme) { return ({
     uploadButton: {
         background: "#fff",

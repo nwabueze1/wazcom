@@ -1,6 +1,6 @@
-import { Theme } from "@mui/material/styles";
+import { BaseTheme } from "theme";
 
-import makeStyles from '@mui/styles/makeStyles';
+import makeStyles from "@mui/styles/makeStyles";
 
 export type TextareaStyleProps = {
   width?: string;

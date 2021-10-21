@@ -1,4 +1,4 @@
-import makeStyles from '@mui/styles/makeStyles';
+import makeStyles from "@mui/styles/makeStyles";
 /** !!-- Remember to update the function name !! */
 export var useNotificationStyles = makeStyles(function (theme) { return ({
     notificationCard: {

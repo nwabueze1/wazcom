@@ -1,10 +1,10 @@
-import { makeStyles, Theme } from "@mui/material/styles";
+import { makeStyles } from "@mui/styles";
+import { BaseTheme } from "theme";
 
-export const useGalleryStyles = makeStyles((theme: Theme) => ({
+export const useGalleryStyles = makeStyles((theme: BaseTheme) => ({
   galleryBox: {
     maxWidth: "322px",
     height: "322px",
-    // background:({image}) => `url(${image})`,
     backgroundRepeat: "no-repeat",
     backgroundSize: "cover !important",
     backgroundPosition: "center !important",

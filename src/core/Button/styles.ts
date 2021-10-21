@@ -1,8 +1,7 @@
-import { Theme } from "@mui/material/styles";
+import makeStyles from "@mui/styles/makeStyles";
+import { BaseTheme } from "theme";
 
-import makeStyles from '@mui/styles/makeStyles';
-
-export const useButtonStyles = makeStyles((theme: Theme) => ({
+export const useButtonStyles = makeStyles((theme: BaseTheme) => ({
   root: {
     padding: "16px 80px",
     textTransform: "capitalize",

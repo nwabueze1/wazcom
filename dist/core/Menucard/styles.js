@@ -1,6 +1,5 @@
-import makeStyles from '@mui/styles/makeStyles';
-import theme from "../../theme";
-export var useMenuCardStyles = makeStyles(function () { return ({
+import { makeStyles } from "@mui/styles";
+export var useMenuCardStyles = makeStyles(function (theme) { return ({
     root: {
         width: "500px",
         borderRadius: "15px",

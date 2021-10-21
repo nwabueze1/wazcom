@@ -1,4 +1,4 @@
-import makeStyles from '@mui/styles/makeStyles';
+import makeStyles from "@mui/styles/makeStyles";
 export var useMediaLibraryStyles = makeStyles(function (theme) { return ({
     "@keyframes a": {
         "0%, 50%": {

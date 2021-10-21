@@ -1,8 +1,7 @@
-import { Theme } from "@mui/material/styles";
+import { makeStyles } from "@mui/styles";
+import { BaseTheme } from "theme";
 
-import makeStyles from '@mui/styles/makeStyles';
-
-export const useAccordionStyles = makeStyles((theme: Theme) => ({
+export const useAccordionStyles = makeStyles((theme: BaseTheme) => ({
   root: {},
   accordion: {
     backgroundColor: theme.design.colors.grey10,

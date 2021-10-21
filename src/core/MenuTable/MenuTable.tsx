@@ -1,21 +1,21 @@
-import { FC } from "react";
-import { Theme } from "@mui/material/styles";
-import withStyles from "@mui/styles/withStyles";
-import createStyles from "@mui/styles/createStyles";
+import CreateIcon from "@mui/icons-material/Create";
+import DeleteIcon from "@mui/icons-material/Delete";
+import Paper from "@mui/material/Paper";
 import Table from "@mui/material/Table";
 import TableBody from "@mui/material/TableBody";
 import TableCell from "@mui/material/TableCell";
 import TableContainer from "@mui/material/TableContainer";
 import TableHead from "@mui/material/TableHead";
 import TableRow from "@mui/material/TableRow";
-import Paper from "@mui/material/Paper";
-import DeleteIcon from "@mui/icons-material/Delete";
-import CreateIcon from "@mui/icons-material/Create";
+import createStyles from "@mui/styles/createStyles";
+import withStyles from "@mui/styles/withStyles";
+import { FC } from "react";
+import { BaseTheme } from "theme";
+import { Toggle } from "../Toggle/Toggle";
 import { MenuTableStyles } from "./styles";
 import { MenuTableProps } from "./types";
-import { Toggle } from "../Toggle/Toggle";
 
-const StyledTableCell = withStyles((theme: Theme) =>
+const StyledTableCell = withStyles((theme: BaseTheme) =>
   createStyles({
     head: {
       backgroundColor: theme.design.colors.gray30,
@@ -29,7 +29,7 @@ const StyledTableCell = withStyles((theme: Theme) =>
   }),
 )(TableCell);
 
-const StyledTableRow = withStyles((theme: Theme) =>
+const StyledTableRow = withStyles((theme: BaseTheme) =>
   createStyles({
     root: {
       "&:nth-of-type(odd)": {
