@@ -3,7 +3,7 @@ import { Card as MuiCard, CardActions, CardMedia } from "@mui/material";
 import CardContent from "@mui/material/CardContent";
 import Typography from "@mui/material/Typography";
 import { CardProps } from "./types";
-import { Button } from "core";
+import { Button } from "../";
 
 export const Card: FC<CardProps> = ({
   title,
