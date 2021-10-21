@@ -1,8 +1,7 @@
+import makeStyles from "@mui/styles/makeStyles";
 import { BaseTheme } from "theme";
 
-import makeStyles from "@mui/styles/makeStyles";
-
-export const useSwitchStyles = makeStyles<Theme>((theme: Theme) => ({
+export const useSwitchStyles = makeStyles<BaseTheme>((theme: BaseTheme) => ({
   root: {
     width: 42,
     height: 26,
