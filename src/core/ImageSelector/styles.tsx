@@ -1,12 +1,10 @@
-import { makeStyles } from "@mui/styles";
-import theme from "../../theme";
+import { makeStyles, Theme } from "@mui/material/styles";
 
-
-export const useImageSelectorStyles = makeStyles(() => ({
+export const useImageSelectorStyles = makeStyles((theme: Theme) => ({
   container: {
     minHeight: "150px",
     minWidth: "150px",
-    position:"relative",
+    position: "relative",
     backgroundRepeat: "no-repeat",
     backgroundSize: "cover !important",
     backgroundPosition: "center !important",
@@ -20,8 +18,8 @@ export const useImageSelectorStyles = makeStyles(() => ({
       color: theme.design.colors.white,
       cursor: "pointer",
       visibility: "hidden",
-      zIndex:5,
-      background: "transparent"
+      zIndex: 5,
+      background: "transparent",
     },
 
     "&:hover": {
@@ -31,24 +29,23 @@ export const useImageSelectorStyles = makeStyles(() => ({
     },
 
     "& .selectHover": {
-      position:"absolute",
-      top:0,
-      left:0,
-      opacity:1,
-      width:"100%",
-      height:"100%",
+      position: "absolute",
+      top: 0,
+      left: 0,
+      opacity: 1,
+      width: "100%",
+      height: "100%",
       background: "transparent",
-      "&:hover":{
-        background:"linear-gradient(rgba(0,0,0,0.2), rgba(0,0,0,0.7))",
-      }
+      "&:hover": {
+        background: "linear-gradient(rgba(0,0,0,0.2), rgba(0,0,0,0.7))",
+      },
     },
 
     "& .selectHover.circle": {
       borderRadius: "50%",
-    }
+    },
   },
   circle: {
-    borderRadius: "50%"
-  }
-  
+    borderRadius: "50%",
+  },
 }));

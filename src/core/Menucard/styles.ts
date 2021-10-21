@@ -1,11 +1,10 @@
-import makeStyles from '@mui/styles/makeStyles';
-import theme from "../../theme";
+import { makeStyles, Theme } from "@mui/material/styles";
 
-export const useMenuCardStyles = makeStyles(() => ({
+export const useMenuCardStyles = makeStyles((theme: Theme) => ({
   root: {
     width: "500px",
     borderRadius: "15px",
-    fontFamily:theme.typography.fontFamily,
+    fontFamily: theme.typography.fontFamily,
     opacity: 1,
     transition: "opacity 0.5s ease-in",
   },
@@ -22,8 +21,8 @@ export const useMenuCardStyles = makeStyles(() => ({
     justifyContent: "space-between",
   },
   mealDetail: {
-    width:"160px",
-    textOverflow:"ellipsis",
+    width: "160px",
+    textOverflow: "ellipsis",
     marginLeft: theme.spacing(2),
     textAlign: "left",
   },
@@ -49,6 +48,6 @@ export const useMenuCardStyles = makeStyles(() => ({
     marginLeft: theme.spacing(4),
   },
   disableState: {
-     opacity: 0.1,
+    opacity: 0.1,
   },
 }));

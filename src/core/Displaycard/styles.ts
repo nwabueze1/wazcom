@@ -1,7 +1,6 @@
-import makeStyles from '@mui/styles/makeStyles';
-import theme from "../../theme";
+import { makeStyles, Theme } from "@mui/material/styles";
 
-export const useDisplayCardStyles = makeStyles(() => ({
+export const useDisplayCardStyles = makeStyles((theme: Theme) => ({
   root: {
     width: "233px",
     height: "112px",

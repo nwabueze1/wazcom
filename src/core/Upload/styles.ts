@@ -1,8 +1,7 @@
-import makeStyles from '@mui/styles/makeStyles';
-import theme from "../../theme";
+import { makeStyles, Theme } from "@mui/material/styles";
 
 /** !!-- Remember to update the function name !! */
-export const uploadStyles = makeStyles(() => ({
+export const uploadStyles = makeStyles((theme: Theme) => ({
   root: {
     minwidth: "384px",
     borderRadius: theme.spacing(0.5),
