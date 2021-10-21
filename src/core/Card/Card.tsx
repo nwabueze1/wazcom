@@ -13,12 +13,16 @@ export const Card: FC<CardProps> = ({
   return (
     <MuiCard>
       <CardMedia component="img" height="140" image={src} alt={alt} />
-      <CardContent>
-        <Typography gutterBottom variant="h5" component="div">
-          {title}
-        </Typography>
-        <Typography variant="body2">{content}</Typography>
-      </CardContent>
+      {(title || content) && (
+        <CardContent>
+          {title && (
+            <Typography gutterBottom variant="h5" component="div">
+              {title}
+            </Typography>
+          )}
+          {content && <Typography variant="body2">{content}</Typography>}
+        </CardContent>
+      )}
       <CardActions>
         <Button size="small">Share</Button>
         <Button size="small">Learn More</Button>

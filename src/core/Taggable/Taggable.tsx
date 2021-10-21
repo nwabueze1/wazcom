@@ -1,5 +1,5 @@
-import  { FC } from "react";
-import Autocomplete from '@mui/material/Autocomplete';
+import { FC } from "react";
+import Autocomplete from "@mui/material/Autocomplete";
 import { Chip, TextField, InputLabel } from "@mui/material";
 import { TaggableProps } from "./types";
 import { useTaggableStyles } from "./styles";
@@ -25,7 +25,8 @@ export const Taggable: FC<TaggableProps> = ({
         onChange={onChange}
         renderTags={(value: string[], getTagProps) =>
           value.map((value: string, index: number) => (
-            <Chip label={value} key={index} {...getTagProps({ index })} />
+            // eslint-disable-next-line react/jsx-key
+            <Chip label={value} {...getTagProps({ index })} />
           ))
         }
         renderInput={(params) => (

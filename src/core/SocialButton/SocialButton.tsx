@@ -3,10 +3,7 @@ import { FC } from "react";
 import { useStyles } from "./styles";
 import { SocialButtonProps } from "./types";
 
-export const SocialButton: FC<SocialButtonProps> = ({
-  image,
-  title,
-}) => {
+export const SocialButton: FC<SocialButtonProps> = ({ image, title }) => {
   const classes = useStyles();
 
   return (

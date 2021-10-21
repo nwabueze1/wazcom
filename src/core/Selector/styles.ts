@@ -1,9 +1,8 @@
-import { BaseTheme } from "theme";
-
 import createStyles from "@mui/styles/createStyles";
 import makeStyles from "@mui/styles/makeStyles";
+import { BaseTheme } from "theme";
 
-export const useSelectorStyles = makeStyles((theme: Theme) =>
+export const useSelectorStyles = makeStyles((theme: BaseTheme) =>
   createStyles({
     siteTypeSelect: {
       width: "14vw",

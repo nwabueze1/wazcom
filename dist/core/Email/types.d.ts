@@ -1,7 +1,6 @@
 /// <reference types="react" />
 import { OutlinedInputProps } from "@mui/material";
-export interface EmailFieldsProps extends OutlinedInputProps {
-    siteName?: string;
+export declare type EmailProps = OutlinedInputProps & {
     onChange: (event: React.ChangeEvent<{
         name: string;
         value: unknown;
@@ -10,4 +9,4 @@ export interface EmailFieldsProps extends OutlinedInputProps {
     error?: boolean;
     showInformation?: boolean;
     information?: string;
-}
+};

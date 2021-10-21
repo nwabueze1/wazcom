@@ -1,8 +1,7 @@
+import makeStyles from "@mui/styles/makeStyles";
 import { BaseTheme } from "theme";
 
-import makeStyles from "@mui/styles/makeStyles";
-
-export const useStyles = makeStyles((theme: Theme) => ({
+export const useStyles = makeStyles((theme: BaseTheme) => ({
   root: {
     // height: "100vh",
     display: "flex",

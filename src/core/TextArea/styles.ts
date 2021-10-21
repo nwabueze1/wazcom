@@ -1,6 +1,5 @@
-import { BaseTheme } from "theme";
-
 import makeStyles from "@mui/styles/makeStyles";
+import { BaseTheme } from "theme";
 
 export type TextareaStyleProps = {
   width?: string;
@@ -14,7 +13,7 @@ export type TextareaStyleProps = {
   inputParrentPadding?: string;
 };
 
-export const useTextareaStyles = makeStyles((theme: Theme) => ({
+export const useTextareaStyles = makeStyles((theme: BaseTheme) => ({
   root: {
     display: "flex",
     flexDirection: "column",

@@ -1,6 +1,5 @@
-import { BaseTheme } from "theme";
-
 import makeStyles from "@mui/styles/makeStyles";
+import { BaseTheme } from "theme";
 
 export interface SubDomainStyleProps {
   width?: string;
@@ -14,8 +13,8 @@ export interface SubDomainStyleProps {
   inputParrentPadding?: string;
 }
 
-export const useSubDomainStyles = makeStyles<Theme, SubDomainStyleProps>(
-  (theme: Theme) => ({
+export const useSubDomainStyles = makeStyles<BaseTheme, SubDomainStyleProps>(
+  (theme: BaseTheme) => ({
     root: {
       display: "flex",
       flexDirection: "column",

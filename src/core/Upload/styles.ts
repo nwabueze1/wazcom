@@ -1,4 +1,5 @@
-import { makeStyles, Theme } from "@mui/material/styles";
+import { Theme } from "@mui/material/styles";
+import { makeStyles } from "@mui/styles";
 
 /** !!-- Remember to update the function name !! */
 export const uploadStyles = makeStyles((theme: Theme) => ({

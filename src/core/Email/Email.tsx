@@ -1,10 +1,9 @@
 import * as React from "react";
 import { FormLabel, OutlinedInput } from "@mui/material";
 import { useEmailStyles } from "./styles";
-import { EmailFieldsProps } from "./types";
+import { EmailProps } from "./types";
 
-export const Email: React.FC<EmailFieldsProps> = ({
-  siteName,
+export const Email: React.FC<EmailProps> = ({
   placeholder,
   name,
   onChange,
@@ -12,6 +11,7 @@ export const Email: React.FC<EmailFieldsProps> = ({
   props,
   rows,
   error,
+  label,
   showInformation,
   information,
 }) => {
@@ -19,7 +19,7 @@ export const Email: React.FC<EmailFieldsProps> = ({
 
   return (
     <div className={classes.nameContainer}>
-      <FormLabel className={classes.label}>{siteName}</FormLabel>
+      <FormLabel className={classes.label}>{label}</FormLabel>
       <div className={classes.input_parent}>
         <OutlinedInput
           placeholder={placeholder}

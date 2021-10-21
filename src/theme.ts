@@ -25,8 +25,8 @@ export type BaseTheme = MuiTheme & ExtendedThemeOptions;
 
 export const theme: any = {
   typography: {
-    fontFamily: ["Nunito, sans-serif"].join(","),
-    fontSize: 14,
+    fontFamily: ["Poppins, sans-serif"].join(","),
+    fontSize: 12,
     h2: {
       fontSize: "3rem",
       fontWeight: 500,
@@ -37,6 +37,14 @@ export const theme: any = {
       fontSize: "1.4rem",
     },
     h6: {},
+  },
+  palette: {
+    primary: {
+      light: "#59598E",
+      main: "#38385F",
+      dark: "#2E2E48",
+      contrastText: "#fff",
+    },
   },
   include: {
     "@keyframes gradient": {

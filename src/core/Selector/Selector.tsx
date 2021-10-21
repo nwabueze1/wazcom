@@ -36,7 +36,7 @@ export const Selector: FC<SelectorProps> = ({
         multiline
         required
         disabled={disabled}
-        onChange={onChange}
+        // onChange={onChange}
         name={name}
         value={value}
         label={label}
