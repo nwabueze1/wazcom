@@ -1,6 +1,6 @@
 import { CommonProps } from "../types";
 
-export type imageUploaderProps =  CommonProps & {
+export type ImageSelectorProps =  CommonProps & {
     onClick: () => void;
     variant: "circle" | "square";
     height?: string;
