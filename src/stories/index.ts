@@ -35,6 +35,20 @@ import {
   pageProps,
   Selector,
   SelectorProps,
+  DisplayCard,
+  DisplayCardProps,
+  Notification,
+  NotificationProps,
+  RadioButton,
+  RadioButtonProps,
+  ImageUpload,
+  ImageUploadProps,
+  HeaderTitle,
+  HeaderTitleProps,
+  Price,
+  PriceProps,
+  Tab,
+  TabProps
 } from "../core";
 
 type ComponentPropType = {
@@ -58,7 +72,12 @@ type ComponentPropType = {
   | SchedulerStory
   | PageStory
   | SelectorStory
-  
+  | DisplayCardStory
+  | NotificationStory
+  | RadioButtonStory
+  | ImageUploadStory
+  | HeaderTitleStory
+  | PriceStory
 );
 
 type AccordionStory = {
@@ -146,9 +165,39 @@ type PageStory = {
   props: pageProps;
 };
 
+type DisplayCardStory = {
+  name: string;
+  props: DisplayCardProps;
+};
+
 type SelectorStory = {
   name: string;
   props: SelectorProps;
+};
+
+type NotificationStory = {
+  name: string;
+  props: NotificationProps;
+};
+
+type RadioButtonStory = {
+  name: string;
+  props: RadioButtonProps;
+};
+
+type ImageUploadStory = {
+  name: string;
+  props: ImageUploadProps;
+};
+
+type HeaderTitleStory = {
+  name: string;
+  props: HeaderTitleProps;
+};
+
+type PriceStory = {
+  name: string;
+  props: PriceProps;
 };
 
 export const stories: ComponentPropType[] = [
@@ -272,10 +321,45 @@ export const stories: ComponentPropType[] = [
     props: {},
   },
   {
-    name: "Selector",
+    name: "selector",
     component: Selector,
     props: {
-     items:["basit", "bola", "tola"]
+     items:["Messi", "Benzema", "Mo'Salah"]
     },
+  },
+  {
+    name: "displayCard",
+    component: DisplayCard,
+    props: {total:30, title:"Pending Orders"},
+  },
+
+  {
+    name: "notification",
+    component: Notification,
+    props: {status:"Success"},
+  },
+
+  {
+    name: "radiobutton",
+    component: RadioButton,
+    props: {},
+  },
+
+  {
+    name: "imageupload",
+    component: ImageUpload,
+    props: {},
+  },
+
+  {
+    name: "headertitle",
+    component: HeaderTitle,
+    props: {},
+  },
+
+  {
+    name: "price",
+    component: Price,
+    props: {},
   },
 ];
