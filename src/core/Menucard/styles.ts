@@ -11,6 +11,7 @@ export const useMenuCardStyles = makeStyles((theme: BaseTheme) => ({
   },
   mealName: {
     fontWeight: "bold",
+    marginTop: theme.spacing(2),
   },
   price: {
     fontSize: "12px",
@@ -48,7 +49,10 @@ export const useMenuCardStyles = makeStyles((theme: BaseTheme) => ({
     justifyContent: "space-between",
     marginLeft: theme.spacing(4),
   },
+  vert: {
+    marginLeft: "20px"
+  },
   disableState: {
-    opacity: 0.1,
+    // opacity: 0.1,
   },
 }));

@@ -3,19 +3,9 @@ import * as React from "react";
 import { Select } from "@mui/material";
 import { useSelectorStyles } from "./styles";
 import { IsRequired } from "../Common/isRequired/isRequired";
+import { SelectorProps } from "./types";
 
-interface SelectorProps {
-  items: Array<string>;
-  onChange?: (
-    event: React.ChangeEvent<{ name?: string; value: unknown }>,
-  ) => void;
-  name: string;
-  label?: string;
-  value?: string;
-  defaultOption: string;
-  error: boolean;
-  disabled?: boolean;
-}
+
 
 export const Selector: FC<SelectorProps> = ({
   items,
