@@ -47,8 +47,6 @@ import {
   HeaderTitleProps,
   Price,
   PriceProps,
-  Tab,
-  TabProps
 } from "../core";
 
 type ComponentPropType = {
