@@ -47,6 +47,8 @@ import {
   HeaderTitleProps,
   Price,
   PriceProps,
+  Carousel,
+  CarouselProps,
 } from "../core";
 
 type ComponentPropType = {
@@ -76,6 +78,7 @@ type ComponentPropType = {
   | ImageUploadStory
   | HeaderTitleStory
   | PriceStory
+  | CarouselStory
 );
 
 type AccordionStory = {
@@ -194,6 +197,11 @@ type HeaderTitleStory = {
 };
 
 type PriceStory = {
+  name: string;
+  props: PriceProps;
+};
+
+type CarouselStory = {
   name: string;
   props: PriceProps;
 };
@@ -330,34 +338,34 @@ export const stories: ComponentPropType[] = [
     component: DisplayCard,
     props: {total:30, title:"Pending Orders"},
   },
-
   {
     name: "notification",
     component: Notification,
     props: {status:"Success"},
   },
-
   {
     name: "radiobutton",
     component: RadioButton,
     props: {},
   },
-
   {
     name: "imageupload",
     component: ImageUpload,
     props: {},
   },
-
   {
     name: "headertitle",
     component: HeaderTitle,
     props: {},
   },
-
   {
     name: "price",
     component: Price,
+    props: {},
+  },
+  {
+    name: "carousel",
+    component: Carousel,
     props: {},
   },
 ];
