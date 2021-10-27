@@ -35,7 +35,7 @@ export const Carousel: FC<CarouselProps> = () => {
   };
 
   return (
-    <Box sx={{ maxWidth: 400, flexGrow: 1 }}>
+    <Box sx={{ minWidth: 400, flexGrow: 1 }}>
       <Paper
         square
         elevation={0}
@@ -63,7 +63,7 @@ export const Carousel: FC<CarouselProps> = () => {
                 sx={{
                   height: 255,
                   display: 'block',
-                  maxWidth: 400,
+                  minWidth: 400,
                   overflow: 'hidden',
                   width: '100%',
                 }}
