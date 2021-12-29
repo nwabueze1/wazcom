@@ -1,7 +1,3 @@
-import AutoGraphRoundedIcon from "@mui/icons-material/AutoGraphRounded";
-import DashboardRoundedIcon from "@mui/icons-material/DashboardOutlined";
-import ModeStandbyRoundedIcon from "@mui/icons-material/ModeStandbyRounded";
-import ViewCompactRoundedIcon from "@mui/icons-material/ViewCompactRounded";
 import WidgetsRoundedIcon from "@mui/icons-material/WidgetsRounded";
 import { Typography } from "@mui/material";
 import AppBar from "@mui/material/AppBar";
@@ -10,18 +6,15 @@ import CssBaseline from "@mui/material/CssBaseline";
 import Drawer from "@mui/material/Drawer";
 import List from "@mui/material/List";
 import Toolbar from "@mui/material/Toolbar";
-import clx from "classnames";
 import { startCase } from "lodash";
 import * as React from "react";
-import { FC, useState, ChangeEvent } from "react";
+import { ChangeEvent, FC, useState } from "react";
 import { useHistory, useLocation } from "react-router";
 import { Text } from "../../core";
 import { stories } from "../../stories";
-import { useBrowserStyles, drawerWidth } from "./styles";
-import { BrowserProps } from "./types";
-import { Button } from "../../core";
-import { FiChevronRight } from "react-icons/fi";
 import { SidebarListItem } from "./SidebarListItem/SidebarListItem";
+import { drawerWidth, useBrowserStyles } from "./styles";
+import { BrowserProps } from "./types";
 
 const sections = [
   {
@@ -119,9 +112,6 @@ export const Browser: FC<BrowserProps> = () => {
         }}
         variant="permanent"
         anchor="left"
-        classes={{
-          paper: classes.paper,
-        }}
       >
         <Toolbar>
           <div className={classes.logo}>
