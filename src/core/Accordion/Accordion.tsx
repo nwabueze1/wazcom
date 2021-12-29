@@ -21,15 +21,15 @@ export const Accordion: FC<AccordionProps> = ({
   const classes = useAccordionStyles();
   return (
     <MuiAccordion
-      className={clx(classes.root, className)}
       square={square}
+      className={clx(classes.root, className)}
       defaultExpanded={defaultExpanded}
     >
       <MuiAccordionSummary
-        expandIcon={<ExpandMoreIcon className={classes.icon} />}
-        aria-controls={kebabCase(title)}
         id={kebabCase(title)}
+        aria-controls={kebabCase(title)}
         className={classes.summary}
+        expandIcon={<ExpandMoreIcon className={classes.icon} />}
       >
         <Typography variant="body1">{title}</Typography>
       </MuiAccordionSummary>

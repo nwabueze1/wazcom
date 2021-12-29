@@ -1,7 +1,7 @@
 import { FC } from "react";
 import { useNotificationStyles } from "./style";
 import clx from "classnames";
-import { NotificationProps } from "./type";
+import { NotificationProps } from "./types";
 import CloseIcon from "@mui/icons-material/Close";
 import { Typography } from "@mui/material";
 // import Icon from "../../images/Vector.png";

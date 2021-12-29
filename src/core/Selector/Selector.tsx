@@ -1,21 +1,8 @@
 import { FC } from "react";
-import * as React from "react";
 import { Select } from "@mui/material";
 import { useSelectorStyles } from "./styles";
 import { IsRequired } from "../Common/isRequired/isRequired";
-
-interface SelectorProps {
-  items: Array<string>;
-  onChange?: (
-    event: React.ChangeEvent<{ name?: string; value: unknown }>,
-  ) => void;
-  name: string;
-  label?: string;
-  value?: string;
-  defaultOption: string;
-  error: boolean;
-  disabled?: boolean;
-}
+import { SelectorProps } from "./types";
 
 export const Selector: FC<SelectorProps> = ({
   items,
@@ -26,20 +13,19 @@ export const Selector: FC<SelectorProps> = ({
   defaultOption,
   error,
   disabled,
+  ...props
 }) => {
   const classes = useSelectorStyles();
   return (
-    <div>
+    <>
       <Select
-        className={classes.siteTypeSelect}
-        native
-        multiline
-        required
-        disabled={disabled}
-        // onChange={onChange}
         name={name}
         value={value}
         label={label}
+        disabled={disabled}
+        onChange={onChange}
+        className={classes.root}
+        {...props}
       >
         <option style={{ color: "blue" }} value="">
           {defaultOption}
@@ -51,6 +37,6 @@ export const Selector: FC<SelectorProps> = ({
         ))}
       </Select>
       {disabled ? null : <IsRequired error={error} name={name} />}
-    </div>
+    </>
   );
 };

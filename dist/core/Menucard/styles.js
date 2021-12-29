@@ -9,6 +9,7 @@ export var useMenuCardStyles = makeStyles(function (theme) { return ({
     },
     mealName: {
         fontWeight: "bold",
+        marginTop: theme.spacing(2),
     },
     price: {
         fontSize: "12px",
@@ -46,7 +47,10 @@ export var useMenuCardStyles = makeStyles(function (theme) { return ({
         justifyContent: "space-between",
         marginLeft: theme.spacing(4),
     },
+    vert: {
+        marginLeft: "20px"
+    },
     disableState: {
-        opacity: 0.1,
+    // opacity: 0.1,
     },
 }); });

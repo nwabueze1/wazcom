@@ -24,3 +24,6 @@ export * from "./Price";
 export * from "./RadioButton";
 export * from "./Scheduler";
 export * from "./ImageSelector";
+export * from "./Selector";
+export * from "./Notifications";
+export * from "./Carousel";

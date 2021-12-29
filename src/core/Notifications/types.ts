@@ -8,7 +8,3 @@ export type NotificationProps = CommonProps & {
   message?: string;
   statusAlert: string;
 }
-
-export type Notification = {
-    
-  }
