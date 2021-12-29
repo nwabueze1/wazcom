@@ -13,26 +13,84 @@ import Toolbar from "@mui/material/Toolbar";
 import clx from "classnames";
 import { startCase } from "lodash";
 import * as React from "react";
-import { FC } from "react";
+import { FC, useState, ChangeEvent } from "react";
 import { useHistory, useLocation } from "react-router";
 import { Text } from "../../core";
 import { stories } from "../../stories";
-import { useBrowserStyles } from "./styles";
+import { useBrowserStyles, drawerWidth } from "./styles";
 import { BrowserProps } from "./types";
+import { Button } from "../../core";
+import { FiChevronRight } from "react-icons/fi";
+import { SidebarListItem } from "./SidebarListItem/SidebarListItem";
 
-const drawerWidth = 210;
+const sections = [
+  {
+    label: "Base",
+    components: [
+      {
+        id: "accordion",
+        label: "Accordion",
+      },
+      {
+        id: "breadcrumb",
+        label: "Breadcrumb",
+      },
+      {
+        id: "button",
+        label: "Button",
+      },
+      {
+        id: "accordion",
+        label: "Accordion",
+      },
+      {
+        id: "breadcrumb",
+        label: "Breadcrumb",
+      },
+      {
+        id: "button",
+        label: "Button",
+      },
+      {
+        id: "accordion",
+        label: "Accordion",
+      },
+      {
+        id: "breadcrumb",
+        label: "Breadcrumb",
+      },
+      {
+        id: "button",
+        label: "Button",
+      },
+      {
+        id: "accordion",
+        label: "Accordion",
+      },
+      {
+        id: "breadcrumb",
+        label: "Breadcrumb",
+      },
+      {
+        id: "button",
+        label: "Button",
+      },
+    ],
+  },
+];
 
 export const Browser: FC<BrowserProps> = () => {
   const classes = useBrowserStyles();
   const { pathname } = useLocation();
   const { push } = useHistory();
-  const [search, setSearch] = React.useState("");
+  const [search, setSearch] = useState("");
+  const [selected, setSelected] = useState();
 
   const handleClick = (route: string) => {
     push(route);
   };
 
-  const handleChange = (event: React.ChangeEvent<HTMLInputElement>) => {
+  const handleChange = (event: ChangeEvent<HTMLInputElement>) => {
     setSearch(event?.target?.value);
   };
 
@@ -58,15 +116,11 @@ export const Browser: FC<BrowserProps> = () => {
         sx={{
           width: drawerWidth,
           flexShrink: 0,
-          "& .MuiDrawer-paper": {
-            width: drawerWidth,
-            boxSizing: "border-box",
-          },
         }}
         variant="permanent"
         anchor="left"
         classes={{
-          paper: classes.drawer,
+          paper: classes.paper,
         }}
       >
         <Toolbar>
@@ -76,40 +130,7 @@ export const Browser: FC<BrowserProps> = () => {
           </div>
         </Toolbar>
         <List className={classes.sidebarList}>
-          {[
-            {
-              label: "Dashboard",
-              icon: <DashboardRoundedIcon className={classes.sidebarIcon} />,
-              route: "/",
-            },
-            {
-              label: "Layout",
-              icon: <ViewCompactRoundedIcon className={classes.sidebarIcon} />,
-              route: "/layout",
-            },
-            {
-              label: "GQL",
-              icon: <AutoGraphRoundedIcon className={classes.sidebarIcon} />,
-              route: "/gql",
-            },
-            {
-              label: "Mode Enabled",
-              icon: <ModeStandbyRoundedIcon className={classes.sidebarIcon} />,
-              route: "/mode_enabled",
-            },
-          ].map(({ label, icon, route }, index) => (
-            <div
-              key={index}
-              className={clx(
-                classes.sidebarItem,
-                pathname == route && classes.sidebarItemIsActive,
-              )}
-              onClick={() => handleClick(route)}
-            >
-              {icon}
-              <span className={classes.sidebarLabel}>{label}</span>
-            </div>
-          ))}
+          <SidebarListItem title="Components" sections={sections} />
         </List>
       </Drawer>
       <Box

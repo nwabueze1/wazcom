@@ -14,8 +14,15 @@ export const ImageSelector: FC<ImageSelectorProps> = ({
 }) => {
   const classes = useImageSelectorStyles();
   return (
-    <div className={clx(className, classes.container, variant === 'circle' && classes.circle)} style={{height, width, backgroundImage: `url(${placeholder})`,}}>
-      <div className={`selectHover ${variant === 'circle' && "circle"}`}></div>
+    <div
+      className={clx(
+        className,
+        classes.container,
+        variant === "circle" && classes.circle,
+      )}
+      style={{ height, width, backgroundImage: `url(${placeholder})` }}
+    >
+      <div className={`selectHover ${variant === "circle" && "circle"}`}></div>
       <div className="cameraIcon">
         <CameraAltIcon style={{ fontSize: "64px" }} onClick={onClick} />
       </div>

@@ -1,3 +1,3 @@
 import { FC } from "react";
-import { NotificationProps } from "./type";
+import { NotificationProps } from "./types";
 export declare const Notification: FC<NotificationProps>;

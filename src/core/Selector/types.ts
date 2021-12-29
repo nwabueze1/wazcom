@@ -1,14 +1,13 @@
 import { CommonProps } from "../types";
+import { SelectProps } from "@mui/material";
 
-export type SelectorProps =  CommonProps & {
-    items: Array<string>;
-    onChange?: (
-      event: React.ChangeEvent<{ name?: string; value: unknown }>,
-    ) => void;
+export type SelectorProps = SelectProps &
+  CommonProps & {
     name: string;
     label?: string;
     value?: string;
-    defaultOption: string;
     error: boolean;
     disabled?: boolean;
-}
+    items: Array<string>;
+    defaultOption: string;
+  };
