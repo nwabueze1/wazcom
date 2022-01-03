@@ -1,6 +1,6 @@
 import { BaseTheme } from "theme";
 import makeStyles from "@mui/styles/makeStyles";
-export const useStyles = makeStyles((theme: BaseTheme) => ({
+export const useSocialButtonStyles = makeStyles((theme: BaseTheme) => ({
   root: {
     backgroundColor: theme.design.colors.white,
     borderRadius: "15px",

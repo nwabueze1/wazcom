@@ -1,7 +1,7 @@
 import { FC, useState } from "react";
 import { useGalleryStyles } from "./styles";
 import { GalleryProps } from "./types";
-import { CheckBox } from "../Checkbox/CheckBox";
+import { CheckBoxInput } from "../../io";
 
 export const Gallery: FC<GalleryProps> = ({ image }) => {
   const classes = useGalleryStyles({ image });
@@ -22,7 +22,7 @@ export const Gallery: FC<GalleryProps> = ({ image }) => {
       <div>
         {checked ? (
           <div className={classes.checker}>
-            <CheckBox checked handlecheckChange={handlecheckChange} />
+            <CheckBoxInput checked handlecheckChange={handlecheckChange} />
           </div>
         ) : null}
       </div>

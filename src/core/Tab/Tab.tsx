@@ -1,14 +1,9 @@
-import { FC, useState } from "react";
-import clsx from "classnames";
-import Paper from "@mui/material/Paper";
-import Tabs from "@mui/material/Tabs";
-import { Tab as MuiTab } from "@mui/material";
+import { FC } from "react";
 import { TabProps } from "./types";
-import { useTabStyles } from "./styles";
 
-export const Tab: FC<TabProps> = ({ className, arr, color, label }) => {
+export const Tab: FC<TabProps> = () => {
   // const classes = useTabStyles();
-  const [isSelected, changeIsSelected] = useState(false);
+  // const [isSelected, changeIsSelected] = useState(false);
   return (
     <div />
     // <Paper color={color} className={clsx(classes.tabs, className)}>

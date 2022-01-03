@@ -1,0 +1,19 @@
+import { FC } from "react";
+import { CheckBoxProps } from "./types";
+import Checkbox from "@mui/material/Checkbox";
+
+export const CheckBoxInput: FC<CheckBoxProps> = ({
+  className,
+  label,
+  checked,
+  handlecheckChange,
+}) => {
+  return (
+    <Checkbox
+      checked={checked}
+      className={className}
+      onChange={handlecheckChange}
+      inputProps={{ "aria-label": label }}
+    />
+  );
+};

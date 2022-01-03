@@ -7,49 +7,47 @@ import {
   BreadCrumbProps,
   Card,
   CardProps,
-  CheckBox,
-  CheckBoxProps,
-  Email,
-  EmailProps,
   Loader,
   LoaderProps,
-  ComboBox,
-  ComboBoxProps,
-  Text,
-  TextProps,
   Gallery,
   GalleryProps,
   ImageSelector,
   ImageSelectorProps,
-  Toggle,
-  ToggleProps,
   MenuTable,
   MenuTableProps,
   MenuCard,
   MenuCardProps,
-  PasswordFields,
-  PasswordFieldsProps,
   Scheduler,
   SchedulerProps,
-  Page,
-  pageProps,
-  Selector,
-  SelectorProps,
   DisplayCard,
   DisplayCardProps,
   Notification,
   NotificationProps,
   RadioButton,
   RadioButtonProps,
-  ImageUpload,
-  ImageUploadProps,
   HeaderTitle,
   HeaderTitleProps,
-  Price,
-  PriceProps,
   Carousel,
-  CarouselProps,
 } from "../core";
+
+import {
+  CheckBoxInput,
+  CheckBoxProps,
+  ComboBoxInput,
+  ComboBoxInputProps,
+  EmailInput,
+  EmailInputProps,
+  ImageUploadInput,
+  ImageUploadInputProps,
+  PasswordInput,
+  RichTextInput,
+  SelectInput,
+  TagInput,
+  TextInput,
+  TextInputProps,
+  ToggleInput,
+  ToggleInputProps,
+} from "../io";
 
 type ComponentPropType = {
   component: any;
@@ -68,17 +66,12 @@ type ComponentPropType = {
   | ToggleStory
   | MenuTableStory
   | MenuCardStory
-  | PasswordFieldsStory
   | SchedulerStory
-  | PageStory
-  | SelectorStory
   | DisplayCardStory
   | NotificationStory
   | RadioButtonStory
   | ImageUploadStory
   | HeaderTitleStory
-  | PriceStory
-  | CarouselStory
 );
 
 type AccordionStory = {
@@ -113,17 +106,17 @@ type CheckBoxStory = {
 
 type EmailStory = {
   name: string;
-  props: EmailProps;
+  props: EmailInputProps;
 };
 
 type ComboBoxStory = {
   name: string;
-  props: ComboBoxProps;
+  props: ComboBoxInputProps;
 };
 
 type TextStory = {
   name: string;
-  props: TextProps;
+  props: TextInputProps;
 };
 
 type GalleryStory = {
@@ -138,7 +131,7 @@ type ImageSelectorStory = {
 
 type ToggleStory = {
   name: string;
-  props: ToggleProps;
+  props: ToggleInputProps;
 };
 
 type MenuTableStory = {
@@ -151,29 +144,14 @@ type MenuCardStory = {
   props: MenuCardProps;
 };
 
-type PasswordFieldsStory = {
-  name: string;
-  props: PasswordFieldsProps;
-};
-
 type SchedulerStory = {
   name: string;
   props: SchedulerProps;
 };
 
-type PageStory = {
-  name: string;
-  props: pageProps;
-};
-
 type DisplayCardStory = {
   name: string;
   props: DisplayCardProps;
-};
-
-type SelectorStory = {
-  name: string;
-  props: SelectorProps;
 };
 
 type NotificationStory = {
@@ -188,22 +166,12 @@ type RadioButtonStory = {
 
 type ImageUploadStory = {
   name: string;
-  props: ImageUploadProps;
+  props: ImageUploadInputProps;
 };
 
 type HeaderTitleStory = {
   name: string;
   props: HeaderTitleProps;
-};
-
-type PriceStory = {
-  name: string;
-  props: PriceProps;
-};
-
-type CarouselStory = {
-  name: string;
-  props: PriceProps;
 };
 
 export const stories: ComponentPropType[] = [
@@ -256,12 +224,12 @@ export const stories: ComponentPropType[] = [
   },
   {
     name: "checkbox",
-    component: CheckBox,
+    component: CheckBoxInput,
     props: {},
   },
   {
     name: "email",
-    component: Email,
+    component: EmailInput,
     props: {},
   },
   {
@@ -271,18 +239,21 @@ export const stories: ComponentPropType[] = [
   },
   {
     name: "combobox",
-    component: ComboBox,
+    component: ComboBoxInput,
     props: {},
   },
   {
     name: "text",
-    component: Text,
+    component: TextInput,
     props: {},
   },
   {
     name: "gallery",
     component: Gallery,
-    props: {image:"https://images.unsplash.com/photo-1504674900247-0877df9cc836?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=2070&q=80"},
+    props: {
+      image:
+        "https://images.unsplash.com/photo-1504674900247-0877df9cc836?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=2070&q=80",
+    },
   },
   {
     name: "imageselector",
@@ -291,14 +262,16 @@ export const stories: ComponentPropType[] = [
   },
   {
     name: "toggle",
-    component: Toggle,
+    component: ToggleInput,
     props: {},
   },
   {
     name: "menutable",
     component: MenuTable,
     props: {
-      rows:[{id: 1, Menu: "Breakfast", day: "yesterday", Schedule:"9am-6pm"}]
+      rows: [
+        { id: 1, Menu: "Breakfast", day: "yesterday", Schedule: "9am-6pm" },
+      ],
     },
   },
   {
@@ -308,12 +281,13 @@ export const stories: ComponentPropType[] = [
       amount: 500,
       meal: "jollof Rice",
       details: "spicy Fried Rice",
-      image: "https://images.unsplash.com/photo-1504674900247-0877df9cc836?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=2070&q=80",
-    }
+      image:
+        "https://images.unsplash.com/photo-1504674900247-0877df9cc836?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=2070&q=80",
+    },
   },
   {
     name: "password",
-    component: PasswordFields,
+    component: PasswordInput,
     props: {},
   },
   {
@@ -322,26 +296,14 @@ export const stories: ComponentPropType[] = [
     props: {},
   },
   {
-    name: "page",
-    component: Page,
-    props: {},
-  },
-  {
-    name: "selector",
-    component: Selector,
-    props: {
-     items:["Messi", "Benzema", "Mo'Salah"]
-    },
-  },
-  {
     name: "displayCard",
     component: DisplayCard,
-    props: {total:30, title:"Pending Orders"},
+    props: { total: 30, title: "Pending Orders" },
   },
   {
     name: "notification",
     component: Notification,
-    props: {status:"Success"},
+    props: { status: "Success" },
   },
   {
     name: "radiobutton",
@@ -350,17 +312,12 @@ export const stories: ComponentPropType[] = [
   },
   {
     name: "imageupload",
-    component: ImageUpload,
+    component: ImageUploadInput,
     props: {},
   },
   {
     name: "headertitle",
     component: HeaderTitle,
-    props: {},
-  },
-  {
-    name: "price",
-    component: Price,
     props: {},
   },
   {

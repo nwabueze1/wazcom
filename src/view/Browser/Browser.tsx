@@ -10,7 +10,7 @@ import { startCase } from "lodash";
 import * as React from "react";
 import { ChangeEvent, FC, useState } from "react";
 import { useHistory, useLocation } from "react-router";
-import { Text } from "../../core";
+import { TextInput } from "../../components/io";
 import { stories } from "../../stories";
 import { SidebarListItem } from "./SidebarListItem/SidebarListItem";
 import { drawerWidth, useBrowserStyles } from "./styles";
@@ -95,7 +95,7 @@ export const Browser: FC<BrowserProps> = () => {
         sx={{ width: `calc(100% - ${drawerWidth}px)`, ml: `${drawerWidth}px` }}
       >
         <Toolbar>
-          <Text
+          <TextInput
             name="search"
             color="primary"
             placeholder="Search..."

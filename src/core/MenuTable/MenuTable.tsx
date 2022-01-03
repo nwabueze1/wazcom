@@ -11,7 +11,7 @@ import createStyles from "@mui/styles/createStyles";
 import withStyles from "@mui/styles/withStyles";
 import { FC } from "react";
 import { BaseTheme } from "theme";
-import { Toggle } from "../Toggle/Toggle";
+import { ToggleInput } from "../../io/ToggleInput/ToggleInput";
 import { MenuTableStyles } from "./styles";
 import { MenuTableProps } from "./types";
 
@@ -68,7 +68,7 @@ export const MenuTable: FC<MenuTableProps> = ({
               <StyledTableCell align="center">{row.day}</StyledTableCell>
               <StyledTableCell align="center">
                 <div className={classes.active}>
-                  <Toggle name="" />
+                  <ToggleInput name="" />
                 </div>
               </StyledTableCell>
               <StyledTableCell align="center">

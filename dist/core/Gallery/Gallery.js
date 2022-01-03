@@ -12,7 +12,7 @@ var __assign = (this && this.__assign) || function () {
 import { jsx as _jsx, jsxs as _jsxs } from "react/jsx-runtime";
 import { useState } from "react";
 import { useGalleryStyles } from "./styles";
-import { CheckBox } from "../Checkbox/CheckBox";
+import { CheckBoxInput } from "../../io";
 export var Gallery = function (_a) {
     var image = _a.image;
     var classes = useGalleryStyles({ image: image });
@@ -21,5 +21,5 @@ export var Gallery = function (_a) {
     var handlecheckChange = function (event) {
         setChecked(!event.target.checked);
     };
-    return (_jsxs("div", __assign({ onClick: onclick, className: classes.galleryBox + " " + (checked ? classes.border : null) }, { children: [_jsx("div", { children: checked ? (_jsx("div", __assign({ className: classes.checker }, { children: _jsx(CheckBox, { checked: true, handlecheckChange: handlecheckChange }, void 0) }), void 0)) : null }, void 0), _jsx("div", __assign({ className: classes.galleryHover }, { children: _jsx("p", { children: "Select post" }, void 0) }), void 0)] }), void 0));
+    return (_jsxs("div", __assign({ onClick: onclick, className: classes.galleryBox + " " + (checked ? classes.border : null) }, { children: [_jsx("div", { children: checked ? (_jsx("div", __assign({ className: classes.checker }, { children: _jsx(CheckBoxInput, { checked: true, handlecheckChange: handlecheckChange }, void 0) }), void 0)) : null }, void 0), _jsx("div", __assign({ className: classes.galleryHover }, { children: _jsx("p", { children: "Select post" }, void 0) }), void 0)] }), void 0));
 };

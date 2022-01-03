@@ -10,7 +10,8 @@ export var theme = {
         h3: {},
         h4: {},
         h5: {
-            fontSize: "1.4rem",
+            fontSize: ".8rem",
+            fontWeight: 500,
         },
         h6: {},
     },

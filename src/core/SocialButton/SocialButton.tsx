@@ -1,10 +1,10 @@
 import { Button } from "@mui/material";
 import { FC } from "react";
-import { useStyles } from "./styles";
+import { useSocialButtonStyles } from "./styles";
 import { SocialButtonProps } from "./types";
 
 export const SocialButton: FC<SocialButtonProps> = ({ image, title }) => {
-  const classes = useStyles();
+  const classes = useSocialButtonStyles();
 
   return (
     <Button

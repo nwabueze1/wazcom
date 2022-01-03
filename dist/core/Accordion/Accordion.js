@@ -18,5 +18,5 @@ import clx from "classnames";
 export var Accordion = function (_a) {
     var title = _a.title, className = _a.className, square = _a.square, defaultExpanded = _a.defaultExpanded, children = _a.children;
     var classes = useAccordionStyles();
-    return (_jsxs(MuiAccordion, __assign({ className: clx(classes.root, className), square: square, defaultExpanded: defaultExpanded }, { children: [_jsx(MuiAccordionSummary, __assign({ expandIcon: _jsx(ExpandMoreIcon, { className: classes.icon }, void 0), "aria-controls": kebabCase(title), id: kebabCase(title), className: classes.summary }, { children: _jsx(Typography, __assign({ variant: "body1" }, { children: title }), void 0) }), void 0), _jsx(MuiAccordionDetails, __assign({ className: classes.details }, { children: children }), void 0)] }), void 0));
+    return (_jsxs(MuiAccordion, __assign({ square: square, className: clx(classes.root, className), defaultExpanded: defaultExpanded }, { children: [_jsx(MuiAccordionSummary, __assign({ id: kebabCase(title), "aria-controls": kebabCase(title), className: classes.summary, expandIcon: _jsx(ExpandMoreIcon, { className: classes.icon }, void 0) }, { children: _jsx(Typography, __assign({ variant: "body1" }, { children: title }), void 0) }), void 0), _jsx(MuiAccordionDetails, __assign({ className: classes.details }, { children: children }), void 0)] }), void 0));
 };
