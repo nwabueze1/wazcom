@@ -20,5 +20,5 @@ export var TagInput = function (_a) {
                     return value.map(function (value, index) { return (
                     // eslint-disable-next-line react/jsx-key
                     _jsx(Chip, __assign({ label: value }, getTagProps({ index: index })), void 0)); });
-                }, renderInput: function (params) { return (_jsx(TextField, __assign({}, params, { variant: "outlined", name: "tags", placeholder: "Add tags", fullWidth: true, className: "" + classes.autoCompleteField }), void 0)); } }, void 0), error && _jsx("p", __assign({ className: classes.error_message }, { children: "tags is required" }), void 0)] }), void 0));
+                }, renderInput: function (params) { return (_jsx(TextField, __assign({}, params, { variant: "outlined", name: "tags", placeholder: "Add tags", fullWidth: true, className: "".concat(classes.autoCompleteField) }), void 0)); } }, void 0), error && _jsx("p", __assign({ className: classes.error_message }, { children: "tags is required" }), void 0)] }), void 0));
 };

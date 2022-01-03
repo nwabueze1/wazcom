@@ -1,9 +1,9 @@
 import { FC } from "react";
 import { MenuItem, Select } from "@mui/material";
 import { useSelectStyles } from "./styles";
-import { SelectProps } from "./types";
+import { SelectInputProps } from "./types";
 
-export const SelectInput: FC<SelectProps> = ({
+export const SelectInput: FC<SelectInputProps> = ({
   options,
   placeholder,
   ...props

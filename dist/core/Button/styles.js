@@ -15,6 +15,6 @@ export var useButtonStyles = makeStyles(function (theme) { return ({
     // padding: `${theme.spacing(1.6)} ${theme.spacing(8.12)}`,
     },
     sizeLarge: {
-        padding: theme.spacing(0.5) + " " + theme.spacing(2.5),
+        padding: "".concat(theme.spacing(0.5), " ").concat(theme.spacing(2.5)),
     },
 }); });

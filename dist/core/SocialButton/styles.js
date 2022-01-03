@@ -3,7 +3,7 @@ export var useSocialButtonStyles = makeStyles(function (theme) { return ({
     root: {
         backgroundColor: theme.design.colors.white,
         borderRadius: "15px",
-        border: theme.spacing(0.4) + " solid " + theme.design.colors.lightGrey01 + " ",
+        border: "".concat(theme.spacing(0.4), " solid ").concat(theme.design.colors.lightGrey01, " "),
         "&  #customBtn": {
             display: "inline-block",
             paddingRight: theme.spacing(1),

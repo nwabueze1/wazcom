@@ -18,9 +18,9 @@ export var ImageUploadInput = function (_a) {
     var id = Math.random();
     var classes = useImageUploadStyles(props);
     return (_jsx("div", __assign({ className: classes.root }, { children: _jsx("div", __assign({ className: classes.wrapper }, { children: _jsxs(Button, __assign({ variant: "contained", component: "label", className: classes.uploadButton }, { children: [_jsx("input", { id: "contained-button-file", type: "file", accept: "image/*", hidden: true, name: "image_url", onChange: handleFile }, void 0), _jsx("div", __assign({ className: classes.display }, { children: file ? (_jsx("div", { id: "image" + id, style: {
-                                backgroundImage: "url(" + (typeof file === "string"
+                                backgroundImage: "url(".concat(typeof file === "string"
                                     ? file
-                                    : (window.URL || window.webkitURL).createObjectURL(file)) + ")",
+                                    : (window.URL || window.webkitURL).createObjectURL(file), ")"),
                                 backgroundRepeat: "no-repeat",
                                 backgroundPosition: "center",
                                 backgroundSize: "cover",

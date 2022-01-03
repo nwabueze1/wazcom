@@ -11,6 +11,6 @@ export var isRequired = function (_a) {
     var name = _a.name, value = _a.value;
     return ({
         status: !!value,
-        errorText: "The " + name + " field is required!!",
+        errorText: "The ".concat(name, " field is required!!"),
     });
 };

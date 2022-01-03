@@ -1,5 +1,5 @@
 import { SelectProps as MuiSelectProps } from "@mui/material";
-export declare type SelectProps = MuiSelectProps & {
+export declare type SelectInputProps = MuiSelectProps & {
     options?: {
         label: string;
         value: any;

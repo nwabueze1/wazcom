@@ -1,8 +1,8 @@
 import { FC } from "react";
-import { CheckBoxProps } from "./types";
+import { CheckBoxInputProps } from "./types";
 import Checkbox from "@mui/material/Checkbox";
 
-export const CheckBoxInput: FC<CheckBoxProps> = ({
+export const CheckBoxInput: FC<CheckBoxInputProps> = ({
   className,
   label,
   checked,

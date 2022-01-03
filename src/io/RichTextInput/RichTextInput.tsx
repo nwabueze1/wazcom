@@ -1,9 +1,9 @@
 import * as React from "react";
 import { FormLabel, OutlinedInput } from "@mui/material";
 import { useTextareaStyles } from "./styles";
-import { TextareaProps } from "./types";
+import { RichTextInputProps } from "./types";
 
-export const RichTextInput: React.FC<TextareaProps> = ({
+export const RichTextInput: React.FC<RichTextInputProps> = ({
   label,
   placeholder,
   name,

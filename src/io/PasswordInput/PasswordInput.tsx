@@ -1,9 +1,9 @@
 import * as React from "react";
 import { FormLabel, OutlinedInput } from "@mui/material";
 import { useStyles } from "./styles";
-import { PasswordFieldsProps } from "./types";
+import { PasswordInputProps } from "./types";
 
-export const PasswordInput: React.FC<PasswordFieldsProps> = ({
+export const PasswordInput: React.FC<PasswordInputProps> = ({
   siteName,
   placeholder,
   name,
