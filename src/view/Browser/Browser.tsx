@@ -10,7 +10,7 @@ import { startCase } from "lodash";
 import * as React from "react";
 import { ChangeEvent, FC, useState } from "react";
 import { useHistory, useLocation } from "react-router";
-import { TextInput } from "../../components/io";
+import { TextInput } from "../../io";
 import { stories } from "../../stories";
 import { SidebarListItem } from "./SidebarListItem/SidebarListItem";
 import { drawerWidth, useBrowserStyles } from "./styles";
