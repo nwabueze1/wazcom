@@ -1,34 +1,78 @@
-import { FC, useState } from "react";
+import { FC, useState, useCallback } from "react";
 import { useGalleryStyles } from "./styles";
 import { GalleryProps } from "./types";
-import { CheckBoxInput } from "../../io";
+import clx from "classnames";
+import { CheckBoxInput } from "io";
 
-export const Gallery: FC<GalleryProps> = ({ image }) => {
-  const classes = useGalleryStyles({ image });
-  const onclick = () => setChecked(!checked);
-  const [checked, setChecked] = useState(false);
+export const Gallery: FC<GalleryProps> = ({ items, text, onSelect }) => {
+  const classes = useGalleryStyles();
+  const [ids, setIds] = useState<{ [key: string]: null | number }>({
+    selected: null,
+    hover: null,
+  });
 
-  const handlecheckChange = (
-    event: React.ChangeEvent<{ checked: boolean }>,
-  ) => {
-    setChecked(!event.target.checked);
-  };
-
-  return (
-    <div
-      onClick={onclick}
-      className={`${classes.galleryBox} ${checked ? classes.border : null}`}
-    >
-      <div>
-        {checked ? (
-          <div className={classes.checker}>
-            <CheckBoxInput checked handlecheckChange={handlecheckChange} />
-          </div>
-        ) : null}
-      </div>
-      <div className={classes.galleryHover}>
-        <p>Select post</p>
-      </div>
-    </div>
+  const handleMouseEnter = useCallback(
+    (id: number) => {
+      if (ids.selected === id) return;
+      const newIds = { ...ids, hover: id };
+      setIds(newIds);
+    },
+    [ids],
   );
+
+  const handleMouseLeave = useCallback(() => {
+    const newIds = { ...ids, hover: null };
+    setIds(newIds);
+  }, [ids]);
+
+  const handleItemSelect = useCallback(
+    (id: number) => {
+      let newIds;
+      if (ids.selected === id) {
+        newIds = { hover: null, selected: null };
+        onSelect?.(null);
+        return setIds(newIds);
+      }
+      newIds = { hover: null, selected: id };
+      setIds(newIds);
+      onSelect?.(id);
+    },
+    [ids],
+  );
+
+  const displayItems = useCallback(() => {
+    return items.map(({ image: { src, alt }, id }, index) => (
+      <div
+        key={index}
+        onClick={() => {
+          handleItemSelect(id);
+        }}
+        onMouseEnter={() => {
+          handleMouseEnter(id);
+        }}
+        onMouseLeave={handleMouseLeave}
+        className={classes.item}
+      >
+        <img src={src} className={classes.itemImage} alt={alt} />
+        <div
+          className={clx(
+            classes.itemHover,
+            ids.hover === id && classes.itemHoverActive,
+          )}
+        >
+          <p className={classes.itemHoverText}>{text ?? "Select"}</p>
+        </div>
+        <div
+          className={clx(
+            classes.itemChecked,
+            ids.selected === id && classes.itemCheckedActive,
+          )}
+        >
+          <CheckBoxInput checked className="checkbox" />
+        </div>
+      </div>
+    ));
+  }, [ids]);
+
+  return <div className={classes.root}>{displayItems()}</div>;
 };

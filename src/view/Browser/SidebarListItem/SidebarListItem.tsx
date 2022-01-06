@@ -34,7 +34,12 @@ export const SidebarListItem: FC<SidebarListItemProps> = ({
     <div className={classes.root}>
       <Button
         className={classes.button}
-        endIcon={<FiChevronRight />}
+        endIcon={
+          <FiChevronRight
+            className={classes.chevronIcon}
+            style={{ transform: isVisible ? "rotate(90deg)" : "" }}
+          />
+        }
         onClick={toggleSelection}
       >
         {title}

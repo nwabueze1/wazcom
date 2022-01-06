@@ -9,9 +9,9 @@ export const BreadCrumbStyles = makeStyles((theme: BaseTheme) => ({
   },
   link: {
     display: "flex",
-    fontWeight: theme.typography.fontWeightBold,
     textDecoration: "none",
     color: theme.design.colors.grey80,
+    cursor: "pointer",
   },
   navIcon: {
     paddingTop: theme.spacing(0.25),

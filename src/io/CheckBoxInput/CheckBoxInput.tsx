@@ -6,13 +6,13 @@ export const CheckBoxInput: FC<CheckBoxInputProps> = ({
   className,
   label,
   checked,
-  handlecheckChange,
+  handleCheckChange,
 }) => {
   return (
     <Checkbox
       checked={checked}
       className={className}
-      onChange={handlecheckChange}
+      onChange={handleCheckChange}
       inputProps={{ "aria-label": label }}
     />
   );

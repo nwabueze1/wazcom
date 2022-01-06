@@ -3,11 +3,21 @@ import { BaseTheme } from "theme";
 
 export const useCardStyles = makeStyles((theme: BaseTheme) => ({
   root: {
-    width: "384px",
-    height: "480px",
-    padding: theme.spacing(1, 1),
+    width: "100%",
+    display: "flex",
+    flexDirection: "column",
+  },
+  leftAlign: {
+    textAlign: "left",
+    alignItems: "left",
+  },
+  centerAlign: {
     textAlign: "center",
-    borderRadius: theme.spacing(1),
+    alignItems: "center",
+  },
+  rightAlign: {
+    textAlign: "right",
+    alignItems: "right",
   },
   regtext: {
     color: theme.design.colors.sunRed,
