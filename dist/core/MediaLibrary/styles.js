@@ -14,7 +14,7 @@ export var useMediaLibraryStyles = makeStyles(function (theme) { return ({
         display: "flex",
         flexWrap: "wrap",
         marginTop: theme.spacing(1),
-        maxHeight: "calc(100vh - " + theme.spacing(20) + ")",
+        maxHeight: "calc(100vh - ".concat(theme.spacing(20), ")"),
         overflow: "scroll",
         position: "relative",
     },

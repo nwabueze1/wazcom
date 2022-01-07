@@ -21,6 +21,9 @@ export const useSidebarListItemStyles = makeStyles((theme: Theme) => ({
     },
   },
   label: {},
+  chevronIcon: {
+    transition: "transform 0.1s ease-in",
+  },
   button: {
     width: "100%",
   },

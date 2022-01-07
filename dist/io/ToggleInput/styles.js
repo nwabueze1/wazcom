@@ -23,6 +23,6 @@ export var useToggleStyles = makeStyles(function (theme) { return ({
     },
     toggle: {
         // padding: `${theme.spacing(1)} 0`,
-        margin: theme.spacing(1) + " 0",
+        margin: "".concat(theme.spacing(1), " 0"),
     },
 }); });

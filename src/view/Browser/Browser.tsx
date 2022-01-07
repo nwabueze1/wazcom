@@ -97,7 +97,7 @@ export const Browser: FC<BrowserProps> = () => {
         <Toolbar>
           <TextInput
             name="search"
-            color="primary"
+            color="secondary"
             placeholder="Search..."
             variant="outlined"
             onChange={handleChange}
@@ -109,6 +109,11 @@ export const Browser: FC<BrowserProps> = () => {
         sx={{
           width: drawerWidth,
           flexShrink: 0,
+        }}
+        PaperProps={{
+          sx: {
+            width: drawerWidth,
+          },
         }}
         variant="permanent"
         anchor="left"

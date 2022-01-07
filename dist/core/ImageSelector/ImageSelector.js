@@ -16,5 +16,5 @@ import CameraAltIcon from "@mui/icons-material/CameraAlt";
 export var ImageSelector = function (_a) {
     var variant = _a.variant, className = _a.className, height = _a.height, width = _a.width, placeholder = _a.placeholder, onClick = _a.onClick;
     var classes = useImageSelectorStyles();
-    return (_jsxs("div", __assign({ className: clx(className, classes.container, variant === "circle" && classes.circle), style: { height: height, width: width, backgroundImage: "url(" + placeholder + ")" } }, { children: [_jsx("div", { className: "selectHover " + (variant === "circle" && "circle") }, void 0), _jsx("div", __assign({ className: "cameraIcon" }, { children: _jsx(CameraAltIcon, { style: { fontSize: "64px" }, onClick: onClick }, void 0) }), void 0)] }), void 0));
+    return (_jsxs("div", __assign({ className: clx(className, classes.container, variant === "circle" && classes.circle), style: { height: height, width: width, backgroundImage: "url(".concat(placeholder, ")") } }, { children: [_jsx("div", { className: "selectHover ".concat(variant === "circle" && "circle") }, void 0), _jsx("div", __assign({ className: "cameraIcon" }, { children: _jsx(CameraAltIcon, { style: { fontSize: "64px" }, onClick: onClick }, void 0) }), void 0)] }), void 0));
 };

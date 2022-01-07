@@ -4,7 +4,7 @@ export var uploadStyles = makeStyles(function (theme) { return ({
     root: {
         minwidth: "384px",
         borderRadius: theme.spacing(0.5),
-        border: "2px solid " + theme.design.colors.grey4,
+        border: "2px solid ".concat(theme.design.colors.grey4),
         color: theme.design.colors.grey2,
         fontWeight: "bold",
         padding: theme.spacing(2, 3),
@@ -15,9 +15,9 @@ export var uploadStyles = makeStyles(function (theme) { return ({
         textAlign: "center",
         color: theme.design.colors.grey2,
         margin: theme.spacing(3, 0),
-        border: "2px dashed " + theme.design.colors.grey4,
+        border: "2px dashed ".concat(theme.design.colors.grey4),
         "&:hover": {
-            border: "2px dashed " + theme.design.colors.red70,
+            border: "2px dashed ".concat(theme.design.colors.red70),
         },
     },
     uploadlogo: {

@@ -21,6 +21,6 @@ export var MenuCard = function (_a) {
     var className = _a.className, amount = _a.amount, details = _a.details, meal = _a.meal, image = _a.image;
     var classes = useMenuCardStyles();
     return (_jsx(Card, __assign({ className: clx(className, classes.root, classes.disableState), variant: "outlined" }, { children: _jsxs(CardContent, __assign({ className: classes.cardContents }, { children: [_jsx("div", __assign({ className: classes.outerBar }, { children: _jsx("div", { className: classes.imgField, style: {
-                            backgroundImage: "url(" + image + ")",
+                            backgroundImage: "url(".concat(image, ")"),
                         } }, void 0) }), void 0), _jsxs("div", __assign({ className: classes.mealDetail }, { children: [_jsx(Typography, __assign({ className: classes.mealName, variant: "h5" }, { children: meal }), void 0), _jsx(Typography, __assign({ className: classes.details }, { children: details }), void 0), _jsx(Typography, __assign({ className: classes.price }, { children: amount }), void 0)] }), void 0), _jsxs("div", __assign({ className: classes.icons }, { children: [_jsx(MoreVertIcon, { className: classes.vert }, void 0), _jsx(ToggleInput, { name: "" }, void 0)] }), void 0)] }), void 0) }), void 0));
 };

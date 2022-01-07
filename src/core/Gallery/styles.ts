@@ -2,44 +2,69 @@ import { makeStyles } from "@mui/styles";
 import { BaseTheme } from "theme";
 
 export const useGalleryStyles = makeStyles((theme: BaseTheme) => ({
-  galleryBox: {
-    maxWidth: "322px",
+  root: {
+    display: "flex",
+    flexWrap: "wrap",
+    justifyContent: "space-between",
+  },
+  item: {
+    flexShrink: 0,
+    width: "30%",
     height: "322px",
-    backgroundRepeat: "no-repeat",
-    backgroundSize: "cover !important",
-    backgroundPosition: "center !important",
-    transition: "opacity 0.5s ease-in",
     position: "relative",
+    cursor: "pointer",
+    border: `4px solid transparent`,
+    boxSizing: "border-box",
   },
-  checker: {
-    textAlign: "end",
+  itemImage: {
+    width: "100%",
+    height: "100%",
+    objectFit: "cover",
   },
-  border: {
-    border: `4px solid ${theme.design.colors.red70}`,
-  },
-  galleryHover: {
+  itemHover: {
     position: "absolute",
     top: 0,
     left: 0,
     width: "100%",
     height: "100%",
+    zIndex: -9999,
+    opacity: 0,
+    background:
+      "linear-gradient(180deg, rgba(0, 0, 0, 0) -9.73%, rgba(0, 0, 0, 0.8) 100%)",
+    transition: "opacity 0.5s ease-in",
+  },
+  itemHoverText: {
+    marginTop: "75%",
+    color: theme.design.colors.white,
+    textAlign: "center",
+    fontSize: "24px",
+    fontWeight: "bold",
+    cursor: "pointer",
+    zIndex: 10,
+  },
+  itemHoverActive: {
     zIndex: 5,
     opacity: 1,
-    background: "transparent",
-    "&:hover": {
-      background: "linear-gradient(rgba(0,0,0,0.2), rgba(0,0,0,0.7))",
-      "& p": {
-        visibility: "visible",
-      },
+  },
+  itemChecked: {
+    position: "absolute",
+    top: 0,
+    left: 0,
+    width: "100%",
+    height: "100%",
+    zIndex: -9999,
+    opacity: 0,
+    background: "rgba(255, 255, 255, 0.3)",
+    transition: "opacity 0.5s ease-in",
+
+    "& .checkbox": {
+      position: "absolute",
+      right: "1%",
     },
-    "& p": {
-      visibility: "hidden",
-      marginTop: "75%",
-      color: theme.design.colors.white,
-      textAlign: "center",
-      fontSize: "24px",
-      fontWeight: "bold",
-      cursor: "pointer",
-    },
+  },
+  itemCheckedActive: {
+    zIndex: 10,
+    opacity: 1,
+    border: `4px solid ${theme.design.colors.red}`,
   },
 }));

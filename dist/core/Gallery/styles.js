@@ -13,7 +13,7 @@ export var useGalleryStyles = makeStyles(function (theme) { return ({
         textAlign: "end",
     },
     border: {
-        border: "4px solid " + theme.design.colors.red70,
+        border: "4px solid ".concat(theme.design.colors.red70),
     },
     galleryHover: {
         position: "absolute",

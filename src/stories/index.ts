@@ -32,14 +32,11 @@ import {
 
 import {
   CheckBoxInput,
-  CheckBoxProps,
+  CheckBoxInputProps,
   ComboBoxInput,
   ComboBoxInputProps,
-  EmailInput,
-  EmailInputProps,
   ImageUploadInput,
   ImageUploadInputProps,
-  PasswordInput,
   RichTextInput,
   SelectInput,
   TagInput,
@@ -57,7 +54,6 @@ type ComponentPropType = {
   | ButtonStory
   | CardStory
   | CheckBoxStory
-  | EmailStory
   | LoaderStory
   | ComboBoxStory
   | TextStory
@@ -101,12 +97,7 @@ type CardStory = {
 
 type CheckBoxStory = {
   name: string;
-  props: CheckBoxProps;
-};
-
-type EmailStory = {
-  name: string;
-  props: EmailInputProps;
+  props: CheckBoxInputProps;
 };
 
 type ComboBoxStory = {
@@ -180,13 +171,14 @@ export const stories: ComponentPropType[] = [
     component: Accordion,
     props: {
       title: "Wazcom Accordion",
+      children: "This is an example Wazcom Accordion",
     },
   },
   {
     name: "breadcrumb",
     component: BreadCrumb,
     props: {
-      paths: [
+      crumbs: [
         {
           label: "Services",
           path: "/",
@@ -200,6 +192,7 @@ export const stories: ComponentPropType[] = [
           path: "/mob",
         },
       ],
+      handleClick: (path: string) => {},
     },
   },
   {
@@ -220,16 +213,15 @@ export const stories: ComponentPropType[] = [
         src: "https://images.unsplash.com/photo-1504674900247-0877df9cc836?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=2070&q=80",
         alt: "cooked dish on gray bowl",
       },
+      buttons: {
+        values: ["Read", "Check Out"],
+      },
+      align: "center",
     },
   },
   {
     name: "checkbox",
     component: CheckBoxInput,
-    props: {},
-  },
-  {
-    name: "email",
-    component: EmailInput,
     props: {},
   },
   {
@@ -245,14 +237,40 @@ export const stories: ComponentPropType[] = [
   {
     name: "text",
     component: TextInput,
-    props: {},
+    props: {
+      feedback: {
+        text: "Rebuilt successfully",
+        status: "success",
+      },
+    },
   },
   {
     name: "gallery",
     component: Gallery,
     props: {
-      image:
-        "https://images.unsplash.com/photo-1504674900247-0877df9cc836?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=2070&q=80",
+      items: [
+        {
+          image: {
+            src: "https://images.unsplash.com/photo-1504674900247-0877df9cc836?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=2070&q=80",
+            alt: "An Example Image",
+          },
+          id: 1,
+        },
+        {
+          image: {
+            src: "https://images.unsplash.com/photo-1504674900247-0877df9cc836?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=2070&q=80",
+            alt: "An Example Image",
+          },
+          id: 2,
+        },
+        {
+          image: {
+            src: "https://images.unsplash.com/photo-1504674900247-0877df9cc836?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=2070&q=80",
+            alt: "An Example Image",
+          },
+          id: 3,
+        },
+      ],
     },
   },
   {
@@ -284,11 +302,6 @@ export const stories: ComponentPropType[] = [
       image:
         "https://images.unsplash.com/photo-1504674900247-0877df9cc836?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=2070&q=80",
     },
-  },
-  {
-    name: "password",
-    component: PasswordInput,
-    props: {},
   },
   {
     name: "scheduler",

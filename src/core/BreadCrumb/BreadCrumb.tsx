@@ -6,39 +6,34 @@ import { Link } from "react-router-dom";
 import { BreadCrumbStyles } from "./styles";
 import { BreadCrumbProps } from "./types";
 
-export const BreadCrumb: FC<BreadCrumbProps> = ({ className, paths }) => {
+export const BreadCrumb: FC<BreadCrumbProps> = ({ className, crumbs, handleClick }) => {
   const classes = BreadCrumbStyles();
-  const handleClick = () => {
-    return;
-  };
 
   return (
     <div className={clx(className, classes.root)}>
-      {paths.map((crumb, index) => {
+      {crumbs.map((crumb, index) => {
         return (
           <Breadcrumbs
             key={index}
             separator={<NavigateNextIcon fontSize="small" />}
             aria-label="breadcrumb"
           >
-            <Link
+            <p
               color="inherit"
-              to={crumb.path}
-              onClick={handleClick}
+              onClick={() => { handleClick(crumb.path) }}
               className={clx(
                 classes.link,
-                index === paths.length - 1 && classes.lastCrumb,
+                index === crumbs.length - 1 && classes.lastCrumb,
               )}
-              aria-current="page"
             >
               {crumb.label}
-              {index !== paths.length - 1 && (
+              {index !== crumbs.length - 1 && (
                 <NavigateNextIcon
                   className={classes.navIcon}
                   fontSize="small"
                 />
               )}
-            </Link>
+            </p>
           </Breadcrumbs>
         );
       })}

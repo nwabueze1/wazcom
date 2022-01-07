@@ -5,7 +5,7 @@ export var useAccordionStyles = makeStyles(function (theme) { return ({
         backgroundColor: theme.design.colors.grey10,
         boxShadow: "0",
         borderRadius: 4,
-        border: "1px solid " + theme.design.colors.red50,
+        border: "1px solid ".concat(theme.design.colors.red50),
     },
     icon: {
         color: theme.design.colors.white,

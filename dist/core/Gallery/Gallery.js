@@ -18,8 +18,8 @@ export var Gallery = function (_a) {
     var classes = useGalleryStyles({ image: image });
     var onclick = function () { return setChecked(!checked); };
     var _b = useState(false), checked = _b[0], setChecked = _b[1];
-    var handlecheckChange = function (event) {
+    var handleCheckChange = function (event) {
         setChecked(!event.target.checked);
     };
-    return (_jsxs("div", __assign({ onClick: onclick, className: classes.galleryBox + " " + (checked ? classes.border : null) }, { children: [_jsx("div", { children: checked ? (_jsx("div", __assign({ className: classes.checker }, { children: _jsx(CheckBoxInput, { checked: true, handlecheckChange: handlecheckChange }, void 0) }), void 0)) : null }, void 0), _jsx("div", __assign({ className: classes.galleryHover }, { children: _jsx("p", { children: "Select post" }, void 0) }), void 0)] }), void 0));
+    return (_jsxs("div", __assign({ onClick: onclick, className: "".concat(classes.galleryBox, " ").concat(checked ? classes.border : null) }, { children: [_jsx("div", { children: checked ? (_jsx("div", __assign({ className: classes.checker }, { children: _jsx(CheckBoxInput, { checked: true, handleCheckChange: handleCheckChange }, void 0) }), void 0)) : null }, void 0), _jsx("div", __assign({ className: classes.galleryHover }, { children: _jsx("p", { children: "Select post" }, void 0) }), void 0)] }), void 0));
 };

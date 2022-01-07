@@ -20,7 +20,7 @@ export var useLoaderStyles = makeStyles(function (theme) { return ({
     },
     root: {
         width: "100%",
-        padding: theme.spacing(2) + " 0",
+        padding: "".concat(theme.spacing(2), " 0"),
         display: "flex",
         opacity: 1,
         justifyContent: "center",

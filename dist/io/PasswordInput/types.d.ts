@@ -1,7 +1,7 @@
 /// <reference types="react" />
 import { StyleProps } from "./styles";
 import { OutlinedInputProps } from "@mui/material";
-export interface PasswordFieldsProps extends OutlinedInputProps, StyleProps {
+export declare type PasswordInputProps = OutlinedInputProps & StyleProps & {
     siteName?: string;
     onChange: (event: React.ChangeEvent<{
         name?: string;
@@ -11,4 +11,4 @@ export interface PasswordFieldsProps extends OutlinedInputProps, StyleProps {
     error?: boolean;
     showInformation?: boolean;
     information?: string;
-}
+};
