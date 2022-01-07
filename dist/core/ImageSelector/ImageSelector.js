@@ -9,12 +9,12 @@ var __assign = (this && this.__assign) || function () {
     };
     return __assign.apply(this, arguments);
 };
-import { jsx as _jsx, jsxs as _jsxs } from "react/jsx-runtime";
+import { jsx as _jsx } from "react/jsx-runtime";
 import { useImageSelectorStyles } from "./styles";
 import clx from "classnames";
 import CameraAltIcon from "@mui/icons-material/CameraAlt";
 export var ImageSelector = function (_a) {
-    var variant = _a.variant, className = _a.className, height = _a.height, width = _a.width, placeholder = _a.placeholder, onClick = _a.onClick;
+    var variant = _a.variant, className = _a.className;
     var classes = useImageSelectorStyles();
-    return (_jsxs("div", __assign({ className: clx(className, classes.container, variant === "circle" && classes.circle), style: { height: height, width: width, backgroundImage: "url(".concat(placeholder, ")") } }, { children: [_jsx("div", { className: "selectHover ".concat(variant === "circle" && "circle") }, void 0), _jsx("div", __assign({ className: "cameraIcon" }, { children: _jsx(CameraAltIcon, { style: { fontSize: "64px" }, onClick: onClick }, void 0) }), void 0)] }), void 0));
+    return (_jsx("div", __assign({ className: clx(className, classes.root, variant === "circle" && classes.circle) }, { children: _jsx(CameraAltIcon, { className: classes.cameraIcon }, void 0) }), void 0));
 };

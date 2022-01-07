@@ -7,8 +7,6 @@ import CameraAltIcon from "@mui/icons-material/CameraAlt";
 export const ImageSelector: FC<ImageSelectorProps> = ({
   variant,
   className,
-  height,
-  width,
 }) => {
   const classes = useImageSelectorStyles();
   return (

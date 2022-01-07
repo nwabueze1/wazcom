@@ -23,8 +23,27 @@ var __rest = (this && this.__rest) || function (s, e) {
 import { jsx as _jsx, jsxs as _jsxs } from "react/jsx-runtime";
 import { OutlinedInput, InputLabel } from "@mui/material";
 import { useTextStyles } from "./styles";
+import Typography from "@mui/material/Typography";
+import clx from 'classnames';
 export var TextInput = function (_a) {
-    var label = _a.label, props = __rest(_a, ["label"]);
+    var label = _a.label, feedback = _a.feedback, props = __rest(_a, ["label", "feedback"]);
     var classes = useTextStyles();
-    return (_jsxs("div", __assign({ className: classes.root }, { children: [label && (_jsx(InputLabel, __assign({ className: classes.label, htmlFor: props.name }, { children: label }), void 0)), _jsx(OutlinedInput, __assign({}, props), void 0)] }), void 0));
+    var getFeedbackVariant = function () {
+        var feedbackVariant;
+        switch (feedback.status) {
+            case "success":
+                feedbackVariant = classes.feedbackSuccess;
+                break;
+            case "error":
+                feedbackVariant = classes.feedbackError;
+                break;
+            case "neutral":
+                feedbackVariant = classes.feedbackNeutral;
+                break;
+            default:
+                feedbackVariant = classes.feedbackNeutral;
+        }
+        return feedbackVariant;
+    };
+    return (_jsxs("div", __assign({ className: classes.root }, { children: [label && (_jsx(InputLabel, __assign({ className: classes.label, htmlFor: props.name }, { children: label }), void 0)), _jsx(OutlinedInput, __assign({}, props), void 0), feedback && _jsx(Typography, __assign({ className: clx(classes.feedback, getFeedbackVariant()) }, { children: feedback.text }), void 0)] }), void 0));
 };

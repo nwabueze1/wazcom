@@ -1,1 +1,1 @@
-export declare const useGalleryStyles: (props?: any) => import("@mui/styles").ClassNameMap<"border" | "galleryBox" | "checker" | "galleryHover">;
+export declare const useGalleryStyles: (props?: any) => import("@mui/styles").ClassNameMap<"root" | "item" | "itemImage" | "itemHover" | "itemHoverText" | "itemHoverActive" | "itemChecked" | "itemCheckedActive">;
