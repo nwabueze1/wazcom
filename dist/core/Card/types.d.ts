@@ -6,4 +6,10 @@ export declare type CardProps = CommonProps & {
     };
     title: string;
     content: string;
+    align: "left" | "center" | "right";
+    buttons?: {
+        values: string[];
+        handleClick?: (path?: string) => void;
+        size?: "small" | "large";
+    };
 };

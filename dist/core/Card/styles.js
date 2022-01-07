@@ -1,11 +1,21 @@
 import makeStyles from "@mui/styles/makeStyles";
 export var useCardStyles = makeStyles(function (theme) { return ({
     root: {
-        width: "384px",
-        height: "480px",
-        padding: theme.spacing(1, 1),
+        width: "100%",
+        display: "flex",
+        flexDirection: "column",
+    },
+    leftAlign: {
+        textAlign: "left",
+        alignItems: "left",
+    },
+    centerAlign: {
         textAlign: "center",
-        borderRadius: theme.spacing(1),
+        alignItems: "center",
+    },
+    rightAlign: {
+        textAlign: "right",
+        alignItems: "right",
     },
     regtext: {
         color: theme.design.colors.sunRed,

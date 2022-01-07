@@ -1,2 +1,7 @@
 import { OutlinedInputProps } from "@mui/material";
-export declare type TextInputProps = OutlinedInputProps & any;
+export declare type TextInputProps = OutlinedInputProps & {
+    feedback?: {
+        text: string;
+        status?: "success" | "neutral" | "error";
+    };
+} & any;

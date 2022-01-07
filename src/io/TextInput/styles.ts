@@ -1,6 +1,6 @@
 import makeStyles from '@mui/styles/makeStyles';
 
-export const useTextStyles = makeStyles((theme) => ({
+export const useTextStyles = makeStyles(() => ({
   root: {
     display: "flex",
     flexDirection: "column",
@@ -12,7 +12,7 @@ export const useTextStyles = makeStyles((theme) => ({
     fontWeight: 700,
   },
   feedback: {
-    marginTop: theme.spacing(2),
+    marginTop: 16,
   },
   feedbackSuccess: {
     color: 'green',
