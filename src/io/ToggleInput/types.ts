@@ -1,10 +1,7 @@
-export type ToggleInputProps = {
-  name: string;
+import { SwitchProps as MuiToggleProps } from "@mui/material";
+import { CommonProps } from '../../types';
+
+export type ToggleInputProps = CommonProps & MuiToggleProps & {
   label?: string;
-  value?: boolean;
-  onChange?: (
-    event: React.ChangeEvent<HTMLInputElement>,
-    checked: boolean,
-  ) => void;
   helperText?: string;
-};
+}

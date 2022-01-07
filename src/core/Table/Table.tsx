@@ -1,3 +1,4 @@
+import React from "react";
 import { TableProps } from "./types";
 import { useTableStyles } from "./styles";
 import {
@@ -11,7 +12,7 @@ import {
   Checkbox,
 } from "@mui/material";
 
-export const Table = ({ headers, data, ...props }: TableProps) => {
+export const Table = ({ headers, data, hasCheckBox, ...props }: TableProps) => {
   const classes = useTableStyles();
 
   return (
@@ -22,13 +23,19 @@ export const Table = ({ headers, data, ...props }: TableProps) => {
         }}
         {...props}
       >
-        <TableHead>
+        <TableHead className={classes.tableHead}>
           <TableRow>
-            <TableCell padding="checkbox">
-              <Checkbox />
-            </TableCell>
+            {hasCheckBox && (
+              <TableCell padding="checkbox">
+                <Checkbox />
+              </TableCell>
+            )}
             {headers.map(({ name, label }) => {
-              return <TableCell key={name}>{label}</TableCell>;
+              return (
+                <TableCell className={classes.tableHeadCell} key={name}>
+                  {label}
+                </TableCell>
+              );
             })}
           </TableRow>
         </TableHead>
@@ -36,11 +43,17 @@ export const Table = ({ headers, data, ...props }: TableProps) => {
           {data?.map((row: any, index: number) => {
             return (
               <TableRow key={index}>
-                <TableCell padding="checkbox">
-                  <Checkbox />
-                </TableCell>
+                {hasCheckBox && (
+                  <TableCell padding="checkbox">
+                    <Checkbox />
+                  </TableCell>
+                )}
                 {headers.map(({ name }) => {
-                  return <TableCell key={name}>{row?.[name]}</TableCell>;
+                  return (
+                    <TableCell key={name} className={classes.tableCell}>
+                      {row?.[name]}
+                    </TableCell>
+                  );
                 })}
               </TableRow>
             );

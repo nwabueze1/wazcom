@@ -9,8 +9,7 @@ export const useToggleStyles = makeStyles((theme: Theme) => ({
     justifyContent: "space-between",
   },
   label: {
-    // fontSize: "1rem",
-    color: "#000",
+    color: theme.design.colors.black,
   },
   addon: {
     width: "30%",
@@ -21,11 +20,9 @@ export const useToggleStyles = makeStyles((theme: Theme) => ({
     display: "flex",
   },
   helperText: {
-    color: "#FF0000",
-    margin: "0",
+    color: theme.design.colors.black,
   },
   toggle: {
-    // padding: `${theme.spacing(1)} 0`,
-    margin: `${theme.spacing(1)} 0`,
+    marginTop: theme.spacing(1),
   },
 }));

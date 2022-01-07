@@ -6,20 +6,18 @@ import { ToggleInputProps } from "./types";
 export const ToggleInput: React.FC<ToggleInputProps> = ({
   name,
   label,
-  value,
-  onChange,
   helperText,
+  ...props
 }) => {
   const classes = useToggleStyles();
 
   return (
     <div className={classes.root}>
-      <FormLabel className={classes.label}>{label}</FormLabel>
+      {label && <FormLabel className={classes.label}>{label}</FormLabel>}
       <Switch
         className={classes.toggle}
-        onChange={onChange}
-        checked={value}
         name={name}
+        {...props}
       />
       {helperText && <p className={classes.helperText}>{helperText}</p>}
     </div>

@@ -13,8 +13,8 @@ import {
   GalleryProps,
   ImageSelector,
   ImageSelectorProps,
-  MenuTable,
-  MenuTableProps,
+  Table,
+  TableProps,
   MenuCard,
   MenuCardProps,
   Scheduler,
@@ -60,7 +60,7 @@ type ComponentPropType = {
   | GalleryStory
   | ImageSelectorStory
   | ToggleStory
-  | MenuTableStory
+  | TableStory
   | MenuCardStory
   | SchedulerStory
   | DisplayCardStory
@@ -125,9 +125,9 @@ type ToggleStory = {
   props: ToggleInputProps;
 };
 
-type MenuTableStory = {
+type TableStory = {
   name: string;
-  props: MenuTableProps;
+  props: TableProps;
 };
 
 type MenuCardStory = {
@@ -274,21 +274,37 @@ export const stories: ComponentPropType[] = [
     },
   },
   {
-    name: "imageselector",
+    name: "Image Selector",
     component: ImageSelector,
-    props: {},
-  },
-  {
-    name: "toggle",
-    component: ToggleInput,
-    props: {},
-  },
-  {
-    name: "menutable",
-    component: MenuTable,
     props: {
-      rows: [
-        { id: 1, Menu: "Breakfast", day: "yesterday", Schedule: "9am-6pm" },
+      variant: "circle",
+    },
+  },
+  {
+    name: "Toggle",
+    component: ToggleInput,
+    props: {
+      label: "leke",
+      helperText: "aoaala",
+    },
+  },
+  {
+    name: "Table",
+    component: Table,
+    props: {
+      headers: [
+        {
+          name: "menu",
+          label: "menu",
+        },
+        {
+          name: "laptop",
+          label: "laptop",
+        },
+        {
+          name: "laptop",
+          label: "laptop",
+        },
       ],
     },
   },
