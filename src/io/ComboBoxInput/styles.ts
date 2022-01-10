@@ -1,6 +1,7 @@
-import makeStyles from '@mui/styles/makeStyles';
+import makeStyles from "@mui/styles/makeStyles";
+import { Theme } from "@mui/material";
 
-export const useComboBoxStyles = makeStyles(() => ({
+export const useComboBoxStyles = makeStyles((theme: Theme) => ({
   root: {
     display: "flex",
     flexDirection: "column",
@@ -11,9 +12,8 @@ export const useComboBoxStyles = makeStyles(() => ({
     fontSize: "1rem",
     fontWeight: 700,
   },
-  error_message: {
-    color: "#EA3C53",
-    margin: "0.8vh 0 0 0",
-    fontSize: "16px",
+  helperText: {
+    marginTop: theme.spacing(2),
+    fontSize: theme.typography.fontSize,
   },
 }));

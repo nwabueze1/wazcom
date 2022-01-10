@@ -1,4 +1,4 @@
-import { CommonProps } from "../types";
+import { CommonProps } from "../../types";
 export declare type CardProps = CommonProps & {
     image: {
         src: string;

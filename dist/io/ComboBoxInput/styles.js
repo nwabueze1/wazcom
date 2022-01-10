@@ -1,5 +1,5 @@
-import makeStyles from '@mui/styles/makeStyles';
-export var useComboBoxStyles = makeStyles(function () { return ({
+import makeStyles from "@mui/styles/makeStyles";
+export var useComboBoxStyles = makeStyles(function (theme) { return ({
     root: {
         display: "flex",
         flexDirection: "column",
@@ -10,9 +10,8 @@ export var useComboBoxStyles = makeStyles(function () { return ({
         fontSize: "1rem",
         fontWeight: 700,
     },
-    error_message: {
-        color: "#EA3C53",
-        margin: "0.8vh 0 0 0",
-        fontSize: "16px",
+    helperText: {
+        marginTop: theme.spacing(2),
+        fontSize: theme.typography.fontSize,
     },
 }); });

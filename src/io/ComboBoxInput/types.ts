@@ -1,9 +1,6 @@
-export interface ComboBoxInputProps {
-  name: string;
-  label?: string;
-  onChange?: (event: React.ChangeEvent<any>) => void;
-  error?: boolean;
-  comboData?: string[];
-  placeholder?: string;
-  value?: string;
+import { CommonProps } from '../../types';
+import { AutocompleteProps, TextFieldProps } from '@mui/material'
+
+export type ComboBoxInputProps = CommonProps & AutocompleteProps<any, undefined, undefined, undefined> & TextFieldProps & {
+  helperText?: string;
 }

@@ -17,8 +17,6 @@ import {
   TableProps,
   MenuCard,
   MenuCardProps,
-  Scheduler,
-  SchedulerProps,
   DisplayCard,
   DisplayCardProps,
   Notification,
@@ -36,8 +34,11 @@ import {
   ImageUploadInput,
   ImageUploadInputProps,
   RichTextInput,
+  RichTextInputProps,
   SelectInput,
+  SelectInputProps,
   TagInput,
+  TagInputProps,
   TextInput,
   TextInputProps,
   ToggleInput,
@@ -60,11 +61,13 @@ type ComponentPropType = {
   | ToggleStory
   | TableStory
   | MenuCardStory
-  | SchedulerStory
   | DisplayCardStory
   | NotificationStory
   | RadioButtonStory
   | ImageUploadStory
+  | SelectStory
+  | TagStory
+  | RichTextStory
 );
 
 type AccordionStory = {
@@ -132,11 +135,6 @@ type MenuCardStory = {
   props: MenuCardProps;
 };
 
-type SchedulerStory = {
-  name: string;
-  props: SchedulerProps;
-};
-
 type DisplayCardStory = {
   name: string;
   props: DisplayCardProps;
@@ -155,6 +153,21 @@ type RadioButtonStory = {
 type ImageUploadStory = {
   name: string;
   props: ImageUploadInputProps;
+};
+
+type SelectStory = {
+  name: string;
+  props: SelectInputProps;
+};
+
+type TagStory = {
+  name: string;
+  props: TagInputProps;
+};
+
+type RichTextStory = {
+  name: string;
+  props: RichTextInputProps;
 };
 
 export const stories: ComponentPropType[] = [
@@ -224,7 +237,11 @@ export const stories: ComponentPropType[] = [
   {
     name: "combobox",
     component: ComboBoxInput,
-    props: {},
+    props: {
+      options: ["Mario", "Emmanuel", "Onuchukwu", "Basit", "Hamza"],
+      placeholder: "Select Wazobia Member",
+      helperText: "No wazobia member selected",
+    },
   },
   {
     name: "text",
@@ -326,25 +343,25 @@ export const stories: ComponentPropType[] = [
       title: "Jollof Rice",
       description: "spicy Fried Rice",
       image: {
-        src:"https://images.unsplash.com/photo-1504674900247-0877df9cc836?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=2070&q=80",
+        src: "https://images.unsplash.com/photo-1504674900247-0877df9cc836?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=2070&q=80",
       },
       status: true,
     },
   },
   {
-    name: "scheduler",
-    component: Scheduler,
-    props: {},
-  },
-  {
     name: "displayCard",
     component: DisplayCard,
-    props: { total: 30, title: "Pending Orders", color:"blue" },
+    props: { total: 30, title: "Pending Orders", color: "blue" },
   },
   {
     name: "notification",
     component: Notification,
-    props: { title:"Khalid is a bad ass rapper", status: "Success", message:"The New Dawn is upon us", statusAlert:"Jill Biden" },
+    props: {
+      title: "Khalid is a bad ass rapper",
+      status: "Success",
+      message: "The New Dawn is upon us",
+      statusAlert: "Jill Biden",
+    },
   },
   {
     name: "radiobutton",
@@ -354,6 +371,57 @@ export const stories: ComponentPropType[] = [
   {
     name: "carousel",
     component: Carousel,
-    props: {},
+    props: {
+      items: [
+        {
+          label: "San Francisco – Oakland Bay Bridge, United States",
+          image: {
+            src: "https://images.unsplash.com/photo-1537944434965-cf4679d1a598?auto=format&fit=crop&w=400&h=250&q=60",
+          },
+        },
+        {
+          label: "Bird",
+          image: {
+            src: "https://images.unsplash.com/photo-1538032746644-0212e812a9e7?auto=format&fit=crop&w=400&h=250&q=60",
+          },
+        },
+        {
+          label: "Bali, Indonesia",
+          image: {
+            src: "https://images.unsplash.com/photo-1538032746644-0212e812a9e7?auto=format&fit=crop&w=400&h=250&q=60",
+          },
+        },
+        {
+          label: "Goč, Serbia",
+          image: {
+            src: "https://images.unsplash.com/photo-1512341689857-198e7e2f3ca8?auto=format&fit=crop&w=400&h=250&q=60",
+          },
+        },
+      ],
+    },
+  },
+  {
+    name: "Select",
+    component: SelectInput,
+    props: {
+      options: [
+        { label: "Basit", value: "basit" },
+        { label: "Chinazom", value: "chinazom" },
+      ],
+    },
+  },
+  {
+    name: "Tags",
+    component: TagInput,
+    props: {
+      tags: ["Work", "Vibes"],
+    },
+  },
+  {
+    name: "Rich Text",
+    component: RichTextInput,
+    props: {
+      apiKey: "",
+    },
   },
 ];

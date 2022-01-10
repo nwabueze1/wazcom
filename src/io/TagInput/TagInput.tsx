@@ -8,15 +8,17 @@ export const TagInput: FC<TagInputProps> = ({
   label,
   name,
   onChange,
-  error,
+  placeholder,
   tags,
 }) => {
   const classes = useTaggableStyles();
   return (
     <div className={classes.root}>
-      <InputLabel className={classes.label} htmlFor={name}>
-        {label}
-      </InputLabel>
+      {label && (
+        <InputLabel className={classes.label} htmlFor={name}>
+          {label}
+        </InputLabel>
+      )}
       <Autocomplete
         multiple
         options={tags}
@@ -33,14 +35,13 @@ export const TagInput: FC<TagInputProps> = ({
           <TextField
             {...params}
             variant="outlined"
-            name="tags"
-            placeholder="Add tags"
+            name={name ?? "tags"}
+            placeholder={placeholder ?? "Add tags"}
             fullWidth
             className={`${classes.autoCompleteField}`}
           />
         )}
       />
-      {error && <p className={classes.error_message}>tags is required</p>}
     </div>
   );
 };

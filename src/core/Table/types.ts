@@ -1,8 +1,8 @@
 import { TableProps as MuiTableProps } from '@mui/material';
-import { CommonProps } from '../types';
+import { CommonProps } from '../../types';
 
 /** !!-- Remember to update the interface name !! */
-export type TableProps = MuiTableProps & CommonProps & {
+export type TableProps = CommonProps & MuiTableProps & {
   headers: TableHeaderContentProps;
   data: TableDataProps;
   hasCheckBox?: boolean;

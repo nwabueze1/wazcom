@@ -1,8 +1,9 @@
+import { CommonProps } from "../../types";
 import { SelectProps as MuiSelectProps } from "@mui/material";
 
-export type SelectInputProps = MuiSelectProps & {
+export type SelectInputProps = CommonProps & MuiSelectProps & {
   options?: {
     label: string;
-    value: any;
+    value: string;
   }[];
 };

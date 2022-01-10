@@ -14,7 +14,7 @@ import Autocomplete from "@mui/material/Autocomplete";
 import { InputLabel, TextField } from "@mui/material";
 import { useComboBoxStyles } from "./styles";
 export var ComboBoxInput = function (_a) {
-    var name = _a.name, onChange = _a.onChange, error = _a.error, comboData = _a.comboData, label = _a.label, value = _a.value;
+    var name = _a.name, onChange = _a.onChange, options = _a.options, label = _a.label, value = _a.value, placeholder = _a.placeholder, helperText = _a.helperText;
     var classes = useComboBoxStyles();
-    return (_jsxs("div", __assign({ className: classes.root }, { children: [_jsx(InputLabel, __assign({ className: classes.label, htmlFor: name }, { children: label }), void 0), _jsx(Autocomplete, { options: comboData !== null && comboData !== void 0 ? comboData : [""], getOptionLabel: function (option) { return option; }, style: { width: 300 }, onChange: onChange, value: value, renderInput: function (params) { return (_jsx(TextField, __assign({}, params, { label: label, variant: "outlined" }), void 0)); } }, void 0), error && (_jsxs("p", __assign({ className: classes.error_message }, { children: [name === null || name === void 0 ? void 0 : name.replace(/_/g, " "), " is required"] }), void 0))] }), void 0));
+    return (_jsxs("div", __assign({ className: classes.root }, { children: [label && (_jsx(InputLabel, __assign({ className: classes.label, htmlFor: name }, { children: label }), void 0)), _jsx(Autocomplete, { options: options !== null && options !== void 0 ? options : [""], getOptionLabel: function (option) { return option; }, style: { width: 300 }, onChange: onChange, value: value, renderInput: function (params) { return (_jsx(TextField, __assign({}, params, { label: label, placeholder: placeholder, variant: "outlined" }), void 0)); } }, void 0), helperText && _jsx("p", __assign({ className: classes.helperText }, { children: helperText }), void 0)] }), void 0));
 };

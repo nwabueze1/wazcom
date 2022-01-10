@@ -14,11 +14,11 @@ import Autocomplete from "@mui/material/Autocomplete";
 import { Chip, TextField, InputLabel } from "@mui/material";
 import { useTaggableStyles } from "./styles";
 export var TagInput = function (_a) {
-    var label = _a.label, name = _a.name, onChange = _a.onChange, error = _a.error, tags = _a.tags;
+    var label = _a.label, name = _a.name, onChange = _a.onChange, placeholder = _a.placeholder, tags = _a.tags;
     var classes = useTaggableStyles();
-    return (_jsxs("div", __assign({ className: classes.root }, { children: [_jsx(InputLabel, __assign({ className: classes.label, htmlFor: name }, { children: label }), void 0), _jsx(Autocomplete, { multiple: true, options: tags, freeSolo: true, value: tags, onChange: onChange, renderTags: function (value, getTagProps) {
+    return (_jsxs("div", __assign({ className: classes.root }, { children: [label && (_jsx(InputLabel, __assign({ className: classes.label, htmlFor: name }, { children: label }), void 0)), _jsx(Autocomplete, { multiple: true, options: tags, freeSolo: true, value: tags, onChange: onChange, renderTags: function (value, getTagProps) {
                     return value.map(function (value, index) { return (
                     // eslint-disable-next-line react/jsx-key
                     _jsx(Chip, __assign({ label: value }, getTagProps({ index: index })), void 0)); });
-                }, renderInput: function (params) { return (_jsx(TextField, __assign({}, params, { variant: "outlined", name: "tags", placeholder: "Add tags", fullWidth: true, className: "".concat(classes.autoCompleteField) }), void 0)); } }, void 0), error && _jsx("p", __assign({ className: classes.error_message }, { children: "tags is required" }), void 0)] }), void 0));
+                }, renderInput: function (params) { return (_jsx(TextField, __assign({}, params, { variant: "outlined", name: name !== null && name !== void 0 ? name : "tags", placeholder: placeholder !== null && placeholder !== void 0 ? placeholder : "Add tags", fullWidth: true, className: "".concat(classes.autoCompleteField) }), void 0)); } }, void 0)] }), void 0));
 };

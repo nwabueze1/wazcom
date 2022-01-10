@@ -9,16 +9,15 @@ import KeyboardArrowLeft from "@mui/icons-material/KeyboardArrowLeft";
 import KeyboardArrowRight from "@mui/icons-material/KeyboardArrowRight";
 import SwipeableViews from "react-swipeable-views";
 import { autoPlay } from "react-swipeable-views-utils";
-import { Data } from "./mock";
 import { FC } from "react";
 import { CarouselProps } from "./types";
 
 const AutoPlaySwipeableViews = autoPlay(SwipeableViews);
 
-export const Carousel: FC<CarouselProps> = () => {
+export const Carousel: FC<CarouselProps> = ({ items }) => {
   const theme = useTheme();
   const [activeStep, setActiveStep] = React.useState(0);
-  const maxSteps = Data.length;
+  const maxSteps = items.length;
 
   const handleNext = React.useCallback(() => {
     setActiveStep(activeStep + 1);
@@ -45,7 +44,7 @@ export const Carousel: FC<CarouselProps> = () => {
           bgcolor: "background.default",
         }}
       >
-        <Typography>{Data[activeStep].label}</Typography>
+        <Typography>{items[activeStep].label}</Typography>
       </Paper>
       <AutoPlaySwipeableViews
         axis={theme.direction === "rtl" ? "x-reverse" : "x"}
@@ -53,12 +52,11 @@ export const Carousel: FC<CarouselProps> = () => {
         onChangeIndex={handleStepChange}
         enableMouseEvents
       >
-        {Data.map((step, index) => (
-          <div key={step.label}>
+        {items.map(({ image:{ src, alt }, label }, index) => (
+          <div key={index}>
             {Math.abs(activeStep - index) <= 2 ? (
               <Box
                 component="img"
-                onClick={() => { handleStepChange(index) }}
                 sx={{
                   height: 255,
                   display: "block",
@@ -66,8 +64,8 @@ export const Carousel: FC<CarouselProps> = () => {
                   overflow: "hidden",
                   width: "100%",
                 }}
-                src={step.imgPath}
-                alt={step.label}
+                src={src}
+                alt={alt ?? label}
               />
             ) : null}
           </div>

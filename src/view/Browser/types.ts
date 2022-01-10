@@ -1,2 +1,2 @@
-import { CommonProps } from "../../core/types";
+import { CommonProps } from "../../types";
 export type BrowserProps = CommonProps;

@@ -1,4 +1,5 @@
 /// <reference types="react" />
+import { CommonProps } from '../../types';
 export declare type ImageUploadStyleProps = {
     width?: string;
     height?: string;
@@ -6,7 +7,7 @@ export declare type ImageUploadStyleProps = {
     uploadedImgPadding?: string;
     uploadButtonPadding?: string;
 };
-export declare type ImageUploadInputProps = ImageUploadStyleProps & {
+export declare type ImageUploadInputProps = CommonProps & ImageUploadStyleProps & {
     props?: any;
     name?: string;
     error?: boolean;

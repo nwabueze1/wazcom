@@ -7,6 +7,7 @@ export const useSelectStyles = makeStyles((theme: Theme) => ({
     padding: "4px 13px",
     fontSize: "16px",
     color: theme.design.colors.grey,
+    width: 300,
   },
   error: {
     color: "#EA3C53",

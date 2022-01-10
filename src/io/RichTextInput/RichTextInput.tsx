@@ -1,46 +1,52 @@
 import * as React from "react";
-import { FormLabel, OutlinedInput } from "@mui/material";
-import { useTextareaStyles } from "./styles";
+import { Editor } from "@tinymce/tinymce-react";
+import { useRichInputStyles } from "./styles";
 import { RichTextInputProps } from "./types";
 
+export const plugins = [
+  "advlist autolink lists link image code",
+  "charmap print preview anchor help",
+  "searchreplace visualblocks code",
+  "insertdatetime media table paste wordcount",
+];
+
+export const toolbar = [
+  "undo redo | formatselect | link image | bold italic | \
+    alignleft aligncenter alignright | \
+    bullist numlist outdent indent | help",
+];
+
 export const RichTextInput: React.FC<RichTextInputProps> = ({
-  label,
-  placeholder,
-  name,
-  onChange,
-  error,
-  showInformation,
-  information,
-  type,
+  apiKey,
   value,
-  maxLength,
-  disabled,
+  handleContentChange,
+  upload,
+  Loader
 }) => {
-  const classes = useTextareaStyles();
+  const classes = useRichInputStyles();
+  const [loading, setLoading] = React.useState<boolean>(false);
 
   return (
     <div className={classes.root}>
-      {label && <FormLabel className={classes.label}>{label}</FormLabel>}
-      <div className={classes.input_parent}>
-        <OutlinedInput
-          placeholder={value ? value : placeholder}
-          name={name}
-          rows={5}
-          multiline
-          onChange={onChange}
-          type={type}
-          error={error}
-          value={value}
-          disabled={disabled}
-          className={(classes.input, classes.customTextField)}
-          inputProps={{
-            maxLength: maxLength,
-          }}
-        />
-        {showInformation && (
-          <div className={classes.information}>{information}</div>
-        )}
-      </div>
+      <Editor
+        value={value}
+        apiKey={apiKey}
+        init={{
+          height: 500,
+          menubar: true,
+          image_title: true,
+          automatic_uploads: true,
+          file_picker_types: "image",
+          paste_data_images: true,
+          file_picker_callback: (cb: any) => {
+            upload?.(cb, setLoading);
+          },
+          plugins,
+          toolbar,
+        }}
+        onEditorChange={handleContentChange}
+      />
+      {loading && Loader}
     </div>
   );
 };

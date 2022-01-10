@@ -1,3 +1,5 @@
+import { CommonProps } from '../../types';
+
 export type ImageUploadStyleProps = {
   width?: string;
   height?: string;
@@ -6,10 +8,9 @@ export type ImageUploadStyleProps = {
   uploadButtonPadding?: string;
 };
 
-export type ImageUploadInputProps = ImageUploadStyleProps & {
+export type ImageUploadInputProps = CommonProps & ImageUploadStyleProps & {
   props?: any;
   name?: string;
-
   error?: boolean;
   label?: React.ReactNode;
   placeholder?: string;

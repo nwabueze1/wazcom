@@ -1,7 +1,8 @@
-import { CommonProps } from "../types";
+import { CommonProps } from "../../types";
 
 export type ImageSelectorProps = CommonProps & {
   variant: "circle" | "square";
+  src?: string;
   size?: "sm" | "md" | "lg" | "xl",
   formats?: string[];
   maxImageSize?: number;

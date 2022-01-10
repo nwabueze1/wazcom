@@ -15,7 +15,7 @@ import { useImageSelectorStyles } from "./styles";
 import clx from "classnames";
 import CameraAltIcon from "@mui/icons-material/CameraAlt";
 export var ImageSelector = function (_a) {
-    var variant = _a.variant, className = _a.className, _b = _a.size, size = _b === void 0 ? "md" : _b, _c = _a.maxImageSize, maxImageSize = _c === void 0 ? 2000000 : _c, _d = _a.formats, formats = _d === void 0 ? ["jpg", "jpeg", "png"] : _d, onSelect = _a.onSelect;
+    var variant = _a.variant, src = _a.src, className = _a.className, _b = _a.size, size = _b === void 0 ? "md" : _b, _c = _a.maxImageSize, maxImageSize = _c === void 0 ? 2000000 : _c, _d = _a.formats, formats = _d === void 0 ? ["jpg", "jpeg", "png"] : _d, onSelect = _a.onSelect;
     var classes = useImageSelectorStyles();
     var _e = useState(false), selected = _e[0], setSelected = _e[1];
     var inputRef = useRef();
@@ -67,5 +67,5 @@ export var ImageSelector = function (_a) {
         return sizeVariants;
     };
     var variants = getSizeVariants();
-    return (_jsxs("div", __assign({ className: clx(className, classes.root, variant === "circle" && classes.circle, variants[0]), onClick: fileInputClick }, { children: [_jsx(CameraAltIcon, { className: clx(classes.cameraIcon, variants[1]) }, void 0), _jsx("input", { type: "file", ref: inputRef, onChange: handleSelect, hidden: true }, void 0), selected && (_jsx("img", { ref: imgRef, className: clx(classes.image, variant === "circle" && classes.circle) }, void 0))] }), void 0));
+    return (_jsxs("div", __assign({ className: clx(className, classes.root, variant === "circle" && classes.circle, variants[0]), onClick: fileInputClick }, { children: [_jsx(CameraAltIcon, { className: clx(classes.cameraIcon, variants[1]) }, void 0), _jsx("input", { type: "file", ref: inputRef, onChange: handleSelect, hidden: true }, void 0), selected || src && (_jsx("img", { ref: imgRef, src: src, className: clx(classes.image, variant === "circle" && classes.circle) }, void 0))] }), void 0));
 };

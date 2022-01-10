@@ -6,6 +6,7 @@ import CameraAltIcon from "@mui/icons-material/CameraAlt";
 
 export const ImageSelector: FC<ImageSelectorProps> = ({
   variant,
+  src,
   className,
   size = "md",
   maxImageSize = 2000000,
@@ -86,9 +87,10 @@ export const ImageSelector: FC<ImageSelectorProps> = ({
     >
       <CameraAltIcon className={clx(classes.cameraIcon, variants[1])} />
       <input type="file" ref={inputRef} onChange={handleSelect} hidden />
-      {selected && (
+      {selected || src && (
         <img
           ref={imgRef}
+          src={src}
           className={clx(classes.image, variant === "circle" && classes.circle)}
         />
       )}

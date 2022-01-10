@@ -1,5 +1,5 @@
 /// <reference types="react" />
-import { CommonProps } from "../../core/types";
+import { CommonProps } from "../../types";
 export declare type CheckBoxInputProps = CommonProps & {
     label?: string;
     checked?: boolean;

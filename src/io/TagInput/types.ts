@@ -1,11 +1,9 @@
-export type TagInputProps = {
-  name?: string;
-  error?: boolean;
-  label?: React.ReactNode;
-  placeholder?: string;
-  onChange?: (
-    event: React.ChangeEvent<string | unknown>,
-    tags: string[],
-  ) => void;
-  tags: string[];
-};
+import { CommonProps } from '../../types';
+import { AutocompleteProps, TextFieldProps } from "@mui/material";
+
+export type TagInputProps = CommonProps &
+  AutocompleteProps<any, undefined, undefined, undefined> &
+  TextFieldProps & {
+    tags: string[]
+  }
+   

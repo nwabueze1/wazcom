@@ -24,11 +24,10 @@ import { jsx as _jsx, jsxs as _jsxs } from "react/jsx-runtime";
 import { MenuItem, Select } from "@mui/material";
 import { useSelectStyles } from "./styles";
 export var SelectInput = function (_a) {
-    var options = _a.options, placeholder = _a.placeholder, props = __rest(_a, ["options", "placeholder"]);
+    var _b = _a.options, options = _b === void 0 ? [] : _b, _c = _a.placeholder, placeholder = _c === void 0 ? "Select a value" : _c, props = __rest(_a, ["options", "placeholder"]);
     var classes = useSelectStyles();
-    return (_jsxs(Select, __assign({ className: classes.root }, props, { children: [props.displayEmpty && _jsx(MenuItem, __assign({ value: "" }, { children: placeholder }), void 0), options &&
-                options.map(function (_a, index) {
-                    var label = _a.label, value = _a.value;
-                    return (_jsx(MenuItem, __assign({ value: value }, { children: label }), index));
-                })] }), void 0));
+    return (_jsxs(Select, __assign({ className: classes.root }, props, { children: [options.length === 0 && _jsx(MenuItem, __assign({ value: "Select a value" }, { children: placeholder }), void 0), options.map(function (_a, index) {
+                var label = _a.label, value = _a.value;
+                return (_jsx(MenuItem, __assign({ value: value }, { children: label }), index));
+            })] }), void 0));
 };

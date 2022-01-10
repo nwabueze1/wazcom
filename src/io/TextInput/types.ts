@@ -1,6 +1,7 @@
+import { CommonProps } from "../../types";
 import { OutlinedInputProps } from "@mui/material";
 
-export type TextInputProps = OutlinedInputProps & {
+export type TextInputProps = CommonProps & OutlinedInputProps & {
     feedback?: {
         text: string;
         status?: "success" | "neutral" | "error"

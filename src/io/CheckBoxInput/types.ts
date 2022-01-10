@@ -1,4 +1,4 @@
-import { CommonProps } from "../../core/types";
+import { CommonProps } from "../../types";
 
 export type CheckBoxInputProps = CommonProps & {
   label?: string;
