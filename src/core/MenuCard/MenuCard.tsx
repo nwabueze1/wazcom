@@ -11,9 +11,10 @@ import { ToggleInput } from "../../io/ToggleInput/ToggleInput";
 export const MenuCard: FC<MenuCardProps> = ({
   className,
   amount,
-  details,
-  meal,
-  image,
+  description,
+  title,
+  status,
+  image:{ src },
 }) => {
   const classes = useMenuCardStyles();
 
@@ -27,23 +28,22 @@ export const MenuCard: FC<MenuCardProps> = ({
           <div
             className={classes.imgField}
             style={{
-              backgroundImage: `url(${image})`,
+              backgroundImage: `url(${src})`,
             }}
           ></div>
         </div>
         <div className={classes.mealDetail}>
           <Typography className={classes.mealName} variant="h5">
-            {meal}
+            {title}
           </Typography>
-          <Typography className={classes.details}>{details}</Typography>
+          <Typography className={classes.details}>{description}</Typography>
           <Typography className={classes.price}>
-            {/* <img src={Naira} alt="naira" /> */}
             {amount}
           </Typography>
         </div>
         <div className={classes.icons}>
           <MoreVertIcon className={classes.vert} />
-          <ToggleInput name="" />
+          <ToggleInput name="" checked={status} />
         </div>
       </CardContent>
     </Card>

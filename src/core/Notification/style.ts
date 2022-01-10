@@ -5,11 +5,9 @@ import { BaseTheme } from "theme";
 export const useNotificationStyles = makeStyles((theme: BaseTheme) => ({
   notificationCard: {
     borderRadius: "10px",
-    padding: theme.spacing(0.5, 0.5, 3, 0.5),
   },
   card: {
     width: "28%",
-    backgroundColor: theme.design.colors.white,
     marginRight: theme.spacing(5),
   },
   notificationHead: {
@@ -17,6 +15,7 @@ export const useNotificationStyles = makeStyles((theme: BaseTheme) => ({
     alignItems: "center",
     backgroundColor: theme.design.colors.success,
     padding: theme.spacing(0.5, 0.5),
+    marginBottom: theme.spacing(1),
     borderRadius: "8px",
   },
   success: {
@@ -37,6 +36,7 @@ export const useNotificationStyles = makeStyles((theme: BaseTheme) => ({
     color: theme.design.colors.lightRed,
     marginLeft: "auto",
     borderRadius: "50%",
+    cursor: "pointer",
   },
   alarm: {
     color: theme.design.colors.gray80,
@@ -44,10 +44,8 @@ export const useNotificationStyles = makeStyles((theme: BaseTheme) => ({
   report: {
     color: theme.design.colors.gray80,
     fontFamily: theme.typography.fontFamily,
-    fontSize: theme.typography.fontSize,
-    fontWeight: 400,
-    fontStyle: "normal",
-    marginLeft: theme.spacing(1),
+    fontSize: theme.typography.fontSize + 3,
+    padding: theme.spacing(1),
   },
   notificationInfo: {
     padding: theme.spacing(1),
@@ -63,9 +61,10 @@ export const useNotificationStyles = makeStyles((theme: BaseTheme) => ({
   notificationText: {
     color: theme.design.colors.gray80,
     fontFamily: theme.typography.fontFamily,
-    fontSize: "12px",
+    fontSize: theme.typography.fontSize + 1,
     fontStyle: "normal",
     marginLeft: theme.spacing(1),
+    padding: theme.spacing(1, 0, 2, 0),
   },
   status: {
     color: theme.design.colors.gray80,

@@ -26,7 +26,7 @@ export const Notification: FC<NotificationProps> = ({
   status,
   title,
   message,
-  statusAlert,
+  onClose
 }) => {
   const classes = useNotificationStyles();
   const StatusClassName = getStatusClassName(classes, status);
@@ -40,20 +40,11 @@ export const Notification: FC<NotificationProps> = ({
         )}
       >
         <div className={clx(StatusClassName, classes.notificationHead)}>
-          {/* <img src={Icon} alt="notification image" className={classes.alarm} /> */}
-          <Typography className={classes.report}>Action report</Typography>
-          <CloseIcon className={classes.cancel} />
+          <Typography className={classes.report}>{title}</Typography>
+          <CloseIcon onClick={() => { onClose?.() }} className={classes.cancel} />
         </div>
-        <div className={classes.notificationInfo}>
-          <Typography className={classes.notificationHeading}>
-            {title}
-          </Typography>
-          <Typography className={classes.notificationText}>
-            {message}
-          </Typography>
-        </div>
+        {message && <Typography className={classes.notificationText}>{message}</Typography>}
       </div>
-      <Typography className={classes.status}>{statusAlert}</Typography>
     </div>
   );
 };

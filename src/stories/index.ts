@@ -25,8 +25,6 @@ import {
   NotificationProps,
   RadioButton,
   RadioButtonProps,
-  HeaderTitle,
-  HeaderTitleProps,
   Carousel,
 } from "../core";
 
@@ -67,7 +65,6 @@ type ComponentPropType = {
   | NotificationStory
   | RadioButtonStory
   | ImageUploadStory
-  | HeaderTitleStory
 );
 
 type AccordionStory = {
@@ -158,11 +155,6 @@ type RadioButtonStory = {
 type ImageUploadStory = {
   name: string;
   props: ImageUploadInputProps;
-};
-
-type HeaderTitleStory = {
-  name: string;
-  props: HeaderTitleProps;
 };
 
 export const stories: ComponentPropType[] = [
@@ -294,29 +286,49 @@ export const stories: ComponentPropType[] = [
     props: {
       headers: [
         {
-          name: "menu",
-          label: "menu",
+          name: "id",
+          label: "id",
         },
         {
-          name: "laptop",
-          label: "laptop",
+          name: "name",
+          label: "name",
         },
         {
-          name: "laptop",
-          label: "laptop",
+          name: "email",
+          label: "email",
+        },
+      ],
+      data: [
+        {
+          id: 1,
+          name: "James Jackson",
+          email: "jjackson@yahoo.com",
+        },
+        {
+          id: 2,
+          name: "Jill James",
+          email: "jjames@yahoo.com",
+        },
+        {
+          id: 3,
+          name: "Aliyu Alli",
+          email: "aalli@yahoo.com",
         },
       ],
     },
   },
   {
-    name: "menucard",
+    name: "Menu Card",
     component: MenuCard,
     props: {
+      id: 23,
       amount: 500,
-      meal: "jollof Rice",
-      details: "spicy Fried Rice",
-      image:
-        "https://images.unsplash.com/photo-1504674900247-0877df9cc836?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=2070&q=80",
+      title: "Jollof Rice",
+      description: "spicy Fried Rice",
+      image: {
+        src:"https://images.unsplash.com/photo-1504674900247-0877df9cc836?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=2070&q=80",
+      },
+      status: true,
     },
   },
   {
@@ -327,26 +339,16 @@ export const stories: ComponentPropType[] = [
   {
     name: "displayCard",
     component: DisplayCard,
-    props: { total: 30, title: "Pending Orders" },
+    props: { total: 30, title: "Pending Orders", color:"blue" },
   },
   {
     name: "notification",
     component: Notification,
-    props: { status: "Success" },
+    props: { title:"Khalid is a bad ass rapper", status: "Success", message:"The New Dawn is upon us", statusAlert:"Jill Biden" },
   },
   {
     name: "radiobutton",
     component: RadioButton,
-    props: {},
-  },
-  {
-    name: "imageupload",
-    component: ImageUploadInput,
-    props: {},
-  },
-  {
-    name: "headertitle",
-    component: HeaderTitle,
     props: {},
   },
   {

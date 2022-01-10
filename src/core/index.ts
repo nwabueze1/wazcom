@@ -5,7 +5,6 @@ export * from "./Card";
 export * from "./Carousel";
 export * from "./DisplayCard";
 export * from "./Gallery";
-export * from "./HeaderTitle";
 export * from "./ImageSelector";
 export * from "./Loader";
 export * from "./MediaLibrary";

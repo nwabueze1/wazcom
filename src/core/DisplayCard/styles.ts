@@ -20,5 +20,6 @@ export const useDisplayCardStyles = makeStyles((theme: BaseTheme) => ({
   icon: {
     color: theme.design.colors.gray60,
     fontSize: "25px",
+    cursor: "pointer",
   },
 }));
