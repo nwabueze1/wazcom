@@ -1,4 +1,3 @@
-import React from "react";
 import { TableProps } from "./types";
 import { useTableStyles } from "./styles";
 import {

@@ -1,0 +1,71 @@
+var __assign = (this && this.__assign) || function () {
+    __assign = Object.assign || function(t) {
+        for (var s, i = 1, n = arguments.length; i < n; i++) {
+            s = arguments[i];
+            for (var p in s) if (Object.prototype.hasOwnProperty.call(s, p))
+                t[p] = s[p];
+        }
+        return t;
+    };
+    return __assign.apply(this, arguments);
+};
+import { jsx as _jsx, jsxs as _jsxs } from "react/jsx-runtime";
+import { useRef, useState } from "react";
+import { useImageSelectorStyles } from "./styles";
+import clx from "classnames";
+import CameraAltIcon from "@mui/icons-material/CameraAlt";
+export var ImageSelector = function (_a) {
+    var variant = _a.variant, className = _a.className, _b = _a.size, size = _b === void 0 ? "md" : _b, _c = _a.maxImageSize, maxImageSize = _c === void 0 ? 2000000 : _c, _d = _a.formats, formats = _d === void 0 ? ["jpg", "jpeg", "png"] : _d, onSelect = _a.onSelect;
+    var classes = useImageSelectorStyles();
+    var _e = useState(false), selected = _e[0], setSelected = _e[1];
+    var inputRef = useRef();
+    var imgRef = useRef();
+    var fileInputClick = function () {
+        inputRef === null || inputRef === void 0 ? void 0 : inputRef.current.click();
+    };
+    var validate = function (file) {
+        var type = file.type.toLowerCase().split("/")[1];
+        if (!formats.includes(type))
+            return false;
+        if (file.size > maxImageSize)
+            return false;
+        return true;
+    };
+    var handleSelect = function (e) {
+        if (!e.target.files)
+            return;
+        var file = e.target.files[0];
+        if (validate(file)) {
+            var reader = new FileReader();
+            reader.onload = function (e) {
+                setSelected(true);
+                imgRef.current.setAttribute("src", e.target.result);
+            };
+            reader.readAsDataURL(file);
+            onSelect === null || onSelect === void 0 ? void 0 : onSelect(file);
+        }
+    };
+    var getSizeVariants = function () {
+        var sizeVariants;
+        switch (size) {
+            case "sm":
+                sizeVariants = [classes.sizeSm, classes.cameraIconSm];
+                break;
+            case "md":
+                sizeVariants = [classes.sizeMd, classes.cameraIconMd];
+                break;
+            case "lg":
+                sizeVariants = [classes.sizeLg, classes.cameraIconLg];
+                break;
+            case "xl":
+                sizeVariants = [classes.sizeXl, classes.cameraIconXl];
+                break;
+            default:
+                sizeVariants = [classes.sizeMd, classes.cameraIconMd];
+                break;
+        }
+        return sizeVariants;
+    };
+    var variants = getSizeVariants();
+    return (_jsxs("div", __assign({ className: clx(className, classes.root, variant === "circle" && classes.circle, variants[0]), onClick: fileInputClick }, { children: [_jsx(CameraAltIcon, { className: clx(classes.cameraIcon, variants[1]) }, void 0), _jsx("input", { type: "file", ref: inputRef, onChange: handleSelect, hidden: true }, void 0), selected && (_jsx("img", { ref: imgRef, className: clx(classes.image, variant === "circle" && classes.circle) }, void 0))] }), void 0));
+};
