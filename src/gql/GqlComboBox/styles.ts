@@ -1,7 +1,8 @@
-import makeStyles from "@mui/styles/makeStyles";
-import { BaseTheme } from "theme";
+import { Theme } from "@mui/material/styles";
 
-export const useGqlSelectStyles = makeStyles((theme: BaseTheme) => ({
+import makeStyles from "@mui/styles/makeStyles";
+
+export const useGqlComboBoxStyles = makeStyles((theme: Theme) => ({
   root: {
     display: "flex",
     flexDirection: "column",

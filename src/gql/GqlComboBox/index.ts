@@ -1,3 +1,3 @@
-export * from "./GqlSelect";
+export * from "./GqlComboBox";
 export * from "./styles";
 export * from "./types";
