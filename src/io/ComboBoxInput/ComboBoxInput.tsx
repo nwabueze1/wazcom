@@ -17,11 +17,11 @@ export const ComboBoxInput: FC<ComboBoxInputProps> = ({
 }) => {
   const classes = useComboBoxStyles();
 
-  const handleChange = (selectedOption: string) => {
+  const handleChange = (selectedOption: ComboBoxInputOptionProps) => {
     const value = options.find(
-      (option) => option.label === selectedOption,
-    ).value;
-    onChange?.({ name: String(name), value });
+      (option) => option.label.toLowerCase() === selectedOption.label.toLowerCase(),
+    )?.value;
+    onChange?.({ name: String(name), value: value ?? selectedOption.label });
   };
 
   const handleFilterOptions = (options: ComboBoxInputOptionProps[], params: any) => {
@@ -34,7 +34,7 @@ export const ComboBoxInput: FC<ComboBoxInputProps> = ({
     if (inputValue !== "" && !isExisting) {
       filtered.push({
         value: inputValue,
-        label: `Add "${inputValue}"`,
+        label: `Add ${inputValue}`,
       });
     }
 
@@ -53,7 +53,7 @@ export const ComboBoxInput: FC<ComboBoxInputProps> = ({
         getOptionLabel={(option) => option.label}
         style={{ width: 300 }}
         onChange={(_, selectedOption) => {
-          handleChange(selectedOption as string);
+          handleChange(selectedOption as ComboBoxInputOptionProps);
         }}
         filterOptions={handleFilterOptions}
         value={value}

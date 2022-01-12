@@ -46,6 +46,13 @@ import {
   ToggleInputProps,
 } from "../io";
 
+import {
+  GqlComboBox,
+  GqlComboBoxProps
+} from "../gql";
+
+import { GETBLOGCATEGORIES, createApolloClient, createNewCategory } from '../helpers/graphQL';
+
 type ComponentPropType = {
   component: any;
 } & (
@@ -69,6 +76,7 @@ type ComponentPropType = {
   | SelectStory
   | TagStory
   | RichTextStory
+  | GqlComboBoxStory
 );
 
 type AccordionStory = {
@@ -171,6 +179,11 @@ type RichTextStory = {
   props: RichTextInputProps;
 };
 
+type GqlComboBoxStory = {
+  name: string;
+  props: GqlComboBoxProps;
+};
+
 export const stories: ComponentPropType[] = [
   {
     name: "accordion",
@@ -239,7 +252,10 @@ export const stories: ComponentPropType[] = [
     name: "combobox",
     component: ComboBoxInput,
     props: {
-      options: [{ label:"Bread", value:"23" }, { label:"Love", value:"45" }],
+      options: [
+        { label: "Bread", value: "23" },
+        { label: "Love", value: "45" },
+      ],
       placeholder: "Select Wazobia Member",
       helperText: "No wazobia member selected",
     },
@@ -423,6 +439,24 @@ export const stories: ComponentPropType[] = [
     component: RichTextInput,
     props: {
       apiKey: "",
+    },
+  },
+  {
+    name: "GqlComboBox",
+    component: GqlComboBox,
+    props: {
+      name: "gqlcomboboxinput",
+      config: {
+        client: createApolloClient("https://muse.sytbuilder.com/graphql"),
+        name: GETBLOGCATEGORIES,
+        type: "query",
+        labelKey: "name",
+        valueKey: "id",
+        key: ["categoriesByBlogID"],
+      },
+      variables: { blog_id: 34 },
+      value: { label: 'entertainment', value: 5 },
+      addOption: createNewCategory
     },
   },
 ];

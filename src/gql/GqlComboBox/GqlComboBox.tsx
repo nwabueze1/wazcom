@@ -1,75 +1,90 @@
-import { useQuery } from "@apollo/client";
 import { CircularProgress } from "@mui/material";
 import { FC, memo, useCallback, useEffect, useState } from "react";
 import { useGqlComboBoxStyles } from "./styles";
 import { GqlComboBoxProps } from "./types";
-import { ComboBoxInput } from "../../io";
+import { ComboBoxInput, ComboBoxInputOptionProps } from "../../io";
+import { get } from "lodash";
 
 export const GqlComboBox: FC<GqlComboBoxProps> = memo(
   ({
     value: initialValue,
-    config: { key, name: query },
+    config: { client, key, labelKey, valueKey, name: query },
     addOption,
-    addingOption,
-    placeholder,
+    loading,
     onChange,
-    error,
+    variables,
     ...props
   }) => {
     const classes = useGqlComboBoxStyles();
-    const { data, loading } = useQuery(query, {
-      fetchPolicy: "cache-and-network",
-    });
-    const [options, setOptions] = useState<any[]>([]);
-    const [id, setId] = useState<string>(initialValue ?? "");
+    const [options, setOptions] = useState<ComboBoxInputOptionProps[]>([]);
+    const [fetching, setFetching] = useState<boolean>(true);
+    const [value, setValue] = useState<ComboBoxInputOptionProps>(
+      initialValue ?? "",
+    );
 
     useEffect(() => {
-      setId(id);
-      setId(initialValue);
+      setValue(initialValue);
     }, [initialValue]);
 
+    const fetchData = async () => {
+      return await client.query({
+        query,
+        fetchPolicy: "network-only",
+        variables,
+      });
+    }
+
     useEffect(() => {
-      if (data) {
-        const options = data?.[key as string].data;
-        setOptions(options);
+      const getData = async () => {
+        const { data } = await fetchData();
+        if (data) {
+          const options = get(data, key?.join("."));
+          const formattedOptions = options.map((option: any) => ({
+            label: option[labelKey],
+            value: option[valueKey],
+          }));
+          setOptions(formattedOptions);
+        }
+        setFetching(false);
       }
-    }, [data]);
+      getData();
+    }, []);
 
-    // const handleChange = useCallback(
-    //   async (data: ComboBoxOptionProps) => {
-    //     let title = options?.find(
-    //       (option) => option.id.toString() === data?.value.toString(),
-    //     )?.title;
-    //     let id = data?.value;
-    //     if (!title) {
-    //       const response = await handleAdd(data?.value);
-    //       title = response?.title as string;
-    //       id = response?.id as string;
-    //     }
-
-    //     setId(id);
-    //     // onChange && onChange(props?.name, id, title);
-    //   },
-    //   [data, options, setId, onChange, props.name],
-    // );
+    const handleChange = useCallback(
+      async (selectedValue: string) => {
+        let label = options?.find(
+          (option) => option.value === selectedValue,
+        )?.label;
+        let value = selectedValue;
+        if (!label) {
+          const response = await handleAdd(selectedValue.split(' ')[1]);
+          label = response?.label as string;
+          value = response?.value as string;
+        }
+        const selectedOption = { label, value };
+        setValue(selectedOption);
+        onChange?.({ name: props.name as string, value: selectedOption });
+      },
+      [options],
+    );
 
     const handleAdd = useCallback(
       async (value: string) => {
         const response = await addOption?.(value);
         if (response?.status) {
-          const id = response.value as string;
-          const title = response.label as string;
-          const newOptions = [...(options as { [key: string]: string }[])];
-          newOptions.push({ id, title });
+          const value = response.value as string;
+          const label = response.label as string;
+          const newOptions = [...options];
+          newOptions.push({ label, value });
           setOptions(newOptions);
-          return { id, title };
+          return { label, value };
         }
-        return '';
+        return;
       },
       [options],
     );
 
-    if (loading || addingOption) {
+    if (loading || fetching) {
       return (
         <div className={classes.loader}>
           <CircularProgress size={14} color="inherit" />
@@ -78,8 +93,15 @@ export const GqlComboBox: FC<GqlComboBoxProps> = memo(
     }
 
     return (
-      <div onClick={() => { handleAdd('') }} className={classes.root}>
-        <ComboBoxInput {...props} options={[]} />
+      <div className={classes.root}>
+        <ComboBoxInput
+          {...props}
+          options={options}
+          value={value}
+          onChange={({ value }) => {
+            handleChange(value);
+          }}
+        />
       </div>
     );
   },
