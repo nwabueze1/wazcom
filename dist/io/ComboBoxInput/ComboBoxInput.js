@@ -18,8 +18,9 @@ export var ComboBoxInput = function (_a) {
     var name = _a.name, onChange = _a.onChange, options = _a.options, label = _a.label, value = _a.value, placeholder = _a.placeholder, helperText = _a.helperText;
     var classes = useComboBoxStyles();
     var handleChange = function (selectedOption) {
-        var value = options.find(function (option) { return option.label === selectedOption; }).value;
-        onChange === null || onChange === void 0 ? void 0 : onChange({ name: String(name), value: value });
+        var _a;
+        var value = (_a = options.find(function (option) { return option.label.toLowerCase() === selectedOption.label.toLowerCase(); })) === null || _a === void 0 ? void 0 : _a.value;
+        onChange === null || onChange === void 0 ? void 0 : onChange({ name: String(name), value: value !== null && value !== void 0 ? value : selectedOption.label });
     };
     var handleFilterOptions = function (options, params) {
         var filtered = filter(options, params);
@@ -29,7 +30,7 @@ export var ComboBoxInput = function (_a) {
         if (inputValue !== "" && !isExisting) {
             filtered.push({
                 value: inputValue,
-                label: "Add \"".concat(inputValue, "\""),
+                label: "Add ".concat(inputValue),
             });
         }
         return filtered;

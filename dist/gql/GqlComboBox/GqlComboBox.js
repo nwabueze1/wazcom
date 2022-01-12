@@ -66,66 +66,102 @@ var __spreadArray = (this && this.__spreadArray) || function (to, from, pack) {
     return to.concat(ar || Array.prototype.slice.call(from));
 };
 import { jsx as _jsx } from "react/jsx-runtime";
-import { useQuery } from "@apollo/client";
 import { CircularProgress } from "@mui/material";
 import { memo, useCallback, useEffect, useState } from "react";
 import { useGqlComboBoxStyles } from "./styles";
 import { ComboBoxInput } from "../../io";
+import { get } from "lodash";
 export var GqlComboBox = memo(function (_a) {
-    var initialValue = _a.value, _b = _a.config, key = _b.key, query = _b.name, addOption = _a.addOption, addingOption = _a.addingOption, placeholder = _a.placeholder, onChange = _a.onChange, error = _a.error, props = __rest(_a, ["value", "config", "addOption", "addingOption", "placeholder", "onChange", "error"]);
+    var initialValue = _a.value, _b = _a.config, client = _b.client, key = _b.key, labelKey = _b.labelKey, valueKey = _b.valueKey, query = _b.name, addOption = _a.addOption, loading = _a.loading, onChange = _a.onChange, variables = _a.variables, props = __rest(_a, ["value", "config", "addOption", "loading", "onChange", "variables"]);
     var classes = useGqlComboBoxStyles();
-    var _c = useQuery(query, {
-        fetchPolicy: "cache-and-network",
-    }), data = _c.data, loading = _c.loading;
-    var _d = useState([]), options = _d[0], setOptions = _d[1];
-    var _e = useState(initialValue !== null && initialValue !== void 0 ? initialValue : ""), id = _e[0], setId = _e[1];
+    var _c = useState([]), options = _c[0], setOptions = _c[1];
+    var _d = useState(true), fetching = _d[0], setFetching = _d[1];
+    var _e = useState(initialValue !== null && initialValue !== void 0 ? initialValue : ""), value = _e[0], setValue = _e[1];
     useEffect(function () {
-        setId(id);
-        setId(initialValue);
+        setValue(initialValue);
     }, [initialValue]);
+    var fetchData = function () { return __awaiter(void 0, void 0, void 0, function () {
+        return __generator(this, function (_a) {
+            switch (_a.label) {
+                case 0: return [4 /*yield*/, client.query({
+                        query: query,
+                        fetchPolicy: "network-only",
+                        variables: variables,
+                    })];
+                case 1: return [2 /*return*/, _a.sent()];
+            }
+        });
+    }); };
     useEffect(function () {
-        if (data) {
-            var options_1 = data === null || data === void 0 ? void 0 : data[key].data;
-            setOptions(options_1);
-        }
-    }, [data]);
-    // const handleChange = useCallback(
-    //   async (data: ComboBoxOptionProps) => {
-    //     let title = options?.find(
-    //       (option) => option.id.toString() === data?.value.toString(),
-    //     )?.title;
-    //     let id = data?.value;
-    //     if (!title) {
-    //       const response = await handleAdd(data?.value);
-    //       title = response?.title as string;
-    //       id = response?.id as string;
-    //     }
-    //     setId(id);
-    //     // onChange && onChange(props?.name, id, title);
-    //   },
-    //   [data, options, setId, onChange, props.name],
-    // );
+        var getData = function () { return __awaiter(void 0, void 0, void 0, function () {
+            var data, options_1, formattedOptions;
+            return __generator(this, function (_a) {
+                switch (_a.label) {
+                    case 0: return [4 /*yield*/, fetchData()];
+                    case 1:
+                        data = (_a.sent()).data;
+                        if (data) {
+                            options_1 = get(data, key === null || key === void 0 ? void 0 : key.join("."));
+                            formattedOptions = options_1.map(function (option) { return ({
+                                label: option[labelKey],
+                                value: option[valueKey],
+                            }); });
+                            setOptions(formattedOptions);
+                        }
+                        setFetching(false);
+                        return [2 /*return*/];
+                }
+            });
+        }); };
+        getData();
+    }, []);
+    var handleChange = useCallback(function (selectedValue) { return __awaiter(void 0, void 0, void 0, function () {
+        var label, value, response, selectedOption;
+        var _a;
+        return __generator(this, function (_b) {
+            switch (_b.label) {
+                case 0:
+                    label = (_a = options === null || options === void 0 ? void 0 : options.find(function (option) { return option.value === selectedValue; })) === null || _a === void 0 ? void 0 : _a.label;
+                    value = selectedValue;
+                    if (!!label) return [3 /*break*/, 2];
+                    return [4 /*yield*/, handleAdd(selectedValue.split(' ')[1])];
+                case 1:
+                    response = _b.sent();
+                    label = response === null || response === void 0 ? void 0 : response.label;
+                    value = response === null || response === void 0 ? void 0 : response.value;
+                    _b.label = 2;
+                case 2:
+                    selectedOption = { label: label, value: value };
+                    setValue(selectedOption);
+                    onChange === null || onChange === void 0 ? void 0 : onChange({ name: props.name, value: selectedOption });
+                    return [2 /*return*/];
+            }
+        });
+    }); }, [options]);
     var handleAdd = useCallback(function (value) { return __awaiter(void 0, void 0, void 0, function () {
-        var response, id_1, title, newOptions;
+        var response, value_1, label, newOptions;
         return __generator(this, function (_a) {
             switch (_a.label) {
                 case 0: return [4 /*yield*/, (addOption === null || addOption === void 0 ? void 0 : addOption(value))];
                 case 1:
                     response = _a.sent();
                     if (response === null || response === void 0 ? void 0 : response.status) {
-                        id_1 = response.value;
-                        title = response.label;
+                        value_1 = response.value;
+                        label = response.label;
                         newOptions = __spreadArray([], options, true);
-                        newOptions.push({ id: id_1, title: title });
+                        newOptions.push({ label: label, value: value_1 });
                         setOptions(newOptions);
-                        return [2 /*return*/, { id: id_1, title: title }];
+                        return [2 /*return*/, { label: label, value: value_1 }];
                     }
-                    return [2 /*return*/, ''];
+                    return [2 /*return*/];
             }
         });
     }); }, [options]);
-    if (loading || addingOption) {
+    if (loading || fetching) {
         return (_jsx("div", __assign({ className: classes.loader }, { children: _jsx(CircularProgress, { size: 14, color: "inherit" }, void 0) }), void 0));
     }
-    return (_jsx("div", __assign({ onClick: function () { handleAdd(''); }, className: classes.root }, { children: _jsx(ComboBoxInput, __assign({}, props, { options: [] }), void 0) }), void 0));
+    return (_jsx("div", __assign({ className: classes.root }, { children: _jsx(ComboBoxInput, __assign({}, props, { options: options, value: value, onChange: function (_a) {
+                var value = _a.value;
+                handleChange(value);
+            } }), void 0) }), void 0));
 });
