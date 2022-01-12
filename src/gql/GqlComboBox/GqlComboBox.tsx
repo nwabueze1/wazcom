@@ -77,7 +77,7 @@ export const GqlComboBox: FC<GqlComboBoxProps> = memo(
 
     return (
       <div className={classes.root}>
-        <ComboBoxInput {...props} />
+        <ComboBoxInput {...props} options={[]} />
       </div>
     );
   },

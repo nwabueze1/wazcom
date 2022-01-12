@@ -239,7 +239,7 @@ export const stories: ComponentPropType[] = [
     name: "combobox",
     component: ComboBoxInput,
     props: {
-      options: ["Mario", "Emmanuel", "Onuchukwu", "Basit", "Hamza"],
+      options: [{ label:"Bread", value:"23" }, { label:"Love", value:"45" }],
       placeholder: "Select Wazobia Member",
       helperText: "No wazobia member selected",
     },
