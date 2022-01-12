@@ -1,5 +1,5 @@
 import makeStyles from "@mui/styles/makeStyles";
-export var useGqlSelectStyles = makeStyles(function (theme) { return ({
+export var useGqlComboBoxStyles = makeStyles(function (theme) { return ({
     root: {
         display: "flex",
         flexDirection: "column",

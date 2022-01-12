@@ -1,6 +1,6 @@
 import { useQuery } from "@apollo/client";
 import { CircularProgress } from "@mui/material";
-import React, { FC, memo, useCallback, useEffect, useState } from "react";
+import { FC, memo, useCallback, useEffect, useState } from "react";
 import { useGqlComboBoxStyles } from "./styles";
 import { GqlComboBoxProps } from "./types";
 import { ComboBoxInput } from "../../io";
@@ -24,7 +24,8 @@ export const GqlComboBox: FC<GqlComboBoxProps> = memo(
     const [id, setId] = useState<string>(initialValue ?? "");
 
     useEffect(() => {
-      setId(initialValue as string);
+      setId(id);
+      setId(initialValue);
     }, [initialValue]);
 
     useEffect(() => {
@@ -63,6 +64,7 @@ export const GqlComboBox: FC<GqlComboBoxProps> = memo(
           setOptions(newOptions);
           return { id, title };
         }
+        return '';
       },
       [options],
     );
@@ -76,7 +78,7 @@ export const GqlComboBox: FC<GqlComboBoxProps> = memo(
     }
 
     return (
-      <div className={classes.root}>
+      <div onClick={() => { handleAdd('') }} className={classes.root}>
         <ComboBoxInput {...props} options={[]} />
       </div>
     );
