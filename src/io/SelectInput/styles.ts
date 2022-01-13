@@ -4,14 +4,17 @@ import makeStyles from "@mui/styles/makeStyles";
 export const useSelectStyles = makeStyles((theme: Theme) => ({
   root: {
     borderRadius: theme.spacing(1),
-    padding: "4px 13px",
     fontSize: "16px",
     color: theme.design.colors.grey,
-    width: 300,
+    width: "100%",
+    marginBottom: theme.spacing(2),
   },
-  error: {
+  select: {
+    width: "100%",
+    padding: theme.spacing(0.5, 2),
+  },
+  feedback: {
     color: "#EA3C53",
-    margin: "0.8vh 0 0 0",
-    fontSize: "16px",
+    marginTop: theme.spacing(2),
   },
 }));
