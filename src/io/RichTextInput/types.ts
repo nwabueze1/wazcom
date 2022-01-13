@@ -1,6 +1,7 @@
 import { CommonProps } from "../../types";
 
 export type RichTextInputProps = CommonProps & {
+  label?: string;
   apiKey: string;
   value: string;
   upload?: (

@@ -1,4 +1,5 @@
 import * as React from "react";
+import { InputLabel } from "@mui/material";
 import { Editor } from "@tinymce/tinymce-react";
 import { useRichInputStyles } from "./styles";
 import { RichTextInputProps } from "./types";
@@ -18,6 +19,7 @@ const toolbar = [
 
 export const RichTextInput: React.FC<RichTextInputProps> = ({
   name,
+  label,
   apiKey,
   value,
   upload,
@@ -33,6 +35,11 @@ export const RichTextInput: React.FC<RichTextInputProps> = ({
 
   return (
     <div className={classes.root}>
+      {label && (
+        <InputLabel className={classes.label} htmlFor={name}>
+          {label}
+        </InputLabel>
+      )}
       <Editor
         value={value}
         apiKey={apiKey}
