@@ -157,10 +157,17 @@ export var GqlComboBox = memo(function (_a) {
             }
         });
     }); }, [options]);
+    var getValue = useCallback(function () {
+        if (value)
+            return value;
+        if (options && options.length > 0)
+            return { label: options[0].label, value: options[0].value };
+        return { label: "", value: "" };
+    }, [options]);
     if (loading || fetching) {
         return (_jsx("div", __assign({ className: classes.loader }, { children: _jsx(CircularProgress, { size: 14, color: "inherit" }, void 0) }), void 0));
     }
-    return (_jsx("div", __assign({ className: classes.root }, { children: _jsx(ComboBoxInput, __assign({}, props, { options: options, value: value, onChange: function (_a) {
+    return (_jsx("div", __assign({ className: classes.root }, { children: _jsx(ComboBoxInput, __assign({}, props, { options: options, value: getValue(), onChange: function (_a) {
                 var value = _a.value;
                 handleChange(value);
             } }), void 0) }), void 0));

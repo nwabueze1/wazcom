@@ -19,7 +19,7 @@ export const GqlComboBox: FC<GqlComboBoxProps> = memo(
     const [options, setOptions] = useState<ComboBoxInputOptionProps[]>([]);
     const [fetching, setFetching] = useState<boolean>(true);
     const [value, setValue] = useState<ComboBoxInputOptionProps>(
-      initialValue ?? "",
+      initialValue,
     );
 
     useEffect(() => {
@@ -84,6 +84,14 @@ export const GqlComboBox: FC<GqlComboBoxProps> = memo(
       [options],
     );
 
+    const getValue = useCallback(() => {
+      if (value) return value;
+
+      if (options && options.length > 0) return { label: options[0].label, value: options[0].value };
+
+      return { label:"", value:"" }
+    }, [options, value])
+
     if (loading || fetching) {
       return (
         <div className={classes.loader}>
@@ -97,7 +105,7 @@ export const GqlComboBox: FC<GqlComboBoxProps> = memo(
         <ComboBoxInput
           {...props}
           options={options}
-          value={value}
+          value={getValue()}
           onChange={({ value }) => {
             handleChange(value);
           }}
