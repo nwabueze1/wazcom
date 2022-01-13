@@ -133,7 +133,7 @@ export var GqlComboBox = memo(function (_a) {
                 case 2:
                     selectedOption = { label: label, value: value };
                     setValue(selectedOption);
-                    onChange === null || onChange === void 0 ? void 0 : onChange({ name: props.name, value: selectedOption });
+                    onChange === null || onChange === void 0 ? void 0 : onChange({ name: props.name, value: selectedOption.value });
                     return [2 /*return*/];
             }
         });
