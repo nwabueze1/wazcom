@@ -11,6 +11,7 @@ var __assign = (this && this.__assign) || function () {
 };
 import { jsx as _jsx, jsxs as _jsxs } from "react/jsx-runtime";
 import * as React from "react";
+import { InputLabel } from "@mui/material";
 import { Editor } from "@tinymce/tinymce-react";
 import { useRichInputStyles } from "./styles";
 var plugins = [
@@ -25,13 +26,13 @@ var toolbar = [
     bullist numlist outdent indent | help",
 ];
 export var RichTextInput = function (_a) {
-    var name = _a.name, apiKey = _a.apiKey, value = _a.value, upload = _a.upload, onChange = _a.onChange, Loader = _a.Loader;
+    var name = _a.name, label = _a.label, apiKey = _a.apiKey, value = _a.value, upload = _a.upload, onChange = _a.onChange, Loader = _a.Loader;
     var classes = useRichInputStyles();
     var _b = React.useState(false), loading = _b[0], setLoading = _b[1];
     var handleContentChange = function (content) {
         onChange === null || onChange === void 0 ? void 0 : onChange({ name: name, value: content });
     };
-    return (_jsxs("div", __assign({ className: classes.root }, { children: [_jsx(Editor, { value: value, apiKey: apiKey, init: {
+    return (_jsxs("div", __assign({ className: classes.root }, { children: [label && (_jsx(InputLabel, __assign({ className: classes.label, htmlFor: name }, { children: label }), void 0)), _jsx(Editor, { value: value, apiKey: apiKey, init: {
                     height: 500,
                     menubar: true,
                     image_title: true,
