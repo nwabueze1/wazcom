@@ -13,7 +13,7 @@ import { jsx as _jsx, jsxs as _jsxs } from "react/jsx-runtime";
 import { useState, useCallback } from "react";
 import { useGalleryStyles } from "./styles";
 import clx from "classnames";
-import { CheckBoxInput } from "io";
+import { CheckBoxInput } from "../../io";
 export var Gallery = function (_a) {
     var items = _a.items, text = _a.text, onSelect = _a.onSelect;
     var classes = useGalleryStyles();

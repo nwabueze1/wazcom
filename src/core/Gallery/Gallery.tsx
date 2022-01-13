@@ -2,7 +2,7 @@ import { FC, useState, useCallback } from "react";
 import { useGalleryStyles } from "./styles";
 import { GalleryProps } from "./types";
 import clx from "classnames";
-import { CheckBoxInput } from "io";
+import { CheckBoxInput } from "../../io";
 
 export const Gallery: FC<GalleryProps> = ({ items, text, onSelect }) => {
   const classes = useGalleryStyles();
