@@ -13,21 +13,24 @@ import { jsx as _jsx, jsxs as _jsxs } from "react/jsx-runtime";
 import * as React from "react";
 import { Editor } from "@tinymce/tinymce-react";
 import { useRichInputStyles } from "./styles";
-export var plugins = [
+var plugins = [
     "advlist autolink lists link image code",
     "charmap print preview anchor help",
     "searchreplace visualblocks code",
     "insertdatetime media table paste wordcount",
 ];
-export var toolbar = [
+var toolbar = [
     "undo redo | formatselect | link image | bold italic | \
     alignleft aligncenter alignright | \
     bullist numlist outdent indent | help",
 ];
 export var RichTextInput = function (_a) {
-    var apiKey = _a.apiKey, value = _a.value, handleContentChange = _a.handleContentChange, upload = _a.upload, Loader = _a.Loader;
+    var name = _a.name, apiKey = _a.apiKey, value = _a.value, upload = _a.upload, onChange = _a.onChange, Loader = _a.Loader;
     var classes = useRichInputStyles();
     var _b = React.useState(false), loading = _b[0], setLoading = _b[1];
+    var handleContentChange = function (content) {
+        onChange === null || onChange === void 0 ? void 0 : onChange({ name: name, value: content });
+    };
     return (_jsxs("div", __assign({ className: classes.root }, { children: [_jsx(Editor, { value: value, apiKey: apiKey, init: {
                     height: 500,
                     menubar: true,
