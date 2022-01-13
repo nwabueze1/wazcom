@@ -1,11 +1,12 @@
 import React, { FC } from "react";
-import { MenuItem, Select } from "@mui/material";
+import { MenuItem, Select, InputLabel } from "@mui/material";
 import { useSelectStyles } from "./styles";
 import { SelectInputProps } from "./types";
 
 export const SelectInput: FC<SelectInputProps> = ({
   options = [],
   placeholder = "Select a value",
+  label,
   onChange,
   ...props
 }) => {
@@ -22,6 +23,11 @@ export const SelectInput: FC<SelectInputProps> = ({
 
   return (
     <div className={classes.root}>
+      {label && (
+        <InputLabel className={classes.label} htmlFor={props.name}>
+          {label}
+        </InputLabel>
+      )}
       <Select className={classes.select} {...props} onChange={handleChange}>
         {options.length === 0 && (
           <MenuItem value="Select a value">{placeholder}</MenuItem>

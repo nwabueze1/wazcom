@@ -421,6 +421,7 @@ export const stories: ComponentPropType[] = [
     name: "Select",
     component: SelectInput,
     props: {
+      label:"lslss",
       options: [
         { label: "Basit", value: "basit" },
         { label: "Chinazom", value: "chinazom" },

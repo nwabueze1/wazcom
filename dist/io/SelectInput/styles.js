@@ -7,6 +7,11 @@ export var useSelectStyles = makeStyles(function (theme) { return ({
         width: "100%",
         marginBottom: theme.spacing(2),
     },
+    label: {
+        marginBottom: theme.spacing(1),
+        fontSize: "1rem",
+        color: theme.design.colors.black,
+    },
     select: {
         width: "100%",
         padding: theme.spacing(0.5, 2),
