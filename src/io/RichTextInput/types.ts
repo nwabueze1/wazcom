@@ -6,7 +6,7 @@ export type RichTextInputProps = CommonProps & {
   value: string;
   upload?: (
     tinyCallback: (location: string, data: { [key: string]: string }) => void,
-    setLoadState?: (loading: boolean) => void,
+    setLoadState: (loading: boolean) => void,
   ) => void;
   Loader?: JSX.Element
 };

@@ -1,0 +1,1 @@
+export declare const useMediaLibraryStyles: (props?: any) => import("@mui/styles").ClassNameMap<"root" | "column" | "dot" | "tab" | "image" | "loading" | "@keyframes a" | "library" | "collection" | "thumbnail" | "loader" | "actions">;
