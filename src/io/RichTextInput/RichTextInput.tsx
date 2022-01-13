@@ -3,28 +3,33 @@ import { Editor } from "@tinymce/tinymce-react";
 import { useRichInputStyles } from "./styles";
 import { RichTextInputProps } from "./types";
 
-export const plugins = [
+const plugins = [
   "advlist autolink lists link image code",
   "charmap print preview anchor help",
   "searchreplace visualblocks code",
   "insertdatetime media table paste wordcount",
 ];
 
-export const toolbar = [
+const toolbar = [
   "undo redo | formatselect | link image | bold italic | \
     alignleft aligncenter alignright | \
     bullist numlist outdent indent | help",
 ];
 
 export const RichTextInput: React.FC<RichTextInputProps> = ({
+  name,
   apiKey,
   value,
-  handleContentChange,
   upload,
+  onChange,
   Loader
 }) => {
   const classes = useRichInputStyles();
   const [loading, setLoading] = React.useState<boolean>(false);
+
+  const handleContentChange = (content:string) => {
+    onChange?.({ name: name as string, value: content })
+  }
 
   return (
     <div className={classes.root}>
