@@ -76,7 +76,7 @@ export var GqlComboBox = memo(function (_a) {
     var classes = useGqlComboBoxStyles();
     var _c = useState([]), options = _c[0], setOptions = _c[1];
     var _d = useState(true), fetching = _d[0], setFetching = _d[1];
-    var _e = useState(initialValue !== null && initialValue !== void 0 ? initialValue : ""), value = _e[0], setValue = _e[1];
+    var _e = useState(initialValue), value = _e[0], setValue = _e[1];
     useEffect(function () {
         setValue(initialValue);
     }, [initialValue]);
@@ -163,7 +163,7 @@ export var GqlComboBox = memo(function (_a) {
         if (options && options.length > 0)
             return { label: options[0].label, value: options[0].value };
         return { label: "", value: "" };
-    }, [options]);
+    }, [options, value]);
     if (loading || fetching) {
         return (_jsx("div", __assign({ className: classes.loader }, { children: _jsx(CircularProgress, { size: 14, color: "inherit" }, void 0) }), void 0));
     }
