@@ -57,7 +57,7 @@ export const GqlComboBox: FC<GqlComboBoxProps> = memo(
         let value = selectedValue;
         if (!label) {
           setFetching(true);
-          const response = await handleAdd(selectedValue.split(' ')[1]);
+          const response = await handleAdd(selectedValue.startsWith('Add ') ? selectedValue.split('Add ')[1] : selectedValue);
           label = response?.label as string;
           value = response?.value as string;
         }
