@@ -50,7 +50,7 @@ export const ComboBoxInput: FC<ComboBoxInputProps> = ({
       )}
       <Autocomplete
         options={options ?? []}
-        getOptionLabel={(option) => option.label}
+        getOptionLabel={(option) => option.label ?? ""}
         style={{ width: 300 }}
         onChange={(_, selectedOption) => {
           handleChange(selectedOption as ComboBoxInputOptionProps);
