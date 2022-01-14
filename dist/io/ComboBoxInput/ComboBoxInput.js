@@ -10,13 +10,18 @@ var __assign = (this && this.__assign) || function () {
     return __assign.apply(this, arguments);
 };
 import { jsx as _jsx, jsxs as _jsxs } from "react/jsx-runtime";
+import { useEffect, useState } from "react";
 import Autocomplete, { createFilterOptions } from "@mui/material/Autocomplete";
 import { InputLabel, TextField } from "@mui/material";
 import { useComboBoxStyles } from "./styles";
 var filter = createFilterOptions();
 export var ComboBoxInput = function (_a) {
-    var name = _a.name, onChange = _a.onChange, _b = _a.options, options = _b === void 0 ? [] : _b, label = _a.label, placeholder = _a.placeholder, helperText = _a.helperText;
+    var name = _a.name, onChange = _a.onChange, initialOptions = _a.options, label = _a.label, placeholder = _a.placeholder, helperText = _a.helperText;
     var classes = useComboBoxStyles();
+    var _b = useState(initialOptions), options = _b[0], setOptions = _b[1];
+    useEffect(function () {
+        setOptions(initialOptions);
+    }, [initialOptions]);
     var handleChange = function (selectedOption) {
         var _a;
         var value = (_a = options.find(function (option) { return (option === null || option === void 0 ? void 0 : option.label.toLowerCase()) === (selectedOption === null || selectedOption === void 0 ? void 0 : selectedOption.label.toLowerCase()); })) === null || _a === void 0 ? void 0 : _a.value;

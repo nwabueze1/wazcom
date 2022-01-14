@@ -1,4 +1,4 @@
-import { FC } from "react";
+import { FC, useEffect, useState } from "react";
 import Autocomplete, { createFilterOptions } from "@mui/material/Autocomplete";
 import { InputLabel, TextField } from "@mui/material";
 import { useComboBoxStyles } from "./styles";
@@ -9,12 +9,17 @@ const filter = createFilterOptions<ComboBoxInputOptionProps>();
 export const ComboBoxInput: FC<ComboBoxInputProps> = ({
   name,
   onChange,
-  options=[],
+  options: initialOptions,
   label,
   placeholder,
   helperText,
 }) => {
   const classes = useComboBoxStyles();
+  const [options, setOptions] = useState(initialOptions);
+
+  useEffect(() => {
+    setOptions(initialOptions);
+  }, [initialOptions])
 
   const handleChange = (selectedOption: ComboBoxInputOptionProps) => {
     const value = options.find(
