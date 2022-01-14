@@ -9,9 +9,8 @@ const filter = createFilterOptions<ComboBoxInputOptionProps>();
 export const ComboBoxInput: FC<ComboBoxInputProps> = ({
   name,
   onChange,
-  options,
+  options=[],
   label,
-  value,
   placeholder,
   helperText,
 }) => {
@@ -19,7 +18,7 @@ export const ComboBoxInput: FC<ComboBoxInputProps> = ({
 
   const handleChange = (selectedOption: ComboBoxInputOptionProps) => {
     const value = options.find(
-      (option) => option.label.toLowerCase() === selectedOption.label.toLowerCase(),
+      (option) => option?.label.toLowerCase() === selectedOption?.label.toLowerCase(),
     )?.value;
     onChange?.({ name: String(name), value: value ?? selectedOption.label });
   };
@@ -56,7 +55,6 @@ export const ComboBoxInput: FC<ComboBoxInputProps> = ({
           handleChange(selectedOption as ComboBoxInputOptionProps);
         }}
         filterOptions={handleFilterOptions}
-        value={value}
         freeSolo
         renderInput={(params) => (
           <TextField
