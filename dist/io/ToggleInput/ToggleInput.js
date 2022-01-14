@@ -24,7 +24,7 @@ import { jsx as _jsx, jsxs as _jsxs } from "react/jsx-runtime";
 import { FormLabel, Switch } from "@mui/material";
 import { useToggleStyles } from "./styles";
 export var ToggleInput = function (_a) {
-    var name = _a.name, label = _a.label, helperText = _a.helperText, props = __rest(_a, ["name", "label", "helperText"]);
+    var name = _a.name, label = _a.label, value = _a.value, helperText = _a.helperText, props = __rest(_a, ["name", "label", "value", "helperText"]);
     var classes = useToggleStyles();
-    return (_jsxs("div", __assign({ className: classes.root }, { children: [label && _jsx(FormLabel, __assign({ className: classes.label }, { children: label }), void 0), _jsx(Switch, __assign({ className: classes.toggle, name: name }, props), void 0), helperText && _jsx("p", __assign({ className: classes.helperText }, { children: helperText }), void 0)] }), void 0));
+    return (_jsxs("div", __assign({ className: classes.root }, { children: [label && _jsx(FormLabel, __assign({ className: classes.label }, { children: label }), void 0), _jsx(Switch, __assign({ className: classes.toggle, name: name, checked: value }, props), void 0), helperText && _jsx("p", __assign({ className: classes.helperText }, { children: helperText }), void 0)] }), void 0));
 };
