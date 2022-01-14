@@ -11,6 +11,7 @@ export const ComboBoxInput: FC<ComboBoxInputProps> = ({
   onChange,
   options: initialOptions,
   label,
+  value,
   placeholder,
   helperText,
 }) => {
@@ -56,6 +57,7 @@ export const ComboBoxInput: FC<ComboBoxInputProps> = ({
         options={options ?? []}
         getOptionLabel={(option) => { console.log(option); return option?.label ?? "" }}
         style={{ width: 300 }}
+        value={value}
         onChange={(_, selectedOption) => {
           handleChange(selectedOption as ComboBoxInputOptionProps);
         }}

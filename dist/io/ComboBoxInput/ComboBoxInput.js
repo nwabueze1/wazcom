@@ -16,7 +16,7 @@ import { InputLabel, TextField } from "@mui/material";
 import { useComboBoxStyles } from "./styles";
 var filter = createFilterOptions();
 export var ComboBoxInput = function (_a) {
-    var name = _a.name, onChange = _a.onChange, initialOptions = _a.options, label = _a.label, placeholder = _a.placeholder, helperText = _a.helperText;
+    var name = _a.name, onChange = _a.onChange, initialOptions = _a.options, label = _a.label, value = _a.value, placeholder = _a.placeholder, helperText = _a.helperText;
     var classes = useComboBoxStyles();
     var _b = useState(initialOptions), options = _b[0], setOptions = _b[1];
     useEffect(function () {
@@ -40,7 +40,7 @@ export var ComboBoxInput = function (_a) {
         }
         return filtered;
     };
-    return (_jsxs("div", __assign({ className: classes.root }, { children: [label && (_jsx(InputLabel, __assign({ className: classes.label, htmlFor: name }, { children: label }), void 0)), _jsx(Autocomplete, { options: options !== null && options !== void 0 ? options : [], getOptionLabel: function (option) { var _a; console.log(option); return (_a = option === null || option === void 0 ? void 0 : option.label) !== null && _a !== void 0 ? _a : ""; }, style: { width: 300 }, onChange: function (_, selectedOption) {
+    return (_jsxs("div", __assign({ className: classes.root }, { children: [label && (_jsx(InputLabel, __assign({ className: classes.label, htmlFor: name }, { children: label }), void 0)), _jsx(Autocomplete, { options: options !== null && options !== void 0 ? options : [], getOptionLabel: function (option) { var _a; console.log(option); return (_a = option === null || option === void 0 ? void 0 : option.label) !== null && _a !== void 0 ? _a : ""; }, style: { width: 300 }, value: value, onChange: function (_, selectedOption) {
                     handleChange(selectedOption);
                 }, filterOptions: handleFilterOptions, freeSolo: true, renderInput: function (params) { return (_jsx(TextField, __assign({}, params, { label: label, placeholder: placeholder, variant: "outlined" }), void 0)); } }, void 0), helperText && _jsx("p", __assign({ className: classes.helperText }, { children: helperText }), void 0)] }), void 0));
 };
