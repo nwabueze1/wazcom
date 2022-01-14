@@ -5,7 +5,7 @@ export type ComboBoxInputProps = CommonProps &
   Omit<AutocompleteProps<any, undefined, undefined, undefined>, "onChange"> &
   Omit<TextFieldProps, "onChange"> & {
     options: ComboBoxInputOptionProps[];
-    value?: ComboBoxInputOptionProps;
+    value?: string;
     helperText?: string;
   };
 

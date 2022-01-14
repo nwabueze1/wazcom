@@ -116,7 +116,7 @@ export var GqlComboBox = memo(function (_a) {
         getData();
     }, []);
     var handleChange = useCallback(function (selectedValue) { return __awaiter(void 0, void 0, void 0, function () {
-        var label, value, response, selectedOption;
+        var label, value, response;
         var _a;
         return __generator(this, function (_b) {
             switch (_b.label) {
@@ -132,8 +132,7 @@ export var GqlComboBox = memo(function (_a) {
                     value = response === null || response === void 0 ? void 0 : response.value;
                     _b.label = 2;
                 case 2:
-                    selectedOption = { label: label, value: value };
-                    setValue(selectedOption);
+                    setValue(value);
                     onChange === null || onChange === void 0 ? void 0 : onChange({ name: props.name, value: value });
                     setFetching(false);
                     return [2 /*return*/];
@@ -159,15 +158,10 @@ export var GqlComboBox = memo(function (_a) {
             }
         });
     }); }, [options]);
-    var getValue = useCallback(function () {
-        if (value)
-            return value;
-        return { label: "", value: "" };
-    }, [options, value]);
     if (fetching) {
         return (_jsx("div", __assign({ className: classes.loader }, { children: _jsx(CircularProgress, { size: 14, color: "inherit" }, void 0) }), void 0));
     }
-    return (_jsx("div", __assign({ className: classes.root }, { children: _jsx(ComboBoxInput, __assign({}, props, { options: options, value: getValue(), onChange: function (_a) {
+    return (_jsx("div", __assign({ className: classes.root }, { children: _jsx(ComboBoxInput, __assign({}, props, { options: options, value: value !== null && value !== void 0 ? value : "", onChange: function (_a) {
                 var value = _a.value;
                 handleChange(value);
             } }), void 0) }), void 0));

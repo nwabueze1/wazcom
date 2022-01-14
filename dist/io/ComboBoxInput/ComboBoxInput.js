@@ -10,7 +10,7 @@ var __assign = (this && this.__assign) || function () {
     return __assign.apply(this, arguments);
 };
 import { jsx as _jsx, jsxs as _jsxs } from "react/jsx-runtime";
-import { useEffect, useState } from "react";
+import { useCallback, useEffect, useState } from "react";
 import Autocomplete, { createFilterOptions } from "@mui/material/Autocomplete";
 import { InputLabel, TextField } from "@mui/material";
 import { useComboBoxStyles } from "./styles";
@@ -24,7 +24,9 @@ export var ComboBoxInput = function (_a) {
     }, [initialOptions]);
     var handleChange = function (selectedOption) {
         var _a;
-        var value = (_a = options.find(function (option) { return (option === null || option === void 0 ? void 0 : option.label.toLowerCase()) === (selectedOption === null || selectedOption === void 0 ? void 0 : selectedOption.label.toLowerCase()); })) === null || _a === void 0 ? void 0 : _a.value;
+        var value = (_a = options.find(function (option) {
+            return (option === null || option === void 0 ? void 0 : option.label.toLowerCase()) === (selectedOption === null || selectedOption === void 0 ? void 0 : selectedOption.label.toLowerCase());
+        })) === null || _a === void 0 ? void 0 : _a.value;
         onChange === null || onChange === void 0 ? void 0 : onChange({ name: String(name), value: value !== null && value !== void 0 ? value : selectedOption.label });
     };
     var handleFilterOptions = function (options, params) {
@@ -40,7 +42,17 @@ export var ComboBoxInput = function (_a) {
         }
         return filtered;
     };
-    return (_jsxs("div", __assign({ className: classes.root }, { children: [label && (_jsx(InputLabel, __assign({ className: classes.label, htmlFor: name }, { children: label }), void 0)), _jsx(Autocomplete, { options: options !== null && options !== void 0 ? options : [], getOptionLabel: function (option) { var _a; return (_a = option === null || option === void 0 ? void 0 : option.label) !== null && _a !== void 0 ? _a : ""; }, style: { width: 300 }, value: value, onChange: function (_, selectedOption) {
+    var getValue = useCallback(function () {
+        var _a, _b;
+        var label = (_b = (_a = options) === null || _a === void 0 ? void 0 : _a.find(function (option) { return option.value.toLowerCase() == value.toLowerCase(); })) === null || _b === void 0 ? void 0 : _b.label;
+        if (label)
+            return { label: label, value: value };
+        return { label: "", value: "" };
+    }, [options, value]);
+    return (_jsxs("div", __assign({ className: classes.root }, { children: [label && (_jsx(InputLabel, __assign({ className: classes.label, htmlFor: name }, { children: label }), void 0)), _jsx(Autocomplete, { options: options !== null && options !== void 0 ? options : [], getOptionLabel: function (option) {
+                    var _a;
+                    return (_a = option === null || option === void 0 ? void 0 : option.label) !== null && _a !== void 0 ? _a : "";
+                }, style: { width: 300 }, value: getValue(), onChange: function (_, selectedOption) {
                     handleChange(selectedOption);
                 }, filterOptions: handleFilterOptions, freeSolo: true, renderInput: function (params) { return (_jsx(TextField, __assign({}, params, { label: label, placeholder: placeholder, variant: "outlined" }), void 0)); } }, void 0), helperText && _jsx("p", __assign({ className: classes.helperText }, { children: helperText }), void 0)] }), void 0));
 };

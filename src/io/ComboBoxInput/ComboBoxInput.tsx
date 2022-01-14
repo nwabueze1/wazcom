@@ -1,4 +1,4 @@
-import { FC, useEffect, useState } from "react";
+import { FC, useCallback, useEffect, useState } from "react";
 import Autocomplete, { createFilterOptions } from "@mui/material/Autocomplete";
 import { InputLabel, TextField } from "@mui/material";
 import { useComboBoxStyles } from "./styles";
@@ -20,16 +20,20 @@ export const ComboBoxInput: FC<ComboBoxInputProps> = ({
 
   useEffect(() => {
     setOptions(initialOptions);
-  }, [initialOptions])
+  }, [initialOptions]);
 
   const handleChange = (selectedOption: ComboBoxInputOptionProps) => {
     const value = options.find(
-      (option) => option?.label.toLowerCase() === selectedOption?.label.toLowerCase(),
+      (option) =>
+        option?.label.toLowerCase() === selectedOption?.label.toLowerCase(),
     )?.value;
     onChange?.({ name: String(name), value: value ?? selectedOption.label });
   };
 
-  const handleFilterOptions = (options: ComboBoxInputOptionProps[], params: any) => {
+  const handleFilterOptions = (
+    options: ComboBoxInputOptionProps[],
+    params: any,
+  ) => {
     const filtered = filter(options, params);
     const { inputValue } = params;
     // Suggest the creation of a new value
@@ -46,6 +50,16 @@ export const ComboBoxInput: FC<ComboBoxInputProps> = ({
     return filtered;
   };
 
+  const getValue = useCallback(() => {
+    const label = (options as ComboBoxInputOptionProps[])?.find(
+      (option) => option.value.toLowerCase() == value.toLowerCase(),
+    )?.label;
+
+    if (label) return { label, value };
+    
+    return { label: "", value: "" };
+  }, [options, value]);
+
   return (
     <div className={classes.root}>
       {label && (
@@ -55,9 +69,11 @@ export const ComboBoxInput: FC<ComboBoxInputProps> = ({
       )}
       <Autocomplete
         options={options ?? []}
-        getOptionLabel={(option) => { return option?.label ?? "" }}
+        getOptionLabel={(option) => {
+          return option?.label ?? "";
+        }}
         style={{ width: 300 }}
-        value={value}
+        value={getValue()}
         onChange={(_, selectedOption) => {
           handleChange(selectedOption as ComboBoxInputOptionProps);
         }}
