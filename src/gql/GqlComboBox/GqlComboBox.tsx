@@ -52,7 +52,7 @@ export const GqlComboBox: FC<GqlComboBoxProps> = memo(
     const handleChange = useCallback(
       async (selectedValue: string) => {
         let label = options?.find(
-          (option) => option.value === selectedValue,
+          (option) => option.value.toLowerCase() === selectedValue.toLowerCase(),
         )?.label;
         let value = selectedValue;
         if (!label) {
@@ -87,9 +87,6 @@ export const GqlComboBox: FC<GqlComboBoxProps> = memo(
 
     const getValue = useCallback(() => {
       if (value) return value;
-
-      if (options && options.length > 0) return { label: options[0].label, value: options[0].value };
-
       return { label:"", value:"" }
     }, [options, value])
 
