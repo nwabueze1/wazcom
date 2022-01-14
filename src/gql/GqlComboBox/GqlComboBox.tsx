@@ -63,7 +63,7 @@ export const GqlComboBox: FC<GqlComboBoxProps> = memo(
         }
         const selectedOption = { label, value };
         setValue(selectedOption);
-        onChange?.({ name: props.name as string, value: selectedOption.value });
+        onChange?.({ name: props.name as string, value });
       },
       [options],
     );
