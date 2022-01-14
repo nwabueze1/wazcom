@@ -14,7 +14,6 @@ export declare type GqlComboBoxProps = ComboBoxInputProps & {
         value?: string;
         status: boolean;
     }>;
-    loading?: boolean;
     variables?: {
         [key: string]: any;
     };

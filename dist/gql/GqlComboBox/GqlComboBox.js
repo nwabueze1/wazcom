@@ -72,7 +72,7 @@ import { useGqlComboBoxStyles } from "./styles";
 import { ComboBoxInput } from "../../io";
 import { get } from "lodash";
 export var GqlComboBox = memo(function (_a) {
-    var initialValue = _a.value, _b = _a.config, client = _b.client, key = _b.key, labelKey = _b.labelKey, valueKey = _b.valueKey, query = _b.name, addOption = _a.addOption, loading = _a.loading, onChange = _a.onChange, variables = _a.variables, props = __rest(_a, ["value", "config", "addOption", "loading", "onChange", "variables"]);
+    var initialValue = _a.value, _b = _a.config, client = _b.client, key = _b.key, labelKey = _b.labelKey, valueKey = _b.valueKey, query = _b.name, addOption = _a.addOption, onChange = _a.onChange, variables = _a.variables, props = __rest(_a, ["value", "config", "addOption", "onChange", "variables"]);
     var classes = useGqlComboBoxStyles();
     var _c = useState([]), options = _c[0], setOptions = _c[1];
     var _d = useState(true), fetching = _d[0], setFetching = _d[1];
@@ -124,6 +124,7 @@ export var GqlComboBox = memo(function (_a) {
                     label = (_a = options === null || options === void 0 ? void 0 : options.find(function (option) { return option.value === selectedValue; })) === null || _a === void 0 ? void 0 : _a.label;
                     value = selectedValue;
                     if (!!label) return [3 /*break*/, 2];
+                    setFetching(true);
                     return [4 /*yield*/, handleAdd(selectedValue.split(' ')[1])];
                 case 1:
                     response = _b.sent();
@@ -134,6 +135,7 @@ export var GqlComboBox = memo(function (_a) {
                     selectedOption = { label: label, value: value };
                     setValue(selectedOption);
                     onChange === null || onChange === void 0 ? void 0 : onChange({ name: props.name, value: value });
+                    setFetching(false);
                     return [2 /*return*/];
             }
         });
@@ -164,7 +166,7 @@ export var GqlComboBox = memo(function (_a) {
             return { label: options[0].label, value: options[0].value };
         return { label: "", value: "" };
     }, [options, value]);
-    if (loading || fetching) {
+    if (fetching) {
         return (_jsx("div", __assign({ className: classes.loader }, { children: _jsx(CircularProgress, { size: 14, color: "inherit" }, void 0) }), void 0));
     }
     return (_jsx("div", __assign({ className: classes.root }, { children: _jsx(ComboBoxInput, __assign({}, props, { options: options, value: getValue(), onChange: function (_a) {

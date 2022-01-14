@@ -13,6 +13,5 @@ export type GqlComboBoxProps = ComboBoxInputProps & {
   addOption?: (
     value: string,
   ) => Promise<{ label?: string; value?: string; status: boolean }>;
-  loading?: boolean;
   variables?: { [key: string]: any };
 }

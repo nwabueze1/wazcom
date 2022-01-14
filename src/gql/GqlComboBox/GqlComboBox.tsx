@@ -10,7 +10,6 @@ export const GqlComboBox: FC<GqlComboBoxProps> = memo(
     value: initialValue,
     config: { client, key, labelKey, valueKey, name: query },
     addOption,
-    loading,
     onChange,
     variables,
     ...props
@@ -57,6 +56,7 @@ export const GqlComboBox: FC<GqlComboBoxProps> = memo(
         )?.label;
         let value = selectedValue;
         if (!label) {
+          setFetching(true);
           const response = await handleAdd(selectedValue.split(' ')[1]);
           label = response?.label as string;
           value = response?.value as string;
@@ -64,6 +64,7 @@ export const GqlComboBox: FC<GqlComboBoxProps> = memo(
         const selectedOption = { label, value };
         setValue(selectedOption);
         onChange?.({ name: props.name as string, value });
+        setFetching(false);
       },
       [options],
     );
@@ -92,7 +93,7 @@ export const GqlComboBox: FC<GqlComboBoxProps> = memo(
       return { label:"", value:"" }
     }, [options, value])
 
-    if (loading || fetching) {
+    if (fetching) {
       return (
         <div className={classes.loader}>
           <CircularProgress size={14} color="inherit" />
