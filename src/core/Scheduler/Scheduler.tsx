@@ -10,40 +10,45 @@ import { useScheduleData } from "./hooks";
 export const Scheduler: React.FC<SchedulerProps> = ({
   name: componentName,
   label,
-  value:initialScheduleValue,
+  value: initialScheduleValue = [
+    { day: "0", start_time: "00:00", end_time: "12:00" },
+  ],
   onChange,
 }) => {
   const classes = useSchedulerStyles();
   const parseSchedulevalue = useScheduleData();
 
-  const handleChange = useCallback(
-    (event, index, remove = false) => {
-      const {
-        target: { name, value },
-      } = event;
-      if (remove && value.length > 1) {
-        value.splice(index, 1);
-      } else {
-        value[index][name] = value;
-      }
-      onChange?.({ name: componentName as string, value: value });
-    },
-    [],
-  );
+  const handleChange = useCallback((event, index, remove = false) => {
+    const {
+      target: { name, value },
+    } = event;
+    if (remove && scheduleValue.length > 1) {
+      scheduleValue.splice(index, 1);
+    } else {
+      scheduleValue[index][name] = value;
+    }
+    onChange?.({ name: componentName as string, value: scheduleValue });
+  }, []);
 
   const [scheduleValue, setScheduleValue] = useState<{ [key: string]: any }[]>(
     parseSchedulevalue(initialScheduleValue, handleChange),
   );
 
   useEffect(() => {
-    const newScheduleValue = parseSchedulevalue(initialScheduleValue, handleChange);
+    const newScheduleValue = parseSchedulevalue(
+      initialScheduleValue,
+      handleChange,
+    );
     setScheduleValue(newScheduleValue);
   }, [initialScheduleValue]);
 
   const addNewRow = () => {
     onChange?.({
       name: componentName as string,
-      value: [...scheduleValue, { day: "1", start_time: "00:00", end_time: "12:00" }],
+      value: [
+        ...scheduleValue,
+        { day: "0", start_time: "00:00", end_time: "12:00" },
+      ],
     });
   };
 

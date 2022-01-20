@@ -27,21 +27,23 @@ import AddIcon from "@mui/icons-material/Add";
 import { tableHeaders } from "./data";
 import { useScheduleData } from "./hooks";
 export var Scheduler = function (_a) {
-    var componentName = _a.name, label = _a.label, initialScheduleValue = _a.value, onChange = _a.onChange;
+    var componentName = _a.name, label = _a.label, _b = _a.value, initialScheduleValue = _b === void 0 ? [
+        { day: "0", start_time: "00:00", end_time: "12:00" },
+    ] : _b, onChange = _a.onChange;
     var classes = useSchedulerStyles();
     var parseSchedulevalue = useScheduleData();
     var handleChange = useCallback(function (event, index, remove) {
         if (remove === void 0) { remove = false; }
         var _a = event.target, name = _a.name, value = _a.value;
-        if (remove && value.length > 1) {
-            value.splice(index, 1);
+        if (remove && scheduleValue.length > 1) {
+            scheduleValue.splice(index, 1);
         }
         else {
-            value[index][name] = value;
+            scheduleValue[index][name] = value;
         }
-        onChange === null || onChange === void 0 ? void 0 : onChange({ name: componentName, value: value });
+        onChange === null || onChange === void 0 ? void 0 : onChange({ name: componentName, value: scheduleValue });
     }, []);
-    var _b = useState(parseSchedulevalue(initialScheduleValue, handleChange)), scheduleValue = _b[0], setScheduleValue = _b[1];
+    var _c = useState(parseSchedulevalue(initialScheduleValue, handleChange)), scheduleValue = _c[0], setScheduleValue = _c[1];
     useEffect(function () {
         var newScheduleValue = parseSchedulevalue(initialScheduleValue, handleChange);
         setScheduleValue(newScheduleValue);
@@ -49,7 +51,9 @@ export var Scheduler = function (_a) {
     var addNewRow = function () {
         onChange === null || onChange === void 0 ? void 0 : onChange({
             name: componentName,
-            value: __spreadArray(__spreadArray([], scheduleValue, true), [{ day: "1", start_time: "00:00", end_time: "12:00" }], false),
+            value: __spreadArray(__spreadArray([], scheduleValue, true), [
+                { day: "0", start_time: "00:00", end_time: "12:00" },
+            ], false),
         });
     };
     return (_jsxs("div", __assign({ className: classes.root }, { children: [label && (_jsx(InputLabel, __assign({ className: classes.label, htmlFor: componentName }, { children: label }), void 0)), _jsx(Table, { headers: tableHeaders, value: scheduleValue }, void 0), _jsxs("div", __assign({ className: classes.button, onClick: addNewRow }, { children: [_jsx(AddIcon, { className: classes.addIcon }, void 0), _jsx("p", __assign({ className: classes.buttonText }, { children: "Add more" }), void 0)] }), void 0)] }), void 0));

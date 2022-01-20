@@ -9,17 +9,17 @@ interface DayPickerProps extends SelectProps {
   // days: { id: number; name: string, display:boolean }[],
 }
 
-const days: { id: number; name: string; display: boolean }[] = [
-  { id: 0, name: "Everyday", display: true },
-  { id: 1, name: "Sunday", display: true },
-  { id: 2, name: "Monday", display: true },
-  { id: 3, name: "Tuesday", display: true },
-  { id: 4, name: "Wednesday", display: true },
-  { id: 5, name: "Thursday", display: true },
-  { id: 6, name: "Friday", display: true },
-  { id: 7, name: "Saturday", display: true },
-  { id: 8, name: "Weekdays", display: true },
-  { id: 9, name: "Weekends", display: true },
+const days: { id: number; name: string }[] = [
+  { id: 0, name: "Everyday" },
+  { id: 1, name: "Sunday" },
+  { id: 2, name: "Monday" },
+  { id: 3, name: "Tuesday" },
+  { id: 4, name: "Wednesday" },
+  { id: 5, name: "Thursday" },
+  { id: 6, name: "Friday" },
+  { id: 7, name: "Saturday" },
+  { id: 8, name: "Weekdays" },
+  { id: 9, name: "Weekends" },
 ];
 
 export const DayPicker: React.FC<DayPickerProps> = ({
@@ -44,8 +44,8 @@ export const DayPicker: React.FC<DayPickerProps> = ({
         value={value}
         input={<BootstrapInput />}
       >
-        {days.map(({ id, name }, index: number) => (
-          <option key={index} value={id} className={classes.option}>
+        {days.map(({ id, name }) => (
+          <option key={id} value={String(id)} className={classes.option}>
             {name}
           </option>
         ))}
