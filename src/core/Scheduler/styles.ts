@@ -4,15 +4,15 @@ import makeStyles from '@mui/styles/makeStyles';
 
 export const useSchedulerStyles = makeStyles((theme:Theme) => ({
   button: {
+    width: "fit-content",
     background: theme.design.colors.red70,
-    width: "200px",
     borderColor: theme.design.colors.white,
     padding: theme.spacing(2),
     marginTop: theme.spacing(2),
     display: "flex",
     alignItems: "center",
     justifyContent: "center",
-    fontSize: "1rem",
+    fontSize: theme.typography.fontSize + 1,
     borderRadius: "8px",
     color: " #ADADAD",
     cursor: "pointer",
@@ -28,7 +28,7 @@ export const useSchedulerStyles = makeStyles((theme:Theme) => ({
     color: theme.design.colors.white,
   },
   addIcon: {
-    color:theme.design.colors.white,
-    fontSize: 22,
+    color: theme.design.colors.white,
+    marginRight: theme.spacing(1),
   }
 }));

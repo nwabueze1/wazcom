@@ -9,7 +9,7 @@ import { useScheduleData } from "./hooks";
 export const defaultRow = new Row();
 
 export const Scheduler: React.FC<SchedulerProps> = ({
-  name,
+  name: componentName,
   data,
   onChange,
 }) => {
@@ -26,7 +26,7 @@ export const Scheduler: React.FC<SchedulerProps> = ({
       } else {
         data[index][name] = value;
       }
-      onChange?.({ name: name as string, value: data });
+      onChange?.({ name: componentName as string, value: data });
     },
     [data],
   );
@@ -41,8 +41,7 @@ export const Scheduler: React.FC<SchedulerProps> = ({
   }, [data]);
 
   const addNewRow = () => {
-    alert('leke');
-    onChange?.({ name: name as string, value: [...data, new Row()] });
+    onChange?.({ name: componentName as string, value: [...data, new Row()] });
   };
 
   return (
