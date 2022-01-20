@@ -1,3 +1,4 @@
+import { useEffect, useState } from "react";
 import { TableProps } from "./types";
 import { useTableStyles } from "./styles";
 import {
@@ -11,8 +12,14 @@ import {
   Checkbox,
 } from "@mui/material";
 
-export const Table = ({ headers, data, hasCheckBox, ...props }: TableProps) => {
+export const Table = ({ headers, data:initialTableData, hasCheckBox, ...props }: TableProps) => {
   const classes = useTableStyles();
+  const [tableData, setTableData] = useState(initialTableData);
+
+  useEffect(() => {
+    setTableData(initialTableData);
+    console.log(initialTableData);
+  }, [initialTableData]);
 
   return (
     <TableContainer component={Paper}>
@@ -39,7 +46,7 @@ export const Table = ({ headers, data, hasCheckBox, ...props }: TableProps) => {
           </TableRow>
         </TableHead>
         <TableBody>
-          {data?.map((row: any, index: number) => {
+          {tableData?.map((row: any, index: number) => {
             return (
               <TableRow key={index}>
                 {hasCheckBox && (

@@ -496,6 +496,7 @@ export const stories: ComponentPropType[] = [
     name: "Scheduler",
     component: Scheduler,
     props: {
+      label:"Menu Schedule",
       data: [
         {
           day: "01",

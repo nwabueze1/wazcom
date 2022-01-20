@@ -1,6 +1,6 @@
 import { CommonProps } from "types";
 export declare type SchedulerProps = CommonProps & {
-    identifier?: string | number;
+    label?: string;
     data: Schedule[];
 };
 export declare type Schedule = {
@@ -8,13 +8,3 @@ export declare type Schedule = {
     start_time: string;
     end_time: string;
 };
-export interface RowType {
-    day: string;
-    start_time: string;
-    end_time: string;
-}
-export declare class Row implements RowType {
-    day: string;
-    start_time: string;
-    end_time: string;
-}

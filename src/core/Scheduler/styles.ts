@@ -2,7 +2,17 @@ import { Theme } from "@mui/material";
 
 import makeStyles from '@mui/styles/makeStyles';
 
-export const useSchedulerStyles = makeStyles((theme:Theme) => ({
+export const useSchedulerStyles = makeStyles((theme: Theme) => ({
+  root: {
+    display: "flex",
+    flexDirection: "column",
+    width: "100%",
+    marginBottom: theme.spacing(2),
+  },
+  label: {
+    marginBottom: theme.spacing(1),
+    fontSize: "1rem",
+  },
   button: {
     width: "fit-content",
     background: theme.design.colors.red70,
@@ -17,12 +27,6 @@ export const useSchedulerStyles = makeStyles((theme:Theme) => ({
     color: " #ADADAD",
     cursor: "pointer",
   },
-  tableContainer: {
-    display: "flex",
-    flexDirection: "column",
-    width: "100%",
-    padding: theme.spacing(1, 0),
-  },
   buttonText: {
     margin: "0",
     color: theme.design.colors.white,
@@ -30,5 +34,5 @@ export const useSchedulerStyles = makeStyles((theme:Theme) => ({
   addIcon: {
     color: theme.design.colors.white,
     marginRight: theme.spacing(1),
-  }
+  },
 }));

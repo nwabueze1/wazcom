@@ -22,13 +22,12 @@ import { jsx as _jsx, jsxs as _jsxs } from "react/jsx-runtime";
 import { useState, useCallback, useEffect } from "react";
 import { Table } from "../Table";
 import { useSchedulerStyles } from "./styles";
+import { InputLabel } from "@mui/material";
 import AddIcon from "@mui/icons-material/Add";
-import { Row } from "./types";
 import { tableHeaders } from "./data";
 import { useScheduleData } from "./hooks";
-export var defaultRow = new Row();
 export var Scheduler = function (_a) {
-    var componentName = _a.name, data = _a.data, onChange = _a.onChange;
+    var componentName = _a.name, label = _a.label, data = _a.data, onChange = _a.onChange;
     var classes = useSchedulerStyles();
     var parseScheduleData = useScheduleData();
     var handleChange = useCallback(function (event, index, remove) {
@@ -48,7 +47,10 @@ export var Scheduler = function (_a) {
         setTableData(newTableData);
     }, [data]);
     var addNewRow = function () {
-        onChange === null || onChange === void 0 ? void 0 : onChange({ name: componentName, value: __spreadArray(__spreadArray([], data, true), [new Row()], false) });
+        onChange === null || onChange === void 0 ? void 0 : onChange({
+            name: componentName,
+            value: __spreadArray(__spreadArray([], data, true), [{ day: "1", start_time: "00:00", end_time: "12:00" }], false),
+        });
     };
-    return (_jsxs("div", __assign({ className: classes.tableContainer }, { children: [_jsx(Table, { headers: tableHeaders, data: tableData }, void 0), _jsxs("div", __assign({ className: classes.button, onClick: addNewRow }, { children: [_jsx(AddIcon, { className: classes.addIcon }, void 0), _jsx("p", __assign({ className: classes.buttonText }, { children: "Add more" }), void 0)] }), void 0)] }), void 0));
+    return (_jsxs("div", __assign({ className: classes.root }, { children: [label && (_jsx(InputLabel, __assign({ className: classes.label, htmlFor: componentName }, { children: label }), void 0)), _jsx(Table, { headers: tableHeaders, data: tableData }, void 0), _jsxs("div", __assign({ className: classes.button, onClick: addNewRow }, { children: [_jsx(AddIcon, { className: classes.addIcon }, void 0), _jsx("p", __assign({ className: classes.buttonText }, { children: "Add more" }), void 0)] }), void 0)] }), void 0));
 };

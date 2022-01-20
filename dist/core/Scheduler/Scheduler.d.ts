@@ -1,4 +1,3 @@
 import React from "react";
-import { SchedulerProps, Row } from "./types";
-export declare const defaultRow: Row;
+import { SchedulerProps } from "./types";
 export declare const Scheduler: React.FC<SchedulerProps>;

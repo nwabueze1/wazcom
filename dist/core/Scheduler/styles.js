@@ -1,5 +1,15 @@
 import makeStyles from '@mui/styles/makeStyles';
 export var useSchedulerStyles = makeStyles(function (theme) { return ({
+    root: {
+        display: "flex",
+        flexDirection: "column",
+        width: "100%",
+        marginBottom: theme.spacing(2),
+    },
+    label: {
+        marginBottom: theme.spacing(1),
+        fontSize: "1rem",
+    },
     button: {
         width: "fit-content",
         background: theme.design.colors.red70,
@@ -14,12 +24,6 @@ export var useSchedulerStyles = makeStyles(function (theme) { return ({
         color: " #ADADAD",
         cursor: "pointer",
     },
-    tableContainer: {
-        display: "flex",
-        flexDirection: "column",
-        width: "100%",
-        padding: theme.spacing(1, 0),
-    },
     buttonText: {
         margin: "0",
         color: theme.design.colors.white,
@@ -27,5 +31,5 @@ export var useSchedulerStyles = makeStyles(function (theme) { return ({
     addIcon: {
         color: theme.design.colors.white,
         marginRight: theme.spacing(1),
-    }
+    },
 }); });
