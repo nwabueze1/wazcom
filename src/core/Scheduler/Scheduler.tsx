@@ -43,15 +43,15 @@ export const Scheduler: React.FC<SchedulerProps> = ({
     setScheduleValue(newScheduleValue);
   }, [initialScheduleValue]);
 
-  const addNewRow = () => {
+  const addNewRow = useCallback(() => {
     onChange?.({
       name: componentName as string,
       value: [
-        ...scheduleValue,
+        ...initialScheduleValue,
         { day: "0", start_time: "00:00", end_time: "12:00" },
       ],
     });
-  };
+  }, [initialScheduleValue]);
 
   return (
     <div className={classes.root}>

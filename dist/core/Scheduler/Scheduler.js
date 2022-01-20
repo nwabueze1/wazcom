@@ -49,13 +49,13 @@ export var Scheduler = function (_a) {
         var newScheduleValue = parseSchedulevalue(initialScheduleValue, handleChange);
         setScheduleValue(newScheduleValue);
     }, [initialScheduleValue]);
-    var addNewRow = function () {
+    var addNewRow = useCallback(function () {
         onChange === null || onChange === void 0 ? void 0 : onChange({
             name: componentName,
-            value: __spreadArray(__spreadArray([], scheduleValue, true), [
+            value: __spreadArray(__spreadArray([], initialScheduleValue, true), [
                 { day: "0", start_time: "00:00", end_time: "12:00" },
             ], false),
         });
-    };
+    }, [initialScheduleValue]);
     return (_jsxs("div", __assign({ className: classes.root }, { children: [label && (_jsx(InputLabel, __assign({ className: classes.label, htmlFor: componentName }, { children: label }), void 0)), _jsx(Table, { headers: tableHeaders, value: scheduleValue }, void 0), _jsxs("div", __assign({ className: classes.button, onClick: addNewRow }, { children: [_jsx(AddIcon, { className: classes.addIcon }, void 0), _jsx("p", __assign({ className: classes.buttonText }, { children: "Add more" }), void 0)] }), void 0)] }), void 0));
 };
