@@ -25,6 +25,8 @@ import {
   RadioButton,
   RadioButtonProps,
   Carousel,
+  EmptyState,
+  EmptyStateProps
 } from "../core";
 
 import {
@@ -77,6 +79,7 @@ type ComponentPropType = {
   | TagStory
   | RichTextStory
   | GqlComboBoxStory
+  | EmptyStateStory
 );
 
 type AccordionStory = {
@@ -183,6 +186,11 @@ type GqlComboBoxStory = {
   name: string;
   props: GqlComboBoxProps;
 };
+
+type EmptyStateStory = {
+  name: string;
+  props: EmptyStateProps;
+}
 
 export const stories: ComponentPropType[] = [
   {
@@ -422,7 +430,7 @@ export const stories: ComponentPropType[] = [
     name: "Select",
     component: SelectInput,
     props: {
-      label:"lslss",
+      label: "lslss",
       options: [
         { label: "Basit", value: "basit" },
         { label: "Chinazom", value: "chinazom" },
@@ -457,8 +465,23 @@ export const stories: ComponentPropType[] = [
         key: ["categoriesByBlogID"],
       },
       variables: { blog_id: 34 },
-      value: { label: 'entertainment', value: 5 },
-      addOption: createNewCategory
+      value: { label: "entertainment", value: 5 },
+      addOption: createNewCategory,
+    },
+  },
+  {
+    name: "Empty State",
+    component: EmptyState,
+    props: {
+      text: "No menus to display",
+      image: {
+        src: "https://images.unsplash.com/photo-1538032746644-0212e812a9e7?auto=format&fit=crop&w=400&h=250&q=60",
+      },
+      button: {
+        display: true,
+        text: "Create New Menu",
+        handleClick: () => { alert('Zeus Empty State') }
+      }
     },
   },
 ];
