@@ -26,7 +26,9 @@ import {
   RadioButtonProps,
   Carousel,
   EmptyState,
-  EmptyStateProps
+  EmptyStateProps,
+  Scheduler,
+  SchedulerProps,
 } from "../core";
 
 import {
@@ -80,6 +82,7 @@ type ComponentPropType = {
   | RichTextStory
   | GqlComboBoxStory
   | EmptyStateStory
+  | SchedulerStory
 );
 
 type AccordionStory = {
@@ -190,6 +193,11 @@ type GqlComboBoxStory = {
 type EmptyStateStory = {
   name: string;
   props: EmptyStateProps;
+}
+
+type SchedulerStory = {
+  name: string;
+  props: SchedulerStory;
 }
 
 export const stories: ComponentPropType[] = [
@@ -484,4 +492,17 @@ export const stories: ComponentPropType[] = [
       }
     },
   },
+  {
+    name: "Scheduler",
+    component: Scheduler,
+    props: {
+      data: [
+        {
+          day: "01",
+          start_time: "12:00",
+          end_time: "18:00"
+        }
+      ]
+    }
+  }
 ];
