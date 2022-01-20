@@ -2,7 +2,7 @@ import { CommonProps } from "types";
 
 export type SchedulerProps = CommonProps & {
     label?: string;
-    data: Schedule[];
+    value: Schedule[];
 }
 
 export type Schedule = {

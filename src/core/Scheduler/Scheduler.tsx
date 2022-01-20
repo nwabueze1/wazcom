@@ -10,40 +10,40 @@ import { useScheduleData } from "./hooks";
 export const Scheduler: React.FC<SchedulerProps> = ({
   name: componentName,
   label,
-  data,
+  value:initialScheduleValue,
   onChange,
 }) => {
   const classes = useSchedulerStyles();
-  const parseScheduleData = useScheduleData();
+  const parseSchedulevalue = useScheduleData();
 
   const handleChange = useCallback(
     (event, index, remove = false) => {
       const {
         target: { name, value },
       } = event;
-      if (remove && data.length > 1) {
-        data.splice(index, 1);
+      if (remove && value.length > 1) {
+        value.splice(index, 1);
       } else {
-        data[index][name] = value;
+        value[index][name] = value;
       }
-      onChange?.({ name: componentName as string, value: data });
+      onChange?.({ name: componentName as string, value: value });
     },
-    [data],
+    [],
   );
 
-  const [tableData, setTableData] = useState<{ [key: string]: any }[]>(
-    parseScheduleData(data, handleChange),
+  const [scheduleValue, setScheduleValue] = useState<{ [key: string]: any }[]>(
+    parseSchedulevalue(initialScheduleValue, handleChange),
   );
 
   useEffect(() => {
-    const newTableData = parseScheduleData(data, handleChange);
-    setTableData(newTableData);
-  }, [data]);
+    const newScheduleValue = parseSchedulevalue(initialScheduleValue, handleChange);
+    setScheduleValue(newScheduleValue);
+  }, [initialScheduleValue]);
 
   const addNewRow = () => {
     onChange?.({
       name: componentName as string,
-      value: [...data, { day: "1", start_time: "00:00", end_time: "12:00" }],
+      value: [...scheduleValue, { day: "1", start_time: "00:00", end_time: "12:00" }],
     });
   };
 
@@ -54,7 +54,7 @@ export const Scheduler: React.FC<SchedulerProps> = ({
           {label}
         </InputLabel>
       )}
-      <Table headers={tableHeaders} data={tableData} />
+      <Table headers={tableHeaders} value={scheduleValue} />
       <div className={classes.button} onClick={addNewRow}>
         <AddIcon className={classes.addIcon} />
         <p className={classes.buttonText}>Add more</p>

@@ -25,19 +25,19 @@ import { useEffect, useState } from "react";
 import { useTableStyles } from "./styles";
 import { Table as MuiTable, TableBody, TableCell, TableContainer, TableHead, TableRow, Paper, Checkbox, } from "@mui/material";
 export var Table = function (_a) {
-    var headers = _a.headers, initialTableData = _a.data, hasCheckBox = _a.hasCheckBox, props = __rest(_a, ["headers", "data", "hasCheckBox"]);
+    var headers = _a.headers, initialTableValue = _a.value, hasCheckBox = _a.hasCheckBox, props = __rest(_a, ["headers", "value", "hasCheckBox"]);
     var classes = useTableStyles();
-    var _b = useState(initialTableData), tableData = _b[0], setTableData = _b[1];
+    var _b = useState(initialTableValue), tableValue = _b[0], setTableValue = _b[1];
     useEffect(function () {
-        setTableData(initialTableData);
-        console.log(initialTableData);
-    }, [initialTableData]);
+        setTableValue(initialTableValue);
+        console.log(initialTableValue);
+    }, [initialTableValue]);
     return (_jsx(TableContainer, __assign({ component: Paper }, { children: _jsxs(MuiTable, __assign({ classes: {
                 root: classes.root,
             } }, props, { children: [_jsx(TableHead, __assign({ className: classes.tableHead }, { children: _jsxs(TableRow, { children: [hasCheckBox && (_jsx(TableCell, __assign({ padding: "checkbox" }, { children: _jsx(Checkbox, {}, void 0) }), void 0)), headers.map(function (_a) {
                                 var name = _a.name, label = _a.label;
                                 return (_jsx(TableCell, __assign({ className: classes.tableHeadCell }, { children: label }), name));
-                            })] }, void 0) }), void 0), _jsx(TableBody, { children: tableData === null || tableData === void 0 ? void 0 : tableData.map(function (row, index) {
+                            })] }, void 0) }), void 0), _jsx(TableBody, { children: tableValue === null || tableValue === void 0 ? void 0 : tableValue.map(function (row, index) {
                         return (_jsxs(TableRow, { children: [hasCheckBox && (_jsx(TableCell, __assign({ padding: "checkbox" }, { children: _jsx(Checkbox, {}, void 0) }), void 0)), headers.map(function (_a) {
                                     var name = _a.name;
                                     return (_jsx(TableCell, __assign({ className: classes.tableCell }, { children: row === null || row === void 0 ? void 0 : row[name] }), name));

@@ -12,14 +12,14 @@ import {
   Checkbox,
 } from "@mui/material";
 
-export const Table = ({ headers, data:initialTableData, hasCheckBox, ...props }: TableProps) => {
+export const Table = ({ headers, value:initialTableValue, hasCheckBox, ...props }: TableProps) => {
   const classes = useTableStyles();
-  const [tableData, setTableData] = useState(initialTableData);
+  const [tableValue, setTableValue] = useState(initialTableValue);
 
   useEffect(() => {
-    setTableData(initialTableData);
-    console.log(initialTableData);
-  }, [initialTableData]);
+    setTableValue(initialTableValue);
+    console.log(initialTableValue);
+  }, [initialTableValue]);
 
   return (
     <TableContainer component={Paper}>
@@ -46,7 +46,7 @@ export const Table = ({ headers, data:initialTableData, hasCheckBox, ...props }:
           </TableRow>
         </TableHead>
         <TableBody>
-          {tableData?.map((row: any, index: number) => {
+          {tableValue?.map((row: any, index: number) => {
             return (
               <TableRow key={index}>
                 {hasCheckBox && (
