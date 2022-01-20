@@ -35,14 +35,15 @@ export var Scheduler = function (_a) {
     var handleChange = useCallback(function (event, index, remove) {
         if (remove === void 0) { remove = false; }
         var _a = event.target, name = _a.name, value = _a.value;
-        if (remove && scheduleValue.length > 1) {
-            scheduleValue.splice(index, 1);
+        var newValue = __spreadArray([], initialScheduleValue, true);
+        if (remove && newValue.length > 1) {
+            newValue.splice(index, 1);
         }
         else {
-            scheduleValue[index][name] = value;
+            newValue[index][name] = value;
         }
-        onChange === null || onChange === void 0 ? void 0 : onChange({ name: componentName, value: scheduleValue });
-    }, []);
+        onChange === null || onChange === void 0 ? void 0 : onChange({ name: componentName, value: newValue });
+    }, [initialScheduleValue]);
     var _c = useState(parseSchedulevalue(initialScheduleValue, handleChange)), scheduleValue = _c[0], setScheduleValue = _c[1];
     useEffect(function () {
         var newScheduleValue = parseSchedulevalue(initialScheduleValue, handleChange);

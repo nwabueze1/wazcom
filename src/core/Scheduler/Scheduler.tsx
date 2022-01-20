@@ -22,13 +22,14 @@ export const Scheduler: React.FC<SchedulerProps> = ({
     const {
       target: { name, value },
     } = event;
-    if (remove && scheduleValue.length > 1) {
-      scheduleValue.splice(index, 1);
+    const newValue = [...initialScheduleValue];
+    if (remove && newValue.length > 1) {
+      newValue.splice(index, 1);
     } else {
-      scheduleValue[index][name] = value;
+      newValue[index][name] = value;
     }
-    onChange?.({ name: componentName as string, value: scheduleValue });
-  }, []);
+    onChange?.({ name: componentName as string, value: newValue });
+  }, [initialScheduleValue]);
 
   const [scheduleValue, setScheduleValue] = useState<{ [key: string]: any }[]>(
     parseSchedulevalue(initialScheduleValue, handleChange),
