@@ -73,16 +73,13 @@ export const useNavStyles = makeStyles<Theme>((theme: Theme) => ({
     position: "absolute",
     justifyContent: "space-between",
     background: theme.design.colors.white,
-    // zIndex: 5,
+    zIndex: 5,
     right: 0,
     transition: "right 0.5s ease-in",
   },
   removeSidebar: {
-    display: "none",
     right: "-100vw",
-    // [theme.breakpoints.down("sm")]: {
-    //   display: "block"
-    // },
+    position: "fixed"
   },
   mobileContainer: {
     height: "50vh",

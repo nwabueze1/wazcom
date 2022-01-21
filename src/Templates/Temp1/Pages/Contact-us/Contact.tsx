@@ -14,7 +14,6 @@ const Contact = () => {
   const handleField = (e: any) => {
     const newFormData = { ...formData, [e.target.name]: e.target.value };
     setFormData(newFormData);
-    console.log(newFormData);
   };
 
   // const handleSubmit = (e: any) => {
@@ -50,7 +49,7 @@ const Contact = () => {
           key={index}
           name={name}
           type={type}
-          label={name}
+          placeholder={name}
           value={formData[name]}
           onChange={handleField}
         />

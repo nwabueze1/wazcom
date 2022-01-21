@@ -24,6 +24,7 @@ const NavBar: FC<NavBarProps> = ({ navheader }) => {
       </div>
     ));
   };
+  
   return (
     <div className={classes.root}>
       <div className={classes.container}>

@@ -1,9 +1,11 @@
 import React from "react";
 import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
 import Layout from "./Components/Layout/Layout";
+import { BlogPage } from "./Pages/BlogPage/BlogPage";
 import Contact from "./Pages/Contact-us/Contact";
 import DishesPage from "./Pages/DishesPage/DishesPage";
 import { HomePage } from "./Pages/HomePage/HomePage";
+import { RebaseStory } from "./Pages/ReBaseStory/RebaseStory";
 
 const Template1 = () => {
   return (
@@ -23,6 +25,16 @@ const Template1 = () => {
           <Route path="/templates/contact">
             <Layout  navheader={"Rebase Chef"}>
               <Contact />
+            </Layout>
+          </Route>
+          <Route path="/templates/blog">
+            <Layout  navheader={"Rebase Chef"}>
+              <BlogPage />
+            </Layout>
+          </Route>
+          <Route path="/templates/story">
+            <Layout  navheader={"Rebase Chef"}>
+              <RebaseStory />
             </Layout>
           </Route>
         </Switch>

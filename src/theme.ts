@@ -51,6 +51,10 @@ export const theme: any = {
     },
     h6: {},
   },
+  styles: {
+      maxWidth: 1294,
+      tabMaxWidth: 700,
+    },
   palette: {
     primary: {
       light: "#59598E",
@@ -136,6 +140,7 @@ export const theme: any = {
       regular: '"Nunito", sans-serif',
     },
     colors: {
+      Grey:'#414141',
       red70: "#FF4C4C",
       red90: "#FF1919",
       gray: "#BEBEBE",
