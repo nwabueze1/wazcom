@@ -1,6 +1,6 @@
 import React from "react";
 import { useStoryStyles } from "./styles";
-import { storyTopData, storyBottomData } from "../TemplateData";
+import { storyTopData, storyBottomData } from "../../TemplateData";
 import { Typography } from "@mui/material";
 
 const Story = () => {

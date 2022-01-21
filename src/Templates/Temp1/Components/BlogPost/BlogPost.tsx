@@ -1,5 +1,5 @@
 import React, {FC} from "react";
-import { blogData } from "../TemplateData";
+import { blogData } from "../../TemplateData";
 import { usePostStyles } from "./styles";
 import clx from "classnames";
 import ArrowRightAltIcon from "@mui/icons-material/ArrowRightAlt";

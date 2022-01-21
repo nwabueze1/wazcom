@@ -2,10 +2,10 @@ import React, { useState } from "react";
 import { useContactUsStyles } from "./styles";
 import {TextInput} from "../../../../io/TextInput"
 import {TextArea} from "../../../../io/TextArea";
-import { fields } from "../../Components/TemplateData";
+import { fields } from "../../TemplateData";
 import clx from "classnames";
 import TextField from '@mui/material/TextField';
-import { ContactData } from "../../Components/TemplateData";
+import { ContactData } from "../../TemplateData";
 
 const Contact = () => {
   const classes = useContactUsStyles();

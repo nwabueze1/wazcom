@@ -1,7 +1,7 @@
 import React from "react";
 import { useRebaseStyles } from "./styles";
 import ArrowRightAltIcon from "@mui/icons-material/ArrowRightAlt";
-import { blogData } from "../TemplateData";
+import { blogData } from "../../TemplateData";
 import { useHistory } from "react-router-dom";
 import { Typography } from "@mui/material";
 

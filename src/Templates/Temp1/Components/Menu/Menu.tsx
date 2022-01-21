@@ -1,6 +1,6 @@
 import React from "react";
 import { useDishesStyles } from "../Dishes/styles";
-import { menuData } from "../TemplateData";
+import { menuData } from "../../TemplateData";
 import Dishes from "../Dishes/DIshes";
 import { Typography } from "@mui/material";
 

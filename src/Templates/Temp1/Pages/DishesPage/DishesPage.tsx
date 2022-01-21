@@ -1,7 +1,7 @@
 import React, { useState, useCallback } from "react";
 import { usePageDishesStyles } from "./styles";
 import clx from "classnames";
-import { menuData } from "../../Components/TemplateData";
+import { menuData } from "../../TemplateData";
 import Dishes from "../../Components/Dishes/DIshes";
 
 const DishesPage = () => {

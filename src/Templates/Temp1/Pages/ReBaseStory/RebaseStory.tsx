@@ -1,6 +1,6 @@
 import React from "react";
 import BlogPost from "Templates/Temp1/Components/BlogPost/BlogPost";
-import { blogData } from "Templates/Temp1/Components/TemplateData";
+import { blogData } from "Templates/Temp1/TemplateData";
 import { useRebaseStoryStyles } from "./styles";
 
 export const RebaseStory = () => {

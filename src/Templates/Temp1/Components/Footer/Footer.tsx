@@ -2,7 +2,7 @@ import React, {FC} from "react";
 import { useFooterStyles } from "./styles";
 import {Link} from "react-router-dom"
 import { FooterProps } from "./types";
-import { navData } from "../TemplateData";
+import { navData } from "../../TemplateData";
 import FacebookIcon from '@mui/icons-material/Facebook';
 import TwitterIcon from "@mui/icons-material/Twitter";
 
