@@ -22,6 +22,8 @@ export const useNavStyles = makeStyles<Theme>((theme: Theme) => ({
     padding: theme.spacing(3, 0),
     display: "flex",
     justifyContent: "space-between",
+    position: "relative",
+    zIndex: 20,
     alignItems: "center",
     background: theme.design.colors.white,
     maxWidth: theme.include.styles.maxWidth,
@@ -42,6 +44,7 @@ export const useNavStyles = makeStyles<Theme>((theme: Theme) => ({
   nav: {
     width: "70%",
     display: "flex",
+    zIndex: 20,
     justifyContent: "space-between",
     alignItems: "center",
     [theme.breakpoints.down("sm")]: {
@@ -70,7 +73,9 @@ export const useNavStyles = makeStyles<Theme>((theme: Theme) => ({
   mobileNav: {
     height: "100vh",
     width: "100vw",
-    position: "absolute",
+    position: "fixed",
+    paddingTop: theme.spacing(5),
+    top: 0,
     justifyContent: "space-between",
     background: theme.design.colors.white,
     zIndex: 5,
@@ -85,7 +90,7 @@ export const useNavStyles = makeStyles<Theme>((theme: Theme) => ({
     height: "50vh",
     display: "flex",
     right: "-100vw",
-    margin: theme.spacing(5, 0, 0, 5),
+    margin: theme.spacing(10, 0, 0, 1.2),
     justifyContent: "space-between",
     flexDirection: "column",
   },
