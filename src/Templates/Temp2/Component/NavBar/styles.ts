@@ -49,8 +49,9 @@ export const useNavStyles = makeStyles<Theme>((theme: Theme) => ({
     },
   },
   nav: {
-    width: "40%",
+    width: "70%",
     display: "flex",
+    zIndex: 20,
     justifyContent: "space-between",
     alignItems: "center",
     [theme.breakpoints.down("sm")]: {
@@ -87,12 +88,13 @@ export const useNavStyles = makeStyles<Theme>((theme: Theme) => ({
     position: "absolute",
     justifyContent: "space-between",
     background: theme.design.colors.black,
+    zIndex: 5,
     right: 0,
     transition: "right 0.5s ease-in",
   },
   removeSidebar: {
-    display: "none",
     right: "-100vw",
+    position: "fixed"
   },
   mobileContainer: {
     height: "50vh",

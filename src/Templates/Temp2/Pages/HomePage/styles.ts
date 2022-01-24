@@ -1,4 +1,4 @@
-import makeStyles from '@mui/styles/makeStyles';
+import makeStyles from "@mui/styles/makeStyles";
 import { Theme } from "@mui/material/styles";
 
 export const useHomePageStyles = makeStyles<Theme>((theme: Theme) => ({
@@ -17,27 +17,45 @@ export const useHomePageStyles = makeStyles<Theme>((theme: Theme) => ({
     },
   },
   header: {
-      margin: theme.spacing(1,0),
-      fontWeight: theme.typography.fontWeightBold,
-      fontSize: theme.typography.fontSize * 3
+    margin: theme.spacing(1, 0),
+    fontWeight: theme.typography.fontWeightBold,
+    fontSize: theme.typography.fontSize * 3,
   },
   post: {
-marginTop: theme.spacing(3)
+    marginTop: theme.spacing(3),
   },
-  popularPost: {
+  navigate: {
+    display: "flex",
+    justifyContent: "space-between",
+  },
+  btn: {
+      color: theme.design.colors.gray,
+      borderColor: "transparent",
+      marginRight: theme.spacing(2.5),
+    "&:hover" : {
+      color: theme.design.colors.white,
+      background: theme.design.colors.terracotta
+    }
+  },
+  postContainer: {
+    display: "flex",
+    overflow: "scroll",
+    gap: theme.spacing(4),
+    "-ms-overflow-style": "none" /* for Internet Explorer, Edge */,
+    scrollbarWidth: "none" /* for Firefox */,
+    "&::-webkit-scrollbar": {
+      display: "none",
+    },
+    [theme.breakpoints.down("md")]: {
       display: "flex",
       flexWrap: "wrap",
       justifyContent: "space-between",
-      [theme.breakpoints.down("md")]: {
-        display: "flex",
-        flexWrap: "wrap",
-        justifyContent: "space-between",
-      },
+    },
   },
   intro: {
-    margin: theme.spacing(10, 0)
+    margin: theme.spacing(10, 0),
   },
   subscribe: {
-    margin: theme.spacing(10, 0)
-  }
+    margin: theme.spacing(10, 0),
+  },
 }));

@@ -28,7 +28,7 @@ const NavBar: FC<NavBarProps> = ({ navheader }) => {
   return (
     <div className={classes.root}>
       <div className={classes.container}>
-        <Link to="/templates/" className={classes.navHeader}>
+        <Link to="/template2/" className={classes.navHeader}>
           {navheader}
         </Link>
         <div className={classes.nav}>
