@@ -10,6 +10,7 @@ export type GqlComboBoxProps = CommonProps & {
     labelKey: string;
     valueKey: string;
   };
+  label?: string;
   value?: string;
   addOption?: (
     value: string,

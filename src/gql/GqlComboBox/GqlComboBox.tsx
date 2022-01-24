@@ -100,6 +100,7 @@ export const GqlComboBox: FC<GqlComboBoxProps> = memo(
           onChange={({ value }) => {
             handleChange(value);
           }}
+          {...props}
         />
       </div>
     );
