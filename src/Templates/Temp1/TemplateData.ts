@@ -106,10 +106,10 @@ export const blogData = [
 ];
 
 export const navData = [
-  { path: "/templates/menu", title: "MENU" },
-  { path: "/templates/blog", title: "BLOG" },
-  { path: "/templates/story", title: "REBASE'S STORY" },
-  { path: "/templates/contact", title: "CONTACT" },
+  { path: "/template1/menu", title: "MENU" },
+  { path: "/template1/blog", title: "BLOG" },
+  { path: "/template1/story", title: "REBASE'S STORY" },
+  { path: "/template1/contact", title: "CONTACT" },
 ];
 
 export const storyTopData =

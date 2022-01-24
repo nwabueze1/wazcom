@@ -9,7 +9,7 @@ import TwitterIcon from "@mui/icons-material/Twitter";
 import { NavBarProps } from "./types";
 import clx from "classnames";
 
-const NavBar: FC<NavBarProps> = ({ navheader }) => {
+const NavBar: FC<NavBarProps> = ({ navHeader }) => {
   const classes = useNavStyles();
   const [sideBar, setSideBar] = useState(false);
 
@@ -28,8 +28,8 @@ const NavBar: FC<NavBarProps> = ({ navheader }) => {
   return (
     <div className={classes.root}>
       <div className={classes.container}>
-        <Link to="/templates/" className={classes.navHeader}>
-          {navheader}
+        <Link to="/template1/" className={classes.navHeader}>
+          {navHeader}
         </Link>
         <div className={classes.nav}>
           {displayLinks()}

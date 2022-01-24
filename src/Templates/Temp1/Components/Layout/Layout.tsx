@@ -6,9 +6,9 @@ import { Footer } from "../Footer/Footer";
 const Layout: FC<LayoutProps> = ({ children, navHeader}) => {
   return (
     <>
-      <NavBar navheader={navHeader} />
+      <NavBar navHeader={navHeader} />
       <main>{children}</main>
-      <Footer navheader={navHeader} />
+      <Footer navHeader={navHeader} />
     </>
   );
 };
