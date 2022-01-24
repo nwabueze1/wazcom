@@ -10,6 +10,9 @@ export const TextArea: FC<TextAreaProps> = ({
   minRows,
 }) => {
   const classes = useTextAreaStyles();
+  const updatefunction  = () => {
+
+  }
   return (
     <div>
       <TextareaAutosize
@@ -19,7 +22,7 @@ export const TextArea: FC<TextAreaProps> = ({
         name={name}
         style={{ width: "100%" }}
         value={value}
-        onChange={onChange}
+        onChange={(e)=>onChange?.({name: name as string, value:e.target.value})}
       />
     </div>
   );

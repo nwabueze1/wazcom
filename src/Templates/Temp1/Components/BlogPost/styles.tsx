@@ -9,7 +9,7 @@ export const usePostStyles = makeStyles<Theme>((theme: Theme) => ({
   },
   menuItem: {
     justifyContent: "space-between",
-    maxWidth: 1294,
+    maxWidth: theme.include.style.maxWidth,
     margin: "auto",
     [theme.breakpoints.down("md")]: {},
 
@@ -30,7 +30,7 @@ export const usePostStyles = makeStyles<Theme>((theme: Theme) => ({
   container: {
     display: "flex",
     justifyContent: "space-between",
-    maxWidth: 1294,
+    maxWidth: theme.include.style.maxWidth,
     margin: "auto",
     [theme.breakpoints.down("md")]: {
       width: "95%",
