@@ -139,21 +139,21 @@ export const fields: { name: string; type: string }[] = [
 export const ContactData = [
   {
     title: "Location",
-    top: "123, Demo Street, Akerele, Penn, 12345 ",
-    middle: "",
-    bottom: "",
+    detail1: "123, Demo Street, Akerele, Penn, 12345 ",
+    detail2: "",
+    detail3: "",
   },
   {
     title: "Hours",
-    top: "Monday-Friday: 7am-7pm ",
-    middle: "Saturday: 8am-7pm",
-    bottom: "Sunday: 9am-5pm",
+    detail1: "Monday-Friday: 7am-7pm ",
+    detail2: "Saturday: 8am-7pm",
+    detail3: "Sunday: 9am-5pm",
   },
   {
     title: "Contact",
-    top: "email@example.c0m",
-    middle: "(123) 123-12345",
-    bottom: "",
+    detail1: "email@example.c0m",
+    detail2: "(123) 123-12345",
+    detail3: "",
   },
 ];
 

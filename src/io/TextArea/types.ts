@@ -1,5 +1,6 @@
+import { CommonProps } from "@mui/material/OverridableComponent";
 
-export type TextAreaProps = {
+export type TextAreaProps =CommonProps & {
     name: string;
     value: string;
     minRows: number;

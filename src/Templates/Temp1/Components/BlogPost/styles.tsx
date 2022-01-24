@@ -5,7 +5,7 @@ export const usePostStyles = makeStyles<Theme>((theme: Theme) => ({
   root: {
     width: "100%",
     height: "100%",
-    fontFamily: "Raleway",
+    fontFamiy: "Raleway, san-serif",
   },
   menuItem: {
     justifyContent: "space-between",
@@ -21,7 +21,7 @@ export const usePostStyles = makeStyles<Theme>((theme: Theme) => ({
   header: {
     display: "flex",
     justifyContent: "center",
-    fontFamily: "Raleway",
+    fontFamiy: "Raleway, san-serif",
     fontWeight: "bold",
     fontSize: theme.typography.fontSize * 2,
     marginTop: theme.spacing(11),

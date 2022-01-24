@@ -13,23 +13,23 @@ const Template1 = () => {
     <div>
       <Router>
         <Switch>
-          <Route exact path="/templates/">
-            <Layout navheader={"Rebase Chef"}>
+          <Route exact path="/template1/">
+            <Layout navHeader={"Rebase Chef"}>
               <HomePage />
             </Layout>
           </Route>
-          <Route path="/templates/menu">
-            <Layout navheader={"Rebase Chef"}>
+          <Route path="/template1/menu">
+            <Layout navHeader={"Rebase Chef"}>
               <DishesPage />
             </Layout>
           </Route>
-          <Route path="/templates/contact">
-            <Layout navheader={"Rebase Chef"}>
+          <Route path="/template1/contact">
+            <Layout navHeader={"Rebase Chef"}>
               <Contact />
             </Layout>
           </Route>
-          <Route path="/templates/blog">
-            <Layout navheader={"Rebase Chef"}>
+          <Route path="/template1/blog">
+            <Layout navHeader={"Rebase Chef"}>
               <BlogPage
                 title={BlogTitle}
                 content={BlogText}
@@ -40,8 +40,8 @@ const Template1 = () => {
               />
             </Layout>
           </Route>
-          <Route path="/templates/story">
-            <Layout navheader={"Rebase Chef"}>
+          <Route path="/template1/story">
+            <Layout navHeader={"Rebase Chef"}>
               <RebaseStory />
             </Layout>
           </Route>

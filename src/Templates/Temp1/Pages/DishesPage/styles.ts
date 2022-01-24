@@ -5,7 +5,7 @@ export const usePageDishesStyles = makeStyles<Theme>((theme: Theme) => ({
   root: {
     width: "100%",
     height: "100%",
-    fontFamily: "Raleway",
+    fontFamiy: "Raleway, san-serif",
     [theme.breakpoints.down("sm")]: {
       width: "100%",
       margin: "auto",
@@ -14,7 +14,7 @@ export const usePageDishesStyles = makeStyles<Theme>((theme: Theme) => ({
   container: {
     width: "100%",
     margin: "0 auto",
-    maxWidth: 1280,
+    maxWidth: theme.include.styles.maxWidth,
   },
   header: {
     textAlign: "center",
