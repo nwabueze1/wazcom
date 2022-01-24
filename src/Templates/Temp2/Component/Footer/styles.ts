@@ -24,7 +24,6 @@ export const useFooterStyles = makeStyles((theme: Theme) => ({
     [theme.breakpoints.down("sm")]: {
       flexDirection: "column",
       justifyContent: "space-between",
-      alignItems: "flex-start",
       height: "33vh",
       paddingBottom: theme.spacing(5)
     },
@@ -41,18 +40,19 @@ export const useFooterStyles = makeStyles((theme: Theme) => ({
       fontSize: theme.typography.fontSize + 4,
     },
     [theme.breakpoints.down("sm")]: {
-      fontSize: theme.typography.fontSize + 2
+      fontSize: theme.typography.fontSize + 8,
+      fontWeight: theme.typography.fontWeightBold,
     },
   },
   nav: {
     width: "40%",
     display: "flex",
+    fontWeight: theme.typography.fontWeightBold,
     justifyContent: "space-between",
     alignItems: "center",
     [theme.breakpoints.down("sm")]: {
       flexDirection: "column",
       justifyContent: "space-between",
-      alignItems: "flex-start",
        height: "26vh"
     },
   },
@@ -66,8 +66,8 @@ export const useFooterStyles = makeStyles((theme: Theme) => ({
       fontSize: theme.typography.fontSize + 10,
     },
     [theme.breakpoints.down("sm")]: {
-      fontSize: theme.typography.fontSize + 6,
-      fontWeight: theme.typography.fontWeightMedium, 
+      fontSize: theme.typography.fontSize + 12,
+      fontWeight: theme.typography.fontWeightBold, 
     },
   },
 }));

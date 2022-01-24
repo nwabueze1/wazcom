@@ -62,7 +62,7 @@ const NavBar: FC<NavBarProps> = ({ navheader }) => {
         <div className={classes.mobileContainer}>
           {displayLinks()}
           <div>
-            <FacebookIcon className={classes.icon}/>
+            <FacebookIcon className={classes.menuIcon} />
             <TwitterIcon className={classes.icon} />
           </div>
         </div>

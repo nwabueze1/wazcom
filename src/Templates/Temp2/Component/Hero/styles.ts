@@ -28,6 +28,9 @@ export const useHeroStyles = makeStyles<Theme>((theme: Theme) => ({
         top: "20%",
         fontSize: theme.typography.fontSize * 4,
       }, 
+      [theme.breakpoints.down("sm")]: {
+        top: "15%",
+      },
   },
   welcome: {
       fontSize: theme.typography.fontSize * 5 + 4,
@@ -36,6 +39,9 @@ export const useHeroStyles = makeStyles<Theme>((theme: Theme) => ({
         fontSize: theme.typography.fontSize * 4,
         marginBottom: theme.spacing(1)
       },  
+      [theme.breakpoints.down("sm")]: {
+        fontSize: theme.typography.fontSize + 12,
+      }, 
   },
   content: {
     fontSize: theme.typography.fontSize + 10,
@@ -44,15 +50,23 @@ export const useHeroStyles = makeStyles<Theme>((theme: Theme) => ({
       width: "70%",
       margin: "auto"
     }, 
+    [theme.breakpoints.down("sm")]: {
+      fontSize: theme.typography.fontSize + 4,
+    }, 
   },
   subscribe: {
     background: theme.design.colors.terracotta,
     borderRadius: 0,
     padding: theme.spacing(1,3),
     fontSize: theme.typography.fontSize + 8,
-    margin:theme.spacing(8),
+    marginTop:theme.spacing(8),
     [theme.breakpoints.down("md")]: {
       fontSize: theme.typography.fontSize + 4,
+      marginTop:theme.spacing(6)
+    }, 
+    [theme.breakpoints.down("sm")]: {
+      fontSize: theme.typography.fontSize + 4,
+      marginTop: 0,
     }, 
   }
 }));

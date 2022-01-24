@@ -37,7 +37,7 @@ export const useNavStyles = makeStyles<Theme>((theme: Theme) => ({
   },
   icon: {
     marginLeft: theme.spacing(4),
-    color: theme.design.colors.white
+    color: theme.design.colors.white,
   },
   anchor: {
     textDecoration: "none",
@@ -59,10 +59,14 @@ export const useNavStyles = makeStyles<Theme>((theme: Theme) => ({
     },
   },
   menu: {
+    color: theme.design.colors.white,
     display: "none",
     [theme.breakpoints.down("sm")]: {
       display: "block",
     },
+  },
+  menuIcon: {
+    color: theme.design.colors.white,
   },
   navHeader: {
     fontSize: theme.typography.fontSize * 3,
@@ -82,8 +86,7 @@ export const useNavStyles = makeStyles<Theme>((theme: Theme) => ({
     width: "100vw",
     position: "absolute",
     justifyContent: "space-between",
-    background: theme.design.colors.white,
-    // zIndex: 5,
+    background: theme.design.colors.black,
     right: 0,
     transition: "right 0.5s ease-in",
   },
@@ -95,7 +98,7 @@ export const useNavStyles = makeStyles<Theme>((theme: Theme) => ({
     height: "50vh",
     display: "flex",
     right: "-100vw",
-    margin: theme.spacing(5, 0, 0, 5),
+    margin: theme.spacing(5, 0, 0, 3),
     justifyContent: "space-between",
     flexDirection: "column",
   },

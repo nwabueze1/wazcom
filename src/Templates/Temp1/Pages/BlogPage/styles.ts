@@ -57,7 +57,8 @@ export const useBlogPageStyles = makeStyles<Theme>((theme: Theme) => ({
     display: "flex",
     fontWeight: theme.typography.fontWeightMedium,
     fontSize: theme.typography.fontSize + 4,
-    justifyContent: "space-between",
+    // justifyContent: "space-between",
+    gap: theme.spacing(1.5),
     alignItems: "center",
     width: "21%",
     [theme.breakpoints.down("md")]: {
@@ -65,6 +66,23 @@ export const useBlogPageStyles = makeStyles<Theme>((theme: Theme) => ({
     },
     [theme.breakpoints.down("sm")]: {
       width: "100%",
+      marginBottom: theme.spacing(2)
+    },
+  },
+  leftSlide: {
+    display: "flex",
+    fontWeight: theme.typography.fontWeightMedium,
+    fontSize: theme.typography.fontSize + 4,
+    gap: theme.spacing(1.5),
+    alignItems: "center",
+    width: "21%",
+    [theme.breakpoints.down("md")]: {
+      width: "40%",
+    },
+    [theme.breakpoints.down("sm")]: {
+      width: "100%",
+      marginBottom: theme.spacing(2),
+      justifyContent: "flex-end"
     },
   },
   navContainer: {
@@ -75,9 +93,10 @@ export const useBlogPageStyles = makeStyles<Theme>((theme: Theme) => ({
     
   },
   rightArrow: {
-    height: "3vh",
+    fontSize: theme.typography.fontSize * 3
   },
   leftArrow: {
     transform: "rotate(180deg)",
+    fontSize: theme.typography.fontSize * 3
   },
 }));
