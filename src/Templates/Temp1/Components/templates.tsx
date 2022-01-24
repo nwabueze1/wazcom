@@ -23,7 +23,7 @@ const Template = () => {
       <Menu />
       <Story />
       <Rebase />
-      <Footer navheader={"Rebase peops"} />
+      <Footer navHeader={"Rebase peops"} />
     </div>
   );
 };

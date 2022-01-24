@@ -6,7 +6,7 @@ import { navData } from "../../TemplateData";
 import FacebookIcon from '@mui/icons-material/Facebook';
 import TwitterIcon from "@mui/icons-material/Twitter";
 
-export const Footer: FC<FooterProps> = ({navheader}) => {
+export const Footer: FC<FooterProps> = ({navHeader}) => {
   const classes = useFooterStyles();
   const displayLinks = () => {
     return navData.map(({ path, title }, index) => {
@@ -23,7 +23,7 @@ export const Footer: FC<FooterProps> = ({navheader}) => {
     <div className={classes.root}>
       <div className={classes.container}>
         <Link to="/templates" className={classes.footerHeader}>
-          {navheader}
+          {navHeader}
         </Link>
         <div className={classes.nav}>
           {displayLinks()}

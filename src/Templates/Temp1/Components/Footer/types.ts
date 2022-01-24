@@ -1,3 +1,3 @@
 export type FooterProps = {
-    navheader: string
+    navHeader: string
 }

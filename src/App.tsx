@@ -21,10 +21,10 @@ const App: React.FC<Props> = () => {
       <ThemeProvider theme={theme}>
         <Router>
           <Switch>
-            <Route path="/templates">
+            <Route path="/template1">
               <Template1/>
             </Route>
-            <Route path="/templates2">
+            <Route path="/template2">
               <Template2/>
             </Route>
             <Route path="/">
