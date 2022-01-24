@@ -54,9 +54,7 @@ export const ComboBoxInput: FC<ComboBoxInputProps> = ({
     const label = (options as ComboBoxInputOptionProps[])?.find(
       (option) => option.value.toLowerCase() == value,
     )?.label;
-
     if (label) return { label, value };
-    
     return { label: "", value: "" };
   }, [options, value]);
 

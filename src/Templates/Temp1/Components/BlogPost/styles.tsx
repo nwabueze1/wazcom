@@ -1,15 +1,15 @@
 import makeStyles from "@mui/styles/makeStyles";
 import { Theme } from "@mui/material/styles";
 
-export const useBlogStyles = makeStyles<Theme>((theme: Theme) => ({
+export const usePostStyles = makeStyles<Theme>((theme: Theme) => ({
   root: {
     width: "100%",
     height: "100%",
-    fontFamily: "Raleway",
+    fontFamiy: "Raleway, san-serif",
   },
   menuItem: {
     justifyContent: "space-between",
-    maxWidth: 1294,
+    maxWidth: theme.include.style.maxWidth,
     margin: "auto",
     [theme.breakpoints.down("md")]: {},
 
@@ -21,21 +21,19 @@ export const useBlogStyles = makeStyles<Theme>((theme: Theme) => ({
   header: {
     display: "flex",
     justifyContent: "center",
-    fontFamily: "Raleway",
+    fontFamiy: "Raleway, san-serif",
     fontWeight: "bold",
     fontSize: theme.typography.fontSize * 2,
     marginTop: theme.spacing(11),
     [theme.breakpoints.down("md")]: {},
   },
   container: {
-    marginTop: theme.spacing(22),
     display: "flex",
-    width: "78%",
-    justifyContent: "space-around",
+    justifyContent: "space-between",
+    maxWidth: theme.include.style.maxWidth,
     margin: "auto",
-    flexDirection: "row-reverse",
     [theme.breakpoints.down("md")]: {
-      width: "80%",
+      width: "95%",
     },
 
     [theme.breakpoints.down("sm")]: {
@@ -44,7 +42,12 @@ export const useBlogStyles = makeStyles<Theme>((theme: Theme) => ({
       marginTop: "24px",
     },
   },
-
+  variant: {
+    flexDirection: "row-reverse",
+    [theme.breakpoints.down("sm")]: {
+      flexDirection: "column"
+    },
+  }, 
   menuBox: {
     width: "45%",
     [theme.breakpoints.down("sm")]: {
@@ -64,37 +67,40 @@ export const useBlogStyles = makeStyles<Theme>((theme: Theme) => ({
   BlogText: {
     width: "90%",
     fontSize: theme.spacing(3),
+    margin: theme.spacing(4, 0),
     [theme.breakpoints.down("md")]: {
-      fontSize: theme.spacing(2) + 4,
+      fontSize: theme.typography.fontSize + 6,
+      width: "100%"
     },
     [theme.breakpoints.down("sm")]: {
       minWidth: "30ch",
+      margin: theme.spacing(1.5, 0),
       fontSize: "20px",
     },
   },
   moreInfo: {
+    marginTop: theme.spacing(10),
     fontSize: theme.spacing(2),
     fontWeight: theme.typography.fontWeightBold,
     display: "flex",
     justifyContent: "space-between",
     width: "25%",
     alignItems: "center",
-    // marginTop: theme.typography.fontSize * 4,
     [theme.breakpoints.down("md")]: {
       width: "40%",
       fontSize: theme.spacing(1) + 6,
     },
     [theme.breakpoints.down("sm")]: {
       width: "100%",
+      margin: theme.spacing(1.5,0)
     },
   },
   article: {
     fontSize: theme.typography.fontSize * 2,
     width: "45%",
-    // marginTop: "40px",
   },
   date: {
-    margin: theme.spacing(3, 0, 4, 0),
+    marginTop: theme.spacing(3),
     fontSize: theme.spacing(2),
   },
 

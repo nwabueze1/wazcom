@@ -14,6 +14,8 @@ import {
   GalleryProps,
   ImageSelector,
   ImageSelectorProps,
+  InputGroup,
+  InputGroupProps,
   Table,
   TableProps,
   MenuCard,
@@ -77,6 +79,7 @@ type ComponentPropType = {
   | TagStory
   | RichTextStory
   | GqlComboBoxStory
+  | InputGroupStory
 );
 
 type AccordionStory = {
@@ -182,6 +185,11 @@ type RichTextStory = {
 type GqlComboBoxStory = {
   name: string;
   props: GqlComboBoxProps;
+};
+
+type InputGroupStory = {
+  name: string;
+  props: InputGroupProps;
 };
 
 export const stories: ComponentPropType[] = [
@@ -459,6 +467,14 @@ export const stories: ComponentPropType[] = [
       variables: { blog_id: 34 },
       value: { label: 'entertainment', value: 5 },
       addOption: createNewCategory
+    },
+  },
+  {
+    name: "InputGroup",
+    component: InputGroup,
+    props: {
+     variant: "",
+     label: "@wazcom.zeus"
     },
   },
 ];

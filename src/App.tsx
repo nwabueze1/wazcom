@@ -1,12 +1,9 @@
 import { StyledEngineProvider, Theme, ThemeProvider } from "@mui/material";
-
-import BlogPost from "./BlogPost/BlogPost";
-
 import * as React from "react";
 import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
+import Template1 from "Templates/Temp1/Template1";
+import { Browser } from "view/Browser";
 import theme from "./theme";
-import Main from "BlogPage/main/main";
-import { Navbar } from "blog_template3/Navbar/Component";
 
 declare module "@mui/styles/defaultTheme" {
   // eslint-disable-next-line @typescript-eslint/no-empty-interface
@@ -23,14 +20,11 @@ const App: React.FC<Props> = () => {
       <ThemeProvider theme={theme}>
         <Router>
           <Switch>
-            <Route path="/template">
-              <BlogPost />
+            <Route exact path="/template1">
+              <Template1/>
             </Route>
-            <Route path="/blogpost">
-              <Main />
-            </Route>
-            <Route path="/navbar">
-              <Navbar/>
+            <Route path="/">
+              <Browser />
             </Route>
           </Switch>
         </Router>
