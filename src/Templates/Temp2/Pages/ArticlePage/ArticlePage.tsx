@@ -73,7 +73,7 @@ export const ArticlePage = () => {
       </div>
       <div className={classes.relatedPost}>
         <p className={classes.relatedHeader}>Related Post</p>
-        {displayRelatedPost}
+        {displayRelatedPost()}
       </div>
       <div className={classes.subscribe}>
         <Subscribe />
