@@ -1,6 +1,4 @@
-import { CommonProps } from "@mui/material/OverridableComponent";
-
-export type BlogPostProps = CommonProps & {
+export type BlogPostProps = {
   src: string;
   alt: string;
   date: string;

@@ -16,27 +16,18 @@ const Contact = () => {
     setFormData(newFormData);
   };
 
-  // const handleSubmit = (e: any) => {
-  //   e.preventDefault();
-  //   const nasit = new FormData(e.target);
-  //   const data = {
-  //     username: nasit.get("username"),
-  //     password: nasit.get("password"),
-  //     email: nasit.get("email"),
-  //   };
-  // console.log(data);
-  // };
+
 
   const displayContactData = () => {
-    return ContactData.map(({ top, middle, bottom, title }, index) => {
+    return ContactData.map(({ detail1, detail2, detail3, title }, index) => {
       return (
         <div key={index}>
           <p className={clx(classes.title, index > 0 && classes.titleParent)}>
             {title}
           </p>
-          <p className={classes.details}>{top}</p>
-          <p className={classes.details}>{middle}</p>
-          <p className={classes.details}>{bottom}</p>
+          <p className={classes.details}>{detail1}</p>
+          <p className={classes.details}>{detail2}</p>
+          <p className={classes.details}>{detail3}</p>
         </div>
       );
     });

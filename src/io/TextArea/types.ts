@@ -1,9 +1,6 @@
+import { CommonProps } from "../../types";
 
-export type TextAreaProps = {
-    name: string;
+export type TextAreaProps = CommonProps & {
     value: string;
     minRows: number;
-    onChange: ({
-        target: { name, value },
-    }: React.ChangeEvent<HTMLTextAreaElement>) => void;
 }

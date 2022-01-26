@@ -1,6 +1,6 @@
 import { ApolloClient, NormalizedCacheObject } from "@apollo/client";
-import { ComboBoxInputProps } from "../../io/ComboBoxInput/index";
-export declare type GqlComboBoxProps = ComboBoxInputProps & {
+import { CommonProps } from "types";
+export declare type GqlComboBoxProps = CommonProps & {
     config: {
         client: ApolloClient<NormalizedCacheObject>;
         type: "query";
@@ -9,6 +9,8 @@ export declare type GqlComboBoxProps = ComboBoxInputProps & {
         labelKey: string;
         valueKey: string;
     };
+    label?: string;
+    value?: string;
     addOption?: (value: string) => Promise<{
         label?: string;
         value?: string;

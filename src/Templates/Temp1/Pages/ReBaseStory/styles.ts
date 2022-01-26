@@ -5,7 +5,7 @@ export const useRebaseStoryStyles = makeStyles<Theme>((theme: Theme) => ({
   root: {
     width: "100%",
     height: "100%",
-    fontFamily: "Raleway",
+    fontFamiy: "Raleway, san-serif",
   },
   header: {
     textAlign: "center",

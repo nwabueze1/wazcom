@@ -6,3 +6,4 @@ export * from "./SelectInput";
 export * from "./TagInput";
 export * from "./TextInput";
 export * from "./ToggleInput";
+export * from "./TextArea";

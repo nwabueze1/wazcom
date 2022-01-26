@@ -6,7 +6,7 @@ export const useContactUsStyles = makeStyles<Theme>((theme: Theme) => ({
     width: "100%",
     height: "100%",
     margin: "0 auto",
-    fontFamily: "Raleway",
+    fontFamiy: "Raleway, san-serif",
     [theme.breakpoints.down("md")]: {
       maxWidth: theme.include.styles.tabMaxWidth,
     },

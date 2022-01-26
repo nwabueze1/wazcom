@@ -27,6 +27,10 @@ import {
   RadioButton,
   RadioButtonProps,
   Carousel,
+  EmptyState,
+  EmptyStateProps,
+  Scheduler,
+  SchedulerProps,
 } from "../core";
 
 import {
@@ -48,12 +52,13 @@ import {
   ToggleInputProps,
 } from "../io";
 
-import {
-  GqlComboBox,
-  GqlComboBoxProps
-} from "../gql";
+import { GqlComboBox, GqlComboBoxProps } from "../gql";
 
-import { GETBLOGCATEGORIES, createApolloClient, createNewCategory } from '../helpers/graphQL';
+import {
+  GETBLOGCATEGORIES,
+  createApolloClient,
+  createNewCategory,
+} from "../helpers/graphQL";
 
 type ComponentPropType = {
   component: any;
@@ -79,6 +84,8 @@ type ComponentPropType = {
   | TagStory
   | RichTextStory
   | GqlComboBoxStory
+  | EmptyStateStory
+  | SchedulerStory
   | InputGroupStory
 );
 
@@ -187,6 +194,15 @@ type GqlComboBoxStory = {
   props: GqlComboBoxProps;
 };
 
+type EmptyStateStory = {
+  name: string;
+  props: EmptyStateProps;
+};
+
+type SchedulerStory = {
+  name: string;
+  props: SchedulerStory;
+};
 type InputGroupStory = {
   name: string;
   props: InputGroupProps;
@@ -430,7 +446,7 @@ export const stories: ComponentPropType[] = [
     name: "Select",
     component: SelectInput,
     props: {
-      label:"lslss",
+      label: "lslss",
       options: [
         { label: "Basit", value: "basit" },
         { label: "Chinazom", value: "chinazom" },
@@ -465,16 +481,47 @@ export const stories: ComponentPropType[] = [
         key: ["categoriesByBlogID"],
       },
       variables: { blog_id: 34 },
-      value: { label: 'entertainment', value: 5 },
-      addOption: createNewCategory
+      value: { label: "entertainment", value: 5 },
+      addOption: createNewCategory,
+    },
+  },
+  {
+    name: "Empty State",
+    component: EmptyState,
+    props: {
+      text: "No menus to display",
+      image: {
+        src: "https://images.unsplash.com/photo-1538032746644-0212e812a9e7?auto=format&fit=crop&w=400&h=250&q=60",
+      },
+      button: {
+        display: true,
+        text: "Create New Menu",
+        handleClick: () => {
+          alert("Zeus Empty State");
+        },
+      },
+    },
+  },
+  {
+    name: "Scheduler",
+    component: Scheduler,
+    props: {
+      label: "Menu Schedule",
+      value: [
+        {
+          day: "01",
+          start_time: "12:00",
+          end_time: "18:00",
+        },
+      ],
     },
   },
   {
     name: "InputGroup",
     component: InputGroup,
     props: {
-     variant: "",
-     label: "@wazcom.zeus"
+      variant: "",
+      label: "@wazcom.zeus",
     },
   },
 ];

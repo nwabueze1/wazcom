@@ -17,7 +17,7 @@ export const GqlComboBox: FC<GqlComboBoxProps> = memo(
     const classes = useGqlComboBoxStyles();
     const [options, setOptions] = useState<ComboBoxInputOptionProps[]>([]);
     const [fetching, setFetching] = useState<boolean>(true);
-    const [value, setValue] = useState<string>(
+    const [value, setValue] = useState(
       initialValue,
     );
 
@@ -95,12 +95,12 @@ export const GqlComboBox: FC<GqlComboBoxProps> = memo(
     return (
       <div className={classes.root}>
         <ComboBoxInput
-          {...props}
           options={options}
           value={value ?? ""}
           onChange={({ value }) => {
             handleChange(value);
           }}
+          {...props}
         />
       </div>
     );

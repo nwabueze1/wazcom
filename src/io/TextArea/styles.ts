@@ -8,5 +8,6 @@ export const useTextAreaStyles = makeStyles((theme:Theme) => ({
         padding: theme.spacing(1.5),
         fontSize: "1.05rem",
         borderRadius: 4,
+        boxSizing: "border-box",
     },
 }));

@@ -1,18 +1,18 @@
 import React, { useCallback, useRef } from "react";
-import { Hero } from "Templates/Temp2/Component/Hero/Hero";
+import { Hero } from "Templates/Template2/Component/Hero/Hero";
 import { Post } from "../../Component/Post/Post";
 import { useHomePageStyles } from "./styles";
 import ArrowBackIosIcon from "@mui/icons-material/ArrowBackIos";
 import ArrowForwardIosIcon from "@mui/icons-material/ArrowForwardIos";
-import { postData } from "Templates/Temp2/Template2Data";
-import { Subscribe } from "Templates/Temp2/Component/Subscribe/Subscribe";
+import { postData } from "Templates/Template2/Template2Data";
+import { Subscribe } from "Templates/Template2/Component/Subscribe/Subscribe";
 import Intro from "Templates/Temp2/Component/Intro/Intro";
 import clx from "classnames";
 
 const HomePage = () => {
   const classes = useHomePageStyles();
   const ref = useRef(document.createElement("div"));
-  const veganref = useRef(document.createElement("div"));
+  const veganref = useRef<HTMLDivElement>(document.createElement('div'));
   const healthyref = useRef(document.createElement("div"));
 
   const scroll = (

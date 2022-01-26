@@ -44,7 +44,7 @@ export var ComboBoxInput = function (_a) {
     };
     var getValue = useCallback(function () {
         var _a, _b;
-        var label = (_b = (_a = options) === null || _a === void 0 ? void 0 : _a.find(function (option) { return option.value.toLowerCase() == value.toLowerCase(); })) === null || _b === void 0 ? void 0 : _b.label;
+        var label = (_b = (_a = options) === null || _a === void 0 ? void 0 : _a.find(function (option) { return option.value.toLowerCase() === value.toString().toLowerCase(); })) === null || _b === void 0 ? void 0 : _b.label;
         if (label)
             return { label: label, value: value };
         return { label: "", value: "" };

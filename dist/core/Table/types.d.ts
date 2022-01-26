@@ -3,7 +3,7 @@ import { CommonProps } from '../../types';
 /** !!-- Remember to update the interface name !! */
 export declare type TableProps = CommonProps & MuiTableProps & {
     headers: TableHeaderContentProps;
-    data: TableDataProps;
+    value: TableDataProps;
     hasCheckBox?: boolean;
 };
 declare type TableDataProps = ({
