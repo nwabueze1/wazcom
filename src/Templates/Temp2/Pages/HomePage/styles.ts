@@ -40,6 +40,7 @@ export const useHomePageStyles = makeStyles<Theme>((theme: Theme) => ({
   postContainer: {
     display: "flex",
     overflow: "scroll",
+    scrollBehavior: "smooth",
     gap: theme.spacing(4),
     "-ms-overflow-style": "none" /* for Internet Explorer, Edge */,
     scrollbarWidth: "none" /* for Firefox */,

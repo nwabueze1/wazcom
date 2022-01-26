@@ -57,6 +57,7 @@ export const useHeroStyles = makeStyles<Theme>((theme: Theme) => ({
   subscribe: {
     background: theme.design.colors.terracotta,
     borderRadius: 0,
+    fontFamily: "Cormorant Garamond, san-serif",
     padding: theme.spacing(1,3),
     fontSize: theme.typography.fontSize + 8,
     marginTop:theme.spacing(8),
