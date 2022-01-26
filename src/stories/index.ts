@@ -14,6 +14,8 @@ import {
   GalleryProps,
   ImageSelector,
   ImageSelectorProps,
+  InputGroup,
+  InputGroupProps,
   Table,
   TableProps,
   MenuCard,
@@ -50,12 +52,13 @@ import {
   ToggleInputProps,
 } from "../io";
 
-import {
-  GqlComboBox,
-  GqlComboBoxProps
-} from "../gql";
+import { GqlComboBox, GqlComboBoxProps } from "../gql";
 
-import { GETBLOGCATEGORIES, createApolloClient, createNewCategory } from '../helpers/graphQL';
+import {
+  GETBLOGCATEGORIES,
+  createApolloClient,
+  createNewCategory,
+} from "../helpers/graphQL";
 
 type ComponentPropType = {
   component: any;
@@ -83,6 +86,7 @@ type ComponentPropType = {
   | GqlComboBoxStory
   | EmptyStateStory
   | SchedulerStory
+  | InputGroupStory
 );
 
 type AccordionStory = {
@@ -193,12 +197,16 @@ type GqlComboBoxStory = {
 type EmptyStateStory = {
   name: string;
   props: EmptyStateProps;
-}
+};
 
 type SchedulerStory = {
   name: string;
   props: SchedulerStory;
-}
+};
+type InputGroupStory = {
+  name: string;
+  props: InputGroupProps;
+};
 
 export const stories: ComponentPropType[] = [
   {
@@ -488,22 +496,32 @@ export const stories: ComponentPropType[] = [
       button: {
         display: true,
         text: "Create New Menu",
-        handleClick: () => { alert('Zeus Empty State') }
-      }
+        handleClick: () => {
+          alert("Zeus Empty State");
+        },
+      },
     },
   },
   {
     name: "Scheduler",
     component: Scheduler,
     props: {
-      label:"Menu Schedule",
+      label: "Menu Schedule",
       value: [
         {
           day: "01",
           start_time: "12:00",
-          end_time: "18:00"
-        }
-      ]
-    }
-  }
+          end_time: "18:00",
+        },
+      ],
+    },
+  },
+  {
+    name: "InputGroup",
+    component: InputGroup,
+    props: {
+      variant: "",
+      label: "@wazcom.zeus",
+    },
+  },
 ];

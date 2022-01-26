@@ -4,6 +4,9 @@ import {
   Theme as MuiTheme,
 } from "@mui/material/styles";
 
+
+
+
 type ExtendedThemeOptions = {
   include: { [key: string]: any };
   design: {
@@ -24,6 +27,15 @@ declare module "@mui/material/styles/createTheme" {
 export type BaseTheme = MuiTheme & ExtendedThemeOptions;
 
 export const theme: any = {
+  breakpoints: {
+    values: {
+      xs: 0,
+      sm: 600,
+      md: 960,
+      lg: 1280,
+      xl: 1920,
+    },
+  },
   typography: {
     fontFamily: ["Poppins, sans-serif"].join(","),
     fontSize: 12,
@@ -39,6 +51,10 @@ export const theme: any = {
     },
     h6: {},
   },
+  styles: {
+      maxWidth: 1294,
+      tabMaxWidth: 700,
+    },
   palette: {
     primary: {
       light: "#59598E",
@@ -51,6 +67,10 @@ export const theme: any = {
     "@keyframes gradient": {
       from: { width: 0 },
       to: { width: "100%" },
+    },
+    styles: {
+      maxWidth: 1294,
+      tabMaxWidth: 700,
     },
     anim: {
       zIndex: 1,
@@ -120,6 +140,7 @@ export const theme: any = {
       regular: '"Nunito", sans-serif',
     },
     colors: {
+      Grey:'#414141',
       red70: "#FF4C4C",
       red90: "#FF1919",
       gray: "#BEBEBE",
@@ -181,6 +202,9 @@ export const theme: any = {
       lightorange: "#FFAA00",
       grey80: "#5C5C5C",
       yellowsea: "#F5A53C",
+      grayline: "#AAAAAA",
+      terracotta: "#CA684D"
+
     },
   },
   overrides: {
