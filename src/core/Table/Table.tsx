@@ -11,7 +11,7 @@ import {
   Checkbox,
 } from "@mui/material";
 
-export const Table = ({ headers, data, hasCheckBox, ...props }: TableProps) => {
+export const Table = ({ headers, value, hasCheckBox, ...props }: TableProps) => {
   const classes = useTableStyles();
 
   return (
