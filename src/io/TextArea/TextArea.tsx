@@ -1,4 +1,4 @@
-import React, { FC } from "react";
+import { FC } from "react";
 import { TextareaAutosize } from "@mui/base";
 import { useTextAreaStyles } from "./styles";
 import { TextAreaProps } from "./types";
@@ -10,9 +10,6 @@ export const TextArea: FC<TextAreaProps> = ({
   minRows,
 }) => {
   const classes = useTextAreaStyles();
-  const updatefunction  = () => {
-
-  }
   return (
     <div>
       <TextareaAutosize
