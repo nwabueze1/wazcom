@@ -1,4 +1,4 @@
-import React, {  FC } from "react";
+import {  FC } from "react";
 import { useInputStyles } from "./styles";
 import clx from "classnames";
 import {TextField} from "@mui/material";
