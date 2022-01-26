@@ -35,6 +35,7 @@ export const useSubscribeStyles = makeStyles<Theme>((theme: Theme) => ({
     background: theme.design.colors.terracotta,
     borderRadius: 0,
     position: "absolute",
+    fontFamily: "Cormorant Garamond, san-serif",
     top: 0,
     right: 0,
     padding: theme.spacing(0.2, 3),
