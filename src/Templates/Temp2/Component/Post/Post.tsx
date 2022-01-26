@@ -5,8 +5,7 @@ import VisibilityIcon from "@mui/icons-material/Visibility";
 import { Button } from "../../../../core/Button";
 
 export const Post: FC<postProps> = ({
-  src,
-  alt,
+  image,
   date,
   views,
   title,
@@ -17,11 +16,11 @@ export const Post: FC<postProps> = ({
   return (
     <div className={classes.root}>
       <div className={classes.container}>
-        <img className={classes.image} src={src} alt={alt} />
+        <img className={classes.image} src={image.src} alt={image.alt} />
         <div className={classes.stats}>
           <p>{category}</p>
-          <p>{date}</p>
           <p className={classes.views}>
+            <p className={classes.date}>{date}</p>
             <VisibilityIcon />
             <p>{views}</p>
           </p>

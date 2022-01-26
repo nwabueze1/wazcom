@@ -87,7 +87,7 @@ export const useNavStyles = makeStyles<Theme>((theme: Theme) => ({
     position: "fixed"
   },
   mobileContainer: {
-    height: "50vh",
+    height: "32vh",
     display: "flex",
     right: "-100vw",
     margin: theme.spacing(10, 0, 0, 1.2),

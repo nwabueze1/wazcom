@@ -1,6 +1,8 @@
 export type postProps = {
-  src: string;
-  alt: string;
+  image: {
+    src: string,
+    alt: string
+  }
   date: string;
   category: string;
   title: string;

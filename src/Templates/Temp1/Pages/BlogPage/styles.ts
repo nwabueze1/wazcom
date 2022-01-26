@@ -57,7 +57,6 @@ export const useBlogPageStyles = makeStyles<Theme>((theme: Theme) => ({
     display: "flex",
     fontWeight: theme.typography.fontWeightMedium,
     fontSize: theme.typography.fontSize + 4,
-    // justifyContent: "space-between",
     gap: theme.spacing(1.5),
     alignItems: "center",
     width: "21%",

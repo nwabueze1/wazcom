@@ -6,7 +6,7 @@ export const useCategoriesStyles = makeStyles<Theme>((theme: Theme) => ({
   root: {
     width: "100%",
     height: "100%",
-    fontFamily: "Cormorant Garamond",
+    fontFamily: "Cormorant Garamond, san-serif",
     maxWidth: theme.include.styles.maxWidth,
     margin: "0 auto"
   },
@@ -53,6 +53,13 @@ menus: {
     width: "95%",
     margin: "auto",
   },
+},
+loadMore: {
+textAlign: "center",
+color: theme.design.colors.terracotta,
+textDecoration: "underline",
+fontSize: theme.typography.fontSize + 8,
+margin: theme.spacing(10, 0)
 },
 subscribe: {
   margin: theme.spacing(10, 0),

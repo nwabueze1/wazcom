@@ -5,7 +5,7 @@ export const useHomePageStyles = makeStyles<Theme>((theme: Theme) => ({
   root: {
     width: "100%",
     height: "100%",
-    fontFamily: "Cormorant Garamond",
+    fontFamily: "Cormorant Garamond, san-serif",
   },
   container: {
     padding: theme.spacing(3, 0),
@@ -29,13 +29,13 @@ export const useHomePageStyles = makeStyles<Theme>((theme: Theme) => ({
     justifyContent: "space-between",
   },
   btn: {
-      color: theme.design.colors.gray,
-      borderColor: "transparent",
-      marginRight: theme.spacing(2.5),
-    "&:hover" : {
+    color: theme.design.colors.gray,
+    borderColor: "transparent",
+    marginRight: theme.spacing(2.5),
+    "&:hover": {
       color: theme.design.colors.white,
-      background: theme.design.colors.terracotta
-    }
+      background: theme.design.colors.terracotta,
+    },
   },
   postContainer: {
     display: "flex",
@@ -48,8 +48,22 @@ export const useHomePageStyles = makeStyles<Theme>((theme: Theme) => ({
     },
     [theme.breakpoints.down("md")]: {
       display: "flex",
-      flexWrap: "wrap",
-      justifyContent: "space-between",
+      overflow: "scroll",
+      gap: theme.spacing(4),
+      "-ms-overflow-style": "none" /* for Internet Explorer, Edge */,
+      scrollbarWidth: "none" /* for Firefox */,
+      "&::-webkit-scrollbar": {
+        display: "none",
+      },
+    },
+  },
+  navIcon: {
+    fontSize: theme.typography.fontSize
+  },
+  navigateButton: {
+    [theme.breakpoints.down("md")]: {
+      display: "none",
+    
     },
   },
   intro: {

@@ -8,7 +8,7 @@ export const useDishesStyles = makeStyles<Theme>((theme: Theme) => ({
     maxWidth: theme.include.styles.maxWidth,
     margin: "0 auto",
     [theme.breakpoints.down("md")]: {
-      maxWidth: 760,
+      maxWidth: theme.include.styles.maxWidth,
       width: "95%"
     },
     [theme.breakpoints.down("sm")]: {

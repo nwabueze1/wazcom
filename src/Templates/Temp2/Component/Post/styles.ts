@@ -3,9 +3,9 @@ import { Theme } from "@mui/material/styles";
 
 export const usePostStyles = makeStyles<Theme>((theme: Theme) => ({
   root: {
-    fontFamily: "Cormorant Garamond",
+    fontFamily: "Cormorant Garamond, san-serif",
     [theme.breakpoints.down("md")]: {
-      maxWidth: 760,
+      maxWidth: theme.include.styles.tabMaxWidth,
     },
     [theme.breakpoints.down("sm")]: {
       width: "90%",
@@ -15,6 +15,9 @@ export const usePostStyles = makeStyles<Theme>((theme: Theme) => ({
   title: {
     fontWeight: theme.typography.fontWeightBold,
     fontSize: theme.typography.fontSize + 10,
+  },
+  date: {
+    marginRight: theme.spacing(2)
   },
   stats: {
     display: "flex",
@@ -31,10 +34,15 @@ export const usePostStyles = makeStyles<Theme>((theme: Theme) => ({
     marginTop: theme.spacing(2),
     padding: theme.spacing(1, 2),
     borderColor: theme.design.colors.terracotta,
-    fontFamily: "Cormorant Garamond",
+    fontFamily: "Cormorant Garamond, san-serif",
     color: theme.design.colors.terracotta,
     fontSize: theme.typography.fontSize + 6,
-    fontWeight: theme.typography.fontWeightBold
+    fontWeight: theme.typography.fontWeightBold,
+    "&:hover" : {
+      color: theme.design.colors.white,
+      background: theme.design.colors.terracotta,
+      borderColor: theme.design.colors.terracotta,
+    }
   },
   container: {
     width: "400px",

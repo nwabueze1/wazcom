@@ -13,10 +13,12 @@ export const Subscribe = () => {
           You can subscribe for our newsletter to get emails whenever we post
           new articles. Input your details below.
         </p>
-        <div className={classes.input}>
-          <TextInput />
+        <div className={classes.parent}>
+          <div className={classes.input}>
+            <TextInput />
+          </div>
+          <Button className={classes.btn}>Subscribe</Button>
         </div>
-        <Button className={classes.btn}>Subscribe</Button>
       </div>
     </div>
   );

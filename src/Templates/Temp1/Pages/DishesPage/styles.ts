@@ -14,7 +14,7 @@ export const usePageDishesStyles = makeStyles<Theme>((theme: Theme) => ({
   container: {
     width: "100%",
     margin: "0 auto",
-    maxWidth: 1280,
+    maxWidth: theme.include.styles.maxWidth,
   },
   header: {
     textAlign: "center",

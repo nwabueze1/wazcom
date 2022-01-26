@@ -6,7 +6,7 @@ export const useNavStyles = makeStyles<Theme>((theme: Theme) => ({
     width: "100%",
     height: "100%",
     background: theme.design.colors.black,
-    fontFamily: "Cormorant Garamond",
+    fontFamily: "Cormorant Garamond, san-serif",
     margin: "0 auto",
     zIndex: 4,
     top: 0,
@@ -49,7 +49,7 @@ export const useNavStyles = makeStyles<Theme>((theme: Theme) => ({
     },
   },
   nav: {
-    width: "70%",
+    width: "40%",
     display: "flex",
     zIndex: 20,
     justifyContent: "space-between",
@@ -97,7 +97,7 @@ export const useNavStyles = makeStyles<Theme>((theme: Theme) => ({
     position: "fixed"
   },
   mobileContainer: {
-    height: "50vh",
+    height: "32vh",
     display: "flex",
     right: "-100vw",
     margin: theme.spacing(5, 0, 0, 3),

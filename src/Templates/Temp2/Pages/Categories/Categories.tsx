@@ -31,13 +31,15 @@ export const Categories = () => {
       .map((post, index) => (
         <Post
           key={index}
-          src={post.src}
-          alt={post.alt}
           date={post.date}
           category={post.category}
           title={post.title}
           details={post.details}
           views={post.views}
+          image={{
+            src: post.image.src,
+            alt: post.image.alt,
+          }}
         />
       ));
   }, [activeCategory]);
@@ -46,6 +48,7 @@ export const Categories = () => {
     <div className={classes.root}>
       <div className={classes.tabs}>{displayTabs()}</div>
       <div className={classes.menus}>{displayPost()}</div>
+      <p className={classes.loadMore}>Load More</p>
       <div className={classes.subscribe}>
         <Subscribe />
       </div>
