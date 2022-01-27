@@ -14,7 +14,7 @@ import * as React from "react";
 import { InputLabel, Typography } from "@mui/material";
 import { Editor } from "@tinymce/tinymce-react";
 import { useRichInputStyles } from "./styles";
-import { getFeedbackVariant } from "helpers/io";
+import { getFeedbackVariant } from "../../helpers/io";
 import clx from "classnames";
 var plugins = [
     "advlist autolink lists link image code",
