@@ -26,6 +26,7 @@ export const RichTextInput: React.FC<RichTextInputProps> = ({
   value,
   upload,
   onChange,
+  error,
   feedback,
   Loader
 }) => {
@@ -43,7 +44,7 @@ export const RichTextInput: React.FC<RichTextInputProps> = ({
           {label}
         </InputLabel>
       )}
-      <div className={classes.editor}>
+      <div className={clx(classes.editor, error && classes.editorError)}>
         <Editor
           value={value}
           apiKey={apiKey}
