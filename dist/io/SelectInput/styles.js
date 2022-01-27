@@ -17,7 +17,15 @@ export var useSelectStyles = makeStyles(function (theme) { return ({
         padding: theme.spacing(0.5, 2),
     },
     feedback: {
-        color: "#EA3C53",
-        marginTop: theme.spacing(2),
+        marginTop: 16,
+    },
+    feedbackSuccess: {
+        color: "green",
+    },
+    feedbackError: {
+        color: "red",
+    },
+    feedbackNeutral: {
+        color: "black",
     },
 }); });

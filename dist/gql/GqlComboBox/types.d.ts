@@ -19,4 +19,8 @@ export declare type GqlComboBoxProps = CommonProps & {
     variables?: {
         [key: string]: any;
     };
+    feedback?: {
+        text: string;
+        status?: "success" | "neutral" | "error";
+    };
 };

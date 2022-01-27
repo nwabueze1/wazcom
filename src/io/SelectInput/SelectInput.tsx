@@ -1,13 +1,16 @@
 import React, { FC } from "react";
-import { MenuItem, Select, InputLabel } from "@mui/material";
+import { MenuItem, Select, InputLabel, Typography } from "@mui/material";
 import { useSelectStyles } from "./styles";
 import { SelectInputProps } from "./types";
+import clx from "classnames";
+import { getFeedbackVariant } from "helpers/io";
 
 export const SelectInput: FC<SelectInputProps> = ({
   options = [],
   placeholder = "Select a value",
   label,
   onChange,
+  feedback,
   ...props
 }) => {
   const classes = useSelectStyles();
@@ -38,6 +41,16 @@ export const SelectInput: FC<SelectInputProps> = ({
           </MenuItem>
         ))}
       </Select>
+      {feedback && (
+        <Typography
+          className={clx(
+            classes.feedback,
+            getFeedbackVariant(classes, feedback),
+          )}
+        >
+          {feedback.text}
+        </Typography>
+      )}
     </div>
   );
 };

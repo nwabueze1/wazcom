@@ -25,25 +25,9 @@ import { OutlinedInput, InputLabel } from "@mui/material";
 import { useTextStyles } from "./styles";
 import Typography from "@mui/material/Typography";
 import clx from 'classnames';
+import { getFeedbackVariant } from "helpers/io";
 export var TextInput = function (_a) {
     var label = _a.label, feedback = _a.feedback, props = __rest(_a, ["label", "feedback"]);
     var classes = useTextStyles();
-    var getFeedbackVariant = function () {
-        var feedbackVariant;
-        switch (feedback.status) {
-            case "success":
-                feedbackVariant = classes.feedbackSuccess;
-                break;
-            case "error":
-                feedbackVariant = classes.feedbackError;
-                break;
-            case "neutral":
-                feedbackVariant = classes.feedbackNeutral;
-                break;
-            default:
-                feedbackVariant = classes.feedbackNeutral;
-        }
-        return feedbackVariant;
-    };
-    return (_jsxs("div", __assign({ className: classes.root }, { children: [label && (_jsx(InputLabel, __assign({ className: classes.label, htmlFor: props.name }, { children: label }), void 0)), _jsx(OutlinedInput, __assign({}, props), void 0), feedback && _jsx(Typography, __assign({ className: clx(classes.feedback, getFeedbackVariant()) }, { children: feedback.text }), void 0)] }), void 0));
+    return (_jsxs("div", __assign({ className: classes.root }, { children: [label && (_jsx(InputLabel, __assign({ className: classes.label, htmlFor: props.name }, { children: label }), void 0)), _jsx(OutlinedInput, __assign({}, props), void 0), feedback && _jsx(Typography, __assign({ className: clx(classes.feedback, getFeedbackVariant(classes, feedback)) }, { children: feedback.text }), void 0)] }), void 0));
 };

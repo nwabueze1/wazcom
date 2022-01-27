@@ -8,4 +8,19 @@ export var useRichInputStyles = makeStyles(function (theme) { return ({
         fontSize: "1rem",
         color: theme.design.colors.black,
     },
+    editor: {
+        border: "1px solid red",
+    },
+    feedback: {
+        marginTop: 16,
+    },
+    feedbackSuccess: {
+        color: "green",
+    },
+    feedbackError: {
+        color: "red",
+    },
+    feedbackNeutral: {
+        color: "black",
+    },
 }); });
