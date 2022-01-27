@@ -3,12 +3,12 @@ import { LayoutProps } from "./types";
 import NavBar from "../NavBar/NavBar";
 import { Footer } from "../Footer/Footer";
 
-const Layout: FC<LayoutProps> = ({ children, navheader}) => {
+const Layout: FC<LayoutProps> = ({ children, navHeader}) => {
   return (
     <>
-      <NavBar navheader={navheader} />
+      <NavBar navheader={navHeader} />
       <main>{children}</main>
-      <Footer navheader={navheader} />
+      <Footer navheader={navHeader} />
     </>
   );
 };

@@ -11,17 +11,17 @@ const Template2 = () => {
       <Router>
         <Switch>
         <Route path="/template2/article">
-            <Layout navheader={"Yumchef Recipes"}>
+            <Layout navHeader={"Yumchef Recipes"}>
               <ArticlePage />
             </Layout>
           </Route>
           <Route path="/template2/categories">
-            <Layout navheader={"Yumchef Recipes"}>
+            <Layout navHeader={"Yumchef Recipes"}>
               <Categories />
             </Layout>
           </Route>
           <Route path="/template2/">
-            <Layout navheader={"Yumchef Recipes"}>
+            <Layout navHeader={"Yumchef Recipes"}>
               <HomePage />
             </Layout>
           </Route>

@@ -1,7 +1,7 @@
 import React, { useState, useCallback } from "react";
 import { useCategoriesStyles } from "./styles";
 import clx from "classnames";
-import { categoriesTab, postData } from "Templates/Temp2/Template2Data";
+import { categoriesTab, postData } from "Templates/Temp2/Pages/Template2Data";
 import { Post } from "Templates/Temp2/Component/Post/Post";
 import { Subscribe } from "Templates/Temp2/Component/Subscribe/Subscribe";
 

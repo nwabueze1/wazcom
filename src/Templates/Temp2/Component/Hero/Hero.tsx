@@ -9,7 +9,7 @@ export const Hero = () => {
       <div>
         <img
           src="https://s3.eu-west-2.amazonaws.com/medusa.com/templates/redcharlie-t-7KEq9M0b0-unsplash+1.png"
-          alt=""
+          alt="bloghero"
           className={classes.image}
         />
         <div className={classes.container}>

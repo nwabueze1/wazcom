@@ -3,9 +3,9 @@ import VisibilityIcon from "@mui/icons-material/Visibility";
 import FacebookIcon from "@mui/icons-material/Facebook";
 import TwitterIcon from "@mui/icons-material/Twitter";
 import { useArticlePageStyles } from "./styles";
-import { articleData } from "Templates/Temp2/Template2Data";
+import { articleData } from "Templates/Temp2/Pages/Template2Data";
 import { RelatedPost } from "Templates/Temp2/Component/RelatedPost/RelatedPost";
-import { postData } from "Templates/Temp2/Template2Data";
+import { postData } from "Templates/Temp2/Pages/Template2Data";
 import { Subscribe } from "Templates/Temp2/Component/Subscribe/Subscribe";
 
 export const ArticlePage = () => {

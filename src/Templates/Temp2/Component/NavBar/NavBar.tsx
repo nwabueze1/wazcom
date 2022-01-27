@@ -1,7 +1,7 @@
 import React, { useState, FC } from "react";
 import { useNavStyles } from "./styles";
 import { Link } from "react-router-dom";
-import { navData } from "../../Template2Data";
+import { navData } from "../../Pages/Template2Data";
 import MenuIcon from "@mui/icons-material/Menu";
 import CloseIcon from "@mui/icons-material/Close";
 import FacebookIcon from "@mui/icons-material/Facebook";
