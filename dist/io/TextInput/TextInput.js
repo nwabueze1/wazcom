@@ -25,7 +25,7 @@ import { OutlinedInput, InputLabel } from "@mui/material";
 import { useTextStyles } from "./styles";
 import Typography from "@mui/material/Typography";
 import clx from 'classnames';
-import { getFeedbackVariant } from "helpers/io";
+import { getFeedbackVariant } from "../../helpers/io";
 export var TextInput = function (_a) {
     var label = _a.label, feedback = _a.feedback, props = __rest(_a, ["label", "feedback"]);
     var classes = useTextStyles();

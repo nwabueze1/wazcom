@@ -4,7 +4,7 @@ import { OutlinedInput, InputLabel } from "@mui/material";
 import { useTextStyles } from "./styles";
 import Typography from "@mui/material/Typography";
 import clx from 'classnames';
-import { getFeedbackVariant } from "helpers/io";
+import { getFeedbackVariant } from "../../helpers/io";
 
 export const TextInput: FC<TextInputProps> = ({
   label,
