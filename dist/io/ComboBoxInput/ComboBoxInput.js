@@ -15,7 +15,7 @@ import Autocomplete, { createFilterOptions } from "@mui/material/Autocomplete";
 import { InputLabel, TextField, Typography } from "@mui/material";
 import { useComboBoxStyles } from "./styles";
 import clx from 'classnames';
-import { getFeedbackVariant } from "helpers/io";
+import { getFeedbackVariant } from "../../helpers/io";
 var filter = createFilterOptions();
 export var ComboBoxInput = function (_a) {
     var name = _a.name, onChange = _a.onChange, initialOptions = _a.options, label = _a.label, value = _a.value, error = _a.error, placeholder = _a.placeholder, feedback = _a.feedback;

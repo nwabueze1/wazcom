@@ -4,8 +4,7 @@ import { InputLabel, TextField, Typography } from "@mui/material";
 import { useComboBoxStyles } from "./styles";
 import { ComboBoxInputProps, ComboBoxInputOptionProps } from "./types";
 import clx from 'classnames';
-import { getFeedbackVariant } from "helpers/io";
-
+import { getFeedbackVariant } from "../../helpers/io";
 
 const filter = createFilterOptions<ComboBoxInputOptionProps>();
 

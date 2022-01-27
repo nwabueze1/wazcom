@@ -3,7 +3,7 @@ import { MenuItem, Select, InputLabel, Typography } from "@mui/material";
 import { useSelectStyles } from "./styles";
 import { SelectInputProps } from "./types";
 import clx from "classnames";
-import { getFeedbackVariant } from "helpers/io";
+import { getFeedbackVariant } from "../../helpers/io";
 
 export const SelectInput: FC<SelectInputProps> = ({
   options = [],
