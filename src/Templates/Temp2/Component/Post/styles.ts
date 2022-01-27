@@ -36,6 +36,7 @@ export const usePostStyles = makeStyles<Theme>((theme: Theme) => ({
     borderColor: theme.design.colors.terracotta,
     fontFamily: "Cormorant Garamond, san-serif",
     color: theme.design.colors.terracotta,
+    background: theme.design.colors.white,
     fontSize: theme.typography.fontSize + 6,
     fontWeight: theme.typography.fontWeightBold,
     "&:hover" : {

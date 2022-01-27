@@ -2,7 +2,7 @@ import React, { FC } from "react";
 import { usePostStyles } from "./styles";
 import { postProps } from "./types";
 import VisibilityIcon from "@mui/icons-material/Visibility";
-import { Button } from "../../../../core/Button";
+import { Button } from "core/Button";
 
 export const Post: FC<postProps> = ({
   image,
