@@ -10,7 +10,8 @@ export const useRichInputStyles = makeStyles((theme: Theme) => ({
     fontSize: "1rem",
     color: theme.design.colors.black,
   },
-  editor: {
+  editor: {},
+  editorError: {
     border: "1px solid red",
   },
   feedback: {
