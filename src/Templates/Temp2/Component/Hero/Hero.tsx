@@ -1,6 +1,6 @@
 import React from "react";
 import { useHeroStyles } from "./styles";
-import { Button } from "../../../../core/Button";
+import { Button } from "core/Button";
 
 export const Hero = () => {
   const classes = useHeroStyles();
@@ -19,7 +19,7 @@ export const Hero = () => {
               This blog is all for simplified lesson on varied recipes for real,
               actual and everyday life.
             </p>
-            <Button className={classes.subscribe}>subscribe</Button>
+            <Button className={classes.subscribe}>Subscribe</Button>
           </div>
         </div>
       </div>
