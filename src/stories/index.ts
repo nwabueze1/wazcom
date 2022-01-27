@@ -282,7 +282,8 @@ export const stories: ComponentPropType[] = [
       ],
       value: { label: "Love", value: "45" },
       placeholder: "Select Wazobia Member",
-      helperText: "No wazobia member selected",
+      error: true,
+      feedback: { text: "Tariq is a weirdo", status: "error" },
     },
   },
   {
@@ -451,6 +452,8 @@ export const stories: ComponentPropType[] = [
         { label: "Basit", value: "basit" },
         { label: "Chinazom", value: "chinazom" },
       ],
+      error: true,
+      feedback: { text: "Tariq is a weirdo", status: "error" },
     },
   },
   {
@@ -465,6 +468,8 @@ export const stories: ComponentPropType[] = [
     component: RichTextInput,
     props: {
       apiKey: "",
+      error: true,
+      feedback: { text: "Tariq is a weirdo", status: "error" },
     },
   },
   {
@@ -483,6 +488,8 @@ export const stories: ComponentPropType[] = [
       variables: { blog_id: 34 },
       value: { label: "entertainment", value: 5 },
       addOption: createNewCategory,
+      error: true,
+      feedback: { text: "Tariq is a weirdo", status: "error" },
     },
   },
   {
