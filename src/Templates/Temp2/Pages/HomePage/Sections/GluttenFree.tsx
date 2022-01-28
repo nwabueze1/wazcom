@@ -33,7 +33,7 @@ export const GluttenFree = () => {
           }}
         />
       ));
-  }, ["Glutten-free"]);
+  }, []);
 
   return (
     <div>

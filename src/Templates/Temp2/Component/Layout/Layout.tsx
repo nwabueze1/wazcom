@@ -8,7 +8,7 @@ const Layout: FC<LayoutProps> = ({ children, navHeader}) => {
     <>
       <NavBar navheader={navHeader} />
       <main>{children}</main>
-      <Footer navheader={navHeader} />
+      <Footer navHeader={navHeader} />
     </>
   );
 };

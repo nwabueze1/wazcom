@@ -1,10 +1,10 @@
 import React, { FC } from "react";
 import { usePostStyles } from "./styles";
-import { postProps } from "./types";
+import { PostProps } from "./types";
 import VisibilityIcon from "@mui/icons-material/Visibility";
 import { Button } from "core/Button";
 
-export const Post: FC<postProps> = ({
+export const Post: FC<PostProps> = ({
   image,
   date,
   views,

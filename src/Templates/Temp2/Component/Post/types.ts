@@ -1,4 +1,4 @@
-export type postProps = {
+export type PostProps = {
   image: {
     src: string,
     alt: string
