@@ -3,7 +3,7 @@ import { Theme } from "@mui/material/styles";
 
 export const usePostStyles = makeStyles<Theme>((theme: Theme) => ({
   root: {
-    fontFamily: "Cormorant Garamond, san-serif",
+   fontFamily:theme.include.styles.fontFamily,
     [theme.breakpoints.down("md")]: {
       maxWidth: theme.include.styles.tabMaxWidth,
     },
@@ -34,7 +34,7 @@ export const usePostStyles = makeStyles<Theme>((theme: Theme) => ({
     marginTop: theme.spacing(2),
     padding: theme.spacing(1, 2),
     borderColor: theme.design.colors.terracotta,
-    fontFamily: "Cormorant Garamond, san-serif",
+   fontFamily:theme.include.styles.fontFamily,
     color: theme.design.colors.terracotta,
     background: theme.design.colors.white,
     fontSize: theme.typography.fontSize + 6,

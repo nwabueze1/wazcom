@@ -1,4 +1,4 @@
-import React, { useState, useCallback } from "react";
+import { useState, useCallback } from "react";
 import { useCategoriesStyles } from "./styles";
 import clx from "classnames";
 import { categoriesTab, postData } from "Templates/Temp2/Pages/Template2Data";
@@ -9,21 +9,23 @@ export const Categories = () => {
   const classes = useCategoriesStyles();
   const [activeCategory, setActiveCategory] = useState<string>("Glutten-free");
 
-  const displayTabs = () => {
-    return categoriesTab.map((tab, index) => (
-      <p
-        onClick={() => {
-          setActiveCategory(tab);
-        }}
-        key={index}
-        className={clx(classes.tab, {
-          [classes.active]: activeCategory === tab,
-        })}
-      >
-        {tab}
-      </p>
-    ));
-  };
+  const displayTabs = useCallback(
+    () =>
+      categoriesTab.map((tab, index) => (
+        <p
+          onClick={() => {
+            setActiveCategory(tab);
+          }}
+          key={index}
+          className={clx(classes.tab, {
+            [classes.active]: activeCategory === tab,
+          })}
+        >
+          {tab}
+        </p>
+      )),
+    [],
+  );
 
   const displayPost = useCallback(() => {
     return postData

@@ -71,6 +71,7 @@ export const theme: any = {
     styles: {
       maxWidth: 1294,
       tabMaxWidth: 700,
+      fontFamily: "Cormorant Garamond, san-serif",  
     },
     anim: {
       zIndex: 1,

@@ -1,7 +1,5 @@
-import React from "react";
-import VisibilityIcon from "@mui/icons-material/Visibility";
-import FacebookIcon from "@mui/icons-material/Facebook";
-import TwitterIcon from "@mui/icons-material/Twitter";
+import { useCallback } from "react";
+import { Visibility, Facebook, Twitter } from "@mui/icons-material";
 import { useArticlePageStyles } from "./styles";
 import { articleData } from "Templates/Temp2/Pages/Template2Data";
 import { RelatedPost } from "Templates/Temp2/Component/RelatedPost/RelatedPost";
@@ -11,9 +9,9 @@ import { Subscribe } from "Templates/Temp2/Component/Subscribe/Subscribe";
 export const ArticlePage = () => {
   const classes = useArticlePageStyles();
 
-  const displayRelatedPost = () => {
-    return postData.map((post, index) => {
-      return (
+  const displayRelatedPost = useCallback(
+    () =>
+      postData.map((post, index) => (
         <RelatedPost
           key={index}
           image={{
@@ -26,9 +24,9 @@ export const ArticlePage = () => {
           details={post.details}
           views={post.views}
         />
-      );
-    });
-  };
+      )),
+    [],
+  );
 
   return (
     <div className={classes.root}>
@@ -37,7 +35,7 @@ export const ArticlePage = () => {
           <p>{articleData.category}</p>
           <div className={classes.views}>
             <p>{articleData.date}</p>
-            <VisibilityIcon className={classes.icon} />
+            <Visibility className={classes.icon} />
             <p>{articleData.views}</p>
           </div>
         </div>
@@ -45,19 +43,11 @@ export const ArticlePage = () => {
           Garlicky Brown Butter Parmesan Noodlestitle
         </p>
         <div className={classes.imageContainer}>
-          <img
-            src={articleData.img}
-            alt=""
-            className={classes.image}
-          />
+          <img src={articleData.img} alt="articleImg" className={classes.image} />
         </div>
         <p className={classes.text}>{articleData.content}</p>
         <div className={classes.imageContainer}>
-          <img
-            className={classes.image}
-            src={articleData.img}
-            alt=""
-          />
+          <img className={classes.image} src={articleData.img} alt="" />
         </div>
         <p className={classes.text}>
           <p className={classes.subHeader}>{articleData.subheading}</p>
@@ -67,8 +57,8 @@ export const ArticlePage = () => {
         <div className={classes.author}>
           <p className={classes.authorName}>{articleData.author}</p>
           <p className={classes.share}>share article</p>
-          <FacebookIcon />
-          <TwitterIcon className={classes.icon} />
+          <Facebook />
+          <Twitter className={classes.icon} />
         </div>
       </div>
       <div className={classes.relatedPost}>

@@ -5,7 +5,7 @@ export const useHeroStyles = makeStyles<Theme>((theme: Theme) => ({
   root: {
     width: "100%",
     height: "100%",
-    fontFamily: "Cormorant Garamond, san-serif",
+   fontFamily:theme.include.styles.fontFamily,
   },
   container: {
     display: "flex",
@@ -33,7 +33,7 @@ export const useHeroStyles = makeStyles<Theme>((theme: Theme) => ({
       },
   },
   welcome: {
-      fontSize: theme.typography.fontSize * 5 + 4,
+      fontSize: theme.typography.fontSize + 54,
       margin: 0,
       [theme.breakpoints.down("md")]: {
         fontSize: theme.typography.fontSize * 4,
@@ -58,7 +58,7 @@ export const useHeroStyles = makeStyles<Theme>((theme: Theme) => ({
     backgroundColor: theme.design.colors.terracotta,
     color: theme.design.colors.white,
     borderRadius: 0,
-    fontFamily: "Cormorant Garamond, san-serif",
+   fontFamily:theme.include.styles.fontFamily,
     padding: theme.spacing(1,3),
     fontSize: theme.typography.fontSize + 8,
     marginTop:theme.spacing(8),

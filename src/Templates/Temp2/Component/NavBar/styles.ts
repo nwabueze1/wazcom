@@ -6,7 +6,7 @@ export const useNavStyles = makeStyles<Theme>((theme: Theme) => ({
     width: "100%",
     height: "100%",
     background: theme.design.colors.black,
-    fontFamily: "Cormorant Garamond, san-serif",
+   fontFamily:theme.include.styles.fontFamily,
     margin: "0 auto",
     zIndex: 4,
     top: 0,

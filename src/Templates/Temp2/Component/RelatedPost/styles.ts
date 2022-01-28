@@ -3,7 +3,7 @@ import { Theme } from "@mui/material/styles";
 
 export const useRelatedPostStyles = makeStyles<Theme>((theme: Theme) => ({
   root: {
-    fontFamily: "Cormorant Garamond, san-serif",
+   fontFamily:theme.include.styles.fontFamily,
     width: "100%",
     height: "100%",
   },
@@ -56,7 +56,7 @@ export const useRelatedPostStyles = makeStyles<Theme>((theme: Theme) => ({
     marginTop: theme.spacing(2),
     padding: theme.spacing(1, 2),
     borderColor: theme.design.colors.terracotta,
-    fontFamily: "Cormorant Garamond, san-serif",
+   fontFamily:theme.include.styles.fontFamily,
     color: theme.design.colors.terracotta,
     fontSize: theme.typography.fontSize + 6,
     fontWeight: theme.typography.fontWeightBold,

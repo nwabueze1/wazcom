@@ -5,7 +5,7 @@ import { Theme } from "@mui/material/styles";
 export const useFooterStyles = makeStyles((theme: Theme) => ({
   root: {
     width: "100%",
-    fontFamily: "Cormorant Garamond, san-serif",
+   fontFamily:theme.include.styles.fontFamily,
     height: "100%",
     maxWidth: theme.include.styles.maxWidth,
     margin: "0 auto",

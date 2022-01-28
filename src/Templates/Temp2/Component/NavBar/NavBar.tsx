@@ -1,4 +1,4 @@
-import React, { useState, FC } from "react";
+import React, { useState, FC, useCallback } from "react";
 import { useNavStyles } from "./styles";
 import { Link } from "react-router-dom";
 import { navData } from "../../Pages/Template2Data";
@@ -13,18 +13,21 @@ const NavBar: FC<NavBarProps> = ({ navheader }) => {
   const classes = useNavStyles();
   const [sideBar, setSideBar] = useState(false);
 
-  const displayLinks = () => {
-    return navData.map(({ path, title }, index) => (
-      <div className={classes.link} key={index}>
-        <Link to={path} className={classes.anchor} onClick={() => {
-                setSideBar(false);
-              }}>
-          {title}
-        </Link>
-      </div>
-    ));
-  };
-  
+  const displayLinks = useCallback(() =>
+  navData.map(({ path, title }, index) => (
+    <div className={classes.link} key={index}>
+      <Link
+        to={path}
+        className={classes.anchor}
+        onClick={() => {
+          setSideBar(false);
+        }}
+      >
+        {title}
+      </Link>
+    </div>
+  )), [])
+
   return (
     <div className={classes.root}>
       <div className={classes.container}>
@@ -34,7 +37,7 @@ const NavBar: FC<NavBarProps> = ({ navheader }) => {
         <div className={classes.nav}>
           {displayLinks()}
           <div>
-            <FacebookIcon  className={classes.icon} />
+            <FacebookIcon className={classes.icon} />
             <TwitterIcon className={classes.icon} />
           </div>
         </div>
