@@ -9,7 +9,7 @@ export const Healthy = () => {
   const classes = useHomePageStyles();
   const healthyRef = useRef(document.createElement("div"));
   const scroll = (
-    scrollOffset: any,
+    scrollOffset: number,
     ref: React.MutableRefObject<HTMLDivElement>,
   ) => {
     ref.current.scrollLeft += scrollOffset;
