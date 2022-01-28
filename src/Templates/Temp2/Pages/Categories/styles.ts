@@ -6,7 +6,7 @@ export const useCategoriesStyles = makeStyles<Theme>((theme: Theme) => ({
   root: {
     width: "100%",
     height: "100%",
-   fontFamily:theme.include.styles.fontFamily,
+   fontFamily:theme.include.styles.font.garamond,
     maxWidth: theme.include.styles.maxWidth,
     margin: "0 auto"
   },

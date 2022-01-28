@@ -1,11 +1,12 @@
-import classNames from "classnames";
-import React from "react";
+import clx from "classnames"
+import {FC} from "react";
+import { IntroProps } from "./types";
 import { useIntroStyles } from "./styles";
 
-const Intro = () => {
+const Intro: FC<IntroProps> = ({className}) => {
   const classes = useIntroStyles();
   return (
-    <div className={classes.root}>
+    <div className={clx(classes.root, className)}>
       <div className={classes.container}>
         <div className={classes.textBox}>
           <div className={classes.text}>

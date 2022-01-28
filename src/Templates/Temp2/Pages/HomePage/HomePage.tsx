@@ -17,12 +17,8 @@ const HomePage = () => {
       <GluttenFree />
       <Healthy />
       <Vegan />
-      <div className={classes.intro}>
-        <Intro />
-      </div>
-      <div className={classes.subscribe}>
-        <Subscribe />
-      </div>
+      <Intro className={classes.intro} />
+      <Subscribe className={classes.subscribe} />
     </div>
   );
 };

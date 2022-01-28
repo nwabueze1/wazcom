@@ -1,12 +1,14 @@
 import { TextInput } from "io";
-import React from "react";
+import { FC } from "react";
+import clx from "classnames"
+import { SubscribeProps } from "./types";
 import { Button } from "core/Button";
 import { useSubscribeStyles } from "./styles";
 
-export const Subscribe = () => {
+export const Subscribe: FC<SubscribeProps> = ({className}) => {
   const classes = useSubscribeStyles();
   return (
-    <div className={classes.root}>
+    <div className={clx(classes.root, className)}>
       <div className={classes.container}>
         <p className={classes.title}>Subscribe to Newsletter</p>
         <p className={classes.info}>
