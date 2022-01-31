@@ -42,11 +42,13 @@ export var theme = {
             to: { width: "100%" },
         },
         styles: {
-            maxWidth: 1294,
-            tabMaxWidth: 700,
-            font: {
-                garamond: "Cormorant Garamond, san-serif",
-            }
+            templates: {
+                maxWidth: 1294,
+                tabMaxWidth: 700,
+                font: {
+                    garamond: "Cormorant Garamond, san-serif",
+                },
+            },
         },
         anim: {
             zIndex: 1,
@@ -115,7 +117,7 @@ export var theme = {
             regular: '"Nunito", sans-serif',
         },
         colors: {
-            Grey: '#414141',
+            Grey: "#414141",
             red70: "#FF4C4C",
             red90: "#FF1919",
             gray: "#BEBEBE",
@@ -178,7 +180,7 @@ export var theme = {
             grey80: "#5C5C5C",
             yellowsea: "#F5A53C",
             grayline: "#AAAAAA",
-            terracotta: "#CA684D"
+            terracotta: "#CA684D",
         },
     },
     overrides: {

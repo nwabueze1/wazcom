@@ -5,7 +5,7 @@ export const useArticlePageStyles = makeStyles<Theme>((theme: Theme) => ({
   root: {
     width: "100%",
     height: "100%",
-   fontFamily:theme.include.styles.font.garamond,
+   fontFamily:theme.include.styles.templates.font.garamond,
     maxWidth: theme.include.styles.templates.maxWidth,
     margin: "0 auto",
   },

@@ -7,7 +7,7 @@ export const useIntroStyles = makeStyles<Theme>((theme: Theme) => ({
     height: "100%",
     display: "flex",
     justifyContent: "center",
-   fontFamily:theme.include.styles.font.garamond,
+   fontFamily:theme.include.styles.templates.font.garamond,
   },
   container: {
     display: "flex",
