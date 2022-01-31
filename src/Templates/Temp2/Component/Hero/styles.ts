@@ -5,7 +5,7 @@ export const useHeroStyles = makeStyles<Theme>((theme: Theme) => ({
   root: {
     width: "100%",
     height: "100%",
-   fontFamily:theme.include.styles.templates.font.garamond,
+   fontFamily:theme.include.styles.template2.font.garamond,
   },
   container: {
     display: "flex",
@@ -58,7 +58,7 @@ export const useHeroStyles = makeStyles<Theme>((theme: Theme) => ({
     backgroundColor: theme.design.colors.terracotta,
     color: theme.design.colors.white,
     borderRadius: 0,
-   fontFamily:theme.include.styles.templates.font.garamond,
+   fontFamily:theme.include.styles.template2.font.garamond,
     padding: theme.spacing(1,3),
     fontSize: theme.typography.fontSize + 8,
     marginTop:theme.spacing(8),

@@ -26,7 +26,7 @@ export const useNavStyles = makeStyles<Theme>((theme: Theme) => ({
     zIndex: 20,
     alignItems: "center",
     background: theme.design.colors.white,
-    maxWidth: theme.include.styles.templates.maxWidth,
+    maxWidth: theme.include.styles.template2.maxWidth,
     margin: "0 auto",
   },
   icon: {

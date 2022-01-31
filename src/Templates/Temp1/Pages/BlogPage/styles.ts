@@ -8,7 +8,7 @@ export const useBlogPageStyles = makeStyles<Theme>((theme: Theme) => ({
     fontFamiy: "Raleway, san-serif",
   },
   container: {
-    maxWidth: theme.include.styles.templates.maxWidth,
+    maxWidth: theme.include.styles.template2.maxWidth,
     margin: "0 auto",
   },
   imageContainer: {

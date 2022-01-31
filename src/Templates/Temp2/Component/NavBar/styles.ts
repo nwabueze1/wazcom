@@ -6,7 +6,7 @@ export const useNavStyles = makeStyles<Theme>((theme: Theme) => ({
     width: "100%",
     height: "100%",
     background: theme.design.colors.black,
-   fontFamily:theme.include.styles.templates.font.garamond,
+   fontFamily:theme.include.styles.template2.font.garamond,
     margin: "0 auto",
     zIndex: 4,
     top: 0,
@@ -26,7 +26,7 @@ export const useNavStyles = makeStyles<Theme>((theme: Theme) => ({
     justifyContent: "space-between",
     alignItems: "center",
     background: theme.design.colors.black,
-    maxWidth: theme.include.styles.templates.maxWidth,
+    maxWidth: theme.include.styles.template2.maxWidth,
     margin: "0 auto",
     [theme.breakpoints.down("md")]: {
       width: "90%",

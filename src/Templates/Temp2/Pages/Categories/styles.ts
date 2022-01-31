@@ -5,8 +5,8 @@ export const useCategoriesStyles = makeStyles<Theme>((theme: Theme) => ({
   root: {
     width: "100%",
     height: "100%",
-   fontFamily:theme.include.styles.templates.font.garamond,
-    maxWidth: theme.include.styles.templates.maxWidth,
+   fontFamily:theme.include.styles.template2.font.garamond,
+    maxWidth: theme.include.styles.template2.maxWidth,
     margin: "0 auto"
   },
  tab: {

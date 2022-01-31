@@ -5,9 +5,9 @@ import { Theme } from "@mui/material/styles";
 export const useFooterStyles = makeStyles((theme: Theme) => ({
   root: {
     width: "100%",
-   fontFamily:theme.include.styles.templates.font.garamond,
+   fontFamily:theme.include.styles.template2.font.garamond,
     height: "100%",
-    maxWidth: theme.include.styles.templates.maxWidth,
+    maxWidth: theme.include.styles.template2.maxWidth,
     margin: "0 auto",
     [theme.breakpoints.down("md")]: {
       width:"95%"
