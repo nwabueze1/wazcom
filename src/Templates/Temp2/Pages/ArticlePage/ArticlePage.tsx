@@ -9,7 +9,7 @@ import { Subscribe } from "Templates/Temp2/Component/Subscribe/Subscribe";
 export const ArticlePage = () => {
   const classes = useArticlePageStyles();
 
-  const displayRelatedPost = useCallback(
+  const displayRelatedPosts = useCallback(
     () =>
       postData.map((post, index) => (
         <RelatedPost
@@ -63,7 +63,7 @@ export const ArticlePage = () => {
       </div>
       <div className={classes.relatedPost}>
         <p className={classes.relatedHeader}>Related Post</p>
-        {displayRelatedPost()}
+        {displayRelatedPosts()}
       </div>
       <div className={classes.subscribe}>
         <Subscribe />
