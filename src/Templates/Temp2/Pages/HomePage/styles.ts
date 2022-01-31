@@ -5,11 +5,11 @@ export const useHomePageStyles = makeStyles<Theme>((theme: Theme) => ({
   root: {
     width: "100%",
     height: "100%",
-   fontFamily:theme.include.styles.font.garamond,
+   fontFamily:theme.include.styles.template2.font.garamond,
   },
   container: {
     padding: theme.spacing(3, 0),
-    maxWidth: theme.include.styles.templates.maxWidth,
+    maxWidth: theme.include.styles.template2.maxWidth,
     margin: "0 auto",
     [theme.breakpoints.down("md")]: {
       width: "95%",
