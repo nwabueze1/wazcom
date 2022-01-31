@@ -5,7 +5,7 @@ export const useSubscribeStyles = makeStyles<Theme>((theme: Theme) => ({
   root: {
     width: "100%",
     height: "100%",
-    maxWidth: theme.include.styles.maxWidth,
+    maxWidth: theme.include.styles.templates.maxWidth,
     margin: "auto",
    fontFamily:theme.include.styles.font.garamond,
     textAlign: "center",

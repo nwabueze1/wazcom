@@ -26,7 +26,7 @@ export const useNavStyles = makeStyles<Theme>((theme: Theme) => ({
     justifyContent: "space-between",
     alignItems: "center",
     background: theme.design.colors.black,
-    maxWidth: theme.include.styles.maxWidth,
+    maxWidth: theme.include.styles.templates.maxWidth,
     margin: "0 auto",
     [theme.breakpoints.down("md")]: {
       width: "90%",

@@ -15,7 +15,7 @@ export const Healthy = () => {
     ref.current.scrollLeft += scrollOffset;
   };
 
-  const displayPopularPost = useCallback(
+  const displayPopularPosts = useCallback(
     () =>
       postData.map((post, index) => (
         <div className={classes.post} key={index}>
@@ -56,7 +56,7 @@ export const Healthy = () => {
           </div>
         </div>
         <div ref={healthyRef} className={classes.postContainer}>
-          {displayPopularPost()}
+          {displayPopularPosts()}
         </div>
       </div>
     </div>

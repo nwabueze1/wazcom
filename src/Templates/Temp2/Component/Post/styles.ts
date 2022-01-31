@@ -5,7 +5,7 @@ export const usePostStyles = makeStyles<Theme>((theme: Theme) => ({
   root: {
    fontFamily:theme.include.styles.font.garamond,
     [theme.breakpoints.down("md")]: {
-      maxWidth: theme.include.styles.tabMaxWidth,
+      maxWidth: theme.include.styles.templates.tabmaxWidth,
     },
     [theme.breakpoints.down("sm")]: {
       width: "90%",

@@ -5,10 +5,10 @@ export const useDishesStyles = makeStyles<Theme>((theme: Theme) => ({
   root: {
     width: "100%",
     height: "100%",
-    maxWidth: theme.include.styles.maxWidth,
+    maxWidth: theme.include.styles.templates.maxWidth,
     margin: "0 auto",
     [theme.breakpoints.down("md")]: {
-      maxWidth: theme.include.styles.maxWidth,
+      maxWidth: theme.include.styles.templates.tabmaxWidth,
       width: "95%"
     },
     [theme.breakpoints.down("sm")]: {

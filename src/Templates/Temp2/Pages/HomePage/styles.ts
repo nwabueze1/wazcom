@@ -9,7 +9,7 @@ export const useHomePageStyles = makeStyles<Theme>((theme: Theme) => ({
   },
   container: {
     padding: theme.spacing(3, 0),
-    maxWidth: theme.include.styles.maxWidth,
+    maxWidth: theme.include.styles.templates.maxWidth,
     margin: "0 auto",
     [theme.breakpoints.down("md")]: {
       width: "95%",

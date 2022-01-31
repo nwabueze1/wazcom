@@ -13,7 +13,7 @@ export const useIntroStyles = makeStyles<Theme>((theme: Theme) => ({
     display: "flex",
     justifyContent: "center",
     height: "520px",
-    maxWidth: theme.include.styles.maxWidth,
+    maxWidth: theme.include.styles.templates.maxWidth,
     [theme.breakpoints.down("md")]: {
       flexDirection: "column-reverse",
       height: "675px"

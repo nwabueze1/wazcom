@@ -5,10 +5,10 @@ export const useRebaseStyles = makeStyles<Theme>((theme: Theme) => ({
   root: {
     width: "100%",
     height: "100%",
-    maxWidth: theme.include.styles.maxWidth,
+    maxWidth: theme.include.styles.templates.maxWidth,
     margin: "0 auto",
     [theme.breakpoints.down("md")]: {
-      maxWidth: theme.include.styles.tabMaxWidth,
+      maxWidth: theme.include.styles.templates.tabmaxWidth,
     },
     [theme.breakpoints.down("sm")]: {
       width: "90%",

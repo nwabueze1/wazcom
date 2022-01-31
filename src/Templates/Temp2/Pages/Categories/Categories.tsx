@@ -27,7 +27,7 @@ export const Categories = () => {
     [],
   );
 
-  const displayPost = useCallback(() => {
+  const displayPosts = useCallback(() => {
     return postData
       .filter((post) => post.category === activeCategory)
       .map((post, index) => (
@@ -49,7 +49,7 @@ export const Categories = () => {
   return (
     <div className={classes.root}>
       <div className={classes.tabs}>{displayTabs()}</div>
-      <div className={classes.menus}>{displayPost()}</div>
+      <div className={classes.menus}>{displayPosts()}</div>
       <p className={classes.loadMore}>Load More</p>
       <div className={classes.subscribe}>
         <Subscribe />

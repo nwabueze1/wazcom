@@ -7,7 +7,7 @@ export const useFooterStyles = makeStyles((theme: Theme) => ({
     width: "100%",
    fontFamily:theme.include.styles.font.garamond,
     height: "100%",
-    maxWidth: theme.include.styles.maxWidth,
+    maxWidth: theme.include.styles.templates.maxWidth,
     margin: "0 auto",
     [theme.breakpoints.down("md")]: {
       width:"95%"
