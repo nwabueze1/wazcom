@@ -38,7 +38,6 @@ import {
   CheckBoxInputProps,
   ComboBoxInput,
   ComboBoxInputProps,
-  ImageUploadInput,
   ImageUploadInputProps,
   RichTextInput,
   RichTextInputProps,
@@ -52,13 +51,21 @@ import {
   ToggleInputProps,
 } from "../io";
 
-import { GqlComboBox, GqlComboBoxProps } from "../gql";
+import {
+  GqlComboBox,
+  GqlComboBoxProps,
+  GqlMediaLibrary,
+  GqlMediaLibraryProps,
+  GqlMediaLibrarySelector,
+  GqlMediaLibrarySelectorProps,
+} from "../gql";
 
 import {
   GETBLOGCATEGORIES,
   createApolloClient,
   createNewCategory,
 } from "../helpers/graphQL";
+import { GET_IMAGES, UPLOAD_IMAGE } from "gql/GqlMediaLibrary/graphQL";
 
 type ComponentPropType = {
   component: any;
@@ -87,6 +94,8 @@ type ComponentPropType = {
   | EmptyStateStory
   | SchedulerStory
   | InputGroupStory
+  | GqlMediaLibraryStory
+  | GqlMediaLibrarySelectorStory
 );
 
 type AccordionStory = {
@@ -208,7 +217,51 @@ type InputGroupStory = {
   props: InputGroupProps;
 };
 
+type GqlMediaLibraryStory = {
+  name: string;
+  props: GqlMediaLibraryProps;
+};
+
+type GqlMediaLibrarySelectorStory = {
+  name: string;
+  props: GqlMediaLibrarySelectorProps;
+};
+
 export const stories: ComponentPropType[] = [
+  {
+    name: "MediaLibrarySelector",
+    component: GqlMediaLibrarySelector,
+    props: {
+      config: {
+        client: createApolloClient("https://nicodemus.sytbuilder.com/graphql"),
+        query: {
+          name: GET_IMAGES,
+          variables: {},
+        },
+        upload: {
+          name: UPLOAD_IMAGE,
+          variables: {},
+        },
+      },
+    },
+  },
+  {
+    name: "MediaLibrary",
+    component: GqlMediaLibrary,
+    props: {
+      config: {
+        client: createApolloClient("https://nicodemus.sytbuilder.com/graphql"),
+        query: {
+          name: GET_IMAGES,
+          variables: {},
+        },
+        upload: {
+          name: UPLOAD_IMAGE,
+          variables: {},
+        },
+      },
+    },
+  },
   {
     name: "accordion",
     component: Accordion,

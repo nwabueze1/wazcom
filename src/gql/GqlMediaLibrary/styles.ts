@@ -1,23 +1,23 @@
-import makeStyles from "@mui/styles/makeStyles";
-import { BaseTheme } from "theme";
+import { Theme } from "@mui/material/styles";
 
-export const useMediaLibraryStyles = makeStyles((theme: BaseTheme) => ({
+import makeStyles from "@mui/styles/makeStyles";
+
+export const useMediaLibraryStyles = makeStyles((theme: Theme) => ({
   "@keyframes a": {
     "0%, 50%": {
       transform: "scale(0)",
     },
   },
-  root: {},
+  root: {
+    width: "100%",
+  },
   library: {
     position: "relative",
-    marginTop: theme.spacing(2),
   },
   collection: {
     display: "flex",
     flexWrap: "wrap",
     marginTop: theme.spacing(1),
-    maxHeight: `calc(100vh - ${theme.spacing(20)})`,
-    overflow: "scroll",
     position: "relative",
   },
   column: {
@@ -33,11 +33,15 @@ export const useMediaLibraryStyles = makeStyles((theme: BaseTheme) => ({
     display: "flex",
     flexDirection: "column",
     marginBottom: theme.spacing(3),
+    height: "150px",
+    cursor: "pointer",
   },
-  image: {},
+  image: {
+    height: "100%",
+    objectFit: "cover",
+  },
   loading: {
     height: 40,
-    // backgroundColor: theme.design.colors.black,
     opacity: 0.9,
   },
   dot: {
@@ -56,16 +60,23 @@ export const useMediaLibraryStyles = makeStyles((theme: BaseTheme) => ({
       content: '""',
     },
   },
+  loaderParent: {
+    position: "relative",
+    margin: theme.spacing(2, 0),
+  },
   loader: {
     position: "absolute",
     bottom: 0,
     left: 0,
     right: 0,
+    top: 0,
     backgroundColor: "transparent",
   },
   tab: {
     display: "flex",
     position: "relative",
   },
-  actions: {},
+  actions: {
+    marginBottom: theme.spacing(4),
+  },
 }));
