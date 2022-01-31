@@ -7,7 +7,7 @@ import { ArrowForwardIos, ArrowBackIos } from "@mui/icons-material";
 
 export const Popular = () => {
   const classes = useHomePageStyles();
-  const displayPopularPost = useCallback(
+  const displayPopularPosts = useCallback(
     () =>
       postData.map((post, index) => (
         <div className={classes.post} key={index}>
@@ -31,7 +31,7 @@ export const Popular = () => {
     <div>
       <div className={classes.container}>
         <p className={classes.header}>Popular Posts</p>
-        <div className={classes.postContainer}>{displayPopularPost()}</div>
+        <div className={classes.postContainer}>{displayPopularPosts()}</div>
       </div>
     </div>
   );
