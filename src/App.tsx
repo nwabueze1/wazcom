@@ -2,6 +2,7 @@ import { StyledEngineProvider, Theme, ThemeProvider } from "@mui/material";
 import * as React from "react";
 import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
 import Template1 from "Templates/Temp1/Template1";
+import Template2 from "Templates/Temp2/Template2";
 import { Browser } from "view/Browser";
 import theme from "./theme";
 
@@ -20,8 +21,11 @@ const App: React.FC<Props> = () => {
       <ThemeProvider theme={theme}>
         <Router>
           <Switch>
-            <Route exact path="/template1">
+            <Route path="/template1">
               <Template1/>
+            </Route>
+            <Route path="/template2">
+              <Template2/>
             </Route>
             <Route path="/">
               <Browser />

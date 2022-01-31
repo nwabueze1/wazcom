@@ -44,6 +44,9 @@ export var theme = {
         styles: {
             maxWidth: 1294,
             tabMaxWidth: 700,
+            font: {
+                garamond: "Cormorant Garamond, san-serif",
+            }
         },
         anim: {
             zIndex: 1,

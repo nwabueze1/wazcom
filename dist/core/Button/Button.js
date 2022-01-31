@@ -23,11 +23,12 @@ var __rest = (this && this.__rest) || function (s, e) {
 import { jsx as _jsx } from "react/jsx-runtime";
 import { Button as MuiButton } from "@mui/material";
 import { useButtonStyles } from "./styles";
+import clx from "classnames";
 export var Button = function (_a) {
-    var props = __rest(_a, []);
+    var className = _a.className, props = __rest(_a, ["className"]);
     var classes = useButtonStyles();
     return (_jsx(MuiButton, __assign({ classes: {
-            root: classes.root,
+            root: clx(classes.root, className),
             sizeSmall: classes.sizeSmall,
             sizeLarge: classes.sizeLarge,
         }, variant: "contained" }, props), void 0));
