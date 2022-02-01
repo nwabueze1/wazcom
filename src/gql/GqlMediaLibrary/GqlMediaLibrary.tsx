@@ -27,31 +27,17 @@ export const GqlMediaLibrary: FC<GqlMediaLibraryProps> = ({
     query: { name: query, variables: queryVariables },
     upload,
   },
-  handleSelectImage,
+  refetch,
+  onImageSelect,
 }) => {
   const fileRef = useRef<any>();
-  const listInnerRef = useRef<any>();
   const classes = useMediaLibraryStyles();
   const [images, setImages] = useState<ImageDataType[]>([]);
   const [paginatorInfo, setPaginatorInfo] = useState<{
     [key: string]: number;
   }>({ currentPage: 1, lastPage: 1 });
   const [loading, setLoading] = useState<boolean>(true);
-
-  useEffect(() => {
-    fetchData()
-      .then((res) => {
-        setLoading(false);
-        if (!images) {
-          setImages(res.data?.images.data);
-        } else {
-          setImages([...images, ...res.data?.images.data]);
-        }
-      })
-      .catch((error) => {
-        setLoading(false);
-      });
-  }, []);
+  const [imageLoading, setImageLoading] = useState<boolean>(true);
 
   const fetchData = async (variables?: any) => {
     return await client.query({
@@ -61,22 +47,43 @@ export const GqlMediaLibrary: FC<GqlMediaLibraryProps> = ({
     });
   };
 
+  useEffect(() => {
+    fetchData({ page: 1, first: 9, ...queryVariables })
+      .then((res) => {
+        setLoading(false);
+        if (!images) {
+          setImages(res.data?.images.data);
+        } else {
+          setImages([...images, ...res.data?.images.data]);
+        }
+        setPaginatorInfo(res.data.images.paginatorInfo);
+      })
+      .catch((error) => {
+        setLoading(false);
+      });
+  }, []);
+
+  useEffect(() => {
+    if (refetch && refetch > 0) {
+      const { currentPage, lastPage } = paginatorInfo;
+      if (currentPage !== lastPage) {
+        setImageLoading(true);
+        fetchData({ page: currentPage + 1, first: 9 }).then((res) => {
+          setImages((images) => [...images, ...res.data.images.data]);
+          setImageLoading(false);
+          setPaginatorInfo(res.data.images.paginatorInfo);
+        });
+      }
+    }
+  }, [refetch]);
+
   const onSelect = (data: ImageDataType) => {
-    handleSelectImage(data.url);
+    onImageSelect(data.url);
   };
 
   const selectImage = (data: ImageDataType) => {
     onSelect ? onSelect(data) : null;
   };
-
-  // const onScroll = useCallback(() => {
-  //   if (listInnerRef.current) {
-  //     const { scrollTop, scrollHeight, clientHeight } = listInnerRef.current;
-  //     if (scrollTop + clientHeight === scrollHeight && !loading) {
-  //       fetchData({ page: 2, first: 10 });
-  //     }
-  //   }
-  // }, [images, loading]);
 
   const updateMediaLibrary = (image: ImageDataType) => {
     setImages((images) => [image, ...images]);
@@ -135,7 +142,7 @@ export const GqlMediaLibrary: FC<GqlMediaLibraryProps> = ({
             </>
           )}
         </div>
-        {images.length > 0 && false && (
+        {images.length > 0 && imageLoading && (
           <div className={classes.loaderParent}>
             <Loader className={classes.loader} />
           </div>

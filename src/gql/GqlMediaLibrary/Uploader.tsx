@@ -1,19 +1,19 @@
+import React, { useCallback } from "react";
 import {
   DocumentNode,
   ApolloClient,
   NormalizedCacheObject,
 } from "@apollo/client";
-import { useCallback } from "react";
-import * as React from "react";
+import { ImageDataType } from "./types";
 
 type UploaderRefProps = HTMLInputElement;
 type UploaderProps = {
-  updateMediaLibrary: (image: any) => void;
+  updateMediaLibrary: (image: ImageDataType) => void;
   setLoading: (loading: boolean) => void;
   config: {
     client: ApolloClient<NormalizedCacheObject>;
     name: DocumentNode;
-    variables: any;
+    variables: { [key: string]: string };
   };
 };
 
@@ -36,7 +36,9 @@ export const Uploader = React.forwardRef<UploaderRefProps, UploaderProps>(
         const file = event.target?.files[0];
 
         setLoading(true);
-        await uploadImage({ variables: { input: { image: file } } })
+        await uploadImage({
+          variables: { input: { image: file }, ...variables },
+        })
           .then(({ data: { uploadImage: image } }) => {
             updateMediaLibrary(image);
           })

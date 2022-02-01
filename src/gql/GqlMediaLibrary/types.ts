@@ -6,20 +6,21 @@ import {
 import { CommonProps } from "../../types";
 
 export type GqlMediaLibraryProps = CommonProps &
-  GqlMediaSelectorConfig & {
-    handleSelectImage: (url: string) => void;
+  GqlMediaSelectorConfigProps & {
+    onImageSelect: (url: string) => void;
+    refetch?: number;
   };
 
-export type GqlMediaSelectorConfig = {
+export type GqlMediaSelectorConfigProps = {
   config: {
     client: ApolloClient<NormalizedCacheObject>;
     query: {
       name: DocumentNode;
-      variables: any;
+      variables: { [key: string]: string };
     };
     upload: {
       name: DocumentNode;
-      variables: any;
+      variables: { [key: string]: string };
     };
   };
 };

@@ -20,8 +20,6 @@ export const useImageSelectorStyles = makeStyles((theme: Theme) => ({
   circle: {
     borderRadius: "50%",
     border: `3px solid ${theme.design.colors.white}`,
-    height: 80,
-    width: 80,
   },
   icon: {
     color: theme.design.colors.black,

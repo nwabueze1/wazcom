@@ -64,8 +64,9 @@ import {
   GETBLOGCATEGORIES,
   createApolloClient,
   createNewCategory,
+  GET_IMAGES,
+  UPLOAD_IMAGE,
 } from "../helpers/graphQL";
-import { GET_IMAGES, UPLOAD_IMAGE } from "gql/GqlMediaLibrary/graphQL";
 
 type ComponentPropType = {
   component: any;

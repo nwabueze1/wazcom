@@ -1,9 +1,11 @@
-import { GqlMediaSelectorConfig } from "gql";
+import { GqlMediaSelectorConfigProps } from "gql";
 import { CommonProps } from "../../types";
 
 export type GqlMediaLibrarySelectorProps = CommonProps &
-  GqlMediaSelectorConfig & {
+  GqlMediaSelectorConfigProps & {
     displayLibrary?: boolean;
     variant?: "circle" | "square";
     size?: "sm" | "md" | "lg" | "xl";
+    width?: string;
+    height?: string;
   };

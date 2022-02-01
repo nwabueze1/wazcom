@@ -5,12 +5,13 @@ import clx from "classnames";
 import { useImageSelectorStyles } from "./styles";
 import { GqlMediaLibrarySelectorProps } from "./types";
 import { GqlMediaLibrary } from "gql";
-import { ImageSelector } from "core";
 
 export const GqlMediaLibrarySelector: FC<GqlMediaLibrarySelectorProps> = ({
   displayLibrary = false,
-  variant,
+  variant = "circle",
   size = "sm",
+  width,
+  height,
   className,
   ...props
 }) => {
@@ -77,7 +78,7 @@ export const GqlMediaLibrarySelector: FC<GqlMediaLibrarySelectorProps> = ({
         variant === "circle" && classes.circle,
         variants[0],
       )}
-      style={{ backgroundImage: `url(${placeholder})` }}
+      style={{ backgroundImage: `url(${placeholder})`, width, height }}
       onMouseEnter={() => setShowIcon(true)}
       onMouseLeave={() => setShowIcon(false)}
       onClick={() => {
@@ -108,7 +109,8 @@ export const GqlMediaLibrarySelector: FC<GqlMediaLibrarySelectorProps> = ({
           >
             <GqlMediaLibrary
               config={{ ...props.config }}
-              handleSelectImage={handleSelectImage}
+              onImageSelect={handleSelectImage}
+              refetch={mediaIndex}
             />
           </div>
         </Fade>

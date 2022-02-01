@@ -9,7 +9,7 @@ export const createApolloClient = (uri: string) => {
     return {
       headers: {
         ...headers,
-        authorization: `Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiJ9.eyJhdWQiOiI5NTVhYmNkZS03ODcwLTQ4ZGMtOTdiMC03NzNlYzk5ODYxZTUiLCJqdGkiOiJlNmYzNmQzMDc4MjRlNTc2NWFhMGQ4ODZmNTdiZmE5MzMzYTJiMjQwMjBkYmFlMzFjYmQzNzY5ZDEyODhmYmIzZjRhZDIxMTQ5NThmODQyMSIsImlhdCI6MTY0MzYxNzg4Ni41Njg0OTcsIm5iZiI6MTY0MzYxNzg4Ni41Njg1MDMsImV4cCI6MTY0MzcwNDI4Ni41NjEyMzQsInN1YiI6IjEiLCJzY29wZXMiOltdfQ.ThJn_mOBUpvIHLzltMjz_mywaHCsr3GDvde3oH5-dv7XLj9shJR_RD0h2KgRavQv3C-YC09WSR9b_zGZPgqL9vsPJpU1n53vlfoyq3454pU0gf7hs4JjQGoyKxp_yIBbIsLaKiJACzfY8svYhdYsmrc6uMDFxHcoa7DUrEIluTB0fxulvQZpE-U-plePHImzIZwQhYjHRFmt4kanlyel4vmGQFwgrlRgaVspV-EmpJpRP5ImqGfudlBMDUtm-qAAn8575fc-dyXjUccDUlnfGnL6XrtTn8J13EgAR4ttWk4DkZ_aj2RgRrLrEiVZPUqHJBesBPIkjzRtpUt4px-Sb-HLtWrhOCeZSj874ioQuq7iVTJKmn4gsO1kDVVVu0qK8Yu_HrmsmYPZGtG0U8vrCAD3OzyX4q3C98tYpZ4JiY1RJ9aeM69eX3qYXvrXAsjDklfp6Fz-H3khqDjtQHBQdzHVDrmre3_D0KR_qYxobCOYztYPewytBS_zrQjcz-ECiKwBhP-CUsho256UXwvkR0dbYH7zRN69Ifcr5Mc-4q_0XepsU5cU-MaCXLivQSMIwiblfPqpoXXojYrHWxFxJRIENZYZp7DD9vquVM7B0__WC6O9CBbqBsS9ZcImliUBUyiY2uMYk04HrteiY_a2XEOoyFdpk0pbvyldRqYDxbw`,
+        authorization: `Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiJ9.eyJhdWQiOiI5NTVhYmNkZS03ODcwLTQ4ZGMtOTdiMC03NzNlYzk5ODYxZTUiLCJqdGkiOiI5MjNkNGNiNjJiYWJmNDE3YzhlZWRiY2NiN2JiN2U3ZjZhZTAzZmQ1YzdiN2I4N2RhOTAzNzI5YWIyZGU5MmI4NjRiOTk0MjRlMzExNjJlNiIsImlhdCI6MTY0MzcwNTQ5Ni4zNDQwOTYsIm5iZiI6MTY0MzcwNTQ5Ni4zNDQxMDEsImV4cCI6MTY0Mzc5MTg5Ni4zMzcwNTgsInN1YiI6IjgiLCJzY29wZXMiOltdfQ.5nVGV50dIaP0_vQGBA5ovsmT0e4fzSD4fqQ13z73PiMTGUzwd8A1n8DmY1l3ByEngzdJ2fH7raJ7RTwzmugLDsbkt1ck1u3pq02IuaGlNsyP5Usg-630od7HsPdBZCrczrWpR86WIzEWbLAf5eLRhrfiAxTp7khjuwFzknH0Ju2-MEYzxkBV6fBBpXwO3dDMCrbTLlJsJHZh-G6Sjq083ctPKYGvN3cD-waACllcSbQdOhlwVP1lJPUserZSfO_8NJFDZz1xyBUbbh_eUt4eEewLP57EJ3_70jKy8ufOxCxxmhNC2uW8-TFNTez5VMs0wq7VQY0phEjV_kzBtsoL_RmZChhu7lTpPbZqUljSeFEsBCgoI4fDFHloqlCzlBaldLK70v-sfk2B3zBZ9l1OET-QBxecHrWZ0EqFxX-bDllwhRG6HmjyShuBSaAYvNngKOl1WdWdomUQsrzMdkPZOsXyt40LEw42FPcLV1L6s4ACqUS5H4g2Ezbnky21-UbIx-jT94uQvrj_Eeet4mTIJPwTec6byc12qIL-JQwAOd8TuZXuf4h8mspnl8V1RlAAlODrXjINLFDHfAhzOq9ZKyn3Mg8NT1VHWpanNHYUFI9P9EPACWJaYX4vUrslfxyco05_QChzZdMjJU9uNfVdJjCIjepxX05rHgOQFEafw50`,
       },
     };
   });
@@ -19,12 +19,6 @@ export const createApolloClient = (uri: string) => {
     cache: new InMemoryCache(),
     connectToDevTools: true,
   });
-
-  // return new ApolloClient({
-  //   link: from([httpLink]),
-  //   cache: new InMemoryCache(),
-  //   connectToDevTools: true,
-  // });
 };
 
 export const GETBLOGCATEGORIES = gql`
@@ -58,3 +52,39 @@ export const createNewCategory = async (category: string) => {
   const { id, name } = response.data.createCategory;
   return { label: name, value: id, status: true };
 };
+
+export const GET_IMAGES = gql`
+  query GetImages($first: Int, $page: Int, $orderBy: [OrderByClause!]) {
+    images(first: $first, page: $page, orderBy: $orderBy) {
+      data {
+        id
+        url
+        created_at
+      }
+      paginatorInfo {
+        currentPage
+        lastPage
+      }
+    }
+  }
+`;
+
+export const GET_S3_IMAGES = gql`
+  query getS3Images($count: Int, $startAfter: String) {
+    getS3Images(count: $count, startAfter: $startAfter) {
+      id
+      title
+      url
+    }
+  }
+`;
+
+export const UPLOAD_IMAGE = gql`
+  mutation uploadImage($input: ImageUploadInput!) {
+    uploadImage(input: $input) {
+      id
+      url
+      created_at
+    }
+  }
+`;
