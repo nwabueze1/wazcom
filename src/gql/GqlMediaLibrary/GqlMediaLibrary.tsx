@@ -39,7 +39,7 @@ export const GqlMediaLibrary: FC<GqlMediaLibraryProps> = ({
   const [loading, setLoading] = useState<boolean>(true);
   const [imageLoading, setImageLoading] = useState<boolean>(true);
 
-  const fetchData = async (variables?: any) => {
+  const fetchData = async (variables?: { [key: string]: string | number }) => {
     return await client.query({
       query,
       fetchPolicy: "network-only",
