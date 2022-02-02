@@ -1,3 +1,4 @@
 export type NavBarProps = {
-    navHeader: string
+    navHeader: string,
+    navData?: {path: string, title: string}[]
 }
