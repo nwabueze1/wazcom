@@ -27,8 +27,11 @@ export const Uploader = React.forwardRef<UploaderRefProps, UploaderProps>(
     },
     ref,
   ) => {
-    const uploadImage = async ({ variables }: { variables: any }) =>
-      await client.mutate({ mutation, variables });
+    const uploadImage = async ({
+      variables,
+    }: {
+      variables: { input: { image: File } };
+    }) => await client.mutate({ mutation, variables });
 
     const handleFileChange = useCallback(
       async (event: React.ChangeEvent<any>) => {

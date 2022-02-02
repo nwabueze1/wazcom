@@ -4,7 +4,7 @@ import CameraAltIcon from "@mui/icons-material/CameraAlt";
 import clx from "classnames";
 import { useImageSelectorStyles } from "./styles";
 import { GqlMediaLibrarySelectorProps } from "./types";
-import { GqlMediaLibrary } from "gql";
+import { GqlMediaLibrary, ImageDataType } from "gql";
 
 export const GqlMediaLibrarySelector: FC<GqlMediaLibrarySelectorProps> = ({
   displayLibrary = false,
@@ -30,9 +30,9 @@ export const GqlMediaLibrarySelector: FC<GqlMediaLibrarySelectorProps> = ({
     setOpen(false);
   };
 
-  const handleSelectImage = (url: string) => {
+  const handleSelectImage = (data: ImageDataType) => {
     handleClose();
-    setPlaceholder(url);
+    setPlaceholder(data.url);
   };
 
   const getSizeVariants = () => {

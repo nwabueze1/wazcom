@@ -48,7 +48,7 @@ export const GqlMediaLibrary: FC<GqlMediaLibraryProps> = ({
   };
 
   useEffect(() => {
-    fetchData({ page: 1, first: 9, ...queryVariables })
+    fetchData({ page: 1, count: 9, ...queryVariables })
       .then((res) => {
         setLoading(false);
         if (!images) {
@@ -68,7 +68,7 @@ export const GqlMediaLibrary: FC<GqlMediaLibraryProps> = ({
       const { currentPage, lastPage } = paginatorInfo;
       if (currentPage !== lastPage) {
         setImageLoading(true);
-        fetchData({ page: currentPage + 1, first: 9 }).then((res) => {
+        fetchData({ page: currentPage + 1, count: 9 }).then((res) => {
           setImages((images) => [...images, ...res.data.images.data]);
           setImageLoading(false);
           setPaginatorInfo(res.data.images.paginatorInfo);
@@ -77,12 +77,8 @@ export const GqlMediaLibrary: FC<GqlMediaLibraryProps> = ({
     }
   }, [refetch]);
 
-  const onSelect = (data: ImageDataType) => {
-    onImageSelect(data.url);
-  };
-
   const selectImage = (data: ImageDataType) => {
-    onSelect ? onSelect(data) : null;
+    onImageSelect(data);
   };
 
   const updateMediaLibrary = (image: ImageDataType) => {

@@ -7,7 +7,7 @@ import { CommonProps } from "../../types";
 
 export type GqlMediaLibraryProps = CommonProps &
   GqlMediaSelectorConfigProps & {
-    onImageSelect: (url: string) => void;
+    onImageSelect: (data: ImageDataType) => void;
     refetch?: number;
   };
 
@@ -26,7 +26,7 @@ export type GqlMediaSelectorConfigProps = {
 };
 
 export type ImageDataType = {
-  __typename: "Image";
+  __typename: string;
   id: string;
   url: string;
   created_at: string;

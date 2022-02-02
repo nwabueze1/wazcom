@@ -54,8 +54,8 @@ export const createNewCategory = async (category: string) => {
 };
 
 export const GET_IMAGES = gql`
-  query GetImages($first: Int, $page: Int, $orderBy: [OrderByClause!]) {
-    images(first: $first, page: $page, orderBy: $orderBy) {
+  query GetImages($count: Int, $page: Int) {
+    images(count: $count, page: $page) {
       data {
         id
         url
