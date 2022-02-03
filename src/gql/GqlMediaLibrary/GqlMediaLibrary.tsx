@@ -2,7 +2,6 @@ import { FC, useCallback, useEffect, useRef, useState } from "react";
 import { Grow } from "@mui/material";
 import clx from "classnames";
 import { Button } from "../../core/Button";
-import { last } from "lodash";
 import { IoCloudUploadOutline } from "react-icons/io5";
 import { Loader } from "../../core/Loader/Loader";
 import { useMediaLibraryStyles } from "./styles";
@@ -60,7 +59,7 @@ export const GqlMediaLibrary: FC<GqlMediaLibraryProps> = ({
         }
         setPaginatorInfo(res.data.images.paginatorInfo);
       })
-      .catch((error) => {
+      .catch(() => {
         setLoading(false);
       });
   }, []);
