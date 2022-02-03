@@ -12,8 +12,7 @@ export const useCardStyles = makeStyles<Theme>((theme: Theme) => ({
     height: "475px",
     width: "100%",
     overflow: "hidden",
-    borderTopLeftRadius: theme.spacing(2),
-    borderTopRightRadius: theme.spacing(2),
+    borderRadius: theme.spacing(2, 2, 0, 0),
     display: "flex",
     justifyContent: "center",
   },
@@ -54,8 +53,7 @@ export const useCardStyles = makeStyles<Theme>((theme: Theme) => ({
       fontSize: "35px"
   },
   overlay: {
-    borderTopLeftRadius: theme.spacing(2),
-    borderTopRightRadius: theme.spacing(2),
+    borderRadius: theme.spacing(2, 2, 0, 0),
     background: "rgba(17, 17, 17, 0.6)",
     position: "absolute",
     height: "100%",

@@ -25,7 +25,8 @@ export const usePopularDishesStyles = makeStyles<Theme>((theme: Theme) => ({
       fontSize: theme.typography.fontSize + 16
   },
   details: {
-      fontSize: theme.typography.fontSize + 12
+      fontSize: theme.typography.fontSize + 12,
+      margin: theme.spacing(2, 0)
   },
   dishes: {
       display: "flex",

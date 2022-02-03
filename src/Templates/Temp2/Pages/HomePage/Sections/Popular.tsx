@@ -2,8 +2,6 @@ import { useCallback } from "react";
 import { postData } from "../../Template2Data";
 import { Post } from "Templates/Temp2/Component/Post/Post";
 import { useHomePageStyles } from "../styles";
-import clx from "classnames";
-import { ArrowForwardIos, ArrowBackIos } from "@mui/icons-material";
 
 export const Popular = () => {
   const classes = useHomePageStyles();

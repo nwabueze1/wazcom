@@ -1,7 +1,6 @@
 import { FC } from "react";
 import { Link } from "react-router-dom";
 import { usePopularDishesStyles } from "./styles";
-// import { DishesData } from "Templates/Temp4/TemplateData";
 import { Card } from "Templates/Temp4/Component/Card";
 import { PopularDishesProps } from "./types";
 
@@ -18,6 +17,7 @@ export const PopularDishes: FC<PopularDishesProps> = ({ dishesData }) => {
         }}
         dishName={dish.dishName}
         price={dish.price}
+        currency={"$"}
       />
     ));
 
