@@ -13,6 +13,8 @@ export const GqlMediaLibrarySelector: FC<GqlMediaLibrarySelectorProps> = ({
   width,
   height,
   className,
+  onChange,
+  name,
   ...props
 }) => {
   const listInnerRef = useRef<HTMLDivElement>(null);
@@ -111,6 +113,8 @@ export const GqlMediaLibrarySelector: FC<GqlMediaLibrarySelectorProps> = ({
               config={{ ...props.config }}
               onImageSelect={handleSelectImage}
               refetch={mediaIndex}
+              onChange={onChange}
+              name={name}
             />
           </div>
         </Fade>

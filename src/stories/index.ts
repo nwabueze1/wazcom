@@ -237,7 +237,10 @@ export const stories: ComponentPropType[] = [
         client: createApolloClient("https://nicodemus.sytbuilder.com/graphql"),
         query: {
           name: GET_IMAGES,
-          variables: {},
+          variables: {
+            page: 1,
+            count: 9,
+          },
         },
         upload: {
           name: UPLOAD_IMAGE,
@@ -254,7 +257,10 @@ export const stories: ComponentPropType[] = [
         client: createApolloClient("https://nicodemus.sytbuilder.com/graphql"),
         query: {
           name: GET_IMAGES,
-          variables: {},
+          variables: {
+            page: 1,
+            count: 9,
+          },
         },
         upload: {
           name: UPLOAD_IMAGE,

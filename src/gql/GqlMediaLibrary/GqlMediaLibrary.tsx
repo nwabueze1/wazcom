@@ -29,6 +29,8 @@ export const GqlMediaLibrary: FC<GqlMediaLibraryProps> = ({
   },
   refetch,
   onImageSelect,
+  onChange,
+  name,
 }) => {
   const fileRef = useRef<any>();
   const classes = useMediaLibraryStyles();
@@ -48,13 +50,13 @@ export const GqlMediaLibrary: FC<GqlMediaLibraryProps> = ({
   };
 
   useEffect(() => {
-    fetchData({ page: 1, count: 9, ...queryVariables })
+    fetchData({ ...queryVariables })
       .then((res) => {
         setLoading(false);
         if (!images) {
-          setImages(res.data?.images.data);
+          setImages(res.data?.images.images);
         } else {
-          setImages([...images, ...res.data?.images.data]);
+          setImages([...images, ...res.data?.images.images]);
         }
         setPaginatorInfo(res.data.images.paginatorInfo);
       })
@@ -69,7 +71,7 @@ export const GqlMediaLibrary: FC<GqlMediaLibraryProps> = ({
       if (currentPage !== lastPage) {
         setImageLoading(true);
         fetchData({ page: currentPage + 1, count: 9 }).then((res) => {
-          setImages((images) => [...images, ...res.data.images.data]);
+          setImages((images) => [...images, ...res.data.images.images]);
           setImageLoading(false);
           setPaginatorInfo(res.data.images.paginatorInfo);
         });
@@ -78,6 +80,7 @@ export const GqlMediaLibrary: FC<GqlMediaLibraryProps> = ({
   }, [refetch]);
 
   const selectImage = (data: ImageDataType) => {
+    onChange?.({ name: name ?? "image", value: data });
     onImageSelect(data);
   };
 
