@@ -42,7 +42,7 @@ export var theme = {
             to: { width: "100%" },
         },
         styles: {
-            templates: {
+            template2: {
                 maxWidth: 1294,
                 tabMaxWidth: 700,
                 font: {
