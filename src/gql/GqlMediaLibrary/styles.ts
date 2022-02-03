@@ -79,4 +79,14 @@ export const useMediaLibraryStyles = makeStyles((theme: Theme) => ({
   actions: {
     marginBottom: theme.spacing(4),
   },
+  wrapper: {
+    maxWidth: 600,
+    maxHeight: 550,
+    width: 600,
+    backgroundColor: theme.design.colors.white,
+    borderRadius: theme.spacing(1),
+    overflow: "scroll",
+    zIndex: 15,
+    padding: theme.spacing(4),
+  },
 }));

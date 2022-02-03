@@ -26,8 +26,6 @@ export const GqlMediaLibrary: FC<GqlMediaLibraryProps> = ({
     query: { name: query, variables: queryVariables },
     upload,
   },
-  refetch,
-  onImageSelect,
   onChange,
   name,
 }) => {
@@ -39,6 +37,8 @@ export const GqlMediaLibrary: FC<GqlMediaLibraryProps> = ({
   }>({ currentPage: 1, lastPage: 1 });
   const [loading, setLoading] = useState<boolean>(true);
   const [imageLoading, setImageLoading] = useState<boolean>(true);
+  const listInnerRef = useRef<HTMLDivElement>(null);
+  const [mediaIndex, setMediaIndex] = useState<number>(0);
 
   const fetchData = async (variables?: { [key: string]: string | number }) => {
     return await client.query({
@@ -65,7 +65,7 @@ export const GqlMediaLibrary: FC<GqlMediaLibraryProps> = ({
   }, []);
 
   useEffect(() => {
-    if (refetch && refetch > 0) {
+    if (mediaIndex && mediaIndex > 0) {
       const { currentPage, lastPage } = paginatorInfo;
       if (currentPage !== lastPage) {
         setImageLoading(true);
@@ -76,11 +76,10 @@ export const GqlMediaLibrary: FC<GqlMediaLibraryProps> = ({
         });
       }
     }
-  }, [refetch]);
+  }, [mediaIndex]);
 
   const selectImage = (data: ImageDataType) => {
     onChange?.({ name: name ?? "image", value: data });
-    onImageSelect(data);
   };
 
   const updateMediaLibrary = (image: ImageDataType) => {
@@ -94,57 +93,74 @@ export const GqlMediaLibrary: FC<GqlMediaLibraryProps> = ({
     }
   }, []);
 
+  const onScroll = useCallback(() => {
+    if (listInnerRef.current) {
+      const { scrollTop, scrollHeight, clientHeight } = listInnerRef.current;
+      if (scrollTop + clientHeight === scrollHeight) {
+        setMediaIndex(Math.random() * 5000);
+      }
+    }
+  }, [mediaIndex]);
+
   return (
-    <div className={clx(classes.root, className)}>
-      <div className={classes.library}>
-        <Uploader
-          ref={fileRef}
-          config={{ client, ...upload }}
-          setLoading={setLoading}
-          updateMediaLibrary={updateMediaLibrary}
-        />
-        <div className={classes.actions}>
-          <Button
-            color="primary"
-            startIcon={<IoCloudUploadOutline />}
-            onClick={handleFileSelect}
-          >
-            Upload Image
-          </Button>
-        </div>
-        <div className={classes.collection}>
-          {images.length === 0 || loading ? (
-            <Loader />
-          ) : (
-            <>
-              {images &&
-                split(images, 3).map((_, columnIndex) => {
-                  return (
-                    <div key={columnIndex} className={classes.column}>
-                      {_.map((theImage, index) => {
-                        return (
-                          <Grow in={true} key={index}>
-                            <div className={classes.thumbnail}>
-                              <img
-                                onClick={() => selectImage(theImage)}
-                                src={theImage?.url}
-                                className={classes.image}
-                              />
-                            </div>
-                          </Grow>
-                        );
-                      })}
-                    </div>
-                  );
-                })}
-            </>
+    <div
+      className={classes.wrapper}
+      ref={listInnerRef}
+      onScroll={() => {
+        onScroll();
+      }}
+    >
+      <div className={clx(classes.root, className)}>
+        <div className={classes.library}>
+          <Uploader
+            ref={fileRef}
+            config={{ client, ...upload }}
+            setLoading={setLoading}
+            updateMediaLibrary={updateMediaLibrary}
+          />
+          <div className={classes.actions}>
+            <Button
+              color="primary"
+              startIcon={<IoCloudUploadOutline />}
+              onClick={handleFileSelect}
+            >
+              Upload Image
+            </Button>
+          </div>
+          <div className={classes.collection}>
+            {images.length === 0 || loading ? (
+              <Loader />
+            ) : (
+              <>
+                {images &&
+                  split(images, 3).map((_, columnIndex) => {
+                    return (
+                      <div key={columnIndex} className={classes.column}>
+                        {_.map((theImage, index) => {
+                          return (
+                            <Grow in={true} key={index}>
+                              <div className={classes.thumbnail}>
+                                <img
+                                  onClick={() => selectImage(theImage)}
+                                  src={theImage?.url}
+                                  className={classes.image}
+                                />
+                              </div>
+                            </Grow>
+                          );
+                        })}
+                      </div>
+                    );
+                  })}
+              </>
+            )}
+          </div>
+          {images.length > 0 && imageLoading && (
+            <div className={classes.loaderParent}>
+              <Loader className={classes.loader} />
+            </div>
           )}
         </div>
-        {images.length > 0 && imageLoading && (
-          <div className={classes.loaderParent}>
-            <Loader className={classes.loader} />
-          </div>
-        )}
       </div>
     </div>
   );

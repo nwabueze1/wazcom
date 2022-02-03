@@ -73,13 +73,15 @@ var split = function (array, count) {
     return collection;
 };
 export var GqlMediaLibrary = function (_a) {
-    var className = _a.className, _b = _a.config, client = _b.client, _c = _b.query, query = _c.name, queryVariables = _c.variables, upload = _b.upload, refetch = _a.refetch, onImageSelect = _a.onImageSelect, onChange = _a.onChange, name = _a.name;
+    var className = _a.className, _b = _a.config, client = _b.client, _c = _b.query, query = _c.name, queryVariables = _c.variables, upload = _b.upload, onChange = _a.onChange, name = _a.name;
     var fileRef = useRef();
     var classes = useMediaLibraryStyles();
     var _d = useState([]), images = _d[0], setImages = _d[1];
     var _e = useState({ currentPage: 1, lastPage: 1 }), paginatorInfo = _e[0], setPaginatorInfo = _e[1];
     var _f = useState(true), loading = _f[0], setLoading = _f[1];
     var _g = useState(true), imageLoading = _g[0], setImageLoading = _g[1];
+    var listInnerRef = useRef(null);
+    var _h = useState(0), mediaIndex = _h[0], setMediaIndex = _h[1];
     var fetchData = function (variables) { return __awaiter(void 0, void 0, void 0, function () {
         return __generator(this, function (_a) {
             switch (_a.label) {
@@ -110,7 +112,7 @@ export var GqlMediaLibrary = function (_a) {
         });
     }, []);
     useEffect(function () {
-        if (refetch && refetch > 0) {
+        if (mediaIndex && mediaIndex > 0) {
             var currentPage = paginatorInfo.currentPage, lastPage = paginatorInfo.lastPage;
             if (currentPage !== lastPage) {
                 setImageLoading(true);
@@ -121,10 +123,9 @@ export var GqlMediaLibrary = function (_a) {
                 });
             }
         }
-    }, [refetch]);
+    }, [mediaIndex]);
     var selectImage = function (data) {
         onChange === null || onChange === void 0 ? void 0 : onChange({ name: name !== null && name !== void 0 ? name : "image", value: data });
-        onImageSelect(data);
     };
     var updateMediaLibrary = function (image) {
         setImages(function (images) { return __spreadArray([image], images, true); });
@@ -135,10 +136,20 @@ export var GqlMediaLibrary = function (_a) {
             fileInput.click();
         }
     }, []);
-    return (_jsx("div", __assign({ className: clx(classes.root, className) }, { children: _jsxs("div", __assign({ className: classes.library }, { children: [_jsx(Uploader, { ref: fileRef, config: __assign({ client: client }, upload), setLoading: setLoading, updateMediaLibrary: updateMediaLibrary }, void 0), _jsx("div", __assign({ className: classes.actions }, { children: _jsx(Button, __assign({ color: "primary", startIcon: _jsx(IoCloudUploadOutline, {}, void 0), onClick: handleFileSelect }, { children: "Upload Image" }), void 0) }), void 0), _jsx("div", __assign({ className: classes.collection }, { children: images.length === 0 || loading ? (_jsx(Loader, {}, void 0)) : (_jsx(_Fragment, { children: images &&
-                            split(images, 3).map(function (_, columnIndex) {
-                                return (_jsx("div", __assign({ className: classes.column }, { children: _.map(function (theImage, index) {
-                                        return (_jsx(Grow, __assign({ in: true }, { children: _jsx("div", __assign({ className: classes.thumbnail }, { children: _jsx("img", { onClick: function () { return selectImage(theImage); }, src: theImage === null || theImage === void 0 ? void 0 : theImage.url, className: classes.image }, void 0) }), void 0) }), index));
-                                    }) }), columnIndex));
-                            }) }, void 0)) }), void 0), images.length > 0 && imageLoading && (_jsx("div", __assign({ className: classes.loaderParent }, { children: _jsx(Loader, { className: classes.loader }, void 0) }), void 0))] }), void 0) }), void 0));
+    var onScroll = useCallback(function () {
+        if (listInnerRef.current) {
+            var _a = listInnerRef.current, scrollTop = _a.scrollTop, scrollHeight = _a.scrollHeight, clientHeight = _a.clientHeight;
+            if (scrollTop + clientHeight === scrollHeight) {
+                setMediaIndex(Math.random() * 5000);
+            }
+        }
+    }, [mediaIndex]);
+    return (_jsx("div", __assign({ className: classes.wrapper, ref: listInnerRef, onScroll: function () {
+            onScroll();
+        } }, { children: _jsx("div", __assign({ className: clx(classes.root, className) }, { children: _jsxs("div", __assign({ className: classes.library }, { children: [_jsx(Uploader, { ref: fileRef, config: __assign({ client: client }, upload), setLoading: setLoading, updateMediaLibrary: updateMediaLibrary }, void 0), _jsx("div", __assign({ className: classes.actions }, { children: _jsx(Button, __assign({ color: "primary", startIcon: _jsx(IoCloudUploadOutline, {}, void 0), onClick: handleFileSelect }, { children: "Upload Image" }), void 0) }), void 0), _jsx("div", __assign({ className: classes.collection }, { children: images.length === 0 || loading ? (_jsx(Loader, {}, void 0)) : (_jsx(_Fragment, { children: images &&
+                                split(images, 3).map(function (_, columnIndex) {
+                                    return (_jsx("div", __assign({ className: classes.column }, { children: _.map(function (theImage, index) {
+                                            return (_jsx(Grow, __assign({ in: true }, { children: _jsx("div", __assign({ className: classes.thumbnail }, { children: _jsx("img", { onClick: function () { return selectImage(theImage); }, src: theImage === null || theImage === void 0 ? void 0 : theImage.url, className: classes.image }, void 0) }), void 0) }), index));
+                                        }) }), columnIndex));
+                                }) }, void 0)) }), void 0), images.length > 0 && imageLoading && (_jsx("div", __assign({ className: classes.loaderParent }, { children: _jsx(Loader, { className: classes.loader }, void 0) }), void 0))] }), void 0) }), void 0) }), void 0));
 };

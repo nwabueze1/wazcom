@@ -5,11 +5,7 @@ import {
 } from "@apollo/client";
 import { CommonProps } from "../../types";
 
-export type GqlMediaLibraryProps = CommonProps &
-  GqlMediaSelectorConfigProps & {
-    onImageSelect: (data: ImageDataType) => void;
-    refetch?: number;
-  };
+export type GqlMediaLibraryProps = CommonProps & GqlMediaSelectorConfigProps;
 
 export type GqlMediaSelectorConfigProps = {
   config: {

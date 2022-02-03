@@ -32,14 +32,8 @@ export var useImageSelectorStyles = makeStyles(function (theme) { return ({
         alignItems: "center",
     },
     wrapper: {
-        maxWidth: 600,
-        maxHeight: 550,
-        width: 600,
         backgroundColor: theme.design.colors.white,
-        borderRadius: theme.spacing(1),
-        overflow: "scroll",
         zIndex: 15,
-        padding: theme.spacing(4),
     },
     cameraIconSm: {
         fontSize: 20,

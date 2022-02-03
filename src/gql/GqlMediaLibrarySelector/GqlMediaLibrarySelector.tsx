@@ -1,10 +1,10 @@
-import { FC, useCallback, useRef, useState } from "react";
+import { FC, useState } from "react";
 import { Modal, Fade, Backdrop } from "@mui/material";
 import CameraAltIcon from "@mui/icons-material/CameraAlt";
 import clx from "classnames";
 import { useImageSelectorStyles } from "./styles";
 import { GqlMediaLibrarySelectorProps } from "./types";
-import { GqlMediaLibrary, ImageDataType } from "gql";
+import { GqlMediaLibrary } from "gql";
 
 export const GqlMediaLibrarySelector: FC<GqlMediaLibrarySelectorProps> = ({
   displayLibrary = false,
@@ -17,10 +17,9 @@ export const GqlMediaLibrarySelector: FC<GqlMediaLibrarySelectorProps> = ({
   name,
   ...props
 }) => {
-  const listInnerRef = useRef<HTMLDivElement>(null);
   const classes = useImageSelectorStyles();
   const [showIcon, setShowIcon] = useState<boolean>(false);
-  const [mediaIndex, setMediaIndex] = useState<number>(0);
+
   const [placeholder, setPlaceholder] = useState<string>();
   const [open, setOpen] = useState(false);
 
@@ -32,9 +31,10 @@ export const GqlMediaLibrarySelector: FC<GqlMediaLibrarySelectorProps> = ({
     setOpen(false);
   };
 
-  const handleSelectImage = (data: ImageDataType) => {
-    handleClose();
-    setPlaceholder(data.url);
+  const handleSelectImage = ({ name, value }: { name: string; value: any }) => {
+    setOpen(false);
+    setPlaceholder(value.url);
+    onChange?.({ name: name ?? "image", value });
   };
 
   const getSizeVariants = () => {
@@ -62,15 +62,6 @@ export const GqlMediaLibrarySelector: FC<GqlMediaLibrarySelectorProps> = ({
   };
 
   const variants = getSizeVariants();
-
-  const onScroll = useCallback(() => {
-    if (listInnerRef.current) {
-      const { scrollTop, scrollHeight, clientHeight } = listInnerRef.current;
-      if (scrollTop + clientHeight === scrollHeight) {
-        setMediaIndex(Math.random() * 5000);
-      }
-    }
-  }, [mediaIndex]);
 
   return (
     <div
@@ -102,18 +93,10 @@ export const GqlMediaLibrarySelector: FC<GqlMediaLibrarySelectorProps> = ({
         aria-describedby="transition-modal-description"
       >
         <Fade in={open}>
-          <div
-            className={classes.wrapper}
-            ref={listInnerRef}
-            onScroll={() => {
-              onScroll();
-            }}
-          >
+          <div className={classes.wrapper}>
             <GqlMediaLibrary
               config={{ ...props.config }}
-              onImageSelect={handleSelectImage}
-              refetch={mediaIndex}
-              onChange={onChange}
+              onChange={handleSelectImage}
               name={name}
             />
           </div>

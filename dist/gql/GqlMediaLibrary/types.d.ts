@@ -1,9 +1,6 @@
 import { ApolloClient, NormalizedCacheObject, DocumentNode } from "@apollo/client";
 import { CommonProps } from "../../types";
-export declare type GqlMediaLibraryProps = CommonProps & GqlMediaSelectorConfigProps & {
-    onImageSelect: (data: ImageDataType) => void;
-    refetch?: number;
-};
+export declare type GqlMediaLibraryProps = CommonProps & GqlMediaSelectorConfigProps;
 export declare type GqlMediaSelectorConfigProps = {
     config: {
         client: ApolloClient<NormalizedCacheObject>;
