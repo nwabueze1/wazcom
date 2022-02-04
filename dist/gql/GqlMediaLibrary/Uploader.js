@@ -45,13 +45,30 @@ var __generator = (this && this.__generator) || function (thisArg, body) {
         if (op[0] & 5) throw op[1]; return { value: op[0] ? op[1] : void 0, done: true };
     }
 };
+var __rest = (this && this.__rest) || function (s, e) {
+    var t = {};
+    for (var p in s) if (Object.prototype.hasOwnProperty.call(s, p) && e.indexOf(p) < 0)
+        t[p] = s[p];
+    if (s != null && typeof Object.getOwnPropertySymbols === "function")
+        for (var i = 0, p = Object.getOwnPropertySymbols(s); i < p.length; i++) {
+            if (e.indexOf(p[i]) < 0 && Object.prototype.propertyIsEnumerable.call(s, p[i]))
+                t[p[i]] = s[p[i]];
+        }
+    return t;
+};
 import { jsx as _jsx } from "react/jsx-runtime";
-import { useMutation } from "@apollo/client";
-import { useCallback } from "react";
-import * as React from "react";
-import { UPLOAD_IMAGE } from "./graphQL";
-export var Uploader = React.forwardRef(function (props, ref) {
-    var uploadImage = useMutation(UPLOAD_IMAGE)[0];
+import React, { useCallback } from "react";
+export var Uploader = React.forwardRef(function (_a, ref) {
+    var _b = _a.config, client = _b.client, mutation = _b.name, variables = _b.variables, setLoading = _a.setLoading, updateMediaLibrary = _a.updateMediaLibrary, props = __rest(_a, ["config", "setLoading", "updateMediaLibrary"]);
+    var uploadImage = function (_a) {
+        var variables = _a.variables;
+        return __awaiter(void 0, void 0, void 0, function () { return __generator(this, function (_b) {
+            switch (_b.label) {
+                case 0: return [4 /*yield*/, client.mutate({ mutation: mutation, variables: variables })];
+                case 1: return [2 /*return*/, _b.sent()];
+            }
+        }); });
+    };
     var handleFileChange = useCallback(function (event) { return __awaiter(void 0, void 0, void 0, function () {
         var file;
         var _a;
@@ -60,12 +77,18 @@ export var Uploader = React.forwardRef(function (props, ref) {
                 case 0:
                     event.preventDefault();
                     file = (_a = event.target) === null || _a === void 0 ? void 0 : _a.files[0];
-                    //;
-                    return [4 /*yield*/, uploadImage({ variables: { image: file } }).then(function () {
-                            // ;
+                    setLoading(true);
+                    return [4 /*yield*/, uploadImage({
+                            variables: __assign({ input: { image: file } }, variables),
+                        })
+                            .then(function (_a) {
+                            var image = _a.data.uploadImage;
+                            updateMediaLibrary(image);
+                        })
+                            .finally(function () {
+                            setLoading(false);
                         })];
                 case 1:
-                    //;
                     _b.sent();
                     return [2 /*return*/];
             }
