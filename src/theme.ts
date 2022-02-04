@@ -4,9 +4,6 @@ import {
   Theme as MuiTheme,
 } from "@mui/material/styles";
 
-
-
-
 type ExtendedThemeOptions = {
   include: { [key: string]: any };
   design: {
@@ -52,9 +49,9 @@ export const theme: any = {
     h6: {},
   },
   styles: {
-      maxWidth: 1294,
-      tabMaxWidth: 700,
-    },
+    maxWidth: 1294,
+    tabMaxWidth: 700,
+  },
   palette: {
     primary: {
       light: "#59598E",
@@ -71,6 +68,11 @@ export const theme: any = {
     styles: {
       maxWidth: 1294,
       tabMaxWidth: 700,
+      font: {
+        garamond: "Cormorant Garamond, san-serif, ",
+        lato: "lato",
+        cookie: "Cookie",
+      },
     },
     anim: {
       zIndex: 1,
@@ -140,7 +142,7 @@ export const theme: any = {
       regular: '"Nunito", sans-serif',
     },
     colors: {
-      Grey:'#414141',
+      Grey: "#414141",
       red70: "#FF4C4C",
       red90: "#FF1919",
       gray: "#BEBEBE",
@@ -203,8 +205,8 @@ export const theme: any = {
       grey80: "#5C5C5C",
       yellowsea: "#F5A53C",
       grayline: "#AAAAAA",
-      terracotta: "#CA684D"
-
+      terracotta: "#CA684D",
+      grayshade: "#FDFDFD",
     },
   },
   overrides: {

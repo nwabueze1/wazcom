@@ -1,8 +1,9 @@
 import { StyledEngineProvider, Theme, ThemeProvider } from "@mui/material";
 import * as React from "react";
 import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
-import Template1 from "Templates/Temp1/Template1";
-import { Browser } from "view/Browser";
+import { Footer } from "Templates/Temp5/components/Footer/Footer";
+import { NavBar } from "Templates/Temp5/components/NavBar/NavBar";
+import IndexPage from "Templates/Temp5/Pages/Jaden's Blog/IndexPage";
 import theme from "./theme";
 
 declare module "@mui/styles/defaultTheme" {
@@ -20,11 +21,8 @@ const App: React.FC<Props> = () => {
       <ThemeProvider theme={theme}>
         <Router>
           <Switch>
-            <Route exact path="/template1">
-              <Template1/>
-            </Route>
-            <Route path="/">
-              <Browser />
+            <Route path="/home">
+              <IndexPage/>
             </Route>
           </Switch>
         </Router>

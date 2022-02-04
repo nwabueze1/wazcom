@@ -21,7 +21,7 @@
     "suppressImplicitAnyIndexErrors": true,
     "strict": true
   },
-  "include": ["src"],
+  "include": ["src", "src/Templates/Temp5", "src/Browser", "src/Browser", "Browser"],
   "exclude": [
     "lib",
     "./src/@types",
