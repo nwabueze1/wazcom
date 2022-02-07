@@ -45,7 +45,12 @@ export const useArticleStyles = makeStyles<Theme>((theme: Theme) => ({
     lineHeight: "32px",
     margin: "auto",
   },
-
+  horizontalLine: {
+    width: "48%",
+    margin: "auto",
+    marginTop: theme.spacing(8),
+    border: `1px solid ${theme.design.colors.grimmyGrey}`,
+  },
   footerSection: {
     display: "flex",
     marginTop: theme.spacing(4),
@@ -63,7 +68,7 @@ export const useArticleStyles = makeStyles<Theme>((theme: Theme) => ({
   },
   icons: {
     display: "flex",
-    width: "70px",
+    width: "7vw",
     justifyContent: "space-between",
     marginTop: theme.spacing(2.3),
     margin: "auto",

@@ -5,15 +5,15 @@ export const useArticleStyles = makeStyles<Theme>((theme: Theme) => ({
   root: {
     width: "90%",
     margin: "auto",
-    fontFamily: "Lato",
+    fontFamily: theme.include.styles.font.lato,
   },
-  img: { width: "47%", height: "40vh" },
+  img: { width: "47vw", height: "40vh" },
   header: {
-    marginTop: "47px",
-    fontSize: "32px",
+    marginTop: theme.spacing(6),
+    fontSize: theme.typography.fontSize *2.8,
   },
   allContainer: {
-    marginTop: "120px",
+    marginTop: theme.spacing(15),
     display: "flex",
   },
   container: {

@@ -4,7 +4,7 @@ import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
 import { Footer } from "Templates/Temp5/components/Footer/Footer";
 import { NavBar } from "Templates/Temp5/components/NavBar/NavBar";
 import IndexPage from "Templates/Temp5/Pages/Jaden's Blog/IndexPage";
-import theme from "./theme";
+import theme from "../src/theme";
 
 declare module "@mui/styles/defaultTheme" {
   // eslint-disable-next-line @typescript-eslint/no-empty-interface

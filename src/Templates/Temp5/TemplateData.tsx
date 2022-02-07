@@ -6,7 +6,7 @@ export const navData = [
 export const postData = [
   {
     image: {
-      src: "https://s3.eu-west-2.amazonaws.com/medusa.com/templates/tamaz-tokmadze-sEnUVVqGmgY-unsplash+3.png",
+      src: "https://s3.eu-west-2.amazonaws.com/medusa.com/templates/damiano-baschiera-hFXZ5cNfkOk-unsplash+3.png",
       alt: "dgsfs",
     },
     date: "July 7, 2021",
@@ -18,7 +18,7 @@ export const postData = [
   },
   {
     image: {
-      src: "https://s3.eu-west-2.amazonaws.com/medusa.com/templates/tamaz-tokmadze-sEnUVVqGmgY-unsplash+3.png",
+      src: "https://s3.eu-west-2.amazonaws.com/medusa.com/templates/damiano-baschiera-hFXZ5cNfkOk-unsplash+3.png",
       alt: "dgsfs",
     },
     date: "July 7, 2021",
@@ -140,10 +140,28 @@ export const categoryData = [
       "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh, ut fermentum",
     views: 32,
   },
+  {
+    image: {
+      src: "https://s3.eu-west-2.amazonaws.com/medusa.com/templates/tamaz-tokmadze-sEnUVVqGmgY-unsplash+3.png",
+      alt: "dgsfs",
+    },
+    date: "July 7, 2021",
+    category: "Glutten-free",
+    title: "Backpacking through Europe",
+    details:
+      "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh, ut fermentum",
+    views: 32,
+  },
 ];
 
 export const aboutPageData =
   "After a number of online searches on hotel booking sites, hours of scouring reviews on Trip Advisor, and intense perusal of hotel locations on Google Maps, Liebling and I decided to stay at the lovely Hotel Sultania. Purported as a luxury boutique hotel and highly rated on Trip Advisor, we had pretty lofty expectations of the place and were not disappointed! Here are some pics of the hotel and of our room. This place definitely gets a thumbs up from me: it was clean and very stylish, located in the historic center of Istanbul, the breakfast (included in the room rate) had a variety of tasty foods, and the decor was stylish. The amazing and attentive hotel staff let us check in early at no extra charge (check in is normally at 1pm but we arrived super early at 7:30am)! You can borrow DVDs from reception to watch in your room, and when we did so and discovered that we were having an issue with our DVD player, a maintenance guy was sent up within two minutes of our call! You can’t beat that sort of service. Liebling, who is difficult to impress, was so enamored by the hotel that he actually wrote a glowing review of the place on a hotel booking website. While we didn’t take advantage of it, the hotel had a spa and hammam in the basement, complete with heated indoor pool, jacuzzi, sauna, and small fitness area.";
 export const welcomeMessage = " Welcome to Jaden’s Travel Blog";
-  export const logo = "Jaden’s Blog";
-  export const heroText='  Lorem ipsum dolor sit amet, consectetur adipiscing elit. Fuscedapibus, tellus ac cursus commodo, tortor mauris condimentum nibh,ut fermentum'
+export const logo = "Jaden’s Blog";
+export const heroText =
+  "  Lorem ipsum dolor sit amet, consectetur adipiscing elit. Fuscedapibus, tellus ac cursus commodo, tortor mauris condimentum nibh,ut fermentum";
+
+export const aboutHeroImage =
+  "https://s3.eu-west-2.amazonaws.com/medusa.com/templates/damiano-baschiera-hFXZ5cNfkOk-unsplash+1.png";
+export const aboutImage =
+  "https://s3.eu-west-2.amazonaws.com/medusa.com/templates/damiano-baschiera-hFXZ5cNfkOk-unsplash+1.png";

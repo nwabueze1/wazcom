@@ -19,42 +19,12 @@ export const LatestArticles = () => {
                 }
                 alt="a"
               />
-              {/* <Container
-                key={index}
-                img={{
-                  src: articles.image.src,
-                  alt: articles.image.alt,
-                }}
-                title={articles.title}
-                date={articles.date}
-                description={articles.details}
-                category={articles.category}
-                views={32}
-                text={""}
-              /> */}
+         
             </div>
           ) : (
             <>
-              <img
-                className={classes.img}
-                src={
-                  "https://s3.eu-west-2.amazonaws.com/medusa.com/templates/tamaz-tokmadze-sEnUVVqGmgY-unsplash+3.png"
-                }
-                alt="a"
-              />
-              {/* <Container
-                key={index}
-                img={{
-                  src: articles.image.src,
-                  alt: articles.image.alt,
-                }}
-                title={articles.title}
-                date={articles.date}
-                description={articles.details}
-                category={articles.category}
-                views={32}
-                text={""}
-              /> */}
+            
+            
             </>
           );
         })}

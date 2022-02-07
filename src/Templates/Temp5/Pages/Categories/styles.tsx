@@ -2,16 +2,10 @@ import makeStyles from "@mui/styles/makeStyles";
 import { Theme } from "@mui/material/styles";
 
 export const useArticleStyles = makeStyles<Theme>((theme: Theme) => ({
-  root: {
-    width: "90%",
-    height: "100%",
-    fontFamily: "Lato",
-    margin: "auto",
-  },
   header: {
     display: "flex",
-    fontFamily: "Lato",
-    fontSize: "32px",
+    fontFamily: theme.include.styles.font.lato,
+    fontSize: theme.typography.fontSize * 2.7,
     justifyContent: "center",
   },
   unorderedLists: {
@@ -20,27 +14,48 @@ export const useArticleStyles = makeStyles<Theme>((theme: Theme) => ({
     justifyContent: "space-between",
     margin: "auto",
     width: "50%",
-    marginTop: "32px",
-    color: "#999999",
-    fontSize: "20px",
-    
+    marginTop: theme.spacing(4),
+    color: theme.design.colors.mediumGrey,
+    fontSize: theme.typography.fontSize + 8,
   },
 
-  listItem:{
+  listItem: {
     "&:hover": {
-      color: "black",
-    
+      color: theme.design.colors.black,
+      cursor: "pointer",
     },
   },
-  container: {
+
+  allContainers: {
+    marginTop: theme.spacing(8),
     width: "90%",
+    display: "grid",
+    gridTemplateColumns: "1fr 1fr",
     margin: "auto",
-    marginTop: "67px",
+    gap: theme.spacing(10),
   },
-  containerImage: { width: "42%", height: "35vh" },
+
+  wrapper: {
+    display: "grid",
+    width: "90%",
+    gridTemplateColumns: "1fr 1fr",
+    margin: "auto",
+    gap: theme.spacing(10),
+    marginTop: theme.spacing(8),
+
+    "& img": {
+      width: "100%",
+    },
+
+    "& .head": { width: "50%" },
+  },
+
+  post: { width: "100%" },
+
+  containerImage: { width: "100%", height: "35vh" },
   head: {
-    marginTop: "20px",
-    width: "42%",
+    marginTop: theme.spacing(2.5),
+    width: "100%",
     display: "flex",
     justifyContent: "space-between",
   },
@@ -50,24 +65,31 @@ export const useArticleStyles = makeStyles<Theme>((theme: Theme) => ({
     width: "100%",
   },
   containerInfo: {
-    width: "45%",
+    width: "100%",
   },
-  containerHeader: { fontSize: "24px", fontWeight: 600 },
-  containerParagraph: { fontSize: "16px", lineHeight: "24px", width: "90%" },
+  containerHeader: {
+    fontSize: theme.typography.fontSize * 2,
+    fontWeight: theme.typography.fontWeightBold,
+  },
+  containerParagraph: {
+    fontSize: theme.typography.fontSize + 4,
+    lineHeight: "24px",
+    width: "90%",
+  },
+
   views: {
     display: "flex",
     justifyContent: "flex-end",
     width: "10%",
   },
-
   date: {
     width: "70%",
     display: "flex",
     justifyContent: "flex-end",
   },
   readmoreBtn: {
-    marginTop: "20px",
-    fontSize: "16px",
-    fontWeight: 600,
+    marginTop: theme.spacing(2.5),
+    fontSize: theme.typography.fontSize + 4,
+    fontWeight: theme.typography.fontWeightBold,
   },
 }));

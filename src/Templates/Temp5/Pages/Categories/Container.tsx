@@ -2,6 +2,7 @@ import React, { FC } from "react";
 import { useArticleStyles } from "./styles";
 import { ArticleProps } from "./types";
 import VisibilityIcon from "@mui/icons-material/Visibility";
+import clx from "classnames";
 export const Container: FC<ArticleProps> = ({
   img,
   title,
@@ -9,12 +10,13 @@ export const Container: FC<ArticleProps> = ({
   views,
   category,
   date,
+  className,
 }) => {
   const classes = useArticleStyles();
   return (
-    <div className={classes.container}>
-      <div className={classes.containerPost}>
-        <img className={classes.containerImage} src={img.src} alt={img.alt} />
+    <div className={clx(classes.containerPost, className)}>
+      <img className={classes.containerImage} src={img.src} alt={img.alt} />
+      <div className={classes.post}>
         <div className={classes.head}>
           <div className={classes.category}>{category}</div>
           <p className={classes.date}>{date}</p>
@@ -23,6 +25,7 @@ export const Container: FC<ArticleProps> = ({
             {views}
           </span>
         </div>
+
         <div className={classes.containerInfo}>
           <h1 className={classes.containerHeader}>{title}</h1>
           <p className={classes.containerParagraph}>{description}</p>

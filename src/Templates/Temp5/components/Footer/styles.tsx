@@ -5,6 +5,7 @@ export const useFooterStyles = makeStyles((theme: Theme) => ({
   root: {
     width: "100%",
     height: "32vh",
+    marginTop: theme.spacing(13),
     margin: "0 auto",
     background: theme.design.colors.lightGrey,
     fontFamily: theme.include.styles.font.lato,
@@ -19,6 +20,8 @@ export const useFooterStyles = makeStyles((theme: Theme) => ({
     fontSize: theme.typography.fontSize * 2.7,
     fontStyle: "italic",
     marginTop: theme.spacing(6.5),
+    textDecoration: "none",
+    color: theme.design.colors.black,
   },
   listItems: {
     position: "absolute",
@@ -30,8 +33,9 @@ export const useFooterStyles = makeStyles((theme: Theme) => ({
     fontSize: theme.typography.fontSize + 4,
     marginTop: theme.spacing(17),
   },
+  items: { textDecoration: "none", color: theme.design.colors.black },
   icons: {
     display: "flex",
-    justifyContent:'space-between',
+    justifyContent: "space-between",
   },
 }));

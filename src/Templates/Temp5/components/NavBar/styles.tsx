@@ -15,16 +15,22 @@ export const useNavStyles = makeStyles((theme: Theme) => ({
     justifyContent: "space-between",
     margin: "auto",
     marginTop: theme.spacing(3),
+    height: "100%",
   },
   navHeader: {
     fontFamily: theme.include.styles.font.cookie,
     fontSize: theme.typography.fontSize * 2.7,
+    textDecoration: "none",
+    color: theme.design.colors.black,
   },
+  Link: { textDecoration: "none" },
   listItems: {
     listStyle: "none",
     width: "30%",
     display: "flex",
     justifyContent: "space-between",
     fontSize: theme.typography.fontSize + 4,
+    textDecoration: "none",
+    color: theme.design.colors.black,
   },
 }));

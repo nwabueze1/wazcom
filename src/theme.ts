@@ -207,6 +207,8 @@ export const theme: any = {
       grayline: "#AAAAAA",
       terracotta: "#CA684D",
       grayshade: "#FDFDFD",
+      grimmyGrey:'#777777',
+      mediumGrey:'#999999'
     },
   },
   overrides: {
