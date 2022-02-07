@@ -12,13 +12,16 @@ export const useMenuStyles = makeStyles<Theme>((theme: Theme) => ({
     margin: "auto",
     paddingTop: theme.spacing(10),
   },
+  line: {
+    border: `0.2px solid ${theme.design.colors.grey}`
+  },
   tabs: {
     maxWidth: theme.include.styles.template2.maxWidth,
     margin: "auto",
     display: "flex",
     alignContent: "center",
     gap: theme.spacing(12),
-    padding: theme.spacing(10, 0),
+    paddingTop: theme.spacing(10),
     fontSize: theme.typography.fontSize + 28,
     cursor: "pointer",
   },

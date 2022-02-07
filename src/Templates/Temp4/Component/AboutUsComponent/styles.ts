@@ -13,6 +13,7 @@ export const useAboutUsStyles = makeStyles<Theme>((theme: Theme) => ({
     margin: "auto",
     display: "flex",
     justifyContent: "space-between",
+    padding: theme.spacing(5, 0)
   },
   rightContainer: {
     width: "45%",

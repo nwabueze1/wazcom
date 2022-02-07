@@ -1,7 +1,7 @@
 export type CardProps = {
   img: {
     src: string;
-    alt: string;
+    alt?: string;
   };
   dishName: string;
   price: string;

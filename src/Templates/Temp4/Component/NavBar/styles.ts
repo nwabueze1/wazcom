@@ -16,12 +16,18 @@ export const useNavStyles = makeStyles<Theme>((theme: Theme) => ({
     margin: "0 auto",
     justifyContent: "space-between",
     alignItems: "center",
+    [theme.breakpoints.down("md")]: {
+      width: "95%",
+    },
   },
   link: {
     textDecoration: "none",
     fontSize: theme.typography.fontSize + 8,
     lineHeight: "28px",
     color: theme.design.colors.white,
+    [theme.breakpoints.down("md")]: {
+      fontSize: theme.typography.fontSize + 2
+    },
   },
   links: {
     width: "40%",
@@ -34,6 +40,9 @@ export const useNavStyles = makeStyles<Theme>((theme: Theme) => ({
     fontFamily: "Pacifico",
     textDecoration: "none",
     color: theme.design.colors.white,
+    [theme.breakpoints.down("md")]: {
+      fontSize: theme.typography.fontSize + 3
+    },
   },
   icon: {
     width: "10%",

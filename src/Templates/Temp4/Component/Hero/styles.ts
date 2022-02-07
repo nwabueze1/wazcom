@@ -6,12 +6,18 @@ export const useHeroStyles = makeStyles<Theme>((theme: Theme) => ({
     height: "90vh",
     width: "100%",
     fontFamily: theme.include.styles.template4.font,
+    [theme.breakpoints.down("md")]: {
+      height: "50vh"
+     },
   },
   image: {
     width: "100%",
     height: "90vh",
     position: "relative",
     top: 0,
+    [theme.breakpoints.down("md")]: {
+     height: "50vh"
+    },
   },
   overlay: {
     background: "rgba(17, 17, 17, 0.6)",
@@ -20,11 +26,17 @@ export const useHeroStyles = makeStyles<Theme>((theme: Theme) => ({
     width: "100%",
     top: 0,
     zIndex: 1,
+    [theme.breakpoints.down("md")]: {
+      height: "50vh"
+     },
   },
   description: {
     margin: theme.spacing(3, 0),
     fontSize: theme.typography.fontSize + 21,
     color: theme.design.colors.white,
+    [theme.breakpoints.down("md")]: {
+      fontSize: theme.typography.fontSize + 6,
+     },
   },
   heroContent: {
     width: "57%",
@@ -37,6 +49,9 @@ export const useHeroStyles = makeStyles<Theme>((theme: Theme) => ({
     position: "absolute",
     top: "30%",
     width: "100%",
+    [theme.breakpoints.down("md")]: {
+      top: "15%",
+     },
   },
   imageContainer: {
     position: "relative",
@@ -45,6 +60,9 @@ export const useHeroStyles = makeStyles<Theme>((theme: Theme) => ({
     fontWeight: theme.typography.fontWeightBold,
     fontSize: theme.typography.fontSize * 6,
     color: theme.design.colors.white,
+    [theme.breakpoints.down("md")]: {
+      fontSize: theme.typography.fontSize * 3,
+     },
   },
   btn: {
     color: theme.design.colors.white,

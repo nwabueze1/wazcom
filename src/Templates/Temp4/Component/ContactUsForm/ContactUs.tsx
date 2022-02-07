@@ -1,11 +1,10 @@
 import { useContactUsStyles } from "./styles";
 import { useState } from "react";
-import { TextArea } from "io";
-import { TextInput } from "io";
+import { TextArea, TextInput  } from "io";
 import { fields } from "Templates/Temp4/TemplateData";
 import { Button } from "core";
 
-export const ContactUs = () => {
+export const ContactUsForm = () => {
   const classes = useContactUsStyles();
   const [formData, setFormData] = useState<{ [key: string]: any }>({ fields });
 

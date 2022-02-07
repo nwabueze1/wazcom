@@ -1,14 +1,10 @@
-import React from "react";
-import { NavBar } from "Templates/Temp4/Component/NavBar";
-import { navData } from "Templates/Temp4/TemplateData";
 import { Hero } from "../../Component/Hero/Hero";
 import { useHomePageStyles } from "./styles";
 import { PopularDishes } from "./Sections/PopularDishes/PopularDishes";
 import { DishesData } from "Templates/Temp4/TemplateData";
-import { AboutUs } from "Templates/Temp4/Component/AboutUs/AboutUs";
-import { ContactUs } from "Templates/Temp4/Component/ContactUs";
-import { HeroData } from "Templates/Temp4/TemplateData";
-import { Footer } from "Templates/Temp4/Component/Footer/Footer";
+import { AboutUsComp } from "Templates/Temp4/Component/AboutUsComponent/AboutUs";
+import { ContactUsForm } from "Templates/Temp4/Component/ContactUsForm";
+import { HeroData, aboutData } from "Templates/Temp4/TemplateData";
 
 export const HomePage = () => {
   const classes = useHomePageStyles();
@@ -16,8 +12,8 @@ export const HomePage = () => {
     <div>
       <Hero heroData={HeroData} />
       <PopularDishes dishesData={DishesData} />
-      <AboutUs/>
-      <ContactUs/>
+      <AboutUsComp aboutData={aboutData}  />
+      <ContactUsForm />
     </div>
   );
 };

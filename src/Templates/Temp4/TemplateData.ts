@@ -1,7 +1,9 @@
+import { Details } from "@mui/icons-material";
+
 export const navData = [
   { path: "/template4", title: "Home" },
   { path: "/template4/menu", title: "Menu" },
-  { path: "/template4/about", title: "About" },
+  { path: "/template4/about-us", title: "About" },
   { path: "/template4/contact-us", title: "Contact" },
 ];
 
@@ -13,7 +15,7 @@ export const DishesData = [
     },
     dishName: "Beef Salad",
     price: "20",
-    category: "Breakfast"
+    category: "Breakfast",
   },
   {
     img: {
@@ -22,7 +24,7 @@ export const DishesData = [
     },
     dishName: "Beef Salad",
     price: "20",
-    category: "Breakfast"
+    category: "Breakfast",
   },
   {
     img: {
@@ -31,7 +33,7 @@ export const DishesData = [
     },
     dishName: "Beef Salad",
     price: "20",
-    category: "Breakfast"
+    category: "Breakfast",
   },
   {
     img: {
@@ -40,7 +42,7 @@ export const DishesData = [
     },
     dishName: "Beef Salad",
     price: "20",
-    category: "Lunch"
+    category: "Lunch",
   },
   {
     img: {
@@ -49,7 +51,7 @@ export const DishesData = [
     },
     dishName: "Beef Salad",
     price: "20",
-    category: "Lunch"
+    category: "Lunch",
   },
   {
     img: {
@@ -58,7 +60,7 @@ export const DishesData = [
     },
     dishName: "Beef Salad",
     price: "20",
-    category: "Lunch"
+    category: "Lunch",
   },
   {
     img: {
@@ -67,7 +69,7 @@ export const DishesData = [
     },
     dishName: "Beef Salad",
     price: "20",
-    category: "Dinner"
+    category: "Dinner",
   },
   {
     img: {
@@ -76,22 +78,18 @@ export const DishesData = [
     },
     dishName: "Beef Salad",
     price: "20",
-    category: "Dinner"
+    category: "Dinner",
   },
 ];
 
 export const fields: { name: string; type: string }[] = [
   {
-    name: "Your name",
+    name: "Full name",
     type: "text",
   },
   {
-    name: "your email",
+    name: "Email",
     type: "email",
-  },
-  {
-    name: "Your phone",
-    type: "tel",
   },
   {
     name: "Talk to Us",
@@ -117,4 +115,65 @@ export const menuHeroData = {
     "Amet minim mollit non deserunt ullamco est sit aliqua dolor do amet sint. Velit officia consequat duis enim velit mollit.",
 };
 
-export const categoriesTab = ["All", "Breakfast", "Lunch", "Dinner"] 
+export const contactHeroData = {
+  img: {
+    src: "https://s3.eu-west-2.amazonaws.com/medusa.com/templates/unsplash_fdlZBWIP0aM.png",
+  },
+  header: "Let’s Get in Touch",
+  description:
+    "Amet minim mollit non deserunt ullamco est sit aliqua dolor do amet sint. Velit officia consequat duis enim velit mollit.",
+};
+
+export const aboutHeroData = {
+  img: {
+    src: "https://s3.eu-west-2.amazonaws.com/medusa.com/templates/unsplash_fdlZBWIP0aM.png",
+  },
+  header: "Our Story and History",
+  description:
+    "Amet minim mollit non deserunt ullamco est sit aliqua dolor do amet sint. Velit officia consequat duis enim velit mollit.",
+};
+
+export const categoriesTab = ["All", "Breakfast", "Lunch", "Dinner"];
+
+export const ourChefsData = [
+  {
+    name: "Wade Warren",
+    details:
+      "Amet minim mollit non deserunt ullamco est sit aliqua dolor do amet sint.",
+  },
+  {
+    name: "Wade Warren",
+    details:
+      "Amet minim mollit non deserunt ullamco est sit aliqua dolor do amet sint.",
+  },
+  {
+    name: "Wade Warren",
+    details:
+      "Amet minim mollit non deserunt ullamco est sit aliqua dolor do amet sint.",
+  },
+];
+
+export const reviewsData = [
+  {
+    name: "Jenny Wilson",
+    img: {
+      src: "https://s3.eu-west-2.amazonaws.com/medusa.com/templates/unsplash_fdlZBWIP0aM.png",
+    },
+    feedback:
+      "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Cursus nibh mauris, nec turpis orci lectus maecenas.",
+  },
+  {
+    name: "Ralph Edwards",
+    img: {
+      src: "https://s3.eu-west-2.amazonaws.com/medusa.com/templates/unsplash_fdlZBWIP0aM.png",
+    },
+    feedback:
+      "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Cursus nibh mauris, nec turpis orci lectus maecenas.",
+  },
+];
+export const aboutData = {
+  text: "Amet minim mollit non deserunt ullamco est sit aliqua dolor doamet sint. Velit officia consequat duis enim velit mollit. Amet minim mollit non deserunt ullamco est sit aliqua dolor do amet sint.",
+  img: {
+    src: "https://s3.eu-west-2.amazonaws.com/medusa.com/templates/unsplash_MtqG1lWcUw0.pn"
+  }
+};

@@ -50,6 +50,7 @@ export const Menu: FC<MenuProps> = ({ categoriesTabs, dishesData }) => {
     <div className={classes.root}>
       <Hero heroData={menuHeroData} />
       <div className={classes.tabs}>{displayTabs()} </div>
+      <p className={classes.line}></p>
       <div className={classes.container}>
         <div className={classes.dishes}>{displayDishes()}</div>
       </div>

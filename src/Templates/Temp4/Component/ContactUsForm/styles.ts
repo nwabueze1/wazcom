@@ -10,7 +10,7 @@ export const useContactUsStyles = makeStyles<Theme>((theme: Theme) => ({
   container: {
     maxWidth: theme.include.styles.template2.maxWidth,
     margin: "auto",
-    padding: theme.spacing(10, 0),
+    padding: theme.spacing(8, 0),
   },
   header: {
     fontWeight: theme.typography.fontWeightBold,

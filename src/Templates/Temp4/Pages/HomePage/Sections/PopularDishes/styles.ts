@@ -10,7 +10,7 @@ export const usePopularDishesStyles = makeStyles<Theme>((theme: Theme) => ({
   container: {
     maxWidth: theme.include.styles.template2.maxWidth,
     margin: "auto",
-    padding: theme.spacing(15, 0),
+    padding: theme.spacing(10, 0),
   },
   title: {
     display: "flex",

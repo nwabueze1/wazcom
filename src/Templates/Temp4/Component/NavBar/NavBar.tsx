@@ -26,7 +26,7 @@ export const NavBar: FC<NavBarProps> = ({ navHeader, navData, className }) => {
           </Link>
         </div>
       )),
-    [],
+    [pathname],
   );
 
   return (

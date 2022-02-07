@@ -209,7 +209,9 @@ export const theme: any = {
       yellowsea: "#F5A53C",
       grayline: "#AAAAAA",
       terracotta: "#CA684D",
-      darkOrange: "#FF9100"
+      darkOrange: "#FF9100",
+      richBlack: "#11181C",
+      darkShadow: "rgba(0, 0, 0, 0.1)"
     },
   },
   overrides: {
