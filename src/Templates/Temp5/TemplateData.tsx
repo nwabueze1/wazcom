@@ -165,3 +165,30 @@ export const aboutHeroImage =
   "https://s3.eu-west-2.amazonaws.com/medusa.com/templates/damiano-baschiera-hFXZ5cNfkOk-unsplash+1.png";
 export const aboutImage =
   "https://s3.eu-west-2.amazonaws.com/medusa.com/templates/damiano-baschiera-hFXZ5cNfkOk-unsplash+1.png";
+
+export const latestPostData = [
+  {
+    image: {
+      src: "https://s3.eu-west-2.amazonaws.com/medusa.com/templates/damiano-baschiera-hFXZ5cNfkOk-unsplash+1.png",
+      alt: "dgsfs",
+    },
+    date: "July 7, 2021",
+    category: "Glutten-free",
+    title: "Backpacking through Europe",
+    details:
+      "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh, ut fermentum",
+    views: 32,
+  },
+  {
+    image: {
+      src: "https://s3.eu-west-2.amazonaws.com/medusa.com/templates/damiano-baschiera-hFXZ5cNfkOk-unsplash+1.png",
+      alt: "dgsfs",
+    },
+    date: "July 7, 2021",
+    category: "Glutten-free",
+    title: "Backpacking through Europe",
+    details:
+      "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh, ut fermentum",
+    views: 32,
+  },
+];

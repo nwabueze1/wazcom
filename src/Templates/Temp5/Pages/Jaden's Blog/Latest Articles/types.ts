@@ -4,4 +4,10 @@ export type ArticleProps = {
     src: string;
     alt: string;
   };
+  description:string;
+  title:string,
+  views:number,
+  category:string,
+  date:string
+  text:string
 };

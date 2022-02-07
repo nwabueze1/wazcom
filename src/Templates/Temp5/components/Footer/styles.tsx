@@ -4,7 +4,7 @@ import { Theme } from "@mui/material/styles";
 export const useFooterStyles = makeStyles((theme: Theme) => ({
   root: {
     width: "100%",
-    height: "32vh",
+    height: "40vh",
     marginTop: theme.spacing(13),
     margin: "0 auto",
     background: theme.design.colors.lightGrey,
