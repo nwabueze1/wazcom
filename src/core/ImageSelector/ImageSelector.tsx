@@ -3,7 +3,7 @@ import { useImageSelectorStyles } from "./styles";
 import clx from "classnames";
 import { ImageSelectorProps } from "./types";
 import CameraAltIcon from "@mui/icons-material/CameraAlt";
-import { getSizeVariants } from "helpers/size";
+import { getSizeVariants } from "../../helpers/size";
 
 export const ImageSelector: FC<ImageSelectorProps> = ({
   variant,

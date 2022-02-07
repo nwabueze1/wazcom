@@ -5,7 +5,7 @@ import clx from "classnames";
 import { useImageSelectorStyles } from "./styles";
 import { GqlMediaLibrarySelectorProps } from "./types";
 import { GqlMediaLibrary } from "../GqlMediaLibrary";
-import { getSizeVariants } from "helpers/size";
+import { getSizeVariants } from "../../helpers/size";
 
 export const GqlMediaLibrarySelector: FC<GqlMediaLibrarySelectorProps> = ({
   displayLibrary = false,
