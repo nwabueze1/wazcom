@@ -68,7 +68,7 @@ export const theme: any = {
     styles: {
       template2: {
         maxWidth: 1294,
-        tabMaxWidth: 700,
+        maxWidthMd: 700,
         font: {
           garamond: "Cormorant Garamond, san-serif",
         },

@@ -8,7 +8,7 @@ export const ContactUsForm = () => {
   const classes = useContactUsStyles();
   const [formData, setFormData] = useState<{ [key: string]: any }>({ fields });
 
-  const handleField = (e: any) => {
+  const handleField = (e: {[key: string]: any}) => {
     const newFormData = { ...formData, [e.target.name]: e.target.value };
     setFormData(newFormData);
   };
