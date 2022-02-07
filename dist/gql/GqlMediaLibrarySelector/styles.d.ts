@@ -1,1 +1,1 @@
-export declare const useImageSelectorStyles: (props?: any) => import("@mui/styles").ClassNameMap<"modal" | "circle" | "icon" | "wrapper" | "sizeSm" | "sizeMd" | "sizeLg" | "sizeXl" | "cameraIconSm" | "cameraIconMd" | "cameraIconLg" | "cameraIconXl" | "container">;
+export declare const useImageSelectorStyles: (props?: any) => import("@mui/styles").ClassNameMap<"modal" | "circle" | "icon" | "label" | "wrapper" | "sizeSm" | "sizeMd" | "sizeLg" | "sizeXl" | "cameraIconSm" | "cameraIconMd" | "cameraIconLg" | "cameraIconXl" | "container">;

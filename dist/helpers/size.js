@@ -1,0 +1,21 @@
+export var getSizeVariants = function (classes, size) {
+    var sizeVariants;
+    switch (size) {
+        case "sm":
+            sizeVariants = [classes.sizeSm, classes.cameraIconSm];
+            break;
+        case "md":
+            sizeVariants = [classes.sizeMd, classes.cameraIconMd];
+            break;
+        case "lg":
+            sizeVariants = [classes.sizeLg, classes.cameraIconLg];
+            break;
+        case "xl":
+            sizeVariants = [classes.sizeXl, classes.cameraIconXl];
+            break;
+        default:
+            sizeVariants = [classes.sizeMd, classes.cameraIconMd];
+            break;
+    }
+    return sizeVariants;
+};

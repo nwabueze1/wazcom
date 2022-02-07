@@ -3,6 +3,7 @@ import { useImageSelectorStyles } from "./styles";
 import clx from "classnames";
 import { ImageSelectorProps } from "./types";
 import CameraAltIcon from "@mui/icons-material/CameraAlt";
+import { getSizeVariants } from "helpers/size";
 
 export const ImageSelector: FC<ImageSelectorProps> = ({
   variant,
@@ -49,31 +50,7 @@ export const ImageSelector: FC<ImageSelectorProps> = ({
     }
   };
 
-  const getSizeVariants = () => {
-    let sizeVariants;
-
-    switch (size) {
-      case "sm":
-        sizeVariants = [classes.sizeSm, classes.cameraIconSm];
-        break;
-      case "md":
-        sizeVariants = [classes.sizeMd, classes.cameraIconMd];
-        break;
-      case "lg":
-        sizeVariants = [classes.sizeLg, classes.cameraIconLg];
-        break;
-      case "xl":
-        sizeVariants = [classes.sizeXl, classes.cameraIconXl];
-        break;
-      default:
-        sizeVariants = [classes.sizeMd, classes.cameraIconMd];
-        break;
-    }
-
-    return sizeVariants;
-  };
-
-  const variants = getSizeVariants();
+  const variants = getSizeVariants(classes, size);
 
   return (
     <div

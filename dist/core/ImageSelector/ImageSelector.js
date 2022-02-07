@@ -14,6 +14,7 @@ import { useRef, useState } from "react";
 import { useImageSelectorStyles } from "./styles";
 import clx from "classnames";
 import CameraAltIcon from "@mui/icons-material/CameraAlt";
+import { getSizeVariants } from "helpers/size";
 export var ImageSelector = function (_a) {
     var variant = _a.variant, src = _a.src, className = _a.className, _b = _a.size, size = _b === void 0 ? "md" : _b, _c = _a.maxImageSize, maxImageSize = _c === void 0 ? 2000000 : _c, _d = _a.formats, formats = _d === void 0 ? ["jpg", "jpeg", "png"] : _d, onSelect = _a.onSelect;
     var classes = useImageSelectorStyles();
@@ -45,27 +46,6 @@ export var ImageSelector = function (_a) {
             onSelect === null || onSelect === void 0 ? void 0 : onSelect(file);
         }
     };
-    var getSizeVariants = function () {
-        var sizeVariants;
-        switch (size) {
-            case "sm":
-                sizeVariants = [classes.sizeSm, classes.cameraIconSm];
-                break;
-            case "md":
-                sizeVariants = [classes.sizeMd, classes.cameraIconMd];
-                break;
-            case "lg":
-                sizeVariants = [classes.sizeLg, classes.cameraIconLg];
-                break;
-            case "xl":
-                sizeVariants = [classes.sizeXl, classes.cameraIconXl];
-                break;
-            default:
-                sizeVariants = [classes.sizeMd, classes.cameraIconMd];
-                break;
-        }
-        return sizeVariants;
-    };
-    var variants = getSizeVariants();
+    var variants = getSizeVariants(classes, size);
     return (_jsxs("div", __assign({ className: clx(className, classes.root, variant === "circle" && classes.circle, variants[0]), onClick: fileInputClick }, { children: [_jsx(CameraAltIcon, { className: clx(classes.cameraIcon, variants[1]) }, void 0), _jsx("input", { type: "file", ref: inputRef, onChange: handleSelect, hidden: true }, void 0), selected || src && (_jsx("img", { ref: imgRef, src: src, className: clx(classes.image, variant === "circle" && classes.circle) }, void 0))] }), void 0));
 };

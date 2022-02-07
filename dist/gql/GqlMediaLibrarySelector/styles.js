@@ -35,6 +35,10 @@ export var useImageSelectorStyles = makeStyles(function (theme) { return ({
         backgroundColor: theme.design.colors.white,
         zIndex: 15,
     },
+    label: {
+        marginBottom: theme.spacing(1),
+        fontSize: "1rem",
+    },
     cameraIconSm: {
         fontSize: 20,
     },
