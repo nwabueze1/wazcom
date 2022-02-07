@@ -2,9 +2,11 @@ import makeStyles from "@mui/styles/makeStyles";
 import { Theme } from "@mui/material/styles";
 
 export const useArticleStyles = makeStyles<Theme>((theme: Theme) => ({
+  root: {
+    fontFamily: theme.include.styles.font.lato,
+  },
   header: {
     display: "flex",
-    fontFamily: theme.include.styles.font.lato,
     fontSize: theme.typography.fontSize * 2.7,
     justifyContent: "center",
   },
@@ -45,6 +47,7 @@ export const useArticleStyles = makeStyles<Theme>((theme: Theme) => ({
 
     "& img": {
       width: "100%",
+      objectFit: "cover",
     },
 
     "& .head": { width: "50%" },
@@ -52,7 +55,7 @@ export const useArticleStyles = makeStyles<Theme>((theme: Theme) => ({
 
   post: { width: "100%" },
 
-  containerImage: { width: "100%", height: "35vh" },
+  containerImage: { width: "100%", height: "35vh", objectFit: "cover" },
   head: {
     marginTop: theme.spacing(2.5),
     width: "100%",
@@ -91,5 +94,6 @@ export const useArticleStyles = makeStyles<Theme>((theme: Theme) => ({
     marginTop: theme.spacing(2.5),
     fontSize: theme.typography.fontSize + 4,
     fontWeight: theme.typography.fontWeightBold,
+    alignItems: "center",
   },
 }));
