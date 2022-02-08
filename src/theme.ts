@@ -68,11 +68,14 @@ export const theme: any = {
     styles: {
       template2: {
         maxWidth: 1294,
-        tabMaxWidth: 700,
+        maxWidthMd: 700,
         font: {
           garamond: "Cormorant Garamond, san-serif",
         },
       },
+      template4:{
+        font: "Nunito",
+      }
     },
     anim: {
       zIndex: 1,
@@ -206,6 +209,9 @@ export const theme: any = {
       yellowsea: "#F5A53C",
       grayline: "#AAAAAA",
       terracotta: "#CA684D",
+      darkOrange: "#FF9100",
+      richBlack: "#11181C",
+      darkShadow: "rgba(0, 0, 0, 0.1)"
     },
   },
   overrides: {

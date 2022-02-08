@@ -4,7 +4,6 @@ import {TextInput} from "../../../../io/TextInput"
 import {TextArea} from "../../../../io/TextArea";
 import { fields } from "../../TemplateData";
 import clx from "classnames";
-import TextField from '@mui/material/TextField';
 import { ContactData } from "../../TemplateData";
 
 const Contact = () => {
