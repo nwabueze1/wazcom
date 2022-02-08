@@ -140,16 +140,19 @@ export const ourChefsData = [
     name: "Wade Warren",
     details:
       "Amet minim mollit non deserunt ullamco est sit aliqua dolor do amet sint.",
+      img: {src: "https://s3.eu-west-2.amazonaws.com/medusa.com/templates/unsplash_fdlZBWIP0aM.png"}
   },
   {
     name: "Wade Warren",
     details:
       "Amet minim mollit non deserunt ullamco est sit aliqua dolor do amet sint.",
+      img: {src: "https://s3.eu-west-2.amazonaws.com/medusa.com/templates/unsplash_fdlZBWIP0aM.png"}
   },
   {
     name: "Wade Warren",
     details:
       "Amet minim mollit non deserunt ullamco est sit aliqua dolor do amet sint.",
+      img: {src: "https://s3.eu-west-2.amazonaws.com/medusa.com/templates/unsplash_fdlZBWIP0aM.png"}
   },
 ];
 

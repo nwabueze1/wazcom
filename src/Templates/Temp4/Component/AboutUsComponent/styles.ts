@@ -13,14 +13,24 @@ export const useAboutUsStyles = makeStyles<Theme>((theme: Theme) => ({
     margin: "auto",
     display: "flex",
     justifyContent: "space-between",
-    padding: theme.spacing(5, 0)
+    padding: theme.spacing(5, 0),
+    [theme.breakpoints.down("md")]: {
+      width: "90%",
+      flexDirection: "column-reverse"
+    },
   },
   rightContainer: {
     width: "45%",
+    [theme.breakpoints.down("md")]: {
+      width: "100%",
+    },
   },
   leftContainer: {
     width: "45%",
-    padding: theme.spacing(2, 0)
+    padding: theme.spacing(2, 0),
+    [theme.breakpoints.down("md")]: {
+      width: "100%",
+    },
   },
   img: {
     width: "100%",
@@ -38,6 +48,9 @@ export const useAboutUsStyles = makeStyles<Theme>((theme: Theme) => ({
   },
   header: {
       fontWeight: theme.typography.fontWeightBold,
-      fontSize: theme.typography.fontSize * 3
+      fontSize: theme.typography.fontSize * 3,
+      [theme.breakpoints.down("md")]: {
+        fontSize: theme.typography.fontSize + 16,
+      },
   }
 }));

@@ -16,6 +16,9 @@ export const useReviewsStyles = makeStyles<Theme>((theme: Theme) => ({
     display: "flex",
     justifyContent: "space-between",
     marginTop: theme.spacing(5),
+    [theme.breakpoints.down("md")]: {
+     gap: theme.spacing(3)
+    },
   },
   cardBox: {
     width: "554px",
@@ -28,6 +31,9 @@ export const useReviewsStyles = makeStyles<Theme>((theme: Theme) => ({
     textAlign: "center",
     fontWeight: theme.typography.fontWeightBold,
     fontSize: theme.typography.fontSize + 28,
+    [theme.breakpoints.down("md")]: {
+      fontSize: theme.typography.fontSize + 16
+     },
   },
   imageContainer: {
     width: "245px",

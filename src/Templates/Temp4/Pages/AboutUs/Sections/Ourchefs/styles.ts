@@ -21,12 +21,19 @@ export const useOurChefsStyles = makeStyles<Theme>((theme: Theme) => ({
     fontSize: theme.typography.fontSize + 28,
     color:theme.design.colors.white,
     fontWeight:theme.typography.fontWeightBold,
-    textAlign: "center"
+    textAlign: "center",
+    [theme.breakpoints.down("md")]: {
+      fontSize: theme.typography.fontSize + 16,
+    },
   },
   chefs: {
     display: "flex",
+    justifyContent: "space-between",
     maxWidth: theme.include.styles.template2.maxWidth,
     margin: "0 auto",
-    paddingTop: theme.spacing(3)
+    paddingTop: theme.spacing(3),
+    [theme.breakpoints.down("md")]: {
+      width: "90%"
+    },
   },
 }));
