@@ -11,6 +11,7 @@ export const GqlMediaLibrarySelector: FC<GqlMediaLibrarySelectorProps> = ({
   displayLibrary = false,
   variant = "circle",
   size = "sm",
+  verbose,
   width,
   height,
   className,
@@ -36,13 +37,13 @@ export const GqlMediaLibrarySelector: FC<GqlMediaLibrarySelectorProps> = ({
   const handleSelectImage = ({ name, value }: { name: string; value: any }) => {
     setOpen(false);
     setPlaceholder(value.url);
-    onChange?.({ name: name ?? "image", value });
+    onChange?.({ name: name ?? "image", value: verbose ? value : value.url });
   };
 
   const variants = getSizeVariants(classes, size);
 
   return (
-    <>
+    <div className={classes.root}>
       {label && (
         <InputLabel className={classes.label} htmlFor={name as string}>
           {label}
@@ -90,6 +91,6 @@ export const GqlMediaLibrarySelector: FC<GqlMediaLibrarySelectorProps> = ({
           <CameraAltIcon className={classes.icon} onClick={handleOpen} />
         </Fade>
       </div>
-    </>
+    </div>
   );
 };
