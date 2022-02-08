@@ -18,17 +18,17 @@ export const Template4 = () => {
           </Route>
           <Route path="/template4/menu">
             <Layout navHeader={"Logo"}>
-              <Menu categoriesTabs={categoriesTab} dishesData={DishesData}/>
+              <Menu categoriesTabs={categoriesTab} dishesData={DishesData} />
             </Layout>
           </Route>
           <Route path="/template4/contact-us">
             <Layout navHeader={"Logo"}>
-              <ContactUs/>
+              <ContactUs />
             </Layout>
           </Route>
           <Route path="/template4/about-us">
             <Layout navHeader={"Logo"}>
-              <AboutUs/>
+              <AboutUs />
             </Layout>
           </Route>
         </Switch>
