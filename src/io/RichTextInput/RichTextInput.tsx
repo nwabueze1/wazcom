@@ -1,8 +1,10 @@
 import * as React from "react";
-import { InputLabel } from "@mui/material";
+import { InputLabel, Typography } from "@mui/material";
 import { Editor } from "@tinymce/tinymce-react";
 import { useRichInputStyles } from "./styles";
 import { RichTextInputProps } from "./types";
+import { getFeedbackVariant } from "../../helpers/io";
+import clx from "classnames";
 
 const plugins = [
   "advlist autolink lists link image code",
@@ -24,6 +26,8 @@ export const RichTextInput: React.FC<RichTextInputProps> = ({
   value,
   upload,
   onChange,
+  error,
+  feedback,
   Loader
 }) => {
   const classes = useRichInputStyles();
@@ -40,24 +44,36 @@ export const RichTextInput: React.FC<RichTextInputProps> = ({
           {label}
         </InputLabel>
       )}
-      <Editor
-        value={value}
-        apiKey={apiKey}
-        init={{
-          height: 500,
-          menubar: true,
-          image_title: true,
-          automatic_uploads: true,
-          file_picker_types: "image",
-          paste_data_images: true,
-          file_picker_callback: (cb: any) => {
-            upload?.(cb, setLoading);
-          },
-          plugins,
-          toolbar,
-        }}
-        onEditorChange={handleContentChange}
-      />
+      <div className={clx(classes.editor, error && classes.editorError)}>
+        <Editor
+          value={value}
+          apiKey={apiKey}
+          init={{
+            height: 500,
+            menubar: true,
+            image_title: true,
+            automatic_uploads: true,
+            file_picker_types: "image",
+            paste_data_images: true,
+            file_picker_callback: (cb: any) => {
+              upload?.(cb, setLoading);
+            },
+            plugins,
+            toolbar,
+          }}
+          onEditorChange={handleContentChange}
+        />
+      </div>
+      {feedback && (
+        <Typography
+          className={clx(
+            classes.feedback,
+            getFeedbackVariant(classes, feedback),
+          )}
+        >
+          {feedback.text}
+        </Typography>
+      )}
       {loading && Loader}
     </div>
   );

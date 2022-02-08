@@ -38,7 +38,6 @@ import {
   CheckBoxInputProps,
   ComboBoxInput,
   ComboBoxInputProps,
-  ImageUploadInput,
   ImageUploadInputProps,
   RichTextInput,
   RichTextInputProps,
@@ -52,12 +51,21 @@ import {
   ToggleInputProps,
 } from "../io";
 
-import { GqlComboBox, GqlComboBoxProps } from "../gql";
+import {
+  GqlComboBox,
+  GqlComboBoxProps,
+  GqlMediaLibrary,
+  GqlMediaLibraryProps,
+  GqlMediaLibrarySelector,
+  GqlMediaLibrarySelectorProps,
+} from "../gql";
 
 import {
   GETBLOGCATEGORIES,
   createApolloClient,
   createNewCategory,
+  GET_IMAGES,
+  UPLOAD_IMAGE,
 } from "../helpers/graphQL";
 
 type ComponentPropType = {
@@ -87,6 +95,8 @@ type ComponentPropType = {
   | EmptyStateStory
   | SchedulerStory
   | InputGroupStory
+  | GqlMediaLibraryStory
+  | GqlMediaLibrarySelectorStory
 );
 
 type AccordionStory = {
@@ -208,7 +218,58 @@ type InputGroupStory = {
   props: InputGroupProps;
 };
 
+type GqlMediaLibraryStory = {
+  name: string;
+  props: GqlMediaLibraryProps;
+};
+
+type GqlMediaLibrarySelectorStory = {
+  name: string;
+  props: GqlMediaLibrarySelectorProps;
+};
+
 export const stories: ComponentPropType[] = [
+  {
+    name: "MediaLibrarySelector",
+    component: GqlMediaLibrarySelector,
+    props: {
+      label: "Avatar",
+      config: {
+        client: createApolloClient("https://nicodemus.sytbuilder.com/graphql"),
+        query: {
+          name: GET_IMAGES,
+          variables: {
+            page: 1,
+            count: 9,
+          },
+        },
+        upload: {
+          name: UPLOAD_IMAGE,
+          variables: {},
+        },
+      },
+    },
+  },
+  {
+    name: "MediaLibrary",
+    component: GqlMediaLibrary,
+    props: {
+      config: {
+        client: createApolloClient("https://nicodemus.sytbuilder.com/graphql"),
+        query: {
+          name: GET_IMAGES,
+          variables: {
+            page: 1,
+            count: 9,
+          },
+        },
+        upload: {
+          name: UPLOAD_IMAGE,
+          variables: {},
+        },
+      },
+    },
+  },
   {
     name: "accordion",
     component: Accordion,
@@ -282,7 +343,8 @@ export const stories: ComponentPropType[] = [
       ],
       value: { label: "Love", value: "45" },
       placeholder: "Select Wazobia Member",
-      helperText: "No wazobia member selected",
+      error: true,
+      feedback: { text: "Tariq is a weirdo", status: "error" },
     },
   },
   {
@@ -451,6 +513,8 @@ export const stories: ComponentPropType[] = [
         { label: "Basit", value: "basit" },
         { label: "Chinazom", value: "chinazom" },
       ],
+      error: true,
+      feedback: { text: "Tariq is a weirdo", status: "error" },
     },
   },
   {
@@ -465,6 +529,8 @@ export const stories: ComponentPropType[] = [
     component: RichTextInput,
     props: {
       apiKey: "",
+      error: true,
+      feedback: { text: "Tariq is a weirdo", status: "error" },
     },
   },
   {
@@ -483,6 +549,8 @@ export const stories: ComponentPropType[] = [
       variables: { blog_id: 34 },
       value: { label: "entertainment", value: 5 },
       addOption: createNewCategory,
+      error: true,
+      feedback: { text: "Tariq is a weirdo", status: "error" },
     },
   },
   {

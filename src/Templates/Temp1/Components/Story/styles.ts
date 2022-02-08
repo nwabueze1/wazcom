@@ -5,10 +5,10 @@ export const useStoryStyles = makeStyles<Theme>((theme: Theme) => ({
   root: {
     width: "100%",
     height: "100%",
-    maxWidth: theme.include.styles.maxWidth,
+    maxWidth: theme.include.styles.template2.maxWidth,
     margin: "0 auto",
     [theme.breakpoints.down("md")]: {
-      maxWidth: theme.include.styles.tabMaxWidth,
+      maxWidth: theme.include.styles.template2.maxWidthMd,
     },
     [theme.breakpoints.down("sm")]: {
       width: "90%",

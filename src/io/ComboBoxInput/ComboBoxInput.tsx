@@ -1,8 +1,10 @@
 import { FC, useCallback, useEffect, useState } from "react";
 import Autocomplete, { createFilterOptions } from "@mui/material/Autocomplete";
-import { InputLabel, TextField } from "@mui/material";
+import { InputLabel, TextField, Typography } from "@mui/material";
 import { useComboBoxStyles } from "./styles";
 import { ComboBoxInputProps, ComboBoxInputOptionProps } from "./types";
+import clx from 'classnames';
+import { getFeedbackVariant } from "../../helpers/io";
 
 const filter = createFilterOptions<ComboBoxInputOptionProps>();
 
@@ -12,8 +14,9 @@ export const ComboBoxInput: FC<ComboBoxInputProps> = ({
   options: initialOptions,
   label,
   value,
+  error,
   placeholder,
-  helperText,
+  feedback,
 }) => {
   const classes = useComboBoxStyles();
   const [options, setOptions] = useState(initialOptions);
@@ -83,10 +86,20 @@ export const ComboBoxInput: FC<ComboBoxInputProps> = ({
             label={label}
             placeholder={placeholder}
             variant="outlined"
+            error={error}
           />
         )}
       />
-      {helperText && <p className={classes.helperText}>{helperText}</p>}
+      {feedback && (
+        <Typography
+          className={clx(
+            classes.feedback,
+            getFeedbackVariant(classes, feedback),
+          )}
+        >
+          {feedback.text}
+        </Typography>
+      )}
     </div>
   );
 };

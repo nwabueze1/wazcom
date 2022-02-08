@@ -29,7 +29,7 @@ export const BlogPage: FC <BlogProps> = ({image, title, content}) => {
               <ArrowRightAlt className={classes.leftArrow} />
               <div>Check our blog for recipes.....</div>
             </div>
-            <div className={classes.rightSlide}>
+            <div className={classes.leftSlide}>
               <div>Check our blog for recipes.....</div>
               <ArrowRightAlt className={classes.rightArrow} />
             </div>
