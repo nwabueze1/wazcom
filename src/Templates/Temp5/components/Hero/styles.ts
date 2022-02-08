@@ -13,8 +13,11 @@ export const useHeroStyles = makeStyles<Theme>((theme: Theme) => ({
     height: "60vh",
     backgroundRepeat: "no-repeat",
     backgroundSize: "cover",
+    marginTop:theme.spacing(3.4)
   },
-  heroText: { marginTop:theme.spacing(5) },
+  heroText: { marginTop:theme.spacing(20),position: 'absolute',
+    width: '100%',
+  },
   welcome: {
     fontSize: theme.typography.fontSize * 5.2,
     display: "flex",

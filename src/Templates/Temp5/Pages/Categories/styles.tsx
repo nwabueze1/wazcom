@@ -77,7 +77,8 @@ export const useArticleStyles = makeStyles<Theme>((theme: Theme) => ({
   containerParagraph: {
     fontSize: theme.typography.fontSize + 4,
     lineHeight: "24px",
-    width: "90%",
+    width: "100%",
+    marginBottom: theme.spacing(1),
   },
 
   views: {
@@ -91,9 +92,12 @@ export const useArticleStyles = makeStyles<Theme>((theme: Theme) => ({
     justifyContent: "flex-end",
   },
   readmoreBtn: {
-    marginTop: theme.spacing(2.5),
-    fontSize: theme.typography.fontSize + 4,
+    textDecoration: "none",
+    color: theme.design.colors.black,
+    width: "26%",
+    marginTop: theme.spacing(2),
+    borderBottom: `2px solid  ${theme.design.colors.black}`,
+    paddingBottom: theme.spacing(1),
     fontWeight: theme.typography.fontWeightBold,
-    alignItems: "center",
   },
 }));

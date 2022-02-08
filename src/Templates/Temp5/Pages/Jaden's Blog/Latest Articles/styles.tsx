@@ -31,14 +31,16 @@ export const useArticleStyles = makeStyles<Theme>((theme: Theme) => ({
     width: "98%",
     marginTop: theme.spacing(2),
   },
+  time: { display: "flex ", width: "55%", justifyContent: "flex-end" },
+  sight: { display: "flex", justifyContent: "flex-end" },
   info: { width: "100%" },
-
   containerImage: {
     width: "50%",
     height: "40vh",
   },
   container: {
     width: "45%",
+    height: "35vh",
     display: "flex",
   },
   header: {
@@ -49,10 +51,24 @@ export const useArticleStyles = makeStyles<Theme>((theme: Theme) => ({
     marginLeft: theme.spacing(4),
     marginTop: theme.spacing(4),
   },
+  containerParagraph: {
+    marginBottom: theme.spacing(2),
+  },
   containerInfo: {
     marginTop: theme.spacing(4),
     marginLeft: theme.spacing(4),
     width: "100%",
   },
-  date: { display: "flex " },
+  date: { display: "flex ", width: "55%", justifyContent: "flex-end" },
+  views: { display: "flex", justifyContent: "flex-end" },
+  readmoreBtn: {
+    textDecoration: "none",
+    color: theme.design.colors.black,
+    width: "26%",
+    height: "2vh",
+    marginTop: theme.spacing(2),
+    borderBottom: `2px solid  ${theme.design.colors.black}`,
+    paddingBottom: theme.spacing(1),
+    fontWeight: theme.typography.fontWeightBold,
+  },
 }));

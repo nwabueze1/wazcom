@@ -3,6 +3,7 @@ import { latestPostData } from "Templates/Temp5/TemplateData";
 import { Container } from "./container";
 import clx from "classnames";
 import Visibility from "@mui/icons-material/Visibility";
+import { Link } from "react-router-dom";
 
 export const Articles = () => {
   const classes = useArticleStyles();
@@ -32,7 +33,7 @@ export const Articles = () => {
               dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh,
               ut fermentum
             </p>
-            <p className={classes.readmoreBtn}>Read more</p>
+            <Link to="/Gallery" className={classes.readmoreBtn}>Read more</Link>
           </div>
         </div>
       </div>

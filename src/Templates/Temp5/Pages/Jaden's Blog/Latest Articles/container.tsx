@@ -2,6 +2,7 @@ import React, { FC } from "react";
 import { useArticleStyles } from "./styles";
 import { ArticleProps } from "./types";
 import VisibilityIcon from "@mui/icons-material/Visibility";
+import { Link } from "react-router-dom";
 export const Container: FC<ArticleProps> = ({
   img,
   title,
@@ -28,7 +29,9 @@ export const Container: FC<ArticleProps> = ({
           <div className={classes.containerInfo}>
             <h1 className={classes.containerHeader}>{title}</h1>
             <p className={classes.containerParagraph}>{description}</p>
-            <p className={classes.readmoreBtn}>Read more</p>
+            <Link to="/Gallery" className={classes.readmoreBtn}>
+              Read more
+            </Link>
           </div>
         </div>
       </div>

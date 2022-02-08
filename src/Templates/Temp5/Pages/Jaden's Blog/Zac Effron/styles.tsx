@@ -28,6 +28,9 @@ export const useArticleStyles = makeStyles<Theme>((theme: Theme) => ({
     lineHeight: "28px",
     marginTop: theme.spacing(2),
   },
+  link: {
+    textDecoration: "none",
+  },
   btn: {
     color: theme.design.colors.white,
     background: theme.design.colors.black,

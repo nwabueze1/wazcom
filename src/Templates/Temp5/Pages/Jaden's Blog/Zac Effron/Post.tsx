@@ -1,6 +1,6 @@
 import { Button } from "core";
 import { about, articleData } from "Templates/Temp5/TemplateData";
-
+import { Link } from "react-router-dom";
 import { useArticleStyles } from "./styles";
 
 export const ZacEffron = () => {
@@ -12,7 +12,9 @@ export const ZacEffron = () => {
           <div className={classes.header}>
             <h1 className={classes.title}>{about.title}</h1>
             <p className={classes.description}>{articleData.description}</p>
-            <Button className={classes.btn}>Read More</Button>
+            <Link to="/Gallery" className={classes.link}>
+              <Button className={classes.btn}>Read More</Button>
+            </Link>
           </div>
         </div>
         <img className={classes.img} src={about.image.src} />
