@@ -1,5 +1,8 @@
 import makeStyles from "@mui/styles/makeStyles";
 export var useImageSelectorStyles = makeStyles(function (theme) { return ({
+    root: {
+        marginBottom: theme.spacing(2),
+    },
     container: {
         height: "100%",
         backgroundColor: theme.design.colors.lightGrey,
@@ -36,7 +39,7 @@ export var useImageSelectorStyles = makeStyles(function (theme) { return ({
         zIndex: 15,
     },
     label: {
-        marginBottom: theme.spacing(1),
+        marginBottom: theme.spacing(2),
         fontSize: "1rem",
     },
     cameraIconSm: {
