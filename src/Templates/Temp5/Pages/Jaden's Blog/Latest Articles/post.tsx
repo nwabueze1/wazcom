@@ -33,7 +33,9 @@ export const Articles = () => {
               dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh,
               ut fermentum
             </p>
-            <Link to="/Gallery" className={classes.readmoreBtn}>Read more</Link>
+            <Link to="/template5/gallery" className={classes.readmoreBtn}>
+              Read more
+            </Link>
           </div>
         </div>
       </div>

@@ -7,7 +7,7 @@ export const useArticleStyles = makeStyles<Theme>((theme: Theme) => ({
   },
   header: {
     display: "flex",
-    fontSize: theme.typography.fontSize * 2.7,
+    fontSize: theme.typography.fontSize * 3,
     justifyContent: "center",
   },
   unorderedLists: {
@@ -57,7 +57,7 @@ export const useArticleStyles = makeStyles<Theme>((theme: Theme) => ({
 
   containerImage: { width: "100%", height: "35vh", objectFit: "cover" },
   head: {
-    marginTop: theme.spacing(2.5),
+    marginTop: theme.spacing(3),
     width: "100%",
     display: "flex",
     justifyContent: "space-between",

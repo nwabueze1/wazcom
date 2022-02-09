@@ -11,23 +11,23 @@ export const Footer = () => {
     <div className={classes.root}>
       <div className={classes.container}>
         <div className={classes.footerHeader}>
-          <Link to="/" className={classes.footerHeader}>
+          <Link to="/template5" className={classes.footerHeader}>
             {logo}
           </Link>
         </div>
         <div className={classes.listItems}>
           <li>
-            <Link to="/" className={classes.items}>
+            <Link to="/template5" className={classes.items}>
               Home
             </Link>
           </li>
           <li>
-            <Link to="/categories" className={classes.items}>
+            <Link to="/template5/categories" className={classes.items}>
               Categories
             </Link>
           </li>
           <li>
-            <Link to="/aboutpage" className={classes.items}>
+            <Link to="/template5/about" className={classes.items}>
               About
             </Link>
           </li>

@@ -1,21 +1,13 @@
 import { StyledEngineProvider, Theme, ThemeProvider } from "@mui/material";
 import * as React from "react";
 import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
-import { Footer } from "Templates/Temp5/components/Footer/Footer";
-import { NavBar } from "Templates/Temp5/components/NavBar/NavBar";
-import { AboutPage } from "Templates/Temp5/Pages/About/About";
-import { CategoryPage } from "Templates/Temp5/Pages/Categories/Post";
-import { Container } from "Templates/Temp5/Pages/Container";
-import GalleryPage from "Templates/Temp5/Pages/Gallery";
-import { Gallery } from "Templates/Temp5/Pages/Gallery/GalleryPage";
-import IndexPage from "Templates/Temp5/Pages/Jaden's Blog/IndexPage";
+import { Browser } from "Browser";
 import theme from "./theme";
-
+import Template5 from "Templates/Temp5/Template5";
 declare module "@mui/styles/defaultTheme" {
   // eslint-disable-next-line @typescript-eslint/no-empty-interface
   interface DefaultTheme extends Theme {}
 }
-
 interface Props {
   className?: string;
 }
@@ -26,10 +18,12 @@ const App: React.FC<Props> = () => {
       <ThemeProvider theme={theme}>
         <Router>
           <Switch>
-            <Route exact path="/" component={IndexPage} />
-            <Route path="/Gallery" component={Gallery} />
-            <Route path="/categories" component={CategoryPage} />
-            <Route path="/aboutpage" component={AboutPage} />
+            <Route exact path="/">
+              <Browser />
+            </Route>
+            <Route path="/template5">
+           <Template5 />   
+            </Route>
           </Switch>
         </Router>
       </ThemeProvider>

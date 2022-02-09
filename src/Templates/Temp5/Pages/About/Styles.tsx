@@ -70,7 +70,7 @@ export const useArticleStyles = makeStyles<Theme>((theme: Theme) => ({
     display: "flex",
     width: "7vw",
     justifyContent: "space-between",
-    marginTop: theme.spacing(2.3),
+    marginTop: theme.spacing(2),
     margin: "auto",
   },
 }));

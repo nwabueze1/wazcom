@@ -12,7 +12,7 @@ export const ZacEffron = () => {
           <div className={classes.header}>
             <h1 className={classes.title}>{about.title}</h1>
             <p className={classes.description}>{articleData.description}</p>
-            <Link to="/Gallery" className={classes.link}>
+            <Link to="/template5/gallery" className={classes.link}>
               <Button className={classes.btn}>Read More</Button>
             </Link>
           </div>

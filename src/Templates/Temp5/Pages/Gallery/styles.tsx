@@ -13,7 +13,7 @@ export const useArticleStyles = makeStyles<Theme>((theme: Theme) => ({
     justifyContent: "center ",
     marginBottom: theme.spacing(5),
     marginTop: theme.spacing(9),
-    fontSize: theme.typography.fontSize * 2.7,
+    fontSize: theme.typography.fontSize * 3,
   },
   images: {
     width: "90vw",
@@ -25,20 +25,20 @@ export const useArticleStyles = makeStyles<Theme>((theme: Theme) => ({
   firstColumn: {
     display: "flex",
     flexDirection: "column",
-    gap: theme.spacing(12.5),
+    gap: theme.spacing(13),
     width: "30%",
     height: "6vh",
   },
   secondColumn: {
     display: "flex",
     flexDirection: "column",
-    gap: theme.spacing(8.8),
+    gap: theme.spacing(9),
     width: "30%",
   },
   thirdColumn: {
     display: "flex",
     flexDirection: "column",
-    gap: theme.spacing(12.5),
+    gap: theme.spacing(13),
     width: "30%",
     height: "6vh",
   },

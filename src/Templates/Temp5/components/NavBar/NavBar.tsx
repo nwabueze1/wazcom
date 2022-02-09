@@ -11,7 +11,7 @@ export const NavBar = () => {
     <div className={classes.root}>
       <div className={classes.container}>
         <div className={classes.navHeader}>
-          <Link to="/" className={classes.navHeader}>
+          <Link to="/template5" className={classes.navHeader}>
             {logo}
           </Link>
         </div>
@@ -23,12 +23,12 @@ export const NavBar = () => {
             </Link>
           </li>
           <li>
-            <Link to="/categories" className={classes.listItems}>
+            <Link to="/template5/categories" className={classes.listItems}>
               Categories
             </Link>
           </li>
           <li>
-            <Link to="/aboutpage" className={classes.listItems}>
+            <Link to="/template5/about" className={classes.listItems}>
               About
             </Link>
           </li>
