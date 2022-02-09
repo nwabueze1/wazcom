@@ -15,25 +15,38 @@ export const useReviewsStyles = makeStyles<Theme>((theme: Theme) => ({
   reviews: {
     display: "flex",
     justifyContent: "space-between",
-    marginTop: theme.spacing(5),
+    paddingTop: theme.spacing(5),
+    margin: "auto",
+    width: "95%",
+    overflow: "scroll",
+    "-ms-overflow-style": "none" /* for Internet Explorer, Edge */,
+    scrollbarWidth: "none" /* for Firefox */,
+    "&::-webkit-scrollbar": {
+      display: "none",
+    }, 
     [theme.breakpoints.down("md")]: {
-     gap: theme.spacing(3)
+      gap: theme.spacing(3.5),
     },
   },
   cardBox: {
-    width: "554px",
+    minWidth: "554px",
+    maxWidth: "554px",
     display: "flex",
     justifyContent: "space-between",
     borderRadius: theme.spacing(1.5),
     boxShadow: `0px 0px 10px ${theme.design.colors.darkShadow}`,
+    [theme.breakpoints.down("md")]: {
+      minWidth: "704px",
+      maxWidth: "704px",
+    },
   },
   header: {
     textAlign: "center",
     fontWeight: theme.typography.fontWeightBold,
     fontSize: theme.typography.fontSize + 28,
     [theme.breakpoints.down("md")]: {
-      fontSize: theme.typography.fontSize + 16
-     },
+      fontSize: theme.typography.fontSize + 16,
+    },
   },
   imageContainer: {
     width: "245px",
@@ -42,6 +55,7 @@ export const useReviewsStyles = makeStyles<Theme>((theme: Theme) => ({
   img: {
     width: "100%",
     height: "100%",
+    borderRadius: theme.spacing(1.5, 0, 0, 1.5),
   },
   details: {
     width: "50%",

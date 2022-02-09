@@ -31,20 +31,25 @@ export const useContactUsStyles = makeStyles<Theme>((theme: Theme) => ({
     [theme.breakpoints.down("md")]: {
       width: "95%",
       margin: "auto",
-      flexDirection: "column"
+      flexDirection: "column",
     },
+  },
+  field: {
+    borderRadius: theme.spacing(0.5),
+    background: theme.design.colors.ash,
+    border: "none",
   },
   leftContainer: {
     width: "45%",
     [theme.breakpoints.down("md")]: {
-     width:"100%"
+      width: "100%",
     },
   },
   rightContainer: {
     width: "45%",
     [theme.breakpoints.down("md")]: {
-      width:"100%"
-     },
+      width: "100%",
+    },
   },
   btn: {
     color: theme.design.colors.white,

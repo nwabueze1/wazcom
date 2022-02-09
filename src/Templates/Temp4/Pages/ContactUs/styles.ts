@@ -13,27 +13,41 @@ export const useContactUsStyles = makeStyles<Theme>((theme: Theme) => ({
     paddingTop: theme.spacing(10),
     display: "flex",
     justifyContent: "space-between",
+    [theme.breakpoints.down("md")]: {
+      flexDirection: "column",
+    },
+  },
+  details: {
+    marginBottom: theme.spacing(1),
+    fontSize: theme.typography.fontSize + 4,
   },
   header: {
-      fontSize: theme.typography.fontSize +21,
-      marginBottom: theme.spacing(3),
-      textAlign: "center",
-      fontWeight: theme.typography.fontWeightBold
+    fontSize: theme.typography.fontSize + 21,
+    marginBottom: theme.spacing(3),
+    textAlign: "center",
+    fontWeight: theme.typography.fontWeightBold,
+    [theme.breakpoints.down("md")]: {
+      fontSize: theme.typography.fontSize + 16,
+    },
   },
   contactDetails: {
-      width: "25%",
-      textAlign: "center"
+    width: "25%",
+    textAlign: "center",
+    [theme.breakpoints.down("md")]: {
+      width: "100%",
+    },
   },
   info: {
     textAlign: "center",
-    fontSize: theme.typography.fontSize + 2
+    fontSize: theme.typography.fontSize + 4,
   },
-  icon:{
+  icon: {
     fontSize: theme.typography.fontSize + 20,
-    padding: theme.spacing(2,0)
+    marginLeft: theme.spacing(2),
+    padding: theme.spacing(2, 0),
   },
   icons: {
-      textAlign: "center",
-      gap: theme.spacing(5)
-  }
+    textAlign: "center",
+    gap: theme.spacing(5),
+  },
 }));
