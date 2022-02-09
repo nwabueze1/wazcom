@@ -37,7 +37,6 @@ export const useContactUsStyles = makeStyles<Theme>((theme: Theme) => ({
   field: {
     borderRadius: theme.spacing(0.5),
     background: theme.design.colors.ash,
-    border: "none",
   },
   leftContainer: {
     width: "45%",
@@ -51,10 +50,20 @@ export const useContactUsStyles = makeStyles<Theme>((theme: Theme) => ({
       width: "100%",
     },
   },
+  btnContainer: {
+    [theme.breakpoints.down("md")]: {
+      width: "100%",
+      display: "flex",
+      justifyContent: "center",
+    },
+  },
   btn: {
     color: theme.design.colors.white,
     background: theme.design.colors.darkOrange,
     padding: theme.spacing(1, 4),
     margin: theme.spacing(5, 0),
+    [theme.breakpoints.down("sm")]: {
+      width: "100%",
+    },
   },
 }));

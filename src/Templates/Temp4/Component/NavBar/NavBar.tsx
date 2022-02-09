@@ -22,6 +22,9 @@ export const NavBar: FC<NavBarProps> = ({ navHeader, navData, className }) => {
               classes.link,
               pathname === nav.path && classes.navActive,
             )}
+            onClick={() => {
+              setSideBar(false);
+            }}
           >
             {nav.title}
           </Link>

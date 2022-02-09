@@ -52,7 +52,9 @@ export const ContactUsForm = () => {
           <div className={classes.leftContainer}></div>
           <div className={classes.rightContainer}>
             {displayFields()}
-            <Button className={classes.btn}>Send Message</Button>
+            <div className={classes.btnContainer}>
+              <Button className={classes.btn}>Send Message</Button>
+            </div>
           </div>
         </div>
       </div>

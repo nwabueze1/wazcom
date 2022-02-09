@@ -19,7 +19,10 @@ export const useContactUsStyles = makeStyles<Theme>((theme: Theme) => ({
   },
   details: {
     marginBottom: theme.spacing(1),
-    fontSize: theme.typography.fontSize + 4,
+    fontSize: theme.typography.fontSize + 6,
+    [theme.breakpoints.down("sm")]: {
+      fontSize: theme.typography.fontSize + 4,
+    },
   },
   header: {
     fontSize: theme.typography.fontSize + 21,
@@ -28,6 +31,9 @@ export const useContactUsStyles = makeStyles<Theme>((theme: Theme) => ({
     fontWeight: theme.typography.fontWeightBold,
     [theme.breakpoints.down("md")]: {
       fontSize: theme.typography.fontSize + 16,
+    },
+    [theme.breakpoints.down("sm")]: {
+      fontSize: theme.typography.fontSize + 6,
     },
   },
   contactDetails: {
