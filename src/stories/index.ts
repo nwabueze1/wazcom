@@ -233,6 +233,7 @@ export const stories: ComponentPropType[] = [
     name: "MediaLibrarySelector",
     component: GqlMediaLibrarySelector,
     props: {
+      label: "Avatar",
       config: {
         client: createApolloClient("https://nicodemus.sytbuilder.com/graphql"),
         query: {

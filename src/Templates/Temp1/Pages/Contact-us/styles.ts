@@ -8,7 +8,7 @@ export const useContactUsStyles = makeStyles<Theme>((theme: Theme) => ({
     margin: "0 auto",
     fontFamiy: "Raleway, san-serif",
     [theme.breakpoints.down("md")]: {
-      maxWidth: theme.include.styles.template2.tabMaxwidth,
+      maxWidth: theme.include.styles.template2.maxWidthMd,
     },
     [theme.breakpoints.down("sm")]: {
       width: "95%",

@@ -1,7 +1,6 @@
 import React, { useState, FC, useCallback } from "react";
 import { useNavStyles } from "./styles";
 import { Link } from "react-router-dom";
-import { navData } from "../../Pages/Template2Data";
 import MenuIcon from "@mui/icons-material/Menu";
 import CloseIcon from "@mui/icons-material/Close";
 import FacebookIcon from "@mui/icons-material/Facebook";
@@ -9,12 +8,12 @@ import TwitterIcon from "@mui/icons-material/Twitter";
 import { NavBarProps } from "./types";
 import clx from "classnames";
 
-const NavBar: FC<NavBarProps> = ({ navHeader }) => {
+const NavBar: FC<NavBarProps> = ({ navHeader, navData }) => {
   const classes = useNavStyles();
   const [sideBar, setSideBar] = useState(false);
 
   const displayLinks = useCallback(() =>
-  navData.map(({ path, title }, index) => (
+  navData?.map(({ path, title }, index) => (
     <div className={classes.link} key={index}>
       <Link
         to={path}

@@ -8,7 +8,7 @@ export const useRebaseStyles = makeStyles<Theme>((theme: Theme) => ({
     maxWidth: theme.include.styles.template2.maxWidth,
     margin: "0 auto",
     [theme.breakpoints.down("md")]: {
-      maxWidth: theme.include.styles.template2.tabMaxwidth,
+      maxWidth: theme.include.styles.template2.maxWidthMd,
     },
     [theme.breakpoints.down("sm")]: {
       width: "90%",

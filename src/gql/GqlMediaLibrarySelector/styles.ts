@@ -3,6 +3,9 @@ import { Theme } from "@mui/material/styles";
 import makeStyles from "@mui/styles/makeStyles";
 
 export const useImageSelectorStyles = makeStyles((theme: Theme) => ({
+  root: {
+    marginBottom: theme.spacing(2),
+  },
   container: {
     height: "100%",
     backgroundColor: theme.design.colors.lightGrey,
@@ -37,6 +40,10 @@ export const useImageSelectorStyles = makeStyles((theme: Theme) => ({
   wrapper: {
     backgroundColor: theme.design.colors.white,
     zIndex: 15,
+  },
+  label: {
+    marginBottom: theme.spacing(2),
+    fontSize: "1rem",
   },
   cameraIconSm: {
     fontSize: 20,
