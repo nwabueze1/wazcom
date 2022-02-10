@@ -1,4 +1,4 @@
-import React, { useCallback, useEffect, useState } from "react";
+import React, { useEffect, useState } from "react";
 import { TableProps } from "./types";
 import { useTableStyles } from "./styles";
 import {
@@ -14,6 +14,7 @@ import {
   TablePagination,
   Box,
 } from "@mui/material";
+import FilterAltIcon from "@mui/icons-material/FilterAlt";
 import _, { startCase } from "lodash";
 import { Button } from "core";
 import { TextInput } from "io";
@@ -25,6 +26,7 @@ import {
   useHandleControlsChange,
   useUpdateTableValue,
 } from "./helpers";
+import { TableFilter } from "./components";
 
 export const Table = ({
   headers,
@@ -41,8 +43,9 @@ export const Table = ({
   const classes = useTableStyles();
   const [tableValue, setTableValue] = useState(initialTableValue);
   const [tableHeaders, setTableHeaders] =
-    useState<{ [key: string]: string }[]>(headers);
+    useState<{ name: string; label: string }[]>(headers);
   const [controlsFormData, setControls] = useState<{ [key: string]: any }>([]);
+  const [showFilter, setShowFilter] = useState<boolean>(false);
 
   // All Handler functions are defined as hooks
   const handleChangePage = useHandleChangePage(changePage);
@@ -74,16 +77,23 @@ export const Table = ({
   }, [initialTableValue, headers]);
 
   return (
-    <TableContainer component={Paper}>
+    <TableContainer component={Paper} className={classes.tableRoot}>
       {controls && (
         <Box className={classes.controls}>
           {controls.filter && (
             <Box className={classes.filterControls}>
-              <Button>Filter</Button>
+              <Button
+                variant="outlined"
+                className={classes.filterControlsButton}
+                onClick={() => setShowFilter((state) => !state)}
+              >
+                Filter
+                <FilterAltIcon />
+              </Button>
               <TextInput
                 name="search"
                 type="text"
-                placeholder={"Search"}
+                placeholder="Search"
                 value={controlsFormData.search}
                 onChange={handleControlsChange}
               />
@@ -158,6 +168,11 @@ export const Table = ({
           </TableFooter>
         )}
       </MuiTable>
+      <TableFilter
+        showFilter={showFilter}
+        setShowFilter={setShowFilter}
+        fields={tableHeaders}
+      />
     </TableContainer>
   );
 };

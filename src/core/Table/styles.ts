@@ -4,6 +4,9 @@ import makeStyles from "@mui/styles/makeStyles";
 
 export const useTableStyles = makeStyles((theme: Theme) => ({
   root: {},
+  tableRoot: {
+    position: "relative",
+  },
   tableHead: {
     background: theme.design.colors.gray90,
   },
@@ -21,7 +24,15 @@ export const useTableStyles = makeStyles((theme: Theme) => ({
   },
   filterControls: {
     display: "flex",
-    gap: "10px",
+    gap: "30px",
+  },
+  filterControlsButton: {
+    backgroundColor: theme.design.colors.white,
+    color: theme.design.colors.black,
+    height: "fit-content",
+    width: "100px",
+    display: "flex",
+    justifyContent: "space-between",
   },
 }));
 
