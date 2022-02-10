@@ -14,4 +14,20 @@ export const useTableStyles = makeStyles((theme: Theme) => ({
   tableCell: {
     padding: theme.spacing(1.5, 2),
   },
+  controls: {
+    display: "flex",
+    justifyContent: "space-between",
+    padding: theme.spacing(2),
+  },
+  filterControls: {
+    display: "flex",
+    gap: "10px",
+  },
+}));
+
+export const useStyles = makeStyles((theme: Theme) => ({
+  root: {
+    flexShrink: 0,
+    marginLeft: theme.spacing(2.5),
+  },
 }));

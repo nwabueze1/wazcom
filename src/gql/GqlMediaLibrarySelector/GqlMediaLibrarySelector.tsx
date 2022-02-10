@@ -18,12 +18,13 @@ export const GqlMediaLibrarySelector: FC<GqlMediaLibrarySelectorProps> = ({
   onChange,
   name,
   label,
+  src,
   ...props
 }) => {
   const classes = useImageSelectorStyles();
   const [showIcon, setShowIcon] = useState<boolean>(false);
 
-  const [placeholder, setPlaceholder] = useState<string>();
+  const [placeholder, setPlaceholder] = useState<string>(src || "");
   const [open, setOpen] = useState(false);
 
   const handleOpen = () => {
