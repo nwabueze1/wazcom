@@ -7,9 +7,16 @@ export type TableProps = CommonProps &
     headers: TableHeaderContentProps;
     value: TableDataProps;
     hasCheckBox?: boolean;
+    pagination?: boolean;
+    paginatorInfo?: { [key: string]: any };
+    onClick?: (index: number) => void;
+    changePage?: (value: number) => void;
+    changeRowsPerPage?: (value: number) => void;
+    rowsPerPage?: number;
+    controls?: ControlsDataProp;
   };
 
-type TableDataProps = ({ [key: string]: any } & {
+export type TableDataProps = ({ [key: string]: any } & {
   actions?: { [key: string]: () => void };
 })[];
 
@@ -17,3 +24,11 @@ type TableHeaderContentProps = {
   name: string;
   label: string;
 }[];
+
+type ControlsDataProp = {
+  filter?: {
+    fields?: string[];
+  };
+  export?: { [key: string]: string };
+  print?: { [key: string]: string };
+};
