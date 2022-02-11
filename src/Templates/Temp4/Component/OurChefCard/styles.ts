@@ -4,10 +4,10 @@ import { Theme } from "@mui/material/styles";
 export const useOurChefCardStyles = makeStyles<Theme>((theme: Theme) => ({
   root: {
     height: "100%",
-    width: "357px", 
+    width: "357px",
     fontFamily: theme.include.styles.template4.font,
     [theme.breakpoints.down("md")]: {
-      width: "174px"
+      width: "174px",
     },
   },
   imgContainer: {
@@ -24,7 +24,7 @@ export const useOurChefCardStyles = makeStyles<Theme>((theme: Theme) => ({
   container: {
     width: "357px",
     [theme.breakpoints.down("md")]: {
-      width: "174px"
+      width: "174px",
     },
   },
   chefName: {
@@ -35,6 +35,9 @@ export const useOurChefCardStyles = makeStyles<Theme>((theme: Theme) => ({
     [theme.breakpoints.down("md")]: {
       fontSize: theme.typography.fontSize + 8,
     },
+    [theme.breakpoints.down("sm")]: {
+      fontSize: theme.typography.fontSize + 6,
+    },
   },
   chefDetails: {
     fontSize: theme.typography.fontSize + 12,
@@ -42,5 +45,5 @@ export const useOurChefCardStyles = makeStyles<Theme>((theme: Theme) => ({
     [theme.breakpoints.down("md")]: {
       fontSize: theme.typography.fontSize + 4,
     },
-  }
+  },
 }));

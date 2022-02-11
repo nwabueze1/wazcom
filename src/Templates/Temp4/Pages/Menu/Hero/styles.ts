@@ -7,7 +7,7 @@ export const useHeroStyles = makeStyles<Theme>((theme: Theme) => ({
     width: "100%",
     fontFamily: theme.include.styles.template4.font,
     [theme.breakpoints.down("md")]: {
-      height: "40vh"
+      height: "40vh",
     },
   },
   image: {
@@ -16,7 +16,7 @@ export const useHeroStyles = makeStyles<Theme>((theme: Theme) => ({
     position: "relative",
     top: 0,
     [theme.breakpoints.down("md")]: {
-      height: "40vh"
+      height: "40vh",
     },
   },
   overlay: {
@@ -25,9 +25,9 @@ export const useHeroStyles = makeStyles<Theme>((theme: Theme) => ({
     height: "70vh",
     width: "100%",
     top: 0,
-    zIndex: 1,
+    zIndex: 0,
     [theme.breakpoints.down("md")]: {
-      height: "40vh"
+      height: "40vh",
     },
   },
   description: {
@@ -51,7 +51,7 @@ export const useHeroStyles = makeStyles<Theme>((theme: Theme) => ({
   heroTextContainer: {
     display: "flex",
     justifyContent: "center",
-    zIndex: 2,
+    zIndex: 1,
     position: "absolute",
     top: "25%",
     width: "100%",
@@ -71,6 +71,6 @@ export const useHeroStyles = makeStyles<Theme>((theme: Theme) => ({
     },
     [theme.breakpoints.down("sm")]: {
       fontSize: theme.typography.fontSize + 6,
-    }, 
+    },
   },
 }));

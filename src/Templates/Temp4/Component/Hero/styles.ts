@@ -25,7 +25,7 @@ export const useHeroStyles = makeStyles<Theme>((theme: Theme) => ({
     height: "90vh",
     width: "100%",
     top: 0,
-    zIndex: 1,
+    zIndex: 0,
     [theme.breakpoints.down("md")]: {
       height: "40vh",
     },
@@ -52,7 +52,7 @@ export const useHeroStyles = makeStyles<Theme>((theme: Theme) => ({
   heroTextContainer: {
     display: "flex",
     justifyContent: "center",
-    zIndex: 2,
+    zIndex: 1,
     position: "absolute",
     top: "30%",
     width: "100%",

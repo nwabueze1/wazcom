@@ -39,7 +39,7 @@ export const useMenuStyles = makeStyles<Theme>((theme: Theme) => ({
       width: "95%",
     },
     [theme.breakpoints.down("sm")]: {
-      gap: theme.spacing(8),
+      gap: theme.spacing(7),
       paddingTop: theme.spacing(6),
     },
   },
