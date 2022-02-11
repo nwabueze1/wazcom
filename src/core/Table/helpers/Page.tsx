@@ -1,15 +1,15 @@
 import React from "react";
 
-type ChangeFuntionType = (value: number) => void;
+type ChangeFunctionType = (value: number) => void;
 
 export const useHandleChangePage =
-  (changePage?: ChangeFuntionType) =>
+  (changePage?: ChangeFunctionType) =>
   (event: React.MouseEvent<HTMLButtonElement> | null, newPage: number) => {
     changePage?.(newPage);
   };
 
 export const useHandleChangeRowsPerPage =
-  (changeRowsPerPage?: ChangeFuntionType, changePage?: ChangeFuntionType) =>
+  (changeRowsPerPage?: ChangeFunctionType, changePage?: ChangeFunctionType) =>
   (event: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
     changeRowsPerPage?.(parseInt(event.target.value, 10) - 1);
     changePage?.(0);
