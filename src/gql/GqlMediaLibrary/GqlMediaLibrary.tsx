@@ -36,7 +36,7 @@ export const GqlMediaLibrary: FC<GqlMediaLibraryProps> = ({
     [key: string]: number;
   }>({ currentPage: 1, lastPage: 1 });
   const [loading, setLoading] = useState<boolean>(true);
-  const [imageLoading, setImageLoading] = useState<boolean>(true);
+  const [imageLoading, setImageLoading] = useState<boolean>(false);
   const listInnerRef = useRef<HTMLDivElement>(null);
   const [mediaIndex, setMediaIndex] = useState<number>(0);
 
@@ -69,11 +69,13 @@ export const GqlMediaLibrary: FC<GqlMediaLibraryProps> = ({
       const { currentPage, lastPage } = paginatorInfo;
       if (currentPage !== lastPage) {
         setImageLoading(true);
-        fetchData({ page: currentPage + 1, count: 9 }).then((res) => {
-          setImages((images) => [...images, ...res.data.images.images]);
-          setImageLoading(false);
-          setPaginatorInfo(res.data.images.paginatorInfo);
-        });
+        fetchData({ page: currentPage + 1, count: queryVariables.count }).then(
+          (res) => {
+            setImages((images) => [...images, ...res.data.images.images]);
+            setImageLoading(false);
+            setPaginatorInfo(res.data.images.paginatorInfo);
+          },
+        );
       }
     }
   }, [mediaIndex]);
@@ -96,7 +98,7 @@ export const GqlMediaLibrary: FC<GqlMediaLibraryProps> = ({
   const onScroll = useCallback(() => {
     if (listInnerRef.current) {
       const { scrollTop, scrollHeight, clientHeight } = listInnerRef.current;
-      if (scrollTop + clientHeight === scrollHeight) {
+      if (scrollTop + clientHeight === scrollHeight && scrollHeight > 550) {
         setMediaIndex(Math.random() * 5000);
       }
     }

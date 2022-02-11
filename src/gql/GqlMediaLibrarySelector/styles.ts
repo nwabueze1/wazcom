@@ -73,4 +73,19 @@ export const useImageSelectorStyles = makeStyles((theme: Theme) => ({
     width: "400px",
     height: "400px",
   },
+  feedback: {
+    marginTop: 16,
+  },
+  feedbackSuccess: {
+    color: "green",
+  },
+  feedbackError: {
+    color: "red",
+  },
+  feedbackNeutral: {
+    color: "black",
+  },
+  error: {
+    border: `2px solid ${theme.design.colors.red70}`,
+  },
 }));

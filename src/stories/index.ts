@@ -240,7 +240,7 @@ export const stories: ComponentPropType[] = [
           name: GET_IMAGES,
           variables: {
             page: 1,
-            count: 9,
+            count: 7,
           },
         },
         upload: {
@@ -248,6 +248,13 @@ export const stories: ComponentPropType[] = [
           variables: {},
         },
       },
+      src: "https://sytbuildr.s3.eu-west-2.amazonaws.com/wbAJD5oi83HUWjLuZhqTiXwlW6LO9Xdxfxr2K4TI.jpg",
+      feedback: {
+        text: "Image is required",
+        status: "error",
+      },
+      error: true,
+      size: "md",
     },
   },
   {
@@ -260,7 +267,7 @@ export const stories: ComponentPropType[] = [
           name: GET_IMAGES,
           variables: {
             page: 1,
-            count: 9,
+            count: 7,
           },
         },
         upload: {
