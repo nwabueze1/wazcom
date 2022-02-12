@@ -18,7 +18,7 @@ export const NavBar = () => {
 
         <div className={classes.listItems}>
           <li>
-            <Link to="/gallery" className={classes.listItems}>
+            <Link to="/template5/gallery" className={classes.listItems}>
               Gallery
             </Link>
           </li>
