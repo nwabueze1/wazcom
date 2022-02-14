@@ -11,9 +11,21 @@ export const useMenuStyles = makeStyles<Theme>((theme: Theme) => ({
     maxWidth: theme.include.styles.template2.maxWidth,
     margin: "auto",
     paddingTop: theme.spacing(10),
+    [theme.breakpoints.down("md")]: {
+      width: "95%",
+    },
   },
   line: {
-    border: `0.2px solid ${theme.design.colors.grey}`
+    borderBottom: `0.2px solid ${theme.design.colors.fauxGrey}`,
+  },
+  tab: {
+    fontSize: theme.typography.fontSize + 28,
+    [theme.breakpoints.down("md")]: {
+      fontSize: theme.typography.fontSize + 16,
+    },
+    [theme.breakpoints.down("sm")]: {
+      fontSize: theme.typography.fontSize + 6,
+    },
   },
   tabs: {
     maxWidth: theme.include.styles.template2.maxWidth,
@@ -22,8 +34,14 @@ export const useMenuStyles = makeStyles<Theme>((theme: Theme) => ({
     alignContent: "center",
     gap: theme.spacing(12),
     paddingTop: theme.spacing(10),
-    fontSize: theme.typography.fontSize + 28,
     cursor: "pointer",
+    [theme.breakpoints.down("md")]: {
+      width: "95%",
+    },
+    [theme.breakpoints.down("sm")]: {
+      gap: theme.spacing(7),
+      paddingTop: theme.spacing(6),
+    },
   },
   dishes: {
     display: "flex",
@@ -32,6 +50,6 @@ export const useMenuStyles = makeStyles<Theme>((theme: Theme) => ({
     paddingBottom: theme.spacing(10),
   },
   active: {
-    borderBottom: `2px solid ${theme.design.colors.darkOrange}`
-  }
+    borderBottom: `2px solid ${theme.design.colors.darkOrange}`,
+  },
 }));

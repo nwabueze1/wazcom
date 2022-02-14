@@ -8,7 +8,10 @@ export const OurChefs = () => {
 
   const displayOurChefs = () =>
     ourChefsData.map((chef, index) => {
-      return  <OurChefCard name={chef.name} details={chef.details} key={index} />;
+      return  <OurChefCard name={chef.name} details={chef.details} key={index} img={{
+        src: chef.img.src,
+        alt: undefined
+      }} />;
     });
 
   return (

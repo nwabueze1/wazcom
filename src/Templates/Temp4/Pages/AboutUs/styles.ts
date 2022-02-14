@@ -16,6 +16,5 @@ export const useAboutUsStyles = makeStyles<Theme>((theme: Theme) => ({
   },
   chefs: {
     display: "flex",
-    // justifyContent: "space-between"
   }
 }));

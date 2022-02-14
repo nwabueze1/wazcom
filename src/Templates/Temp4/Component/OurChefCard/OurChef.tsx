@@ -1,8 +1,8 @@
 import { useOurChefCardStyles } from "./styles";
-import {FC} from "react"
+import { FC } from "react";
 import { OurChefsTypes } from "./types";
 
-export const OurChefCard: FC<OurChefsTypes> = ({name, details}) => {
+export const OurChefCard: FC<OurChefsTypes> = ({ name, details, img }) => {
   const classes = useOurChefCardStyles();
 
   return (
@@ -10,15 +10,12 @@ export const OurChefCard: FC<OurChefsTypes> = ({name, details}) => {
       <div className={classes.container}>
         <div className={classes.imgContainer}>
           <img
-            src="https://s3.eu-west-2.amazonaws.com/medusa.com/templates/unsplash_fdlZBWIP0aM.png"
-            alt=""
+            src={img.src}
+            alt={img.alt}
           />
         </div>
-        <p className={classes.chefName}>Wade Warren</p>
-        <p className={classes.chefDetails}>
-          Amet minim mollit non deserunt ullamco est sit aliqua dolor do amet
-          sint. +
-        </p>
+        <p className={classes.chefName}>{name}</p>
+        <p className={classes.chefDetails}>{details}</p>
       </div>
     </div>
   );
