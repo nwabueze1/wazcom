@@ -66,12 +66,15 @@ export const theme: any = {
       to: { width: "100%" },
     },
     styles: {
-      maxWidth: 1294,
-      tabMaxWidth: 700,
-      font: {
-        garamond: "Cormorant Garamond, san-serif, ",
-        lato: "lato",
-        cookie: "Cookie",
+      template2: {
+        maxWidth: 1294,
+        maxWidthMd: 700,
+        font: {
+          garamond: "Cormorant Garamond, san-serif",
+        },
+      },
+      template4: {
+        font: "Nunito",
       },
     },
     anim: {
@@ -206,9 +209,10 @@ export const theme: any = {
       yellowsea: "#F5A53C",
       grayline: "#AAAAAA",
       terracotta: "#CA684D",
-      grayshade: "#FDFDFD",
-      grimmyGrey:'#777777',
-      mediumGrey:'#999999'
+      darkOrange: "#FF9100",
+      richBlack: "#11181C",
+      darkShadow: "rgba(0, 0, 0, 0.1)",
+      ash: "rgba(34, 34, 34, 0.04)",
     },
   },
   overrides: {

@@ -16,62 +16,6 @@ import { SidebarListItem } from "./SidebarListItem/SidebarListItem";
 import { drawerWidth, useBrowserStyles } from "./styles";
 import { BrowserProps } from "./types";
 
-const sections = [
-  {
-    label: "Base",
-    components: [
-      {
-        id: "accordion",
-        label: "Accordion",
-      },
-      {
-        id: "breadcrumb",
-        label: "Breadcrumb",
-      },
-      {
-        id: "button",
-        label: "Button",
-      },
-      {
-        id: "accordion",
-        label: "Accordion",
-      },
-      {
-        id: "breadcrumb",
-        label: "Breadcrumb",
-      },
-      {
-        id: "button",
-        label: "Button",
-      },
-      {
-        id: "accordion",
-        label: "Accordion",
-      },
-      {
-        id: "breadcrumb",
-        label: "Breadcrumb",
-      },
-      {
-        id: "button",
-        label: "Button",
-      },
-      {
-        id: "accordion",
-        label: "Accordion",
-      },
-      {
-        id: "breadcrumb",
-        label: "Breadcrumb",
-      },
-      {
-        id: "button",
-        label: "Button",
-      },
-    ],
-  },
-];
-
 export const Browser: FC<BrowserProps> = () => {
   const classes = useBrowserStyles();
   const { pathname } = useLocation();
@@ -82,6 +26,16 @@ export const Browser: FC<BrowserProps> = () => {
   const handleClick = (route: string) => {
     push(route);
   };
+
+  const sections = [
+    {
+      label: "Base",
+      components: stories.map(({ name }) => ({
+        id: name.toLowerCase(),
+        label: startCase(name),
+      })),
+    },
+  ];
 
   const handleChange = (event: ChangeEvent<HTMLInputElement>) => {
     setSearch(event?.target?.value);
@@ -134,9 +88,20 @@ export const Browser: FC<BrowserProps> = () => {
         className={classes.main}
       >
         {stories
-          .filter(({ name }) => name.includes(search))
+          .sort(({ name: aName }, { name: bName }) =>
+            aName.toLowerCase() < bName.toLowerCase()
+              ? -1
+              : aName.toLowerCase() > bName.toLowerCase()
+              ? 1
+              : 0,
+          )
+          .filter(({ name }) => name.toLowerCase().includes(search))
           .map(({ name, component: Comp, props }, index) => (
-            <div key={index} className={classes.componentWrapper}>
+            <div
+              key={index}
+              className={classes.componentWrapper}
+              id={name.toLowerCase()}
+            >
               <Typography variant="h3">{startCase(name)}</Typography>
               <div className={classes.well}>
                 {React.cloneElement(<Comp />, props)}

@@ -1,18 +1,23 @@
 import { Button as MuiButton } from "@mui/material";
 import { ButtonProps } from "./types";
 import { useButtonStyles } from "./styles";
+import clx from "classnames";
 
-export const Button = ({ ...props }: ButtonProps) => {
+export const Button = ({
+  className,
+  variant = "contained",
+  ...props
+}: ButtonProps) => {
   const classes = useButtonStyles();
 
   return (
     <MuiButton
       classes={{
-        root: classes.root,
+        root: clx(classes.root, className),
         sizeSmall: classes.sizeSmall,
         sizeLarge: classes.sizeLarge,
       }}
-      variant="contained"
+      variant={variant}
       {...props}
     />
   );

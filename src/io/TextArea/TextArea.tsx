@@ -19,7 +19,9 @@ export const TextArea: FC<TextAreaProps> = ({
         name={name}
         style={{ width: "100%" }}
         value={value}
-        onChange={(e)=>onChange?.({name: name as string, value:e.target.value})}
+        onChange={(e) =>
+          onChange?.({ name: name as string, value: e.target.value })
+        }
       />
     </div>
   );

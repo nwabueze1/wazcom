@@ -49,8 +49,8 @@ export const useNavStyles = makeStyles<Theme>((theme: Theme) => ({
     display: "flex",
     justifyContent: "center",
     alignItems: "center",
-    width: "100%",
-    background: "#C58575",
+    background: theme.design.colors.white,
+    maxWidth: theme.include.styles.template2.maxWidth,
     margin: "0 auto",
     [theme.breakpoints.down("md")]: {
       margin: "0 auto",
