@@ -9,6 +9,7 @@ export const GqlComboBox: FC<GqlComboBoxProps> = memo(
   ({
     value: initialValue,
     config: { client, key, labelKey, valueKey, name: query },
+    postFetchHook,
     addOption,
     onChange,
     variables,
@@ -42,6 +43,7 @@ export const GqlComboBox: FC<GqlComboBoxProps> = memo(
             label: option[labelKey],
             value: option[valueKey],
           }));
+          postFetchHook?.(formattedOptions);
           setOptions(formattedOptions);
         }
         setFetching(false);
@@ -77,6 +79,7 @@ export const GqlComboBox: FC<GqlComboBoxProps> = memo(
           const newOptions = [...options];
           newOptions.push({ label, value });
           setOptions(newOptions);
+          postFetchHook?.(newOptions);
           return { label, value };
         }
         return;

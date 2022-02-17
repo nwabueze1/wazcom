@@ -1,10 +1,9 @@
-import React from "react";
-
 type ChangeFunctionType = (value: number) => void;
 
 export const useHandleChangePage =
   (changePage?: ChangeFunctionType) =>
-  (event: React.MouseEvent<HTMLButtonElement> | null, newPage: number) => {
+    (event: React.MouseEvent<HTMLButtonElement> | null, newPage: number) => {
+    console.log(event);
     changePage?.(newPage);
   };
 

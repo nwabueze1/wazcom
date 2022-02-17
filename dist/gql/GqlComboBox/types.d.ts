@@ -11,6 +11,9 @@ export declare type GqlComboBoxProps = CommonProps & {
     };
     label?: string;
     value?: string;
+    postFetchHook?: (values: {
+        [key: string]: string;
+    }[]) => void;
     addOption?: (value: string) => Promise<{
         label?: string;
         value?: string;

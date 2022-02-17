@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import { useEffect, useState } from "react";
 import { TableProps } from "./types";
 import { useTableStyles } from "./styles";
 import {
