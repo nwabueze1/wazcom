@@ -16,8 +16,8 @@ import {
 } from "@mui/material";
 import FilterAltIcon from "@mui/icons-material/FilterAlt";
 import _, { startCase } from "lodash";
-import { Button } from "core";
-import { TextInput } from "io";
+import { Button } from "../Button";
+import { TextInput } from "../../io";
 import {
   useGetCurrentPage,
   useGetRowsPerPage,

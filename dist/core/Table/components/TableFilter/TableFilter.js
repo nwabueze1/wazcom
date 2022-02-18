@@ -12,8 +12,8 @@ var __assign = (this && this.__assign) || function () {
 import { jsx as _jsx, jsxs as _jsxs, Fragment as _Fragment } from "react/jsx-runtime";
 import { Checkbox } from "@mui/material";
 import clx from "classnames";
-import { Accordion } from "core";
-import { TextInput } from "io";
+import { Accordion } from "../../../Accordion";
+import { TextInput } from "../../../../io";
 import { useFilterStyles } from "./styles";
 export var TableFilter = function (_a) {
     var _b, _c;

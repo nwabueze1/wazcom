@@ -26,8 +26,8 @@ import { useTableStyles } from "./styles";
 import { Table as MuiTable, TableBody, TableCell, TableContainer, TableHead, TableRow, Paper, Checkbox, TableFooter, TablePagination, Box, } from "@mui/material";
 import FilterAltIcon from "@mui/icons-material/FilterAlt";
 import _, { startCase } from "lodash";
-import { Button } from "core";
-import { TextInput } from "io";
+import { Button } from "../Button";
+import { TextInput } from "../../io";
 import { useGetCurrentPage, useGetRowsPerPage, useHandleChangePage, useHandleChangeRowsPerPage, useHandleControlsChange, useUpdateTableValue, } from "./helpers";
 import { TableFilter } from "./components";
 export var Table = function (_a) {
