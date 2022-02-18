@@ -28,7 +28,7 @@ import clx from "classnames";
 import { useImageSelectorStyles } from "./styles";
 import { GqlMediaLibrary } from "../GqlMediaLibrary";
 import { getSizeVariants } from "../../helpers/size";
-import { getFeedbackVariant } from "helpers/io";
+import { getFeedbackVariant } from "../../helpers/io";
 export var GqlMediaLibrarySelector = function (_a) {
     var _b = _a.displayLibrary, displayLibrary = _b === void 0 ? false : _b, _c = _a.variant, variant = _c === void 0 ? "circle" : _c, _d = _a.size, size = _d === void 0 ? "sm" : _d, verbose = _a.verbose, width = _a.width, height = _a.height, className = _a.className, onChange = _a.onChange, name = _a.name, label = _a.label, src = _a.src, feedback = _a.feedback, error = _a.error, props = __rest(_a, ["displayLibrary", "variant", "size", "verbose", "width", "height", "className", "onChange", "name", "label", "src", "feedback", "error"]);
     var classes = useImageSelectorStyles();

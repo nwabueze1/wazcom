@@ -6,7 +6,7 @@ import { useImageSelectorStyles } from "./styles";
 import { GqlMediaLibrarySelectorProps } from "./types";
 import { GqlMediaLibrary } from "../GqlMediaLibrary";
 import { getSizeVariants } from "../../helpers/size";
-import { getFeedbackVariant } from "helpers/io";
+import { getFeedbackVariant } from "../../helpers/io";
 
 export const GqlMediaLibrarySelector: FC<GqlMediaLibrarySelectorProps> = ({
   displayLibrary = false,
