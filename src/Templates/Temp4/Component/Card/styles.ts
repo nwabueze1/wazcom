@@ -4,9 +4,15 @@ import { Theme } from "@mui/material/styles";
 export const useCardStyles = makeStyles<Theme>((theme: Theme) => ({
   root: {
     height: "100%",
-    width: "30%",
+    width: "357px",
     fontFamily: theme.include.styles.template4.font,
     position: "relative",
+    [theme.breakpoints.down("md")]: {
+      width: "335px",
+    },
+    [theme.breakpoints.down("sm")]: {
+      width: "100%",
+    },
   },
   imageContainer: {
     height: "475px",
@@ -15,6 +21,9 @@ export const useCardStyles = makeStyles<Theme>((theme: Theme) => ({
     borderRadius: theme.spacing(2, 2, 0, 0),
     display: "flex",
     justifyContent: "center",
+    [theme.breakpoints.down("md")]: {
+      height: "332px",
+    },
   },
   mealName: {
     fontWeight: theme.typography.fontWeightBold,

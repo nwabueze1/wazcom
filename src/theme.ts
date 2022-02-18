@@ -73,9 +73,9 @@ export const theme: any = {
           garamond: "Cormorant Garamond, san-serif",
         },
       },
-      template4:{
+      template4: {
         font: "Nunito",
-      }
+      },
     },
     anim: {
       zIndex: 1,
@@ -211,7 +211,8 @@ export const theme: any = {
       terracotta: "#CA684D",
       darkOrange: "#FF9100",
       richBlack: "#11181C",
-      darkShadow: "rgba(0, 0, 0, 0.1)"
+      darkShadow: "rgba(0, 0, 0, 0.1)",
+      ash: "rgba(34, 34, 34, 0.04)",
     },
   },
   overrides: {

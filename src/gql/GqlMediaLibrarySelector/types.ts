@@ -10,4 +10,10 @@ export type GqlMediaLibrarySelectorProps = CommonProps &
     size?: "sm" | "md" | "lg" | "xl";
     width?: string;
     height?: string;
+    src?: string;
+    feedback?: {
+      text: string;
+      status?: "success" | "neutral" | "error";
+    };
+    error?: boolean;
   };

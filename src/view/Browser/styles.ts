@@ -44,6 +44,8 @@ export const useBrowserStyles = makeStyles((theme: Theme) => ({
   },
   main: {
     marginTop: theme.spacing(8),
+    width: "calc(100vw - 244px)",
+    overflow: "hidden",
   },
   componentWrapper: {
     marginBottom: theme.spacing(5),
@@ -58,7 +60,7 @@ export const useBrowserStyles = makeStyles((theme: Theme) => ({
     display: "flex",
     justifyContent: "center",
     alignItems: "center",
-    color: theme.design.colors.white,
+    color: theme.design.colors.black,
     fontWeight: 500,
   },
   title: {},

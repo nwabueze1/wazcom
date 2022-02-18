@@ -1,11 +1,12 @@
 import { FC, useState } from "react";
-import { Modal, Fade, Backdrop, InputLabel } from "@mui/material";
+import { Modal, Fade, Backdrop, InputLabel, Typography } from "@mui/material";
 import CameraAltIcon from "@mui/icons-material/CameraAlt";
 import clx from "classnames";
 import { useImageSelectorStyles } from "./styles";
 import { GqlMediaLibrarySelectorProps } from "./types";
 import { GqlMediaLibrary } from "../GqlMediaLibrary";
 import { getSizeVariants } from "../../helpers/size";
+import { getFeedbackVariant } from "../../helpers/io";
 
 export const GqlMediaLibrarySelector: FC<GqlMediaLibrarySelectorProps> = ({
   displayLibrary = false,
@@ -18,12 +19,15 @@ export const GqlMediaLibrarySelector: FC<GqlMediaLibrarySelectorProps> = ({
   onChange,
   name,
   label,
+  src,
+  feedback,
+  error,
   ...props
 }) => {
   const classes = useImageSelectorStyles();
   const [showIcon, setShowIcon] = useState<boolean>(false);
 
-  const [placeholder, setPlaceholder] = useState<string>();
+  const [placeholder, setPlaceholder] = useState<string>(src || "");
   const [open, setOpen] = useState(false);
 
   const handleOpen = () => {
@@ -55,6 +59,7 @@ export const GqlMediaLibrarySelector: FC<GqlMediaLibrarySelectorProps> = ({
           className,
           variant === "circle" && classes.circle,
           variants[0],
+          error && classes.error,
         )}
         style={{ backgroundImage: `url(${placeholder})`, width, height }}
         onMouseEnter={() => setShowIcon(true)}
@@ -88,9 +93,22 @@ export const GqlMediaLibrarySelector: FC<GqlMediaLibrarySelectorProps> = ({
           </Fade>
         </Modal>
         <Fade in={showIcon}>
-          <CameraAltIcon className={classes.icon} onClick={handleOpen} />
+          <CameraAltIcon
+            className={clx(classes.icon, variants[1])}
+            onClick={handleOpen}
+          />
         </Fade>
       </div>
+      {feedback && (
+        <Typography
+          className={clx(
+            classes.feedback,
+            getFeedbackVariant(classes, feedback),
+          )}
+        >
+          {feedback.text}
+        </Typography>
+      )}
     </div>
   );
 };

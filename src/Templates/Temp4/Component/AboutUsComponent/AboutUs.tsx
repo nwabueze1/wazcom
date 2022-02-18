@@ -1,10 +1,10 @@
 import { Link } from "react-router-dom";
-import {FC} from "react"
+import { FC } from "react";
 import { useAboutUsStyles } from "./styles";
 import { AboutProps } from "./types";
 import { ArrowForward } from "@mui/icons-material";
 
-export const AboutUsComp: FC<AboutProps> = ({aboutData}) => {
+export const AboutUsComp: FC<AboutProps> = ({ aboutData }) => {
   const classes = useAboutUsStyles();
   return (
     <div className={classes.root}>
@@ -12,11 +12,9 @@ export const AboutUsComp: FC<AboutProps> = ({aboutData}) => {
         <div className={classes.leftContainer}>
           <div>
             <p className={classes.header}>About Us</p>
-            <p className={classes.text}>
-             {aboutData.text}
-            </p>
+            <p className={classes.text}>{aboutData.text}</p>
           </div>
-          <Link to="/" className={classes.link}>
+          <Link to="/template4/about-us" className={classes.link}>
             <p>Read More</p>
             <ArrowForward />
           </Link>

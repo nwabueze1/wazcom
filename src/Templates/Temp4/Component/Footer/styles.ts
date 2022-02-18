@@ -16,5 +16,11 @@ export const useFooterStyles = makeStyles<Theme>((theme: Theme) => ({
     fontSize: theme.typography.fontSize + 12,
     textAlign: "center",
     padding: theme.spacing(3, 0),
+    [theme.breakpoints.down("md")]: {
+      fontSize: theme.typography.fontSize + 8,
+    },
+    [theme.breakpoints.down("sm")]: {
+      fontSize: theme.typography.fontSize + 2,
+    },
   },
 }));

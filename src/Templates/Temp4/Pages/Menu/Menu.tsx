@@ -8,7 +8,7 @@ import { Card } from "Templates/Temp4/Component/Card";
 
 export const Menu: FC<MenuProps> = ({ categoriesTabs, dishesData }) => {
   const classes = useMenuStyles();
-  const [activeCategory, setActiveCategory] = useState<string>("all");
+  const [activeCategory, setActiveCategory] = useState<string>("All");
 
 
   const displayTabs = useCallback(
@@ -26,7 +26,7 @@ export const Menu: FC<MenuProps> = ({ categoriesTabs, dishesData }) => {
           {tab}
         </p>
       )),
-    [],
+    [activeCategory],
   );
 
   const displayDishes = () =>

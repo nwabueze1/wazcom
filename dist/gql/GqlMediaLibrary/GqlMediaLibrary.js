@@ -79,7 +79,7 @@ export var GqlMediaLibrary = function (_a) {
     var _d = useState([]), images = _d[0], setImages = _d[1];
     var _e = useState({ currentPage: 1, lastPage: 1 }), paginatorInfo = _e[0], setPaginatorInfo = _e[1];
     var _f = useState(true), loading = _f[0], setLoading = _f[1];
-    var _g = useState(true), imageLoading = _g[0], setImageLoading = _g[1];
+    var _g = useState(false), imageLoading = _g[0], setImageLoading = _g[1];
     var listInnerRef = useRef(null);
     var _h = useState(0), mediaIndex = _h[0], setMediaIndex = _h[1];
     var fetchData = function (variables) { return __awaiter(void 0, void 0, void 0, function () {
@@ -116,7 +116,7 @@ export var GqlMediaLibrary = function (_a) {
             var currentPage = paginatorInfo.currentPage, lastPage = paginatorInfo.lastPage;
             if (currentPage !== lastPage) {
                 setImageLoading(true);
-                fetchData({ page: currentPage + 1, count: 9 }).then(function (res) {
+                fetchData({ page: currentPage + 1, count: queryVariables.count }).then(function (res) {
                     setImages(function (images) { return __spreadArray(__spreadArray([], images, true), res.data.images.images, true); });
                     setImageLoading(false);
                     setPaginatorInfo(res.data.images.paginatorInfo);
@@ -139,7 +139,7 @@ export var GqlMediaLibrary = function (_a) {
     var onScroll = useCallback(function () {
         if (listInnerRef.current) {
             var _a = listInnerRef.current, scrollTop = _a.scrollTop, scrollHeight = _a.scrollHeight, clientHeight = _a.clientHeight;
-            if (scrollTop + clientHeight === scrollHeight) {
+            if (scrollTop + clientHeight === scrollHeight && scrollHeight > 550) {
                 setMediaIndex(Math.random() * 5000);
             }
         }

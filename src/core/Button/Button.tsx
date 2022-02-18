@@ -3,7 +3,11 @@ import { ButtonProps } from "./types";
 import { useButtonStyles } from "./styles";
 import clx from "classnames";
 
-export const Button = ({ className, ...props }: ButtonProps) => {
+export const Button = ({
+  className,
+  variant = "contained",
+  ...props
+}: ButtonProps) => {
   const classes = useButtonStyles();
 
   return (
@@ -13,7 +17,7 @@ export const Button = ({ className, ...props }: ButtonProps) => {
         sizeSmall: classes.sizeSmall,
         sizeLarge: classes.sizeLarge,
       }}
-      variant="contained"
+      variant={variant}
       {...props}
     />
   );
