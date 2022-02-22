@@ -72,7 +72,7 @@ import { useGqlComboBoxStyles } from "./styles";
 import { ComboBoxInput } from "../../io";
 import { get } from "lodash";
 export var GqlComboBox = memo(function (_a) {
-    var initialValue = _a.value, _b = _a.config, client = _b.client, key = _b.key, labelKey = _b.labelKey, valueKey = _b.valueKey, query = _b.name, addOption = _a.addOption, onChange = _a.onChange, variables = _a.variables, props = __rest(_a, ["value", "config", "addOption", "onChange", "variables"]);
+    var initialValue = _a.value, _b = _a.config, client = _b.client, key = _b.key, labelKey = _b.labelKey, valueKey = _b.valueKey, query = _b.name, postFetchHook = _a.postFetchHook, addOption = _a.addOption, onChange = _a.onChange, variables = _a.variables, props = __rest(_a, ["value", "config", "postFetchHook", "addOption", "onChange", "variables"]);
     var classes = useGqlComboBoxStyles();
     var _c = useState([]), options = _c[0], setOptions = _c[1];
     var _d = useState(true), fetching = _d[0], setFetching = _d[1];
@@ -106,6 +106,7 @@ export var GqlComboBox = memo(function (_a) {
                                 label: option[labelKey],
                                 value: option[valueKey],
                             }); });
+                            postFetchHook === null || postFetchHook === void 0 ? void 0 : postFetchHook(formattedOptions);
                             setOptions(formattedOptions);
                         }
                         setFetching(false);
@@ -121,11 +122,15 @@ export var GqlComboBox = memo(function (_a) {
         return __generator(this, function (_b) {
             switch (_b.label) {
                 case 0:
-                    label = (_a = options === null || options === void 0 ? void 0 : options.find(function (option) { return option.value.toLowerCase() === selectedValue.toLowerCase(); })) === null || _a === void 0 ? void 0 : _a.label;
+                    label = (_a = options === null || options === void 0 ? void 0 : options.find(function (option) {
+                        return option.value.toLowerCase() === selectedValue.toLowerCase();
+                    })) === null || _a === void 0 ? void 0 : _a.label;
                     value = selectedValue;
                     if (!!label) return [3 /*break*/, 2];
                     setFetching(true);
-                    return [4 /*yield*/, handleAdd(selectedValue.startsWith('Add ') ? selectedValue.split('Add ')[1] : selectedValue)];
+                    return [4 /*yield*/, handleAdd(selectedValue.startsWith("Add ")
+                            ? selectedValue.split("Add ")[1]
+                            : selectedValue)];
                 case 1:
                     response = _b.sent();
                     label = response === null || response === void 0 ? void 0 : response.label;
@@ -152,6 +157,7 @@ export var GqlComboBox = memo(function (_a) {
                         newOptions = __spreadArray([], options, true);
                         newOptions.push({ label: label, value: value_1 });
                         setOptions(newOptions);
+                        postFetchHook === null || postFetchHook === void 0 ? void 0 : postFetchHook(newOptions);
                         return [2 /*return*/, { label: label, value: value_1 }];
                     }
                     return [2 /*return*/];

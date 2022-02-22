@@ -140,16 +140,25 @@ export const ourChefsData = [
     name: "Wade Warren",
     details:
       "Amet minim mollit non deserunt ullamco est sit aliqua dolor do amet sint.",
+    img: {
+      src: "https://s3.eu-west-2.amazonaws.com/medusa.com/templates/unsplash_fdlZBWIP0aM.png",
+    },
   },
   {
     name: "Wade Warren",
     details:
       "Amet minim mollit non deserunt ullamco est sit aliqua dolor do amet sint.",
+    img: {
+      src: "https://s3.eu-west-2.amazonaws.com/medusa.com/templates/unsplash_fdlZBWIP0aM.png",
+    },
   },
   {
     name: "Wade Warren",
     details:
       "Amet minim mollit non deserunt ullamco est sit aliqua dolor do amet sint.",
+    img: {
+      src: "https://s3.eu-west-2.amazonaws.com/medusa.com/templates/unsplash_fdlZBWIP0aM.png",
+    },
   },
 ];
 
@@ -174,6 +183,6 @@ export const reviewsData = [
 export const aboutData = {
   text: "Amet minim mollit non deserunt ullamco est sit aliqua dolor doamet sint. Velit officia consequat duis enim velit mollit. Amet minim mollit non deserunt ullamco est sit aliqua dolor do amet sint.",
   img: {
-    src: "https://s3.eu-west-2.amazonaws.com/medusa.com/templates/unsplash_MtqG1lWcUw0.pn"
-  }
+    src: "https://s3.eu-west-2.amazonaws.com/medusa.com/templates/unsplash_MtqG1lWcUw0.png",
+  },
 };

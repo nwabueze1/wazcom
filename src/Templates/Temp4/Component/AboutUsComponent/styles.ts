@@ -13,31 +13,53 @@ export const useAboutUsStyles = makeStyles<Theme>((theme: Theme) => ({
     margin: "auto",
     display: "flex",
     justifyContent: "space-between",
-    padding: theme.spacing(5, 0)
+    padding: theme.spacing(5, 0),
+    [theme.breakpoints.down("md")]: {
+      width: "90%",
+      flexDirection: "column-reverse",
+    },
   },
   rightContainer: {
     width: "45%",
+    [theme.breakpoints.down("md")]: {
+      width: "100%",
+    },
   },
   leftContainer: {
     width: "45%",
-    padding: theme.spacing(2, 0)
+    padding: theme.spacing(2, 0),
+    [theme.breakpoints.down("md")]: {
+      width: "100%",
+    },
   },
   img: {
     width: "100%",
-    height: "100%"
+    height: "100%",
   },
   imageContainer: {
-      height: "444px",
-      borderRadius: theme.spacing(2)
+    height: "444px",
+    borderRadius: theme.spacing(2),
+    [theme.breakpoints.down("md")]: {
+      height: "360px",
+    },
+    [theme.breakpoints.down("md")]: {
+      height: "200px",
+    },
   },
   link: {
     textDecoration: "none",
     display: "flex",
     color: theme.design.colors.darkOrange,
-    padding: theme.spacing(5, 0)
+    padding: theme.spacing(5, 0),
   },
   header: {
-      fontWeight: theme.typography.fontWeightBold,
-      fontSize: theme.typography.fontSize * 3
-  }
+    fontWeight: theme.typography.fontWeightBold,
+    fontSize: theme.typography.fontSize * 3,
+    [theme.breakpoints.down("md")]: {
+      fontSize: theme.typography.fontSize + 16,
+    },
+    [theme.breakpoints.down("sm")]: {
+      fontSize: theme.typography.fontSize + 4,
+    },
+  },
 }));

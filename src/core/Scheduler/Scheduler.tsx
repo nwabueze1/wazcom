@@ -2,7 +2,6 @@ import React, { useState, useCallback, useEffect } from "react";
 import { Table } from "../Table";
 import { useSchedulerStyles } from "./styles";
 import { InputLabel } from "@mui/material";
-import AddIcon from "@mui/icons-material/Add";
 import { SchedulerProps } from "./types";
 import { tableHeaders } from "./data";
 import { useScheduleData } from "./hooks";

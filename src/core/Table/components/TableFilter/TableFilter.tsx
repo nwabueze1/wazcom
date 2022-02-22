@@ -1,8 +1,8 @@
 import { Checkbox } from "@mui/material";
 import clx from "classnames";
-import { Accordion } from "core";
-import { TextInput } from "io";
 import { useCallback, useEffect, useState } from "react";
+import { Accordion } from "../../../Accordion";
+import { TextInput } from "../../../../io";
 import { useFilterStyles } from "./styles";
 import { TableFilterProps } from "./types";
 

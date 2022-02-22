@@ -17,7 +17,12 @@ export const useNavStyles = makeStyles<Theme>((theme: Theme) => ({
     justifyContent: "space-between",
     alignItems: "center",
     [theme.breakpoints.down("md")]: {
-      width: "95%",
+      width: "90%",
+      padding: theme.spacing(1.5, 0),
+    },
+    [theme.breakpoints.down("sm")]: {
+      width: "90%",
+      padding: theme.spacing( 0),
     },
   },
   link: {
@@ -33,6 +38,9 @@ export const useNavStyles = makeStyles<Theme>((theme: Theme) => ({
     width: "40%",
     display: "flex",
     justifyContent: "space-between",
+    [theme.breakpoints.down("sm")]: {
+      display: "none",
+    },
   },
   navlogo: {
     lineHeight: "49px",
@@ -44,13 +52,48 @@ export const useNavStyles = makeStyles<Theme>((theme: Theme) => ({
       fontSize: theme.typography.fontSize + 3
     },
   },
+  menu: {
+    color: theme.design.colors.white,
+    display: "none",
+    [theme.breakpoints.down("sm")]: {
+      display: "block",
+    },
+  },
+  menuIcon: {
+    color: theme.design.colors.white,
+  },
   icon: {
     width: "10%",
     display: "flex",
     justifyContent: "space-between",
     color: theme.design.colors.white,
+    [theme.breakpoints.down("sm")]: {
+      display: "none",
+    },
   },
   navActive: {
     color: theme.design.colors.darkOrange,
+  },
+  mobileNav: {
+    height: "100vh",
+    width: "100vw",
+    position: "absolute",
+    justifyContent: "space-between",
+    background: theme.design.colors.black,
+    zIndex: 5,
+    right: 0,
+    transition: "right 0.5s ease-in",
+  },
+  mobileContainer: {
+    height: "32vh",
+    display: "flex",
+    right: "-100vw",
+    margin: theme.spacing(5, 0, 0, 3),
+    justifyContent: "space-between",
+    flexDirection: "column",
+  },
+  removeSidebar: {
+    right: "-100vw",
+    position: "fixed"
   },
 }));

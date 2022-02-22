@@ -1,5 +1,4 @@
-import React, { useEffect, useState } from "react";
-import clx from "classnames";
+import { useEffect, useState } from "react";
 import { TableProps } from "./types";
 import { useTableStyles } from "./styles";
 import {
@@ -17,7 +16,7 @@ import {
 } from "@mui/material";
 import FilterAltIcon from "@mui/icons-material/FilterAlt";
 import _ from "lodash";
-import { Button } from "../../core";
+import { Button } from "../Button";
 import { TextInput } from "../../io";
 import {
   generateNumbersBetweenRange,
@@ -64,7 +63,7 @@ export const Table = ({
 
   const handleSelectAllRows = () =>
     setSelectedRows((rows) => {
-      if (rows.length === initialTableValue.length) {
+      if (rows.length === tableValue.length) {
         return [];
       }
       return generateNumbersBetweenRange(initialTableValue.length);
@@ -144,7 +143,10 @@ export const Table = ({
             <TableRow>
               {hasCheckBox && (
                 <TableCell padding="checkbox">
-                  <Checkbox onChange={handleSelectAllRows} />
+                  <Checkbox
+                    onChange={handleSelectAllRows}
+                    checked={selectedRows.length === tableValue.length}
+                  />
                 </TableCell>
               )}
               {tableHeaders.map(({ name, label }) => {
