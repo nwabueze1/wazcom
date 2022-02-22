@@ -11,6 +11,7 @@ export const useFilterStyles = makeStyles((theme: Theme) => ({
     top: 0,
     right: "-100%",
     transition: "right 0.6s ease-in-out",
+    overflowY: "scroll",
   },
   show: {
     right: 0,

@@ -7,6 +7,9 @@ export const useTableStyles = makeStyles((theme: Theme) => ({
   tableRoot: {
     position: "relative",
   },
+  filterActive: {
+    overflow: "hidden",
+  },
   tableHead: {
     background: theme.design.colors.gray90,
   },
