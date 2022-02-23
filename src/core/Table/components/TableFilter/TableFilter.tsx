@@ -78,7 +78,7 @@ export const TableFilter: React.FC<TableFilterProps> = ({
       filterFields.map(({ name, label }) => (
         <Accordion title={label} key={name}>
           {getUniqueValues(label, values).map((item, key) => (
-            <div style={{ display: "flex", alignItems: "center" }} key={key}>
+            <div className={classes.filterItem} key={key}>
               <Checkbox
                 checked={!getCheckedState(label, item)}
                 onChange={() => handleSetFilter(label, item)}

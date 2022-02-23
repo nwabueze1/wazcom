@@ -31,4 +31,8 @@ export const useFilterStyles = makeStyles((theme: Theme) => ({
     visibility: "visible",
     opacity: 0.25,
   },
+  filterItem: {
+    display: "flex",
+    alignItems: "center",
+  },
 }));
