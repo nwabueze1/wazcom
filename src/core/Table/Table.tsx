@@ -173,7 +173,7 @@ export const Table = ({
                   {tableHeaders.map(({ name }) => {
                     return (
                       <TableCell key={name} className={classes.tableCell}>
-                        {row?.[name]?.toString()}
+                        {row?.[name]}
                       </TableCell>
                     );
                   })}
