@@ -32,3 +32,5 @@ type ControlsDataProp = {
   export?: { [key: string]: string };
   print?: { [key: string]: string };
 };
+
+export type Filter = { field: string; values: string[] };
