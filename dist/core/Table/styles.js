@@ -4,6 +4,9 @@ export var useTableStyles = makeStyles(function (theme) { return ({
     tableRoot: {
         position: "relative",
     },
+    filterActive: {
+        overflow: "hidden",
+    },
     tableHead: {
         background: theme.design.colors.gray90,
     },

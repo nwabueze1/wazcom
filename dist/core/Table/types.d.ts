@@ -37,4 +37,8 @@ declare type ControlsDataProp = {
         [key: string]: string;
     };
 };
+export declare type Filter = {
+    field: string;
+    values: string[];
+};
 export {};
