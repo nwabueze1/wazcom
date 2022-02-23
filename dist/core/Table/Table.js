@@ -93,9 +93,8 @@ export var Table = function (_a) {
                                         return (_jsx(TableCell, __assign({ className: classes.tableHeadCell }, { children: label }), name));
                                     })] }, void 0) }), void 0), _jsx(TableBody, { children: tableValue === null || tableValue === void 0 ? void 0 : tableValue.map(function (row, index) {
                                 return (_jsxs(TableRow, { children: [hasCheckBox && (_jsx(TableCell, __assign({ padding: "checkbox" }, { children: _jsx(Checkbox, { checked: selectedRows.includes(index), onChange: function () { return handleSelectRow(index); } }, void 0) }), void 0)), tableHeaders.map(function (_a) {
-                                            var _b;
                                             var name = _a.name;
-                                            return (_jsx(TableCell, __assign({ className: classes.tableCell }, { children: (_b = row === null || row === void 0 ? void 0 : row[name]) === null || _b === void 0 ? void 0 : _b.toString() }), name));
+                                            return (_jsx(TableCell, __assign({ className: classes.tableCell }, { children: row === null || row === void 0 ? void 0 : row[name] }), name));
                                         })] }, index));
                             }) }, void 0), pagination && (_jsx(TableFooter, { children: _jsx(TableRow, { children: _jsx(TablePagination, { rowsPerPageOptions: [7, 10, 20], onRowsPerPageChange: handleChangeRowsPerPage, count: paginatorInfo === null || paginatorInfo === void 0 ? void 0 : paginatorInfo.total, rowsPerPage: Number(getRowsPerPage), onPageChange: handleChangePage, showFirstButton: true, showLastButton: true, page: getCurrentPage, SelectProps: {
                                         inputProps: { "aria-label": "rows per page" },
