@@ -1,5 +1,5 @@
 import makeStyles from "@mui/styles/makeStyles";
-export var useEmptyStateStyles = makeStyles(function () { return ({
+export var useEmptyStateStyles = makeStyles(function (theme) { return ({
     root: {
         width: "100%",
         boxShadow: "0",
@@ -20,5 +20,7 @@ export var useEmptyStateStyles = makeStyles(function () { return ({
         height: 150,
         objectFit: "cover",
     },
-    text: {},
+    text: {
+        padding: theme.spacing(2, 0, 1.5, 0),
+    },
 }); });
