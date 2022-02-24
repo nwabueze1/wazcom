@@ -3,7 +3,6 @@ export var useTableStyles = makeStyles(function (theme) { return ({
     root: {},
     tableRoot: {
         position: "relative",
-        overflow: "hidden",
     },
     filterActive: {
         overflow: "hidden",

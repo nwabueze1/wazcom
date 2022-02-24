@@ -6,7 +6,6 @@ export const useTableStyles = makeStyles((theme: Theme) => ({
   root: {},
   tableRoot: {
     position: "relative",
-    overflow: "hidden",
   },
   filterActive: {
     overflow: "hidden",
