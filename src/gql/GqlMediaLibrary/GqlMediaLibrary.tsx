@@ -2,22 +2,15 @@ import { FC, useCallback, useEffect, useRef, useState } from "react";
 import { Grow } from "@mui/material";
 import clx from "classnames";
 import { Button } from "../../core/Button";
-import { IoCloudUploadOutline } from "react-icons/io5";
 import { Loader } from "../../core/Loader/Loader";
 import { useMediaLibraryStyles } from "./styles";
 import { ImageDataType, GqlMediaLibraryProps } from "./types";
 import { Uploader } from "./Uploader";
-
-const split = (array: any[], count: number) => {
-  const collection: any[][] = [];
-
-  array.map((item, index) => {
-    const row = collection[index % count] ?? [];
-    collection[index % count] = [...row, item];
-  });
-
-  return collection;
-};
+import { DeleteMedia } from "./components";
+import { FaPencilAlt } from "react-icons/fa";
+import { IoMdTrash } from "react-icons/io";
+import { split, fetchData, deleteMedia } from "./utilities";
+import { DocumentNode } from "graphql";
 
 export const GqlMediaLibrary: FC<GqlMediaLibraryProps> = ({
   className,
@@ -25,6 +18,7 @@ export const GqlMediaLibrary: FC<GqlMediaLibraryProps> = ({
     client,
     query: { name: query, variables: queryVariables },
     upload,
+    remove,
   },
   onChange,
   name,
@@ -39,17 +33,13 @@ export const GqlMediaLibrary: FC<GqlMediaLibraryProps> = ({
   const [imageLoading, setImageLoading] = useState<boolean>(false);
   const listInnerRef = useRef<HTMLDivElement>(null);
   const [mediaIndex, setMediaIndex] = useState<number>(0);
-
-  const fetchData = async (variables?: { [key: string]: string | number }) => {
-    return await client.query({
-      query,
-      fetchPolicy: "network-only",
-      variables,
-    });
-  };
+  const [activeMedia, setActiveMedia] = useState<{
+    type: string;
+    media?: ImageDataType;
+  }>({ type: "" });
 
   useEffect(() => {
-    fetchData({ ...queryVariables })
+    fetchData(client, query, { ...queryVariables })
       .then((res) => {
         setLoading(false);
         if (!images) {
@@ -69,13 +59,14 @@ export const GqlMediaLibrary: FC<GqlMediaLibraryProps> = ({
       const { currentPage, lastPage } = paginatorInfo;
       if (currentPage !== lastPage) {
         setImageLoading(true);
-        fetchData({ page: currentPage + 1, count: queryVariables.count }).then(
-          (res) => {
-            setImages((images) => [...images, ...res.data.images.images]);
-            setImageLoading(false);
-            setPaginatorInfo(res.data.images.paginatorInfo);
-          },
-        );
+        fetchData(client, query, {
+          page: currentPage + 1,
+          count: queryVariables.count,
+        }).then((res) => {
+          setImages((images) => [...images, ...res.data.images.images]);
+          setImageLoading(false);
+          setPaginatorInfo(res.data.images.paginatorInfo);
+        });
       }
     }
   }, [mediaIndex]);
@@ -84,9 +75,26 @@ export const GqlMediaLibrary: FC<GqlMediaLibraryProps> = ({
     onChange?.({ name: name ?? "image", value: data });
   };
 
-  const updateMediaLibrary = (image: ImageDataType) => {
-    setImages((images) => [image, ...images]);
-  };
+  const updateMediaLibrary = useCallback((image: ImageDataType, type = "add") => {
+    let newImages: ImageDataType[];
+    console.log(images);
+
+    switch (type) {
+      case "add":
+        newImages = [image, ...images];
+        break;
+      case "delete":
+        newImages = images.filter(
+          (img) => img.id.toString() !== image.id.toString(),
+        );
+        break;
+      default:
+        newImages = images;
+    }
+    console.log(newImages);
+    setImages(newImages);
+    handleMediaAction('', undefined);
+  }, [images]);
 
   const handleFileSelect = useCallback(() => {
     const fileInput = fileRef.current;
@@ -94,6 +102,17 @@ export const GqlMediaLibrary: FC<GqlMediaLibraryProps> = ({
       fileInput.click();
     }
   }, []);
+
+  const handleMediaAction = (type: string, media?: ImageDataType) => {
+    setActiveMedia({ type, media });
+  };
+
+  const handleMediaDelete = useCallback(async () => {
+    const media = activeMedia.media as ImageDataType;
+    await deleteMedia(client, remove?.name as DocumentNode, media, () => {
+      updateMediaLibrary(media, "delete");
+    });
+  }, [activeMedia]);
 
   const onScroll = useCallback(() => {
     if (listInnerRef.current) {
@@ -104,6 +123,48 @@ export const GqlMediaLibrary: FC<GqlMediaLibraryProps> = ({
     }
   }, [mediaIndex]);
 
+  const displayImages = useCallback(
+    () =>
+      split(images, 3).map((_, columnIndex) => (
+        <div key={columnIndex} className={classes.column}>
+          {_.map((theImage, index) => {
+            return (
+              <Grow in={true} key={index}>
+                <div className={classes.thumbnail}>
+                  <img
+                    onClick={() => selectImage(theImage)}
+                    src={theImage?.url}
+                    className={classes.image}
+                  />
+                  <div className={classes.thumbnailOverlay}>
+                    <div className={classes.thumbnailActions}>
+                      <p className={classes.thumbnailAction}>
+                        <FaPencilAlt
+                          onClick={() => {
+                            handleMediaAction("edit", theImage);
+                          }}
+                          className={classes.thumbnailActionIcon}
+                        />
+                      </p>
+                      <p className={classes.thumbnailAction}>
+                        <IoMdTrash
+                          onClick={() => {
+                            handleMediaAction("delete", theImage);
+                          }}
+                          className={classes.thumbnailActionIcon}
+                        />
+                      </p>
+                    </div>
+                  </div>
+                </div>
+              </Grow>
+            );
+          })}
+        </div>
+      )),
+    [images],
+  );
+
   return (
     <div
       className={classes.wrapper}
@@ -113,57 +174,39 @@ export const GqlMediaLibrary: FC<GqlMediaLibraryProps> = ({
       }}
     >
       <div className={clx(classes.root, className)}>
-        <div className={classes.library}>
-          <Uploader
-            ref={fileRef}
-            config={{ client, ...upload }}
-            setLoading={setLoading}
-            updateMediaLibrary={updateMediaLibrary}
-          />
-          <div className={classes.actions}>
-            <Button
-              color="primary"
-              startIcon={<IoCloudUploadOutline />}
-              onClick={handleFileSelect}
-            >
-              Upload Image
-            </Button>
-          </div>
-          <div className={classes.collection}>
-            {images.length === 0 || loading ? (
-              <Loader />
-            ) : (
-              <>
-                {images &&
-                  split(images, 3).map((_, columnIndex) => {
-                    return (
-                      <div key={columnIndex} className={classes.column}>
-                        {_.map((theImage, index) => {
-                          return (
-                            <Grow in={true} key={index}>
-                              <div className={classes.thumbnail}>
-                                <img
-                                  onClick={() => selectImage(theImage)}
-                                  src={theImage?.url}
-                                  className={classes.image}
-                                />
-                              </div>
-                            </Grow>
-                          );
-                        })}
-                      </div>
-                    );
-                  })}
-              </>
-            )}
-          </div>
-          {images.length > 0 && imageLoading && (
-            <div className={classes.loaderParent}>
-              <Loader className={classes.loader} />
-            </div>
+        <Uploader
+          ref={fileRef}
+          config={{ client, ...upload }}
+          setLoading={setLoading}
+          updateMediaLibrary={updateMediaLibrary}
+        />
+        <div className={classes.actions}>
+          <p className={classes.tab}>All Media</p>
+          <Button color="primary" onClick={handleFileSelect}>
+            Add New
+          </Button>
+        </div>
+        <div className={classes.collection}>
+          {images.length === 0 || loading ? (
+            <Loader />
+          ) : (
+            <>{images && displayImages()}</>
           )}
         </div>
+        {images.length > 0 && imageLoading && (
+          <div className={classes.loaderParent}>
+            <Loader className={classes.loader} />
+          </div>
+        )}
       </div>
+      <DeleteMedia
+        display={activeMedia.type === "delete"}
+        media={activeMedia.media}
+        handleClose={() => {
+          handleMediaAction("", undefined);
+        }}
+        handleDelete={handleMediaDelete}
+      />
     </div>
   );
 };

@@ -11,9 +11,6 @@ export const useMediaLibraryStyles = makeStyles((theme: Theme) => ({
   root: {
     width: "100%",
   },
-  library: {
-    position: "relative",
-  },
   collection: {
     display: "flex",
     flexWrap: "wrap",
@@ -32,8 +29,45 @@ export const useMediaLibraryStyles = makeStyles((theme: Theme) => ({
   thumbnail: {
     display: "flex",
     flexDirection: "column",
+    position: "relative",
     marginBottom: theme.spacing(3),
     height: "150px",
+    cursor: "pointer",
+  },
+  thumbnailOverlay: {
+    position: "absolute",
+    top: 0,
+    left: 0,
+    width: "100%",
+    height: "100%",
+    transition: "opacity 0.3s ease-in",
+    opacity: 0,
+    zIndex: 5,
+    background: "rgba(255, 255, 255, 0.3)",
+
+    "&:hover": {
+      opacity: 1,
+    },
+  },
+  thumbnailActions: {
+    position: "absolute",
+    top: "7.5%",
+    right: "2%",
+    display: "flex",
+  },
+  thumbnailAction: {
+    display: "flex",
+    justifyContent: "center",
+    alignItems: "center",
+    width: 30,
+    height: 30,
+    background: theme.design.colors.white,
+    borderRadius: 4,
+    marginRight: theme.spacing(1),
+  },
+  thumbnailActionIcon: {
+    fontSize: 14,
+    color: "#999F9B",
     cursor: "pointer",
   },
   image: {
@@ -72,12 +106,16 @@ export const useMediaLibraryStyles = makeStyles((theme: Theme) => ({
     top: 0,
     backgroundColor: "transparent",
   },
-  tab: {
-    display: "flex",
-    position: "relative",
-  },
   actions: {
+    display: "flex",
+    justifyContent: "space-between",
+    alignItems: "center",
     marginBottom: theme.spacing(4),
+  },
+  tab: {
+    color: theme.design.colors.red70,
+    paddingBottom: 2,
+    borderBottom: `2px solid ${theme.design.colors.red70}`,
   },
   wrapper: {
     maxWidth: 600,

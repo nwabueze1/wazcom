@@ -18,6 +18,9 @@ export type GqlMediaSelectorConfigProps = {
       name: DocumentNode;
       variables: { [key: string]: string };
     };
+    remove?: {
+      name: DocumentNode;
+    }
   };
 };
 

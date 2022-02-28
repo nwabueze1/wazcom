@@ -35,6 +35,7 @@ import {
   createNewCategory,
   GET_IMAGES,
   UPLOAD_IMAGE,
+  DELETE_IMAGE,
 } from "../helpers/graphQL";
 
 import { ComponentPropType } from "./types";
@@ -104,6 +105,9 @@ export const stories: ComponentPropType[] = [
         upload: {
           name: UPLOAD_IMAGE,
           variables: {},
+        },
+        remove: {
+          name: DELETE_IMAGE,
         },
       },
     },
