@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import { useEffect, useState } from "react";
 import { TableProps } from "./types";
 import { useTableStyles } from "./styles";
 import {
@@ -15,10 +15,11 @@ import {
   Box,
 } from "@mui/material";
 import FilterAltIcon from "@mui/icons-material/FilterAlt";
-import _, { startCase } from "lodash";
-import { Button } from "core";
-import { TextInput } from "io";
+import _ from "lodash";
+import { Button } from "../Button";
+import { TextInput } from "../../io";
 import {
+  generateNumbersBetweenRange,
   useGetCurrentPage,
   useGetRowsPerPage,
   useHandleChangePage,
@@ -27,6 +28,7 @@ import {
   useUpdateTableValue,
 } from "./helpers";
 import { TableFilter } from "./components";
+import { Filter } from "./types";
 
 export const Table = ({
   headers,
@@ -46,6 +48,8 @@ export const Table = ({
     useState<{ name: string; label: string }[]>(headers);
   const [controlsFormData, setControls] = useState<{ [key: string]: any }>([]);
   const [showFilter, setShowFilter] = useState<boolean>(false);
+  const [filters, setFilters] = useState<Filter[]>([]);
+  const [selectedRows, setSelectedRows] = useState<number[]>([]);
 
   // All Handler functions are defined as hooks
   const handleChangePage = useHandleChangePage(changePage);
@@ -57,9 +61,32 @@ export const Table = ({
   );
   const handleControlsChange = useHandleControlsChange(setControls);
 
+  const handleSelectAllRows = () =>
+    setSelectedRows((rows) => {
+      if (rows.length === tableValue.length) {
+        return [];
+      }
+      return generateNumbersBetweenRange(initialTableValue.length);
+    });
+
+  const handleSelectRow = (index: number) =>
+    setSelectedRows((rows) => {
+      const item = rows.findIndex((row) => row == index);
+      if (item !== -1) {
+        rows.splice(item, 1);
+        return [...rows];
+      }
+      return [...rows, index];
+    });
+
   useEffect(() => {
-    useUpdateTableValue(setTableValue, initialTableValue, controlsFormData);
-  }, [controlsFormData]);
+    useUpdateTableValue(
+      setTableValue,
+      initialTableValue,
+      controlsFormData,
+      filters,
+    );
+  }, [controlsFormData, filters]);
 
   useEffect(() => {
     setTableValue(initialTableValue);
@@ -70,109 +97,120 @@ export const Table = ({
       setTableHeaders(
         Object.keys(initialTableValue[0]).map((key) => ({
           name: key,
-          label: startCase(key),
+          label: key,
         })),
       );
     }
   }, [initialTableValue, headers]);
 
   return (
-    <TableContainer component={Paper} className={classes.tableRoot}>
-      {controls && (
-        <Box className={classes.controls}>
-          {controls.filter && (
-            <Box className={classes.filterControls}>
-              <Button
-                variant="outlined"
-                className={classes.filterControlsButton}
-                onClick={() => setShowFilter((state) => !state)}
-              >
-                Filter
-                <FilterAltIcon />
-              </Button>
-              <TextInput
-                name="search"
-                type="text"
-                placeholder="Search"
-                value={controlsFormData.search}
-                onChange={handleControlsChange}
-              />
-            </Box>
-          )}
-          <Box>
-            {controls.print && <Button>Print</Button>}
-            {controls.export && <Button>Export</Button>}
-          </Box>
-        </Box>
-      )}
-      <MuiTable
-        classes={{
-          root: classes.root,
-        }}
-        {...props}
-      >
-        <TableHead className={classes.tableHead}>
-          <TableRow>
-            {hasCheckBox && (
-              <TableCell padding="checkbox">
-                <Checkbox />
-              </TableCell>
+    <div className={classes.tableRoot}>
+      <TableContainer component={Paper}>
+        {controls && (
+          <Box className={classes.controls}>
+            {controls.filter && (
+              <Box className={classes.filterControls}>
+                <Button
+                  variant="outlined"
+                  className={classes.filterControlsButton}
+                  onClick={() => setShowFilter((state) => !state)}
+                >
+                  Filter
+                  <FilterAltIcon />
+                </Button>
+                <TextInput
+                  name="search"
+                  type="text"
+                  placeholder="Search"
+                  value={controlsFormData.search}
+                  onChange={handleControlsChange}
+                />
+              </Box>
             )}
-            {tableHeaders.map(({ name, label }) => {
-              return (
-                <TableCell className={classes.tableHeadCell} key={name}>
-                  {label}
+            <Box>
+              {controls.print && <Button>Print</Button>}
+              {controls.export && <Button>Export</Button>}
+            </Box>
+          </Box>
+        )}
+        <MuiTable
+          classes={{
+            root: classes.root,
+          }}
+          {...props}
+        >
+          <TableHead className={classes.tableHead}>
+            <TableRow>
+              {hasCheckBox && (
+                <TableCell padding="checkbox">
+                  <Checkbox
+                    onChange={handleSelectAllRows}
+                    checked={selectedRows.length === tableValue.length}
+                  />
                 </TableCell>
+              )}
+              {tableHeaders.map(({ name, label }) => {
+                return (
+                  <TableCell className={classes.tableHeadCell} key={name}>
+                    {label}
+                  </TableCell>
+                );
+              })}
+            </TableRow>
+          </TableHead>
+          <TableBody>
+            {tableValue?.map((row: any, index: number) => {
+              return (
+                <TableRow key={index}>
+                  {hasCheckBox && (
+                    <TableCell padding="checkbox">
+                      <Checkbox
+                        checked={selectedRows.includes(index)}
+                        onChange={() => handleSelectRow(index)}
+                      />
+                    </TableCell>
+                  )}
+                  {tableHeaders.map(({ name }) => {
+                    return (
+                      <TableCell key={name} className={classes.tableCell}>
+                        {row?.[name]}
+                      </TableCell>
+                    );
+                  })}
+                </TableRow>
               );
             })}
-          </TableRow>
-        </TableHead>
-        <TableBody>
-          {tableValue?.map((row: any, index: number) => {
-            return (
-              <TableRow key={index}>
-                {hasCheckBox && (
-                  <TableCell padding="checkbox">
-                    <Checkbox />
-                  </TableCell>
-                )}
-                {tableHeaders.map(({ name }) => {
-                  return (
-                    <TableCell key={name} className={classes.tableCell}>
-                      {row?.[name]}
-                    </TableCell>
-                  );
-                })}
+          </TableBody>
+          {pagination && (
+            <TableFooter>
+              <TableRow>
+                <TablePagination
+                  rowsPerPageOptions={[7, 10, 20]}
+                  onRowsPerPageChange={handleChangeRowsPerPage}
+                  count={paginatorInfo?.total}
+                  rowsPerPage={Number(getRowsPerPage)}
+                  onPageChange={handleChangePage}
+                  showFirstButton
+                  showLastButton
+                  page={getCurrentPage}
+                  SelectProps={{
+                    inputProps: { "aria-label": "rows per page" },
+                    native: true,
+                  }}
+                />
               </TableRow>
-            );
-          })}
-        </TableBody>
-        {pagination && (
-          <TableFooter>
-            <TableRow>
-              <TablePagination
-                rowsPerPageOptions={[7, 10, 20]}
-                onRowsPerPageChange={handleChangeRowsPerPage}
-                count={paginatorInfo?.total}
-                rowsPerPage={Number(getRowsPerPage)}
-                onPageChange={handleChangePage}
-                showFirstButton
-                showLastButton
-                page={getCurrentPage}
-                SelectProps={{
-                  inputProps: { "aria-label": "rows per page" },
-                  native: true,
-                }}
-              />
-            </TableRow>
-          </TableFooter>
-        )}
-      </MuiTable>
-      <TableFilter
-        showFilter={showFilter}
-        setShowFilter={setShowFilter}
-        fields={tableHeaders}
-      />
-    </TableContainer>
+            </TableFooter>
+          )}
+        </MuiTable>
+        <TableFilter
+          showFilter={showFilter}
+          setShowFilter={setShowFilter}
+          fields={tableHeaders}
+          values={initialTableValue}
+          filters={filters}
+          setFilters={setFilters}
+        />
+      </TableContainer>
+    </div>
   );
 };

@@ -51,7 +51,7 @@ export const stories: ComponentPropType[] = [
       pagination: true,
       hasCheckBox: true,
       paginatorInfo: {
-        currentPage: 5,
+        currentPage: 1,
         perPage: 10,
         total: 100,
       },

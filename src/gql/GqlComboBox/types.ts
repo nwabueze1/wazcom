@@ -12,6 +12,7 @@ export type GqlComboBoxProps = CommonProps & {
   };
   label?: string;
   value?: string;
+  postFetchHook?: (values: { [key: string]: string }[]) => void;
   addOption?: (
     value: string,
   ) => Promise<{ label?: string; value?: string; status: boolean }>;
@@ -20,4 +21,4 @@ export type GqlComboBoxProps = CommonProps & {
     text: string;
     status?: "success" | "neutral" | "error";
   };
-}; 
+};

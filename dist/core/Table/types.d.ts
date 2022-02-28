@@ -5,8 +5,17 @@ export declare type TableProps = CommonProps & MuiTableProps & {
     headers: TableHeaderContentProps;
     value: TableDataProps;
     hasCheckBox?: boolean;
+    pagination?: boolean;
+    paginatorInfo?: {
+        [key: string]: any;
+    };
+    onClick?: (index: number) => void;
+    changePage?: (value: number) => void;
+    changeRowsPerPage?: (value: number) => void;
+    rowsPerPage?: number;
+    controls?: ControlsDataProp;
 };
-declare type TableDataProps = ({
+export declare type TableDataProps = ({
     [key: string]: any;
 } & {
     actions?: {
@@ -17,4 +26,19 @@ declare type TableHeaderContentProps = {
     name: string;
     label: string;
 }[];
+declare type ControlsDataProp = {
+    filter?: {
+        fields?: string[];
+    };
+    export?: {
+        [key: string]: string;
+    };
+    print?: {
+        [key: string]: string;
+    };
+};
+export declare type Filter = {
+    field: string;
+    values: string[];
+};
 export {};

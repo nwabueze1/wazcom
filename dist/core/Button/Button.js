@@ -25,11 +25,11 @@ import { Button as MuiButton } from "@mui/material";
 import { useButtonStyles } from "./styles";
 import clx from "classnames";
 export var Button = function (_a) {
-    var className = _a.className, props = __rest(_a, ["className"]);
+    var className = _a.className, _b = _a.variant, variant = _b === void 0 ? "contained" : _b, props = __rest(_a, ["className", "variant"]);
     var classes = useButtonStyles();
     return (_jsx(MuiButton, __assign({ classes: {
             root: clx(classes.root, className),
             sizeSmall: classes.sizeSmall,
             sizeLarge: classes.sizeLarge,
-        }, variant: "contained" }, props), void 0));
+        }, variant: variant }, props), void 0));
 };

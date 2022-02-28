@@ -1,6 +1,6 @@
 import React from "react";
 import _ from "lodash";
-import { TableDataProps } from "..";
+import { Filter, TableDataProps } from "../types";
 
 export const useHandleControlsChange =
   (
@@ -21,12 +21,16 @@ export const useUpdateTableValue = (
   setTableValue: React.Dispatch<React.SetStateAction<TableDataProps>>,
   initialTableValue: TableDataProps,
   controlsFormData: { [key: string]: any },
+  filters: Filter[],
 ) =>
   setTableValue(() => {
     if (_.size(initialTableValue) == 0) {
       return initialTableValue;
     }
-    return initialTableValue.filter((rowValues) => {
+    let result: { [key: string]: any }[] = [];
+
+    // filter result by search
+    result = initialTableValue.filter((rowValues) => {
       let status = false;
       Object.values(rowValues).map((value) => {
         if (
@@ -40,4 +44,36 @@ export const useUpdateTableValue = (
       });
       return status;
     });
+
+    // filter result by filter panel
+    const newFilterResult: { [key: string]: any }[] = controlsFormData.search
+      ? [...result]
+      : [...initialTableValue];
+
+    if (filters.length > 0) {
+      return newFilterResult.filter((rowValues) => {
+        let status = false;
+        Object.entries(rowValues).map(([key, value]) => {
+          const filterIndex = filters.findIndex((item) => item.field == key);
+          if (filterIndex !== -1) {
+            if (!filters[filterIndex].values.includes(value.toString())) {
+              status = true;
+            }
+          }
+          return null;
+        });
+
+        return status;
+      });
+    }
+
+    return result;
   });
+
+export const generateNumbersBetweenRange = (max: number) => {
+  const arr = [];
+  for (let i = 0; i < max; i++) {
+    arr.push(i);
+  }
+  return arr;
+};
