@@ -3,7 +3,7 @@ import * as React from "react";
 import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
 import Template1 from "Templates/Temp1/Template1";
 import Template2 from "Templates/Temp2/Template2";
-import {Template4} from "Templates/Temp4/Template4";
+import { Template4 } from "Templates/Temp4/Template4";
 import { Browser } from "view/Browser";
 import theme from "./theme";
 import Template5 from "Templates/Temp5/Template5";
@@ -25,16 +25,16 @@ const App: React.FC<Props> = () => {
               <Browser />
             </Route>
             <Route path="/template1">
-              <Template1/>
+              <Template1 />
             </Route>
             <Route path="/template2">
-              <Template2/>
+              <Template2 />
             </Route>
             <Route path="/template4">
-              <Template4/>
+              <Template4 />
             </Route>
             <Route path="/template5">
-           <Template5 />   
+              <Template5 />
             </Route>
           </Switch>
         </Router>

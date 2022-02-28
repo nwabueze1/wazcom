@@ -1,9 +1,9 @@
-import React from "react";
 import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
 import { AboutPage } from "Templates/Temp5/Pages/About/About";
 import { CategoryPage } from "Templates/Temp5/Pages/Categories/Post";
 import IndexPage from "Templates/Temp5/Pages/Jaden's Blog/IndexPage";
-import { Gallery } from "./Pages/Gallery/GalleryPage";
+import { GalleryPage } from "./Pages/Gallery/GalleryPage";
+
 const Template5 = () => {
   return (
     <div>
@@ -13,7 +13,7 @@ const Template5 = () => {
             <IndexPage />
           </Route>
           <Route path="/template5/gallery">
-            <Gallery />
+            <GalleryPage />
           </Route>
           <Route path="/template5/categories">
             <CategoryPage />

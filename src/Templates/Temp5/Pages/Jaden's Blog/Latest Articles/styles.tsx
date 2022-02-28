@@ -7,15 +7,16 @@ export const useArticleStyles = makeStyles<Theme>((theme: Theme) => ({
     marginTop: theme.spacing(14),
     display: "flex",
     justifyContent: "flex-end",
-    fontFamily: theme.include.styles.font.lato,
+    fontFamily: theme.include.styles.template2.font.lato,
   },
-
+  latestArticlePost: {
+    margin: "auto",
+  },
   leftContainer: {
     width: "50%",
     position: "absolute",
     justifyContent: "center",
-    fontFamily: theme.include.styles.font.lato,
-
+    fontFamily: theme.include.styles.template2.font.lato,
     "& img": {
       display: "flex",
       margin: "auto",

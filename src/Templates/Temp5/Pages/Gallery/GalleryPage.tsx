@@ -1,12 +1,12 @@
 import { Footer } from "Templates/Temp5/components/Footer/Footer"
 import { NavBar } from "Templates/Temp5/components/NavBar/NavBar"
-import { GalleryPage } from "./post"
+import { GalleryPost } from "./post"
 
-export const Gallery=()=>{
+export const GalleryPage=()=>{
     return (
       <>
         <NavBar />
-        <GalleryPage />
+        <GalleryPost />
         <Footer />
       </>
     );

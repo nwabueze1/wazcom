@@ -5,7 +5,7 @@ export const useHeroStyles = makeStyles<Theme>((theme: Theme) => ({
   root: {
     width: "100%",
     height: "100%",
-    fontFamily: theme.include.styles.font.lato,
+    fontFamily: theme.include.styles.template2.font.lato,
     color: theme.design.colors.white,
   },
   image: {
@@ -13,13 +13,15 @@ export const useHeroStyles = makeStyles<Theme>((theme: Theme) => ({
     height: "60vh",
     backgroundRepeat: "no-repeat",
     backgroundSize: "cover",
-    marginTop:theme.spacing(3.4)
+    marginTop: theme.spacing(3.5),
   },
-  heroText: { marginTop:theme.spacing(20),position: 'absolute',
-    width: '100%',
+  heroText: {
+    marginTop: theme.spacing(20),
+    position: "absolute",
+    width: "100%",
   },
   welcome: {
-    fontSize: theme.typography.fontSize * 5.2,
+    fontSize: theme.typography.fontSize * 5,
     display: "flex",
     justifyContent: "center",
   },
@@ -29,6 +31,6 @@ export const useHeroStyles = makeStyles<Theme>((theme: Theme) => ({
     justifyContent: "center",
     margin: theme.spacing(3, "auto"),
     textAlign: "center",
-    width:'55vw'
+    width: "55vw",
   },
 }));

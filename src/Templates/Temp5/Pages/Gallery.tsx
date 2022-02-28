@@ -1,13 +1,13 @@
-import { GalleryPage } from "./Gallery/post";
+import { GalleryPost } from "./Gallery/post";
 import { useStyles } from "./styles";
 
-const IndexPage = () => {
+const Gallery = () => {
   const classes = useStyles();
   return (
     <div className={classes.container}>
-      <GalleryPage />
+      <GalleryPost />
     </div>
   );
 };
 
-export default GalleryPage;
+export default Gallery;

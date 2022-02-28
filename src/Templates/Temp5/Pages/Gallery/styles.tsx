@@ -5,7 +5,7 @@ export const useArticleStyles = makeStyles<Theme>((theme: Theme) => ({
   root: {
     width: "90%",
     height: "100%",
-    fontFamily: theme.include.styles.font.lato,
+    fontFamily: theme.include.styles.template2.font.lato,
     margin: "auto",
   },
   header: {

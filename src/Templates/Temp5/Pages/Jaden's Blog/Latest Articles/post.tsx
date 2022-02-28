@@ -8,7 +8,7 @@ import { Link } from "react-router-dom";
 export const Articles = () => {
   const classes = useArticleStyles();
   return (
-    <div>
+    <div className={classes.latestArticlePost}>
       <div className={classes.leftContainer}>
         <img
           className={classes.img}

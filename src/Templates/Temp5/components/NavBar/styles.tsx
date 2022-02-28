@@ -7,7 +7,7 @@ export const useNavStyles = makeStyles((theme: Theme) => ({
     height: "100%",
     margin: "0 auto",
     background: theme.design.colors.grayshade,
-    fontFamily: theme.include.styles.font.lato,
+    fontFamily: theme.include.styles.template2.font.lato,
   },
   container: {
     display: "flex",
@@ -18,8 +18,8 @@ export const useNavStyles = makeStyles((theme: Theme) => ({
     height: "100%",
   },
   navHeader: {
-    fontFamily: theme.include.styles.font.cookie,
-    fontSize: theme.typography.fontSize * 2.7,
+    fontFamily: theme.include.styles.template2.font.cookie,
+    fontSize: theme.typography.fontSize * 2.5,
     textDecoration: "none",
     color: theme.design.colors.black,
   },

@@ -3,7 +3,7 @@ import { Theme } from "@mui/material/styles";
 
 export const useArticleStyles = makeStyles<Theme>((theme: Theme) => ({
   root: {
-    fontFamily: theme.include.styles.font.lato,
+    fontFamily: theme.include.styles.template2.font.lato,
   },
   header: {
     display: "flex",

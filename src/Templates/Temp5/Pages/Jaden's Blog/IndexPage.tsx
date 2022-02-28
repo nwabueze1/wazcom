@@ -8,10 +8,10 @@ import { Articles } from "./Latest Articles/post";
 import { NavBar } from "Templates/Temp5/components/NavBar/NavBar";
 import { Footer } from "Templates/Temp5/components/Footer/Footer";
 
-const IndexPage: FC<IntroProps> = ({ className }) => {
+const IndexPage = () => {
   const classes = useIntroStyles();
   return (
-    <div className={clx(classes.root, className)}>
+    <div className={classes.root}>
       <div className={classes.container}>
         <NavBar />
         <Hero />

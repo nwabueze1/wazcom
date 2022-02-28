@@ -1,7 +1,7 @@
 import React, { FC, useState, useCallback } from "react";
 import { useSidebarListItemStyles } from "./styles";
 import { SidebarListItemProps } from "./types";
-import { Button } from "../../core";
+import { Button } from "../../../core";
 import { FiChevronRight } from "react-icons/fi";
 import clx from "classnames";
 import { Typography } from "@mui/material";

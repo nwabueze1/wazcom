@@ -15,9 +15,7 @@ export const AboutPage = () => {
     <section className={classes.root}>
       <NavBar />
       <div className={classes.header}>My trip to Istanbul</div>
-
       <img className={classes.hero} src={aboutHeroImage} />
-
       <div className={classes.content}>{aboutPageData}</div>
       <img className={classes.image} src={aboutImage} />
       <div className={classes.imageText}>{aboutPageData}</div>

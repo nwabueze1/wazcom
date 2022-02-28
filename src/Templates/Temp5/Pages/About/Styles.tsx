@@ -4,18 +4,18 @@ import { Theme } from "@mui/material/styles";
 export const useArticleStyles = makeStyles<Theme>((theme: Theme) => ({
   root: {
     width: "100%",
-    height: "100%          ",
-    fontFamily: theme.include.styles.font.lato,
+    height: "100%",
+    fontFamily: theme.include.styles.template2.font.lato,
     margin: "auto",
   },
   header: {
     display: "flex",
-    fontFamily: theme.include.styles.font.lato,
+    fontFamily: theme.include.styles.template2.font.lato,
     fontSize: theme.typography.fontSize * 3,
     justifyContent: "center",
+    marginTop:theme.spacing(10)
   },
   hero: {
-    width: "80%",
     display: "flex",
     marginTop: theme.spacing(4),
     margin: "auto",
@@ -68,7 +68,7 @@ export const useArticleStyles = makeStyles<Theme>((theme: Theme) => ({
   },
   icons: {
     display: "flex",
-    width: "7vw",
+    width: "4vw",
     justifyContent: "space-between",
     marginTop: theme.spacing(2),
     margin: "auto",

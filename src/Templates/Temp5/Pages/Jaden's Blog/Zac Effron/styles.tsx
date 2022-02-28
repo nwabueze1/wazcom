@@ -6,7 +6,7 @@ export const useArticleStyles = makeStyles<Theme>((theme: Theme) => ({
     width: "100%",
     height: "100%",
     display: "flex",
-    fontFamily: "Lato",
+    fontFamily: theme.include.styles.template2.font.lato,
     marginBottom: theme.spacing(15),
   },
   post: {
@@ -24,7 +24,7 @@ export const useArticleStyles = makeStyles<Theme>((theme: Theme) => ({
   },
   description: {
     fontSize: theme.typography.fontSize + 4,
-    fontFamily: theme.include.styles.font.lato,
+    fontFamily: theme.include.styles.template2.font.lato,
     lineHeight: "28px",
     marginTop: theme.spacing(2),
   },
@@ -36,7 +36,7 @@ export const useArticleStyles = makeStyles<Theme>((theme: Theme) => ({
     background: theme.design.colors.black,
     marginTop: theme.spacing(5),
     borderRadius: 0,
-    fontFamily: theme.include.styles.font.garamond,
+    fontFamily: theme.include.styles.template2.font.garamond,
     fontWeight: theme.typography.fontWeightBold,
     width: "14vw",
     fontSize: theme.typography.fontSize + 8,
