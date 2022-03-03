@@ -12,20 +12,18 @@ export const Button = ({
   const classes = useButtonStyles();
 
   return (
-    <div>
-      <div className={classes.buttonParent}>
-        <MuiButton
-          classes={{
-            root: clx(classes.root, className),
-            sizeSmall: classes.sizeSmall,
-            sizeLarge: classes.sizeLarge,
-          }}
-          variant={variant}
-          {...props}
-        />
-        <div className={clx(classes.spinner, loading && classes.spinnerActive)}>
-          <CircularProgress color="inherit" size={18} />
-        </div>
+    <div className={clx(classes.buttonParent, className)}>
+      <MuiButton
+        classes={{
+          root: clx(classes.root, className),
+          sizeSmall: classes.sizeSmall,
+          sizeLarge: classes.sizeLarge,
+        }}
+        variant={variant}
+        {...props}
+      />
+      <div className={clx(classes.spinner, loading && classes.spinnerActive)}>
+        <CircularProgress color="inherit" size={18} />
       </div>
     </div>
   );

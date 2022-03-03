@@ -27,9 +27,9 @@ import clx from "classnames";
 export var Button = function (_a) {
     var className = _a.className, loading = _a.loading, _b = _a.variant, variant = _b === void 0 ? "contained" : _b, props = __rest(_a, ["className", "loading", "variant"]);
     var classes = useButtonStyles();
-    return (_jsx("div", { children: _jsxs("div", __assign({ className: classes.buttonParent }, { children: [_jsx(MuiButton, __assign({ classes: {
-                        root: clx(classes.root, className),
-                        sizeSmall: classes.sizeSmall,
-                        sizeLarge: classes.sizeLarge,
-                    }, variant: variant }, props), void 0), _jsx("div", __assign({ className: clx(classes.spinner, loading && classes.spinnerActive) }, { children: _jsx(CircularProgress, { color: "inherit", size: 18 }, void 0) }), void 0)] }), void 0) }, void 0));
+    return (_jsxs("div", __assign({ className: clx(classes.buttonParent, className) }, { children: [_jsx(MuiButton, __assign({ classes: {
+                    root: clx(classes.root, className),
+                    sizeSmall: classes.sizeSmall,
+                    sizeLarge: classes.sizeLarge,
+                }, variant: variant }, props), void 0), _jsx("div", __assign({ className: clx(classes.spinner, loading && classes.spinnerActive) }, { children: _jsx(CircularProgress, { color: "inherit", size: 18 }, void 0) }), void 0)] }), void 0));
 };
