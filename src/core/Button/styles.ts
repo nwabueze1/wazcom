@@ -15,4 +15,25 @@ export const useButtonStyles = makeStyles((theme: BaseTheme) => ({
   sizeLarge: {
     padding: `${theme.spacing(0.5)} ${theme.spacing(2.5)}`,
   },
+  buttonParent: {
+    position: "relative",
+  },
+  spinner: {
+    width: "100%",
+    height: "100%",
+    top: 0,
+    position: "absolute",
+    color: theme.design.colors.white,
+    borderRadius: 4,
+    display: "flex",
+    justifyContent: "center",
+    alignItems: "center",
+    zIndex: -1,
+    opacity: 0,
+    transition: "opacity 0.5s ease-in",
+  },
+  spinnerActive: {
+    zIndex: 5,
+    opacity: 1,
+  },
 }));
