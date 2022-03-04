@@ -7,6 +7,7 @@ import { Button } from "core";
 
 export const DeleteMedia: React.FC<DeleteMediaProps> = ({
   display,
+  loading,
   media,
   handleClose,
   handleDelete,
@@ -38,7 +39,7 @@ export const DeleteMedia: React.FC<DeleteMediaProps> = ({
               Are you sure you want to delete this image?
             </p>
             <div className={classes.deleteActions}>
-              <Button onClick={handleDelete}>Delete</Button>
+              <Button onClick={handleDelete} loading={loading}>Delete</Button>
               <Button onClick={handleClose}>Cancel</Button>
             </div>
           </div>

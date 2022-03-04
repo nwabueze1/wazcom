@@ -18,7 +18,7 @@ export declare type GqlMediaSelectorConfigProps = {
         };
     };
 };
-export declare type ImageDataType = {
+export declare type Image = {
     __typename: string;
     id: string;
     url: string;

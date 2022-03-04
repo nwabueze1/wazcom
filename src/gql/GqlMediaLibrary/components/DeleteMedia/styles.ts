@@ -22,7 +22,7 @@ export const useDeleteMediaStyles = makeStyles((theme: Theme) => ({
     display: "flex",
     justifyContent: "space-between",
     padding: theme.spacing(3, 0),
-    borderBottom: "1px solid #999F9B",
+    borderBottom: "1px solid rgba(0,0,0,0.06)",
   },
   deleteHeadingText: {
     color: theme.design.colors.red70,

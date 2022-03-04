@@ -36,6 +36,7 @@ import {
   GET_IMAGES,
   UPLOAD_IMAGE,
   DELETE_IMAGE,
+  UPDATE_IMAGE,
 } from "../helpers/graphQL";
 
 import { ComponentPropType } from "./types";
@@ -106,9 +107,13 @@ export const stories: ComponentPropType[] = [
           name: UPLOAD_IMAGE,
           variables: {},
         },
+        update: {
+          name: UPDATE_IMAGE,
+        },
         remove: {
           name: DELETE_IMAGE,
         },
+        // viewOnly: true,
       },
     },
   },

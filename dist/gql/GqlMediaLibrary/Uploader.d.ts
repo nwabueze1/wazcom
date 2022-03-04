@@ -1,8 +1,8 @@
 import React from "react";
 import { DocumentNode, ApolloClient, NormalizedCacheObject } from "@apollo/client";
-import { ImageDataType } from "./types";
+import { Image } from "./types";
 declare type UploaderProps = {
-    updateMediaLibrary: (image: ImageDataType) => void;
+    updateMediaLibrary: (image: Image) => void;
     setLoading: (loading: boolean) => void;
     config: {
         client: ApolloClient<NormalizedCacheObject>;

@@ -14,25 +14,28 @@ export const useMediaLibraryStyles = makeStyles((theme: Theme) => ({
   collection: {
     display: "flex",
     flexWrap: "wrap",
-    marginTop: theme.spacing(1),
+    gap: theme.spacing(1),
     position: "relative",
+    padding: theme.spacing(0, 4),
   },
   column: {
     display: "flex",
-    width: "33.3333%",
+    width: "calc((100% - 16px)/3)",
     flexDirection: "column",
-    paddingRight: theme.spacing(3),
-    "&:nth-child(3)": {
-      padding: 0,
-    },
+  },
+  timesIcon: {
+    color: "#999F9B",
+    cursor: "pointer",
   },
   thumbnail: {
     display: "flex",
     flexDirection: "column",
     position: "relative",
-    marginBottom: theme.spacing(3),
-    height: "150px",
+    marginBottom: theme.spacing(1),
     cursor: "pointer",
+  },
+  thumbnailFixedHeight: {
+    height: 150,
   },
   thumbnailOverlay: {
     position: "absolute",
@@ -51,8 +54,8 @@ export const useMediaLibraryStyles = makeStyles((theme: Theme) => ({
   },
   thumbnailActions: {
     position: "absolute",
-    top: "7.5%",
-    right: "2%",
+    top: "12px",
+    right: "6px",
     display: "flex",
   },
   thumbnailAction: {
@@ -64,11 +67,11 @@ export const useMediaLibraryStyles = makeStyles((theme: Theme) => ({
     background: theme.design.colors.white,
     borderRadius: 4,
     marginRight: theme.spacing(1),
+    cursor: "pointer",
   },
   thumbnailActionIcon: {
     fontSize: 14,
     color: "#999F9B",
-    cursor: "pointer",
   },
   image: {
     height: "100%",
@@ -110,7 +113,9 @@ export const useMediaLibraryStyles = makeStyles((theme: Theme) => ({
     display: "flex",
     justifyContent: "space-between",
     alignItems: "center",
-    marginBottom: theme.spacing(4),
+    marginBottom: theme.spacing(3),
+    borderBottom: "1px solid rgba(0,0,0,0.06)",
+    padding: theme.spacing(3, 4),
   },
   tab: {
     color: theme.design.colors.red70,
@@ -118,13 +123,17 @@ export const useMediaLibraryStyles = makeStyles((theme: Theme) => ({
     borderBottom: `2px solid ${theme.design.colors.red70}`,
   },
   wrapper: {
-    maxWidth: 600,
-    maxHeight: 550,
-    width: 600,
+    width: "100%",
     backgroundColor: theme.design.colors.white,
     borderRadius: theme.spacing(1),
+    maxHeight: "70vh",
     overflow: "scroll",
     zIndex: 15,
-    padding: theme.spacing(4),
+    // padding: theme.spacing(4),
+  },
+  wrapperDialog: {
+    maxWidth: 600,
+    width: 600,
+    maxHeight: 550,
   },
 }));

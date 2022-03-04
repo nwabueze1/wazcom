@@ -1,8 +1,9 @@
-import { ImageDataType } from "gql/GqlMediaLibrary/types";
+import { Image } from "gql/GqlMediaLibrary/types";
 
 export interface DeleteMediaProps {
     display: boolean;
-    media?: ImageDataType;
+    loading?: boolean;
+    media?: Image;
     handleClose: () => void;
     handleDelete: () => void;
 }
