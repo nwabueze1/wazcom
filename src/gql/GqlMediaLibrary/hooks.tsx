@@ -136,7 +136,7 @@ export const useOnScroll = () => {
   ) => {
     if (ref.current) {
       const { scrollTop, scrollHeight, clientHeight } = ref.current;
-      if (scrollTop + clientHeight === scrollHeight && scrollHeight > 550) {
+      if ((scrollTop + clientHeight) > (scrollHeight - 5) && scrollHeight > 540) {
         setMediaIndex(Math.random() * 5000);
       }
     }

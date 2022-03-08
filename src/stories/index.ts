@@ -113,7 +113,7 @@ export const stories: ComponentPropType[] = [
         remove: {
           name: DELETE_IMAGE,
         },
-        // viewOnly: true,
+        viewOnly: true,
       },
     },
   },

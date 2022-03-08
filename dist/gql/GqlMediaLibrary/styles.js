@@ -123,7 +123,7 @@ export var useMediaLibraryStyles = makeStyles(function (theme) { return ({
         maxHeight: "70vh",
         overflow: "scroll",
         zIndex: 15,
-        // padding: theme.spacing(4),
+        scrollBehavior: 'smooth',
     },
     wrapperDialog: {
         maxWidth: 600,

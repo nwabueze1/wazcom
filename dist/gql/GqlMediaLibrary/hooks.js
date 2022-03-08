@@ -156,7 +156,7 @@ export var useOnScroll = function () {
     return function (ref, setMediaIndex) {
         if (ref.current) {
             var _a = ref.current, scrollTop = _a.scrollTop, scrollHeight = _a.scrollHeight, clientHeight = _a.clientHeight;
-            if (scrollTop + clientHeight === scrollHeight && scrollHeight > 550) {
+            if ((scrollTop + clientHeight) > (scrollHeight - 5) && scrollHeight > 540) {
                 setMediaIndex(Math.random() * 5000);
             }
         }
