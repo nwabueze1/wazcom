@@ -9,7 +9,7 @@ export const createApolloClient = (uri: string) => {
     return {
       headers: {
         ...headers,
-        authorization: `Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiJ9.eyJhdWQiOiI5NTVhYmNkZS03ODcwLTQ4ZGMtOTdiMC03NzNlYzk5ODYxZTUiLCJqdGkiOiJkYmIwZTIwZDAyMmFjYTBiNWM1YThiYWMwZTllNDYwZDYyMjM1MTVhMTQwYWQ5NzA0NjEwMzIxODdlMWEzYTQ0MjZhOWI2ZWFjZWVlODlkNCIsImlhdCI6MTY0NDQ4MzUwNC41MDI5NjEsIm5iZiI6MTY0NDQ4MzUwNC41MDI5NjUsImV4cCI6MTY0NDU2OTkwNC40OTYyNzQsInN1YiI6IjEiLCJzY29wZXMiOltdfQ.0i2OV5RJnN-YzXs4e9Z3ofHjETS6UF_JLQuXWpgpV5Ummqgvhs8A-9jlWFiiruVAzIVgVRr22sc4P64P4IMR2OXLq247rKkxYl_uhzsRB5FlXUNNWqs86XDwFU3pquqNC3aNWVSBFx6fH2bZVYkpZhUIeqCtsX9Ka7eGzIhA-1cqsierQv8q0EJUKwOqAfbgz2PsteubDqPA3d7SNmgEguFc-Xf3ML6_DTPyRWfiZowilpWmXJtsUeJZ1EaiE824G4lrO3PD1LXCdgIm929xL4R-ADbMnfaoT9g-pE8w_uu9OmRFlWbwI4WXi4htPMJn-9_hnrPV3VPAMCk7gE7p3yMrEfwkXUn2oACvRQWGgiLSIcjuXMl057grCNsl4dIPySq_22u2yQgAERzC3sxPVRZr84iaNSciDRqhzypaKew3aKcMDj3gp4a3O83qoAIJ9NQ1RlmpYmkqweh3hiJcZSgrBJb_bZ5Ur2-jNBc14CTGU8SMgHuUmJObR5uRRQ1qHSh8gBd2VELAjAvc2Bvn5NJ-4d2vxQs9ZKr_iZUyrZDhzSly9mcxokppSKWrL3sp86pP3DiRl1d0bPrMVVr7GYQHM6xFwHL9QJBOuNDVu8h1SP08b6-f_bMaOEYJibCatHGCtYXM3mPa331C5Y9KYRK2KflkOuO9n9owSg1qnGY`,
+        authorization: `Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiJ9.eyJhdWQiOiI5NTlmMTNkNi01NWIwLTRmMmUtOTYxZC1lYjkwNGFlYTRmYzYiLCJqdGkiOiIyN2U3ZmI0YjQ0NjMwOGNhZjg2ZTU3MzdmNzc2YjdjMTBhZWQ3ZWQzNDRhYTI4ZjM2MTI3MzU4MzgwZGNhZjVjMzg0MjlhMjg4MDdhMWY3ZiIsImlhdCI6MTY0NjczNDEzNi42MDMxMzMsIm5iZiI6MTY0NjczNDEzNi42MDMxMzcsImV4cCI6MTY0NjgyMDUzNi41OTY5NTQsInN1YiI6IjEiLCJzY29wZXMiOltdfQ.PHsb4yUk_Fen2e3HcqknEDRd3hxWQKADCXMTsVX7BgZRxkKLvVokFkVCQPyN-Sp9aGwVrzD0Y0iBmcIf2D3Yajr05Z3hI2OglXoVe4SjzhtmdYhz_szi0NKuhISgxupbj-FIY6Cd8OVkZa5w08H_pJyNnD8Dx9Mshr7oWGYv2bFnXO7yggD9nA6HjAoIviCL40yxglsGLHc8Iawj5W81wO9BbLNwSrEQIYx3gH-6rxu0NQqa2hbgQ4xZeCmI1OmB2iyD3MvpTUCtpNl1Ov2L4qQRdAM90APgzmklaSFgVXOMfKVXPaci3B2Py6wAIpTK2ePsuI_7N4qGnMOpTbI9Bob1lbP5GV_VyforvFO4Utb0d6htmzpCdRXH63Ybs9xXh-Ck52C-oN5R7ELHyeUH36JzidWNrlsNuhf2wBfGxTwHt8xIWyyTMPUeC_WCr-6Gkc1HMOemSW_Arb2BkNXHL_piXQY-m0S7AS-BhqqWvkxd_daz9XhRAxu5g_ZgjRt7kW3JM6ek92wvBr3hOHe8aroN1H6lU-7E0OoEJ6Ih8Ht3vgqRmjMXNjBFr5d_p4jTCAA700HB9jXnbFdry2iOPsOthwgZqYMh1bjL5DrjQWQ0asG7fcwbfA-JpYTFU79KHLFsjSaTpluR7Q2kgCJuWuTgbib92iCiy7UXrs4SWDk`,
       },
     };
   });
@@ -58,6 +58,9 @@ export const GET_IMAGES = gql`
     images(count: $count, page: $page) {
       images {
         id
+        title
+        alternative_text
+        caption
         url
         created_at
       }
@@ -82,6 +85,44 @@ export const GET_S3_IMAGES = gql`
 export const UPLOAD_IMAGE = gql`
   mutation uploadImage($input: ImageUploadInput!) {
     uploadImage(input: $input) {
+      id
+      title
+      alternative_text
+      caption
+      url
+      created_at
+    }
+  }
+`;
+
+export const UPDATE_IMAGE = gql`
+  mutation UpdateImage(
+    $id: ID!
+    $title: String
+    $caption: String
+    $alternative_text: String
+    $url: String
+  ) {
+    updateImage(
+      id: $id
+      title: $title
+      caption: $caption
+      alternative_text: $alternative_text
+      url: $url
+    ) {
+      id
+      title
+      alternative_text
+      caption
+      url
+      created_at
+    }
+  }
+`;
+
+export const DELETE_IMAGE = gql`
+  mutation deleteImage($id: ID!) {
+    deleteImage(id: $id) {
       id
       url
       created_at

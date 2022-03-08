@@ -5,26 +5,28 @@ import clx from "classnames";
 
 export const Button = ({
   className,
-  loading,
   variant = "contained",
+  loading,
   ...props
 }: ButtonProps) => {
   const classes = useButtonStyles();
 
   return (
-    <div className={clx(classes.buttonParent, className)}>
+    <div className={classes.root}>
       <MuiButton
         classes={{
-          root: clx(classes.root, className),
+          root: clx(classes.button, className),
           sizeSmall: classes.sizeSmall,
           sizeLarge: classes.sizeLarge,
         }}
         variant={variant}
         {...props}
       />
-      <div className={clx(classes.spinner, loading && classes.spinnerActive)}>
-        <CircularProgress color="inherit" size={18} />
-      </div>
+      {loading && (
+        <div className={classes.loader}>
+          <CircularProgress color="inherit" size={12} />
+        </div>
+      )}
     </div>
   );
 };

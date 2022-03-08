@@ -9,6 +9,22 @@ var __assign = (this && this.__assign) || function () {
     };
     return __assign.apply(this, arguments);
 };
+var __read = (this && this.__read) || function (o, n) {
+    var m = typeof Symbol === "function" && o[Symbol.iterator];
+    if (!m) return o;
+    var i = m.call(o), r, ar = [], e;
+    try {
+        while ((n === void 0 || n-- > 0) && !(r = i.next()).done) ar.push(r.value);
+    }
+    catch (error) { e = { error: error }; }
+    finally {
+        try {
+            if (r && !r.done && (m = i["return"])) m.call(i);
+        }
+        finally { if (e) throw e.error; }
+    }
+    return ar;
+};
 var __spreadArray = (this && this.__spreadArray) || function (to, from, pack) {
     if (pack || arguments.length === 2) for (var i = 0, l = from.length, ar; i < l; i++) {
         if (ar || !(i in from)) {
@@ -34,7 +50,7 @@ export var Scheduler = function (_a) {
     var handleChange = useCallback(function (event, index, remove) {
         if (remove === void 0) { remove = false; }
         var _a = event.target, name = _a.name, value = _a.value;
-        var newValue = __spreadArray([], initialScheduleValue, true);
+        var newValue = __spreadArray([], __read(initialScheduleValue), false);
         if (remove && newValue.length > 1) {
             newValue.splice(index, 1);
         }
@@ -43,7 +59,7 @@ export var Scheduler = function (_a) {
         }
         onChange === null || onChange === void 0 ? void 0 : onChange({ name: componentName, value: newValue });
     }, [initialScheduleValue]);
-    var _c = useState(parseSchedulevalue(initialScheduleValue, handleChange)), scheduleValue = _c[0], setScheduleValue = _c[1];
+    var _c = __read(useState(parseSchedulevalue(initialScheduleValue, handleChange)), 2), scheduleValue = _c[0], setScheduleValue = _c[1];
     useEffect(function () {
         var newScheduleValue = parseSchedulevalue(initialScheduleValue, handleChange);
         setScheduleValue(newScheduleValue);
@@ -51,7 +67,7 @@ export var Scheduler = function (_a) {
     var addNewRow = useCallback(function () {
         onChange === null || onChange === void 0 ? void 0 : onChange({
             name: componentName,
-            value: __spreadArray(__spreadArray([], initialScheduleValue, true), [
+            value: __spreadArray(__spreadArray([], __read(initialScheduleValue), false), [
                 { day: "0", start_time: "00:00", end_time: "12:00" },
             ], false),
         });

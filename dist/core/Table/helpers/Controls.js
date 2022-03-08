@@ -9,6 +9,22 @@ var __assign = (this && this.__assign) || function () {
     };
     return __assign.apply(this, arguments);
 };
+var __read = (this && this.__read) || function (o, n) {
+    var m = typeof Symbol === "function" && o[Symbol.iterator];
+    if (!m) return o;
+    var i = m.call(o), r, ar = [], e;
+    try {
+        while ((n === void 0 || n-- > 0) && !(r = i.next()).done) ar.push(r.value);
+    }
+    catch (error) { e = { error: error }; }
+    finally {
+        try {
+            if (r && !r.done && (m = i["return"])) m.call(i);
+        }
+        finally { if (e) throw e.error; }
+    }
+    return ar;
+};
 var __spreadArray = (this && this.__spreadArray) || function (to, from, pack) {
     if (pack || arguments.length === 2) for (var i = 0, l = from.length, ar; i < l; i++) {
         if (ar || !(i in from)) {
@@ -49,12 +65,12 @@ export var useUpdateTableValue = function (setTableValue, initialTableValue, con
         });
         // filter result by filter panel
         var newFilterResult = controlsFormData.search
-            ? __spreadArray([], result, true) : __spreadArray([], initialTableValue, true);
+            ? __spreadArray([], __read(result), false) : __spreadArray([], __read(initialTableValue), false);
         if (filters.length > 0) {
             return newFilterResult.filter(function (rowValues) {
                 var status = false;
                 Object.entries(rowValues).map(function (_a) {
-                    var key = _a[0], value = _a[1];
+                    var _b = __read(_a, 2), key = _b[0], value = _b[1];
                     var filterIndex = filters.findIndex(function (item) { return item.field == key; });
                     if (filterIndex !== -1) {
                         if (!filters[filterIndex].values.includes(value.toString())) {

@@ -25,11 +25,11 @@ import { Button as MuiButton, CircularProgress } from "@mui/material";
 import { useButtonStyles } from "./styles";
 import clx from "classnames";
 export var Button = function (_a) {
-    var className = _a.className, loading = _a.loading, _b = _a.variant, variant = _b === void 0 ? "contained" : _b, props = __rest(_a, ["className", "loading", "variant"]);
+    var className = _a.className, _b = _a.variant, variant = _b === void 0 ? "contained" : _b, loading = _a.loading, props = __rest(_a, ["className", "variant", "loading"]);
     var classes = useButtonStyles();
-    return (_jsxs("div", __assign({ className: clx(classes.buttonParent, className) }, { children: [_jsx(MuiButton, __assign({ classes: {
-                    root: clx(classes.root, className),
+    return (_jsxs("div", __assign({ className: classes.root }, { children: [_jsx(MuiButton, __assign({ classes: {
+                    root: clx(classes.button, className),
                     sizeSmall: classes.sizeSmall,
                     sizeLarge: classes.sizeLarge,
-                }, variant: variant }, props), void 0), _jsx("div", __assign({ className: clx(classes.spinner, loading && classes.spinnerActive) }, { children: _jsx(CircularProgress, { color: "inherit", size: 18 }, void 0) }), void 0)] }), void 0));
+                }, variant: variant }, props), void 0), loading && (_jsx("div", __assign({ className: classes.loader }, { children: _jsx(CircularProgress, { color: "inherit", size: 12 }, void 0) }), void 0))] }), void 0));
 };

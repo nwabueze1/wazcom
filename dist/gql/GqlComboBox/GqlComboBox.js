@@ -56,6 +56,22 @@ var __rest = (this && this.__rest) || function (s, e) {
         }
     return t;
 };
+var __read = (this && this.__read) || function (o, n) {
+    var m = typeof Symbol === "function" && o[Symbol.iterator];
+    if (!m) return o;
+    var i = m.call(o), r, ar = [], e;
+    try {
+        while ((n === void 0 || n-- > 0) && !(r = i.next()).done) ar.push(r.value);
+    }
+    catch (error) { e = { error: error }; }
+    finally {
+        try {
+            if (r && !r.done && (m = i["return"])) m.call(i);
+        }
+        finally { if (e) throw e.error; }
+    }
+    return ar;
+};
 var __spreadArray = (this && this.__spreadArray) || function (to, from, pack) {
     if (pack || arguments.length === 2) for (var i = 0, l = from.length, ar; i < l; i++) {
         if (ar || !(i in from)) {
@@ -74,9 +90,9 @@ import { get } from "lodash";
 export var GqlComboBox = memo(function (_a) {
     var initialValue = _a.value, _b = _a.config, client = _b.client, key = _b.key, labelKey = _b.labelKey, valueKey = _b.valueKey, query = _b.name, postFetchHook = _a.postFetchHook, addOption = _a.addOption, onChange = _a.onChange, variables = _a.variables, props = __rest(_a, ["value", "config", "postFetchHook", "addOption", "onChange", "variables"]);
     var classes = useGqlComboBoxStyles();
-    var _c = useState([]), options = _c[0], setOptions = _c[1];
-    var _d = useState(true), fetching = _d[0], setFetching = _d[1];
-    var _e = useState(initialValue), value = _e[0], setValue = _e[1];
+    var _c = __read(useState([]), 2), options = _c[0], setOptions = _c[1];
+    var _d = __read(useState(true), 2), fetching = _d[0], setFetching = _d[1];
+    var _e = __read(useState(initialValue), 2), value = _e[0], setValue = _e[1];
     useEffect(function () {
         setValue(initialValue);
     }, [initialValue]);
@@ -154,7 +170,7 @@ export var GqlComboBox = memo(function (_a) {
                     if (response === null || response === void 0 ? void 0 : response.status) {
                         value_1 = response.value;
                         label = response.label;
-                        newOptions = __spreadArray([], options, true);
+                        newOptions = __spreadArray([], __read(options), false);
                         newOptions.push({ label: label, value: value_1 });
                         setOptions(newOptions);
                         postFetchHook === null || postFetchHook === void 0 ? void 0 : postFetchHook(newOptions);
