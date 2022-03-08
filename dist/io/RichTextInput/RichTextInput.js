@@ -9,6 +9,22 @@ var __assign = (this && this.__assign) || function () {
     };
     return __assign.apply(this, arguments);
 };
+var __read = (this && this.__read) || function (o, n) {
+    var m = typeof Symbol === "function" && o[Symbol.iterator];
+    if (!m) return o;
+    var i = m.call(o), r, ar = [], e;
+    try {
+        while ((n === void 0 || n-- > 0) && !(r = i.next()).done) ar.push(r.value);
+    }
+    catch (error) { e = { error: error }; }
+    finally {
+        try {
+            if (r && !r.done && (m = i["return"])) m.call(i);
+        }
+        finally { if (e) throw e.error; }
+    }
+    return ar;
+};
 import { jsx as _jsx, jsxs as _jsxs } from "react/jsx-runtime";
 import * as React from "react";
 import { InputLabel, Typography } from "@mui/material";
@@ -30,7 +46,7 @@ var toolbar = [
 export var RichTextInput = function (_a) {
     var name = _a.name, label = _a.label, apiKey = _a.apiKey, value = _a.value, upload = _a.upload, onChange = _a.onChange, error = _a.error, feedback = _a.feedback, Loader = _a.Loader;
     var classes = useRichInputStyles();
-    var _b = React.useState(false), loading = _b[0], setLoading = _b[1];
+    var _b = __read(React.useState(false), 2), loading = _b[0], setLoading = _b[1];
     var handleContentChange = function (content) {
         onChange === null || onChange === void 0 ? void 0 : onChange({ name: name, value: content });
     };

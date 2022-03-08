@@ -9,6 +9,22 @@ var __assign = (this && this.__assign) || function () {
     };
     return __assign.apply(this, arguments);
 };
+var __read = (this && this.__read) || function (o, n) {
+    var m = typeof Symbol === "function" && o[Symbol.iterator];
+    if (!m) return o;
+    var i = m.call(o), r, ar = [], e;
+    try {
+        while ((n === void 0 || n-- > 0) && !(r = i.next()).done) ar.push(r.value);
+    }
+    catch (error) { e = { error: error }; }
+    finally {
+        try {
+            if (r && !r.done && (m = i["return"])) m.call(i);
+        }
+        finally { if (e) throw e.error; }
+    }
+    return ar;
+};
 import { jsx as _jsx, jsxs as _jsxs } from "react/jsx-runtime";
 import { useCallback, useEffect, useState } from "react";
 import Autocomplete, { createFilterOptions } from "@mui/material/Autocomplete";
@@ -20,7 +36,7 @@ var filter = createFilterOptions();
 export var ComboBoxInput = function (_a) {
     var name = _a.name, onChange = _a.onChange, initialOptions = _a.options, label = _a.label, value = _a.value, error = _a.error, placeholder = _a.placeholder, feedback = _a.feedback;
     var classes = useComboBoxStyles();
-    var _b = useState(initialOptions), options = _b[0], setOptions = _b[1];
+    var _b = __read(useState(initialOptions), 2), options = _b[0], setOptions = _b[1];
     useEffect(function () {
         setOptions(initialOptions);
     }, [initialOptions]);

@@ -8,7 +8,6 @@ import { Button } from "core";
 export const DeleteMedia: React.FC<DeleteMediaProps> = ({
   display,
   loading,
-  media,
   handleClose,
   handleDelete,
 }) => {

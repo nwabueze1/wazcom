@@ -45,6 +45,22 @@ var __generator = (this && this.__generator) || function (thisArg, body) {
         if (op[0] & 5) throw op[1]; return { value: op[0] ? op[1] : void 0, done: true };
     }
 };
+var __read = (this && this.__read) || function (o, n) {
+    var m = typeof Symbol === "function" && o[Symbol.iterator];
+    if (!m) return o;
+    var i = m.call(o), r, ar = [], e;
+    try {
+        while ((n === void 0 || n-- > 0) && !(r = i.next()).done) ar.push(r.value);
+    }
+    catch (error) { e = { error: error }; }
+    finally {
+        try {
+            if (r && !r.done && (m = i["return"])) m.call(i);
+        }
+        finally { if (e) throw e.error; }
+    }
+    return ar;
+};
 var __spreadArray = (this && this.__spreadArray) || function (to, from, pack) {
     if (pack || arguments.length === 2) for (var i = 0, l = from.length, ar; i < l; i++) {
         if (ar || !(i in from)) {
@@ -56,100 +72,141 @@ var __spreadArray = (this && this.__spreadArray) || function (to, from, pack) {
 };
 import { jsx as _jsx, Fragment as _Fragment, jsxs as _jsxs } from "react/jsx-runtime";
 import { useCallback, useEffect, useRef, useState } from "react";
-import { Grow } from "@mui/material";
 import clx from "classnames";
 import { Button } from "../../core/Button";
-import { IoCloudUploadOutline } from "react-icons/io5";
 import { Loader } from "../../core/Loader/Loader";
 import { useMediaLibraryStyles } from "./styles";
-import { Uploader } from "./Uploader";
-var split = function (array, count) {
-    var collection = [];
-    array.map(function (item, index) {
-        var _a;
-        var row = (_a = collection[index % count]) !== null && _a !== void 0 ? _a : [];
-        collection[index % count] = __spreadArray(__spreadArray([], row, true), [item], false);
-    });
-    return collection;
-};
+import { EditMedia, DeleteMedia } from "./components";
+import { fetchData, mutateMedia, getUniqueImages, useFileSelect, useOnScroll, useDisplayImages, useUpdateMediaLibrary, useMediaUpload, } from "./hooks";
+import { FaTimes } from "react-icons/fa";
 export var GqlMediaLibrary = function (_a) {
-    var className = _a.className, _b = _a.config, client = _b.client, _c = _b.query, query = _c.name, queryVariables = _c.variables, upload = _b.upload, onChange = _a.onChange, name = _a.name;
-    var fileRef = useRef();
+    var className = _a.className, _b = _a.config, client = _b.client, _c = _b.query, query = _c.name, queryVariables = _c.variables, upload = _b.upload, update = _b.update, remove = _b.remove, _d = _b.viewOnly, viewOnly = _d === void 0 ? false : _d, onChange = _a.onChange, name = _a.name;
+    var refs = { fileRef: useRef(), listInnerRef: useRef() };
+    var handleFileSelect = useFileSelect();
+    var handleOnScroll = useOnScroll();
+    var handleDisplayImages = useDisplayImages();
+    var handleMediaUpload = useMediaUpload();
+    var handleUpdateMediaLibrary = useUpdateMediaLibrary();
     var classes = useMediaLibraryStyles();
-    var _d = useState([]), images = _d[0], setImages = _d[1];
-    var _e = useState({ currentPage: 1, lastPage: 1 }), paginatorInfo = _e[0], setPaginatorInfo = _e[1];
-    var _f = useState(true), loading = _f[0], setLoading = _f[1];
-    var _g = useState(false), imageLoading = _g[0], setImageLoading = _g[1];
-    var listInnerRef = useRef(null);
-    var _h = useState(0), mediaIndex = _h[0], setMediaIndex = _h[1];
-    var fetchData = function (variables) { return __awaiter(void 0, void 0, void 0, function () {
-        return __generator(this, function (_a) {
-            switch (_a.label) {
-                case 0: return [4 /*yield*/, client.query({
-                        query: query,
-                        fetchPolicy: "network-only",
-                        variables: variables,
-                    })];
-                case 1: return [2 /*return*/, _a.sent()];
-            }
-        });
-    }); };
+    var _e = __read(useState([]), 2), images = _e[0], setImages = _e[1];
+    var _f = __read(useState({ currentPage: 1, lastPage: 1 }), 2), paginatorInfo = _f[0], setPaginatorInfo = _f[1];
+    var _g = __read(useState({
+        media: false,
+        mutate: false,
+    }), 2), loading = _g[0], setLoading = _g[1];
+    var _h = __read(useState({ type: "" }), 2), activeMedia = _h[0], setActiveMedia = _h[1];
     useEffect(function () {
-        fetchData(__assign({}, queryVariables))
+        setLoading(__assign(__assign({}, loading), { media: true }));
+        fetchData(client, query, __assign({}, queryVariables))
             .then(function (res) {
-            var _a, _b;
-            setLoading(false);
-            if (!images) {
-                setImages((_a = res.data) === null || _a === void 0 ? void 0 : _a.images.images);
-            }
-            else {
-                setImages(__spreadArray(__spreadArray([], images, true), (_b = res.data) === null || _b === void 0 ? void 0 : _b.images.images, true));
-            }
+            setLoading(__assign(__assign({}, loading), { media: false }));
+            setImages(function (images) {
+                return getUniqueImages(__spreadArray(__spreadArray([], __read(images), false), __read(res.data.images.images), false));
+            });
             setPaginatorInfo(res.data.images.paginatorInfo);
         })
             .catch(function () {
-            setLoading(false);
+            setLoading(__assign(__assign({}, loading), { media: false }));
         });
     }, []);
     useEffect(function () {
-        if (mediaIndex && mediaIndex > 0) {
+        if (activeMedia.index && activeMedia.index > 0) {
             var currentPage = paginatorInfo.currentPage, lastPage = paginatorInfo.lastPage;
             if (currentPage !== lastPage) {
-                setImageLoading(true);
-                fetchData({ page: currentPage + 1, count: queryVariables.count }).then(function (res) {
-                    setImages(function (images) { return __spreadArray(__spreadArray([], images, true), res.data.images.images, true); });
-                    setImageLoading(false);
+                setLoading(__assign(__assign({}, loading), { media: true }));
+                fetchData(client, query, {
+                    page: currentPage + 1,
+                    count: queryVariables.count,
+                }).then(function (res) {
+                    setImages(function (images) {
+                        return getUniqueImages(__spreadArray(__spreadArray([], __read(images), false), __read(res.data.images.images), false));
+                    });
+                    setLoading(__assign(__assign({}, loading), { media: false }));
                     setPaginatorInfo(res.data.images.paginatorInfo);
                 });
             }
         }
-    }, [mediaIndex]);
-    var selectImage = function (data) {
-        onChange === null || onChange === void 0 ? void 0 : onChange({ name: name !== null && name !== void 0 ? name : "image", value: data });
+    }, [activeMedia.index, loading]);
+    var updateMediaLibrary = useCallback(function (image, type, variables) {
+        if (type === void 0) { type = "add"; }
+        handleUpdateMediaLibrary(image, images, setImages, function (index) {
+            setActiveMedia(__assign(__assign({}, activeMedia), { index: index }));
+        }, type, variables);
+        handleMediaAction("", undefined);
+    }, [images, activeMedia]);
+    var handleFileChange = function (event) {
+        if (!event.target.files || event.target.files === 0)
+            return;
+        var file = event.target.files[0];
+        handleMediaAction("add", file);
     };
-    var updateMediaLibrary = function (image) {
-        setImages(function (images) { return __spreadArray([image], images, true); });
+    var handleMediaAction = function (type, media) {
+        setActiveMedia({ type: type, media: media });
     };
-    var handleFileSelect = useCallback(function () {
-        var fileInput = fileRef.current;
-        if (fileInput) {
-            fileInput.click();
-        }
-    }, []);
-    var onScroll = useCallback(function () {
-        if (listInnerRef.current) {
-            var _a = listInnerRef.current, scrollTop = _a.scrollTop, scrollHeight = _a.scrollHeight, clientHeight = _a.clientHeight;
-            if (scrollTop + clientHeight === scrollHeight && scrollHeight > 550) {
-                setMediaIndex(Math.random() * 5000);
+    var handleMediaAdd = useCallback(function (variables) { return __awaiter(void 0, void 0, void 0, function () {
+        return __generator(this, function (_a) {
+            switch (_a.label) {
+                case 0: return [4 /*yield*/, handleMediaUpload(client, upload === null || upload === void 0 ? void 0 : upload.name, __assign(__assign({}, variables), { image: activeMedia.media }), setLoading, function (image) {
+                        updateMediaLibrary(image, "add");
+                    })];
+                case 1:
+                    _a.sent();
+                    return [2 /*return*/];
             }
-        }
-    }, [mediaIndex]);
-    return (_jsx("div", __assign({ className: classes.wrapper, ref: listInnerRef, onScroll: function () {
-            onScroll();
-        } }, { children: _jsx("div", __assign({ className: clx(classes.root, className) }, { children: _jsxs("div", __assign({ className: classes.library }, { children: [_jsx(Uploader, { ref: fileRef, config: __assign({ client: client }, upload), setLoading: setLoading, updateMediaLibrary: updateMediaLibrary }, void 0), _jsx("div", __assign({ className: classes.actions }, { children: _jsx(Button, __assign({ color: "primary", startIcon: _jsx(IoCloudUploadOutline, {}, void 0), onClick: handleFileSelect }, { children: "Upload Image" }), void 0) }), void 0), _jsx("div", __assign({ className: classes.collection }, { children: images.length === 0 || loading ? (_jsx(Loader, {}, void 0)) : (_jsx(_Fragment, { children: images &&
-                                split(images, 3).map(function (_, columnIndex) {
-                                    return (_jsx("div", __assign({ className: classes.column }, { children: _.map(function (theImage, index) {
-                                            return (_jsx(Grow, __assign({ in: true }, { children: _jsx("div", __assign({ className: classes.thumbnail }, { children: _jsx("img", { onClick: function () { return selectImage(theImage); }, src: theImage === null || theImage === void 0 ? void 0 : theImage.url, className: classes.image }, void 0) }), void 0) }), index));
-                                        }) }), columnIndex));
-                                }) }, void 0)) }), void 0), images.length > 0 && imageLoading && (_jsx("div", __assign({ className: classes.loaderParent }, { children: _jsx(Loader, { className: classes.loader }, void 0) }), void 0))] }), void 0) }), void 0) }), void 0));
+        });
+    }); }, [activeMedia, loading]);
+    var handleMediaUpdate = useCallback(function (variables) { return __awaiter(void 0, void 0, void 0, function () {
+        var media;
+        return __generator(this, function (_a) {
+            switch (_a.label) {
+                case 0:
+                    if (!variables.id) {
+                        return [2 /*return*/, handleMediaAdd(__assign({}, variables))];
+                    }
+                    media = activeMedia.media;
+                    setLoading(__assign(__assign({}, loading), { mutate: true }));
+                    return [4 /*yield*/, mutateMedia(client, update === null || update === void 0 ? void 0 : update.name, media, function () {
+                            updateMediaLibrary(media, "update", variables);
+                        }, variables)];
+                case 1:
+                    _a.sent();
+                    setLoading(__assign(__assign({}, loading), { mutate: false }));
+                    return [2 /*return*/];
+            }
+        });
+    }); }, [activeMedia]);
+    var handleMediaDelete = useCallback(function () { return __awaiter(void 0, void 0, void 0, function () {
+        var media;
+        return __generator(this, function (_a) {
+            switch (_a.label) {
+                case 0:
+                    media = activeMedia.media;
+                    setLoading(__assign(__assign({}, loading), { mutate: true }));
+                    return [4 /*yield*/, mutateMedia(client, remove === null || remove === void 0 ? void 0 : remove.name, media, function () {
+                            updateMediaLibrary(media, "delete");
+                            handleMediaAction("", undefined);
+                        })];
+                case 1:
+                    _a.sent();
+                    setLoading(__assign(__assign({}, loading), { mutate: false }));
+                    return [2 /*return*/];
+            }
+        });
+    }); }, [activeMedia, loading]);
+    return (_jsxs("div", __assign({ className: clx(classes.wrapper, viewOnly && classes.wrapperDialog), ref: refs.listInnerRef, onScroll: function () {
+            handleOnScroll(refs.listInnerRef, function (index) {
+                setActiveMedia(__assign(__assign({}, activeMedia), { index: index }));
+            });
+        } }, { children: [_jsxs("div", __assign({ className: clx(classes.root, className) }, { children: [_jsx("input", { name: "image_url", accept: "image/*", hidden: true, type: "file", ref: refs.fileRef, onChange: handleFileChange }, void 0), _jsx("div", __assign({ className: classes.actions }, { children: viewOnly ? (_jsxs(_Fragment, { children: [_jsx("p", { children: "Media Library" }, void 0), _jsx(FaTimes, { className: classes.timesIcon }, void 0)] }, void 0)) : (_jsxs(_Fragment, { children: [_jsx("p", __assign({ className: classes.tab }, { children: "All Media" }), void 0), _jsx(Button, __assign({ color: "primary", onClick: function () {
+                                        handleFileSelect(refs.fileRef);
+                                    } }, { children: "Add New" }), void 0)] }, void 0)) }), void 0), _jsx("div", __assign({ className: classes.collection }, { children: images.length === 0 && loading.media ? (_jsx(Loader, {}, void 0)) : (_jsxs(_Fragment, { children: [(activeMedia.type === "add" || activeMedia.type === "edit") && (_jsx(EditMedia, { loading: loading.mutate, handleEdit: function (variables) {
+                                        handleMediaUpdate(variables);
+                                    }, handleClose: function () {
+                                        handleMediaAction("", undefined);
+                                    }, image: activeMedia.media }, void 0)), images &&
+                                    handleDisplayImages(images, function (image) {
+                                        onChange === null || onChange === void 0 ? void 0 : onChange({ name: name !== null && name !== void 0 ? name : "", value: image });
+                                    }, handleMediaAction, viewOnly)] }, void 0)) }), void 0), images.length > 0 && loading.media && (_jsx("div", __assign({ className: classes.loaderParent }, { children: _jsx(Loader, { className: classes.loader }, void 0) }), void 0))] }), void 0), _jsx(DeleteMedia, { display: activeMedia.type === "delete", loading: loading.mutate, media: activeMedia.media, handleClose: function () {
+                    handleMediaAction("", undefined);
+                }, handleDelete: handleMediaDelete }, void 0)] }), void 0));
 };

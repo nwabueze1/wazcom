@@ -20,6 +20,22 @@ var __rest = (this && this.__rest) || function (s, e) {
         }
     return t;
 };
+var __read = (this && this.__read) || function (o, n) {
+    var m = typeof Symbol === "function" && o[Symbol.iterator];
+    if (!m) return o;
+    var i = m.call(o), r, ar = [], e;
+    try {
+        while ((n === void 0 || n-- > 0) && !(r = i.next()).done) ar.push(r.value);
+    }
+    catch (error) { e = { error: error }; }
+    finally {
+        try {
+            if (r && !r.done && (m = i["return"])) m.call(i);
+        }
+        finally { if (e) throw e.error; }
+    }
+    return ar;
+};
 var __spreadArray = (this && this.__spreadArray) || function (to, from, pack) {
     if (pack || arguments.length === 2) for (var i = 0, l = from.length, ar; i < l; i++) {
         if (ar || !(i in from)) {
@@ -42,12 +58,12 @@ import { TableFilter } from "./components";
 export var Table = function (_a) {
     var headers = _a.headers, initialTableValue = _a.value, hasCheckBox = _a.hasCheckBox, pagination = _a.pagination, changePage = _a.changePage, rowsPerPage = _a.rowsPerPage, changeRowsPerPage = _a.changeRowsPerPage, paginatorInfo = _a.paginatorInfo, controls = _a.controls, props = __rest(_a, ["headers", "value", "hasCheckBox", "pagination", "changePage", "rowsPerPage", "changeRowsPerPage", "paginatorInfo", "controls"]);
     var classes = useTableStyles();
-    var _b = useState(initialTableValue), tableValue = _b[0], setTableValue = _b[1];
-    var _c = useState(headers), tableHeaders = _c[0], setTableHeaders = _c[1];
-    var _d = useState([]), controlsFormData = _d[0], setControls = _d[1];
-    var _e = useState(false), showFilter = _e[0], setShowFilter = _e[1];
-    var _f = useState([]), filters = _f[0], setFilters = _f[1];
-    var _g = useState([]), selectedRows = _g[0], setSelectedRows = _g[1];
+    var _b = __read(useState(initialTableValue), 2), tableValue = _b[0], setTableValue = _b[1];
+    var _c = __read(useState(headers), 2), tableHeaders = _c[0], setTableHeaders = _c[1];
+    var _d = __read(useState([]), 2), controlsFormData = _d[0], setControls = _d[1];
+    var _e = __read(useState(false), 2), showFilter = _e[0], setShowFilter = _e[1];
+    var _f = __read(useState([]), 2), filters = _f[0], setFilters = _f[1];
+    var _g = __read(useState([]), 2), selectedRows = _g[0], setSelectedRows = _g[1];
     // All Handler functions are defined as hooks
     var handleChangePage = useHandleChangePage(changePage);
     var getCurrentPage = useGetCurrentPage(paginatorInfo);
@@ -67,9 +83,9 @@ export var Table = function (_a) {
             var item = rows.findIndex(function (row) { return row == index; });
             if (item !== -1) {
                 rows.splice(item, 1);
-                return __spreadArray([], rows, true);
+                return __spreadArray([], __read(rows), false);
             }
-            return __spreadArray(__spreadArray([], rows, true), [index], false);
+            return __spreadArray(__spreadArray([], __read(rows), false), [index], false);
         });
     };
     useEffect(function () {
