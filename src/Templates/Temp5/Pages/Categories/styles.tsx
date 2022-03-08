@@ -47,15 +47,21 @@ export const useArticleStyles = makeStyles<Theme>((theme: Theme) => ({
 
     "& img": {
       width: "100%",
-      objectFit: "cover",
     },
 
-    "& .head": { width: "50%" },
+    "& .head": {
+      width: "50%",
+    },
   },
 
-  post: { width: "100%" },
+  post: {
+    width: "100%",
+  },
 
-  containerImage: { width: "100%", height: "35vh", objectFit: "cover" },
+  containerImage: {
+    width: "100%",
+    height: "35vh",
+  },
   head: {
     marginTop: theme.spacing(3),
     width: "100%",
@@ -96,7 +102,7 @@ export const useArticleStyles = makeStyles<Theme>((theme: Theme) => ({
     color: theme.design.colors.black,
     width: "26%",
     marginTop: theme.spacing(2),
-    borderBottom: `2px solid  ${theme.design.colors.black}`,
+    borderBottom: `3px solid  ${theme.design.colors.black}`,
     paddingBottom: theme.spacing(1),
     fontWeight: theme.typography.fontWeightBold,
   },

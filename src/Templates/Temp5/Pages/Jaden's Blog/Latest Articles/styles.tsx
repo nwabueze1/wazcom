@@ -3,7 +3,7 @@ import { Theme } from "@mui/material/styles";
 
 export const useArticleStyles = makeStyles<Theme>((theme: Theme) => ({
   root: {
-    width: "90%",
+    width: "94%",
     marginTop: theme.spacing(14),
     display: "flex",
     justifyContent: "flex-end",
@@ -32,9 +32,18 @@ export const useArticleStyles = makeStyles<Theme>((theme: Theme) => ({
     width: "98%",
     marginTop: theme.spacing(2),
   },
-  time: { display: "flex ", width: "55%", justifyContent: "flex-end" },
-  sight: { display: "flex", justifyContent: "flex-end" },
-  info: { width: "100%" },
+  time: {
+    display: "flex ",
+    width: "55%",
+    justifyContent: "flex-end",
+  },
+  sight: {
+    display: "flex",
+    justifyContent: "flex-end",
+  },
+  info: {
+    width: "100%",
+  },
   containerImage: {
     width: "50%",
     height: "40vh",
@@ -60,8 +69,15 @@ export const useArticleStyles = makeStyles<Theme>((theme: Theme) => ({
     marginLeft: theme.spacing(4),
     width: "100%",
   },
-  date: { display: "flex ", width: "55%", justifyContent: "flex-end" },
-  views: { display: "flex", justifyContent: "flex-end" },
+  date: {
+    display: "flex ",
+    width: "55%",
+    justifyContent: "flex-end",
+  },
+  views: {
+    display: "flex",
+    justifyContent: "flex-end",
+  },
   readmoreBtn: {
     textDecoration: "none",
     color: theme.design.colors.black,

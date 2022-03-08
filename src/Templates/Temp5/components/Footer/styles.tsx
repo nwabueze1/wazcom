@@ -8,7 +8,7 @@ export const useFooterStyles = makeStyles((theme: Theme) => ({
     marginTop: theme.spacing(13),
     margin: "0 auto",
     background: theme.design.colors.lightGrey,
-    // fontFamily: theme.include.styles.font.lato,
+    fontFamily: theme.include.styles.template2.font.lato,
   },
   container: {
     display: "flex",
@@ -16,12 +16,13 @@ export const useFooterStyles = makeStyles((theme: Theme) => ({
     margin: "auto",
   },
   footerHeader: {
-    // fontFamily: theme.include.styles.font.garamond,
+    fontFamily: theme.include.styles.template2.font.garamond,
     fontSize: theme.typography.fontSize * 2.5,
     fontStyle: "italic",
     marginTop: theme.spacing(6.5),
     textDecoration: "none",
     color: theme.design.colors.black,
+    fontWeight:theme.typography.fontWeightBold
   },
   listItems: {
     position: "absolute",

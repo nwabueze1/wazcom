@@ -3,7 +3,7 @@ import { about, articleData } from "Templates/Temp5/TemplateData";
 import { Link } from "react-router-dom";
 import { useArticleStyles } from "./styles";
 
-export const ZacEffron = () => {
+export const AboutBlog = () => {
   const classes = useArticleStyles();
   return (
     <div className={classes.root}>

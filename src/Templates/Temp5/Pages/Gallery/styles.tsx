@@ -7,6 +7,8 @@ export const useArticleStyles = makeStyles<Theme>((theme: Theme) => ({
     height: "100%",
     fontFamily: theme.include.styles.template2.font.lato,
     margin: "auto",
+    display: "flex",
+    flexDirection: "column",
   },
   header: {
     display: "flex",
@@ -16,30 +18,33 @@ export const useArticleStyles = makeStyles<Theme>((theme: Theme) => ({
     fontSize: theme.typography.fontSize * 3,
   },
   images: {
-    width: "90vw",
+    width: "100%",
     display: "flex",
     justifyContent: "space-between",
-    height: "100%",
   },
-
+  image: {
+    width: "100%",
+    height: "60vh",
+  },
+  centreImages: {
+    height: "38vh",
+  },
   firstColumn: {
     display: "flex",
     flexDirection: "column",
-    gap: theme.spacing(13),
+    gap: theme.spacing(10),
     width: "30%",
-    height: "6vh",
   },
   secondColumn: {
     display: "flex",
     flexDirection: "column",
     gap: theme.spacing(9),
-    width: "30%",
+    width: "33%",
   },
   thirdColumn: {
     display: "flex",
     flexDirection: "column",
-    gap: theme.spacing(13),
+    gap: theme.spacing(10),
     width: "30%",
-    height: "6vh",
   },
 }));

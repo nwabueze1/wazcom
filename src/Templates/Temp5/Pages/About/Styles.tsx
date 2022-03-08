@@ -13,7 +13,7 @@ export const useArticleStyles = makeStyles<Theme>((theme: Theme) => ({
     fontFamily: theme.include.styles.template2.font.lato,
     fontSize: theme.typography.fontSize * 3,
     justifyContent: "center",
-    marginTop:theme.spacing(10)
+    marginTop: theme.spacing(10),
   },
   hero: {
     display: "flex",
@@ -68,7 +68,7 @@ export const useArticleStyles = makeStyles<Theme>((theme: Theme) => ({
   },
   icons: {
     display: "flex",
-    width: "4vw",
+    width: "3vw",
     justifyContent: "space-between",
     marginTop: theme.spacing(2),
     margin: "auto",

@@ -58,7 +58,31 @@ export const about = {
 export const categoryData = [
   {
     image: {
-      src: "https://s3.eu-west-2.amazonaws.com/medusa.com/templates/tamaz-tokmadze-sEnUVVqGmgY-unsplash+3.png",
+      src: "https://s3.eu-west-2.amazonaws.com/medusa.com/templates/unsplash_stpmvHj6C-o.png",
+      alt: "dgsfs",
+    },
+    date: "July 7, 2021",
+    category: "Glutten-free",
+    title: "Backpacking through Europe",
+    details:
+      "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh, ut fermentum",
+    views: 32,
+  },
+  {
+    image: {
+      src: "https://s3.eu-west-2.amazonaws.com/medusa.com/templates/unsplash_stpmvHj6C-o.png",
+      alt: "dgsfs",
+    },
+    date: "July 7, 2021",
+    category: "Glutten-free",
+    title: "Backpacking through Europe",
+    details:
+      "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh, ut fermentum",
+    views: 32,
+  },
+  {
+    image: {
+      src: "https://s3.eu-west-2.amazonaws.com/medusa.com/templates/unsplash_mBQIfKlvowM.png",
       alt: "dgsfs",
     },
     date: "July 7, 2021",
@@ -82,7 +106,7 @@ export const categoryData = [
   },
   {
     image: {
-      src: "https://s3.eu-west-2.amazonaws.com/medusa.com/templates/tamaz-tokmadze-sEnUVVqGmgY-unsplash+3.png",
+      src: "https://s3.eu-west-2.amazonaws.com/medusa.com/templates/unsplash_s6xt1mwF_iU.png",
       alt: "dgsfs",
     },
     date: "July 7, 2021",
@@ -94,7 +118,7 @@ export const categoryData = [
   },
   {
     image: {
-      src: "https://s3.eu-west-2.amazonaws.com/medusa.com/templates/tamaz-tokmadze-sEnUVVqGmgY-unsplash+3.png",
+      src: "https://s3.eu-west-2.amazonaws.com/medusa.com/templates/unsplash_mOcdke2ZQoE.png",
       alt: "dgsfs",
     },
     date: "July 7, 2021",
@@ -106,7 +130,7 @@ export const categoryData = [
   },
   {
     image: {
-      src: "https://s3.eu-west-2.amazonaws.com/medusa.com/templates/tamaz-tokmadze-sEnUVVqGmgY-unsplash+3.png",
+      src: "https://s3.eu-west-2.amazonaws.com/medusa.com/templates/unsplash_layMbSJ3YOE.png",
       alt: "dgsfs",
     },
     date: "July 7, 2021",
@@ -118,31 +142,7 @@ export const categoryData = [
   },
   {
     image: {
-      src: "https://s3.eu-west-2.amazonaws.com/medusa.com/templates/tamaz-tokmadze-sEnUVVqGmgY-unsplash+3.png",
-      alt: "dgsfs",
-    },
-    date: "July 7, 2021",
-    category: "Glutten-free",
-    title: "Backpacking through Europe",
-    details:
-      "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh, ut fermentum",
-    views: 32,
-  },
-  {
-    image: {
-      src: "https://s3.eu-west-2.amazonaws.com/medusa.com/templates/tamaz-tokmadze-sEnUVVqGmgY-unsplash+3.png",
-      alt: "dgsfs",
-    },
-    date: "July 7, 2021",
-    category: "Glutten-free",
-    title: "Backpacking through Europe",
-    details:
-      "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh, ut fermentum",
-    views: 32,
-  },
-  {
-    image: {
-      src: "https://s3.eu-west-2.amazonaws.com/medusa.com/templates/tamaz-tokmadze-sEnUVVqGmgY-unsplash+3.png",
+      src: "https://s3.eu-west-2.amazonaws.com/medusa.com/templates/unsplash_enGr5YbjQKQ.png",
       alt: "dgsfs",
     },
     date: "July 7, 2021",
@@ -193,12 +193,55 @@ export const latestPostData = [
   },
 ];
 
-export const galleryFirstColomn =
-  "https://s3.eu-west-2.amazonaws.com/medusa.com/templates/tamaz-tokmadze-sEnUVVqGmgY-unsplash+3.png";
-export const gallerySecondColomn =
-  "https://s3.eu-west-2.amazonaws.com/medusa.com/templates/artem-beliaikin-8AsKha7aIvk-unsplash+2.png";
-export const gallerythirdColomn =
-  "https://s3.eu-west-2.amazonaws.com/medusa.com/templates/damiano-baschiera-hFXZ5cNfkOk-unsplash+3.png";
+export const galleryFirstColomn = [
+  {
+    image: {
+      src: "https://s3.eu-west-2.amazonaws.com/medusa.com/templates/unsplash_zlABb6Gke24.png",
+      alt: "gallery Post",
+    },
+  },
+  {
+    image: {
+      src: "https://s3.eu-west-2.amazonaws.com/medusa.com/templates/unsplash_NRQV-hBF10M.png",
+      alt: "gallery Post",
+    },
+  },
+];
+
+export const gallerySecondColomn = [
+  {
+    image: {
+      src: "https://s3.eu-west-2.amazonaws.com/medusa.com/templates/unsplash_DjlKxYFJlTc.png",
+      alt: "gallery Post",
+    },
+  },
+  {
+    image: {
+      src: "https://s3.eu-west-2.amazonaws.com/medusa.com/templates/unsplash_K_TbABnVzHo.png",
+      alt: "gallery Post",
+    },
+  },
+  {
+    image: {
+      src: "https://s3.eu-west-2.amazonaws.com/medusa.com/templates/unsplash_q2dUSl9S4Xg.png",
+      alt: "gallery Post",
+    },
+  },
+];
+export const galleryThirdColomn = [
+  {
+    image: {
+      src: "https://s3.eu-west-2.amazonaws.com/medusa.com/templates/unsplash_enGr5YbjQKQ.png",
+      alt: "gallery Post",
+    },
+  },
+  {
+    image: {
+      src: "https://s3.eu-west-2.amazonaws.com/medusa.com/templates/damiano-baschiera-hFXZ5cNfkOk-unsplash+3.png",
+      alt: "gallery Post",
+    },
+  },
+];
 
 export const galleryCenter =
   "https://s3.eu-west-2.amazonaws.com/medusa.com/templates/ryan-christodoulou-LDrSJ3cjauY-unsplash+1.png";

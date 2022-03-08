@@ -12,7 +12,7 @@ export const CategoryPage = () => {
       <div className={classes.header}>Categories</div>
       <ul className={classes.unorderedLists}>
         {listItems.map((item, index) => {
-          <div>
+          <div key={index} className={classes.listItem}>
             <li>{item.Continent1}</li>
             <li>{item.Continent2}</li>
             <li>{item.Continent3}</li>

@@ -50,7 +50,7 @@ export const useArticleStyles = makeStyles<Theme>((theme: Theme) => ({
     marginTop: theme.spacing(10),
   },
   img: {
-    width: "40%",
+    width: "35%",
     height: "48vh",
   },
 }));

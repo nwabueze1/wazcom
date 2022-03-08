@@ -9,7 +9,4 @@ export const useStyles = makeStyles<Theme>((theme: Theme) => ({
   containerPost: {
     width: "45%",
   },
-  category:{
-
-  }
 }));

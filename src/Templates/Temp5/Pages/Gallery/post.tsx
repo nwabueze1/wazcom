@@ -2,7 +2,7 @@ import {
   galleryCenter,
   galleryFirstColomn,
   gallerySecondColomn,
-  gallerythirdColomn,
+  galleryThirdColomn,
 } from "Templates/Temp5/TemplateData";
 import { useArticleStyles } from "./styles";
 
@@ -13,17 +13,40 @@ export const GalleryPost = () => {
       <div className={classes.header}>Gallery </div>
       <div className={classes.images}>
         <div className={classes.firstColumn}>
-          <img className={classes.image} src={galleryFirstColomn} />
-          <img className={classes.image} src={galleryFirstColomn} />
+          {galleryFirstColomn.map((item, index) => {
+            return (
+              <img
+                className={classes.image}
+                key={index}
+                src={item.image.src}
+                alt={item.image.alt}
+              />
+            );
+          })}
         </div>
         <div className={classes.secondColumn}>
-          <img className={classes.image} src={gallerySecondColomn} />
-          <img className={classes.image} src={galleryCenter} />
-          <img className={classes.image} src={gallerySecondColomn} />
+          {gallerySecondColomn.map((item, index) => {
+            return (
+              <img
+                className={classes.centreImages}
+                key={index}
+                src={item.image.src}
+                alt={item.image.alt}
+              />
+            );
+          })}
         </div>
         <div className={classes.thirdColumn}>
-          <img className={classes.image} src={gallerythirdColomn} />
-          <img className={classes.image} src={gallerythirdColomn} />
+          {galleryThirdColomn.map((item, index) => {
+            return (
+              <img
+                className={classes.image}
+                key={index}
+                src={item.image.src}
+                alt={item.image.alt}
+              />
+            );
+          })}
         </div>
       </div>
     </div>
