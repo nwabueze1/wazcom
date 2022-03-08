@@ -80,9 +80,11 @@ export var useDisplayImages = function () {
     var classes = useMediaLibraryStyles();
     return function (images, selectImage, handleMediaAction, viewOnly) {
         return split(images, 3).map(function (_, columnIndex) { return (_jsx("div", __assign({ className: classes.column }, { children: _.map(function (theImage, index) {
-                return (_jsx(Grow, __assign({ in: true }, { children: _jsxs("div", __assign({ className: clx(classes.thumbnail, viewOnly && classes.thumbnailFixedHeight) }, { children: [_jsx("img", { onClick: function () { return selectImage === null || selectImage === void 0 ? void 0 : selectImage(theImage); }, src: theImage === null || theImage === void 0 ? void 0 : theImage.url, className: classes.image }, void 0), _jsx("div", __assign({ className: classes.thumbnailOverlay }, { children: !viewOnly && (_jsxs("div", __assign({ className: classes.thumbnailActions }, { children: [_jsx("p", __assign({ onClick: function () {
+                return (_jsx(Grow, __assign({ in: true }, { children: _jsxs("div", __assign({ onClick: function () { selectImage === null || selectImage === void 0 ? void 0 : selectImage(theImage); }, className: clx(classes.thumbnail, viewOnly && classes.thumbnailFixedHeight) }, { children: [_jsx("img", { src: theImage === null || theImage === void 0 ? void 0 : theImage.url, className: classes.image }, void 0), _jsx("div", __assign({ className: classes.thumbnailOverlay }, { children: !viewOnly && (_jsxs("div", __assign({ className: classes.thumbnailActions }, { children: [_jsx("p", __assign({ onClick: function (e) {
+                                                e.stopPropagation();
                                                 handleMediaAction("edit", theImage);
-                                            }, className: classes.thumbnailAction }, { children: _jsx(FaPencilAlt, { className: classes.thumbnailActionIcon }, void 0) }), void 0), _jsx("p", __assign({ onClick: function () {
+                                            }, className: classes.thumbnailAction }, { children: _jsx(FaPencilAlt, { className: classes.thumbnailActionIcon }, void 0) }), void 0), _jsx("p", __assign({ onClick: function (e) {
+                                                e.stopPropagation();
                                                 handleMediaAction("delete", theImage);
                                             }, className: classes.thumbnailAction }, { children: _jsx(IoMdTrash, { className: classes.thumbnailActionIcon }, void 0) }), void 0)] }), void 0)) }), void 0)] }), void 0) }), index));
             }) }), columnIndex)); });

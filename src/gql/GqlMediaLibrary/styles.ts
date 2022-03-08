@@ -45,7 +45,6 @@ export const useMediaLibraryStyles = makeStyles((theme: Theme) => ({
     height: "100%",
     transition: "opacity 0.3s ease-in",
     opacity: 0,
-    zIndex: 5,
     background: "rgba(255, 255, 255, 0.3)",
 
     "&:hover": {
