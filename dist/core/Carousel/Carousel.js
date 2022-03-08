@@ -9,6 +9,22 @@ var __assign = (this && this.__assign) || function () {
     };
     return __assign.apply(this, arguments);
 };
+var __read = (this && this.__read) || function (o, n) {
+    var m = typeof Symbol === "function" && o[Symbol.iterator];
+    if (!m) return o;
+    var i = m.call(o), r, ar = [], e;
+    try {
+        while ((n === void 0 || n-- > 0) && !(r = i.next()).done) ar.push(r.value);
+    }
+    catch (error) { e = { error: error }; }
+    finally {
+        try {
+            if (r && !r.done && (m = i["return"])) m.call(i);
+        }
+        finally { if (e) throw e.error; }
+    }
+    return ar;
+};
 import { jsx as _jsx, jsxs as _jsxs } from "react/jsx-runtime";
 import * as React from "react";
 import { useTheme } from "@mui/material/styles";
@@ -25,7 +41,7 @@ var AutoPlaySwipeableViews = autoPlay(SwipeableViews);
 export var Carousel = function (_a) {
     var items = _a.items;
     var theme = useTheme();
-    var _b = React.useState(0), activeStep = _b[0], setActiveStep = _b[1];
+    var _b = __read(React.useState(0), 2), activeStep = _b[0], setActiveStep = _b[1];
     var maxSteps = items.length;
     var handleNext = React.useCallback(function () {
         setActiveStep(activeStep + 1);

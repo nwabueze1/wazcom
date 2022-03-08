@@ -1,23 +1,22 @@
-import { FC, useCallback, useEffect, useRef, useState } from "react";
-import { Grow } from "@mui/material";
+import React, { FC, useCallback, useEffect, useRef, useState } from "react";
+import { DocumentNode } from "graphql";
 import clx from "classnames";
 import { Button } from "../../core/Button";
-import { IoCloudUploadOutline } from "react-icons/io5";
 import { Loader } from "../../core/Loader/Loader";
 import { useMediaLibraryStyles } from "./styles";
-import { ImageDataType, GqlMediaLibraryProps } from "./types";
-import { Uploader } from "./Uploader";
-
-const split = (array: any[], count: number) => {
-  const collection: any[][] = [];
-
-  array.map((item, index) => {
-    const row = collection[index % count] ?? [];
-    collection[index % count] = [...row, item];
-  });
-
-  return collection;
-};
+import { Image, GqlMediaLibraryProps, ImageUpdate } from "./types";
+import { EditMedia, DeleteMedia } from "./components";
+import {
+  fetchData,
+  mutateMedia,
+  getUniqueImages,
+  useFileSelect,
+  useOnScroll,
+  useDisplayImages,
+  useUpdateMediaLibrary,
+  useMediaUpload,
+} from "./hooks";
+import { FaTimes } from "react-icons/fa";
 
 export const GqlMediaLibrary: FC<GqlMediaLibraryProps> = ({
   className,
@@ -25,143 +24,226 @@ export const GqlMediaLibrary: FC<GqlMediaLibraryProps> = ({
     client,
     query: { name: query, variables: queryVariables },
     upload,
+    update,
+    remove,
+    viewOnly = false,
   },
   onChange,
   name,
 }) => {
-  const fileRef = useRef<any>();
+  const refs = { fileRef: useRef<any>(), listInnerRef: useRef<any>() };
+  const handleFileSelect = useFileSelect();
+  const handleOnScroll = useOnScroll();
+  const handleDisplayImages = useDisplayImages();
+  const handleMediaUpload = useMediaUpload();
+  const handleUpdateMediaLibrary = useUpdateMediaLibrary();
   const classes = useMediaLibraryStyles();
-  const [images, setImages] = useState<ImageDataType[]>([]);
+  const [images, setImages] = useState<Image[]>([]);
   const [paginatorInfo, setPaginatorInfo] = useState<{
     [key: string]: number;
   }>({ currentPage: 1, lastPage: 1 });
-  const [loading, setLoading] = useState<boolean>(true);
-  const [imageLoading, setImageLoading] = useState<boolean>(true);
-  const listInnerRef = useRef<HTMLDivElement>(null);
-  const [mediaIndex, setMediaIndex] = useState<number>(0);
-
-  const fetchData = async (variables?: { [key: string]: string | number }) => {
-    return await client.query({
-      query,
-      fetchPolicy: "network-only",
-      variables,
-    });
-  };
+  const [loading, setLoading] = useState<{ [key: string]: boolean }>({
+    media: false,
+    mutate: false,
+  });
+  const [activeMedia, setActiveMedia] = useState<{
+    index?: number;
+    type: string;
+    media?: Image | File;
+  }>({ type: "" });
 
   useEffect(() => {
-    fetchData({ ...queryVariables })
+    setLoading({ ...loading, media: true });
+    fetchData(client, query, { ...queryVariables })
       .then((res) => {
-        setLoading(false);
-        if (!images) {
-          setImages(res.data?.images.images);
-        } else {
-          setImages([...images, ...res.data?.images.images]);
-        }
+        setLoading({ ...loading, media: false });
+        setImages((images) =>
+          getUniqueImages([...images, ...(res.data.images.images as Image[])]),
+        );
         setPaginatorInfo(res.data.images.paginatorInfo);
       })
       .catch(() => {
-        setLoading(false);
+        setLoading({ ...loading, media: false });
       });
   }, []);
 
   useEffect(() => {
-    if (mediaIndex && mediaIndex > 0) {
+    if (activeMedia.index && activeMedia.index > 0) {
       const { currentPage, lastPage } = paginatorInfo;
       if (currentPage !== lastPage) {
-        setImageLoading(true);
-        fetchData({ page: currentPage + 1, count: 9 }).then((res) => {
-          setImages((images) => [...images, ...res.data.images.images]);
-          setImageLoading(false);
+        setLoading({ ...loading, media: true });
+        fetchData(client, query, {
+          page: currentPage + 1,
+          count: queryVariables.count,
+        }).then((res) => {
+          setImages((images) =>
+            getUniqueImages([
+              ...images,
+              ...(res.data.images.images as Image[]),
+            ]),
+          );
+          setLoading({ ...loading, media: false });
           setPaginatorInfo(res.data.images.paginatorInfo);
         });
       }
     }
-  }, [mediaIndex]);
+  }, [activeMedia.index, loading]);
 
-  const selectImage = (data: ImageDataType) => {
-    onChange?.({ name: name ?? "image", value: data });
+  const updateMediaLibrary = useCallback(
+    (image: Image, type = "add", variables?: ImageUpdate) => {
+      handleUpdateMediaLibrary(
+        image,
+        images,
+        setImages,
+        (index: number) => {
+          setActiveMedia({ ...activeMedia, index });
+        },
+        type,
+        variables,
+      );
+      handleMediaAction("", undefined);
+    },
+    [images, activeMedia],
+  );
+
+  const handleFileChange = (event: React.ChangeEvent<any>) => {
+    if (!event.target.files || event.target.files === 0) return;
+    const file = event.target.files[0];
+    handleMediaAction("add", file);
   };
 
-  const updateMediaLibrary = (image: ImageDataType) => {
-    setImages((images) => [image, ...images]);
+  const handleMediaAction = (type: string, media?: Image | File) => {
+    setActiveMedia({ type, media });
   };
 
-  const handleFileSelect = useCallback(() => {
-    const fileInput = fileRef.current;
-    if (fileInput) {
-      fileInput.click();
-    }
-  }, []);
+  const handleMediaAdd = useCallback(
+    async (variables: ImageUpdate) => {
+      await handleMediaUpload(
+        client,
+        upload?.name,
+        { ...variables, image: activeMedia.media as File },
+        setLoading,
+        (image: Image) => {
+          updateMediaLibrary(image, "add");
+        },
+      );
+    },
+    [activeMedia, loading],
+  );
 
-  const onScroll = useCallback(() => {
-    if (listInnerRef.current) {
-      const { scrollTop, scrollHeight, clientHeight } = listInnerRef.current;
-      if (scrollTop + clientHeight === scrollHeight) {
-        setMediaIndex(Math.random() * 5000);
+  const handleMediaUpdate = useCallback(
+    async (variables: ImageUpdate) => {
+      if (!variables.id) {
+        return handleMediaAdd({ ...variables });
       }
-    }
-  }, [mediaIndex]);
+      const media = activeMedia.media as Image;
+      setLoading({ ...loading, mutate: true });
+      await mutateMedia(
+        client,
+        update?.name as DocumentNode,
+        media,
+        () => {
+          updateMediaLibrary(media, "update", variables);
+        },
+        variables,
+      );
+      setLoading({ ...loading, mutate: false });
+    },
+    [activeMedia],
+  );
+
+  const handleMediaDelete = useCallback(async () => {
+    const media = activeMedia.media as Image;
+    setLoading({ ...loading, mutate: true });
+    await mutateMedia(client, remove?.name as DocumentNode, media, () => {
+      updateMediaLibrary(media, "delete");
+      handleMediaAction("", undefined);
+    });
+    setLoading({ ...loading, mutate: false });
+  }, [activeMedia, loading]);
 
   return (
     <div
-      className={classes.wrapper}
-      ref={listInnerRef}
+      className={clx(classes.wrapper, viewOnly && classes.wrapperDialog)}
+      ref={refs.listInnerRef}
       onScroll={() => {
-        onScroll();
+        handleOnScroll(refs.listInnerRef, (index: number) => {
+          setActiveMedia({ ...activeMedia, index });
+        });
       }}
     >
       <div className={clx(classes.root, className)}>
-        <div className={classes.library}>
-          <Uploader
-            ref={fileRef}
-            config={{ client, ...upload }}
-            setLoading={setLoading}
-            updateMediaLibrary={updateMediaLibrary}
-          />
-          <div className={classes.actions}>
-            <Button
-              color="primary"
-              startIcon={<IoCloudUploadOutline />}
-              onClick={handleFileSelect}
-            >
-              Upload Image
-            </Button>
-          </div>
-          <div className={classes.collection}>
-            {images.length === 0 || loading ? (
-              <Loader />
-            ) : (
-              <>
-                {images &&
-                  split(images, 3).map((_, columnIndex) => {
-                    return (
-                      <div key={columnIndex} className={classes.column}>
-                        {_.map((theImage, index) => {
-                          return (
-                            <Grow in={true} key={index}>
-                              <div className={classes.thumbnail}>
-                                <img
-                                  onClick={() => selectImage(theImage)}
-                                  src={theImage?.url}
-                                  className={classes.image}
-                                />
-                              </div>
-                            </Grow>
-                          );
-                        })}
-                      </div>
-                    );
-                  })}
-              </>
-            )}
-          </div>
-          {images.length > 0 && imageLoading && (
-            <div className={classes.loaderParent}>
-              <Loader className={classes.loader} />
-            </div>
+        <input
+          name="image_url"
+          accept="image/*"
+          hidden
+          type="file"
+          ref={refs.fileRef}
+          onChange={handleFileChange}
+        />
+        <div className={classes.actions}>
+          {viewOnly ? (
+            <><p>Media Library</p>
+              <FaTimes className={classes.timesIcon} />
+            </>
+          ) : (
+            <>
+              <p className={classes.tab}>All Media</p>
+              <Button
+                color="primary"
+                onClick={() => {
+                  handleFileSelect(refs.fileRef);
+                }}
+              >
+                Add New
+              </Button>
+            </>
           )}
         </div>
+        <div className={classes.collection}>
+          {images.length === 0 && loading.media ? (
+            <Loader />
+          ) : (
+            <>
+              {(activeMedia.type === "add" || activeMedia.type === "edit") && (
+                <EditMedia
+                  loading={loading.mutate}
+                  handleEdit={(variables: ImageUpdate) => {
+                    handleMediaUpdate(variables);
+                  }}
+                  handleClose={() => {
+                    handleMediaAction("", undefined);
+                  }}
+                  image={activeMedia.media as Image | File}
+                />
+              )}
+              {images &&
+                handleDisplayImages(
+                  images,
+                  (image: Image) => {
+                    onChange?.({ name: name ?? "", value: image });
+                  },
+                  handleMediaAction,
+                  viewOnly,
+                )}
+            </>
+          )}
+        </div>
+        {images.length > 0 && loading.media && (
+          <div className={classes.loaderParent}>
+            <Loader className={classes.loader} />
+          </div>
+        )}
       </div>
+      <DeleteMedia
+        display={activeMedia.type === "delete"}
+        loading={loading.mutate}
+        media={activeMedia.media as Image}
+        handleClose={() => {
+          handleMediaAction("", undefined);
+        }}
+        handleDelete={handleMediaDelete}
+      />
     </div>
   );
 };

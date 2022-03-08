@@ -1,64 +1,33 @@
-import React from "react";
 import {
   Accordion,
-  AccordionProps,
   Button,
-  ButtonProps,
   BreadCrumb,
-  BreadCrumbProps,
   Card,
-  CardProps,
   Loader,
-  LoaderProps,
   Gallery,
-  GalleryProps,
   ImageSelector,
-  ImageSelectorProps,
   InputGroup,
-  InputGroupProps,
   Table,
-  TableProps,
   MenuCard,
-  MenuCardProps,
   DisplayCard,
-  DisplayCardProps,
   Notification,
-  NotificationProps,
   RadioButton,
-  RadioButtonProps,
   Carousel,
   EmptyState,
-  EmptyStateProps,
   Scheduler,
-  SchedulerProps,
 } from "../core";
 
 import {
   CheckBoxInput,
-  CheckBoxInputProps,
   ComboBoxInput,
-  ComboBoxInputProps,
-  ImageUploadInputProps,
   RichTextInput,
-  RichTextInputProps,
   SelectInput,
-  SelectInputProps,
   TagInput,
-  TagInputProps,
   TextInput,
-  TextInputProps,
   ToggleInput,
-  ToggleInputProps,
 } from "../io";
 
-import {
-  GqlComboBox,
-  GqlComboBoxProps,
-  GqlMediaLibrary,
-  GqlMediaLibraryProps,
-  GqlMediaLibrarySelector,
-  GqlMediaLibrarySelectorProps,
-} from "../gql";
+import { GqlComboBox, GqlMediaLibrary, GqlMediaLibrarySelector } from "../gql";
 
 import {
   GETBLOGCATEGORIES,
@@ -66,169 +35,33 @@ import {
   createNewCategory,
   GET_IMAGES,
   UPLOAD_IMAGE,
+  DELETE_IMAGE,
+  UPDATE_IMAGE,
 } from "../helpers/graphQL";
 
-type ComponentPropType = {
-  component: any;
-} & (
-  | AccordionStory
-  | BreadCrumbStory
-  | ButtonStory
-  | CardStory
-  | CheckBoxStory
-  | LoaderStory
-  | ComboBoxStory
-  | TextStory
-  | GalleryStory
-  | ImageSelectorStory
-  | ToggleStory
-  | TableStory
-  | MenuCardStory
-  | DisplayCardStory
-  | NotificationStory
-  | RadioButtonStory
-  | ImageUploadStory
-  | SelectStory
-  | TagStory
-  | RichTextStory
-  | GqlComboBoxStory
-  | EmptyStateStory
-  | SchedulerStory
-  | InputGroupStory
-  | GqlMediaLibraryStory
-  | GqlMediaLibrarySelectorStory
-);
+import { ComponentPropType } from "./types";
 
-type AccordionStory = {
-  name: string;
-  props: AccordionProps;
-};
-
-type LoaderStory = {
-  name: string;
-  props: LoaderProps;
-};
-
-type BreadCrumbStory = {
-  name: string;
-  props: BreadCrumbProps;
-};
-
-type ButtonStory = {
-  name: string;
-  props: ButtonProps;
-};
-
-type CardStory = {
-  name: string;
-  props: CardProps;
-};
-
-type CheckBoxStory = {
-  name: string;
-  props: CheckBoxInputProps;
-};
-
-type ComboBoxStory = {
-  name: string;
-  props: ComboBoxInputProps;
-};
-
-type TextStory = {
-  name: string;
-  props: TextInputProps;
-};
-
-type GalleryStory = {
-  name: string;
-  props: GalleryProps;
-};
-
-type ImageSelectorStory = {
-  name: string;
-  props: ImageSelectorProps;
-};
-
-type ToggleStory = {
-  name: string;
-  props: ToggleInputProps;
-};
-
-type TableStory = {
-  name: string;
-  props: TableProps;
-};
-
-type MenuCardStory = {
-  name: string;
-  props: MenuCardProps;
-};
-
-type DisplayCardStory = {
-  name: string;
-  props: DisplayCardProps;
-};
-
-type NotificationStory = {
-  name: string;
-  props: NotificationProps;
-};
-
-type RadioButtonStory = {
-  name: string;
-  props: RadioButtonProps;
-};
-
-type ImageUploadStory = {
-  name: string;
-  props: ImageUploadInputProps;
-};
-
-type SelectStory = {
-  name: string;
-  props: SelectInputProps;
-};
-
-type TagStory = {
-  name: string;
-  props: TagInputProps;
-};
-
-type RichTextStory = {
-  name: string;
-  props: RichTextInputProps;
-};
-
-type GqlComboBoxStory = {
-  name: string;
-  props: GqlComboBoxProps;
-};
-
-type EmptyStateStory = {
-  name: string;
-  props: EmptyStateProps;
-};
-
-type SchedulerStory = {
-  name: string;
-  props: SchedulerStory;
-};
-type InputGroupStory = {
-  name: string;
-  props: InputGroupProps;
-};
-
-type GqlMediaLibraryStory = {
-  name: string;
-  props: GqlMediaLibraryProps;
-};
-
-type GqlMediaLibrarySelectorStory = {
-  name: string;
-  props: GqlMediaLibrarySelectorProps;
-};
+import { data } from "./data";
 
 export const stories: ComponentPropType[] = [
+  {
+    name: "TableWithPagination",
+    component: Table,
+    props: {
+      headers: [],
+      value: data,
+      pagination: true,
+      hasCheckBox: true,
+      paginatorInfo: {
+        currentPage: 1,
+        perPage: 10,
+        total: 100,
+      },
+      controls: {
+        filter: { fields: ["id", "name"] },
+      },
+    },
+  },
   {
     name: "MediaLibrarySelector",
     component: GqlMediaLibrarySelector,
@@ -240,7 +73,7 @@ export const stories: ComponentPropType[] = [
           name: GET_IMAGES,
           variables: {
             page: 1,
-            count: 9,
+            count: 7,
           },
         },
         upload: {
@@ -248,6 +81,13 @@ export const stories: ComponentPropType[] = [
           variables: {},
         },
       },
+      src: "https://sytbuildr.s3.eu-west-2.amazonaws.com/wbAJD5oi83HUWjLuZhqTiXwlW6LO9Xdxfxr2K4TI.jpg",
+      feedback: {
+        text: "Image is required",
+        status: "error",
+      },
+      error: true,
+      size: "md",
     },
   },
   {
@@ -260,13 +100,20 @@ export const stories: ComponentPropType[] = [
           name: GET_IMAGES,
           variables: {
             page: 1,
-            count: 9,
+            count: 7,
           },
         },
         upload: {
           name: UPLOAD_IMAGE,
           variables: {},
         },
+        update: {
+          name: UPDATE_IMAGE,
+        },
+        remove: {
+          name: DELETE_IMAGE,
+        },
+        // viewOnly: true,
       },
     },
   },

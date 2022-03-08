@@ -1,6 +1,7 @@
 import makeStyles from "@mui/styles/makeStyles";
+import { Theme } from "@mui/material/styles";
 
-export const useEmptyStateStyles = makeStyles(() => ({
+export const useEmptyStateStyles = makeStyles((theme: Theme) => ({
   root: {
     width: "100%",
     boxShadow: "0",
@@ -21,5 +22,7 @@ export const useEmptyStateStyles = makeStyles(() => ({
     height: 150,
     objectFit: "cover",
   },
-  text: {},
+  text: {
+    padding: theme.spacing(2, 0, 1.5, 0),
+  },
 }));

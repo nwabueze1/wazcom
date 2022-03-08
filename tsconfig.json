@@ -19,7 +19,8 @@
     "outDir": "lib/esm",
     "declaration": true,
     "suppressImplicitAnyIndexErrors": true,
-    "strict": true
+    "strict": true,
+    "downlevelIteration": true
   },
   "include": ["src"],
   "exclude": [
