@@ -13,7 +13,7 @@ import { jsx as _jsx, jsxs as _jsxs } from "react/jsx-runtime";
 import { Modal, Fade, Backdrop } from "@mui/material";
 import { useDeleteMediaStyles } from "./styles";
 import { FaTimes } from "react-icons/fa";
-import { Button } from "core";
+import { Button } from "../../../../core";
 export var DeleteMedia = function (_a) {
     var display = _a.display, loading = _a.loading, handleClose = _a.handleClose, handleDelete = _a.handleDelete;
     var classes = useDeleteMediaStyles();

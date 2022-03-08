@@ -28,8 +28,8 @@ var __read = (this && this.__read) || function (o, n) {
 import { jsx as _jsx, jsxs as _jsxs } from "react/jsx-runtime";
 import { useCallback, useEffect, useState, useRef } from "react";
 import { useEditMediaStyles } from "./styles";
-import { TextInput } from "io";
-import { Button } from "core";
+import { TextInput } from "../../../../io";
+import { Button } from "../../../../core";
 export var EditMedia = function (_a) {
     var _b, _c, _d;
     var loading = _a.loading, image = _a.image, handleEdit = _a.handleEdit, handleClose = _a.handleClose;
@@ -42,7 +42,6 @@ export var EditMedia = function (_a) {
     }), 2), formData = _e[0], setFormData = _e[1];
     useEffect(function () {
         var _a, _b, _c;
-        console.log(image);
         var formData = {
             title: image instanceof File ? image.name : (_a = image.title) !== null && _a !== void 0 ? _a : "",
             alternative_text: image instanceof File ? image.name : (_b = image.alternative_text) !== null && _b !== void 0 ? _b : "",

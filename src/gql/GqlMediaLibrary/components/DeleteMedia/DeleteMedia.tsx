@@ -3,7 +3,7 @@ import { Modal, Fade, Backdrop } from "@mui/material";
 import { useDeleteMediaStyles } from "./styles";
 import { DeleteMediaProps } from "./types";
 import { FaTimes } from "react-icons/fa";
-import { Button } from "core";
+import { Button } from "../../../../core";
 
 export const DeleteMedia: React.FC<DeleteMediaProps> = ({
   display,
