@@ -12,12 +12,8 @@ import {
   Checkbox,
   TableFooter,
   TablePagination,
-  Box,
 } from "@mui/material";
-import FilterAltIcon from "@mui/icons-material/FilterAlt";
 import _ from "lodash";
-import { Button } from "../Button";
-import { TextInput } from "../../io";
 import {
   generateNumbersBetweenRange,
   useGetCurrentPage,
@@ -29,6 +25,7 @@ import {
 } from "./helpers";
 import { TableFilter } from "./components";
 import { Filter } from "./types";
+import { TableControls } from "./components/TableControls";
 
 export const Table = ({
   headers,
@@ -46,7 +43,7 @@ export const Table = ({
   const [tableValue, setTableValue] = useState(initialTableValue);
   const [tableHeaders, setTableHeaders] =
     useState<{ name: string; label: string }[]>(headers);
-  const [controlsFormData, setControls] = useState<{ [key: string]: any }>([]);
+  const [controlsFormData, setControls] = useState<{ [key: string]: any }>({});
   const [showFilter, setShowFilter] = useState<boolean>(false);
   const [filters, setFilters] = useState<Filter[]>([]);
   const [selectedRows, setSelectedRows] = useState<number[]>([]);
@@ -107,31 +104,13 @@ export const Table = ({
     <div className={classes.tableRoot}>
       <TableContainer component={Paper}>
         {controls && (
-          <Box className={classes.controls}>
-            {controls.filter && (
-              <Box className={classes.filterControls}>
-                <Button
-                  variant="outlined"
-                  className={classes.filterControlsButton}
-                  onClick={() => setShowFilter((state) => !state)}
-                >
-                  Filter
-                  <FilterAltIcon />
-                </Button>
-                <TextInput
-                  name="search"
-                  type="text"
-                  placeholder="Search"
-                  value={controlsFormData.search}
-                  onChange={handleControlsChange}
-                />
-              </Box>
-            )}
-            <Box>
-              {controls.print && <Button>Print</Button>}
-              {controls.export && <Button>Export</Button>}
-            </Box>
-          </Box>
+          <TableControls
+            handleControlsChange={handleControlsChange}
+            setShowFilter={setShowFilter}
+            controls={controls}
+            tableValues={tableValue}
+            controlsFormData={controlsFormData}
+          />
         )}
         <MuiTable
           classes={{

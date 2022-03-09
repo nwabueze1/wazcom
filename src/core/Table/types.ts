@@ -26,11 +26,9 @@ type TableHeaderContentProps = {
 }[];
 
 type ControlsDataProp = {
-  filter?: {
-    fields?: string[];
-  };
+  filter?: string[];
   export?: { [key: string]: string };
-  print?: { [key: string]: string };
+  canPrint?: boolean;
 };
 
 export type Filter = { field: string; values: string[] };

@@ -34,6 +34,18 @@ export var useTableStyles = makeStyles(function (theme) { return ({
         display: "flex",
         justifyContent: "space-between",
     },
+    rightControls: {
+        display: "flex",
+        alignItems: "center",
+        gap: "1rem",
+    },
+    actionButton: {
+        backgroundColor: theme.design.colors.white,
+        color: theme.design.colors.black,
+        display: "flex !important",
+        alignItems: "center",
+        gap: "0.5rem"
+    },
 }); });
 export var useStyles = makeStyles(function (theme) { return ({
     root: {

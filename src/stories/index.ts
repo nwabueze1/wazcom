@@ -58,7 +58,9 @@ export const stories: ComponentPropType[] = [
         total: 100,
       },
       controls: {
-        filter: { fields: ["id", "name"] },
+        filter: ["id", "name"],
+        canPrint: true,
+        export: {},
       },
     },
   },
