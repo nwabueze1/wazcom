@@ -133,75 +133,93 @@ export const Table = ({
             </Box>
           </Box>
         )}
-        <MuiTable
-          classes={{
-            root: classes.root,
-          }}
-          {...props}
-        >
-          <TableHead className={classes.tableHead}>
-            <TableRow>
-              {hasCheckBox && (
-                <TableCell padding="checkbox">
-                  <Checkbox
-                    onChange={handleSelectAllRows}
-                    checked={selectedRows.length === tableValue.length}
-                  />
-                </TableCell>
-              )}
-              {tableHeaders.map(({ name, label }) => {
-                return (
-                  <TableCell className={classes.tableHeadCell} key={name}>
-                    {label}
+        {tableHeaders && tableValue ? (
+          <MuiTable
+            classes={{
+              root: classes.root,
+            }}
+            {...props}
+          >
+            <TableHead className={classes.tableHead}>
+              <TableRow>
+                {hasCheckBox && (
+                  <TableCell padding="checkbox">
+                    <Checkbox
+                      onChange={handleSelectAllRows}
+                      checked={selectedRows.length === tableValue.length}
+                    />
                   </TableCell>
+                )}
+                {tableHeaders.map(({ name, label }) => {
+                  return (
+                    <TableCell className={classes.tableHeadCell} key={name}>
+                      {label}
+                    </TableCell>
+                  );
+                })}
+              </TableRow>
+            </TableHead>
+            <TableBody>
+              {tableValue?.map((row: any, index: number) => {
+                return (
+                  <TableRow key={index}>
+                    {hasCheckBox && (
+                      <TableCell padding="checkbox">
+                        <Checkbox
+                          checked={selectedRows.includes(index)}
+                          onChange={() => handleSelectRow(index)}
+                        />
+                      </TableCell>
+                    )}
+                    {tableHeaders.map(({ name }) => {
+                      return (
+                        <TableCell key={name} className={classes.tableCell}>
+                          {row?.[name]}
+                        </TableCell>
+                      );
+                    })}
+                  </TableRow>
                 );
               })}
-            </TableRow>
-          </TableHead>
-          <TableBody>
-            {tableValue?.map((row: any, index: number) => {
-              return (
-                <TableRow key={index}>
-                  {hasCheckBox && (
-                    <TableCell padding="checkbox">
-                      <Checkbox
-                        checked={selectedRows.includes(index)}
-                        onChange={() => handleSelectRow(index)}
-                      />
-                    </TableCell>
-                  )}
-                  {tableHeaders.map(({ name }) => {
-                    return (
-                      <TableCell key={name} className={classes.tableCell}>
-                        {row?.[name]}
-                      </TableCell>
-                    );
-                  })}
+            </TableBody>
+            {pagination && (
+              <TableFooter>
+                <TableRow>
+                  <TablePagination
+                    rowsPerPageOptions={[7, 10, 20]}
+                    onRowsPerPageChange={handleChangeRowsPerPage}
+                    count={paginatorInfo?.total}
+                    rowsPerPage={Number(getRowsPerPage)}
+                    onPageChange={handleChangePage}
+                    showFirstButton
+                    showLastButton
+                    page={getCurrentPage}
+                    SelectProps={{
+                      inputProps: { "aria-label": "rows per page" },
+                      native: true,
+                    }}
+                  />
                 </TableRow>
-              );
-            })}
-          </TableBody>
-          {pagination && (
-            <TableFooter>
-              <TableRow>
-                <TablePagination
-                  rowsPerPageOptions={[7, 10, 20]}
-                  onRowsPerPageChange={handleChangeRowsPerPage}
-                  count={paginatorInfo?.total}
-                  rowsPerPage={Number(getRowsPerPage)}
-                  onPageChange={handleChangePage}
-                  showFirstButton
-                  showLastButton
-                  page={getCurrentPage}
-                  SelectProps={{
-                    inputProps: { "aria-label": "rows per page" },
-                    native: true,
-                  }}
+              </TableFooter>
+            )}
+          </MuiTable>
+        ) : (
+          <div className={classes.errorContainer}>
+            <div className={classes.errorBox}>
+              <div className={classes.imageContainer}>
+                <img
+                  className={classes.img}
+                  src="https://sytbuildr.s3.eu-west-2.amazonaws.com/images/Table/undraw_web_search_re_efla+1.png"
+                  alt="empty"
                 />
-              </TableRow>
-            </TableFooter>
-          )}
-        </MuiTable>
+              </div>
+              <p className={classes.errorMessage}>
+                You do not have any order in this category.
+              </p>
+            </div>
+          </div>
+        )}
+
         <TableFilter
           showFilter={showFilter}
           setShowFilter={setShowFilter}
