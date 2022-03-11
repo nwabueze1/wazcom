@@ -7,7 +7,7 @@ export var useTableControlsStyles = makeStyles(function (theme) { return ({
     },
     filterControls: {
         display: "flex",
-        gap: "30px",
+        gap: theme.spacing(3.75),
     },
     filterControlsButton: {
         backgroundColor: theme.design.colors.white,
@@ -20,7 +20,7 @@ export var useTableControlsStyles = makeStyles(function (theme) { return ({
     rightControls: {
         display: "flex",
         alignItems: "center",
-        gap: "1rem",
+        gap: theme.spacing(2),
     },
     actionButton: {
         backgroundColor: theme.design.colors.white,

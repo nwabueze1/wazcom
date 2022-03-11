@@ -37,14 +37,14 @@ export var useTableStyles = makeStyles(function (theme) { return ({
     rightControls: {
         display: "flex",
         alignItems: "center",
-        gap: "1rem",
+        gap: theme.spacing(2),
     },
     actionButton: {
         backgroundColor: theme.design.colors.white,
         color: theme.design.colors.black,
         display: "flex !important",
         alignItems: "center",
-        gap: "0.5rem"
+        gap: theme.spacing(1)
     },
 }); });
 export var useStyles = makeStyles(function (theme) { return ({
