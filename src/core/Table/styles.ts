@@ -47,21 +47,6 @@ export const useTableStyles = makeStyles((theme: Theme) => ({
     display: "flex",
     justifyContent: "space-between",
   },
-  errorMessage: {
-    fontSize: theme.typography.fontSize + 4,
-    lineHeight: "22px",
-    textAlign: "center",
-    color: theme.design.colors.grey3,
-  },
-  errorContainer: {
-    height: "60vh",
-  },
-  errorBox: {
-    position: "absolute",
-    left: "50%",
-    top: " 50%",
-    transform: "translate(-50%, -50%)",
-  },
 }));
 
 export const useStyles = makeStyles((theme: Theme) => ({
