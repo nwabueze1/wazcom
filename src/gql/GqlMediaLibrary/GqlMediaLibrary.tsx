@@ -3,7 +3,9 @@ import { DocumentNode } from "graphql";
 import clx from "classnames";
 import { Button } from "../../core/Button";
 import { Loader } from "../../core/Loader/Loader";
-import { useMediaLibraryStyles } from "./styles";
+import { Box } from "@mui/material";
+import { CloseSharp } from "@mui/icons-material";
+import { useMediaLibraryStyles, StyledModal, Backdrop } from "./styles";
 import { Image, GqlMediaLibraryProps, ImageUpdate } from "./types";
 import { EditMedia, DeleteMedia } from "./components";
 import {
@@ -17,6 +19,8 @@ import {
   useMediaUpload,
 } from "./hooks";
 import { FaTimes } from "react-icons/fa";
+import { HighlightOffOutlined, CloseRounded } from "@mui/icons-material";
+import { TextInput } from "io";
 
 export const GqlMediaLibrary: FC<GqlMediaLibraryProps> = ({
   className,
@@ -113,12 +117,23 @@ export const GqlMediaLibrary: FC<GqlMediaLibraryProps> = ({
   };
 
   const handleMediaAction = (type: string, media?: Image | File) => {
-    if (type === 'add' || type === 'edit') {
+    if (type === "add" || type === "edit") {
       const { listInnerRef } = refs;
       if (listInnerRef.current) listInnerRef.current.scrollTop = 0;
     }
 
     setActiveMedia({ type, media });
+  };
+
+  const handleSearchChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+    const search = e.target.value;
+    if (e.target.value === "") {
+      return images;
+    }
+    const filteredResult = images.filter((image) =>
+      image.title?.toLowerCase().includes(search.toLowerCase()),
+    );
+    setFilter(filteredResult);
   };
 
   const handleMediaAdd = useCallback(
@@ -167,6 +182,12 @@ export const GqlMediaLibrary: FC<GqlMediaLibraryProps> = ({
     setLoading({ ...loading, mutate: false });
   }, [activeMedia, loading]);
 
+  const [error, setError] = useState(false);
+  const [open, setOpen] = useState(false);
+  const [filter, setFilter] = useState(images);
+  const handleOpen = () => setOpen(true);
+  const handleClose = () => setOpen(false);
+
   return (
     <div
       className={clx(classes.wrapper, viewOnly && classes.wrapperDialog)}
@@ -188,22 +209,61 @@ export const GqlMediaLibrary: FC<GqlMediaLibraryProps> = ({
         />
         <div className={classes.actions}>
           {viewOnly ? (
-            <><p>Media Library</p>
+            <>
+              <p>Media Library</p>
               <FaTimes className={classes.timesIcon} />
             </>
           ) : (
             <>
               <p className={classes.tab}>All Media</p>
-              <Button
-                color="primary"
-                onClick={() => {
-                  handleFileSelect(refs.fileRef);
-                }}
-              >
-                Add New
-              </Button>
+              <div>
+                <Button color="primary" onClick={handleOpen}>
+                  Add New
+                </Button>
+                <StyledModal
+                  open={open}
+                  onClose={handleClose}
+                  BackdropComponent={Backdrop}
+                >
+                  <Box className={classes.box}>
+                    <div className={classes.dialogueHeader}>
+                      <p>Upload your files</p>
+                      <CloseSharp
+                        onClick={handleClose}
+                        className={classes.close}
+                      />
+                    </div>
+                    <hr />
+                    <div className={classes.content}>
+                      <p className={classes.text}>
+                        Drop file to add to media library
+                      </p>
+                      <p className={classes.or}>or</p>
+                      <div className={classes.btn}>
+                        <Button
+                          color="primary"
+                          onClick={() => {
+                            handleFileSelect(refs.fileRef);
+                            setOpen(false);
+                          }}
+                        >
+                          choose file
+                        </Button>
+                      </div>
+                    </div>
+                  </Box>
+                </StyledModal>
+              </div>
             </>
           )}
+        </div>
+        <div className={classes.searchContainer}>
+          <TextInput
+            name="search"
+            type="text"
+            placeholder="Search"
+            onChange={handleSearchChange}
+          />
         </div>
         <div className={classes.collection}>
           {images.length === 0 && loading.media ? (
@@ -224,7 +284,7 @@ export const GqlMediaLibrary: FC<GqlMediaLibraryProps> = ({
               )}
               {images &&
                 handleDisplayImages(
-                  images,
+                  filter.length ? filter : images,
                   (image: Image) => {
                     onChange?.({ name: name ?? "", value: image });
                   },
@@ -234,6 +294,13 @@ export const GqlMediaLibrary: FC<GqlMediaLibraryProps> = ({
             </>
           )}
         </div>
+        {error && (
+          <div className={classes.error}>
+            <HighlightOffOutlined />
+            <p>Upload Failed. Maximum image size 2MB</p>
+            <CloseRounded />
+          </div>
+        )}
         {images.length > 0 && loading.media && (
           <div className={classes.loaderParent}>
             <Loader className={classes.loader} />
