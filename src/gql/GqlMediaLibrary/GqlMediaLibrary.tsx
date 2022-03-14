@@ -1,11 +1,8 @@
 import React, { FC, useCallback, useEffect, useRef, useState } from "react";
 import { DocumentNode } from "graphql";
 import clx from "classnames";
-import { Button } from "../../core/Button";
 import { Loader } from "../../core/Loader/Loader";
-import { Box } from "@mui/material";
-import { CloseSharp } from "@mui/icons-material";
-import { useMediaLibraryStyles, StyledModal, Backdrop } from "./styles";
+import { useMediaLibraryStyles } from "./styles";
 import { Image, GqlMediaLibraryProps, ImageUpdate } from "./types";
 import { EditMedia, DeleteMedia } from "./components";
 import {
@@ -20,7 +17,8 @@ import {
 } from "./hooks";
 import { FaTimes } from "react-icons/fa";
 import { HighlightOffOutlined, CloseRounded } from "@mui/icons-material";
-import { TextInput } from "io";
+import { TextInput } from "../../io";
+import { Dialogue } from "core/Dialogue/Dialogue";
 
 export const GqlMediaLibrary: FC<GqlMediaLibraryProps> = ({
   className,
@@ -55,6 +53,9 @@ export const GqlMediaLibrary: FC<GqlMediaLibraryProps> = ({
     type: string;
     media?: Image | File;
   }>({ type: "" });
+  const [error, setError] = useState(false);
+  const [open, setOpen] = useState(false);
+  const [displayFilteredImages, setDisplayFilteredImages] = useState(images);
 
   useEffect(() => {
     setLoading({ ...loading, media: true });
@@ -127,13 +128,13 @@ export const GqlMediaLibrary: FC<GqlMediaLibraryProps> = ({
 
   const handleSearchChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     const search = e.target.value;
-    if (e.target.value === "") {
-      return images;
+    if (search === " ") {
+      images;
     }
     const filteredResult = images.filter((image) =>
       image.title?.toLowerCase().includes(search.toLowerCase()),
     );
-    setFilter(filteredResult);
+    setDisplayFilteredImages(filteredResult);
   };
 
   const handleMediaAdd = useCallback(
@@ -182,11 +183,10 @@ export const GqlMediaLibrary: FC<GqlMediaLibraryProps> = ({
     setLoading({ ...loading, mutate: false });
   }, [activeMedia, loading]);
 
-  const [error, setError] = useState(false);
-  const [open, setOpen] = useState(false);
-  const [filter, setFilter] = useState(images);
-  const handleOpen = () => setOpen(true);
-  const handleClose = () => setOpen(false);
+  const handleFile = () => {
+    handleFileSelect(refs.fileRef);
+    setOpen(false);
+  };
 
   return (
     <div
@@ -216,44 +216,11 @@ export const GqlMediaLibrary: FC<GqlMediaLibraryProps> = ({
           ) : (
             <>
               <p className={classes.tab}>All Media</p>
-              <div>
-                <Button color="primary" onClick={handleOpen}>
-                  Add New
-                </Button>
-                <StyledModal
-                  open={open}
-                  onClose={handleClose}
-                  BackdropComponent={Backdrop}
-                >
-                  <Box className={classes.box}>
-                    <div className={classes.dialogueHeader}>
-                      <p>Upload your files</p>
-                      <CloseSharp
-                        onClick={handleClose}
-                        className={classes.close}
-                      />
-                    </div>
-                    <hr />
-                    <div className={classes.content}>
-                      <p className={classes.text}>
-                        Drop file to add to media library
-                      </p>
-                      <p className={classes.or}>or</p>
-                      <div className={classes.btn}>
-                        <Button
-                          color="primary"
-                          onClick={() => {
-                            handleFileSelect(refs.fileRef);
-                            setOpen(false);
-                          }}
-                        >
-                          choose file
-                        </Button>
-                      </div>
-                    </div>
-                  </Box>
-                </StyledModal>
-              </div>
+              <Dialogue
+                handleFilesSelection={handleFile}
+                open={open}
+                setOpen={setOpen}
+              />
             </>
           )}
         </div>
@@ -284,7 +251,7 @@ export const GqlMediaLibrary: FC<GqlMediaLibraryProps> = ({
               )}
               {images &&
                 handleDisplayImages(
-                  filter.length ? filter : images,
+                  displayFilteredImages.length ? displayFilteredImages : images,
                   (image: Image) => {
                     onChange?.({ name: name ?? "", value: image });
                   },

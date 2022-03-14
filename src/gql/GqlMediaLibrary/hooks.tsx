@@ -9,7 +9,7 @@ import { useMediaLibraryStyles } from "./styles";
 import { Image, ImageUpdate } from "./types";
 import { FaPencilAlt } from "react-icons/fa";
 import { IoMdTrash } from "react-icons/io";
-import clx from 'classnames';
+import clx from "classnames";
 
 export const useDisplayImages = () => {
   const classes = useMediaLibraryStyles();
@@ -26,7 +26,9 @@ export const useDisplayImages = () => {
           return (
             <Grow in={true} key={index}>
               <div
-                onClick={() => { selectImage?.(theImage) }}
+                onClick={() => {
+                  selectImage?.(theImage);
+                }}
                 className={clx(
                   classes.thumbnail,
                   viewOnly && classes.thumbnailFixedHeight,
