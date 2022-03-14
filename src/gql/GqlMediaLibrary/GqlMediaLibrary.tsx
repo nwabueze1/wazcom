@@ -264,13 +264,6 @@ export const GqlMediaLibrary: FC<GqlMediaLibraryProps> = ({
             </>
           )}
         </div>
-        {/* {error && (
-          <div className={classes.error}>
-            <HighlightOffOutlined />
-            <p>Upload Failed. Maximum image size 2MB</p>
-            <CloseRounded />
-          </div>
-        )} */}
         {images.length > 0 && loading.media && (
           <div className={classes.loaderParent}>
             <Loader className={classes.loader} />

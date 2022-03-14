@@ -16,16 +16,6 @@ export const useDialogueStyles = makeStyles((theme: Theme) => ({
     width: 600,
     maxHeight: 550,
   },
-  error: {
-    // position: "absolute",
-    left: 0,
-    top: 0,
-    width: "25%",
-    background: theme.design.colors.white,
-    borderRadius: "4px",
-    display: "flex",
-    justifyContent: "space-between",
-  },
   box: {
     width: "680px",
     background: theme.design.colors.white,

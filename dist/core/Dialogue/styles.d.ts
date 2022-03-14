@@ -1,5 +1,5 @@
 /// <reference types="react" />
-export declare const useDialogueStyles: (props?: any) => import("@mui/styles").ClassNameMap<"root" | "content" | "text" | "line" | "loading" | "error" | "close" | "wrapperDialog" | "box" | "dialogueHeader" | "or" | "btn">;
+export declare const useDialogueStyles: (props?: any) => import("@mui/styles").ClassNameMap<"root" | "content" | "text" | "line" | "loading" | "close" | "wrapperDialog" | "box" | "dialogueHeader" | "or" | "btn">;
 export declare const StyledModal: import("@emotion/styled").StyledComponent<{
     BackdropComponent?: import("react").ElementType<any> | undefined;
     BackdropProps?: Partial<import("@mui/base").BackdropUnstyledProps<"div", {}>> | undefined;
