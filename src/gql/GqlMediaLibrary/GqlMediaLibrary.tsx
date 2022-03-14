@@ -16,7 +16,7 @@ import {
   useMediaUpload,
 } from "./hooks";
 import { FaTimes } from "react-icons/fa";
-import { HighlightOffOutlined, CloseRounded } from "@mui/icons-material";
+import { Search } from "@mui/icons-material";
 import { TextInput } from "../../io";
 import { Dialogue } from "core/Dialogue/Dialogue";
 
@@ -53,7 +53,6 @@ export const GqlMediaLibrary: FC<GqlMediaLibraryProps> = ({
     type: string;
     media?: Image | File;
   }>({ type: "" });
-  const [error, setError] = useState(false);
   const [open, setOpen] = useState(false);
   const [displayFilteredImages, setDisplayFilteredImages] = useState(images);
 
@@ -224,13 +223,17 @@ export const GqlMediaLibrary: FC<GqlMediaLibraryProps> = ({
             </>
           )}
         </div>
-        <div className={classes.searchContainer}>
-          <TextInput
-            name="search"
-            type="text"
-            placeholder="Search"
-            onChange={handleSearchChange}
-          />
+        <div>
+          <div className={classes.searchContainer}>
+            <TextInput
+              name="search"
+              type="text"
+              placeholder="Search"
+              onChange={handleSearchChange}
+              className={classes.search}
+            />
+            <Search className={classes.searchIcon} />
+          </div>
         </div>
         <div className={classes.collection}>
           {images.length === 0 && loading.media ? (
@@ -261,13 +264,13 @@ export const GqlMediaLibrary: FC<GqlMediaLibraryProps> = ({
             </>
           )}
         </div>
-        {error && (
+        {/* {error && (
           <div className={classes.error}>
             <HighlightOffOutlined />
             <p>Upload Failed. Maximum image size 2MB</p>
             <CloseRounded />
           </div>
-        )}
+        )} */}
         {images.length > 0 && loading.media && (
           <div className={classes.loaderParent}>
             <Loader className={classes.loader} />

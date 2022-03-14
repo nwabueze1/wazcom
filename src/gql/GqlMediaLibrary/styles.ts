@@ -137,7 +137,6 @@ export const useMediaLibraryStyles = makeStyles((theme: Theme) => ({
     maxHeight: 550,
   },
   error: {
-    // position: "absolute",
     left: 0,
     top: 0,
     width: "25%",
@@ -147,48 +146,26 @@ export const useMediaLibraryStyles = makeStyles((theme: Theme) => ({
     justifyContent: "space-between",
   },
   searchContainer: {
+    position: "relative",
     padding: theme.spacing(0, 4),
-    display: "flex",
-    justifyContent: "right",
-    width: "100%",
     borderBottom: "1px solid rgba(0,0,0,0.06)",
     marginBottom: theme.spacing(3),
   },
-  box: {
-    width: "680px",
-    background: theme.design.colors.white,
-  },
-  dialogueHeader: {
-    width: "80%",
-    margin: "auto",
-    fontWeight: theme.typography.fontWeightMedium,
-    display: "flex",
-    justifyContent: "space-between",
-    padding: theme.spacing(3, 0),
-  },
-  line: {
-    color: theme.design.colors.gey50,
-  },
+
   content: {
     width: "80%",
     margin: theme.spacing(5, "auto"),
     padding: theme.spacing(8, 0),
     border: `1px dashed ${theme.design.colors.grey40}`,
   },
-  close: {
-    cursor: "pointer",
+  search: {
+    background: theme.design.colors.shainGrey,
+    padding: theme.spacing(0, 2),
   },
-  text: {
-    textAlign: "center",
-    fontWeight: theme.typography.fontWeightMedium,
-  },
-  or: {
-    padding: theme.spacing(2),
-    fontSize: theme.typography.fontSize - 2,
-    textAlign: "center",
-  },
-  btn: {
-    textAlign: "center",
+  searchIcon: {
+    position: "absolute",
+    top: "10px",
+    left: "35px",
   },
 }));
 

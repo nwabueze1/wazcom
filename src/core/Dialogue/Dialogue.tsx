@@ -1,4 +1,4 @@
-import { useState, FC } from "react";
+import { FC } from "react";
 import { useDialogueStyles, Backdrop, StyledModal } from "./styles";
 import { CloseSharp } from "@mui/icons-material";
 import { Button } from "../../core/Button";

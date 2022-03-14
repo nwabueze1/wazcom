@@ -75,12 +75,14 @@ import { Grow } from "@mui/material";
 import { useMediaLibraryStyles } from "./styles";
 import { FaPencilAlt } from "react-icons/fa";
 import { IoMdTrash } from "react-icons/io";
-import clx from 'classnames';
+import clx from "classnames";
 export var useDisplayImages = function () {
     var classes = useMediaLibraryStyles();
     return function (images, selectImage, handleMediaAction, viewOnly) {
         return split(images, 3).map(function (_, columnIndex) { return (_jsx("div", __assign({ className: classes.column }, { children: _.map(function (theImage, index) {
-                return (_jsx(Grow, __assign({ in: true }, { children: _jsxs("div", __assign({ onClick: function () { selectImage === null || selectImage === void 0 ? void 0 : selectImage(theImage); }, className: clx(classes.thumbnail, viewOnly && classes.thumbnailFixedHeight) }, { children: [_jsx("img", { src: theImage === null || theImage === void 0 ? void 0 : theImage.url, className: classes.image }, void 0), _jsx("div", __assign({ className: classes.thumbnailOverlay }, { children: !viewOnly && (_jsxs("div", __assign({ className: classes.thumbnailActions }, { children: [_jsx("p", __assign({ onClick: function (e) {
+                return (_jsx(Grow, __assign({ in: true }, { children: _jsxs("div", __assign({ onClick: function () {
+                            selectImage === null || selectImage === void 0 ? void 0 : selectImage(theImage);
+                        }, className: clx(classes.thumbnail, viewOnly && classes.thumbnailFixedHeight) }, { children: [_jsx("img", { src: theImage === null || theImage === void 0 ? void 0 : theImage.url, className: classes.image }, void 0), _jsx("div", __assign({ className: classes.thumbnailOverlay }, { children: !viewOnly && (_jsxs("div", __assign({ className: classes.thumbnailActions }, { children: [_jsx("p", __assign({ onClick: function (e) {
                                                 e.stopPropagation();
                                                 handleMediaAction("edit", theImage);
                                             }, className: classes.thumbnailAction }, { children: _jsx(FaPencilAlt, { className: classes.thumbnailActionIcon }, void 0) }), void 0), _jsx("p", __assign({ onClick: function (e) {
@@ -158,7 +160,7 @@ export var useOnScroll = function () {
     return function (ref, setMediaIndex) {
         if (ref.current) {
             var _a = ref.current, scrollTop = _a.scrollTop, scrollHeight = _a.scrollHeight, clientHeight = _a.clientHeight;
-            if ((scrollTop + clientHeight) > (scrollHeight - 5) && scrollHeight > 540) {
+            if (scrollTop + clientHeight > scrollHeight - 5 && scrollHeight > 540) {
                 setMediaIndex(Math.random() * 5000);
             }
         }

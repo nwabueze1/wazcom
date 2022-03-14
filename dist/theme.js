@@ -188,6 +188,10 @@ export var theme = {
             richBlack: "#11181C",
             darkShadow: "rgba(0, 0, 0, 0.1)",
             ash: "rgba(34, 34, 34, 0.04)",
+            shainGrey: "rgba(153, 159, 155, 0.1)",
+            grey3: "#343E37",
+            grey40: "#CCCFCD",
+            grey50: "#E6E7E6",
         },
     },
     overrides: {
