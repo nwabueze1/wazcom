@@ -5,7 +5,7 @@ var __makeTemplateObject = (this && this.__makeTemplateObject) || function (cook
 import ModalUnstyled from "@mui/base/ModalUnstyled";
 import { styled } from "@mui/system";
 import makeStyles from "@mui/styles/makeStyles";
-export var useDialogueStyles = makeStyles(function (theme) { return ({
+export var useAddMediaStyles = makeStyles(function (theme) { return ({
     root: {
         width: "100%",
     },

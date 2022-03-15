@@ -18,7 +18,7 @@ import {
 import { FaTimes } from "react-icons/fa";
 import { Search } from "@mui/icons-material";
 import { TextInput } from "../../io";
-import { Dialogue } from "core/Dialogue/Dialogue";
+import { AddMedia } from "core/AddMedia/AddMedia";
 
 export const GqlMediaLibrary: FC<GqlMediaLibraryProps> = ({
   className,
@@ -54,7 +54,7 @@ export const GqlMediaLibrary: FC<GqlMediaLibraryProps> = ({
     media?: Image | File;
   }>({ type: "" });
   const [open, setOpen] = useState(false);
-  const [displayFilteredImages, setDisplayFilteredImages] = useState(images);
+  const [displayImages, setDisplayImages] = useState(images);
 
   useEffect(() => {
     setLoading({ ...loading, media: true });
@@ -133,7 +133,7 @@ export const GqlMediaLibrary: FC<GqlMediaLibraryProps> = ({
     const filteredResult = images.filter((image) =>
       image.title?.toLowerCase().includes(search.toLowerCase()),
     );
-    setDisplayFilteredImages(filteredResult);
+    setDisplayImages(filteredResult);
   };
 
   const handleMediaAdd = useCallback(
@@ -182,7 +182,7 @@ export const GqlMediaLibrary: FC<GqlMediaLibraryProps> = ({
     setLoading({ ...loading, mutate: false });
   }, [activeMedia, loading]);
 
-  const handleFile = () => {
+  const handleFileSelection = () => {
     handleFileSelect(refs.fileRef);
     setOpen(false);
   };
@@ -215,8 +215,8 @@ export const GqlMediaLibrary: FC<GqlMediaLibraryProps> = ({
           ) : (
             <>
               <p className={classes.tab}>All Media</p>
-              <Dialogue
-                handleFilesSelection={handleFile}
+              <AddMedia
+                handleFilesSelection={handleFileSelection}
                 open={open}
                 setOpen={setOpen}
               />
@@ -254,7 +254,7 @@ export const GqlMediaLibrary: FC<GqlMediaLibraryProps> = ({
               )}
               {images &&
                 handleDisplayImages(
-                  displayFilteredImages.length ? displayFilteredImages : images,
+                  displayImages ? displayImages : images,
                   (image: Image) => {
                     onChange?.({ name: name ?? "", value: image });
                   },

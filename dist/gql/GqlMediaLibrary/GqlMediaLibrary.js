@@ -80,7 +80,7 @@ import { fetchData, mutateMedia, getUniqueImages, useFileSelect, useOnScroll, us
 import { FaTimes } from "react-icons/fa";
 import { Search } from "@mui/icons-material";
 import { TextInput } from "../../io";
-import { Dialogue } from "core/Dialogue/Dialogue";
+import { AddMedia } from "core/AddMedia/AddMedia";
 export var GqlMediaLibrary = function (_a) {
     var className = _a.className, _b = _a.config, client = _b.client, _c = _b.query, query = _c.name, queryVariables = _c.variables, upload = _b.upload, update = _b.update, remove = _b.remove, _d = _b.viewOnly, viewOnly = _d === void 0 ? false : _d, onChange = _a.onChange, name = _a.name;
     var refs = { fileRef: useRef(), listInnerRef: useRef() };
@@ -98,7 +98,7 @@ export var GqlMediaLibrary = function (_a) {
     }), 2), loading = _g[0], setLoading = _g[1];
     var _h = __read(useState({ type: "" }), 2), activeMedia = _h[0], setActiveMedia = _h[1];
     var _j = __read(useState(false), 2), open = _j[0], setOpen = _j[1];
-    var _k = __read(useState(images), 2), displayFilteredImages = _k[0], setDisplayFilteredImages = _k[1];
+    var _k = __read(useState(images), 2), displayImages = _k[0], setDisplayImages = _k[1];
     useEffect(function () {
         setLoading(__assign(__assign({}, loading), { media: true }));
         fetchData(client, query, __assign({}, queryVariables))
@@ -158,7 +158,7 @@ export var GqlMediaLibrary = function (_a) {
             images;
         }
         var filteredResult = images.filter(function (image) { var _a; return (_a = image.title) === null || _a === void 0 ? void 0 : _a.toLowerCase().includes(search.toLowerCase()); });
-        setDisplayFilteredImages(filteredResult);
+        setDisplayImages(filteredResult);
     };
     var handleMediaAdd = useCallback(function (variables) { return __awaiter(void 0, void 0, void 0, function () {
         return __generator(this, function (_a) {
@@ -210,7 +210,7 @@ export var GqlMediaLibrary = function (_a) {
             }
         });
     }); }, [activeMedia, loading]);
-    var handleFile = function () {
+    var handleFileSelection = function () {
         handleFileSelect(refs.fileRef);
         setOpen(false);
     };
@@ -218,12 +218,12 @@ export var GqlMediaLibrary = function (_a) {
             handleOnScroll(refs.listInnerRef, function (index) {
                 setActiveMedia(__assign(__assign({}, activeMedia), { index: index }));
             });
-        } }, { children: [_jsxs("div", __assign({ className: clx(classes.root, className) }, { children: [_jsx("input", { name: "image_url", accept: "image/*", hidden: true, type: "file", ref: refs.fileRef, onChange: handleFileChange }, void 0), _jsx("div", __assign({ className: classes.actions }, { children: viewOnly ? (_jsxs(_Fragment, { children: [_jsx("p", { children: "Media Library" }, void 0), _jsx(FaTimes, { className: classes.timesIcon }, void 0)] }, void 0)) : (_jsxs(_Fragment, { children: [_jsx("p", __assign({ className: classes.tab }, { children: "All Media" }), void 0), _jsx(Dialogue, { handleFilesSelection: handleFile, open: open, setOpen: setOpen }, void 0)] }, void 0)) }), void 0), _jsx("div", { children: _jsxs("div", __assign({ className: classes.searchContainer }, { children: [_jsx(TextInput, { name: "search", type: "text", placeholder: "Search", onChange: handleSearchChange, className: classes.search }, void 0), _jsx(Search, { className: classes.searchIcon }, void 0)] }), void 0) }, void 0), _jsx("div", __assign({ className: classes.collection }, { children: images.length === 0 && loading.media ? (_jsx(Loader, {}, void 0)) : (_jsxs(_Fragment, { children: [(activeMedia.type === "add" || activeMedia.type === "edit") && (_jsx(EditMedia, { loading: loading.mutate, handleEdit: function (variables) {
+        } }, { children: [_jsxs("div", __assign({ className: clx(classes.root, className) }, { children: [_jsx("input", { name: "image_url", accept: "image/*", hidden: true, type: "file", ref: refs.fileRef, onChange: handleFileChange }, void 0), _jsx("div", __assign({ className: classes.actions }, { children: viewOnly ? (_jsxs(_Fragment, { children: [_jsx("p", { children: "Media Library" }, void 0), _jsx(FaTimes, { className: classes.timesIcon }, void 0)] }, void 0)) : (_jsxs(_Fragment, { children: [_jsx("p", __assign({ className: classes.tab }, { children: "All Media" }), void 0), _jsx(AddMedia, { handleFilesSelection: handleFileSelection, open: open, setOpen: setOpen }, void 0)] }, void 0)) }), void 0), _jsx("div", { children: _jsxs("div", __assign({ className: classes.searchContainer }, { children: [_jsx(TextInput, { name: "search", type: "text", placeholder: "Search", onChange: handleSearchChange, className: classes.search }, void 0), _jsx(Search, { className: classes.searchIcon }, void 0)] }), void 0) }, void 0), _jsx("div", __assign({ className: classes.collection }, { children: images.length === 0 && loading.media ? (_jsx(Loader, {}, void 0)) : (_jsxs(_Fragment, { children: [(activeMedia.type === "add" || activeMedia.type === "edit") && (_jsx(EditMedia, { loading: loading.mutate, handleEdit: function (variables) {
                                         handleMediaUpdate(variables);
                                     }, handleClose: function () {
                                         handleMediaAction("", undefined);
                                     }, image: activeMedia.media }, void 0)), images &&
-                                    handleDisplayImages(displayFilteredImages.length ? displayFilteredImages : images, function (image) {
+                                    handleDisplayImages(displayImages ? displayImages : images, function (image) {
                                         onChange === null || onChange === void 0 ? void 0 : onChange({ name: name !== null && name !== void 0 ? name : "", value: image });
                                     }, handleMediaAction, viewOnly)] }, void 0)) }), void 0), images.length > 0 && loading.media && (_jsx("div", __assign({ className: classes.loaderParent }, { children: _jsx(Loader, { className: classes.loader }, void 0) }), void 0))] }), void 0), _jsx(DeleteMedia, { display: activeMedia.type === "delete", loading: loading.mutate, media: activeMedia.media, handleClose: function () {
                     handleMediaAction("", undefined);

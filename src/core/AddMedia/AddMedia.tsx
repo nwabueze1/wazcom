@@ -1,16 +1,16 @@
 import { FC } from "react";
-import { useDialogueStyles, Backdrop, StyledModal } from "./styles";
+import { useAddMediaStyles, Backdrop, StyledModal } from "./styles";
 import { CloseSharp } from "@mui/icons-material";
-import { Button } from "../../core/Button";
+import { Button } from "../Button";
 import { Box } from "@mui/material";
-import { DialogueProps } from "./types";
+import { AddMediaProps } from "./types";
 
-export const Dialogue: FC<DialogueProps> = ({
+export const AddMedia: FC<AddMediaProps> = ({
   handleFilesSelection,
   open,
   setOpen,
 }) => {
-  const classes = useDialogueStyles();
+  const classes = useAddMediaStyles();
 
   const handleOpen = () => setOpen(true);
   const handleClose = () => setOpen(false);

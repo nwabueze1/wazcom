@@ -1,5 +1,5 @@
 import { CommonProps } from "types";
-export declare type DialogueProps = CommonProps & {
+export declare type AddMediaProps = CommonProps & {
     handleFilesSelection: () => void;
     open: any;
     setOpen: any;

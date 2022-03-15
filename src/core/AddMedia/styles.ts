@@ -3,7 +3,7 @@ import ModalUnstyled from "@mui/base/ModalUnstyled";
 import { styled } from "@mui/system";
 import makeStyles from "@mui/styles/makeStyles";
 
-export const useDialogueStyles = makeStyles((theme: Theme) => ({
+export const useAddMediaStyles = makeStyles((theme: Theme) => ({
   root: {
     width: "100%",
   },
