@@ -6,9 +6,16 @@ export var useButtonStyles = makeStyles(function (theme) { return ({
     button: {
         textTransform: "capitalize",
         color: theme.design.colors.white,
-        backgroundColor: theme.design.colors.red70,
+        backgroundColor: theme.design.colors.greene,
         fontSize: theme.typography.fontSize,
         fontFamily: theme.typography.fontFamily,
+        "&.css-r4ljop-MuiButtonBase-root-MuiButton-root:hover": {
+            backgroundColor: theme.design.colors.greene,
+            opacity: "70%",
+        },
+        "&.Mui-disabled": {
+            background: theme.design.colors.grey3,
+        },
     },
     sizeSmall: {
     // padding: `${theme.spacing(1.6)} ${theme.spacing(8.12)}`,
@@ -20,14 +27,14 @@ export var useButtonStyles = makeStyles(function (theme) { return ({
         position: "absolute",
         top: 0,
         left: 0,
-        width: '100%',
-        height: '100%',
-        display: 'flex',
-        justifyContent: 'center',
-        alignItems: 'center',
+        width: "100%",
+        height: "100%",
+        display: "flex",
+        justifyContent: "center",
+        alignItems: "center",
         color: theme.design.colors.white,
         zIndex: 5,
         opacity: 1,
         background: theme.design.colors.red70,
-    }
+    },
 }); });
