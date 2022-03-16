@@ -29,7 +29,7 @@ export const useTableControlsStyles = makeStyles((theme: Theme) => ({
       color: theme.design.colors.black,
       display: "flex !important",
       alignItems: "center",
-      gap:"0.5rem"
+      gap: theme.spacing(1)
     },
   }));
   

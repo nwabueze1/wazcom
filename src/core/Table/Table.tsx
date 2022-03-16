@@ -43,7 +43,7 @@ export const Table = ({
   const [tableValue, setTableValue] = useState(initialTableValue);
   const [tableHeaders, setTableHeaders] =
     useState<{ name: string; label: string }[]>(headers);
-  const [controlsFormData, setControls] = useState<{ [key: string]: any }>({});
+  const [controlsFormData, setControlsFormData] = useState<{ [key: string]: any }>({});
   const [showFilter, setShowFilter] = useState<boolean>(false);
   const [filters, setFilters] = useState<Filter[]>([]);
   const [selectedRows, setSelectedRows] = useState<number[]>([]);
@@ -56,7 +56,7 @@ export const Table = ({
     changeRowsPerPage,
     changePage,
   );
-  const handleControlsChange = useHandleControlsChange(setControls);
+  const handleControlsChange = useHandleControlsChange(setControlsFormData);
 
   const handleSelectAllRows = () =>
     setSelectedRows((rows) => {

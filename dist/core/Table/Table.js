@@ -58,7 +58,7 @@ export var Table = function (_a) {
     var classes = useTableStyles();
     var _b = __read(useState(initialTableValue), 2), tableValue = _b[0], setTableValue = _b[1];
     var _c = __read(useState(headers), 2), tableHeaders = _c[0], setTableHeaders = _c[1];
-    var _d = __read(useState({}), 2), controlsFormData = _d[0], setControls = _d[1];
+    var _d = __read(useState({}), 2), controlsFormData = _d[0], setControlsFormData = _d[1];
     var _e = __read(useState(false), 2), showFilter = _e[0], setShowFilter = _e[1];
     var _f = __read(useState([]), 2), filters = _f[0], setFilters = _f[1];
     var _g = __read(useState([]), 2), selectedRows = _g[0], setSelectedRows = _g[1];
@@ -67,7 +67,7 @@ export var Table = function (_a) {
     var getCurrentPage = useGetCurrentPage(paginatorInfo);
     var getRowsPerPage = useGetRowsPerPage(paginatorInfo, rowsPerPage);
     var handleChangeRowsPerPage = useHandleChangeRowsPerPage(changeRowsPerPage, changePage);
-    var handleControlsChange = useHandleControlsChange(setControls);
+    var handleControlsChange = useHandleControlsChange(setControlsFormData);
     var handleSelectAllRows = function () {
         return setSelectedRows(function (rows) {
             if (rows.length === tableValue.length) {

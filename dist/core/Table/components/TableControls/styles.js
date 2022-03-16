@@ -27,6 +27,6 @@ export var useTableControlsStyles = makeStyles(function (theme) { return ({
         color: theme.design.colors.black,
         display: "flex !important",
         alignItems: "center",
-        gap: "0.5rem"
+        gap: theme.spacing(1)
     },
 }); });
