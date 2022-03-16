@@ -213,6 +213,8 @@ export const theme: any = {
       richBlack: "#11181C",
       darkShadow: "rgba(0, 0, 0, 0.1)",
       ash: "rgba(34, 34, 34, 0.04)",
+      greene: "#0A7227",
+      grey3: "#999F9B",
     },
   },
   overrides: {
