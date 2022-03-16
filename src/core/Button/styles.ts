@@ -11,16 +11,10 @@ export const useButtonStyles = makeStyles((theme: BaseTheme) => ({
     backgroundColor: theme.design.colors.greene,
     fontSize: theme.typography.fontSize,
     fontFamily: theme.typography.fontFamily,
-    "&.css-r4ljop-MuiButtonBase-root-MuiButton-root:hover": {
+    "&:hover": {
       backgroundColor: theme.design.colors.greene,
       opacity: "70%",
     },
-    "&.Mui-disabled": {
-      background: theme.design.colors.grey3,
-    },
-  },
-  sizeSmall: {
-    // padding: `${theme.spacing(1.6)} ${theme.spacing(8.12)}`,
   },
   sizeLarge: {
     padding: `${theme.spacing(0.5)} ${theme.spacing(2.5)}`,
