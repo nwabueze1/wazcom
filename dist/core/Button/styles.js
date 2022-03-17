@@ -6,12 +6,13 @@ export var useButtonStyles = makeStyles(function (theme) { return ({
     button: {
         textTransform: "capitalize",
         color: theme.design.colors.white,
-        backgroundColor: theme.design.colors.red70,
+        backgroundColor: theme.design.colors.greene,
         fontSize: theme.typography.fontSize,
         fontFamily: theme.typography.fontFamily,
-    },
-    sizeSmall: {
-    // padding: `${theme.spacing(1.6)} ${theme.spacing(8.12)}`,
+        "&:hover": {
+            backgroundColor: theme.design.colors.greene,
+            opacity: "70%",
+        },
     },
     sizeLarge: {
         padding: "".concat(theme.spacing(0.5), " ").concat(theme.spacing(2.5)),
@@ -20,14 +21,14 @@ export var useButtonStyles = makeStyles(function (theme) { return ({
         position: "absolute",
         top: 0,
         left: 0,
-        width: '100%',
-        height: '100%',
-        display: 'flex',
-        justifyContent: 'center',
-        alignItems: 'center',
+        width: "100%",
+        height: "100%",
+        display: "flex",
+        justifyContent: "center",
+        alignItems: "center",
         color: theme.design.colors.white,
         zIndex: 5,
         opacity: 1,
         background: theme.design.colors.red70,
-    }
+    },
 }); });

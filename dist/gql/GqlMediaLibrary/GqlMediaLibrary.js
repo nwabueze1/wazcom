@@ -223,7 +223,7 @@ export var GqlMediaLibrary = function (_a) {
                                     }, handleClose: function () {
                                         handleMediaAction("", undefined);
                                     }, image: activeMedia.media }, void 0)), images &&
-                                    handleDisplayImages(displayImages ? displayImages : images, function (image) {
+                                    handleDisplayImages(displayImages.length ? displayImages : images, function (image) {
                                         onChange === null || onChange === void 0 ? void 0 : onChange({ name: name !== null && name !== void 0 ? name : "", value: image });
                                     }, handleMediaAction, viewOnly)] }, void 0)) }), void 0), images.length > 0 && loading.media && (_jsx("div", __assign({ className: classes.loaderParent }, { children: _jsx(Loader, { className: classes.loader }, void 0) }), void 0))] }), void 0), _jsx(DeleteMedia, { display: activeMedia.type === "delete", loading: loading.mutate, media: activeMedia.media, handleClose: function () {
                     handleMediaAction("", undefined);

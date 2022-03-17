@@ -192,6 +192,8 @@ export var theme = {
             grey3: "#343E37",
             grey40: "#CCCFCD",
             grey50: "#E6E7E6",
+            greene: "#0A7227",
+            grey30: "#999F9B",
         },
     },
     overrides: {
