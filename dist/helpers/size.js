@@ -13,6 +13,9 @@ export var getSizeVariants = function (classes, size) {
         case "xl":
             sizeVariants = [classes.sizeXl, classes.cameraIconXl];
             break;
+        case "full":
+            sizeVariants = [classes.full, classes.cameraIconFull];
+            break;
         default:
             sizeVariants = [classes.sizeMd, classes.cameraIconMd];
             break;

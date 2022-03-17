@@ -11,7 +11,7 @@ export const TextArea: FC<TextAreaProps> = ({
 }) => {
   const classes = useTextAreaStyles();
   return (
-    <div>
+    <div className={classes.root}>
       <TextareaAutosize
         minRows={minRows}
         placeholder={name}
