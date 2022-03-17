@@ -54,7 +54,7 @@ export const GqlMediaLibrary: FC<GqlMediaLibraryProps> = ({
     media?: Image | File;
   }>({ type: "" });
   const [open, setOpen] = useState(false);
-  const [displayImages, setDisplayImages] = useState(images);
+  const [displayedImages, setDisplayedImages] = useState(images);
 
   useEffect(() => {
     setLoading({ ...loading, media: true });
@@ -62,6 +62,9 @@ export const GqlMediaLibrary: FC<GqlMediaLibraryProps> = ({
       .then((res) => {
         setLoading({ ...loading, media: false });
         setImages((images) =>
+          getUniqueImages([...images, ...(res.data.images.images as Image[])]),
+        );
+        setDisplayedImages((images) =>
           getUniqueImages([...images, ...(res.data.images.images as Image[])]),
         );
         setPaginatorInfo(res.data.images.paginatorInfo);
@@ -127,13 +130,14 @@ export const GqlMediaLibrary: FC<GqlMediaLibraryProps> = ({
 
   const handleSearchChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     const search = e.target.value;
-    if (search === " ") {
-      images;
+    if (search === " " || search === undefined) {
+      return;
     }
+
     const filteredResult = images.filter((image) =>
       image.title?.toLowerCase().includes(search.toLowerCase()),
     );
-    setDisplayImages(filteredResult);
+    setDisplayedImages(filteredResult);
   };
 
   const handleMediaAdd = useCallback(
@@ -254,7 +258,7 @@ export const GqlMediaLibrary: FC<GqlMediaLibraryProps> = ({
               )}
               {images &&
                 handleDisplayImages(
-                  displayImages.length ? displayImages : images,
+                  displayedImages,
                   (image: Image) => {
                     onChange?.({ name: name ?? "", value: image });
                   },
