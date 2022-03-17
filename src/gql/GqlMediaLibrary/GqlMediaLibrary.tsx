@@ -254,7 +254,7 @@ export const GqlMediaLibrary: FC<GqlMediaLibraryProps> = ({
               )}
               {images &&
                 handleDisplayImages(
-                  displayImages ? displayImages : images,
+                  displayImages.length ? displayImages : images,
                   (image: Image) => {
                     onChange?.({ name: name ?? "", value: image });
                   },
