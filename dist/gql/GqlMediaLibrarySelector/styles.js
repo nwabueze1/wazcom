@@ -24,7 +24,6 @@ export var useImageSelectorStyles = makeStyles(function (theme) { return ({
     icon: {
         color: theme.design.colors.black,
         cursor: "pointer",
-        opacity: 0,
         zIndex: 5,
         background: "transparent",
         fontSize: "2vw",
@@ -68,6 +67,10 @@ export var useImageSelectorStyles = makeStyles(function (theme) { return ({
     },
     sizeXl: {
         width: "400px",
+        height: "400px",
+    },
+    full: {
+        width: "100%",
         height: "400px",
     },
     feedback: {

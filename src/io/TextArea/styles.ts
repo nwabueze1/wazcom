@@ -9,5 +9,6 @@ export const useTextAreaStyles = makeStyles((theme: Theme) => ({
     fontSize: "1.05rem",
     borderRadius: 4,
     boxSizing: "border-box",
+    minHeight: "100px",
   },
 }));

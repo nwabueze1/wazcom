@@ -7,5 +7,6 @@ export var useTextAreaStyles = makeStyles(function (theme) { return ({
         fontSize: "1.05rem",
         borderRadius: 4,
         boxSizing: "border-box",
+        minHeight: "100px",
     },
 }); });

@@ -63,5 +63,6 @@ export var ImageSelector = function (_a) {
         }
     };
     var variants = getSizeVariants(classes, size);
-    return (_jsxs("div", __assign({ className: clx(className, classes.root, variant === "circle" && classes.circle, variants[0]), onClick: fileInputClick }, { children: [_jsx(CameraAltIcon, { className: clx(classes.cameraIcon, variants[1]) }, void 0), _jsx("input", { type: "file", ref: inputRef, onChange: handleSelect, hidden: true }, void 0), selected || src && (_jsx("img", { ref: imgRef, src: src, className: clx(classes.image, variant === "circle" && classes.circle) }, void 0))] }), void 0));
+    return (_jsxs("div", __assign({ className: clx(className, classes.root, variant === "circle" && classes.circle, variants[0]), onClick: fileInputClick }, { children: [_jsx(CameraAltIcon, { className: clx(classes.cameraIcon, variants[1]) }, void 0), _jsx("input", { type: "file", ref: inputRef, onChange: handleSelect, hidden: true }, void 0), selected ||
+                (src && (_jsx("img", { ref: imgRef, src: src, className: clx(classes.image, variant === "circle" && classes.circle) }, void 0)))] }), void 0));
 };

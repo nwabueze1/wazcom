@@ -35,9 +35,9 @@ export const ImageSelector: FC<ImageSelectorProps> = ({
 
   const handleSelect = (e: React.ChangeEvent<HTMLInputElement>) => {
     if (!e.target.files) return;
-    
+
     const file = e.target.files[0];
-    
+
     if (validate(file)) {
       const reader = new FileReader();
       reader.onload = (e: any) => {
@@ -64,13 +64,17 @@ export const ImageSelector: FC<ImageSelectorProps> = ({
     >
       <CameraAltIcon className={clx(classes.cameraIcon, variants[1])} />
       <input type="file" ref={inputRef} onChange={handleSelect} hidden />
-      {selected || src && (
-        <img
-          ref={imgRef}
-          src={src}
-          className={clx(classes.image, variant === "circle" && classes.circle)}
-        />
-      )}
+      {selected ||
+        (src && (
+          <img
+            ref={imgRef}
+            src={src}
+            className={clx(
+              classes.image,
+              variant === "circle" && classes.circle,
+            )}
+          />
+        ))}
     </div>
   );
 };

@@ -5,7 +5,7 @@ export declare type GqlMediaLibrarySelectorProps = CommonProps & GqlMediaSelecto
     displayLibrary?: boolean;
     verbose?: boolean;
     variant?: "circle" | "square";
-    size?: "sm" | "md" | "lg" | "xl";
+    size?: "sm" | "md" | "lg" | "xl" | "full";
     width?: string;
     height?: string;
     value?: string;

@@ -9,7 +9,6 @@ export const useToggleStyles = makeStyles((theme: Theme) => ({
     justifyContent: "space-between",
   },
   label: {
-    color: theme.design.colors.black,
     fontSize: "1rem",
   },
   addon: {
