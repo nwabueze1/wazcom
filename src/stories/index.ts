@@ -93,7 +93,7 @@ export const stories: ComponentPropType[] = [
         status: "error",
       },
       error: true,
-      size: "md",
+      size: "full",
     },
   },
   {
