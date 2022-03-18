@@ -25,7 +25,7 @@ export const GqlMediaLibrarySelector: FC<GqlMediaLibrarySelectorProps> = ({
   ...props
 }) => {
   const classes = useImageSelectorStyles();
-  const [showIcon, setShowIcon] = useState<boolean>(false);
+  const [, setShowIcon] = useState<boolean>(false);
 
   const [placeholder, setPlaceholder] = useState<string>(value || "");
   const [open, setOpen] = useState(false);
