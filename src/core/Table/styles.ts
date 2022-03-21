@@ -37,6 +37,18 @@ export const useTableStyles = makeStyles((theme: Theme) => ({
     display: "flex",
     justifyContent: "space-between",
   },
+  rightControls: {
+    display: "flex",
+    alignItems: "center",
+    gap: theme.spacing(2),
+  },
+  actionButton: {
+    backgroundColor: theme.design.colors.white,
+    color: theme.design.colors.black,
+    display: "flex !important",
+    alignItems: "center",
+    gap:theme.spacing(1)
+  },
 }));
 
 export const useStyles = makeStyles((theme: Theme) => ({
