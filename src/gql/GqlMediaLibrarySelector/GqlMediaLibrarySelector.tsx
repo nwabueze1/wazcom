@@ -10,8 +10,8 @@ import { getFeedbackVariant } from "../../helpers/io";
 
 export const GqlMediaLibrarySelector: FC<GqlMediaLibrarySelectorProps> = ({
   displayLibrary = false,
-  variant = "circle",
-  size = "sm",
+  variant = "square",
+  size = "full",
   verbose,
   width,
   height,
@@ -25,7 +25,7 @@ export const GqlMediaLibrarySelector: FC<GqlMediaLibrarySelectorProps> = ({
   ...props
 }) => {
   const classes = useImageSelectorStyles();
-  const [showIcon, setShowIcon] = useState<boolean>(false);
+  const [, setShowIcon] = useState<boolean>(false);
 
   const [placeholder, setPlaceholder] = useState<string>(value || "");
   const [open, setOpen] = useState(false);
@@ -92,12 +92,11 @@ export const GqlMediaLibrarySelector: FC<GqlMediaLibrarySelectorProps> = ({
             </div>
           </Fade>
         </Modal>
-        <Fade in={showIcon}>
-          <CameraAltIcon
-            className={clx(classes.icon, variants[1])}
-            onClick={handleOpen}
-          />
-        </Fade>
+
+        <CameraAltIcon
+          className={clx(classes.icon, variants[1])}
+          onClick={handleOpen}
+        />
       </div>
       {feedback && (
         <Typography

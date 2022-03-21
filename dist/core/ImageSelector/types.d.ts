@@ -2,7 +2,7 @@ import { CommonProps } from "../../types";
 export declare type ImageSelectorProps = CommonProps & {
     variant: "circle" | "square";
     src?: string;
-    size?: "sm" | "md" | "lg" | "xl";
+    size?: "sm" | "md" | "lg" | "xl" | "full";
     formats?: string[];
     maxImageSize?: number;
     onSelect?: (file: File) => void;

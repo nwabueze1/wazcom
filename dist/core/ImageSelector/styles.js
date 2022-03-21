@@ -32,6 +32,10 @@ export var useImageSelectorStyles = makeStyles(function (theme) { return ({
         width: "400px",
         height: "400px",
     },
+    full: {
+        width: "100%",
+        height: "400px",
+    },
     cameraIcon: {
         color: theme.design.colors.white,
         zIndex: 5,
@@ -48,6 +52,9 @@ export var useImageSelectorStyles = makeStyles(function (theme) { return ({
     },
     cameraIconXl: {
         fontSize: 80,
+    },
+    cameraIconFull: {
+        fontSize: 100,
     },
     image: {
         position: "absolute",

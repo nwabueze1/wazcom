@@ -98,13 +98,16 @@ export var GqlMediaLibrary = function (_a) {
     }), 2), loading = _g[0], setLoading = _g[1];
     var _h = __read(useState({ type: "" }), 2), activeMedia = _h[0], setActiveMedia = _h[1];
     var _j = __read(useState(false), 2), open = _j[0], setOpen = _j[1];
-    var _k = __read(useState(images), 2), displayImages = _k[0], setDisplayImages = _k[1];
+    var _k = __read(useState(images), 2), displayedImages = _k[0], setDisplayedImages = _k[1];
     useEffect(function () {
         setLoading(__assign(__assign({}, loading), { media: true }));
         fetchData(client, query, __assign({}, queryVariables))
             .then(function (res) {
             setLoading(__assign(__assign({}, loading), { media: false }));
             setImages(function (images) {
+                return getUniqueImages(__spreadArray(__spreadArray([], __read(images), false), __read(res.data.images.images), false));
+            });
+            setDisplayedImages(function (images) {
                 return getUniqueImages(__spreadArray(__spreadArray([], __read(images), false), __read(res.data.images.images), false));
             });
             setPaginatorInfo(res.data.images.paginatorInfo);
@@ -154,11 +157,11 @@ export var GqlMediaLibrary = function (_a) {
     };
     var handleSearchChange = function (e) {
         var search = e.target.value;
-        if (search === " ") {
-            images;
+        if (search === " " || search === undefined) {
+            return;
         }
         var filteredResult = images.filter(function (image) { var _a; return (_a = image.title) === null || _a === void 0 ? void 0 : _a.toLowerCase().includes(search.toLowerCase()); });
-        setDisplayImages(filteredResult);
+        setDisplayedImages(filteredResult);
     };
     var handleMediaAdd = useCallback(function (variables) { return __awaiter(void 0, void 0, void 0, function () {
         return __generator(this, function (_a) {
@@ -223,7 +226,7 @@ export var GqlMediaLibrary = function (_a) {
                                     }, handleClose: function () {
                                         handleMediaAction("", undefined);
                                     }, image: activeMedia.media }, void 0)), images &&
-                                    handleDisplayImages(displayImages.length ? displayImages : images, function (image) {
+                                    handleDisplayImages(displayedImages, function (image) {
                                         onChange === null || onChange === void 0 ? void 0 : onChange({ name: name !== null && name !== void 0 ? name : "", value: image });
                                     }, handleMediaAction, viewOnly)] }, void 0)) }), void 0), images.length > 0 && loading.media && (_jsx("div", __assign({ className: classes.loaderParent }, { children: _jsx(Loader, { className: classes.loader }, void 0) }), void 0))] }), void 0), _jsx(DeleteMedia, { display: activeMedia.type === "delete", loading: loading.mutate, media: activeMedia.media, handleClose: function () {
                     handleMediaAction("", undefined);
