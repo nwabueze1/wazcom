@@ -221,8 +221,8 @@ export const GqlMediaLibrary: FC<GqlMediaLibraryProps> = ({
               <p className={classes.tab}>All Media</p>
               <AddMedia
                 handleFilesSelection={handleFileSelection}
-                open={open}
-                setOpen={setOpen}
+                handleOpenMedia={open}
+                handleCloseMedia={setOpen}
               />
             </>
           )}

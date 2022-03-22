@@ -7,13 +7,13 @@ import { AddMediaProps } from "./types";
 
 export const AddMedia: FC<AddMediaProps> = ({
   handleFilesSelection,
-  open,
-  setOpen,
+  handleOpenMedia,
+  handleCloseMedia,
 }) => {
   const classes = useAddMediaStyles();
 
-  const handleOpen = () => setOpen(true);
-  const handleClose = () => setOpen(false);
+  const handleOpen = () => handleCloseMedia(true);
+  const handleClose = () => handleCloseMedia(false);
 
   return (
     <div>
@@ -21,7 +21,7 @@ export const AddMedia: FC<AddMediaProps> = ({
         Add New
       </Button>
       <StyledModal
-        open={open}
+        open={handleOpenMedia}
         onClose={handleClose}
         BackdropComponent={Backdrop}
       >

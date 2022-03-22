@@ -2,6 +2,6 @@ import { CommonProps } from "types";
 
 export type AddMediaProps = CommonProps & {
   handleFilesSelection: () => void;
-  open: any;
-  setOpen: any;
+ handleOpenMedia: boolean;
+  handleCloseMedia: React.Dispatch<React.SetStateAction<boolean>>;
 };
