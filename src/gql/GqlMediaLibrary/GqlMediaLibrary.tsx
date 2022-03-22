@@ -227,7 +227,7 @@ export const GqlMediaLibrary: FC<GqlMediaLibraryProps> = ({
             </>
           )}
         </div>
-        <div>
+        <div className={classes.searchParent}>
           <div className={classes.searchContainer}>
             <TextInput
               name="search"
