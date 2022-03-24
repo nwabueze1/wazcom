@@ -27,15 +27,11 @@ declare type TableHeaderContentProps = {
     label: string;
 }[];
 declare type ControlsDataProp = {
-    filter?: {
-        fields?: string[];
-    };
+    filter?: string[];
     export?: {
         [key: string]: string;
     };
-    print?: {
-        [key: string]: string;
-    };
+    canPrint?: boolean;
 };
 export declare type Filter = {
     field: string;

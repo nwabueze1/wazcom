@@ -16,7 +16,6 @@ export const Button = ({
       <MuiButton
         classes={{
           root: clx(classes.button, className),
-          sizeSmall: classes.sizeSmall,
           sizeLarge: classes.sizeLarge,
         }}
         variant={variant}

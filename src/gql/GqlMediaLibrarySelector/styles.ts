@@ -27,7 +27,6 @@ export const useImageSelectorStyles = makeStyles((theme: Theme) => ({
   icon: {
     color: theme.design.colors.black,
     cursor: "pointer",
-    opacity: 0,
     zIndex: 5,
     background: "transparent",
     fontSize: "2vw",
@@ -72,6 +71,10 @@ export const useImageSelectorStyles = makeStyles((theme: Theme) => ({
   sizeXl: {
     width: "400px",
     height: "400px",
+  },
+  full: {
+    width: "100%",
+    height: "200px",
   },
   feedback: {
     marginTop: 16,

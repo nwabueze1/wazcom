@@ -87,7 +87,7 @@ export const GqlMediaLibrary: FC<GqlMediaLibraryProps> = ({
         });
       }
     }
-  }, [activeMedia.index, loading]);
+  }, [activeMedia.index]);
 
   const updateMediaLibrary = useCallback(
     (image: Image, type = "add", variables?: ImageUpdate) => {
@@ -113,6 +113,11 @@ export const GqlMediaLibrary: FC<GqlMediaLibraryProps> = ({
   };
 
   const handleMediaAction = (type: string, media?: Image | File) => {
+    if (type === 'add' || type === 'edit') {
+      const { listInnerRef } = refs;
+      if (listInnerRef.current) listInnerRef.current.scrollTop = 0;
+    }
+
     setActiveMedia({ type, media });
   };
 

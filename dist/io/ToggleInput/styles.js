@@ -1,4 +1,4 @@
-import makeStyles from '@mui/styles/makeStyles';
+import makeStyles from "@mui/styles/makeStyles";
 export var useToggleStyles = makeStyles(function (theme) { return ({
     root: {
         display: "flex",
@@ -6,7 +6,7 @@ export var useToggleStyles = makeStyles(function (theme) { return ({
         justifyContent: "space-between",
     },
     label: {
-        color: theme.design.colors.black,
+        fontSize: "1rem",
     },
     addon: {
         width: "30%",
@@ -20,6 +20,15 @@ export var useToggleStyles = makeStyles(function (theme) { return ({
         color: theme.design.colors.black,
     },
     toggle: {
+        color: theme.design.colors.greene,
         marginTop: theme.spacing(1),
+        "& 	.Mui-checked": {
+            color: theme.design.colors.white,
+            "& + .MuiSwitch-track": {
+                backgroundColor: theme.design.colors.greene,
+                opacity: 1,
+                border: 0,
+            },
+        },
     },
 }); });

@@ -1,8 +1,8 @@
 import React, { useCallback, useEffect, useState, useRef } from "react";
 import { useEditMediaStyles } from "./styles";
 import { EditMediaProps } from "./types";
-import { TextInput } from "io";
-import { Button } from "core";
+import { TextInput } from "../../../../io";
+import { Button } from "../../../../core";
 import { Image } from "gql/GqlMediaLibrary/types";
 
 export const EditMedia: React.FC<EditMediaProps> = ({
@@ -21,7 +21,6 @@ export const EditMedia: React.FC<EditMediaProps> = ({
   });
 
   useEffect(() => {
-    console.log(image);
     const formData = {
       title: image instanceof File ? image.name : image.title ?? "",
       alternative_text:

@@ -25,17 +25,20 @@ export const useDisplayImages = () => {
         {_.map((theImage, index) => {
           return (
             <Grow in={true} key={index}>
-              <div className={clx(classes.thumbnail, viewOnly && classes.thumbnailFixedHeight)}>
-                <img
-                  onClick={() => selectImage?.(theImage)}
-                  src={theImage?.url}
-                  className={classes.image}
-                />
+              <div
+                onClick={() => { selectImage?.(theImage) }}
+                className={clx(
+                  classes.thumbnail,
+                  viewOnly && classes.thumbnailFixedHeight,
+                )}
+              >
+                <img src={theImage?.url} className={classes.image} />
                 <div className={classes.thumbnailOverlay}>
                   {!viewOnly && (
                     <div className={classes.thumbnailActions}>
                       <p
-                        onClick={() => {
+                        onClick={(e) => {
+                          e.stopPropagation();
                           handleMediaAction("edit", theImage);
                         }}
                         className={classes.thumbnailAction}
@@ -43,7 +46,8 @@ export const useDisplayImages = () => {
                         <FaPencilAlt className={classes.thumbnailActionIcon} />
                       </p>
                       <p
-                        onClick={() => {
+                        onClick={(e) => {
+                          e.stopPropagation();
                           handleMediaAction("delete", theImage);
                         }}
                         className={classes.thumbnailAction}
@@ -136,7 +140,7 @@ export const useOnScroll = () => {
   ) => {
     if (ref.current) {
       const { scrollTop, scrollHeight, clientHeight } = ref.current;
-      if (scrollTop + clientHeight === scrollHeight && scrollHeight > 550) {
+      if ((scrollTop + clientHeight) > (scrollHeight - 5) && scrollHeight > 540) {
         setMediaIndex(Math.random() * 5000);
       }
     }

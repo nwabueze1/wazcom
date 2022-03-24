@@ -45,7 +45,6 @@ export const useMediaLibraryStyles = makeStyles((theme: Theme) => ({
     height: "100%",
     transition: "opacity 0.3s ease-in",
     opacity: 0,
-    zIndex: 5,
     background: "rgba(255, 255, 255, 0.3)",
 
     "&:hover": {
@@ -129,7 +128,7 @@ export const useMediaLibraryStyles = makeStyles((theme: Theme) => ({
     maxHeight: "70vh",
     overflow: "scroll",
     zIndex: 15,
-    // padding: theme.spacing(4),
+    scrollBehavior: 'smooth',
   },
   wrapperDialog: {
     maxWidth: 600,

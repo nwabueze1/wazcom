@@ -126,7 +126,7 @@ export var GqlMediaLibrary = function (_a) {
                 });
             }
         }
-    }, [activeMedia.index, loading]);
+    }, [activeMedia.index]);
     var updateMediaLibrary = useCallback(function (image, type, variables) {
         if (type === void 0) { type = "add"; }
         handleUpdateMediaLibrary(image, images, setImages, function (index) {
@@ -141,6 +141,11 @@ export var GqlMediaLibrary = function (_a) {
         handleMediaAction("add", file);
     };
     var handleMediaAction = function (type, media) {
+        if (type === 'add' || type === 'edit') {
+            var listInnerRef = refs.listInnerRef;
+            if (listInnerRef.current)
+                listInnerRef.current.scrollTop = 0;
+        }
         setActiveMedia({ type: type, media: media });
     };
     var handleMediaAdd = useCallback(function (variables) { return __awaiter(void 0, void 0, void 0, function () {

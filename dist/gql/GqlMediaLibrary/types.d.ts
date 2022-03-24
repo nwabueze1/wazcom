@@ -7,13 +7,13 @@ export declare type GqlMediaSelectorConfigProps = {
         query: {
             name: DocumentNode;
             variables: {
-                [key: string]: string;
+                [key: string]: any;
             };
         };
         upload: {
             name: DocumentNode;
             variables: {
-                [key: string]: string;
+                [key: string]: any;
             };
         };
         update?: {

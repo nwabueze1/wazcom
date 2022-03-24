@@ -25,6 +25,7 @@ import {
   TagInput,
   TextInput,
   ToggleInput,
+  TextArea,
 } from "../io";
 
 import { GqlComboBox, GqlMediaLibrary, GqlMediaLibrarySelector } from "../gql";
@@ -45,6 +46,11 @@ import { data } from "./data";
 
 export const stories: ComponentPropType[] = [
   {
+    name: "TextArea",
+    component: TextArea,
+    props: {},
+  },
+  {
     name: "TableWithPagination",
     component: Table,
     props: {
@@ -58,7 +64,9 @@ export const stories: ComponentPropType[] = [
         total: 100,
       },
       controls: {
-        filter: { fields: ["id", "name"] },
+        filter: ["id", "name"],
+        canPrint: true,
+        export: {},
       },
     },
   },
@@ -87,7 +95,7 @@ export const stories: ComponentPropType[] = [
         status: "error",
       },
       error: true,
-      size: "md",
+      size: "full",
     },
   },
   {
@@ -113,7 +121,7 @@ export const stories: ComponentPropType[] = [
         remove: {
           name: DELETE_IMAGE,
         },
-        // viewOnly: true,
+        viewOnly: true,
       },
     },
   },
@@ -237,7 +245,8 @@ export const stories: ComponentPropType[] = [
     name: "Image Selector",
     component: ImageSelector,
     props: {
-      variant: "circle",
+      variant: "square",
+      size: "full",
     },
   },
   {
