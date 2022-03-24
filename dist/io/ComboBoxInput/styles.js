@@ -3,12 +3,11 @@ export var useComboBoxStyles = makeStyles(function (theme) { return ({
     root: {
         display: "flex",
         flexDirection: "column",
-        marginBottom: 15,
+        marginBottom: theme.spacing(2),
     },
     label: {
-        marginBottom: 9,
+        marginBottom: theme.spacing(1),
         fontSize: "1rem",
-        fontWeight: 700,
     },
     helperText: {
         marginTop: theme.spacing(2),

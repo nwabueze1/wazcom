@@ -34,7 +34,7 @@ import clx from 'classnames';
 import { getFeedbackVariant } from "../../helpers/io";
 var filter = createFilterOptions();
 export var ComboBoxInput = function (_a) {
-    var name = _a.name, onChange = _a.onChange, initialOptions = _a.options, label = _a.label, value = _a.value, error = _a.error, placeholder = _a.placeholder, feedback = _a.feedback;
+    var name = _a.name, onChange = _a.onChange, initialOptions = _a.options, label = _a.label, value = _a.value, error = _a.error, placeholder = _a.placeholder, feedback = _a.feedback, className = _a.className;
     var classes = useComboBoxStyles();
     var _b = __read(useState(initialOptions), 2), options = _b[0], setOptions = _b[1];
     useEffect(function () {
@@ -67,10 +67,10 @@ export var ComboBoxInput = function (_a) {
             return { label: label, value: value };
         return { label: "", value: "" };
     }, [options, value]);
-    return (_jsxs("div", __assign({ className: classes.root }, { children: [label && (_jsx(InputLabel, __assign({ className: classes.label, htmlFor: name }, { children: label }), void 0)), _jsx(Autocomplete, { options: options !== null && options !== void 0 ? options : [], getOptionLabel: function (option) {
+    return (_jsxs("div", __assign({ className: clx(classes.root, className) }, { children: [label && (_jsx(InputLabel, __assign({ className: classes.label, htmlFor: name }, { children: label }), void 0)), _jsx(Autocomplete, { options: options !== null && options !== void 0 ? options : [], getOptionLabel: function (option) {
                     var _a;
                     return (_a = option === null || option === void 0 ? void 0 : option.label) !== null && _a !== void 0 ? _a : "";
-                }, style: { width: 300 }, value: getValue(), onChange: function (_, selectedOption) {
+                }, value: getValue(), onChange: function (_, selectedOption) {
                     handleChange(selectedOption);
                 }, filterOptions: handleFilterOptions, freeSolo: true, renderInput: function (params) { return (_jsx(TextField, __assign({}, params, { label: label, placeholder: placeholder, variant: "outlined", error: error }), void 0)); } }, void 0), feedback && (_jsx(Typography, __assign({ className: clx(classes.feedback, getFeedbackVariant(classes, feedback)) }, { children: feedback.text }), void 0))] }), void 0));
 };
