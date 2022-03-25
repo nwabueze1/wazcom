@@ -47,7 +47,7 @@ export const GqlMediaLibrarySelector: FC<GqlMediaLibrarySelectorProps> = ({
   const variants = getSizeVariants(classes, size);
 
   return (
-    <div className={classes.root}>
+    <div className={clx(classes.root, className)}>
       {label && (
         <InputLabel className={classes.label} htmlFor={name as string}>
           {label}
@@ -56,7 +56,6 @@ export const GqlMediaLibrarySelector: FC<GqlMediaLibrarySelectorProps> = ({
       <div
         className={clx(
           classes.container,
-          className,
           variant === "circle" && classes.circle,
           variants[0],
           error && classes.error,

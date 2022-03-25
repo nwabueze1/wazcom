@@ -21,6 +21,7 @@ const toolbar = [
 
 export const RichTextInput: React.FC<RichTextInputProps> = ({
   name,
+  className,
   label,
   apiKey,
   value,
@@ -38,7 +39,7 @@ export const RichTextInput: React.FC<RichTextInputProps> = ({
   }
 
   return (
-    <div className={classes.root}>
+    <div className={clx(classes.root, className)}>
       {label && (
         <InputLabel className={classes.label} htmlFor={name}>
           {label}

@@ -3,8 +3,10 @@ import { Button } from "@mui/material";
 import { useImageUploadStyles } from "./styles";
 import { ImageUploadInputProps } from "./types";
 import { AiFillCamera } from "react-icons/ai";
+import clx from "classnames";
 
 export const ImageUploadInput: React.FC<ImageUploadInputProps> = ({
+  className,
   props,
   handleFile,
   file,
@@ -13,7 +15,7 @@ export const ImageUploadInput: React.FC<ImageUploadInputProps> = ({
   const classes = useImageUploadStyles(props);
 
   return (
-    <div className={classes.root}>
+    <div className={clx(classes.root, className)}>
       <div className={classes.wrapper}>
         <Button
           variant="contained"

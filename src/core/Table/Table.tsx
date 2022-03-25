@@ -26,8 +26,10 @@ import {
 import { TableFilter } from "./components";
 import { Filter } from "./types";
 import { TableControls } from "./components/TableControls";
+import clx from "classnames";
 
 export const Table = ({
+  className,
   headers,
   value: initialTableValue,
   hasCheckBox,
@@ -101,7 +103,7 @@ export const Table = ({
   }, [initialTableValue, headers]);
 
   return (
-    <div className={classes.tableRoot}>
+    <div className={clx(classes.tableRoot, className)}>
       <TableContainer component={Paper}>
         {controls && (
           <TableControls

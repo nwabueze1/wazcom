@@ -2,15 +2,17 @@ import React from "react";
 import { EmptyStateProps } from "./types";
 import { useEmptyStateStyles } from "./styles";
 import { Button } from "../Button";
+import clx from "classnames";
 
 export const EmptyState: React.FC<EmptyStateProps> = ({
+  className,
   image,
   text,
   button,
 }) => {
   const classes = useEmptyStateStyles();
   return (
-    <div className={classes.root}>
+    <div className={clx(classes.root, className)}>
       <img src={image?.src} className={classes.image} alt={image?.alt ?? ""} />
       <p className={classes.text}>{text}</p>
 

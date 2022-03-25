@@ -18,7 +18,7 @@ import { Button } from "..";
 import { useCardStyles } from "./styles";
 import clx from "classnames";
 export var Card = function (_a) {
-    var title = _a.title, content = _a.content, _b = _a.image, src = _b.src, alt = _b.alt, buttons = _a.buttons, _c = _a.align, align = _c === void 0 ? "left" : _c;
+    var className = _a.className, title = _a.title, content = _a.content, _b = _a.image, src = _b.src, alt = _b.alt, buttons = _a.buttons, _c = _a.align, align = _c === void 0 ? "left" : _c;
     var classes = useCardStyles();
     var displayButtons = useCallback(function () {
         var _a;
@@ -44,5 +44,5 @@ export var Card = function (_a) {
         }
         return variantClass;
     }, [align]);
-    return (_jsxs(MuiCard, __assign({ className: clx(classes.root, getAlignVariant()) }, { children: [_jsx(CardMedia, { component: "img", height: "140", image: src, alt: alt }, void 0), _jsxs(CardContent, { children: [_jsx(Typography, __assign({ gutterBottom: true, variant: "h5", component: "div" }, { children: title }), void 0), _jsx(Typography, __assign({ variant: "body2" }, { children: content }), void 0)] }, void 0), _jsx(CardActions, { children: displayButtons() }, void 0)] }), void 0));
+    return (_jsxs(MuiCard, __assign({ className: clx(classes.root, className, getAlignVariant()) }, { children: [_jsx(CardMedia, { component: "img", height: "140", image: src, alt: alt }, void 0), _jsxs(CardContent, { children: [_jsx(Typography, __assign({ gutterBottom: true, variant: "h5", component: "div" }, { children: title }), void 0), _jsx(Typography, __assign({ variant: "body2" }, { children: content }), void 0)] }, void 0), _jsx(CardActions, { children: displayButtons() }, void 0)] }), void 0));
 };

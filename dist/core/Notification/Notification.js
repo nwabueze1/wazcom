@@ -28,8 +28,8 @@ var getStatusClassName = function (classes, status) {
     }
 };
 export var Notification = function (_a) {
-    var status = _a.status, title = _a.title, message = _a.message, onClose = _a.onClose;
+    var className = _a.className, status = _a.status, title = _a.title, message = _a.message, onClose = _a.onClose;
     var classes = useNotificationStyles();
     var StatusClassName = getStatusClassName(classes, status);
-    return (_jsx("div", __assign({ className: clx(classes.card) }, { children: _jsxs("div", __assign({ className: clx(classes.notificationCard, status !== "success" && classes.plainBg) }, { children: [_jsxs("div", __assign({ className: clx(StatusClassName, classes.notificationHead) }, { children: [_jsx(Typography, __assign({ className: classes.report }, { children: title }), void 0), _jsx(CloseIcon, { onClick: function () { onClose === null || onClose === void 0 ? void 0 : onClose(); }, className: classes.cancel }, void 0)] }), void 0), message && _jsx(Typography, __assign({ className: classes.notificationText }, { children: message }), void 0)] }), void 0) }), void 0));
+    return (_jsx("div", __assign({ className: clx(classes.card, className) }, { children: _jsxs("div", __assign({ className: clx(classes.notificationCard, status !== "success" && classes.plainBg) }, { children: [_jsxs("div", __assign({ className: clx(StatusClassName, classes.notificationHead) }, { children: [_jsx(Typography, __assign({ className: classes.report }, { children: title }), void 0), _jsx(CloseIcon, { onClick: function () { onClose === null || onClose === void 0 ? void 0 : onClose(); }, className: classes.cancel }, void 0)] }), void 0), message && _jsx(Typography, __assign({ className: classes.notificationText }, { children: message }), void 0)] }), void 0) }), void 0));
 };

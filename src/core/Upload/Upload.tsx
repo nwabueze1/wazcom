@@ -10,7 +10,7 @@ export const Upload: FC<UploadProps> = ({ className, width }) => {
   const loading = false;
 
   return (
-    <div className={clx(className, classes.root)}>
+    <div className={clx(classes.root, className)}>
       <div>
         <Typography className={classes.upload} variant="h5">
           Upload File
