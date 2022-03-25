@@ -1,12 +1,10 @@
+import { CorePageFields } from "types/CorePageFields";
+import { CoreSiteFields } from "types/CoreSiteFields";
+import { CorePostFields } from "types/CorePostFields";
+
 export type ArticleProps = {
-  article: {
-    title: string;
-    content: string;
-    featuredImg?: {
-      src: string;
-      alt: string;
-    };
-    author: string;
-    category?: string;
-  };
+  article: CorePostFields;
+  page: CorePageFields;
+  site: CoreSiteFields;
+  domain: string;
 };

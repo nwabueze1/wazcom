@@ -18,9 +18,7 @@ const Template5 = () => {
           <Route path="/template5/categories">
             <CategoryPage />
           </Route>
-          <Route path="/template5/about">
-            <AboutPage />
-          </Route>
+          <Route path="/template5/about">{/* <AboutPage /> */}</Route>
         </Switch>
       </Router>
     </div>
