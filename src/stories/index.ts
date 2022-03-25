@@ -48,7 +48,21 @@ export const stories: ComponentPropType[] = [
   {
     name: "TextArea",
     component: TextArea,
-    props: {},
+    props: {
+      label: "Description",
+      name: "description",
+      onChange: ({ name, value }: { name: string; value: string }) => {
+        console.log(name);
+        console.log(value);
+      },
+      multiline: true,
+      minRows: 5,
+      feedback: {
+        text: 'no, this is not you',
+        status: "error",
+      },
+      error: true,
+    },
   },
   {
     name: "TableWithPagination",
