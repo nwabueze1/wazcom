@@ -2,8 +2,9 @@ import {
   SwitchClassKey,
   SwitchProps as IosSwitchProps,
 } from "@mui/material/Switch";
+import { CommonProps } from "../../types";
 
-export type SwitchProps = IosSwitchProps & {
+export type SwitchProps = CommonProps & IosSwitchProps & {
   onChange?: (
     event: React.ChangeEvent<HTMLInputElement>,
     checked: boolean,

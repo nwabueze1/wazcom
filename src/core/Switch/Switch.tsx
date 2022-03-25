@@ -2,8 +2,10 @@ import { FC } from "react";
 import { useSwitchStyles } from "./styles";
 import { SwitchProps } from "./types";
 import { Switch as IosSwitch } from "@mui/material";
+import clx from "classnames";
 
 export const Switch: FC<SwitchProps> = ({
+  className,
   onChange,
   onClick,
   value,
@@ -13,7 +15,7 @@ export const Switch: FC<SwitchProps> = ({
 }) => {
   const classes = useSwitchStyles();
   return (
-    <div className={classes.root}>
+    <div className={clx(classes.root, className)}>
       <IosSwitch
         focusVisibleClassName={classes.focusVisible}
         disableRipple

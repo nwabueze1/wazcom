@@ -20,7 +20,7 @@ export const MenuCard: FC<MenuCardProps> = ({
 
   return (
     <Card
-      className={clx(className, classes.root, classes.disableState)}
+      className={clx(classes.root, className, classes.disableState)}
       variant="outlined"
     >
       <CardContent className={classes.cardContents}>

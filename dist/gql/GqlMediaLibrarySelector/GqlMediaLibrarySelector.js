@@ -64,7 +64,7 @@ export var GqlMediaLibrarySelector = function (_a) {
         onChange === null || onChange === void 0 ? void 0 : onChange({ name: name !== null && name !== void 0 ? name : "image", value: verbose ? value : value.url });
     };
     var variants = getSizeVariants(classes, size);
-    return (_jsxs("div", __assign({ className: classes.root }, { children: [label && (_jsx(InputLabel, __assign({ className: classes.label, htmlFor: name }, { children: label }), void 0)), _jsxs("div", __assign({ className: clx(classes.container, className, variant === "circle" && classes.circle, variants[0], error && classes.error), style: { backgroundImage: "url(".concat(placeholder, ")"), width: width, height: height }, onMouseEnter: function () { return setShowIcon(true); }, onMouseLeave: function () { return setShowIcon(false); }, onClick: function () {
+    return (_jsxs("div", __assign({ className: clx(classes.root, className) }, { children: [label && (_jsx(InputLabel, __assign({ className: classes.label, htmlFor: name }, { children: label }), void 0)), _jsxs("div", __assign({ className: clx(classes.container, variant === "circle" && classes.circle, variants[0], error && classes.error), style: { backgroundImage: "url(".concat(placeholder, ")"), width: width, height: height }, onMouseEnter: function () { return setShowIcon(true); }, onMouseLeave: function () { return setShowIcon(false); }, onClick: function () {
                     if (displayLibrary)
                         return;
                     handleOpen();

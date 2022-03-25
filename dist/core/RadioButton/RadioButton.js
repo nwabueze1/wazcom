@@ -34,5 +34,5 @@ export var RadioButton = function (_a) {
     var className = _a.className, color = _a.color;
     var classes = useRadioButtonStyles();
     var _b = __read(useState(true), 2), isChecked = _b[0], setIsChecked = _b[1];
-    return (_jsx("div", __assign({ className: clx(className, classes.root) }, { children: _jsx(Radio, { style: { color: color }, onClick: function () { return setIsChecked(!isChecked); }, checked: isChecked }, void 0) }), void 0));
+    return (_jsx("div", __assign({ className: clx(classes.root, className) }, { children: _jsx(Radio, { style: { color: color }, onClick: function () { return setIsChecked(!isChecked); }, checked: isChecked }, void 0) }), void 0));
 };

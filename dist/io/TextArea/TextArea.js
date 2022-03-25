@@ -27,10 +27,10 @@ import { useTextAreaStyles } from "./styles";
 import clx from "classnames";
 import { getFeedbackVariant } from "../../helpers/io";
 export var TextArea = function (_a) {
-    var name = _a.name, label = _a.label, value = _a.value, onChange = _a.onChange, minRows = _a.minRows, feedback = _a.feedback, error = _a.error, props = __rest(_a, ["name", "label", "value", "onChange", "minRows", "feedback", "error"]);
+    var name = _a.name, className = _a.className, label = _a.label, value = _a.value, onChange = _a.onChange, minRows = _a.minRows, feedback = _a.feedback, error = _a.error, props = __rest(_a, ["name", "className", "label", "value", "onChange", "minRows", "feedback", "error"]);
     var classes = useTextAreaStyles();
     var handleChange = function (e) {
         onChange === null || onChange === void 0 ? void 0 : onChange({ name: name !== null && name !== void 0 ? name : "", value: e.target.value });
     };
-    return (_jsxs("div", __assign({ className: classes.root }, { children: [label && (_jsx(InputLabel, __assign({ className: classes.label, htmlFor: name !== null && name !== void 0 ? name : "" }, { children: label }), void 0)), _jsx(TextareaAutosize, __assign({ minRows: minRows !== null && minRows !== void 0 ? minRows : 5, className: clx(classes.textarea, error && classes.error), name: name, value: value, onChange: handleChange }, props), void 0), feedback && (_jsx(Typography, __assign({ className: clx(classes.feedback, getFeedbackVariant(classes, feedback)) }, { children: feedback.text }), void 0))] }), void 0));
+    return (_jsxs("div", __assign({ className: clx(classes.root, className) }, { children: [label && (_jsx(InputLabel, __assign({ className: classes.label, htmlFor: name !== null && name !== void 0 ? name : "" }, { children: label }), void 0)), _jsx(TextareaAutosize, __assign({ minRows: minRows !== null && minRows !== void 0 ? minRows : 5, className: clx(classes.textarea, error && classes.error), name: name, value: value, onChange: handleChange }, props), void 0), feedback && (_jsx(Typography, __assign({ className: clx(classes.feedback, getFeedbackVariant(classes, feedback)) }, { children: feedback.text }), void 0))] }), void 0));
 };

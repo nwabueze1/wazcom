@@ -169,7 +169,7 @@ export const GqlMediaLibrary: FC<GqlMediaLibraryProps> = ({
 
   return (
     <div
-      className={clx(classes.wrapper, viewOnly && classes.wrapperDialog)}
+      className={clx(classes.wrapper, className, viewOnly && classes.wrapperDialog)}
       ref={refs.listInnerRef}
       onScroll={() => {
         handleOnScroll(refs.listInnerRef, (index: number) => {
@@ -177,7 +177,7 @@ export const GqlMediaLibrary: FC<GqlMediaLibraryProps> = ({
         });
       }}
     >
-      <div className={clx(classes.root, className)}>
+      <div>
         <input
           name="image_url"
           accept="image/*"

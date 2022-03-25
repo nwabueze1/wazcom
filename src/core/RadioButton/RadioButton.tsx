@@ -10,7 +10,7 @@ export const RadioButton: FC<RadioButtonProps> = ({ className, color }) => {
 
   const [isChecked, setIsChecked] = useState(true);
   return (
-    <div className={clx(className, classes.root)}>
+    <div className={clx(classes.root, className)}>
       <Radio
         style={{ color: color }}
         onClick={() => setIsChecked(!isChecked)}

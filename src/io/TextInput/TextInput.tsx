@@ -7,6 +7,7 @@ import clx from 'classnames';
 import { getFeedbackVariant } from "../../helpers/io";
 
 export const TextInput: FC<TextInputProps> = ({
+  className,
   label,
   feedback,
   ...props
@@ -14,7 +15,7 @@ export const TextInput: FC<TextInputProps> = ({
   const classes = useTextStyles();
 
   return (
-    <div className={classes.root}>
+    <div className={clx(classes.root, className)}>
       {label && (
         <InputLabel className={classes.label} htmlFor={props.name}>
           {label}

@@ -198,11 +198,11 @@ export var GqlMediaLibrary = function (_a) {
             }
         });
     }); }, [activeMedia, loading]);
-    return (_jsxs("div", __assign({ className: clx(classes.wrapper, viewOnly && classes.wrapperDialog), ref: refs.listInnerRef, onScroll: function () {
+    return (_jsxs("div", __assign({ className: clx(classes.wrapper, className, viewOnly && classes.wrapperDialog), ref: refs.listInnerRef, onScroll: function () {
             handleOnScroll(refs.listInnerRef, function (index) {
                 setActiveMedia(__assign(__assign({}, activeMedia), { index: index }));
             });
-        } }, { children: [_jsxs("div", __assign({ className: clx(classes.root, className) }, { children: [_jsx("input", { name: "image_url", accept: "image/*", hidden: true, type: "file", ref: refs.fileRef, onChange: handleFileChange }, void 0), _jsx("div", __assign({ className: classes.actions }, { children: viewOnly ? (_jsxs(_Fragment, { children: [_jsx("p", { children: "Media Library" }, void 0), _jsx(FaTimes, { className: classes.timesIcon }, void 0)] }, void 0)) : (_jsxs(_Fragment, { children: [_jsx("p", __assign({ className: classes.tab }, { children: "All Media" }), void 0), _jsx(Button, __assign({ color: "primary", onClick: function () {
+        } }, { children: [_jsxs("div", { children: [_jsx("input", { name: "image_url", accept: "image/*", hidden: true, type: "file", ref: refs.fileRef, onChange: handleFileChange }, void 0), _jsx("div", __assign({ className: classes.actions }, { children: viewOnly ? (_jsxs(_Fragment, { children: [_jsx("p", { children: "Media Library" }, void 0), _jsx(FaTimes, { className: classes.timesIcon }, void 0)] }, void 0)) : (_jsxs(_Fragment, { children: [_jsx("p", __assign({ className: classes.tab }, { children: "All Media" }), void 0), _jsx(Button, __assign({ color: "primary", onClick: function () {
                                         handleFileSelect(refs.fileRef);
                                     } }, { children: "Add New" }), void 0)] }, void 0)) }), void 0), _jsx("div", __assign({ className: classes.collection }, { children: images.length === 0 && loading.media ? (_jsx(Loader, {}, void 0)) : (_jsxs(_Fragment, { children: [(activeMedia.type === "add" || activeMedia.type === "edit") && (_jsx(EditMedia, { loading: loading.mutate, handleEdit: function (variables) {
                                         handleMediaUpdate(variables);
@@ -211,7 +211,7 @@ export var GqlMediaLibrary = function (_a) {
                                     }, image: activeMedia.media }, void 0)), images &&
                                     handleDisplayImages(images, function (image) {
                                         onChange === null || onChange === void 0 ? void 0 : onChange({ name: name !== null && name !== void 0 ? name : "", value: image });
-                                    }, handleMediaAction, viewOnly)] }, void 0)) }), void 0), images.length > 0 && loading.media && (_jsx("div", __assign({ className: classes.loaderParent }, { children: _jsx(Loader, { className: classes.loader }, void 0) }), void 0))] }), void 0), _jsx(DeleteMedia, { display: activeMedia.type === "delete", loading: loading.mutate, media: activeMedia.media, handleClose: function () {
+                                    }, handleMediaAction, viewOnly)] }, void 0)) }), void 0), images.length > 0 && loading.media && (_jsx("div", __assign({ className: classes.loaderParent }, { children: _jsx(Loader, { className: classes.loader }, void 0) }), void 0))] }, void 0), _jsx(DeleteMedia, { display: activeMedia.type === "delete", loading: loading.mutate, media: activeMedia.media, handleClose: function () {
                     handleMediaAction("", undefined);
                 }, handleDelete: handleMediaDelete }, void 0)] }), void 0));
 };

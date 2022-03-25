@@ -8,6 +8,7 @@ import { getFeedbackVariant } from "../../helpers/io";
 
 export const TextArea: FC<TextAreaProps> = ({
   name,
+  className,
   label,
   value,
   onChange,
@@ -23,7 +24,7 @@ export const TextArea: FC<TextAreaProps> = ({
   };
 
   return (
-    <div className={classes.root}>
+    <div className={clx(classes.root, className)}>
       {label && (
         <InputLabel className={classes.label} htmlFor={name ?? ""}>
           {label}
