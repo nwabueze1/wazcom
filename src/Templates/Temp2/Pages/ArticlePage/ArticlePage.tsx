@@ -1,12 +1,13 @@
-import { useCallback } from "react";
+import { useCallback, FC } from "react";
 import { Visibility, Facebook, Twitter } from "@mui/icons-material";
 import { useArticlePageStyles } from "./styles";
 import { articleData } from "Templates/Temp2/Pages/Template2Data";
 import { RelatedPost } from "Templates/Temp2/Component/RelatedPost/RelatedPost";
 import { postData } from "Templates/Temp2/Pages/Template2Data";
 import { Subscribe } from "Templates/Temp2/Component/Subscribe/Subscribe";
+import { ArticleProps } from "./types";
 
-export const ArticlePage = () => {
+export const ArticlePage: FC<ArticleProps> = ({ articleProps }) => {
   const classes = useArticlePageStyles();
 
   const displayRelatedPosts = useCallback(
@@ -32,30 +33,25 @@ export const ArticlePage = () => {
     <div className={classes.root}>
       <div className={classes.container}>
         <div className={classes.articleMeta}>
-          <p>{articleData.category}</p>
+          <p>{articleProps.category}</p>
           <div className={classes.views}>
-            <p>{articleData.date}</p>
+            <p>{articleProps.date}</p>
             <Visibility className={classes.icon} />
-            <p>{articleData.views}</p>
+            <p>{articleProps.views}</p>
           </div>
         </div>
-        <p className={classes.title}>
-          Garlicky Brown Butter Parmesan Noodlestitle
-        </p>
+        <p className={classes.title}>{articleProps.title}</p>
         <div className={classes.imageContainer}>
-          <img src={articleData.img} alt="articleImg" className={classes.image} />
+          <img
+            src={articleProps.featuredImg.src}
+            alt={articleProps.featuredImg.alt}
+            className={classes.image}
+          />
         </div>
-        <p className={classes.text}>{articleData.content}</p>
-        <div className={classes.imageContainer}>
-          <img className={classes.image} src={articleData.img} alt="" />
-        </div>
-        <p className={classes.text}>
-          <p className={classes.subHeader}>{articleData.subheading}</p>
-          {articleData.subcontent}
-        </p>
+        <p className={classes.text}>{articleProps.content}</p>
         <p className={classes.line} />
         <div className={classes.author}>
-          <p className={classes.authorName}>{articleData.author}</p>
+          <p className={classes.authorName}>{articleProps.author}</p>
           <p className={classes.share}>share article</p>
           <Facebook />
           <Twitter className={classes.icon} />

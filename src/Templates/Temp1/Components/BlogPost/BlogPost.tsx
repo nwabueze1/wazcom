@@ -1,11 +1,10 @@
-import React, {FC} from "react";
-import { blogData } from "../../TemplateData";
+import React, { FC } from "react";
 import { usePostStyles } from "./styles";
 import clx from "classnames";
 import ArrowRightAltIcon from "@mui/icons-material/ArrowRightAlt";
 import { BlogPostProps } from "./types";
 
-const BlogPost: FC <BlogPostProps> = ({src, alt, date, article, variant}) => {
+const BlogPost: FC<BlogPostProps> = ({ src, alt, date, article, variant }) => {
   const classes = usePostStyles();
   return (
     <div className={classes.root}>
