@@ -25,6 +25,7 @@ import {
   TagInput,
   TextInput,
   ToggleInput,
+  TextArea,
 } from "../io";
 
 import { GqlComboBox, GqlMediaLibrary, GqlMediaLibrarySelector } from "../gql";
@@ -35,6 +36,8 @@ import {
   createNewCategory,
   GET_IMAGES,
   UPLOAD_IMAGE,
+  DELETE_IMAGE,
+  UPDATE_IMAGE,
 } from "../helpers/graphQL";
 
 import { ComponentPropType } from "./types";
@@ -42,6 +45,25 @@ import { ComponentPropType } from "./types";
 import { data } from "./data";
 
 export const stories: ComponentPropType[] = [
+  {
+    name: "TextArea",
+    component: TextArea,
+    props: {
+      label: "Description",
+      name: "description",
+      onChange: ({ name, value }: { name: string; value: string }) => {
+        console.log(name);
+        console.log(value);
+      },
+      multiline: true,
+      minRows: 5,
+      feedback: {
+        text: 'no, this is not you',
+        status: "error",
+      },
+      error: true,
+    },
+  },
   {
     name: "TableWithPagination",
     component: Table,
@@ -56,7 +78,9 @@ export const stories: ComponentPropType[] = [
         total: 100,
       },
       controls: {
-        filter: { fields: ["id", "name"] },
+        filter: ["id", "name"],
+        canPrint: true,
+        export: {},
       },
     },
   },
@@ -85,7 +109,7 @@ export const stories: ComponentPropType[] = [
         status: "error",
       },
       error: true,
-      size: "md",
+      size: "full",
     },
   },
   {
@@ -105,6 +129,13 @@ export const stories: ComponentPropType[] = [
           name: UPLOAD_IMAGE,
           variables: {},
         },
+        update: {
+          name: UPDATE_IMAGE,
+        },
+        remove: {
+          name: DELETE_IMAGE,
+        },
+        viewOnly: true,
       },
     },
   },
@@ -228,7 +259,8 @@ export const stories: ComponentPropType[] = [
     name: "Image Selector",
     component: ImageSelector,
     props: {
-      variant: "circle",
+      variant: "square",
+      size: "full",
     },
   },
   {

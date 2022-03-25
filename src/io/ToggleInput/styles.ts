@@ -1,6 +1,6 @@
 import { Theme } from "@mui/material";
 
-import makeStyles from '@mui/styles/makeStyles';
+import makeStyles from "@mui/styles/makeStyles";
 
 export const useToggleStyles = makeStyles((theme: Theme) => ({
   root: {
@@ -9,7 +9,7 @@ export const useToggleStyles = makeStyles((theme: Theme) => ({
     justifyContent: "space-between",
   },
   label: {
-    color: theme.design.colors.black,
+    fontSize: "1rem",
   },
   addon: {
     width: "30%",
@@ -23,6 +23,15 @@ export const useToggleStyles = makeStyles((theme: Theme) => ({
     color: theme.design.colors.black,
   },
   toggle: {
+    color: theme.design.colors.greene,
     marginTop: theme.spacing(1),
+    "& 	.Mui-checked": {
+      color: theme.design.colors.white,
+      "& + .MuiSwitch-track": {
+        backgroundColor: theme.design.colors.greene,
+        opacity: 1,
+        border: 0,
+      },
+    },
   },
 }));

@@ -9,6 +9,22 @@ var __assign = (this && this.__assign) || function () {
     };
     return __assign.apply(this, arguments);
 };
+var __read = (this && this.__read) || function (o, n) {
+    var m = typeof Symbol === "function" && o[Symbol.iterator];
+    if (!m) return o;
+    var i = m.call(o), r, ar = [], e;
+    try {
+        while ((n === void 0 || n-- > 0) && !(r = i.next()).done) ar.push(r.value);
+    }
+    catch (error) { e = { error: error }; }
+    finally {
+        try {
+            if (r && !r.done && (m = i["return"])) m.call(i);
+        }
+        finally { if (e) throw e.error; }
+    }
+    return ar;
+};
 var __spreadArray = (this && this.__spreadArray) || function (to, from, pack) {
     if (pack || arguments.length === 2) for (var i = 0, l = from.length, ar; i < l; i++) {
         if (ar || !(i in from)) {
@@ -29,26 +45,26 @@ export var TableFilter = function (_a) {
     var _b, _c;
     var showFilter = _a.showFilter, setShowFilter = _a.setShowFilter, fields = _a.fields, values = _a.values, filters = _a.filters, setFilters = _a.setFilters;
     var classes = useFilterStyles();
-    var _d = useState(fields), filterFields = _d[0], setFilterFields = _d[1];
-    var _e = useState(""), searchField = _e[0], setSearchField = _e[1];
+    var _d = __read(useState(fields), 2), filterFields = _d[0], setFilterFields = _d[1];
+    var _e = __read(useState(""), 2), searchField = _e[0], setSearchField = _e[1];
     var handleSetFilter = function (field, value) {
         setFilters(function (filters) {
             var index = filters.findIndex(function (filter) { return filter.field === field; });
             if (index === -1) {
-                return __spreadArray(__spreadArray([], filters, true), [
+                return __spreadArray(__spreadArray([], __read(filters), false), [
                     {
                         field: field,
                         values: [value],
                     },
                 ], false);
             }
-            var newArr = __spreadArray([], filters, true);
+            var newArr = __spreadArray([], __read(filters), false);
             if (newArr[index].values.includes(value)) {
                 var itemIndex = newArr[index].values.findIndex(function (item) { return item === value; });
                 newArr[index].values.splice(itemIndex, 1);
                 return newArr;
             }
-            newArr[index] = __assign(__assign({}, newArr[index]), { values: __spreadArray(__spreadArray([], filters[index].values, true), [value.toString()], false) });
+            newArr[index] = __assign(__assign({}, newArr[index]), { values: __spreadArray(__spreadArray([], __read(filters[index].values), false), [value.toString()], false) });
             return newArr;
         });
     };

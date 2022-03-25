@@ -19,7 +19,8 @@
     "outDir": "lib/esm",
     "declaration": true,
     "suppressImplicitAnyIndexErrors": true,
-    "strict": true
+    "strict": true,
+    "downlevelIteration": true
   },
   "include": ["src", "src/Templates/Temp5", "src/Browser", "src/Browser", "Browser"],
   "exclude": [

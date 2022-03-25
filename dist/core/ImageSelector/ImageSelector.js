@@ -9,6 +9,22 @@ var __assign = (this && this.__assign) || function () {
     };
     return __assign.apply(this, arguments);
 };
+var __read = (this && this.__read) || function (o, n) {
+    var m = typeof Symbol === "function" && o[Symbol.iterator];
+    if (!m) return o;
+    var i = m.call(o), r, ar = [], e;
+    try {
+        while ((n === void 0 || n-- > 0) && !(r = i.next()).done) ar.push(r.value);
+    }
+    catch (error) { e = { error: error }; }
+    finally {
+        try {
+            if (r && !r.done && (m = i["return"])) m.call(i);
+        }
+        finally { if (e) throw e.error; }
+    }
+    return ar;
+};
 import { jsx as _jsx, jsxs as _jsxs } from "react/jsx-runtime";
 import { useRef, useState } from "react";
 import { useImageSelectorStyles } from "./styles";
@@ -18,7 +34,7 @@ import { getSizeVariants } from "../../helpers/size";
 export var ImageSelector = function (_a) {
     var variant = _a.variant, src = _a.src, className = _a.className, _b = _a.size, size = _b === void 0 ? "md" : _b, _c = _a.maxImageSize, maxImageSize = _c === void 0 ? 2000000 : _c, _d = _a.formats, formats = _d === void 0 ? ["jpg", "jpeg", "png"] : _d, onSelect = _a.onSelect;
     var classes = useImageSelectorStyles();
-    var _e = useState(false), selected = _e[0], setSelected = _e[1];
+    var _e = __read(useState(false), 2), selected = _e[0], setSelected = _e[1];
     var inputRef = useRef();
     var imgRef = useRef();
     var fileInputClick = function () {
@@ -47,5 +63,6 @@ export var ImageSelector = function (_a) {
         }
     };
     var variants = getSizeVariants(classes, size);
-    return (_jsxs("div", __assign({ className: clx(className, classes.root, variant === "circle" && classes.circle, variants[0]), onClick: fileInputClick }, { children: [_jsx(CameraAltIcon, { className: clx(classes.cameraIcon, variants[1]) }, void 0), _jsx("input", { type: "file", ref: inputRef, onChange: handleSelect, hidden: true }, void 0), selected || src && (_jsx("img", { ref: imgRef, src: src, className: clx(classes.image, variant === "circle" && classes.circle) }, void 0))] }), void 0));
+    return (_jsxs("div", __assign({ className: clx(className, classes.root, variant === "circle" && classes.circle, variants[0]), onClick: fileInputClick }, { children: [_jsx(CameraAltIcon, { className: clx(classes.cameraIcon, variants[1]) }, void 0), _jsx("input", { type: "file", ref: inputRef, onChange: handleSelect, hidden: true }, void 0), selected ||
+                (src && (_jsx("img", { ref: imgRef, src: src, className: clx(classes.image, variant === "circle" && classes.circle) }, void 0)))] }), void 0));
 };

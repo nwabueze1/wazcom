@@ -12,18 +12,32 @@ export type GqlMediaSelectorConfigProps = {
     client: ApolloClient<NormalizedCacheObject>;
     query: {
       name: DocumentNode;
-      variables: { [key: string]: string };
+      variables: { [key: string]: any };
     };
     upload: {
       name: DocumentNode;
-      variables: { [key: string]: string };
+      variables: { [key: string]: any };
     };
+    update?: {
+      name: DocumentNode;
+    };
+    remove?: {
+      name: DocumentNode;
+    };
+    viewOnly?: boolean;
   };
 };
 
-export type ImageDataType = {
+export type Image = {
   __typename: string;
   id: string;
   url: string;
+  title?: string;
+  caption?: string;
+  alternative_text?: string;
   created_at: string;
 };
+
+export type ImageUpdate = Partial<
+  Pick<Image, "id" | "title" | "alternative_text" | "caption">
+>;

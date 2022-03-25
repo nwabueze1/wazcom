@@ -17,6 +17,7 @@ export const ComboBoxInput: FC<ComboBoxInputProps> = ({
   error,
   placeholder,
   feedback,
+  className
 }) => {
   const classes = useComboBoxStyles();
   const [options, setOptions] = useState(initialOptions);
@@ -62,7 +63,7 @@ export const ComboBoxInput: FC<ComboBoxInputProps> = ({
   }, [options, value]);
 
   return (
-    <div className={classes.root}>
+    <div className={clx(classes.root, className)}>
       {label && (
         <InputLabel className={classes.label} htmlFor={name}>
           {label}
@@ -73,7 +74,6 @@ export const ComboBoxInput: FC<ComboBoxInputProps> = ({
         getOptionLabel={(option) => {
           return option?.label ?? "";
         }}
-        style={{ width: 300 }}
         value={getValue()}
         onChange={(_, selectedOption) => {
           handleChange(selectedOption as ComboBoxInputOptionProps);

@@ -9,6 +9,22 @@ var __assign = (this && this.__assign) || function () {
     };
     return __assign.apply(this, arguments);
 };
+var __read = (this && this.__read) || function (o, n) {
+    var m = typeof Symbol === "function" && o[Symbol.iterator];
+    if (!m) return o;
+    var i = m.call(o), r, ar = [], e;
+    try {
+        while ((n === void 0 || n-- > 0) && !(r = i.next()).done) ar.push(r.value);
+    }
+    catch (error) { e = { error: error }; }
+    finally {
+        try {
+            if (r && !r.done && (m = i["return"])) m.call(i);
+        }
+        finally { if (e) throw e.error; }
+    }
+    return ar;
+};
 import { jsx as _jsx, jsxs as _jsxs } from "react/jsx-runtime";
 import { useCallback, useEffect, useState } from "react";
 import Autocomplete, { createFilterOptions } from "@mui/material/Autocomplete";
@@ -18,9 +34,9 @@ import clx from 'classnames';
 import { getFeedbackVariant } from "../../helpers/io";
 var filter = createFilterOptions();
 export var ComboBoxInput = function (_a) {
-    var name = _a.name, onChange = _a.onChange, initialOptions = _a.options, label = _a.label, value = _a.value, error = _a.error, placeholder = _a.placeholder, feedback = _a.feedback;
+    var name = _a.name, onChange = _a.onChange, initialOptions = _a.options, label = _a.label, value = _a.value, error = _a.error, placeholder = _a.placeholder, feedback = _a.feedback, className = _a.className;
     var classes = useComboBoxStyles();
-    var _b = useState(initialOptions), options = _b[0], setOptions = _b[1];
+    var _b = __read(useState(initialOptions), 2), options = _b[0], setOptions = _b[1];
     useEffect(function () {
         setOptions(initialOptions);
     }, [initialOptions]);
@@ -51,10 +67,10 @@ export var ComboBoxInput = function (_a) {
             return { label: label, value: value };
         return { label: "", value: "" };
     }, [options, value]);
-    return (_jsxs("div", __assign({ className: classes.root }, { children: [label && (_jsx(InputLabel, __assign({ className: classes.label, htmlFor: name }, { children: label }), void 0)), _jsx(Autocomplete, { options: options !== null && options !== void 0 ? options : [], getOptionLabel: function (option) {
+    return (_jsxs("div", __assign({ className: clx(classes.root, className) }, { children: [label && (_jsx(InputLabel, __assign({ className: classes.label, htmlFor: name }, { children: label }), void 0)), _jsx(Autocomplete, { options: options !== null && options !== void 0 ? options : [], getOptionLabel: function (option) {
                     var _a;
                     return (_a = option === null || option === void 0 ? void 0 : option.label) !== null && _a !== void 0 ? _a : "";
-                }, style: { width: 300 }, value: getValue(), onChange: function (_, selectedOption) {
+                }, value: getValue(), onChange: function (_, selectedOption) {
                     handleChange(selectedOption);
                 }, filterOptions: handleFilterOptions, freeSolo: true, renderInput: function (params) { return (_jsx(TextField, __assign({}, params, { label: label, placeholder: placeholder, variant: "outlined", error: error }), void 0)); } }, void 0), feedback && (_jsx(Typography, __assign({ className: clx(classes.feedback, getFeedbackVariant(classes, feedback)) }, { children: feedback.text }), void 0))] }), void 0));
 };

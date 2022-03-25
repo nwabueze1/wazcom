@@ -7,20 +7,31 @@ export declare type GqlMediaSelectorConfigProps = {
         query: {
             name: DocumentNode;
             variables: {
-                [key: string]: string;
+                [key: string]: any;
             };
         };
         upload: {
             name: DocumentNode;
             variables: {
-                [key: string]: string;
+                [key: string]: any;
             };
         };
+        update?: {
+            name: DocumentNode;
+        };
+        remove?: {
+            name: DocumentNode;
+        };
+        viewOnly?: boolean;
     };
 };
-export declare type ImageDataType = {
+export declare type Image = {
     __typename: string;
     id: string;
     url: string;
+    title?: string;
+    caption?: string;
+    alternative_text?: string;
     created_at: string;
 };
+export declare type ImageUpdate = Partial<Pick<Image, "id" | "title" | "alternative_text" | "caption">>;

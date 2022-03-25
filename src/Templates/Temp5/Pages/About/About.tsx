@@ -8,8 +8,9 @@ import Facebook from "@mui/icons-material/Facebook";
 import Twitter from "@mui/icons-material/Twitter";
 import { NavBar } from "Templates/Temp5/components/NavBar/NavBar";
 import { Footer } from "Templates/Temp5/components/Footer/Footer";
+import { ArticleProps } from "./types";
 
-export const AboutPage = () => {
+export const AboutPage: React.FC<ArticleProps> = ({ article }) => {
   const classes = useArticleStyles();
   return (
     <section className={classes.root}>
