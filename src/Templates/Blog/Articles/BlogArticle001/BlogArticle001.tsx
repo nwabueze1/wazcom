@@ -21,7 +21,7 @@ export const BlogArticle001: FC<ArticleProps> = ({ article, site }) => {
           <div className={classes.contentContainer}>
             <p className={classes.header}>jhdfjjfklhfjkhfjkskl</p>
             <p className={classes.content}>
-              {/* dangerouslySetInnerHTML={{ __html: article.content }} */}
+              dangerouslySetInnerHTML={{ __html: article.content }}
             </p>
           </div>
         </div>
