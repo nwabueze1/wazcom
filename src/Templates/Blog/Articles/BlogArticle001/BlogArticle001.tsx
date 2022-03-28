@@ -1,8 +1,7 @@
 import React, { FC } from "react";
 import { ArticleProps } from "../types";
 import { useBlogArticle001Styles } from "./styles";
-import ArrowRightAlt from "@mui/icons-material/ArrowRightAlt";
-import { defaultBlogImage } from "../images/images";
+import { defaultBlogImage } from "utilities/images";
 
 export const BlogArticle001: FC<ArticleProps> = ({ article, site }) => {
   const classes = useBlogArticle001Styles();

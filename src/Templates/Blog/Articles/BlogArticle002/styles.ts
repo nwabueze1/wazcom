@@ -68,7 +68,7 @@ export const useBlogArticle002Styles = makeStyles<Theme>((theme: Theme) => ({
   },
   icons: {
     display: "flex",
-    width: "3vw",
+    width: "3%",
     justifyContent: "space-between",
     marginTop: theme.spacing(2),
     margin: "auto",
