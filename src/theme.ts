@@ -36,6 +36,7 @@ export const theme: any = {
   typography: {
     fontFamily: ["Poppins, sans-serif"].join(","),
     fontSize: 12,
+    fontWeightBold: "bold",
     h2: {
       fontSize: "3rem",
       fontWeight: 500,
@@ -71,6 +72,9 @@ export const theme: any = {
         maxWidthMd: 700,
         font: {
           garamond: "Cormorant Garamond, san-serif",
+          lato: "Lato, sans-serif",
+          cookie: "Cookie, cursive;",
+          raleway: "Raleway, sans-serif",
         },
       },
       template4: {
