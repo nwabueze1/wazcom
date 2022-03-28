@@ -39,7 +39,7 @@ import SwipeableViews from "react-swipeable-views";
 import { autoPlay } from "react-swipeable-views-utils";
 var AutoPlaySwipeableViews = autoPlay(SwipeableViews);
 export var Carousel = function (_a) {
-    var items = _a.items;
+    var className = _a.className, items = _a.items;
     var theme = useTheme();
     var _b = __read(React.useState(0), 2), activeStep = _b[0], setActiveStep = _b[1];
     var maxSteps = items.length;
@@ -52,7 +52,7 @@ export var Carousel = function (_a) {
     var handleStepChange = function (step) {
         setActiveStep(step);
     };
-    return (_jsxs(Box, __assign({ sx: { maxWidth: 400, flexGrow: 1 } }, { children: [_jsx(Paper, __assign({ square: true, elevation: 0, sx: {
+    return (_jsxs(Box, __assign({ sx: { maxWidth: 400, flexGrow: 1 }, className: className }, { children: [_jsx(Paper, __assign({ square: true, elevation: 0, sx: {
                     display: "flex",
                     alignItems: "center",
                     height: 50,

@@ -13,11 +13,12 @@ import { jsx as _jsx, jsxs as _jsxs } from "react/jsx-runtime";
 import { Button } from "@mui/material";
 import { useImageUploadStyles } from "./styles";
 import { AiFillCamera } from "react-icons/ai";
+import clx from "classnames";
 export var ImageUploadInput = function (_a) {
-    var props = _a.props, handleFile = _a.handleFile, file = _a.file;
+    var className = _a.className, props = _a.props, handleFile = _a.handleFile, file = _a.file;
     var id = Math.random();
     var classes = useImageUploadStyles(props);
-    return (_jsx("div", __assign({ className: classes.root }, { children: _jsx("div", __assign({ className: classes.wrapper }, { children: _jsxs(Button, __assign({ variant: "contained", component: "label", className: classes.uploadButton }, { children: [_jsx("input", { id: "contained-button-file", type: "file", accept: "image/*", hidden: true, name: "image_url", onChange: handleFile }, void 0), _jsx("div", __assign({ className: classes.display }, { children: file ? (_jsx("div", { id: "image" + id, style: {
+    return (_jsx("div", __assign({ className: clx(classes.root, className) }, { children: _jsx("div", __assign({ className: classes.wrapper }, { children: _jsxs(Button, __assign({ variant: "contained", component: "label", className: classes.uploadButton }, { children: [_jsx("input", { id: "contained-button-file", type: "file", accept: "image/*", hidden: true, name: "image_url", onChange: handleFile }, void 0), _jsx("div", __assign({ className: classes.display }, { children: file ? (_jsx("div", { id: "image" + id, style: {
                                 backgroundImage: "url(".concat(typeof file === "string"
                                     ? file
                                     : (window.URL || window.webkitURL).createObjectURL(file), ")"),

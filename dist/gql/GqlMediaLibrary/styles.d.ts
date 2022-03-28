@@ -1,5 +1,5 @@
 /// <reference types="react" />
-export declare const useMediaLibraryStyles: (props?: any) => import("@mui/styles").ClassNameMap<"root" | "content" | "column" | "dot" | "tab" | "search" | "image" | "loading" | "loader" | "error" | "wrapper" | "actions" | "@keyframes a" | "collection" | "timesIcon" | "thumbnail" | "thumbnailFixedHeight" | "thumbnailOverlay" | "thumbnailActions" | "thumbnailAction" | "thumbnailActionIcon" | "loaderParent" | "wrapperDialog" | "searchContainer" | "searchIcon">;
+export declare const useMediaLibraryStyles: (props?: any) => import("@mui/styles").ClassNameMap<"root" | "content" | "column" | "dot" | "tab" | "search" | "image" | "loading" | "loader" | "error" | "wrapper" | "actions" | "@keyframes a" | "collection" | "timesIcon" | "thumbnail" | "thumbnailFixedHeight" | "thumbnailOverlay" | "thumbnailActions" | "thumbnailAction" | "thumbnailActionIcon" | "loaderParent" | "wrapperDialog" | "searchContainer" | "searchParent" | "searchIcon">;
 export declare const StyledModal: import("@emotion/styled").StyledComponent<{
     BackdropComponent?: import("react").ElementType<any> | undefined;
     BackdropProps?: Partial<import("@mui/base").BackdropUnstyledProps<"div", {}>> | undefined;

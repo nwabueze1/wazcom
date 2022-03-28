@@ -1,6 +1,7 @@
 /// <reference types="react" />
 import { SwitchClassKey, SwitchProps as IosSwitchProps } from "@mui/material/Switch";
-export declare type SwitchProps = IosSwitchProps & {
+import { CommonProps } from "../../types";
+export declare type SwitchProps = CommonProps & IosSwitchProps & {
     onChange?: (event: React.ChangeEvent<HTMLInputElement>, checked: boolean) => void;
     onClick?: (event: React.MouseEvent<HTMLButtonElement>) => void;
     value?: boolean;

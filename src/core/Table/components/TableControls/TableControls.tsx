@@ -10,7 +10,7 @@ import {
 } from "@mui/icons-material";
 import { Button } from "../../../Button";
 import { TextInput } from "../../../../io";
-import { exportToCSV, exportToXlsx } from "core/Table/helpers";
+import { exportToCSV, exportToXlsx } from "../../helpers";
 import { TableControlsProps } from "./types";
 import Menu from "@mui/material/Menu";
 

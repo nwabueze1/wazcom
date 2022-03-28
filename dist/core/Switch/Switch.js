@@ -23,8 +23,9 @@ var __rest = (this && this.__rest) || function (s, e) {
 import { jsx as _jsx, jsxs as _jsxs } from "react/jsx-runtime";
 import { useSwitchStyles } from "./styles";
 import { Switch as IosSwitch } from "@mui/material";
+import clx from "classnames";
 export var Switch = function (_a) {
-    var onChange = _a.onChange, onClick = _a.onClick, value = _a.value, error = _a.error, name = _a.name, props = __rest(_a, ["onChange", "onClick", "value", "error", "name"]);
+    var className = _a.className, onChange = _a.onChange, onClick = _a.onClick, value = _a.value, error = _a.error, name = _a.name, props = __rest(_a, ["className", "onChange", "onClick", "value", "error", "name"]);
     var classes = useSwitchStyles();
-    return (_jsxs("div", __assign({ className: classes.root }, { children: [_jsx(IosSwitch, __assign({ focusVisibleClassName: classes.focusVisible, disableRipple: true, onClick: onClick, value: value, checked: value, onChange: onChange, name: name }, props), void 0), error && (_jsxs("p", __assign({ className: classes.error_message }, { children: [name === null || name === void 0 ? void 0 : name.replace(/_/g, " "), " is required"] }), void 0))] }), void 0));
+    return (_jsxs("div", __assign({ className: clx(classes.root, className) }, { children: [_jsx(IosSwitch, __assign({ focusVisibleClassName: classes.focusVisible, disableRipple: true, onClick: onClick, value: value, checked: value, onChange: onChange, name: name }, props), void 0), error && (_jsxs("p", __assign({ className: classes.error_message }, { children: [name === null || name === void 0 ? void 0 : name.replace(/_/g, " "), " is required"] }), void 0))] }), void 0));
 };

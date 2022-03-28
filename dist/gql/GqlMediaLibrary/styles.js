@@ -160,6 +160,10 @@ export var useMediaLibraryStyles = makeStyles(function (theme) { return ({
         background: theme.design.colors.shainGrey,
         padding: theme.spacing(0, 2),
     },
+    searchParent: {
+        display: "flex",
+        justifyContent: "flex-end",
+    },
     searchIcon: {
         position: "absolute",
         top: "10px",

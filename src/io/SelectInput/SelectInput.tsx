@@ -6,6 +6,7 @@ import clx from "classnames";
 import { getFeedbackVariant } from "../../helpers/io";
 
 export const SelectInput: FC<SelectInputProps> = ({
+  className,
   options = [],
   placeholder = "Select a value",
   label,
@@ -25,7 +26,7 @@ export const SelectInput: FC<SelectInputProps> = ({
   };
 
   return (
-    <div className={classes.root}>
+    <div className={clx(classes.root, className)}>
       {label && (
         <InputLabel className={classes.label} htmlFor={props.name}>
           {label}

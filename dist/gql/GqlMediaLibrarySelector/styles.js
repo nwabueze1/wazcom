@@ -71,7 +71,7 @@ export var useImageSelectorStyles = makeStyles(function (theme) { return ({
     },
     full: {
         width: "100%",
-        height: "400px",
+        height: "200px",
     },
     feedback: {
         marginTop: 16,

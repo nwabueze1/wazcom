@@ -5,6 +5,7 @@ import {TextField} from "@mui/material";
 import {  InputGroupProps } from "./types";
 
 export const InputGroup: FC<InputGroupProps> = ({
+  className,
   onChange,
   label,
   value,
@@ -15,7 +16,7 @@ export const InputGroup: FC<InputGroupProps> = ({
   const classes = useInputStyles();
 
   return (
-    <form className={clx(classes.root, inverted ? classes.inverted : "")}>
+    <form className={clx(classes.root, className, inverted ? classes.inverted : "")}>
       {variant == "textfield" ? (
         <p className={classes.span}>{label}</p>
       ) : (

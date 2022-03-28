@@ -9,13 +9,28 @@ var __assign = (this && this.__assign) || function () {
     };
     return __assign.apply(this, arguments);
 };
-import { jsx as _jsx } from "react/jsx-runtime";
+var __rest = (this && this.__rest) || function (s, e) {
+    var t = {};
+    for (var p in s) if (Object.prototype.hasOwnProperty.call(s, p) && e.indexOf(p) < 0)
+        t[p] = s[p];
+    if (s != null && typeof Object.getOwnPropertySymbols === "function")
+        for (var i = 0, p = Object.getOwnPropertySymbols(s); i < p.length; i++) {
+            if (e.indexOf(p[i]) < 0 && Object.prototype.propertyIsEnumerable.call(s, p[i]))
+                t[p[i]] = s[p[i]];
+        }
+    return t;
+};
+import { jsx as _jsx, jsxs as _jsxs } from "react/jsx-runtime";
+import { InputLabel, Typography } from "@mui/material";
 import { TextareaAutosize } from "@mui/base";
 import { useTextAreaStyles } from "./styles";
+import clx from "classnames";
+import { getFeedbackVariant } from "../../helpers/io";
 export var TextArea = function (_a) {
-    var name = _a.name, value = _a.value, onChange = _a.onChange, minRows = _a.minRows;
+    var name = _a.name, className = _a.className, label = _a.label, value = _a.value, onChange = _a.onChange, minRows = _a.minRows, feedback = _a.feedback, error = _a.error, props = __rest(_a, ["name", "className", "label", "value", "onChange", "minRows", "feedback", "error"]);
     var classes = useTextAreaStyles();
-    return (_jsx("div", __assign({ className: classes.root }, { children: _jsx(TextareaAutosize, { minRows: minRows, placeholder: name, className: classes.textarea, name: name, style: { width: "100%" }, value: value, onChange: function (e) {
-                return onChange === null || onChange === void 0 ? void 0 : onChange({ name: name, value: e.target.value });
-            } }, void 0) }), void 0));
+    var handleChange = function (e) {
+        onChange === null || onChange === void 0 ? void 0 : onChange({ name: name !== null && name !== void 0 ? name : "", value: e.target.value });
+    };
+    return (_jsxs("div", __assign({ className: clx(classes.root, className) }, { children: [label && (_jsx(InputLabel, __assign({ className: classes.label, htmlFor: name !== null && name !== void 0 ? name : "" }, { children: label }), void 0)), _jsx(TextareaAutosize, __assign({ minRows: minRows !== null && minRows !== void 0 ? minRows : 5, className: clx(classes.textarea, error && classes.error), name: name, value: value, onChange: handleChange }, props), void 0), feedback && (_jsx(Typography, __assign({ className: clx(classes.feedback, getFeedbackVariant(classes, feedback)) }, { children: feedback.text }), void 0))] }), void 0));
 };
