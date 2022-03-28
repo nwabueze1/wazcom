@@ -5,7 +5,7 @@ export const useBlogArticle001Styles = makeStyles<Theme>((theme: Theme) => ({
   root: {
     width: "100%",
     height: "100%",
-    fontFamiy: "Raleway, san-serif",
+    fontFamiy: theme.include.styles.raleway,
   },
   container: {
     maxWidth: theme.include.styles.template2.maxWidth,
@@ -50,7 +50,7 @@ export const useBlogArticle001Styles = makeStyles<Theme>((theme: Theme) => ({
     width: "100%",
     justifyContent: "space-between",
     [theme.breakpoints.down("sm")]: {
-      flexDirection: "column"
+      flexDirection: "column",
     },
   },
   rightSlide: {
@@ -65,7 +65,7 @@ export const useBlogArticle001Styles = makeStyles<Theme>((theme: Theme) => ({
     },
     [theme.breakpoints.down("sm")]: {
       width: "100%",
-      marginBottom: theme.spacing(2)
+      marginBottom: theme.spacing(2),
     },
   },
   leftSlide: {
@@ -81,21 +81,20 @@ export const useBlogArticle001Styles = makeStyles<Theme>((theme: Theme) => ({
     [theme.breakpoints.down("sm")]: {
       width: "100%",
       marginBottom: theme.spacing(2),
-      justifyContent: "flex-end"
+      justifyContent: "flex-end",
     },
   },
   navContainer: {
     [theme.breakpoints.down("md")]: {
       width: "90%",
-      margin: "auto"
+      margin: "auto",
     },
-    
   },
   rightArrow: {
-    fontSize: theme.typography.fontSize * 3
+    fontSize: theme.typography.fontSize * 3,
   },
   leftArrow: {
     transform: "rotate(180deg)",
-    fontSize: theme.typography.fontSize * 3
+    fontSize: theme.typography.fontSize * 3,
   },
 }));
