@@ -1,9 +1,10 @@
 import { FC } from "react";
-import { useAddMediaStyles, Backdrop, StyledModal } from "./styles";
+import { useAddMediaStyles } from "./styles";
 import { CloseSharp } from "@mui/icons-material";
 import { Button } from "../Button";
 import { Box } from "@mui/material";
 import { AddMediaProps } from "./types";
+import { ModalUnstyled } from "@mui/base";
 
 export const AddMedia: FC<AddMediaProps> = ({
   handleFilesSelection,
@@ -19,10 +20,10 @@ export const AddMedia: FC<AddMediaProps> = ({
       <Button color="primary" onClick={handleOpen}>
         Add New
       </Button>
-      <StyledModal
+      <ModalUnstyled
+        className={classes.modalBox}
         open={handleOpenMedia}
         onClose={handleClose}
-        BackdropComponent={Backdrop}
       >
         <Box className={classes.box}>
           <div className={classes.dialogueHeader}>
@@ -40,7 +41,7 @@ export const AddMedia: FC<AddMediaProps> = ({
             </div>
           </div>
         </Box>
-      </StyledModal>
+      </ModalUnstyled>
     </div>
   );
 };

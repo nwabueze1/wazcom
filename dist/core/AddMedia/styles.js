@@ -1,9 +1,3 @@
-var __makeTemplateObject = (this && this.__makeTemplateObject) || function (cooked, raw) {
-    if (Object.defineProperty) { Object.defineProperty(cooked, "raw", { value: raw }); } else { cooked.raw = raw; }
-    return cooked;
-};
-import ModalUnstyled from "@mui/base/ModalUnstyled";
-import { styled } from "@mui/system";
 import makeStyles from "@mui/styles/makeStyles";
 export var useAddMediaStyles = makeStyles(function (theme) { return ({
     root: {
@@ -65,7 +59,24 @@ export var useAddMediaStyles = makeStyles(function (theme) { return ({
         alignItems: "center",
         justifyContent: "center",
     },
+    modalBox: {
+        position: "fixed",
+        zIndex: "1300",
+        right: 0,
+        bottom: 0,
+        top: 0,
+        left: 0,
+        display: "flex",
+        alignItems: "center",
+        justifyContent: "center",
+    },
+    drop: {
+        zIndex: "-1",
+        position: "fixed",
+        right: 0,
+        bottom: 0,
+        top: 0,
+        left: 0,
+        backgroundColor: "rgba(0, 0, 0, 0.5)",
+    },
 }); });
-export var StyledModal = styled(ModalUnstyled)(templateObject_1 || (templateObject_1 = __makeTemplateObject(["\n  position: fixed;\n  z-index: 1300;\n  right: 0;\n  bottom: 0;\n  top: 0;\n  left: 0;\n  display: flex;\n  align-items: center;\n  justify-content: center;\n"], ["\n  position: fixed;\n  z-index: 1300;\n  right: 0;\n  bottom: 0;\n  top: 0;\n  left: 0;\n  display: flex;\n  align-items: center;\n  justify-content: center;\n"])));
-export var Backdrop = styled("div")(templateObject_2 || (templateObject_2 = __makeTemplateObject(["\n  z-index: -1;\n  position: fixed;\n  right: 0;\n  bottom: 0;\n  top: 0;\n  left: 0;\n  background-color: rgba(0, 0, 0, 0.5);\n  -webkit-tap-highlight-color: transparent;\n"], ["\n  z-index: -1;\n  position: fixed;\n  right: 0;\n  bottom: 0;\n  top: 0;\n  left: 0;\n  background-color: rgba(0, 0, 0, 0.5);\n  -webkit-tap-highlight-color: transparent;\n"])));
-var templateObject_1, templateObject_2;
