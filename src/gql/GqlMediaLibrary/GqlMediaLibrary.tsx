@@ -130,7 +130,7 @@ export const GqlMediaLibrary: FC<GqlMediaLibraryProps> = ({
 
   const handleSearchChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     const search = e.target.value;
-    if (search === " " || search === undefined) {
+    if (search || search === "") {
       return;
     }
 
@@ -193,7 +193,11 @@ export const GqlMediaLibrary: FC<GqlMediaLibraryProps> = ({
 
   return (
     <div
-      className={clx(classes.wrapper, className, viewOnly && classes.wrapperDialog)}
+      className={clx(
+        classes.wrapper,
+        className,
+        viewOnly && classes.wrapperDialog,
+      )}
       ref={refs.listInnerRef}
       onScroll={() => {
         handleOnScroll(refs.listInnerRef, (index: number) => {

@@ -11,7 +11,6 @@ export const AddMedia: FC<AddMediaProps> = ({
   handleCloseMedia,
 }) => {
   const classes = useAddMediaStyles();
-
   const handleOpen = () => handleCloseMedia(true);
   const handleClose = () => handleCloseMedia(false);
 

@@ -54,6 +54,17 @@ export var useAddMediaStyles = makeStyles(function (theme) { return ({
     btn: {
         textAlign: "center",
     },
+    modal: {
+        position: "fixed",
+        zIndex: "1300",
+        right: 0,
+        bottom: 0,
+        top: 0,
+        left: 0,
+        display: "flex",
+        alignItems: "center",
+        justifyContent: "center",
+    },
 }); });
 export var StyledModal = styled(ModalUnstyled)(templateObject_1 || (templateObject_1 = __makeTemplateObject(["\n  position: fixed;\n  z-index: 1300;\n  right: 0;\n  bottom: 0;\n  top: 0;\n  left: 0;\n  display: flex;\n  align-items: center;\n  justify-content: center;\n"], ["\n  position: fixed;\n  z-index: 1300;\n  right: 0;\n  bottom: 0;\n  top: 0;\n  left: 0;\n  display: flex;\n  align-items: center;\n  justify-content: center;\n"])));
 export var Backdrop = styled("div")(templateObject_2 || (templateObject_2 = __makeTemplateObject(["\n  z-index: -1;\n  position: fixed;\n  right: 0;\n  bottom: 0;\n  top: 0;\n  left: 0;\n  background-color: rgba(0, 0, 0, 0.5);\n  -webkit-tap-highlight-color: transparent;\n"], ["\n  z-index: -1;\n  position: fixed;\n  right: 0;\n  bottom: 0;\n  top: 0;\n  left: 0;\n  background-color: rgba(0, 0, 0, 0.5);\n  -webkit-tap-highlight-color: transparent;\n"])));

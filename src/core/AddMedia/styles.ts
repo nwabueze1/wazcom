@@ -52,6 +52,17 @@ export const useAddMediaStyles = makeStyles((theme: Theme) => ({
   btn: {
     textAlign: "center",
   },
+  modal: {
+    position: "fixed",
+    zIndex: "1300",
+    right: 0,
+    bottom: 0,
+    top: 0,
+    left: 0,
+    display: "flex",
+    alignItems: "center",
+    justifyContent: "center",
+  },
 }));
 
 export const StyledModal = styled(ModalUnstyled)`

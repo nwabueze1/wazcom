@@ -160,7 +160,6 @@ export const useMediaLibraryStyles = makeStyles((theme: Theme) => ({
   },
   search: {
     background: theme.design.colors.shainGrey,
-    padding: theme.spacing(0, 2),
   },
   searchParent: {
     display: "flex",
