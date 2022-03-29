@@ -19,6 +19,11 @@ declare module "@mui/material/styles/createTheme" {
     }
 }
 export declare type BaseTheme = MuiTheme & ExtendedThemeOptions;
+export declare const baseColors: {
+    dangerColor: string;
+    successColor: string;
+    greyColor: string;
+};
 export declare const theme: any;
 declare const _default: MuiTheme;
 export default _default;

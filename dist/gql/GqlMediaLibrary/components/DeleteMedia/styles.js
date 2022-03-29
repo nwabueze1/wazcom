@@ -22,7 +22,7 @@ export var useDeleteMediaStyles = makeStyles(function (theme) { return ({
         borderBottom: "1px solid rgba(0,0,0,0.06)",
     },
     deleteHeadingText: {
-        color: theme.design.colors.red70,
+        color: theme.design.colors.dangerColor300,
         marginLeft: theme.spacing(4),
     },
     deleteHeadingIcon: {

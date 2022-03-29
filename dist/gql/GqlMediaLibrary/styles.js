@@ -117,9 +117,9 @@ export var useMediaLibraryStyles = makeStyles(function (theme) { return ({
         padding: theme.spacing(3, 4),
     },
     tab: {
-        color: theme.design.colors.red70,
+        color: theme.design.colors.dangerColor300,
         paddingBottom: 2,
-        borderBottom: "2px solid ".concat(theme.design.colors.red70),
+        borderBottom: "2px solid ".concat(theme.design.colors.dangerColor300),
     },
     wrapper: {
         width: "100%",

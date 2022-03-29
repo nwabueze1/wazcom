@@ -89,6 +89,6 @@ export const useImageSelectorStyles = makeStyles((theme: Theme) => ({
     color: "black",
   },
   error: {
-    border: `2px solid ${theme.design.colors.red70}`,
+    border: `2px solid ${theme.design.colors.dangerColor100}`,
   },
 }));

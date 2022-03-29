@@ -61,6 +61,6 @@ export var useGalleryStyles = makeStyles(function (theme) { return ({
     itemCheckedActive: {
         zIndex: 10,
         opacity: 1,
-        border: "4px solid ".concat(theme.design.colors.red),
+        border: "4px solid ".concat(theme.design.colors.dangerColor),
     },
 }); });

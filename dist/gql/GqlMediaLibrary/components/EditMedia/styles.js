@@ -14,9 +14,9 @@ export var useEditMediaStyles = makeStyles(function (theme) { return ({
         objectFit: "cover",
     },
     tab: {
-        color: theme.design.colors.red70,
+        color: theme.design.colors.dangerColor300,
         paddingBottom: 2,
-        borderBottom: "2px solid ".concat(theme.design.colors.red70),
+        borderBottom: "2px solid ".concat(theme.design.colors.dangerColor300),
         width: "fit-content",
         marginBottom: theme.spacing(3),
     },

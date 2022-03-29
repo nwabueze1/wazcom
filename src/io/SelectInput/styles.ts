@@ -5,7 +5,7 @@ export const useSelectStyles = makeStyles((theme: Theme) => ({
   root: {
     borderRadius: theme.spacing(1),
     fontSize: "16px",
-    color: theme.design.colors.grey,
+    color: theme.design.colors.greyColor400,
     width: "100%",
     marginBottom: theme.spacing(2),
   },

@@ -11,7 +11,7 @@ export var useTextAreaStyles = makeStyles(function (theme) { return ({
         width: "100%",
     },
     error: {
-        border: "1px solid ".concat(theme.design.colors.red70),
+        border: "1px solid ".concat(theme.design.colors.dangerColor100),
     },
     label: {
         marginBottom: theme.spacing(1),
