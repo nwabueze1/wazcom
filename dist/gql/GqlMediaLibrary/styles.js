@@ -1,3 +1,9 @@
+var __makeTemplateObject = (this && this.__makeTemplateObject) || function (cooked, raw) {
+    if (Object.defineProperty) { Object.defineProperty(cooked, "raw", { value: raw }); } else { cooked.raw = raw; }
+    return cooked;
+};
+import ModalUnstyled from "@mui/base/ModalUnstyled";
+import { styled } from "@mui/system";
 import makeStyles from "@mui/styles/makeStyles";
 export var useMediaLibraryStyles = makeStyles(function (theme) { return ({
     "@keyframes a": {
@@ -122,11 +128,47 @@ export var useMediaLibraryStyles = makeStyles(function (theme) { return ({
         maxHeight: "70vh",
         overflow: "scroll",
         zIndex: 15,
-        scrollBehavior: 'smooth',
+        scrollBehavior: "smooth",
     },
     wrapperDialog: {
         maxWidth: 600,
         width: 600,
         maxHeight: 550,
     },
+    error: {
+        left: 0,
+        top: 0,
+        width: "25%",
+        background: theme.design.colors.white,
+        borderRadius: "4px",
+        display: "flex",
+        justifyContent: "space-between",
+    },
+    searchContainer: {
+        position: "relative",
+        padding: theme.spacing(0, 4),
+        borderBottom: "1px solid rgba(0,0,0,0.06)",
+        marginBottom: theme.spacing(3),
+    },
+    content: {
+        width: "80%",
+        margin: theme.spacing(5, "auto"),
+        padding: theme.spacing(8, 0),
+        border: "1px dashed ".concat(theme.design.colors.grey40),
+    },
+    search: {
+        background: theme.design.colors.shainGrey,
+    },
+    searchParent: {
+        display: "flex",
+        justifyContent: "flex-end",
+    },
+    searchIcon: {
+        position: "absolute",
+        top: "10px",
+        left: "35px",
+    },
 }); });
+export var StyledModal = styled(ModalUnstyled)(templateObject_1 || (templateObject_1 = __makeTemplateObject(["\n  position: fixed;\n  z-index: 1300;\n  right: 0;\n  bottom: 0;\n  top: 0;\n  left: 0;\n  display: flex;\n  align-items: center;\n  justify-content: center;\n"], ["\n  position: fixed;\n  z-index: 1300;\n  right: 0;\n  bottom: 0;\n  top: 0;\n  left: 0;\n  display: flex;\n  align-items: center;\n  justify-content: center;\n"])));
+export var Backdrop = styled("div")(templateObject_2 || (templateObject_2 = __makeTemplateObject(["\n  z-index: -1;\n  position: fixed;\n  right: 0;\n  bottom: 0;\n  top: 0;\n  left: 0;\n  background-color: rgba(0, 0, 0, 0.5);\n  -webkit-tap-highlight-color: transparent;\n"], ["\n  z-index: -1;\n  position: fixed;\n  right: 0;\n  bottom: 0;\n  top: 0;\n  left: 0;\n  background-color: rgba(0, 0, 0, 0.5);\n  -webkit-tap-highlight-color: transparent;\n"])));
+var templateObject_1, templateObject_2;

@@ -24,7 +24,17 @@ export var useTableStyles = makeStyles(function (theme) { return ({
     },
     filterControls: {
         display: "flex",
-        gap: "30px",
+        gap: theme.spacing(4),
+    },
+    imageContainer: {
+        width: "100%",
+        display: "flex",
+        justifyContent: "center",
+        marginBottom: theme.spacing(5),
+    },
+    img: {
+        width: "120px",
+        height: "94px",
     },
     filterControlsButton: {
         backgroundColor: theme.design.colors.white,

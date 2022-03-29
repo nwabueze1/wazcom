@@ -1,7 +1,6 @@
 import React, { FC, useCallback, useEffect, useRef, useState } from "react";
 import { DocumentNode } from "graphql";
 import clx from "classnames";
-import { Button } from "../../core/Button";
 import { Loader } from "../../core/Loader/Loader";
 import { useMediaLibraryStyles } from "./styles";
 import { Image, GqlMediaLibraryProps, ImageUpdate } from "./types";
@@ -17,6 +16,9 @@ import {
   useMediaUpload,
 } from "./hooks";
 import { FaTimes } from "react-icons/fa";
+import { Search } from "@mui/icons-material";
+import { TextInput } from "../../io";
+import { AddMedia } from "core/AddMedia/AddMedia";
 
 export const GqlMediaLibrary: FC<GqlMediaLibraryProps> = ({
   className,
@@ -51,6 +53,8 @@ export const GqlMediaLibrary: FC<GqlMediaLibraryProps> = ({
     type: string;
     media?: Image | File;
   }>({ type: "" });
+  const [open, setOpen] = useState(false);
+  const [displayedImages, setDisplayedImages] = useState(images);
 
   useEffect(() => {
     setLoading({ ...loading, media: true });
@@ -58,6 +62,9 @@ export const GqlMediaLibrary: FC<GqlMediaLibraryProps> = ({
       .then((res) => {
         setLoading({ ...loading, media: false });
         setImages((images) =>
+          getUniqueImages([...images, ...(res.data.images.images as Image[])]),
+        );
+        setDisplayedImages((images) =>
           getUniqueImages([...images, ...(res.data.images.images as Image[])]),
         );
         setPaginatorInfo(res.data.images.paginatorInfo);
@@ -113,12 +120,24 @@ export const GqlMediaLibrary: FC<GqlMediaLibraryProps> = ({
   };
 
   const handleMediaAction = (type: string, media?: Image | File) => {
-    if (type === 'add' || type === 'edit') {
+    if (type === "add" || type === "edit") {
       const { listInnerRef } = refs;
       if (listInnerRef.current) listInnerRef.current.scrollTop = 0;
     }
 
     setActiveMedia({ type, media });
+  };
+
+  const handleSearchChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+    const search = e.target.value;
+    if (search || search === "") {
+      return;
+    }
+
+    const filteredResult = images.filter((image) =>
+      image.title?.toLowerCase().includes(search.toLowerCase()),
+    );
+    setDisplayedImages(filteredResult);
   };
 
   const handleMediaAdd = useCallback(
@@ -167,9 +186,18 @@ export const GqlMediaLibrary: FC<GqlMediaLibraryProps> = ({
     setLoading({ ...loading, mutate: false });
   }, [activeMedia, loading]);
 
+  const handleFileSelection = () => {
+    handleFileSelect(refs.fileRef);
+    setOpen(false);
+  };
+
   return (
     <div
-      className={clx(classes.wrapper, className, viewOnly && classes.wrapperDialog)}
+      className={clx(
+        classes.wrapper,
+        className,
+        viewOnly && classes.wrapperDialog,
+      )}
       ref={refs.listInnerRef}
       onScroll={() => {
         handleOnScroll(refs.listInnerRef, (index: number) => {
@@ -188,22 +216,32 @@ export const GqlMediaLibrary: FC<GqlMediaLibraryProps> = ({
         />
         <div className={classes.actions}>
           {viewOnly ? (
-            <><p>Media Library</p>
+            <>
+              <p>Media Library</p>
               <FaTimes className={classes.timesIcon} />
             </>
           ) : (
             <>
               <p className={classes.tab}>All Media</p>
-              <Button
-                color="primary"
-                onClick={() => {
-                  handleFileSelect(refs.fileRef);
-                }}
-              >
-                Add New
-              </Button>
+              <AddMedia
+                handleFilesSelection={handleFileSelection}
+                handleOpenMedia={open}
+                handleCloseMedia={setOpen}
+              />
             </>
           )}
+        </div>
+        <div className={classes.searchParent}>
+          <div className={classes.searchContainer}>
+            <TextInput
+              name="search"
+              type="text"
+              placeholder="Search"
+              onChange={handleSearchChange}
+              className={classes.search}
+            />
+            <Search className={classes.searchIcon} />
+          </div>
         </div>
         <div className={classes.collection}>
           {images.length === 0 && loading.media ? (
@@ -224,7 +262,7 @@ export const GqlMediaLibrary: FC<GqlMediaLibraryProps> = ({
               )}
               {images &&
                 handleDisplayImages(
-                  images,
+                  displayedImages,
                   (image: Image) => {
                     onChange?.({ name: name ?? "", value: image });
                   },

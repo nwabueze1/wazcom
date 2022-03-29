@@ -1,5 +1,6 @@
 import { Theme } from "@mui/material/styles";
-
+import ModalUnstyled from "@mui/base/ModalUnstyled";
+import { styled } from "@mui/system";
 import makeStyles from "@mui/styles/makeStyles";
 
 export const useMediaLibraryStyles = makeStyles((theme: Theme) => ({
@@ -128,11 +129,68 @@ export const useMediaLibraryStyles = makeStyles((theme: Theme) => ({
     maxHeight: "70vh",
     overflow: "scroll",
     zIndex: 15,
-    scrollBehavior: 'smooth',
+    scrollBehavior: "smooth",
   },
   wrapperDialog: {
     maxWidth: 600,
     width: 600,
     maxHeight: 550,
   },
+  error: {
+    left: 0,
+    top: 0,
+    width: "25%",
+    background: theme.design.colors.white,
+    borderRadius: "4px",
+    display: "flex",
+    justifyContent: "space-between",
+  },
+  searchContainer: {
+    position: "relative",
+    padding: theme.spacing(0, 4),
+    borderBottom: "1px solid rgba(0,0,0,0.06)",
+    marginBottom: theme.spacing(3),
+  },
+
+  content: {
+    width: "80%",
+    margin: theme.spacing(5, "auto"),
+    padding: theme.spacing(8, 0),
+    border: `1px dashed ${theme.design.colors.grey40}`,
+  },
+  search: {
+    background: theme.design.colors.shainGrey,
+  },
+  searchParent: {
+    display: "flex",
+    justifyContent: "flex-end",
+  },
+  searchIcon: {
+    position: "absolute",
+    top: "10px",
+    left: "35px",
+  },
 }));
+
+export const StyledModal = styled(ModalUnstyled)`
+  position: fixed;
+  z-index: 1300;
+  right: 0;
+  bottom: 0;
+  top: 0;
+  left: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+`;
+
+export const Backdrop = styled("div")`
+  z-index: -1;
+  position: fixed;
+  right: 0;
+  bottom: 0;
+  top: 0;
+  left: 0;
+  background-color: rgba(0, 0, 0, 0.5);
+  -webkit-tap-highlight-color: transparent;
+`;
