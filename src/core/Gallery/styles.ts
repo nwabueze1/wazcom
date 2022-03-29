@@ -65,6 +65,6 @@ export const useGalleryStyles = makeStyles((theme: BaseTheme) => ({
   itemCheckedActive: {
     zIndex: 10,
     opacity: 1,
-    border: `4px solid ${theme.design.colors.red}`,
+    border: `4px solid ${theme.design.colors.dangerColor}`,
   },
 }));
