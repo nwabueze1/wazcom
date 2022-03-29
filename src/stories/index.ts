@@ -22,7 +22,6 @@ import {
   ComboBoxInput,
   RichTextInput,
   SelectInput,
-  TagInput,
   TextInput,
   ToggleInput,
   TextArea,
@@ -58,7 +57,7 @@ export const stories: ComponentPropType[] = [
       multiline: true,
       minRows: 5,
       feedback: {
-        text: 'no, this is not you',
+        text: "no, this is not you",
         status: "error",
       },
       error: true,
@@ -385,13 +384,6 @@ export const stories: ComponentPropType[] = [
       ],
       error: true,
       feedback: { text: "Tariq is a weirdo", status: "error" },
-    },
-  },
-  {
-    name: "Tags",
-    component: TagInput,
-    props: {
-      tags: ["Work", "Vibes"],
     },
   },
   {

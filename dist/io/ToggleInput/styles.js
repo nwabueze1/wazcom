@@ -20,12 +20,12 @@ export var useToggleStyles = makeStyles(function (theme) { return ({
         color: theme.design.colors.black,
     },
     toggle: {
-        color: theme.design.colors.greene,
+        color: theme.design.colors.successColor,
         marginTop: theme.spacing(1),
         "& 	.Mui-checked": {
             color: theme.design.colors.white,
             "& + .MuiSwitch-track": {
-                backgroundColor: theme.design.colors.greene,
+                backgroundColor: theme.design.colors.successColor,
                 opacity: 1,
                 border: 0,
             },

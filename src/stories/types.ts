@@ -21,7 +21,6 @@ import {
   ImageUploadInputProps,
   RichTextInputProps,
   SelectInputProps,
-  TagInputProps,
   TextInputProps,
   ToggleInputProps,
 } from "../io";
@@ -54,7 +53,6 @@ export type ComponentPropType = {
   | RadioButtonStory
   | ImageUploadStory
   | SelectStory
-  | TagStory
   | RichTextStory
   | GqlComboBoxStory
   | EmptyStateStory
@@ -134,10 +132,6 @@ type ImageUploadStory = {
 
 type SelectStory = {
   props: SelectInputProps;
-};
-
-type TagStory = {
-  props: TagInputProps;
 };
 
 type RichTextStory = {

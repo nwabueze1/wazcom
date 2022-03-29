@@ -86,6 +86,6 @@ export var useImageSelectorStyles = makeStyles(function (theme) { return ({
         color: "black",
     },
     error: {
-        border: "2px solid ".concat(theme.design.colors.red70),
+        border: "2px solid ".concat(theme.design.colors.dangerColor100),
     },
 }); });
