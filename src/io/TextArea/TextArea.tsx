@@ -1,15 +1,16 @@
 import React, { FC } from "react";
-import { InputLabel, Typography } from "@mui/material";
+import { InputLabel } from "@mui/material";
 import { TextareaAutosize } from "@mui/base";
 import { useTextAreaStyles } from "./styles";
 import { TextAreaProps } from "./types";
 import clx from "classnames";
-import { getFeedbackVariant } from "../../helpers/io";
+import { displayFeedback } from "../../helpers/io";
 
 export const TextArea: FC<TextAreaProps> = ({
   name,
   className,
   label,
+  labelClassName,
   value,
   onChange,
   minRows,
@@ -26,7 +27,7 @@ export const TextArea: FC<TextAreaProps> = ({
   return (
     <div className={clx(classes.root, className)}>
       {label && (
-        <InputLabel className={classes.label} htmlFor={name ?? ""}>
+        <InputLabel className={clx(classes.label, labelClassName)} htmlFor={name ?? ""}>
           {label}
         </InputLabel>
       )}
@@ -38,16 +39,7 @@ export const TextArea: FC<TextAreaProps> = ({
         onChange={handleChange}
         {...props}
       />
-      {feedback && (
-        <Typography
-          className={clx(
-            classes.feedback,
-            getFeedbackVariant(classes, feedback),
-          )}
-        >
-          {feedback.text}
-        </Typography>
-      )}
+      {feedback && displayFeedback(feedback)}
     </div>
   );
 };

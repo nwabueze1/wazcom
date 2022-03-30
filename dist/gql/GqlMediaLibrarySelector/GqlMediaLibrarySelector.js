@@ -38,15 +38,15 @@ var __read = (this && this.__read) || function (o, n) {
 };
 import { jsx as _jsx, jsxs as _jsxs } from "react/jsx-runtime";
 import { useState } from "react";
-import { Modal, Fade, Backdrop, InputLabel, Typography } from "@mui/material";
+import { Modal, Fade, Backdrop, InputLabel } from "@mui/material";
 import CameraAltIcon from "@mui/icons-material/CameraAlt";
 import clx from "classnames";
 import { useImageSelectorStyles } from "./styles";
 import { GqlMediaLibrary } from "../GqlMediaLibrary";
 import { getSizeVariants } from "../../helpers/size";
-import { getFeedbackVariant } from "../../helpers/io";
+import { displayFeedback } from "../../helpers/io";
 export var GqlMediaLibrarySelector = function (_a) {
-    var _b = _a.displayLibrary, displayLibrary = _b === void 0 ? false : _b, _c = _a.variant, variant = _c === void 0 ? "square" : _c, _d = _a.size, size = _d === void 0 ? "full" : _d, verbose = _a.verbose, width = _a.width, height = _a.height, className = _a.className, onChange = _a.onChange, name = _a.name, label = _a.label, value = _a.value, feedback = _a.feedback, error = _a.error, props = __rest(_a, ["displayLibrary", "variant", "size", "verbose", "width", "height", "className", "onChange", "name", "label", "value", "feedback", "error"]);
+    var _b = _a.displayLibrary, displayLibrary = _b === void 0 ? false : _b, _c = _a.variant, variant = _c === void 0 ? "square" : _c, _d = _a.size, size = _d === void 0 ? "full" : _d, verbose = _a.verbose, width = _a.width, height = _a.height, className = _a.className, onChange = _a.onChange, name = _a.name, label = _a.label, labelClassName = _a.labelClassName, value = _a.value, feedback = _a.feedback, error = _a.error, props = __rest(_a, ["displayLibrary", "variant", "size", "verbose", "width", "height", "className", "onChange", "name", "label", "labelClassName", "value", "feedback", "error"]);
     var classes = useImageSelectorStyles();
     var _e = __read(useState(false), 2), setShowIcon = _e[1];
     var _f = __read(useState(value || ""), 2), placeholder = _f[0], setPlaceholder = _f[1];
@@ -64,11 +64,11 @@ export var GqlMediaLibrarySelector = function (_a) {
         onChange === null || onChange === void 0 ? void 0 : onChange({ name: name !== null && name !== void 0 ? name : "image", value: verbose ? value : value.url });
     };
     var variants = getSizeVariants(classes, size);
-    return (_jsxs("div", __assign({ className: clx(classes.root, className) }, { children: [label && (_jsx(InputLabel, __assign({ className: classes.label, htmlFor: name }, { children: label }), void 0)), _jsxs("div", __assign({ className: clx(classes.container, variant === "circle" && classes.circle, variants[0], error && classes.error), style: { backgroundImage: "url(".concat(placeholder, ")"), width: width, height: height }, onMouseEnter: function () { return setShowIcon(true); }, onMouseLeave: function () { return setShowIcon(false); }, onClick: function () {
+    return (_jsxs("div", __assign({ className: clx(classes.root, className) }, { children: [label && (_jsx(InputLabel, __assign({ className: clx(classes.label, labelClassName), htmlFor: name }, { children: label }), void 0)), _jsxs("div", __assign({ className: clx(classes.container, variant === "circle" && classes.circle, variants[0], error && classes.error), style: { backgroundImage: "url(".concat(placeholder, ")"), width: width, height: height }, onMouseEnter: function () { return setShowIcon(true); }, onMouseLeave: function () { return setShowIcon(false); }, onClick: function () {
                     if (displayLibrary)
                         return;
                     handleOpen();
                 } }, { children: [_jsx(Modal, __assign({ open: open, BackdropProps: {
                             timeout: 500,
-                        }, closeAfterTransition: true, onClose: handleClose, onBackdropClick: function (e) { return e.stopPropagation(); }, className: classes.modal, BackdropComponent: Backdrop, "aria-labelledby": "transition-modal-title", "aria-describedby": "transition-modal-description" }, { children: _jsx(Fade, __assign({ in: open }, { children: _jsx("div", __assign({ className: classes.wrapper }, { children: _jsx(GqlMediaLibrary, { config: __assign({}, props.config), onChange: handleSelectImage, name: name }, void 0) }), void 0) }), void 0) }), void 0), _jsx(CameraAltIcon, { className: clx(classes.icon, variants[1]), onClick: handleOpen }, void 0)] }), void 0), feedback && (_jsx(Typography, __assign({ className: clx(classes.feedback, getFeedbackVariant(classes, feedback)) }, { children: feedback.text }), void 0))] }), void 0));
+                        }, closeAfterTransition: true, onClose: handleClose, onBackdropClick: function (e) { return e.stopPropagation(); }, className: classes.modal, BackdropComponent: Backdrop, "aria-labelledby": "transition-modal-title", "aria-describedby": "transition-modal-description" }, { children: _jsx(Fade, __assign({ in: open }, { children: _jsx("div", __assign({ className: classes.wrapper }, { children: _jsx(GqlMediaLibrary, { config: __assign({}, props.config), onChange: handleSelectImage, name: name }, void 0) }), void 0) }), void 0) }), void 0), _jsx(CameraAltIcon, { className: clx(classes.icon, variants[1]), onClick: handleOpen }, void 0)] }), void 0), feedback && displayFeedback(feedback)] }), void 0));
 };

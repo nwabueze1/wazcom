@@ -6,7 +6,6 @@ export const useGqlComboBoxStyles = makeStyles((theme: Theme) => ({
   root: {
     display: "flex",
     flexDirection: "column",
-    marginBottom: 15,
   },
   label: {
     marginBottom: 9,

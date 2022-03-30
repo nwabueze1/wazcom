@@ -1,9 +1,9 @@
 import * as React from "react";
-import { InputLabel, Typography } from "@mui/material";
+import { InputLabel } from "@mui/material";
 import { Editor } from "@tinymce/tinymce-react";
 import { useRichInputStyles } from "./styles";
 import { RichTextInputProps } from "./types";
-import { getFeedbackVariant } from "../../helpers/io";
+import { displayFeedback } from "../../helpers/io";
 import clx from "classnames";
 
 const plugins = [
@@ -23,6 +23,7 @@ export const RichTextInput: React.FC<RichTextInputProps> = ({
   name,
   className,
   label,
+  labelClassName,
   apiKey,
   value,
   upload,
@@ -41,7 +42,7 @@ export const RichTextInput: React.FC<RichTextInputProps> = ({
   return (
     <div className={clx(classes.root, className)}>
       {label && (
-        <InputLabel className={classes.label} htmlFor={name}>
+        <InputLabel className={clx(classes.label, labelClassName)} htmlFor={name}>
           {label}
         </InputLabel>
       )}
@@ -65,16 +66,7 @@ export const RichTextInput: React.FC<RichTextInputProps> = ({
           onEditorChange={handleContentChange}
         />
       </div>
-      {feedback && (
-        <Typography
-          className={clx(
-            classes.feedback,
-            getFeedbackVariant(classes, feedback),
-          )}
-        >
-          {feedback.text}
-        </Typography>
-      )}
+      {feedback && displayFeedback(feedback)}
       {loading && Loader}
     </div>
   );

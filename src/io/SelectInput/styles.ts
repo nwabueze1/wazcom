@@ -18,16 +18,4 @@ export const useSelectStyles = makeStyles((theme: Theme) => ({
     width: "100%",
     padding: theme.spacing(0.5, 2),
   },
-  feedback: {
-    marginTop: 16,
-  },
-  feedbackSuccess: {
-    color: "green",
-  },
-  feedbackError: {
-    color: "red",
-  },
-  feedbackNeutral: {
-    color: "black",
-  },
 }));

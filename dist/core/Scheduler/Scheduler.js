@@ -43,7 +43,7 @@ import { tableHeaders } from "./data";
 import { useScheduleData } from "./hooks";
 import clx from "classnames";
 export var Scheduler = function (_a) {
-    var className = _a.className, componentName = _a.name, label = _a.label, _b = _a.value, initialScheduleValue = _b === void 0 ? [
+    var className = _a.className, componentName = _a.name, label = _a.label, labelClassName = _a.labelClassName, _b = _a.value, initialScheduleValue = _b === void 0 ? [
         { day: "0", start_time: "00:00", end_time: "12:00" },
     ] : _b, onChange = _a.onChange;
     var classes = useSchedulerStyles();
@@ -73,5 +73,5 @@ export var Scheduler = function (_a) {
             ], false),
         });
     }, [initialScheduleValue]);
-    return (_jsxs("div", __assign({ className: clx(classes.root, className) }, { children: [label && (_jsx(InputLabel, __assign({ className: classes.label, htmlFor: componentName }, { children: label }), void 0)), _jsx(Table, { headers: tableHeaders, value: scheduleValue }, void 0), _jsx("div", __assign({ className: classes.button, onClick: addNewRow }, { children: _jsx("p", __assign({ className: classes.buttonText }, { children: "Add more" }), void 0) }), void 0)] }), void 0));
+    return (_jsxs("div", __assign({ className: clx(classes.root, className) }, { children: [label && (_jsx(InputLabel, __assign({ className: clx(classes.label, labelClassName), htmlFor: componentName }, { children: label }), void 0)), _jsx(Table, { headers: tableHeaders, value: scheduleValue }, void 0), _jsx("div", __assign({ className: classes.button, onClick: addNewRow }, { children: _jsx("p", __assign({ className: classes.buttonText }, { children: "Add more" }), void 0) }), void 0)] }), void 0));
 };

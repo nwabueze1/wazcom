@@ -1,7 +1,9 @@
 import { SwitchProps as MuiToggleProps } from "@mui/material";
+import { Feedback } from "../../helpers/io";
 import { CommonProps } from '../../types';
 export declare type ToggleInputProps = CommonProps & Omit<MuiToggleProps, 'value' | 'onChange'> & {
     label?: string;
-    helperText?: string;
+    labelClassName?: string;
+    feedback?: Feedback;
     value?: boolean;
 };

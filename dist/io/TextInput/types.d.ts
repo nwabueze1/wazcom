@@ -1,8 +1,9 @@
+/// <reference types="react" />
 import { CommonProps } from "../../types";
 import { OutlinedInputProps } from "@mui/material";
+import { Feedback } from "../../helpers/io";
 export declare type TextInputProps = CommonProps & OutlinedInputProps & {
-    feedback?: {
-        text: string;
-        status?: "success" | "neutral" | "error";
-    };
+    labelClassName?: string;
+    feedback?: Feedback;
+    icon?: JSX.Element;
 } & any;
