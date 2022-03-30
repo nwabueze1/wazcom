@@ -80,7 +80,7 @@ import { fetchData, mutateMedia, getUniqueImages, useFileSelect, useOnScroll, us
 import { FaTimes } from "react-icons/fa";
 import { Search } from "@mui/icons-material";
 import { TextInput } from "../../io";
-import { AddMedia } from "core/AddMedia/AddMedia";
+import { AddMedia } from "../../core/AddMedia/AddMedia";
 export var GqlMediaLibrary = function (_a) {
     var className = _a.className, _b = _a.config, client = _b.client, _c = _b.query, query = _c.name, queryVariables = _c.variables, upload = _b.upload, update = _b.update, remove = _b.remove, _d = _b.viewOnly, viewOnly = _d === void 0 ? false : _d, onChange = _a.onChange, name = _a.name;
     var refs = { fileRef: useRef(), listInnerRef: useRef() };

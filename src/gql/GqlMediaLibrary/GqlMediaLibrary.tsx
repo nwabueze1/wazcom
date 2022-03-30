@@ -18,7 +18,7 @@ import {
 import { FaTimes } from "react-icons/fa";
 import { Search } from "@mui/icons-material";
 import { TextInput } from "../../io";
-import { AddMedia } from "core/AddMedia/AddMedia";
+import { AddMedia } from "../../core/AddMedia/AddMedia";
 
 export const GqlMediaLibrary: FC<GqlMediaLibraryProps> = ({
   className,
