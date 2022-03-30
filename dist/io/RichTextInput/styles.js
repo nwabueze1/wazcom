@@ -12,16 +12,4 @@ export var useRichInputStyles = makeStyles(function (theme) { return ({
     editorError: {
         border: "1px solid red",
     },
-    feedback: {
-        marginTop: 16,
-    },
-    feedbackSuccess: {
-        color: "green",
-    },
-    feedbackError: {
-        color: "red",
-    },
-    feedbackNeutral: {
-        color: "black",
-    },
 }); });

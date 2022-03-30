@@ -27,10 +27,10 @@ var __read = (this && this.__read) || function (o, n) {
 };
 import { jsx as _jsx, jsxs as _jsxs } from "react/jsx-runtime";
 import * as React from "react";
-import { InputLabel, Typography } from "@mui/material";
+import { InputLabel } from "@mui/material";
 import { Editor } from "@tinymce/tinymce-react";
 import { useRichInputStyles } from "./styles";
-import { getFeedbackVariant } from "../../helpers/io";
+import { displayFeedback } from "../../helpers/io";
 import clx from "classnames";
 var plugins = [
     "advlist autolink lists link image code",
@@ -44,13 +44,13 @@ var toolbar = [
     bullist numlist outdent indent | help",
 ];
 export var RichTextInput = function (_a) {
-    var name = _a.name, className = _a.className, label = _a.label, apiKey = _a.apiKey, value = _a.value, upload = _a.upload, onChange = _a.onChange, error = _a.error, feedback = _a.feedback, Loader = _a.Loader;
+    var name = _a.name, className = _a.className, label = _a.label, labelClassName = _a.labelClassName, apiKey = _a.apiKey, value = _a.value, upload = _a.upload, onChange = _a.onChange, error = _a.error, feedback = _a.feedback, Loader = _a.Loader;
     var classes = useRichInputStyles();
     var _b = __read(React.useState(false), 2), loading = _b[0], setLoading = _b[1];
     var handleContentChange = function (content) {
         onChange === null || onChange === void 0 ? void 0 : onChange({ name: name, value: content });
     };
-    return (_jsxs("div", __assign({ className: clx(classes.root, className) }, { children: [label && (_jsx(InputLabel, __assign({ className: classes.label, htmlFor: name }, { children: label }), void 0)), _jsx("div", __assign({ className: clx(classes.editor, error && classes.editorError) }, { children: _jsx(Editor, { value: value, apiKey: apiKey, init: {
+    return (_jsxs("div", __assign({ className: clx(classes.root, className) }, { children: [label && (_jsx(InputLabel, __assign({ className: clx(classes.label, labelClassName), htmlFor: name }, { children: label }), void 0)), _jsx("div", __assign({ className: clx(classes.editor, error && classes.editorError) }, { children: _jsx(Editor, { value: value, apiKey: apiKey, init: {
                         height: 500,
                         menubar: true,
                         image_title: true,
@@ -62,5 +62,5 @@ export var RichTextInput = function (_a) {
                         },
                         plugins: plugins,
                         toolbar: toolbar,
-                    }, onEditorChange: handleContentChange }, void 0) }), void 0), feedback && (_jsx(Typography, __assign({ className: clx(classes.feedback, getFeedbackVariant(classes, feedback)) }, { children: feedback.text }), void 0)), loading && Loader] }), void 0));
+                    }, onEditorChange: handleContentChange }, void 0) }), void 0), feedback && displayFeedback(feedback), loading && Loader] }), void 0));
 };

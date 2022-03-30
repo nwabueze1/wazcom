@@ -1,12 +1,12 @@
 import { FC, useState } from "react";
-import { Modal, Fade, Backdrop, InputLabel, Typography } from "@mui/material";
+import { Modal, Fade, Backdrop, InputLabel } from "@mui/material";
 import CameraAltIcon from "@mui/icons-material/CameraAlt";
 import clx from "classnames";
 import { useImageSelectorStyles } from "./styles";
 import { GqlMediaLibrarySelectorProps } from "./types";
 import { GqlMediaLibrary } from "../GqlMediaLibrary";
 import { getSizeVariants } from "../../helpers/size";
-import { getFeedbackVariant } from "../../helpers/io";
+import { displayFeedback } from "../../helpers/io";
 
 export const GqlMediaLibrarySelector: FC<GqlMediaLibrarySelectorProps> = ({
   displayLibrary = false,
@@ -19,6 +19,7 @@ export const GqlMediaLibrarySelector: FC<GqlMediaLibrarySelectorProps> = ({
   onChange,
   name,
   label,
+  labelClassName,
   value,
   feedback,
   error,
@@ -49,7 +50,7 @@ export const GqlMediaLibrarySelector: FC<GqlMediaLibrarySelectorProps> = ({
   return (
     <div className={clx(classes.root, className)}>
       {label && (
-        <InputLabel className={classes.label} htmlFor={name as string}>
+        <InputLabel className={clx(classes.label, labelClassName)} htmlFor={name as string}>
           {label}
         </InputLabel>
       )}
@@ -97,16 +98,7 @@ export const GqlMediaLibrarySelector: FC<GqlMediaLibrarySelectorProps> = ({
           onClick={handleOpen}
         />
       </div>
-      {feedback && (
-        <Typography
-          className={clx(
-            classes.feedback,
-            getFeedbackVariant(classes, feedback),
-          )}
-        >
-          {feedback.text}
-        </Typography>
-      )}
+      {feedback && displayFeedback(feedback)}
     </div>
   );
 };

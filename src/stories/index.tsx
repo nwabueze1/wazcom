@@ -42,6 +42,7 @@ import {
 import { ComponentPropType } from "./types";
 
 import { data } from "./data";
+import { VisibilityOff } from "@mui/icons-material";
 
 export const stories: ComponentPropType[] = [
   {
@@ -57,7 +58,16 @@ export const stories: ComponentPropType[] = [
       multiline: true,
       minRows: 5,
       feedback: {
-        text: "no, this is not you",
+        text: (
+          <div style={{ display: "flex", flexDirection: "column" }}>
+            <p key={1} style={{ color: "blue" }}>
+              Olamileke is a boy
+            </p>
+            <p key={2} style={{ color: "blue" }}>
+              Olamileke is a boy
+            </p>
+          </div>
+        ),
         status: "error",
       },
       error: true,
@@ -143,6 +153,7 @@ export const stories: ComponentPropType[] = [
     props: {
       title: "Wazcom Accordion",
       children: "This is an example Wazcom Accordion",
+      defaultExpanded: true,
     },
   },
   {
@@ -222,6 +233,8 @@ export const stories: ComponentPropType[] = [
         text: "Rebuilt successfully",
         status: "success",
       },
+      type: "password",
+      icon: <VisibilityOff />
     },
   },
   {
@@ -266,7 +279,9 @@ export const stories: ComponentPropType[] = [
     component: ToggleInput,
     props: {
       label: "leke",
-      helperText: "aoaala",
+      feedback: {
+        text: <p style={{ color: "green" }}>olamileke</p>
+      },
     },
   },
   {

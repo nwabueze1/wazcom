@@ -21,13 +21,12 @@ var __rest = (this && this.__rest) || function (s, e) {
     return t;
 };
 import { jsx as _jsx, jsxs as _jsxs } from "react/jsx-runtime";
-import { OutlinedInput, InputLabel } from "@mui/material";
+import { OutlinedInput, InputLabel, InputAdornment, IconButton, } from "@mui/material";
 import { useTextStyles } from "./styles";
-import Typography from "@mui/material/Typography";
-import clx from 'classnames';
-import { getFeedbackVariant } from "../../helpers/io";
+import clx from "classnames";
+import { displayFeedback } from "../../helpers/io";
 export var TextInput = function (_a) {
-    var className = _a.className, label = _a.label, feedback = _a.feedback, props = __rest(_a, ["className", "label", "feedback"]);
+    var className = _a.className, label = _a.label, labelClassName = _a.labelClassName, feedback = _a.feedback, icon = _a.icon, props = __rest(_a, ["className", "label", "labelClassName", "feedback", "icon"]);
     var classes = useTextStyles();
-    return (_jsxs("div", __assign({ className: clx(classes.root, className) }, { children: [label && (_jsx(InputLabel, __assign({ className: classes.label, htmlFor: props.name }, { children: label }), void 0)), _jsx(OutlinedInput, __assign({}, props), void 0), feedback && _jsx(Typography, __assign({ className: clx(classes.feedback, getFeedbackVariant(classes, feedback)) }, { children: feedback.text }), void 0)] }), void 0));
+    return (_jsxs("div", __assign({ className: clx(classes.root, className) }, { children: [label && (_jsx(InputLabel, __assign({ className: clx(classes.label, labelClassName), htmlFor: props.name }, { children: label }), void 0)), _jsx(OutlinedInput, __assign({}, props, { endAdornment: _jsx(InputAdornment, __assign({ position: "end" }, { children: _jsx(IconButton, __assign({ "aria-label": "toggle password visibility", edge: "end" }, { children: icon }), void 0) }), void 0) }), void 0), feedback && displayFeedback(feedback)] }), void 0));
 };

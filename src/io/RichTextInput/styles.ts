@@ -14,16 +14,4 @@ export const useRichInputStyles = makeStyles((theme: Theme) => ({
   editorError: {
     border: "1px solid red",
   },
-  feedback: {
-    marginTop: 16,
-  },
-  feedbackSuccess: {
-    color: "green",
-  },
-  feedbackError: {
-    color: "red",
-  },
-  feedbackNeutral: {
-    color: "black",
-  },
 }));

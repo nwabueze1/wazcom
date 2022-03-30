@@ -16,16 +16,4 @@ export var useSelectStyles = makeStyles(function (theme) { return ({
         width: "100%",
         padding: theme.spacing(0.5, 2),
     },
-    feedback: {
-        marginTop: 16,
-    },
-    feedbackSuccess: {
-        color: "green",
-    },
-    feedbackError: {
-        color: "red",
-    },
-    feedbackNeutral: {
-        color: "black",
-    },
 }); });

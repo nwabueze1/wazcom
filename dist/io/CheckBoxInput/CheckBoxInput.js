@@ -9,9 +9,16 @@ var __assign = (this && this.__assign) || function () {
     };
     return __assign.apply(this, arguments);
 };
-import { jsx as _jsx } from "react/jsx-runtime";
-import Checkbox from "@mui/material/Checkbox";
+import { jsx as _jsx, jsxs as _jsxs } from "react/jsx-runtime";
+import { InputLabel, Checkbox } from "@mui/material";
+import clx from "classnames";
+import { useCheckboxInputStyles } from "./styles";
+import { displayFeedback } from "../../helpers/io";
 export var CheckBoxInput = function (_a) {
-    var className = _a.className, label = _a.label, checked = _a.checked, handleCheckChange = _a.handleCheckChange;
-    return (_jsx("div", __assign({ className: className }, { children: _jsx(Checkbox, { checked: checked, onChange: handleCheckChange, inputProps: { "aria-label": label } }, void 0) }), void 0));
+    var name = _a.name, className = _a.className, label = _a.label, labelClassName = _a.labelClassName, value = _a.value, feedback = _a.feedback, onChange = _a.onChange;
+    var classes = useCheckboxInputStyles();
+    var handleChange = function (event) {
+        onChange === null || onChange === void 0 ? void 0 : onChange({ name: name, value: event.target.checked });
+    };
+    return (_jsxs("div", __assign({ className: clx(classes.root, className) }, { children: [label && (_jsx(InputLabel, __assign({ className: clx(classes.label, labelClassName), htmlFor: name }, { children: label }), void 0)), _jsx(Checkbox, { checked: value, onChange: handleChange, inputProps: { "aria-label": label } }, void 0), feedback && displayFeedback(feedback)] }), void 0));
 };

@@ -1,15 +1,16 @@
 import React, { FC } from "react";
-import { MenuItem, Select, InputLabel, Typography } from "@mui/material";
+import { MenuItem, Select, InputLabel } from "@mui/material";
 import { useSelectStyles } from "./styles";
 import { SelectInputProps } from "./types";
 import clx from "classnames";
-import { getFeedbackVariant } from "../../helpers/io";
+import { displayFeedback } from "../../helpers/io";
 
 export const SelectInput: FC<SelectInputProps> = ({
   className,
   options = [],
   placeholder = "Select a value",
   label,
+  labelClassName,
   onChange,
   feedback,
   ...props
@@ -28,7 +29,7 @@ export const SelectInput: FC<SelectInputProps> = ({
   return (
     <div className={clx(classes.root, className)}>
       {label && (
-        <InputLabel className={classes.label} htmlFor={props.name}>
+        <InputLabel className={clx(classes.label, labelClassName)} htmlFor={props.name}>
           {label}
         </InputLabel>
       )}
@@ -42,16 +43,7 @@ export const SelectInput: FC<SelectInputProps> = ({
           </MenuItem>
         ))}
       </Select>
-      {feedback && (
-        <Typography
-          className={clx(
-            classes.feedback,
-            getFeedbackVariant(classes, feedback),
-          )}
-        >
-          {feedback.text}
-        </Typography>
-      )}
+      {feedback && displayFeedback(feedback)}
     </div>
   );
 };
