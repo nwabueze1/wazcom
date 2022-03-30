@@ -27,10 +27,10 @@ import { useTextAreaStyles } from "./styles";
 import clx from "classnames";
 import { displayFeedback } from "../../helpers/io";
 export var TextArea = function (_a) {
-    var name = _a.name, className = _a.className, label = _a.label, labelClassName = _a.labelClassName, value = _a.value, onChange = _a.onChange, minRows = _a.minRows, feedback = _a.feedback, error = _a.error, props = __rest(_a, ["name", "className", "label", "labelClassName", "value", "onChange", "minRows", "feedback", "error"]);
+    var name = _a.name, className = _a.className, classNames = _a.classNames, label = _a.label, value = _a.value, onChange = _a.onChange, minRows = _a.minRows, feedback = _a.feedback, error = _a.error, props = __rest(_a, ["name", "className", "classNames", "label", "value", "onChange", "minRows", "feedback", "error"]);
     var classes = useTextAreaStyles();
     var handleChange = function (e) {
         onChange === null || onChange === void 0 ? void 0 : onChange({ name: name !== null && name !== void 0 ? name : "", value: e.target.value });
     };
-    return (_jsxs("div", __assign({ className: clx(classes.root, className) }, { children: [label && (_jsx(InputLabel, __assign({ className: clx(classes.label, labelClassName), htmlFor: name !== null && name !== void 0 ? name : "" }, { children: label }), void 0)), _jsx(TextareaAutosize, __assign({ minRows: minRows !== null && minRows !== void 0 ? minRows : 5, className: clx(classes.textarea, error && classes.error), name: name, value: value, onChange: handleChange }, props), void 0), feedback && displayFeedback(feedback)] }), void 0));
+    return (_jsxs("div", __assign({ className: clx(classes.root, className) }, { children: [label && (_jsx(InputLabel, __assign({ className: clx(classes.label, classNames === null || classNames === void 0 ? void 0 : classNames.label), htmlFor: name !== null && name !== void 0 ? name : "" }, { children: label }), void 0)), _jsx(TextareaAutosize, __assign({ minRows: minRows !== null && minRows !== void 0 ? minRows : 5, name: name, value: value, onChange: handleChange }, props, { className: clx(classes.textarea, error && classes.error, (classNames === null || classNames === void 0 ? void 0 : classNames.textArea) ? classNames.textArea : "") }), void 0), feedback && displayFeedback(feedback)] }), void 0));
 };

@@ -34,7 +34,7 @@ import clx from 'classnames';
 import { displayFeedback } from "../../helpers/io";
 var filter = createFilterOptions();
 export var ComboBoxInput = function (_a) {
-    var name = _a.name, onChange = _a.onChange, initialOptions = _a.options, label = _a.label, labelClassName = _a.labelClassName, value = _a.value, error = _a.error, placeholder = _a.placeholder, feedback = _a.feedback, className = _a.className;
+    var name = _a.name, onChange = _a.onChange, initialOptions = _a.options, label = _a.label, classNames = _a.classNames, value = _a.value, error = _a.error, placeholder = _a.placeholder, feedback = _a.feedback, className = _a.className;
     var classes = useComboBoxStyles();
     var _b = __read(useState(initialOptions), 2), options = _b[0], setOptions = _b[1];
     useEffect(function () {
@@ -67,10 +67,12 @@ export var ComboBoxInput = function (_a) {
             return { label: label, value: value };
         return { label: "", value: "" };
     }, [options, value]);
-    return (_jsxs("div", __assign({ className: clx(classes.root, className) }, { children: [label && (_jsx(InputLabel, __assign({ className: clx(classes.label, labelClassName), htmlFor: name }, { children: label }), void 0)), _jsx(Autocomplete, { options: options !== null && options !== void 0 ? options : [], getOptionLabel: function (option) {
+    return (_jsxs("div", __assign({ className: clx(classes.root, className) }, { children: [label && (_jsx(InputLabel, __assign({ className: clx(classes.label, classNames === null || classNames === void 0 ? void 0 : classNames.label), htmlFor: name }, { children: label }), void 0)), _jsx(Autocomplete, { options: options !== null && options !== void 0 ? options : [], getOptionLabel: function (option) {
                     var _a;
                     return (_a = option === null || option === void 0 ? void 0 : option.label) !== null && _a !== void 0 ? _a : "";
                 }, value: getValue(), onChange: function (_, selectedOption) {
                     handleChange(selectedOption);
-                }, filterOptions: handleFilterOptions, freeSolo: true, renderInput: function (params) { return (_jsx(TextField, __assign({}, params, { label: label, placeholder: placeholder, variant: "outlined", error: error }), void 0)); } }, void 0), feedback && displayFeedback(feedback)] }), void 0));
+                }, filterOptions: handleFilterOptions, freeSolo: true, renderInput: function (params) { return (_jsx(TextField, __assign({}, params, { label: label, placeholder: placeholder, variant: "outlined", error: error }), void 0)); }, className: (classNames === null || classNames === void 0 ? void 0 : classNames.comboBoxInput) ? classNames.comboBoxInput : "", classes: (classNames === null || classNames === void 0 ? void 0 : classNames.classes)
+                    ? classNames.classes
+                    : {} }, void 0), feedback && displayFeedback(feedback)] }), void 0));
 };

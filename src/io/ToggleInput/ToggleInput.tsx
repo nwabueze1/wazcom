@@ -8,11 +8,11 @@ import { displayFeedback } from "../../helpers/io";
 export const ToggleInput: React.FC<ToggleInputProps> = ({
   name,
   label,
-  labelClassName,
   value,
   feedback,
   onChange,
   className,
+  classNames,
   ...props
 }) => {
   const classes = useToggleStyles();
@@ -23,14 +23,26 @@ export const ToggleInput: React.FC<ToggleInputProps> = ({
 
   return (
     <div className={clx(classes.root, className)}>
-      {label && <FormLabel className={clx(classes.label, labelClassName)}>{label}</FormLabel>}
+      {label && (
+        <FormLabel className={clx(classes.label, classNames?.label)}>
+          {label}
+        </FormLabel>
+      )}
       <Switch
-        className={classes.toggle}
         name={name}
         checked={value}
         onChange={(_, checked) => {
           handleChange(checked);
         }}
+        className={clx(
+          classes.toggle,
+          classNames?.toggleInput ? (classNames.toggleInput as string) : "",
+        )}
+        classes={
+          classNames?.classes
+            ? (classNames.classes as { [key: string]: string })
+            : {}
+        }
         {...props}
       />
       {feedback && displayFeedback(feedback)}

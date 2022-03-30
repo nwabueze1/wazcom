@@ -26,7 +26,9 @@ import { useTextStyles } from "./styles";
 import clx from "classnames";
 import { displayFeedback } from "../../helpers/io";
 export var TextInput = function (_a) {
-    var className = _a.className, label = _a.label, labelClassName = _a.labelClassName, feedback = _a.feedback, icon = _a.icon, props = __rest(_a, ["className", "label", "labelClassName", "feedback", "icon"]);
+    var className = _a.className, classNames = _a.classNames, label = _a.label, feedback = _a.feedback, icon = _a.icon, props = __rest(_a, ["className", "classNames", "label", "feedback", "icon"]);
     var classes = useTextStyles();
-    return (_jsxs("div", __assign({ className: clx(classes.root, className) }, { children: [label && (_jsx(InputLabel, __assign({ className: clx(classes.label, labelClassName), htmlFor: props.name }, { children: label }), void 0)), _jsx(OutlinedInput, __assign({}, props, { endAdornment: _jsx(InputAdornment, __assign({ position: "end" }, { children: _jsx(IconButton, __assign({ "aria-label": "toggle password visibility", edge: "end" }, { children: icon }), void 0) }), void 0) }), void 0), feedback && displayFeedback(feedback)] }), void 0));
+    return (_jsxs("div", __assign({ className: clx(classes.root, className) }, { children: [label && (_jsx(InputLabel, __assign({ className: clx(classes.label, classNames === null || classNames === void 0 ? void 0 : classNames.label), htmlFor: props.name }, { children: label }), void 0)), _jsx(OutlinedInput, __assign({}, props, { endAdornment: _jsx(InputAdornment, __assign({ position: "end" }, { children: _jsx(IconButton, __assign({ "aria-label": "toggle password visibility", edge: "end" }, { children: icon }), void 0) }), void 0), className: (classNames === null || classNames === void 0 ? void 0 : classNames.textInput) ? classNames.textInput : "", classes: (classNames === null || classNames === void 0 ? void 0 : classNames.classes)
+                    ? classNames.classes
+                    : {} }), void 0), feedback && displayFeedback(feedback)] }), void 0));
 };

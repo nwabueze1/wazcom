@@ -9,8 +9,8 @@ import { displayFeedback } from "../../helpers/io";
 export const TextArea: FC<TextAreaProps> = ({
   name,
   className,
+  classNames,
   label,
-  labelClassName,
   value,
   onChange,
   minRows,
@@ -27,17 +27,24 @@ export const TextArea: FC<TextAreaProps> = ({
   return (
     <div className={clx(classes.root, className)}>
       {label && (
-        <InputLabel className={clx(classes.label, labelClassName)} htmlFor={name ?? ""}>
+        <InputLabel
+          className={clx(classes.label, classNames?.label)}
+          htmlFor={name ?? ""}
+        >
           {label}
         </InputLabel>
       )}
       <TextareaAutosize
         minRows={minRows ?? 5}
-        className={clx(classes.textarea, error && classes.error)}
         name={name}
         value={value}
         onChange={handleChange}
         {...props}
+        className={clx(
+          classes.textarea,
+          error && classes.error,
+          classNames?.textArea ? (classNames.textArea as string) : "",
+        )}
       />
       {feedback && displayFeedback(feedback)}
     </div>

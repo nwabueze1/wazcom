@@ -13,7 +13,7 @@ export const ComboBoxInput: FC<ComboBoxInputProps> = ({
   onChange,
   options: initialOptions,
   label,
-  labelClassName,
+  classNames,
   value,
   error,
   placeholder,
@@ -66,7 +66,10 @@ export const ComboBoxInput: FC<ComboBoxInputProps> = ({
   return (
     <div className={clx(classes.root, className)}>
       {label && (
-        <InputLabel className={clx(classes.label, labelClassName)} htmlFor={name}>
+        <InputLabel
+          className={clx(classes.label, classNames?.label)}
+          htmlFor={name}
+        >
           {label}
         </InputLabel>
       )}
@@ -90,6 +93,12 @@ export const ComboBoxInput: FC<ComboBoxInputProps> = ({
             error={error}
           />
         )}
+        className={classNames?.comboBoxInput ? (classNames.comboBoxInput as string) : ""}
+        classes={
+          classNames?.classes
+            ? (classNames.classes as { [key: string]: string })
+            : {}
+        }
       />
       {feedback && displayFeedback(feedback)}
     </div>

@@ -46,7 +46,7 @@ import { GqlMediaLibrary } from "../GqlMediaLibrary";
 import { getSizeVariants } from "../../helpers/size";
 import { displayFeedback } from "../../helpers/io";
 export var GqlMediaLibrarySelector = function (_a) {
-    var _b = _a.displayLibrary, displayLibrary = _b === void 0 ? false : _b, _c = _a.variant, variant = _c === void 0 ? "square" : _c, _d = _a.size, size = _d === void 0 ? "full" : _d, verbose = _a.verbose, width = _a.width, height = _a.height, className = _a.className, onChange = _a.onChange, name = _a.name, label = _a.label, labelClassName = _a.labelClassName, value = _a.value, feedback = _a.feedback, error = _a.error, props = __rest(_a, ["displayLibrary", "variant", "size", "verbose", "width", "height", "className", "onChange", "name", "label", "labelClassName", "value", "feedback", "error"]);
+    var _b = _a.displayLibrary, displayLibrary = _b === void 0 ? false : _b, _c = _a.variant, variant = _c === void 0 ? "square" : _c, _d = _a.size, size = _d === void 0 ? "full" : _d, verbose = _a.verbose, width = _a.width, height = _a.height, className = _a.className, classNames = _a.classNames, onChange = _a.onChange, name = _a.name, label = _a.label, value = _a.value, feedback = _a.feedback, error = _a.error, props = __rest(_a, ["displayLibrary", "variant", "size", "verbose", "width", "height", "className", "classNames", "onChange", "name", "label", "value", "feedback", "error"]);
     var classes = useImageSelectorStyles();
     var _e = __read(useState(false), 2), setShowIcon = _e[1];
     var _f = __read(useState(value || ""), 2), placeholder = _f[0], setPlaceholder = _f[1];
@@ -64,7 +64,7 @@ export var GqlMediaLibrarySelector = function (_a) {
         onChange === null || onChange === void 0 ? void 0 : onChange({ name: name !== null && name !== void 0 ? name : "image", value: verbose ? value : value.url });
     };
     var variants = getSizeVariants(classes, size);
-    return (_jsxs("div", __assign({ className: clx(classes.root, className) }, { children: [label && (_jsx(InputLabel, __assign({ className: clx(classes.label, labelClassName), htmlFor: name }, { children: label }), void 0)), _jsxs("div", __assign({ className: clx(classes.container, variant === "circle" && classes.circle, variants[0], error && classes.error), style: { backgroundImage: "url(".concat(placeholder, ")"), width: width, height: height }, onMouseEnter: function () { return setShowIcon(true); }, onMouseLeave: function () { return setShowIcon(false); }, onClick: function () {
+    return (_jsxs("div", __assign({ className: clx(classes.root, className) }, { children: [label && (_jsx(InputLabel, __assign({ className: clx(classes.label, classNames === null || classNames === void 0 ? void 0 : classNames.label), htmlFor: name }, { children: label }), void 0)), _jsxs("div", __assign({ className: clx(classes.container, variant === "circle" && classes.circle, variants[0], error && classes.error), style: { backgroundImage: "url(".concat(placeholder, ")"), width: width, height: height }, onMouseEnter: function () { return setShowIcon(true); }, onMouseLeave: function () { return setShowIcon(false); }, onClick: function () {
                     if (displayLibrary)
                         return;
                     handleOpen();

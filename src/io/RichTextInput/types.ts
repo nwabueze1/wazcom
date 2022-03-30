@@ -1,9 +1,7 @@
 import { CommonProps } from "../../types";
-import { Feedback } from "../../helpers/io";
 
 export type RichTextInputProps = CommonProps & {
   label?: string;
-  labelClassName?: string;
   apiKey: string;
   value: string;
   upload?: (
@@ -12,5 +10,4 @@ export type RichTextInputProps = CommonProps & {
   ) => void;
   Loader?: JSX.Element;
   error?: boolean;
-  feedback?: Feedback;
 };
