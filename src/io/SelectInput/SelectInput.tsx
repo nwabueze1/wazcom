@@ -27,10 +27,10 @@ export const SelectInput: FC<SelectInputProps> = ({
   };
 
   return (
-    <div className={clx(classes.root, className)}>
+    <div className={clx(className, classes.root)}>
       {label && (
         <InputLabel
-          className={clx(classes.label, classNames?.label)}
+          className={clx(classNames?.label, classes.label)}
           htmlFor={props.name}
         >
           {label}
@@ -40,8 +40,8 @@ export const SelectInput: FC<SelectInputProps> = ({
         {...props}
         onChange={handleChange}
         className={clx(
+          classNames?.selectInput,
           classes.select,
-          classNames?.selectInput ? (classNames.selectInput as string) : "",
         )}
         classes={
           classNames?.classes

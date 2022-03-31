@@ -31,9 +31,9 @@ export var ToggleInput = function (_a) {
     var handleChange = function (checked) {
         onChange === null || onChange === void 0 ? void 0 : onChange({ name: name, value: checked });
     };
-    return (_jsxs("div", __assign({ className: clx(classes.root, className) }, { children: [label && (_jsx(FormLabel, __assign({ className: clx(classes.label, classNames === null || classNames === void 0 ? void 0 : classNames.label) }, { children: label }), void 0)), _jsx(Switch, __assign({ name: name, checked: value, onChange: function (_, checked) {
+    return (_jsxs("div", __assign({ className: clx(className, classes.root) }, { children: [label && (_jsx(FormLabel, __assign({ className: clx(classNames === null || classNames === void 0 ? void 0 : classNames.label, classes.label) }, { children: label }), void 0)), _jsx(Switch, __assign({ name: name, checked: value, onChange: function (_, checked) {
                     handleChange(checked);
-                }, className: clx(classes.toggle, (classNames === null || classNames === void 0 ? void 0 : classNames.toggleInput) ? classNames.toggleInput : ""), classes: (classNames === null || classNames === void 0 ? void 0 : classNames.classes)
+                }, className: clx(classNames === null || classNames === void 0 ? void 0 : classNames.toggleInput, classes.toggle), classes: (classNames === null || classNames === void 0 ? void 0 : classNames.classes)
                     ? classNames.classes
                     : {} }, props), void 0), feedback && displayFeedback(feedback)] }), void 0));
 };

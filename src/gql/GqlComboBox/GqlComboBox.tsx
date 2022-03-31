@@ -4,7 +4,6 @@ import { useGqlComboBoxStyles } from "./styles";
 import { GqlComboBoxProps } from "./types";
 import { ComboBoxInput, ComboBoxInputOptionProps } from "../../io";
 import { get } from "lodash";
-import clx from "classnames";
 
 export const GqlComboBox: FC<GqlComboBoxProps> = memo(
   ({
@@ -14,7 +13,6 @@ export const GqlComboBox: FC<GqlComboBoxProps> = memo(
     addOption,
     onChange,
     variables,
-    className,
     classNames,
     ...props
   }) => {
@@ -102,17 +100,15 @@ export const GqlComboBox: FC<GqlComboBoxProps> = memo(
     }
 
     return (
-      <div className={clx(classes.root, className)}>
-        <ComboBoxInput
-          options={options}
-          value={value ?? ""}
-          onChange={({ value }) => {
-            handleChange(value);
-          }}
-          classNames={{ ...classNames, comboBoxInput: classNames?.gqlComboBox }}
-          {...props}
-        />
-      </div>
+      <ComboBoxInput
+        options={options}
+        value={value ?? ""}
+        onChange={({ value }) => {
+          handleChange(value);
+        }}
+        classNames={{ ...classNames, comboBoxInput: classNames?.gqlComboBox }}
+        {...props}
+      />
     );
   },
 );

@@ -21,10 +21,10 @@ export const TextInput: FC<TextInputProps> = ({
   const classes = useTextStyles();
 
   return (
-    <div className={clx(classes.root, className)}>
+    <div className={clx(className, classes.root)}>
       {label && (
         <InputLabel
-          className={clx(classes.label, classNames?.label)}
+          className={clx(classNames?.label, classes.label)}
           htmlFor={props.name}
         >
           {label}

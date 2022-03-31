@@ -48,9 +48,12 @@ export const GqlMediaLibrarySelector: FC<GqlMediaLibrarySelectorProps> = ({
   const variants = getSizeVariants(classes, size);
 
   return (
-    <div className={clx(classes.root, className)}>
+    <div className={clx(className, classes.root)}>
       {label && (
-        <InputLabel className={clx(classes.label, classNames?.label)} htmlFor={name as string}>
+        <InputLabel
+          className={clx(classNames?.label, classes.label)}
+          htmlFor={name as string}
+        >
           {label}
         </InputLabel>
       )}

@@ -67,7 +67,7 @@ export var ComboBoxInput = function (_a) {
             return { label: label, value: value };
         return { label: "", value: "" };
     }, [options, value]);
-    return (_jsxs("div", __assign({ className: clx(classes.root, className) }, { children: [label && (_jsx(InputLabel, __assign({ className: clx(classes.label, classNames === null || classNames === void 0 ? void 0 : classNames.label), htmlFor: name }, { children: label }), void 0)), _jsx(Autocomplete, { options: options !== null && options !== void 0 ? options : [], getOptionLabel: function (option) {
+    return (_jsxs("div", __assign({ className: clx(className, classes.root) }, { children: [label && (_jsx(InputLabel, __assign({ className: clx(classNames === null || classNames === void 0 ? void 0 : classNames.label, classes.label), htmlFor: name }, { children: label }), void 0)), _jsx(Autocomplete, { options: options !== null && options !== void 0 ? options : [], getOptionLabel: function (option) {
                     var _a;
                     return (_a = option === null || option === void 0 ? void 0 : option.label) !== null && _a !== void 0 ? _a : "";
                 }, value: getValue(), onChange: function (_, selectedOption) {

@@ -50,7 +50,7 @@ export var RichTextInput = function (_a) {
     var handleContentChange = function (content) {
         onChange === null || onChange === void 0 ? void 0 : onChange({ name: name, value: content });
     };
-    return (_jsxs("div", __assign({ className: clx(classes.root, className) }, { children: [label && (_jsx(InputLabel, __assign({ className: clx(classes.label, classNames === null || classNames === void 0 ? void 0 : classNames.label), htmlFor: name }, { children: label }), void 0)), _jsx("div", __assign({ className: clx(classes.editor, (classNames === null || classNames === void 0 ? void 0 : classNames.richTextInput) ? classNames.richTextInput : "", error && classes.editorError) }, { children: _jsx(Editor, { value: value, apiKey: apiKey, init: {
+    return (_jsxs("div", __assign({ className: clx(className, classes.root) }, { children: [label && (_jsx(InputLabel, __assign({ className: clx(classNames === null || classNames === void 0 ? void 0 : classNames.label, classes.label), htmlFor: name }, { children: label }), void 0)), _jsx("div", __assign({ className: clx(classNames === null || classNames === void 0 ? void 0 : classNames.richTextInput, classes.editor, error && classes.editorError) }, { children: _jsx(Editor, { value: value, apiKey: apiKey, init: {
                         height: 500,
                         menubar: true,
                         image_title: true,
