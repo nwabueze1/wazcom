@@ -44,13 +44,14 @@ var toolbar = [
     bullist numlist outdent indent | help",
 ];
 export var RichTextInput = function (_a) {
+    var _b;
     var name = _a.name, className = _a.className, classNames = _a.classNames, label = _a.label, apiKey = _a.apiKey, value = _a.value, upload = _a.upload, onChange = _a.onChange, error = _a.error, feedback = _a.feedback, Loader = _a.Loader;
     var classes = useRichInputStyles();
-    var _b = __read(React.useState(false), 2), loading = _b[0], setLoading = _b[1];
+    var _c = __read(React.useState(false), 2), loading = _c[0], setLoading = _c[1];
     var handleContentChange = function (content) {
         onChange === null || onChange === void 0 ? void 0 : onChange({ name: name, value: content });
     };
-    return (_jsxs("div", __assign({ className: clx(className, classes.root) }, { children: [label && (_jsx(InputLabel, __assign({ className: clx(classNames === null || classNames === void 0 ? void 0 : classNames.label, classes.label), htmlFor: name }, { children: label }), void 0)), _jsx("div", __assign({ className: clx(classNames === null || classNames === void 0 ? void 0 : classNames.richTextInput, classes.editor, error && classes.editorError) }, { children: _jsx(Editor, { value: value, apiKey: apiKey, init: {
+    return (_jsxs("div", __assign({ className: clx(className, classes.root) }, { children: [label && (_jsx(InputLabel, __assign({ className: (_b = classNames === null || classNames === void 0 ? void 0 : classNames.label) !== null && _b !== void 0 ? _b : "", htmlFor: name }, { children: label }), void 0)), _jsx("div", __assign({ className: clx(classNames === null || classNames === void 0 ? void 0 : classNames.richTextInput, classes.editor, error && classes.editorError) }, { children: _jsx(Editor, { value: value, apiKey: apiKey, init: {
                         height: 500,
                         menubar: true,
                         image_title: true,

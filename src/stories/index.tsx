@@ -43,6 +43,7 @@ import { ComponentPropType } from "./types";
 
 import { data } from "./data";
 import { VisibilityOff } from "@mui/icons-material";
+import { useLabelStyles } from "helpers/styles";
 
 export const stories: ComponentPropType[] = [
   {
@@ -229,6 +230,7 @@ export const stories: ComponentPropType[] = [
     name: "text",
     component: TextInput,
     props: {
+      label: "Olamileke",
       feedback: {
         text: "Rebuilt successfully",
         status: "success",

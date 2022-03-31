@@ -7,10 +7,6 @@ export const useComboBoxStyles = makeStyles((theme: Theme) => ({
     flexDirection: "column",
     marginBottom: theme.spacing(2),
   },
-  label: {
-    marginBottom: theme.spacing(1),
-    fontSize: "1rem",
-  },
   helperText: {
     marginTop: theme.spacing(2),
     fontSize: theme.typography.fontSize,

@@ -13,8 +13,4 @@ export var useTextAreaStyles = makeStyles(function (theme) { return ({
     error: {
         border: "1px solid ".concat(theme.design.colors.dangerColor100),
     },
-    label: {
-        marginBottom: theme.spacing(1),
-        fontSize: "1rem",
-    },
 }); });

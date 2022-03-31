@@ -24,7 +24,7 @@ export const CheckBoxInput: FC<CheckBoxInputProps> = ({
     <div className={clx(className, classes.root)}>
       {label && (
         <InputLabel
-          className={clx(classNames?.label, classes.label)}
+          className={(classNames?.label as string) ?? ""}
           htmlFor={name}
         >
           {label}

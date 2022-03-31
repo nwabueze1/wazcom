@@ -1,6 +1,6 @@
 import * as React from "react";
 import clx from "classnames";
-import { FormLabel, Switch } from "@mui/material";
+import { InputLabel, Switch } from "@mui/material";
 import { useToggleStyles } from "./styles";
 import { ToggleInputProps } from "./types";
 import { displayFeedback } from "../../helpers/io";
@@ -24,9 +24,9 @@ export const ToggleInput: React.FC<ToggleInputProps> = ({
   return (
     <div className={clx(className, classes.root)}>
       {label && (
-        <FormLabel className={clx(classNames?.label, classes.label)}>
+        <InputLabel className={classNames?.label as string ?? ""}>
           {label}
-        </FormLabel>
+        </InputLabel>
       )}
       <Switch
         name={name}

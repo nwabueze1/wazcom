@@ -51,7 +51,7 @@ export const GqlMediaLibrarySelector: FC<GqlMediaLibrarySelectorProps> = ({
     <div className={clx(className, classes.root)}>
       {label && (
         <InputLabel
-          className={clx(classNames?.label, classes.label)}
+          className={classNames?.label as string ?? ""}
           htmlFor={name as string}
         >
           {label}
