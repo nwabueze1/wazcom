@@ -26,12 +26,14 @@ import { FormLabel, Switch } from "@mui/material";
 import { useToggleStyles } from "./styles";
 import { displayFeedback } from "../../helpers/io";
 export var ToggleInput = function (_a) {
-    var name = _a.name, label = _a.label, labelClassName = _a.labelClassName, value = _a.value, feedback = _a.feedback, onChange = _a.onChange, className = _a.className, props = __rest(_a, ["name", "label", "labelClassName", "value", "feedback", "onChange", "className"]);
+    var name = _a.name, label = _a.label, value = _a.value, feedback = _a.feedback, onChange = _a.onChange, className = _a.className, classNames = _a.classNames, props = __rest(_a, ["name", "label", "value", "feedback", "onChange", "className", "classNames"]);
     var classes = useToggleStyles();
     var handleChange = function (checked) {
         onChange === null || onChange === void 0 ? void 0 : onChange({ name: name, value: checked });
     };
-    return (_jsxs("div", __assign({ className: clx(classes.root, className) }, { children: [label && _jsx(FormLabel, __assign({ className: clx(classes.label, labelClassName) }, { children: label }), void 0), _jsx(Switch, __assign({ className: classes.toggle, name: name, checked: value, onChange: function (_, checked) {
+    return (_jsxs("div", __assign({ className: clx(classes.root, className) }, { children: [label && (_jsx(FormLabel, __assign({ className: clx(classes.label, classNames === null || classNames === void 0 ? void 0 : classNames.label) }, { children: label }), void 0)), _jsx(Switch, __assign({ name: name, checked: value, onChange: function (_, checked) {
                     handleChange(checked);
-                } }, props), void 0), feedback && displayFeedback(feedback)] }), void 0));
+                }, className: clx(classes.toggle, (classNames === null || classNames === void 0 ? void 0 : classNames.toggleInput) ? classNames.toggleInput : ""), classes: (classNames === null || classNames === void 0 ? void 0 : classNames.classes)
+                    ? classNames.classes
+                    : {} }, props), void 0), feedback && displayFeedback(feedback)] }), void 0));
 };

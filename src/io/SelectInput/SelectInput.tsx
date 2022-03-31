@@ -7,10 +7,10 @@ import { displayFeedback } from "../../helpers/io";
 
 export const SelectInput: FC<SelectInputProps> = ({
   className,
+  classNames,
   options = [],
   placeholder = "Select a value",
   label,
-  labelClassName,
   onChange,
   feedback,
   ...props
@@ -29,11 +29,26 @@ export const SelectInput: FC<SelectInputProps> = ({
   return (
     <div className={clx(classes.root, className)}>
       {label && (
-        <InputLabel className={clx(classes.label, labelClassName)} htmlFor={props.name}>
+        <InputLabel
+          className={clx(classes.label, classNames?.label)}
+          htmlFor={props.name}
+        >
           {label}
         </InputLabel>
       )}
-      <Select className={classes.select} {...props} onChange={handleChange}>
+      <Select
+        {...props}
+        onChange={handleChange}
+        className={clx(
+          classes.select,
+          classNames?.selectInput ? (classNames.selectInput as string) : "",
+        )}
+        classes={
+          classNames?.classes
+            ? (classNames.classes as { [key: string]: string })
+            : {}
+        }
+      >
         {options.length === 0 && (
           <MenuItem value="Select a value">{placeholder}</MenuItem>
         )}

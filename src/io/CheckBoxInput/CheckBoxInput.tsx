@@ -8,8 +8,8 @@ import { displayFeedback } from "../../helpers/io";
 export const CheckBoxInput: FC<CheckBoxInputProps> = ({
   name,
   className,
+  classNames,
   label,
-  labelClassName,
   value,
   feedback,
   onChange,
@@ -24,7 +24,7 @@ export const CheckBoxInput: FC<CheckBoxInputProps> = ({
     <div className={clx(classes.root, className)}>
       {label && (
         <InputLabel
-          className={clx(classes.label, labelClassName)}
+          className={clx(classes.label, classNames?.label)}
           htmlFor={name}
         >
           {label}
@@ -34,6 +34,12 @@ export const CheckBoxInput: FC<CheckBoxInputProps> = ({
         checked={value}
         onChange={handleChange}
         inputProps={{ "aria-label": label }}
+        className={classNames?.checkBoxInput ? (classNames.checkBoxInput as string) : ""}
+        classes={
+          classNames?.classes
+            ? (classNames.classes as { [key: string]: string })
+            : {}
+        }
       />
       {feedback && displayFeedback(feedback)}
     </div>

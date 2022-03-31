@@ -12,8 +12,8 @@ import { displayFeedback } from "../../helpers/io";
 
 export const TextInput: FC<TextInputProps> = ({
   className,
+  classNames,
   label,
-  labelClassName,
   feedback,
   icon,
   ...props
@@ -24,7 +24,7 @@ export const TextInput: FC<TextInputProps> = ({
     <div className={clx(classes.root, className)}>
       {label && (
         <InputLabel
-          className={clx(classes.label, labelClassName)}
+          className={clx(classes.label, classNames?.label)}
           htmlFor={props.name}
         >
           {label}
@@ -38,6 +38,14 @@ export const TextInput: FC<TextInputProps> = ({
               {icon}
             </IconButton>
           </InputAdornment>
+        }
+        className={
+          classNames?.textInput ? (classNames.textInput as string) : ""
+        }
+        classes={
+          classNames?.classes
+            ? (classNames.classes as { [key: string]: string })
+            : {}
         }
       />
       {feedback && displayFeedback(feedback)}

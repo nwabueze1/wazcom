@@ -1,1 +1,1 @@
-export declare const useTextAreaStyles: (props?: any) => import("@mui/styles").ClassNameMap<"root" | "textarea" | "label" | "error">;
+export declare const useTextAreaStyles: (props?: any) => import("@mui/styles").ClassNameMap<"root" | "textarea" | "error" | "label">;

@@ -22,31 +22,40 @@ const toolbar = [
 export const RichTextInput: React.FC<RichTextInputProps> = ({
   name,
   className,
+  classNames,
   label,
-  labelClassName,
   apiKey,
   value,
   upload,
   onChange,
   error,
   feedback,
-  Loader
+  Loader,
 }) => {
   const classes = useRichInputStyles();
   const [loading, setLoading] = React.useState<boolean>(false);
 
-  const handleContentChange = (content:string) => {
-    onChange?.({ name: name as string, value: content })
-  }
+  const handleContentChange = (content: string) => {
+    onChange?.({ name: name as string, value: content });
+  };
 
   return (
     <div className={clx(classes.root, className)}>
       {label && (
-        <InputLabel className={clx(classes.label, labelClassName)} htmlFor={name}>
+        <InputLabel
+          className={clx(classes.label, classNames?.label)}
+          htmlFor={name}
+        >
           {label}
         </InputLabel>
       )}
-      <div className={clx(classes.editor, error && classes.editorError)}>
+      <div
+        className={clx(
+          classes.editor,
+          classNames?.richTextInput ? (classNames.richTextInput as string) : "",
+          error && classes.editorError,
+        )}
+      >
         <Editor
           value={value}
           apiKey={apiKey}
