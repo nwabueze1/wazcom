@@ -5,9 +5,6 @@ export var useToggleStyles = makeStyles(function (theme) { return ({
         flexDirection: "column",
         justifyContent: "space-between",
     },
-    label: {
-        fontSize: "1rem",
-    },
     addon: {
         width: "30%",
         background: "#EFEDED",

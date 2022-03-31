@@ -15,8 +15,4 @@ export const useTextAreaStyles = makeStyles((theme: Theme) => ({
   error: {
     border: `1px solid ${theme.design.colors.dangerColor100}`,
   },
-  label: {
-    marginBottom: theme.spacing(1),
-    fontSize: "1rem",
-  },
 }));

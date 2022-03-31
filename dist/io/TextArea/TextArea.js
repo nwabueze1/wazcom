@@ -27,10 +27,11 @@ import { useTextAreaStyles } from "./styles";
 import clx from "classnames";
 import { displayFeedback } from "../../helpers/io";
 export var TextArea = function (_a) {
+    var _b;
     var name = _a.name, className = _a.className, classNames = _a.classNames, label = _a.label, value = _a.value, onChange = _a.onChange, minRows = _a.minRows, feedback = _a.feedback, error = _a.error, props = __rest(_a, ["name", "className", "classNames", "label", "value", "onChange", "minRows", "feedback", "error"]);
     var classes = useTextAreaStyles();
     var handleChange = function (e) {
         onChange === null || onChange === void 0 ? void 0 : onChange({ name: name !== null && name !== void 0 ? name : "", value: e.target.value });
     };
-    return (_jsxs("div", __assign({ className: clx(className, classes.root) }, { children: [label && (_jsx(InputLabel, __assign({ className: clx(classNames === null || classNames === void 0 ? void 0 : classNames.label, classes.label), htmlFor: name !== null && name !== void 0 ? name : "" }, { children: label }), void 0)), _jsx(TextareaAutosize, __assign({ minRows: minRows !== null && minRows !== void 0 ? minRows : 5, name: name, value: value, onChange: handleChange }, props, { className: clx(classNames === null || classNames === void 0 ? void 0 : classNames.textArea, classes.textarea, error && classes.error) }), void 0), feedback && displayFeedback(feedback)] }), void 0));
+    return (_jsxs("div", __assign({ className: clx(className, classes.root) }, { children: [label && (_jsx(InputLabel, __assign({ className: (_b = classNames === null || classNames === void 0 ? void 0 : classNames.label) !== null && _b !== void 0 ? _b : "", htmlFor: name !== null && name !== void 0 ? name : "" }, { children: label }), void 0)), _jsx(TextareaAutosize, __assign({ minRows: minRows !== null && minRows !== void 0 ? minRows : 5, name: name, value: value, onChange: handleChange }, props, { className: clx(classNames === null || classNames === void 0 ? void 0 : classNames.textArea, classes.textarea, error && classes.error) }), void 0), feedback && displayFeedback(feedback)] }), void 0));
 };

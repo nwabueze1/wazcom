@@ -22,16 +22,17 @@ var __rest = (this && this.__rest) || function (s, e) {
 };
 import { jsx as _jsx, jsxs as _jsxs } from "react/jsx-runtime";
 import clx from "classnames";
-import { FormLabel, Switch } from "@mui/material";
+import { InputLabel, Switch } from "@mui/material";
 import { useToggleStyles } from "./styles";
 import { displayFeedback } from "../../helpers/io";
 export var ToggleInput = function (_a) {
+    var _b;
     var name = _a.name, label = _a.label, value = _a.value, feedback = _a.feedback, onChange = _a.onChange, className = _a.className, classNames = _a.classNames, props = __rest(_a, ["name", "label", "value", "feedback", "onChange", "className", "classNames"]);
     var classes = useToggleStyles();
     var handleChange = function (checked) {
         onChange === null || onChange === void 0 ? void 0 : onChange({ name: name, value: checked });
     };
-    return (_jsxs("div", __assign({ className: clx(className, classes.root) }, { children: [label && (_jsx(FormLabel, __assign({ className: clx(classNames === null || classNames === void 0 ? void 0 : classNames.label, classes.label) }, { children: label }), void 0)), _jsx(Switch, __assign({ name: name, checked: value, onChange: function (_, checked) {
+    return (_jsxs("div", __assign({ className: clx(className, classes.root) }, { children: [label && (_jsx(InputLabel, __assign({ className: (_b = classNames === null || classNames === void 0 ? void 0 : classNames.label) !== null && _b !== void 0 ? _b : "" }, { children: label }), void 0)), _jsx(Switch, __assign({ name: name, checked: value, onChange: function (_, checked) {
                     handleChange(checked);
                 }, className: clx(classNames === null || classNames === void 0 ? void 0 : classNames.toggleInput, classes.toggle), classes: (classNames === null || classNames === void 0 ? void 0 : classNames.classes)
                     ? classNames.classes

@@ -34,9 +34,10 @@ import clx from 'classnames';
 import { displayFeedback } from "../../helpers/io";
 var filter = createFilterOptions();
 export var ComboBoxInput = function (_a) {
+    var _b;
     var name = _a.name, onChange = _a.onChange, initialOptions = _a.options, label = _a.label, classNames = _a.classNames, value = _a.value, error = _a.error, placeholder = _a.placeholder, feedback = _a.feedback, className = _a.className;
     var classes = useComboBoxStyles();
-    var _b = __read(useState(initialOptions), 2), options = _b[0], setOptions = _b[1];
+    var _c = __read(useState(initialOptions), 2), options = _c[0], setOptions = _c[1];
     useEffect(function () {
         setOptions(initialOptions);
     }, [initialOptions]);
@@ -67,7 +68,7 @@ export var ComboBoxInput = function (_a) {
             return { label: label, value: value };
         return { label: "", value: "" };
     }, [options, value]);
-    return (_jsxs("div", __assign({ className: clx(className, classes.root) }, { children: [label && (_jsx(InputLabel, __assign({ className: clx(classNames === null || classNames === void 0 ? void 0 : classNames.label, classes.label), htmlFor: name }, { children: label }), void 0)), _jsx(Autocomplete, { options: options !== null && options !== void 0 ? options : [], getOptionLabel: function (option) {
+    return (_jsxs("div", __assign({ className: clx(className, classes.root) }, { children: [label && (_jsx(InputLabel, __assign({ className: (_b = classNames === null || classNames === void 0 ? void 0 : classNames.label) !== null && _b !== void 0 ? _b : "", htmlFor: name }, { children: label }), void 0)), _jsx(Autocomplete, { options: options !== null && options !== void 0 ? options : [], getOptionLabel: function (option) {
                     var _a;
                     return (_a = option === null || option === void 0 ? void 0 : option.label) !== null && _a !== void 0 ? _a : "";
                 }, value: getValue(), onChange: function (_, selectedOption) {
