@@ -25,10 +25,10 @@ export const TextArea: FC<TextAreaProps> = ({
   };
 
   return (
-    <div className={clx(classes.root, className)}>
+    <div className={clx(className, classes.root)}>
       {label && (
         <InputLabel
-          className={clx(classes.label, classNames?.label)}
+          className={clx(classNames?.label, classes.label)}
           htmlFor={name ?? ""}
         >
           {label}
@@ -41,9 +41,9 @@ export const TextArea: FC<TextAreaProps> = ({
         onChange={handleChange}
         {...props}
         className={clx(
+          classNames?.textArea,
           classes.textarea,
           error && classes.error,
-          classNames?.textArea ? (classNames.textArea as string) : "",
         )}
       />
       {feedback && displayFeedback(feedback)}

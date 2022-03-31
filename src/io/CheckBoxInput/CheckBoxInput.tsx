@@ -21,10 +21,10 @@ export const CheckBoxInput: FC<CheckBoxInputProps> = ({
   };
 
   return (
-    <div className={clx(classes.root, className)}>
+    <div className={clx(className, classes.root)}>
       {label && (
         <InputLabel
-          className={clx(classes.label, classNames?.label)}
+          className={clx(classNames?.label, classes.label)}
           htmlFor={name}
         >
           {label}
@@ -34,7 +34,9 @@ export const CheckBoxInput: FC<CheckBoxInputProps> = ({
         checked={value}
         onChange={handleChange}
         inputProps={{ "aria-label": label }}
-        className={classNames?.checkBoxInput ? (classNames.checkBoxInput as string) : ""}
+        className={
+          classNames?.checkBoxInput ? (classNames.checkBoxInput as string) : ""
+        }
         classes={
           classNames?.classes
             ? (classNames.classes as { [key: string]: string })

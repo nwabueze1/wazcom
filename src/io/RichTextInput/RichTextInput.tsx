@@ -40,10 +40,10 @@ export const RichTextInput: React.FC<RichTextInputProps> = ({
   };
 
   return (
-    <div className={clx(classes.root, className)}>
+    <div className={clx(className, classes.root)}>
       {label && (
         <InputLabel
-          className={clx(classes.label, classNames?.label)}
+          className={clx(classNames?.label, classes.label)}
           htmlFor={name}
         >
           {label}
@@ -51,8 +51,8 @@ export const RichTextInput: React.FC<RichTextInputProps> = ({
       )}
       <div
         className={clx(
+          classNames?.richTextInput,
           classes.editor,
-          classNames?.richTextInput ? (classNames.richTextInput as string) : "",
           error && classes.editorError,
         )}
       >

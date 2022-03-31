@@ -22,9 +22,9 @@ export const ToggleInput: React.FC<ToggleInputProps> = ({
   };
 
   return (
-    <div className={clx(classes.root, className)}>
+    <div className={clx(className, classes.root)}>
       {label && (
-        <FormLabel className={clx(classes.label, classNames?.label)}>
+        <FormLabel className={clx(classNames?.label, classes.label)}>
           {label}
         </FormLabel>
       )}
@@ -34,10 +34,7 @@ export const ToggleInput: React.FC<ToggleInputProps> = ({
         onChange={(_, checked) => {
           handleChange(checked);
         }}
-        className={clx(
-          classes.toggle,
-          classNames?.toggleInput ? (classNames.toggleInput as string) : "",
-        )}
+        className={clx(classNames?.toggleInput, classes.toggle)}
         classes={
           classNames?.classes
             ? (classNames.classes as { [key: string]: string })
