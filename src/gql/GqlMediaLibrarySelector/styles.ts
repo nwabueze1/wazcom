@@ -32,6 +32,7 @@ export const useImageSelectorStyles = makeStyles((theme: Theme) => ({
     background: theme.design.colors.white,
     "&:hover": {
       background: theme.design.colors.successColor300,
+      border: `1px solid ${theme.design.colors.greene}`,
     },
   },
   modal: {

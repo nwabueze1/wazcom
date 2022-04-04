@@ -29,6 +29,7 @@ export var useImageSelectorStyles = makeStyles(function (theme) { return ({
         background: theme.design.colors.white,
         "&:hover": {
             background: theme.design.colors.successColor300,
+            border: "1px solid ".concat(theme.design.colors.greene),
         },
     },
     modal: {
