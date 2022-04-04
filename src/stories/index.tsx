@@ -52,10 +52,7 @@ export const stories: ComponentPropType[] = [
     props: {
       label: "Description",
       name: "description",
-      onChange: ({ name, value }: { name: string; value: string }) => {
-        console.log(name);
-        console.log(value);
-      },
+      onChange: ({ name, value }: { name: string; value: string }) => {},
       multiline: true,
       minRows: 5,
       feedback: {
@@ -85,12 +82,12 @@ export const stories: ComponentPropType[] = [
       paginatorInfo: {
         currentPage: 1,
         perPage: 10,
-        total: 100,
+        total: 10,
       },
       controls: {
         filter: ["id", "name"],
         canPrint: true,
-        export: {},
+        canExport: true,
       },
     },
   },

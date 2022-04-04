@@ -2,8 +2,7 @@ type ChangeFunctionType = (value: number) => void;
 
 export const useHandleChangePage =
   (changePage?: ChangeFunctionType) =>
-    (event: React.MouseEvent<HTMLButtonElement> | null, newPage: number) => {
-    console.log(event);
+  (event: React.MouseEvent<HTMLButtonElement> | null, newPage: number) => {
     changePage?.(newPage);
   };
 
@@ -20,4 +19,4 @@ export const useGetRowsPerPage = (
 ) => paginatorInfo?.perPage ?? rowsPerPage;
 
 export const useGetCurrentPage = (paginatorInfo?: { [key: string]: number }) =>
-  paginatorInfo?.currentPage ? paginatorInfo?.currentPage - 1 : 0;
+  paginatorInfo?.currentPage ? paginatorInfo?.currentPage : 1;

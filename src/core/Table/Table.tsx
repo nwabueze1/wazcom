@@ -11,7 +11,6 @@ import {
   Paper,
   Checkbox,
   TableFooter,
-  TablePagination,
 } from "@mui/material";
 import _ from "lodash";
 import {
@@ -23,9 +22,8 @@ import {
   useHandleControlsChange,
   useUpdateTableValue,
 } from "./helpers";
-import { TableFilter } from "./components";
+import { TablePagination, TableControls } from "./components";
 import { Filter } from "./types";
-import { TableControls } from "./components/TableControls";
 import clx from "classnames";
 
 export const Table = ({
@@ -33,19 +31,22 @@ export const Table = ({
   headers,
   value: initialTableValue,
   hasCheckBox,
-  pagination,
+  pagination = true,
   changePage,
   rowsPerPage,
   changeRowsPerPage,
-  paginatorInfo,
+  paginatorInfo = { total: 1, currentPage: 1, perPage: 20 },
   controls,
+  classNames,
   ...props
 }: TableProps) => {
   const classes = useTableStyles();
   const [tableValue, setTableValue] = useState(initialTableValue);
   const [tableHeaders, setTableHeaders] =
     useState<{ name: string; label: string }[]>(headers);
-  const [controlsFormData, setControlsFormData] = useState<{ [key: string]: any }>({});
+  const [controlsFormData, setControlsFormData] = useState<{
+    [key: string]: any;
+  }>({});
   const [showFilter, setShowFilter] = useState<boolean>(false);
   const [filters, setFilters] = useState<Filter[]>([]);
   const [selectedRows, setSelectedRows] = useState<number[]>([]);
@@ -104,23 +105,28 @@ export const Table = ({
 
   return (
     <div className={clx(classes.tableRoot, className)}>
+      {controls && (
+        <TableControls
+          handleControlsChange={handleControlsChange}
+          setShowFilter={setShowFilter}
+          controls={controls}
+          tableValues={tableValue}
+          controlsFormData={controlsFormData}
+          showFilter={showFilter}
+          fields={tableHeaders}
+          values={initialTableValue}
+          filters={filters}
+          setFilters={setFilters}
+        />
+      )}
       <TableContainer component={Paper}>
-        {controls && (
-          <TableControls
-            handleControlsChange={handleControlsChange}
-            setShowFilter={setShowFilter}
-            controls={controls}
-            tableValues={tableValue}
-            controlsFormData={controlsFormData}
-          />
-        )}
         <MuiTable
           classes={{
             root: classes.root,
           }}
           {...props}
         >
-          <TableHead className={classes.tableHead}>
+          <TableHead className={clx(classes.tableHead, classNames?.tableHead)}>
             <TableRow>
               {hasCheckBox && (
                 <TableCell padding="checkbox">
@@ -142,7 +148,7 @@ export const Table = ({
           <TableBody>
             {tableValue?.map((row: any, index: number) => {
               return (
-                <TableRow key={index}>
+                <TableRow key={index} className={classNames?.tableBody}>
                   {hasCheckBox && (
                     <TableCell padding="checkbox">
                       <Checkbox
@@ -163,34 +169,31 @@ export const Table = ({
             })}
           </TableBody>
           {pagination && (
-            <TableFooter>
+            <TableFooter className={classNames?.tableFooter}>
               <TableRow>
                 <TablePagination
+                  onRowsPerPageChange={handleChangeRowsPerPage}
+                  count={paginatorInfo?.total}
+                  rowsPerPage={Number(getRowsPerPage)}
+                  onPageChange={handleChangePage}
+                  page={getCurrentPage}
+                />
+                {/* <MuiTablePagination
                   rowsPerPageOptions={[7, 10, 20]}
                   onRowsPerPageChange={handleChangeRowsPerPage}
                   count={paginatorInfo?.total}
                   rowsPerPage={Number(getRowsPerPage)}
                   onPageChange={handleChangePage}
-                  showFirstButton
-                  showLastButton
                   page={getCurrentPage}
                   SelectProps={{
                     inputProps: { "aria-label": "rows per page" },
                     native: true,
                   }}
-                />
+                /> */}
               </TableRow>
             </TableFooter>
           )}
         </MuiTable>
-        <TableFilter
-          showFilter={showFilter}
-          setShowFilter={setShowFilter}
-          fields={tableHeaders}
-          values={initialTableValue}
-          filters={filters}
-          setFilters={setFilters}
-        />
       </TableContainer>
     </div>
   );
