@@ -1,4 +1,4 @@
-import { useEffect, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import { TableProps } from "./types";
 import { useTableStyles } from "./styles";
 import {
@@ -41,6 +41,7 @@ export const Table = ({
   ...props
 }: TableProps) => {
   const classes = useTableStyles();
+  const tableRef = useRef(null)
   const [tableValue, setTableValue] = useState(initialTableValue);
   const [tableHeaders, setTableHeaders] =
     useState<{ name: string; label: string }[]>(headers);
@@ -117,9 +118,10 @@ export const Table = ({
           values={initialTableValue}
           filters={filters}
           setFilters={setFilters}
+          tableRef={tableRef}
         />
       )}
-      <TableContainer component={Paper}>
+      <TableContainer component={Paper} ref={tableRef}>
         <MuiTable
           classes={{
             root: classes.root,

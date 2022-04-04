@@ -25,6 +25,7 @@ export const TableControls: React.FC<TableControlsProps> = ({
   setFilters,
   tableValues,
   controlsFormData,
+  tableRef,
 }) => {
   const classes = useTableControlsStyles();
   const [anchorEl, setAnchorEl] = useState(null);
@@ -34,6 +35,27 @@ export const TableControls: React.FC<TableControlsProps> = ({
   };
   const handleClose = () => {
     setAnchorEl(null);
+  };
+
+  const printTable = () => {
+    const mywindow = window.open("", "PRINT", "height=400,width=600");
+    if (!mywindow) return;
+
+    mywindow.document.write(
+      "<html><head><title>" + document.title + "</title>",
+    );
+    mywindow.document.write("</head><body >");
+    mywindow.document.write("<h3>" + document.title + "</h3>");
+    mywindow.document.write(tableRef?.current?.innerHTML ?? '');
+    mywindow.document.write("</body></html>");
+
+    mywindow.document.close(); // necessary for IE >= 10
+    mywindow.focus(); // necessary for IE >= 10*/
+
+    mywindow.print();
+    mywindow.close();
+
+    return true;
   };
 
   return (
@@ -60,7 +82,11 @@ export const TableControls: React.FC<TableControlsProps> = ({
       )}
       <Box className={classes.rightControls}>
         {controls?.canPrint && (
-          <Button className={classes.controlButton} variant="outlined">
+          <Button
+            className={classes.controlButton}
+            variant="outlined"
+            onClick={() => window.print()}
+          >
             <Print fontSize="small" />
             <span className={classes.controlButtonText}>Print</span>
           </Button>

@@ -13,6 +13,7 @@ export interface TableControlsProps {
   values: TableDataProps;
   filters: Filter[];
   setFilters: React.Dispatch<React.SetStateAction<Filter[]>>;
+  tableRef: React.MutableRefObject<HTMLDivElement | null>;
 }
 
 export type SearchInputProps  = CommonProps & OutlinedInputProps & {
