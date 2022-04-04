@@ -26,12 +26,13 @@ export const useImageSelectorStyles = makeStyles((theme: Theme) => ({
   },
   icon: {
     cursor: "pointer",
-    color: theme.design.colors.successColor,
+    color: theme.design.colors.greene,
     zIndex: 5,
-    border: `1px solid ${theme.design.colors.successColor}`,
+    border: `1px solid ${theme.design.colors.greene}`,
     background: theme.design.colors.white,
     "&:hover": {
       background: theme.design.colors.successColor300,
+      border: `1px solid ${theme.design.colors.greene}`,
     },
   },
   modal: {
