@@ -3,5 +3,5 @@ import { AccordionProps as MuiAccordionProps } from "@mui/material";
 
 export type AccordionProps = MuiAccordionProps &
   CommonProps & {
-    title: string;
+    title: string | JSX.Element;
   };
