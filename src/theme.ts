@@ -164,6 +164,7 @@ export const theme: any = {
       successColor: baseColors.successColor,
       successColor100: lighten(baseColors.successColor, 0.1),
       successColor200: lighten(baseColors.successColor, 0.2),
+      successColor300: lighten(baseColors.successColor, 0.9),
       greyColor: baseColors.greyColor,
       greyColor100: lighten(baseColors.greyColor, 0.8),
       greyColor200: lighten(baseColors.greyColor, 0.1),

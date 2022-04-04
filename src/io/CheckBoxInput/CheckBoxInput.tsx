@@ -9,6 +9,7 @@ export const CheckBoxInput: FC<CheckBoxInputProps> = ({
   name,
   className,
   classNames,
+  helperText,
   label,
   value,
   feedback,
@@ -43,6 +44,7 @@ export const CheckBoxInput: FC<CheckBoxInputProps> = ({
             : {}
         }
       />
+      {helperText}
       {feedback && displayFeedback(feedback)}
     </div>
   );

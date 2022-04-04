@@ -236,7 +236,7 @@ export const stories: ComponentPropType[] = [
         status: "success",
       },
       type: "password",
-      icon: <VisibilityOff />
+      icon: <VisibilityOff />,
     },
   },
   {
@@ -282,7 +282,7 @@ export const stories: ComponentPropType[] = [
     props: {
       label: "leke",
       feedback: {
-        text: <p style={{ color: "green" }}>olamileke</p>
+        text: <p style={{ color: "green" }}>olamileke</p>,
       },
     },
   },

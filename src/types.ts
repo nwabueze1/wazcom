@@ -8,4 +8,5 @@ export interface CommonProps {
     [key: string]: string | { [key: string]: string } | undefined;
   };
   feedback?: Feedback;
+  helperText?: string | string[] | JSX.Element;
 }

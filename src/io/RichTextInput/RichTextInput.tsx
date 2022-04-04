@@ -23,6 +23,7 @@ export const RichTextInput: React.FC<RichTextInputProps> = ({
   name,
   className,
   classNames,
+  helperText,
   label,
   apiKey,
   value,
@@ -75,6 +76,7 @@ export const RichTextInput: React.FC<RichTextInputProps> = ({
           onEditorChange={handleContentChange}
         />
       </div>
+      {helperText}
       {feedback && displayFeedback(feedback)}
       {loading && Loader}
     </div>
