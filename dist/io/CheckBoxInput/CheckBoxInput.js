@@ -16,12 +16,12 @@ import { useCheckboxInputStyles } from "./styles";
 import { displayFeedback } from "../../helpers/io";
 export var CheckBoxInput = function (_a) {
     var _b;
-    var name = _a.name, className = _a.className, classNames = _a.classNames, label = _a.label, value = _a.value, feedback = _a.feedback, onChange = _a.onChange;
+    var name = _a.name, className = _a.className, classNames = _a.classNames, helperText = _a.helperText, label = _a.label, value = _a.value, feedback = _a.feedback, onChange = _a.onChange;
     var classes = useCheckboxInputStyles();
     var handleChange = function (event) {
         onChange === null || onChange === void 0 ? void 0 : onChange({ name: name, value: event.target.checked });
     };
     return (_jsxs("div", __assign({ className: clx(className, classes.root) }, { children: [label && (_jsx(InputLabel, __assign({ className: (_b = classNames === null || classNames === void 0 ? void 0 : classNames.label) !== null && _b !== void 0 ? _b : "", htmlFor: name }, { children: label }), void 0)), _jsx(Checkbox, { checked: value, onChange: handleChange, inputProps: { "aria-label": label }, className: (classNames === null || classNames === void 0 ? void 0 : classNames.checkBoxInput) ? classNames.checkBoxInput : "", classes: (classNames === null || classNames === void 0 ? void 0 : classNames.classes)
                     ? classNames.classes
-                    : {} }, void 0), feedback && displayFeedback(feedback)] }), void 0));
+                    : {} }, void 0), helperText, feedback && displayFeedback(feedback)] }), void 0));
 };

@@ -1,3 +1,4 @@
+/// <reference types="react" />
 import { Feedback } from "./helpers/io";
 export interface CommonProps {
     name?: string;
@@ -12,4 +13,5 @@ export interface CommonProps {
         } | undefined;
     };
     feedback?: Feedback;
+    helperText?: string | string[] | JSX.Element;
 }

@@ -27,7 +27,7 @@ import clx from "classnames";
 import { displayFeedback } from "../../helpers/io";
 export var SelectInput = function (_a) {
     var _b;
-    var className = _a.className, classNames = _a.classNames, _c = _a.options, options = _c === void 0 ? [] : _c, _d = _a.placeholder, placeholder = _d === void 0 ? "Select a value" : _d, label = _a.label, onChange = _a.onChange, feedback = _a.feedback, props = __rest(_a, ["className", "classNames", "options", "placeholder", "label", "onChange", "feedback"]);
+    var className = _a.className, classNames = _a.classNames, _c = _a.options, options = _c === void 0 ? [] : _c, _d = _a.placeholder, placeholder = _d === void 0 ? "Select a value" : _d, label = _a.label, helperText = _a.helperText, onChange = _a.onChange, feedback = _a.feedback, props = __rest(_a, ["className", "classNames", "options", "placeholder", "label", "helperText", "onChange", "feedback"]);
     var classes = useSelectStyles();
     var handleChange = function (e) {
         var _a = e.target, name = _a.name, value = _a.value;
@@ -38,5 +38,5 @@ export var SelectInput = function (_a) {
                     : {} }, { children: [options.length === 0 && (_jsx(MenuItem, __assign({ value: "Select a value" }, { children: placeholder }), void 0)), options.map(function (_a, index) {
                         var label = _a.label, value = _a.value;
                         return (_jsx(MenuItem, __assign({ value: value }, { children: label }), index));
-                    })] }), void 0), feedback && displayFeedback(feedback)] }), void 0));
+                    })] }), void 0), helperText, feedback && displayFeedback(feedback)] }), void 0));
 };

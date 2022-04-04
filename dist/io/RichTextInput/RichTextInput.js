@@ -45,7 +45,7 @@ var toolbar = [
 ];
 export var RichTextInput = function (_a) {
     var _b;
-    var name = _a.name, className = _a.className, classNames = _a.classNames, label = _a.label, apiKey = _a.apiKey, value = _a.value, upload = _a.upload, onChange = _a.onChange, error = _a.error, feedback = _a.feedback, Loader = _a.Loader;
+    var name = _a.name, className = _a.className, classNames = _a.classNames, helperText = _a.helperText, label = _a.label, apiKey = _a.apiKey, value = _a.value, upload = _a.upload, onChange = _a.onChange, error = _a.error, feedback = _a.feedback, Loader = _a.Loader;
     var classes = useRichInputStyles();
     var _c = __read(React.useState(false), 2), loading = _c[0], setLoading = _c[1];
     var handleContentChange = function (content) {
@@ -63,5 +63,5 @@ export var RichTextInput = function (_a) {
                         },
                         plugins: plugins,
                         toolbar: toolbar,
-                    }, onEditorChange: handleContentChange }, void 0) }), void 0), feedback && displayFeedback(feedback), loading && Loader] }), void 0));
+                    }, onEditorChange: handleContentChange }, void 0) }), void 0), helperText, feedback && displayFeedback(feedback), loading && Loader] }), void 0));
 };
