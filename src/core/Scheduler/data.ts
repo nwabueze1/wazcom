@@ -21,7 +21,7 @@ export const fields = [
     label: "Start Time",
   },
   {
-    name: "time_divder",
+    name: "time_divider",
     label: "",
   },
   {

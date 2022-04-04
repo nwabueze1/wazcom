@@ -23,11 +23,12 @@ export const BootstrapInput = withStyles((theme: Theme) =>
       },
     },
     input: {
-      borderRadius: 4,
+      borderRadius: 5,
       position: "relative",
       fontSize: 16,
       border: `solid 1px ${theme.design.colors.grey5}`,
-      padding: theme.spacing(1.5, 0, 1.5, 1),
+      padding: theme.spacing(0, 1.5),
+      height: 40,
 
       transition: theme.transitions.create(["border-color", "box-shadow"]),
 

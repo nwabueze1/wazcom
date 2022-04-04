@@ -40,13 +40,6 @@ export const useScheduleData = () => {
           onChange={(event) => handleChange(event, index)}
         />
       );
-      // parsedSchedule["action"] = (
-      //   <CloseIcon
-      //     onClick={(event: any) => handleChange(event, index, true)}
-      //     style={{ cursor: "pointer" }}
-      //     color={"secondary"}
-      //   />
-      // );
       data.push(parsedSchedule);
     });
     return data;

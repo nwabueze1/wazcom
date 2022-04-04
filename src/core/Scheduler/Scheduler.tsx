@@ -74,7 +74,7 @@ export const Scheduler: React.FC<SchedulerProps> = ({
           // <TableRow key={index}>
           <div className={classes.schedulerContainer} key={index}>
             {fields.map(({ name }) => {
-              
+              console.log(row?.[name]);
               return (
                 // <TableCell key={name} className={classes.tableCell}>
                 row?.[name]

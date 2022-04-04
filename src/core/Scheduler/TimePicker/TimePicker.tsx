@@ -28,8 +28,29 @@ const useStyles = makeStyles(() => ({
 const CustomCss = withStyles({
   "@global": {
     ".MuiTextField-root": {
-      "& input[type='time']::-webkit-clear-button, & input::-webkit-outer-spin-button, & input::-webkit-inner-spin-button": {
-        display: "none",
+      "& input[type='time']::-webkit-clear-button, & input::-webkit-outer-spin-button, & input::-webkit-inner-spin-button":
+        {
+          display: "none",
+        },
+    },
+    ".MuiOutlinedInput-notchedOutline": {
+      border: `solid 1px #E6E7E6`,
+      "&:hover": {
+        borderColor: `#E6E7E6`,
+        outline: "none",
+      },
+      "&:focus": {
+        borderColor: `#E6E7E6`,
+      },
+    },
+    ".Mui-focused.MuiOutlinedInput-notchedOutline": {
+      border: `solid 1px #E6E7E6`,
+      "&:hover": {
+        borderColor: `#E6E7E6`,
+        outline: "none",
+      },
+      "&:focus": {
+        borderColor: `#E6E7E6`,
       },
     },
   },
