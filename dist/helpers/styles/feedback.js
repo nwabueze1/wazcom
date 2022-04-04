@@ -1,7 +1,7 @@
 import makeStyles from "@mui/styles/makeStyles";
 export var useFeedbackStyles = makeStyles(function (theme) { return ({
     feedback: {
-        marginTop: 8,
+        marginTop: 16,
     },
     feedbackSuccess: {
         color: "green",
