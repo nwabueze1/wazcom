@@ -12,9 +12,10 @@ const useStyles = makeStyles(() => ({
   },
   textField: {
     color: "transparent",
-    "& input[type='time']::-webkit-clear-button, & input::-webkit-outer-spin-button, & input::-webkit-inner-spin-button": {
-      display: "none",
-    },
+    "& input[type='time']::-webkit-clear-button, & input::-webkit-outer-spin-button, & input::-webkit-inner-spin-button":
+      {
+        display: "none",
+      },
     textAlign: "center",
   },
   inputRoot: {

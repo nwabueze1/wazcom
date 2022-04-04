@@ -24,10 +24,10 @@ export const BootstrapInput = withStyles((theme: Theme) =>
     },
     input: {
       borderRadius: 4,
-      background: "white",
       position: "relative",
-      backgroundColor: theme.palette.background.paper,
       fontSize: 16,
+      border: `solid 1px ${theme.design.colors.grey5}`,
+      padding: theme.spacing(1.5, 0, 1.5, 1),
 
       transition: theme.transitions.create(["border-color", "box-shadow"]),
 
@@ -44,8 +44,7 @@ export const BootstrapInput = withStyles((theme: Theme) =>
         '"Segoe UI Symbol"',
       ].join(","),
       "&:focus": {
-        borderRadius: 4,
-        borderColor: theme.design.colors.skyBlue,
+        borderRadius: 5,
       },
     },
   }),

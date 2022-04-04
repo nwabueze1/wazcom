@@ -11,21 +11,21 @@ export const days: { id: number; name: string, display:boolean }[] = [
     { id: 9, name: "Weekends", display:true },
 ];
 
-export const tableHeaders = [
-    {
-      name: 'day',
-      label: 'Days/ No. of Days'
-    },
-    {
-      name: 'start_time',
-      label: "Start Time"
-    },
-    {
-      name: 'end_time',
-      label: "End Time"
-    },
-    {
-      name: 'action',
-      label: "Action"
-    }
+export const fields = [
+  {
+    name: "day",
+    label: "Days/ No. of Days",
+  },
+  {
+    name: "start_time",
+    label: "Start Time",
+  },
+  {
+    name: "time_divder",
+    label: "",
+  },
+  {
+    name: "end_time",
+    label: "End Time",
+  },
 ];

@@ -174,6 +174,7 @@ export const theme: any = {
       gray: "#BEBEBE",
       blue: "#0889F7",
       grey: "#3A3335",
+      grey5: "#E6E7E6",
       white: "#FFFFFF",
       yellowsea: "#F5A53C",
     },

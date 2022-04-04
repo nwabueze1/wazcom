@@ -3,7 +3,7 @@ import { Table } from "../Table";
 import { useSchedulerStyles } from "./styles";
 import { InputLabel } from "@mui/material";
 import { SchedulerProps } from "./types";
-import { tableHeaders } from "./data";
+import { fields } from "./data";
 import { useScheduleData } from "./hooks";
 import clx from "classnames";
 
@@ -13,7 +13,7 @@ export const Scheduler: React.FC<SchedulerProps> = ({
   label,
   labelClassName,
   value: initialScheduleValue = [
-    { day: "0", start_time: "00:00", end_time: "12:00" },
+    { day: "0", start_time: "00:00", time_divider: "to", end_time: "12:00" },
   ],
   onChange,
 }) => {
@@ -39,7 +39,7 @@ export const Scheduler: React.FC<SchedulerProps> = ({
   const [scheduleValue, setScheduleValue] = useState<{ [key: string]: any }[]>(
     parseSchedulevalue(initialScheduleValue, handleChange),
   );
-
+    console.log(scheduleValue)
   useEffect(() => {
     const newScheduleValue = parseSchedulevalue(
       initialScheduleValue,
@@ -53,7 +53,7 @@ export const Scheduler: React.FC<SchedulerProps> = ({
       name: componentName as string,
       value: [
         ...initialScheduleValue,
-        { day: "0", start_time: "00:00", end_time: "12:00" },
+        { day: "0", start_time: "00:00", time_divider: "to", end_time: "12:00" },
       ],
     });
   }, [initialScheduleValue]);
@@ -68,10 +68,27 @@ export const Scheduler: React.FC<SchedulerProps> = ({
           {label}
         </InputLabel>
       )}
-      <Table headers={tableHeaders} value={scheduleValue} />
-      <div className={classes.button} onClick={addNewRow}>
+      {/* <Table headers={tableHeaders} value={scheduleValue} /> */}
+      {scheduleValue?.map((row: any, index: number) => {
+        return (
+          // <TableRow key={index}>
+          <div className={classes.schedulerContainer} key={index}>
+            {fields.map(({ name }) => {
+              
+              return (
+                // <TableCell key={name} className={classes.tableCell}>
+                row?.[name]
+                // </TableCell>
+              );
+            })}
+          </div>
+
+          // </TableRow>
+        );
+      })}
+      {/* <div className={classes.button} onClick={addNewRow}>
         <p className={classes.buttonText}>Add more</p>
-      </div>
+      </div> */}
     </div>
   );
 };

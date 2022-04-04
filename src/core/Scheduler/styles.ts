@@ -26,4 +26,9 @@ export const useSchedulerStyles = makeStyles((theme: Theme) => ({
   addIcon: {
     marginRight: theme.spacing(1),
   },
+  schedulerContainer: {
+    display: "flex",
+    justifyContent: "space-between",
+    alignItems: "center"
+  },
 }));

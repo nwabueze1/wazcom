@@ -30,6 +30,9 @@ export const useScheduleData = () => {
           onChange={(event) => handleChange(event, index)}
         />
       );
+      parsedSchedule["time_divider"] = (
+        <p>to</p>
+      );
       parsedSchedule["end_time"] = (
         <TimeSelector
           name={"end_time"}
@@ -37,13 +40,13 @@ export const useScheduleData = () => {
           onChange={(event) => handleChange(event, index)}
         />
       );
-      parsedSchedule["action"] = (
-        <CloseIcon
-          onClick={(event: any) => handleChange(event, index, true)}
-          style={{ cursor: "pointer" }}
-          color={"secondary"}
-        />
-      );
+      // parsedSchedule["action"] = (
+      //   <CloseIcon
+      //     onClick={(event: any) => handleChange(event, index, true)}
+      //     style={{ cursor: "pointer" }}
+      //     color={"secondary"}
+      //   />
+      // );
       data.push(parsedSchedule);
     });
     return data;
