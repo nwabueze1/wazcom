@@ -10,10 +10,6 @@ export type ComboBoxInputProps = CommonProps &
     label?: string;
     options: ComboBoxInputOptionProps[];
     value?: string;
-    feedback?: {
-      text: string;
-      status?: "success" | "neutral" | "error";
-    };
   };
 
 export type ComboBoxInputOptionProps = { label: string; value: string };

@@ -23,6 +23,7 @@ const getStatusClassName = (
 };
 
 export const Notification: FC<NotificationProps> = ({
+  className,
   status,
   title,
   message,
@@ -32,7 +33,7 @@ export const Notification: FC<NotificationProps> = ({
   const StatusClassName = getStatusClassName(classes, status);
 
   return (
-    <div className={clx(classes.card)}>
+    <div className={clx(classes.card, className)}>
       <div
         className={clx(
           classes.notificationCard,

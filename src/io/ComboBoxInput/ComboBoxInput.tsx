@@ -1,10 +1,10 @@
 import { FC, useCallback, useEffect, useState } from "react";
 import Autocomplete, { createFilterOptions } from "@mui/material/Autocomplete";
-import { InputLabel, TextField, Typography } from "@mui/material";
+import { InputLabel, TextField } from "@mui/material";
 import { useComboBoxStyles } from "./styles";
 import { ComboBoxInputProps, ComboBoxInputOptionProps } from "./types";
-import clx from 'classnames';
-import { getFeedbackVariant } from "../../helpers/io";
+import clx from "classnames";
+import { displayFeedback } from "../../helpers/io";
 
 const filter = createFilterOptions<ComboBoxInputOptionProps>();
 
@@ -13,10 +13,13 @@ export const ComboBoxInput: FC<ComboBoxInputProps> = ({
   onChange,
   options: initialOptions,
   label,
+  classNames,
+  helperText,
   value,
   error,
   placeholder,
   feedback,
+  className,
 }) => {
   const classes = useComboBoxStyles();
   const [options, setOptions] = useState(initialOptions);
@@ -62,9 +65,12 @@ export const ComboBoxInput: FC<ComboBoxInputProps> = ({
   }, [options, value]);
 
   return (
-    <div className={classes.root}>
+    <div className={clx(className, classes.root)}>
       {label && (
-        <InputLabel className={classes.label} htmlFor={name}>
+        <InputLabel
+          className={(classNames?.label as string) ?? ""}
+          htmlFor={name}
+        >
           {label}
         </InputLabel>
       )}
@@ -73,7 +79,6 @@ export const ComboBoxInput: FC<ComboBoxInputProps> = ({
         getOptionLabel={(option) => {
           return option?.label ?? "";
         }}
-        style={{ width: 300 }}
         value={getValue()}
         onChange={(_, selectedOption) => {
           handleChange(selectedOption as ComboBoxInputOptionProps);
@@ -89,17 +94,17 @@ export const ComboBoxInput: FC<ComboBoxInputProps> = ({
             error={error}
           />
         )}
+        className={
+          classNames?.comboBoxInput ? (classNames.comboBoxInput as string) : ""
+        }
+        classes={
+          classNames?.classes
+            ? (classNames.classes as { [key: string]: string })
+            : {}
+        }
       />
-      {feedback && (
-        <Typography
-          className={clx(
-            classes.feedback,
-            getFeedbackVariant(classes, feedback),
-          )}
-        >
-          {feedback.text}
-        </Typography>
-      )}
+      {helperText}
+      {feedback && displayFeedback(feedback)}
     </div>
   );
 };

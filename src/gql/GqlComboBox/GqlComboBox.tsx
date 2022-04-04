@@ -13,6 +13,7 @@ export const GqlComboBox: FC<GqlComboBoxProps> = memo(
     addOption,
     onChange,
     variables,
+    classNames,
     ...props
   }) => {
     const classes = useGqlComboBoxStyles();
@@ -99,16 +100,15 @@ export const GqlComboBox: FC<GqlComboBoxProps> = memo(
     }
 
     return (
-      <div className={classes.root}>
-        <ComboBoxInput
-          options={options}
-          value={value ?? ""}
-          onChange={({ value }) => {
-            handleChange(value);
-          }}
-          {...props}
-        />
-      </div>
+      <ComboBoxInput
+        options={options}
+        value={value ?? ""}
+        onChange={({ value }) => {
+          handleChange(value);
+        }}
+        classNames={{ ...classNames, comboBoxInput: classNames?.gqlComboBox }}
+        {...props}
+      />
     );
   },
 );

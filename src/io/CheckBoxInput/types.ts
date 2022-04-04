@@ -1,7 +1,7 @@
+import { CheckboxProps } from "@mui/material";
 import { CommonProps } from "../../types";
 
-export type CheckBoxInputProps = CommonProps & {
+export type CheckBoxInputProps = CommonProps & CheckboxProps & {
   label?: string;
-  checked?: boolean;
-  handleCheckChange?: (event: React.ChangeEvent<{ checked: boolean }>) => void;
+  value?: boolean;
 };

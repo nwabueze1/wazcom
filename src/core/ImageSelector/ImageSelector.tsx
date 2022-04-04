@@ -55,8 +55,8 @@ export const ImageSelector: FC<ImageSelectorProps> = ({
   return (
     <div
       className={clx(
-        className,
         classes.root,
+        className,
         variant === "circle" && classes.circle,
         variants[0],
       )}

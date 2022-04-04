@@ -38,19 +38,20 @@ var __read = (this && this.__read) || function (o, n) {
 };
 import { jsx as _jsx, jsxs as _jsxs } from "react/jsx-runtime";
 import { useState } from "react";
-import { Modal, Fade, Backdrop, InputLabel, Typography } from "@mui/material";
-import CameraAltIcon from "@mui/icons-material/CameraAlt";
+import { Modal, Fade, Backdrop, InputLabel } from "@mui/material";
 import clx from "classnames";
 import { useImageSelectorStyles } from "./styles";
 import { GqlMediaLibrary } from "../GqlMediaLibrary";
 import { getSizeVariants } from "../../helpers/size";
-import { getFeedbackVariant } from "../../helpers/io";
+import { displayFeedback } from "../../helpers/io";
+import { Button } from "../../core";
 export var GqlMediaLibrarySelector = function (_a) {
-    var _b = _a.displayLibrary, displayLibrary = _b === void 0 ? false : _b, _c = _a.variant, variant = _c === void 0 ? "square" : _c, _d = _a.size, size = _d === void 0 ? "full" : _d, verbose = _a.verbose, width = _a.width, height = _a.height, className = _a.className, onChange = _a.onChange, name = _a.name, label = _a.label, value = _a.value, feedback = _a.feedback, error = _a.error, props = __rest(_a, ["displayLibrary", "variant", "size", "verbose", "width", "height", "className", "onChange", "name", "label", "value", "feedback", "error"]);
+    var _b;
+    var _c = _a.displayLibrary, displayLibrary = _c === void 0 ? false : _c, _d = _a.variant, variant = _d === void 0 ? "square" : _d, _e = _a.size, size = _e === void 0 ? "full" : _e, verbose = _a.verbose, width = _a.width, height = _a.height, className = _a.className, classNames = _a.classNames, onChange = _a.onChange, name = _a.name, label = _a.label, value = _a.value, feedback = _a.feedback, error = _a.error, props = __rest(_a, ["displayLibrary", "variant", "size", "verbose", "width", "height", "className", "classNames", "onChange", "name", "label", "value", "feedback", "error"]);
     var classes = useImageSelectorStyles();
-    var _e = __read(useState(false), 2), setShowIcon = _e[1];
-    var _f = __read(useState(value || ""), 2), placeholder = _f[0], setPlaceholder = _f[1];
-    var _g = __read(useState(false), 2), open = _g[0], setOpen = _g[1];
+    var _f = __read(useState(false), 2), setShowIcon = _f[1];
+    var _g = __read(useState(value || ""), 2), placeholder = _g[0], setPlaceholder = _g[1];
+    var _h = __read(useState(false), 2), open = _h[0], setOpen = _h[1];
     var handleOpen = function () {
         setOpen(true);
     };
@@ -64,11 +65,11 @@ export var GqlMediaLibrarySelector = function (_a) {
         onChange === null || onChange === void 0 ? void 0 : onChange({ name: name !== null && name !== void 0 ? name : "image", value: verbose ? value : value.url });
     };
     var variants = getSizeVariants(classes, size);
-    return (_jsxs("div", __assign({ className: classes.root }, { children: [label && (_jsx(InputLabel, __assign({ className: classes.label, htmlFor: name }, { children: label }), void 0)), _jsxs("div", __assign({ className: clx(classes.container, className, variant === "circle" && classes.circle, variants[0], error && classes.error), style: { backgroundImage: "url(".concat(placeholder, ")"), width: width, height: height }, onMouseEnter: function () { return setShowIcon(true); }, onMouseLeave: function () { return setShowIcon(false); }, onClick: function () {
+    return (_jsxs("div", __assign({ className: clx(className, classes.root) }, { children: [label && (_jsx(InputLabel, __assign({ className: (_b = classNames === null || classNames === void 0 ? void 0 : classNames.label) !== null && _b !== void 0 ? _b : "", htmlFor: name }, { children: label }), void 0)), _jsxs("div", __assign({ className: clx(classes.container, variant === "circle" && classes.circle, variants[0], error && classes.error), style: { backgroundImage: "url(".concat(placeholder, ")"), width: width, height: height }, onMouseEnter: function () { return setShowIcon(true); }, onMouseLeave: function () { return setShowIcon(false); }, onClick: function () {
                     if (displayLibrary)
                         return;
                     handleOpen();
                 } }, { children: [_jsx(Modal, __assign({ open: open, BackdropProps: {
                             timeout: 500,
-                        }, closeAfterTransition: true, onClose: handleClose, onBackdropClick: function (e) { return e.stopPropagation(); }, className: classes.modal, BackdropComponent: Backdrop, "aria-labelledby": "transition-modal-title", "aria-describedby": "transition-modal-description" }, { children: _jsx(Fade, __assign({ in: open }, { children: _jsx("div", __assign({ className: classes.wrapper }, { children: _jsx(GqlMediaLibrary, { config: __assign({}, props.config), onChange: handleSelectImage, name: name }, void 0) }), void 0) }), void 0) }), void 0), _jsx(CameraAltIcon, { className: clx(classes.icon, variants[1]), onClick: handleOpen }, void 0)] }), void 0), feedback && (_jsx(Typography, __assign({ className: clx(classes.feedback, getFeedbackVariant(classes, feedback)) }, { children: feedback.text }), void 0))] }), void 0));
+                        }, closeAfterTransition: true, onClose: handleClose, onBackdropClick: function (e) { return e.stopPropagation(); }, className: classes.modal, BackdropComponent: Backdrop, "aria-labelledby": "transition-modal-title", "aria-describedby": "transition-modal-description" }, { children: _jsx(Fade, __assign({ in: open }, { children: _jsx("div", __assign({ className: classes.wrapper }, { children: _jsx(GqlMediaLibrary, { config: __assign({}, props.config), onChange: handleSelectImage, name: name }, void 0) }), void 0) }), void 0) }), void 0), _jsx(Button, __assign({ className: clx(classes.icon), variant: "outlined", onClick: handleOpen }, { children: "Upload Image" }), void 0)] }), void 0), feedback && displayFeedback(feedback)] }), void 0));
 };

@@ -25,11 +25,15 @@ export const useImageSelectorStyles = makeStyles((theme: Theme) => ({
     border: `3px solid ${theme.design.colors.white}`,
   },
   icon: {
-    color: theme.design.colors.black,
     cursor: "pointer",
+    color: theme.design.colors.greene,
     zIndex: 5,
-    background: "transparent",
-    fontSize: "2vw",
+    border: `1px solid ${theme.design.colors.greene}`,
+    background: theme.design.colors.white,
+    "&:hover": {
+      background: theme.design.colors.successColor300,
+      border: `1px solid ${theme.design.colors.greene}`,
+    },
   },
   modal: {
     display: "flex",
@@ -39,10 +43,6 @@ export const useImageSelectorStyles = makeStyles((theme: Theme) => ({
   wrapper: {
     backgroundColor: theme.design.colors.white,
     zIndex: 15,
-  },
-  label: {
-    marginBottom: theme.spacing(2),
-    fontSize: "1rem",
   },
   cameraIconSm: {
     fontSize: 20,
@@ -76,19 +76,7 @@ export const useImageSelectorStyles = makeStyles((theme: Theme) => ({
     width: "100%",
     height: "200px",
   },
-  feedback: {
-    marginTop: 16,
-  },
-  feedbackSuccess: {
-    color: "green",
-  },
-  feedbackError: {
-    color: "red",
-  },
-  feedbackNeutral: {
-    color: "black",
-  },
   error: {
-    border: `2px solid ${theme.design.colors.red70}`,
+    border: `2px solid ${theme.design.colors.dangerColor100}`,
   },
 }));

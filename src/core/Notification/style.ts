@@ -33,7 +33,7 @@ export const useNotificationStyles = makeStyles((theme: BaseTheme) => ({
   },
   cancel: {
     backgroundColor: theme.design.colors.white,
-    color: theme.design.colors.lightRed,
+    color: theme.design.colors.dangerColor300,
     marginLeft: "auto",
     borderRadius: "50%",
     cursor: "pointer",
@@ -51,7 +51,7 @@ export const useNotificationStyles = makeStyles((theme: BaseTheme) => ({
     padding: theme.spacing(1),
   },
   notificationHeading: {
-    color: theme.design.colors.pureblack,
+    color: theme.design.colors.black,
     fontWeight: "bold",
     fontFamily: theme.typography.fontFamily,
     fontSize: "14px",

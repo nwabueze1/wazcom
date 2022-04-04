@@ -1,1 +1,1 @@
-export declare const useRichInputStyles: (props?: any) => import("@mui/styles").ClassNameMap<"root" | "label" | "feedback" | "feedbackSuccess" | "feedbackError" | "feedbackNeutral" | "editor" | "editorError">;
+export declare const useRichInputStyles: (props?: any) => import("@mui/styles").ClassNameMap<"root" | "editor" | "editorError">;

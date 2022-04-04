@@ -9,8 +9,4 @@ export declare type RichTextInputProps = CommonProps & {
     }) => void, setLoadState: (loading: boolean) => void) => void;
     Loader?: JSX.Element;
     error?: boolean;
-    feedback?: {
-        text: string;
-        status?: "success" | "neutral" | "error";
-    };
 };

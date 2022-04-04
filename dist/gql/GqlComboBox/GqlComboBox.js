@@ -88,7 +88,7 @@ import { useGqlComboBoxStyles } from "./styles";
 import { ComboBoxInput } from "../../io";
 import { get } from "lodash";
 export var GqlComboBox = memo(function (_a) {
-    var initialValue = _a.value, _b = _a.config, client = _b.client, key = _b.key, labelKey = _b.labelKey, valueKey = _b.valueKey, query = _b.name, postFetchHook = _a.postFetchHook, addOption = _a.addOption, onChange = _a.onChange, variables = _a.variables, props = __rest(_a, ["value", "config", "postFetchHook", "addOption", "onChange", "variables"]);
+    var initialValue = _a.value, _b = _a.config, client = _b.client, key = _b.key, labelKey = _b.labelKey, valueKey = _b.valueKey, query = _b.name, postFetchHook = _a.postFetchHook, addOption = _a.addOption, onChange = _a.onChange, variables = _a.variables, classNames = _a.classNames, props = __rest(_a, ["value", "config", "postFetchHook", "addOption", "onChange", "variables", "classNames"]);
     var classes = useGqlComboBoxStyles();
     var _c = __read(useState([]), 2), options = _c[0], setOptions = _c[1];
     var _d = __read(useState(true), 2), fetching = _d[0], setFetching = _d[1];
@@ -183,8 +183,8 @@ export var GqlComboBox = memo(function (_a) {
     if (fetching) {
         return (_jsx("div", __assign({ className: classes.loader }, { children: _jsx(CircularProgress, { size: 14, color: "inherit" }, void 0) }), void 0));
     }
-    return (_jsx("div", __assign({ className: classes.root }, { children: _jsx(ComboBoxInput, __assign({ options: options, value: value !== null && value !== void 0 ? value : "", onChange: function (_a) {
-                var value = _a.value;
-                handleChange(value);
-            } }, props), void 0) }), void 0));
+    return (_jsx(ComboBoxInput, __assign({ options: options, value: value !== null && value !== void 0 ? value : "", onChange: function (_a) {
+            var value = _a.value;
+            handleChange(value);
+        }, classNames: __assign(__assign({}, classNames), { comboBoxInput: classNames === null || classNames === void 0 ? void 0 : classNames.gqlComboBox }) }, props), void 0));
 });

@@ -18,10 +18,8 @@ import {
 import {
   CheckBoxInputProps,
   ComboBoxInputProps,
-  ImageUploadInputProps,
   RichTextInputProps,
   SelectInputProps,
-  TagInputProps,
   TextInputProps,
   ToggleInputProps,
 } from "../io";
@@ -52,9 +50,7 @@ export type ComponentPropType = {
   | DisplayCardStory
   | NotificationStory
   | RadioButtonStory
-  | ImageUploadStory
   | SelectStory
-  | TagStory
   | RichTextStory
   | GqlComboBoxStory
   | EmptyStateStory
@@ -128,16 +124,8 @@ type RadioButtonStory = {
   props: RadioButtonProps;
 };
 
-type ImageUploadStory = {
-  props: ImageUploadInputProps;
-};
-
 type SelectStory = {
   props: SelectInputProps;
-};
-
-type TagStory = {
-  props: TagInputProps;
 };
 
 type RichTextStory = {

@@ -23,21 +23,14 @@ export const useBrowserStyles = makeStyles((theme: Theme) => ({
   },
   sidebarItem: {
     display: "flex",
-    // justifyContent: "center",
-    // alignItems: "center",
     padding: theme.spacing(0.5),
-    // borderLeft: `${theme.spacing(0.8)} solid transparent`,
-    // transition: theme.transitions.create(["border", "color"]),
     color: theme.design.colors.gray100,
-    // backgroundColor: theme.design.colors.red70,
     margin: `${theme.spacing(1)}`,
     boxSizing: "border-box",
-    // borderRadius: theme.spacing(0.5),
     textTransform: "uppercase",
     "&:hover": {},
   },
   sidebarItemIsActive: {
-    // borderLeftColor: theme.palette.primary.light,
     "&:hover": {
       borderLeftColor: theme.palette.primary.light,
     },
@@ -52,7 +45,7 @@ export const useBrowserStyles = makeStyles((theme: Theme) => ({
   },
   well: {
     padding: theme.spacing(2),
-    backgroundColor: theme.design.colors.paleGrey,
+    backgroundColor: theme.design.colors.greyColor100,
     borderRadius: theme.spacing(1),
     marginTop: theme.spacing(2),
   },

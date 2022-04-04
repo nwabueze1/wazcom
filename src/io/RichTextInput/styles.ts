@@ -5,25 +5,8 @@ export const useRichInputStyles = makeStyles((theme: Theme) => ({
   root: {
     marginBottom: theme.spacing(2),
   },
-  label: {
-    marginBottom: theme.spacing(1),
-    fontSize: "1rem",
-    color: theme.design.colors.black,
-  },
   editor: {},
   editorError: {
     border: "1px solid red",
-  },
-  feedback: {
-    marginTop: 16,
-  },
-  feedbackSuccess: {
-    color: "green",
-  },
-  feedbackError: {
-    color: "red",
-  },
-  feedbackNeutral: {
-    color: "black",
   },
 }));

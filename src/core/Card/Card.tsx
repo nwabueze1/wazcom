@@ -8,6 +8,7 @@ import { useCardStyles } from "./styles";
 import clx from "classnames";
 
 export const Card: FC<CardProps> = ({
+  className,
   title,
   content,
   image: { src, alt },
@@ -44,7 +45,7 @@ export const Card: FC<CardProps> = ({
   }, [align]);
 
   return (
-    <MuiCard className={clx(classes.root, getAlignVariant())}>
+    <MuiCard className={clx(classes.root, className, getAlignVariant())}>
       <CardMedia component="img" height="140" image={src} alt={alt} />
       <CardContent>
         <Typography gutterBottom variant="h5" component="div">

@@ -5,10 +5,13 @@ import { InputLabel } from "@mui/material";
 import { SchedulerProps } from "./types";
 import { tableHeaders } from "./data";
 import { useScheduleData } from "./hooks";
+import clx from "classnames";
 
 export const Scheduler: React.FC<SchedulerProps> = ({
+  className,
   name: componentName,
   label,
+  labelClassName,
   value: initialScheduleValue = [
     { day: "0", start_time: "00:00", end_time: "12:00" },
   ],
@@ -56,9 +59,12 @@ export const Scheduler: React.FC<SchedulerProps> = ({
   }, [initialScheduleValue]);
 
   return (
-    <div className={classes.root}>
+    <div className={clx(classes.root, className)}>
       {label && (
-        <InputLabel className={classes.label} htmlFor={componentName}>
+        <InputLabel
+          className={clx(classes.label, labelClassName)}
+          htmlFor={componentName}
+        >
           {label}
         </InputLabel>
       )}

@@ -53,8 +53,9 @@ import _ from "lodash";
 import { generateNumbersBetweenRange, useGetCurrentPage, useGetRowsPerPage, useHandleChangePage, useHandleChangeRowsPerPage, useHandleControlsChange, useUpdateTableValue, } from "./helpers";
 import { TableFilter } from "./components";
 import { TableControls } from "./components/TableControls";
+import clx from "classnames";
 export var Table = function (_a) {
-    var headers = _a.headers, initialTableValue = _a.value, hasCheckBox = _a.hasCheckBox, pagination = _a.pagination, changePage = _a.changePage, rowsPerPage = _a.rowsPerPage, changeRowsPerPage = _a.changeRowsPerPage, paginatorInfo = _a.paginatorInfo, controls = _a.controls, props = __rest(_a, ["headers", "value", "hasCheckBox", "pagination", "changePage", "rowsPerPage", "changeRowsPerPage", "paginatorInfo", "controls"]);
+    var className = _a.className, headers = _a.headers, initialTableValue = _a.value, hasCheckBox = _a.hasCheckBox, pagination = _a.pagination, changePage = _a.changePage, rowsPerPage = _a.rowsPerPage, changeRowsPerPage = _a.changeRowsPerPage, paginatorInfo = _a.paginatorInfo, controls = _a.controls, props = __rest(_a, ["className", "headers", "value", "hasCheckBox", "pagination", "changePage", "rowsPerPage", "changeRowsPerPage", "paginatorInfo", "controls"]);
     var classes = useTableStyles();
     var _b = __read(useState(initialTableValue), 2), tableValue = _b[0], setTableValue = _b[1];
     var _c = __read(useState(headers), 2), tableHeaders = _c[0], setTableHeaders = _c[1];
@@ -100,7 +101,7 @@ export var Table = function (_a) {
             }); }));
         }
     }, [initialTableValue, headers]);
-    return (_jsx("div", __assign({ className: classes.tableRoot }, { children: _jsxs(TableContainer, __assign({ component: Paper }, { children: [controls && (_jsx(TableControls, { handleControlsChange: handleControlsChange, setShowFilter: setShowFilter, controls: controls, tableValues: tableValue, controlsFormData: controlsFormData }, void 0)), _jsxs(MuiTable, __assign({ classes: {
+    return (_jsx("div", __assign({ className: clx(classes.tableRoot, className) }, { children: _jsxs(TableContainer, __assign({ component: Paper }, { children: [controls && (_jsx(TableControls, { handleControlsChange: handleControlsChange, setShowFilter: setShowFilter, controls: controls, tableValues: tableValue, controlsFormData: controlsFormData }, void 0)), _jsxs(MuiTable, __assign({ classes: {
                         root: classes.root,
                     } }, props, { children: [_jsx(TableHead, __assign({ className: classes.tableHead }, { children: _jsxs(TableRow, { children: [hasCheckBox && (_jsx(TableCell, __assign({ padding: "checkbox" }, { children: _jsx(Checkbox, { onChange: handleSelectAllRows, checked: selectedRows.length === tableValue.length }, void 0) }), void 0)), tableHeaders.map(function (_a) {
                                         var name = _a.name, label = _a.label;

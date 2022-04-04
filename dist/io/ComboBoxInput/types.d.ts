@@ -5,10 +5,6 @@ export declare type ComboBoxInputProps = CommonProps & Omit<AutocompleteProps<an
     label?: string;
     options: ComboBoxInputOptionProps[];
     value?: string;
-    feedback?: {
-        text: string;
-        status?: "success" | "neutral" | "error";
-    };
 };
 export declare type ComboBoxInputOptionProps = {
     label: string;

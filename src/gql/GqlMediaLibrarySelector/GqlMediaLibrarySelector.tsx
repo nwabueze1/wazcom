@@ -1,12 +1,12 @@
 import { FC, useState } from "react";
-import { Modal, Fade, Backdrop, InputLabel, Typography } from "@mui/material";
-import CameraAltIcon from "@mui/icons-material/CameraAlt";
+import { Modal, Fade, Backdrop, InputLabel } from "@mui/material";
 import clx from "classnames";
 import { useImageSelectorStyles } from "./styles";
 import { GqlMediaLibrarySelectorProps } from "./types";
 import { GqlMediaLibrary } from "../GqlMediaLibrary";
 import { getSizeVariants } from "../../helpers/size";
-import { getFeedbackVariant } from "../../helpers/io";
+import { displayFeedback } from "../../helpers/io";
+import { Button } from "../../core";
 
 export const GqlMediaLibrarySelector: FC<GqlMediaLibrarySelectorProps> = ({
   displayLibrary = false,
@@ -16,6 +16,7 @@ export const GqlMediaLibrarySelector: FC<GqlMediaLibrarySelectorProps> = ({
   width,
   height,
   className,
+  classNames,
   onChange,
   name,
   label,
@@ -47,16 +48,18 @@ export const GqlMediaLibrarySelector: FC<GqlMediaLibrarySelectorProps> = ({
   const variants = getSizeVariants(classes, size);
 
   return (
-    <div className={classes.root}>
+    <div className={clx(className, classes.root)}>
       {label && (
-        <InputLabel className={classes.label} htmlFor={name as string}>
+        <InputLabel
+          className={(classNames?.label as string) ?? ""}
+          htmlFor={name as string}
+        >
           {label}
         </InputLabel>
       )}
       <div
         className={clx(
           classes.container,
-          className,
           variant === "circle" && classes.circle,
           variants[0],
           error && classes.error,
@@ -92,22 +95,15 @@ export const GqlMediaLibrarySelector: FC<GqlMediaLibrarySelectorProps> = ({
             </div>
           </Fade>
         </Modal>
-
-        <CameraAltIcon
-          className={clx(classes.icon, variants[1])}
+        <Button
+          className={clx(classes.icon)}
+          variant="outlined"
           onClick={handleOpen}
-        />
-      </div>
-      {feedback && (
-        <Typography
-          className={clx(
-            classes.feedback,
-            getFeedbackVariant(classes, feedback),
-          )}
         >
-          {feedback.text}
-        </Typography>
-      )}
+          Upload Image
+        </Button>
+      </div>
+      {feedback && displayFeedback(feedback)}
     </div>
   );
 };

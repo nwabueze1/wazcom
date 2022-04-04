@@ -1,12 +1,16 @@
 import makeStyles from "@mui/styles/makeStyles";
 export var useTextAreaStyles = makeStyles(function (theme) { return ({
-    root: {},
+    root: {
+        marginBottom: theme.spacing(2),
+    },
     textarea: {
         borderColor: "rgba(0, 0, 0, 0.23)",
         padding: theme.spacing(1.5),
-        fontSize: "1.05rem",
         borderRadius: 4,
         boxSizing: "border-box",
-        minHeight: "100px",
+        width: "100%",
+    },
+    error: {
+        border: "1px solid ".concat(theme.design.colors.dangerColor100),
     },
 }); });

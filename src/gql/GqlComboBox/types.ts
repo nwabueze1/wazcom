@@ -17,8 +17,4 @@ export type GqlComboBoxProps = CommonProps & {
     value: string,
   ) => Promise<{ label?: string; value?: string; status: boolean }>;
   variables?: { [key: string]: any };
-  feedback?: {
-    text: string;
-    status?: "success" | "neutral" | "error";
-  };
 };

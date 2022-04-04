@@ -32,7 +32,7 @@ import { useTableControlsStyles } from "./styles";
 import { FilterAlt, Logout, Print, SendToMobileOutlined, Settings, } from "@mui/icons-material";
 import { Button } from "../../../Button";
 import { TextInput } from "../../../../io";
-import { exportToCSV, exportToXlsx } from "core/Table/helpers";
+import { exportToCSV, exportToXlsx } from "../../helpers";
 import Menu from "@mui/material/Menu";
 export var TableControls = function (_a) {
     var controls = _a.controls, handleControlsChange = _a.handleControlsChange, setShowFilter = _a.setShowFilter, tableValues = _a.tableValues, controlsFormData = _a.controlsFormData;

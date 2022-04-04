@@ -1,14 +1,17 @@
 import React, { FC } from "react";
-import { MenuItem, Select, InputLabel, Typography } from "@mui/material";
+import { MenuItem, Select, InputLabel } from "@mui/material";
 import { useSelectStyles } from "./styles";
 import { SelectInputProps } from "./types";
 import clx from "classnames";
-import { getFeedbackVariant } from "../../helpers/io";
+import { displayFeedback } from "../../helpers/io";
 
 export const SelectInput: FC<SelectInputProps> = ({
+  className,
+  classNames,
   options = [],
   placeholder = "Select a value",
   label,
+  helperText,
   onChange,
   feedback,
   ...props
@@ -25,13 +28,28 @@ export const SelectInput: FC<SelectInputProps> = ({
   };
 
   return (
-    <div className={classes.root}>
+    <div className={clx(className, classes.root)}>
       {label && (
-        <InputLabel className={classes.label} htmlFor={props.name}>
+        <InputLabel
+          className={classNames?.label as string ?? ""}
+          htmlFor={props.name}
+        >
           {label}
         </InputLabel>
       )}
-      <Select className={classes.select} {...props} onChange={handleChange}>
+      <Select
+        {...props}
+        onChange={handleChange}
+        className={clx(
+          classNames?.selectInput,
+          classes.select,
+        )}
+        classes={
+          classNames?.classes
+            ? (classNames.classes as { [key: string]: string })
+            : {}
+        }
+      >
         {options.length === 0 && (
           <MenuItem value="Select a value">{placeholder}</MenuItem>
         )}
@@ -41,16 +59,8 @@ export const SelectInput: FC<SelectInputProps> = ({
           </MenuItem>
         ))}
       </Select>
-      {feedback && (
-        <Typography
-          className={clx(
-            classes.feedback,
-            getFeedbackVariant(classes, feedback),
-          )}
-        >
-          {feedback.text}
-        </Typography>
-      )}
+      {helperText}
+      {feedback && displayFeedback(feedback)}
     </div>
   );
 };

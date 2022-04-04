@@ -10,8 +10,4 @@ export type RichTextInputProps = CommonProps & {
   ) => void;
   Loader?: JSX.Element;
   error?: boolean;
-  feedback?: {
-    text: string;
-    status?: "success" | "neutral" | "error";
-  };
 };

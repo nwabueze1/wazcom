@@ -1,9 +1,9 @@
 import * as React from "react";
-import { InputLabel, Typography } from "@mui/material";
+import { InputLabel } from "@mui/material";
 import { Editor } from "@tinymce/tinymce-react";
 import { useRichInputStyles } from "./styles";
 import { RichTextInputProps } from "./types";
-import { getFeedbackVariant } from "../../helpers/io";
+import { displayFeedback } from "../../helpers/io";
 import clx from "classnames";
 
 const plugins = [
@@ -21,6 +21,9 @@ const toolbar = [
 
 export const RichTextInput: React.FC<RichTextInputProps> = ({
   name,
+  className,
+  classNames,
+  helperText,
   label,
   apiKey,
   value,
@@ -28,23 +31,32 @@ export const RichTextInput: React.FC<RichTextInputProps> = ({
   onChange,
   error,
   feedback,
-  Loader
+  Loader,
 }) => {
   const classes = useRichInputStyles();
   const [loading, setLoading] = React.useState<boolean>(false);
 
-  const handleContentChange = (content:string) => {
-    onChange?.({ name: name as string, value: content })
-  }
+  const handleContentChange = (content: string) => {
+    onChange?.({ name: name as string, value: content });
+  };
 
   return (
-    <div className={classes.root}>
+    <div className={clx(className, classes.root)}>
       {label && (
-        <InputLabel className={classes.label} htmlFor={name}>
+        <InputLabel
+          className={(classNames?.label as string) ?? ""}
+          htmlFor={name}
+        >
           {label}
         </InputLabel>
       )}
-      <div className={clx(classes.editor, error && classes.editorError)}>
+      <div
+        className={clx(
+          classNames?.richTextInput,
+          classes.editor,
+          error && classes.editorError,
+        )}
+      >
         <Editor
           value={value}
           apiKey={apiKey}
@@ -64,16 +76,8 @@ export const RichTextInput: React.FC<RichTextInputProps> = ({
           onEditorChange={handleContentChange}
         />
       </div>
-      {feedback && (
-        <Typography
-          className={clx(
-            classes.feedback,
-            getFeedbackVariant(classes, feedback),
-          )}
-        >
-          {feedback.text}
-        </Typography>
-      )}
+      {helperText}
+      {feedback && displayFeedback(feedback)}
       {loading && Loader}
     </div>
   );

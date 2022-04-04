@@ -1,4 +1,4 @@
-import { GqlMediaSelectorConfigProps } from "gql";
+import { GqlMediaSelectorConfigProps } from "../../gql";
 import { CommonProps } from "../../types";
 
 export type GqlMediaLibrarySelectorProps = CommonProps &
@@ -11,9 +11,5 @@ export type GqlMediaLibrarySelectorProps = CommonProps &
     width?: string;
     height?: string;
     value?: string;
-    feedback?: {
-      text: string;
-      status?: "success" | "neutral" | "error";
-    };
     error?: boolean;
   };

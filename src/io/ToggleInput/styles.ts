@@ -8,9 +8,6 @@ export const useToggleStyles = makeStyles((theme: Theme) => ({
     flexDirection: "column",
     justifyContent: "space-between",
   },
-  label: {
-    fontSize: "1rem",
-  },
   addon: {
     width: "30%",
     background: "#EFEDED",
@@ -23,12 +20,12 @@ export const useToggleStyles = makeStyles((theme: Theme) => ({
     color: theme.design.colors.black,
   },
   toggle: {
-    color: theme.design.colors.greene,
+    color: theme.design.colors.successColor,
     marginTop: theme.spacing(1),
     "& 	.Mui-checked": {
       color: theme.design.colors.white,
       "& + .MuiSwitch-track": {
-        backgroundColor: theme.design.colors.greene,
+        backgroundColor: theme.design.colors.successColor,
         opacity: 1,
         border: 0,
       },

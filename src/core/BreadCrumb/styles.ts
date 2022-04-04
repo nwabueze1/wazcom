@@ -10,13 +10,14 @@ export const BreadCrumbStyles = makeStyles((theme: BaseTheme) => ({
   link: {
     display: "flex",
     textDecoration: "none",
-    color: theme.design.colors.grey80,
+    color: theme.design.colors.greyColor200
+    ,
     cursor: "pointer",
   },
   navIcon: {
     paddingTop: theme.spacing(0.25),
   },
   lastCrumb: {
-    color: theme.design.colors.red,
+    color: theme.design.colors.dangerColor,
   },
 }));

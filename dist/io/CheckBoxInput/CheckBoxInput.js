@@ -1,6 +1,27 @@
-import { jsx as _jsx } from "react/jsx-runtime";
-import Checkbox from "@mui/material/Checkbox";
+var __assign = (this && this.__assign) || function () {
+    __assign = Object.assign || function(t) {
+        for (var s, i = 1, n = arguments.length; i < n; i++) {
+            s = arguments[i];
+            for (var p in s) if (Object.prototype.hasOwnProperty.call(s, p))
+                t[p] = s[p];
+        }
+        return t;
+    };
+    return __assign.apply(this, arguments);
+};
+import { jsx as _jsx, jsxs as _jsxs } from "react/jsx-runtime";
+import { InputLabel, Checkbox } from "@mui/material";
+import clx from "classnames";
+import { useCheckboxInputStyles } from "./styles";
+import { displayFeedback } from "../../helpers/io";
 export var CheckBoxInput = function (_a) {
-    var className = _a.className, label = _a.label, checked = _a.checked, handleCheckChange = _a.handleCheckChange;
-    return (_jsx(Checkbox, { checked: checked, className: className, onChange: handleCheckChange, inputProps: { "aria-label": label } }, void 0));
+    var _b;
+    var name = _a.name, className = _a.className, classNames = _a.classNames, helperText = _a.helperText, label = _a.label, value = _a.value, feedback = _a.feedback, onChange = _a.onChange;
+    var classes = useCheckboxInputStyles();
+    var handleChange = function (event) {
+        onChange === null || onChange === void 0 ? void 0 : onChange({ name: name, value: event.target.checked });
+    };
+    return (_jsxs("div", __assign({ className: clx(className, classes.root) }, { children: [label && (_jsx(InputLabel, __assign({ className: (_b = classNames === null || classNames === void 0 ? void 0 : classNames.label) !== null && _b !== void 0 ? _b : "", htmlFor: name }, { children: label }), void 0)), _jsx(Checkbox, { checked: value, onChange: handleChange, inputProps: { "aria-label": label }, className: (classNames === null || classNames === void 0 ? void 0 : classNames.checkBoxInput) ? classNames.checkBoxInput : "", classes: (classNames === null || classNames === void 0 ? void 0 : classNames.classes)
+                    ? classNames.classes
+                    : {} }, void 0), helperText, feedback && displayFeedback(feedback)] }), void 0));
 };
