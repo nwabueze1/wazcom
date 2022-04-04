@@ -157,7 +157,7 @@ export var GqlMediaLibrary = function (_a) {
     };
     var handleSearchChange = function (e) {
         var search = e.target.value;
-        if (search || search === "") {
+        if (search === "") {
             return;
         }
         var filteredResult = images.filter(function (image) { var _a; return (_a = image.title) === null || _a === void 0 ? void 0 : _a.toLowerCase().includes(search.toLowerCase()); });

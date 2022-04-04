@@ -22,11 +22,14 @@ export var useImageSelectorStyles = makeStyles(function (theme) { return ({
         border: "3px solid ".concat(theme.design.colors.white),
     },
     icon: {
-        color: theme.design.colors.black,
         cursor: "pointer",
+        color: theme.design.colors.successColor,
         zIndex: 5,
-        background: "transparent",
-        fontSize: "2vw",
+        border: "1px solid ".concat(theme.design.colors.successColor),
+        background: theme.design.colors.white,
+        "&:hover": {
+            background: theme.design.colors.successColor300,
+        },
     },
     modal: {
         display: "flex",

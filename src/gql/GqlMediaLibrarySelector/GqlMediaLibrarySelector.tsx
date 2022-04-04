@@ -1,6 +1,5 @@
 import { FC, useState } from "react";
 import { Modal, Fade, Backdrop, InputLabel } from "@mui/material";
-import CameraAltIcon from "@mui/icons-material/CameraAlt";
 import clx from "classnames";
 import { useImageSelectorStyles } from "./styles";
 import { GqlMediaLibrarySelectorProps } from "./types";

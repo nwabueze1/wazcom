@@ -27,7 +27,7 @@ import { useToggleStyles } from "./styles";
 import { displayFeedback } from "../../helpers/io";
 export var ToggleInput = function (_a) {
     var _b;
-    var name = _a.name, label = _a.label, value = _a.value, feedback = _a.feedback, onChange = _a.onChange, className = _a.className, classNames = _a.classNames, props = __rest(_a, ["name", "label", "value", "feedback", "onChange", "className", "classNames"]);
+    var name = _a.name, label = _a.label, value = _a.value, feedback = _a.feedback, helperText = _a.helperText, onChange = _a.onChange, className = _a.className, classNames = _a.classNames, props = __rest(_a, ["name", "label", "value", "feedback", "helperText", "onChange", "className", "classNames"]);
     var classes = useToggleStyles();
     var handleChange = function (checked) {
         onChange === null || onChange === void 0 ? void 0 : onChange({ name: name, value: checked });
@@ -36,5 +36,5 @@ export var ToggleInput = function (_a) {
                     handleChange(checked);
                 }, className: clx(classNames === null || classNames === void 0 ? void 0 : classNames.toggleInput, classes.toggle), classes: (classNames === null || classNames === void 0 ? void 0 : classNames.classes)
                     ? classNames.classes
-                    : {} }, props), void 0), feedback && displayFeedback(feedback)] }), void 0));
+                    : {} }, props), void 0), helperText, feedback && displayFeedback(feedback)] }), void 0));
 };

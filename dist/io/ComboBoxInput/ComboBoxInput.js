@@ -30,12 +30,12 @@ import { useCallback, useEffect, useState } from "react";
 import Autocomplete, { createFilterOptions } from "@mui/material/Autocomplete";
 import { InputLabel, TextField } from "@mui/material";
 import { useComboBoxStyles } from "./styles";
-import clx from 'classnames';
+import clx from "classnames";
 import { displayFeedback } from "../../helpers/io";
 var filter = createFilterOptions();
 export var ComboBoxInput = function (_a) {
     var _b;
-    var name = _a.name, onChange = _a.onChange, initialOptions = _a.options, label = _a.label, classNames = _a.classNames, value = _a.value, error = _a.error, placeholder = _a.placeholder, feedback = _a.feedback, className = _a.className;
+    var name = _a.name, onChange = _a.onChange, initialOptions = _a.options, label = _a.label, classNames = _a.classNames, helperText = _a.helperText, value = _a.value, error = _a.error, placeholder = _a.placeholder, feedback = _a.feedback, className = _a.className;
     var classes = useComboBoxStyles();
     var _c = __read(useState(initialOptions), 2), options = _c[0], setOptions = _c[1];
     useEffect(function () {
@@ -75,5 +75,5 @@ export var ComboBoxInput = function (_a) {
                     handleChange(selectedOption);
                 }, filterOptions: handleFilterOptions, freeSolo: true, renderInput: function (params) { return (_jsx(TextField, __assign({}, params, { label: label, placeholder: placeholder, variant: "outlined", error: error }), void 0)); }, className: (classNames === null || classNames === void 0 ? void 0 : classNames.comboBoxInput) ? classNames.comboBoxInput : "", classes: (classNames === null || classNames === void 0 ? void 0 : classNames.classes)
                     ? classNames.classes
-                    : {} }, void 0), feedback && displayFeedback(feedback)] }), void 0));
+                    : {} }, void 0), helperText, feedback && displayFeedback(feedback)] }), void 0));
 };
