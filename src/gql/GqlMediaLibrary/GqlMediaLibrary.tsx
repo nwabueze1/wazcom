@@ -130,7 +130,7 @@ export const GqlMediaLibrary: FC<GqlMediaLibraryProps> = ({
 
   const handleSearchChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     const search = e.target.value;
-    if (search || search === "") {
+    if (search === "") {
       return;
     }
 

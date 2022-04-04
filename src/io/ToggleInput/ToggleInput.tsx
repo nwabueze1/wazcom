@@ -10,6 +10,7 @@ export const ToggleInput: React.FC<ToggleInputProps> = ({
   label,
   value,
   feedback,
+  helperText,
   onChange,
   className,
   classNames,
@@ -24,7 +25,7 @@ export const ToggleInput: React.FC<ToggleInputProps> = ({
   return (
     <div className={clx(className, classes.root)}>
       {label && (
-        <InputLabel className={classNames?.label as string ?? ""}>
+        <InputLabel className={(classNames?.label as string) ?? ""}>
           {label}
         </InputLabel>
       )}
@@ -42,6 +43,7 @@ export const ToggleInput: React.FC<ToggleInputProps> = ({
         }
         {...props}
       />
+      {helperText}
       {feedback && displayFeedback(feedback)}
     </div>
   );

@@ -15,6 +15,7 @@ export const TextInput: FC<TextInputProps> = ({
   classNames,
   label,
   feedback,
+  helperText,
   icon,
   ...props
 }) => {
@@ -23,10 +24,7 @@ export const TextInput: FC<TextInputProps> = ({
   return (
     <div className={clx(className, classes.root)}>
       {label && (
-        <InputLabel
-          className={classNames?.label}
-          htmlFor={props.name}
-        >
+        <InputLabel className={classNames?.label} htmlFor={props.name}>
           {label}
         </InputLabel>
       )}
@@ -48,6 +46,7 @@ export const TextInput: FC<TextInputProps> = ({
             : {}
         }
       />
+      {helperText}
       {feedback && displayFeedback(feedback)}
     </div>
   );

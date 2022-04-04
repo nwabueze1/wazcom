@@ -3,7 +3,7 @@ import Autocomplete, { createFilterOptions } from "@mui/material/Autocomplete";
 import { InputLabel, TextField } from "@mui/material";
 import { useComboBoxStyles } from "./styles";
 import { ComboBoxInputProps, ComboBoxInputOptionProps } from "./types";
-import clx from 'classnames';
+import clx from "classnames";
 import { displayFeedback } from "../../helpers/io";
 
 const filter = createFilterOptions<ComboBoxInputOptionProps>();
@@ -14,11 +14,12 @@ export const ComboBoxInput: FC<ComboBoxInputProps> = ({
   options: initialOptions,
   label,
   classNames,
+  helperText,
   value,
   error,
   placeholder,
   feedback,
-  className
+  className,
 }) => {
   const classes = useComboBoxStyles();
   const [options, setOptions] = useState(initialOptions);
@@ -102,6 +103,7 @@ export const ComboBoxInput: FC<ComboBoxInputProps> = ({
             : {}
         }
       />
+      {helperText}
       {feedback && displayFeedback(feedback)}
     </div>
   );

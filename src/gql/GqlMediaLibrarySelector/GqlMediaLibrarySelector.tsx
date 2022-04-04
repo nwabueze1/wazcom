@@ -7,6 +7,7 @@ import { GqlMediaLibrarySelectorProps } from "./types";
 import { GqlMediaLibrary } from "../GqlMediaLibrary";
 import { getSizeVariants } from "../../helpers/size";
 import { displayFeedback } from "../../helpers/io";
+import { Button } from "core";
 
 export const GqlMediaLibrarySelector: FC<GqlMediaLibrarySelectorProps> = ({
   displayLibrary = false,
@@ -51,7 +52,7 @@ export const GqlMediaLibrarySelector: FC<GqlMediaLibrarySelectorProps> = ({
     <div className={clx(className, classes.root)}>
       {label && (
         <InputLabel
-          className={classNames?.label as string ?? ""}
+          className={(classNames?.label as string) ?? ""}
           htmlFor={name as string}
         >
           {label}
@@ -95,11 +96,13 @@ export const GqlMediaLibrarySelector: FC<GqlMediaLibrarySelectorProps> = ({
             </div>
           </Fade>
         </Modal>
-
-        <CameraAltIcon
-          className={clx(classes.icon, variants[1])}
+        <Button
+          className={clx(classes.icon)}
+          variant="outlined"
           onClick={handleOpen}
-        />
+        >
+          Upload Image
+        </Button>
       </div>
       {feedback && displayFeedback(feedback)}
     </div>
