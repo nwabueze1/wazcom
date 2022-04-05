@@ -6,7 +6,7 @@ import { GqlMediaLibrarySelectorProps } from "./types";
 import { GqlMediaLibrary } from "../GqlMediaLibrary";
 import { getSizeVariants } from "../../helpers/size";
 import { displayFeedback } from "../../helpers/io";
-import { Button } from "core";
+import { Button } from "../../core";
 
 export const GqlMediaLibrarySelector: FC<GqlMediaLibrarySelectorProps> = ({
   displayLibrary = false,
