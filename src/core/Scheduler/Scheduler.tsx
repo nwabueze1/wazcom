@@ -37,13 +37,19 @@ export const Scheduler: React.FC<SchedulerProps> = ({
   );
 
   const [scheduleValue, setScheduleValue] = useState<{ [key: string]: any }[]>(
-    parseSchedulevalue(initialScheduleValue, handleChange),
+    parseSchedulevalue(initialScheduleValue, handleChange, {
+      timeSection: classes.schedulerContainer,
+    }),
   );
     console.log(scheduleValue)
   useEffect(() => {
     const newScheduleValue = parseSchedulevalue(
       initialScheduleValue,
       handleChange,
+      {
+        timeSection: classes.schedulerContainer,
+        timeDivider: classes.timeDivider,
+      },
     );
     setScheduleValue(newScheduleValue);
   }, [initialScheduleValue]);

@@ -31,4 +31,7 @@ export const useSchedulerStyles = makeStyles((theme: Theme) => ({
     justifyContent: "space-between",
     alignItems: "center"
   },
+  timeDivider: {
+    margin: theme.spacing(0, 1)
+  }
 }));

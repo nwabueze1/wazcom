@@ -35,6 +35,7 @@ const CustomCss = withStyles({
     },
     ".MuiOutlinedInput-notchedOutline": {
       border: `solid 1px #E6E7E6`,
+      borderRadius: 5,
       "&:hover": {
         borderColor: `#E6E7E6`,
         outline: "none",
