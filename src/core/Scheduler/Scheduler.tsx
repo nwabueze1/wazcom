@@ -1,5 +1,4 @@
 import React, { useState, useCallback, useEffect } from "react";
-import { Table } from "../Table";
 import { useSchedulerStyles } from "./styles";
 import { InputLabel } from "@mui/material";
 import { SchedulerProps } from "./types";
@@ -54,15 +53,15 @@ export const Scheduler: React.FC<SchedulerProps> = ({
     setScheduleValue(newScheduleValue);
   }, [initialScheduleValue]);
 
-  const addNewRow = useCallback(() => {
-    onChange?.({
-      name: componentName as string,
-      value: [
-        ...initialScheduleValue,
-        { day: "0", start_time: "00:00", time_divider: "to", end_time: "12:00" },
-      ],
-    });
-  }, [initialScheduleValue]);
+  // const addNewRow = useCallback(() => {
+  //   onChange?.({
+  //     name: componentName as string,
+  //     value: [
+  //       ...initialScheduleValue,
+  //       { day: "0", start_time: "00:00", time_divider: "to", end_time: "12:00" },
+  //     ],
+  //   });
+  // }, [initialScheduleValue]);
 
   return (
     <div className={clx(classes.root, className)}>

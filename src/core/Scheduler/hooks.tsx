@@ -1,7 +1,6 @@
 import { DayPicker } from "./DayPicker/DayPicker";
 import { TimeSelector } from "./TimePicker/TimePicker";
 import { Schedule } from "./types";
-import CloseIcon from "@mui/icons-material/Close";
 
 export const useScheduleData = () => {
   return (

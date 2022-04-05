@@ -10,21 +10,25 @@ export var days = [
     { id: 8, name: "Weekdays", display: true },
     { id: 9, name: "Weekends", display: true },
 ];
-export var tableHeaders = [
+export var fields = [
     {
-        name: 'day',
-        label: 'Days/ No. of Days'
+        name: "day",
+        label: "Days/ No. of Days",
     },
     {
-        name: 'start_time',
-        label: "Start Time"
+        name: "time_section",
+        label: "Start Time",
     },
-    {
-        name: 'end_time',
-        label: "End Time"
-    },
-    {
-        name: 'action',
-        label: "Action"
-    }
+    // {
+    //   name: "start_time",
+    //   label: "Start Time",
+    // },
+    // {
+    //   name: "time_divider",
+    //   label: "",
+    // },
+    // {
+    //   name: "end_time",
+    //   label: "End Time",
+    // },
 ];

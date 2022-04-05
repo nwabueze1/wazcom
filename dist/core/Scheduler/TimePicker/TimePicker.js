@@ -29,6 +29,27 @@ var CustomCss = withStyles({
                 display: "none",
             },
         },
+        ".MuiOutlinedInput-notchedOutline": {
+            border: "solid 1px #E6E7E6",
+            borderRadius: 5,
+            "&:hover": {
+                borderColor: "#E6E7E6",
+                outline: "none",
+            },
+            "&:focus": {
+                borderColor: "#E6E7E6",
+            },
+        },
+        ".Mui-focused.MuiOutlinedInput-notchedOutline": {
+            border: "solid 1px #E6E7E6",
+            "&:hover": {
+                borderColor: "#E6E7E6",
+                outline: "none",
+            },
+            "&:focus": {
+                borderColor: "#E6E7E6",
+            },
+        },
     },
 })(function () { return null; });
 export var TimeSelector = function (_a) {

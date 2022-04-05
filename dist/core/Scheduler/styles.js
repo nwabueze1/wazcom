@@ -23,4 +23,12 @@ export var useSchedulerStyles = makeStyles(function (theme) { return ({
     addIcon: {
         marginRight: theme.spacing(1),
     },
+    schedulerContainer: {
+        display: "flex",
+        justifyContent: "space-between",
+        alignItems: "center"
+    },
+    timeDivider: {
+        margin: theme.spacing(0, 1)
+    }
 }); });
