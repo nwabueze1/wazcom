@@ -21,9 +21,10 @@ export const TableFilter: React.FC<TableFilterProps> = ({
   const [filterFields, setFilterFields] =
     useState<{ [key: string]: any }[]>(fields);
   const [searchField, setSearchField] = useState("");
+  const [newFilters, setNewFilters] = useState(filters);
 
   const handleSetFilter = (field: string, value: string) => {
-    setFilters((filters) => {
+    setNewFilters((filters) => {
       const index = filters.findIndex((filter) => filter.field === field);
       if (index === -1) {
         return [
@@ -69,7 +70,7 @@ export const TableFilter: React.FC<TableFilterProps> = ({
   );
 
   const getCheckedState = (field: string, value: string) => {
-    const filter = filters.find((filter) => filter.field === field);
+    const filter = newFilters.find((filter) => filter.field === field);
     if (filter && filter.values.includes(value)) {
       return true;
     }
@@ -93,7 +94,7 @@ export const TableFilter: React.FC<TableFilterProps> = ({
           </Accordion>
         </MenuItem>
       )),
-    [filterFields, filters, values],
+    [filterFields, newFilters, values],
   );
 
   const handleSearchFieldChange = (e: any) => {
@@ -152,7 +153,10 @@ export const TableFilter: React.FC<TableFilterProps> = ({
               >
                 Cancel
               </Button>
-              <Button className={classes.filterActionButton}>
+              <Button
+                className={classes.filterActionButton}
+                onClick={() => setFilters(newFilters)}
+              >
                 Apply Filter
               </Button>
             </div>

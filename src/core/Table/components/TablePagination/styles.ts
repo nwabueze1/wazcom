@@ -21,7 +21,7 @@ export const useTablePaginationStyles = makeStyles((theme: Theme) => ({
   tablePaginationNavigatorText: {},
   tablePaginationNavigatorInput: {
     outline: "none",
-    border: `1px solid #CCCFCD`,
+    border: `1px solid ${theme.design.colors.greyColor100}`,
     width: 50,
     borderRadius: 4,
     padding: theme.spacing(1),
@@ -29,10 +29,10 @@ export const useTablePaginationStyles = makeStyles((theme: Theme) => ({
   pageNumber: {
     borderRadius: 4,
     padding: theme.spacing(0.6, 1.5),
-    cursor: 'pointer',
+    cursor: "pointer",
   },
   activePage: {
-    background: "#E6E7E6",
+    background: theme.design.colors.greyColor100,
   },
   pages: {
     display: "flex",
@@ -42,7 +42,11 @@ export const useTablePaginationStyles = makeStyles((theme: Theme) => ({
     display: "flex",
     alignItems: "center",
   },
-  pageNavigationIcon:{
-      cursor: 'pointer'
-  }
+  pageNavigationIcon: {
+    cursor: "pointer",
+  },
+  deactivatePageNavigationIcon: {
+    opacity: 0.3,
+    cursor: "default",
+  },
 }));

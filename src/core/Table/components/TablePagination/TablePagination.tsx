@@ -1,9 +1,10 @@
-import { PageNumbersProps, TablePaginationProps } from "./types";
-import { KeyboardArrowLeft, KeyboardArrowRight } from "@mui/icons-material";
-import { useTablePaginationStyles } from "./styles";
 import { TableCell } from "@mui/material";
 import clx from "classnames";
 import { useState } from "react";
+import { TablePaginationProps } from "./types";
+import { KeyboardArrowLeft, KeyboardArrowRight } from "@mui/icons-material";
+import { useTablePaginationStyles } from "./styles";
+import { PageNumbers } from "./PageNumbers";
 
 export const TablePagination: React.FC<TablePaginationProps> = ({
   page: currentPage,
@@ -52,73 +53,27 @@ export const TablePagination: React.FC<TablePaginationProps> = ({
               onClick={() =>
                 currentPage > 1 && onPageChange(null, currentPage - 1)
               }
-              className={classes.pageNavigationIcon}
+              className={clx(classes.pageNavigationIcon, {
+                [classes.deactivatePageNavigationIcon]: currentPage < 2,
+              })}
             />
-            <PageNumbers onPageChange={onPageChange} count={count} />
+            <PageNumbers
+              onPageChange={onPageChange}
+              count={count}
+              currentPage={currentPage}
+            />
             <KeyboardArrowRight
               fontSize="large"
               onClick={() =>
                 currentPage < count && onPageChange(null, currentPage + 1)
               }
-              className={classes.pageNavigationIcon}
+              className={clx(classes.pageNavigationIcon, {
+                [classes.deactivatePageNavigationIcon]: currentPage >= count,
+              })}
             />
           </div>
         </div>
       </TableCell>
     </>
   );
-};
-
-export const PageNumbers: React.FC<PageNumbersProps> = function ({
-  onPageChange,
-  count,
-}) {
-  const classes = useTablePaginationStyles();
-
-  const renderNumbers = (total: number | string) => {
-    // const pageRangeDisplayed = 3;
-    // const leftSide = pageRangeDisplayed / 2;
-    // const rightSide = pageRangeDisplayed - leftSide;
-    const pages = [...Array(total).keys()];
-
-    const leftContent = pages.slice(1, 4).map((page, index) => (
-      <span
-        className={clx(classes.pageNumber, {
-          [classes.activePage]: page == 1,
-        })}
-        key={index}
-        onClick={() => onPageChange(null, page)}
-      >
-        {page}
-      </span>
-    ));
-
-    const rightContent =
-      pages.length > 3 ? (
-        pages.slice(-2).map((page, index) => (
-          <span
-            className={clx(classes.pageNumber, {
-              [classes.activePage]: page == 1,
-            })}
-            key={index}
-            onClick={() => onPageChange(null, page)}
-          >
-            {page}
-          </span>
-        ))
-      ) : (
-        <></>
-      );
-
-    const dots =
-      pages.length > 3 ? (
-        <span className={clx(classes.pageNumber)}>...</span>
-      ) : (
-        <></>
-      );
-
-    return [leftContent, dots, rightContent];
-  };
-
-  return <div className={clx(classes.text)}>{renderNumbers(count)}</div>;
 };

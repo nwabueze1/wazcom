@@ -8,4 +8,14 @@ export type PageNumbersProps = {
     newPage: number,
   ) => void;
   count: number;
+  currentPage: number;
 };
+
+export type PageNumberProps = {
+  onPageChange: (
+    event: React.MouseEvent<HTMLButtonElement> | null,
+    newPage: number,
+  ) => void;
+  page: number;
+  currentPage: number;
+}

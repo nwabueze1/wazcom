@@ -9,7 +9,7 @@ export const useFilterStyles = makeStyles((theme: Theme) => ({
     position: "absolute",
     zIndex: 5,
     backgroundColor: theme.design.colors.white,
-    boxShadow: "0px 10px 20px rgba(77, 86, 80, 0.3)",
+    boxShadow: `0px 10px 20px ${theme.design.colors.greyColor100}`,
     width: 300,
     height: 330,
     top: 50,
