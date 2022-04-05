@@ -43,7 +43,7 @@ import { useScheduleData } from "./hooks";
 import clx from "classnames";
 import { FiPlus } from "react-icons/fi";
 export var Scheduler = function (_a) {
-    var className = _a.className, componentName = _a.name, label = _a.label, labelClassName = _a.labelClassName, _b = _a.gap, gap = _b === void 0 ? useSchedulerStyles().dayContainer : _b, _c = _a.multiple, multiple = _c === void 0 ? true : _c, _d = _a.value, initialScheduleValue = _d === void 0 ? [
+    var className = _a.className, componentName = _a.name, label = _a.label, labelClassName = _a.labelClassName, _b = _a.gap, gap = _b === void 0 ? useSchedulerStyles().dayContainer : _b, _c = _a.multiple, multiple = _c === void 0 ? false : _c, _d = _a.value, initialScheduleValue = _d === void 0 ? [
         { day: "0", start_time: "00:00", end_time: "12:00" },
     ] : _d, onChange = _a.onChange;
     var classes = useSchedulerStyles();

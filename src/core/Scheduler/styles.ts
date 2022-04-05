@@ -47,7 +47,8 @@ export const useSchedulerStyles = makeStyles((theme: Theme) => ({
   },
   closeIcon: {
     color: theme.design.colors.grey5,
-    marginLeft: theme.spacing(1.5)
+    marginLeft: theme.spacing(1.5),
+    cursor: "pointer"
   },
   hiddenCloseIcon: {
     display: "none"
