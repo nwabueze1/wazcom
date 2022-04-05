@@ -22,7 +22,7 @@ export var useToggleStyles = makeStyles(function (theme) { return ({
         "& 	.Mui-checked": {
             color: theme.design.colors.white,
             "& + .MuiSwitch-track": {
-                backgroundColor: theme.design.colors.successColor,
+                backgroundColor: theme.design.colors.greene,
                 opacity: 1,
                 border: 0,
             },

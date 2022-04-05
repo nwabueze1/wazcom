@@ -12,4 +12,5 @@ export type GqlMediaLibrarySelectorProps = CommonProps &
     height?: string;
     value?: string;
     error?: boolean;
+    iconType?: "icon" | "button"
   };
