@@ -15,13 +15,17 @@ export var useSchedulerStyles = makeStyles(function (theme) { return ({
         alignItems: "center",
         margin: theme.spacing(2, 0, 0, 0),
         cursor: "pointer",
-        textDecoration: "underline",
     },
     buttonText: {
         margin: "0",
+        fontSize: theme.typography.fontSize + 4,
+        fontWeight: theme.typography.fontWeightMedium,
+        color: theme.design.colors.greene,
+        display: "flex",
+        alignItems: "center"
     },
     addIcon: {
-        marginRight: theme.spacing(1),
+        marginRight: theme.spacing(1.5),
     },
     schedulerContainer: {
         display: "flex",
