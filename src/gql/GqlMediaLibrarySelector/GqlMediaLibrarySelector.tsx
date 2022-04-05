@@ -7,12 +7,14 @@ import { GqlMediaLibrary } from "../GqlMediaLibrary";
 import { getSizeVariants } from "../../helpers/size";
 import { displayFeedback } from "../../helpers/io";
 import { Button } from "../../core";
+import CameraAlt from "@mui/icons-material/CameraAlt";
 
 export const GqlMediaLibrarySelector: FC<GqlMediaLibrarySelectorProps> = ({
   displayLibrary = false,
   variant = "square",
   size = "full",
   verbose,
+  iconType,
   width,
   height,
   className,
@@ -95,13 +97,20 @@ export const GqlMediaLibrarySelector: FC<GqlMediaLibrarySelectorProps> = ({
             </div>
           </Fade>
         </Modal>
-        <Button
-          className={clx(classes.icon)}
-          variant="outlined"
-          onClick={handleOpen}
-        >
-          Upload Image
-        </Button>
+        {iconType === "button" ? (
+          <Button
+            className={clx(classes.icon)}
+            variant="outlined"
+            onClick={handleOpen}
+          >
+            Upload Image
+          </Button>
+        ) : (
+          <CameraAlt
+            className={clx(classes.cameraIcon, variants[1])}
+            onClick={handleOpen}
+          />
+        )}
       </div>
       {feedback && displayFeedback(feedback)}
     </div>

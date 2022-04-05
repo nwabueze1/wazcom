@@ -35,6 +35,13 @@ export const useImageSelectorStyles = makeStyles((theme: Theme) => ({
       border: `1px solid ${theme.design.colors.greene}`,
     },
   },
+  cameraIcon: {
+    color: theme.design.colors.black,
+    cursor: "pointer",
+    zIndex: 5,
+    background: "transparent",
+    fontSize: "2vw",
+  },
   modal: {
     display: "flex",
     justifyContent: "center",
