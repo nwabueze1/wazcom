@@ -16,12 +16,14 @@ export const useScheduleData = () => {
     scheduleData.forEach((schedule, index) => {
       const parsedSchedule: { [key: string]: any } = {};
       parsedSchedule["day"] = (
-        <DayPicker
-          name={"day"}
-          label={"Enter Site Name"}
-          value={schedule.day}
-          onChange={(event: any) => handleChange(event, index)}
-        />
+        <div className={classNames?.dayContainer}>
+          <DayPicker
+            name={"day"}
+            label={"Enter Site Name"}
+            value={schedule.day}
+            onChange={(event: any) => handleChange(event, index)}
+          />
+        </div>
       );
       parsedSchedule["time_section"] = (
         <div className={classNames?.timeSection}>
@@ -38,23 +40,6 @@ export const useScheduleData = () => {
           />
         </div>
       );
-      // parsedSchedule["start_time"] = (
-      //   <TimeSelector
-      //     name={"start_time"}
-      //     value={schedule.start_time}
-      //     onChange={(event) => handleChange(event, index)}
-      //   />
-      // );
-      // parsedSchedule["time_divider"] = (
-      //   <p>to</p>
-      // );
-      // parsedSchedule["end_time"] = (
-      //   <TimeSelector
-      //     name={"end_time"}
-      //     value={schedule.end_time}
-      //     onChange={(event) => handleChange(event, index)}
-      //   />
-      // );
       data.push(parsedSchedule);
     });
     return data;
