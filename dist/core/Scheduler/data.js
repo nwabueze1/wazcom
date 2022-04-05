@@ -19,16 +19,4 @@ export var fields = [
         name: "time_section",
         label: "Start Time",
     },
-    // {
-    //   name: "start_time",
-    //   label: "Start Time",
-    // },
-    // {
-    //   name: "time_divider",
-    //   label: "",
-    // },
-    // {
-    //   name: "end_time",
-    //   label: "End Time",
-    // },
 ];

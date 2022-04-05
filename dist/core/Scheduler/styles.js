@@ -25,10 +25,17 @@ export var useSchedulerStyles = makeStyles(function (theme) { return ({
     },
     schedulerContainer: {
         display: "flex",
+        alignItems: "center",
+    },
+    timeContainer: {
+        display: "flex",
         justifyContent: "space-between",
-        alignItems: "center"
+        alignItems: "center",
     },
     timeDivider: {
-        margin: theme.spacing(0, 1)
+        margin: theme.spacing(0, 1),
+    },
+    dayContainer: {
+        marginRight: "10%"
     }
 }); });

@@ -17,25 +17,8 @@ export var useScheduleData = function () {
         var data = [];
         scheduleData.forEach(function (schedule, index) {
             var parsedSchedule = {};
-            parsedSchedule["day"] = (_jsx(DayPicker, { name: "day", label: "Enter Site Name", value: schedule.day, onChange: function (event) { return handleChange(event, index); } }, void 0));
+            parsedSchedule["day"] = (_jsx("div", __assign({ className: classNames === null || classNames === void 0 ? void 0 : classNames.dayContainer }, { children: _jsx(DayPicker, { name: "day", label: "Enter Site Name", value: schedule.day, onChange: function (event) { return handleChange(event, index); } }, void 0) }), void 0));
             parsedSchedule["time_section"] = (_jsxs("div", __assign({ className: classNames === null || classNames === void 0 ? void 0 : classNames.timeSection }, { children: [_jsx(TimeSelector, { name: "start_time", value: schedule.start_time, onChange: function (event) { return handleChange(event, index); } }, void 0), _jsx("p", __assign({ className: classNames === null || classNames === void 0 ? void 0 : classNames.timeDivider }, { children: "to" }), void 0), _jsx(TimeSelector, { name: "end_time", value: schedule.end_time, onChange: function (event) { return handleChange(event, index); } }, void 0)] }), void 0));
-            // parsedSchedule["start_time"] = (
-            //   <TimeSelector
-            //     name={"start_time"}
-            //     value={schedule.start_time}
-            //     onChange={(event) => handleChange(event, index)}
-            //   />
-            // );
-            // parsedSchedule["time_divider"] = (
-            //   <p>to</p>
-            // );
-            // parsedSchedule["end_time"] = (
-            //   <TimeSelector
-            //     name={"end_time"}
-            //     value={schedule.end_time}
-            //     onChange={(event) => handleChange(event, index)}
-            //   />
-            // );
             data.push(parsedSchedule);
         });
         return data;

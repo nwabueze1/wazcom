@@ -42,9 +42,9 @@ import { fields } from "./data";
 import { useScheduleData } from "./hooks";
 import clx from "classnames";
 export var Scheduler = function (_a) {
-    var className = _a.className, componentName = _a.name, label = _a.label, labelClassName = _a.labelClassName, _b = _a.value, initialScheduleValue = _b === void 0 ? [
+    var className = _a.className, componentName = _a.name, label = _a.label, labelClassName = _a.labelClassName, _b = _a.gap, gap = _b === void 0 ? useSchedulerStyles().dayContainer : _b, _c = _a.value, initialScheduleValue = _c === void 0 ? [
         { day: "0", start_time: "00:00", time_divider: "to", end_time: "12:00" },
-    ] : _b, onChange = _a.onChange;
+    ] : _c, onChange = _a.onChange;
     var classes = useSchedulerStyles();
     var parseSchedulevalue = useScheduleData();
     var handleChange = useCallback(function (event, index, remove) {
@@ -59,39 +59,23 @@ export var Scheduler = function (_a) {
         }
         onChange === null || onChange === void 0 ? void 0 : onChange({ name: componentName, value: newValue });
     }, [initialScheduleValue]);
-    var _c = __read(useState(parseSchedulevalue(initialScheduleValue, handleChange, {
-        timeSection: classes.schedulerContainer,
-    })), 2), scheduleValue = _c[0], setScheduleValue = _c[1];
+    var _d = __read(useState(parseSchedulevalue(initialScheduleValue, handleChange, {
+        timeSection: classes.timeContainer,
+    })), 2), scheduleValue = _d[0], setScheduleValue = _d[1];
     console.log(scheduleValue);
     useEffect(function () {
         var newScheduleValue = parseSchedulevalue(initialScheduleValue, handleChange, {
-            timeSection: classes.schedulerContainer,
+            timeSection: classes.timeContainer,
             timeDivider: classes.timeDivider,
+            dayContainer: gap,
         });
         setScheduleValue(newScheduleValue);
     }, [initialScheduleValue]);
-    // const addNewRow = useCallback(() => {
-    //   onChange?.({
-    //     name: componentName as string,
-    //     value: [
-    //       ...initialScheduleValue,
-    //       { day: "0", start_time: "00:00", time_divider: "to", end_time: "12:00" },
-    //     ],
-    //   });
-    // }, [initialScheduleValue]);
     return (_jsxs("div", __assign({ className: clx(classes.root, className) }, { children: [label && (_jsx(InputLabel, __assign({ className: clx(classes.label, labelClassName), htmlFor: componentName }, { children: label }), void 0)), scheduleValue === null || scheduleValue === void 0 ? void 0 : scheduleValue.map(function (row, index) {
-                return (
-                // <TableRow key={index}>
-                _jsx("div", __assign({ className: classes.schedulerContainer }, { children: fields.map(function (_a) {
+                return (_jsx("div", __assign({ className: classes.schedulerContainer }, { children: fields.map(function (_a) {
                         var name = _a.name;
                         console.log(row === null || row === void 0 ? void 0 : row[name]);
-                        return (
-                        // <TableCell key={name} className={classes.tableCell}>
-                        row === null || row === void 0 ? void 0 : row[name]
-                        // </TableCell>
-                        );
-                    }) }), index)
-                // </TableRow>
-                );
+                        return row === null || row === void 0 ? void 0 : row[name];
+                    }) }), index));
             })] }), void 0));
 };
