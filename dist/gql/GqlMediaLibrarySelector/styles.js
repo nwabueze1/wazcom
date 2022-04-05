@@ -37,7 +37,7 @@ export var useImageSelectorStyles = makeStyles(function (theme) { return ({
         cursor: "pointer",
         zIndex: 5,
         background: "transparent",
-        fontSize: "2vw",
+        fontSize: theme.typography.fontSize * 4,
     },
     modal: {
         display: "flex",
