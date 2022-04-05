@@ -13,9 +13,9 @@ export const Scheduler: React.FC<SchedulerProps> = ({
   label,
   labelClassName,
   gap = useSchedulerStyles().dayContainer,
-  multiple,
+  multiple = true,
   value: initialScheduleValue = [
-    { day: "0", start_time: "00:00", time_divider: "to", end_time: "12:00" },
+    { day: "0", start_time: "00:00", end_time: "12:00" },
   ],
   onChange,
 }) => {
@@ -43,7 +43,7 @@ export const Scheduler: React.FC<SchedulerProps> = ({
       name: componentName as string,
       value: [
         ...initialScheduleValue,
-        { day: "0", start_time: "00:00", time_divider: "to", end_time: "12:00" },
+        { day: "0", start_time: "00:00", end_time: "12:00" },
       ],
     });
   }, [initialScheduleValue]);
@@ -51,6 +51,10 @@ export const Scheduler: React.FC<SchedulerProps> = ({
   const [scheduleValue, setScheduleValue] = useState<{ [key: string]: any }[]>(
     parseSchedulevalue(initialScheduleValue, handleChange, {
       timeSection: classes.timeContainer,
+      timeDivider: classes.timeDivider,
+      dayContainer: gap,
+      closeIcon: classes.closeIcon,
+      hiddenCloseIcon: classes.hiddenCloseIcon
     }),
   );
 
@@ -62,6 +66,8 @@ export const Scheduler: React.FC<SchedulerProps> = ({
         timeSection: classes.timeContainer,
         timeDivider: classes.timeDivider,
         dayContainer: gap,
+        closeIcon: classes.closeIcon,
+        hiddenCloseIcon: classes.hiddenCloseIcon
       },
     );
     setScheduleValue(newScheduleValue);
@@ -81,7 +87,6 @@ export const Scheduler: React.FC<SchedulerProps> = ({
         return (
           <div className={classes.schedulerContainer} key={index}>
             {fields.map(({ name }) => {
-              console.log(row?.[name]);
               return row?.[name];
             })}
           </div>

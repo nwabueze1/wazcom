@@ -43,9 +43,9 @@ import { useScheduleData } from "./hooks";
 import clx from "classnames";
 import { FiPlus } from "react-icons/fi";
 export var Scheduler = function (_a) {
-    var className = _a.className, componentName = _a.name, label = _a.label, labelClassName = _a.labelClassName, _b = _a.gap, gap = _b === void 0 ? useSchedulerStyles().dayContainer : _b, multiple = _a.multiple, _c = _a.value, initialScheduleValue = _c === void 0 ? [
-        { day: "0", start_time: "00:00", time_divider: "to", end_time: "12:00" },
-    ] : _c, onChange = _a.onChange;
+    var className = _a.className, componentName = _a.name, label = _a.label, labelClassName = _a.labelClassName, _b = _a.gap, gap = _b === void 0 ? useSchedulerStyles().dayContainer : _b, _c = _a.multiple, multiple = _c === void 0 ? true : _c, _d = _a.value, initialScheduleValue = _d === void 0 ? [
+        { day: "0", start_time: "00:00", end_time: "12:00" },
+    ] : _d, onChange = _a.onChange;
     var classes = useSchedulerStyles();
     var parseSchedulevalue = useScheduleData();
     var handleChange = useCallback(function (event, index, remove) {
@@ -64,25 +64,30 @@ export var Scheduler = function (_a) {
         onChange === null || onChange === void 0 ? void 0 : onChange({
             name: componentName,
             value: __spreadArray(__spreadArray([], __read(initialScheduleValue), false), [
-                { day: "0", start_time: "00:00", time_divider: "to", end_time: "12:00" },
+                { day: "0", start_time: "00:00", end_time: "12:00" },
             ], false),
         });
     }, [initialScheduleValue]);
-    var _d = __read(useState(parseSchedulevalue(initialScheduleValue, handleChange, {
+    var _e = __read(useState(parseSchedulevalue(initialScheduleValue, handleChange, {
         timeSection: classes.timeContainer,
-    })), 2), scheduleValue = _d[0], setScheduleValue = _d[1];
+        timeDivider: classes.timeDivider,
+        dayContainer: gap,
+        closeIcon: classes.closeIcon,
+        hiddenCloseIcon: classes.hiddenCloseIcon
+    })), 2), scheduleValue = _e[0], setScheduleValue = _e[1];
     useEffect(function () {
         var newScheduleValue = parseSchedulevalue(initialScheduleValue, handleChange, {
             timeSection: classes.timeContainer,
             timeDivider: classes.timeDivider,
             dayContainer: gap,
+            closeIcon: classes.closeIcon,
+            hiddenCloseIcon: classes.hiddenCloseIcon
         });
         setScheduleValue(newScheduleValue);
     }, [initialScheduleValue]);
     return (_jsxs("div", __assign({ className: clx(classes.root, className) }, { children: [label && (_jsx(InputLabel, __assign({ className: clx(classes.label, labelClassName), htmlFor: componentName }, { children: label }), void 0)), scheduleValue === null || scheduleValue === void 0 ? void 0 : scheduleValue.map(function (row, index) {
                 return (_jsx("div", __assign({ className: classes.schedulerContainer }, { children: fields.map(function (_a) {
                         var name = _a.name;
-                        console.log(row === null || row === void 0 ? void 0 : row[name]);
                         return row === null || row === void 0 ? void 0 : row[name];
                     }) }), index));
             }), multiple && (_jsx("div", __assign({ className: classes.button, onClick: addNewRow }, { children: _jsxs("p", __assign({ className: classes.buttonText }, { children: [_jsx(FiPlus, { className: classes.addIcon }, void 0), " Add Schedule"] }), void 0) }), void 0))] }), void 0));

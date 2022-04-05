@@ -12,6 +12,8 @@ var __assign = (this && this.__assign) || function () {
 import { jsx as _jsx, jsxs as _jsxs } from "react/jsx-runtime";
 import { DayPicker } from "./DayPicker/DayPicker";
 import { TimeSelector } from "./TimePicker/TimePicker";
+import CloseIcon from "@mui/icons-material/Close";
+import clx from "classnames";
 export var useScheduleData = function () {
     return function (scheduleData, handleChange, classNames) {
         var data = [];
@@ -19,6 +21,7 @@ export var useScheduleData = function () {
             var parsedSchedule = {};
             parsedSchedule["day"] = (_jsx("div", __assign({ className: classNames === null || classNames === void 0 ? void 0 : classNames.dayContainer }, { children: _jsx(DayPicker, { name: "day", label: "Enter Site Name", value: schedule.day, onChange: function (event) { return handleChange(event, index); } }, void 0) }), void 0));
             parsedSchedule["time_section"] = (_jsxs("div", __assign({ className: classNames === null || classNames === void 0 ? void 0 : classNames.timeSection }, { children: [_jsx(TimeSelector, { name: "start_time", value: schedule.start_time, onChange: function (event) { return handleChange(event, index); } }, void 0), _jsx("p", __assign({ className: classNames === null || classNames === void 0 ? void 0 : classNames.timeDivider }, { children: "to" }), void 0), _jsx(TimeSelector, { name: "end_time", value: schedule.end_time, onChange: function (event) { return handleChange(event, index); } }, void 0)] }), void 0));
+            parsedSchedule["action"] = (_jsx(CloseIcon, { onClick: function (event) { return handleChange(event, index, true); }, className: clx(index !== 0 ? classNames === null || classNames === void 0 ? void 0 : classNames.closeIcon : classNames === null || classNames === void 0 ? void 0 : classNames.hiddenCloseIcon), color: "secondary" }, void 0));
             data.push(parsedSchedule);
         });
         return data;

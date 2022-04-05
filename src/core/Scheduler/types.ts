@@ -11,6 +11,5 @@ export type SchedulerProps = CommonProps & {
 export type Schedule = {
     day: string;
     start_time: string;
-    time_divider: string;
     end_time: string;
 }

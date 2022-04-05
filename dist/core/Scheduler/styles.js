@@ -41,5 +41,12 @@ export var useSchedulerStyles = makeStyles(function (theme) { return ({
     },
     dayContainer: {
         marginRight: "10%"
+    },
+    closeIcon: {
+        color: theme.design.colors.grey5,
+        marginLeft: theme.spacing(1.5)
+    },
+    hiddenCloseIcon: {
+        display: "none"
     }
 }); });

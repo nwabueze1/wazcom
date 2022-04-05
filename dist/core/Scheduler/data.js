@@ -19,4 +19,8 @@ export var fields = [
         name: "time_section",
         label: "Start Time",
     },
+    {
+        name: "action",
+        label: "",
+    },
 ];

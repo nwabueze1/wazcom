@@ -1,6 +1,8 @@
 import { DayPicker } from "./DayPicker/DayPicker";
 import { TimeSelector } from "./TimePicker/TimePicker";
 import { Schedule } from "./types";
+import CloseIcon from "@mui/icons-material/Close";
+import clx from "classnames";
 
 export const useScheduleData = () => {
   return (
@@ -39,6 +41,13 @@ export const useScheduleData = () => {
             onChange={(event) => handleChange(event, index)}
           />
         </div>
+      );
+      parsedSchedule["action"] = (
+        <CloseIcon
+          onClick={(event: any) => handleChange(event, index, true)}
+          className={clx(index !== 0 ? classNames?.closeIcon : classNames?.hiddenCloseIcon)}
+          color={"secondary"}
+        />
       );
       data.push(parsedSchedule);
     });
