@@ -6,7 +6,6 @@ import {
   Loader,
   Gallery,
   ImageSelector,
-  InputGroup,
   Table,
   MenuCard,
   DisplayCard,
@@ -23,6 +22,7 @@ import {
   RichTextInput,
   SelectInput,
   TextInput,
+  InputGroup,
   ToggleInput,
   TextArea,
 } from "../io";
@@ -43,7 +43,6 @@ import { ComponentPropType } from "./types";
 
 import { data } from "./data";
 import { VisibilityOff } from "@mui/icons-material";
-import { useLabelStyles } from "helpers/styles";
 
 export const stories: ComponentPropType[] = [
   {
@@ -53,8 +52,6 @@ export const stories: ComponentPropType[] = [
       label: "Description",
       name: "description",
       onChange: ({ name, value }: { name: string; value: string }) => {
-        console.log(name);
-        console.log(value);
       },
       multiline: true,
       minRows: 5,
@@ -467,7 +464,12 @@ export const stories: ComponentPropType[] = [
     component: InputGroup,
     props: {
       variant: "",
+      inputText: "wazcom.sytbuilder.com",
       label: "@wazcom.zeus",
+      feedback: {
+        status: "error",
+        text: "aoaoaoa",
+      }
     },
   },
 ];

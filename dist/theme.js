@@ -149,6 +149,7 @@ export var theme = {
             white: "#FFFFFF",
             yellowsea: "#F5A53C",
             greene: "#0A7227",
+            mercury: "#CCCFCD",
         },
     },
     overrides: {

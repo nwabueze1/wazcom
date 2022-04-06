@@ -1,6 +1,5 @@
 import { TextFieldProps } from "@mui/material";
 import { CommonProps } from "../../types";
 export declare type InputGroupProps = CommonProps & TextFieldProps & {
-    variant: "fileinput" | "textfield";
-    inverted: boolean;
+    inputText: string;
 };

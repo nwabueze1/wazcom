@@ -177,6 +177,7 @@ export const theme: any = {
       white: "#FFFFFF",
       yellowsea: "#F5A53C",
       greene: "#0A7227",
+      mercury: "#CCCFCD",
     },
   },
   overrides: {
