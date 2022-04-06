@@ -3,7 +3,7 @@ import { useInputGroupStyles } from "./styles";
 import { InputGroupProps } from "./types";
 import { InputLabel } from "@mui/material";
 import { TextInput } from "../TextInput";
-import { displayFeedback } from "helpers/io";
+import { displayFeedback } from "../../helpers/io";
 import clx from "classnames";
 
 export const InputGroup: FC<InputGroupProps> = ({
