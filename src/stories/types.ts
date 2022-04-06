@@ -6,7 +6,6 @@ import {
   LoaderProps,
   GalleryProps,
   ImageSelectorProps,
-  InputGroupProps,
   TableProps,
   MenuCardProps,
   DisplayCardProps,
@@ -20,6 +19,7 @@ import {
   ComboBoxInputProps,
   RichTextInputProps,
   SelectInputProps,
+  InputGroupProps,
   TextInputProps,
   ToggleInputProps,
 } from "../io";

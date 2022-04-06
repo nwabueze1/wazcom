@@ -2,6 +2,7 @@ export * from "./CheckBoxInput";
 export * from "./ComboBoxInput";
 export * from "./RichTextInput";
 export * from "./SelectInput";
+export * from "./InputGroup";
 export * from "./TextInput";
 export * from "./ToggleInput";
 export * from "./TextArea";
