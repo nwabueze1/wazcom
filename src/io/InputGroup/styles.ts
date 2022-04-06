@@ -9,7 +9,7 @@ export const useInputGroupStyles = makeStyles(() => ({
     position: "absolute",
     top: 2,
     left: 2,
-    width: "30%",
+    width: "25%",
     height: "calc(100% - 4px)",
     background: "#CCCFCD",
     display: "flex",
@@ -17,6 +17,6 @@ export const useInputGroupStyles = makeStyles(() => ({
     justifyContent: "center",
   },
   textInput: {
-    paddingLeft: "30%",
+    paddingLeft: "25%",
   },
 }));
