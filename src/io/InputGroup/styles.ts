@@ -1,7 +1,6 @@
 import { makeStyles } from "@mui/styles";
-import { Theme } from "@mui/material";
 
-export const useInputGroupStyles = makeStyles((theme: Theme) => ({
+export const useInputGroupStyles = makeStyles(() => ({
   root: {},
   inputGroup: {
     position: "relative",
@@ -12,7 +11,7 @@ export const useInputGroupStyles = makeStyles((theme: Theme) => ({
     left: 2,
     width: "30%",
     height: "calc(100% - 4px)",
-    background: theme.design.colors.mercury,
+    background: "#CCCFCD",
     display: "flex",
     alignItems: "center",
     justifyContent: "center",
