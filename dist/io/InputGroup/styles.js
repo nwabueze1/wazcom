@@ -4,7 +4,7 @@ export var useInputGroupStyles = makeStyles(function (theme) { return ({
     inputGroup: {
         position: "relative",
     },
-    inputText: {
+    text: {
         position: "absolute",
         top: 2,
         left: 2,

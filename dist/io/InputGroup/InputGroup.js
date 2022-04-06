@@ -27,9 +27,9 @@ import { TextInput } from "../TextInput";
 import { displayFeedback } from "../../helpers/io";
 import clx from "classnames";
 export var InputGroup = function (_a) {
-    var className = _a.className, classNames = _a.classNames, inputText = _a.inputText, feedback = _a.feedback, label = _a.label, props = __rest(_a, ["className", "classNames", "inputText", "feedback", "label"]);
+    var className = _a.className, classNames = _a.classNames, text = _a.text, feedback = _a.feedback, label = _a.label, props = __rest(_a, ["className", "classNames", "text", "feedback", "label"]);
     var classes = useInputGroupStyles();
     return (_jsxs("div", __assign({ className: clx(classes.root, className) }, { children: [label && (_jsx(InputLabel, __assign({ className: (classNames === null || classNames === void 0 ? void 0 : classNames.label) ? classNames === null || classNames === void 0 ? void 0 : classNames.label : undefined, htmlFor: props.name }, { children: label }), void 0)), _jsxs("div", __assign({ className: clx(classes.inputGroup, classNames === null || classNames === void 0 ? void 0 : classNames.inputGroup) }, { children: [_jsx(TextInput, __assign({}, props, { classNames: {
                             textInput: clx(classes.textInput, classNames === null || classNames === void 0 ? void 0 : classNames.textInput),
-                        } }), void 0), _jsx("div", __assign({ className: clx(classes.inputText, classNames === null || classNames === void 0 ? void 0 : classNames.inputText) }, { children: inputText }), void 0)] }), void 0), feedback && displayFeedback(feedback)] }), void 0));
+                        } }), void 0), _jsx("div", __assign({ className: clx(classes.text, classNames === null || classNames === void 0 ? void 0 : classNames.text) }, { children: text }), void 0)] }), void 0), feedback && displayFeedback(feedback)] }), void 0));
 };

@@ -9,7 +9,7 @@ import clx from "classnames";
 export const InputGroup: FC<InputGroupProps> = ({
   className,
   classNames,
-  inputText,
+  text,
   feedback,
   label,
   ...props
@@ -35,8 +35,8 @@ export const InputGroup: FC<InputGroupProps> = ({
             textInput: clx(classes.textInput, classNames?.textInput),
           }}
         />
-        <div className={clx(classes.inputText, classNames?.inputText)}>
-          {inputText}
+        <div className={clx(classes.text, classNames?.text)}>
+          {text}
         </div>
       </div>
       {feedback && displayFeedback(feedback)}

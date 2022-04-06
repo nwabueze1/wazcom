@@ -464,7 +464,7 @@ export const stories: ComponentPropType[] = [
     component: InputGroup,
     props: {
       variant: "",
-      inputText: "wazcom.sytbuilder.com",
+      text: "wazcom.sytbuilder.com",
       label: "@wazcom.zeus",
       feedback: {
         status: "error",
