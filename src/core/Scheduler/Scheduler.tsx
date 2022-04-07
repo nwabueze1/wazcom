@@ -77,7 +77,7 @@ export const Scheduler: React.FC<SchedulerProps> = ({
     <div className={clx(classes.root, className)}>
       {label && (
         <InputLabel
-          className={clx(classes.label, classNames?.label)}
+          className={(classNames?.label as string) ?? ""}
           htmlFor={componentName}
         >
           {label}

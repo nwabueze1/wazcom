@@ -6,10 +6,6 @@ export var useSchedulerStyles = makeStyles(function (theme) { return ({
         width: "100%",
         marginBottom: theme.spacing(2),
     },
-    label: {
-        marginBottom: theme.spacing(1),
-        fontSize: "1rem",
-    },
     button: {
         display: "flex",
         alignItems: "center",

@@ -43,9 +43,10 @@ import { useScheduleData } from "./hooks";
 import clx from "classnames";
 import { FiPlus } from "react-icons/fi";
 export var Scheduler = function (_a) {
-    var className = _a.className, classNames = _a.classNames, componentName = _a.name, label = _a.label, _b = _a.gap, gap = _b === void 0 ? useSchedulerStyles().dayContainer : _b, _c = _a.multiple, multiple = _c === void 0 ? false : _c, _d = _a.value, initialScheduleValue = _d === void 0 ? [
+    var _b;
+    var className = _a.className, classNames = _a.classNames, componentName = _a.name, label = _a.label, _c = _a.gap, gap = _c === void 0 ? useSchedulerStyles().dayContainer : _c, _d = _a.multiple, multiple = _d === void 0 ? false : _d, _e = _a.value, initialScheduleValue = _e === void 0 ? [
         { day: "0", start_time: "00:00", end_time: "12:00" },
-    ] : _d, onChange = _a.onChange;
+    ] : _e, onChange = _a.onChange;
     var classes = useSchedulerStyles();
     var parseSchedulevalue = useScheduleData();
     var handleChange = useCallback(function (event, index, remove) {
@@ -68,13 +69,13 @@ export var Scheduler = function (_a) {
             ], false),
         });
     }, [initialScheduleValue]);
-    var _e = __read(useState(parseSchedulevalue(initialScheduleValue, handleChange, {
+    var _f = __read(useState(parseSchedulevalue(initialScheduleValue, handleChange, {
         timeSection: classes.timeContainer,
         timeDivider: classes.timeDivider,
         dayContainer: gap,
         closeIcon: classes.closeIcon,
         hiddenCloseIcon: classes.hiddenCloseIcon
-    })), 2), scheduleValue = _e[0], setScheduleValue = _e[1];
+    })), 2), scheduleValue = _f[0], setScheduleValue = _f[1];
     useEffect(function () {
         var newScheduleValue = parseSchedulevalue(initialScheduleValue, handleChange, {
             timeSection: classes.timeContainer,
@@ -85,7 +86,7 @@ export var Scheduler = function (_a) {
         });
         setScheduleValue(newScheduleValue);
     }, [initialScheduleValue]);
-    return (_jsxs("div", __assign({ className: clx(classes.root, className) }, { children: [label && (_jsx(InputLabel, __assign({ className: clx(classes.label, classNames === null || classNames === void 0 ? void 0 : classNames.label), htmlFor: componentName }, { children: label }), void 0)), scheduleValue === null || scheduleValue === void 0 ? void 0 : scheduleValue.map(function (row, index) {
+    return (_jsxs("div", __assign({ className: clx(classes.root, className) }, { children: [label && (_jsx(InputLabel, __assign({ className: (_b = classNames === null || classNames === void 0 ? void 0 : classNames.label) !== null && _b !== void 0 ? _b : "", htmlFor: componentName }, { children: label }), void 0)), scheduleValue === null || scheduleValue === void 0 ? void 0 : scheduleValue.map(function (row, index) {
                 return (_jsx("div", __assign({ className: classes.schedulerContainer }, { children: fields.map(function (_a) {
                         var name = _a.name;
                         return row === null || row === void 0 ? void 0 : row[name];
