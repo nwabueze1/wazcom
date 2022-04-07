@@ -43,7 +43,7 @@ import { useScheduleData } from "./hooks";
 import clx from "classnames";
 import { FiPlus } from "react-icons/fi";
 export var Scheduler = function (_a) {
-    var className = _a.className, componentName = _a.name, label = _a.label, labelClassName = _a.labelClassName, _b = _a.gap, gap = _b === void 0 ? useSchedulerStyles().dayContainer : _b, _c = _a.multiple, multiple = _c === void 0 ? false : _c, _d = _a.value, initialScheduleValue = _d === void 0 ? [
+    var className = _a.className, classNames = _a.classNames, componentName = _a.name, label = _a.label, _b = _a.gap, gap = _b === void 0 ? useSchedulerStyles().dayContainer : _b, _c = _a.multiple, multiple = _c === void 0 ? false : _c, _d = _a.value, initialScheduleValue = _d === void 0 ? [
         { day: "0", start_time: "00:00", end_time: "12:00" },
     ] : _d, onChange = _a.onChange;
     var classes = useSchedulerStyles();
@@ -85,7 +85,7 @@ export var Scheduler = function (_a) {
         });
         setScheduleValue(newScheduleValue);
     }, [initialScheduleValue]);
-    return (_jsxs("div", __assign({ className: clx(classes.root, className) }, { children: [label && (_jsx(InputLabel, __assign({ className: clx(classes.label, labelClassName), htmlFor: componentName }, { children: label }), void 0)), scheduleValue === null || scheduleValue === void 0 ? void 0 : scheduleValue.map(function (row, index) {
+    return (_jsxs("div", __assign({ className: clx(classes.root, className) }, { children: [label && (_jsx(InputLabel, __assign({ className: clx(classes.label, classNames === null || classNames === void 0 ? void 0 : classNames.label), htmlFor: componentName }, { children: label }), void 0)), scheduleValue === null || scheduleValue === void 0 ? void 0 : scheduleValue.map(function (row, index) {
                 return (_jsx("div", __assign({ className: classes.schedulerContainer }, { children: fields.map(function (_a) {
                         var name = _a.name;
                         return row === null || row === void 0 ? void 0 : row[name];

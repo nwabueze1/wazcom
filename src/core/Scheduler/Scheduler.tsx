@@ -9,9 +9,9 @@ import { FiPlus } from "react-icons/fi";
 
 export const Scheduler: React.FC<SchedulerProps> = ({
   className,
+  classNames,
   name: componentName,
   label,
-  labelClassName,
   gap = useSchedulerStyles().dayContainer,
   multiple = false,
   value: initialScheduleValue = [
@@ -77,7 +77,7 @@ export const Scheduler: React.FC<SchedulerProps> = ({
     <div className={clx(classes.root, className)}>
       {label && (
         <InputLabel
-          className={clx(classes.label, labelClassName)}
+          className={clx(classes.label, classNames?.label)}
           htmlFor={componentName}
         >
           {label}
