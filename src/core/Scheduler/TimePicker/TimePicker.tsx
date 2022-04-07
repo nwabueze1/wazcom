@@ -1,6 +1,5 @@
 import React from "react";
-import { TextField, BaseTextFieldProps } from "@mui/material";
-
+import { TextField, BaseTextFieldProps, Theme } from "@mui/material";
 import makeStyles from '@mui/styles/makeStyles';
 import withStyles from '@mui/styles/withStyles';
 
@@ -25,7 +24,7 @@ const useStyles = makeStyles(() => ({
   },
 }));
 
-const CustomCss = withStyles({
+const CustomCss = withStyles((theme: Theme) => ({
   "@global": {
     ".MuiTextField-root": {
       "& input[type='time']::-webkit-clear-button, & input::-webkit-outer-spin-button, & input::-webkit-inner-spin-button":
@@ -34,28 +33,28 @@ const CustomCss = withStyles({
         },
     },
     ".MuiOutlinedInput-notchedOutline": {
-      border: `solid 1px #E6E7E6`,
+      border: `solid 1px ${theme.design.colors.grey5}`,
       borderRadius: 5,
       "&:hover": {
-        borderColor: `#E6E7E6`,
+        borderColor: `${theme.design.colors.grey5}`,
         outline: "none",
       },
       "&:focus": {
-        borderColor: `#E6E7E6`,
+        borderColor: `${theme.design.colors.grey5}`,
       },
     },
     ".Mui-focused.MuiOutlinedInput-notchedOutline": {
-      border: `solid 1px #E6E7E6`,
+      border: `solid 1px ${theme.design.colors.grey5}`,
       "&:hover": {
-        borderColor: `#E6E7E6`,
+        borderColor: `${theme.design.colors.grey5}`,
         outline: "none",
       },
       "&:focus": {
-        borderColor: `#E6E7E6`,
+        borderColor: `${theme.design.colors.grey5}`,
       },
     },
   },
-})(() => null);
+}))(() => null);
 interface TimeSelectorProps extends BaseTextFieldProps {
   onChange: (
     event: React.ChangeEvent<{ name?: string; value: unknown }>,
