@@ -51,12 +51,7 @@ export const stories: ComponentPropType[] = [
     props: {
       label: "Description",
       name: "description",
-<<<<<<< HEAD
       onChange: ({ name, value }: { name: string; value: string }) => {},
-=======
-      onChange: ({ name, value }: { name: string; value: string }) => {
-      },
->>>>>>> release/1.17
       multiline: true,
       minRows: 5,
       feedback: {
