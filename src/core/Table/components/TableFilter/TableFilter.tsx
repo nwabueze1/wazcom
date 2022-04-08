@@ -20,7 +20,7 @@ export const TableFilter: React.FC<TableFilterProps> = ({
   const controlClasses = useTableControlsStyles();
   const [filterFields, setFilterFields] =
     useState<{ [key: string]: any }[]>(fields);
-  const [searchField, setSearchField] = useState("");
+ 
   const [newFilters, setNewFilters] = useState(filters);
 
   const handleSetFilter = (field: string, value: string) => {
@@ -97,10 +97,6 @@ export const TableFilter: React.FC<TableFilterProps> = ({
     [filterFields, newFilters, values],
   );
 
-  const handleSearchFieldChange = (e: any) => {
-    setSearchField(e.target.value);
-  };
-
   const handleClickAway = () => {
     setShowFilter(false);
   };
@@ -109,13 +105,6 @@ export const TableFilter: React.FC<TableFilterProps> = ({
     setFilterFields(fields);
   }, [fields]);
 
-  useEffect(() => {
-    setFilterFields(() =>
-      fields.filter((item) =>
-        item.name.toLowerCase().includes(searchField.toLowerCase()),
-      ),
-    );
-  }, [searchField]);
 
   return (
     <ClickAwayListener onClickAway={handleClickAway}>
@@ -162,19 +151,6 @@ export const TableFilter: React.FC<TableFilterProps> = ({
             </div>
           </MenuItem>
         </div>
-        {/* <div
-        className={clx(classes.root, {
-          [classes.show]: showFilter,
-        })}
-      >
-        <TextInput
-          placeholder="Search"
-          name="search"
-          value={searchField}
-          onChange={handleSearchFieldChange}
-        />
-        {renderFilterOptions()}
-      </div> */}
       </div>
     </ClickAwayListener>
   );

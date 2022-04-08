@@ -19,10 +19,10 @@ export const PageNumbers: React.FC<PageNumbersProps> = function ({
     -pageRangeDisplayed,
   );
   const [leftPageNumbers, setLeftPages] = useState(initialLeftPageNumbers);
-  const [rightPageNumbers, setRightPages] = useState(initialRightPageNumbers);
-  const [remainingPageNumbers, setRemainingPageNumbers] = useState(
-    initialRemainingNumbers,
-  );
+  // const [rightPageNumbers, setRightPages] = useState(initialRightPageNumbers);
+  // const [remainingPageNumbers, setRemainingPageNumbers] = useState(
+  //   initialRemainingNumbers,
+  // );
   const [n, setN] = useState(0);
 
   const renderNumbers = () => {
@@ -46,7 +46,7 @@ export const PageNumbers: React.FC<PageNumbersProps> = function ({
       />
     ));
 
-    const rightPages = rightPageNumbers.map((page, index) => (
+    const rightPages = initialRightPageNumbers.map((page, index) => (
       <PageNumber
         page={page}
         onPageChange={onPageChange}
@@ -56,13 +56,13 @@ export const PageNumbers: React.FC<PageNumbersProps> = function ({
     ));
 
     const dots =
-      remainingPageNumbers[n * pageRangeDisplayed] ? (
+      initialRemainingNumbers[n * pageRangeDisplayed] ? (
         <span
           className={clx(classes.pageNumber)}
           onClick={() => {
             const newArr = [
               ...leftPageNumbers,
-              ...remainingPageNumbers.slice(
+              ...initialRemainingNumbers.slice(
                 n * pageRangeDisplayed,
                 (n + 1) * pageRangeDisplayed,
               ),

@@ -65,7 +65,6 @@ export var EditMedia = function (_a) {
         if (!(image instanceof File)) {
             update.id = image.id;
         }
-        console.log(image);
         handleEdit(__assign({}, update));
     }, [formData, image]);
     var displayImage = useCallback(function () {

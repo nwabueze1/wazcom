@@ -3,6 +3,7 @@ type ChangeFunctionType = (value: number) => void;
 export const useHandleChangePage =
   (changePage?: ChangeFunctionType) =>
   (event: React.MouseEvent<HTMLButtonElement> | null, newPage: number) => {
+    console.log(event)
     changePage?.(newPage);
   };
 

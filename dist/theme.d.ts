@@ -23,6 +23,7 @@ export declare const baseColors: {
     dangerColor: string;
     successColor: string;
     greyColor: string;
+    whiteColor: string;
 };
 export declare const theme: any;
 declare const _default: MuiTheme;

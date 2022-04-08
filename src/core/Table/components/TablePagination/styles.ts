@@ -4,7 +4,7 @@ import makeStyles from "@mui/styles/makeStyles";
 export const useTablePaginationStyles = makeStyles((theme: Theme) => ({
   text: {
     fontSize: theme.typography.fontSize + 2,
-    color: "#4D5650",
+    color: theme.design.colors.greenishGrey2,
   },
   pageCount: {},
   tablePagination: {

@@ -41,7 +41,7 @@ export const useTableControlsStyles = makeStyles((theme: Theme) => ({
     },
     searchIcon: {
       fontSize: 24,
-      color: "#999F9B",
+      color: theme.design.colors.greenishGrey,
     },
     controlsInput: {
       width: "100%",
@@ -51,7 +51,7 @@ export const useTableControlsStyles = makeStyles((theme: Theme) => ({
       outline: "none",
       fontFamily: "Poppins",
       "&::placeholder": {
-        color: "#999F9B",
+        color: theme.design.colors.greenishGrey,
         fontFamily: "Poppins"
       },
       [theme.breakpoints.down("md")]: {

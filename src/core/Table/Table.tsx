@@ -180,18 +180,6 @@ export const Table = ({
                   onPageChange={handleChangePage}
                   page={getCurrentPage}
                 />
-                {/* <MuiTablePagination
-                  rowsPerPageOptions={[7, 10, 20]}
-                  onRowsPerPageChange={handleChangeRowsPerPage}
-                  count={paginatorInfo?.total}
-                  rowsPerPage={Number(getRowsPerPage)}
-                  onPageChange={handleChangePage}
-                  page={getCurrentPage}
-                  SelectProps={{
-                    inputProps: { "aria-label": "rows per page" },
-                    native: true,
-                  }}
-                /> */}
               </TableRow>
             </TableFooter>
           )}

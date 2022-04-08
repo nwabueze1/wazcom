@@ -46,23 +46,23 @@ var __spreadArray = (this && this.__spreadArray) || function (to, from, pack) {
     return to.concat(ar || Array.prototype.slice.call(from));
 };
 import { jsx as _jsx, jsxs as _jsxs } from "react/jsx-runtime";
-import { useEffect, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import { useTableStyles } from "./styles";
-import { Table as MuiTable, TableBody, TableCell, TableContainer, TableHead, TableRow, Paper, Checkbox, TableFooter, TablePagination, } from "@mui/material";
+import { Table as MuiTable, TableBody, TableCell, TableContainer, TableHead, TableRow, Paper, Checkbox, TableFooter, } from "@mui/material";
 import _ from "lodash";
 import { generateNumbersBetweenRange, useGetCurrentPage, useGetRowsPerPage, useHandleChangePage, useHandleChangeRowsPerPage, useHandleControlsChange, useUpdateTableValue, } from "./helpers";
-import { TableFilter } from "./components";
-import { TableControls } from "./components/TableControls";
+import { TablePagination, TableControls } from "./components";
 import clx from "classnames";
 export var Table = function (_a) {
-    var className = _a.className, headers = _a.headers, initialTableValue = _a.value, hasCheckBox = _a.hasCheckBox, pagination = _a.pagination, changePage = _a.changePage, rowsPerPage = _a.rowsPerPage, changeRowsPerPage = _a.changeRowsPerPage, paginatorInfo = _a.paginatorInfo, controls = _a.controls, props = __rest(_a, ["className", "headers", "value", "hasCheckBox", "pagination", "changePage", "rowsPerPage", "changeRowsPerPage", "paginatorInfo", "controls"]);
+    var className = _a.className, headers = _a.headers, initialTableValue = _a.value, hasCheckBox = _a.hasCheckBox, _b = _a.pagination, pagination = _b === void 0 ? true : _b, changePage = _a.changePage, rowsPerPage = _a.rowsPerPage, changeRowsPerPage = _a.changeRowsPerPage, _c = _a.paginatorInfo, paginatorInfo = _c === void 0 ? { total: 1, currentPage: 1, perPage: 20 } : _c, controls = _a.controls, classNames = _a.classNames, props = __rest(_a, ["className", "headers", "value", "hasCheckBox", "pagination", "changePage", "rowsPerPage", "changeRowsPerPage", "paginatorInfo", "controls", "classNames"]);
     var classes = useTableStyles();
-    var _b = __read(useState(initialTableValue), 2), tableValue = _b[0], setTableValue = _b[1];
-    var _c = __read(useState(headers), 2), tableHeaders = _c[0], setTableHeaders = _c[1];
-    var _d = __read(useState({}), 2), controlsFormData = _d[0], setControlsFormData = _d[1];
-    var _e = __read(useState(false), 2), showFilter = _e[0], setShowFilter = _e[1];
-    var _f = __read(useState([]), 2), filters = _f[0], setFilters = _f[1];
-    var _g = __read(useState([]), 2), selectedRows = _g[0], setSelectedRows = _g[1];
+    var tableRef = useRef(null);
+    var _d = __read(useState(initialTableValue), 2), tableValue = _d[0], setTableValue = _d[1];
+    var _e = __read(useState(headers), 2), tableHeaders = _e[0], setTableHeaders = _e[1];
+    var _f = __read(useState({}), 2), controlsFormData = _f[0], setControlsFormData = _f[1];
+    var _g = __read(useState(false), 2), showFilter = _g[0], setShowFilter = _g[1];
+    var _h = __read(useState([]), 2), filters = _h[0], setFilters = _h[1];
+    var _j = __read(useState([]), 2), selectedRows = _j[0], setSelectedRows = _j[1];
     // All Handler functions are defined as hooks
     var handleChangePage = useHandleChangePage(changePage);
     var getCurrentPage = useGetCurrentPage(paginatorInfo);
@@ -101,18 +101,15 @@ export var Table = function (_a) {
             }); }));
         }
     }, [initialTableValue, headers]);
-    return (_jsx("div", __assign({ className: clx(classes.tableRoot, className) }, { children: _jsxs(TableContainer, __assign({ component: Paper }, { children: [controls && (_jsx(TableControls, { handleControlsChange: handleControlsChange, setShowFilter: setShowFilter, controls: controls, tableValues: tableValue, controlsFormData: controlsFormData }, void 0)), _jsxs(MuiTable, __assign({ classes: {
+    return (_jsxs("div", __assign({ className: clx(classes.tableRoot, className) }, { children: [controls && (_jsx(TableControls, { handleControlsChange: handleControlsChange, setShowFilter: setShowFilter, controls: controls, tableValues: tableValue, controlsFormData: controlsFormData, showFilter: showFilter, fields: tableHeaders, values: initialTableValue, filters: filters, setFilters: setFilters, tableRef: tableRef }, void 0)), _jsx(TableContainer, __assign({ component: Paper, ref: tableRef }, { children: _jsxs(MuiTable, __assign({ classes: {
                         root: classes.root,
-                    } }, props, { children: [_jsx(TableHead, __assign({ className: classes.tableHead }, { children: _jsxs(TableRow, { children: [hasCheckBox && (_jsx(TableCell, __assign({ padding: "checkbox" }, { children: _jsx(Checkbox, { onChange: handleSelectAllRows, checked: selectedRows.length === tableValue.length }, void 0) }), void 0)), tableHeaders.map(function (_a) {
+                    } }, props, { children: [_jsx(TableHead, __assign({ className: clx(classes.tableHead, classNames === null || classNames === void 0 ? void 0 : classNames.tableHead) }, { children: _jsxs(TableRow, { children: [hasCheckBox && (_jsx(TableCell, __assign({ padding: "checkbox" }, { children: _jsx(Checkbox, { onChange: handleSelectAllRows, checked: selectedRows.length === tableValue.length }, void 0) }), void 0)), tableHeaders.map(function (_a) {
                                         var name = _a.name, label = _a.label;
                                         return (_jsx(TableCell, __assign({ className: classes.tableHeadCell }, { children: label }), name));
                                     })] }, void 0) }), void 0), _jsx(TableBody, { children: tableValue === null || tableValue === void 0 ? void 0 : tableValue.map(function (row, index) {
-                                return (_jsxs(TableRow, { children: [hasCheckBox && (_jsx(TableCell, __assign({ padding: "checkbox" }, { children: _jsx(Checkbox, { checked: selectedRows.includes(index), onChange: function () { return handleSelectRow(index); } }, void 0) }), void 0)), tableHeaders.map(function (_a) {
+                                return (_jsxs(TableRow, __assign({ className: classNames === null || classNames === void 0 ? void 0 : classNames.tableBody }, { children: [hasCheckBox && (_jsx(TableCell, __assign({ padding: "checkbox" }, { children: _jsx(Checkbox, { checked: selectedRows.includes(index), onChange: function () { return handleSelectRow(index); } }, void 0) }), void 0)), tableHeaders.map(function (_a) {
                                             var name = _a.name;
                                             return (_jsx(TableCell, __assign({ className: classes.tableCell }, { children: row === null || row === void 0 ? void 0 : row[name] }), name));
-                                        })] }, index));
-                            }) }, void 0), pagination && (_jsx(TableFooter, { children: _jsx(TableRow, { children: _jsx(TablePagination, { rowsPerPageOptions: [7, 10, 20], onRowsPerPageChange: handleChangeRowsPerPage, count: paginatorInfo === null || paginatorInfo === void 0 ? void 0 : paginatorInfo.total, rowsPerPage: Number(getRowsPerPage), onPageChange: handleChangePage, showFirstButton: true, showLastButton: true, page: getCurrentPage, SelectProps: {
-                                        inputProps: { "aria-label": "rows per page" },
-                                        native: true,
-                                    } }, void 0) }, void 0) }, void 0))] }), void 0), _jsx(TableFilter, { showFilter: showFilter, setShowFilter: setShowFilter, fields: tableHeaders, values: initialTableValue, filters: filters, setFilters: setFilters }, void 0)] }), void 0) }), void 0));
+                                        })] }), index));
+                            }) }, void 0), pagination && (_jsx(TableFooter, __assign({ className: classNames === null || classNames === void 0 ? void 0 : classNames.tableFooter }, { children: _jsx(TableRow, { children: _jsx(TablePagination, { onRowsPerPageChange: handleChangeRowsPerPage, count: paginatorInfo === null || paginatorInfo === void 0 ? void 0 : paginatorInfo.total, rowsPerPage: Number(getRowsPerPage), onPageChange: handleChangePage, page: getCurrentPage }, void 0) }, void 0) }), void 0))] }), void 0) }), void 0)] }), void 0));
 };

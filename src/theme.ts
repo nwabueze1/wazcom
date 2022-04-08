@@ -177,6 +177,8 @@ export const theme: any = {
       blue: "#0889F7",
       grey: "#3A3335",
       yellowsea: "#F5A53C",
+      greenishGrey: "#999F9B",
+      greenishGrey2: "#4D5650"
     },
   },
   overrides: {
