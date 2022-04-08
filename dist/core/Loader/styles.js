@@ -36,7 +36,7 @@ export var useLoaderStyles = makeStyles(function (theme) { return ({
         width: "15px",
         height: "15px",
         borderRadius: "50%",
-        backgroundColor: theme.design.colors.dangerColor100,
+        background: theme.design.colors.greene,
         animation: "$move 500ms linear 0ms infinite",
         marginRight: "30px",
         "&:first-child": {

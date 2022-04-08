@@ -12,6 +12,7 @@ export const TextArea: FC<TextAreaProps> = ({
   classNames,
   label,
   value,
+  helperText,
   onChange,
   minRows,
   feedback,
@@ -46,6 +47,7 @@ export const TextArea: FC<TextAreaProps> = ({
           error && classes.error,
         )}
       />
+      {helperText}
       {feedback && displayFeedback(feedback)}
     </div>
   );

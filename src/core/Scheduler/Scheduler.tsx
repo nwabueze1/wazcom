@@ -1,17 +1,19 @@
 import React, { useState, useCallback, useEffect } from "react";
-import { Table } from "../Table";
 import { useSchedulerStyles } from "./styles";
 import { InputLabel } from "@mui/material";
 import { SchedulerProps } from "./types";
-import { tableHeaders } from "./data";
+import { fields } from "./data";
 import { useScheduleData } from "./hooks";
 import clx from "classnames";
+import { FiPlus } from "react-icons/fi";
 
 export const Scheduler: React.FC<SchedulerProps> = ({
   className,
+  classNames,
   name: componentName,
   label,
-  labelClassName,
+  gap = useSchedulerStyles().dayContainer,
+  multiple = false,
   value: initialScheduleValue = [
     { day: "0", start_time: "00:00", end_time: "12:00" },
   ],
@@ -36,18 +38,6 @@ export const Scheduler: React.FC<SchedulerProps> = ({
     [initialScheduleValue],
   );
 
-  const [scheduleValue, setScheduleValue] = useState<{ [key: string]: any }[]>(
-    parseSchedulevalue(initialScheduleValue, handleChange),
-  );
-
-  useEffect(() => {
-    const newScheduleValue = parseSchedulevalue(
-      initialScheduleValue,
-      handleChange,
-    );
-    setScheduleValue(newScheduleValue);
-  }, [initialScheduleValue]);
-
   const addNewRow = useCallback(() => {
     onChange?.({
       name: componentName as string,
@@ -58,20 +48,57 @@ export const Scheduler: React.FC<SchedulerProps> = ({
     });
   }, [initialScheduleValue]);
 
+  const [scheduleValue, setScheduleValue] = useState<{ [key: string]: any }[]>(
+    parseSchedulevalue(initialScheduleValue, handleChange, {
+      timeSection: classes.timeContainer,
+      timeDivider: classes.timeDivider,
+      dayContainer: gap,
+      closeIcon: classes.closeIcon,
+      hiddenCloseIcon: classes.hiddenCloseIcon
+    }),
+  );
+
+  useEffect(() => {
+    const newScheduleValue = parseSchedulevalue(
+      initialScheduleValue,
+      handleChange,
+      {
+        timeSection: classes.timeContainer,
+        timeDivider: classes.timeDivider,
+        dayContainer: gap,
+        closeIcon: classes.closeIcon,
+        hiddenCloseIcon: classes.hiddenCloseIcon
+      },
+    );
+    setScheduleValue(newScheduleValue);
+  }, [initialScheduleValue]);
+
   return (
     <div className={clx(classes.root, className)}>
       {label && (
         <InputLabel
-          className={clx(classes.label, labelClassName)}
+          className={(classNames?.label as string) ?? ""}
           htmlFor={componentName}
         >
           {label}
         </InputLabel>
       )}
-      <Table headers={tableHeaders} value={scheduleValue} />
-      <div className={classes.button} onClick={addNewRow}>
-        <p className={classes.buttonText}>Add more</p>
-      </div>
+      {scheduleValue?.map((row: any, index: number) => {
+        return (
+          <div className={classes.schedulerContainer} key={index}>
+            {fields.map(({ name }) => {
+              return row?.[name];
+            })}
+          </div>
+        );
+      })}
+      {multiple && (
+        <div className={classes.button} onClick={addNewRow}>
+          <p className={classes.buttonText}>
+            <FiPlus className={classes.addIcon} /> Add Schedule
+          </p>
+        </div>
+      )}
     </div>
   );
 };

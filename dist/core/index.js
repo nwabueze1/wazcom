@@ -15,4 +15,3 @@ export * from "./Upload";
 export * from "./Modal";
 export * from "./EmptyState";
 export * from "./Scheduler";
-export * from "./InputGroup";

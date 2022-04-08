@@ -6,7 +6,6 @@ import {
   Loader,
   Gallery,
   ImageSelector,
-  InputGroup,
   Table,
   MenuCard,
   DisplayCard,
@@ -23,6 +22,7 @@ import {
   RichTextInput,
   SelectInput,
   TextInput,
+  InputGroup,
   ToggleInput,
   TextArea,
 } from "../io";
@@ -43,7 +43,6 @@ import { ComponentPropType } from "./types";
 
 import { data } from "./data";
 import { VisibilityOff } from "@mui/icons-material";
-import { useLabelStyles } from "helpers/styles";
 
 export const stories: ComponentPropType[] = [
   {
@@ -52,7 +51,12 @@ export const stories: ComponentPropType[] = [
     props: {
       label: "Description",
       name: "description",
+<<<<<<< HEAD
       onChange: ({ name, value }: { name: string; value: string }) => {},
+=======
+      onChange: ({ name, value }: { name: string; value: string }) => {
+      },
+>>>>>>> release/1.17
       multiline: true,
       minRows: 5,
       feedback: {
@@ -233,7 +237,7 @@ export const stories: ComponentPropType[] = [
         status: "success",
       },
       type: "password",
-      icon: <VisibilityOff />
+      icon: <VisibilityOff />,
     },
   },
   {
@@ -279,7 +283,7 @@ export const stories: ComponentPropType[] = [
     props: {
       label: "leke",
       feedback: {
-        text: <p style={{ color: "green" }}>olamileke</p>
+        text: <p style={{ color: "green" }}>olamileke</p>,
       },
     },
   },
@@ -464,7 +468,12 @@ export const stories: ComponentPropType[] = [
     component: InputGroup,
     props: {
       variant: "",
+      text: "wazcom.sytbuilder.com",
       label: "@wazcom.zeus",
+      feedback: {
+        status: "error",
+        text: "aoaoaoa",
+      }
     },
   },
 ];

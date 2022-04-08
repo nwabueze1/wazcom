@@ -22,15 +22,36 @@ var useStyles = makeStyles(function () { return ({
         borderBottom: "0px ",
     },
 }); });
-var CustomCss = withStyles({
+var CustomCss = withStyles(function (theme) { return ({
     "@global": {
         ".MuiTextField-root": {
             "& input[type='time']::-webkit-clear-button, & input::-webkit-outer-spin-button, & input::-webkit-inner-spin-button": {
                 display: "none",
             },
         },
+        ".MuiOutlinedInput-notchedOutline": {
+            border: "solid 1px ".concat(theme.design.colors.grey5),
+            borderRadius: 5,
+            "&:hover": {
+                borderColor: "".concat(theme.design.colors.grey5),
+                outline: "none",
+            },
+            "&:focus": {
+                borderColor: "".concat(theme.design.colors.grey5),
+            },
+        },
+        ".Mui-focused.MuiOutlinedInput-notchedOutline": {
+            border: "solid 1px ".concat(theme.design.colors.grey5),
+            "&:hover": {
+                borderColor: "".concat(theme.design.colors.grey5),
+                outline: "none",
+            },
+            "&:focus": {
+                borderColor: "".concat(theme.design.colors.grey5),
+            },
+        },
     },
-})(function () { return null; });
+}); })(function () { return null; });
 export var TimeSelector = function (_a) {
     var onChange = _a.onChange, name = _a.name, value = _a.value;
     var classes = useStyles();

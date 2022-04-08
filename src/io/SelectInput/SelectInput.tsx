@@ -11,6 +11,7 @@ export const SelectInput: FC<SelectInputProps> = ({
   options = [],
   placeholder = "Select a value",
   label,
+  helperText,
   onChange,
   feedback,
   ...props
@@ -58,6 +59,7 @@ export const SelectInput: FC<SelectInputProps> = ({
           </MenuItem>
         ))}
       </Select>
+      {helperText}
       {feedback && displayFeedback(feedback)}
     </div>
   );

@@ -1,18 +1,20 @@
 import { FC, useState } from "react";
 import { Modal, Fade, Backdrop, InputLabel } from "@mui/material";
-import CameraAltIcon from "@mui/icons-material/CameraAlt";
 import clx from "classnames";
 import { useImageSelectorStyles } from "./styles";
 import { GqlMediaLibrarySelectorProps } from "./types";
 import { GqlMediaLibrary } from "../GqlMediaLibrary";
 import { getSizeVariants } from "../../helpers/size";
 import { displayFeedback } from "../../helpers/io";
+import { Button } from "../../core";
+import CameraAlt from "@mui/icons-material/CameraAlt";
 
 export const GqlMediaLibrarySelector: FC<GqlMediaLibrarySelectorProps> = ({
   displayLibrary = false,
   variant = "square",
   size = "full",
   verbose,
+  iconType,
   width,
   height,
   className,
@@ -51,7 +53,7 @@ export const GqlMediaLibrarySelector: FC<GqlMediaLibrarySelectorProps> = ({
     <div className={clx(className, classes.root)}>
       {label && (
         <InputLabel
-          className={classNames?.label as string ?? ""}
+          className={(classNames?.label as string) ?? ""}
           htmlFor={name as string}
         >
           {label}
@@ -95,11 +97,20 @@ export const GqlMediaLibrarySelector: FC<GqlMediaLibrarySelectorProps> = ({
             </div>
           </Fade>
         </Modal>
-
-        <CameraAltIcon
-          className={clx(classes.icon, variants[1])}
-          onClick={handleOpen}
-        />
+        {iconType === "button" ? (
+          <Button
+            className={clx(classes.icon)}
+            variant="outlined"
+            onClick={handleOpen}
+          >
+            Upload Image
+          </Button>
+        ) : (
+          <CameraAlt
+            className={clx(classes.cameraIcon, variants[1])}
+            onClick={handleOpen}
+          />
+        )}
       </div>
       {feedback && displayFeedback(feedback)}
     </div>
