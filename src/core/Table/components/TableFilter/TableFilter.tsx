@@ -1,10 +1,12 @@
-import { Checkbox } from "@mui/material";
 import clx from "classnames";
 import { useCallback, useEffect, useState } from "react";
+import { Checkbox, ClickAwayListener, MenuItem } from "@mui/material";
 import { Accordion } from "../../../Accordion";
-import { TextInput } from "../../../../io";
 import { useFilterStyles } from "./styles";
 import { TableFilterProps } from "./types";
+import { FilterAlt } from "@mui/icons-material";
+import { Button } from "../../../Button";
+import { useTableControlsStyles } from "../TableControls/styles";
 
 export const TableFilter: React.FC<TableFilterProps> = ({
   showFilter,
@@ -15,12 +17,14 @@ export const TableFilter: React.FC<TableFilterProps> = ({
   setFilters,
 }) => {
   const classes = useFilterStyles();
+  const controlClasses = useTableControlsStyles();
   const [filterFields, setFilterFields] =
     useState<{ [key: string]: any }[]>(fields);
-  const [searchField, setSearchField] = useState("");
+ 
+  const [newFilters, setNewFilters] = useState(filters);
 
   const handleSetFilter = (field: string, value: string) => {
-    setFilters((filters) => {
+    setNewFilters((filters) => {
       const index = filters.findIndex((filter) => filter.field === field);
       if (index === -1) {
         return [
@@ -66,7 +70,7 @@ export const TableFilter: React.FC<TableFilterProps> = ({
   );
 
   const getCheckedState = (field: string, value: string) => {
-    const filter = filters.find((filter) => filter.field === field);
+    const filter = newFilters.find((filter) => filter.field === field);
     if (filter && filter.values.includes(value)) {
       return true;
     }
@@ -76,58 +80,78 @@ export const TableFilter: React.FC<TableFilterProps> = ({
   const renderFilterOptions = useCallback(
     () =>
       filterFields.map(({ name, label }) => (
-        <Accordion title={label} key={name}>
-          {getUniqueValues(label, values).map((item, key) => (
-            <div className={classes.filterItem} key={key}>
-              <Checkbox
-                checked={!getCheckedState(label, item)}
-                onChange={() => handleSetFilter(label, item)}
-              />
-              <div>{item}</div>
-            </div>
-          ))}
-        </Accordion>
+        <MenuItem key={name} className={classes.filterItemContainer}>
+          <Accordion title={label}>
+            {getUniqueValues(label, values).map((item, key) => (
+              <div className={classes.filterItem} key={key}>
+                <Checkbox
+                  checked={!getCheckedState(label, item)}
+                  onChange={() => handleSetFilter(label, item)}
+                />
+                <div>{item}</div>
+              </div>
+            ))}
+          </Accordion>
+        </MenuItem>
       )),
-    [filterFields, filters, values],
+    [filterFields, newFilters, values],
   );
 
-  const handleSearchFieldChange = (e: any) => {
-    setSearchField(e.target.value);
+  const handleClickAway = () => {
+    setShowFilter(false);
   };
 
   useEffect(() => {
     setFilterFields(fields);
   }, [fields]);
 
-  useEffect(() => {
-    setFilterFields(() =>
-      fields.filter((item) =>
-        item.name.toLowerCase().includes(searchField.toLowerCase()),
-      ),
-    );
-  }, [searchField]);
 
   return (
-    <>
-      <div
-        className={clx(classes.overlay, {
-          [classes.showOverlay]: showFilter,
-        })}
-        onClick={() => setShowFilter(false)}
-      />
-      <div
-        className={clx(classes.root, {
-          [classes.show]: showFilter,
-        })}
-      >
-        <TextInput
-          placeholder="Search"
-          name="search"
-          value={searchField}
-          onChange={handleSearchFieldChange}
-        />
-        {renderFilterOptions()}
+    <ClickAwayListener onClickAway={handleClickAway}>
+      <div className={classes.container}>
+        <Button
+          variant="outlined"
+          className={controlClasses.controlButton}
+          onClick={() => setShowFilter(true)}
+        >
+          <span className={controlClasses.controlButtonText}>Filter</span>
+          <FilterAlt />
+        </Button>
+        <div
+          className={clx(classes.filterItems, {
+            [classes.show]: showFilter,
+          })}
+        >
+          <MenuItem
+            className={clx(
+              classes.filterItemContainer,
+              classes.filterItemsHeader,
+            )}
+          >
+            FILTER BY:
+          </MenuItem>
+          {renderFilterOptions()}
+          <MenuItem>
+            <div className={classes.filterActionButtons}>
+              <Button
+                className={clx(
+                  classes.filterActionButton,
+                  classes.filterActionButtonOutline,
+                )}
+                onClick={handleClickAway}
+              >
+                Cancel
+              </Button>
+              <Button
+                className={classes.filterActionButton}
+                onClick={() => setFilters(newFilters)}
+              >
+                Apply Filter
+              </Button>
+            </div>
+          </MenuItem>
+        </div>
       </div>
-    </>
+    </ClickAwayListener>
   );
 };

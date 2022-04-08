@@ -14,6 +14,7 @@ export type TableProps = CommonProps &
     changeRowsPerPage?: (value: number) => void;
     rowsPerPage?: number;
     controls?: ControlsDataProp;
+    classNames?: TableClassnamesProps;
   };
 
 export type TableDataProps = ({ [key: string]: any } & {
@@ -27,8 +28,14 @@ type TableHeaderContentProps = {
 
 type ControlsDataProp = {
   filter?: string[];
-  export?: { [key: string]: string };
+  canExport?: { [key: string]: string };
   canPrint?: boolean;
 };
+
+type TableClassnamesProps = {
+  tableHead: string;
+  tableFooter:string;
+  tableBody:string
+}
 
 export type Filter = { field: string; values: string[] };

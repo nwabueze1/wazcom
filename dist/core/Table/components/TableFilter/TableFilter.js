@@ -34,21 +34,24 @@ var __spreadArray = (this && this.__spreadArray) || function (to, from, pack) {
     }
     return to.concat(ar || Array.prototype.slice.call(from));
 };
-import { jsx as _jsx, jsxs as _jsxs, Fragment as _Fragment } from "react/jsx-runtime";
-import { Checkbox } from "@mui/material";
+import { jsx as _jsx, jsxs as _jsxs } from "react/jsx-runtime";
 import clx from "classnames";
 import { useCallback, useEffect, useState } from "react";
+import { Checkbox, ClickAwayListener, MenuItem } from "@mui/material";
 import { Accordion } from "../../../Accordion";
-import { TextInput } from "../../../../io";
 import { useFilterStyles } from "./styles";
+import { FilterAlt } from "@mui/icons-material";
+import { Button } from "../../../Button";
+import { useTableControlsStyles } from "../TableControls/styles";
 export var TableFilter = function (_a) {
-    var _b, _c;
+    var _b;
     var showFilter = _a.showFilter, setShowFilter = _a.setShowFilter, fields = _a.fields, values = _a.values, filters = _a.filters, setFilters = _a.setFilters;
     var classes = useFilterStyles();
-    var _d = __read(useState(fields), 2), filterFields = _d[0], setFilterFields = _d[1];
-    var _e = __read(useState(""), 2), searchField = _e[0], setSearchField = _e[1];
+    var controlClasses = useTableControlsStyles();
+    var _c = __read(useState(fields), 2), filterFields = _c[0], setFilterFields = _c[1];
+    var _d = __read(useState(filters), 2), newFilters = _d[0], setNewFilters = _d[1];
     var handleSetFilter = function (field, value) {
-        setFilters(function (filters) {
+        setNewFilters(function (filters) {
             var index = filters.findIndex(function (filter) { return filter.field === field; });
             if (index === -1) {
                 return __spreadArray(__spreadArray([], __read(filters), false), [
@@ -83,7 +86,7 @@ export var TableFilter = function (_a) {
         return data;
     }, []);
     var getCheckedState = function (field, value) {
-        var filter = filters.find(function (filter) { return filter.field === field; });
+        var filter = newFilters.find(function (filter) { return filter.field === field; });
         if (filter && filter.values.includes(value)) {
             return true;
         }
@@ -92,25 +95,16 @@ export var TableFilter = function (_a) {
     var renderFilterOptions = useCallback(function () {
         return filterFields.map(function (_a) {
             var name = _a.name, label = _a.label;
-            return (_jsx(Accordion, __assign({ title: label }, { children: getUniqueValues(label, values).map(function (item, key) { return (_jsxs("div", __assign({ className: classes.filterItem }, { children: [_jsx(Checkbox, { checked: !getCheckedState(label, item), onChange: function () { return handleSetFilter(label, item); } }, void 0), _jsx("div", { children: item }, void 0)] }), key)); }) }), name));
+            return (_jsx(MenuItem, __assign({ className: classes.filterItemContainer }, { children: _jsx(Accordion, __assign({ title: label }, { children: getUniqueValues(label, values).map(function (item, key) { return (_jsxs("div", __assign({ className: classes.filterItem }, { children: [_jsx(Checkbox, { checked: !getCheckedState(label, item), onChange: function () { return handleSetFilter(label, item); } }, void 0), _jsx("div", { children: item }, void 0)] }), key)); }) }), void 0) }), name));
         });
-    }, [filterFields, filters, values]);
-    var handleSearchFieldChange = function (e) {
-        setSearchField(e.target.value);
+    }, [filterFields, newFilters, values]);
+    var handleClickAway = function () {
+        setShowFilter(false);
     };
     useEffect(function () {
         setFilterFields(fields);
     }, [fields]);
-    useEffect(function () {
-        setFilterFields(function () {
-            return fields.filter(function (item) {
-                return item.name.toLowerCase().includes(searchField.toLowerCase());
-            });
-        });
-    }, [searchField]);
-    return (_jsxs(_Fragment, { children: [_jsx("div", { className: clx(classes.overlay, (_b = {},
-                    _b[classes.showOverlay] = showFilter,
-                    _b)), onClick: function () { return setShowFilter(false); } }, void 0), _jsxs("div", __assign({ className: clx(classes.root, (_c = {},
-                    _c[classes.show] = showFilter,
-                    _c)) }, { children: [_jsx(TextInput, { placeholder: "Search", name: "search", value: searchField, onChange: handleSearchFieldChange }, void 0), renderFilterOptions()] }), void 0)] }, void 0));
+    return (_jsx(ClickAwayListener, __assign({ onClickAway: handleClickAway }, { children: _jsxs("div", __assign({ className: classes.container }, { children: [_jsxs(Button, __assign({ variant: "outlined", className: controlClasses.controlButton, onClick: function () { return setShowFilter(true); } }, { children: [_jsx("span", __assign({ className: controlClasses.controlButtonText }, { children: "Filter" }), void 0), _jsx(FilterAlt, {}, void 0)] }), void 0), _jsxs("div", __assign({ className: clx(classes.filterItems, (_b = {},
+                        _b[classes.show] = showFilter,
+                        _b)) }, { children: [_jsx(MenuItem, __assign({ className: clx(classes.filterItemContainer, classes.filterItemsHeader) }, { children: "FILTER BY:" }), void 0), renderFilterOptions(), _jsx(MenuItem, { children: _jsxs("div", __assign({ className: classes.filterActionButtons }, { children: [_jsx(Button, __assign({ className: clx(classes.filterActionButton, classes.filterActionButtonOutline), onClick: handleClickAway }, { children: "Cancel" }), void 0), _jsx(Button, __assign({ className: classes.filterActionButton, onClick: function () { return setFilters(newFilters); } }, { children: "Apply Filter" }), void 0)] }), void 0) }, void 0)] }), void 0)] }), void 0) }), void 0));
 };

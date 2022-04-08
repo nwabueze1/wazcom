@@ -29,6 +29,7 @@ export const baseColors = {
   dangerColor: "#FF0000",
   successColor: "#0A7227",
   greyColor: "#808080",
+  whiteColor: "#FFFFFF",
 };
 
 export const theme: any = {
@@ -170,13 +171,16 @@ export const theme: any = {
       greyColor200: lighten(baseColors.greyColor, 0.1),
       greyColor300: darken(baseColors.greyColor, 0.2),
       greyColor400: darken(baseColors.greyColor, 0.6),
+      whiteColor100: darken(baseColors.whiteColor, 0.02),
       Grey: "#414141",
       gray: "#BEBEBE",
       blue: "#0889F7",
       grey: "#3A3335",
+      yellowsea: "#F5A53C",
+      greenishGrey: "#999F9B",
+      greenishGrey2: "#4D5650",
       grey5: "#E6E7E6",
       white: "#FFFFFF",
-      yellowsea: "#F5A53C",
       greene: "#0A7227",
       mercury: "#CCCFCD",
     },

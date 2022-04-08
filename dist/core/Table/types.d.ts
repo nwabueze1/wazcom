@@ -14,6 +14,7 @@ export declare type TableProps = CommonProps & MuiTableProps & {
     changeRowsPerPage?: (value: number) => void;
     rowsPerPage?: number;
     controls?: ControlsDataProp;
+    classNames?: TableClassnamesProps;
 };
 export declare type TableDataProps = ({
     [key: string]: any;
@@ -28,10 +29,15 @@ declare type TableHeaderContentProps = {
 }[];
 declare type ControlsDataProp = {
     filter?: string[];
-    export?: {
+    canExport?: {
         [key: string]: string;
     };
     canPrint?: boolean;
+};
+declare type TableClassnamesProps = {
+    tableHead: string;
+    tableFooter: string;
+    tableBody: string;
 };
 export declare type Filter = {
     field: string;

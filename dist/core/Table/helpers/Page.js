@@ -12,5 +12,5 @@ export var useHandleChangeRowsPerPage = function (changeRowsPerPage, changePage)
 };
 export var useGetRowsPerPage = function (paginatorInfo, rowsPerPage) { var _a; return (_a = paginatorInfo === null || paginatorInfo === void 0 ? void 0 : paginatorInfo.perPage) !== null && _a !== void 0 ? _a : rowsPerPage; };
 export var useGetCurrentPage = function (paginatorInfo) {
-    return (paginatorInfo === null || paginatorInfo === void 0 ? void 0 : paginatorInfo.currentPage) ? (paginatorInfo === null || paginatorInfo === void 0 ? void 0 : paginatorInfo.currentPage) - 1 : 0;
+    return (paginatorInfo === null || paginatorInfo === void 0 ? void 0 : paginatorInfo.currentPage) ? paginatorInfo === null || paginatorInfo === void 0 ? void 0 : paginatorInfo.currentPage : 1;
 };
