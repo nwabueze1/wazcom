@@ -11,7 +11,6 @@ import {
   MenuCardProps,
   DisplayCardProps,
   NotificationProps,
-  RadioButtonInputProps,
   EmptyStateProps,
 } from "../core";
 
@@ -23,6 +22,7 @@ import {
   InputGroupProps,
   TextInputProps,
   ToggleInputProps,
+  RadioButtonInputProps,
 } from "../io";
 
 import {
