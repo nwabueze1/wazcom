@@ -11,7 +11,7 @@ import {
   MenuCardProps,
   DisplayCardProps,
   NotificationProps,
-  RadioButtonProps,
+  RadioButtonInputProps,
   EmptyStateProps,
 } from "../core";
 
@@ -84,7 +84,7 @@ type CardStory = {
 
 type CarouselStory = {
   props: CarouselProps;
-}
+};
 
 type CheckBoxStory = {
   props: CheckBoxInputProps;
@@ -127,7 +127,7 @@ type NotificationStory = {
 };
 
 type RadioButtonStory = {
-  props: RadioButtonProps;
+  props: RadioButtonInputProps;
 };
 
 type SelectStory = {
