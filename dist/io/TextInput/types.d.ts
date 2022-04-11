@@ -1,6 +1,6 @@
 /// <reference types="react" />
 import { CommonProps } from "../../types";
-import { OutlinedInputProps } from "@mui/material";
-export declare type TextInputProps = CommonProps & OutlinedInputProps & {
+import { TextFieldProps } from "@mui/material";
+export declare type TextInputProps = CommonProps & TextFieldProps & {
     icon?: JSX.Element;
 } & any;
