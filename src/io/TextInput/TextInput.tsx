@@ -12,6 +12,7 @@ export const TextInput: FC<TextInputProps> = ({
   className,
   classNames,
   label,
+  variant,
   onChange,
   feedback,
   helperText,
@@ -33,7 +34,7 @@ export const TextInput: FC<TextInputProps> = ({
       )}
       <TextField
         {...props}
-        variant="outlined"
+        variant={variant ?? "outlined"}
         onChange={handleChange}
         className={clx(
           classes.textInput,

@@ -26,13 +26,13 @@ import { useTextStyles } from "./styles";
 import clx from "classnames";
 import { displayFeedback } from "../../helpers/io";
 export var TextInput = function (_a) {
-    var className = _a.className, classNames = _a.classNames, label = _a.label, onChange = _a.onChange, feedback = _a.feedback, helperText = _a.helperText, icon = _a.icon, props = __rest(_a, ["className", "classNames", "label", "onChange", "feedback", "helperText", "icon"]);
+    var className = _a.className, classNames = _a.classNames, label = _a.label, variant = _a.variant, onChange = _a.onChange, feedback = _a.feedback, helperText = _a.helperText, icon = _a.icon, props = __rest(_a, ["className", "classNames", "label", "variant", "onChange", "feedback", "helperText", "icon"]);
     var classes = useTextStyles();
     var handleChange = function (e) {
         var _a;
         onChange === null || onChange === void 0 ? void 0 : onChange({ name: (_a = props.name) !== null && _a !== void 0 ? _a : "", value: e.target.value });
     };
-    return (_jsxs("div", __assign({ className: clx(className, classes.root) }, { children: [label && (_jsx(InputLabel, __assign({ className: classNames === null || classNames === void 0 ? void 0 : classNames.label, htmlFor: props.name }, { children: label }), void 0)), _jsx(TextField, __assign({}, props, { variant: "outlined", onChange: handleChange, className: clx(classes.textInput, (classNames === null || classNames === void 0 ? void 0 : classNames.textInput) ? classNames.textInput : ""), classes: (classNames === null || classNames === void 0 ? void 0 : classNames.classes)
+    return (_jsxs("div", __assign({ className: clx(className, classes.root) }, { children: [label && (_jsx(InputLabel, __assign({ className: classNames === null || classNames === void 0 ? void 0 : classNames.label, htmlFor: props.name }, { children: label }), void 0)), _jsx(TextField, __assign({}, props, { variant: variant !== null && variant !== void 0 ? variant : "outlined", onChange: handleChange, className: clx(classes.textInput, (classNames === null || classNames === void 0 ? void 0 : classNames.textInput) ? classNames.textInput : ""), classes: (classNames === null || classNames === void 0 ? void 0 : classNames.classes)
                     ? classNames.classes
                     : {} }), void 0), helperText, feedback && displayFeedback(feedback)] }), void 0));
 };
