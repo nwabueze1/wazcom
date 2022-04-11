@@ -3,6 +3,7 @@ import {
   ButtonProps,
   BreadCrumbProps,
   CardProps,
+  CarouselProps,
   LoaderProps,
   GalleryProps,
   ImageSelectorProps,
@@ -40,6 +41,7 @@ export type ComponentPropType = {
   | CardStory
   | CheckBoxStory
   | LoaderStory
+  | CarouselStory
   | ComboBoxStory
   | TextStory
   | GalleryStory
@@ -79,6 +81,10 @@ type ButtonStory = {
 type CardStory = {
   props: CardProps;
 };
+
+type CarouselStory = {
+  props: CarouselProps;
+}
 
 type CheckBoxStory = {
   props: CheckBoxInputProps;

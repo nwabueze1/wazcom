@@ -128,8 +128,7 @@ export const GqlMediaLibrary: FC<GqlMediaLibraryProps> = ({
     setActiveMedia({ type, media });
   };
 
-  const handleSearchChange = (e: React.ChangeEvent<HTMLInputElement>) => {
-    const search = e.target.value;
+  const handleSearchChange = (search: string) => {
     if (search === "") {
       return;
     }
@@ -237,7 +236,9 @@ export const GqlMediaLibrary: FC<GqlMediaLibraryProps> = ({
               name="search"
               type="text"
               placeholder="Search"
-              onChange={handleSearchChange}
+              onChange={({ value }: { name: string; value: any }) => {
+                handleSearchChange(value);
+              }}
               className={classes.search}
             />
             <Search className={classes.searchIcon} />

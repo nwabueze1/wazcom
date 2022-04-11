@@ -155,8 +155,7 @@ export var GqlMediaLibrary = function (_a) {
         }
         setActiveMedia({ type: type, media: media });
     };
-    var handleSearchChange = function (e) {
-        var search = e.target.value;
+    var handleSearchChange = function (search) {
         if (search === "") {
             return;
         }
@@ -221,7 +220,10 @@ export var GqlMediaLibrary = function (_a) {
             handleOnScroll(refs.listInnerRef, function (index) {
                 setActiveMedia(__assign(__assign({}, activeMedia), { index: index }));
             });
-        } }, { children: [_jsxs("div", { children: [_jsx("input", { name: "image_url", accept: "image/*", hidden: true, type: "file", ref: refs.fileRef, onChange: handleFileChange }, void 0), _jsx("div", __assign({ className: classes.actions }, { children: viewOnly ? (_jsxs(_Fragment, { children: [_jsx("p", { children: "Media Library" }, void 0), _jsx(FaTimes, { className: classes.timesIcon }, void 0)] }, void 0)) : (_jsxs(_Fragment, { children: [_jsx("p", __assign({ className: classes.tab }, { children: "All Media" }), void 0), _jsx(AddMedia, { handleFilesSelection: handleFileSelection, handleOpenMedia: open, handleCloseMedia: setOpen }, void 0)] }, void 0)) }), void 0), _jsx("div", __assign({ className: classes.searchParent }, { children: _jsxs("div", __assign({ className: classes.searchContainer }, { children: [_jsx(TextInput, { name: "search", type: "text", placeholder: "Search", onChange: handleSearchChange, className: classes.search }, void 0), _jsx(Search, { className: classes.searchIcon }, void 0)] }), void 0) }), void 0), _jsx("div", __assign({ className: classes.collection }, { children: images.length === 0 && loading.media ? (_jsx(Loader, {}, void 0)) : (_jsxs(_Fragment, { children: [(activeMedia.type === "add" || activeMedia.type === "edit") && (_jsx(EditMedia, { loading: loading.mutate, handleEdit: function (variables) {
+        } }, { children: [_jsxs("div", { children: [_jsx("input", { name: "image_url", accept: "image/*", hidden: true, type: "file", ref: refs.fileRef, onChange: handleFileChange }, void 0), _jsx("div", __assign({ className: classes.actions }, { children: viewOnly ? (_jsxs(_Fragment, { children: [_jsx("p", { children: "Media Library" }, void 0), _jsx(FaTimes, { className: classes.timesIcon }, void 0)] }, void 0)) : (_jsxs(_Fragment, { children: [_jsx("p", __assign({ className: classes.tab }, { children: "All Media" }), void 0), _jsx(AddMedia, { handleFilesSelection: handleFileSelection, handleOpenMedia: open, handleCloseMedia: setOpen }, void 0)] }, void 0)) }), void 0), _jsx("div", __assign({ className: classes.searchParent }, { children: _jsxs("div", __assign({ className: classes.searchContainer }, { children: [_jsx(TextInput, { name: "search", type: "text", placeholder: "Search", onChange: function (_a) {
+                                        var value = _a.value;
+                                        handleSearchChange(value);
+                                    }, className: classes.search }, void 0), _jsx(Search, { className: classes.searchIcon }, void 0)] }), void 0) }), void 0), _jsx("div", __assign({ className: classes.collection }, { children: images.length === 0 && loading.media ? (_jsx(Loader, {}, void 0)) : (_jsxs(_Fragment, { children: [(activeMedia.type === "add" || activeMedia.type === "edit") && (_jsx(EditMedia, { loading: loading.mutate, handleEdit: function (variables) {
                                         handleMediaUpdate(variables);
                                     }, handleClose: function () {
                                         handleMediaAction("", undefined);
