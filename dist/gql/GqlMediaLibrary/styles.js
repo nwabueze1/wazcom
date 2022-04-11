@@ -19,7 +19,7 @@ export var useMediaLibraryStyles = makeStyles(function (theme) { return ({
         flexWrap: "wrap",
         gap: theme.spacing(1),
         position: "relative",
-        padding: theme.spacing(0, 4),
+        padding: theme.spacing(1, 4),
     },
     column: {
         display: "flex",
@@ -147,8 +147,14 @@ export var useMediaLibraryStyles = makeStyles(function (theme) { return ({
     searchContainer: {
         position: "relative",
         padding: theme.spacing(0, 4),
-        borderBottom: "1px solid rgba(0,0,0,0.06)",
-        marginBottom: theme.spacing(3),
+    },
+    button: {
+        background: theme.design.colors.white,
+        color: theme.design.colors.greenishGrey2,
+        border: "1px solid ".concat(theme.design.colors.greene),
+    },
+    input: {
+        paddingLeft: theme.spacing(3),
     },
     content: {
         width: "80%",
@@ -160,13 +166,84 @@ export var useMediaLibraryStyles = makeStyles(function (theme) { return ({
         background: theme.design.colors.shainGrey,
     },
     searchParent: {
+        borderBottom: "1px solid rgba(0,0,0,0.06)",
+    },
+    actionsContainer: {
         display: "flex",
-        justifyContent: "flex-end",
+        justifyContent: "space-between",
+        width: "95%",
+        margin: "auto",
+    },
+    filter: {
+        position: "relative",
+    },
+    filterTitle: {
+        width: "90%",
+        margin: "auto",
+        display: "flex",
+        justifyContent: "space-between",
+    },
+    filterText: {
+        color: theme.design.colors.greene,
+        fontWeight: theme.typography.fontWeightMedium,
+    },
+    filterParent: {
+        paddingTop: theme.spacing(2.5),
+        width: 228,
+        background: theme.design.colors.white,
+        borderRadius: "6px",
+        boxShadow: "0px 3px 5px rgba(52, 62, 55, 0.2)",
+        position: "absolute",
+        visibility: "hidden",
+        opacity: 0,
+        transition: "all 0.6s ease-in-out",
+    },
+    showFilter: {
+        visibility: "visible",
+        opacity: 1,
+        zIndex: 3,
+    },
+    sortParent: {
+        width: 120,
+        borderRadius: "6px",
+        background: theme.design.colors.white,
+        boxShadow: "0px 4px 20px rgba(77, 86, 80, 0.16)",
+        position: "absolute",
+        visibility: "hidden",
+        opacity: 0,
+        transition: "all 0.6s ease-in-out",
+    },
+    sort: {
+        width: "90%",
+        padding: theme.spacing(2, 0, 0, 1.5),
+    },
+    showSort: {
+        opacity: 1,
+        visibility: "visible",
+        zIndex: 10,
+    },
+    sortType: {
+        display: "flex",
+        alignItems: "center",
+    },
+    orientationType: {
+        display: "flex",
+        alignItems: "center",
+    },
+    btnContainer: {
+        display: "flex",
+        gap: theme.spacing(4),
     },
     searchIcon: {
         position: "absolute",
+        color: theme.design.colors.mercury,
         top: "10px",
-        left: "35px",
+        left: "40px",
+    },
+    radioButton: {
+        "& .Mui-checked": {
+            color: theme.design.colors.greene,
+        },
     },
 }); });
 export var StyledModal = styled(ModalUnstyled)(templateObject_1 || (templateObject_1 = __makeTemplateObject(["\n  position: fixed;\n  z-index: 1300;\n  right: 0;\n  bottom: 0;\n  top: 0;\n  left: 0;\n  display: flex;\n  align-items: center;\n  justify-content: center;\n"], ["\n  position: fixed;\n  z-index: 1300;\n  right: 0;\n  bottom: 0;\n  top: 0;\n  left: 0;\n  display: flex;\n  align-items: center;\n  justify-content: center;\n"])));

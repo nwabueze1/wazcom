@@ -6,7 +6,5 @@ export const useCheckboxInputStyles = makeStyles((theme: Theme) => ({
   root: {
     display: "flex",
     flexDirection: "column",
-    width: "100%",
-    marginBottom: theme.spacing(2),
   },
 }));

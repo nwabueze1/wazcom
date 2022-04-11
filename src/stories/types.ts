@@ -10,7 +10,7 @@ import {
   MenuCardProps,
   DisplayCardProps,
   NotificationProps,
-  RadioButtonProps,
+  RadioButtonInputProps,
   EmptyStateProps,
 } from "../core";
 
@@ -121,7 +121,7 @@ type NotificationStory = {
 };
 
 type RadioButtonStory = {
-  props: RadioButtonProps;
+  props: RadioButtonInputProps;
 };
 
 type SelectStory = {

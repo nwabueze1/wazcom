@@ -16,8 +16,10 @@ import {
   useMediaUpload,
 } from "./hooks";
 import { FaTimes } from "react-icons/fa";
-import { Search } from "@mui/icons-material";
-import { TextInput } from "../../io";
+import { Search, FilterAlt, Sort } from "@mui/icons-material";
+import { TextInput, CheckBoxInput } from "../../io";
+import { Button } from "../../core";
+import { RadioButton } from "../../core/RadioButton/RadioButton";
 import { AddMedia } from "../../core/AddMedia/AddMedia";
 
 export const GqlMediaLibrary: FC<GqlMediaLibraryProps> = ({
@@ -55,6 +57,9 @@ export const GqlMediaLibrary: FC<GqlMediaLibraryProps> = ({
   }>({ type: "" });
   const [open, setOpen] = useState(false);
   const [displayedImages, setDisplayedImages] = useState(images);
+  const [showFilter, setShowFilter] = useState(false);
+  const [showSort, setShowSort] = useState(false);
+  const [selected, setSelected] = useState();
 
   useEffect(() => {
     setLoading({ ...loading, media: true });
@@ -191,6 +196,11 @@ export const GqlMediaLibrary: FC<GqlMediaLibraryProps> = ({
     setOpen(false);
   };
 
+  const handleChange = (event: React.ChangeEvent<{ checked: boolean }>) => {};
+
+  const filterType = ["Landscape", "Portrait", "Square"];
+  const sortType = ["Newest", "Oldest"];
+
   return (
     <div
       className={clx(
@@ -232,61 +242,120 @@ export const GqlMediaLibrary: FC<GqlMediaLibraryProps> = ({
           )}
         </div>
         <div className={classes.searchParent}>
-          <div className={classes.searchContainer}>
-            <TextInput
-              name="search"
-              type="text"
-              placeholder="Search"
-              onChange={handleSearchChange}
-              className={classes.search}
-            />
-            <Search className={classes.searchIcon} />
+          <div className={classes.actionsContainer}>
+            <div className={classes.btnContainer}>
+              <div className={classes.filter}>
+                <Button
+                  className={classes.button}
+                  variant="outlined"
+                  onClick={() => setShowFilter(!showFilter)}
+                >
+                  filter
+                  <FilterAlt />
+                </Button>
+                <div
+                  className={clx(
+                    classes.filterParent,
+                    showFilter && classes.showFilter,
+                  )}
+                >
+                  <div className={classes.filterTitle}>
+                    <p>BY ORIENTATION:</p>
+                    <p className={classes.filterText}>Filter</p>
+                  </div>
+                  <div>
+                    {filterType.map((type, index) => (
+                      <div className={classes.orientationType} key={index}>
+                        <CheckBoxInput />
+                        <p>{type}</p>
+                      </div>
+                    ))}
+                  </div>
+                </div>
+              </div>
+              <div className={classes.filter}>
+                <Button
+                  className={classes.button}
+                  variant="outlined"
+                  onClick={() => setShowSort(!showSort)}
+                >
+                  sort
+                  <Sort />
+                </Button>
+                <div
+                  className={clx(
+                    classes.sortParent,
+                    showSort && classes.showSort,
+                  )}
+                >
+                  <p className={classes.sort}>sort by:</p>
+                  {sortType.map((type, index) => (
+                    <p key={index} className={classes.sortType}>
+                      <RadioButton checked={selected === { type }} classNames={{radioButtonInput: classes.radioButton}}/>
+                      {type}
+                    </p>
+                  ))}
+                </div>
+              </div>
+            </div>
+            <div className={classes.searchContainer}>
+              <TextInput
+                name="search"
+                type="text"
+                placeholder="Search"
+                onChange={handleSearchChange}
+                className={classes.search}
+                classNames={{ textInput: classes.input }}
+              />
+              <Search className={classes.searchIcon} />
+            </div>
           </div>
-        </div>
-        <div className={classes.collection}>
-          {images.length === 0 && loading.media ? (
-            <Loader />
-          ) : (
-            <>
-              {(activeMedia.type === "add" || activeMedia.type === "edit") && (
-                <EditMedia
-                  loading={loading.mutate}
-                  handleEdit={(variables: ImageUpdate) => {
-                    handleMediaUpdate(variables);
-                  }}
-                  handleClose={() => {
-                    handleMediaAction("", undefined);
-                  }}
-                  image={activeMedia.media as Image | File}
-                />
-              )}
-              {images &&
-                handleDisplayImages(
-                  displayedImages,
-                  (image: Image) => {
-                    onChange?.({ name: name ?? "", value: image });
-                  },
-                  handleMediaAction,
-                  viewOnly,
+          <div className={classes.collection}>
+            {images.length === 0 && loading.media ? (
+              <Loader />
+            ) : (
+              <>
+                {(activeMedia.type === "add" ||
+                  activeMedia.type === "edit") && (
+                  <EditMedia
+                    loading={loading.mutate}
+                    handleEdit={(variables: ImageUpdate) => {
+                      handleMediaUpdate(variables);
+                    }}
+                    handleClose={() => {
+                      handleMediaAction("", undefined);
+                    }}
+                    image={activeMedia.media as Image | File}
+                  />
                 )}
-            </>
+                {images &&
+                  handleDisplayImages(
+                    displayedImages,
+                    (image: Image) => {
+                      onChange?.({ name: name ?? "", value: image });
+                    },
+                    handleMediaAction,
+                    viewOnly,
+                  )}
+              </>
+            )}
+          </div>
+          {images.length > 0 && loading.media && (
+            <div className={classes.loaderParent}>
+              <Loader className={classes.loader} />
+            </div>
           )}
         </div>
-        {images.length > 0 && loading.media && (
-          <div className={classes.loaderParent}>
-            <Loader className={classes.loader} />
-          </div>
-        )}
+        <DeleteMedia
+          display={activeMedia.type === "delete"}
+          loading={loading.mutate}
+          media={activeMedia.media as Image}
+          handleClose={() => {
+            handleMediaAction("", undefined);
+          }}
+          handleDelete={handleMediaDelete}
+        />
       </div>
-      <DeleteMedia
-        display={activeMedia.type === "delete"}
-        loading={loading.mutate}
-        media={activeMedia.media as Image}
-        handleClose={() => {
-          handleMediaAction("", undefined);
-        }}
-        handleDelete={handleMediaDelete}
-      />
     </div>
   );
 };

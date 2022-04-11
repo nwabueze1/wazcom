@@ -9,30 +9,21 @@ var __assign = (this && this.__assign) || function () {
     };
     return __assign.apply(this, arguments);
 };
-var __read = (this && this.__read) || function (o, n) {
-    var m = typeof Symbol === "function" && o[Symbol.iterator];
-    if (!m) return o;
-    var i = m.call(o), r, ar = [], e;
-    try {
-        while ((n === void 0 || n-- > 0) && !(r = i.next()).done) ar.push(r.value);
-    }
-    catch (error) { e = { error: error }; }
-    finally {
-        try {
-            if (r && !r.done && (m = i["return"])) m.call(i);
-        }
-        finally { if (e) throw e.error; }
-    }
-    return ar;
-};
-import { jsx as _jsx } from "react/jsx-runtime";
+import { jsx as _jsx, jsxs as _jsxs } from "react/jsx-runtime";
 import { useRadioButtonStyles } from "./styles";
-import { Radio } from "@mui/material";
+import { Radio, InputLabel } from "@mui/material";
+import { displayFeedback } from "../../helpers/io";
 import clx from "classnames";
-import { useState } from "react";
 export var RadioButton = function (_a) {
-    var className = _a.className, color = _a.color;
+    var _b;
+    var className = _a.className, label = _a.label, classNames = _a.classNames, name = _a.name, feedback = _a.feedback, value = _a.value, helperText = _a.helperText, onChange = _a.onChange;
     var classes = useRadioButtonStyles();
-    var _b = __read(useState(true), 2), isChecked = _b[0], setIsChecked = _b[1];
-    return (_jsx("div", __assign({ className: clx(classes.root, className) }, { children: _jsx(Radio, { style: { color: color }, onClick: function () { return setIsChecked(!isChecked); }, checked: isChecked }, void 0) }), void 0));
+    var handleChange = function (event) {
+        onChange === null || onChange === void 0 ? void 0 : onChange({ name: name, value: event.target.checked });
+    };
+    return (_jsxs("div", __assign({ className: clx(classes.root, className) }, { children: [label && (_jsx(InputLabel, __assign({ className: (_b = classNames === null || classNames === void 0 ? void 0 : classNames.label) !== null && _b !== void 0 ? _b : "", htmlFor: name }, { children: label }), void 0)), _jsx(Radio, { checked: value, onChange: handleChange, className: (classNames === null || classNames === void 0 ? void 0 : classNames.radioButtonInput)
+                    ? classNames.radioButtonInput
+                    : "", classes: (classNames === null || classNames === void 0 ? void 0 : classNames.classes)
+                    ? classNames.classes
+                    : {} }, void 0), helperText, feedback && displayFeedback(feedback)] }), void 0));
 };
