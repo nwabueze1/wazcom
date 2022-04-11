@@ -21,14 +21,18 @@ var __rest = (this && this.__rest) || function (s, e) {
     return t;
 };
 import { jsx as _jsx, jsxs as _jsxs } from "react/jsx-runtime";
-import { OutlinedInput, InputLabel, InputAdornment, IconButton, } from "@mui/material";
+import { TextField, InputLabel, } from "@mui/material";
 import { useTextStyles } from "./styles";
 import clx from "classnames";
 import { displayFeedback } from "../../helpers/io";
 export var TextInput = function (_a) {
-    var className = _a.className, classNames = _a.classNames, label = _a.label, feedback = _a.feedback, helperText = _a.helperText, icon = _a.icon, props = __rest(_a, ["className", "classNames", "label", "feedback", "helperText", "icon"]);
+    var className = _a.className, classNames = _a.classNames, label = _a.label, variant = _a.variant, onChange = _a.onChange, feedback = _a.feedback, helperText = _a.helperText, icon = _a.icon, props = __rest(_a, ["className", "classNames", "label", "variant", "onChange", "feedback", "helperText", "icon"]);
     var classes = useTextStyles();
-    return (_jsxs("div", __assign({ className: clx(className, classes.root) }, { children: [label && (_jsx(InputLabel, __assign({ className: classNames === null || classNames === void 0 ? void 0 : classNames.label, htmlFor: props.name }, { children: label }), void 0)), _jsx(OutlinedInput, __assign({}, props, { endAdornment: _jsx(InputAdornment, __assign({ position: "end" }, { children: _jsx(IconButton, __assign({ "aria-label": "toggle password visibility", edge: "end" }, { children: icon }), void 0) }), void 0), className: (classNames === null || classNames === void 0 ? void 0 : classNames.textInput) ? classNames.textInput : "", classes: (classNames === null || classNames === void 0 ? void 0 : classNames.classes)
+    var handleChange = function (e) {
+        var _a;
+        onChange === null || onChange === void 0 ? void 0 : onChange({ name: (_a = props.name) !== null && _a !== void 0 ? _a : "", value: e.target.value });
+    };
+    return (_jsxs("div", __assign({ className: clx(className, classes.root) }, { children: [label && (_jsx(InputLabel, __assign({ className: classNames === null || classNames === void 0 ? void 0 : classNames.label, htmlFor: props.name }, { children: label }), void 0)), _jsx(TextField, __assign({}, props, { variant: variant !== null && variant !== void 0 ? variant : "outlined", onChange: handleChange, className: clx(classes.textInput, (classNames === null || classNames === void 0 ? void 0 : classNames.textInput) ? classNames.textInput : ""), classes: (classNames === null || classNames === void 0 ? void 0 : classNames.classes)
                     ? classNames.classes
                     : {} }), void 0), helperText, feedback && displayFeedback(feedback)] }), void 0));
 };

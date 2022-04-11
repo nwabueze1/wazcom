@@ -1,10 +1,8 @@
-import { FC } from "react";
+import React, { FC } from "react";
 import { TextInputProps } from "./types";
 import {
-  OutlinedInput,
+  TextField,
   InputLabel,
-  InputAdornment,
-  IconButton,
 } from "@mui/material";
 import { useTextStyles } from "./styles";
 import clx from "classnames";
@@ -14,12 +12,18 @@ export const TextInput: FC<TextInputProps> = ({
   className,
   classNames,
   label,
+  variant,
+  onChange,
   feedback,
   helperText,
   icon,
   ...props
 }) => {
   const classes = useTextStyles();
+
+  const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+    onChange?.({ name: props.name ?? "", value: e.target.value });
+  };
 
   return (
     <div className={clx(className, classes.root)}>
@@ -28,18 +32,14 @@ export const TextInput: FC<TextInputProps> = ({
           {label}
         </InputLabel>
       )}
-      <OutlinedInput
+      <TextField
         {...props}
-        endAdornment={
-          <InputAdornment position="end">
-            <IconButton aria-label="toggle password visibility" edge="end">
-              {icon}
-            </IconButton>
-          </InputAdornment>
-        }
-        className={
-          classNames?.textInput ? (classNames.textInput as string) : ""
-        }
+        variant={variant ?? "outlined"}
+        onChange={handleChange}
+        className={clx(
+          classes.textInput,
+          classNames?.textInput ? (classNames.textInput as string) : "",
+        )}
         classes={
           classNames?.classes
             ? (classNames.classes as { [key: string]: string })
