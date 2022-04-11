@@ -28,7 +28,7 @@ export const TextInput: FC<TextInputProps> = ({
   return (
     <div className={clx(className, classes.root)}>
       {label && (
-        <InputLabel className={classNames?.label} htmlFor={props.name}>
+        <InputLabel className={classNames?.label ? classNames?.label as string : ""} htmlFor={props.name}>
           {label}
         </InputLabel>
       )}

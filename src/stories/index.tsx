@@ -86,7 +86,6 @@ export const stories: ComponentPropType[] = [
       controls: {
         filter: ["id", "name"],
         canPrint: true,
-        canExport: true,
       },
     },
   },
@@ -232,7 +231,9 @@ export const stories: ComponentPropType[] = [
         status: "success",
       },
       type: "password",
-      icon: <VisibilityOff />,
+      onChange: ({ value }: { name: string; value: any }) => {
+        //
+      },
     },
   },
   {
@@ -300,23 +301,7 @@ export const stories: ComponentPropType[] = [
           label: "email",
         },
       ],
-      data: [
-        {
-          id: 1,
-          name: "James Jackson",
-          email: "jjackson@yahoo.com",
-        },
-        {
-          id: 2,
-          name: "Jill James",
-          email: "jjames@yahoo.com",
-        },
-        {
-          id: 3,
-          name: "Aliyu Alli",
-          email: "aalli@yahoo.com",
-        },
-      ],
+      value: [],
     },
   },
   {
@@ -345,7 +330,6 @@ export const stories: ComponentPropType[] = [
       title: "Khalid is a bad ass rapper",
       status: "Success",
       message: "The New Dawn is upon us",
-      statusAlert: "Jill Biden",
     },
   },
   {
@@ -462,13 +446,13 @@ export const stories: ComponentPropType[] = [
     name: "InputGroup",
     component: InputGroup,
     props: {
-      variant: "",
+      variant: "filled",
       text: "wazcom.sytbuilder.com",
       label: "@wazcom.zeus",
       feedback: {
         status: "error",
         text: "aoaoaoa",
-      }
+      },
     },
   },
 ];

@@ -36,11 +36,7 @@ export const Browser: FC<BrowserProps> = () => {
       })),
     },
   ];
-
-  const handleChange = (event: ChangeEvent<HTMLInputElement>) => {
-    setSearch(event?.target?.value);
-  };
-
+  
   return (
     <Box sx={{ display: "flex" }}>
       <CssBaseline />
@@ -54,7 +50,9 @@ export const Browser: FC<BrowserProps> = () => {
             color="secondary"
             placeholder="Search..."
             variant="outlined"
-            onChange={handleChange}
+            onChange={({ value }: { name: string; value: any }) => {
+              setSearch(value);
+            }}
             value={search}
           />
         </Toolbar>
