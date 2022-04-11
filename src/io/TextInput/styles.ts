@@ -7,8 +7,4 @@ export const useTextStyles = makeStyles(() => ({
     marginBottom: 15,
     position: "relative",
   },
-  textInput: {
-    border: "0.3px solid #ADADAD",
-    borderRadius: 6,
-  },
 }));

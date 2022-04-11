@@ -1,9 +1,6 @@
 import React, { FC } from "react";
 import { TextInputProps } from "./types";
-import {
-  TextField,
-  InputLabel,
-} from "@mui/material";
+import { TextField, InputLabel } from "@mui/material";
 import { useTextStyles } from "./styles";
 import clx from "classnames";
 import { displayFeedback } from "../../helpers/io";
@@ -28,7 +25,10 @@ export const TextInput: FC<TextInputProps> = ({
   return (
     <div className={clx(className, classes.root)}>
       {label && (
-        <InputLabel className={classNames?.label ? classNames?.label as string : ""} htmlFor={props.name}>
+        <InputLabel
+          className={classNames?.label ? (classNames?.label as string) : ""}
+          htmlFor={props.name}
+        >
           {label}
         </InputLabel>
       )}
@@ -36,10 +36,9 @@ export const TextInput: FC<TextInputProps> = ({
         {...props}
         variant={variant ?? "outlined"}
         onChange={handleChange}
-        className={clx(
-          classes.textInput,
-          classNames?.textInput ? (classNames.textInput as string) : "",
-        )}
+        className={
+          classNames?.textInput ? (classNames.textInput as string) : ""
+        }
         classes={
           classNames?.classes
             ? (classNames.classes as { [key: string]: string })
