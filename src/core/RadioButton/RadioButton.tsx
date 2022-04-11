@@ -1,21 +1,52 @@
 import { FC } from "react";
 import { useRadioButtonStyles } from "./styles";
-import { RadioButtonProps } from "./types";
-import { Radio } from "@mui/material";
+import { RadioButtonInputProps } from "./types";
+import { Radio, InputLabel } from "@mui/material";
+import { displayFeedback } from "../../helpers/io";
 import clx from "classnames";
-import { useState } from "react";
 
-export const RadioButton: FC<RadioButtonProps> = ({ className, color }) => {
+export const RadioButton: FC<RadioButtonInputProps> = ({
+  className,
+  label,
+  classNames,
+  name,
+  feedback,
+  value,
+  helperText,
+  onChange,
+}) => {
   const classes = useRadioButtonStyles();
 
-  const [isChecked, setIsChecked] = useState(true);
+  const handleChange = (event: React.ChangeEvent<{ checked: boolean }>) => {
+    onChange?.({ name: name as string, value: event.target.checked });
+  };
+
   return (
     <div className={clx(classes.root, className)}>
+      {label && (
+        <InputLabel
+          className={(classNames?.label as string) ?? ""}
+          htmlFor={name}
+        >
+          {label}
+        </InputLabel>
+      )}
       <Radio
-        style={{ color: color }}
-        onClick={() => setIsChecked(!isChecked)}
-        checked={isChecked}
+        checked={value}
+        onChange={handleChange}
+        className={
+          classNames?.radioButtonInput
+            ? (classNames.radioButtonInput as string)
+            : ""
+        }
+        classes={
+          classNames?.classes
+            ? (classNames.classes as { [key: string]: string })
+            : {}
+        }
       />
+      {helperText}
+      {feedback && displayFeedback(feedback)}
     </div>
   );
 };
