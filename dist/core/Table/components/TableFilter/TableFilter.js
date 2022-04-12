@@ -43,6 +43,7 @@ import { useFilterStyles } from "./styles";
 import { FilterAlt } from "@mui/icons-material";
 import { Button } from "../../../Button";
 import { useTableControlsStyles } from "../TableControls/styles";
+import { getJsxContent } from "core/Table/helpers";
 export var TableFilter = function (_a) {
     var _b;
     var showFilter = _a.showFilter, setShowFilter = _a.setShowFilter, fields = _a.fields, values = _a.values, filters = _a.filters, setFilters = _a.setFilters;
@@ -76,11 +77,15 @@ export var TableFilter = function (_a) {
             return [];
         var data = [];
         values.map(function (item) {
-            var _a, _b;
-            if (!((_a = item["".concat(fieldName)]) === null || _a === void 0 ? void 0 : _a.toString()) ||
-                data.includes(item["".concat(fieldName)].toString()))
+            var fieldValue = item["".concat(fieldName)];
+            // item[`${fieldName}`] = typeof item[`${fieldName}`] == "object" && getJsxContent(item[`${fieldName}`])
+            if (typeof fieldValue == "object") {
+                fieldValue = getJsxContent(fieldValue);
+            }
+            if (!(fieldValue === null || fieldValue === void 0 ? void 0 : fieldValue.toString()) ||
+                data.includes(fieldValue.toString()))
                 return null;
-            data.push((_b = item["".concat(fieldName)]) === null || _b === void 0 ? void 0 : _b.toString());
+            data.push(fieldValue.toString());
             return null;
         });
         return data;
@@ -95,7 +100,9 @@ export var TableFilter = function (_a) {
     var renderFilterOptions = useCallback(function () {
         return filterFields.map(function (_a) {
             var name = _a.name, label = _a.label;
-            return (_jsx(MenuItem, __assign({ className: classes.filterItemContainer }, { children: _jsx(Accordion, __assign({ title: label }, { children: getUniqueValues(label, values).map(function (item, key) { return (_jsxs("div", __assign({ className: classes.filterItem }, { children: [_jsx(Checkbox, { checked: !getCheckedState(label, item), onChange: function () { return handleSetFilter(label, item); } }, void 0), _jsx("div", { children: item }, void 0)] }), key)); }) }), void 0) }), name));
+            return (_jsx(MenuItem, __assign({ className: classes.filterItemContainer }, { children: _jsx(Accordion, __assign({ title: label }, { children: getUniqueValues(label, values).map(function (item, key) {
+                        return (_jsxs("div", __assign({ className: classes.filterItem }, { children: [_jsx(Checkbox, { checked: !getCheckedState(label, item), onChange: function () { return handleSetFilter(label, item); } }, void 0), _jsx("div", { children: item }, void 0)] }), key));
+                    }) }), void 0) }), name));
         });
     }, [filterFields, newFilters, values]);
     var handleClickAway = function () {

@@ -27,7 +27,6 @@ export const TableFilter: React.FC<TableFilterProps> = ({
   const handleSetFilter = (field: string, value: string) => {
     
     setNewFilters((filters) => {
-      console.log("filters -->", filters)
       const index = filters.findIndex((filter) => filter.field === field);
       if (index === -1) {
         return [
