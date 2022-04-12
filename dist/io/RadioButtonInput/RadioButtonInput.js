@@ -10,14 +10,14 @@ var __assign = (this && this.__assign) || function () {
     return __assign.apply(this, arguments);
 };
 import { jsx as _jsx, jsxs as _jsxs } from "react/jsx-runtime";
-import { useRadioButtonStyles } from "./styles";
+import { useRadioButtonInputStyles } from "./styles";
 import { Radio, InputLabel } from "@mui/material";
 import { displayFeedback } from "../../helpers/io";
 import clx from "classnames";
-export var RadioButton = function (_a) {
+export var RadioButtonInput = function (_a) {
     var _b;
     var className = _a.className, label = _a.label, classNames = _a.classNames, name = _a.name, feedback = _a.feedback, value = _a.value, helperText = _a.helperText, onChange = _a.onChange;
-    var classes = useRadioButtonStyles();
+    var classes = useRadioButtonInputStyles();
     var handleChange = function (event) {
         onChange === null || onChange === void 0 ? void 0 : onChange({ name: name, value: event.target.checked });
     };

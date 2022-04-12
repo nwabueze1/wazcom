@@ -10,7 +10,6 @@ import {
   MenuCard,
   DisplayCard,
   Notification,
-  RadioButton,
   Carousel,
   EmptyState,
   Scheduler,
@@ -25,6 +24,7 @@ import {
   InputGroup,
   ToggleInput,
   TextArea,
+  RadioButtonInput
 } from "../io";
 
 import { GqlComboBox, GqlMediaLibrary, GqlMediaLibrarySelector } from "../gql";
@@ -334,7 +334,7 @@ export const stories: ComponentPropType[] = [
   },
   {
     name: "radiobutton",
-    component: RadioButton,
+    component: RadioButtonInput,
     props: {},
   },
   {

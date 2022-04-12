@@ -10,7 +10,6 @@ export * from "./Loader";
 export * from "./MenuCard";
 export * from "./Table";
 export * from "./Notification";
-export * from "./RadioButton";
 export * from "./Upload";
 export * from "./Modal";
 export * from "./EmptyState";
