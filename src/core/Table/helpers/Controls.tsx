@@ -17,12 +17,44 @@ export const useHandleControlsChange =
     }));
   };
 
+export const getJsxContent = (data: {[key: string]: any}): string | undefined => {
+  const children = data.props?.children || undefined;
+
+  if (Array.isArray(data)) {
+    // Multiple children
+    const joinedNodes: Array<string | undefined> = [];
+    data.forEach(node => {
+        if (typeof node === "object") joinedNodes.push(getJsxContent(node));
+        else if (typeof node === "string") joinedNodes.push(node);
+    });
+    return joinedNodes.join(" ");
+  } 
+
+  if (children === undefined) {
+    if (typeof data === "string") return data;
+    else return " ";
+  }
+  if (typeof children === "object") {
+      return getJsxContent(data.props.children);
+  }
+  if (typeof children === "string") {
+      return data.props.children;
+  }
+  return ""
+
+}
+
 export const useUpdateTableValue = (
   setTableValue: React.Dispatch<React.SetStateAction<TableDataProps>>,
   initialTableValue: TableDataProps,
   controlsFormData: { [key: string]: any },
   filters: Filter[],
-) =>
+) => {
+  // console.log(
+  //   initialTableValue[0].balance, 
+  //   typeof initialTableValue[0].balance, 
+  //   getJsxContent(initialTableValue[0].balance)
+  // )
   setTableValue(() => {
     if (_.size(initialTableValue) == 0) {
       return initialTableValue;
@@ -33,14 +65,29 @@ export const useUpdateTableValue = (
     result = initialTableValue.filter((rowValues) => {
       let status = false;
       Object.values(rowValues).map((value) => {
-        if (
-          `${value}`
-            .toLowerCase()
-            .includes(controlsFormData.search?.toLowerCase())
-        ) {
-          status = true;
+        if (typeof value == "string") {
+          if (
+            `${value}`
+              .toLowerCase()
+              .includes(controlsFormData.search?.toLowerCase())
+          ) {
+            status = true;
+          }
+          return null;
         }
-        return null;
+
+        if (typeof value == "object") {
+          const stringFromJsx = getJsxContent(value)
+          if (
+            `${stringFromJsx}`
+              .toLowerCase()
+              .includes(controlsFormData.search?.toLowerCase())
+          ) {
+            status = true;
+          }
+          return null;
+        }
+        
       });
       return status;
     });
@@ -69,6 +116,7 @@ export const useUpdateTableValue = (
 
     return result;
   });
+}
 
 export const generateNumbersBetweenRange = (max: number) => {
   const arr = [];
