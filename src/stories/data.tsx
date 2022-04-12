@@ -16,7 +16,10 @@ export const data = [
     index: 1,
     guid: "3045720e-f030-4828-afb7-eeb5693ca194",
     isActive: false,
-    balance: "$1,113.15",
+    balance:  <div>
+                <div>&#9679;</div>
+                decline
+              </div>,
     picture: "http://placehold.it/32x32",
     age: 40,
   },

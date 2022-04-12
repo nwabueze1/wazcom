@@ -17,7 +17,7 @@ export const useHandleControlsChange =
     }));
   };
 
-export const getJsxContent = (data: {[key: string]: any}): string | undefined => {
+export const getJsxContent = (data: {[key: string]: any}): string => {
   const children = data.props?.children || undefined;
 
   if (Array.isArray(data)) {
@@ -50,11 +50,6 @@ export const useUpdateTableValue = (
   controlsFormData: { [key: string]: any },
   filters: Filter[],
 ) => {
-  // console.log(
-  //   initialTableValue[0].balance, 
-  //   typeof initialTableValue[0].balance, 
-  //   getJsxContent(initialTableValue[0].balance)
-  // )
   setTableValue(() => {
     if (_.size(initialTableValue) == 0) {
       return initialTableValue;
@@ -65,17 +60,6 @@ export const useUpdateTableValue = (
     result = initialTableValue.filter((rowValues) => {
       let status = false;
       Object.values(rowValues).map((value) => {
-        if (typeof value == "string") {
-          if (
-            `${value}`
-              .toLowerCase()
-              .includes(controlsFormData.search?.toLowerCase())
-          ) {
-            status = true;
-          }
-          return null;
-        }
-
         if (typeof value == "object") {
           const stringFromJsx = getJsxContent(value)
           if (
@@ -87,6 +71,15 @@ export const useUpdateTableValue = (
           }
           return null;
         }
+
+        if (
+          `${value}`
+            .toLowerCase()
+            .includes(controlsFormData.search?.toLowerCase())
+        ) {
+          status = true;
+        }
+        return null;
         
       });
       return status;
@@ -103,7 +96,8 @@ export const useUpdateTableValue = (
         Object.entries(rowValues).map(([key, value]) => {
           const filterIndex = filters.findIndex((item) => item.field == key);
           if (filterIndex !== -1) {
-            if (!filters[filterIndex].values.includes(value.toString())) {
+            const term = typeof value == "object" ? getJsxContent(value) : value.toString()
+            if (!filters[filterIndex].values.includes(term)) {
               status = true;
             }
           }
