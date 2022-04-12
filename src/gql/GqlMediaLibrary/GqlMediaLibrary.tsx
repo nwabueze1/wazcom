@@ -59,7 +59,7 @@ export const GqlMediaLibrary: FC<GqlMediaLibraryProps> = ({
   const [displayedImages, setDisplayedImages] = useState(images);
   const [showFilter, setShowFilter] = useState(false);
   const [showSort, setShowSort] = useState(false);
-  const [selected, setSelected] = useState("");
+  const [selected, setSelected] = useState("Newest");
 
   useEffect(() => {
     setLoading({ ...loading, media: true });
@@ -196,20 +196,26 @@ export const GqlMediaLibrary: FC<GqlMediaLibraryProps> = ({
     setOpen(false);
   };
 
-  const handleChange = (data: { value: any }) => {
-    setSelected(data.value);
-    const sortedByNewest = images.sort(
-      (a, b) => Number(a.created_at) - Number(b.created_at),
-    );
-    const sortedByOldest = images.sort(
-      (a, b) => Number(a.created_at) + Number(b.created_at),
-    );
-    if (data.value === "Newest") {
-      setDisplayedImages(sortedByNewest);
+  const handleChange = (data: { name: string; value: any }) => {
+    setSelected(data.name);
+    if (selected === "Newest") {
+      const sortByNewest = images.sort(
+        (a, b) =>
+          new Date(a.created_at).getTime() - new Date(b.created_at).getTime(),
+      );
+      setDisplayedImages(sortByNewest);
+      return;
     }
-    console.log(sortedByOldest);
-    console.log(sortedByNewest);
+    const sortedByOldest = images.sort(
+      (a, b) =>
+        new Date(b.created_at).getTime() - new Date(a.created_at).getTime(),
+    );
+    setDisplayedImages(sortedByOldest);
   };
+
+  useEffect(() => {
+    console.log(selected);
+  }, [selected]);
 
   const filterType = ["Landscape", "Portrait", "Square"];
   const sortType = ["Newest", "Oldest"];
@@ -305,8 +311,7 @@ export const GqlMediaLibrary: FC<GqlMediaLibraryProps> = ({
                   {sortType.map((type, index) => (
                     <p key={index} className={classes.sortType}>
                       <RadioButton
-                        name="radioValue"
-                        checked={selected === type}
+                        name={type}
                         value={selected === type}
                         classNames={{ radioButtonInput: classes.radioButton }}
                         onChange={handleChange}

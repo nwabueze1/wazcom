@@ -118,9 +118,9 @@ export const useMediaLibraryStyles = makeStyles((theme: Theme) => ({
     padding: theme.spacing(3, 4),
   },
   tab: {
-    color: theme.design.colors.dangerColor300,
+    color: theme.design.colors.greene,
     paddingBottom: 2,
-    borderBottom: `2px solid ${theme.design.colors.dangerColor300}`,
+    borderBottom: `2px solid ${theme.design.colors.greene}`,
   },
   wrapper: {
     width: "100%",
