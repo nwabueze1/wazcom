@@ -59,7 +59,7 @@ export const GqlMediaLibrary: FC<GqlMediaLibraryProps> = ({
   const [displayedImages, setDisplayedImages] = useState(images);
   const [showFilter, setShowFilter] = useState(false);
   const [showSort, setShowSort] = useState(false);
-  const [selected, setSelected] = useState();
+  const [selected, setSelected] = useState("");
 
   useEffect(() => {
     setLoading({ ...loading, media: true });
@@ -196,7 +196,20 @@ export const GqlMediaLibrary: FC<GqlMediaLibraryProps> = ({
     setOpen(false);
   };
 
-  const handleChange = (event: React.ChangeEvent<{ checked: boolean }>) => {};
+  const handleChange = (data: { value: any }) => {
+    setSelected(data.value);
+    const sortedByNewest = images.sort(
+      (a, b) => Number(a.created_at) - Number(b.created_at),
+    );
+    const sortedByOldest = images.sort(
+      (a, b) => Number(a.created_at) + Number(b.created_at),
+    );
+    if (data.value === "Newest") {
+      setDisplayedImages(sortedByNewest);
+    }
+    console.log(sortedByOldest);
+    console.log(sortedByNewest);
+  };
 
   const filterType = ["Landscape", "Portrait", "Square"];
   const sortType = ["Newest", "Oldest"];
@@ -291,7 +304,13 @@ export const GqlMediaLibrary: FC<GqlMediaLibraryProps> = ({
                   <p className={classes.sort}>sort by:</p>
                   {sortType.map((type, index) => (
                     <p key={index} className={classes.sortType}>
-                      <RadioButton checked={selected === { type }} classNames={{radioButtonInput: classes.radioButton}}/>
+                      <RadioButton
+                        name="radioValue"
+                        checked={selected === type}
+                        value={selected === type}
+                        classNames={{ radioButtonInput: classes.radioButton }}
+                        onChange={handleChange}
+                      />
                       {type}
                     </p>
                   ))}
