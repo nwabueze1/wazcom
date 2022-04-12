@@ -78,7 +78,6 @@ export var TableFilter = function (_a) {
         var data = [];
         values.map(function (item) {
             var fieldValue = item["".concat(fieldName)];
-            // item[`${fieldName}`] = typeof item[`${fieldName}`] == "object" && getJsxContent(item[`${fieldName}`])
             if (typeof fieldValue == "object") {
                 fieldValue = getJsxContent(fieldValue);
             }
