@@ -8,6 +8,4 @@ export var useAccordionStyles = makeStyles(function (theme) { return ({
     icon: {
         color: theme.design.colors.black,
     },
-    summary: {},
-    details: {},
 }); });
