@@ -19,7 +19,8 @@ export const Accordion: FC<AccordionProps> = ({
   defaultExpanded,
   children,
   displayExpandIcon = true,
-  handleClick
+  handleClick,
+  ...props
 }) => {
   const classes = useAccordionStyles();
   return (
@@ -28,6 +29,7 @@ export const Accordion: FC<AccordionProps> = ({
       className={clx(classes.root, className)}
       defaultExpanded={defaultExpanded}
       onClick={() => { handleClick?.() }}
+      {...props}
     >
       <MuiAccordionSummary
         id={kebabCase(title)}
