@@ -150,6 +150,7 @@ export const stories: ComponentPropType[] = [
       title: "Wazcom Accordion",
       children: "This is an example Wazcom Accordion",
       defaultExpanded: true,
+      handleClick: () => { alert('leke') }
     },
   },
   {

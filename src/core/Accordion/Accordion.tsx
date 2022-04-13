@@ -14,9 +14,12 @@ import clx from "classnames";
 export const Accordion: FC<AccordionProps> = ({
   title,
   className,
+  classNames,
   square,
   defaultExpanded,
   children,
+  displayExpandIcon = true,
+  handleClick
 }) => {
   const classes = useAccordionStyles();
   return (
@@ -24,16 +27,19 @@ export const Accordion: FC<AccordionProps> = ({
       square={square}
       className={clx(classes.root, className)}
       defaultExpanded={defaultExpanded}
+      onClick={() => { handleClick?.() }}
     >
       <MuiAccordionSummary
         id={kebabCase(title)}
         aria-controls={kebabCase(title)}
-        className={classes.summary}
-        expandIcon={<ExpandMoreIcon className={classes.icon} />}
+        className={classNames?.summary ? classNames?.summary as string : ""}
+        expandIcon={
+          displayExpandIcon ? <ExpandMoreIcon className={classes.icon} /> : null
+        }
       >
         <Typography variant="body1">{title}</Typography>
       </MuiAccordionSummary>
-      <MuiAccordionDetails className={classes.details}>
+      <MuiAccordionDetails className={classNames?.details ? classNames?.details as string : ""}>
         {children}
       </MuiAccordionDetails>
     </MuiAccordion>
