@@ -60,6 +60,7 @@ export const GqlMediaLibrary: FC<GqlMediaLibraryProps> = ({
   const [showFilter, setShowFilter] = useState(false);
   const [showSort, setShowSort] = useState(false);
   const [selected, setSelected] = useState("Newest");
+  const [checked, setChecked] = useState("");
 
   useEffect(() => {
     setLoading({ ...loading, media: true });
@@ -196,6 +197,10 @@ export const GqlMediaLibrary: FC<GqlMediaLibraryProps> = ({
     setOpen(false);
   };
 
+  const handleCheckBoxchange = (data: { name: string; value: any }) => {
+    setChecked(data.name);
+  };
+
   const handleChange = (data: { name: string; value: any }) => {
     setSelected(data.name);
     if (selected === "Newest") {
@@ -213,9 +218,12 @@ export const GqlMediaLibrary: FC<GqlMediaLibraryProps> = ({
     setDisplayedImages(sortedByOldest);
   };
 
-  useEffect(() => {
-    console.log(selected);
-  }, [selected]);
+  const handleFilter = () => {
+    if (checked === "Landscape") {
+      const landscapeImages = images.filter((image) => {});
+    }
+    setShowFilter(false);
+  };
 
   const filterType = ["Landscape", "Portrait", "Square"];
   const sortType = ["Newest", "Oldest"];
@@ -280,12 +288,18 @@ export const GqlMediaLibrary: FC<GqlMediaLibraryProps> = ({
                 >
                   <div className={classes.filterTitle}>
                     <p>BY ORIENTATION:</p>
-                    <p className={classes.filterText}>Filter</p>
+                    <p className={classes.filterText} onClick={handleFilter}>
+                      Filter
+                    </p>
                   </div>
                   <div>
                     {filterType.map((type, index) => (
                       <div className={classes.orientationType} key={index}>
-                        <CheckBoxInput />
+                        <CheckBoxInput
+                          value={checked === type}
+                          name={type}
+                          onChange={handleCheckBoxchange}
+                        />
                         <p>{type}</p>
                       </div>
                     ))}

@@ -186,6 +186,7 @@ export const useMediaLibraryStyles = makeStyles((theme: Theme) => ({
   },
   filterText: {
     color: theme.design.colors.greene,
+    cursor: "pointer",
     fontWeight: theme.typography.fontWeightMedium,
   },
   filterParent: {
