@@ -32,8 +32,8 @@ export const Accordion: FC<AccordionProps> = ({
       {...props}
     >
       <MuiAccordionSummary
-        id={kebabCase(title)}
-        aria-controls={kebabCase(title)}
+        id={kebabCase(title.toString())}
+        aria-controls={kebabCase(title.toString())}
         className={classNames?.summary ? classNames?.summary as string : ""}
         expandIcon={
           displayExpandIcon ? <ExpandMoreIcon className={classes.icon} /> : null
