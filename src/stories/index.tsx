@@ -147,10 +147,9 @@ export const stories: ComponentPropType[] = [
     name: "accordion",
     component: Accordion,
     props: {
-      title: "Wazcom Accordion",
       children: "This is an example Wazcom Accordion",
       defaultExpanded: true,
-      handleClick: () => { alert('leke') }
+      title: <p>leke</p>
     },
   },
   {
