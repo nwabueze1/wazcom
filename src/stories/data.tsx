@@ -1,10 +1,13 @@
 export const data = [
   {
-    _id: "6204428786b5d81297b4e7f2",
+    _id: <p><span>6204428786b5d81297b4e7f2</span></p>,
     index: 0,
     guid: "f044ecc1-6122-44d0-871c-9daf7ff8117c",
     isActive: false,
-    balance: "$2,636.95",
+    balance:  <div>
+                <div>&#9679;</div>
+                accepted
+              </div>,
     picture: "http://placehold.it/32x32",
     age: 20,
   },
@@ -13,7 +16,10 @@ export const data = [
     index: 1,
     guid: "3045720e-f030-4828-afb7-eeb5693ca194",
     isActive: false,
-    balance: "$1,113.15",
+    balance:  <div>
+                <div>&#9679;</div>
+                decline
+              </div>,
     picture: "http://placehold.it/32x32",
     age: 40,
   },

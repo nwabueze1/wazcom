@@ -17,12 +17,39 @@ export const useHandleControlsChange =
     }));
   };
 
+export const getJsxContent = (data: {[key: string]: any}): string => {
+  const children = data.props?.children || undefined;
+
+  if (Array.isArray(data)) {
+    // Multiple children
+    const joinedNodes: Array<string | undefined> = [];
+    data.forEach(node => {
+        if (typeof node === "object") joinedNodes.push(getJsxContent(node));
+        else if (typeof node === "string") joinedNodes.push(node);
+    });
+    return joinedNodes.join(" ");
+  } 
+
+  if (children === undefined) {
+    if (typeof data === "string") return data;
+    else return " ";
+  }
+  if (typeof children === "object") {
+      return getJsxContent(data.props.children);
+  }
+  if (typeof children === "string") {
+      return data.props.children;
+  }
+  return ""
+
+}
+
 export const useUpdateTableValue = (
   setTableValue: React.Dispatch<React.SetStateAction<TableDataProps>>,
   initialTableValue: TableDataProps,
   controlsFormData: { [key: string]: any },
   filters: Filter[],
-) =>
+) => {
   setTableValue(() => {
     if (_.size(initialTableValue) == 0) {
       return initialTableValue;
@@ -33,6 +60,18 @@ export const useUpdateTableValue = (
     result = initialTableValue.filter((rowValues) => {
       let status = false;
       Object.values(rowValues).map((value) => {
+        if (typeof value == "object") {
+          const stringFromJsx = getJsxContent(value)
+          if (
+            `${stringFromJsx}`
+              .toLowerCase()
+              .includes(controlsFormData.search?.toLowerCase())
+          ) {
+            status = true;
+          }
+          return null;
+        }
+
         if (
           `${value}`
             .toLowerCase()
@@ -41,6 +80,7 @@ export const useUpdateTableValue = (
           status = true;
         }
         return null;
+        
       });
       return status;
     });
@@ -56,7 +96,8 @@ export const useUpdateTableValue = (
         Object.entries(rowValues).map(([key, value]) => {
           const filterIndex = filters.findIndex((item) => item.field == key);
           if (filterIndex !== -1) {
-            if (!filters[filterIndex].values.includes(value.toString())) {
+            const term = typeof value == "object" ? getJsxContent(value) : value.toString()
+            if (!filters[filterIndex].values.includes(term)) {
               status = true;
             }
           }
@@ -69,6 +110,7 @@ export const useUpdateTableValue = (
 
     return result;
   });
+}
 
 export const generateNumbersBetweenRange = (max: number) => {
   const arr = [];
