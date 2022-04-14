@@ -31,10 +31,12 @@ export const InputGroup: FC<InputGroupProps> = ({
       <div className={clx(classes.inputGroup, classNames?.inputGroup)}>
         <TextInput
           {...props}
-          classes={{
-            root: classNames?.textInput
-              ? (classNames?.textInput as string)
-              : "",
+          classNames={{
+            classes: {
+              root: classNames?.textInput
+                ? (classNames?.textInput as string)
+                : "",
+            },
           }}
         />
         <div className={clx(classes.text, classNames?.text)}>{text}</div>
