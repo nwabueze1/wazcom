@@ -43,7 +43,7 @@ import { useFilterStyles } from "./styles";
 import { FilterAlt } from "@mui/icons-material";
 import { Button } from "../../../Button";
 import { useTableControlsStyles } from "../TableControls/styles";
-import { getJsxContent } from "core/Table/helpers";
+import { getJsxContent } from "../../helpers";
 export var TableFilter = function (_a) {
     var _b;
     var showFilter = _a.showFilter, setShowFilter = _a.setShowFilter, fields = _a.fields, values = _a.values, filters = _a.filters, setFilters = _a.setFilters;

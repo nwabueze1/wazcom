@@ -7,7 +7,7 @@ import { TableFilterProps } from "./types";
 import { FilterAlt } from "@mui/icons-material";
 import { Button } from "../../../Button";
 import { useTableControlsStyles } from "../TableControls/styles";
-import { getJsxContent } from "core/Table/helpers";
+import { getJsxContent } from "../../helpers";
 
 export const TableFilter: React.FC<TableFilterProps> = ({
   showFilter,
