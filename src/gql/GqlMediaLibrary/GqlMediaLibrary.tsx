@@ -16,8 +16,6 @@ import {
   useMediaUpload,
 } from "./hooks";
 import { FaTimes } from "react-icons/fa";
-import { Search } from "@mui/icons-material";
-import { TextInput } from "../../io";
 import { AddMedia } from "../../core/AddMedia/AddMedia";
 
 export const GqlMediaLibrary: FC<GqlMediaLibraryProps> = ({
@@ -128,17 +126,6 @@ export const GqlMediaLibrary: FC<GqlMediaLibraryProps> = ({
     setActiveMedia({ type, media });
   };
 
-  const handleSearchChange = (search: string) => {
-    if (search === "") {
-      return;
-    }
-
-    const filteredResult = images.filter((image) =>
-      image.title?.toLowerCase().includes(search.toLowerCase()),
-    );
-    setDisplayedImages(filteredResult);
-  };
-
   const handleMediaAdd = useCallback(
     async (variables: ImageUpdate) => {
       await handleMediaUpload(
@@ -229,20 +216,6 @@ export const GqlMediaLibrary: FC<GqlMediaLibraryProps> = ({
               />
             </>
           )}
-        </div>
-        <div className={classes.searchParent}>
-          <div className={classes.searchContainer}>
-            <TextInput
-              name="search"
-              type="text"
-              placeholder="Search"
-              onChange={({ value }: { name: string; value: any }) => {
-                handleSearchChange(value);
-              }}
-              className={classes.search}
-            />
-            <Search className={classes.searchIcon} />
-          </div>
         </div>
         <div className={classes.collection}>
           {images.length === 0 && loading.media ? (
