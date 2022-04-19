@@ -5,6 +5,6 @@ export const useTextStyles = makeStyles(() => ({
     display: "flex",
     flexDirection: "column",
     marginBottom: 15,
-    position: "relative"
+    position: "relative",
   },
 }));

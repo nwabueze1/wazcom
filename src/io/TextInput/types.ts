@@ -1,7 +1,8 @@
 import { CommonProps } from "../../types";
-import { OutlinedInputProps } from "@mui/material";
+import { TextFieldProps } from "@mui/material";
 
 export type TextInputProps = CommonProps &
-  OutlinedInputProps & {
+  Omit<TextFieldProps, 'onChange'> & {
+    variant?: "filled" | "outlined" | "standard";
     icon?: JSX.Element;
-  } & any;
+  };

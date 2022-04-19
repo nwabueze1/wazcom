@@ -54,7 +54,6 @@ export const EditMedia: React.FC<EditMediaProps> = ({
     if (!(image instanceof File)) {
       update.id = image.id;
     }
-    console.log(image);
     handleEdit({ ...update });
   }, [formData, image]);
 

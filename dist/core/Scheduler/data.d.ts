@@ -3,7 +3,7 @@ export declare const days: {
     name: string;
     display: boolean;
 }[];
-export declare const tableHeaders: {
+export declare const fields: {
     name: string;
     label: string;
 }[];

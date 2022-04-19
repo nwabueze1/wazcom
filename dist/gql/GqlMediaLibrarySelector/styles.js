@@ -32,6 +32,13 @@ export var useImageSelectorStyles = makeStyles(function (theme) { return ({
             border: "1px solid ".concat(theme.design.colors.greene),
         },
     },
+    cameraIcon: {
+        color: theme.design.colors.black,
+        cursor: "pointer",
+        zIndex: 5,
+        background: "transparent",
+        fontSize: theme.typography.fontSize * 4,
+    },
     modal: {
         display: "flex",
         justifyContent: "center",

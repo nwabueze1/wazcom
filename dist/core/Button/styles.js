@@ -6,11 +6,11 @@ export var useButtonStyles = makeStyles(function (theme) { return ({
     button: {
         textTransform: "capitalize",
         color: theme.design.colors.white,
-        backgroundColor: theme.design.colors.successColor,
+        backgroundColor: theme.design.colors.greene,
         fontSize: theme.typography.fontSize,
         fontFamily: theme.typography.fontFamily,
         "&:hover": {
-            backgroundColor: theme.design.colors.successColor,
+            backgroundColor: theme.design.colors.grenne,
             opacity: "70%",
         },
     },

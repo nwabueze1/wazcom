@@ -6,12 +6,10 @@ import {
   Loader,
   Gallery,
   ImageSelector,
-  InputGroup,
   Table,
   MenuCard,
   DisplayCard,
   Notification,
-  RadioButton,
   Carousel,
   EmptyState,
   Scheduler,
@@ -23,8 +21,10 @@ import {
   RichTextInput,
   SelectInput,
   TextInput,
+  InputGroup,
   ToggleInput,
   TextArea,
+  RadioButtonInput
 } from "../io";
 
 import { GqlComboBox, GqlMediaLibrary, GqlMediaLibrarySelector } from "../gql";
@@ -43,7 +43,6 @@ import { ComponentPropType } from "./types";
 
 import { data } from "./data";
 import { VisibilityOff } from "@mui/icons-material";
-import { useLabelStyles } from "helpers/styles";
 
 export const stories: ComponentPropType[] = [
   {
@@ -52,10 +51,7 @@ export const stories: ComponentPropType[] = [
     props: {
       label: "Description",
       name: "description",
-      onChange: ({ name, value }: { name: string; value: string }) => {
-        console.log(name);
-        console.log(value);
-      },
+      onChange: ({ name, value }: { name: string; value: string }) => {},
       multiline: true,
       minRows: 5,
       feedback: {
@@ -85,12 +81,11 @@ export const stories: ComponentPropType[] = [
       paginatorInfo: {
         currentPage: 1,
         perPage: 10,
-        total: 100,
+        total: 10,
       },
       controls: {
         filter: ["id", "name"],
         canPrint: true,
-        export: {},
       },
     },
   },
@@ -152,9 +147,9 @@ export const stories: ComponentPropType[] = [
     name: "accordion",
     component: Accordion,
     props: {
-      title: "Wazcom Accordion",
       children: "This is an example Wazcom Accordion",
       defaultExpanded: true,
+      title: <p>leke</p>
     },
   },
   {
@@ -236,7 +231,9 @@ export const stories: ComponentPropType[] = [
         status: "success",
       },
       type: "password",
-      icon: <VisibilityOff />,
+      onChange: ({ value }: { name: string; value: any }) => {
+        //
+      },
     },
   },
   {
@@ -304,23 +301,7 @@ export const stories: ComponentPropType[] = [
           label: "email",
         },
       ],
-      data: [
-        {
-          id: 1,
-          name: "James Jackson",
-          email: "jjackson@yahoo.com",
-        },
-        {
-          id: 2,
-          name: "Jill James",
-          email: "jjames@yahoo.com",
-        },
-        {
-          id: 3,
-          name: "Aliyu Alli",
-          email: "aalli@yahoo.com",
-        },
-      ],
+      value: [],
     },
   },
   {
@@ -349,12 +330,11 @@ export const stories: ComponentPropType[] = [
       title: "Khalid is a bad ass rapper",
       status: "Success",
       message: "The New Dawn is upon us",
-      statusAlert: "Jill Biden",
     },
   },
   {
     name: "radiobutton",
-    component: RadioButton,
+    component: RadioButtonInput,
     props: {},
   },
   {
@@ -466,8 +446,13 @@ export const stories: ComponentPropType[] = [
     name: "InputGroup",
     component: InputGroup,
     props: {
-      variant: "",
+      variant: "filled",
+      text: "wazcom.sytbuilder.com",
       label: "@wazcom.zeus",
+      feedback: {
+        status: "error",
+        text: "aoaoaoa",
+      },
     },
   },
 ];

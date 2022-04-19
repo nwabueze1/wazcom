@@ -29,13 +29,14 @@ import { jsx as _jsx, jsxs as _jsxs, Fragment as _Fragment } from "react/jsx-run
 import { Box, ListItemIcon, MenuItem } from "@mui/material";
 import { useState } from "react";
 import { useTableControlsStyles } from "./styles";
-import { FilterAlt, Logout, Print, SendToMobileOutlined, Settings, } from "@mui/icons-material";
+import { Logout, Print, SendToMobileOutlined, Settings, } from "@mui/icons-material";
 import { Button } from "../../../Button";
-import { TextInput } from "../../../../io";
 import { exportToCSV, exportToXlsx } from "../../helpers";
 import Menu from "@mui/material/Menu";
+import { SearchInput } from "./SearchInput";
+import { TableFilter } from "../TableFilter";
 export var TableControls = function (_a) {
-    var controls = _a.controls, handleControlsChange = _a.handleControlsChange, setShowFilter = _a.setShowFilter, tableValues = _a.tableValues, controlsFormData = _a.controlsFormData;
+    var controls = _a.controls, handleControlsChange = _a.handleControlsChange, showFilter = _a.showFilter, setShowFilter = _a.setShowFilter, fields = _a.fields, values = _a.values, filters = _a.filters, setFilters = _a.setFilters, tableValues = _a.tableValues, controlsFormData = _a.controlsFormData;
     var classes = useTableControlsStyles();
     var _b = __read(useState(null), 2), anchorEl = _b[0], setAnchorEl = _b[1];
     var open = Boolean(anchorEl);
@@ -45,7 +46,7 @@ export var TableControls = function (_a) {
     var handleClose = function () {
         setAnchorEl(null);
     };
-    return (_jsxs(Box, __assign({ className: classes.controls }, { children: [(controls === null || controls === void 0 ? void 0 : controls.filter) && (_jsxs(Box, __assign({ className: classes.filterControls }, { children: [_jsxs(Button, __assign({ variant: "outlined", className: classes.filterControlsButton, onClick: function () { return setShowFilter(function (state) { return !state; }); } }, { children: ["Filter", _jsx(FilterAlt, {}, void 0)] }), void 0), _jsx(TextInput, { name: "search", type: "text", placeholder: "Search", value: controlsFormData.search, onChange: handleControlsChange }, void 0)] }), void 0)), _jsxs(Box, __assign({ className: classes.rightControls }, { children: [(controls === null || controls === void 0 ? void 0 : controls.canPrint) && (_jsxs(Button, __assign({ className: classes.actionButton, variant: "outlined" }, { children: [_jsx(Print, { fontSize: "small" }, void 0), _jsx("span", { children: "Print" }, void 0)] }), void 0)), (controls === null || controls === void 0 ? void 0 : controls.export) && (_jsxs(_Fragment, { children: [_jsxs(Button, __assign({ className: classes.actionButton, variant: "outlined", onClick: handleClick, "aria-controls": open ? "account-menu" : undefined, "aria-haspopup": "true", "aria-expanded": open ? "true" : undefined }, { children: [_jsx(SendToMobileOutlined, { fontSize: "small" }, void 0), _jsx("span", { children: "Export" }, void 0)] }), void 0), _jsxs(Menu, __assign({ anchorEl: anchorEl, id: "account-menu", open: open, onClose: handleClose, onClick: handleClose, PaperProps: {
+    return (_jsxs(Box, __assign({ className: classes.controls }, { children: [(controls === null || controls === void 0 ? void 0 : controls.filter) && (_jsxs(Box, __assign({ className: classes.filterControls }, { children: [_jsx(TableFilter, { showFilter: showFilter, setShowFilter: setShowFilter, fields: fields, values: values, filters: filters, setFilters: setFilters }, void 0), _jsx(SearchInput, { name: "search", type: "text", placeholder: "Search", value: controlsFormData.search, onChange: function (e) { return handleControlsChange(e); }, className: classes.controlsInput }, void 0)] }), void 0)), _jsxs(Box, __assign({ className: classes.rightControls }, { children: [(controls === null || controls === void 0 ? void 0 : controls.canPrint) && (_jsxs(Button, __assign({ className: classes.controlButton, variant: "outlined", onClick: function () { return window.print(); } }, { children: [_jsx(Print, { fontSize: "small" }, void 0), _jsx("span", __assign({ className: classes.controlButtonText }, { children: "Print" }), void 0)] }), void 0)), (controls === null || controls === void 0 ? void 0 : controls.canExport) && (_jsxs(_Fragment, { children: [_jsxs(Button, __assign({ className: classes.controlButton, variant: "outlined", onClick: handleClick, "aria-controls": open ? "account-menu" : undefined, "aria-haspopup": "true", "aria-expanded": open ? "true" : undefined }, { children: [_jsx(SendToMobileOutlined, { fontSize: "small" }, void 0), _jsx("span", __assign({ className: classes.controlButtonText }, { children: "Export" }), void 0)] }), void 0), _jsxs(Menu, __assign({ anchorEl: anchorEl, id: "account-menu", open: open, onClose: handleClose, onClick: handleClose, PaperProps: {
                                     elevation: 0,
                                     sx: {
                                         overflow: "visible",

@@ -4,6 +4,6 @@ export var useTextStyles = makeStyles(function () { return ({
         display: "flex",
         flexDirection: "column",
         marginBottom: 15,
-        position: "relative"
+        position: "relative",
     },
 }); });

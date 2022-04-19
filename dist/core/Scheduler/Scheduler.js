@@ -36,16 +36,17 @@ var __spreadArray = (this && this.__spreadArray) || function (to, from, pack) {
 };
 import { jsx as _jsx, jsxs as _jsxs } from "react/jsx-runtime";
 import { useState, useCallback, useEffect } from "react";
-import { Table } from "../Table";
 import { useSchedulerStyles } from "./styles";
 import { InputLabel } from "@mui/material";
-import { tableHeaders } from "./data";
+import { fields } from "./data";
 import { useScheduleData } from "./hooks";
 import clx from "classnames";
+import { FiPlus } from "react-icons/fi";
 export var Scheduler = function (_a) {
-    var className = _a.className, componentName = _a.name, label = _a.label, labelClassName = _a.labelClassName, _b = _a.value, initialScheduleValue = _b === void 0 ? [
+    var _b;
+    var className = _a.className, classNames = _a.classNames, componentName = _a.name, label = _a.label, _c = _a.gap, gap = _c === void 0 ? useSchedulerStyles().dayContainer : _c, _d = _a.multiple, multiple = _d === void 0 ? false : _d, _e = _a.value, initialScheduleValue = _e === void 0 ? [
         { day: "0", start_time: "00:00", end_time: "12:00" },
-    ] : _b, onChange = _a.onChange;
+    ] : _e, onChange = _a.onChange;
     var classes = useSchedulerStyles();
     var parseSchedulevalue = useScheduleData();
     var handleChange = useCallback(function (event, index, remove) {
@@ -60,11 +61,6 @@ export var Scheduler = function (_a) {
         }
         onChange === null || onChange === void 0 ? void 0 : onChange({ name: componentName, value: newValue });
     }, [initialScheduleValue]);
-    var _c = __read(useState(parseSchedulevalue(initialScheduleValue, handleChange)), 2), scheduleValue = _c[0], setScheduleValue = _c[1];
-    useEffect(function () {
-        var newScheduleValue = parseSchedulevalue(initialScheduleValue, handleChange);
-        setScheduleValue(newScheduleValue);
-    }, [initialScheduleValue]);
     var addNewRow = useCallback(function () {
         onChange === null || onChange === void 0 ? void 0 : onChange({
             name: componentName,
@@ -73,5 +69,27 @@ export var Scheduler = function (_a) {
             ], false),
         });
     }, [initialScheduleValue]);
-    return (_jsxs("div", __assign({ className: clx(classes.root, className) }, { children: [label && (_jsx(InputLabel, __assign({ className: clx(classes.label, labelClassName), htmlFor: componentName }, { children: label }), void 0)), _jsx(Table, { headers: tableHeaders, value: scheduleValue }, void 0), _jsx("div", __assign({ className: classes.button, onClick: addNewRow }, { children: _jsx("p", __assign({ className: classes.buttonText }, { children: "Add more" }), void 0) }), void 0)] }), void 0));
+    var _f = __read(useState(parseSchedulevalue(initialScheduleValue, handleChange, {
+        timeSection: classes.timeContainer,
+        timeDivider: classes.timeDivider,
+        dayContainer: gap,
+        closeIcon: classes.closeIcon,
+        hiddenCloseIcon: classes.hiddenCloseIcon
+    })), 2), scheduleValue = _f[0], setScheduleValue = _f[1];
+    useEffect(function () {
+        var newScheduleValue = parseSchedulevalue(initialScheduleValue, handleChange, {
+            timeSection: classes.timeContainer,
+            timeDivider: classes.timeDivider,
+            dayContainer: gap,
+            closeIcon: classes.closeIcon,
+            hiddenCloseIcon: classes.hiddenCloseIcon
+        });
+        setScheduleValue(newScheduleValue);
+    }, [initialScheduleValue]);
+    return (_jsxs("div", __assign({ className: clx(classes.root, className) }, { children: [label && (_jsx(InputLabel, __assign({ className: (_b = classNames === null || classNames === void 0 ? void 0 : classNames.label) !== null && _b !== void 0 ? _b : "", htmlFor: componentName }, { children: label }), void 0)), scheduleValue === null || scheduleValue === void 0 ? void 0 : scheduleValue.map(function (row, index) {
+                return (_jsx("div", __assign({ className: classes.schedulerContainer }, { children: fields.map(function (_a) {
+                        var name = _a.name;
+                        return row === null || row === void 0 ? void 0 : row[name];
+                    }) }), index));
+            }), multiple && (_jsx("div", __assign({ className: classes.button, onClick: addNewRow }, { children: _jsxs("p", __assign({ className: classes.buttonText }, { children: [_jsx(FiPlus, { className: classes.addIcon }, void 0), " Add Schedule"] }), void 0) }), void 0))] }), void 0));
 };

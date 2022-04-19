@@ -43,8 +43,36 @@ export var useHandleControlsChange = function (setControls) {
         });
     };
 };
+export var getJsxContent = function (data) {
+    var _a;
+    var children = ((_a = data.props) === null || _a === void 0 ? void 0 : _a.children) || undefined;
+    if (Array.isArray(data)) {
+        // Multiple children
+        var joinedNodes_1 = [];
+        data.forEach(function (node) {
+            if (typeof node === "object")
+                joinedNodes_1.push(getJsxContent(node));
+            else if (typeof node === "string")
+                joinedNodes_1.push(node);
+        });
+        return joinedNodes_1.join(" ");
+    }
+    if (children === undefined) {
+        if (typeof data === "string")
+            return data;
+        else
+            return " ";
+    }
+    if (typeof children === "object") {
+        return getJsxContent(data.props.children);
+    }
+    if (typeof children === "string") {
+        return data.props.children;
+    }
+    return "";
+};
 export var useUpdateTableValue = function (setTableValue, initialTableValue, controlsFormData, filters) {
-    return setTableValue(function () {
+    setTableValue(function () {
         if (_.size(initialTableValue) == 0) {
             return initialTableValue;
         }
@@ -53,10 +81,19 @@ export var useUpdateTableValue = function (setTableValue, initialTableValue, con
         result = initialTableValue.filter(function (rowValues) {
             var status = false;
             Object.values(rowValues).map(function (value) {
-                var _a;
+                var _a, _b;
+                if (typeof value == "object") {
+                    var stringFromJsx = getJsxContent(value);
+                    if ("".concat(stringFromJsx)
+                        .toLowerCase()
+                        .includes((_a = controlsFormData.search) === null || _a === void 0 ? void 0 : _a.toLowerCase())) {
+                        status = true;
+                    }
+                    return null;
+                }
                 if ("".concat(value)
                     .toLowerCase()
-                    .includes((_a = controlsFormData.search) === null || _a === void 0 ? void 0 : _a.toLowerCase())) {
+                    .includes((_b = controlsFormData.search) === null || _b === void 0 ? void 0 : _b.toLowerCase())) {
                     status = true;
                 }
                 return null;
@@ -73,7 +110,8 @@ export var useUpdateTableValue = function (setTableValue, initialTableValue, con
                     var _b = __read(_a, 2), key = _b[0], value = _b[1];
                     var filterIndex = filters.findIndex(function (item) { return item.field == key; });
                     if (filterIndex !== -1) {
-                        if (!filters[filterIndex].values.includes(value.toString())) {
+                        var term = typeof value == "object" ? getJsxContent(value) : value.toString();
+                        if (!filters[filterIndex].values.includes(term)) {
                             status = true;
                         }
                     }

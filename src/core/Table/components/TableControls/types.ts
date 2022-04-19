@@ -1,4 +1,6 @@
-import { TableProps } from "../../types";
+import { OutlinedInputProps } from "@mui/material";
+import { CommonProps } from "types";
+import { Filter, TableDataProps, TableProps } from "../../types";
 
 export interface TableControlsProps {
   controls: TableProps["controls"];
@@ -6,4 +8,14 @@ export interface TableControlsProps {
   setShowFilter: React.Dispatch<React.SetStateAction<boolean>>;
   tableValues: { [key: string]: any }[];
   controlsFormData: { [key: string]: any };
+  showFilter: boolean;
+  fields: { name: string; label: string }[];
+  values: TableDataProps;
+  filters: Filter[];
+  setFilters: React.Dispatch<React.SetStateAction<Filter[]>>;
+  tableRef?: React.MutableRefObject<HTMLDivElement | null>;
+}
+
+export type SearchInputProps  = CommonProps & OutlinedInputProps & {
+  value?:string,
 }

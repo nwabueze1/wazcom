@@ -2,24 +2,30 @@ import { Box, ListItemIcon, MenuItem } from "@mui/material";
 import React, { useState } from "react";
 import { useTableControlsStyles } from "./styles";
 import {
-  FilterAlt,
   Logout,
   Print,
   SendToMobileOutlined,
   Settings,
 } from "@mui/icons-material";
 import { Button } from "../../../Button";
-import { TextInput } from "../../../../io";
 import { exportToCSV, exportToXlsx } from "../../helpers";
 import { TableControlsProps } from "./types";
 import Menu from "@mui/material/Menu";
+import { SearchInput } from "./SearchInput";
+import { TableFilter } from "../TableFilter";
 
 export const TableControls: React.FC<TableControlsProps> = ({
   controls,
   handleControlsChange,
+  showFilter,
   setShowFilter,
+  fields,
+  values,
+  filters,
+  setFilters,
   tableValues,
   controlsFormData,
+  
 }) => {
   const classes = useTableControlsStyles();
   const [anchorEl, setAnchorEl] = useState(null);
@@ -31,38 +37,44 @@ export const TableControls: React.FC<TableControlsProps> = ({
     setAnchorEl(null);
   };
 
+
   return (
     <Box className={classes.controls}>
       {controls?.filter && (
         <Box className={classes.filterControls}>
-          <Button
-            variant="outlined"
-            className={classes.filterControlsButton}
-            onClick={() => setShowFilter((state) => !state)}
-          >
-            Filter
-            <FilterAlt />
-          </Button>
-          <TextInput
+          <TableFilter
+            showFilter={showFilter}
+            setShowFilter={setShowFilter}
+            fields={fields}
+            values={values}
+            filters={filters}
+            setFilters={setFilters}
+          />
+          <SearchInput
             name="search"
             type="text"
             placeholder="Search"
             value={controlsFormData.search}
-            onChange={handleControlsChange}
+            onChange={(e: any) => handleControlsChange(e)}
+            className={classes.controlsInput}
           />
         </Box>
       )}
       <Box className={classes.rightControls}>
         {controls?.canPrint && (
-          <Button className={classes.actionButton} variant="outlined">
+          <Button
+            className={classes.controlButton}
+            variant="outlined"
+            onClick={() => window.print()}
+          >
             <Print fontSize="small" />
-            <span>Print</span>
+            <span className={classes.controlButtonText}>Print</span>
           </Button>
         )}
-        {controls?.export && (
+        {controls?.canExport && (
           <>
             <Button
-              className={classes.actionButton}
+              className={classes.controlButton}
               variant="outlined"
               onClick={handleClick}
               aria-controls={open ? "account-menu" : undefined}
@@ -70,7 +82,7 @@ export const TableControls: React.FC<TableControlsProps> = ({
               aria-expanded={open ? "true" : undefined}
             >
               <SendToMobileOutlined fontSize="small" />
-              <span>Export</span>
+              <span className={classes.controlButtonText}>Export</span>
             </Button>
             <Menu
               anchorEl={anchorEl}
