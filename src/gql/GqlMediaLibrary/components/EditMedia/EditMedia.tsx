@@ -31,7 +31,7 @@ export const EditMedia: React.FC<EditMediaProps> = ({
   }, [image]);
 
   const handleChange = useCallback(
-    ({ target: { name, value } }) => {
+    ({ name, value }) => {
       setFormData({ ...formData, [name]: value });
     },
     [formData],
