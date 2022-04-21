@@ -12,7 +12,6 @@ export const Scheduler: React.FC<SchedulerProps> = ({
   classNames,
   name: componentName,
   label,
-  gap = useSchedulerStyles().dayContainer,
   multiple = false,
   value: initialScheduleValue = [
     { day: "0", start_time: "00:00", end_time: "12:00" },
@@ -52,9 +51,8 @@ export const Scheduler: React.FC<SchedulerProps> = ({
     parseSchedulevalue(initialScheduleValue, handleChange, {
       timeSection: classes.timeContainer,
       timeDivider: classes.timeDivider,
-      dayContainer: gap,
       closeIcon: classes.closeIcon,
-      hiddenCloseIcon: classes.hiddenCloseIcon
+      hiddenCloseIcon: classes.hiddenCloseIcon,
     }),
   );
 
@@ -65,9 +63,8 @@ export const Scheduler: React.FC<SchedulerProps> = ({
       {
         timeSection: classes.timeContainer,
         timeDivider: classes.timeDivider,
-        dayContainer: gap,
         closeIcon: classes.closeIcon,
-        hiddenCloseIcon: classes.hiddenCloseIcon
+        hiddenCloseIcon: classes.hiddenCloseIcon,
       },
     );
     setScheduleValue(newScheduleValue);

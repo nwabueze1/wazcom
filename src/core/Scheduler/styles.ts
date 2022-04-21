@@ -21,7 +21,7 @@ export const useSchedulerStyles = makeStyles((theme: Theme) => ({
     fontWeight: theme.typography.fontWeightMedium,
     color: theme.design.colors.greene,
     display: "flex",
-    alignItems: "center"
+    alignItems: "center",
   },
   addIcon: {
     marginRight: theme.spacing(1.5),
@@ -29,6 +29,7 @@ export const useSchedulerStyles = makeStyles((theme: Theme) => ({
   schedulerContainer: {
     display: "flex",
     alignItems: "center",
+    gap: theme.spacing(2.5),
   },
   timeContainer: {
     display: "flex",
@@ -38,15 +39,12 @@ export const useSchedulerStyles = makeStyles((theme: Theme) => ({
   timeDivider: {
     margin: theme.spacing(0, 1),
   },
-  dayContainer: {
-    marginRight: "10%" 
-  },
   closeIcon: {
     color: theme.design.colors.grey5,
     marginLeft: theme.spacing(1.5),
-    cursor: "pointer"
+    cursor: "pointer",
   },
   hiddenCloseIcon: {
-    display: "none"
-  }
+    display: "none",
+  },
 }));

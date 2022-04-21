@@ -29,6 +29,8 @@ export const useImageSelectorStyles = makeStyles((theme: Theme) => ({
     color: theme.design.colors.greene,
     zIndex: 5,
     border: `1px solid ${theme.design.colors.greene}`,
+    fontSize: theme.typography.fontSize + 4,
+    fontWeight: theme.typography.fontWeightBold,
     background: theme.design.colors.white,
     "&:hover": {
       background: theme.design.colors.successColor300,
@@ -53,6 +55,7 @@ export const useImageSelectorStyles = makeStyles((theme: Theme) => ({
   },
   cameraIconSm: {
     fontSize: 20,
+    fontWeight: theme.typography.fontWeightBold,
   },
   cameraIconMd: {
     fontSize: 40,
