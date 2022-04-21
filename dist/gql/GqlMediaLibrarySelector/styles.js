@@ -26,6 +26,8 @@ export var useImageSelectorStyles = makeStyles(function (theme) { return ({
         color: theme.design.colors.greene,
         zIndex: 5,
         border: "1px solid ".concat(theme.design.colors.greene),
+        fontSize: theme.typography.fontSize + 4,
+        fontWeight: theme.typography.fontWeightBold,
         background: theme.design.colors.white,
         "&:hover": {
             background: theme.design.colors.successColor300,
@@ -50,6 +52,7 @@ export var useImageSelectorStyles = makeStyles(function (theme) { return ({
     },
     cameraIconSm: {
         fontSize: 20,
+        fontWeight: theme.typography.fontWeightBold,
     },
     cameraIconMd: {
         fontSize: 40,
