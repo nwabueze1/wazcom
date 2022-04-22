@@ -5,6 +5,7 @@ export type GqlMediaLibrarySelectorProps = CommonProps &
   GqlMediaSelectorConfigProps & {
     label?: string;
     displayLibrary?: boolean;
+    displayRemoveButton?: boolean;
     verbose?: boolean;
     variant?: "circle" | "square";
     size?: "sm" | "md" | "lg" | "xl" | "full";
