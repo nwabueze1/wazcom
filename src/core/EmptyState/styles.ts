@@ -6,6 +6,7 @@ export const useEmptyStateStyles = makeStyles((theme: Theme) => ({
     width: "100%",
     boxShadow: "0",
     display: "flex",
+    justifyContent: "center",
     flexDirection: "column",
     alignItems: "center",
   },
@@ -27,5 +28,13 @@ export const useEmptyStateStyles = makeStyles((theme: Theme) => ({
     fontSize: theme.typography.fontSize + 4,
     color: theme.design.colors.primaryBlack,
     whiteSpace: "nowrap",
+  },
+  btn: {
+    background: theme.design.colors.primary100,
+    fontSize: theme.typography.fontSize + 4,
+    fontWeight: theme.typography.fontWeightMedium,
+    "&:hover": {
+      backgroundColor: theme.design.colors.primary100,
+    },
   },
 }));

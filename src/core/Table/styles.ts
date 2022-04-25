@@ -44,7 +44,9 @@ export const useTableStyles = makeStyles((theme: Theme) => ({
     alignItems: "center",
     gap: theme.spacing(2),
   },
-  empty: {},
+  empty: {
+    minHeight: 400,
+  },
 }));
 
 export const useStyles = makeStyles((theme: Theme) => ({

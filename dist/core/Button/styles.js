@@ -10,7 +10,7 @@ export var useButtonStyles = makeStyles(function (theme) { return ({
         fontSize: theme.typography.fontSize,
         fontFamily: theme.typography.fontFamily,
         "&:hover": {
-            backgroundColor: theme.design.colors.grenne,
+            backgroundColor: theme.design.colors.greene,
             opacity: "70%",
         },
     },
