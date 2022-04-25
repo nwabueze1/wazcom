@@ -41,6 +41,7 @@ export var useTableStyles = makeStyles(function (theme) { return ({
         alignItems: "center",
         gap: theme.spacing(2),
     },
+    empty: {},
 }); });
 export var useStyles = makeStyles(function (theme) { return ({
     root: {

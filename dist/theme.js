@@ -138,7 +138,7 @@ export var theme = {
             successColor100: "#22803c",
             successColor200: "#3b8e52",
             successColor300: "#e6f0e9",
-            greyColor: baseColors.greyColor,
+            greyColor: "#808080",
             greyColor100: "#e5e5e5",
             greyColor200: "#8c8c8c",
             greyColor300: "#666666",
@@ -155,6 +155,7 @@ export var theme = {
             white: "#FFFFFF",
             greene: "#0A7227",
             mercury: "#CCCFCD",
+            primaryBlack: "#010E05",
         },
     },
     overrides: {

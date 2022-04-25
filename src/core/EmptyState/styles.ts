@@ -18,11 +18,14 @@ export const useEmptyStateStyles = makeStyles((theme: Theme) => ({
     alignItems: "center",
   },
   image: {
-    width: 150,
-    height: 150,
+    width: 239,
+    height: 141,
     objectFit: "cover",
   },
   text: {
-    padding: theme.spacing(2, 0, 1.5, 0),
+    padding: theme.spacing(5, 0, 4, 0),
+    fontSize: theme.typography.fontSize + 4,
+    color: theme.design.colors.primaryBlack,
+    whiteSpace: "nowrap",
   },
 }));

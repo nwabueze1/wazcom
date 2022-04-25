@@ -25,11 +25,15 @@ import {
 import { TablePagination, TableControls } from "./components";
 import { Filter } from "./types";
 import clx from "classnames";
+import { EmptyState } from "../../core";
 
 export const Table = ({
   className,
   headers,
   value: initialTableValue,
+  text,
+  image,
+  button,
   hasCheckBox,
   pagination = true,
   changePage,
@@ -41,7 +45,7 @@ export const Table = ({
   ...props
 }: TableProps) => {
   const classes = useTableStyles();
-  const tableRef = useRef(null)
+  const tableRef = useRef(null);
   const [tableValue, setTableValue] = useState(initialTableValue);
   const [tableHeaders, setTableHeaders] =
     useState<{ name: string; label: string }[]>(headers);
@@ -169,8 +173,27 @@ export const Table = ({
                 </TableRow>
               );
             })}
+            <TableRow>
+              <TableCell colSpan={1000}>
+                {tableValue.length < 1 && (
+                  <EmptyState
+                    className={classes.empty}
+                    image={{
+                      src: image?.src,
+                      alt: image?.alt,
+                    }}
+                    text={text}
+                    button={{
+                      display: button?.display,
+                      text: button?.text,
+                      handleClick: button?.handleClick,
+                    }}
+                  />
+                )}
+              </TableCell>
+            </TableRow>
           </TableBody>
-          {pagination && (
+          {pagination && tableValue.length > 1 && (
             <TableFooter className={classNames?.tableFooter}>
               <TableRow>
                 <TablePagination

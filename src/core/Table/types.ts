@@ -1,8 +1,10 @@
 import { TableProps as MuiTableProps } from "@mui/material";
+import { EmptyStateProps } from "core";
 import { CommonProps } from "../../types";
 
 /** !!-- Remember to update the interface name !! */
 export type TableProps = CommonProps &
+  EmptyStateProps &
   MuiTableProps & {
     headers: TableHeaderContentProps;
     value: TableDataProps;
@@ -34,8 +36,8 @@ type ControlsDataProp = {
 
 type TableClassnamesProps = {
   tableHead: string;
-  tableFooter:string;
-  tableBody:string
-}
+  tableFooter: string;
+  tableBody: string;
+};
 
 export type Filter = { field: string; values: string[] };
