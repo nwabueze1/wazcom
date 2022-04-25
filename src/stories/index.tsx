@@ -24,7 +24,7 @@ import {
   InputGroup,
   ToggleInput,
   TextArea,
-  RadioButtonInput
+  RadioButtonInput,
 } from "../io";
 
 import { GqlComboBox, GqlMediaLibrary, GqlMediaLibrarySelector } from "../gql";
@@ -149,7 +149,7 @@ export const stories: ComponentPropType[] = [
     props: {
       children: "This is an example Wazcom Accordion",
       defaultExpanded: true,
-      title: <p>leke</p>
+      title: <p>leke</p>,
     },
   },
   {
@@ -302,6 +302,17 @@ export const stories: ComponentPropType[] = [
         },
       ],
       value: [],
+      image: {
+        src: "https://sytbuildr.s3.eu-west-2.amazonaws.com/images/Posts/emptypostimg.svg",
+      },
+      text: "You have not created any blog post yet. Click below to create post.",
+      button: {
+        display: true,
+        text: "Create New Menu",
+        handleClick: () => {
+          alert("Zeus Empty State");
+        },
+      },
     },
   },
   {

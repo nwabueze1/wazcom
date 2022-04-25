@@ -155,6 +155,7 @@ export var theme = {
             white: "#FFFFFF",
             greene: "#0A7227",
             mercury: "#CCCFCD",
+            primaryColor: "#010E05",
         },
     },
     overrides: {
