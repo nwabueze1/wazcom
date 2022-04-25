@@ -24,7 +24,6 @@ export const GqlMediaLibrarySelector: FC<GqlMediaLibrarySelectorProps> = ({
   label,
   value,
   feedback,
-  displayRemoveButton = false,
   error,
   ...props
 }) => {
@@ -50,7 +49,7 @@ export const GqlMediaLibrarySelector: FC<GqlMediaLibrarySelectorProps> = ({
 
   const handleRemoveImage = () => {
     setPlaceholder("");
-    onChange?.({ name: name ?? "image", value: "" });
+    onChange?.({ name: name ?? "image", value: null });
   }
 
   const variants = getSizeVariants(classes, size);
@@ -120,7 +119,7 @@ export const GqlMediaLibrarySelector: FC<GqlMediaLibrarySelectorProps> = ({
           )}
         </div>
         {
-          displayRemoveButton && variant == "circle" && (
+          placeholder && variant == "circle" && (
             <Button
               className={clx(classes.removeBtn, classNames?.removeBtn)}
               variant="outlined"
