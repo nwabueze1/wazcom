@@ -1,7 +1,7 @@
 import React from "react";
 import { EmptyStateProps } from "./types";
 import { useEmptyStateStyles } from "./styles";
-import { Button } from "../Button";
+import { Button } from "..";
 import clx from "classnames";
 
 export const EmptyState: React.FC<EmptyStateProps> = ({
@@ -18,7 +18,7 @@ export const EmptyState: React.FC<EmptyStateProps> = ({
 
       {button?.display && (
         <Button
-          color="secondary"
+          className={classes.btn}
           size="small"
           onClick={() => {
             button?.handleClick?.();
