@@ -41,12 +41,7 @@ export var useTableStyles = makeStyles(function (theme) { return ({
         alignItems: "center",
         gap: theme.spacing(2),
     },
-    empty: {
-        position: "absolute",
-        top: "50%",
-        left: "50%",
-        transform: "translate(-50%, -50%)",
-    },
+    empty: {},
 }); });
 export var useStyles = makeStyles(function (theme) { return ({
     root: {

@@ -112,12 +112,12 @@ export var Table = function (_a) {
                                                 var name = _a.name;
                                                 return (_jsx(TableCell, __assign({ className: classes.tableCell }, { children: row === null || row === void 0 ? void 0 : row[name] }), name));
                                             })] }), index));
-                                }), tableValue.length < 1 && (_jsx("div", __assign({ className: classes.empty }, { children: _jsx(EmptyState, { image: {
-                                            src: image === null || image === void 0 ? void 0 : image.src,
-                                            alt: image === null || image === void 0 ? void 0 : image.alt,
-                                        }, text: text, button: {
-                                            display: button === null || button === void 0 ? void 0 : button.display,
-                                            text: button === null || button === void 0 ? void 0 : button.text,
-                                            handleClick: button === null || button === void 0 ? void 0 : button.handleClick,
-                                        } }, void 0) }), void 0))] }, void 0), pagination && (_jsx(TableFooter, __assign({ className: classNames === null || classNames === void 0 ? void 0 : classNames.tableFooter }, { children: _jsx(TableRow, { children: _jsx(TablePagination, { onRowsPerPageChange: handleChangeRowsPerPage, count: paginatorInfo === null || paginatorInfo === void 0 ? void 0 : paginatorInfo.total, rowsPerPage: Number(getRowsPerPage), onPageChange: handleChangePage, page: getCurrentPage }, void 0) }, void 0) }), void 0))] }), void 0) }), void 0)] }), void 0));
+                                }), _jsx(TableRow, { children: _jsx(TableCell, __assign({ colSpan: 1000 }, { children: tableValue.length < 1 && (_jsx(EmptyState, { className: classes.empty, image: {
+                                                src: image === null || image === void 0 ? void 0 : image.src,
+                                                alt: image === null || image === void 0 ? void 0 : image.alt,
+                                            }, text: text, button: {
+                                                display: button === null || button === void 0 ? void 0 : button.display,
+                                                text: button === null || button === void 0 ? void 0 : button.text,
+                                                handleClick: button === null || button === void 0 ? void 0 : button.handleClick,
+                                            } }, void 0)) }), void 0) }, void 0)] }, void 0), pagination && tableValue.length > 1 && (_jsx(TableFooter, __assign({ className: classNames === null || classNames === void 0 ? void 0 : classNames.tableFooter }, { children: _jsx(TableRow, { children: _jsx(TablePagination, { onRowsPerPageChange: handleChangeRowsPerPage, count: paginatorInfo === null || paginatorInfo === void 0 ? void 0 : paginatorInfo.total, rowsPerPage: Number(getRowsPerPage), onPageChange: handleChangePage, page: getCurrentPage }, void 0) }, void 0) }), void 0))] }), void 0) }), void 0)] }), void 0));
 };

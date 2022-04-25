@@ -44,12 +44,7 @@ export const useTableStyles = makeStyles((theme: Theme) => ({
     alignItems: "center",
     gap: theme.spacing(2),
   },
-  empty: {
-    position: "absolute",
-    top: "50%",
-    left: "50%",
-    transform: "translate(-50%, -50%)",
-  },
+  empty: {},
 }));
 
 export const useStyles = makeStyles((theme: Theme) => ({

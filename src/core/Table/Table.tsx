@@ -173,24 +173,27 @@ export const Table = ({
                 </TableRow>
               );
             })}
-            {tableValue.length < 1 && (
-              <div className={classes.empty}>
-                <EmptyState
-                  image={{
-                    src: image?.src,
-                    alt: image?.alt,
-                  }}
-                  text={text}
-                  button={{
-                    display: button?.display,
-                    text: button?.text,
-                    handleClick: button?.handleClick,
-                  }}
-                />
-              </div>
-            )}
+            <TableRow>
+              <TableCell colSpan={1000}>
+                {tableValue.length < 1 && (
+                  <EmptyState
+                    className={classes.empty}
+                    image={{
+                      src: image?.src,
+                      alt: image?.alt,
+                    }}
+                    text={text}
+                    button={{
+                      display: button?.display,
+                      text: button?.text,
+                      handleClick: button?.handleClick,
+                    }}
+                  />
+                )}
+              </TableCell>
+            </TableRow>
           </TableBody>
-          {pagination && (
+          {pagination && tableValue.length > 1 && (
             <TableFooter className={classNames?.tableFooter}>
               <TableRow>
                 <TablePagination
