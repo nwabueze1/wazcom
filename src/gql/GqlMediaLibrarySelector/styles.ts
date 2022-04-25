@@ -44,6 +44,23 @@ export const useImageSelectorStyles = makeStyles((theme: Theme) => ({
     background: "transparent",
     fontSize: theme.typography.fontSize * 4,
   },
+  removeBtn: {
+    cursor: "pointer",
+    marginLeft: theme.spacing(5),
+    color: theme.design.colors.greyColor300,
+    border: `1px solid ${theme.design.colors.mercury}`,
+    fontSize: theme.typography.fontSize + 4,
+    fontWeight: theme.typography.fontWeightMedium,
+    background: theme.design.colors.white,
+    "&:hover": {
+      background: theme.design.colors.white,
+      border: `1px solid ${theme.design.colors.mercury}`,
+    },
+  },
+  imgUploadContainer: {
+    display: "flex",
+     alignItems: "center"
+  },
   modal: {
     display: "flex",
     justifyContent: "center",
