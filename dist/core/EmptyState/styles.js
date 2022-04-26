@@ -18,7 +18,6 @@ export var useEmptyStateStyles = makeStyles(function (theme) { return ({
     },
     image: {
         width: 239,
-        height: 141,
         objectFit: "cover",
     },
     text: {

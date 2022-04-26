@@ -6,8 +6,8 @@ import clx from "classnames";
 
 export const EmptyState: React.FC<EmptyStateProps> = ({
   className,
-  image,
   text,
+  image,
   button,
 }) => {
   const classes = useEmptyStateStyles();

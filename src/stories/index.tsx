@@ -302,15 +302,17 @@ export const stories: ComponentPropType[] = [
         },
       ],
       value: [],
-      image: {
-        src: "https://sytbuildr.s3.eu-west-2.amazonaws.com/images/Posts/emptypostimg.svg",
-      },
-      text: "You have not created any blog post yet. Click below to create post.",
-      button: {
-        display: true,
-        text: "Create New Menu",
-        handleClick: () => {
-          alert("Zeus Empty State");
+      emptyTableState: {
+        image: {
+          src: "https://sytbuildr.s3.eu-west-2.amazonaws.com/images/Posts/emptypostimg.svg",
+        },
+        text: "You have not created any blog post yet. Click below to create post.",
+        button: {
+          display: true,
+          text: "Create New Menu",
+          handleClick: () => {
+            alert("Zeus Empty State");
+          },
         },
       },
     },
