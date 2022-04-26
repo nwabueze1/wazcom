@@ -20,7 +20,6 @@ export const useEmptyStateStyles = makeStyles((theme: Theme) => ({
   },
   image: {
     width: 239,
-    height: 141,
     objectFit: "cover",
   },
   text: {

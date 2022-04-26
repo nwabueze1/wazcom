@@ -55,7 +55,7 @@ import { TablePagination, TableControls } from "./components";
 import clx from "classnames";
 import { EmptyState } from "../../core";
 export var Table = function (_a) {
-    var className = _a.className, headers = _a.headers, initialTableValue = _a.value, text = _a.text, image = _a.image, button = _a.button, hasCheckBox = _a.hasCheckBox, _b = _a.pagination, pagination = _b === void 0 ? true : _b, changePage = _a.changePage, rowsPerPage = _a.rowsPerPage, changeRowsPerPage = _a.changeRowsPerPage, _c = _a.paginatorInfo, paginatorInfo = _c === void 0 ? { total: 1, currentPage: 1, perPage: 20 } : _c, controls = _a.controls, classNames = _a.classNames, props = __rest(_a, ["className", "headers", "value", "text", "image", "button", "hasCheckBox", "pagination", "changePage", "rowsPerPage", "changeRowsPerPage", "paginatorInfo", "controls", "classNames"]);
+    var className = _a.className, headers = _a.headers, initialTableValue = _a.value, hasCheckBox = _a.hasCheckBox, _b = _a.pagination, pagination = _b === void 0 ? true : _b, changePage = _a.changePage, rowsPerPage = _a.rowsPerPage, emptyTableState = _a.emptyTableState, changeRowsPerPage = _a.changeRowsPerPage, _c = _a.paginatorInfo, paginatorInfo = _c === void 0 ? { total: 1, currentPage: 1, perPage: 20 } : _c, controls = _a.controls, classNames = _a.classNames, props = __rest(_a, ["className", "headers", "value", "hasCheckBox", "pagination", "changePage", "rowsPerPage", "emptyTableState", "changeRowsPerPage", "paginatorInfo", "controls", "classNames"]);
     var classes = useTableStyles();
     var tableRef = useRef(null);
     var _d = __read(useState(initialTableValue), 2), tableValue = _d[0], setTableValue = _d[1];
@@ -112,12 +112,5 @@ export var Table = function (_a) {
                                                 var name = _a.name;
                                                 return (_jsx(TableCell, __assign({ className: classes.tableCell }, { children: row === null || row === void 0 ? void 0 : row[name] }), name));
                                             })] }), index));
-                                }), _jsx(TableRow, { children: _jsx(TableCell, __assign({ colSpan: 1000 }, { children: tableValue.length < 1 && (_jsx(EmptyState, { className: classes.empty, image: {
-                                                src: image === null || image === void 0 ? void 0 : image.src,
-                                                alt: image === null || image === void 0 ? void 0 : image.alt,
-                                            }, text: text, button: {
-                                                display: button === null || button === void 0 ? void 0 : button.display,
-                                                text: button === null || button === void 0 ? void 0 : button.text,
-                                                handleClick: button === null || button === void 0 ? void 0 : button.handleClick,
-                                            } }, void 0)) }), void 0) }, void 0)] }, void 0), pagination && tableValue.length > 1 && (_jsx(TableFooter, __assign({ className: classNames === null || classNames === void 0 ? void 0 : classNames.tableFooter }, { children: _jsx(TableRow, { children: _jsx(TablePagination, { onRowsPerPageChange: handleChangeRowsPerPage, count: paginatorInfo === null || paginatorInfo === void 0 ? void 0 : paginatorInfo.total, rowsPerPage: Number(getRowsPerPage), onPageChange: handleChangePage, page: getCurrentPage }, void 0) }, void 0) }), void 0))] }), void 0) }), void 0)] }), void 0));
+                                }), _jsx(TableRow, { children: _jsx(TableCell, __assign({ colSpan: 1000 }, { children: tableValue.length < 1 && (_jsx(EmptyState, __assign({ className: classes.empty }, emptyTableState), void 0)) }), void 0) }, void 0)] }, void 0), pagination && tableValue.length > 1 && (_jsx(TableFooter, __assign({ className: classNames === null || classNames === void 0 ? void 0 : classNames.tableFooter }, { children: _jsx(TableRow, { children: _jsx(TablePagination, { onRowsPerPageChange: handleChangeRowsPerPage, count: paginatorInfo === null || paginatorInfo === void 0 ? void 0 : paginatorInfo.total, rowsPerPage: Number(getRowsPerPage), onPageChange: handleChangePage, page: getCurrentPage }, void 0) }, void 0) }), void 0))] }), void 0) }), void 0)] }), void 0));
 };

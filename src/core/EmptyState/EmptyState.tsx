@@ -6,25 +6,27 @@ import clx from "classnames";
 
 export const EmptyState: React.FC<EmptyStateProps> = ({
   className,
-  image,
-  text,
-  button,
+  ...emptyState
 }) => {
   const classes = useEmptyStateStyles();
   return (
     <div className={clx(classes.root, className)}>
-      <img src={image?.src} className={classes.image} alt={image?.alt ?? ""} />
-      <p className={classes.text}>{text}</p>
+      <img
+        src={emptyState.image?.src}
+        className={classes.image}
+        alt={emptyState.image?.alt ?? ""}
+      />
+      <p className={classes.text}>{emptyState.text}</p>
 
-      {button?.display && (
+      {emptyState.button?.display && (
         <Button
           className={classes.btn}
           size="small"
           onClick={() => {
-            button?.handleClick?.();
+            emptyState.button?.handleClick?.();
           }}
         >
-          {button?.text ?? text}
+          {emptyState.button?.text ?? emptyState.text}
         </Button>
       )}
     </div>

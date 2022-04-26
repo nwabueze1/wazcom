@@ -31,13 +31,11 @@ export const Table = ({
   className,
   headers,
   value: initialTableValue,
-  text,
-  image,
-  button,
   hasCheckBox,
   pagination = true,
   changePage,
   rowsPerPage,
+  emptyTableState,
   changeRowsPerPage,
   paginatorInfo = { total: 1, currentPage: 1, perPage: 20 },
   controls,
@@ -176,19 +174,7 @@ export const Table = ({
             <TableRow>
               <TableCell colSpan={1000}>
                 {tableValue.length < 1 && (
-                  <EmptyState
-                    className={classes.empty}
-                    image={{
-                      src: image?.src,
-                      alt: image?.alt,
-                    }}
-                    text={text}
-                    button={{
-                      display: button?.display,
-                      text: button?.text,
-                      handleClick: button?.handleClick,
-                    }}
-                  />
+                  <EmptyState className={classes.empty} {...emptyTableState} />
                 )}
               </TableCell>
             </TableRow>
