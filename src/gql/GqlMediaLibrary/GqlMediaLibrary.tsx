@@ -17,9 +17,8 @@ import {
 } from "./hooks";
 import { FaTimes } from "react-icons/fa";
 import { Search, FilterAlt, Sort } from "@mui/icons-material";
-import { TextInput, CheckBoxInput } from "../../io";
+import { TextInput, CheckBoxInput, RadioButtonInput } from "../../io";
 import { Button } from "../../core";
-import { RadioButton } from "../../core/RadioButton/RadioButton";
 import { AddMedia } from "../../core/AddMedia/AddMedia";
 
 export const GqlMediaLibrary: FC<GqlMediaLibraryProps> = ({
@@ -133,9 +132,8 @@ export const GqlMediaLibrary: FC<GqlMediaLibraryProps> = ({
 
     setActiveMedia({ type, media });
   };
-
-  const handleSearchChange = (e: React.ChangeEvent<HTMLInputElement>) => {
-    const search = e.target.value;
+  const handleSearchChange = (data: { name: string; value: any }) => {
+    const search = data.value;
     if (search === "") {
       return;
     }
@@ -324,7 +322,7 @@ export const GqlMediaLibrary: FC<GqlMediaLibraryProps> = ({
                   <p className={classes.sort}>sort by:</p>
                   {sortType.map((type, index) => (
                     <p key={index} className={classes.sortType}>
-                      <RadioButton
+                      <RadioButtonInput
                         name={type}
                         value={selected === type}
                         classNames={{ radioButtonInput: classes.radioButton }}

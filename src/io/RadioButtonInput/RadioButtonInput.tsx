@@ -1,11 +1,11 @@
 import { FC } from "react";
-import { useRadioButtonStyles } from "./styles";
+import { useRadioButtonInputStyles } from "./styles";
 import { RadioButtonInputProps } from "./types";
 import { Radio, InputLabel } from "@mui/material";
 import { displayFeedback } from "../../helpers/io";
 import clx from "classnames";
 
-export const RadioButton: FC<RadioButtonInputProps> = ({
+export const RadioButtonInput: FC<RadioButtonInputProps> = ({
   className,
   label,
   classNames,
@@ -15,7 +15,7 @@ export const RadioButton: FC<RadioButtonInputProps> = ({
   helperText,
   onChange,
 }) => {
-  const classes = useRadioButtonStyles();
+  const classes = useRadioButtonInputStyles();
 
   const handleChange = (event: React.ChangeEvent<{ checked: boolean }>) => {
     onChange?.({ name: name as string, value: event.target.checked });

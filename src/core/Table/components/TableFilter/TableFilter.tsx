@@ -7,6 +7,7 @@ import { TableFilterProps } from "./types";
 import { FilterAlt } from "@mui/icons-material";
 import { Button } from "../../../Button";
 import { useTableControlsStyles } from "../TableControls/styles";
+import { getJsxContent } from "../../helpers";
 
 export const TableFilter: React.FC<TableFilterProps> = ({
   showFilter,
@@ -24,6 +25,7 @@ export const TableFilter: React.FC<TableFilterProps> = ({
   const [newFilters, setNewFilters] = useState(filters);
 
   const handleSetFilter = (field: string, value: string) => {
+    
     setNewFilters((filters) => {
       const index = filters.findIndex((filter) => filter.field === field);
       if (index === -1) {
@@ -55,13 +57,18 @@ export const TableFilter: React.FC<TableFilterProps> = ({
     (fieldName: string, values: TableFilterProps["values"]) => {
       if (!values || values.length < 1) return [];
       const data: string[] = [];
-      values.map((item: { [key: string]: string | number }) => {
+      values.map((item: { [key: string]: string | number | { [key: string]: any; } }) => {
+        let fieldValue = item[`${fieldName}`];
+        
+        if (typeof fieldValue == "object") {
+          fieldValue = getJsxContent(fieldValue)
+        }
         if (
-          !item[`${fieldName}`]?.toString() ||
-          data.includes(item[`${fieldName}`].toString())
+          !fieldValue?.toString() ||
+          data.includes(fieldValue.toString())
         )
           return null;
-        data.push(item[`${fieldName}`]?.toString());
+        data.push(fieldValue.toString());
         return null;
       });
       return data;
@@ -82,15 +89,17 @@ export const TableFilter: React.FC<TableFilterProps> = ({
       filterFields.map(({ name, label }) => (
         <MenuItem key={name} className={classes.filterItemContainer}>
           <Accordion title={label}>
-            {getUniqueValues(label, values).map((item, key) => (
-              <div className={classes.filterItem} key={key}>
-                <Checkbox
-                  checked={!getCheckedState(label, item)}
-                  onChange={() => handleSetFilter(label, item)}
-                />
-                <div>{item}</div>
-              </div>
-            ))}
+            {getUniqueValues(label, values).map((item, key) => {
+              return (
+                <div className={classes.filterItem} key={key}>
+                  <Checkbox
+                    checked={!getCheckedState(label, item)}
+                    onChange={() => handleSetFilter(label, item)}
+                  />
+                  <div>{item}</div>
+                </div>
+              )
+            })}
           </Accordion>
         </MenuItem>
       )),

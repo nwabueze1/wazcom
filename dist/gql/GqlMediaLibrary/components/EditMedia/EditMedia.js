@@ -51,7 +51,7 @@ export var EditMedia = function (_a) {
     }, [image]);
     var handleChange = useCallback(function (_a) {
         var _b;
-        var _c = _a.target, name = _c.name, value = _c.value;
+        var name = _a.name, value = _a.value;
         setFormData(__assign(__assign({}, formData), (_b = {}, _b[name] = value, _b)));
     }, [formData]);
     var displayFields = function () {

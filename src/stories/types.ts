@@ -3,6 +3,7 @@ import {
   ButtonProps,
   BreadCrumbProps,
   CardProps,
+  CarouselProps,
   LoaderProps,
   GalleryProps,
   ImageSelectorProps,
@@ -10,7 +11,6 @@ import {
   MenuCardProps,
   DisplayCardProps,
   NotificationProps,
-  RadioButtonInputProps,
   EmptyStateProps,
 } from "../core";
 
@@ -22,6 +22,7 @@ import {
   InputGroupProps,
   TextInputProps,
   ToggleInputProps,
+  RadioButtonInputProps,
 } from "../io";
 
 import {
@@ -40,6 +41,7 @@ export type ComponentPropType = {
   | CardStory
   | CheckBoxStory
   | LoaderStory
+  | CarouselStory
   | ComboBoxStory
   | TextStory
   | GalleryStory
@@ -78,6 +80,10 @@ type ButtonStory = {
 
 type CardStory = {
   props: CardProps;
+};
+
+type CarouselStory = {
+  props: CarouselProps;
 };
 
 type CheckBoxStory = {

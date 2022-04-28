@@ -4,6 +4,7 @@ export var useEmptyStateStyles = makeStyles(function (theme) { return ({
         width: "100%",
         boxShadow: "0",
         display: "flex",
+        justifyContent: "center",
         flexDirection: "column",
         alignItems: "center",
     },
@@ -16,11 +17,21 @@ export var useEmptyStateStyles = makeStyles(function (theme) { return ({
         alignItems: "center",
     },
     image: {
-        width: 150,
-        height: 150,
+        width: 239,
         objectFit: "cover",
     },
     text: {
-        padding: theme.spacing(2, 0, 1.5, 0),
+        padding: theme.spacing(5, 0, 4, 0),
+        fontSize: theme.typography.fontSize + 4,
+        color: theme.design.colors.primaryBlack,
+        whiteSpace: "nowrap",
+    },
+    btn: {
+        background: theme.design.colors.primary100,
+        fontSize: theme.typography.fontSize + 4,
+        fontWeight: theme.typography.fontWeightMedium,
+        "&:hover": {
+            backgroundColor: theme.design.colors.primary100,
+        },
     },
 }); });

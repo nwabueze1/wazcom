@@ -25,6 +25,7 @@ import {
 import { TablePagination, TableControls } from "./components";
 import { Filter } from "./types";
 import clx from "classnames";
+import { EmptyState } from "../../core";
 
 export const Table = ({
   className,
@@ -34,6 +35,7 @@ export const Table = ({
   pagination = true,
   changePage,
   rowsPerPage,
+  emptyTableState,
   changeRowsPerPage,
   paginatorInfo = { total: 1, currentPage: 1, perPage: 20 },
   controls,
@@ -41,7 +43,7 @@ export const Table = ({
   ...props
 }: TableProps) => {
   const classes = useTableStyles();
-  const tableRef = useRef(null)
+  const tableRef = useRef(null);
   const [tableValue, setTableValue] = useState(initialTableValue);
   const [tableHeaders, setTableHeaders] =
     useState<{ name: string; label: string }[]>(headers);
@@ -169,8 +171,15 @@ export const Table = ({
                 </TableRow>
               );
             })}
+            <TableRow>
+              <TableCell colSpan={1000}>
+                {tableValue.length < 1 && (
+                  <EmptyState className={classes.empty} {...emptyTableState} />
+                )}
+              </TableCell>
+            </TableRow>
           </TableBody>
-          {pagination && (
+          {pagination && tableValue.length > 1 && (
             <TableFooter className={classNames?.tableFooter}>
               <TableRow>
                 <TablePagination

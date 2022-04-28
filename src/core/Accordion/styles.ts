@@ -10,7 +10,4 @@ export const useAccordionStyles = makeStyles((theme: BaseTheme) => ({
   icon: {
     color: theme.design.colors.black,
   },
-  summary: {
-  },
-  details: {},
 }));

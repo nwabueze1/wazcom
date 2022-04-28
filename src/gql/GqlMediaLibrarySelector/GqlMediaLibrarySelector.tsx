@@ -47,6 +47,11 @@ export const GqlMediaLibrarySelector: FC<GqlMediaLibrarySelectorProps> = ({
     onChange?.({ name: name ?? "image", value: verbose ? value : value.url });
   };
 
+  const handleRemoveImage = () => {
+    setPlaceholder("");
+    onChange?.({ name: name ?? "image", value: null });
+  }
+
   const variants = getSizeVariants(classes, size);
 
   return (
@@ -59,58 +64,71 @@ export const GqlMediaLibrarySelector: FC<GqlMediaLibrarySelectorProps> = ({
           {label}
         </InputLabel>
       )}
-      <div
-        className={clx(
-          classes.container,
-          variant === "circle" && classes.circle,
-          variants[0],
-          error && classes.error,
-        )}
-        style={{ backgroundImage: `url(${placeholder})`, width, height }}
-        onMouseEnter={() => setShowIcon(true)}
-        onMouseLeave={() => setShowIcon(false)}
-        onClick={() => {
-          if (displayLibrary) return;
-          handleOpen();
-        }}
-      >
-        <Modal
-          open={open}
-          BackdropProps={{
-            timeout: 500,
+      <div className={classes.imgUploadContainer}>
+        <div
+          className={clx(
+            classes.container,
+            variant === "circle" && classes.circle,
+            variants[0],
+            error && classes.error,
+          )}
+          style={{ backgroundImage: `url(${placeholder})`, width, height }}
+          onMouseEnter={() => setShowIcon(true)}
+          onMouseLeave={() => setShowIcon(false)}
+          onClick={() => {
+            if (displayLibrary) return;
+            handleOpen();
           }}
-          closeAfterTransition
-          onClose={handleClose}
-          onBackdropClick={(e) => e.stopPropagation()}
-          className={classes.modal}
-          BackdropComponent={Backdrop}
-          aria-labelledby="transition-modal-title"
-          aria-describedby="transition-modal-description"
         >
-          <Fade in={open}>
-            <div className={classes.wrapper}>
-              <GqlMediaLibrary
-                config={{ ...props.config }}
-                onChange={handleSelectImage}
-                name={name}
-              />
-            </div>
-          </Fade>
-        </Modal>
-        {iconType === "button" ? (
-          <Button
-            className={clx(classes.icon)}
-            variant="outlined"
-            onClick={handleOpen}
+          <Modal
+            open={open}
+            BackdropProps={{
+              timeout: 500,
+            }}
+            closeAfterTransition
+            onClose={handleClose}
+            onBackdropClick={(e) => e.stopPropagation()}
+            className={classes.modal}
+            BackdropComponent={Backdrop}
+            aria-labelledby="transition-modal-title"
+            aria-describedby="transition-modal-description"
           >
-            Upload Image
-          </Button>
-        ) : (
-          <CameraAlt
-            className={clx(classes.cameraIcon, variants[1])}
-            onClick={handleOpen}
-          />
-        )}
+            <Fade in={open}>
+              <div className={classes.wrapper}>
+                <GqlMediaLibrary
+                  config={{ ...props.config }}
+                  onChange={handleSelectImage}
+                  name={name}
+                />
+              </div>
+            </Fade>
+          </Modal>
+          {iconType === "button" ? (
+            <Button
+              className={clx(classes.icon)}
+              variant="outlined"
+              onClick={handleOpen}
+            >
+              Upload Image
+            </Button>
+          ) : (
+            <CameraAlt
+              className={clx(classes.cameraIcon, variants[1])}
+              onClick={handleOpen}
+            />
+          )}
+        </div>
+        {
+          placeholder && variant == "circle" && (
+            <Button
+              className={clx(classes.removeBtn, classNames?.removeBtn)}
+              variant="outlined"
+              onClick={handleRemoveImage}
+            >
+              Remove
+            </Button>
+          )
+        }
       </div>
       {feedback && displayFeedback(feedback)}
     </div>

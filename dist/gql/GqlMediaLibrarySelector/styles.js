@@ -26,6 +26,8 @@ export var useImageSelectorStyles = makeStyles(function (theme) { return ({
         color: theme.design.colors.greene,
         zIndex: 5,
         border: "1px solid ".concat(theme.design.colors.greene),
+        fontSize: theme.typography.fontSize + 4,
+        fontWeight: theme.typography.fontWeightBold,
         background: theme.design.colors.white,
         "&:hover": {
             background: theme.design.colors.successColor300,
@@ -39,6 +41,23 @@ export var useImageSelectorStyles = makeStyles(function (theme) { return ({
         background: "transparent",
         fontSize: theme.typography.fontSize * 4,
     },
+    removeBtn: {
+        cursor: "pointer",
+        marginLeft: theme.spacing(5),
+        color: theme.design.colors.greyColor300,
+        border: "1px solid ".concat(theme.design.colors.mercury),
+        fontSize: theme.typography.fontSize + 4,
+        fontWeight: theme.typography.fontWeightMedium,
+        background: theme.design.colors.white,
+        "&:hover": {
+            background: theme.design.colors.white,
+            border: "1px solid ".concat(theme.design.colors.mercury),
+        },
+    },
+    imgUploadContainer: {
+        display: "flex",
+        alignItems: "center"
+    },
     modal: {
         display: "flex",
         justifyContent: "center",
@@ -50,6 +69,7 @@ export var useImageSelectorStyles = makeStyles(function (theme) { return ({
     },
     cameraIconSm: {
         fontSize: 20,
+        fontWeight: theme.typography.fontWeightBold,
     },
     cameraIconMd: {
         fontSize: 40,
