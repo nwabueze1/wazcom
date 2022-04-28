@@ -11,7 +11,7 @@ export const useTableStyles = makeStyles((theme: Theme) => ({
     overflow: "hidden",
   },
   tableHead: {
-    background: theme.design.colors.whiteColor100,
+    background: theme.design.colors.whiteColor200,
   },
   tableHeadCell: {
     fontWeight: theme.typography.fontWeightBold,

@@ -16,10 +16,10 @@ import {
   useMediaUpload,
 } from "./hooks";
 import { FaTimes } from "react-icons/fa";
-import { Search, FilterAlt, Sort } from "@mui/icons-material";
-import { TextInput, CheckBoxInput, RadioButtonInput } from "../../io";
+import { Search, Sort } from "@mui/icons-material";
+import { TextInput, RadioButtonInput } from "../../io";
 import { Button } from "../../core";
-import { AddMedia } from "../../core/AddMedia/AddMedia";
+import { AddMedia } from "./components/AddMedia/AddMedia";
 
 export const GqlMediaLibrary: FC<GqlMediaLibraryProps> = ({
   className,
@@ -56,10 +56,8 @@ export const GqlMediaLibrary: FC<GqlMediaLibraryProps> = ({
   }>({ type: "" });
   const [open, setOpen] = useState(false);
   const [displayedImages, setDisplayedImages] = useState(images);
-  const [showFilter, setShowFilter] = useState(false);
   const [showSort, setShowSort] = useState(false);
   const [selected, setSelected] = useState("Newest");
-  const [checked, setChecked] = useState("");
 
   useEffect(() => {
     setLoading({ ...loading, media: true });
@@ -195,10 +193,6 @@ export const GqlMediaLibrary: FC<GqlMediaLibraryProps> = ({
     setOpen(false);
   };
 
-  const handleCheckBoxchange = (data: { name: string; value: any }) => {
-    setChecked(data.name);
-  };
-
   const handleChange = (data: { name: string; value: any }) => {
     setSelected(data.name);
     if (selected === "Newest") {
@@ -216,14 +210,6 @@ export const GqlMediaLibrary: FC<GqlMediaLibraryProps> = ({
     setDisplayedImages(sortedByOldest);
   };
 
-  const handleFilter = () => {
-    if (checked === "Landscape") {
-      const landscapeImages = images.filter((image) => {});
-    }
-    setShowFilter(false);
-  };
-
-  const filterType = ["Landscape", "Portrait", "Square"];
   const sortType = ["Newest", "Oldest"];
 
   return (
@@ -269,41 +255,6 @@ export const GqlMediaLibrary: FC<GqlMediaLibraryProps> = ({
         <div className={classes.searchParent}>
           <div className={classes.actionsContainer}>
             <div className={classes.btnContainer}>
-              <div className={classes.filter}>
-                <Button
-                  className={classes.button}
-                  variant="outlined"
-                  onClick={() => setShowFilter(!showFilter)}
-                >
-                  filter
-                  <FilterAlt />
-                </Button>
-                <div
-                  className={clx(
-                    classes.filterParent,
-                    showFilter && classes.showFilter,
-                  )}
-                >
-                  <div className={classes.filterTitle}>
-                    <p>BY ORIENTATION:</p>
-                    <p className={classes.filterText} onClick={handleFilter}>
-                      Filter
-                    </p>
-                  </div>
-                  <div>
-                    {filterType.map((type, index) => (
-                      <div className={classes.orientationType} key={index}>
-                        <CheckBoxInput
-                          value={checked === type}
-                          name={type}
-                          onChange={handleCheckBoxchange}
-                        />
-                        <p>{type}</p>
-                      </div>
-                    ))}
-                  </div>
-                </div>
-              </div>
               <div className={classes.filter}>
                 <Button
                   className={classes.button}

@@ -117,9 +117,9 @@ export var useMediaLibraryStyles = makeStyles(function (theme) { return ({
         padding: theme.spacing(3, 4),
     },
     tab: {
-        color: theme.design.colors.dangerColor300,
+        color: theme.design.colors.primaryColor100,
         paddingBottom: 2,
-        borderBottom: "2px solid ".concat(theme.design.colors.dangerColor300),
+        borderBottom: "2px solid ".concat(theme.design.colors.primaryColor100),
     },
     wrapper: {
         width: "100%",
@@ -185,6 +185,7 @@ export var useMediaLibraryStyles = makeStyles(function (theme) { return ({
     },
     filterText: {
         color: theme.design.colors.greene,
+        cursor: "pointer",
         fontWeight: theme.typography.fontWeightMedium,
     },
     filterParent: {

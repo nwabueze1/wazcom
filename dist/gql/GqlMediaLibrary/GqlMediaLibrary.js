@@ -78,14 +78,10 @@ import { useMediaLibraryStyles } from "./styles";
 import { EditMedia, DeleteMedia } from "./components";
 import { fetchData, mutateMedia, getUniqueImages, useFileSelect, useOnScroll, useDisplayImages, useUpdateMediaLibrary, useMediaUpload, } from "./hooks";
 import { FaTimes } from "react-icons/fa";
-<<<<<<< HEAD
-import { Search, FilterAlt, Sort } from "@mui/icons-material";
-import { TextInput, CheckBoxInput } from "../../io";
+import { Search, Sort } from "@mui/icons-material";
+import { TextInput, RadioButtonInput } from "../../io";
 import { Button } from "../../core";
-import { RadioButton } from "../../core/RadioButton/RadioButton";
-=======
->>>>>>> @{-1}
-import { AddMedia } from "../../core/AddMedia/AddMedia";
+import { AddMedia } from "./components/AddMedia/AddMedia";
 export var GqlMediaLibrary = function (_a) {
     var className = _a.className, _b = _a.config, client = _b.client, _c = _b.query, query = _c.name, queryVariables = _c.variables, upload = _b.upload, update = _b.update, remove = _b.remove, _d = _b.viewOnly, viewOnly = _d === void 0 ? false : _d, onChange = _a.onChange, name = _a.name;
     var refs = { fileRef: useRef(), listInnerRef: useRef() };
@@ -104,9 +100,10 @@ export var GqlMediaLibrary = function (_a) {
     var _h = __read(useState({ type: "" }), 2), activeMedia = _h[0], setActiveMedia = _h[1];
     var _j = __read(useState(false), 2), open = _j[0], setOpen = _j[1];
     var _k = __read(useState(images), 2), displayedImages = _k[0], setDisplayedImages = _k[1];
-    var _l = __read(useState(false), 2), showFilter = _l[0], setShowFilter = _l[1];
-    var _m = __read(useState(false), 2), showSort = _m[0], setShowSort = _m[1];
-    var _o = __read(useState(), 2), selected = _o[0], setSelected = _o[1];
+    // const [showFilter, setShowFilter] = useState(false);
+    var _l = __read(useState(false), 2), showSort = _l[0], setShowSort = _l[1];
+    var _m = __read(useState("Newest"), 2), selected = _m[0], setSelected = _m[1];
+    // const [checked, setChecked] = useState("");
     useEffect(function () {
         setLoading(__assign(__assign({}, loading), { media: true }));
         fetchData(client, query, __assign({}, queryVariables))
@@ -163,6 +160,14 @@ export var GqlMediaLibrary = function (_a) {
         }
         setActiveMedia({ type: type, media: media });
     };
+    var handleSearchChange = function (data) {
+        var search = data.value;
+        if (search === "") {
+            return;
+        }
+        var filteredResult = images.filter(function (image) { var _a; return (_a = image.title) === null || _a === void 0 ? void 0 : _a.toLowerCase().includes(search.toLowerCase()); });
+        setDisplayedImages(filteredResult);
+    };
     var handleMediaAdd = useCallback(function (variables) { return __awaiter(void 0, void 0, void 0, function () {
         return __generator(this, function (_a) {
             switch (_a.label) {
@@ -217,15 +222,36 @@ export var GqlMediaLibrary = function (_a) {
         handleFileSelect(refs.fileRef);
         setOpen(false);
     };
-    var handleChange = function (event) { };
-    var filterType = ["Landscape", "Portrait", "Square"];
+    // const handleCheckBoxchange = (data: { name: string; value: any }) => {
+    //   setChecked(data.name);
+    // };
+    var handleChange = function (data) {
+        setSelected(data.name);
+        if (selected === "Newest") {
+            var sortByNewest = images.sort(function (a, b) {
+                return new Date(a.created_at).getTime() - new Date(b.created_at).getTime();
+            });
+            setDisplayedImages(sortByNewest);
+            return;
+        }
+        var sortedByOldest = images.sort(function (a, b) {
+            return new Date(b.created_at).getTime() - new Date(a.created_at).getTime();
+        });
+        setDisplayedImages(sortedByOldest);
+    };
+    // const handleFilter = () => {
+    //   if (checked === "Landscape") {
+    //     const landscapeImages = images.filter((image) => {});
+    //   }
+    //   setShowFilter(false);
+    // };
+    // const filterType = ["Landscape", "Portrait", "Square"];
     var sortType = ["Newest", "Oldest"];
     return (_jsx("div", __assign({ className: clx(classes.wrapper, className, viewOnly && classes.wrapperDialog), ref: refs.listInnerRef, onScroll: function () {
             handleOnScroll(refs.listInnerRef, function (index) {
                 setActiveMedia(__assign(__assign({}, activeMedia), { index: index }));
             });
-<<<<<<< HEAD
-        } }, { children: _jsxs("div", { children: [_jsx("input", { name: "image_url", accept: "image/*", hidden: true, type: "file", ref: refs.fileRef, onChange: handleFileChange }, void 0), _jsx("div", __assign({ className: classes.actions }, { children: viewOnly ? (_jsxs(_Fragment, { children: [_jsx("p", { children: "Media Library" }, void 0), _jsx(FaTimes, { className: classes.timesIcon }, void 0)] }, void 0)) : (_jsxs(_Fragment, { children: [_jsx("p", __assign({ className: classes.tab }, { children: "All Media" }), void 0), _jsx(AddMedia, { handleFilesSelection: handleFileSelection, handleOpenMedia: open, handleCloseMedia: setOpen }, void 0)] }, void 0)) }), void 0), _jsxs("div", __assign({ className: classes.searchParent }, { children: [_jsxs("div", __assign({ className: classes.actionsContainer }, { children: [_jsxs("div", __assign({ className: classes.btnContainer }, { children: [_jsxs("div", __assign({ className: classes.filter }, { children: [_jsxs(Button, __assign({ className: classes.button, variant: "outlined", onClick: function () { return setShowFilter(!showFilter); } }, { children: ["filter", _jsx(FilterAlt, {}, void 0)] }), void 0), _jsxs("div", __assign({ className: clx(classes.filterParent, showFilter && classes.showFilter) }, { children: [_jsxs("div", __assign({ className: classes.filterTitle }, { children: [_jsx("p", { children: "BY ORIENTATION:" }, void 0), _jsx("p", __assign({ className: classes.filterText }, { children: "Filter" }), void 0)] }), void 0), _jsx("div", { children: filterType.map(function (type, index) { return (_jsxs("div", __assign({ className: classes.orientationType }, { children: [_jsx(CheckBoxInput, {}, void 0), _jsx("p", { children: type }, void 0)] }), index)); }) }, void 0)] }), void 0)] }), void 0), _jsxs("div", __assign({ className: classes.filter }, { children: [_jsxs(Button, __assign({ className: classes.button, variant: "outlined", onClick: function () { return setShowSort(!showSort); } }, { children: ["sort", _jsx(Sort, {}, void 0)] }), void 0), _jsxs("div", __assign({ className: clx(classes.sortParent, showSort && classes.showSort) }, { children: [_jsx("p", __assign({ className: classes.sort }, { children: "sort by:" }), void 0), sortType.map(function (type, index) { return (_jsxs("p", __assign({ className: classes.sortType }, { children: [_jsx(RadioButton, { checked: selected === { type: type }, classNames: { radioButtonInput: classes.radioButton } }, void 0), type] }), index)); })] }), void 0)] }), void 0)] }), void 0), _jsxs("div", __assign({ className: classes.searchContainer }, { children: [_jsx(TextInput, { name: "search", type: "text", placeholder: "Search", onChange: handleSearchChange, className: classes.search, classNames: { textInput: classes.input } }, void 0), _jsx(Search, { className: classes.searchIcon }, void 0)] }), void 0)] }), void 0), _jsx("div", __assign({ className: classes.collection }, { children: images.length === 0 && loading.media ? (_jsx(Loader, {}, void 0)) : (_jsxs(_Fragment, { children: [(activeMedia.type === "add" ||
+        } }, { children: _jsxs("div", { children: [_jsx("input", { name: "image_url", accept: "image/*", hidden: true, type: "file", ref: refs.fileRef, onChange: handleFileChange }, void 0), _jsx("div", __assign({ className: classes.actions }, { children: viewOnly ? (_jsxs(_Fragment, { children: [_jsx("p", { children: "Media Library" }, void 0), _jsx(FaTimes, { className: classes.timesIcon }, void 0)] }, void 0)) : (_jsxs(_Fragment, { children: [_jsx("p", __assign({ className: classes.tab }, { children: "All Media" }), void 0), _jsx(AddMedia, { handleFilesSelection: handleFileSelection, handleOpenMedia: open, handleCloseMedia: setOpen }, void 0)] }, void 0)) }), void 0), _jsxs("div", __assign({ className: classes.searchParent }, { children: [_jsxs("div", __assign({ className: classes.actionsContainer }, { children: [_jsx("div", __assign({ className: classes.btnContainer }, { children: _jsxs("div", __assign({ className: classes.filter }, { children: [_jsxs(Button, __assign({ className: classes.button, variant: "outlined", onClick: function () { return setShowSort(!showSort); } }, { children: ["sort", _jsx(Sort, {}, void 0)] }), void 0), _jsxs("div", __assign({ className: clx(classes.sortParent, showSort && classes.showSort) }, { children: [_jsx("p", __assign({ className: classes.sort }, { children: "sort by:" }), void 0), sortType.map(function (type, index) { return (_jsxs("p", __assign({ className: classes.sortType }, { children: [_jsx(RadioButtonInput, { name: type, value: selected === type, classNames: { radioButtonInput: classes.radioButton }, onChange: handleChange }, void 0), type] }), index)); })] }), void 0)] }), void 0) }), void 0), _jsxs("div", __assign({ className: classes.searchContainer }, { children: [_jsx(TextInput, { name: "search", type: "text", placeholder: "Search", onChange: handleSearchChange, className: classes.search, classNames: { textInput: classes.input } }, void 0), _jsx(Search, { className: classes.searchIcon }, void 0)] }), void 0)] }), void 0), _jsx("div", __assign({ className: classes.collection }, { children: images.length === 0 && loading.media ? (_jsx(Loader, {}, void 0)) : (_jsxs(_Fragment, { children: [(activeMedia.type === "add" ||
                                         activeMedia.type === "edit") && (_jsx(EditMedia, { loading: loading.mutate, handleEdit: function (variables) {
                                             handleMediaUpdate(variables);
                                         }, handleClose: function () {
@@ -236,16 +262,4 @@ export var GqlMediaLibrary = function (_a) {
                                         }, handleMediaAction, viewOnly)] }, void 0)) }), void 0), images.length > 0 && loading.media && (_jsx("div", __assign({ className: classes.loaderParent }, { children: _jsx(Loader, { className: classes.loader }, void 0) }), void 0))] }), void 0), _jsx(DeleteMedia, { display: activeMedia.type === "delete", loading: loading.mutate, media: activeMedia.media, handleClose: function () {
                         handleMediaAction("", undefined);
                     }, handleDelete: handleMediaDelete }, void 0)] }, void 0) }), void 0));
-=======
-        } }, { children: [_jsxs("div", { children: [_jsx("input", { name: "image_url", accept: "image/*", hidden: true, type: "file", ref: refs.fileRef, onChange: handleFileChange }, void 0), _jsx("div", __assign({ className: classes.actions }, { children: viewOnly ? (_jsxs(_Fragment, { children: [_jsx("p", { children: "Media Library" }, void 0), _jsx(FaTimes, { className: classes.timesIcon }, void 0)] }, void 0)) : (_jsxs(_Fragment, { children: [_jsx("p", __assign({ className: classes.tab }, { children: "All Media" }), void 0), _jsx(AddMedia, { handleFilesSelection: handleFileSelection, handleOpenMedia: open, handleCloseMedia: setOpen }, void 0)] }, void 0)) }), void 0), _jsx("div", __assign({ className: classes.collection }, { children: images.length === 0 && loading.media ? (_jsx(Loader, {}, void 0)) : (_jsxs(_Fragment, { children: [(activeMedia.type === "add" || activeMedia.type === "edit") && (_jsx(EditMedia, { loading: loading.mutate, handleEdit: function (variables) {
-                                        handleMediaUpdate(variables);
-                                    }, handleClose: function () {
-                                        handleMediaAction("", undefined);
-                                    }, image: activeMedia.media }, void 0)), images &&
-                                    handleDisplayImages(displayedImages, function (image) {
-                                        onChange === null || onChange === void 0 ? void 0 : onChange({ name: name !== null && name !== void 0 ? name : "", value: image });
-                                    }, handleMediaAction, viewOnly)] }, void 0)) }), void 0), images.length > 0 && loading.media && (_jsx("div", __assign({ className: classes.loaderParent }, { children: _jsx(Loader, { className: classes.loader }, void 0) }), void 0))] }, void 0), _jsx(DeleteMedia, { display: activeMedia.type === "delete", loading: loading.mutate, media: activeMedia.media, handleClose: function () {
-                    handleMediaAction("", undefined);
-                }, handleDelete: handleMediaDelete }, void 0)] }), void 0));
->>>>>>> @{-1}
 };

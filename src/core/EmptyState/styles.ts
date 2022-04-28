@@ -25,7 +25,7 @@ export const useEmptyStateStyles = makeStyles((theme: Theme) => ({
   text: {
     padding: theme.spacing(5, 0, 4, 0),
     fontSize: theme.typography.fontSize + 4,
-    color: theme.design.colors.primaryBlack,
+    color: theme.design.colors.black,
     whiteSpace: "nowrap",
   },
   btn: {
