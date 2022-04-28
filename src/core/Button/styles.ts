@@ -8,11 +8,11 @@ export const useButtonStyles = makeStyles((theme: BaseTheme) => ({
   button: {
     textTransform: "capitalize",
     color: theme.design.colors.white,
-    backgroundColor: theme.design.colors.greene,
+    backgroundColor: theme.design.colors.primaryColor100,
     fontSize: theme.typography.fontSize,
     fontFamily: theme.typography.fontFamily,
     "&:hover": {
-      backgroundColor: theme.design.colors.greene,
+      backgroundColor: theme.design.colors.primaryColor100,
       opacity: "70%",
     },
   },

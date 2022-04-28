@@ -25,7 +25,7 @@ export const useToggleStyles = makeStyles((theme: Theme) => ({
     "& 	.Mui-checked": {
       color: theme.design.colors.white,
       "& + .MuiSwitch-track": {
-        backgroundColor: theme.design.colors.greene,
+        backgroundColor: theme.design.colors.primaryColor100,
         opacity: 1,
         border: 0,
       },

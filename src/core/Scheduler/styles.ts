@@ -19,7 +19,7 @@ export const useSchedulerStyles = makeStyles((theme: Theme) => ({
     margin: "0",
     fontSize: theme.typography.fontSize + 4,
     fontWeight: theme.typography.fontWeightMedium,
-    color: theme.design.colors.greene,
+    color: theme.design.colors.primaryColor100,
     display: "flex",
     alignItems: "center",
   },

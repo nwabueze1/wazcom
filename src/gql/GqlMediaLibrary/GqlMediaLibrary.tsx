@@ -16,7 +16,7 @@ import {
   useMediaUpload,
 } from "./hooks";
 import { FaTimes } from "react-icons/fa";
-import { AddMedia } from "../../core/AddMedia/AddMedia";
+import { AddMedia } from "./components/AddMedia/AddMedia";
 
 export const GqlMediaLibrary: FC<GqlMediaLibraryProps> = ({
   className,
