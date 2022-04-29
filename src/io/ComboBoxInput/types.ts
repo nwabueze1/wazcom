@@ -12,4 +12,4 @@ export type ComboBoxInputProps = CommonProps &
     value?: string;
   };
 
-export type ComboBoxInputOptionProps = { label: string; value: string };
+export type ComboBoxInputOptionProps = { label: string; value: string, subText?: string };
