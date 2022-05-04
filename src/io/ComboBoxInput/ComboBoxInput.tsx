@@ -98,7 +98,6 @@ export const ComboBoxInput: FC<ComboBoxInputProps> = ({
         renderInput={(params) => (
           <TextField
             {...params}
-            label={label}
             placeholder={placeholder}
             variant="outlined"
             error={error}
