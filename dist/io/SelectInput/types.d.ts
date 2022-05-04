@@ -5,5 +5,6 @@ export declare type SelectInputProps = CommonProps & Omit<MuiSelectProps, "onCha
     options?: {
         label: string;
         value: string;
+        subText?: string;
     }[];
 };

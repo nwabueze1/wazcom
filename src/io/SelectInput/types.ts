@@ -7,5 +7,6 @@ export type SelectInputProps = CommonProps &
     options?: {
       label: string;
       value: string;
+      subText?: string;
     }[];
   };

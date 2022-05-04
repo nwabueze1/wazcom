@@ -53,9 +53,12 @@ export const SelectInput: FC<SelectInputProps> = ({
         {options.length === 0 && (
           <MenuItem value="Select a value">{placeholder}</MenuItem>
         )}
-        {options.map(({ label, value }, index: number) => (
+        {options.map(({ label, value, subText }, index: number) => (
           <MenuItem key={index} value={value}>
-            {label}
+            <div className={classNames?.optionContainer as string}>
+              <p className={(classNames?.optionLabel as string)}>{label}</p>
+              {<p className={(classNames?.optionSubText as string)}>{subText}</p>}
+            </div>
           </MenuItem>
         ))}
       </Select>
