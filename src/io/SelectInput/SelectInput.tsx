@@ -49,6 +49,7 @@ export const SelectInput: FC<SelectInputProps> = ({
             ? (classNames.classes as { [key: string]: string })
             : {}
         }
+        renderValue={(value: any) => <MenuItem value={value}>{value}</MenuItem>}
       >
         {options.length === 0 && (
           <MenuItem value="Select a value">{placeholder}</MenuItem>
@@ -57,7 +58,7 @@ export const SelectInput: FC<SelectInputProps> = ({
           <MenuItem key={index} value={value}>
             <div className={classNames?.optionContainer as string}>
               <p className={(classNames?.optionLabel as string)}>{label}</p>
-              {<p className={(classNames?.optionSubText as string)}>{subText}</p>}
+              {subText && <p className={(classNames?.optionSubText as string)}>{subText}</p>}
             </div>
           </MenuItem>
         ))}
