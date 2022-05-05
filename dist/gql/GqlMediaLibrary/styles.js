@@ -145,6 +145,7 @@ export var useMediaLibraryStyles = makeStyles(function (theme) { return ({
         justifyContent: "space-between",
     },
     searchContainer: {
+        width: "30%",
         position: "relative",
         padding: theme.spacing(0, 4),
     },
@@ -153,8 +154,10 @@ export var useMediaLibraryStyles = makeStyles(function (theme) { return ({
         color: theme.design.colors.greenishGrey2,
         border: "1px solid ".concat(theme.design.colors.greene),
     },
-    input: {
-        paddingLeft: theme.spacing(3),
+    textInput: {
+        "&>div": {
+            padding: theme.spacing(0, 3),
+        },
     },
     content: {
         width: "80%",
@@ -171,6 +174,7 @@ export var useMediaLibraryStyles = makeStyles(function (theme) { return ({
     actionsContainer: {
         display: "flex",
         justifyContent: "space-between",
+        alignItems: "center",
         width: "95%",
         margin: "auto",
     },
@@ -245,6 +249,18 @@ export var useMediaLibraryStyles = makeStyles(function (theme) { return ({
         "& .Mui-checked": {
             color: theme.design.colors.greene,
         },
+    },
+    layouts: {
+        display: "flex",
+    },
+    activeLayout: {
+        backgroundColor: theme.design.colors.grey5,
+    },
+    twoColumn: {
+        width: "calc((100% - 32px)/2)",
+    },
+    fourColumn: {
+        width: "calc((100% - 32px)/4)",
     },
 }); });
 export var StyledModal = styled(ModalUnstyled)(templateObject_1 || (templateObject_1 = __makeTemplateObject(["\n  position: fixed;\n  z-index: 1300;\n  right: 0;\n  bottom: 0;\n  top: 0;\n  left: 0;\n  display: flex;\n  align-items: center;\n  justify-content: center;\n"], ["\n  position: fixed;\n  z-index: 1300;\n  right: 0;\n  bottom: 0;\n  top: 0;\n  left: 0;\n  display: flex;\n  align-items: center;\n  justify-content: center;\n"])));
