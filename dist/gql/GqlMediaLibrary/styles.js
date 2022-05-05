@@ -147,12 +147,15 @@ export var useMediaLibraryStyles = makeStyles(function (theme) { return ({
     searchContainer: {
         width: "30%",
         position: "relative",
-        padding: theme.spacing(0, 4),
+        padding: theme.spacing(0, 0, 0, 4),
     },
     button: {
         background: theme.design.colors.white,
         color: theme.design.colors.greenishGrey2,
         border: "1px solid ".concat(theme.design.colors.greene),
+        "&:hover": {
+            color: theme.design.colors.white,
+        },
     },
     textInput: {
         "&>div": {

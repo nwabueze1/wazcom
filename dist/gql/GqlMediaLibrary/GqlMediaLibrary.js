@@ -84,6 +84,7 @@ import { Button } from "../../core";
 import { AddMedia } from "./components/AddMedia/AddMedia";
 import { Layout } from "./components/Layout/Layout";
 import { layoutData } from "./components/Layout/data";
+import { ClickAwayListener } from "@mui/base";
 export var GqlMediaLibrary = function (_a) {
     var className = _a.className, _b = _a.config, client = _b.client, _c = _b.query, query = _c.name, queryVariables = _c.variables, upload = _b.upload, update = _b.update, remove = _b.remove, _d = _b.viewOnly, viewOnly = _d === void 0 ? false : _d, onChange = _a.onChange, name = _a.name;
     var refs = { fileRef: useRef(), listInnerRef: useRef() };
@@ -105,7 +106,6 @@ export var GqlMediaLibrary = function (_a) {
     var _l = __read(useState(false), 2), showSort = _l[0], setShowSort = _l[1];
     var _m = __read(useState("Newest"), 2), selected = _m[0], setSelected = _m[1];
     var _o = __read(useState(1), 2), activeLayout = _o[0], setActiveLayout = _o[1];
-    console.log(activeLayout);
     useEffect(function () {
         setLoading(__assign(__assign({}, loading), { media: true }));
         fetchData(client, query, __assign({}, queryVariables))
@@ -141,6 +141,9 @@ export var GqlMediaLibrary = function (_a) {
             }
         }
     }, [activeMedia.index]);
+    var handleClickAway = function () {
+        setShowSort(false);
+    };
     var updateMediaLibrary = useCallback(function (image, type, variables) {
         if (type === void 0) { type = "add"; }
         handleUpdateMediaLibrary(image, images, setImages, function (index) {
@@ -246,7 +249,7 @@ export var GqlMediaLibrary = function (_a) {
             handleOnScroll(refs.listInnerRef, function (index) {
                 setActiveMedia(__assign(__assign({}, activeMedia), { index: index }));
             });
-        } }, { children: _jsxs("div", { children: [_jsx("input", { name: "image_url", accept: "image/*", hidden: true, type: "file", ref: refs.fileRef, onChange: handleFileChange }, void 0), _jsx("div", __assign({ className: classes.actions }, { children: viewOnly ? (_jsxs(_Fragment, { children: [_jsx("p", { children: "Media Library" }, void 0), _jsx(FaTimes, { className: classes.timesIcon }, void 0)] }, void 0)) : (_jsxs(_Fragment, { children: [_jsx("p", __assign({ className: classes.tab }, { children: "All Media" }), void 0), _jsx(AddMedia, { handleFilesSelection: handleFileSelection, handleOpenMedia: open, handleCloseMedia: setOpen }, void 0)] }, void 0)) }), void 0), _jsxs("div", __assign({ className: classes.searchParent }, { children: [_jsxs("div", __assign({ className: classes.actionsContainer }, { children: [_jsx("div", __assign({ className: classes.btnContainer }, { children: _jsxs("div", __assign({ className: classes.filter }, { children: [_jsxs(Button, __assign({ className: classes.button, variant: "outlined", onClick: function () { return setShowSort(!showSort); } }, { children: ["sort", _jsx(Sort, {}, void 0)] }), void 0), _jsxs("div", __assign({ className: clx(classes.sortParent, showSort && classes.showSort) }, { children: [_jsx("p", __assign({ className: classes.sort }, { children: "sort by:" }), void 0), displaySortType()] }), void 0)] }), void 0) }), void 0), _jsx("div", __assign({ className: classes.layouts }, { children: displayLayoutData() }), void 0), _jsxs("div", __assign({ className: classes.searchContainer }, { children: [_jsx(TextInput, { name: "search", type: "text", placeholder: "Search", onChange: handleSearchChange, className: classes.search, classNames: { textInput: classes.textInput } }, void 0), _jsx(Search, { className: classes.searchIcon }, void 0)] }), void 0)] }), void 0), _jsx("div", __assign({ className: classes.collection }, { children: images.length === 0 && loading.media ? (_jsx(Loader, {}, void 0)) : (_jsxs(_Fragment, { children: [(activeMedia.type === "add" ||
+        } }, { children: _jsxs("div", { children: [_jsx("input", { name: "image_url", accept: "image/*", hidden: true, type: "file", ref: refs.fileRef, onChange: handleFileChange }, void 0), _jsx("div", __assign({ className: classes.actions }, { children: viewOnly ? (_jsxs(_Fragment, { children: [_jsx("p", { children: "Media Library" }, void 0), _jsx(FaTimes, { className: classes.timesIcon }, void 0)] }, void 0)) : (_jsxs(_Fragment, { children: [_jsx("p", __assign({ className: classes.tab }, { children: "All Media" }), void 0), _jsx(AddMedia, { handleFilesSelection: handleFileSelection, handleOpenMedia: open, handleCloseMedia: setOpen }, void 0)] }, void 0)) }), void 0), _jsxs("div", __assign({ className: classes.searchParent }, { children: [_jsxs("div", __assign({ className: classes.actionsContainer }, { children: [_jsx("div", __assign({ className: classes.btnContainer }, { children: _jsx(ClickAwayListener, __assign({ onClickAway: handleClickAway }, { children: _jsxs("div", __assign({ className: classes.filter }, { children: [_jsxs(Button, __assign({ className: classes.button, variant: "outlined", onClick: function () { return setShowSort(!showSort); } }, { children: ["sort", _jsx(Sort, {}, void 0)] }), void 0), _jsxs("div", __assign({ className: clx(classes.sortParent, showSort && classes.showSort) }, { children: [_jsx("p", __assign({ className: classes.sort }, { children: "sort by:" }), void 0), displaySortType()] }), void 0)] }), void 0) }), void 0) }), void 0), _jsx("div", __assign({ className: classes.layouts }, { children: displayLayoutData() }), void 0), _jsxs("div", __assign({ className: classes.searchContainer }, { children: [_jsx(TextInput, { name: "search", type: "text", placeholder: "Search", onChange: handleSearchChange, className: classes.search, classNames: { textInput: classes.textInput } }, void 0), _jsx(Search, { className: classes.searchIcon }, void 0)] }), void 0)] }), void 0), _jsx("div", __assign({ className: classes.collection }, { children: images.length === 0 && loading.media ? (_jsx(Loader, {}, void 0)) : (_jsxs(_Fragment, { children: [(activeMedia.type === "add" ||
                                         activeMedia.type === "edit") && (_jsx(EditMedia, { loading: loading.mutate, handleEdit: function (variables) {
                                             handleMediaUpdate(variables);
                                         }, handleClose: function () {

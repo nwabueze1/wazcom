@@ -22,6 +22,7 @@ import { Button } from "../../core";
 import { AddMedia } from "./components/AddMedia/AddMedia";
 import { Layout } from "./components/Layout/Layout";
 import { layoutData } from "./components/Layout/data";
+import { ClickAwayListener } from "@mui/base";
 
 export const GqlMediaLibrary: FC<GqlMediaLibraryProps> = ({
   className,
@@ -61,7 +62,6 @@ export const GqlMediaLibrary: FC<GqlMediaLibraryProps> = ({
   const [showSort, setShowSort] = useState(false);
   const [selected, setSelected] = useState("Newest");
   const [activeLayout, setActiveLayout] = useState<number>(1);
-  console.log(activeLayout);
 
   useEffect(() => {
     setLoading({ ...loading, media: true });
@@ -99,6 +99,10 @@ export const GqlMediaLibrary: FC<GqlMediaLibraryProps> = ({
       }
     }
   }, [activeMedia.index]);
+
+  const handleClickAway = () => {
+    setShowSort(false);
+  };
 
   const updateMediaLibrary = useCallback(
     (image: Image, type = "add", variables?: ImageUpdate) => {
@@ -279,25 +283,27 @@ export const GqlMediaLibrary: FC<GqlMediaLibraryProps> = ({
         <div className={classes.searchParent}>
           <div className={classes.actionsContainer}>
             <div className={classes.btnContainer}>
-              <div className={classes.filter}>
-                <Button
-                  className={classes.button}
-                  variant="outlined"
-                  onClick={() => setShowSort(!showSort)}
-                >
-                  sort
-                  <Sort />
-                </Button>
-                <div
-                  className={clx(
-                    classes.sortParent,
-                    showSort && classes.showSort
-                  )}
-                >
-                  <p className={classes.sort}>sort by:</p>
-                  {displaySortType()}
+              <ClickAwayListener onClickAway={handleClickAway}>
+                <div className={classes.filter}>
+                  <Button
+                    className={classes.button}
+                    variant="outlined"
+                    onClick={() => setShowSort(!showSort)}
+                  >
+                    sort
+                    <Sort />
+                  </Button>
+                  <div
+                    className={clx(
+                      classes.sortParent,
+                      showSort && classes.showSort
+                    )}
+                  >
+                    <p className={classes.sort}>sort by:</p>
+                    {displaySortType()}
+                  </div>
                 </div>
-              </div>
+              </ClickAwayListener>
             </div>
             <div className={classes.layouts}>{displayLayoutData()}</div>
             <div className={classes.searchContainer}>
