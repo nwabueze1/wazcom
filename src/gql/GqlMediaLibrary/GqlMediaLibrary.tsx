@@ -5,6 +5,7 @@ import { Loader } from "../../core/Loader/Loader";
 import { useMediaLibraryStyles } from "./styles";
 import { Image, GqlMediaLibraryProps, ImageUpdate } from "./types";
 import { EditMedia, DeleteMedia } from "./components";
+import { Box } from "@mui/system";
 import {
   fetchData,
   mutateMedia,
@@ -23,6 +24,7 @@ import { AddMedia } from "./components/AddMedia/AddMedia";
 import { Layout } from "./components/Layout/Layout";
 import { layoutData } from "./components/Layout/data";
 import { ClickAwayListener } from "@mui/base";
+import { UploadDialogue } from "./components/AddMedia/UploadDialogue";
 
 export const GqlMediaLibrary: FC<GqlMediaLibraryProps> = ({
   className,
@@ -62,6 +64,7 @@ export const GqlMediaLibrary: FC<GqlMediaLibraryProps> = ({
   const [showSort, setShowSort] = useState(false);
   const [selected, setSelected] = useState("Newest");
   const [activeLayout, setActiveLayout] = useState<number>(1);
+const [activeTab, setActiveTab] = useState("Media Library")
 
   useEffect(() => {
     setLoading({ ...loading, media: true });
@@ -224,6 +227,7 @@ export const GqlMediaLibrary: FC<GqlMediaLibraryProps> = ({
         className={clx(activeLayout === index ? classes.activeLayout : "")}
       />
     ));
+  const sortType = ["Newest", "Oldest"];
 
   const displaySortType = () =>
     sortType.map((type, index) => (
@@ -238,7 +242,14 @@ export const GqlMediaLibrary: FC<GqlMediaLibraryProps> = ({
       </p>
     ));
 
-  const sortType = ["Newest", "Oldest"];
+  const tabs = ["Upload Media", "Media Library"];
+
+  const displayTabs = () =>
+    tabs.map((tab, index) => (
+      <p key={index} className={classes.selectorTab}>
+        {tab}
+      </p>
+    ));
 
   return (
     <div
@@ -263,10 +274,12 @@ export const GqlMediaLibrary: FC<GqlMediaLibraryProps> = ({
           ref={refs.fileRef}
           onChange={handleFileChange}
         />
-        <div className={classes.actions}>
+        <div
+          className={clx(classes.actions, viewOnly && classes.viewOnlyActions)}
+        >
           {viewOnly ? (
             <>
-              <p>Media Library</p>
+              <div className={classes.tabs}>{displayTabs()}</div>
               <FaTimes className={classes.timesIcon} />
             </>
           ) : (
@@ -282,30 +295,34 @@ export const GqlMediaLibrary: FC<GqlMediaLibraryProps> = ({
         </div>
         <div className={classes.searchParent}>
           <div className={classes.actionsContainer}>
-            <div className={classes.btnContainer}>
-              <ClickAwayListener onClickAway={handleClickAway}>
-                <div className={classes.filter}>
-                  <Button
-                    className={classes.button}
-                    variant="outlined"
-                    onClick={() => setShowSort(!showSort)}
-                  >
-                    sort
-                    <Sort />
-                  </Button>
-                  <div
-                    className={clx(
-                      classes.sortParent,
-                      showSort && classes.showSort
-                    )}
-                  >
-                    <p className={classes.sort}>sort by:</p>
-                    {displaySortType()}
+            {!viewOnly && (
+              <div className={classes.btnContainer}>
+                <ClickAwayListener onClickAway={handleClickAway}>
+                  <div className={classes.filter}>
+                    <Button
+                      className={classes.button}
+                      variant="outlined"
+                      onClick={() => setShowSort(!showSort)}
+                    >
+                      sort
+                      <Sort />
+                    </Button>
+                    <div
+                      className={clx(
+                        classes.sortParent,
+                        showSort && classes.showSort
+                      )}
+                    >
+                      <p className={classes.sort}>sort by:</p>
+                      {displaySortType()}
+                    </div>
                   </div>
-                </div>
-              </ClickAwayListener>
-            </div>
-            <div className={classes.layouts}>{displayLayoutData()}</div>
+                </ClickAwayListener>
+              </div>
+            )}
+            {!viewOnly && (
+              <div className={classes.layouts}>{displayLayoutData()}</div>
+            )}
             <div className={classes.searchContainer}>
               <TextInput
                 name="search"
@@ -347,6 +364,12 @@ export const GqlMediaLibrary: FC<GqlMediaLibraryProps> = ({
                     activeLayout
                   )}
               </>
+            )}
+            {activeTab === "Upload Media" && (
+              <UploadDialogue
+                handleCloseMedia={setOpen}
+                handleFilesSelection={handleFileSelection}
+              />
             )}
           </div>
           {images.length > 0 && loading.media && (

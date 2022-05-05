@@ -117,6 +117,10 @@ export const useMediaLibraryStyles = makeStyles((theme: Theme) => ({
     borderBottom: "1px solid rgba(0,0,0,0.06)",
     padding: theme.spacing(3, 4),
   },
+  tabs: {
+    display: "flex",
+    cursor: "pointer",
+  },
   tab: {
     color: theme.design.colors.primaryColor100,
     paddingBottom: 2,
@@ -131,9 +135,15 @@ export const useMediaLibraryStyles = makeStyles((theme: Theme) => ({
     zIndex: 15,
     scrollBehavior: "smooth",
   },
+  selectorTab: {
+    fontSize: theme.typography.fontSize + 4,
+    color: theme.design.colors.grey1,
+    padding: theme.spacing(2, 2),
+    background: theme.design.colors.grey6,
+  },
   wrapperDialog: {
-    maxWidth: 600,
-    width: 600,
+    // maxWidth: 600,
+    // width: 600,
     maxHeight: 550,
   },
   error: {
@@ -181,6 +191,9 @@ export const useMediaLibraryStyles = makeStyles((theme: Theme) => ({
     alignItems: "center",
     width: "95%",
     margin: "auto",
+  },
+  viewOnlyActions: {
+    padding: theme.spacing(0, 4),
   },
   filter: {
     position: "relative",

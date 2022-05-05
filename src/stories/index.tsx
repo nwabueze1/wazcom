@@ -107,6 +107,7 @@ export const stories: ComponentPropType[] = [
           name: UPLOAD_IMAGE,
           variables: {},
         },
+        viewOnly: true,
       },
       src: "https://sytbuildr.s3.eu-west-2.amazonaws.com/wbAJD5oi83HUWjLuZhqTiXwlW6LO9Xdxfxr2K4TI.jpg",
       feedback: {
