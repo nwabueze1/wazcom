@@ -146,6 +146,7 @@ export const useMediaLibraryStyles = makeStyles((theme: Theme) => ({
     justifyContent: "space-between",
   },
   searchContainer: {
+    width: "30%",
     position: "relative",
     padding: theme.spacing(0, 4),
   },
@@ -154,8 +155,10 @@ export const useMediaLibraryStyles = makeStyles((theme: Theme) => ({
     color: theme.design.colors.greenishGrey2,
     border: `1px solid ${theme.design.colors.greene}`,
   },
-  input: {
-    paddingLeft: theme.spacing(3),
+  textInput: {
+    "&>div": {
+      padding: theme.spacing(0, 3),
+    },
   },
   content: {
     width: "80%",
@@ -172,6 +175,7 @@ export const useMediaLibraryStyles = makeStyles((theme: Theme) => ({
   actionsContainer: {
     display: "flex",
     justifyContent: "space-between",
+    alignItems: "center",
     width: "95%",
     margin: "auto",
   },
@@ -246,6 +250,18 @@ export const useMediaLibraryStyles = makeStyles((theme: Theme) => ({
     "& .Mui-checked": {
       color: theme.design.colors.greene,
     },
+  },
+  layouts: {
+    display: "flex",
+  },
+  activeLayout: {
+    backgroundColor: theme.design.colors.grey5,
+  },
+  twoColumn: {
+    width: "calc((100% - 32px)/2)",
+  },
+  fourColumn: {
+    width: "calc((100% - 32px)/4)",
   },
 }));
 

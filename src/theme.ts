@@ -181,6 +181,7 @@ export const theme: any = {
       greenishGrey: "#999F9B",
       greenishGrey2: "#4D5650",
       grey5: "#E6E7E6",
+      grey1: "#343E37",
       mercury: "#CCCFCD",
       primaryBlack: "#010E05",
     },
