@@ -127,6 +127,7 @@ export const GqlMediaLibrary: FC<GqlMediaLibraryProps> = ({
     if (!event.target.files || event.target.files === 0) return;
     const file = event.target.files[0];
     handleMediaAction("add", file);
+    setActiveTab(1);
   };
 
   const handleMediaAction = (type: string, media?: Image | File) => {
@@ -198,7 +199,6 @@ export const GqlMediaLibrary: FC<GqlMediaLibraryProps> = ({
   const handleFileSelection = () => {
     handleFileSelect(refs.fileRef);
     setOpen(false);
-    setActiveTab(1);
   };
 
   const handleChange = (data: { name: string; value: any }) => {
@@ -356,13 +356,20 @@ export const GqlMediaLibrary: FC<GqlMediaLibraryProps> = ({
               </div>
             )}
           </div>
-          <div className={clx(classes.collection, activeTab === 0 && classes.uploadViewWidth)}>
+          <div
+            className={clx(
+              classes.collection,
+              activeTab === 0 && classes.uploadViewWidth
+            )}
+          >
             {activeTab === 0 && (
               <UploadDialogue
                 className={classes.dialogue}
                 handleCloseMedia={setOpen}
                 handleFilesSelection={handleFileSelection}
                 showHeader={false}
+                handleMediaAction={handleMediaAction}
+                setActiveTab={setActiveTab}
               />
             )}
             {activeTab === 1 ? (

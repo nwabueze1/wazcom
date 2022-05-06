@@ -18,7 +18,6 @@ export var useMediaLibraryStyles = makeStyles(function (theme) { return ({
         display: "flex",
         flexWrap: "wrap",
         gap: theme.spacing(1),
-        position: "relative",
         padding: theme.spacing(1, 4),
     },
     column: {
@@ -210,6 +209,7 @@ export var useMediaLibraryStyles = makeStyles(function (theme) { return ({
     },
     searchParent: {
         borderBottom: "1px solid rgba(0,0,0,0.06)",
+        position: "relative",
     },
     actionsContainer: {
         display: "flex",

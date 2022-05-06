@@ -7,6 +7,7 @@ export var useButtonStyles = makeStyles(function (theme) { return ({
         textTransform: "capitalize",
         color: theme.design.colors.white,
         backgroundColor: theme.design.colors.primaryColor100,
+        cursor: "pointer",
         fontSize: theme.typography.fontSize,
         fontFamily: theme.typography.fontFamily,
         "&:hover": {

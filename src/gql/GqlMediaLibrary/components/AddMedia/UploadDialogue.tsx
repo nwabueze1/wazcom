@@ -11,8 +11,18 @@ export const UploadDialogue: React.FC<DialogueProps> = ({
   handleCloseMedia,
   handleFilesSelection,
   showHeader = true,
+  handleMediaAction,
+  setActiveTab,
 }) => {
   const classes = useAddMediaStyles();
+
+  const handleFileChange = (event: React.ChangeEvent<any>) => {
+    if (!event.target.files || event.target.files === 0) return;
+    const file = event.target.files[0];
+    handleMediaAction?.("add", file);
+    setActiveTab?.(1);
+  };
+
   return (
     <Box className={clx(className, classes.box)}>
       {showHeader && (
@@ -35,6 +45,12 @@ export const UploadDialogue: React.FC<DialogueProps> = ({
             choose file
           </Button>
         </div>
+        <input
+          type="file"
+          accept="image/*"
+          className={classes.uploader}
+          onChange={handleFileChange}
+        />
       </div>
     </Box>
   );

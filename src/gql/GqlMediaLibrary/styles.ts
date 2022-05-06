@@ -16,7 +16,6 @@ export const useMediaLibraryStyles = makeStyles((theme: Theme) => ({
     display: "flex",
     flexWrap: "wrap",
     gap: theme.spacing(1),
-    position: "relative",
     padding: theme.spacing(1, 4),
   },
   column: {
@@ -211,6 +210,7 @@ export const useMediaLibraryStyles = makeStyles((theme: Theme) => ({
   },
   searchParent: {
     borderBottom: "1px solid rgba(0,0,0,0.06)",
+    position: "relative",
   },
   actionsContainer: {
     display: "flex",
