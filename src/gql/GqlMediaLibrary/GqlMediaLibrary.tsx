@@ -5,7 +5,6 @@ import { Loader } from "../../core/Loader/Loader";
 import { useMediaLibraryStyles } from "./styles";
 import { Image, GqlMediaLibraryProps, ImageUpdate } from "./types";
 import { EditMedia, DeleteMedia } from "./components";
-import { Box } from "@mui/system";
 import {
   fetchData,
   mutateMedia,
@@ -64,7 +63,7 @@ export const GqlMediaLibrary: FC<GqlMediaLibraryProps> = ({
   const [showSort, setShowSort] = useState(false);
   const [selected, setSelected] = useState("Newest");
   const [activeLayout, setActiveLayout] = useState<number>(1);
-const [activeTab, setActiveTab] = useState("Media Library")
+  const [activeTab, setActiveTab] = useState<number>(1);
 
   useEffect(() => {
     setLoading({ ...loading, media: true });
@@ -199,6 +198,7 @@ const [activeTab, setActiveTab] = useState("Media Library")
   const handleFileSelection = () => {
     handleFileSelect(refs.fileRef);
     setOpen(false);
+    setActiveTab(1);
   };
 
   const handleChange = (data: { name: string; value: any }) => {
@@ -246,7 +246,14 @@ const [activeTab, setActiveTab] = useState("Media Library")
 
   const displayTabs = () =>
     tabs.map((tab, index) => (
-      <p key={index} className={classes.selectorTab}>
+      <p
+        key={index}
+        className={clx(
+          classes.selectorTab,
+          activeTab !== index && classes.inActive
+        )}
+        onClick={() => setActiveTab(index)}
+      >
         {tab}
       </p>
     ));
@@ -265,7 +272,7 @@ const [activeTab, setActiveTab] = useState("Media Library")
         });
       }}
     >
-      <div>
+      <>
         <input
           name="image_url"
           accept="image/*"
@@ -280,7 +287,9 @@ const [activeTab, setActiveTab] = useState("Media Library")
           {viewOnly ? (
             <>
               <div className={classes.tabs}>{displayTabs()}</div>
-              <FaTimes className={classes.timesIcon} />
+              <div className={classes.iconContainer}>
+                <FaTimes className={classes.timesIcon} />
+              </div>
             </>
           ) : (
             <>
@@ -293,8 +302,18 @@ const [activeTab, setActiveTab] = useState("Media Library")
             </>
           )}
         </div>
-        <div className={classes.searchParent}>
-          <div className={classes.actionsContainer}>
+        <div
+          className={clx(
+            classes.searchParent,
+            activeTab === 0 && classes.dialogueView
+          )}
+        >
+          <div
+            className={clx(
+              classes.actionsContainer,
+              activeTab === 0 && classes.noDisplay
+            )}
+          >
             {!viewOnly && (
               <div className={classes.btnContainer}>
                 <ClickAwayListener onClickAway={handleClickAway}>
@@ -323,54 +342,60 @@ const [activeTab, setActiveTab] = useState("Media Library")
             {!viewOnly && (
               <div className={classes.layouts}>{displayLayoutData()}</div>
             )}
-            <div className={classes.searchContainer}>
-              <TextInput
-                name="search"
-                type="text"
-                placeholder="Search"
-                onChange={handleSearchChange}
-                className={classes.search}
-                classNames={{ textInput: classes.textInput }}
-              />
-              <Search className={classes.searchIcon} />
-            </div>
-          </div>
-          <div className={classes.collection}>
-            {images.length === 0 && loading.media ? (
-              <Loader />
-            ) : (
-              <>
-                {(activeMedia.type === "add" ||
-                  activeMedia.type === "edit") && (
-                  <EditMedia
-                    loading={loading.mutate}
-                    handleEdit={(variables: ImageUpdate) => {
-                      handleMediaUpdate(variables);
-                    }}
-                    handleClose={() => {
-                      handleMediaAction("", undefined);
-                    }}
-                    image={activeMedia.media as Image | File}
-                  />
-                )}
-                {images &&
-                  handleDisplayImages(
-                    displayedImages,
-                    (image: Image) => {
-                      onChange?.({ name: name ?? "", value: image });
-                    },
-                    handleMediaAction,
-                    viewOnly,
-                    activeLayout
-                  )}
-              </>
+            {activeTab !== 0 && (
+              <div className={classes.searchContainer}>
+                <TextInput
+                  name="search"
+                  type="text"
+                  placeholder="Search"
+                  onChange={handleSearchChange}
+                  className={classes.search}
+                  classNames={{ textInput: classes.textInput }}
+                />
+                <Search className={classes.searchIcon} />
+              </div>
             )}
-            {activeTab === "Upload Media" && (
+          </div>
+          <div className={clx(classes.collection, activeTab === 0 && classes.uploadViewWidth)}>
+            {activeTab === 0 && (
               <UploadDialogue
+                className={classes.dialogue}
                 handleCloseMedia={setOpen}
                 handleFilesSelection={handleFileSelection}
+                showHeader={false}
               />
             )}
+            {activeTab === 1 ? (
+              images.length === 0 && loading.media ? (
+                <Loader />
+              ) : (
+                <>
+                  {(activeMedia.type === "add" ||
+                    activeMedia.type === "edit") && (
+                    <EditMedia
+                      loading={loading.mutate}
+                      handleEdit={(variables: ImageUpdate) => {
+                        handleMediaUpdate(variables);
+                      }}
+                      handleClose={() => {
+                        handleMediaAction("", undefined);
+                      }}
+                      image={activeMedia.media as Image | File}
+                    />
+                  )}
+                  {images &&
+                    handleDisplayImages(
+                      displayedImages,
+                      (image: Image) => {
+                        onChange?.({ name: name ?? "", value: image });
+                      },
+                      handleMediaAction,
+                      viewOnly,
+                      activeLayout
+                    )}
+                </>
+              )
+            ) : null}
           </div>
           {images.length > 0 && loading.media && (
             <div className={classes.loaderParent}>
@@ -387,7 +412,7 @@ const [activeTab, setActiveTab] = useState("Media Library")
           }}
           handleDelete={handleMediaDelete}
         />
-      </div>
+      </>
     </div>
   );
 };

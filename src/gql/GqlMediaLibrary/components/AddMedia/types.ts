@@ -7,7 +7,8 @@ export type AddMediaProps = CommonProps & {
   viewOnly?: boolean;
 };
 
-export type DialogueProps = {
+export type DialogueProps = CommonProps & {
   handleCloseMedia: React.Dispatch<React.SetStateAction<boolean>>;
   handleFilesSelection: () => void;
+  showHeader?: boolean;
 };

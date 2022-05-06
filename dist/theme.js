@@ -158,6 +158,7 @@ export var theme = {
             grey1: "#343E37",
             mercury: "#CCCFCD",
             primaryBlack: "#010E05",
+            grey6: "#FBFBFB",
         },
     },
     overrides: {

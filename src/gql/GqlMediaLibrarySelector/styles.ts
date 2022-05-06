@@ -67,7 +67,7 @@ export const useImageSelectorStyles = makeStyles((theme: Theme) => ({
     alignItems: "center",
   },
   wrapper: {
-    minHeight: "80vh",
+    height: "80vh",
     width: "80vw",
     backgroundColor: theme.design.colors.white,
     zIndex: 15,

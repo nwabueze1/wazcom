@@ -29,6 +29,7 @@ export var useMediaLibraryStyles = makeStyles(function (theme) { return ({
     timesIcon: {
         color: "#999F9B",
         cursor: "pointer",
+        fontSize: theme.typography.fontSize + 4,
     },
     thumbnail: {
         display: "flex",
@@ -82,6 +83,9 @@ export var useMediaLibraryStyles = makeStyles(function (theme) { return ({
         height: 40,
         opacity: 0.9,
     },
+    dialogue: {
+        width: "100% !important",
+    },
     dot: {
         background: theme.design.colors.black,
         "&, &:after": {
@@ -112,9 +116,24 @@ export var useMediaLibraryStyles = makeStyles(function (theme) { return ({
         display: "flex",
         justifyContent: "space-between",
         alignItems: "center",
-        marginBottom: theme.spacing(3),
         borderBottom: "1px solid rgba(0,0,0,0.06)",
+        marginBottom: theme.spacing(3),
         padding: theme.spacing(3, 4),
+    },
+    tabs: {
+        display: "flex",
+        cursor: "pointer",
+    },
+    iconContainer: {
+        width: "59%",
+        borderBottom: "1px solid rgba(0,0,0,0.06)",
+        padding: theme.spacing(3, 2, 2, 0),
+        display: "flex",
+        justifyContent: "flex-end",
+        flex: 1,
+    },
+    uploadViewWidth: {
+        width: "100%",
     },
     tab: {
         color: theme.design.colors.primaryColor100,
@@ -130,10 +149,21 @@ export var useMediaLibraryStyles = makeStyles(function (theme) { return ({
         zIndex: 15,
         scrollBehavior: "smooth",
     },
+    selectorTab: {
+        fontSize: theme.typography.fontSize + 4,
+        fontWeight: theme.typography.fontWeightMedium,
+        color: theme.design.colors.grey1,
+        padding: theme.spacing(2, 5),
+        background: theme.design.colors.white,
+        borderRight: "1px solid ".concat(theme.design.colors.grey5),
+    },
+    inActive: {
+        background: theme.design.colors.grey6,
+        borderBottom: "1px solid ".concat(theme.design.colors.grey5),
+    },
     wrapperDialog: {
-        maxWidth: 600,
-        width: 600,
-        maxHeight: 550,
+        height: "100%",
+        maxHeight: "unset",
     },
     error: {
         left: 0,
@@ -147,7 +177,14 @@ export var useMediaLibraryStyles = makeStyles(function (theme) { return ({
     searchContainer: {
         width: "30%",
         position: "relative",
-        padding: theme.spacing(0, 0, 0, 4),
+        // padding: theme.spacing(0, 0, 0, 4),
+    },
+    dialogueView: {
+        height: "calc(100% - 82px)",
+        display: "flex",
+        justifyContent: "center",
+        alignItems: "center",
+        flexDirection: "column",
     },
     button: {
         background: theme.design.colors.white,
@@ -180,6 +217,13 @@ export var useMediaLibraryStyles = makeStyles(function (theme) { return ({
         alignItems: "center",
         width: "95%",
         margin: "auto",
+    },
+    noDisplay: {
+        display: "none",
+    },
+    viewOnlyActions: {
+        padding: 0,
+        border: "none",
     },
     filter: {
         position: "relative",
@@ -246,7 +290,7 @@ export var useMediaLibraryStyles = makeStyles(function (theme) { return ({
         position: "absolute",
         color: theme.design.colors.mercury,
         top: "10px",
-        left: "40px",
+        left: "10px",
     },
     radioButton: {
         "& .Mui-checked": {
