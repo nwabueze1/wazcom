@@ -70,7 +70,7 @@ var __spreadArray = (this && this.__spreadArray) || function (to, from, pack) {
     }
     return to.concat(ar || Array.prototype.slice.call(from));
 };
-import { jsx as _jsx, Fragment as _Fragment, jsxs as _jsxs } from "react/jsx-runtime";
+import { jsx as _jsx, jsxs as _jsxs, Fragment as _Fragment } from "react/jsx-runtime";
 import { useCallback, useEffect, useRef, useState } from "react";
 import clx from "classnames";
 import { Loader } from "../../core/Loader/Loader";
@@ -78,7 +78,14 @@ import { useMediaLibraryStyles } from "./styles";
 import { EditMedia, DeleteMedia } from "./components";
 import { fetchData, mutateMedia, getUniqueImages, useFileSelect, useOnScroll, useDisplayImages, useUpdateMediaLibrary, useMediaUpload, } from "./hooks";
 import { FaTimes } from "react-icons/fa";
-import { AddMedia } from "../../core/AddMedia/AddMedia";
+import { Search, Sort } from "@mui/icons-material";
+import { TextInput, RadioButtonInput } from "../../io";
+import { Button } from "../../core";
+import { AddMedia } from "./components/AddMedia/AddMedia";
+import { Layout } from "./components/Layout/Layout";
+import { layoutData } from "./components/Layout/data";
+import { ClickAwayListener } from "@mui/base";
+import { UploadDialogue } from "./components/AddMedia/UploadDialogue";
 export var GqlMediaLibrary = function (_a) {
     var className = _a.className, _b = _a.config, client = _b.client, _c = _b.query, query = _c.name, queryVariables = _c.variables, upload = _b.upload, update = _b.update, remove = _b.remove, _d = _b.viewOnly, viewOnly = _d === void 0 ? false : _d, onChange = _a.onChange, name = _a.name;
     var refs = { fileRef: useRef(), listInnerRef: useRef() };
@@ -97,6 +104,10 @@ export var GqlMediaLibrary = function (_a) {
     var _h = __read(useState({ type: "" }), 2), activeMedia = _h[0], setActiveMedia = _h[1];
     var _j = __read(useState(false), 2), open = _j[0], setOpen = _j[1];
     var _k = __read(useState(images), 2), displayedImages = _k[0], setDisplayedImages = _k[1];
+    var _l = __read(useState(false), 2), showSort = _l[0], setShowSort = _l[1];
+    var _m = __read(useState("Newest"), 2), selected = _m[0], setSelected = _m[1];
+    var _o = __read(useState(1), 2), activeLayout = _o[0], setActiveLayout = _o[1];
+    var _p = __read(useState(1), 2), activeTab = _p[0], setActiveTab = _p[1];
     useEffect(function () {
         setLoading(__assign(__assign({}, loading), { media: true }));
         fetchData(client, query, __assign({}, queryVariables))
@@ -132,6 +143,9 @@ export var GqlMediaLibrary = function (_a) {
             }
         }
     }, [activeMedia.index]);
+    var handleClickAway = function () {
+        setShowSort(false);
+    };
     var updateMediaLibrary = useCallback(function (image, type, variables) {
         if (type === void 0) { type = "add"; }
         handleUpdateMediaLibrary(image, images, setImages, function (index) {
@@ -144,6 +158,7 @@ export var GqlMediaLibrary = function (_a) {
             return;
         var file = event.target.files[0];
         handleMediaAction("add", file);
+        setActiveTab(1);
     };
     var handleMediaAction = function (type, media) {
         if (type === "add" || type === "edit") {
@@ -153,6 +168,11 @@ export var GqlMediaLibrary = function (_a) {
         }
         setActiveMedia({ type: type, media: media });
     };
+    var handleSearchChange = useCallback(function (data) {
+        var search = data.value;
+        var filteredResult = images.filter(function (image) { var _a; return (_a = image.title) === null || _a === void 0 ? void 0 : _a.toLowerCase().includes(search.toLowerCase()); });
+        setDisplayedImages(filteredResult);
+    }, [displayedImages]);
     var handleMediaAdd = useCallback(function (variables) { return __awaiter(void 0, void 0, void 0, function () {
         return __generator(this, function (_a) {
             switch (_a.label) {
@@ -207,18 +227,44 @@ export var GqlMediaLibrary = function (_a) {
         handleFileSelect(refs.fileRef);
         setOpen(false);
     };
-    return (_jsxs("div", __assign({ className: clx(classes.wrapper, className, viewOnly && classes.wrapperDialog), ref: refs.listInnerRef, onScroll: function () {
+    var handleChange = function (data) {
+        setSelected(data.name);
+        if (selected === "Newest") {
+            var sortByNewest = images.sort(function (a, b) {
+                return new Date(a.created_at).getTime() - new Date(b.created_at).getTime();
+            });
+            setDisplayedImages(sortByNewest);
+            return;
+        }
+        var sortedByOldest = images.sort(function (a, b) {
+            return new Date(b.created_at).getTime() - new Date(a.created_at).getTime();
+        });
+        setDisplayedImages(sortedByOldest);
+    };
+    var displayLayoutData = function () {
+        return layoutData.map(function (count, index) { return (_jsx(Layout, { count: count, onclick: function () { return setActiveLayout(index); }, className: clx(activeLayout === index ? classes.activeLayout : "") }, index)); });
+    };
+    var sortType = ["Newest", "Oldest"];
+    var displaySortType = function () {
+        return sortType.map(function (type, index) { return (_jsxs("p", __assign({ className: classes.sortType }, { children: [_jsx(RadioButtonInput, { name: type, value: selected === type, classNames: { radioButtonInput: classes.radioButton }, onChange: handleChange }, void 0), type] }), index)); });
+    };
+    var tabs = ["Upload Media", "Media Library"];
+    var displayTabs = function () {
+        return tabs.map(function (tab, index) { return (_jsx("p", __assign({ className: clx(classes.selectorTab, activeTab !== index && classes.inActive), onClick: function () { return setActiveTab(index); } }, { children: tab }), index)); });
+    };
+    return (_jsx("div", __assign({ className: clx(classes.wrapper, className, viewOnly && classes.wrapperDialog), ref: refs.listInnerRef, onScroll: function () {
             handleOnScroll(refs.listInnerRef, function (index) {
                 setActiveMedia(__assign(__assign({}, activeMedia), { index: index }));
             });
-        } }, { children: [_jsxs("div", { children: [_jsx("input", { name: "image_url", accept: "image/*", hidden: true, type: "file", ref: refs.fileRef, onChange: handleFileChange }, void 0), _jsx("div", __assign({ className: classes.actions }, { children: viewOnly ? (_jsxs(_Fragment, { children: [_jsx("p", { children: "Media Library" }, void 0), _jsx(FaTimes, { className: classes.timesIcon }, void 0)] }, void 0)) : (_jsxs(_Fragment, { children: [_jsx("p", __assign({ className: classes.tab }, { children: "All Media" }), void 0), _jsx(AddMedia, { handleFilesSelection: handleFileSelection, handleOpenMedia: open, handleCloseMedia: setOpen }, void 0)] }, void 0)) }), void 0), _jsx("div", __assign({ className: classes.collection }, { children: images.length === 0 && loading.media ? (_jsx(Loader, {}, void 0)) : (_jsxs(_Fragment, { children: [(activeMedia.type === "add" || activeMedia.type === "edit") && (_jsx(EditMedia, { loading: loading.mutate, handleEdit: function (variables) {
-                                        handleMediaUpdate(variables);
-                                    }, handleClose: function () {
-                                        handleMediaAction("", undefined);
-                                    }, image: activeMedia.media }, void 0)), images &&
-                                    handleDisplayImages(displayedImages, function (image) {
-                                        onChange === null || onChange === void 0 ? void 0 : onChange({ name: name !== null && name !== void 0 ? name : "", value: image });
-                                    }, handleMediaAction, viewOnly)] }, void 0)) }), void 0), images.length > 0 && loading.media && (_jsx("div", __assign({ className: classes.loaderParent }, { children: _jsx(Loader, { className: classes.loader }, void 0) }), void 0))] }, void 0), _jsx(DeleteMedia, { display: activeMedia.type === "delete", loading: loading.mutate, media: activeMedia.media, handleClose: function () {
-                    handleMediaAction("", undefined);
-                }, handleDelete: handleMediaDelete }, void 0)] }), void 0));
+        } }, { children: _jsxs(_Fragment, { children: [_jsx("input", { name: "image_url", accept: "image/*", hidden: true, type: "file", ref: refs.fileRef, onChange: handleFileChange }, void 0), _jsx("div", __assign({ className: clx(classes.actions, viewOnly && classes.viewOnlyActions) }, { children: viewOnly ? (_jsxs(_Fragment, { children: [_jsx("div", __assign({ className: classes.tabs }, { children: displayTabs() }), void 0), _jsx("div", __assign({ className: classes.iconContainer }, { children: _jsx(FaTimes, { className: classes.timesIcon }, void 0) }), void 0)] }, void 0)) : (_jsxs(_Fragment, { children: [_jsx("p", __assign({ className: classes.tab }, { children: "All Media" }), void 0), _jsx(AddMedia, { handleFilesSelection: handleFileSelection, handleOpenMedia: open, handleCloseMedia: setOpen }, void 0)] }, void 0)) }), void 0), _jsxs("div", __assign({ className: clx(classes.searchParent, activeTab === 0 && classes.dialogueView) }, { children: [_jsxs("div", __assign({ className: clx(classes.actionsContainer, activeTab === 0 && classes.noDisplay) }, { children: [!viewOnly && (_jsx("div", __assign({ className: classes.btnContainer }, { children: _jsx(ClickAwayListener, __assign({ onClickAway: handleClickAway }, { children: _jsxs("div", __assign({ className: classes.filter }, { children: [_jsxs(Button, __assign({ className: classes.button, variant: "outlined", onClick: function () { return setShowSort(!showSort); } }, { children: ["sort", _jsx(Sort, {}, void 0)] }), void 0), _jsxs("div", __assign({ className: clx(classes.sortParent, showSort && classes.showSort) }, { children: [_jsx("p", __assign({ className: classes.sort }, { children: "sort by:" }), void 0), displaySortType()] }), void 0)] }), void 0) }), void 0) }), void 0)), !viewOnly && (_jsx("div", __assign({ className: classes.layouts }, { children: displayLayoutData() }), void 0)), activeTab !== 0 && (_jsxs("div", __assign({ className: classes.searchContainer }, { children: [_jsx(TextInput, { name: "search", type: "text", placeholder: "Search", onChange: handleSearchChange, className: classes.search, classNames: { textInput: classes.textInput } }, void 0), _jsx(Search, { className: classes.searchIcon }, void 0)] }), void 0))] }), void 0), _jsxs("div", __assign({ className: clx(classes.collection, activeTab === 0 && classes.uploadViewWidth) }, { children: [activeTab === 0 && (_jsx(UploadDialogue, { className: classes.dialogue, handleCloseMedia: setOpen, handleFilesSelection: handleFileSelection, showHeader: false, handleMediaAction: handleMediaAction, setActiveTab: setActiveTab }, void 0)), activeTab === 1 ? (images.length === 0 && loading.media ? (_jsx(Loader, {}, void 0)) : (_jsxs(_Fragment, { children: [(activeMedia.type === "add" ||
+                                            activeMedia.type === "edit") && (_jsx(EditMedia, { loading: loading.mutate, handleEdit: function (variables) {
+                                                handleMediaUpdate(variables);
+                                            }, handleClose: function () {
+                                                handleMediaAction("", undefined);
+                                            }, image: activeMedia.media }, void 0)), images &&
+                                            handleDisplayImages(displayedImages, function (image) {
+                                                onChange === null || onChange === void 0 ? void 0 : onChange({ name: name !== null && name !== void 0 ? name : "", value: image });
+                                            }, handleMediaAction, viewOnly, activeLayout)] }, void 0))) : null] }), void 0), images.length > 0 && loading.media && (_jsx("div", __assign({ className: classes.loaderParent }, { children: _jsx(Loader, { className: classes.loader }, void 0) }), void 0))] }), void 0), _jsx(DeleteMedia, { display: activeMedia.type === "delete", loading: loading.mutate, media: activeMedia.media, handleClose: function () {
+                        handleMediaAction("", undefined);
+                    }, handleDelete: handleMediaDelete }, void 0)] }, void 0) }), void 0));
 };

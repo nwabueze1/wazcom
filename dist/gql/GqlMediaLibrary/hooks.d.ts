@@ -1,7 +1,7 @@
 import React from "react";
 import { ApolloClient, DocumentNode, NormalizedCacheObject } from "@apollo/client";
 import { Image, ImageUpdate } from "./types";
-export declare const useDisplayImages: () => (images: Image[], selectImage: (image: Image) => void, handleMediaAction: (type: string, media?: Image | undefined) => void, viewOnly: boolean) => JSX.Element[];
+export declare const useDisplayImages: () => (images: Image[], selectImage: (image: Image) => void, handleMediaAction: (type: string, media?: Image | undefined) => void, viewOnly: boolean, activeLayout: number) => JSX.Element[];
 export declare const useFileSelect: () => (fileRef: React.MutableRefObject<any>) => void;
 export declare const useMediaUpload: () => (client: ApolloClient<NormalizedCacheObject>, mutation: DocumentNode, variables: ImageUpdate & {
     image: File;

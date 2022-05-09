@@ -49,6 +49,7 @@ export const useAddMediaStyles = makeStyles((theme: Theme) => ({
   },
   btn: {
     textAlign: "center",
+    cursor: "pointer",
   },
   modal: {
     position: "fixed",
@@ -80,5 +81,15 @@ export const useAddMediaStyles = makeStyles((theme: Theme) => ({
     top: 0,
     left: 0,
     backgroundColor: "rgba(0, 0, 0, 0.5)",
+  },
+  uploader: {
+    width: "100%",
+    height: "400px",
+    cursor: "pointer",
+    border: `2px solid ${theme.design.colors.primaryColor100}`,
+    position: "absolute",
+    top: 0,
+    left: 0,
+    opacity: 0,
   },
 }));

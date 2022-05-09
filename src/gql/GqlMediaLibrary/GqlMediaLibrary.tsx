@@ -16,7 +16,14 @@ import {
   useMediaUpload,
 } from "./hooks";
 import { FaTimes } from "react-icons/fa";
-import { AddMedia } from "../../core/AddMedia/AddMedia";
+import { Search, Sort } from "@mui/icons-material";
+import { TextInput, RadioButtonInput } from "../../io";
+import { Button } from "../../core";
+import { AddMedia } from "./components/AddMedia/AddMedia";
+import { Layout } from "./components/Layout/Layout";
+import { layoutData } from "./components/Layout/data";
+import { ClickAwayListener } from "@mui/base";
+import { UploadDialogue } from "./components/AddMedia/UploadDialogue";
 
 export const GqlMediaLibrary: FC<GqlMediaLibraryProps> = ({
   className,
@@ -53,6 +60,10 @@ export const GqlMediaLibrary: FC<GqlMediaLibraryProps> = ({
   }>({ type: "" });
   const [open, setOpen] = useState(false);
   const [displayedImages, setDisplayedImages] = useState(images);
+  const [showSort, setShowSort] = useState(false);
+  const [selected, setSelected] = useState("Newest");
+  const [activeLayout, setActiveLayout] = useState<number>(1);
+  const [activeTab, setActiveTab] = useState<number>(1);
 
   useEffect(() => {
     setLoading({ ...loading, media: true });
@@ -60,10 +71,10 @@ export const GqlMediaLibrary: FC<GqlMediaLibraryProps> = ({
       .then((res) => {
         setLoading({ ...loading, media: false });
         setImages((images) =>
-          getUniqueImages([...images, ...(res.data.images.images as Image[])]),
+          getUniqueImages([...images, ...(res.data.images.images as Image[])])
         );
         setDisplayedImages((images) =>
-          getUniqueImages([...images, ...(res.data.images.images as Image[])]),
+          getUniqueImages([...images, ...(res.data.images.images as Image[])])
         );
         setPaginatorInfo(res.data.images.paginatorInfo);
       })
@@ -82,10 +93,7 @@ export const GqlMediaLibrary: FC<GqlMediaLibraryProps> = ({
           count: queryVariables.count,
         }).then((res) => {
           setImages((images) =>
-            getUniqueImages([
-              ...images,
-              ...(res.data.images.images as Image[]),
-            ]),
+            getUniqueImages([...images, ...(res.data.images.images as Image[])])
           );
           setLoading({ ...loading, media: false });
           setPaginatorInfo(res.data.images.paginatorInfo);
@@ -93,6 +101,10 @@ export const GqlMediaLibrary: FC<GqlMediaLibraryProps> = ({
       }
     }
   }, [activeMedia.index]);
+
+  const handleClickAway = () => {
+    setShowSort(false);
+  };
 
   const updateMediaLibrary = useCallback(
     (image: Image, type = "add", variables?: ImageUpdate) => {
@@ -104,17 +116,18 @@ export const GqlMediaLibrary: FC<GqlMediaLibraryProps> = ({
           setActiveMedia({ ...activeMedia, index });
         },
         type,
-        variables,
+        variables
       );
       handleMediaAction("", undefined);
     },
-    [images, activeMedia],
+    [images, activeMedia]
   );
 
   const handleFileChange = (event: React.ChangeEvent<any>) => {
     if (!event.target.files || event.target.files === 0) return;
     const file = event.target.files[0];
     handleMediaAction("add", file);
+    setActiveTab(1);
   };
 
   const handleMediaAction = (type: string, media?: Image | File) => {
@@ -126,6 +139,17 @@ export const GqlMediaLibrary: FC<GqlMediaLibraryProps> = ({
     setActiveMedia({ type, media });
   };
 
+  const handleSearchChange = useCallback(
+    (data: { name: string; value: any }) => {
+      const search = data.value;
+      const filteredResult = images.filter((image) =>
+        image.title?.toLowerCase().includes(search.toLowerCase())
+      );
+      setDisplayedImages(filteredResult);
+    },
+    [displayedImages]
+  );
+
   const handleMediaAdd = useCallback(
     async (variables: ImageUpdate) => {
       await handleMediaUpload(
@@ -135,10 +159,10 @@ export const GqlMediaLibrary: FC<GqlMediaLibraryProps> = ({
         setLoading,
         (image: Image) => {
           updateMediaLibrary(image, "add");
-        },
+        }
       );
     },
-    [activeMedia, loading],
+    [activeMedia, loading]
   );
 
   const handleMediaUpdate = useCallback(
@@ -155,11 +179,11 @@ export const GqlMediaLibrary: FC<GqlMediaLibraryProps> = ({
         () => {
           updateMediaLibrary(media, "update", variables);
         },
-        variables,
+        variables
       );
       setLoading({ ...loading, mutate: false });
     },
-    [activeMedia],
+    [activeMedia]
   );
 
   const handleMediaDelete = useCallback(async () => {
@@ -177,12 +201,69 @@ export const GqlMediaLibrary: FC<GqlMediaLibraryProps> = ({
     setOpen(false);
   };
 
+  const handleChange = (data: { name: string; value: any }) => {
+    setSelected(data.name);
+    if (selected === "Newest") {
+      const sortByNewest = images.sort(
+        (a, b) =>
+          new Date(a.created_at).getTime() - new Date(b.created_at).getTime()
+      );
+      setDisplayedImages(sortByNewest);
+      return;
+    }
+    const sortedByOldest = images.sort(
+      (a, b) =>
+        new Date(b.created_at).getTime() - new Date(a.created_at).getTime()
+    );
+    setDisplayedImages(sortedByOldest);
+  };
+
+  const displayLayoutData = () =>
+    layoutData.map((count, index) => (
+      <Layout
+        count={count}
+        key={index}
+        onclick={() => setActiveLayout(index)}
+        className={clx(activeLayout === index ? classes.activeLayout : "")}
+      />
+    ));
+  const sortType = ["Newest", "Oldest"];
+
+  const displaySortType = () =>
+    sortType.map((type, index) => (
+      <p key={index} className={classes.sortType}>
+        <RadioButtonInput
+          name={type}
+          value={selected === type}
+          classNames={{ radioButtonInput: classes.radioButton }}
+          onChange={handleChange}
+        />
+        {type}
+      </p>
+    ));
+
+  const tabs = ["Upload Media", "Media Library"];
+
+  const displayTabs = () =>
+    tabs.map((tab, index) => (
+      <p
+        key={index}
+        className={clx(
+          classes.selectorTab,
+          activeTab !== index && classes.inActive
+        )}
+        onClick={() => setActiveTab(index)}
+      >
+        {tab}
+      </p>
+    ));
+
   return (
     <div
       className={clx(
         classes.wrapper,
         className,
-        viewOnly && classes.wrapperDialog,
+        viewOnly && classes.wrapperDialog
       )}
       ref={refs.listInnerRef}
       onScroll={() => {
@@ -191,7 +272,7 @@ export const GqlMediaLibrary: FC<GqlMediaLibraryProps> = ({
         });
       }}
     >
-      <div>
+      <>
         <input
           name="image_url"
           accept="image/*"
@@ -200,11 +281,15 @@ export const GqlMediaLibrary: FC<GqlMediaLibraryProps> = ({
           ref={refs.fileRef}
           onChange={handleFileChange}
         />
-        <div className={classes.actions}>
+        <div
+          className={clx(classes.actions, viewOnly && classes.viewOnlyActions)}
+        >
           {viewOnly ? (
             <>
-              <p>Media Library</p>
-              <FaTimes className={classes.timesIcon} />
+              <div className={classes.tabs}>{displayTabs()}</div>
+              <div className={classes.iconContainer}>
+                <FaTimes className={classes.timesIcon} />
+              </div>
             </>
           ) : (
             <>
@@ -217,50 +302,124 @@ export const GqlMediaLibrary: FC<GqlMediaLibraryProps> = ({
             </>
           )}
         </div>
-        <div className={classes.collection}>
-          {images.length === 0 && loading.media ? (
-            <Loader />
-          ) : (
-            <>
-              {(activeMedia.type === "add" || activeMedia.type === "edit") && (
-                <EditMedia
-                  loading={loading.mutate}
-                  handleEdit={(variables: ImageUpdate) => {
-                    handleMediaUpdate(variables);
-                  }}
-                  handleClose={() => {
-                    handleMediaAction("", undefined);
-                  }}
-                  image={activeMedia.media as Image | File}
+        <div
+          className={clx(
+            classes.searchParent,
+            activeTab === 0 && classes.dialogueView
+          )}
+        >
+          <div
+            className={clx(
+              classes.actionsContainer,
+              activeTab === 0 && classes.noDisplay
+            )}
+          >
+            {!viewOnly && (
+              <div className={classes.btnContainer}>
+                <ClickAwayListener onClickAway={handleClickAway}>
+                  <div className={classes.filter}>
+                    <Button
+                      className={classes.button}
+                      variant="outlined"
+                      onClick={() => setShowSort(!showSort)}
+                    >
+                      sort
+                      <Sort />
+                    </Button>
+                    <div
+                      className={clx(
+                        classes.sortParent,
+                        showSort && classes.showSort
+                      )}
+                    >
+                      <p className={classes.sort}>sort by:</p>
+                      {displaySortType()}
+                    </div>
+                  </div>
+                </ClickAwayListener>
+              </div>
+            )}
+            {!viewOnly && (
+              <div className={classes.layouts}>{displayLayoutData()}</div>
+            )}
+            {activeTab !== 0 && (
+              <div className={classes.searchContainer}>
+                <TextInput
+                  name="search"
+                  type="text"
+                  placeholder="Search"
+                  onChange={handleSearchChange}
+                  className={classes.search}
+                  classNames={{ textInput: classes.textInput }}
                 />
-              )}
-              {images &&
-                handleDisplayImages(
-                  displayedImages,
-                  (image: Image) => {
-                    onChange?.({ name: name ?? "", value: image });
-                  },
-                  handleMediaAction,
-                  viewOnly,
-                )}
-            </>
+                <Search className={classes.searchIcon} />
+              </div>
+            )}
+          </div>
+          <div
+            className={clx(
+              classes.collection,
+              activeTab === 0 && classes.uploadViewWidth
+            )}
+          >
+            {activeTab === 0 && (
+              <UploadDialogue
+                className={classes.dialogue}
+                handleCloseMedia={setOpen}
+                handleFilesSelection={handleFileSelection}
+                showHeader={false}
+                handleMediaAction={handleMediaAction}
+                setActiveTab={setActiveTab}
+              />
+            )}
+            {activeTab === 1 ? (
+              images.length === 0 && loading.media ? (
+                <Loader />
+              ) : (
+                <>
+                  {(activeMedia.type === "add" ||
+                    activeMedia.type === "edit") && (
+                    <EditMedia
+                      loading={loading.mutate}
+                      handleEdit={(variables: ImageUpdate) => {
+                        handleMediaUpdate(variables);
+                      }}
+                      handleClose={() => {
+                        handleMediaAction("", undefined);
+                      }}
+                      image={activeMedia.media as Image | File}
+                    />
+                  )}
+                  {images &&
+                    handleDisplayImages(
+                      displayedImages,
+                      (image: Image) => {
+                        onChange?.({ name: name ?? "", value: image });
+                      },
+                      handleMediaAction,
+                      viewOnly,
+                      activeLayout
+                    )}
+                </>
+              )
+            ) : null}
+          </div>
+          {images.length > 0 && loading.media && (
+            <div className={classes.loaderParent}>
+              <Loader className={classes.loader} />
+            </div>
           )}
         </div>
-        {images.length > 0 && loading.media && (
-          <div className={classes.loaderParent}>
-            <Loader className={classes.loader} />
-          </div>
-        )}
-      </div>
-      <DeleteMedia
-        display={activeMedia.type === "delete"}
-        loading={loading.mutate}
-        media={activeMedia.media as Image}
-        handleClose={() => {
-          handleMediaAction("", undefined);
-        }}
-        handleDelete={handleMediaDelete}
-      />
+        <DeleteMedia
+          display={activeMedia.type === "delete"}
+          loading={loading.mutate}
+          media={activeMedia.media as Image}
+          handleClose={() => {
+            handleMediaAction("", undefined);
+          }}
+          handleDelete={handleMediaDelete}
+        />
+      </>
     </div>
   );
 };

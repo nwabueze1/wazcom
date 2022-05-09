@@ -23,15 +23,15 @@ export var useImageSelectorStyles = makeStyles(function (theme) { return ({
     },
     icon: {
         cursor: "pointer",
-        color: theme.design.colors.greene,
+        color: theme.design.colors.primaryColor100,
         zIndex: 5,
-        border: "1px solid ".concat(theme.design.colors.greene),
+        border: "1px solid ".concat(theme.design.colors.primaryColor100),
         fontSize: theme.typography.fontSize + 4,
         fontWeight: theme.typography.fontWeightBold,
         background: theme.design.colors.white,
         "&:hover": {
             background: theme.design.colors.successColor300,
-            border: "1px solid ".concat(theme.design.colors.greene),
+            border: "1px solid ".concat(theme.design.colors.primaryColor100),
         },
     },
     cameraIcon: {
@@ -56,7 +56,7 @@ export var useImageSelectorStyles = makeStyles(function (theme) { return ({
     },
     imgUploadContainer: {
         display: "flex",
-        alignItems: "center"
+        alignItems: "center",
     },
     modal: {
         display: "flex",
@@ -64,6 +64,8 @@ export var useImageSelectorStyles = makeStyles(function (theme) { return ({
         alignItems: "center",
     },
     wrapper: {
+        height: "80vh",
+        width: "80vw",
         backgroundColor: theme.design.colors.white,
         zIndex: 15,
     },
