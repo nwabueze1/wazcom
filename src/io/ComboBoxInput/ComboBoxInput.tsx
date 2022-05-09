@@ -1,6 +1,6 @@
 import { FC, useCallback, useEffect, useState } from "react";
 import Autocomplete, { createFilterOptions } from "@mui/material/Autocomplete";
-import { InputLabel, TextField } from "@mui/material";
+import { Box, InputLabel, TextField } from "@mui/material";
 import { useComboBoxStyles } from "./styles";
 import { ComboBoxInputProps, ComboBoxInputOptionProps } from "./types";
 import clx from "classnames";
@@ -85,10 +85,19 @@ export const ComboBoxInput: FC<ComboBoxInputProps> = ({
         }}
         filterOptions={handleFilterOptions}
         freeSolo
+        renderOption={(props, option) => {
+          return (
+            <Box component="li"  {...props}>
+              <div className={classNames?.optionContainer as string}>
+                <p className={(classNames?.optionLabel as string)}>{option?.label}</p>
+                {option.subText && <p className={(classNames?.optionSubText as string)}>{option.subText}</p>}
+              </div>
+            </Box>
+          )
+        }}
         renderInput={(params) => (
           <TextField
             {...params}
-            label={label}
             placeholder={placeholder}
             variant="outlined"
             error={error}
