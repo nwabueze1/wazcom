@@ -44,9 +44,9 @@ import clx from "classnames";
 import { FiPlus } from "react-icons/fi";
 export var Scheduler = function (_a) {
     var _b;
-    var className = _a.className, classNames = _a.classNames, componentName = _a.name, label = _a.label, _c = _a.gap, gap = _c === void 0 ? useSchedulerStyles().dayContainer : _c, _d = _a.multiple, multiple = _d === void 0 ? false : _d, _e = _a.value, initialScheduleValue = _e === void 0 ? [
+    var className = _a.className, classNames = _a.classNames, componentName = _a.name, label = _a.label, _c = _a.multiple, multiple = _c === void 0 ? false : _c, _d = _a.value, initialScheduleValue = _d === void 0 ? [
         { day: "0", start_time: "00:00", end_time: "12:00" },
-    ] : _e, onChange = _a.onChange;
+    ] : _d, onChange = _a.onChange;
     var classes = useSchedulerStyles();
     var parseSchedulevalue = useScheduleData();
     var handleChange = useCallback(function (event, index, remove) {
@@ -69,20 +69,18 @@ export var Scheduler = function (_a) {
             ], false),
         });
     }, [initialScheduleValue]);
-    var _f = __read(useState(parseSchedulevalue(initialScheduleValue, handleChange, {
+    var _e = __read(useState(parseSchedulevalue(initialScheduleValue, handleChange, {
         timeSection: classes.timeContainer,
         timeDivider: classes.timeDivider,
-        dayContainer: gap,
         closeIcon: classes.closeIcon,
-        hiddenCloseIcon: classes.hiddenCloseIcon
-    })), 2), scheduleValue = _f[0], setScheduleValue = _f[1];
+        hiddenCloseIcon: classes.hiddenCloseIcon,
+    })), 2), scheduleValue = _e[0], setScheduleValue = _e[1];
     useEffect(function () {
         var newScheduleValue = parseSchedulevalue(initialScheduleValue, handleChange, {
             timeSection: classes.timeContainer,
             timeDivider: classes.timeDivider,
-            dayContainer: gap,
             closeIcon: classes.closeIcon,
-            hiddenCloseIcon: classes.hiddenCloseIcon
+            hiddenCloseIcon: classes.hiddenCloseIcon,
         });
         setScheduleValue(newScheduleValue);
     }, [initialScheduleValue]);

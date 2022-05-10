@@ -47,6 +47,7 @@ export var useAddMediaStyles = makeStyles(function (theme) { return ({
     },
     btn: {
         textAlign: "center",
+        cursor: "pointer",
     },
     modal: {
         position: "fixed",
@@ -78,5 +79,15 @@ export var useAddMediaStyles = makeStyles(function (theme) { return ({
         top: 0,
         left: 0,
         backgroundColor: "rgba(0, 0, 0, 0.5)",
+    },
+    uploader: {
+        width: "100%",
+        height: "400px",
+        cursor: "pointer",
+        border: "2px solid ".concat(theme.design.colors.primaryColor100),
+        position: "absolute",
+        top: 0,
+        left: 0,
+        opacity: 0,
     },
 }); });

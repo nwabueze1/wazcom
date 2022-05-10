@@ -8,7 +8,7 @@ export var useTableStyles = makeStyles(function (theme) { return ({
         overflow: "hidden",
     },
     tableHead: {
-        background: theme.design.colors.whiteColor100,
+        background: theme.design.colors.whiteColor200,
     },
     tableHeadCell: {
         fontWeight: theme.typography.fontWeightBold,
@@ -40,6 +40,9 @@ export var useTableStyles = makeStyles(function (theme) { return ({
         display: "flex",
         alignItems: "center",
         gap: theme.spacing(2),
+    },
+    empty: {
+        minHeight: 400,
     },
 }); });
 export var useStyles = makeStyles(function (theme) { return ({

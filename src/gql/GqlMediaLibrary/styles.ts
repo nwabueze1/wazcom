@@ -16,8 +16,7 @@ export const useMediaLibraryStyles = makeStyles((theme: Theme) => ({
     display: "flex",
     flexWrap: "wrap",
     gap: theme.spacing(1),
-    position: "relative",
-    padding: theme.spacing(0, 4),
+    padding: theme.spacing(1, 4),
   },
   column: {
     display: "flex",
@@ -27,6 +26,7 @@ export const useMediaLibraryStyles = makeStyles((theme: Theme) => ({
   timesIcon: {
     color: "#999F9B",
     cursor: "pointer",
+    fontSize: theme.typography.fontSize + 4,
   },
   thumbnail: {
     display: "flex",
@@ -81,6 +81,9 @@ export const useMediaLibraryStyles = makeStyles((theme: Theme) => ({
     height: 40,
     opacity: 0.9,
   },
+  dialogue: {
+    width: "100% !important",
+  },
   dot: {
     background: theme.design.colors.black,
     "&, &:after": {
@@ -113,14 +116,29 @@ export const useMediaLibraryStyles = makeStyles((theme: Theme) => ({
     display: "flex",
     justifyContent: "space-between",
     alignItems: "center",
-    marginBottom: theme.spacing(3),
     borderBottom: "1px solid rgba(0,0,0,0.06)",
+    marginBottom: theme.spacing(3),
     padding: theme.spacing(3, 4),
   },
+  tabs: {
+    display: "flex",
+    cursor: "pointer",
+  },
+  iconContainer: {
+    width: "59%",
+    borderBottom: "1px solid rgba(0,0,0,0.06)",
+    padding: theme.spacing(3, 2, 2, 0),
+    display: "flex",
+    justifyContent: "flex-end",
+    flex: 1,
+  },
+  uploadViewWidth: {
+    width: "100%",
+  },
   tab: {
-    color: theme.design.colors.dangerColor300,
+    color: theme.design.colors.primaryColor100,
     paddingBottom: 2,
-    borderBottom: `2px solid ${theme.design.colors.dangerColor300}`,
+    borderBottom: `2px solid ${theme.design.colors.primaryColor100}`,
   },
   wrapper: {
     width: "100%",
@@ -131,10 +149,21 @@ export const useMediaLibraryStyles = makeStyles((theme: Theme) => ({
     zIndex: 15,
     scrollBehavior: "smooth",
   },
+  selectorTab: {
+    fontSize: theme.typography.fontSize + 4,
+    fontWeight: theme.typography.fontWeightMedium,
+    color: theme.design.colors.grey1,
+    padding: theme.spacing(2, 5),
+    background: theme.design.colors.white,
+    borderRight: `1px solid ${theme.design.colors.grey5}`,
+  },
+  inActive: {
+    background: theme.design.colors.grey6,
+    borderBottom: `1px solid ${theme.design.colors.grey5}`,
+  },
   wrapperDialog: {
-    maxWidth: 600,
-    width: 600,
-    maxHeight: 550,
+    height: "100%",
+    maxHeight: "unset",
   },
   error: {
     left: 0,
@@ -146,12 +175,30 @@ export const useMediaLibraryStyles = makeStyles((theme: Theme) => ({
     justifyContent: "space-between",
   },
   searchContainer: {
+    width: "30%",
     position: "relative",
-    padding: theme.spacing(0, 4),
-    borderBottom: "1px solid rgba(0,0,0,0.06)",
-    marginBottom: theme.spacing(3),
+    // padding: theme.spacing(0, 0, 0, 4),
   },
-
+  dialogueView: {
+    height: "calc(100% - 82px)",
+    display: "flex",
+    justifyContent: "center",
+    alignItems: "center",
+    flexDirection: "column",
+  },
+  button: {
+    background: theme.design.colors.white,
+    color: theme.design.colors.greenishGrey2,
+    border: `1px solid ${theme.design.colors.greene}`,
+    "&:hover": {
+      color: theme.design.colors.white,
+    },
+  },
+  textInput: {
+    "&>div": {
+      padding: theme.spacing(0, 3),
+    },
+  },
   content: {
     width: "80%",
     margin: theme.spacing(5, "auto"),
@@ -162,13 +209,106 @@ export const useMediaLibraryStyles = makeStyles((theme: Theme) => ({
     background: theme.design.colors.shainGrey,
   },
   searchParent: {
+    borderBottom: "1px solid rgba(0,0,0,0.06)",
+    position: "relative",
+  },
+  actionsContainer: {
     display: "flex",
-    justifyContent: "flex-end",
+    justifyContent: "space-between",
+    alignItems: "center",
+    width: "95%",
+    margin: "auto",
+  },
+  noDisplay: {
+    display: "none",
+  },
+  viewOnlyActions: {
+    padding: 0,
+    border: "none",
+  },
+  filter: {
+    position: "relative",
+  },
+  filterTitle: {
+    width: "90%",
+    margin: "auto",
+    display: "flex",
+    justifyContent: "space-between",
+  },
+  filterText: {
+    color: theme.design.colors.greene,
+    cursor: "pointer",
+    fontWeight: theme.typography.fontWeightMedium,
+  },
+  filterParent: {
+    paddingTop: theme.spacing(2.5),
+    width: 228,
+    background: theme.design.colors.white,
+    borderRadius: "6px",
+    boxShadow: `0px 3px 5px rgba(52, 62, 55, 0.2)`,
+    position: "absolute",
+    visibility: "hidden",
+    opacity: 0,
+    transition: "all 0.6s ease-in-out",
+  },
+  showFilter: {
+    visibility: "visible",
+    opacity: 1,
+    zIndex: 3,
+  },
+  sortParent: {
+    width: 120,
+    borderRadius: "6px",
+    background: theme.design.colors.white,
+    boxShadow: "0px 4px 20px rgba(77, 86, 80, 0.16)",
+    position: "absolute",
+    visibility: "hidden",
+    opacity: 0,
+    transition: "all 0.6s ease-in-out",
+  },
+  sort: {
+    width: "90%",
+    padding: theme.spacing(2, 0, 0, 1.5),
+  },
+  showSort: {
+    opacity: 1,
+    visibility: "visible",
+    zIndex: 10,
+  },
+  sortType: {
+    display: "flex",
+    alignItems: "center",
+  },
+  orientationType: {
+    display: "flex",
+    alignItems: "center",
+  },
+  btnContainer: {
+    display: "flex",
+    gap: theme.spacing(4),
   },
   searchIcon: {
     position: "absolute",
+    color: theme.design.colors.mercury,
     top: "10px",
-    left: "35px",
+    left: "10px",
+  },
+  radioButton: {
+    "& .Mui-checked": {
+      color: theme.design.colors.greene,
+    },
+  },
+  layouts: {
+    display: "flex",
+  },
+  activeLayout: {
+    backgroundColor: theme.design.colors.grey5,
+  },
+  twoColumn: {
+    width: "calc((100% - 32px)/2)",
+  },
+  fourColumn: {
+    width: "calc((100% - 32px)/4)",
   },
 }));
 

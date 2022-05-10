@@ -19,9 +19,17 @@ export const useDisplayImages = () => {
     selectImage: (image: Image) => void,
     handleMediaAction: (type: string, media?: Image) => void,
     viewOnly: boolean,
+    activeLayout: number
   ) =>
-    split(images, 3).map((_, columnIndex) => (
-      <div key={columnIndex} className={classes.column}>
+    split(images, 4).map((_, columnIndex) => (
+      <div
+        key={columnIndex}
+        className={clx(
+          classes.column,
+          activeLayout === 0 && classes.twoColumn,
+          activeLayout === 2 && classes.fourColumn
+        )}
+      >
         {_.map((theImage, index) => {
           return (
             <Grow in={true} key={index}>
@@ -31,7 +39,7 @@ export const useDisplayImages = () => {
                 }}
                 className={clx(
                   classes.thumbnail,
-                  viewOnly && classes.thumbnailFixedHeight,
+                  viewOnly && classes.thumbnailFixedHeight
                 )}
               >
                 <img src={theImage?.url} className={classes.image} />
@@ -82,7 +90,7 @@ export const useMediaUpload = () => {
     mutation: DocumentNode,
     variables: ImageUpdate & { image: File },
     setLoading: (loading: { [key: string]: boolean }) => void,
-    updateMediaLibrary: (image: Image) => void,
+    updateMediaLibrary: (image: Image) => void
   ) => {
     setLoading({ loading: true, mutate: true });
     try {
@@ -108,7 +116,7 @@ export const useUpdateMediaLibrary = () => {
     setImages: (images: Image[]) => void,
     setMediaIndex: (index: number) => void,
     type = "add",
-    update?: Pick<Image, "title" | "alternative_text" | "caption">,
+    update?: Pick<Image, "title" | "alternative_text" | "caption">
   ) => {
     let newImages: Image[], index: number;
     switch (type) {
@@ -118,13 +126,13 @@ export const useUpdateMediaLibrary = () => {
       case "update":
         newImages = [...images];
         index = newImages.findIndex(
-          (img) => img.id.toString() === image.id.toString(),
+          (img) => img.id.toString() === image.id.toString()
         );
         newImages[index] = { ...newImages[index], ...update };
         break;
       case "delete":
         newImages = images.filter(
-          (img) => img.id.toString() !== image.id.toString(),
+          (img) => img.id.toString() !== image.id.toString()
         );
         setMediaIndex(Math.random() * 5000);
         break;
@@ -138,7 +146,7 @@ export const useUpdateMediaLibrary = () => {
 export const useOnScroll = () => {
   return (
     ref: React.MutableRefObject<any>,
-    setMediaIndex: (index: number) => void,
+    setMediaIndex: (index: number) => void
   ) => {
     if (ref.current) {
       const { scrollTop, scrollHeight, clientHeight } = ref.current;
@@ -152,7 +160,7 @@ export const useOnScroll = () => {
 export const fetchData = async (
   client: ApolloClient<NormalizedCacheObject>,
   query: DocumentNode,
-  variables?: { [key: string]: string | number },
+  variables?: { [key: string]: string | number }
 ) => {
   return await client.query({
     query,
@@ -176,7 +184,7 @@ export const getUniqueImages = (images: Image[]) => {
   let newImages = [...images];
   const imageUrls = [...new Set(images.map((image) => image.url))];
   newImages = imageUrls.map(
-    (url) => newImages.find((image) => image.url === url) as Image,
+    (url) => newImages.find((image) => image.url === url) as Image
   );
   return newImages;
 };
@@ -186,7 +194,7 @@ export const mutateMedia = async (
   mutation: DocumentNode,
   media: Image,
   updateMediaLibrary: () => void,
-  variables?: { [key: string]: string },
+  variables?: { [key: string]: string }
 ) => {
   try {
     await client.mutate({

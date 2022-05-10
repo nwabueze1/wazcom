@@ -9,4 +9,5 @@ export declare type ComboBoxInputProps = CommonProps & Omit<AutocompleteProps<an
 export declare type ComboBoxInputOptionProps = {
     label: string;
     value: string;
+    subText?: string;
 };

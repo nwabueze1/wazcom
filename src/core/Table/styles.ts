@@ -11,7 +11,7 @@ export const useTableStyles = makeStyles((theme: Theme) => ({
     overflow: "hidden",
   },
   tableHead: {
-    background: theme.design.colors.whiteColor100,
+    background: theme.design.colors.whiteColor200,
   },
   tableHeadCell: {
     fontWeight: theme.typography.fontWeightBold,
@@ -43,6 +43,9 @@ export const useTableStyles = makeStyles((theme: Theme) => ({
     display: "flex",
     alignItems: "center",
     gap: theme.spacing(2),
+  },
+  empty: {
+    minHeight: 400,
   },
 }));
 

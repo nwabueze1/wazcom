@@ -24,7 +24,7 @@ import {
   InputGroup,
   ToggleInput,
   TextArea,
-  RadioButtonInput
+  RadioButtonInput,
 } from "../io";
 
 import { GqlComboBox, GqlMediaLibrary, GqlMediaLibrarySelector } from "../gql";
@@ -107,6 +107,7 @@ export const stories: ComponentPropType[] = [
           name: UPLOAD_IMAGE,
           variables: {},
         },
+        viewOnly: true,
       },
       src: "https://sytbuildr.s3.eu-west-2.amazonaws.com/wbAJD5oi83HUWjLuZhqTiXwlW6LO9Xdxfxr2K4TI.jpg",
       feedback: {
@@ -114,6 +115,7 @@ export const stories: ComponentPropType[] = [
         status: "error",
       },
       error: true,
+      iconType: "button",
       size: "full",
     },
   },
@@ -149,7 +151,7 @@ export const stories: ComponentPropType[] = [
     props: {
       children: "This is an example Wazcom Accordion",
       defaultExpanded: true,
-      title: <p>leke</p>
+      title: <p>leke</p>,
     },
   },
   {
@@ -302,6 +304,19 @@ export const stories: ComponentPropType[] = [
         },
       ],
       value: [],
+      emptyTableState: {
+        image: {
+          src: "https://sytbuildr.s3.eu-west-2.amazonaws.com/images/Posts/emptypostimg.svg",
+        },
+        text: "You have not created any blog post yet. Click below to create post.",
+        button: {
+          display: true,
+          text: "Create New Menu",
+          handleClick: () => {
+            alert("Zeus Empty State");
+          },
+        },
+      },
     },
   },
   {

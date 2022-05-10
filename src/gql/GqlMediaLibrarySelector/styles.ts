@@ -26,13 +26,15 @@ export const useImageSelectorStyles = makeStyles((theme: Theme) => ({
   },
   icon: {
     cursor: "pointer",
-    color: theme.design.colors.greene,
+    color: theme.design.colors.primaryColor100,
     zIndex: 5,
-    border: `1px solid ${theme.design.colors.greene}`,
+    border: `1px solid ${theme.design.colors.primaryColor100}`,
+    fontSize: theme.typography.fontSize + 4,
+    fontWeight: theme.typography.fontWeightBold,
     background: theme.design.colors.white,
     "&:hover": {
       background: theme.design.colors.successColor300,
-      border: `1px solid ${theme.design.colors.greene}`,
+      border: `1px solid ${theme.design.colors.primaryColor100}`,
     },
   },
   cameraIcon: {
@@ -42,17 +44,37 @@ export const useImageSelectorStyles = makeStyles((theme: Theme) => ({
     background: "transparent",
     fontSize: theme.typography.fontSize * 4,
   },
+  removeBtn: {
+    cursor: "pointer",
+    marginLeft: theme.spacing(5),
+    color: theme.design.colors.greyColor300,
+    border: `1px solid ${theme.design.colors.mercury}`,
+    fontSize: theme.typography.fontSize + 4,
+    fontWeight: theme.typography.fontWeightMedium,
+    background: theme.design.colors.white,
+    "&:hover": {
+      background: theme.design.colors.white,
+      border: `1px solid ${theme.design.colors.mercury}`,
+    },
+  },
+  imgUploadContainer: {
+    display: "flex",
+    alignItems: "center",
+  },
   modal: {
     display: "flex",
     justifyContent: "center",
     alignItems: "center",
   },
   wrapper: {
+    height: "80vh",
+    width: "80vw",
     backgroundColor: theme.design.colors.white,
     zIndex: 15,
   },
   cameraIconSm: {
     fontSize: 20,
+    fontWeight: theme.typography.fontWeightBold,
   },
   cameraIconMd: {
     fontSize: 40,

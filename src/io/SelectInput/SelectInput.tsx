@@ -27,6 +27,11 @@ export const SelectInput: FC<SelectInputProps> = ({
     onChange?.({ name, value });
   };
 
+  const displayLabelFromValue = (value: any) => {
+    const label = options.filter((option) => option.value == value)?.[0].label 
+    return label;
+  } 
+
   return (
     <div className={clx(className, classes.root)}>
       {label && (
@@ -49,13 +54,17 @@ export const SelectInput: FC<SelectInputProps> = ({
             ? (classNames.classes as { [key: string]: string })
             : {}
         }
+        renderValue={(value: any) => <MenuItem value={value}>{displayLabelFromValue(value)}</MenuItem>}
       >
         {options.length === 0 && (
           <MenuItem value="Select a value">{placeholder}</MenuItem>
         )}
-        {options.map(({ label, value }, index: number) => (
+        {options.map(({ label, value, subText }, index: number) => (
           <MenuItem key={index} value={value}>
-            {label}
+            <div className={classNames?.optionContainer as string}>
+              <p className={(classNames?.optionLabel as string)}>{label}</p>
+              {subText && <p className={(classNames?.optionSubText as string)}>{subText}</p>}
+            </div>
           </MenuItem>
         ))}
       </Select>
