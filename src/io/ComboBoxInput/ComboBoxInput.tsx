@@ -77,7 +77,7 @@ export const ComboBoxInput: FC<ComboBoxInputProps> = ({
       <Autocomplete
         options={options ?? []}
         getOptionLabel={(option) => {
-          return option?.label ?? "";
+          return (typeof option == 'string') ? option : option?.label ?? "";
         }}
         value={getValue()}
         onChange={(_, selectedOption) => {

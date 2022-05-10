@@ -1,4 +1,4 @@
-import { createTheme, adaptV4Theme, } from "@mui/material/styles";
+import { createTheme, } from "@mui/material/styles";
 export var baseColors = {
     dangerColor: "#FF0000",
     successColor: "#0A7227",
@@ -62,63 +62,7 @@ export var theme = {
             template4: {
                 font: "Nunito",
             },
-        },
-        anim: {
-            zIndex: 1,
-            padding: "8px 25px",
-            background: "none",
-            overflow: "hidden",
-            position: "relative",
-            verticalAlign: "middle",
-            MozOsxFontSmoothing: "grayscale",
-            "-webkit-backface-visibility": "hidden",
-            color: "#274C77",
-            borderColor: "#FFFFFF",
-            transition: "border-color 0.3s, color 0.3s",
-            "-webkit-transition": "border-color 0.3s, color 0.3s",
-            "-webkit-transition-timing-function": "cubic-bezier(0.2, 1, 0.3, 1)",
-            transitionTimingFunction: "cubic-bezier(0.2, 1, 0.3, 1)",
-            border: "4px solid",
-            fontWeight: 600,
-            letterSpacing: "2px",
-            textTransform: "uppercase",
-            fontSize: 16,
-            "&::before": {
-                content: "''",
-                position: "absolute",
-                top: "0",
-                left: "0",
-                width: "150%",
-                height: "100%",
-                background: "#37474f",
-                zIndex: "-1",
-                WebkitTransform: "rotate3d(0, 0, 1, -45deg) translate3d(0, -3em, 0)",
-                transform: "rotate3d(0, 0, 1, -45deg) translate3d(0, -3em, 0)",
-                WebkitTransformOrigin: "0% 100%",
-                transformOrigin: "0% 100%",
-                WebkitTransition: "-webkit-transform 0.3s, opacity 0.3s, background-color 0.3s",
-                transition: "transform 0.3s, opacity 0.3s, background-color 0.3s",
-            },
-            "&:hover, &:focus": {
-                color: "#FFFFFF",
-                borderColor: "#274C77",
-            },
-            "&:hover:before, &:focus": {
-                opacity: "1",
-                backgroundColor: "#274C77",
-                WebkitTransform: "rotate3d(0, 0, 1, 0deg)",
-                transform: "rotate3d(0, 0, 1, 0deg)",
-                WebkitTransitionTimingFunction: "cubic-bezier(0.2, 1, 0.3, 1)",
-                transitionTimingFunction: "cubic-bezier(0.2, 1, 0.3, 1)",
-            },
-        },
-        title: {
-            fontWeight: 600,
-            letterSpacing: "2px",
-        },
-        subTitle: {
-            fontWeight: 500,
-        },
+        }
     },
     design: {
         font: {
@@ -229,4 +173,4 @@ export var theme = {
         },
     },
 };
-export default createTheme(adaptV4Theme(theme));
+export default createTheme(theme);
