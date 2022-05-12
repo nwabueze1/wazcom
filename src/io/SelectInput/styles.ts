@@ -11,6 +11,5 @@ export const useSelectStyles = makeStyles((theme: Theme) => ({
   },
   select: {
     width: "100%",
-    padding: theme.spacing(0.5, 2),
   },
 }));

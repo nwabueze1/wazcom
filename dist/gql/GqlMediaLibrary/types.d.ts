@@ -24,6 +24,7 @@ export declare type GqlMediaSelectorConfigProps = {
         };
         viewOnly?: boolean;
     };
+    handleClose?: (e: any) => void;
 };
 export declare type Image = {
     __typename: string;

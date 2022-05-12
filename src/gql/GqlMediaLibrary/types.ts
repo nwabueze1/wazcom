@@ -26,6 +26,7 @@ export type GqlMediaSelectorConfigProps = {
     };
     viewOnly?: boolean;
   };
+  handleClose?: (e: any) => void;
 };
 
 export type Image = {

@@ -147,6 +147,11 @@ export var useMediaLibraryStyles = makeStyles(function (theme) { return ({
         overflow: "scroll",
         zIndex: 15,
         scrollBehavior: "smooth",
+        "-ms-overflow-style": "none" /* for Internet Explorer, Edge */,
+        scrollbarWidth: "none" /* for Firefox */,
+        "&::-webkit-scrollbar": {
+            display: "none",
+        },
     },
     selectorTab: {
         fontSize: theme.typography.fontSize + 4,

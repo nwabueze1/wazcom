@@ -6,7 +6,7 @@ import { Button } from "../../../../core";
 import { Image } from "gql/GqlMediaLibrary/types";
 
 export const EditMedia: React.FC<EditMediaProps> = ({
-  loading,
+  loading = true,
   image,
   handleEdit,
   handleClose,
@@ -34,7 +34,7 @@ export const EditMedia: React.FC<EditMediaProps> = ({
     ({ name, value }) => {
       setFormData({ ...formData, [name]: value });
     },
-    [formData],
+    [formData]
   );
 
   const displayFields = () =>

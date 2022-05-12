@@ -60,7 +60,7 @@ export const Table = ({
   const getRowsPerPage = useGetRowsPerPage(paginatorInfo, rowsPerPage);
   const handleChangeRowsPerPage = useHandleChangeRowsPerPage(
     changeRowsPerPage,
-    changePage,
+    changePage
   );
   const handleControlsChange = useHandleControlsChange(setControlsFormData);
 
@@ -87,7 +87,7 @@ export const Table = ({
       setTableValue,
       initialTableValue,
       controlsFormData,
-      filters,
+      filters
     );
   }, [controlsFormData, filters]);
 
@@ -101,7 +101,7 @@ export const Table = ({
         Object.keys(initialTableValue[0]).map((key) => ({
           name: key,
           label: key,
-        })),
+        }))
       );
     }
   }, [initialTableValue, headers]);
@@ -123,7 +123,11 @@ export const Table = ({
           tableRef={tableRef}
         />
       )}
-      <TableContainer component={Paper} ref={tableRef}>
+      <TableContainer
+        component={Paper}
+        ref={tableRef}
+        className={classes.tableContainer}
+      >
         <MuiTable
           classes={{
             root: classes.root,

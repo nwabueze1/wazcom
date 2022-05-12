@@ -6,6 +6,8 @@ export var useImageSelectorStyles = makeStyles(function (theme) { return ({
     container: {
         height: "100%",
         backgroundColor: theme.design.colors.lightGrey,
+        border: "1px dashed ".concat(theme.design.colors.mercury),
+        borderRadius: 5,
         backgroundSize: "cover",
         display: "flex",
         justifyContent: "center",
@@ -103,6 +105,6 @@ export var useImageSelectorStyles = makeStyles(function (theme) { return ({
         height: "200px",
     },
     error: {
-        border: "2px solid ".concat(theme.design.colors.dangerColor100),
+    // border: `2px solid ${theme.design.colors.dangerColor100}`,
     },
 }); });

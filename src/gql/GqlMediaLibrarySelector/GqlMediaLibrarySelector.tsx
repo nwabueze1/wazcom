@@ -39,6 +39,8 @@ export const GqlMediaLibrarySelector: FC<GqlMediaLibrarySelectorProps> = ({
 
   const handleClose = () => {
     setOpen(false);
+    console.log("love");
+    console.log(open);
   };
 
   const handleSelectImage = ({ name, value }: { name: string; value: any }) => {
@@ -50,7 +52,7 @@ export const GqlMediaLibrarySelector: FC<GqlMediaLibrarySelectorProps> = ({
   const handleRemoveImage = () => {
     setPlaceholder("");
     onChange?.({ name: name ?? "image", value: null });
-  }
+  };
 
   const variants = getSizeVariants(classes, size);
 
@@ -70,7 +72,7 @@ export const GqlMediaLibrarySelector: FC<GqlMediaLibrarySelectorProps> = ({
             classes.container,
             variant === "circle" && classes.circle,
             variants[0],
-            error && classes.error,
+            error && classes.error
           )}
           style={{ backgroundImage: `url(${placeholder})`, width, height }}
           onMouseEnter={() => setShowIcon(true)}
@@ -99,6 +101,7 @@ export const GqlMediaLibrarySelector: FC<GqlMediaLibrarySelectorProps> = ({
                   config={{ ...props.config }}
                   onChange={handleSelectImage}
                   name={name}
+                  handleClose={(e) => e.stopPropagation()}
                 />
               </div>
             </Fade>
@@ -118,17 +121,15 @@ export const GqlMediaLibrarySelector: FC<GqlMediaLibrarySelectorProps> = ({
             />
           )}
         </div>
-        {
-          placeholder && variant == "circle" && (
-            <Button
-              className={clx(classes.removeBtn, classNames?.removeBtn)}
-              variant="outlined"
-              onClick={handleRemoveImage}
-            >
-              Remove
-            </Button>
-          )
-        }
+        {placeholder && variant == "circle" && (
+          <Button
+            className={clx(classes.removeBtn, classNames?.removeBtn)}
+            variant="outlined"
+            onClick={handleRemoveImage}
+          >
+            Remove
+          </Button>
+        )}
       </div>
       {feedback && displayFeedback(feedback)}
     </div>

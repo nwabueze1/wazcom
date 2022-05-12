@@ -58,6 +58,8 @@ export var GqlMediaLibrarySelector = function (_a) {
     };
     var handleClose = function () {
         setOpen(false);
+        console.log("love");
+        console.log(open);
     };
     var handleSelectImage = function (_a) {
         var name = _a.name, value = _a.value;
@@ -76,5 +78,5 @@ export var GqlMediaLibrarySelector = function (_a) {
                             handleOpen();
                         } }, { children: [_jsx(Modal, __assign({ open: open, BackdropProps: {
                                     timeout: 500,
-                                }, closeAfterTransition: true, onClose: handleClose, onBackdropClick: function (e) { return e.stopPropagation(); }, className: classes.modal, BackdropComponent: Backdrop, "aria-labelledby": "transition-modal-title", "aria-describedby": "transition-modal-description" }, { children: _jsx(Fade, __assign({ in: open }, { children: _jsx("div", __assign({ className: classes.wrapper }, { children: _jsx(GqlMediaLibrary, { config: __assign({}, props.config), onChange: handleSelectImage, name: name }, void 0) }), void 0) }), void 0) }), void 0), iconType === "button" ? (_jsx(Button, __assign({ className: clx(classes.icon), variant: "outlined", onClick: handleOpen }, { children: "Upload Image" }), void 0)) : (_jsx(CameraAlt, { className: clx(classes.cameraIcon, variants[1]), onClick: handleOpen }, void 0))] }), void 0), placeholder && variant == "circle" && (_jsx(Button, __assign({ className: clx(classes.removeBtn, classNames === null || classNames === void 0 ? void 0 : classNames.removeBtn), variant: "outlined", onClick: handleRemoveImage }, { children: "Remove" }), void 0))] }), void 0), feedback && displayFeedback(feedback)] }), void 0));
+                                }, closeAfterTransition: true, onClose: handleClose, onBackdropClick: function (e) { return e.stopPropagation(); }, className: classes.modal, BackdropComponent: Backdrop, "aria-labelledby": "transition-modal-title", "aria-describedby": "transition-modal-description" }, { children: _jsx(Fade, __assign({ in: open }, { children: _jsx("div", __assign({ className: classes.wrapper }, { children: _jsx(GqlMediaLibrary, { config: __assign({}, props.config), onChange: handleSelectImage, name: name, handleClose: function (e) { return e.stopPropagation(); } }, void 0) }), void 0) }), void 0) }), void 0), iconType === "button" ? (_jsx(Button, __assign({ className: clx(classes.icon), variant: "outlined", onClick: handleOpen }, { children: "Upload Image" }), void 0)) : (_jsx(CameraAlt, { className: clx(classes.cameraIcon, variants[1]), onClick: handleOpen }, void 0))] }), void 0), placeholder && variant == "circle" && (_jsx(Button, __assign({ className: clx(classes.removeBtn, classNames === null || classNames === void 0 ? void 0 : classNames.removeBtn), variant: "outlined", onClick: handleRemoveImage }, { children: "Remove" }), void 0))] }), void 0), feedback && displayFeedback(feedback)] }), void 0));
 };

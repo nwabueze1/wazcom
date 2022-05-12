@@ -18,15 +18,16 @@ export var useTableControlsStyles = makeStyles(function (theme) {
             display: "flex",
             gap: theme.spacing(1),
             justifyContent: "space-between",
+            border: "1px solid ".concat(theme.design.colors.greene),
             borderColor: theme.design.colors.greyColor100,
             "&:hover": {
                 opacity: "initial",
                 backgroundColor: theme.design.colors.white,
                 borderColor: theme.design.colors.greyColor100,
-            }
+            },
         },
         controlButtonText: {
-            fontSize: theme.typography.fontSize + 2
+            fontSize: theme.typography.fontSize + 2,
         },
         controlsInputField: {
             width: "320px",
@@ -51,11 +52,11 @@ export var useTableControlsStyles = makeStyles(function (theme) {
                 fontFamily: "Poppins",
                 "&::placeholder": {
                     color: theme.design.colors.greenishGrey,
-                    fontFamily: "Poppins"
+                    fontFamily: "Poppins",
                 }
             },
             _a[theme.breakpoints.down("md")] = {
-                border: "solid 1px ".concat(theme.design.colors.greyColor100)
+                border: "solid 1px ".concat(theme.design.colors.greyColor100),
             },
             _a),
         rightControls: {

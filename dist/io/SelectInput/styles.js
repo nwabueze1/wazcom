@@ -9,6 +9,5 @@ export var useSelectStyles = makeStyles(function (theme) { return ({
     },
     select: {
         width: "100%",
-        padding: theme.spacing(0.5, 2),
     },
 }); });
