@@ -21,41 +21,40 @@ export const SelectInput: FC<SelectInputProps> = ({
   const handleChange = (
     e:
       | (Event & { target: { value: any; name: string } })
-      | React.ChangeEvent<HTMLInputElement>,
+      | React.ChangeEvent<HTMLInputElement>
   ) => {
     const { name, value } = e.target;
     onChange?.({ name, value });
   };
 
   const displayLabelFromValue = (value: any) => {
-    const label = options.filter((option) => option.value == value)?.[0].label 
+    const label = options.filter((option) => option.value == value)?.[0].label;
     return label;
-  } 
+  };
 
   return (
     <div className={clx(className, classes.root)}>
       {label && (
         <InputLabel
-          className={classNames?.label as string ?? ""}
+          className={(classNames?.label as string) ?? ""}
           htmlFor={props.name}
         >
-          {label}
+          {label}{" "}
           <p className={classes.required}>{props.required ? " *" : ""}</p>
         </InputLabel>
       )}
       <Select
         {...props}
         onChange={handleChange}
-        className={clx(
-          classNames?.selectInput,
-          classes.select,
-        )}
+        className={clx(classNames?.selectInput, classes.select)}
         classes={
           classNames?.classes
             ? (classNames.classes as { [key: string]: string })
             : {}
         }
-        renderValue={(value: any) => <MenuItem value={value}>{displayLabelFromValue(value)}</MenuItem>}
+        renderValue={(value: any) => (
+          <MenuItem value={value}>{displayLabelFromValue(value)}</MenuItem>
+        )}
       >
         {options.length === 0 && (
           <MenuItem value="Select a value">{placeholder}</MenuItem>
@@ -63,8 +62,10 @@ export const SelectInput: FC<SelectInputProps> = ({
         {options.map(({ label, value, subText }, index: number) => (
           <MenuItem key={index} value={value}>
             <div className={classNames?.optionContainer as string}>
-              <p className={(classNames?.optionLabel as string)}>{label}</p>
-              {subText && <p className={(classNames?.optionSubText as string)}>{subText}</p>}
+              <p className={classNames?.optionLabel as string}>{label}</p>
+              {subText && (
+                <p className={classNames?.optionSubText as string}>{subText}</p>
+              )}
             </div>
           </MenuItem>
         ))}

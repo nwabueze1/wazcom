@@ -51,8 +51,9 @@ export const useTableStyles = makeStyles((theme: Theme) => ({
     minHeight: 400,
   },
   tableContainer: {
-    boxShadow: "none"
-  }
+    boxShadow: "none",
+    border: `1px solid ${theme.design.colors.grey5}`,
+  },
 }));
 
 export const useStyles = makeStyles((theme: Theme) => ({

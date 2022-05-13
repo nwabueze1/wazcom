@@ -48,8 +48,9 @@ export var useTableStyles = makeStyles(function (theme) { return ({
         minHeight: 400,
     },
     tableContainer: {
-        boxShadow: "none"
-    }
+        boxShadow: "none",
+        border: "1px solid ".concat(theme.design.colors.grey5),
+    },
 }); });
 export var useStyles = makeStyles(function (theme) { return ({
     root: {

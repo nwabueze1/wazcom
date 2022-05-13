@@ -7,7 +7,7 @@ export var useTextStyles = makeStyles(function (theme) { return ({
         position: "relative",
     },
     required: {
-        color: "red",
+        color: theme.design.colors.dangerColor100,
         margin: theme.spacing(0.5, 0, 0, 0.5),
     },
 }); });
