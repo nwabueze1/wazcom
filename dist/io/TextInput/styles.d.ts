@@ -1,1 +1,1 @@
-export declare const useTextStyles: (props?: any) => import("@mui/styles").ClassNameMap<"root">;
+export declare const useTextStyles: (props?: any) => import("@mui/styles").ClassNameMap<"root" | "required">;

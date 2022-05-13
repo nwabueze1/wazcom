@@ -9,6 +9,10 @@ export const useSelectStyles = makeStyles((theme: Theme) => ({
     width: "100%",
     marginBottom: theme.spacing(2),
   },
+  required: {
+    color: "red",
+    margin: theme.spacing(0.5, 0, 0, 0.5),
+  },
   select: {
     width: "100%",
   },
