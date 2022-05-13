@@ -1,3 +1,4 @@
+/// <reference types="react" />
 import { ApolloClient, NormalizedCacheObject, DocumentNode } from "@apollo/client";
 import { CommonProps } from "../../types";
 export declare type GqlMediaLibraryProps = CommonProps & GqlMediaSelectorConfigProps;
@@ -24,6 +25,7 @@ export declare type GqlMediaSelectorConfigProps = {
         };
         viewOnly?: boolean;
     };
+    handleClose?: React.MouseEventHandler<SVGElement>;
 };
 export declare type Image = {
     __typename: string;

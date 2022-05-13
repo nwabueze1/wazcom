@@ -116,7 +116,6 @@ export const stories: ComponentPropType[] = [
       },
       error: true,
       iconType: "button",
-      size: "full",
     },
   },
   {

@@ -33,6 +33,7 @@ export const TextArea: FC<TextAreaProps> = ({
           htmlFor={name ?? ""}
         >
           {label}
+          <p className={classes.required}>{props.required ? " *" : ""}</p>
         </InputLabel>
       )}
       <TextareaAutosize

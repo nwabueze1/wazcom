@@ -9,6 +9,8 @@ export const useImageSelectorStyles = makeStyles((theme: Theme) => ({
   container: {
     height: "100%",
     backgroundColor: theme.design.colors.lightGrey,
+    border: `1px dashed ${theme.design.colors.mercury}`,
+    borderRadius: 5,
     backgroundSize: "cover",
     display: "flex",
     justifyContent: "center",

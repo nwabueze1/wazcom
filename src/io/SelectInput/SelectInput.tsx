@@ -40,6 +40,7 @@ export const SelectInput: FC<SelectInputProps> = ({
           htmlFor={props.name}
         >
           {label}
+          <p className={classes.required}>{props.required ? " *" : ""}</p>
         </InputLabel>
       )}
       <Select
