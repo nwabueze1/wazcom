@@ -108,6 +108,6 @@ export const useImageSelectorStyles = makeStyles((theme: Theme) => ({
     height: "200px",
   },
   error: {
-    // border: `2px solid ${theme.design.colors.dangerColor100}`,
+    border: `2px solid ${theme.design.colors.dangerColor100}`,
   },
 }));

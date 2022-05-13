@@ -18,7 +18,7 @@ export const useTableControlsStyles = makeStyles((theme: Theme) => ({
     display: "flex",
     gap: theme.spacing(1),
     justifyContent: "space-between",
-    border: `1px solid ${theme.design.colors.greene}`,
+    border: `1px solid ${theme.design.colors.primaryColor100}`,
     borderColor: theme.design.colors.greyColor100,
 
     "&:hover": {

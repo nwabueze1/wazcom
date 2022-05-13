@@ -105,6 +105,6 @@ export var useImageSelectorStyles = makeStyles(function (theme) { return ({
         height: "200px",
     },
     error: {
-    // border: `2px solid ${theme.design.colors.dangerColor100}`,
+        border: "2px solid ".concat(theme.design.colors.dangerColor100),
     },
 }); });
