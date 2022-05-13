@@ -58,8 +58,6 @@ export var GqlMediaLibrarySelector = function (_a) {
     };
     var handleClose = function () {
         setOpen(false);
-        console.log("love");
-        console.log(open);
     };
     var handleSelectImage = function (_a) {
         var name = _a.name, value = _a.value;

@@ -39,8 +39,6 @@ export const GqlMediaLibrarySelector: FC<GqlMediaLibrarySelectorProps> = ({
 
   const handleClose = () => {
     setOpen(false);
-    console.log("love");
-    console.log(open);
   };
 
   const handleSelectImage = ({ name, value }: { name: string; value: any }) => {

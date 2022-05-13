@@ -37,9 +37,9 @@ export var useMediaLibraryStyles = makeStyles(function (theme) { return ({
         marginBottom: theme.spacing(1),
         cursor: "pointer",
     },
-    thumbnailFixedHeight: {
-        height: 150,
-    },
+    // thumbnailFixedHeight: {
+    //   height: 150,
+    // },
     thumbnailOverlay: {
         position: "absolute",
         top: 0,

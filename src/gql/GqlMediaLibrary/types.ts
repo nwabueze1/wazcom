@@ -26,7 +26,7 @@ export type GqlMediaSelectorConfigProps = {
     };
     viewOnly?: boolean;
   };
-  handleClose?: (e: any) => void;
+  handleClose?: React.MouseEventHandler<SVGElement>;
 };
 
 export type Image = {
