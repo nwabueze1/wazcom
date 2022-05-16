@@ -26,7 +26,7 @@ export const InputGroup: FC<InputGroupProps> = ({
           htmlFor={props.name}
         >
           {label}
-          <p>{props.required ? " *" : ""}</p>
+          <p className={classes.required}>{props.required ? " *" : ""}</p>
         </InputLabel>
       )}
       <div className={clx(classes.inputGroup, classNames?.inputGroup)}>

@@ -99,7 +99,7 @@ export const GqlMediaLibrarySelector: FC<GqlMediaLibrarySelectorProps> = ({
                   config={{ ...props.config }}
                   onChange={handleSelectImage}
                   name={name}
-                  handleClose={(e) => e.stopPropagation()}
+                  handleClose={handleClose}
                 />
               </div>
             </Fade>
