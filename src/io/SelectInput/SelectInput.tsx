@@ -36,7 +36,7 @@ export const SelectInput: FC<SelectInputProps> = ({
     <div className={clx(className, classes.root)}>
       {label && (
         <InputLabel
-          className={(classNames?.label as string) ?? ""}
+          className={(classNames?.label as string) ?? classes.label}
           htmlFor={props.name}
         >
           {label}{" "}

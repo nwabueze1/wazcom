@@ -26,10 +26,11 @@ export const TextInput: FC<TextInputProps> = ({
     <div className={clx(className, classes.root)}>
       {label && (
         <InputLabel
-          className={classNames?.label ? (classNames?.label as string) : ""}
+          className={classNames?.label ? (classNames?.label as string) : classes.label}
           htmlFor={props.name}
         >
-          {label} <p>{props.required ? " *" : ""}</p>
+          {label}{" "}
+          <p className={classes.required}>{props.required ? " *" : ""}</p>
         </InputLabel>
       )}
       <TextField

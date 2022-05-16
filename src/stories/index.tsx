@@ -231,6 +231,7 @@ export const stories: ComponentPropType[] = [
         text: "Rebuilt successfully",
         status: "success",
       },
+      required: true,
       type: "password",
       onChange: ({ value }: { name: string; value: any }) => {
         //
@@ -393,6 +394,7 @@ export const stories: ComponentPropType[] = [
         { label: "Chinazom", value: "chinazom" },
       ],
       error: true,
+      required: true,
       feedback: { text: "Tariq is a weirdo", status: "error" },
     },
   },
