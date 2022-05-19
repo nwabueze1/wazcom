@@ -13,4 +13,5 @@ export interface CommonProps {
     };
     feedback?: Feedback;
     helperText?: string | string[] | JSX.Element;
+    required?: boolean;
 }

@@ -29,7 +29,8 @@ export const TextInput: FC<TextInputProps> = ({
           className={classNames?.label ? (classNames?.label as string) : ""}
           htmlFor={props.name}
         >
-          {label}
+          {label}{" "}
+          <p className={classes.required}>{props.required ? " *" : ""}</p>
         </InputLabel>
       )}
       <TextField

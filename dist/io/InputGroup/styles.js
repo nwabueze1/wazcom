@@ -1,5 +1,5 @@
 import { makeStyles } from "@mui/styles";
-export var useInputGroupStyles = makeStyles(function () { return ({
+export var useInputGroupStyles = makeStyles(function (theme) { return ({
     root: {},
     inputGroup: {
         position: "relative",
@@ -14,6 +14,10 @@ export var useInputGroupStyles = makeStyles(function () { return ({
         display: "flex",
         alignItems: "center",
         justifyContent: "center",
+    },
+    required: {
+        color: theme.design.colors.dangerColor100,
+        margin: theme.spacing(0.5, 0, 0, 0.5),
     },
     textInput: {
         paddingLeft: "25%",

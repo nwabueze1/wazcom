@@ -13,9 +13,12 @@ export var useTableStyles = makeStyles(function (theme) { return ({
     tableHeadCell: {
         fontWeight: theme.typography.fontWeightBold,
         padding: theme.spacing(1.5, 2),
+        fontSize: theme.typography.fontSize + 4,
+        color: theme.design.colors.grey1,
     },
     tableCell: {
         padding: theme.spacing(1.5, 2),
+        fontSize: theme.typography.fontSize + 4,
     },
     controls: {
         display: "flex",
@@ -43,6 +46,10 @@ export var useTableStyles = makeStyles(function (theme) { return ({
     },
     empty: {
         minHeight: 400,
+    },
+    tableContainer: {
+        boxShadow: "none",
+        border: "1px solid ".concat(theme.design.colors.grey5),
     },
 }); });
 export var useStyles = makeStyles(function (theme) { return ({

@@ -37,10 +37,7 @@ export const useDisplayImages = () => {
                 onClick={() => {
                   selectImage?.(theImage);
                 }}
-                className={clx(
-                  classes.thumbnail,
-                  viewOnly && classes.thumbnailFixedHeight
-                )}
+                className={clx(classes.thumbnail)}
               >
                 <img src={theImage?.url} className={classes.image} />
                 <div className={classes.thumbnailOverlay}>

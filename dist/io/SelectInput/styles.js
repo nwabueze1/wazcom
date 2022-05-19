@@ -7,8 +7,15 @@ export var useSelectStyles = makeStyles(function (theme) { return ({
         width: "100%",
         marginBottom: theme.spacing(2),
     },
+    label: {
+        display: "flex",
+        alignItems: "center",
+    },
+    required: {
+        color: theme.design.colors.dangerColor100,
+        margin: theme.spacing(0.5, 0, 0, 0.5),
+    },
     select: {
         width: "100%",
-        padding: theme.spacing(0.5, 2),
     },
 }); });

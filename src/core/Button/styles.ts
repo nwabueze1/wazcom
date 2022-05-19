@@ -32,6 +32,6 @@ export const useButtonStyles = makeStyles((theme: BaseTheme) => ({
     color: theme.design.colors.white,
     zIndex: 5,
     opacity: 1,
-    background: theme.design.colors.dangerColor300,
+    background: theme.design.colors.primaryColor100,
   },
 }));
