@@ -1,6 +1,8 @@
 import { StyledEngineProvider, Theme, ThemeProvider } from "@mui/material";
 import * as React from "react";
 import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
+import { BlogArticle003 } from "Templates/Blog/Articles/BlogArticle003/BlogArticle003";
+import { articleData } from "utilities/data";
 import { Browser } from "view/Browser";
 import theme from "./theme";
 declare module "@mui/styles/defaultTheme" {
@@ -17,6 +19,9 @@ const App: React.FC<Props> = () => {
       <ThemeProvider theme={theme}>
         <Router>
           <Switch>
+            <Route exact path="/temp">
+              <BlogArticle003 article={articleData} domain="" />
+            </Route>
             <Route exact path="/">
               <Browser />
             </Route>
