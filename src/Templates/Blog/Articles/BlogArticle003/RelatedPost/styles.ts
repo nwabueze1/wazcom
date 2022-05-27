@@ -7,6 +7,12 @@ export const useRelatedPostStyles = makeStyles<Theme>((theme: Theme) => ({
     marginBottom: theme.spacing(3),
     border: `1px solid ${theme.design.colors.grey140}`,
     borderRadius: 4,
+    [theme.breakpoints.down("md")]: {
+      width: "47%",
+    },
+    [theme.breakpoints.down("sm")]: {
+      width: "100%",
+    },
   },
   thumbnailImgContainer: {
     height: 220,
@@ -17,6 +23,7 @@ export const useRelatedPostStyles = makeStyles<Theme>((theme: Theme) => ({
     top: 0,
     width: "100%",
     height: "100%",
+    objectFit: "cover",
   },
   thumbnailDetails: {
     padding: theme.spacing(2),
@@ -37,6 +44,7 @@ export const useRelatedPostStyles = makeStyles<Theme>((theme: Theme) => ({
     width: "100%",
     height: "100%",
     borderRadius: "50%",
+    objectFit: "cover",
   },
   authorContainer: {
     display: "flex",

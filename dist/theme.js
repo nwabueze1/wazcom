@@ -1,4 +1,4 @@
-import { createTheme, } from "@mui/material/styles";
+import { createTheme } from "@mui/material/styles";
 export var baseColors = {
     dangerColor: "#FF0000",
     successColor: "#0A7227",
@@ -57,12 +57,14 @@ export var theme = {
                     lato: "Lato, sans-serif",
                     cookie: "Cookie, cursive;",
                     raleway: "Raleway, sans-serif",
+                    dmSans: "DM Sans, sans-serif",
+                    NunitoSans: "Nunito Sans, sans-serif",
                 },
             },
             template4: {
                 font: "Nunito",
             },
-        }
+        },
     },
     design: {
         font: {
@@ -103,6 +105,12 @@ export var theme = {
             mercury: "#CCCFCD",
             primaryBlack: "#010E05",
             grey6: "#FBFBFB",
+            grey120: "#808782",
+            grey130: "#999F9B",
+            grey140: "#E8E8E8",
+            grey150: "#4D5650",
+            grey160: "#1A261E",
+            grey170: "#676E69",
         },
     },
     overrides: {

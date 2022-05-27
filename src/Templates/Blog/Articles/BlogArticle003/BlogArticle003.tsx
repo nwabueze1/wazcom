@@ -1,10 +1,11 @@
-import React, { FC } from "react";
+import { FC } from "react";
 import { defaultBlogImage } from "utilities/images";
 import { ArticleProps } from "../types";
 import { useBlogArticle003Styles } from "./styles";
 import clx from "classnames";
 import { RelatedPost } from "./RelatedPost/RelatedPost";
 import { BreadCrumb } from "core";
+import { Twitter, Instagram, Message } from "@mui/icons-material";
 
 export const BlogArticle003: FC<ArticleProps> = ({ article, site }) => {
   const classes = useBlogArticle003Styles();
@@ -20,10 +21,7 @@ export const BlogArticle003: FC<ArticleProps> = ({ article, site }) => {
     article.related_posts?.map((post, index) => (
       <RelatedPost key={index} article={post} domain={""} />
     ));
-  console.log(article.related_posts);
-  console.log(
-    Boolean(article?.related_posts && article?.related_posts?.length < 1)
-  );
+
   const isRelatedPost = () => {
     if (!article.related_posts) return true;
     if (article.related_posts.length > 0) return false;
@@ -47,7 +45,7 @@ export const BlogArticle003: FC<ArticleProps> = ({ article, site }) => {
         </div>
         <div className={classes.blogInfoContainer}>
           <div className={classes.tags}>{displayTags()}</div>
-          <h1 className={classes.tittle}>{article.title}</h1>
+          <h1 className={classes.title}>{article.title}</h1>
           <div className={classes.blogInfo}>
             <div className={classes.avatar}>
               <img
@@ -76,7 +74,7 @@ export const BlogArticle003: FC<ArticleProps> = ({ article, site }) => {
         {article?.related_posts && article.related_posts.length > 0 && (
           <div className={classes.relatedArticles}>
             <p className={classes.relatedPost}>Related Posts</p>
-            {displayRelatedPosts()}
+            <div className={classes.posts}>{displayRelatedPosts()}</div>
           </div>
         )}
       </div>

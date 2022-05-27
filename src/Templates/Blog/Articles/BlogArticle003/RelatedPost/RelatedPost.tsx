@@ -1,12 +1,13 @@
-import React, { FC } from "react";
+import { FC } from "react";
 import { defaultBlogImage } from "utilities/images";
 import { ArticleProps } from "../../types";
 import { useRelatedPostStyles } from "./styles";
+import clx from "classnames";
 
-export const RelatedPost: FC<ArticleProps> = ({ article, site }) => {
+export const RelatedPost: FC<ArticleProps> = ({ article, site, className }) => {
   const classes = useRelatedPostStyles();
   return (
-    <div className={classes.root}>
+    <div className={clx(classes.root, className)}>
       <div className={classes.thumbnailImgContainer}>
         <img
           src={article.featured_image ?? `${defaultBlogImage}`}

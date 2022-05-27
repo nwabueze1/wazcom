@@ -80,5 +80,5 @@ const corePost = {
 
 export const articleData: CorePostFields = {
   ...corePost,
-  //   related_posts: [{ ...corePost }, { ...corePost }, { ...corePost }],
+  related_posts: [{ ...corePost }, { ...corePost }, { ...corePost }],
 };

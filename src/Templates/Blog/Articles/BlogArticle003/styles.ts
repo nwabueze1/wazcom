@@ -9,11 +9,22 @@ export const useBlogArticle003Styles = makeStyles<Theme>((theme: Theme) => ({
     height: "100%",
     fontFamily: theme.include.styles.template2.font.dmSans,
     margin: "auto",
+    [theme.breakpoints.down("md")]: {
+      width: "90%",
+      margin: "auto",
+    },
   },
   featuredImageContainer: {
     width: "47%",
     height: 360,
     position: "relative",
+    [theme.breakpoints.down("md")]: {
+      width: "100%",
+      height: 432,
+    },
+    [theme.breakpoints.down("sm")]: {
+      height: 220,
+    },
   },
   featuredImage: {
     position: "absolute",
@@ -25,6 +36,9 @@ export const useBlogArticle003Styles = makeStyles<Theme>((theme: Theme) => ({
   header: {
     display: "flex",
     justifyContent: "space-between",
+    [theme.breakpoints.down("md")]: {
+      flexDirection: "column",
+    },
   },
   tag: {
     padding: theme.spacing(0.5),
@@ -40,12 +54,20 @@ export const useBlogArticle003Styles = makeStyles<Theme>((theme: Theme) => ({
   },
   blogInfoContainer: {
     width: "49%",
+    [theme.breakpoints.down("md")]: {
+      width: "100%",
+      margin: theme.spacing(6, 0, 1, 0),
+    },
   },
-  tittle: {
+  title: {
     fontSize: theme.typography.fontSize * 3,
     fontWeight: theme.typography.fontWeightBold,
     lineHeight: "48px",
     marginTop: theme.spacing(1),
+    [theme.breakpoints.down("sm")]: {
+      fontSize: theme.typography.fontSize * 2,
+      lineHeight: "28px",
+    },
   },
   avatar: {
     position: "relative",
@@ -75,17 +97,29 @@ export const useBlogArticle003Styles = makeStyles<Theme>((theme: Theme) => ({
     padding: theme.spacing(0, 1.5),
     borderLeft: `1px solid ${theme.design.colors.grey130}`,
     borderRight: `1px solid ${theme.design.colors.grey130}`,
+    [theme.breakpoints.down("sm")]: {
+      fontSize: theme.typography.fontSize,
+    },
   },
   contentContainer: {
     display: "flex",
     justifyContent: "space-between",
     marginTop: theme.spacing(6),
+    [theme.breakpoints.down("md")]: {
+      flexDirection: "column",
+    },
+    [theme.breakpoints.down("sm")]: {
+      marginTop: theme.spacing(3),
+    },
   },
   content: {
     color: theme.design.colors.primaryBlack,
-    fontSize: theme.typography.fontSize + 4,
+    fontSize: theme.typography.fontSize + 6,
     width: "60%",
     lineHeight: "28px",
+    [theme.breakpoints.down("md")]: {
+      width: "100%",
+    },
   },
   fullContentWidth: {
     width: "100%",
@@ -93,10 +127,25 @@ export const useBlogArticle003Styles = makeStyles<Theme>((theme: Theme) => ({
   relatedArticles: {
     width: "34%",
     justifyContent: "space-between",
+    [theme.breakpoints.down("md")]: {
+      width: "100%",
+      margin: theme.spacing(7, 0, 7, 0),
+    },
   },
   relatedPost: {
     fontSize: theme.typography.fontSize + 8,
     fontWeight: theme.typography.fontWeightMedium,
     marginBottom: theme.spacing(3),
+  },
+  sharePost: {
+    fontSize: theme.typography.fontSize,
+    padding: theme.spacing(2, 0, 1, 0),
+  },
+  posts: {
+    [theme.breakpoints.down("md")]: {
+      display: "flex",
+      flexWrap: "wrap",
+      gap: theme.spacing(3),
+    },
   },
 }));

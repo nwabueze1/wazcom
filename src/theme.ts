@@ -79,6 +79,7 @@ export const theme: any = {
           cookie: "Cookie, cursive;",
           raleway: "Raleway, sans-serif",
           dmSans: "DM Sans, sans-serif",
+          NunitoSans: "Nunito Sans, sans-serif",
         },
       },
       template4: {
@@ -129,6 +130,8 @@ export const theme: any = {
       grey130: "#999F9B",
       grey140: "#E8E8E8",
       grey150: "#4D5650",
+      grey160: "#1A261E",
+      grey170: "#676E69",
     },
   },
   overrides: {
