@@ -148,4 +148,16 @@ export const useBlogArticle003Styles = makeStyles<Theme>((theme: Theme) => ({
       gap: theme.spacing(3),
     },
   },
+  shareContainer: {
+    marginTop: theme.spacing(2),
+  },
+  socialIcons: {
+    display: "flex",
+    gap: theme.spacing(2),
+  },
+  shareText: {
+    fontSize: theme.typography.fontSize,
+    color: theme.design.colors.grey130,
+    marginBottom: theme.spacing(1),
+  },
 }));

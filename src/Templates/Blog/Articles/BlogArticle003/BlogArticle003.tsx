@@ -1,14 +1,21 @@
-import { FC } from "react";
+import { FC, useEffect, useState } from "react";
 import { defaultBlogImage } from "utilities/images";
 import { ArticleProps } from "../types";
 import { useBlogArticle003Styles } from "./styles";
 import clx from "classnames";
 import { RelatedPost } from "./RelatedPost/RelatedPost";
 import { BreadCrumb } from "core";
-import { Twitter, Instagram, Message } from "@mui/icons-material";
+import { shareData } from "./data";
 
 export const BlogArticle003: FC<ArticleProps> = ({ article, site }) => {
   const classes = useBlogArticle003Styles();
+  const [loaded, setLoaded] = useState(false);
+
+  useEffect(() => {
+    setLoaded(true);
+  }, []);
+
+  const blogUrl = loaded && window.location.href;
 
   const displayTags = () =>
     article?.tags?.map((tag, index) => (
@@ -26,6 +33,21 @@ export const BlogArticle003: FC<ArticleProps> = ({ article, site }) => {
     if (!article.related_posts) return true;
     if (article.related_posts.length > 0) return false;
     return true;
+  };
+
+  const displaySocialIcons = () => {
+    return shareData.map((social, index) => {
+      return (
+        <a
+          key={index}
+          href={`${social.href}${blogUrl}`}
+          target="_blank"
+          rel="noreferrer"
+        >
+          <img src={social.src} alt={social.alt} />
+        </a>
+      );
+    });
   };
 
   const handleClick = (path: string) => {};
@@ -61,6 +83,10 @@ export const BlogArticle003: FC<ArticleProps> = ({ article, site }) => {
               </span>
             </p>
             <p className={classes.postedTime}>Posted 20 hours ago</p>
+          </div>
+          <div className={classes.shareContainer}>
+            <p className={classes.shareText}>Share post</p>
+            <div className={classes.socialIcons}>{displaySocialIcons()}</div>
           </div>
         </div>
       </section>

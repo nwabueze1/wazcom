@@ -124,4 +124,33 @@ export const useBlogArticle004Styles = makeStyles<Theme>((theme: Theme) => ({
       gap: theme.spacing(3),
     },
   },
+  shareContainer: {
+    display: "flex",
+    justifyContent: "space-between",
+  },
+  shareLine: {
+    width: "100%",
+    height: 0,
+  },
+  icons: {
+    display: "flex",
+    alignItems: "center",
+    gap: theme.spacing(1.5),
+    padding: theme.spacing(0, 4.5),
+    [theme.breakpoints.down("sm")]: {
+      padding: theme.spacing(0, 4),
+    },
+  },
+  shareText: {
+    fontSize: theme.typography.fontSize + 2,
+    color: theme.design.colors.grey120,
+    textAlign: "center",
+    marginTop: theme.spacing(0.5),
+  },
+  shareRoot: {
+    marginTop: theme.spacing(7),
+    [theme.breakpoints.down("sm")]: {
+      marginTop: theme.spacing(3, 0),
+    },
+  },
 }));
