@@ -23,7 +23,7 @@ export const useRelatedPostStyles = makeStyles<Theme>((theme: Theme) => ({
     height: "100%",
     objectFit: "cover",
   },
-  articleTittle: {
+  articleTitle: {
     fontSize: theme.typography.fontSize + 4,
     fontWeight: theme.typography.fontWeightMedium,
     lineHeight: "22px",

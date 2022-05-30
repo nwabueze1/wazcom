@@ -16,3 +16,26 @@ export const getTimeFrom = (dt: number) => {
 
   return `${Math.round(difference / 86400000)}d`;
 };
+
+const months = [
+  "Jan",
+  "Feb",
+  "Mar",
+  "Apr",
+  "May",
+  "Jun",
+  "Jul",
+  "Aug",
+  "Sep",
+  "Oct",
+  "Nov",
+  "Dec",
+];
+
+export const getDay = (datetime: string) => {
+  const date = new Date(datetime);
+  const month = date.getMonth();
+  const day = date.getDate();
+  const year = date.getFullYear();
+  return `${months[month]} ${day}, ${year}`;
+};

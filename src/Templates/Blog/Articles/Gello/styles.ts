@@ -1,7 +1,7 @@
 import makeStyles from "@mui/styles/makeStyles";
 import { Theme } from "@mui/material/styles";
 
-export const useBlogArticle004Styles = makeStyles<Theme>((theme: Theme) => ({
+export const useGelloStyles = makeStyles<Theme>((theme: Theme) => ({
   root: {
     width: "90%",
     height: "100%",
@@ -20,6 +20,9 @@ export const useBlogArticle004Styles = makeStyles<Theme>((theme: Theme) => ({
     [theme.breakpoints.down("md")]: {
       width: "100%",
     },
+  },
+  fullContent: {
+    width: "100%",
   },
   relatedArticleContainer: {
     width: "30%",
@@ -114,7 +117,7 @@ export const useBlogArticle004Styles = makeStyles<Theme>((theme: Theme) => ({
     fontWeight: theme.typography.fontWeightBold,
     lineHeight: "27px",
   },
-  postHr: {
+  postLine: {
     marginBottom: theme.spacing(4),
   },
   relatedPosts: {

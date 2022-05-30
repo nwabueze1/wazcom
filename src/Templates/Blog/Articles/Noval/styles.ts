@@ -1,7 +1,7 @@
 import makeStyles from "@mui/styles/makeStyles";
 import { Theme } from "@mui/material/styles";
 
-export const useBlogArticle003Styles = makeStyles<Theme>((theme: Theme) => ({
+export const useNovalStyles = makeStyles<Theme>((theme: Theme) => ({
   root: {
     width: "100%",
     maxWidth: 1200,

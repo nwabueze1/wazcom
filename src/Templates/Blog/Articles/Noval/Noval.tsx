@@ -1,14 +1,14 @@
 import { FC, useEffect, useState } from "react";
 import { defaultBlogImage } from "utilities/images";
 import { ArticleProps } from "../types";
-import { useBlogArticle003Styles } from "./styles";
+import { useNovalStyles } from "./styles";
 import clx from "classnames";
 import { RelatedPost } from "./RelatedPost/RelatedPost";
 import { BreadCrumb } from "core";
 import { shareData } from "./data";
 
-export const BlogArticle003: FC<ArticleProps> = ({ article, site }) => {
-  const classes = useBlogArticle003Styles();
+export const Noval: FC<ArticleProps> = ({ article, site }) => {
+  const classes = useNovalStyles();
   const [loaded, setLoaded] = useState(false);
 
   useEffect(() => {
@@ -29,11 +29,9 @@ export const BlogArticle003: FC<ArticleProps> = ({ article, site }) => {
       <RelatedPost key={index} article={post} domain={""} />
     ));
 
-  const isRelatedPost = () => {
-    if (!article.related_posts) return true;
-    if (article.related_posts.length > 0) return false;
-    return true;
-  };
+  const isRelatedPosts = Boolean(
+    article.related_posts && article.related_posts.length > 0
+  );
 
   const displaySocialIcons = () => {
     return shareData.map((social, index) => {
@@ -54,9 +52,7 @@ export const BlogArticle003: FC<ArticleProps> = ({ article, site }) => {
 
   return (
     <div className={classes.root}>
-      <div>
-        <BreadCrumb crumbs={[]} handleClick={handleClick} />
-      </div>
+      <BreadCrumb crumbs={[]} handleClick={handleClick} />
       <section className={classes.header}>
         <div className={classes.featuredImageContainer}>
           <img
@@ -78,7 +74,7 @@ export const BlogArticle003: FC<ArticleProps> = ({ article, site }) => {
             <p className={classes.writtenBy}>
               Written by{" "}
               <span className={classes.authour}>
-                {/* {site?.user?.firstname}&nbsp;{site?.user?.lastname} */}
+                {site?.user?.firstname}&nbsp;{site?.user?.lastname}
                 olaiya basit
               </span>
             </p>
@@ -93,11 +89,11 @@ export const BlogArticle003: FC<ArticleProps> = ({ article, site }) => {
       <div className={classes.contentContainer}>
         <div
           className={clx(classes.content, {
-            [classes.fullContentWidth]: isRelatedPost(),
+            [classes.fullContentWidth]: !isRelatedPosts,
           })}
           dangerouslySetInnerHTML={{ __html: article.content }}
         />
-        {article?.related_posts && article.related_posts.length > 0 && (
+        {isRelatedPosts && (
           <div className={classes.relatedArticles}>
             <p className={classes.relatedPost}>Related Posts</p>
             <div className={classes.posts}>{displayRelatedPosts()}</div>

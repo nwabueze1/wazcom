@@ -2,13 +2,13 @@ import { CorePageFields } from "types/CorePageFields";
 import { CoreSiteFields } from "types/CoreSiteFields";
 import { CorePostFields } from "types/CorePostFields";
 
-export type ArticleProps = commonProps & {
+export type ArticleProps = CommonProps & {
   article: CorePostFields;
   page?: CorePageFields;
   site?: CoreSiteFields;
   domain: string;
 };
 
-export type commonProps = {
+export type CommonProps = {
   className?: string;
 };

@@ -16,7 +16,7 @@ export const RelatedPost: FC<ArticleProps> = ({ article, site, className }) => {
         />
       </div>
       <div className={classes.thumbnailDetails}>
-        <p className={classes.articleTittle}>{article.title}</p>
+        <p className={classes.articleTitle}>{article.title}</p>
         <div className={classes.post}>{stripHtml(article.content).slice(0, 150)}</div>
       </div>
     </div>

@@ -1,8 +1,8 @@
 import { StyledEngineProvider, Theme, ThemeProvider } from "@mui/material";
 import * as React from "react";
 import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
-import { BlogArticle004 } from "Templates/Blog/Articles/BlogArtcle004/BlogArticle004";
-import { BlogArticle003 } from "Templates/Blog/Articles/BlogArticle003/BlogArticle003";
+import { Gello } from "Templates/Blog/Articles/Gello/Gello";
+import { Noval } from "Templates/Blog/Articles/Noval/Noval";
 import { articleData } from "utilities/data";
 import { Browser } from "view/Browser";
 import theme from "./theme";
@@ -21,10 +21,10 @@ const App: React.FC<Props> = () => {
         <Router>
           <Switch>
             <Route exact path="/temp1">
-              <BlogArticle003 article={articleData} domain="" />
+              <Noval article={articleData} domain="" />
             </Route>
             <Route exact path="/temp">
-              <BlogArticle004 article={articleData} domain="" />
+              <Gello article={articleData} domain="" />
             </Route>
             <Route exact path="/">
               <Browser />
