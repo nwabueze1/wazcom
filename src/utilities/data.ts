@@ -68,7 +68,7 @@ const corePost = {
   author_uuid: null,
   language_attr: null,
   category_name: null,
-  created_at: "28/02/21",
+  created_at: "2018-03-15 07:14:23",
   updated_at: "28/02/21",
   category: null,
   tags: [

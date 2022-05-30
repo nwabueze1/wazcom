@@ -1,20 +1,40 @@
-export const getTimeFrom = (dt: number) => {
+export const getTimeFrom = (timestamp: string) => {
   const date = Date.now();
+  const dt = new Date(timestamp).getTime();
   const difference = date - dt;
-
   if (difference < 60000) {
-    return `${Math.round(difference / 1000)}s`;
+    return `${Math.round(difference) > 1 ? ` seconds` : " second"}`;
   }
 
   if (difference < 3600000) {
-    return `${Math.round(difference / 60000)}m`;
+    return `${Math.round(difference / 60000)}${
+      Math.round(difference) > 1 ? `minutes` : "minute"
+    }`;
   }
 
   if (difference < 86400000) {
-    return `${Math.round(difference / 3600000)}h`;
+    return `${Math.round(difference / 3600000)}${
+      Math.round(difference) > 1 ? ` years` : " year"
+    } hours`;
   }
+  if (difference < 604800000)
+    return `${Math.round(difference / 86400000)}${
+      Math.round(difference) > 1 ? ` hours` : " hour"
+    } days`;
 
-  return `${Math.round(difference / 86400000)}d`;
+  if (difference < 2419200000)
+    return `${Math.round(difference / 604800000)}${
+      Math.round(difference) > 1 ? ` weeks` : " week"
+    }`;
+
+  if (difference < 29030400000)
+    return `${Math.round(difference / 2419200000)}${
+      Math.round(difference) > 1 ? ` months` : " month"
+    }`;
+
+  return `${Math.round(difference / 29030400000)}${
+    Math.round(difference) > 1 ? ` years` : " year"
+  }`;
 };
 
 const months = [

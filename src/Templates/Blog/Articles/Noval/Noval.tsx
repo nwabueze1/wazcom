@@ -6,6 +6,7 @@ import clx from "classnames";
 import { RelatedPost } from "./RelatedPost/RelatedPost";
 import { BreadCrumb } from "core";
 import { shareData } from "./data";
+import { getTimeFrom } from "utilities/getTime";
 
 export const Noval: FC<ArticleProps> = ({ article, site }) => {
   const classes = useNovalStyles();
@@ -75,10 +76,11 @@ export const Noval: FC<ArticleProps> = ({ article, site }) => {
               Written by{" "}
               <span className={classes.authour}>
                 {site?.user?.firstname}&nbsp;{site?.user?.lastname}
-                olaiya basit
               </span>
             </p>
-            <p className={classes.postedTime}>Posted 20 hours ago</p>
+            <p className={classes.postedTime}>
+              Posted {getTimeFrom(article.created_at)} ago
+            </p>
           </div>
           <div className={classes.shareContainer}>
             <p className={classes.shareText}>Share post</p>
