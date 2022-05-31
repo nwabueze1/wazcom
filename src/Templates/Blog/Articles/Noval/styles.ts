@@ -160,4 +160,15 @@ export const useNovalStyles = makeStyles<Theme>((theme: Theme) => ({
     color: theme.design.colors.grey130,
     marginBottom: theme.spacing(1),
   },
+  defaultAvatar: {
+    height: 32,
+    width: 32,
+    borderRadius: "50%",
+    display: "flex",
+    justifyContent: "center",
+    alignItems: "center",
+    fontSize: theme.typography.fontSize + 8,
+    color: theme.design.colors.white,
+    background: theme.design.colors.orange,
+  },
 }));

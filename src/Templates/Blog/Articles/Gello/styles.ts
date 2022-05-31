@@ -156,4 +156,15 @@ export const useGelloStyles = makeStyles<Theme>((theme: Theme) => ({
       marginTop: theme.spacing(3, 0),
     },
   },
+  defaultAvatar: {
+    height: 32,
+    width: 32,
+    borderRadius: "50%",
+    display: "flex",
+    justifyContent: "center",
+    alignItems: "center",
+    fontSize: theme.typography.fontSize + 8,
+    color: theme.design.colors.white,
+    background: theme.design.colors.orange,
+  },
 }));

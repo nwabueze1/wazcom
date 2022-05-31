@@ -1,5 +1,4 @@
 import { FC, useEffect, useState } from "react";
-import { defaultBlogImage } from "utilities/images";
 import { ArticleProps } from "../types";
 import { useNovalStyles } from "./styles";
 import clx from "classnames";
@@ -49,6 +48,10 @@ export const Noval: FC<ArticleProps> = ({ article, site }) => {
     });
   };
 
+  const defaultAvatar =
+    site?.user &&
+    site?.user?.firstname?.charAt(0) + site?.user?.lastname.charAt(0);
+
   const handleClick = (path: string) => {};
 
   return (
@@ -57,7 +60,7 @@ export const Noval: FC<ArticleProps> = ({ article, site }) => {
       <section className={classes.header}>
         <div className={classes.featuredImageContainer}>
           <img
-            src={article.featured_image ?? `${defaultBlogImage}`}
+            src={article.featured_image}
             alt={article.title}
             className={classes.featuredImage}
           />
@@ -66,12 +69,16 @@ export const Noval: FC<ArticleProps> = ({ article, site }) => {
           <div className={classes.tags}>{displayTags()}</div>
           <h1 className={classes.title}>{article.title}</h1>
           <div className={classes.blogInfo}>
-            <div className={classes.avatar}>
-              <img
-                src={site?.cover_image ?? `${defaultBlogImage}`}
-                className={clx(classes.featuredImage, classes.avatarImage)}
-              />
-            </div>
+            {site?.user?.avatar ? (
+              <div className={classes.avatar}>
+                <img
+                  src={site?.user?.avatar ?? ""}
+                  className={clx(classes.featuredImage, classes.avatarImage)}
+                />
+              </div>
+            ) : (
+              <p className={classes.defaultAvatar}>{defaultAvatar}</p>
+            )}
             <p className={classes.writtenBy}>
               Written by{" "}
               <span className={classes.authour}>

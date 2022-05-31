@@ -28,7 +28,7 @@ export interface CorePostFields {
   slug: string;
   content: any;
   status: number;
-  featured_image: string | null;
+  featured_image: string;
   related_posts?: CorePostFields[] | null;
   title: string;
   author_uuid: string | null;

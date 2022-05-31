@@ -1,7 +1,6 @@
 import React, { FC } from "react";
 import { ArticleProps } from "../types";
 import { useBlogArticle001Styles } from "./styles";
-import { defaultBlogImage } from "utilities/images";
 
 export const BlogArticle001: FC<ArticleProps> = ({ article, site }) => {
   const classes = useBlogArticle001Styles();
@@ -12,7 +11,7 @@ export const BlogArticle001: FC<ArticleProps> = ({ article, site }) => {
         <div className={classes.container}>
           <div className={classes.imageContainer}>
             <img
-              src={article.featured_image ?? `${defaultBlogImage}`}
+              src={article.featured_image ?? ""}
               alt={article.title}
               className={classes.image}
             />

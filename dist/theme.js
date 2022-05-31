@@ -111,6 +111,7 @@ export var theme = {
             grey150: "#4D5650",
             grey160: "#1A261E",
             grey170: "#676E69",
+            orange: "#F4CDB4"
         },
     },
     overrides: {

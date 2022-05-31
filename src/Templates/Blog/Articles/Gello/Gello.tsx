@@ -1,5 +1,4 @@
 import { FC, useEffect, useState } from "react";
-import { defaultBlogImage } from "utilities/images";
 import { ArticleProps } from "../types";
 import { shareData } from "./data";
 import { RelatedPost } from "./RelatedPost/RelatedPost";
@@ -40,6 +39,9 @@ export const Gello: FC<ArticleProps> = ({ article, site }) => {
       );
     });
   };
+  const defaultAvatar =
+    site?.user &&
+    site?.user?.firstname?.charAt(0) + site?.user?.lastname.charAt(0);
 
   return (
     <div className={classes.root}>
@@ -50,20 +52,24 @@ export const Gello: FC<ArticleProps> = ({ article, site }) => {
       >
         <div className={classes.imgContainer}>
           <img
-            src={article.featured_image ?? `${defaultBlogImage}`}
+            src={article.featured_image}
             alt={article.title.slice(0, 20)}
             className={classes.featuredImg}
           />
         </div>
         <h1 className={classes.title}>{article.title}</h1>
         <div className={classes.articleInfo}>
-          <div className={classes.avatarContainer}>
-            <img
-              src={site?.cover_image ?? `${defaultBlogImage}`}
-              alt=""
-              className={classes.avatarImage}
-            />
-          </div>
+          {site?.user?.avatar ? (
+            <div className={classes.avatarContainer}>
+              <img
+                src={site?.user?.avatar}
+                alt=""
+                className={classes.avatarImage}
+              />
+            </div>
+          ) : (
+            <p className={classes.defaultAvatar}>{defaultAvatar}</p>
+          )}
           <p className={classes.written}>
             Written by
             <span className={classes.writersName}>
