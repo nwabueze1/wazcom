@@ -16,12 +16,12 @@ export const useTableStyles = makeStyles((theme: Theme) => ({
   tableHeadCell: {
     fontWeight: theme.typography.fontWeightBold,
     padding: theme.spacing(1.5, 2),
-    fontSize: theme.typography.fontSize + 4,
+    fontSize: theme.typography.fontSize + 2,
     color: theme.design.colors.grey1,
   },
   tableCell: {
     padding: theme.spacing(1.5, 2),
-    fontSize: theme.typography.fontSize + 4,
+    fontSize: theme.typography.fontSize + 2 ,
   },
   controls: {
     display: "flex",

@@ -191,7 +191,7 @@ export const useMediaLibraryStyles = makeStyles((theme: Theme) => ({
   button: {
     background: theme.design.colors.white,
     color: theme.design.colors.greenishGrey2,
-    border: `1px solid ${theme.design.colors.greene}`,
+    border: `1px solid ${theme.design.colors.primaryColor100}`,
     "&:hover": {
       color: theme.design.colors.white,
     },
