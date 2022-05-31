@@ -31,7 +31,7 @@ export const useRelatedPostStyles = makeStyles<Theme>((theme: Theme) => ({
     marginTop: theme.spacing(1.5),
   },
   post: {
-    color: theme.design.colors.grey170,
+    color: theme.design.colors.grey600,
     fontSize: theme.typography.fontSize + 2,
     lineHeight: "20px",
     marginTop: theme.spacing(1),

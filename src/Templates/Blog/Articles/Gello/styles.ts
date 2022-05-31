@@ -73,7 +73,7 @@ export const useGelloStyles = makeStyles<Theme>((theme: Theme) => ({
   },
   written: {
     fontStyle: "italic",
-    color: theme.design.colors.grey130,
+    color: theme.design.colors.grey200,
     fontSize: theme.typography.fontSize + 2,
   },
   writersName: {
@@ -85,7 +85,7 @@ export const useGelloStyles = makeStyles<Theme>((theme: Theme) => ({
     height: 8,
     width: 8,
     borderRadius: "50%",
-    border: `1px solid ${theme.design.colors.grey130}`,
+    border: `1px solid ${theme.design.colors.grey200}`,
   },
   date: {
     fontSize: theme.typography.fontSize,
@@ -105,7 +105,7 @@ export const useGelloStyles = makeStyles<Theme>((theme: Theme) => ({
     margin: theme.spacing(3, 0),
   },
   content: {
-    color: theme.design.colors.grey160,
+    color: theme.design.colors.grey500,
     lineHeight: "26px",
     width: "80%",
     margin: "auto",
@@ -147,7 +147,7 @@ export const useGelloStyles = makeStyles<Theme>((theme: Theme) => ({
   },
   shareText: {
     fontSize: theme.typography.fontSize + 2,
-    color: theme.design.colors.grey120,
+    color: theme.design.colors.grey100,
     textAlign: "center",
     marginTop: theme.spacing(0.5),
   },
