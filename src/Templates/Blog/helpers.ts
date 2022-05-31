@@ -1,4 +1,3 @@
-import { CorePostFields } from "types/CorePostFields";
 import { CoreSiteFields } from "types/CoreSiteFields";
 
 export const useDefaultAvatar = (site?: CoreSiteFields) => {

@@ -4,6 +4,7 @@ import { Theme } from "@mui/material/styles";
 export const useRelatedPostStyles = makeStyles<Theme>((theme: Theme) => ({
   root: {
     width: "100%",
+    cursor: "pointer",
     marginBottom: theme.spacing(4),
     [theme.breakpoints.down("md")]: {
       width: "48%",

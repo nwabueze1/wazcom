@@ -3,6 +3,7 @@ import { Theme } from "@mui/material/styles";
 
 export const useRelatedPostStyles = makeStyles<Theme>((theme: Theme) => ({
   root: {
+    cursor: "pointer",
     width: "100%",
     marginBottom: theme.spacing(3),
     border: `1px solid ${theme.design.colors.grey140}`,
@@ -58,6 +59,7 @@ export const useRelatedPostStyles = makeStyles<Theme>((theme: Theme) => ({
   author: {
     fontWeight: theme.typography.fontWeightMedium,
     fontSize: theme.typography.fontSize + 2,
+    textTransform: "capitalize",
   },
   timePosted: {
     fontSize: theme.typography.fontSize,

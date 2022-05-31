@@ -7,7 +7,7 @@ import { useGelloStyles } from "./styles";
 import clx from "classnames";
 import { useDefaultAvatar } from "Templates/Blog/helpers";
 
-export const Gello: FC<CoreArticleTemplateFields> = ({ article, site, domain }) => {
+export const Gello: FC<CoreArticleTemplateFields> = ({ article, site, domain, handleClick }) => {
   const classes = useGelloStyles();
   const [loaded, setLoaded] = useState(false);
 
@@ -19,7 +19,7 @@ export const Gello: FC<CoreArticleTemplateFields> = ({ article, site, domain }) 
 
   const displayRelatedPosts = () =>
     article.related_posts?.map((post, index) => (
-      <RelatedPost key={index} article={post} domain={domain} />
+      <RelatedPost key={index} article={post} domain={domain} handleClick={handleClick}/>
     ));
 
   const isRelatedPosts = Boolean(

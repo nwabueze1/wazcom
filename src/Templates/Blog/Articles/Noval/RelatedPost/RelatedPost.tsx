@@ -15,14 +15,17 @@ export const RelatedPost: FC<CoreArticleTemplateFields> = ({
   const defaultAvatar = useDefaultAvatar(site);
 
   return (
-    <div className={clx(classes.root, className)}>
+    <div
+      onClick={() => {
+        handleClick?.(article.slug);
+      }}
+      className={clx(classes.root, className)}
+    >
       <div className={classes.thumbnailImgContainer}>
         <img src={article.featured_image} className={classes.thumbnailImg} />
       </div>
       <div className={classes.thumbnailDetails}>
-        <p className={classes.articleTitle} onClick={() => handleClick}>
-          {article.title}
-        </p>
+        <p className={classes.articleTitle}>{article.title}</p>
         <div className={classes.authorContainer}>
           {site?.user?.avatar ? (
             <div className={classes.avatar}>

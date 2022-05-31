@@ -3,12 +3,16 @@ import { CoreArticleTemplateFields } from "../types";
 import { useNovalStyles } from "./styles";
 import clx from "classnames";
 import { RelatedPost } from "./RelatedPost/RelatedPost";
-import { BreadCrumb } from "core";
 import { shareData } from "./data";
 import { getTimeFrom } from "utilities/getTime";
 import { useDefaultAvatar } from "Templates/Blog/helpers";
 
-export const Noval: FC<CoreArticleTemplateFields> = ({ article, site, domain }) => {
+export const Noval: FC<CoreArticleTemplateFields> = ({
+  article,
+  site,
+  domain,
+  handleClick,
+}) => {
   const classes = useNovalStyles();
   const [loaded, setLoaded] = useState(false);
 
@@ -27,7 +31,13 @@ export const Noval: FC<CoreArticleTemplateFields> = ({ article, site, domain }) 
 
   const displayRelatedPosts = () =>
     article.related_posts?.map((post, index) => (
-      <RelatedPost key={index} article={post} domain={domain} site={site} />
+      <RelatedPost
+        key={index}
+        article={post}
+        domain={domain}
+        site={site}
+        handleClick={handleClick}
+      />
     ));
 
   const isRelatedPosts = Boolean(
@@ -51,11 +61,8 @@ export const Noval: FC<CoreArticleTemplateFields> = ({ article, site, domain }) 
 
   const defaultAvatar = useDefaultAvatar(site);
 
-  const handleClick = (path: string) => {};
-
   return (
     <div className={classes.root}>
-      <BreadCrumb crumbs={[]} handleClick={handleClick} />
       <section className={classes.header}>
         <div className={classes.featuredImageContainer}>
           <img
