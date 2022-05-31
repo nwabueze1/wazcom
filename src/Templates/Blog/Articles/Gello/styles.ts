@@ -79,6 +79,7 @@ export const useGelloStyles = makeStyles<Theme>((theme: Theme) => ({
   writersName: {
     color: theme.design.colors.black,
     fontStyle: "normal",
+    textTransform: "capitalize",
   },
   bulletPoint: {
     height: 8,
@@ -138,7 +139,7 @@ export const useGelloStyles = makeStyles<Theme>((theme: Theme) => ({
   icons: {
     display: "flex",
     alignItems: "center",
-    gap: theme.spacing(1.5),
+    gap: theme.spacing(2),
     padding: theme.spacing(0, 4.5),
     [theme.breakpoints.down("sm")]: {
       padding: theme.spacing(0, 4),

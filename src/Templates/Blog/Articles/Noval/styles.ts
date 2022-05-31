@@ -82,8 +82,9 @@ export const useNovalStyles = makeStyles<Theme>((theme: Theme) => ({
     fontStyle: "italic",
     color: theme.design.colors.grey120,
     fontSize: theme.typography.fontSize + 2,
+    textTransform: "capitalize",
   },
-  authour: {
+  author: {
     fontStyle: "normal",
     color: theme.design.colors.black,
   },

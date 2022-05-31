@@ -1,13 +1,14 @@
 import { FC, useEffect, useState } from "react";
-import { ArticleProps } from "../types";
+import { CoreArticleTemplateFields } from "../types";
 import { useNovalStyles } from "./styles";
 import clx from "classnames";
 import { RelatedPost } from "./RelatedPost/RelatedPost";
 import { BreadCrumb } from "core";
 import { shareData } from "./data";
 import { getTimeFrom } from "utilities/getTime";
+import { useDefaultAvatar } from "Templates/Blog/helpers";
 
-export const Noval: FC<ArticleProps> = ({ article, site }) => {
+export const Noval: FC<CoreArticleTemplateFields> = ({ article, site, domain }) => {
   const classes = useNovalStyles();
   const [loaded, setLoaded] = useState(false);
 
@@ -26,7 +27,7 @@ export const Noval: FC<ArticleProps> = ({ article, site }) => {
 
   const displayRelatedPosts = () =>
     article.related_posts?.map((post, index) => (
-      <RelatedPost key={index} article={post} domain={""} />
+      <RelatedPost key={index} article={post} domain={domain} site={site} />
     ));
 
   const isRelatedPosts = Boolean(
@@ -48,9 +49,7 @@ export const Noval: FC<ArticleProps> = ({ article, site }) => {
     });
   };
 
-  const defaultAvatar =
-    site?.user &&
-    site?.user?.firstname?.charAt(0) + site?.user?.lastname.charAt(0);
+  const defaultAvatar = useDefaultAvatar(site);
 
   const handleClick = (path: string) => {};
 
@@ -81,7 +80,7 @@ export const Noval: FC<ArticleProps> = ({ article, site }) => {
             )}
             <p className={classes.writtenBy}>
               Written by{" "}
-              <span className={classes.authour}>
+              <span className={classes.author}>
                 {site?.user?.firstname}&nbsp;{site?.user?.lastname}
               </span>
             </p>

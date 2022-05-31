@@ -24,14 +24,17 @@ export const useRelatedPostStyles = makeStyles<Theme>((theme: Theme) => ({
     width: "100%",
     height: "100%",
     objectFit: "cover",
+    borderTopLeftRadius: "2px",
+    borderTopRightRadius: "2px",
   },
   thumbnailDetails: {
     padding: theme.spacing(2),
   },
-  articleTittle: {
+  articleTitle: {
     fontSize: theme.typography.fontSize + 4,
     fontWeight: theme.typography.fontWeightMedium,
     lineHeight: "24px",
+    cursor: "pointer",
   },
   avatar: {
     position: "relative",
@@ -59,5 +62,20 @@ export const useRelatedPostStyles = makeStyles<Theme>((theme: Theme) => ({
   timePosted: {
     fontSize: theme.typography.fontSize,
     color: theme.design.colors.grey120,
+  },
+  defaultAvatar: {
+    height: 32,
+    width: 32,
+    borderRadius: "50%",
+    display: "flex",
+    justifyContent: "center",
+    alignItems: "center",
+    fontSize: theme.typography.fontSize + 8,
+    color: theme.design.colors.white,
+    background: theme.design.colors.orange,
+  },
+  articleLink: {
+    textDecoration: "none",
+    color: theme.design.colors.black,
   },
 }));

@@ -1,12 +1,13 @@
 import { FC, useEffect, useState } from "react";
-import { ArticleProps } from "../types";
+import { CoreArticleTemplateFields } from "../types";
 import { shareData } from "./data";
 import { RelatedPost } from "./RelatedPost/RelatedPost";
 import { getDay } from "utilities/getTime";
 import { useGelloStyles } from "./styles";
 import clx from "classnames";
+import { useDefaultAvatar } from "Templates/Blog/helpers";
 
-export const Gello: FC<ArticleProps> = ({ article, site }) => {
+export const Gello: FC<CoreArticleTemplateFields> = ({ article, site, domain }) => {
   const classes = useGelloStyles();
   const [loaded, setLoaded] = useState(false);
 
@@ -18,7 +19,7 @@ export const Gello: FC<ArticleProps> = ({ article, site }) => {
 
   const displayRelatedPosts = () =>
     article.related_posts?.map((post, index) => (
-      <RelatedPost key={index} article={post} domain={""} />
+      <RelatedPost key={index} article={post} domain={domain} />
     ));
 
   const isRelatedPosts = Boolean(
@@ -39,9 +40,7 @@ export const Gello: FC<ArticleProps> = ({ article, site }) => {
       );
     });
   };
-  const defaultAvatar =
-    site?.user &&
-    site?.user?.firstname?.charAt(0) + site?.user?.lastname.charAt(0);
+  const defaultAvatar = useDefaultAvatar(site);
 
   return (
     <div className={classes.root}>
@@ -73,7 +72,7 @@ export const Gello: FC<ArticleProps> = ({ article, site }) => {
           <p className={classes.written}>
             Written by
             <span className={classes.writersName}>
-              {site?.user?.firstname}&nbsp;{site?.user?.lastname}
+              &nbsp;{site?.user?.firstname}&nbsp;{site?.user?.lastname}
             </span>
           </p>
           <div className={classes.dateWritten}>
