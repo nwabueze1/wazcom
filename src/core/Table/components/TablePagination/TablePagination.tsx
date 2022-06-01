@@ -13,6 +13,10 @@ export const TablePagination: React.FC<TablePaginationProps> = ({
 }) => {
   const classes = useTablePaginationStyles();
   const [page, setPage] = useState<number>(1);
+  const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+    const value = Number(e.target.value) > count ? String(count) : Number(e.target.value) < 1 ? "1" : e.target.value
+    setPage(parseInt(value))
+  }
 
   return (
     <>
@@ -30,7 +34,7 @@ export const TablePagination: React.FC<TablePaginationProps> = ({
                 classes.tablePaginationNavigatorText,
               )}
             >
-              Naviage to:
+              Navigate to:
             </span>
             <form
               onSubmit={(e) => {
@@ -39,7 +43,7 @@ export const TablePagination: React.FC<TablePaginationProps> = ({
               }}
             >
               <input
-                onChange={(e) => setPage(parseInt(e.target.value))}
+                onChange={handleChange}
                 value={page}
                 className={clx(classes.tablePaginationNavigatorInput)}
                 type="number"
