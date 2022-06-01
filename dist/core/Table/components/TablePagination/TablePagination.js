@@ -37,10 +37,14 @@ export var TablePagination = function (_a) {
     var currentPage = _a.page, count = _a.count, onPageChange = _a.onPageChange;
     var classes = useTablePaginationStyles();
     var _d = __read(useState(1), 2), page = _d[0], setPage = _d[1];
-    return (_jsxs(_Fragment, { children: [_jsx(TableCell, __assign({ colSpan: 2 }, { children: _jsxs("div", __assign({ className: clx(classes.text) }, { children: ["All pages: ", currentPage, "/", count] }), void 0) }), void 0), _jsx(TableCell, __assign({ colSpan: 1000 }, { children: _jsxs("div", __assign({ className: classes.tablePagination }, { children: [_jsxs("div", __assign({ className: classes.tablePaginationNavigator }, { children: [_jsx("span", __assign({ className: clx(classes.text, classes.tablePaginationNavigatorText) }, { children: "Naviage to:" }), void 0), _jsx("form", __assign({ onSubmit: function (e) {
+    var handleChange = function (e) {
+        var value = Number(e.target.value) > count ? String(count) : Number(e.target.value) < 1 ? "1" : e.target.value;
+        setPage(parseInt(value));
+    };
+    return (_jsxs(_Fragment, { children: [_jsx(TableCell, __assign({ colSpan: 2 }, { children: _jsxs("div", __assign({ className: clx(classes.text) }, { children: ["All pages: ", currentPage, "/", count] }), void 0) }), void 0), _jsx(TableCell, __assign({ colSpan: 1000 }, { children: _jsxs("div", __assign({ className: classes.tablePagination }, { children: [_jsxs("div", __assign({ className: classes.tablePaginationNavigator }, { children: [_jsx("span", __assign({ className: clx(classes.text, classes.tablePaginationNavigatorText) }, { children: "Navigate to:" }), void 0), _jsx("form", __assign({ onSubmit: function (e) {
                                         e.preventDefault();
                                         onPageChange(null, page);
-                                    } }, { children: _jsx("input", { onChange: function (e) { return setPage(parseInt(e.target.value)); }, value: page, className: clx(classes.tablePaginationNavigatorInput), type: "number", onBlur: function () { return onPageChange(null, page); } }, void 0) }), void 0)] }), void 0), _jsxs("div", __assign({ className: classes.pageNavigation }, { children: [_jsx(KeyboardArrowLeft, { fontSize: "large", onClick: function () {
+                                    } }, { children: _jsx("input", { onChange: handleChange, value: page, className: clx(classes.tablePaginationNavigatorInput), type: "number", onBlur: function () { return onPageChange(null, page); } }, void 0) }), void 0)] }), void 0), _jsxs("div", __assign({ className: classes.pageNavigation }, { children: [_jsx(KeyboardArrowLeft, { fontSize: "large", onClick: function () {
                                         return currentPage > 1 && onPageChange(null, currentPage - 1);
                                     }, className: clx(classes.pageNavigationIcon, (_b = {},
                                         _b[classes.deactivatePageNavigationIcon] = currentPage < 2,
