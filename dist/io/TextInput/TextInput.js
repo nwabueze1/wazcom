@@ -26,7 +26,7 @@ import { useTextStyles } from "./styles";
 import clx from "classnames";
 import { displayFeedback } from "../../helpers/io";
 export var TextInput = function (_a) {
-    var className = _a.className, classNames = _a.classNames, label = _a.label, variant = _a.variant, onChange = _a.onChange, feedback = _a.feedback, helperText = _a.helperText, icon = _a.icon, props = __rest(_a, ["className", "classNames", "label", "variant", "onChange", "feedback", "helperText", "icon"]);
+    var className = _a.className, classNames = _a.classNames, label = _a.label, variant = _a.variant, onChange = _a.onChange, feedback = _a.feedback, helperText = _a.helperText, props = __rest(_a, ["className", "classNames", "label", "variant", "onChange", "feedback", "helperText"]);
     var classes = useTextStyles();
     var handleChange = function (e) {
         var _a;

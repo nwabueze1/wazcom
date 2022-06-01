@@ -8,8 +8,7 @@ import List from "@mui/material/List";
 import Toolbar from "@mui/material/Toolbar";
 import { startCase } from "lodash";
 import * as React from "react";
-import { ChangeEvent, FC, useState } from "react";
-import { useHistory, useLocation } from "react-router";
+import { FC, useState } from "react";
 import { TextInput } from "../../io";
 import { stories } from "../../stories";
 import { SidebarListItem } from "./SidebarListItem/SidebarListItem";
@@ -18,14 +17,7 @@ import { BrowserProps } from "./types";
 
 export const Browser: FC<BrowserProps> = () => {
   const classes = useBrowserStyles();
-  const { pathname } = useLocation();
-  const { push } = useHistory();
   const [search, setSearch] = useState("");
-  const [selected, setSelected] = useState();
-
-  const handleClick = (route: string) => {
-    push(route);
-  };
 
   const sections = [
     {
@@ -36,7 +28,7 @@ export const Browser: FC<BrowserProps> = () => {
       })),
     },
   ];
-  
+
   return (
     <Box sx={{ display: "flex" }}>
       <CssBaseline />
@@ -91,7 +83,7 @@ export const Browser: FC<BrowserProps> = () => {
               ? -1
               : aName.toLowerCase() > bName.toLowerCase()
               ? 1
-              : 0,
+              : 0
           )
           .filter(({ name }) => name.toLowerCase().includes(search))
           .map(({ name, component: Comp, props }, index) => (

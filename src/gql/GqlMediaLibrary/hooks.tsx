@@ -99,7 +99,7 @@ export const useMediaUpload = () => {
         updateMediaLibrary(response?.data?.uploadImage);
       }
     } catch (error) {
-      console.log(error);
+      //
     } finally {
       setLoading({ loading: false, mutate: false });
     }
@@ -200,6 +200,6 @@ export const mutateMedia = async (
     });
     updateMediaLibrary();
   } catch (error) {
-    console.log(error);
+    //
   }
 };

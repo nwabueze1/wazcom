@@ -42,7 +42,6 @@ import {
 import { ComponentPropType } from "./types";
 
 import { data } from "./data";
-import { VisibilityOff } from "@mui/icons-material";
 
 export const stories: ComponentPropType[] = [
   {
@@ -51,7 +50,14 @@ export const stories: ComponentPropType[] = [
     props: {
       label: "Description",
       name: "description",
-      onChange: ({ name, value }: { name: string; value: string }) => {},
+      onChange: ({ name, value }: { name: string; value: string }) => {
+        {
+          name;
+        }
+        {
+          value;
+        }
+      },
       multiline: true,
       minRows: 5,
       feedback: {
@@ -171,7 +177,9 @@ export const stories: ComponentPropType[] = [
           path: "/mob",
         },
       ],
-      handleClick: (path: string) => {},
+      handleClick: (path: string) => {
+        path;
+      },
     },
   },
   {
@@ -234,7 +242,7 @@ export const stories: ComponentPropType[] = [
       required: true,
       type: "password",
       onChange: ({ value }: { name: string; value: any }) => {
-        //
+        value;
       },
     },
   },
