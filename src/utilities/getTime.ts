@@ -1,7 +1,7 @@
 export const getTimeFrom = (timestamp: string) => {
   const date = Date.now();
-  const dt = new Date(timestamp).getTime();
-  const difference = date - dt;
+  const newDate = new Date(timestamp).getTime();
+  const difference = date - newDate;
   if (difference < 60000) {
     return `${Math.round(difference) > 1 ? ` seconds` : " second"}`;
   }
