@@ -1,6 +1,6 @@
 export var useHandleChangePage = function (changePage) {
     return function (event, newPage) {
-        console.log(event);
+        event;
         changePage === null || changePage === void 0 ? void 0 : changePage(newPage);
     };
 };

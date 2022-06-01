@@ -123,7 +123,6 @@ export var useMediaUpload = function () {
                     return [3 /*break*/, 5];
                 case 3:
                     error_1 = _c.sent();
-                    console.log(error_1);
                     return [3 /*break*/, 5];
                 case 4:
                     setLoading({ loading: false, mutate: false });
@@ -209,7 +208,6 @@ export var mutateMedia = function (client, mutation, media, updateMediaLibrary, 
                 return [3 /*break*/, 3];
             case 2:
                 error_2 = _a.sent();
-                console.log(error_2);
                 return [3 /*break*/, 3];
             case 3: return [2 /*return*/];
         }

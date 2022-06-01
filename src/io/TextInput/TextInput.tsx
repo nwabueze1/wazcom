@@ -13,7 +13,6 @@ export const TextInput: FC<TextInputProps> = ({
   onChange,
   feedback,
   helperText,
-  icon,
   ...props
 }) => {
   const classes = useTextStyles();

@@ -11,20 +11,27 @@ export const SidebarListItem: FC<SidebarListItemProps> = ({
   sections,
 }) => {
   const [isVisible, setVisibility] = useState(true);
-  const [activeLink, setActiveLink] =
-    useState<{ index: number; rowIndex: number }>();
+  const [activeLink, setActiveLink] = useState<{
+    index: number;
+    rowIndex: number;
+  }>();
 
   const classes = useSidebarListItemStyles();
 
-  const showSelection = () => {};
+  const showSelection = () => {
+    //
+  };
   const handleMouseEnter = useCallback(
     (rowIndex: number, index: number) => {
       setActiveLink({ rowIndex, index });
     },
-    [activeLink],
+    [activeLink]
   );
-  const handleMouseLeave = useCallback((rowIndex: number, index: number) => {},
-  []);
+  const handleMouseLeave = useCallback((rowIndex: number, index: number) => {
+    //
+    rowIndex;
+    index;
+  }, []);
 
   const toggleSelection = useCallback(() => {
     setVisibility(!isVisible);
@@ -47,7 +54,7 @@ export const SidebarListItem: FC<SidebarListItemProps> = ({
       <ul
         className={clx(
           classes.list,
-          isVisible ? classes.isVisible : classes.isNotVisible,
+          isVisible ? classes.isVisible : classes.isNotVisible
         )}
       >
         {sections.map(({ label: sectionLabel, components }, sectionIndex) => {
@@ -71,7 +78,7 @@ export const SidebarListItem: FC<SidebarListItemProps> = ({
                         activeLink &&
                           sectionIndex == activeLink?.rowIndex &&
                           index == activeLink?.index &&
-                          classes.linkActive,
+                          classes.linkActive
                       )}
                       onMouseEnter={() => handleMouseEnter(sectionIndex, index)}
                       onMouseLeave={() => handleMouseLeave(sectionIndex, index)}
