@@ -28,7 +28,6 @@ export const SidebarListItem: FC<SidebarListItemProps> = ({
     [activeLink]
   );
   const handleMouseLeave = useCallback((rowIndex: number, index: number) => {
-    //
     rowIndex;
     index;
   }, []);

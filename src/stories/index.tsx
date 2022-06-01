@@ -51,7 +51,6 @@ export const stories: ComponentPropType[] = [
       label: "Description",
       name: "description",
       onChange: ({ name, value }: { name: string; value: string }) => {
-        //
         {
           name;
         }
@@ -179,7 +178,6 @@ export const stories: ComponentPropType[] = [
         },
       ],
       handleClick: (path: string) => {
-        //
         path;
       },
     },
@@ -244,7 +242,6 @@ export const stories: ComponentPropType[] = [
       required: true,
       type: "password",
       onChange: ({ value }: { name: string; value: any }) => {
-        //
         value;
       },
     },
