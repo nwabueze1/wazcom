@@ -1,15 +1,15 @@
 import { FC } from "react";
 import { CoreArticleTemplateFields } from "../../types";
-import { useRelatedPostStyles } from "./styles";
+import { useRelatedPostGelloStyles } from "./styles";
 import clx from "classnames";
 import { stripHtml } from "utilities/Post";
 
-export const RelatedPost: FC<CoreArticleTemplateFields> = ({
+export const RelatedPostGello: FC<CoreArticleTemplateFields> = ({
   article,
   handleClick,
   className,
 }) => {
-  const classes = useRelatedPostStyles();
+  const classes = useRelatedPostGelloStyles();
   return (
     <div
       className={clx(classes.root, className)}

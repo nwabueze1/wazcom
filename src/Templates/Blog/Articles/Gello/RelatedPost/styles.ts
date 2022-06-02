@@ -1,7 +1,7 @@
 import makeStyles from "@mui/styles/makeStyles";
 import { Theme } from "@mui/material/styles";
 
-export const useRelatedPostStyles = makeStyles<Theme>((theme: Theme) => ({
+export const useRelatedPostGelloStyles = makeStyles<Theme>((theme: Theme) => ({
   root: {
     width: "100%",
     cursor: "pointer",

@@ -1,4 +1,4 @@
-export const shareData = [
+export const shareDataNoval = [
   {
     href: "https://www.facebook.com/sharer/sharer.php?u=",
     className: "instagram",

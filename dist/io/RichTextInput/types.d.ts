@@ -1,3 +1,4 @@
+/// <reference types="react" />
 import { CommonProps } from "../../types";
 export declare type RichTextInputProps = CommonProps & {
     label?: string;

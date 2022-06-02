@@ -1,17 +1,17 @@
 import { FC } from "react";
 import { CoreArticleTemplateFields } from "../../types";
-import { useRelatedPostStyles } from "./styles";
+import { useRelatedPostNovalStyles } from "./styles";
 import clx from "classnames";
 import { getTimeFrom } from "utilities/getTime";
 import { useDefaultAvatar } from "templates/blog/helpers";
 
-export const RelatedPost: FC<CoreArticleTemplateFields> = ({
+export const RelatedPostNoval: FC<CoreArticleTemplateFields> = ({
   article,
   site,
   className,
   handleClick,
 }) => {
-  const classes = useRelatedPostStyles();
+  const classes = useRelatedPostNovalStyles();
   const defaultAvatar = useDefaultAvatar(site);
 
   return (
