@@ -73,14 +73,6 @@ export const theme: any = {
       template2: {
         maxWidth: 1294,
         maxWidthMd: 700,
-        font: {
-          garamond: "Cormorant Garamond, san-serif",
-          lato: "Lato, sans-serif",
-          cookie: "Cookie, cursive;",
-          raleway: "Raleway, sans-serif",
-          dmSans: "DM Sans, sans-serif",
-          NunitoSans: "Nunito Sans, sans-serif",
-        },
       },
       template4: {
         font: "Nunito",
@@ -89,12 +81,12 @@ export const theme: any = {
   },
   design: {
     font: {
-      brandon: (weight: 400) => ({
-        "font-family": '"Nunito", sans-serif',
-        "font-weight": weight,
-      }),
-      title: '"auto-pro-new", sans-serif',
-      regular: '"Nunito", sans-serif',
+      garamond: "Cormorant Garamond, san-serif",
+      lato: "Lato, sans-serif",
+      cookie: "Cookie, cursive;",
+      raleway: "Raleway, sans-serif",
+      dmSans: "DM Sans, sans-serif",
+      NunitoSans: "Nunito Sans, sans-serif",
     },
     colors: {
       primaryColor100: "#0A7227",
@@ -132,7 +124,7 @@ export const theme: any = {
       grey400: "#4D5650",
       grey500: "#1A261E",
       grey600: "#676E69",
-      orange: "#F4CDB4"
+      orange: "#F4CDB4",
     },
   },
   overrides: {

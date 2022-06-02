@@ -7,7 +7,7 @@ export const useNovalStyles = makeStyles<Theme>((theme: Theme) => ({
     maxWidth: 1200,
     padding: theme.spacing(5.5, 0),
     height: "100%",
-    fontFamily: theme.include.styles.template2.font.dmSans,
+    fontFamily: theme.design.font.dmSans,
     margin: "auto",
     [theme.breakpoints.down("md")]: {
       width: "90%",

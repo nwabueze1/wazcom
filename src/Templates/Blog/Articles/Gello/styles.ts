@@ -7,7 +7,7 @@ export const useGelloStyles = makeStyles<Theme>((theme: Theme) => ({
     height: "100%",
     display: "flex",
     justifyContent: "space-between",
-    fontFamily: theme.include.styles.template2.font.NunitoSans,
+    fontFamily: theme.design.font.NunitoSans,
     maxWidth: 1440,
     margin: "auto",
     padding: theme.spacing(6.5, 0),
