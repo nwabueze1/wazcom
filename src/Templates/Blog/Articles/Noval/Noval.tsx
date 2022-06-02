@@ -6,8 +6,6 @@ import { RelatedPostNoval } from "./RelatedPost/RelatedPost";
 import { shareDataNoval } from "./data";
 import { getTimeFrom } from "../../../../utilities/getTime";
 import { useDefaultAvatar } from "../../helpers";
-import { ThemeProvider } from "@mui/styles";
-import theme from "../../../../theme";
 
 export const Noval: FC<CoreArticleTemplateFields> = ({
   article,
@@ -64,7 +62,6 @@ export const Noval: FC<CoreArticleTemplateFields> = ({
   const defaultAvatar = useDefaultAvatar(site);
 
   return (
-    <ThemeProvider theme={theme}>
       <div className={classes.root}>
         <section className={classes.header}>
           <div className={classes.featuredImageContainer}>
@@ -106,7 +103,7 @@ export const Noval: FC<CoreArticleTemplateFields> = ({
         </section>
         <div className={classes.contentContainer}>
           <div
-            className={clx(classes.content, {
+            className={clx("templatePostContent", classes.content, {
               [classes.fullContentWidth]: !isRelatedPosts,
             })}
             dangerouslySetInnerHTML={{ __html: article.content }}
@@ -119,6 +116,5 @@ export const Noval: FC<CoreArticleTemplateFields> = ({
           )}
         </div>
       </div>
-    </ThemeProvider>
   );
 };
