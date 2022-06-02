@@ -45,8 +45,8 @@ export const useNovalStyles = makeStyles<Theme>((theme: Theme) => ({
     fontSize: theme.typography.fontSize,
     textTransform: "capitalize",
     borderRadius: 4,
-    background: theme.design.colors.grey300,
-    color: theme.design.colors.grey400,
+    background: theme.design.colors.grey900,
+    color: theme.design.colors.grey1000,
   },
   tags: {
     display: "flex",
@@ -80,7 +80,7 @@ export const useNovalStyles = makeStyles<Theme>((theme: Theme) => ({
   },
   writtenBy: {
     fontStyle: "italic",
-    color: theme.design.colors.grey100,
+    color: theme.design.colors.grey700,
     fontSize: theme.typography.fontSize + 2,
     textTransform: "capitalize",
   },
@@ -96,8 +96,8 @@ export const useNovalStyles = makeStyles<Theme>((theme: Theme) => ({
   },
   postedTime: {
     padding: theme.spacing(0, 1.5),
-    borderLeft: `1px solid ${theme.design.colors.grey200}`,
-    borderRight: `1px solid ${theme.design.colors.grey200}`,
+    borderLeft: `1px solid ${theme.design.colors.grey800}`,
+    borderRight: `1px solid ${theme.design.colors.grey800}`,
     [theme.breakpoints.down("sm")]: {
       fontSize: theme.typography.fontSize,
     },
@@ -158,7 +158,7 @@ export const useNovalStyles = makeStyles<Theme>((theme: Theme) => ({
   },
   shareText: {
     fontSize: theme.typography.fontSize,
-    color: theme.design.colors.grey200,
+    color: theme.design.colors.grey800,
     marginBottom: theme.spacing(1),
   },
   defaultAvatar: {

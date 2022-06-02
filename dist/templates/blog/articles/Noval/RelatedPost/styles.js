@@ -6,7 +6,7 @@ export var useRelatedPostNovalStyles = makeStyles(function (theme) {
                 cursor: "pointer",
                 width: "100%",
                 marginBottom: theme.spacing(3),
-                border: "1px solid ".concat(theme.design.colors.grey300),
+                border: "1px solid ".concat(theme.design.colors.grey900),
                 borderRadius: 4
             },
             _a[theme.breakpoints.down("md")] = {
@@ -64,7 +64,7 @@ export var useRelatedPostNovalStyles = makeStyles(function (theme) {
         },
         timePosted: {
             fontSize: theme.typography.fontSize,
-            color: theme.design.colors.grey100,
+            color: theme.design.colors.grey700,
         },
         defaultAvatar: {
             height: 32,

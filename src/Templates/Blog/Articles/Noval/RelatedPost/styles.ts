@@ -6,7 +6,7 @@ export const useRelatedPostNovalStyles = makeStyles<Theme>((theme: Theme) => ({
     cursor: "pointer",
     width: "100%",
     marginBottom: theme.spacing(3),
-    border: `1px solid ${theme.design.colors.grey300}`,
+    border: `1px solid ${theme.design.colors.grey900}`,
     borderRadius: 4,
     [theme.breakpoints.down("md")]: {
       width: "47%",
@@ -63,7 +63,7 @@ export const useRelatedPostNovalStyles = makeStyles<Theme>((theme: Theme) => ({
   },
   timePosted: {
     fontSize: theme.typography.fontSize,
-    color: theme.design.colors.grey100,
+    color: theme.design.colors.grey700,
   },
   defaultAvatar: {
     height: 32,

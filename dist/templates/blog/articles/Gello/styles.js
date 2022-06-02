@@ -78,7 +78,7 @@ export var useGelloStyles = makeStyles(function (theme) {
         },
         written: {
             fontStyle: "italic",
-            color: theme.design.colors.grey200,
+            color: theme.design.colors.grey800,
             fontSize: theme.typography.fontSize + 2,
         },
         writersName: {
@@ -90,7 +90,7 @@ export var useGelloStyles = makeStyles(function (theme) {
             height: 8,
             width: 8,
             borderRadius: "50%",
-            border: "1px solid ".concat(theme.design.colors.grey200),
+            border: "1px solid ".concat(theme.design.colors.grey800),
         },
         date: {
             fontSize: theme.typography.fontSize,
@@ -110,7 +110,7 @@ export var useGelloStyles = makeStyles(function (theme) {
             margin: theme.spacing(3, 0),
         },
         content: (_f = {
-                color: theme.design.colors.grey500,
+                color: theme.design.colors.grey1100,
                 lineHeight: "26px",
                 width: "80%",
                 margin: "auto"
@@ -154,7 +154,7 @@ export var useGelloStyles = makeStyles(function (theme) {
             _h),
         shareText: {
             fontSize: theme.typography.fontSize + 2,
-            color: theme.design.colors.grey100,
+            color: theme.design.colors.grey700,
             textAlign: "center",
             marginTop: theme.spacing(0.5),
         },

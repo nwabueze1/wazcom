@@ -48,8 +48,8 @@ export var useNovalStyles = makeStyles(function (theme) {
             fontSize: theme.typography.fontSize,
             textTransform: "capitalize",
             borderRadius: 4,
-            background: theme.design.colors.grey300,
-            color: theme.design.colors.grey400,
+            background: theme.design.colors.grey900,
+            color: theme.design.colors.grey1000,
         },
         tags: {
             display: "flex",
@@ -85,7 +85,7 @@ export var useNovalStyles = makeStyles(function (theme) {
         },
         writtenBy: {
             fontStyle: "italic",
-            color: theme.design.colors.grey100,
+            color: theme.design.colors.grey700,
             fontSize: theme.typography.fontSize + 2,
             textTransform: "capitalize",
         },
@@ -101,8 +101,8 @@ export var useNovalStyles = makeStyles(function (theme) {
         },
         postedTime: (_f = {
                 padding: theme.spacing(0, 1.5),
-                borderLeft: "1px solid ".concat(theme.design.colors.grey200),
-                borderRight: "1px solid ".concat(theme.design.colors.grey200)
+                borderLeft: "1px solid ".concat(theme.design.colors.grey800),
+                borderRight: "1px solid ".concat(theme.design.colors.grey800)
             },
             _f[theme.breakpoints.down("sm")] = {
                 fontSize: theme.typography.fontSize,
@@ -167,7 +167,7 @@ export var useNovalStyles = makeStyles(function (theme) {
         },
         shareText: {
             fontSize: theme.typography.fontSize,
-            color: theme.design.colors.grey200,
+            color: theme.design.colors.grey800,
             marginBottom: theme.spacing(1),
         },
         defaultAvatar: {
