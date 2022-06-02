@@ -86,7 +86,7 @@ export const theme: any = {
       cookie: "Cookie, cursive;",
       raleway: "Raleway, sans-serif",
       dmSans: "DM Sans, sans-serif",
-      NunitoSans: "Nunito Sans, sans-serif",
+      nunitoSans: "Nunito Sans, sans-serif",
     },
     colors: {
       primaryColor100: "#0A7227",
