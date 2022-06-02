@@ -12,7 +12,7 @@ var __assign = (this && this.__assign) || function () {
 import { jsx as _jsx, jsxs as _jsxs } from "react/jsx-runtime";
 import { useRelatedPostNovalStyles } from "./styles";
 import clx from "classnames";
-import { getTimeFrom } from "utilities/getTime";
+import { getTimeFrom } from "../../../../../utilities/getTime";
 import { useDefaultAvatar } from "../../../helpers";
 export var RelatedPostNoval = function (_a) {
     var _b, _c, _d, _e, _f;

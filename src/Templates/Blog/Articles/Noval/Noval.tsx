@@ -4,7 +4,7 @@ import { useNovalStyles } from "./styles";
 import clx from "classnames";
 import { RelatedPostNoval } from "./RelatedPost/RelatedPost";
 import { shareDataNoval } from "./data";
-import { getTimeFrom } from "utilities/getTime";
+import { getTimeFrom } from "../../../../utilities/getTime";
 import { useDefaultAvatar } from "../../helpers";
 
 export const Noval: FC<CoreArticleTemplateFields> = ({

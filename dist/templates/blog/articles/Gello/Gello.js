@@ -29,7 +29,7 @@ import { jsx as _jsx, jsxs as _jsxs } from "react/jsx-runtime";
 import { useEffect, useState } from "react";
 import { shareDataGello } from "./data";
 import { RelatedPostGello } from "./RelatedPost/RelatedPost";
-import { getDay } from "utilities/getTime";
+import { getDay } from "../../../../utilities/getTime";
 import { useGelloStyles } from "./styles";
 import clx from "classnames";
 import { useDefaultAvatar } from "../../helpers";

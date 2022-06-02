@@ -2,7 +2,7 @@ import { FC, useEffect, useState } from "react";
 import { CoreArticleTemplateFields } from "../types";
 import { shareDataGello } from "./data";
 import { RelatedPostGello } from "./RelatedPost/RelatedPost";
-import { getDay } from "utilities/getTime";
+import { getDay } from "../../../../utilities/getTime";
 import { useGelloStyles } from "./styles";
 import clx from "classnames";
 import { useDefaultAvatar } from "../../helpers";

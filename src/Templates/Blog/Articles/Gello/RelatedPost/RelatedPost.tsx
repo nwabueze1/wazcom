@@ -2,7 +2,7 @@ import { FC } from "react";
 import { CoreArticleTemplateFields } from "../../types";
 import { useRelatedPostGelloStyles } from "./styles";
 import clx from "classnames";
-import { stripHtml } from "utilities/Post";
+import { stripHtml } from "../../../../../utilities/Post";
 
 export const RelatedPostGello: FC<CoreArticleTemplateFields> = ({
   article,

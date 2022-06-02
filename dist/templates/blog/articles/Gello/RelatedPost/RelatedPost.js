@@ -12,7 +12,7 @@ var __assign = (this && this.__assign) || function () {
 import { jsx as _jsx, jsxs as _jsxs } from "react/jsx-runtime";
 import { useRelatedPostGelloStyles } from "./styles";
 import clx from "classnames";
-import { stripHtml } from "utilities/Post";
+import { stripHtml } from "../../../../../utilities/Post";
 export var RelatedPostGello = function (_a) {
     var article = _a.article, handleClick = _a.handleClick, className = _a.className;
     var classes = useRelatedPostGelloStyles();

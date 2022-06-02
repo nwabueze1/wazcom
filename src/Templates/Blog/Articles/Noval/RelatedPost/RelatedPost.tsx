@@ -2,7 +2,7 @@ import { FC } from "react";
 import { CoreArticleTemplateFields } from "../../types";
 import { useRelatedPostNovalStyles } from "./styles";
 import clx from "classnames";
-import { getTimeFrom } from "utilities/getTime";
+import { getTimeFrom } from "../../../../../utilities/getTime";
 import { useDefaultAvatar } from "../../../helpers";
 
 export const RelatedPostNoval: FC<CoreArticleTemplateFields> = ({
