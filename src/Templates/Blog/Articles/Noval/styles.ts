@@ -118,6 +118,12 @@ export const useNovalStyles = makeStyles<Theme>((theme: Theme) => ({
     fontSize: theme.typography.fontSize + 6,
     width: "60%",
     lineHeight: "28px",
+    "& p": {
+      margin: theme.spacing(1.5, 0)
+    },
+    "& h1, h2, h3, h4, h5, h6": {
+      margin: theme.spacing(2.5, 0)
+    },
     [theme.breakpoints.down("md")]: {
       width: "100%",
     },

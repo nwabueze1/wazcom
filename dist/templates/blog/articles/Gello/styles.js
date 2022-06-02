@@ -113,7 +113,13 @@ export var useGelloStyles = makeStyles(function (theme) {
                 color: theme.design.colors.grey1100,
                 lineHeight: "26px",
                 width: "80%",
-                margin: "auto"
+                margin: "auto",
+                "& p": {
+                    margin: theme.spacing(1.5, 0)
+                },
+                "& h1, h2, h3, h4, h5, h6": {
+                    margin: theme.spacing(2.5, 0)
+                }
             },
             _f[theme.breakpoints.down("sm")] = {
                 width: "100%",
