@@ -32,7 +32,7 @@ import clx from "classnames";
 import { RelatedPostNoval } from "./RelatedPost/RelatedPost";
 import { shareDataNoval } from "./data";
 import { getTimeFrom } from "utilities/getTime";
-import { useDefaultAvatar } from "templates/Blog/helpers";
+import { useDefaultAvatar } from "../../helpers";
 export var Noval = function (_a) {
     var _b;
     var _c, _d, _e, _f, _g;
