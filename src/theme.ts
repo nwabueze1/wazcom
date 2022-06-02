@@ -1,7 +1,4 @@
-import {
-  createTheme,
-  Theme as MuiTheme,
-} from "@mui/material/styles";
+import { createTheme, Theme as MuiTheme } from "@mui/material/styles";
 
 type ExtendedThemeOptions = {
   include: { [key: string]: any };
@@ -81,12 +78,14 @@ export const theme: any = {
           lato: "Lato, sans-serif",
           cookie: "Cookie, cursive;",
           raleway: "Raleway, sans-serif",
+          dmSans: "DM Sans, sans-serif",
+          NunitoSans: "Nunito Sans, sans-serif",
         },
       },
       template4: {
         font: "Nunito",
       },
-    }
+    },
   },
   design: {
     font: {
@@ -127,6 +126,13 @@ export const theme: any = {
       mercury: "#CCCFCD",
       primaryBlack: "#010E05",
       grey6: "#FBFBFB",
+      grey100: "#808782",
+      grey200: "#999F9B",
+      grey300: "#E8E8E8",
+      grey400: "#4D5650",
+      grey500: "#1A261E",
+      grey600: "#676E69",
+      orange: "#F4CDB4"
     },
   },
   overrides: {

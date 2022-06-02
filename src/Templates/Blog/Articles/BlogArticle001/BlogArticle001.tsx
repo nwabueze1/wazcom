@@ -1,9 +1,8 @@
 import React, { FC } from "react";
-import { ArticleProps } from "../types";
+import { CoreArticleTemplateFields } from "../types";
 import { useBlogArticle001Styles } from "./styles";
-import { defaultBlogImage } from "utilities/images";
 
-export const BlogArticle001: FC<ArticleProps> = ({ article, site }) => {
+export const BlogArticle001: FC<CoreArticleTemplateFields> = ({ article, site }) => {
   const classes = useBlogArticle001Styles();
   const author = `${site?.user?.firstname} ${site?.user?.lastname}`;
   return (
@@ -12,16 +11,17 @@ export const BlogArticle001: FC<ArticleProps> = ({ article, site }) => {
         <div className={classes.container}>
           <div className={classes.imageContainer}>
             <img
-              src={article.featured_image ?? `${defaultBlogImage}`}
+              src={article.featured_image ?? ""}
               alt={article.title}
               className={classes.image}
             />
           </div>
           <div className={classes.contentContainer}>
-            <p className={classes.header}>jhdfjjfklhfjkhfjkskl</p>
-            <p className={classes.content}>
+            <p className={classes.header}>{article.title}</p>
+            <div
+              className={classes.content}
               dangerouslySetInnerHTML={{ __html: article.content }}
-            </p>
+            />
           </div>
         </div>
       </div>
