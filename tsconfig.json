@@ -22,7 +22,7 @@
     "strict": true,
     "downlevelIteration": true
   },
-  "include": ["src", "src/Templates/Temp5", "src/Browser", "src/Browser", "Browser"],
+  "include": ["src", "src/templates/Temp5", "src/Browser", "src/Browser", "Browser"],
   "exclude": [
     "lib",
     "./src/@types",
