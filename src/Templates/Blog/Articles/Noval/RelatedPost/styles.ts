@@ -1,7 +1,7 @@
 import makeStyles from "@mui/styles/makeStyles";
 import { Theme } from "@mui/material/styles";
 
-export const useRelatedPostStyles = makeStyles<Theme>((theme: Theme) => ({
+export const useRelatedPostNovalStyles = makeStyles<Theme>((theme: Theme) => ({
   root: {
     cursor: "pointer",
     width: "100%",

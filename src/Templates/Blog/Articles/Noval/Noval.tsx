@@ -2,8 +2,8 @@ import { FC, useEffect, useState } from "react";
 import { CoreArticleTemplateFields } from "../types";
 import { useNovalStyles } from "./styles";
 import clx from "classnames";
-import { RelatedPost } from "./RelatedPost/RelatedPost";
-import { shareData } from "./data";
+import { RelatedPostNoval } from "./RelatedPost/RelatedPost";
+import { shareDataNoval } from "./data";
 import { getTimeFrom } from "utilities/getTime";
 import { useDefaultAvatar } from "templates/blog/helpers";
 
@@ -31,7 +31,7 @@ export const Noval: FC<CoreArticleTemplateFields> = ({
 
   const displayRelatedPosts = () =>
     article.related_posts?.map((post, index) => (
-      <RelatedPost
+      <RelatedPostNoval
         key={index}
         article={post}
         domain={domain}
@@ -45,7 +45,7 @@ export const Noval: FC<CoreArticleTemplateFields> = ({
   );
 
   const displaySocialIcons = () => {
-    return shareData.map((social, index) => {
+    return shareDataNoval.map((social, index) => {
       return (
         <a
           key={index}

@@ -1,7 +1,7 @@
 import { FC, useEffect, useState } from "react";
 import { CoreArticleTemplateFields } from "../types";
-import { shareData } from "./data";
-import { RelatedPost } from "./RelatedPost/RelatedPost";
+import { shareDataGello } from "./data";
+import { RelatedPostGello } from "./RelatedPost/RelatedPost";
 import { getDay } from "utilities/getTime";
 import { useGelloStyles } from "./styles";
 import clx from "classnames";
@@ -19,7 +19,7 @@ export const Gello: FC<CoreArticleTemplateFields> = ({ article, site, domain, ha
 
   const displayRelatedPosts = () =>
     article.related_posts?.map((post, index) => (
-      <RelatedPost key={index} article={post} domain={domain} handleClick={handleClick}/>
+      <RelatedPostGello key={index} article={post} domain={domain} handleClick={handleClick} />
     ));
 
   const isRelatedPosts = Boolean(
@@ -27,7 +27,7 @@ export const Gello: FC<CoreArticleTemplateFields> = ({ article, site, domain, ha
   );
 
   const displaySocialIcons = () => {
-    return shareData.map((social, index) => {
+    return shareDataGello.map((social, index) => {
       return (
         <a
           key={index}
