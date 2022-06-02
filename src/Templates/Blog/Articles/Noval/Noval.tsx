@@ -5,7 +5,7 @@ import clx from "classnames";
 import { RelatedPost } from "./RelatedPost/RelatedPost";
 import { shareData } from "./data";
 import { getTimeFrom } from "utilities/getTime";
-import { useDefaultAvatar } from "templates/Blog/helpers";
+import { useDefaultAvatar } from "templates/blog/helpers";
 
 export const Noval: FC<CoreArticleTemplateFields> = ({
   article,
