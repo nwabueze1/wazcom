@@ -5,7 +5,7 @@ import { RelatedPostGello } from "./RelatedPost/RelatedPost";
 import { getDay } from "utilities/getTime";
 import { useGelloStyles } from "./styles";
 import clx from "classnames";
-import { useDefaultAvatar } from "templates/blog/helpers";
+import { useDefaultAvatar } from "../../helpers";
 
 export const Gello: FC<CoreArticleTemplateFields> = ({ article, site, domain, handleClick }) => {
   const classes = useGelloStyles();
