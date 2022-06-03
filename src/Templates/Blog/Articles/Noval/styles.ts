@@ -180,7 +180,7 @@ export const useNovalStyles = makeStyles<Theme>((theme: Theme) => ({
     display: "flex",
     justifyContent: "center",
     alignItems: "center",
-    fontSize: theme.typography.fontSize + 8,
+    fontSize: theme.typography.fontSize + 4,
     color: theme.design.colors.white,
     background: theme.design.colors.orange,
   },

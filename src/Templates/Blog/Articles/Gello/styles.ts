@@ -53,6 +53,7 @@ export const useGelloStyles = makeStyles<Theme>((theme: Theme) => ({
     lineHeight: "40px",
     fontSize: theme.typography.fontSize * 3,
     fontWeight: theme.typography.fontWeightBold,
+    margin: theme.spacing(2.5, 0),
     [theme.breakpoints.down("sm")]: {
       fontSize: theme.typography.fontSize * 2,
       lineHeight: "36px",
@@ -111,6 +112,12 @@ export const useGelloStyles = makeStyles<Theme>((theme: Theme) => ({
     margin: "auto",
     "& p": {
       margin: theme.spacing(1.5, 0),
+      "& img": {
+        margin: theme.spacing(6, "auto"),
+        maxWidth: "100%",
+        height: "100%",
+        display: "flex",
+      }
     },
     "& h1, h2, h3, h4, h5, h6": {
       margin: theme.spacing(2.5, 0)
@@ -170,7 +177,7 @@ export const useGelloStyles = makeStyles<Theme>((theme: Theme) => ({
     display: "flex",
     justifyContent: "center",
     alignItems: "center",
-    fontSize: theme.typography.fontSize + 8,
+    fontSize: theme.typography.fontSize + 4,
     color: theme.design.colors.white,
     background: theme.design.colors.orange,
   },
