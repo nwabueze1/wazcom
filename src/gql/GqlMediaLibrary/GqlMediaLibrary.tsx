@@ -289,10 +289,7 @@ export const GqlMediaLibrary: FC<GqlMediaLibraryProps> = ({
             <>
               <div className={classes.tabs}>{displayTabs()}</div>
               <div className={classes.iconContainer}>
-                <FaTimes
-                  className={classes.timesIcon}
-                  onClick={handleClose}
-                />
+                <FaTimes className={classes.timesIcon} onClick={handleClose} />
               </div>
             </>
           ) : (
