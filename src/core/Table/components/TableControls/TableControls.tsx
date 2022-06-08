@@ -25,7 +25,6 @@ export const TableControls: React.FC<TableControlsProps> = ({
   setFilters,
   tableValues,
   controlsFormData,
-  
 }) => {
   const classes = useTableControlsStyles();
   const [anchorEl, setAnchorEl] = useState(null);
@@ -36,7 +35,6 @@ export const TableControls: React.FC<TableControlsProps> = ({
   const handleClose = () => {
     setAnchorEl(null);
   };
-
 
   return (
     <Box className={classes.controls}>
@@ -50,16 +48,16 @@ export const TableControls: React.FC<TableControlsProps> = ({
             filters={filters}
             setFilters={setFilters}
           />
-          <SearchInput
-            name="search"
-            type="text"
-            placeholder="Search"
-            value={controlsFormData.search}
-            onChange={(e: any) => handleControlsChange(e)}
-            className={classes.controlsInput}
-          />
         </Box>
       )}
+      <SearchInput
+        name="search"
+        type="text"
+        placeholder="Search"
+        value={controlsFormData.search}
+        onChange={(e: any) => handleControlsChange(e)}
+        className={classes.controlsInput}
+      />
       <Box className={classes.rightControls}>
         {controls?.canPrint && (
           <Button
