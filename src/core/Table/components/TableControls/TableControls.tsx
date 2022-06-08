@@ -50,14 +50,14 @@ export const TableControls: React.FC<TableControlsProps> = ({
           />
         </Box>
       )}
-      <SearchInput
+      {/* <SearchInput
         name="search"
         type="text"
         placeholder="Search"
         value={controlsFormData.search}
         onChange={(e: any) => handleControlsChange(e)}
         className={classes.controlsInput}
-      />
+      /> */}
       <Box className={classes.rightControls}>
         {controls?.canPrint && (
           <Button

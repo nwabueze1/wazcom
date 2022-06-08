@@ -8,6 +8,7 @@ import { FilterAlt } from "@mui/icons-material";
 import { Button } from "../../../Button";
 import { useTableControlsStyles } from "../TableControls/styles";
 import { getJsxContent } from "../../helpers";
+import { isEqual } from "lodash";
 
 export const TableFilter: React.FC<TableFilterProps> = ({
   showFilter,
@@ -21,11 +22,10 @@ export const TableFilter: React.FC<TableFilterProps> = ({
   const controlClasses = useTableControlsStyles();
   const [filterFields, setFilterFields] =
     useState<{ [key: string]: any }[]>(fields);
- 
+
   const [newFilters, setNewFilters] = useState(filters);
 
   const handleSetFilter = (field: string, value: string) => {
-    
     setNewFilters((filters) => {
       const index = filters.findIndex((filter) => filter.field === field);
       if (index === -1) {
@@ -40,7 +40,7 @@ export const TableFilter: React.FC<TableFilterProps> = ({
       const newArr = [...filters];
       if (newArr[index].values.includes(value)) {
         const itemIndex = newArr[index].values.findIndex(
-          (item) => item === value,
+          (item) => item === value
         );
         newArr[index].values.splice(itemIndex, 1);
         return newArr;
@@ -57,27 +57,39 @@ export const TableFilter: React.FC<TableFilterProps> = ({
     (fieldName: string, values: TableFilterProps["values"]) => {
       if (!values || values.length < 1) return [];
       const data: string[] = [];
-      values.map((item: { [key: string]: string | number | { [key: string]: any; } }) => {
-        let fieldValue = item[`${fieldName}`];
-        
-        if (typeof fieldValue == "object") {
-          fieldValue = getJsxContent(fieldValue)
-        }
-        if (
-          !fieldValue?.toString() ||
-          data.includes(fieldValue.toString())
-        )
+      values.map(
+        (item: { [key: string]: string | number | { [key: string]: any } }) => {
+          let fieldValue = item[`${fieldName}`];
+
+          if (typeof fieldValue == "object") {
+            fieldValue = getJsxContent(fieldValue);
+          }
+          if (!fieldValue?.toString() || data.includes(fieldValue.toString()))
+            return null;
+          data.push(fieldValue.toString());
           return null;
-        data.push(fieldValue.toString());
-        return null;
-      });
+        }
+      );
       return data;
     },
-    [],
+    []
   );
 
   const getCheckedState = (field: string, value: string) => {
     const filter = newFilters.find((filter) => filter.field === field);
+    // const row = values.find(filter ? filter : {})
+    // console.log("values", values);
+    // console.log("newFilters", newFilters);
+    // console.log("filter", filter);
+    // console.log("value", value);
+    // if (filter) {
+    //   const g = Object.keys(filter).map((key, index) => {
+    //     console.log("data", values[key][filter?.field]);
+    //     return filter?.values?.includes(values[key][filter?.field]);
+    //   });
+    //   if (g.length > 0) return g;
+    // }
+    
     if (filter && filter.values.includes(value)) {
       return true;
     }
@@ -98,12 +110,12 @@ export const TableFilter: React.FC<TableFilterProps> = ({
                   />
                   <div>{item}</div>
                 </div>
-              )
+              );
             })}
           </Accordion>
         </MenuItem>
       )),
-    [filterFields, newFilters, values],
+    [filterFields, newFilters, values]
   );
 
   const handleClickAway = () => {
@@ -113,7 +125,6 @@ export const TableFilter: React.FC<TableFilterProps> = ({
   useEffect(() => {
     setFilterFields(fields);
   }, [fields]);
-
 
   return (
     <ClickAwayListener onClickAway={handleClickAway}>
@@ -134,7 +145,7 @@ export const TableFilter: React.FC<TableFilterProps> = ({
           <MenuItem
             className={clx(
               classes.filterItemContainer,
-              classes.filterItemsHeader,
+              classes.filterItemsHeader
             )}
           >
             FILTER BY:
@@ -145,7 +156,7 @@ export const TableFilter: React.FC<TableFilterProps> = ({
               <Button
                 className={clx(
                   classes.filterActionButton,
-                  classes.filterActionButtonOutline,
+                  classes.filterActionButtonOutline
                 )}
                 onClick={handleClickAway}
               >

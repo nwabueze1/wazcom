@@ -92,13 +92,17 @@ export const useUpdateTableValue = (
       return newFilterResult.filter((rowValues) => {
         let status = false;
         Object.entries(rowValues).map(([key, value]) => {
-          const filterIndex = filters.findIndex((item) => item.field == key);
-          if (filterIndex !== -1) {
-            const term =
-              typeof value == "object"
-                ? getJsxContent(value)
-                : value.toString();
-            if (!filters[filterIndex].values.includes(term)) {
+          let idx = -1
+          filters.map((item, index) => {
+            if (item.field == key) {
+              idx = index
+            } else {
+              idx = -1
+            }
+          });
+          if (idx !== -1) {
+            const term = value == null ? "" : typeof value == "object" ? getJsxContent(value): String(value);
+            if (!filters[idx].values.includes(term)) {
               status = true;
             }
           }

@@ -92,6 +92,7 @@ export const stories: ComponentPropType[] = [
       controls: {
         filter: ["id", "name"],
         canPrint: true,
+        canExport: {}
       },
     },
   },
