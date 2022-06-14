@@ -37,7 +37,7 @@ export var useImageSelectorStyles = makeStyles(function (theme) { return ({
         height: "400px",
     },
     cameraIcon: {
-        color: theme.design.colors.white,
+        color: theme.design.colors.waz_white,
         zIndex: 5,
         background: "transparent",
     },

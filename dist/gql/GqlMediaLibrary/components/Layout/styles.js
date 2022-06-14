@@ -8,11 +8,11 @@ export var useLayoutStyles = makeStyles(function (theme) { return ({
         alignItems: "center",
         gap: "2px",
         cursor: "pointer",
-        border: "1px solid ".concat(theme.design.colors.grey5),
+        border: "1px solid ".concat(theme.design.colors.waz_grey5),
     },
     innerBox: {
         width: 12,
         height: 12,
-        background: theme.design.colors.grey1,
+        background: theme.design.colors.waz_grey1,
     },
 }); });

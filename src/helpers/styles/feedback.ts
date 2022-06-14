@@ -16,6 +16,6 @@ export const useFeedbackStyles = makeStyles((theme: Theme) => ({
     color: "black",
   },
   error: {
-    border: `2px solid ${theme.design.colors.dangerColor100}`,
+    border: `2px solid ${theme.design.colors.waz_dangerColor100}`,
   },
 }));

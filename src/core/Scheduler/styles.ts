@@ -19,7 +19,7 @@ export const useSchedulerStyles = makeStyles((theme: Theme) => ({
     margin: "0",
     fontSize: theme.typography.fontSize + 4,
     fontWeight: theme.typography.fontWeightMedium,
-    color: theme.design.colors.primaryColor100,
+    color: theme.design.colors.waz_primaryColor100,
     display: "flex",
     alignItems: "center",
   },
@@ -40,7 +40,7 @@ export const useSchedulerStyles = makeStyles((theme: Theme) => ({
     margin: theme.spacing(0, 1),
   },
   closeIcon: {
-    color: theme.design.colors.grey5,
+    color: theme.design.colors.waz_grey5,
     marginLeft: theme.spacing(1.5),
     cursor: "pointer",
   },

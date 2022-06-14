@@ -31,7 +31,7 @@ export const useRelatedPostGelloStyles = makeStyles<Theme>((theme: Theme) => ({
     marginTop: theme.spacing(1.5),
   },
   post: {
-    color: theme.design.colors.grey1200,
+    color: theme.design.colors.waz_grey600,
     fontSize: theme.typography.fontSize + 2,
     lineHeight: "20px",
     marginTop: theme.spacing(1),

@@ -69,11 +69,11 @@ export var theme = {
         },
         colors: {
             primaryColor100: "#0A7227",
-            dangerColor: baseColors.dangerColor,
+            dangerColor: baseColors.waz_dangerColor,
             dangerColor100: "#990000",
             dangerColor200: "#ff3333",
             dangerColor300: "#ff5959",
-            successColor: baseColors.successColor,
+            successColor: baseColors.waz_successColor,
             successColor100: "#22803c",
             successColor200: "#3b8e52",
             successColor300: "#e6f0e9",

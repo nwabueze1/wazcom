@@ -5,13 +5,13 @@ export var useButtonStyles = makeStyles(function (theme) { return ({
     },
     button: {
         textTransform: "capitalize",
-        color: theme.design.colors.white,
-        backgroundColor: theme.design.colors.primaryColor100,
+        color: theme.design.colors.waz_white,
+        backgroundColor: theme.design.colors.waz_primaryColor100,
         cursor: "pointer",
         fontSize: theme.typography.fontSize,
         fontFamily: theme.typography.fontFamily,
         "&:hover": {
-            backgroundColor: theme.design.colors.primaryColor100,
+            backgroundColor: theme.design.colors.waz_primaryColor100,
             opacity: "70%",
         },
     },
@@ -27,9 +27,9 @@ export var useButtonStyles = makeStyles(function (theme) { return ({
         display: "flex",
         justifyContent: "center",
         alignItems: "center",
-        color: theme.design.colors.white,
+        color: theme.design.colors.waz_white,
         zIndex: 5,
         opacity: 1,
-        background: theme.design.colors.primaryColor100,
+        background: theme.design.colors.waz_primaryColor100,
     },
 }); });

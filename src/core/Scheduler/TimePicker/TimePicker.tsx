@@ -33,24 +33,24 @@ const CustomCss = withStyles((theme: Theme) => ({
         },
     },
     ".MuiOutlinedInput-notchedOutline": {
-      border: `solid 1px ${theme.design.colors.grey5}`,
+      border: `solid 1px ${theme.design.colors.waz_grey5}`,
       borderRadius: 5,
       "&:hover": {
-        borderColor: `${theme.design.colors.grey5}`,
+        borderColor: `${theme.design.colors.waz_grey5}`,
         outline: "none",
       },
       "&:focus": {
-        borderColor: `${theme.design.colors.grey5}`,
+        borderColor: `${theme.design.colors.waz_grey5}`,
       },
     },
     ".Mui-focused.MuiOutlinedInput-notchedOutline": {
-      border: `solid 1px ${theme.design.colors.grey5}`,
+      border: `solid 1px ${theme.design.colors.waz_grey5}`,
       "&:hover": {
-        borderColor: `${theme.design.colors.grey5}`,
+        borderColor: `${theme.design.colors.waz_grey5}`,
         outline: "none",
       },
       "&:focus": {
-        borderColor: `${theme.design.colors.grey5}`,
+        borderColor: `${theme.design.colors.waz_grey5}`,
       },
     },
   },

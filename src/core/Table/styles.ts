@@ -11,13 +11,13 @@ export const useTableStyles = makeStyles((theme: Theme) => ({
     overflow: "hidden",
   },
   tableHead: {
-    background: theme.design.colors.whiteColor200,
+    background: theme.design.colors.waz_whiteColor200,
   },
   tableHeadCell: {
     fontWeight: theme.typography.fontWeightBold,
     padding: theme.spacing(1.5, 2),
     fontSize: theme.typography.fontSize + 2,
-    color: theme.design.colors.grey1,
+    color: theme.design.colors.waz_grey1,
   },
   tableCell: {
     padding: theme.spacing(1.5, 2),
@@ -52,7 +52,7 @@ export const useTableStyles = makeStyles((theme: Theme) => ({
   },
   tableContainer: {
     boxShadow: "none",
-    border: `1px solid ${theme.design.colors.grey5}`,
+    border: `1px solid ${theme.design.colors.waz_grey5}`,
   },
 }));
 

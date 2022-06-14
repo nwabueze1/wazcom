@@ -6,7 +6,7 @@ export var useRelatedPostNovalStyles = makeStyles(function (theme) {
                 cursor: "pointer",
                 width: "100%",
                 marginBottom: theme.spacing(3),
-                border: "1px solid ".concat(theme.design.colors.grey900),
+                border: "1px solid ".concat(theme.design.colors.waz_grey300),
                 borderRadius: 4
             },
             _a[theme.breakpoints.down("md")] = {
@@ -64,7 +64,7 @@ export var useRelatedPostNovalStyles = makeStyles(function (theme) {
         },
         timePosted: {
             fontSize: theme.typography.fontSize,
-            color: theme.design.colors.grey700,
+            color: theme.design.colors.waz_grey100,
         },
         defaultAvatar: {
             height: 32,
@@ -74,12 +74,12 @@ export var useRelatedPostNovalStyles = makeStyles(function (theme) {
             justifyContent: "center",
             alignItems: "center",
             fontSize: theme.typography.fontSize + 8,
-            color: theme.design.colors.white,
-            background: theme.design.colors.orange,
+            color: theme.design.colors.waz_white,
+            background: theme.design.colors.waz_orange,
         },
         articleLink: {
             textDecoration: "none",
-            color: theme.design.colors.black,
+            color: theme.design.colors.waz_black,
         },
     });
 });

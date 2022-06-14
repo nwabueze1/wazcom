@@ -16,7 +16,7 @@ export const useAddMediaStyles = makeStyles((theme: Theme) => ({
   },
   box: {
     width: "680px",
-    background: theme.design.colors.white,
+    background: theme.design.colors.waz_white,
   },
   dialogueHeader: {
     width: "80%",
@@ -86,7 +86,7 @@ export const useAddMediaStyles = makeStyles((theme: Theme) => ({
     width: "100%",
     height: "400px",
     cursor: "pointer",
-    border: `2px solid ${theme.design.colors.primaryColor100}`,
+    border: `2px solid ${theme.design.colors.waz_primaryColor100}`,
     position: "absolute",
     top: 0,
     left: 0,

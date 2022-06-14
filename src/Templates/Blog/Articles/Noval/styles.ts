@@ -45,8 +45,8 @@ export const useNovalStyles = makeStyles<Theme>((theme: Theme) => ({
     fontSize: theme.typography.fontSize,
     textTransform: "capitalize",
     borderRadius: 4,
-    background: theme.design.colors.grey900,
-    color: theme.design.colors.grey1000,
+    background: theme.design.colors.waz_grey300,
+    color: theme.design.colors.waz_grey400,
   },
   tags: {
     display: "flex",
@@ -80,13 +80,13 @@ export const useNovalStyles = makeStyles<Theme>((theme: Theme) => ({
   },
   writtenBy: {
     fontStyle: "italic",
-    color: theme.design.colors.grey700,
+    color: theme.design.colors.waz_grey100,
     fontSize: theme.typography.fontSize + 2,
     textTransform: "capitalize",
   },
   author: {
     fontStyle: "normal",
-    color: theme.design.colors.black,
+    color: theme.design.colors.waz_black,
   },
   blogInfo: {
     display: "flex",
@@ -96,8 +96,8 @@ export const useNovalStyles = makeStyles<Theme>((theme: Theme) => ({
   },
   postedTime: {
     padding: theme.spacing(0, 1.5),
-    borderLeft: `1px solid ${theme.design.colors.grey800}`,
-    borderRight: `1px solid ${theme.design.colors.grey800}`,
+    borderLeft: `1px solid ${theme.design.colors.waz_grey200}`,
+    borderRight: `1px solid ${theme.design.colors.waz_grey200}`,
     [theme.breakpoints.down("sm")]: {
       fontSize: theme.typography.fontSize,
     },
@@ -114,7 +114,7 @@ export const useNovalStyles = makeStyles<Theme>((theme: Theme) => ({
     },
   },
   content: {
-    color: theme.design.colors.primaryBlack,
+    color: theme.design.colors.waz_primaryBlack,
     fontSize: theme.typography.fontSize + 6,
     width: "60%",
     lineHeight: "28px",
@@ -170,7 +170,7 @@ export const useNovalStyles = makeStyles<Theme>((theme: Theme) => ({
   },
   shareText: {
     fontSize: theme.typography.fontSize,
-    color: theme.design.colors.grey800,
+    color: theme.design.colors.waz_grey200,
     marginBottom: theme.spacing(1),
   },
   defaultAvatar: {
@@ -181,7 +181,7 @@ export const useNovalStyles = makeStyles<Theme>((theme: Theme) => ({
     justifyContent: "center",
     alignItems: "center",
     fontSize: theme.typography.fontSize + 4,
-    color: theme.design.colors.white,
-    background: theme.design.colors.orange,
+    color: theme.design.colors.waz_white,
+    background: theme.design.colors.waz_orange,
   },
 }));

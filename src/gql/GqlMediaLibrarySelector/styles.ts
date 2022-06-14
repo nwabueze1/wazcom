@@ -9,7 +9,7 @@ export const useImageSelectorStyles = makeStyles((theme: Theme) => ({
   container: {
     height: "100%",
     backgroundColor: theme.design.colors.lightGrey,
-    border: `1px dashed ${theme.design.colors.mercury}`,
+    border: `1px dashed ${theme.design.colors.waz_mercury}`,
     borderRadius: 5,
     backgroundSize: "cover",
     display: "flex",
@@ -24,23 +24,23 @@ export const useImageSelectorStyles = makeStyles((theme: Theme) => ({
   },
   circle: {
     borderRadius: "50%",
-    border: `3px solid ${theme.design.colors.white}`,
+    border: `3px solid ${theme.design.colors.waz_white}`,
   },
   icon: {
     cursor: "pointer",
-    color: theme.design.colors.primaryColor100,
+    color: theme.design.colors.waz_primaryColor100,
     zIndex: 5,
-    border: `1px solid ${theme.design.colors.primaryColor100}`,
+    border: `1px solid ${theme.design.colors.waz_primaryColor100}`,
     fontSize: theme.typography.fontSize + 4,
     fontWeight: theme.typography.fontWeightBold,
-    background: theme.design.colors.white,
+    background: theme.design.colors.waz_white,
     "&:hover": {
-      background: theme.design.colors.successColor300,
-      border: `1px solid ${theme.design.colors.primaryColor100}`,
+      background: theme.design.colors.waz_successColor300,
+      border: `1px solid ${theme.design.colors.waz_primaryColor100}`,
     },
   },
   cameraIcon: {
-    color: theme.design.colors.black,
+    color: theme.design.colors.waz_black,
     cursor: "pointer",
     zIndex: 5,
     background: "transparent",
@@ -49,14 +49,14 @@ export const useImageSelectorStyles = makeStyles((theme: Theme) => ({
   removeBtn: {
     cursor: "pointer",
     marginLeft: theme.spacing(5),
-    color: theme.design.colors.greyColor300,
-    border: `1px solid ${theme.design.colors.mercury}`,
+    color: theme.design.colors.waz_greyColor300,
+    border: `1px solid ${theme.design.colors.waz_mercury}`,
     fontSize: theme.typography.fontSize + 4,
     fontWeight: theme.typography.fontWeightMedium,
-    background: theme.design.colors.white,
+    background: theme.design.colors.waz_white,
     "&:hover": {
-      background: theme.design.colors.white,
-      border: `1px solid ${theme.design.colors.mercury}`,
+      background: theme.design.colors.waz_white,
+      border: `1px solid ${theme.design.colors.waz_mercury}`,
     },
   },
   imgUploadContainer: {
@@ -71,7 +71,7 @@ export const useImageSelectorStyles = makeStyles((theme: Theme) => ({
   wrapper: {
     height: "80vh",
     width: "80vw",
-    backgroundColor: theme.design.colors.white,
+    backgroundColor: theme.design.colors.waz_white,
     zIndex: 15,
   },
   cameraIconSm: {
@@ -108,6 +108,6 @@ export const useImageSelectorStyles = makeStyles((theme: Theme) => ({
     height: "200px",
   },
   error: {
-    border: `2px solid ${theme.design.colors.dangerColor100}`,
+    border: `2px solid ${theme.design.colors.waz_dangerColor100}`,
   },
 }));
