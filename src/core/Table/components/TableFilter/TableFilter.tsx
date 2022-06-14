@@ -14,7 +14,7 @@ export const TableFilter: React.FC<TableFilterProps> = ({
   showFilter,
   setShowFilter,
   fields,
-  values,
+  values: tableValues,
   filters,
   setFilters,
 }) => {
@@ -77,19 +77,45 @@ export const TableFilter: React.FC<TableFilterProps> = ({
 
   const getCheckedState = (field: string, value: string) => {
     const filter = newFilters.find((filter) => filter.field === field);
-    // const row = values.find(filter ? filter : {})
-    // console.log("values", values);
+    // const row = tableValues.find(filter ? filter : {})
+    // console.log("tableValues", tableValues);
     // console.log("newFilters", newFilters);
     // console.log("filter", filter);
     // console.log("value", value);
     // if (filter) {
-    //   const g = Object.keys(filter).map((key, index) => {
-    //     console.log("data", values[key][filter?.field]);
-    //     return filter?.values?.includes(values[key][filter?.field]);
+    //   // const g = Object.entries(tableValues).map(([key, values], index) => {
+    //   //   console.log("data", values[filter?.field]);
+    //   //   console.log("filter?.values?.includes(values[filter.field])", filter?.values?.includes(values[filter.field]))
+    //   //   console.log("filter?.values", filter?.values)
+    //   //   const parsedValue = values[filter.field] == null ? "" : typeof values[filter.field] == "object" ? getJsxContent(values[filter.field]) : String(values[filter.field])
+    //   //   if (filter?.values?.includes(parsedValue)) {
+    //   //     return true
+    //   //   }
+    //   // });
+
+    //   // const f = g.filter((item) => item == true)
+    //   // console.log("f", f)
+    //   // if (f.length > 0) return true;
+
+    //   const t = Object.entries(filter).map(([key, values], i) => {
+    //     const idx = tableValues.findIndex((obj) => {
+    //       // console.log("first", obj, obj[filter.field]);
+    //       // console.log("2", values, key);
+    //       // console.log("fil", newFilters);
+    //       return values.includes(obj[filter.field]);
+    //     });
+
+    //     return idx;
     //   });
-    //   if (g.length > 0) return g;
+    //   console.log("t", t);
+    //   const u = tableValues[t[1]];
+    //   // Object.values(u).map((values) => {
+    //   //   // filter.values.push(values);
+    //   //   console.log("v", values);
+    //   // });
+    //   console.log("u", u, t[1]);
     // }
-    
+    // console.log("fil", filter);
     if (filter && filter.values.includes(value)) {
       return true;
     }
@@ -101,7 +127,7 @@ export const TableFilter: React.FC<TableFilterProps> = ({
       filterFields.map(({ name, label }) => (
         <MenuItem key={name} className={classes.filterItemContainer}>
           <Accordion title={label}>
-            {getUniqueValues(label, values).map((item, key) => {
+            {getUniqueValues(label, tableValues).map((item, key) => {
               return (
                 <div className={classes.filterItem} key={key}>
                   <Checkbox
@@ -115,7 +141,7 @@ export const TableFilter: React.FC<TableFilterProps> = ({
           </Accordion>
         </MenuItem>
       )),
-    [filterFields, newFilters, values]
+    [filterFields, newFilters, tableValues]
   );
 
   const handleClickAway = () => {

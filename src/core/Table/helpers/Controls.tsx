@@ -89,8 +89,9 @@ export const useUpdateTableValue = (
       : [...initialTableValue];
 
     if (filters.length > 0) {
+      console.log("newFilterResult", newFilterResult)
       return newFilterResult.filter((rowValues) => {
-        let status = false;
+        const status = [false];
         Object.entries(rowValues).map(([key, value]) => {
           let idx = -1
           filters.map((item, index) => {
@@ -99,17 +100,19 @@ export const useUpdateTableValue = (
             } else {
               idx = -1
             }
-          });
-          if (idx !== -1) {
-            const term = value == null ? "" : typeof value == "object" ? getJsxContent(value): String(value);
-            if (!filters[idx].values.includes(term)) {
-              status = true;
+            if (idx !== -1) {
+              // console.log("filter", filters)
+              const term = value == null ? "" : typeof value == "object" ? getJsxContent(value): String(value);
+              // console.log("filters[idx].values.includes(term)", filters[idx].values.includes(term), term)
+              if (!filters[idx].values.includes(term)) {
+                status.push(true);
+              }
             }
-          }
-          return null;
+          });
+          
         });
 
-        return status;
+        return status.some((value) => value ==  true);
       });
     }
 
