@@ -23,7 +23,6 @@ export const useScheduleData = () => {
             name={"day"}
             label={"Enter Site Name"}
             value={schedule.day}
-            className="fddfg"
             onChange={(event: any) => handleChange(event, index)}
           />
         </div>
@@ -41,15 +40,20 @@ export const useScheduleData = () => {
             value={schedule.end_time}
             onChange={(event) => handleChange(event, index)}
           />
+          <CloseIcon
+            onClick={(event: any) => handleChange(event, index, true)}
+            className={clx(index !== 0 ? classNames?.closeIcon : classNames?.hiddenCloseIcon)}
+            color={"secondary"}
+          />
         </div>
       );
-      parsedSchedule["action"] = (
-        <CloseIcon
-          onClick={(event: any) => handleChange(event, index, true)}
-          className={clx(index !== 0 ? classNames?.closeIcon : classNames?.hiddenCloseIcon)}
-          color={"secondary"}
-        />
-      );
+      // parsedSchedule["action"] = (
+      //   <CloseIcon
+      //     onClick={(event: any) => handleChange(event, index, true)}
+      //     className={clx(index !== 0 ? classNames?.closeIcon : classNames?.hiddenCloseIcon)}
+      //     color={"secondary"}
+      //   />
+      // );
       data.push(parsedSchedule);
     });
     return data;
