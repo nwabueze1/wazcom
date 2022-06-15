@@ -47,13 +47,6 @@ export const useScheduleData = () => {
           />
         </div>
       );
-      // parsedSchedule["action"] = (
-      //   <CloseIcon
-      //     onClick={(event: any) => handleChange(event, index, true)}
-      //     className={clx(index !== 0 ? classNames?.closeIcon : classNames?.hiddenCloseIcon)}
-      //     color={"secondary"}
-      //   />
-      // );
       data.push(parsedSchedule);
     });
     return data;
