@@ -5,6 +5,7 @@ export type SchedulerProps = CommonProps & {
     gap?: string;
     multiple?: boolean;
     value?: Schedule[];
+    orientation?: "horizontal" | "vertical"
 }
 
 export type Schedule = {
