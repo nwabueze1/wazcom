@@ -1,30 +1,45 @@
 import { Schedule } from "..";
 
 export const filterDaysOptions = (days: { id: number; name: string }[], scheduleData: Schedule[]) => {
+    console.log("=====", scheduleData)
+    const isWeekdays = scheduleData.some((day) => String(day.day) == "8");
+    const isWeekends = scheduleData.some((day) => String(day.day) == "9");
+    const isAWeekday = scheduleData.some((day) => Number(day.day) >= 2 && Number(day.day) <= 6);
+    const isAWeekEnd = scheduleData.some((day) => Number(day.day) == 1 ||  Number(day.day) == 7);
+    console.log("isAWeekEnd", isAWeekEnd)
+    console.log("isAWeekday", isAWeekday)
     return days.filter((value) => {
-        const isWeekdays = scheduleData.find((day) => String(day.day) == "8");
-        const isWeekends = scheduleData.find((day) => String(day.day) == "9");
-        const isAWeekday = scheduleData.find((day) => Number(day.day) >= 2 && Number(day.day) <= 6);
-        const isAWeekEnd = scheduleData.find((day) => Number(day.day) == 1 || Number(day.day) == 7);
-
         if (scheduleData.length == 1) {
             return true
         }
         if (isWeekdays) {
-            return !(Number(value.id) >= 2 && Number(value.id) <= 6) && Number(value.id) != 8 && Number(value.id) != 0
+            return !(Number(value.id) >= 2 && Number(value.id) <= 6) && Number(value.id) != 8 && Number(value.id) != 0 && !scheduleData?.some((item) => String(item.day) == String(value.id))
         }
         if (isWeekends) {
-            return Number(value.id) != 1 && Number(value.id) != 7 && Number(value.id) != 9 && Number(value.id) != 0
+            return Number(value.id) != 1 && Number(value.id) != 7 && Number(value.id) != 9 && Number(value.id) != 0 && !scheduleData?.some((item) => String(item.day) == String(value.id))
         }
-        if (isAWeekday) {
-            return Number(value.id) != 8 && Number(value.id) != 0
+        if (isAWeekday && !isAWeekEnd) {
+            return Number(value.id) != 8 && Number(value.id) != 0 && !scheduleData?.some((item) => String(item.day) == String(value.id))
         }
-        if (isAWeekEnd) {
-            return Number(value.id) != 9 && Number(value.id) != 0
+        if (isAWeekEnd && !isAWeekday) {
+            return Number(value.id) != 9 && Number(value.id) != 0 && !scheduleData?.some((item) => String(item.day) == String(value.id))
         }
-        if (value.id != 0) {
-            return !scheduleData?.some((item) => String(item.day) == String(value.id))
+        if (isAWeekday && isAWeekEnd) {
+            return Number(value.id) != 1 && Number(value.id) != 7 && Number(value.id) != 9 && Number(value.id) != 8 && Number(value.id) != 0 && !scheduleData?.some((item) => String(item.day) == String(value.id))
         }
-        return
-      })
+        return !scheduleData?.some((item) => String(item.day) == String(value.id))
+    })
 } 
+
+export const days: { id: number; name: string }[] = [
+    { id: 0, name: "Everyday" },
+    { id: 1, name: "Sunday" },
+    { id: 2, name: "Monday" },
+    { id: 3, name: "Tuesday" },
+    { id: 4, name: "Wednesday" },
+    { id: 5, name: "Thursday" },
+    { id: 6, name: "Friday" },
+    { id: 7, name: "Saturday" },
+    { id: 8, name: "Weekdays" },
+    { id: 9, name: "Weekends" },
+  ];
