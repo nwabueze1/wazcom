@@ -29,10 +29,11 @@ export const TextArea: FC<TextAreaProps> = ({
     <div className={clx(className, classes.root)}>
       {label && (
         <InputLabel
-          className={classNames?.label as string ?? ""}
+          className={(classNames?.label as string) ?? ""}
           htmlFor={name ?? ""}
         >
-          {label}
+          {label}{" "}
+          <p className={classes.required}>{props.required ? " *" : ""}</p>
         </InputLabel>
       )}
       <TextareaAutosize
@@ -44,7 +45,7 @@ export const TextArea: FC<TextAreaProps> = ({
         className={clx(
           classNames?.textArea,
           classes.textarea,
-          error && classes.error,
+          error && classes.error
         )}
       />
       {helperText}

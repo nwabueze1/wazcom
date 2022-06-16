@@ -1,28 +1,24 @@
 import React, { FC } from "react";
 import Facebook from "@mui/icons-material/Facebook";
 import Twitter from "@mui/icons-material/Twitter";
-import { ArticleProps } from "../types";
+import { CoreArticleTemplateFields } from "../types";
 import { useBlogArticle002Styles } from "./styles";
-import { defaultBlogImage } from "utilities/images";
 
-export const BlogArticle002: FC<ArticleProps> = ({ article, site }) => {
+export const BlogArticle002: FC<CoreArticleTemplateFields> = ({
+  article,
+  site,
+}) => {
   const classes = useBlogArticle002Styles();
   const author = `${site?.user?.firstname} ${site?.user?.lastname}`;
 
   return (
     <section className={classes.root}>
       <div className={classes.header}>{article.title}</div>
-      <img
-        className={classes.hero}
-        src={article.featured_image ?? `${defaultBlogImage}`}
-      />
+      <img className={classes.hero} src={article.featured_image} />
       <div className={classes.content}>
         dangerouslySetInnerHTML={{ __html: article.content }}
       </div>
-      <img
-        className={classes.image}
-        src={article.featured_image ?? `${defaultBlogImage}`}
-      />
+      <img className={classes.image} src={article.featured_image} />
       <div className={classes.imageText}>
         dangerouslySetInnerHTML={{ __html: article.content }}
       </div>

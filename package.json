@@ -9,7 +9,7 @@
     "@emotion/react": "^11.5.0",
     "@emotion/styled": "^11.3.0",
     "@paypal/react-paypal-js": "^7.3.3",
-    "@tinymce/tinymce-react": "^3.13.0",
+    "@tinymce/tinymce-react": "3.10.0",
     "@types/apollo-upload-client": "^17.0.0",
     "@types/file-saver": "^2.0.5",
     "@types/react-dom": "^17.0.9",
@@ -67,6 +67,11 @@
     ]
   },
   "devDependencies": {
+    "@mui/base": "^5.0.0-alpha.80",
+    "@mui/icons-material": "^5.6.2",
+    "@mui/lab": "^5.0.0-alpha.81",
+    "@mui/material": "^5.7.0",
+    "@mui/styles": "^5.7.0",
     "@testing-library/jest-dom": "^5.11.4",
     "@testing-library/react": "^11.1.0",
     "@testing-library/user-event": "^12.1.10",
@@ -101,8 +106,9 @@
   "peerDependencies": {
     "@emotion/react": "^11.5.0",
     "@emotion/styled": "^11.3.0",
-    "@mui/icons-material": "^5.0.4",
-    "@mui/lab": "^5.0.0-alpha.51",
+    "@mui/base": "^5.0.0",
+    "@mui/icons-material": "^5.6.2",
+    "@mui/lab": "^5.0.0",
     "@mui/material": "^5.0.4",
     "@mui/styles": "^5.0.1",
     "@types/react-dom": "^17.0.9",

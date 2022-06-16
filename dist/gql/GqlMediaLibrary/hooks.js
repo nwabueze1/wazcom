@@ -82,7 +82,7 @@ export var useDisplayImages = function () {
         return split(images, 4).map(function (_, columnIndex) { return (_jsx("div", __assign({ className: clx(classes.column, activeLayout === 0 && classes.twoColumn, activeLayout === 2 && classes.fourColumn) }, { children: _.map(function (theImage, index) {
                 return (_jsx(Grow, __assign({ in: true }, { children: _jsxs("div", __assign({ onClick: function () {
                             selectImage === null || selectImage === void 0 ? void 0 : selectImage(theImage);
-                        }, className: clx(classes.thumbnail, viewOnly && classes.thumbnailFixedHeight) }, { children: [_jsx("img", { src: theImage === null || theImage === void 0 ? void 0 : theImage.url, className: classes.image }, void 0), _jsx("div", __assign({ className: classes.thumbnailOverlay }, { children: !viewOnly && (_jsxs("div", __assign({ className: classes.thumbnailActions }, { children: [_jsx("p", __assign({ onClick: function (e) {
+                        }, className: clx(classes.thumbnail) }, { children: [_jsx("img", { src: theImage === null || theImage === void 0 ? void 0 : theImage.url, className: classes.image }, void 0), _jsx("div", __assign({ className: classes.thumbnailOverlay }, { children: !viewOnly && (_jsxs("div", __assign({ className: classes.thumbnailActions }, { children: [_jsx("p", __assign({ onClick: function (e) {
                                                 e.stopPropagation();
                                                 handleMediaAction("edit", theImage);
                                             }, className: classes.thumbnailAction }, { children: _jsx(FaPencilAlt, { className: classes.thumbnailActionIcon }, void 0) }), void 0), _jsx("p", __assign({ onClick: function (e) {
@@ -123,7 +123,6 @@ export var useMediaUpload = function () {
                     return [3 /*break*/, 5];
                 case 3:
                     error_1 = _c.sent();
-                    console.log(error_1);
                     return [3 /*break*/, 5];
                 case 4:
                     setLoading({ loading: false, mutate: false });
@@ -209,7 +208,6 @@ export var mutateMedia = function (client, mutation, media, updateMediaLibrary, 
                 return [3 /*break*/, 3];
             case 2:
                 error_2 = _a.sent();
-                console.log(error_2);
                 return [3 /*break*/, 3];
             case 3: return [2 /*return*/];
         }

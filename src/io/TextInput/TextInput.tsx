@@ -13,7 +13,6 @@ export const TextInput: FC<TextInputProps> = ({
   onChange,
   feedback,
   helperText,
-  icon,
   ...props
 }) => {
   const classes = useTextStyles();
@@ -29,7 +28,8 @@ export const TextInput: FC<TextInputProps> = ({
           className={classNames?.label ? (classNames?.label as string) : ""}
           htmlFor={props.name}
         >
-          {label}
+          {label}{" "}
+          <p className={classes.required}>{props.required ? " *" : ""}</p>
         </InputLabel>
       )}
       <TextField

@@ -35,9 +35,6 @@ export const useMediaLibraryStyles = makeStyles((theme: Theme) => ({
     marginBottom: theme.spacing(1),
     cursor: "pointer",
   },
-  thumbnailFixedHeight: {
-    height: 150,
-  },
   thumbnailOverlay: {
     position: "absolute",
     top: 0,
@@ -148,6 +145,11 @@ export const useMediaLibraryStyles = makeStyles((theme: Theme) => ({
     overflow: "scroll",
     zIndex: 15,
     scrollBehavior: "smooth",
+    "-ms-overflow-style": "none" /* for Internet Explorer, Edge */,
+    scrollbarWidth: "none" /* for Firefox */,
+    "&::-webkit-scrollbar": {
+      display: "none",
+    },
   },
   selectorTab: {
     fontSize: theme.typography.fontSize + 4,
@@ -189,7 +191,7 @@ export const useMediaLibraryStyles = makeStyles((theme: Theme) => ({
   button: {
     background: theme.design.colors.white,
     color: theme.design.colors.greenishGrey2,
-    border: `1px solid ${theme.design.colors.greene}`,
+    border: `1px solid ${theme.design.colors.primaryColor100}`,
     "&:hover": {
       color: theme.design.colors.white,
     },
@@ -290,7 +292,7 @@ export const useMediaLibraryStyles = makeStyles((theme: Theme) => ({
   searchIcon: {
     position: "absolute",
     color: theme.design.colors.mercury,
-    top: "10px",
+    top: "16px",
     left: "10px",
   },
   radioButton: {

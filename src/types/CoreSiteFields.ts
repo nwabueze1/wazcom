@@ -8,7 +8,6 @@
 // ====================================================
 
 export interface CoreSiteFields_user {
-  __typename: "User";
   id: string;
   uuid: string;
   firstname: string;
@@ -23,7 +22,6 @@ export interface CoreSiteFields_user {
 }
 
 export interface CoreSiteFields {
-  __typename: "Site";
   id: string;
   uuid: string;
   name: string;

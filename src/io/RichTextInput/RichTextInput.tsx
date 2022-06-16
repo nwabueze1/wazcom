@@ -32,6 +32,7 @@ export const RichTextInput: React.FC<RichTextInputProps> = ({
   error,
   feedback,
   Loader,
+  ...props
 }) => {
   const classes = useRichInputStyles();
   const [loading, setLoading] = React.useState<boolean>(false);
@@ -47,14 +48,14 @@ export const RichTextInput: React.FC<RichTextInputProps> = ({
           className={(classNames?.label as string) ?? ""}
           htmlFor={name}
         >
-          {label}
+          {label} <p className={classes.required}>{props.required ? " *" : ""}</p>
         </InputLabel>
       )}
       <div
         className={clx(
           classNames?.richTextInput,
           classes.editor,
-          error && classes.editorError,
+          error && classes.editorError
         )}
       >
         <Editor

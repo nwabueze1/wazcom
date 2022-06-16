@@ -110,7 +110,9 @@ export var useUpdateTableValue = function (setTableValue, initialTableValue, con
                     var _b = __read(_a, 2), key = _b[0], value = _b[1];
                     var filterIndex = filters.findIndex(function (item) { return item.field == key; });
                     if (filterIndex !== -1) {
-                        var term = typeof value == "object" ? getJsxContent(value) : value.toString();
+                        var term = typeof value == "object"
+                            ? getJsxContent(value)
+                            : value.toString();
                         if (!filters[filterIndex].values.includes(term)) {
                             status = true;
                         }

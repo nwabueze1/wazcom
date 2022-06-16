@@ -8,7 +8,6 @@
 // ====================================================
 
 export interface CorePostFields_category {
-  __typename: "Category";
   id: string;
   uuid: string;
   name: string | null;
@@ -18,7 +17,6 @@ export interface CorePostFields_category {
 }
 
 export interface CorePostFields_tags {
-  __typename: "Tag";
   id: string | null;
   name: string | null;
 }
@@ -30,7 +28,8 @@ export interface CorePostFields {
   slug: string;
   content: any;
   status: number;
-  featured_image: string | null;
+  featured_image: string;
+  related_posts?: CorePostFields[] | null;
   title: string;
   author_uuid: string | null;
   language_attr: string | null;

@@ -1,8 +1,4 @@
-import {
-  createTheme,
-  adaptV4Theme,
-  Theme as MuiTheme,
-} from "@mui/material/styles";
+import { createTheme, Theme as MuiTheme } from "@mui/material/styles";
 
 type ExtendedThemeOptions = {
   include: { [key: string]: any };
@@ -12,13 +8,13 @@ type ExtendedThemeOptions = {
   };
 };
 
-declare module "@mui/material/styles/createTheme" {
+declare module "@mui/material/styles" {
   // eslint-disable-next-line @typescript-eslint/no-empty-interface
   interface Theme extends ExtendedThemeOptions {}
 
   // allow configuration using `createMuiTheme`
   // eslint-disable-next-line @typescript-eslint/no-empty-interface
-  interface DeprecatedThemeOptions extends ExtendedThemeOptions {}
+  interface ThemeOptions extends ExtendedThemeOptions {}
 }
 
 export type BaseTheme = MuiTheme & ExtendedThemeOptions;
@@ -77,83 +73,20 @@ export const theme: any = {
       template2: {
         maxWidth: 1294,
         maxWidthMd: 700,
-        font: {
-          garamond: "Cormorant Garamond, san-serif",
-          lato: "Lato, sans-serif",
-          cookie: "Cookie, cursive;",
-          raleway: "Raleway, sans-serif",
-        },
       },
       template4: {
         font: "Nunito",
       },
     },
-    anim: {
-      zIndex: 1,
-      padding: "8px 25px",
-      background: "none",
-      overflow: "hidden",
-      position: "relative",
-      verticalAlign: "middle",
-      MozOsxFontSmoothing: "grayscale",
-      "-webkit-backface-visibility": "hidden",
-      color: "#274C77",
-      borderColor: "#FFFFFF",
-      transition: "border-color 0.3s, color 0.3s",
-      "-webkit-transition": "border-color 0.3s, color 0.3s",
-      "-webkit-transition-timing-function": "cubic-bezier(0.2, 1, 0.3, 1)",
-      transitionTimingFunction: "cubic-bezier(0.2, 1, 0.3, 1)",
-      border: "4px solid",
-      fontWeight: 600,
-      letterSpacing: "2px",
-      textTransform: "uppercase",
-      fontSize: 16,
-      "&::before": {
-        content: "''",
-        position: "absolute",
-        top: "0",
-        left: "0",
-        width: "150%",
-        height: "100%",
-        background: "#37474f",
-        zIndex: "-1",
-        WebkitTransform: "rotate3d(0, 0, 1, -45deg) translate3d(0, -3em, 0)",
-        transform: "rotate3d(0, 0, 1, -45deg) translate3d(0, -3em, 0)",
-        WebkitTransformOrigin: "0% 100%",
-        transformOrigin: "0% 100%",
-        WebkitTransition:
-          "-webkit-transform 0.3s, opacity 0.3s, background-color 0.3s",
-        transition: "transform 0.3s, opacity 0.3s, background-color 0.3s",
-      },
-      "&:hover, &:focus": {
-        color: "#FFFFFF",
-        borderColor: "#274C77",
-      },
-      "&:hover:before, &:focus": {
-        opacity: "1",
-        backgroundColor: "#274C77",
-        WebkitTransform: "rotate3d(0, 0, 1, 0deg)",
-        transform: "rotate3d(0, 0, 1, 0deg)",
-        WebkitTransitionTimingFunction: "cubic-bezier(0.2, 1, 0.3, 1)",
-        transitionTimingFunction: "cubic-bezier(0.2, 1, 0.3, 1)",
-      },
-    },
-    title: {
-      fontWeight: 600,
-      letterSpacing: "2px",
-    },
-    subTitle: {
-      fontWeight: 500,
-    },
   },
   design: {
     font: {
-      brandon: (weight: 400) => ({
-        "font-family": '"Nunito", sans-serif',
-        "font-weight": weight,
-      }),
-      title: '"auto-pro-new", sans-serif',
-      regular: '"Nunito", sans-serif',
+      garamond: "Cormorant Garamond, san-serif",
+      lato: "Lato, sans-serif",
+      cookie: "Cookie, cursive;",
+      raleway: "Raleway, sans-serif",
+      dmSans: "DM Sans, sans-serif",
+      nunitoSans: "Nunito Sans, sans-serif",
     },
     colors: {
       primaryColor100: "#0A7227",
@@ -185,6 +118,13 @@ export const theme: any = {
       mercury: "#CCCFCD",
       primaryBlack: "#010E05",
       grey6: "#FBFBFB",
+      grey100: "#808782",
+      grey200: "#999F9B",
+      grey300: "#E8E8E8",
+      grey400: "#4D5650",
+      grey500: "#1A261E",
+      grey600: "#676E69",
+      orange: "#F4CDB4",
     },
   },
   overrides: {
@@ -256,4 +196,4 @@ export const theme: any = {
   },
 };
 
-export default createTheme(adaptV4Theme(theme));
+export default createTheme(theme);

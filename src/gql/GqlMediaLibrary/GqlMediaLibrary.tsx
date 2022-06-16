@@ -37,6 +37,7 @@ export const GqlMediaLibrary: FC<GqlMediaLibraryProps> = ({
   },
   onChange,
   name,
+  handleClose,
 }) => {
   const refs = { fileRef: useRef<any>(), listInnerRef: useRef<any>() };
   const handleFileSelect = useFileSelect();
@@ -288,7 +289,7 @@ export const GqlMediaLibrary: FC<GqlMediaLibraryProps> = ({
             <>
               <div className={classes.tabs}>{displayTabs()}</div>
               <div className={classes.iconContainer}>
-                <FaTimes className={classes.timesIcon} />
+                <FaTimes className={classes.timesIcon} onClick={handleClose} />
               </div>
             </>
           ) : (

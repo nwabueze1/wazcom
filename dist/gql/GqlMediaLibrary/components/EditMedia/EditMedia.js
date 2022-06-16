@@ -32,14 +32,14 @@ import { TextInput } from "../../../../io";
 import { Button } from "../../../../core";
 export var EditMedia = function (_a) {
     var _b, _c, _d;
-    var loading = _a.loading, image = _a.image, handleEdit = _a.handleEdit, handleClose = _a.handleClose;
+    var _e = _a.loading, loading = _e === void 0 ? true : _e, image = _a.image, handleEdit = _a.handleEdit, handleClose = _a.handleClose;
     var classes = useEditMediaStyles();
     var ref = useRef();
-    var _e = __read(useState({
+    var _f = __read(useState({
         title: image instanceof File ? image.name : (_b = image.title) !== null && _b !== void 0 ? _b : "",
         alternative_text: image instanceof File ? image.name : (_c = image.alternative_text) !== null && _c !== void 0 ? _c : "",
         caption: (_d = image.caption) !== null && _d !== void 0 ? _d : "",
-    }), 2), formData = _e[0], setFormData = _e[1];
+    }), 2), formData = _f[0], setFormData = _f[1];
     useEffect(function () {
         var _a, _b, _c;
         var formData = {

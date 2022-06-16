@@ -37,10 +37,7 @@ export const useDisplayImages = () => {
                 onClick={() => {
                   selectImage?.(theImage);
                 }}
-                className={clx(
-                  classes.thumbnail,
-                  viewOnly && classes.thumbnailFixedHeight
-                )}
+                className={clx(classes.thumbnail)}
               >
                 <img src={theImage?.url} className={classes.image} />
                 <div className={classes.thumbnailOverlay}>
@@ -102,7 +99,7 @@ export const useMediaUpload = () => {
         updateMediaLibrary(response?.data?.uploadImage);
       }
     } catch (error) {
-      console.log(error);
+      //
     } finally {
       setLoading({ loading: false, mutate: false });
     }
@@ -203,6 +200,6 @@ export const mutateMedia = async (
     });
     updateMediaLibrary();
   } catch (error) {
-    console.log(error);
+    //
   }
 };
