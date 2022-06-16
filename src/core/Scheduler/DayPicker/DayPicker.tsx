@@ -1,8 +1,11 @@
 import React from "react";
 import { Select, SelectProps } from "@mui/material";
 import { menuItemTableStyles, BootstrapInput } from "./styles";
+import { Schedule } from "..";
+import { filterDaysOptions } from "./helper";
 interface DayPickerProps extends SelectProps {
   value?: string;
+  scheduleData: Schedule[];
   // onChange: (
   //   event: React.ChangeEvent<{ name?: string; value: unknown }>,
   // ) => void;
@@ -28,8 +31,11 @@ export const DayPicker: React.FC<DayPickerProps> = ({
   // days,
   label,
   name,
+  scheduleData
 }) => {
   const classes = menuItemTableStyles();
+  const filteredOptions = filterDaysOptions(days, scheduleData)
+
   return (
     <>
       <Select
@@ -43,7 +49,7 @@ export const DayPicker: React.FC<DayPickerProps> = ({
         value={value}
         input={<BootstrapInput />}
       >
-        {days.map(({ id, name }) => (
+        {filteredOptions.map(({ id, name }) => (
           <option key={id} value={String(id)} className={classes.option}>
             {name}
           </option>

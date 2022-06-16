@@ -23,6 +23,7 @@ export const useScheduleData = () => {
             name={"day"}
             label={"Enter Site Name"}
             value={schedule.day}
+            scheduleData={scheduleData}
             onChange={(event: any) => handleChange(event, index)}
           />
         </div>
