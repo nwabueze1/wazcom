@@ -7,6 +7,9 @@ export const filterDaysOptions = (days: { id: number; name: string }[], schedule
         const isAWeekday = scheduleData.find((day) => Number(day.day) >= 2 && Number(day.day) <= 6);
         const isAWeekEnd = scheduleData.find((day) => Number(day.day) == 1 || Number(day.day) == 7);
 
+        if (scheduleData.length == 1) {
+            return true
+        }
         if (isWeekdays) {
             return !(Number(value.id) >= 2 && Number(value.id) <= 6) && Number(value.id) != 8 && Number(value.id) != 0
         }

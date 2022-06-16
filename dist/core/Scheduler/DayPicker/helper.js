@@ -4,6 +4,9 @@ export var filterDaysOptions = function (days, scheduleData) {
         var isWeekends = scheduleData.find(function (day) { return String(day.day) == "9"; });
         var isAWeekday = scheduleData.find(function (day) { return Number(day.day) >= 2 && Number(day.day) <= 6; });
         var isAWeekEnd = scheduleData.find(function (day) { return Number(day.day) == 1 || Number(day.day) == 7; });
+        if (scheduleData.length == 1) {
+            return true;
+        }
         if (isWeekdays) {
             return !(Number(value.id) >= 2 && Number(value.id) <= 6) && Number(value.id) != 8 && Number(value.id) != 0;
         }
