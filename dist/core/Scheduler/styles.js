@@ -32,7 +32,7 @@ export var useSchedulerStyles = makeStyles(function (theme) { return ({
         display: "flex",
         alignItems: "flex-start",
         flexDirection: "column",
-        gap: "16px",
+        gap: theme.spacing(2),
         marginBottom: theme.spacing(2),
         "& div": {
             width: "100%"
