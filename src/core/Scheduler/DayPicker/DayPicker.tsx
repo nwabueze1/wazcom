@@ -30,7 +30,6 @@ export const DayPicker: React.FC<DayPickerProps> = ({
   name,
 }) => {
   const classes = menuItemTableStyles();
-
   return (
     <>
       <Select

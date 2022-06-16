@@ -49,6 +49,8 @@ export var Scheduler = function (_a) {
     ] : _d, onChange = _a.onChange, _e = _a.orientation, orientation = _e === void 0 ? "horizontal" : _e;
     var classes = useSchedulerStyles();
     var parseSchedulevalue = useScheduleData();
+    var isEverydaySelected = initialScheduleValue.find(function (value) { return value.day == "0"; });
+    console.log("isEverydaySelected", isEverydaySelected);
     var handleChange = useCallback(function (event, index, remove) {
         if (remove === void 0) { remove = false; }
         var _a = event.target, name = _a.name, value = _a.value;
@@ -89,5 +91,5 @@ export var Scheduler = function (_a) {
                         var name = _a.name;
                         return row === null || row === void 0 ? void 0 : row[name];
                     }) }), index));
-            }), multiple && (_jsx("div", __assign({ className: classes.button, onClick: addNewRow }, { children: _jsxs("p", __assign({ className: classes.buttonText }, { children: [_jsx(FiPlus, { className: classes.addIcon }, void 0), " Add Schedule"] }), void 0) }), void 0))] }), void 0));
+            }), multiple && !isEverydaySelected && (_jsx("div", __assign({ className: classes.button, onClick: addNewRow }, { children: _jsxs("p", __assign({ className: classes.buttonText }, { children: [_jsx(FiPlus, { className: classes.addIcon }, void 0), " Add Schedule"] }), void 0) }), void 0))] }), void 0));
 };

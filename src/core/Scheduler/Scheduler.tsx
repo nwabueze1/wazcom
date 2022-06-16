@@ -21,6 +21,8 @@ export const Scheduler: React.FC<SchedulerProps> = ({
 }) => {
   const classes = useSchedulerStyles();
   const parseSchedulevalue = useScheduleData();
+  const isEverydaySelected = initialScheduleValue.find((value) => value.day == "0");
+  console.log("isEverydaySelected", isEverydaySelected)
 
   const handleChange = useCallback(
     (event, index, remove = false) => {
@@ -90,7 +92,7 @@ export const Scheduler: React.FC<SchedulerProps> = ({
           </div>
         );
       })}
-      {multiple && (
+      {multiple && !isEverydaySelected && (
         <div className={classes.button} onClick={addNewRow}>
           <p className={classes.buttonText}>
             <FiPlus className={classes.addIcon} /> Add Schedule
