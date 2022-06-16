@@ -17,6 +17,7 @@ export const Scheduler: React.FC<SchedulerProps> = ({
     { day: "0", start_time: "00:00", end_time: "12:00" },
   ],
   onChange,
+  orientation = "horizontal"
 }) => {
   const classes = useSchedulerStyles();
   const parseSchedulevalue = useScheduleData();
@@ -82,7 +83,7 @@ export const Scheduler: React.FC<SchedulerProps> = ({
       )}
       {scheduleValue?.map((row: any, index: number) => {
         return (
-          <div className={classes.schedulerContainer} key={index}>
+          <div className={`${classes.schedulerContainer} ${orientation == "vertical" && classes.verticalContainer}`} key={index}>
             {fields.map(({ name }) => {
               return row?.[name];
             })}

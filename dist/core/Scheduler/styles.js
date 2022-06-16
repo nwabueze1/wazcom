@@ -28,6 +28,16 @@ export var useSchedulerStyles = makeStyles(function (theme) { return ({
         alignItems: "center",
         gap: theme.spacing(2.5),
     },
+    verticalContainer: {
+        display: "flex",
+        alignItems: "flex-start",
+        flexDirection: "column",
+        gap: theme.spacing(2),
+        marginBottom: theme.spacing(2),
+        "& div": {
+            width: "100%"
+        }
+    },
     timeContainer: {
         display: "flex",
         justifyContent: "space-between",

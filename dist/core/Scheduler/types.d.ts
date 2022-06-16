@@ -4,6 +4,7 @@ export declare type SchedulerProps = CommonProps & {
     gap?: string;
     multiple?: boolean;
     value?: Schedule[];
+    orientation?: "horizontal" | "vertical";
 };
 export declare type Schedule = {
     day: string;

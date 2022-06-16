@@ -40,14 +40,12 @@ export const useScheduleData = () => {
             value={schedule.end_time}
             onChange={(event) => handleChange(event, index)}
           />
+          <CloseIcon
+            onClick={(event: any) => handleChange(event, index, true)}
+            className={clx(index !== 0 ? classNames?.closeIcon : classNames?.hiddenCloseIcon)}
+            color={"secondary"}
+          />
         </div>
-      );
-      parsedSchedule["action"] = (
-        <CloseIcon
-          onClick={(event: any) => handleChange(event, index, true)}
-          className={clx(index !== 0 ? classNames?.closeIcon : classNames?.hiddenCloseIcon)}
-          color={"secondary"}
-        />
       );
       data.push(parsedSchedule);
     });
