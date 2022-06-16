@@ -11,11 +11,14 @@ export var filterDaysOptions = function (days, scheduleData) {
             return Number(value.id) != 1 && Number(value.id) != 7 && Number(value.id) != 9 && Number(value.id) != 0;
         }
         if (isAWeekday) {
-            return Number(value.id) != 8;
+            return Number(value.id) != 8 && Number(value.id) != 0;
         }
         if (isAWeekEnd) {
-            return Number(value.id) != 9;
+            return Number(value.id) != 9 && Number(value.id) != 0;
         }
-        return !(scheduleData === null || scheduleData === void 0 ? void 0 : scheduleData.some(function (item) { return String(item.day) == String(value.id); }));
+        if (value.id != 0) {
+            return !(scheduleData === null || scheduleData === void 0 ? void 0 : scheduleData.some(function (item) { return String(item.day) == String(value.id); }));
+        }
+        return;
     });
 };

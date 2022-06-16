@@ -14,11 +14,14 @@ export const filterDaysOptions = (days: { id: number; name: string }[], schedule
             return Number(value.id) != 1 && Number(value.id) != 7 && Number(value.id) != 9 && Number(value.id) != 0
         }
         if (isAWeekday) {
-            return Number(value.id) != 8
+            return Number(value.id) != 8 && Number(value.id) != 0
         }
         if (isAWeekEnd) {
-            return Number(value.id) != 9
+            return Number(value.id) != 9 && Number(value.id) != 0
         }
-        return !scheduleData?.some((item) => String(item.day) == String(value.id))
+        if (value.id != 0) {
+            return !scheduleData?.some((item) => String(item.day) == String(value.id))
+        }
+        return
       })
 } 
