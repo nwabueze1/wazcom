@@ -23,7 +23,6 @@ export const Scheduler: React.FC<SchedulerProps> = ({
 }) => {
   const classes = useSchedulerStyles();
   const parseSchedulevalue = useScheduleData();
-  // const [selectedOptions, setSelectedOptions] = useState<Schedule[]>([{ day: "0", start_time: "00:00", end_time: "12:00" }])
   const isEverydaySelected = initialScheduleValue?.some((value) => value?.day == "0");
   const availableOption = filterDaysOptions(days, initialScheduleValue)
 
@@ -39,7 +38,6 @@ export const Scheduler: React.FC<SchedulerProps> = ({
         newValue[index][name] = value;
       }
       onChange?.({ name: componentName as string, value: newValue });
-      // setSelectedOptions(newValue)
     },
     [initialScheduleValue],
   );
@@ -54,7 +52,6 @@ export const Scheduler: React.FC<SchedulerProps> = ({
       ],
     });
     
-    // setSelectedOptions([...(selectedOptions as Schedule[]), {day: String(nextFieldId), start_time: "01:00", end_time: "12:00"}])
   }, [initialScheduleValue]);
 
   const [scheduleValue, setScheduleValue] = useState<{ [key: string]: any }[]>(

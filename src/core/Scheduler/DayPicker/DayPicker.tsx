@@ -6,10 +6,6 @@ import { days, filterDaysOptions } from "./helper";
 interface DayPickerProps extends SelectProps {
   value?: string;
   scheduleData: Schedule[];
-  // onChange: (
-  //   event: React.ChangeEvent<{ name?: string; value: unknown }>,
-  // ) => void;
-  // days: { id: number; name: string, display:boolean }[],
 }
 
 
@@ -17,7 +13,6 @@ interface DayPickerProps extends SelectProps {
 export const DayPicker: React.FC<DayPickerProps> = ({
   value,
   onChange,
-  // days,
   label,
   name,
   scheduleData
