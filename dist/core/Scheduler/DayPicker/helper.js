@@ -1,20 +1,20 @@
 export var filterDaysOptions = function (days, scheduleData) {
-    console.log("=====", scheduleData);
     var isWeekdays = scheduleData.some(function (day) { return String(day.day) == "8"; });
     var isWeekends = scheduleData.some(function (day) { return String(day.day) == "9"; });
     var isAWeekday = scheduleData.some(function (day) { return Number(day.day) >= 2 && Number(day.day) <= 6; });
     var isAWeekEnd = scheduleData.some(function (day) { return Number(day.day) == 1 || Number(day.day) == 7; });
-    console.log("isAWeekEnd", isAWeekEnd);
-    console.log("isAWeekday", isAWeekday);
     return days.filter(function (value) {
         if (scheduleData.length == 1) {
             return true;
         }
-        if (isWeekdays) {
+        if (isWeekdays && !isWeekends) {
             return !(Number(value.id) >= 2 && Number(value.id) <= 6) && Number(value.id) != 8 && Number(value.id) != 0 && !(scheduleData === null || scheduleData === void 0 ? void 0 : scheduleData.some(function (item) { return String(item.day) == String(value.id); }));
         }
-        if (isWeekends) {
+        if (isWeekends && !isWeekdays) {
             return Number(value.id) != 1 && Number(value.id) != 7 && Number(value.id) != 9 && Number(value.id) != 0 && !(scheduleData === null || scheduleData === void 0 ? void 0 : scheduleData.some(function (item) { return String(item.day) == String(value.id); }));
+        }
+        if (isWeekdays && isWeekends) {
+            return Number(value.id) != 1 && Number(value.id) != 7 && Number(value.id) != 9 && !(Number(value.id) >= 2 && Number(value.id) <= 6) && Number(value.id) != 8 && Number(value.id) != 0 && !(scheduleData === null || scheduleData === void 0 ? void 0 : scheduleData.some(function (item) { return String(item.day) == String(value.id); }));
         }
         if (isAWeekday && !isAWeekEnd) {
             return Number(value.id) != 8 && Number(value.id) != 0 && !(scheduleData === null || scheduleData === void 0 ? void 0 : scheduleData.some(function (item) { return String(item.day) == String(value.id); }));
@@ -23,7 +23,10 @@ export var filterDaysOptions = function (days, scheduleData) {
             return Number(value.id) != 9 && Number(value.id) != 0 && !(scheduleData === null || scheduleData === void 0 ? void 0 : scheduleData.some(function (item) { return String(item.day) == String(value.id); }));
         }
         if (isAWeekday && isAWeekEnd) {
-            return Number(value.id) != 1 && Number(value.id) != 7 && Number(value.id) != 9 && Number(value.id) != 8 && Number(value.id) != 0 && !(scheduleData === null || scheduleData === void 0 ? void 0 : scheduleData.some(function (item) { return String(item.day) == String(value.id); }));
+            return Number(value.id) != 9 && Number(value.id) != 8 && Number(value.id) != 0 && !(scheduleData === null || scheduleData === void 0 ? void 0 : scheduleData.some(function (item) { return String(item.day) == String(value.id); }));
+        }
+        if (isWeekdays && isAWeekEnd) {
+            return Number(value.id) != 8 && Number(value.id) != 9 && Number(value.id) != 0 && !(Number(value.id) >= 2 && Number(value.id) <= 6) && !(scheduleData === null || scheduleData === void 0 ? void 0 : scheduleData.some(function (item) { return String(item.day) == String(value.id); }));
         }
         return !(scheduleData === null || scheduleData === void 0 ? void 0 : scheduleData.some(function (item) { return String(item.day) == String(value.id); }));
     });

@@ -24,8 +24,6 @@ export const DayPicker: React.FC<DayPickerProps> = ({
 }) => {
   const classes = menuItemTableStyles();
   const filteredOptions = filterDaysOptions(days, scheduleData)
-  // filteredOptions = filterDaysOptions(filteredOptions.length < days.length ? filterDaysOptions(filteredOptions, scheduleData) : days, scheduleData)
-  console.log("------", filteredOptions, value)
   return (
     <>
       <Select

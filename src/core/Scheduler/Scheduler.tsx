@@ -6,7 +6,7 @@ import { fields } from "./data";
 import { useScheduleData } from "./hooks";
 import clx from "classnames";
 import { FiPlus } from "react-icons/fi";
-import { days } from "./DayPicker/helper";
+import { days, filterDaysOptions } from "./DayPicker/helper";
 import { Schedule } from ".";
 
 export const Scheduler: React.FC<SchedulerProps> = ({
@@ -14,7 +14,7 @@ export const Scheduler: React.FC<SchedulerProps> = ({
   classNames,
   name: componentName,
   label,
-  multiple = true,
+  multiple = false,
   value: initialScheduleValue = [
     { day: "0", start_time: "00:00", end_time: "12:00" },
   ],
@@ -25,7 +25,7 @@ export const Scheduler: React.FC<SchedulerProps> = ({
   const parseSchedulevalue = useScheduleData();
   // const [selectedOptions, setSelectedOptions] = useState<Schedule[]>([{ day: "0", start_time: "00:00", end_time: "12:00" }])
   const isEverydaySelected = initialScheduleValue?.some((value) => value?.day == "0");
-  console.log("isEverydaySelected", isEverydaySelected)
+  const availableOption = filterDaysOptions(days, initialScheduleValue)
 
   const handleChange = useCallback(
     (event, index, remove = false) => {
@@ -62,7 +62,7 @@ export const Scheduler: React.FC<SchedulerProps> = ({
       timeSection: classes.timeContainer,
       timeDivider: classes.timeDivider,
       closeIcon: classes.closeIcon,
-      hiddenCloseIcon: classes.hiddenCloseIcon,
+      hiddenCloseIcon: classes.hidden,
     }),
   );
 
@@ -74,7 +74,7 @@ export const Scheduler: React.FC<SchedulerProps> = ({
         timeSection: classes.timeContainer,
         timeDivider: classes.timeDivider,
         closeIcon: classes.closeIcon,
-        hiddenCloseIcon: classes.hiddenCloseIcon,
+        hiddenCloseIcon: classes.hidden,
       },
     );
     setScheduleValue(newScheduleValue);
@@ -100,7 +100,7 @@ export const Scheduler: React.FC<SchedulerProps> = ({
         );
       })}
       {multiple && !isEverydaySelected && (
-        <div className={classes.button} onClick={addNewRow}>
+        <div className={`${classes.button} ${availableOption.length == 0 && classes.hidden}`} onClick={addNewRow}>
           <p className={classes.buttonText}>
             <FiPlus className={classes.addIcon} /> Add Schedule
           </p>
