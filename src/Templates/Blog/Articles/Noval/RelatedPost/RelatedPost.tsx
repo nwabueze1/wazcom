@@ -3,7 +3,7 @@ import { CoreArticleTemplateFields } from "../../types";
 import { useRelatedPostNovalStyles } from "./styles";
 import clx from "classnames";
 import { getTimeFrom } from "utilities/getTime";
-import { useDefaultAvatar } from "templates/blog/helpers";
+import { useDefaultAvatar } from "templates/Blog/helpers";
 
 export const RelatedPostNoval: FC<CoreArticleTemplateFields> = ({
   article,

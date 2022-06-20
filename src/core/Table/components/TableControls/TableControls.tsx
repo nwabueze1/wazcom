@@ -11,8 +11,8 @@ import { Button } from "../../../Button";
 import { exportToCSV, exportToXlsx } from "../../helpers";
 import { TableControlsProps } from "./types";
 import Menu from "@mui/material/Menu";
-import { SearchInput } from "./SearchInput";
 import { TableFilter } from "../TableFilter";
+import { SearchInput } from "./SearchInput";
 
 export const TableControls: React.FC<TableControlsProps> = ({
   controls,
@@ -50,14 +50,14 @@ export const TableControls: React.FC<TableControlsProps> = ({
           />
         </Box>
       )}
-      {/* <SearchInput
+      <SearchInput
         name="search"
         type="text"
         placeholder="Search"
         value={controlsFormData.search}
         onChange={(e: any) => handleControlsChange(e)}
         className={classes.controlsInput}
-      /> */}
+      />
       <Box className={classes.rightControls}>
         {controls?.canPrint && (
           <Button

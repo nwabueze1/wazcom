@@ -89,9 +89,8 @@ export const useUpdateTableValue = (
       : [...initialTableValue];
 
     if (filters.length > 0) {
-      console.log("newFilterResult", newFilterResult)
       return newFilterResult.filter((rowValues) => {
-        const status = [false];
+        const status: boolean[] = [];
         Object.entries(rowValues).map(([key, value]) => {
           let idx = -1
           filters.map((item, index) => {
@@ -101,18 +100,16 @@ export const useUpdateTableValue = (
               idx = -1
             }
             if (idx !== -1) {
-              // console.log("filter", filters)
               const term = value == null ? "" : typeof value == "object" ? getJsxContent(value): String(value);
-              // console.log("filters[idx].values.includes(term)", filters[idx].values.includes(term), term)
               if (!filters[idx].values.includes(term)) {
-                status.push(true);
+                return status.push(true)
               }
+              status.push(false)
             }
           });
           
         });
-
-        return status.some((value) => value ==  true);
+        return !status.includes(false);
       });
     }
 

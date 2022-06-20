@@ -1,7 +1,6 @@
 import * as FileSaver from "file-saver";
 import * as XLSX from "xlsx";
 import { getJsxContent } from ".";
-import { flatten, flattenDeep } from "lodash"
 
 const fileTypeExt = {
   xlsx: {
@@ -19,7 +18,6 @@ export const exportToXlsx = (
   name: string,
   data: { [key: string]: string }[],
 ) => {
-  console.log(data)
   const parseData = data.map((item) => {
     const obj = {}
     Object.entries(item).map(([key, value]) => {

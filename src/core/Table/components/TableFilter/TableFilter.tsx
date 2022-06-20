@@ -8,7 +8,6 @@ import { FilterAlt } from "@mui/icons-material";
 import { Button } from "../../../Button";
 import { useTableControlsStyles } from "../TableControls/styles";
 import { getJsxContent } from "../../helpers";
-import { isEqual } from "lodash";
 
 export const TableFilter: React.FC<TableFilterProps> = ({
   showFilter,
@@ -77,45 +76,6 @@ export const TableFilter: React.FC<TableFilterProps> = ({
 
   const getCheckedState = (field: string, value: string) => {
     const filter = newFilters.find((filter) => filter.field === field);
-    // const row = tableValues.find(filter ? filter : {})
-    // console.log("tableValues", tableValues);
-    // console.log("newFilters", newFilters);
-    // console.log("filter", filter);
-    // console.log("value", value);
-    // if (filter) {
-    //   // const g = Object.entries(tableValues).map(([key, values], index) => {
-    //   //   console.log("data", values[filter?.field]);
-    //   //   console.log("filter?.values?.includes(values[filter.field])", filter?.values?.includes(values[filter.field]))
-    //   //   console.log("filter?.values", filter?.values)
-    //   //   const parsedValue = values[filter.field] == null ? "" : typeof values[filter.field] == "object" ? getJsxContent(values[filter.field]) : String(values[filter.field])
-    //   //   if (filter?.values?.includes(parsedValue)) {
-    //   //     return true
-    //   //   }
-    //   // });
-
-    //   // const f = g.filter((item) => item == true)
-    //   // console.log("f", f)
-    //   // if (f.length > 0) return true;
-
-    //   const t = Object.entries(filter).map(([key, values], i) => {
-    //     const idx = tableValues.findIndex((obj) => {
-    //       // console.log("first", obj, obj[filter.field]);
-    //       // console.log("2", values, key);
-    //       // console.log("fil", newFilters);
-    //       return values.includes(obj[filter.field]);
-    //     });
-
-    //     return idx;
-    //   });
-    //   console.log("t", t);
-    //   const u = tableValues[t[1]];
-    //   // Object.values(u).map((values) => {
-    //   //   // filter.values.push(values);
-    //   //   console.log("v", values);
-    //   // });
-    //   console.log("u", u, t[1]);
-    // }
-    // console.log("fil", filter);
     if (filter && filter.values.includes(value)) {
       return true;
     }
