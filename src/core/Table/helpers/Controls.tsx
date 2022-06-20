@@ -106,6 +106,7 @@ export const useUpdateTableValue = (
               }
               status.push(false)
             }
+            return
           });
           
         });
