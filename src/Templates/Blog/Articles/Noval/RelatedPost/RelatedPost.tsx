@@ -25,7 +25,7 @@ export const RelatedPostNoval: FC<CoreArticleTemplateFields> = ({
         <img src={article.featured_image} className={classes.thumbnailImg} />
       </div>
       <div className={classes.thumbnailDetails}>
-        <p className={classes.articleTitle}>{article.title}</p>
+        <p className={classes.articleTitle}>{article.title.slice(0, 100) + "..."}</p>
         <div className={classes.authorContainer}>
           {site?.user?.avatar ? (
             <div className={classes.avatar}>

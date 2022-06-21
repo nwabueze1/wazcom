@@ -19,9 +19,9 @@ export const RelatedPostGello: FC<CoreArticleTemplateFields> = ({
         <img src={article.featured_image} className={classes.thumbnailImg} />
       </div>
       <div className={classes.thumbnailDetails}>
-        <p className={classes.articleTitle}>{article.title}</p>
+        <p className={classes.articleTitle}>{article.title.slice(0, 100) + "..."}</p>
         <div className={classes.post}>
-          {stripHtml(article.content).slice(0, 150) + "......."}
+          {stripHtml(article.excerpt).slice(0, 150) + "......."}
         </div>
       </div>
     </div>

@@ -16,6 +16,7 @@ export interface CorePostFields {
     uuid: string;
     slug: string;
     content: any;
+    excerpt: any;
     status: number;
     featured_image: string;
     related_posts?: CorePostFields[] | null;
