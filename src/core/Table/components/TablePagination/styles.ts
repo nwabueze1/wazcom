@@ -4,7 +4,7 @@ import makeStyles from "@mui/styles/makeStyles";
 export const useTablePaginationStyles = makeStyles((theme: Theme) => ({
   text: {
     fontSize: theme.typography.fontSize + 2,
-    color: theme.design.colors.greenishGrey2,
+    color: theme.design.colors.waz_greenishGrey2,
   },
   pageCount: {},
   tablePagination: {
@@ -21,7 +21,7 @@ export const useTablePaginationStyles = makeStyles((theme: Theme) => ({
   tablePaginationNavigatorText: {},
   tablePaginationNavigatorInput: {
     outline: "none",
-    border: `1px solid ${theme.design.colors.greyColor100}`,
+    border: `1px solid ${theme.design.colors.waz_greyColor100}`,
     width: 50,
     borderRadius: 4,
     padding: theme.spacing(1),
@@ -32,7 +32,7 @@ export const useTablePaginationStyles = makeStyles((theme: Theme) => ({
     cursor: "pointer",
   },
   activePage: {
-    background: theme.design.colors.greyColor100,
+    background: theme.design.colors.waz_greyColor100,
   },
   pages: {
     display: "flex",

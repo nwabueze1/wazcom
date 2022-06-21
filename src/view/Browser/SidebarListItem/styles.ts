@@ -52,6 +52,6 @@ export const useSidebarListItemStyles = makeStyles((theme: Theme) => ({
     color: "inherit",
   },
   linkActive: {
-    backgroundColor: theme.design.colors.gray,
+    backgroundColor: theme.design.colors.waz_gray,
   },
 }));

@@ -183,7 +183,7 @@ export const Table = ({
               </TableCell>
             </TableRow>
           </TableBody>
-          {pagination && tableValue.length > 1 && (
+          {pagination && tableValue.length > 0 && (
             <TableFooter className={classNames?.tableFooter}>
               <TableRow>
                 <TablePagination

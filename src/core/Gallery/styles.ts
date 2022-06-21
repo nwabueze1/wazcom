@@ -35,7 +35,7 @@ export const useGalleryStyles = makeStyles((theme: BaseTheme) => ({
   },
   itemHoverText: {
     marginTop: "75%",
-    color: theme.design.colors.white,
+    color: theme.design.colors.waz_white,
     textAlign: "center",
     fontSize: "24px",
     fontWeight: "bold",
@@ -65,6 +65,6 @@ export const useGalleryStyles = makeStyles((theme: BaseTheme) => ({
   itemCheckedActive: {
     zIndex: 10,
     opacity: 1,
-    border: `4px solid ${theme.design.colors.dangerColor}`,
+    border: `4px solid ${theme.design.colors.waz_dangerColor}`,
   },
 }));

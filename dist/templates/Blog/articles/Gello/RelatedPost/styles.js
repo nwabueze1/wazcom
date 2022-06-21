@@ -32,7 +32,7 @@ export var useRelatedPostGelloStyles = makeStyles(function (theme) {
             marginTop: theme.spacing(1.5),
         },
         post: {
-            color: theme.design.colors.grey600,
+            color: theme.design.colors.waz_grey600,
             fontSize: theme.typography.fontSize + 2,
             lineHeight: "20px",
             marginTop: theme.spacing(1),

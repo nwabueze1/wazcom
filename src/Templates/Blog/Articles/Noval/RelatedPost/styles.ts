@@ -6,7 +6,7 @@ export const useRelatedPostNovalStyles = makeStyles<Theme>((theme: Theme) => ({
     cursor: "pointer",
     width: "100%",
     marginBottom: theme.spacing(3),
-    border: `1px solid ${theme.design.colors.grey300}`,
+    border: `1px solid ${theme.design.colors.waz_grey300}`,
     borderRadius: 4,
     [theme.breakpoints.down("md")]: {
       width: "47%",
@@ -63,7 +63,7 @@ export const useRelatedPostNovalStyles = makeStyles<Theme>((theme: Theme) => ({
   },
   timePosted: {
     fontSize: theme.typography.fontSize,
-    color: theme.design.colors.grey100,
+    color: theme.design.colors.waz_grey100,
   },
   defaultAvatar: {
     height: 32,
@@ -73,11 +73,11 @@ export const useRelatedPostNovalStyles = makeStyles<Theme>((theme: Theme) => ({
     justifyContent: "center",
     alignItems: "center",
     fontSize: theme.typography.fontSize + 8,
-    color: theme.design.colors.white,
-    background: theme.design.colors.orange,
+    color: theme.design.colors.waz_white,
+    background: theme.design.colors.waz_orange,
   },
   articleLink: {
     textDecoration: "none",
-    color: theme.design.colors.black,
+    color: theme.design.colors.waz_black,
   },
 }));

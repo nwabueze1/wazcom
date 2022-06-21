@@ -8,7 +8,7 @@ export var useDisplayCardStyles = makeStyles(function (theme) { return ({
     content: {
         display: "flex",
         justifyContent: "space-between",
-        color: theme.design.colors.yellowsea,
+        color: theme.design.colors.waz_yellowsea,
         fontWeight: "bold",
     },
     pend: {

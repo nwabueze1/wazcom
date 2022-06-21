@@ -10,11 +10,12 @@ var __assign = (this && this.__assign) || function () {
     return __assign.apply(this, arguments);
 };
 import { jsx as _jsx, jsxs as _jsxs } from "react/jsx-runtime";
-import { useRelatedPostGelloStyles } from "./styles";
 import clx from "classnames";
-import { stripHtml } from "utilities/Post";
+import { stripHtml } from "../../../../../utilities/Post";
+import { truncate } from "lodash";
+import { useRelatedPostGelloStyles } from ".";
 export var RelatedPostGello = function (_a) {
     var article = _a.article, handleClick = _a.handleClick, className = _a.className;
     var classes = useRelatedPostGelloStyles();
-    return (_jsxs("div", __assign({ className: clx(classes.root, className), onClick: function () { return handleClick === null || handleClick === void 0 ? void 0 : handleClick(article.slug); } }, { children: [_jsx("div", __assign({ className: classes.thumbnailImgContainer }, { children: _jsx("img", { src: article.featured_image, className: classes.thumbnailImg }, void 0) }), void 0), _jsxs("div", __assign({ className: classes.thumbnailDetails }, { children: [_jsx("p", __assign({ className: classes.articleTitle }, { children: article.title }), void 0), _jsx("div", __assign({ className: classes.post }, { children: stripHtml(article.content).slice(0, 150) + "......." }), void 0)] }), void 0)] }), void 0));
+    return (_jsxs("div", __assign({ className: clx(classes.root, className), onClick: function () { return handleClick === null || handleClick === void 0 ? void 0 : handleClick(article.slug); } }, { children: [_jsx("div", __assign({ className: classes.thumbnailImgContainer }, { children: _jsx("img", { src: article.featured_image, className: classes.thumbnailImg }, void 0) }), void 0), _jsxs("div", __assign({ className: classes.thumbnailDetails }, { children: [_jsx("p", __assign({ className: classes.articleTitle }, { children: truncate(article.title, { length: 100 }) }), void 0), _jsx("div", __assign({ className: classes.post }, { children: truncate(stripHtml(article.excerpt), { length: 100 }) }), void 0)] }), void 0)] }), void 0));
 };

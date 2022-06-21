@@ -23,7 +23,7 @@ export var BootstrapInput = withStyles(function (theme) {
             borderRadius: 5,
             position: "relative",
             fontSize: 16,
-            border: "solid 1px ".concat(theme.design.colors.grey5),
+            border: "solid 1px ".concat(theme.design.colors.waz_grey5),
             padding: theme.spacing(0, 1.5),
             height: 40,
             transition: theme.transitions.create(["border-color", "box-shadow"]),

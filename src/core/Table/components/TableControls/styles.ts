@@ -12,19 +12,19 @@ export const useTableControlsStyles = makeStyles((theme: Theme) => ({
     gap: theme.spacing(3.75),
   },
   controlButton: {
-    backgroundColor: theme.design.colors.white,
-    color: theme.design.colors.Grey,
+    backgroundColor: theme.design.colors.waz_white,
+    color: theme.design.colors.waz_Grey,
     height: "40px",
     display: "flex",
     gap: theme.spacing(1),
     justifyContent: "space-between",
-    border: `1px solid ${theme.design.colors.primaryColor100}`,
-    borderColor: theme.design.colors.greyColor100,
+    border: `1px solid ${theme.design.colors.waz_primaryColor100}`,
+    borderColor: theme.design.colors.waz_greyColor100,
 
     "&:hover": {
       opacity: "initial",
-      backgroundColor: theme.design.colors.white,
-      borderColor: theme.design.colors.greyColor100,
+      backgroundColor: theme.design.colors.waz_white,
+      borderColor: theme.design.colors.waz_greyColor100,
     },
   },
   controlButtonText: {
@@ -33,16 +33,16 @@ export const useTableControlsStyles = makeStyles((theme: Theme) => ({
   controlsInputField: {
     width: "320px",
     height: "40px",
-    border: `solid 1px ${theme.design.colors.greyColor100}`,
+    border: `solid 1px ${theme.design.colors.waz_greyColor100}`,
     borderRadius: "4px",
     display: "flex",
     alignItems: "center",
     paddingLeft: theme.spacing(2),
-    backgroundColor: theme.design.colors.white,
+    backgroundColor: theme.design.colors.waz_white,
   },
   searchIcon: {
     fontSize: 24,
-    color: theme.design.colors.greenishGrey,
+    color: theme.design.colors.waz_greenishGrey,
   },
   controlsInput: {
     width: "100%",
@@ -52,11 +52,11 @@ export const useTableControlsStyles = makeStyles((theme: Theme) => ({
     outline: "none",
     fontFamily: "Poppins",
     "&::placeholder": {
-      color: theme.design.colors.greenishGrey,
+      color: theme.design.colors.waz_greenishGrey,
       fontFamily: "Poppins",
     },
     [theme.breakpoints.down("md")]: {
-      border: `solid 1px ${theme.design.colors.greyColor100}`,
+      border: `solid 1px ${theme.design.colors.waz_greyColor100}`,
     },
   },
   rightControls: {

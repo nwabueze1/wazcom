@@ -12,25 +12,10 @@ var __assign = (this && this.__assign) || function () {
 import { jsx as _jsx, Fragment as _Fragment } from "react/jsx-runtime";
 import { Select } from "@mui/material";
 import { menuItemTableStyles, BootstrapInput } from "./styles";
-var days = [
-    { id: 0, name: "Everyday" },
-    { id: 1, name: "Sunday" },
-    { id: 2, name: "Monday" },
-    { id: 3, name: "Tuesday" },
-    { id: 4, name: "Wednesday" },
-    { id: 5, name: "Thursday" },
-    { id: 6, name: "Friday" },
-    { id: 7, name: "Saturday" },
-    { id: 8, name: "Weekdays" },
-    { id: 9, name: "Weekends" },
-];
+import { days, filterDaysOptions } from "./helper";
 export var DayPicker = function (_a) {
-    var value = _a.value, onChange = _a.onChange, 
-    // days,
-    label = _a.label, name = _a.name;
+    var value = _a.value, onChange = _a.onChange, label = _a.label, name = _a.name, scheduleData = _a.scheduleData;
     var classes = menuItemTableStyles();
-    return (_jsx(_Fragment, { children: _jsx(Select, __assign({ native: true, multiline: true, required: true, name: name, onChange: onChange, label: label, variant: "outlined", value: value, input: _jsx(BootstrapInput, {}, void 0) }, { children: days.map(function (_a) {
-                var id = _a.id, name = _a.name;
-                return (_jsx("option", __assign({ value: String(id), className: classes.option }, { children: name }), id));
-            }) }), void 0) }, void 0));
+    var filteredOptions = filterDaysOptions(days, scheduleData);
+    return (_jsx(_Fragment, { children: _jsx(Select, __assign({ native: true, multiline: true, required: true, name: name, onChange: onChange, label: label, variant: "outlined", value: value, input: _jsx(BootstrapInput, {}, void 0) }, { children: days.map(function (day) { return (_jsx("option", __assign({ value: String(day.id), className: classes.option, disabled: !filteredOptions.includes(day), hidden: !filteredOptions.includes(day) }, { children: day.name }), day.id)); }) }), void 0) }, void 0));
 };

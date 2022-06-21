@@ -45,7 +45,7 @@ export const useMediaLibraryStyles = makeStyles((theme: Theme) => ({
     opacity: 0.9,
   },
   dot: {
-    background: theme.design.colors.black,
+    background: theme.design.colors.waz_black,
     "&, &:after": {
       display: "inline-block",
       width: "2em",
@@ -83,7 +83,7 @@ export const useMediaLibraryStyles = makeStyles((theme: Theme) => ({
     maxWidth: 600,
     maxHeight: 550,
     width: 600,
-    backgroundColor: theme.design.colors.white,
+    backgroundColor: theme.design.colors.waz_white,
     borderRadius: theme.spacing(1),
     overflow: "scroll",
     zIndex: 15,

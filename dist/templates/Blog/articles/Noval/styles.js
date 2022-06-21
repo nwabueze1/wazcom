@@ -48,8 +48,8 @@ export var useNovalStyles = makeStyles(function (theme) {
             fontSize: theme.typography.fontSize,
             textTransform: "capitalize",
             borderRadius: 4,
-            background: theme.design.colors.grey300,
-            color: theme.design.colors.grey400,
+            background: theme.design.colors.waz_grey300,
+            color: theme.design.colors.waz_grey400,
         },
         tags: {
             display: "flex",
@@ -85,13 +85,13 @@ export var useNovalStyles = makeStyles(function (theme) {
         },
         writtenBy: {
             fontStyle: "italic",
-            color: theme.design.colors.grey100,
+            color: theme.design.colors.waz_grey100,
             fontSize: theme.typography.fontSize + 2,
             textTransform: "capitalize",
         },
         author: {
             fontStyle: "normal",
-            color: theme.design.colors.black,
+            color: theme.design.colors.waz_black,
         },
         blogInfo: {
             display: "flex",
@@ -101,8 +101,8 @@ export var useNovalStyles = makeStyles(function (theme) {
         },
         postedTime: (_f = {
                 padding: theme.spacing(0, 1.5),
-                borderLeft: "1px solid ".concat(theme.design.colors.grey200),
-                borderRight: "1px solid ".concat(theme.design.colors.grey200)
+                borderLeft: "1px solid ".concat(theme.design.colors.waz_grey200),
+                borderRight: "1px solid ".concat(theme.design.colors.waz_grey200)
             },
             _f[theme.breakpoints.down("sm")] = {
                 fontSize: theme.typography.fontSize,
@@ -121,10 +121,22 @@ export var useNovalStyles = makeStyles(function (theme) {
             },
             _g),
         content: (_h = {
-                color: theme.design.colors.primaryBlack,
+                color: theme.design.colors.waz_primaryBlack,
                 fontSize: theme.typography.fontSize + 6,
                 width: "60%",
-                lineHeight: "28px"
+                lineHeight: "28px",
+                "& p": {
+                    margin: theme.spacing(1.5, 0),
+                },
+                "& h1, h2, h3, h4, h5, h6": {
+                    margin: theme.spacing(2.5, 0)
+                },
+                "& img": {
+                    margin: theme.spacing(6, "auto"),
+                    maxWidth: "100%",
+                    height: "100%",
+                    display: "flex",
+                }
             },
             _h[theme.breakpoints.down("md")] = {
                 width: "100%",
@@ -167,7 +179,7 @@ export var useNovalStyles = makeStyles(function (theme) {
         },
         shareText: {
             fontSize: theme.typography.fontSize,
-            color: theme.design.colors.grey200,
+            color: theme.design.colors.waz_grey200,
             marginBottom: theme.spacing(1),
         },
         defaultAvatar: {
@@ -177,9 +189,9 @@ export var useNovalStyles = makeStyles(function (theme) {
             display: "flex",
             justifyContent: "center",
             alignItems: "center",
-            fontSize: theme.typography.fontSize + 8,
-            color: theme.design.colors.white,
-            background: theme.design.colors.orange,
+            fontSize: theme.typography.fontSize + 4,
+            color: theme.design.colors.waz_white,
+            background: theme.design.colors.waz_orange,
         },
     });
 });
