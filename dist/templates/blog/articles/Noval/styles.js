@@ -127,12 +127,6 @@ export var useNovalStyles = makeStyles(function (theme) {
                 lineHeight: "28px",
                 "& p": {
                     margin: theme.spacing(1.5, 0),
-                    "& img": {
-                        margin: theme.spacing(6, "auto"),
-                        maxWidth: "100%",
-                        height: "100%",
-                        display: "flex",
-                    }
                 },
                 "& h1, h2, h3, h4, h5, h6": {
                     margin: theme.spacing(2.5, 0)
@@ -142,6 +136,12 @@ export var useNovalStyles = makeStyles(function (theme) {
                 width: "100%",
             },
             _h),
+        "img": {
+            margin: theme.spacing(6, "auto"),
+            maxWidth: "100%",
+            height: "100%",
+            display: "flex",
+        },
         fullContentWidth: {
             width: "100%",
         },
