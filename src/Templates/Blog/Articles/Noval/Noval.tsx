@@ -1,9 +1,9 @@
 import { FC, useEffect, useState } from "react";
-import { CoreArticleTemplateFields } from "../types";
 import clx from "classnames";
 import { getTimeFrom } from "utilities/getTime";
 import { useDefaultAvatar } from "templates/Blog/helpers";
 import { RelatedPostNoval, shareDataNoval, useNovalStyles } from ".";
+import { CoreArticleTemplateFields } from "..";
 
 export const Noval: FC<CoreArticleTemplateFields> = ({
   article,
