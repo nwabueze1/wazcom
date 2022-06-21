@@ -8,13 +8,13 @@ export var useTableStyles = makeStyles(function (theme) { return ({
         overflow: "hidden",
     },
     tableHead: {
-        background: theme.design.colors.whiteColor200,
+        background: theme.design.colors.waz_whiteColor200,
     },
     tableHeadCell: {
         fontWeight: theme.typography.fontWeightBold,
         padding: theme.spacing(1.5, 2),
         fontSize: theme.typography.fontSize + 2,
-        color: theme.design.colors.grey1,
+        color: theme.design.colors.waz_grey1,
     },
     tableCell: {
         padding: theme.spacing(1.5, 2),
@@ -49,7 +49,7 @@ export var useTableStyles = makeStyles(function (theme) { return ({
     },
     tableContainer: {
         boxShadow: "none",
-        border: "1px solid ".concat(theme.design.colors.grey5),
+        border: "1px solid ".concat(theme.design.colors.waz_grey5),
     },
 }); });
 export var useStyles = makeStyles(function (theme) { return ({

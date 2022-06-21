@@ -11,10 +11,10 @@ export var useTextAreaStyles = makeStyles(function (theme) { return ({
         width: "100%",
     },
     required: {
-        color: theme.design.colors.dangerColor100,
+        color: theme.design.colors.waz_dangerColor100,
         margin: theme.spacing(0.5, 0, 0, 0.5),
     },
     error: {
-        border: "1px solid ".concat(theme.design.colors.dangerColor100),
+        border: "1px solid ".concat(theme.design.colors.waz_dangerColor100),
     },
 }); });

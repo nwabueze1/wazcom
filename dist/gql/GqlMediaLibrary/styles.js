@@ -62,7 +62,7 @@ export var useMediaLibraryStyles = makeStyles(function (theme) { return ({
         alignItems: "center",
         width: 30,
         height: 30,
-        background: theme.design.colors.white,
+        background: theme.design.colors.waz_white,
         borderRadius: 4,
         marginRight: theme.spacing(1),
         cursor: "pointer",
@@ -83,7 +83,7 @@ export var useMediaLibraryStyles = makeStyles(function (theme) { return ({
         width: "100% !important",
     },
     dot: {
-        background: theme.design.colors.black,
+        background: theme.design.colors.waz_black,
         "&, &:after": {
             display: "inline-block",
             width: "2em",
@@ -132,13 +132,13 @@ export var useMediaLibraryStyles = makeStyles(function (theme) { return ({
         width: "100%",
     },
     tab: {
-        color: theme.design.colors.primaryColor100,
+        color: theme.design.colors.waz_primaryColor100,
         paddingBottom: 2,
-        borderBottom: "2px solid ".concat(theme.design.colors.primaryColor100),
+        borderBottom: "2px solid ".concat(theme.design.colors.waz_primaryColor100),
     },
     wrapper: {
         width: "100%",
-        backgroundColor: theme.design.colors.white,
+        backgroundColor: theme.design.colors.waz_white,
         borderRadius: theme.spacing(1),
         maxHeight: "70vh",
         overflow: "scroll",
@@ -153,14 +153,14 @@ export var useMediaLibraryStyles = makeStyles(function (theme) { return ({
     selectorTab: {
         fontSize: theme.typography.fontSize + 4,
         fontWeight: theme.typography.fontWeightMedium,
-        color: theme.design.colors.grey1,
+        color: theme.design.colors.waz_grey1,
         padding: theme.spacing(2, 5),
-        background: theme.design.colors.white,
-        borderRight: "1px solid ".concat(theme.design.colors.grey5),
+        background: theme.design.colors.waz_white,
+        borderRight: "1px solid ".concat(theme.design.colors.waz_grey5),
     },
     inActive: {
-        background: theme.design.colors.grey6,
-        borderBottom: "1px solid ".concat(theme.design.colors.grey5),
+        background: theme.design.colors.waz_grey6,
+        borderBottom: "1px solid ".concat(theme.design.colors.waz_grey5),
     },
     wrapperDialog: {
         height: "100%",
@@ -170,7 +170,7 @@ export var useMediaLibraryStyles = makeStyles(function (theme) { return ({
         left: 0,
         top: 0,
         width: "25%",
-        background: theme.design.colors.white,
+        background: theme.design.colors.waz_white,
         borderRadius: "4px",
         display: "flex",
         justifyContent: "space-between",
@@ -188,11 +188,11 @@ export var useMediaLibraryStyles = makeStyles(function (theme) { return ({
         flexDirection: "column",
     },
     button: {
-        background: theme.design.colors.white,
-        color: theme.design.colors.greenishGrey2,
-        border: "1px solid ".concat(theme.design.colors.primaryColor100),
+        background: theme.design.colors.waz_white,
+        color: theme.design.colors.waz_greenishGrey2,
+        border: "1px solid ".concat(theme.design.colors.waz_primaryColor100),
         "&:hover": {
-            color: theme.design.colors.white,
+            color: theme.design.colors.waz_white,
         },
     },
     textInput: {
@@ -244,7 +244,7 @@ export var useMediaLibraryStyles = makeStyles(function (theme) { return ({
     filterParent: {
         paddingTop: theme.spacing(2.5),
         width: 228,
-        background: theme.design.colors.white,
+        background: theme.design.colors.waz_white,
         borderRadius: "6px",
         boxShadow: "0px 3px 5px rgba(52, 62, 55, 0.2)",
         position: "absolute",
@@ -260,7 +260,7 @@ export var useMediaLibraryStyles = makeStyles(function (theme) { return ({
     sortParent: {
         width: 120,
         borderRadius: "6px",
-        background: theme.design.colors.white,
+        background: theme.design.colors.waz_white,
         boxShadow: "0px 4px 20px rgba(77, 86, 80, 0.16)",
         position: "absolute",
         visibility: "hidden",
@@ -290,7 +290,7 @@ export var useMediaLibraryStyles = makeStyles(function (theme) { return ({
     },
     searchIcon: {
         position: "absolute",
-        color: theme.design.colors.mercury,
+        color: theme.design.colors.waz_mercury,
         top: "16px",
         left: "10px",
     },
@@ -303,7 +303,7 @@ export var useMediaLibraryStyles = makeStyles(function (theme) { return ({
         display: "flex",
     },
     activeLayout: {
-        backgroundColor: theme.design.colors.grey5,
+        backgroundColor: theme.design.colors.waz_grey5,
     },
     twoColumn: {
         width: "calc((100% - 32px)/2)",

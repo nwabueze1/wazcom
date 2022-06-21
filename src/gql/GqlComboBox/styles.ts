@@ -14,6 +14,6 @@ export const useGqlComboBoxStyles = makeStyles((theme: Theme) => ({
   },
   loader: {
     marginBottom: theme.spacing(2),
-    color: theme.design.colors.dangerColor300,
+    color: theme.design.colors.waz_dangerColor300,
   },
 }));

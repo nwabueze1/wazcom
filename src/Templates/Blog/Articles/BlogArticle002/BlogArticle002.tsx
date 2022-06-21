@@ -1,8 +1,8 @@
 import React, { FC } from "react";
 import Facebook from "@mui/icons-material/Facebook";
 import Twitter from "@mui/icons-material/Twitter";
-import { CoreArticleTemplateFields } from "../types";
-import { useBlogArticle002Styles } from "./styles";
+import { CoreArticleTemplateFields } from "..";
+import { useBlogArticle002Styles } from ".";
 
 export const BlogArticle002: FC<CoreArticleTemplateFields> = ({
   article,

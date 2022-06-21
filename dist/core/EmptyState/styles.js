@@ -23,7 +23,7 @@ export var useEmptyStateStyles = makeStyles(function (theme) { return ({
     text: {
         padding: theme.spacing(5, 0, 4, 0),
         fontSize: theme.typography.fontSize + 4,
-        color: theme.design.colors.black,
+        color: theme.design.colors.waz_black,
         whiteSpace: "nowrap",
     },
     btn: {
