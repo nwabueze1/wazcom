@@ -51,7 +51,7 @@ export var useSchedulerStyles = makeStyles(function (theme) { return ({
         marginLeft: theme.spacing(1.5),
         cursor: "pointer",
     },
-    hiddenCloseIcon: {
+    hidden: {
         display: "none",
     },
 }); });
