@@ -62,6 +62,13 @@ export const Noval: FC<CoreArticleTemplateFields> = ({
   const defaultAvatar = useDefaultAvatar(site);
 
   return (
+    <>
+      <head>
+          <link
+            href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;600;700&display=swap"
+            rel="stylesheet"
+          />
+      </head>
       <div className={classes.root}>
         <section className={classes.header}>
           <div className={classes.featuredImageContainer}>
@@ -116,5 +123,6 @@ export const Noval: FC<CoreArticleTemplateFields> = ({
           )}
         </div>
       </div>
+    </>
   );
 };
