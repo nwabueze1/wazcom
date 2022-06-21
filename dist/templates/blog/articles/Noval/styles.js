@@ -131,7 +131,7 @@ export var useNovalStyles = makeStyles(function (theme) {
                 "& h1, h2, h3, h4, h5, h6": {
                     margin: theme.spacing(2.5, 0)
                 },
-                "img": {
+                "& img": {
                     margin: theme.spacing(6, "auto"),
                     maxWidth: "100%",
                     height: "100%",
