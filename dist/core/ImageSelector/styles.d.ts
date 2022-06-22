@@ -1,1 +1,0 @@
-export declare const useImageSelectorStyles: (props?: any) => import("@mui/styles").ClassNameMap<"root" | "circle" | "image" | "sizeSm" | "sizeMd" | "sizeLg" | "sizeXl" | "full" | "cameraIcon" | "cameraIconSm" | "cameraIconMd" | "cameraIconLg" | "cameraIconXl" | "cameraIconFull">;
