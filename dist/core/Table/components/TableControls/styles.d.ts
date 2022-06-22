@@ -1,0 +1,1 @@
+export declare const useTableControlsStyles: (props?: any) => import("@mui/styles").ClassNameMap<"controls" | "filterControls" | "rightControls" | "controlButton" | "controlButtonText" | "controlsInputField" | "searchIcon" | "controlsInput">;

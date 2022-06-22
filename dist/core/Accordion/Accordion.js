@@ -1,0 +1,33 @@
+var __assign = (this && this.__assign) || function () {
+    __assign = Object.assign || function(t) {
+        for (var s, i = 1, n = arguments.length; i < n; i++) {
+            s = arguments[i];
+            for (var p in s) if (Object.prototype.hasOwnProperty.call(s, p))
+                t[p] = s[p];
+        }
+        return t;
+    };
+    return __assign.apply(this, arguments);
+};
+var __rest = (this && this.__rest) || function (s, e) {
+    var t = {};
+    for (var p in s) if (Object.prototype.hasOwnProperty.call(s, p) && e.indexOf(p) < 0)
+        t[p] = s[p];
+    if (s != null && typeof Object.getOwnPropertySymbols === "function")
+        for (var i = 0, p = Object.getOwnPropertySymbols(s); i < p.length; i++) {
+            if (e.indexOf(p[i]) < 0 && Object.prototype.propertyIsEnumerable.call(s, p[i]))
+                t[p[i]] = s[p[i]];
+        }
+    return t;
+};
+import { jsx as _jsx, jsxs as _jsxs } from "react/jsx-runtime";
+import { useAccordionStyles } from "./styles";
+import { Accordion as MuiAccordion, AccordionSummary as MuiAccordionSummary, AccordionDetails as MuiAccordionDetails, Typography, } from "@mui/material";
+import ExpandMoreIcon from "@mui/icons-material/ExpandMore";
+import { kebabCase } from "lodash";
+import clx from "classnames";
+export var Accordion = function (_a) {
+    var title = _a.title, className = _a.className, classNames = _a.classNames, square = _a.square, defaultExpanded = _a.defaultExpanded, children = _a.children, _b = _a.displayExpandIcon, displayExpandIcon = _b === void 0 ? true : _b, handleClick = _a.handleClick, props = __rest(_a, ["title", "className", "classNames", "square", "defaultExpanded", "children", "displayExpandIcon", "handleClick"]);
+    var classes = useAccordionStyles();
+    return (_jsxs(MuiAccordion, __assign({ square: square, className: clx(classes.root, className), defaultExpanded: defaultExpanded, onClick: function () { handleClick === null || handleClick === void 0 ? void 0 : handleClick(); } }, props, { children: [_jsx(MuiAccordionSummary, __assign({ id: kebabCase(title.toString()), "aria-controls": kebabCase(title.toString()), className: (classNames === null || classNames === void 0 ? void 0 : classNames.summary) ? classNames === null || classNames === void 0 ? void 0 : classNames.summary : "", expandIcon: displayExpandIcon ? _jsx(ExpandMoreIcon, { className: classes.icon }, void 0) : null }, { children: _jsx(Typography, __assign({ variant: "body1" }, { children: title }), void 0) }), void 0), _jsx(MuiAccordionDetails, __assign({ className: (classNames === null || classNames === void 0 ? void 0 : classNames.details) ? classNames === null || classNames === void 0 ? void 0 : classNames.details : "" }, { children: children }), void 0)] }), void 0));
+};
