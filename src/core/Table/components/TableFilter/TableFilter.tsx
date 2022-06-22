@@ -89,7 +89,6 @@ export const TableFilter: React.FC<TableFilterProps> = ({
           <MenuItem key={name} className={classes.filterItemContainer}>
             <Accordion title={label}>
               {getUniqueValues(label, tableValues).map((item, key) => {
-                console.log("======>>>", item)
                 return (
                   <div className={classes.filterItem} key={key}>
                     <Checkbox
