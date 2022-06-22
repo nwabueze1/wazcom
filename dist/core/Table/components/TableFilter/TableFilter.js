@@ -99,6 +99,7 @@ export var TableFilter = function (_a) {
         return filterFields.map(function (_a) {
             var name = _a.name, label = _a.label;
             return (_jsx(MenuItem, __assign({ className: classes.filterItemContainer }, { children: _jsx(Accordion, __assign({ title: label }, { children: getUniqueValues(label, tableValues).map(function (item, key) {
+                        console.log("======>>>", item);
                         return (_jsxs("div", __assign({ className: classes.filterItem }, { children: [_jsx(Checkbox, { checked: !getCheckedState(label, item), onChange: function () { return handleSetFilter(label, item); } }, void 0), _jsx("div", { children: item }, void 0)] }), key));
                     }) }), void 0) }), name));
         });

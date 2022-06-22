@@ -84,23 +84,26 @@ export const TableFilter: React.FC<TableFilterProps> = ({
 
   const renderFilterOptions = useCallback(
     () =>
-      filterFields.map(({ name, label }) => (
-        <MenuItem key={name} className={classes.filterItemContainer}>
-          <Accordion title={label}>
-            {getUniqueValues(label, tableValues).map((item, key) => {
-              return (
-                <div className={classes.filterItem} key={key}>
-                  <Checkbox
-                    checked={!getCheckedState(label, item)}
-                    onChange={() => handleSetFilter(label, item)}
-                  />
-                  <div>{item}</div>
-                </div>
-              );
-            })}
-          </Accordion>
-        </MenuItem>
-      )),
+      filterFields.map(({ name, label }) => {
+        return (
+          <MenuItem key={name} className={classes.filterItemContainer}>
+            <Accordion title={label}>
+              {getUniqueValues(label, tableValues).map((item, key) => {
+                console.log("======>>>", item)
+                return (
+                  <div className={classes.filterItem} key={key}>
+                    <Checkbox
+                      checked={!getCheckedState(label, item)}
+                      onChange={() => handleSetFilter(label, item)}
+                    />
+                    <div>{item}</div>
+                  </div>
+                );
+              })}
+            </Accordion>
+          </MenuItem>
+        )
+      }),
     [filterFields, newFilters, tableValues]
   );
 
