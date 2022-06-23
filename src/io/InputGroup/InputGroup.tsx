@@ -43,11 +43,14 @@ export const InputGroup: FC<InputGroupProps> = ({
             className: classes.textInput,
           }}
         />
-        {groupType === "icon" ? (
-          <div className={clx(classes.icon, classNames?.groupIcon)}>{icon}</div>
-        ) : (
-          <div className={clx(classes.text, classNames?.text)}>{inputText}</div>
-        )}
+        <div className={clx(classes.text, classNames?.text)}>
+          {groupType === "icon" && (
+            <div className={clx(classes.icon, classNames?.groupIcon)}>
+              {icon}
+            </div>
+          )}
+          {inputText}
+        </div>
       </div>
       {feedback && displayFeedback(feedback)}
     </div>

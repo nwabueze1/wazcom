@@ -19,7 +19,7 @@ export const useInputGroupStyles = makeStyles((theme: Theme) => ({
   },
   icon: {
     position: "absolute",
-    top: 10,
+    top: 1,
     left: 10,
     height: "calc(100% - 2px)",
     color: theme.design.colors.waz_greenishGrey,
