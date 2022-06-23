@@ -49,6 +49,7 @@ export var InputGroup = function (_a) {
     var _b = __read(useState(""), 2), inputText = _b[0], setInputText = _b[1];
     useEffect(function () {
         setInputText(text !== null && text !== void 0 ? text : "");
+        console.log("text has changed");
     }, [text]);
     return (_jsxs("div", __assign({ className: clx(classes.root, className) }, { children: [label && (_jsxs(InputLabel, __assign({ className: (classNames === null || classNames === void 0 ? void 0 : classNames.label) ? classNames === null || classNames === void 0 ? void 0 : classNames.label : undefined, htmlFor: props.name }, { children: [label, _jsx("p", __assign({ className: classes.required }, { children: props.required ? " *" : "" }), void 0)] }), void 0)), _jsxs("div", __assign({ className: clx(classes.inputGroup, classNames === null || classNames === void 0 ? void 0 : classNames.inputGroup) }, { children: [_jsx(TextInput, __assign({}, props, { InputProps: {
                             className: classes.textInput,

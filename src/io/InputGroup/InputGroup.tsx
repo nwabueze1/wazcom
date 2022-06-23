@@ -19,6 +19,7 @@ export const InputGroup: FC<InputGroupProps> = ({
 
   useEffect(() => {
     setInputText(text ?? "");
+    console.log("text has changed");
   }, [text]);
 
   return (
