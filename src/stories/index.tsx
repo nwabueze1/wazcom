@@ -473,6 +473,7 @@ export const stories: ComponentPropType[] = [
       variant: "filled",
       text: "wazcom.sytbuilder.com",
       label: "@wazcom.zeus",
+      groupType: "icon",
       feedback: {
         status: "error",
         text: "aoaoaoa",

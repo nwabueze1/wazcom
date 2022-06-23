@@ -1,6 +1,9 @@
 import { TextFieldProps } from "@mui/material";
 import { CommonProps } from "../../types";
 
-export type InputGroupProps = CommonProps & TextFieldProps & {
-  text: string;
-}
+export type InputGroupProps = CommonProps &
+  TextFieldProps & {
+    text: string;
+    groupType?: "text" | "icon";
+    icon?: JSX.Element;
+  };

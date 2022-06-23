@@ -4,6 +4,7 @@ import { InputGroupProps } from "./types";
 import { InputLabel } from "@mui/material";
 import { TextInput } from "../TextInput";
 import { displayFeedback } from "../../helpers/io";
+import { BiLink } from "react-icons/bi";
 import clx from "classnames";
 
 export const InputGroup: FC<InputGroupProps> = ({
@@ -12,6 +13,8 @@ export const InputGroup: FC<InputGroupProps> = ({
   text,
   feedback,
   label,
+  groupType,
+  icon,
   ...props
 }) => {
   const classes = useInputGroupStyles();
@@ -19,7 +22,6 @@ export const InputGroup: FC<InputGroupProps> = ({
 
   useEffect(() => {
     setInputText(text ?? "");
-    console.log("text has changed");
   }, [text]);
 
   return (
@@ -42,7 +44,14 @@ export const InputGroup: FC<InputGroupProps> = ({
             className: classes.textInput,
           }}
         />
-        <div className={clx(classes.text, classNames?.text)}>{inputText}</div>
+        {groupType === "icon" ? (
+          <div className={clx(classes.icon, classNames?.groupIcon)}>
+            {icon}
+            <BiLink />
+          </div>
+        ) : (
+          <div className={clx(classes.text, classNames?.text)}>{inputText}</div>
+        )}
       </div>
       {feedback && displayFeedback(feedback)}
     </div>

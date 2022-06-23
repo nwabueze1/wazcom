@@ -42,16 +42,16 @@ import { useInputGroupStyles } from "./styles";
 import { InputLabel } from "@mui/material";
 import { TextInput } from "../TextInput";
 import { displayFeedback } from "../../helpers/io";
+import { BiLink } from "react-icons/bi";
 import clx from "classnames";
 export var InputGroup = function (_a) {
-    var className = _a.className, classNames = _a.classNames, text = _a.text, feedback = _a.feedback, label = _a.label, props = __rest(_a, ["className", "classNames", "text", "feedback", "label"]);
+    var className = _a.className, classNames = _a.classNames, text = _a.text, feedback = _a.feedback, label = _a.label, groupType = _a.groupType, icon = _a.icon, props = __rest(_a, ["className", "classNames", "text", "feedback", "label", "groupType", "icon"]);
     var classes = useInputGroupStyles();
     var _b = __read(useState(""), 2), inputText = _b[0], setInputText = _b[1];
     useEffect(function () {
         setInputText(text !== null && text !== void 0 ? text : "");
-        console.log("text has changed");
     }, [text]);
     return (_jsxs("div", __assign({ className: clx(classes.root, className) }, { children: [label && (_jsxs(InputLabel, __assign({ className: (classNames === null || classNames === void 0 ? void 0 : classNames.label) ? classNames === null || classNames === void 0 ? void 0 : classNames.label : undefined, htmlFor: props.name }, { children: [label, _jsx("p", __assign({ className: classes.required }, { children: props.required ? " *" : "" }), void 0)] }), void 0)), _jsxs("div", __assign({ className: clx(classes.inputGroup, classNames === null || classNames === void 0 ? void 0 : classNames.inputGroup) }, { children: [_jsx(TextInput, __assign({}, props, { InputProps: {
                             className: classes.textInput,
-                        } }), void 0), _jsx("div", __assign({ className: clx(classes.text, classNames === null || classNames === void 0 ? void 0 : classNames.text) }, { children: inputText }), void 0)] }), void 0), feedback && displayFeedback(feedback)] }), void 0));
+                        } }), void 0), groupType === "icon" ? (_jsxs("div", __assign({ className: clx(classes.icon, classNames === null || classNames === void 0 ? void 0 : classNames.groupIcon) }, { children: [icon, _jsx(BiLink, {}, void 0)] }), void 0)) : (_jsx("div", __assign({ className: clx(classes.text, classNames === null || classNames === void 0 ? void 0 : classNames.text) }, { children: inputText }), void 0))] }), void 0), feedback && displayFeedback(feedback)] }), void 0));
 };
