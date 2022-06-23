@@ -10,22 +10,14 @@ export const useInputGroupStyles = makeStyles((theme: Theme) => ({
     position: "absolute",
     top: 1,
     left: 1,
-    width: "25%",
+    width: "fit-content%",
     height: "calc(100% - 2px)",
     background: "#CCCFCD",
     display: "flex",
     alignItems: "center",
-    justifyContent: "center",
   },
   icon: {
-    position: "absolute",
-    top: 1,
-    left: 10,
-    height: "calc(100% - 2px)",
-    color: theme.design.colors.waz_greenishGrey,
-    display: "flex",
-    alignItems: "center",
-    justifyContent: "center",
+    padding: theme.spacing(0, 2),
   },
   required: {
     color: theme.design.colors.waz_dangerColor100,
@@ -34,7 +26,7 @@ export const useInputGroupStyles = makeStyles((theme: Theme) => ({
   textInput: {
     paddingLeft: "25%",
   },
-  groupInput: {
-    paddingLeft: "5%",
+  input: {
+    color: theme.design.colors.waz_greenishGrey,
   },
 }));

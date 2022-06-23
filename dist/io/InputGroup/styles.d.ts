@@ -1,1 +1,1 @@
-export declare const useInputGroupStyles: (props?: any) => import("@mui/styles").ClassNameMap<"root" | "text" | "icon" | "required" | "inputGroup" | "textInput" | "groupInput">;
+export declare const useInputGroupStyles: (props?: any) => import("@mui/styles").ClassNameMap<"root" | "text" | "icon" | "input" | "required" | "inputGroup" | "textInput">;
