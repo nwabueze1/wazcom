@@ -4,7 +4,6 @@ import { InputGroupProps } from "./types";
 import { InputLabel } from "@mui/material";
 import { TextInput } from "../TextInput";
 import { displayFeedback } from "../../helpers/io";
-import { BiLink } from "react-icons/bi";
 import clx from "classnames";
 
 export const InputGroup: FC<InputGroupProps> = ({
@@ -45,10 +44,7 @@ export const InputGroup: FC<InputGroupProps> = ({
           }}
         />
         {groupType === "icon" ? (
-          <div className={clx(classes.icon, classNames?.groupIcon)}>
-            {icon}
-            <BiLink />
-          </div>
+          <div className={clx(classes.icon, classNames?.groupIcon)}>{icon}</div>
         ) : (
           <div className={clx(classes.text, classNames?.text)}>{inputText}</div>
         )}
