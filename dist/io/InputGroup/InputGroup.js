@@ -20,7 +20,24 @@ var __rest = (this && this.__rest) || function (s, e) {
         }
     return t;
 };
+var __read = (this && this.__read) || function (o, n) {
+    var m = typeof Symbol === "function" && o[Symbol.iterator];
+    if (!m) return o;
+    var i = m.call(o), r, ar = [], e;
+    try {
+        while ((n === void 0 || n-- > 0) && !(r = i.next()).done) ar.push(r.value);
+    }
+    catch (error) { e = { error: error }; }
+    finally {
+        try {
+            if (r && !r.done && (m = i["return"])) m.call(i);
+        }
+        finally { if (e) throw e.error; }
+    }
+    return ar;
+};
 import { jsx as _jsx, jsxs as _jsxs } from "react/jsx-runtime";
+import { useState, useEffect } from "react";
 import { useInputGroupStyles } from "./styles";
 import { InputLabel } from "@mui/material";
 import { TextInput } from "../TextInput";
@@ -29,7 +46,11 @@ import clx from "classnames";
 export var InputGroup = function (_a) {
     var className = _a.className, classNames = _a.classNames, text = _a.text, feedback = _a.feedback, label = _a.label, props = __rest(_a, ["className", "classNames", "text", "feedback", "label"]);
     var classes = useInputGroupStyles();
+    var _b = __read(useState(""), 2), inputText = _b[0], setInputText = _b[1];
+    useEffect(function () {
+        setInputText(text !== null && text !== void 0 ? text : "");
+    }, [text]);
     return (_jsxs("div", __assign({ className: clx(classes.root, className) }, { children: [label && (_jsxs(InputLabel, __assign({ className: (classNames === null || classNames === void 0 ? void 0 : classNames.label) ? classNames === null || classNames === void 0 ? void 0 : classNames.label : undefined, htmlFor: props.name }, { children: [label, _jsx("p", __assign({ className: classes.required }, { children: props.required ? " *" : "" }), void 0)] }), void 0)), _jsxs("div", __assign({ className: clx(classes.inputGroup, classNames === null || classNames === void 0 ? void 0 : classNames.inputGroup) }, { children: [_jsx(TextInput, __assign({}, props, { InputProps: {
-                            className: classes.textInput
-                        } }), void 0), _jsx("div", __assign({ className: clx(classes.text, classNames === null || classNames === void 0 ? void 0 : classNames.text) }, { children: text }), void 0)] }), void 0), feedback && displayFeedback(feedback)] }), void 0));
+                            className: classes.textInput,
+                        } }), void 0), _jsx("div", __assign({ className: clx(classes.text, classNames === null || classNames === void 0 ? void 0 : classNames.text) }, { children: inputText }), void 0)] }), void 0), feedback && displayFeedback(feedback)] }), void 0));
 };
