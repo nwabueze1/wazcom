@@ -11,7 +11,7 @@ export const useInputGroupStyles = makeStyles((theme: Theme) => ({
     top: 1,
     left: 1,
     width: "fit-content%",
-    height: "calc(100% - 3px)",
+    height: "calc(100% - 2px)",
     background: "#CCCFCD",
     display: "flex",
     alignItems: "center",
@@ -25,8 +25,5 @@ export const useInputGroupStyles = makeStyles((theme: Theme) => ({
   },
   textInput: {
     paddingLeft: "25%",
-  },
-  input: {
-    color: theme.design.colors.waz_greenishGrey,
   },
 }));

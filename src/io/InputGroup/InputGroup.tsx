@@ -49,7 +49,7 @@ export const InputGroup: FC<InputGroupProps> = ({
               {icon}
             </div>
           )}
-          <p className={classes.input}>{inputText}</p>
+          <p>{inputText}</p>
         </div>
       </div>
       {feedback && displayFeedback(feedback)}
