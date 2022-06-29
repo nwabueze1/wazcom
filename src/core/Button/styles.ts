@@ -9,6 +9,7 @@ export const useButtonStyles = makeStyles((theme: BaseTheme) => ({
     textTransform: "capitalize",
     color: theme.design.colors.waz_white,
     backgroundColor: theme.design.colors.waz_primaryColor100,
+    boxShadow: "none",
     cursor: "pointer",
     fontSize: theme.typography.fontSize,
     fontFamily: theme.typography.fontFamily,
