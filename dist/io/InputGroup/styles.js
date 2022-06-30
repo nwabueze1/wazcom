@@ -8,7 +8,7 @@ export var useInputGroupStyles = makeStyles(function (theme) { return ({
         position: "absolute",
         top: 1,
         left: 1,
-        width: "fit-content%",
+        width: "25%",
         height: "calc(100% - 2px)",
         background: "#CCCFCD",
         display: "flex",
