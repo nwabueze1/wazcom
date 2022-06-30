@@ -1,4 +1,4 @@
-import { FC } from "react";
+import { FC, useState, useEffect } from "react";
 import { useInputGroupStyles } from "./styles";
 import { InputGroupProps } from "./types";
 import { InputLabel } from "@mui/material";
@@ -12,9 +12,16 @@ export const InputGroup: FC<InputGroupProps> = ({
   text,
   feedback,
   label,
+  groupType,
+  icon,
   ...props
 }) => {
   const classes = useInputGroupStyles();
+  const [inputText, setInputText] = useState("");
+
+  useEffect(() => {
+    setInputText(text ?? "");
+  }, [text]);
 
   return (
     <div className={clx(classes.root, className)}>
@@ -33,10 +40,17 @@ export const InputGroup: FC<InputGroupProps> = ({
         <TextInput
           {...props}
           InputProps={{
-            className: classes.textInput
+            className: classes.textInput,
           }}
         />
-        <div className={clx(classes.text, classNames?.text)}>{text}</div>
+        <div className={clx(classes.text, classNames?.text)}>
+          {groupType === "icon" && (
+            <div className={clx(classes.icon, classNames?.groupIcon)}>
+              {icon}
+            </div>
+          )}
+          <p>{inputText}</p>
+        </div>
       </div>
       {feedback && displayFeedback(feedback)}
     </div>

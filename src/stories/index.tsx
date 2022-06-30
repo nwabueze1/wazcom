@@ -14,6 +14,7 @@ import {
   EmptyState,
   Scheduler,
 } from "../core";
+import { BiLink } from "react-icons/bi";
 
 import {
   CheckBoxInput,
@@ -473,6 +474,8 @@ export const stories: ComponentPropType[] = [
       variant: "filled",
       text: "wazcom.sytbuilder.com",
       label: "@wazcom.zeus",
+      icon: <BiLink />,
+      groupType: "icon",
       feedback: {
         status: "error",
         text: "aoaoaoa",
