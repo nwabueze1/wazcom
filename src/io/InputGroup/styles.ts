@@ -13,7 +13,9 @@ export const useInputGroupStyles = makeStyles((theme: Theme) => ({
     width: "25%",
     height: "calc(100% - 2px)",
     display: "flex",
+    background: "#CCCFCD",
     alignItems: "center",
+    justifyContent: "center",
   },
   icon: {
     padding: theme.spacing(0, 2),
