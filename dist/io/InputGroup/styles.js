@@ -13,6 +13,8 @@ export var useInputGroupStyles = makeStyles(function (theme) { return ({
         display: "flex",
         background: "#CCCFCD",
         alignItems: "center",
+    },
+    textPosition: {
         justifyContent: "center",
     },
     icon: {

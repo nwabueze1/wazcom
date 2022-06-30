@@ -43,7 +43,13 @@ export const InputGroup: FC<InputGroupProps> = ({
             className: classes.textInput,
           }}
         />
-        <div className={clx(classes.text, classNames?.text)}>
+        <div
+          className={clx(
+            classes.text,
+            classNames?.text,
+            groupType !== "icon" && classes.textPosition
+          )}
+        >
           {groupType === "icon" && (
             <div className={clx(classes.icon, classNames?.groupIcon)}>
               {icon}

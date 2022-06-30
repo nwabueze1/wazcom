@@ -15,6 +15,8 @@ export const useInputGroupStyles = makeStyles((theme: Theme) => ({
     display: "flex",
     background: "#CCCFCD",
     alignItems: "center",
+  },
+  textPosition: {
     justifyContent: "center",
   },
   icon: {
