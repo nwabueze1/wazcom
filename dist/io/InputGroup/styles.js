@@ -10,7 +10,6 @@ export var useInputGroupStyles = makeStyles(function (theme) { return ({
         left: 1,
         width: "25%",
         height: "calc(100% - 2px)",
-        background: "#CCCFCD",
         display: "flex",
         alignItems: "center",
     },

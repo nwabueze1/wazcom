@@ -12,7 +12,6 @@ export const useInputGroupStyles = makeStyles((theme: Theme) => ({
     left: 1,
     width: "25%",
     height: "calc(100% - 2px)",
-    background: "#CCCFCD",
     display: "flex",
     alignItems: "center",
   },
