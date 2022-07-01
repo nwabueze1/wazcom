@@ -43,7 +43,7 @@ import { InputLabel } from "@mui/material";
 import { TextInput } from "../TextInput";
 import { displayFeedback } from "../../helpers/io";
 import clx from "classnames";
-import { truncate } from "utilities/Post";
+import { truncate } from "../../utilities/Post";
 export var InputGroup = function (_a) {
     var className = _a.className, classNames = _a.classNames, text = _a.text, feedback = _a.feedback, label = _a.label, icon = _a.icon, props = __rest(_a, ["className", "classNames", "text", "feedback", "label", "icon"]);
     var classes = useInputGroupStyles();
