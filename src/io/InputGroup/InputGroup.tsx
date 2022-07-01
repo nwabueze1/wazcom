@@ -5,7 +5,7 @@ import { InputLabel } from "@mui/material";
 import { TextInput } from "../TextInput";
 import { displayFeedback } from "../../helpers/io";
 import clx from "classnames";
-import { truncate } from "utilities/Post";
+import { truncate } from "../../utilities/Post";
 
 export const InputGroup: FC<InputGroupProps> = ({
   className,
@@ -22,6 +22,7 @@ export const InputGroup: FC<InputGroupProps> = ({
   useEffect(() => {
     setInputText(text ?? "");
   }, [text]);
+
 
   return (
     <div className={clx(classes.root, className)}>
