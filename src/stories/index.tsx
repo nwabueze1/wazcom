@@ -240,7 +240,7 @@ export const stories: ComponentPropType[] = [
         status: "success",
       },
       required: true,
-      type: "password",
+      type: "text",
       onChange: ({ value }: { name: string; value: any }) => {
         value;
       },
