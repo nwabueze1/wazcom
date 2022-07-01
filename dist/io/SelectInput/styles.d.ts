@@ -1,1 +1,1 @@
-export declare const useSelectStyles: (props?: any) => import("@mui/styles").ClassNameMap<"root" | "label" | "select" | "required" | "menuItem">;
+export declare const useSelectStyles: (props?: any) => import("@mui/styles").ClassNameMap<"root" | "label" | "select" | "required">;
