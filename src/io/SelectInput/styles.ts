@@ -21,8 +21,10 @@ export const useSelectStyles = makeStyles((theme: Theme) => ({
     width: "100%",
   },
   menuItem: {
-    "& .MuiButtonBase-root:hover": {
-      background: "none",
+    "& .MuiButtonBase-root": {
+      "&:hover": {
+        background: "none",
+      },
     },
   },
 }));
