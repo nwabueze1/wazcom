@@ -3,7 +3,7 @@ import { CoreArticleTemplateFields, useDefaultAvatar } from "templates";
 import { useBloomyStyles } from ".";
 import { shareDataBloomy } from "./data";
 import clx from "classnames";
-import { getTimeFrom } from "utilities/getTime";
+import { parseDate } from "utilities/getTime";
 import { BloomyRelatedPost } from "./RelatedPosts";
 
 export const Bloomy: FC<CoreArticleTemplateFields> = ({
@@ -96,7 +96,7 @@ export const Bloomy: FC<CoreArticleTemplateFields> = ({
               </div>
               <p className={classes.postedTime}>
                 <span className={classes.point} />
-                Posted {getTimeFrom(article.created_at)} ago
+                {parseDate(article.created_at)}
               </p>
             </div>
             <div className={classes.socialIcons}>{displaySocialIcons()}</div>

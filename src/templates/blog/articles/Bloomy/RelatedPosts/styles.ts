@@ -19,6 +19,12 @@ export const useBloomyRelatedPostStyles = makeStyles<Theme>((theme: Theme) => ({
     height: 214,
     width: "85%",
     position: "relative",
+    [theme.breakpoints.down("md")]: {
+      width: "38%",
+    },
+    [theme.breakpoints.down("sm")]: {
+      width: "100%",
+    },
   },
   thumbnailImg: {
     position: "absolute",

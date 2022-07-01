@@ -2,7 +2,7 @@ import { Button } from "@mui/material";
 import { truncate } from "lodash";
 import React, { FC } from "react";
 import { CoreArticleTemplateFields } from "templates";
-import { getTimeFrom } from "utilities/getTime";
+import { parseDate } from "utilities/getTime";
 import { stripHtml } from "utilities/Post";
 import { useBloomyRelatedPostStyles } from "./styles";
 import clx from "classnames";
@@ -36,7 +36,7 @@ export const BloomyRelatedPost: FC<CoreArticleTemplateFields> = ({
           </p>
           <p className={classes.postedTime}>
             <span className={classes.point} />
-            Posted {getTimeFrom(article.created_at)} ago
+            {parseDate(article.created_at)}
           </p>
         </p>
         <Button
