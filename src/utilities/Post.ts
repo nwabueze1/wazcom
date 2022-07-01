@@ -7,9 +7,9 @@ export const stripHtml = (html: string): string => {
 export const truncate = (
   fullStr: string,
   strLen = 25,
-  separator = "...",
-  frontChars = 3,
-  backChars = 4
+  separator = "....",
+  frontChars = 7,
+  backChars = 9
 ) => {
   if (fullStr.length <= strLen) return fullStr;
 

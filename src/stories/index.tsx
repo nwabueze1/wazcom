@@ -471,7 +471,7 @@ export const stories: ComponentPropType[] = [
     name: "InputGroup",
     component: InputGroup,
     props: {
-      text: "wazcom.sytbuilder.com",
+      text: "wazcomghdshgksdgjsk.sytbuilder.com",
       label: "@wazcom.zeus",
       icon: <BiLink />,
       feedback: {
