@@ -5,6 +5,7 @@ import { InputLabel } from "@mui/material";
 import { TextInput } from "../TextInput";
 import { displayFeedback } from "../../helpers/io";
 import clx from "classnames";
+import { truncate } from "utilities/Post";
 
 export const InputGroup: FC<InputGroupProps> = ({
   className,
@@ -12,7 +13,6 @@ export const InputGroup: FC<InputGroupProps> = ({
   text,
   feedback,
   label,
-  groupType,
   icon,
   ...props
 }) => {
@@ -47,15 +47,15 @@ export const InputGroup: FC<InputGroupProps> = ({
           className={clx(
             classes.text,
             classNames?.text,
-            groupType !== "icon" && classes.textPosition
+            !icon && classes.textPosition
           )}
         >
-          {groupType === "icon" && (
+          {icon && (
             <div className={clx(classes.icon, classNames?.groupIcon)}>
               {icon}
             </div>
           )}
-          <p>{inputText}</p>
+          <p>{truncate(inputText)}</p>
         </div>
       </div>
       {feedback && displayFeedback(feedback)}

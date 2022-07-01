@@ -13,7 +13,7 @@ export const useInputGroupStyles = makeStyles((theme: Theme) => ({
     width: "25%",
     height: "calc(100% - 2px)",
     display: "flex",
-    background: "#CCCFCD",
+    background: theme.design.colors.waz_mercury,
     alignItems: "center",
   },
   textPosition: {

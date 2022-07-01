@@ -4,6 +4,5 @@ import { CommonProps } from "../../types";
 export type InputGroupProps = CommonProps &
   TextFieldProps & {
     text: string;
-    groupType?: "text" | "icon";
     icon?: JSX.Element;
   };
