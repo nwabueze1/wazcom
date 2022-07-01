@@ -41,6 +41,30 @@ export const RichTextInput: React.FC<RichTextInputProps> = ({
     onChange?.({ name: name as string, value: content });
   };
 
+  // const displayMediaLibrary = (field_name:any, url:string, type:any, win:any) => {
+  //   tinymce.activeEditor.windowManager.open({
+  //     title: 'Browse Image',
+  //     file: "yourbrowser.php?field=" + field_name + "&url=" + url,
+  //     width: 450,
+  //     height: 305,
+  //     resizable : "no",
+  //     inline : "yes",
+  //     close_previous : "no",
+  //     buttons: [{
+  //         text: 'Insert',
+  //         classes: 'widget btn primary first abs-layout-item',
+  //         disabled: true,
+  //         onclick: 'close'
+  //     }, {
+  //         text: 'Close',
+  //         onclick: 'close',
+  //         window : win,
+  //         input : field_name
+  //     }]
+  // });
+  // return false;
+  // }
+
   return (
     <div className={clx(className, classes.root)}>
       {label && (
@@ -68,9 +92,13 @@ export const RichTextInput: React.FC<RichTextInputProps> = ({
             automatic_uploads: true,
             file_picker_types: "image",
             paste_data_images: true,
-            file_picker_callback: (cb: any) => {
-              upload?.(cb, setLoading);
-            },
+            // file_picker_callback: (cb: any) => {
+            //   const input = document.createElement('input');
+            //   input.setAttribute('type', 'file');
+            //   upload?.(cb, setLoading);
+            // },
+            // file_browser_callback:displayMediaLibrary,
+            
             plugins,
             toolbar,
           }}
