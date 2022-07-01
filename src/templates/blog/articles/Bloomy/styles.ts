@@ -6,6 +6,7 @@ export const useBloomyStyles = makeStyles<Theme>((theme: Theme) => ({
     width: "100%",
     maxWidth: 1200,
     margin: "72px auto",
+    fontFamily: theme.design.font.inter,
   },
   header: {
     width: "100%",
@@ -134,22 +135,24 @@ export const useBloomyStyles = makeStyles<Theme>((theme: Theme) => ({
   },
   content: {
     padding: theme.spacing(8, 0),
-    color: theme.design.colors.waz_primaryBlack,
+    color: theme.design.colors.waz_grey1,
     fontSize: theme.typography.fontSize + 6,
     width: "70%",
     margin: theme.spacing(0, "auto"),
     "& p": {
-     margin: theme.spacing(1.5, 0),
-   },
-   "& h1, h2, h3, h4, h5, h6": {
-     margin: theme.spacing(2.5, 0)
-   },
-   "& img": {
-     margin: theme.spacing(4, "auto"),
-     maxWidth: "100%",
-     height: "100%",
-     display: "flex",
-   },
+      margin: theme.spacing(1.5, 0),
+      lineHeight: "32px",
+    },
+    "& h1, h2, h3, h4, h5, h6": {
+      color: theme.design.colors.waz_primaryBlack,
+      margin: theme.spacing(2.5, 0),
+    },
+    "& img": {
+      margin: theme.spacing(4, "auto"),
+      maxWidth: "100%",
+      height: "100%",
+      display: "flex",
+    },
     [theme.breakpoints.down("md")]: {
       width: "95%",
       padding: theme.spacing(4, 0),

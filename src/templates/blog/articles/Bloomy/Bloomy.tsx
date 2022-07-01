@@ -45,15 +45,17 @@ export const Bloomy: FC<CoreArticleTemplateFields> = ({
   };
 
   const displayRelatedPosts = () =>
-    article.related_posts?.map((post, index) => (
-      <BloomyRelatedPost
-        key={index}
-        article={post}
-        domain={domain}
-        site={site}
-        handleClick={handleClick}
-      />
-    ));
+    article.related_posts
+      ?.slice(0, 4)
+      .map((post, index) => (
+        <BloomyRelatedPost
+          key={index}
+          article={post}
+          domain={domain}
+          site={site}
+          handleClick={handleClick}
+        />
+      ));
 
   return (
     <div className={classes.root}>

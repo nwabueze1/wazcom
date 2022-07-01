@@ -87,6 +87,7 @@ export const theme: any = {
       raleway: "Raleway, sans-serif",
       dmSans: "DM Sans, sans-serif",
       nunitoSans: "Nunito Sans, sans-serif",
+      inter: "Inter, sans-serif",
     },
     colors: {
       waz_primaryColor100: "#0A7227",
