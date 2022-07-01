@@ -18,4 +18,9 @@ export var useSelectStyles = makeStyles(function (theme) { return ({
     select: {
         width: "100%",
     },
+    menuItem: {
+        "& .MuiMenuItem-root:hover": {
+            background: "none",
+        },
+    },
 }); });
