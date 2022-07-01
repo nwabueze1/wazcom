@@ -459,7 +459,7 @@ export const stories: ComponentPropType[] = [
       label: "Menu Schedule",
       value: [
         {
-          day: "01",
+          day: "0",
           start_time: "12:00",
           end_time: "18:00",
         },

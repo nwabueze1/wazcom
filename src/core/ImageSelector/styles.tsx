@@ -41,7 +41,7 @@ export const useImageSelectorStyles = makeStyles((theme: BaseTheme) => ({
     height: "400px",
   },
   cameraIcon: {
-    color: theme.design.colors.white,
+    color: theme.design.colors.waz_white,
     zIndex: 5,
     background: "transparent",
   },

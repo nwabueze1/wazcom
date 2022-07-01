@@ -30,24 +30,24 @@ var CustomCss = withStyles(function (theme) { return ({
             },
         },
         ".MuiOutlinedInput-notchedOutline": {
-            border: "solid 1px ".concat(theme.design.colors.grey5),
+            border: "solid 1px ".concat(theme.design.colors.waz_grey5),
             borderRadius: 5,
             "&:hover": {
-                borderColor: "".concat(theme.design.colors.grey5),
+                borderColor: "".concat(theme.design.colors.waz_grey5),
                 outline: "none",
             },
             "&:focus": {
-                borderColor: "".concat(theme.design.colors.grey5),
+                borderColor: "".concat(theme.design.colors.waz_grey5),
             },
         },
         ".Mui-focused.MuiOutlinedInput-notchedOutline": {
-            border: "solid 1px ".concat(theme.design.colors.grey5),
+            border: "solid 1px ".concat(theme.design.colors.waz_grey5),
             "&:hover": {
-                borderColor: "".concat(theme.design.colors.grey5),
+                borderColor: "".concat(theme.design.colors.waz_grey5),
                 outline: "none",
             },
             "&:focus": {
-                borderColor: "".concat(theme.design.colors.grey5),
+                borderColor: "".concat(theme.design.colors.waz_grey5),
             },
         },
     },

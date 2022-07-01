@@ -11,6 +11,6 @@ export var useGqlComboBoxStyles = makeStyles(function (theme) { return ({
     },
     loader: {
         marginBottom: theme.spacing(2),
-        color: theme.design.colors.dangerColor300,
+        color: theme.design.colors.waz_dangerColor300,
     },
 }); });

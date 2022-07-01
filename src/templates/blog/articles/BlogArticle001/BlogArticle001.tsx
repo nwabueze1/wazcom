@@ -1,6 +1,6 @@
 import React, { FC } from "react";
-import { CoreArticleTemplateFields } from "../types";
-import { useBlogArticle001Styles } from "./styles";
+import { useBlogArticle001Styles } from ".";
+import { CoreArticleTemplateFields } from "..";
 
 export const BlogArticle001: FC<CoreArticleTemplateFields> = ({ article, site }) => {
   const classes = useBlogArticle001Styles();

@@ -26,7 +26,7 @@ export const BootstrapInput = withStyles((theme: Theme) =>
       borderRadius: 5,
       position: "relative",
       fontSize: 16,
-      border: `solid 1px ${theme.design.colors.grey5}`,
+      border: `solid 1px ${theme.design.colors.waz_grey5}`,
       padding: theme.spacing(0, 1.5),
       height: 40,
 

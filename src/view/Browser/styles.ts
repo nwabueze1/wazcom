@@ -45,7 +45,7 @@ export const useBrowserStyles = makeStyles((theme: Theme) => ({
   },
   well: {
     padding: theme.spacing(2),
-    backgroundColor: theme.design.colors.greyColor100,
+    backgroundColor: theme.design.colors.waz_greyColor100,
     borderRadius: theme.spacing(1),
     marginTop: theme.spacing(2),
   },
@@ -53,7 +53,7 @@ export const useBrowserStyles = makeStyles((theme: Theme) => ({
     display: "flex",
     justifyContent: "center",
     alignItems: "center",
-    color: theme.design.colors.black,
+    color: theme.design.colors.waz_black,
     fontWeight: 500,
   },
   title: {},

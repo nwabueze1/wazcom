@@ -6,8 +6,8 @@ export var useFilterStyles = makeStyles(function (theme) { return ({
     filterItems: {
         position: "absolute",
         zIndex: 5,
-        backgroundColor: theme.design.colors.white,
-        boxShadow: "0px 10px 20px ".concat(theme.design.colors.greyColor100),
+        backgroundColor: theme.design.colors.waz_white,
+        boxShadow: "0px 10px 20px ".concat(theme.design.colors.waz_greyColor100),
         width: 300,
         height: 330,
         top: 50,
@@ -41,7 +41,7 @@ export var useFilterStyles = makeStyles(function (theme) { return ({
             },
         },
         "&:hover": {
-            backgroundColor: theme.design.colors.white
+            backgroundColor: theme.design.colors.waz_white
         },
         borderBottom: "1px solid #E6E7E6"
     },
@@ -74,13 +74,13 @@ export var useFilterStyles = makeStyles(function (theme) { return ({
         height: 40,
     },
     filterActionButtonOutline: {
-        background: theme.design.colors.white,
-        color: theme.design.colors.greyColor400,
-        border: "1px solid ".concat(theme.design.colors.greyColor100),
+        background: theme.design.colors.waz_white,
+        color: theme.design.colors.waz_greyColor400,
+        border: "1px solid ".concat(theme.design.colors.waz_greyColor100),
         boxShadow: "none",
         "&:hover": {
-            background: theme.design.colors.white,
-            color: theme.design.colors.greyColor400,
+            background: theme.design.colors.waz_white,
+            color: theme.design.colors.waz_greyColor400,
         }
     }
 }); });

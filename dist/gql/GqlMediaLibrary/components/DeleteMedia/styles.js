@@ -9,7 +9,7 @@ export var useDeleteMediaStyles = makeStyles(function (theme) { return ({
         maxWidth: 600,
         maxHeight: 550,
         width: 600,
-        backgroundColor: theme.design.colors.white,
+        backgroundColor: theme.design.colors.waz_white,
         borderRadius: theme.spacing(1),
         overflow: "scroll",
         zIndex: 15,
@@ -22,7 +22,7 @@ export var useDeleteMediaStyles = makeStyles(function (theme) { return ({
         borderBottom: "1px solid rgba(0,0,0,0.06)",
     },
     deleteHeadingText: {
-        color: theme.design.colors.dangerColor300,
+        color: theme.design.colors.waz_dangerColor300,
         marginLeft: theme.spacing(4),
     },
     deleteHeadingIcon: {

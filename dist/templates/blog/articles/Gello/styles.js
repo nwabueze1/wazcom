@@ -56,7 +56,8 @@ export var useGelloStyles = makeStyles(function (theme) {
         title: (_e = {
                 lineHeight: "40px",
                 fontSize: theme.typography.fontSize * 3,
-                fontWeight: theme.typography.fontWeightBold
+                fontWeight: theme.typography.fontWeightBold,
+                margin: theme.spacing(2.5, 0)
             },
             _e[theme.breakpoints.down("sm")] = {
                 fontSize: theme.typography.fontSize * 2,
@@ -78,11 +79,11 @@ export var useGelloStyles = makeStyles(function (theme) {
         },
         written: {
             fontStyle: "italic",
-            color: theme.design.colors.grey200,
+            color: theme.design.colors.waz_grey200,
             fontSize: theme.typography.fontSize + 2,
         },
         writersName: {
-            color: theme.design.colors.black,
+            color: theme.design.colors.waz_black,
             fontStyle: "normal",
             textTransform: "capitalize",
         },
@@ -90,7 +91,7 @@ export var useGelloStyles = makeStyles(function (theme) {
             height: 8,
             width: 8,
             borderRadius: "50%",
-            border: "1px solid ".concat(theme.design.colors.grey200),
+            border: "1px solid ".concat(theme.design.colors.waz_grey200),
         },
         date: {
             fontSize: theme.typography.fontSize,
@@ -110,10 +111,22 @@ export var useGelloStyles = makeStyles(function (theme) {
             margin: theme.spacing(3, 0),
         },
         content: (_f = {
-                color: theme.design.colors.grey500,
+                color: theme.design.colors.waz_grey500,
                 lineHeight: "26px",
                 width: "80%",
-                margin: "auto"
+                margin: "auto",
+                "& p": {
+                    margin: theme.spacing(1.5, 0),
+                },
+                "& h1, h2, h3, h4, h5, h6": {
+                    margin: theme.spacing(2.5, 0)
+                },
+                "& img": {
+                    margin: theme.spacing(4, "auto"),
+                    maxWidth: "100%",
+                    height: "100%",
+                    display: "flex",
+                }
             },
             _f[theme.breakpoints.down("sm")] = {
                 width: "100%",
@@ -154,7 +167,7 @@ export var useGelloStyles = makeStyles(function (theme) {
             _h),
         shareText: {
             fontSize: theme.typography.fontSize + 2,
-            color: theme.design.colors.grey100,
+            color: theme.design.colors.waz_grey100,
             textAlign: "center",
             marginTop: theme.spacing(0.5),
         },
@@ -172,9 +185,9 @@ export var useGelloStyles = makeStyles(function (theme) {
             display: "flex",
             justifyContent: "center",
             alignItems: "center",
-            fontSize: theme.typography.fontSize + 8,
-            color: theme.design.colors.white,
-            background: theme.design.colors.orange,
+            fontSize: theme.typography.fontSize + 4,
+            color: theme.design.colors.waz_white,
+            background: theme.design.colors.waz_orange,
         },
     });
 });

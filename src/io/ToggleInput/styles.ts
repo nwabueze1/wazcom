@@ -17,15 +17,15 @@ export const useToggleStyles = makeStyles((theme: Theme) => ({
     display: "flex",
   },
   helperText: {
-    color: theme.design.colors.black,
+    color: theme.design.colors.waz_black,
   },
   toggle: {
-    color: theme.design.colors.successColor,
+    color: theme.design.colors.waz_successColor,
     marginTop: theme.spacing(1),
     "& 	.Mui-checked": {
-      color: theme.design.colors.white,
+      color: theme.design.colors.waz_white,
       "& + .MuiSwitch-track": {
-        backgroundColor: theme.design.colors.primaryColor100,
+        backgroundColor: theme.design.colors.waz_primaryColor100,
         opacity: 1,
         border: 0,
       },

@@ -53,6 +53,7 @@ export const useGelloStyles = makeStyles<Theme>((theme: Theme) => ({
     lineHeight: "40px",
     fontSize: theme.typography.fontSize * 3,
     fontWeight: theme.typography.fontWeightBold,
+    margin: theme.spacing(2.5, 0),
     [theme.breakpoints.down("sm")]: {
       fontSize: theme.typography.fontSize * 2,
       lineHeight: "36px",
@@ -73,11 +74,11 @@ export const useGelloStyles = makeStyles<Theme>((theme: Theme) => ({
   },
   written: {
     fontStyle: "italic",
-    color: theme.design.colors.grey200,
+    color: theme.design.colors.waz_grey200,
     fontSize: theme.typography.fontSize + 2,
   },
   writersName: {
-    color: theme.design.colors.black,
+    color: theme.design.colors.waz_black,
     fontStyle: "normal",
     textTransform: "capitalize",
   },
@@ -85,7 +86,7 @@ export const useGelloStyles = makeStyles<Theme>((theme: Theme) => ({
     height: 8,
     width: 8,
     borderRadius: "50%",
-    border: `1px solid ${theme.design.colors.grey200}`,
+    border: `1px solid ${theme.design.colors.waz_grey200}`,
   },
   date: {
     fontSize: theme.typography.fontSize,
@@ -105,10 +106,22 @@ export const useGelloStyles = makeStyles<Theme>((theme: Theme) => ({
     margin: theme.spacing(3, 0),
   },
   content: {
-    color: theme.design.colors.grey500,
+    color: theme.design.colors.waz_grey500,
     lineHeight: "26px",
     width: "80%",
     margin: "auto",
+    "& p": {
+      margin: theme.spacing(1.5, 0),
+    },
+    "& h1, h2, h3, h4, h5, h6": {
+      margin: theme.spacing(2.5, 0)
+    },
+    "& img": {
+      margin: theme.spacing(4, "auto"),
+      maxWidth: "100%",
+      height: "100%",
+      display: "flex",
+    },
     [theme.breakpoints.down("sm")]: {
       width: "100%",
     },
@@ -147,7 +160,7 @@ export const useGelloStyles = makeStyles<Theme>((theme: Theme) => ({
   },
   shareText: {
     fontSize: theme.typography.fontSize + 2,
-    color: theme.design.colors.grey100,
+    color: theme.design.colors.waz_grey100,
     textAlign: "center",
     marginTop: theme.spacing(0.5),
   },
@@ -164,8 +177,8 @@ export const useGelloStyles = makeStyles<Theme>((theme: Theme) => ({
     display: "flex",
     justifyContent: "center",
     alignItems: "center",
-    fontSize: theme.typography.fontSize + 8,
-    color: theme.design.colors.white,
-    background: theme.design.colors.orange,
+    fontSize: theme.typography.fontSize + 4,
+    color: theme.design.colors.waz_white,
+    background: theme.design.colors.waz_orange,
   },
 }));
