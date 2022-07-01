@@ -20,5 +20,13 @@ export var useSelectStyles = makeStyles(function (theme) { return ({
         "& .MuiMenuItem-root": {
             background: "none",
         },
+        "&.Mui-focused fieldset.MuiOutlinedInput-notchedOutline": {
+            borderColor: theme.design.colors.waz_primaryColor100,
+            outline: theme.design.colors.waz_primaryColor100,
+            "&:hover": {
+                borderColor: theme.design.colors.waz_primaryColor100,
+                outline: theme.design.colors.waz_primaryColor100
+            },
+        },
     },
 }); });

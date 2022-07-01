@@ -3,7 +3,7 @@ import React from "react";
 import { TextField } from "@mui/material";
 import makeStyles from '@mui/styles/makeStyles';
 import withStyles from '@mui/styles/withStyles';
-var useStyles = makeStyles(function () { return ({
+var useStyles = makeStyles(function (theme) { return ({
     container: {
         display: "flex",
         flexWrap: "wrap",
@@ -20,6 +20,13 @@ var useStyles = makeStyles(function () { return ({
         fontSize: 15,
         textAlign: "center",
         borderBottom: "0px ",
+        "&.Mui-focused fieldset.MuiOutlinedInput-notchedOutline": {
+            borderColor: theme.design.colors.waz_primaryColor100,
+            outline: theme.design.colors.waz_primaryColor100,
+        },
+        "&:hover": {
+            outline: "none"
+        },
     },
 }); });
 var CustomCss = withStyles(function (theme) { return ({

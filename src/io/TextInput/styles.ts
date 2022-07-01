@@ -7,6 +7,15 @@ export const useTextStyles = makeStyles((theme: Theme) => ({
     flexDirection: "column",
     marginBottom: 15,
     position: "relative",
+    "& .Mui-focused fieldset.MuiOutlinedInput-notchedOutline": {
+      borderColor: theme.design.colors.waz_primaryColor100,
+      outline: theme.design.colors.waz_primaryColor100,
+      "&:hover": {
+        borderColor: theme.design.colors.waz_primaryColor100,
+        outline: theme.design.colors.waz_primaryColor100
+      },
+    },
+   
   },
   label: {
     display: "flex",
