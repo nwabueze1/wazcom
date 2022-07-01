@@ -65,6 +65,7 @@ export const useBloomyRelatedPostStyles = makeStyles<Theme>((theme: Theme) => ({
   btn: {
     padding: theme.spacing(1, 2),
     background: theme.design.colors.waz_grey300,
+    fontWeight: theme.typography.fontWeightMedium,
   },
   point: {
     width: 4,

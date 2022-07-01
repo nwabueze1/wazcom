@@ -138,6 +138,18 @@ export const useBloomyStyles = makeStyles<Theme>((theme: Theme) => ({
     fontSize: theme.typography.fontSize + 6,
     width: "70%",
     margin: theme.spacing(0, "auto"),
+    "& p": {
+     margin: theme.spacing(1.5, 0),
+   },
+   "& h1, h2, h3, h4, h5, h6": {
+     margin: theme.spacing(2.5, 0)
+   },
+   "& img": {
+     margin: theme.spacing(4, "auto"),
+     maxWidth: "100%",
+     height: "100%",
+     display: "flex",
+   },
     [theme.breakpoints.down("md")]: {
       width: "95%",
       padding: theme.spacing(4, 0),

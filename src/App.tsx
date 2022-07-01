@@ -1,8 +1,6 @@
 import { StyledEngineProvider, Theme, ThemeProvider } from "@mui/material";
 import * as React from "react";
 import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
-import { Bloomy } from "templates/blog/articles/Bloomy/Bloomy";
-import { articleData, site } from "data";
 import { Browser } from "view/Browser";
 import theme from "./theme";
 declare module "@mui/styles/defaultTheme" {
@@ -19,9 +17,6 @@ const App: React.FC<Props> = () => {
       <ThemeProvider theme={theme}>
         <Router>
           <Switch>
-            <Route path="/bloomy">
-              <Bloomy article={articleData} domain="" site={site} />
-            </Route>
             <Route exact path="/">
               <Browser />
             </Route>
