@@ -17,6 +17,7 @@ import {
 
 import {
   CheckBoxInput,
+  CurrencyInputField,
   ComboBoxInput,
   RichTextInput,
   SelectInput,
@@ -477,6 +478,15 @@ export const stories: ComponentPropType[] = [
         status: "error",
         text: "aoaoaoa",
       },
+    },
+  },
+  {
+    name: "CurrencyInput",
+    component: CurrencyInputField,
+    props: {
+      name: "basit",
+      currency: "£",
+      placeholder: "enter amont",
     },
   },
 ];
