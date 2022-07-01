@@ -3,7 +3,7 @@ import { TextField, BaseTextFieldProps, Theme } from "@mui/material";
 import makeStyles from '@mui/styles/makeStyles';
 import withStyles from '@mui/styles/withStyles';
 
-const useStyles = makeStyles(() => ({
+const useStyles = makeStyles((theme: Theme) => ({
   container: {
     display: "flex",
     flexWrap: "wrap",
@@ -11,16 +11,22 @@ const useStyles = makeStyles(() => ({
   },
   textField: {
     color: "transparent",
-    "& input[type='time']::-webkit-clear-button, & input::-webkit-outer-spin-button, & input::-webkit-inner-spin-button":
-      {
-        display: "none",
-      },
+    "& input[type='time']::-webkit-clear-button, & input::-webkit-outer-spin-button, & input::-webkit-inner-spin-button": {
+      display: "none",
+    },
     textAlign: "center",
   },
   inputRoot: {
     fontSize: 15,
     textAlign: "center",
     borderBottom: "0px ",
+    "&.Mui-focused fieldset.MuiOutlinedInput-notchedOutline": {
+      borderColor: theme.design.colors.waz_primaryColor100,
+      outline: theme.design.colors.waz_primaryColor100,
+    },
+    "&:hover": {
+      outline: "none"
+    },
   },
 }));
 
