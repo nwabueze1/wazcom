@@ -17,5 +17,8 @@ export var useSelectStyles = makeStyles(function (theme) { return ({
     },
     select: {
         width: "100%",
+        "& .MuiMenuItem-root": {
+            background: "none",
+        },
     },
 }); });

@@ -19,5 +19,8 @@ export const useSelectStyles = makeStyles((theme: Theme) => ({
   },
   select: {
     width: "100%",
+    "& .MuiMenuItem-root": {
+      background: "none",
+    },
   },
 }));
