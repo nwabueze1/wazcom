@@ -38,6 +38,8 @@ export var useTableControlsStyles = makeStyles(function (theme) {
             alignItems: "center",
             paddingLeft: theme.spacing(2),
             backgroundColor: theme.design.colors.waz_white,
+            marginRight: "auto",
+            marginLeft: theme.spacing(3)
         },
         searchIcon: {
             fontSize: 24,
