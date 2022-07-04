@@ -60,7 +60,7 @@ export const TableFilter: React.FC<TableFilterProps> = ({
     values.map(
       (item: { [key: string]: string | number | { [key: string]: any } }) => {
         let fieldValue = item[`${fieldName}`];
-        console.log("fieldValue", fieldValue)
+        console.log("fieldValue", fieldValue, item, fieldName)
         if (typeof fieldValue == "object") {
           fieldValue = getJsxContent(fieldValue);
         }

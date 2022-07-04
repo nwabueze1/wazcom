@@ -80,7 +80,7 @@ export var TableFilter = function (_a) {
         var data = [];
         values.map(function (item) {
             var fieldValue = item["".concat(fieldName)];
-            console.log("fieldValue", fieldValue);
+            console.log("fieldValue", fieldValue, item, fieldName);
             if (typeof fieldValue == "object") {
                 fieldValue = getJsxContent(fieldValue);
             }
