@@ -64,7 +64,7 @@ export const TableFilter: React.FC<TableFilterProps> = ({
         if (typeof fieldValue == "object") {
           fieldValue = getJsxContent(fieldValue);
         }
-        console.log(fieldValue?.toString(), data.includes(fieldValue.toString()))
+        console.log(fieldValue?.toString(), data.includes(fieldValue?.toString()))
         if (!fieldValue?.toString() || data.includes(fieldValue.toString())) return null;
         console.log("pushhhhh")
         data.push(fieldValue.toString());
