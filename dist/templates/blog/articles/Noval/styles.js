@@ -132,7 +132,7 @@ export var useNovalStyles = makeStyles(function (theme) {
                     margin: theme.spacing(2.5, 0)
                 },
                 "& img": {
-                    margin: theme.spacing(6, "auto"),
+                    margin: theme.spacing(4, "auto"),
                     maxWidth: "100%",
                     height: "100%",
                     display: "flex",
