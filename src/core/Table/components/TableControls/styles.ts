@@ -18,9 +18,38 @@ export const useTableControlsStyles = makeStyles((theme: Theme) => ({
     display: "flex",
     gap: theme.spacing(1),
     justifyContent: "space-between",
-    border: `1px solid ${theme.design.colors.waz_primaryColor100}`,
-    borderColor: theme.design.colors.waz_greyColor100,
-
+    border: "1px solid #0A7227",
+    borderRadius: "6px",
+    "&:hover": {
+      opacity: "initial",
+      backgroundColor: theme.design.colors.waz_white,
+      borderColor: theme.design.colors.waz_greyColor100,
+    },
+  },
+  printButton: {
+    backgroundColor: theme.design.colors.waz_white,
+    color: theme.design.colors.waz_Grey,
+    height: "40px",
+    display: "flex",
+    gap: theme.spacing(1),
+    justifyContent: "space-between",
+    border: "1px solid #E8E8E8",
+    borderRadius: "6px",
+    "&:hover": {
+      opacity: "initial",
+      backgroundColor: theme.design.colors.waz_white,
+      borderColor: theme.design.colors.waz_greyColor100,
+    },
+  },
+  exportButton: {
+    backgroundColor: theme.design.colors.waz_white,
+    color: theme.design.colors.waz_Grey,
+    height: "40px",
+    display: "flex",
+    gap: theme.spacing(1),
+    justifyContent: "space-between",
+    border: "1px solid #E8E8E8",
+    borderRadius: "6px",
     "&:hover": {
       opacity: "initial",
       backgroundColor: theme.design.colors.waz_white,
@@ -29,6 +58,7 @@ export const useTableControlsStyles = makeStyles((theme: Theme) => ({
   },
   controlButtonText: {
     fontSize: theme.typography.fontSize + 2,
+    fontWeight: "200",
   },
   controlsInputField: {
     width: "320px",
