@@ -52,27 +52,27 @@ export const TableFilter: React.FC<TableFilterProps> = ({
     });
   };
 
-  const getUniqueValues = useCallback(
-    (fieldName: string, values: TableFilterProps["values"]) => {
-      if (!values || values.length < 1) return [];
-      const data: string[] = [];
-      values.map(
-        (item: { [key: string]: string | number | { [key: string]: any } }) => {
-          let fieldValue = item[`${fieldName}`];
+  const getUniqueValues = (fieldName: string, values: TableFilterProps["values"]) => {
+    console.log(fieldName, values)
+    if (!values || values.length < 1) return [];
+    console.log("============")
+    const data: string[] = [];
+    values.map(
+      (item: { [key: string]: string | number | { [key: string]: any } }) => {
+        let fieldValue = item[`${fieldName}`];
 
-          if (typeof fieldValue == "object") {
-            fieldValue = getJsxContent(fieldValue);
-          }
-          if (!fieldValue?.toString() || data.includes(fieldValue.toString()))
-            return null;
-          data.push(fieldValue.toString());
-          return null;
+        if (typeof fieldValue == "object") {
+          fieldValue = getJsxContent(fieldValue);
         }
-      );
-      return data;
-    },
-    []
-  );
+        if (!fieldValue?.toString() || data.includes(fieldValue.toString())) return null;
+        console.log("pushhhhh")
+        data.push(fieldValue.toString());
+        return null;
+      }
+    );
+    console.log("data", data)
+    return data;
+  };
 
   const getCheckedState = (field: string, value: string) => {
     const filter = newFilters.find((filter) => filter.field === field);
@@ -81,7 +81,7 @@ export const TableFilter: React.FC<TableFilterProps> = ({
     }
     return false;
   };
-
+  console.log(tableValues)
   const renderFilterOptions = useCallback(
     () =>
       filterFields.map(({ name, label }) => {
@@ -89,6 +89,7 @@ export const TableFilter: React.FC<TableFilterProps> = ({
           <MenuItem key={name} className={classes.filterItemContainer}>
             <Accordion title={label}>
               {getUniqueValues(label, tableValues).map((item, key) => {
+                console.log(label, item)
                 return (
                   <div className={classes.filterItem} key={key}>
                     <Checkbox
