@@ -83,7 +83,7 @@ export var TableFilter = function (_a) {
             if (typeof fieldValue == "object") {
                 fieldValue = getJsxContent(fieldValue);
             }
-            console.log(fieldValue === null || fieldValue === void 0 ? void 0 : fieldValue.toString(), data.includes(fieldValue === null || fieldValue === void 0 ? void 0 : fieldValue.toString()));
+            console.log(fieldValue, fieldValue === null || fieldValue === void 0 ? void 0 : fieldValue.toString(), data.includes(fieldValue === null || fieldValue === void 0 ? void 0 : fieldValue.toString()), typeof fieldValue);
             if (!(fieldValue === null || fieldValue === void 0 ? void 0 : fieldValue.toString()) || data.includes(fieldValue.toString()))
                 return null;
             console.log("pushhhhh");
