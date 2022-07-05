@@ -61,7 +61,7 @@ export const TableControls: React.FC<TableControlsProps> = ({
       <Box className={classes.rightControls}>
         {controls?.canPrint && (
           <Button
-            className={classes.controlButton}
+            className={classes.printButton}
             variant="outlined"
             onClick={() => window.print()}
           >
@@ -72,7 +72,7 @@ export const TableControls: React.FC<TableControlsProps> = ({
         {controls?.canExport && (
           <>
             <Button
-              className={classes.controlButton}
+              className={classes.exportButton}
               variant="outlined"
               onClick={handleClick}
               aria-controls={open ? "account-menu" : undefined}
