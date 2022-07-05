@@ -53,25 +53,23 @@ export const TableFilter: React.FC<TableFilterProps> = ({
   };
 
   const getUniqueValues = (fieldName: string, values: TableFilterProps["values"]) => {
-    console.log(fieldName, values)
     if (!values || values.length < 1) return [];
-    console.log("============")
+
     const data: string[] = [];
     values.map(
       (item: { [key: string]: string | number | { [key: string]: any } }) => {
         let fieldValue = item[`${fieldName}`];
-        console.log("fieldValue", fieldValue, item, fieldName)
+
         if (typeof fieldValue == "object") {
           fieldValue = getJsxContent(fieldValue);
         }
-        console.log(fieldValue, fieldValue?.toString(), data.includes(fieldValue?.toString()), typeof fieldValue)
+
         if (!fieldValue?.toString() || data.includes(fieldValue.toString())) return null;
-        console.log("pushhhhh")
+        
         data.push(fieldValue.toString());
         return null;
       }
     );
-    console.log("data", data)
     return data;
   };
 
@@ -82,7 +80,7 @@ export const TableFilter: React.FC<TableFilterProps> = ({
     }
     return false;
   };
-  console.log(tableValues)
+  
   const renderFilterOptions = useCallback(
     () => {
       const fieldNames = Object.keys(tableValues[0])
@@ -91,12 +89,11 @@ export const TableFilter: React.FC<TableFilterProps> = ({
           <MenuItem key={name} className={classes.filterItemContainer}>
             <Accordion title={label}>
               {getUniqueValues(fieldNames[index], tableValues).map((item, key) => {
-                console.log(label, item)
                 return (
                   <div className={classes.filterItem} key={key}>
                     <Checkbox
-                      checked={!getCheckedState(label, item)}
-                      onChange={() => handleSetFilter(label, item)}
+                      checked={!getCheckedState(fieldNames[index], item)}
+                      onChange={() => handleSetFilter(fieldNames[index], item)}
                     />
                     <div>{item}</div>
                   </div>
