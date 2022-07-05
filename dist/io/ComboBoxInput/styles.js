@@ -4,7 +4,7 @@ export var useComboBoxStyles = makeStyles(function (theme) { return ({
         display: "flex",
         flexDirection: "column",
         marginBottom: theme.spacing(2),
-        "& .MuiAutocomplete-root.Mui-focused fieldset.MuiOutlinedInput-notchedOutline": {
+        "& .MuiAutocomplete-root .Mui-focused fieldset.MuiOutlinedInput-notchedOutline": {
             borderColor: theme.design.colors.waz_primaryColor100,
             outline: theme.design.colors.waz_primaryColor100,
             "&:hover": {
@@ -17,4 +17,9 @@ export var useComboBoxStyles = makeStyles(function (theme) { return ({
         marginTop: theme.spacing(2),
         fontSize: theme.typography.fontSize,
     },
+    renderInput: {
+        "& input.MuiOutlinedInput-input.MuiInputBase-input": {
+            padding: theme.spacing(0)
+        }
+    }
 }); });
