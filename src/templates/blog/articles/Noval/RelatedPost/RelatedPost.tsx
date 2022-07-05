@@ -1,9 +1,9 @@
 import { FC } from "react";
-import { CoreArticleTemplateFields } from "../../types";
-import { useRelatedPostNovalStyles } from "./styles";
 import clx from "classnames";
 import { getTimeFrom } from "../../../../../utilities/getTime";
 import { truncate } from "lodash";
+import { CoreArticleTemplateFields } from "../..";
+import { useRelatedPostNovalStyles } from ".";
 
 export const RelatedPostNoval: FC<CoreArticleTemplateFields> = ({
   article,

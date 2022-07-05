@@ -10,10 +10,10 @@ var __assign = (this && this.__assign) || function () {
     return __assign.apply(this, arguments);
 };
 import { jsx as _jsx, jsxs as _jsxs } from "react/jsx-runtime";
-import { useRelatedPostGelloStyles } from "./styles";
 import clx from "classnames";
 import { stripHtml } from "../../../../../utilities/Post";
 import { truncate } from "lodash";
+import { useRelatedPostGelloStyles } from ".";
 export var RelatedPostGello = function (_a) {
     var article = _a.article, handleClick = _a.handleClick, className = _a.className;
     var classes = useRelatedPostGelloStyles();

@@ -105,21 +105,28 @@ export var useUpdateTableValue = function (setTableValue, initialTableValue, con
             ? __spreadArray([], __read(result), false) : __spreadArray([], __read(initialTableValue), false);
         if (filters.length > 0) {
             return newFilterResult.filter(function (rowValues) {
-                var status = false;
+                var status = [];
                 Object.entries(rowValues).map(function (_a) {
                     var _b = __read(_a, 2), key = _b[0], value = _b[1];
-                    var filterIndex = filters.findIndex(function (item) { return item.field == key; });
-                    if (filterIndex !== -1) {
-                        var term = typeof value == "object"
-                            ? getJsxContent(value)
-                            : value.toString();
-                        if (!filters[filterIndex].values.includes(term)) {
-                            status = true;
+                    var idx = -1;
+                    filters.map(function (item, index) {
+                        if (item.field == key) {
+                            idx = index;
                         }
-                    }
-                    return null;
+                        else {
+                            idx = -1;
+                        }
+                        if (idx !== -1) {
+                            var term = value == null ? "" : typeof value == "object" ? getJsxContent(value) : String(value);
+                            if (!filters[idx].values.includes(term)) {
+                                return status.push(true);
+                            }
+                            status.push(false);
+                        }
+                        return;
+                    });
                 });
-                return status;
+                return !status.includes(false);
             });
         }
         return result;

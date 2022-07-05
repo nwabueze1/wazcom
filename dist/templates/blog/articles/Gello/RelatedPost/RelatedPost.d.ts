@@ -1,3 +1,3 @@
 import { FC } from "react";
-import { CoreArticleTemplateFields } from "../../types";
+import { CoreArticleTemplateFields } from "../..";
 export declare const RelatedPostGello: FC<CoreArticleTemplateFields>;

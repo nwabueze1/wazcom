@@ -1,9 +1,9 @@
 import { FC } from "react";
-import { CoreArticleTemplateFields } from "../../types";
-import { useRelatedPostGelloStyles } from "./styles";
 import clx from "classnames";
 import { stripHtml } from "../../../../../utilities/Post";
 import { truncate } from "lodash";
+import { CoreArticleTemplateFields } from "../..";
+import { useRelatedPostGelloStyles } from ".";
 
 export const RelatedPostGello: FC<CoreArticleTemplateFields> = ({
   article,

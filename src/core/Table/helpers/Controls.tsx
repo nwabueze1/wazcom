@@ -90,22 +90,27 @@ export const useUpdateTableValue = (
 
     if (filters.length > 0) {
       return newFilterResult.filter((rowValues) => {
-        let status = false;
+        const status: boolean[] = [];
         Object.entries(rowValues).map(([key, value]) => {
-          const filterIndex = filters.findIndex((item) => item.field == key);
-          if (filterIndex !== -1) {
-            const term =
-              typeof value == "object"
-                ? getJsxContent(value)
-                : value.toString();
-            if (!filters[filterIndex].values.includes(term)) {
-              status = true;
+          let idx = -1
+          filters.map((item, index) => {
+            if (item.field == key) {
+              idx = index
+            } else {
+              idx = -1
             }
-          }
-          return null;
+            if (idx !== -1) {
+              const term = value == null ? "" : typeof value == "object" ? getJsxContent(value): String(value);
+              if (!filters[idx].values.includes(term)) {
+                return status.push(true)
+              }
+              status.push(false)
+            }
+            return
+          });
+          
         });
-
-        return status;
+        return !status.includes(false);
       });
     }
 

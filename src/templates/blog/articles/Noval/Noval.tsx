@@ -1,10 +1,10 @@
 import { FC, useEffect, useState } from "react";
-import { CoreArticleTemplateFields } from "../types";
-import { useNovalStyles } from "./styles";
 import clx from "classnames";
 import { RelatedPostNoval } from "./RelatedPost/RelatedPost";
 import { shareDataNoval } from "./data";
 import { getTimeFrom } from "../../../../utilities/getTime";
+import { CoreArticleTemplateFields } from "..";
+import { useNovalStyles } from ".";
 
 export const Noval: FC<CoreArticleTemplateFields> = ({
   article,

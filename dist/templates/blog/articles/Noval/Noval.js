@@ -27,11 +27,11 @@ var __read = (this && this.__read) || function (o, n) {
 };
 import { jsx as _jsx, jsxs as _jsxs, Fragment as _Fragment } from "react/jsx-runtime";
 import { useEffect, useState } from "react";
-import { useNovalStyles } from "./styles";
 import clx from "classnames";
 import { RelatedPostNoval } from "./RelatedPost/RelatedPost";
 import { shareDataNoval } from "./data";
 import { getTimeFrom } from "../../../../utilities/getTime";
+import { useNovalStyles } from ".";
 export var Noval = function (_a) {
     var _b;
     var article = _a.article, site = _a.site, domain = _a.domain, handleClick = _a.handleClick;

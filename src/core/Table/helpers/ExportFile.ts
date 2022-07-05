@@ -1,5 +1,6 @@
 import * as FileSaver from "file-saver";
 import * as XLSX from "xlsx";
+import { getJsxContent } from ".";
 
 const fileTypeExt = {
   xlsx: {
@@ -17,7 +18,15 @@ export const exportToXlsx = (
   name: string,
   data: { [key: string]: string }[],
 ) => {
-  const workSheet = XLSX.utils.json_to_sheet(data);
+  const parseData = data.map((item) => {
+    const obj = {}
+    Object.entries(item).map(([key, value]) => {
+      const innerValue = value === null ? "" : typeof value == "object" ? getJsxContent(value): value.toString();
+      obj[key] = innerValue
+    })
+    return obj
+  })
+  const workSheet = XLSX.utils.json_to_sheet(parseData);
   const workBook = { Sheets: { data: workSheet }, SheetNames: ["data"] };
   const excelBuffer = XLSX.write(workBook, { bookType: "xlsx", type: "array" });
   const downloadData = new Blob([excelBuffer], {
@@ -30,7 +39,7 @@ export const exportToCSV = (filename: string, rows: { [key: string]: any }) => {
   const processRow = function (row: any) {
     let finalVal = "";
     Object.values(row).map((value: any, index: any) => {
-      let innerValue = value === null ? "" : value.toString();
+      let innerValue = value === null ? "" : typeof value == "object" ? getJsxContent(value): value.toString();
       if (value instanceof Date) {
         innerValue = value.toLocaleString();
       }

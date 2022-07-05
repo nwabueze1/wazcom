@@ -13,7 +13,7 @@ export const TableFilter: React.FC<TableFilterProps> = ({
   showFilter,
   setShowFilter,
   fields,
-  values,
+  values: tableValues,
   filters,
   setFilters,
 }) => {
@@ -21,11 +21,10 @@ export const TableFilter: React.FC<TableFilterProps> = ({
   const controlClasses = useTableControlsStyles();
   const [filterFields, setFilterFields] =
     useState<{ [key: string]: any }[]>(fields);
- 
+
   const [newFilters, setNewFilters] = useState(filters);
 
   const handleSetFilter = (field: string, value: string) => {
-    
     setNewFilters((filters) => {
       const index = filters.findIndex((filter) => filter.field === field);
       if (index === -1) {
@@ -40,7 +39,7 @@ export const TableFilter: React.FC<TableFilterProps> = ({
       const newArr = [...filters];
       if (newArr[index].values.includes(value)) {
         const itemIndex = newArr[index].values.findIndex(
-          (item) => item === value,
+          (item) => item === value
         );
         newArr[index].values.splice(itemIndex, 1);
         return newArr;
@@ -53,28 +52,26 @@ export const TableFilter: React.FC<TableFilterProps> = ({
     });
   };
 
-  const getUniqueValues = useCallback(
-    (fieldName: string, values: TableFilterProps["values"]) => {
-      if (!values || values.length < 1) return [];
-      const data: string[] = [];
-      values.map((item: { [key: string]: string | number | { [key: string]: any; } }) => {
+  const getUniqueValues = (fieldName: string, values: TableFilterProps["values"]) => {
+    if (!values || values.length < 1) return [];
+
+    const data: string[] = [];
+    values.map(
+      (item: { [key: string]: string | number | { [key: string]: any } }) => {
         let fieldValue = item[`${fieldName}`];
-        
+
         if (typeof fieldValue == "object") {
-          fieldValue = getJsxContent(fieldValue)
+          fieldValue = getJsxContent(fieldValue);
         }
-        if (
-          !fieldValue?.toString() ||
-          data.includes(fieldValue.toString())
-        )
-          return null;
+
+        if (!fieldValue?.toString() || data.includes(fieldValue.toString())) return null;
+        
         data.push(fieldValue.toString());
         return null;
-      });
-      return data;
-    },
-    [],
-  );
+      }
+    );
+    return data;
+  };
 
   const getCheckedState = (field: string, value: string) => {
     const filter = newFilters.find((filter) => filter.field === field);
@@ -83,27 +80,31 @@ export const TableFilter: React.FC<TableFilterProps> = ({
     }
     return false;
   };
-
+  
   const renderFilterOptions = useCallback(
-    () =>
-      filterFields.map(({ name, label }) => (
-        <MenuItem key={name} className={classes.filterItemContainer}>
-          <Accordion title={label}>
-            {getUniqueValues(label, values).map((item, key) => {
-              return (
-                <div className={classes.filterItem} key={key}>
-                  <Checkbox
-                    checked={!getCheckedState(label, item)}
-                    onChange={() => handleSetFilter(label, item)}
-                  />
-                  <div>{item}</div>
-                </div>
-              )
-            })}
-          </Accordion>
-        </MenuItem>
-      )),
-    [filterFields, newFilters, values],
+    () => {
+      const fieldNames = tableValues && tableValues.length > 0 ? Object.keys(tableValues[0]) : []
+      return filterFields.map(({ name, label }, index) => {
+        return (
+          <MenuItem key={name} className={classes.filterItemContainer}>
+            <Accordion title={label}>
+              {getUniqueValues(fieldNames?.[index], tableValues).map((item, key) => {
+                return (
+                  <div className={classes.filterItem} key={key}>
+                    <Checkbox
+                      checked={!getCheckedState(fieldNames?.[index], item)}
+                      onChange={() => handleSetFilter(fieldNames?.[index], item)}
+                    />
+                    <div>{item}</div>
+                  </div>
+                );
+              })}
+            </Accordion>
+          </MenuItem>
+        )
+      })
+    },
+    [filterFields, newFilters, tableValues]
   );
 
   const handleClickAway = () => {
@@ -113,7 +114,6 @@ export const TableFilter: React.FC<TableFilterProps> = ({
   useEffect(() => {
     setFilterFields(fields);
   }, [fields]);
-
 
   return (
     <ClickAwayListener onClickAway={handleClickAway}>
@@ -134,7 +134,7 @@ export const TableFilter: React.FC<TableFilterProps> = ({
           <MenuItem
             className={clx(
               classes.filterItemContainer,
-              classes.filterItemsHeader,
+              classes.filterItemsHeader
             )}
           >
             FILTER BY:
@@ -145,7 +145,7 @@ export const TableFilter: React.FC<TableFilterProps> = ({
               <Button
                 className={clx(
                   classes.filterActionButton,
-                  classes.filterActionButtonOutline,
+                  classes.filterActionButtonOutline
                 )}
                 onClick={handleClickAway}
               >
