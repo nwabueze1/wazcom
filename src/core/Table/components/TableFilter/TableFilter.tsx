@@ -84,12 +84,13 @@ export const TableFilter: React.FC<TableFilterProps> = ({
   };
   console.log(tableValues)
   const renderFilterOptions = useCallback(
-    () =>
-      filterFields.map(({ name, label }) => {
+    () => {
+      const fieldNames = Object.keys(tableValues[0])
+      return filterFields.map(({ name, label }, index) => {
         return (
           <MenuItem key={name} className={classes.filterItemContainer}>
             <Accordion title={label}>
-              {getUniqueValues(label, tableValues).map((item, key) => {
+              {getUniqueValues(fieldNames[index], tableValues).map((item, key) => {
                 console.log(label, item)
                 return (
                   <div className={classes.filterItem} key={key}>
@@ -104,7 +105,8 @@ export const TableFilter: React.FC<TableFilterProps> = ({
             </Accordion>
           </MenuItem>
         )
-      }),
+      })
+    },
     [filterFields, newFilters, tableValues]
   );
 

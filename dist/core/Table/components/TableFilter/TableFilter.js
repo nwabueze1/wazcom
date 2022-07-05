@@ -103,9 +103,10 @@ export var TableFilter = function (_a) {
     };
     console.log(tableValues);
     var renderFilterOptions = useCallback(function () {
-        return filterFields.map(function (_a) {
+        var fieldNames = Object.keys(tableValues[0]);
+        return filterFields.map(function (_a, index) {
             var name = _a.name, label = _a.label;
-            return (_jsx(MenuItem, __assign({ className: classes.filterItemContainer }, { children: _jsx(Accordion, __assign({ title: label }, { children: getUniqueValues(label, tableValues).map(function (item, key) {
+            return (_jsx(MenuItem, __assign({ className: classes.filterItemContainer }, { children: _jsx(Accordion, __assign({ title: label }, { children: getUniqueValues(fieldNames[index], tableValues).map(function (item, key) {
                         console.log(label, item);
                         return (_jsxs("div", __assign({ className: classes.filterItem }, { children: [_jsx(Checkbox, { checked: !getCheckedState(label, item), onChange: function () { return handleSetFilter(label, item); } }, void 0), _jsx("div", { children: item }, void 0)] }), key));
                     }) }), void 0) }), name));
