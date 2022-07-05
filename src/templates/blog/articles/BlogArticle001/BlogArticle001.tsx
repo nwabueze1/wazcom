@@ -2,9 +2,8 @@ import React, { FC } from "react";
 import { useBlogArticle001Styles } from ".";
 import { CoreArticleTemplateFields } from "..";
 
-export const BlogArticle001: FC<CoreArticleTemplateFields> = ({ article, site }) => {
+export const BlogArticle001: FC<CoreArticleTemplateFields> = ({ article }) => {
   const classes = useBlogArticle001Styles();
-  const author = `${site?.user?.firstname} ${site?.user?.lastname}`;
   return (
     <div>
       <div className={classes.root}>

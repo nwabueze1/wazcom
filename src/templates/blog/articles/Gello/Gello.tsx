@@ -5,9 +5,12 @@ import { RelatedPostGello } from "./RelatedPost/RelatedPost";
 import { getDay } from "../../../../utilities/getTime";
 import { useGelloStyles } from "./styles";
 import clx from "classnames";
-import { useDefaultAvatar } from "../../helpers";
 
-export const Gello: FC<CoreArticleTemplateFields> = ({ article, site, domain, handleClick }) => {
+export const Gello: FC<CoreArticleTemplateFields> = ({
+  article,
+  domain,
+  handleClick,
+}) => {
   const classes = useGelloStyles();
   const [loaded, setLoaded] = useState(false);
 
@@ -19,7 +22,12 @@ export const Gello: FC<CoreArticleTemplateFields> = ({ article, site, domain, ha
 
   const displayRelatedPosts = () =>
     article.related_posts?.map((post, index) => (
-      <RelatedPostGello key={index} article={post} domain={domain} handleClick={handleClick} />
+      <RelatedPostGello
+        key={index}
+        article={post}
+        domain={domain}
+        handleClick={handleClick}
+      />
     ));
 
   const isRelatedPosts = Boolean(
@@ -40,13 +48,12 @@ export const Gello: FC<CoreArticleTemplateFields> = ({ article, site, domain, ha
       );
     });
   };
-  const defaultAvatar = useDefaultAvatar(site);
 
   return (
     <>
       <head>
-        <link 
-          href="https://fonts.googleapis.com/css2?family=Nunito+Sans:wght@300;400;600&display=swap" 
+        <link
+          href="https://fonts.googleapis.com/css2?family=Nunito+Sans:wght@300;400;600&display=swap"
           rel="stylesheet"
         />
       </head>
@@ -65,23 +72,6 @@ export const Gello: FC<CoreArticleTemplateFields> = ({ article, site, domain, ha
           </div>
           <h1 className={classes.title}>{article.title}</h1>
           <div className={classes.articleInfo}>
-            {site?.user?.avatar ? (
-              <div className={classes.avatarContainer}>
-                <img
-                  src={site?.user?.avatar}
-                  alt=""
-                  className={classes.avatarImage}
-                />
-              </div>
-            ) : (
-              <p className={classes.defaultAvatar}>{defaultAvatar}</p>
-            )}
-            <p className={classes.written}>
-              Written by
-              <span className={classes.writersName}>
-                &nbsp;{site?.user?.firstname}&nbsp;{site?.user?.lastname}
-              </span>
-            </p>
             <div className={classes.dateWritten}>
               <div className={classes.bulletPoint} />
               <p className={classes.date}>{getDay(article.created_at)}</p>

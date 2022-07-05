@@ -9,7 +9,6 @@ export const BlogArticle002: FC<CoreArticleTemplateFields> = ({
   site,
 }) => {
   const classes = useBlogArticle002Styles();
-  const author = `${site?.user?.firstname} ${site?.user?.lastname}`;
 
   return (
     <section className={classes.root}>
@@ -24,7 +23,6 @@ export const BlogArticle002: FC<CoreArticleTemplateFields> = ({
       </div>
       <hr className={classes.horizontalLine} />
       <div className={classes.footerSection}>
-        <h2 className={classes.author}>{author}</h2>
         <p className={classes.category}>
           Categories: {article.category?.slug as string}
         </p>

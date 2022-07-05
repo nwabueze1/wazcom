@@ -33,5 +33,4 @@ export interface CoreSiteFields {
   user_id: string;
   updated_at: any;
   created_at: any;
-  user: CoreSiteFields_user | null;
 }
