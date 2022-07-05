@@ -83,7 +83,7 @@ export const TableFilter: React.FC<TableFilterProps> = ({
   
   const renderFilterOptions = useCallback(
     () => {
-      const fieldNames = Object.keys(tableValues[0])
+      const fieldNames = Object.keys(tableValues?.[0])
       return filterFields.map(({ name, label }, index) => {
         return (
           <MenuItem key={name} className={classes.filterItemContainer}>
