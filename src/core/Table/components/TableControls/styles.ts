@@ -18,7 +18,7 @@ export const useTableControlsStyles = makeStyles((theme: Theme) => ({
     display: "flex",
     gap: theme.spacing(1),
     justifyContent: "space-between",
-    border: "1px solid #0A7227",
+    border: `1px solid ${theme.design.colors.waz_primaryColor100}`,
     borderRadius: "6px",
     "&:hover": {
       opacity: "initial",
@@ -33,7 +33,7 @@ export const useTableControlsStyles = makeStyles((theme: Theme) => ({
     display: "flex",
     gap: theme.spacing(1),
     justifyContent: "space-between",
-    border: "1px solid #E8E8E8",
+    border: `1px solid ${theme.design.colors.waz_grey300}`,
     borderRadius: "6px",
     "&:hover": {
       opacity: "initial",
@@ -48,7 +48,7 @@ export const useTableControlsStyles = makeStyles((theme: Theme) => ({
     display: "flex",
     gap: theme.spacing(1),
     justifyContent: "space-between",
-    border: "1px solid #E8E8E8",
+    border: `1px solid ${theme.design.colors.waz_grey300}`,
     borderRadius: "6px",
     "&:hover": {
       opacity: "initial",
