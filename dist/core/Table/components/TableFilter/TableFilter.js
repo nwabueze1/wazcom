@@ -46,7 +46,7 @@ import { useTableControlsStyles } from "../TableControls/styles";
 import { getJsxContent } from "../../helpers";
 export var TableFilter = function (_a) {
     var _b;
-    var showFilter = _a.showFilter, setShowFilter = _a.setShowFilter, fields = _a.fields, values = _a.values, filters = _a.filters, setFilters = _a.setFilters;
+    var showFilter = _a.showFilter, setShowFilter = _a.setShowFilter, fields = _a.fields, tableValues = _a.values, filters = _a.filters, setFilters = _a.setFilters;
     var classes = useFilterStyles();
     var controlClasses = useTableControlsStyles();
     var _c = __read(useState(fields), 2), filterFields = _c[0], setFilterFields = _c[1];
@@ -72,7 +72,7 @@ export var TableFilter = function (_a) {
             return newArr;
         });
     };
-    var getUniqueValues = useCallback(function (fieldName, values) {
+    var getUniqueValues = function (fieldName, values) {
         if (!values || values.length < 1)
             return [];
         var data = [];
@@ -81,14 +81,13 @@ export var TableFilter = function (_a) {
             if (typeof fieldValue == "object") {
                 fieldValue = getJsxContent(fieldValue);
             }
-            if (!(fieldValue === null || fieldValue === void 0 ? void 0 : fieldValue.toString()) ||
-                data.includes(fieldValue.toString()))
+            if (!(fieldValue === null || fieldValue === void 0 ? void 0 : fieldValue.toString()) || data.includes(fieldValue.toString()))
                 return null;
             data.push(fieldValue.toString());
             return null;
         });
         return data;
-    }, []);
+    };
     var getCheckedState = function (field, value) {
         var filter = newFilters.find(function (filter) { return filter.field === field; });
         if (filter && filter.values.includes(value)) {
@@ -97,13 +96,14 @@ export var TableFilter = function (_a) {
         return false;
     };
     var renderFilterOptions = useCallback(function () {
-        return filterFields.map(function (_a) {
+        var fieldNames = tableValues && tableValues.length > 0 ? Object.keys(tableValues[0]) : [];
+        return filterFields.map(function (_a, index) {
             var name = _a.name, label = _a.label;
-            return (_jsx(MenuItem, __assign({ className: classes.filterItemContainer }, { children: _jsx(Accordion, __assign({ title: label }, { children: getUniqueValues(label, values).map(function (item, key) {
-                        return (_jsxs("div", __assign({ className: classes.filterItem }, { children: [_jsx(Checkbox, { checked: !getCheckedState(label, item), onChange: function () { return handleSetFilter(label, item); } }, void 0), _jsx("div", { children: item }, void 0)] }), key));
+            return (_jsx(MenuItem, __assign({ className: classes.filterItemContainer }, { children: _jsx(Accordion, __assign({ title: label }, { children: getUniqueValues(fieldNames === null || fieldNames === void 0 ? void 0 : fieldNames[index], tableValues).map(function (item, key) {
+                        return (_jsxs("div", __assign({ className: classes.filterItem }, { children: [_jsx(Checkbox, { checked: !getCheckedState(fieldNames === null || fieldNames === void 0 ? void 0 : fieldNames[index], item), onChange: function () { return handleSetFilter(fieldNames === null || fieldNames === void 0 ? void 0 : fieldNames[index], item); } }, void 0), _jsx("div", { children: item }, void 0)] }), key));
                     }) }), void 0) }), name));
         });
-    }, [filterFields, newFilters, values]);
+    }, [filterFields, newFilters, tableValues]);
     var handleClickAway = function () {
         setShowFilter(false);
     };

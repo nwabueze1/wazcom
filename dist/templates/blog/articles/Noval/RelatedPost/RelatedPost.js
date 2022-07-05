@@ -10,11 +10,11 @@ var __assign = (this && this.__assign) || function () {
     return __assign.apply(this, arguments);
 };
 import { jsx as _jsx, jsxs as _jsxs } from "react/jsx-runtime";
-import { useRelatedPostNovalStyles } from "./styles";
 import clx from "classnames";
 import { getTimeFrom } from "../../../../../utilities/getTime";
 import { useDefaultAvatar } from "../../../helpers";
 import { truncate } from "lodash";
+import { useRelatedPostNovalStyles } from ".";
 export var RelatedPostNoval = function (_a) {
     var _b, _c, _d, _e, _f;
     var article = _a.article, site = _a.site, className = _a.className, handleClick = _a.handleClick;

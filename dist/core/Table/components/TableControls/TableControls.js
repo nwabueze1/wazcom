@@ -33,8 +33,8 @@ import { Logout, Print, SendToMobileOutlined, Settings, } from "@mui/icons-mater
 import { Button } from "../../../Button";
 import { exportToCSV, exportToXlsx } from "../../helpers";
 import Menu from "@mui/material/Menu";
-import { SearchInput } from "./SearchInput";
 import { TableFilter } from "../TableFilter";
+import { SearchInput } from "./SearchInput";
 export var TableControls = function (_a) {
     var controls = _a.controls, handleControlsChange = _a.handleControlsChange, showFilter = _a.showFilter, setShowFilter = _a.setShowFilter, fields = _a.fields, values = _a.values, filters = _a.filters, setFilters = _a.setFilters, tableValues = _a.tableValues, controlsFormData = _a.controlsFormData;
     var classes = useTableControlsStyles();

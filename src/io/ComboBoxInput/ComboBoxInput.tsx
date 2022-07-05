@@ -101,11 +101,7 @@ export const ComboBoxInput: FC<ComboBoxInputProps> = ({
             placeholder={placeholder}
             variant="outlined"
             error={error}
-            inputProps={{
-              style: {
-                padding: 0
-              }
-           }}
+            className={classes.renderInput}
           />
         )}
         className={
