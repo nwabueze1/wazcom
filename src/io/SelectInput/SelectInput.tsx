@@ -28,7 +28,7 @@ export const SelectInput: FC<SelectInputProps> = ({
   };
 
   const displayLabelFromValue = (value: any) => {
-    const label = options.filter((option) => option.value == value)?.[0].label;
+    const label = options.filter((option) => option.value == value)?.[0]?.label;
     return label;
   };
 

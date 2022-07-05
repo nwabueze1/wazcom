@@ -12,10 +12,15 @@ export const useInputGroupStyles = makeStyles((theme: Theme) => ({
     left: 1,
     width: "25%",
     height: "calc(100% - 2px)",
-    background: "#CCCFCD",
     display: "flex",
+    background: theme.design.colors.waz_mercury,
     alignItems: "center",
+  },
+  textPosition: {
     justifyContent: "center",
+  },
+  icon: {
+    padding: theme.spacing(0, 2),
   },
   required: {
     color: theme.design.colors.waz_dangerColor100,

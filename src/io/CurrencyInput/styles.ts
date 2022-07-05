@@ -15,6 +15,10 @@ export const useCurrencyInputStyles = makeStyles((theme: BaseTheme) => ({
       color: theme.design.colors.grey300,
       fontSize: theme.typography.fontSize + 2,
     },
+    "&:focus": {
+      border: `1px solid ${theme.design.colors.waz_primaryColor100}`,
+      outline: "none",
+    },
   },
   required: {
     color: theme.design.colors.waz_dangerColor100,

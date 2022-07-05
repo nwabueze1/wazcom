@@ -16,6 +16,7 @@ export const useButtonStyles = makeStyles((theme: BaseTheme) => ({
     "&:hover": {
       backgroundColor: theme.design.colors.waz_primaryColor100,
       opacity: "70%",
+      boxShadow: "none",
     },
   },
   sizeLarge: {

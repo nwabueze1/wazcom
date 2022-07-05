@@ -19,5 +19,16 @@ export const useSelectStyles = makeStyles((theme: Theme) => ({
   },
   select: {
     width: "100%",
+    "& .MuiMenuItem-root": {
+      background: "none",
+    },
+    "&.Mui-focused fieldset.MuiOutlinedInput-notchedOutline": {
+      borderColor: theme.design.colors.waz_primaryColor100,
+      outline: theme.design.colors.waz_primaryColor100,
+      "&:hover": {
+        borderColor: theme.design.colors.waz_primaryColor100,
+        outline: theme.design.colors.waz_primaryColor100
+      },
+    },
   },
 }));

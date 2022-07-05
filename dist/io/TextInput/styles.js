@@ -5,6 +5,14 @@ export var useTextStyles = makeStyles(function (theme) { return ({
         flexDirection: "column",
         marginBottom: 15,
         position: "relative",
+        "& .Mui-focused fieldset.MuiOutlinedInput-notchedOutline": {
+            borderColor: theme.design.colors.waz_primaryColor100,
+            outline: theme.design.colors.waz_primaryColor100,
+            "&:hover": {
+                borderColor: theme.design.colors.waz_primaryColor100,
+                outline: theme.design.colors.waz_primaryColor100
+            },
+        },
     },
     label: {
         display: "flex",
