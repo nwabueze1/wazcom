@@ -3,7 +3,6 @@ import clx from "classnames";
 import { RelatedPostNoval } from "./RelatedPost/RelatedPost";
 import { shareDataNoval } from "./data";
 import { getTimeFrom } from "../../../../utilities/getTime";
-import { useDefaultAvatar } from "../../helpers";
 import { CoreArticleTemplateFields } from "..";
 import { useNovalStyles } from ".";
 
@@ -59,15 +58,13 @@ export const Noval: FC<CoreArticleTemplateFields> = ({
     });
   };
 
-  const defaultAvatar = useDefaultAvatar(site);
-
   return (
     <>
       <head>
-          <link
-            href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;600;700&display=swap"
-            rel="stylesheet"
-          />
+        <link
+          href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;600;700&display=swap"
+          rel="stylesheet"
+        />
       </head>
       <div className={classes.root}>
         <section className={classes.header}>
@@ -82,22 +79,6 @@ export const Noval: FC<CoreArticleTemplateFields> = ({
             <div className={classes.tags}>{displayTags()}</div>
             <h1 className={classes.title}>{article.title}</h1>
             <div className={classes.blogInfo}>
-              {site?.user?.avatar ? (
-                <div className={classes.avatar}>
-                  <img
-                    src={site?.user?.avatar ?? ""}
-                    className={clx(classes.featuredImage, classes.avatarImage)}
-                  />
-                </div>
-              ) : (
-                <p className={classes.defaultAvatar}>{defaultAvatar}</p>
-              )}
-              <p className={classes.writtenBy}>
-                Written by{" "}
-                <span className={classes.author}>
-                  {site?.user?.firstname}&nbsp;{site?.user?.lastname}
-                </span>
-              </p>
               <p className={classes.postedTime}>
                 Posted {getTimeFrom(article.created_at)} ago
               </p>
