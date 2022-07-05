@@ -73,25 +73,19 @@ export var TableFilter = function (_a) {
         });
     };
     var getUniqueValues = function (fieldName, values) {
-        console.log(fieldName, values);
         if (!values || values.length < 1)
             return [];
-        console.log("============");
         var data = [];
         values.map(function (item) {
             var fieldValue = item["".concat(fieldName)];
-            console.log("fieldValue", fieldValue, item, fieldName);
             if (typeof fieldValue == "object") {
                 fieldValue = getJsxContent(fieldValue);
             }
-            console.log(fieldValue, fieldValue === null || fieldValue === void 0 ? void 0 : fieldValue.toString(), data.includes(fieldValue === null || fieldValue === void 0 ? void 0 : fieldValue.toString()), typeof fieldValue);
             if (!(fieldValue === null || fieldValue === void 0 ? void 0 : fieldValue.toString()) || data.includes(fieldValue.toString()))
                 return null;
-            console.log("pushhhhh");
             data.push(fieldValue.toString());
             return null;
         });
-        console.log("data", data);
         return data;
     };
     var getCheckedState = function (field, value) {
@@ -101,14 +95,12 @@ export var TableFilter = function (_a) {
         }
         return false;
     };
-    console.log(tableValues);
     var renderFilterOptions = useCallback(function () {
         var fieldNames = Object.keys(tableValues[0]);
         return filterFields.map(function (_a, index) {
             var name = _a.name, label = _a.label;
             return (_jsx(MenuItem, __assign({ className: classes.filterItemContainer }, { children: _jsx(Accordion, __assign({ title: label }, { children: getUniqueValues(fieldNames[index], tableValues).map(function (item, key) {
-                        console.log(label, item);
-                        return (_jsxs("div", __assign({ className: classes.filterItem }, { children: [_jsx(Checkbox, { checked: !getCheckedState(label, item), onChange: function () { return handleSetFilter(label, item); } }, void 0), _jsx("div", { children: item }, void 0)] }), key));
+                        return (_jsxs("div", __assign({ className: classes.filterItem }, { children: [_jsx(Checkbox, { checked: !getCheckedState(fieldNames[index], item), onChange: function () { return handleSetFilter(fieldNames[index], item); } }, void 0), _jsx("div", { children: item }, void 0)] }), key));
                     }) }), void 0) }), name));
         });
     }, [filterFields, newFilters, tableValues]);
