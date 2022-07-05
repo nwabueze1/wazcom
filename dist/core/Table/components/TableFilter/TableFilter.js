@@ -96,7 +96,7 @@ export var TableFilter = function (_a) {
         return false;
     };
     var renderFilterOptions = useCallback(function () {
-        var fieldNames = tableValues ? Object.keys(tableValues[0]) : [];
+        var fieldNames = tableValues && tableValues.length > 0 ? Object.keys(tableValues[0]) : [];
         return filterFields.map(function (_a, index) {
             var name = _a.name, label = _a.label;
             return (_jsx(MenuItem, __assign({ className: classes.filterItemContainer }, { children: _jsx(Accordion, __assign({ title: label }, { children: getUniqueValues(fieldNames === null || fieldNames === void 0 ? void 0 : fieldNames[index], tableValues).map(function (item, key) {
