@@ -1,9 +1,9 @@
 import { FC } from "react";
 import { CoreArticleTemplateFields } from "../../types";
 import { useRelatedPostHaloStyles } from "./styles";
-import clx from "classnames";
 import { stripHtml } from "../../../../../utilities/Post";
 import { truncate } from "lodash";
+import { getDay } from "../../../../../utilities/getTime";
 
 export const RelatedPostHalo: FC<CoreArticleTemplateFields> = ({
   article,
@@ -23,6 +23,9 @@ export const RelatedPostHalo: FC<CoreArticleTemplateFields> = ({
         <p className={classes.articleTitle}>{truncate(article.title, {length: 100})}</p>
         <div className={classes.post}>
           {truncate(stripHtml(article.excerpt), {length: 100})}
+        </div>
+        <div className={classes.articleDate}>
+          {getDay(article.created_at)}
         </div>
       </div>
     </div>

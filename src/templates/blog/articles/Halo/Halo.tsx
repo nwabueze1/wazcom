@@ -1,17 +1,14 @@
-import React, { useState, useEffect, FC } from 'react';
+import { useState, useEffect, FC } from 'react';
 import { useHaloStyles } from './styles';
-import { Chip, Avatar } from '@mui/material';
-import { heroImage } from './data';
+import { Chip } from '@mui/material';
 import Circle from "@mui/icons-material/Circle";
-import { post } from './data';
-import { shareDataBloomy } from './data';
-import {avatarImage} from './data';
+import { shareDataHalo } from './data';
 import { CoreArticleTemplateFields } from "../types";
 import {RelatedPostHalo} from "./RelatedPost/RelatedPost"
 import { useDefaultAvatar } from "../../helpers";
 import { getDay } from "../../../../utilities/getTime";
 
-const Bloomy: FC<CoreArticleTemplateFields> = ({ article, site, domain, }) =>{
+const Halo: FC<CoreArticleTemplateFields> = ({ article, site, domain, }) =>{
     const classes =  useHaloStyles()
     const [loaded, setLoaded] =  useState(false)
     const blogUrl = loaded && window.location.href;
@@ -39,10 +36,25 @@ const Bloomy: FC<CoreArticleTemplateFields> = ({ article, site, domain, }) =>{
     />
     ));
 
-    const displaySocialIcons = () => {
-        return shareDataBloomy.map((social, index) => {
+    const displayTopSocialIcons = () => {
+        return shareDataHalo.map((social, index) => {
           return (
-            <div className={classes.socialIcon} key={index}>
+            <div className={classes.topSocialIcon} key={index}>
+                <a
+              href={`${social.href}${blogUrl}`}
+              target="_blank"
+              rel="noreferrer"
+            >
+              <img className={classes.icon} src={social.src} alt={social.alt} />
+            </a>
+            </div>
+          );
+        });
+      };
+      const displayBottomSocialIcons = () => {
+        return shareDataHalo.map((social, index) => {
+          return (
+            <div className={classes.bottomSocialIcon} key={index}>
                 <a
               href={`${social.href}${blogUrl}`}
               target="_blank"
@@ -59,78 +71,88 @@ const Bloomy: FC<CoreArticleTemplateFields> = ({ article, site, domain, }) =>{
 
   return (
     <>
+     <head>
+     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@100;400;600&display=swap" rel="stylesheet" />
+        </head>
       <div className={classes.root}>
+       
         <div className={classes.overlayContainer}>
-        <div className={classes.heroContainer}>
+          <div className={classes.heroContainer}>
+            <img
+              className={classes.headerImage}
+              src={article?.featured_image}
+              alt={article.title.slice(0, 20)}
+            />
 
-          <img className={classes.headerImage}
-           src={article?.featured_image}
-           alt={article.title.slice(0, 20)}
-           />
-
-          <div className={classes.heroItems}>
-            <div className={classes.titleContainer}>
-            {displayTags()}
-            <h1 className={classes.title}>
-             {article?.title}
-            </h1>
-            <div className={classes.authorInfo}>
-              <p>
-                <span className={classes.authorName}>{site?.user_id}</span>
-                <span>
-                  <Circle className={classes.circleIcon} />{" "}
-                  <span className={classes.date}>{getDay(article?.created_at)}</span>{" "}
-                </span>
-              </p>
-            </div>
+            <div className={classes.heroItems}>
+              <div className={classes.titleContainer}>
+                {displayTags()}
+                <h1 className={classes.title}>{article?.title}</h1>
+                <div className={classes.authorInfo}>
+                  <p>
+                    <span className={classes.authorName}>{site?.user_id}</span>
+                    <span>
+                      <Circle className={classes.circleIcon} />{" "}
+                      <span className={classes.date}>
+                        {getDay(article?.created_at)}
+                      </span>{" "}
+                    </span>
+                  </p>
+                </div>
+              </div>
             </div>
           </div>
-        </div>
-        <div className={classes.heroOverlay}>
-        </div>
+          <div className={classes.heroOverlay}></div>
         </div>
 
         <div className={classes.body}>
-            <div className={classes.topSocialIcons}>
-                {displaySocialIcons()}
-            </div>
-            <div className={classes.postContent} dangerouslySetInnerHTML={{__html:article.content}} />
+          <div className={classes.topSocialIconsContainer}>{displayTopSocialIcons()}</div>
+          <div
+            className={classes.postContent}
+            dangerouslySetInnerHTML={{ __html: article.content }}
+          />
         </div>
-        <div className={classes.avatarContainer}>
-            <Avatar className={classes.avatar} src={avatarImage} alt="" />
-        </div>
+          {site?.user?.avatar ? (
+              <div className={classes.avatarContainer}>
+                <img
+                  src={site?.user?.avatar}
+                  alt=""
+                  className={classes.avatarImage}
+                />
+              </div>
+            ) : (
+              <p className={classes.defaultAvatar}>{defaultAvatar}</p>
+            )}
         <div className={classes.authorDetails}>
-            <div>
-            <div>
-                <p className={classes.authorText}>
-                    Writen By
-                </p>
-                <p className={classes.name}>
-                &nbsp;{site?.user?.firstname}&nbsp;{site?.user?.lastname}
-                </p>
+          <div>
+          <p className={classes.authorText}>Writen By</p>
+              <p className={classes.name}>
+                {site?.user?.firstname}&nbsp;{site?.user?.lastname}
+              </p>
+            <div className={classes.bottomSocialIconsContainer}>
+              {displayBottomSocialIcons()}
             </div>
-            <div className={classes.bottomSocialIcons}>
-                {displaySocialIcons()}
-            </div>
-            </div>
+          </div>
         </div>
-        <div className={classes.relatedPostHeadingContainer}>
-                  <h3 className={classes.relatedPostHeading}>
-                    RELATED POSTS
-                  </h3>
-                  <div className={classes.hr}></div>
-                </div>
-                <div className={classes.relatedPostsContainer}>
-                
-                {isRelatedPosts && (
-                                  <div className={classes.relatedPostsItems}>
-                                  {displayRelatedPosts()}
-                               </div>
-                )}
-                </div>
+      
+         <div className={classes.relatedPostsHeader}>
+          <span className={classes.relatedPostsLine}>
+            <p className={classes.relatedPostsHeading}>
+              RELATED POSTS
+            </p>
+            <div className={classes.hr} />
+          </span>
+        </div>
+        <div className={classes.relatedPostsContainer}>
+          {isRelatedPosts && (
+            <div className={classes.relatedPostsItems}>
+              {displayRelatedPosts()}
+            </div>
+          )}
+        </div>
       </div>
     </>
   );
 }
 
-export default Bloomy
+export default Halo
