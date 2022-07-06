@@ -49,19 +49,19 @@ export const useHaloStyles = makeStyles<Theme>((theme: Theme) => ({
   },
   heroItems: {
     position: "absolute",
-    top: "305px",
+    top: "370px",
     left: "63px",
     zIndex: "2",
     width: "80%",
     [theme.breakpoints.down("md")]: {
-      top: "270px",
+      top: "340px",
       right: "30%",
       marginLeft: theme.spacing(-3),
     },
     [theme.breakpoints.down("sm")]: {
       marginLeft: theme.spacing(-5),
       left: "30%",
-      top: "340px",
+      top: "370px",
     },
   },
   tags: {
@@ -74,14 +74,14 @@ export const useHaloStyles = makeStyles<Theme>((theme: Theme) => ({
     margin: theme.spacing(0.5),
   },
   title: {
-    fontSize: theme.typography.fontSize + 8,
+    fontSize: theme.typography.fontSize + 24,
     fontFamily: "inter",
+    width: "100%",
     color: theme.design.colors.waz_white,
     [theme.breakpoints.down("sm")]: {
       fontSize: theme.typography.fontSize * 2,
       lineHeight: "36px",
     },
-    width: "100%",
   },
   titleContainer: {
     [theme.breakpoints.down("sm")]: {
@@ -132,7 +132,7 @@ export const useHaloStyles = makeStyles<Theme>((theme: Theme) => ({
     width: "30px",
     height: "30px",
     borderRadius: "15px",
-    border: theme.design.colors.waz_grey100,
+    border: `1px solid ${theme.design.colors.waz_grey300}`,
     margin: theme.spacing(2),
     display: "flex",
     justifyContent: "center",
@@ -141,7 +141,7 @@ export const useHaloStyles = makeStyles<Theme>((theme: Theme) => ({
     width: "30px",
     height: "30px",
     borderRadius: "15px",
-    border: `1px solid ${theme.design.colors.lightGrey}`,
+    border: `1px solid ${theme.design.colors.waz_grey300}`,
     margin: theme.spacing(1),
     display: "flex",
     justifyContent: "center",
@@ -164,6 +164,7 @@ export const useHaloStyles = makeStyles<Theme>((theme: Theme) => ({
   avatar: {
     width: "56px",
     height: "56px",
+    margin: "0 auto",
   },
   authorText: {
     fontSize: theme.typography.fontSize + 2,
@@ -291,6 +292,17 @@ export const useHaloStyles = makeStyles<Theme>((theme: Theme) => ({
       width: "65%",
       marginLeft: theme.spacing(1),
       marginRight: theme.spacing(1),
+    },
+    defaultAvatar: {
+      height: 32,
+      width: 32,
+      borderRadius: "50%",
+      display: "flex",
+      justifyContent: "center",
+      alignItems: "center",
+      fontSize: theme.typography.fontSize + 4,
+      color: theme.design.colors.waz_white,
+      background: theme.design.colors.waz_orange,
     },
   },
 }));

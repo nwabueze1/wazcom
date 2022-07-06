@@ -90,7 +90,7 @@ export const Halo: FC<CoreArticleTemplateFields> = ({ article, site, domain, }) 
                 <h1 className={classes.title}>{article?.title}</h1>
                 <div className={classes.authorInfo}>
                   <p>
-                    <span className={classes.authorName}>{site?.user_id}</span>
+                    <span className={classes.authorName}>{site?.user ? site?.user?.firstname + " " + site?.user?.lastname : null}</span>
                     <span>
                       <Circle className={classes.circleIcon} />{" "}
                       <span className={classes.date}>
@@ -120,7 +120,9 @@ export const Halo: FC<CoreArticleTemplateFields> = ({ article, site, domain, }) 
                 />
               </div>
             ) : (
-              <p className={classes.defaultAvatar}>{defaultAvatar}</p>
+              <div className={classes.avatarContainer}>
+                <p className={classes.defaultAvatar}>{defaultAvatar}</p>
+              </div>
             )}
         <div className={classes.authorDetails}>
           <div>

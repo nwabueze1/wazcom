@@ -55,6 +55,5 @@ export const useRelatedPostHaloStyles = makeStyles<Theme>((theme: Theme) => ({
     lineHeight: "12px",
     color: theme.design.colors.waz_grey100,
     marginTop: theme.spacing(2)
-  }
-  
+  },
 }));
