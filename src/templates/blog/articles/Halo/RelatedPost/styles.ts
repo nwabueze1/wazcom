@@ -12,9 +12,9 @@ export const useRelatedPostHaloStyles = makeStyles<Theme>((theme: Theme) => ({
     }
   },
   articleTitle: {
-    fontSize: "20px",
+    fontSize: theme.typography.fontSize + 6,
     lineHeight: "22px",
-    fontWeight: "800",
+    fontWeight: theme.typography.fontWeightBold,
     marginTop: theme.spacing(1.5),
   },
   post: {
@@ -49,7 +49,7 @@ export const useRelatedPostHaloStyles = makeStyles<Theme>((theme: Theme) => ({
   relatedPostAuthor: {
     color: theme.design.colors.waz_grey100,
     lineHeight: "15px",
-    fontSize: "12px"
+    fontSize: theme.typography.fontSize + 2
   },
   articleDate: {
     lineHeight: "12px",

@@ -67,16 +67,16 @@ export const useHaloStyles = makeStyles<Theme>((theme: Theme) => ({
   tags: {
     display: "flex",
     flexDirection: "row",
-    color: "white",
+    color: theme.design.colors.waz_white,
   },
   tag: {
-    color: "white",
+    color: theme.design.colors.waz_white,
     margin: theme.spacing(0.5),
   },
   title: {
-    fontSize: "40px",
+    fontSize: theme.typography.fontSize + 8,
     fontFamily: "inter",
-    color: "white",
+    color: theme.design.colors.waz_white,
     [theme.breakpoints.down("sm")]: {
       fontSize: theme.typography.fontSize * 2,
       lineHeight: "36px",
@@ -89,12 +89,12 @@ export const useHaloStyles = makeStyles<Theme>((theme: Theme) => ({
     },
   },
   authorName: {
-    fontSize: "16px",
+    fontSize: theme.design.colors.waz_white + 2,
     width: "116px",
     lineHeight: "19px",
-    fontWeight: 500,
+    fontWeight: theme.typography.fontWeightBold,
     textTransform: "uppercase",
-    color: "white",
+    color: theme.design.colors.waz_white
   },
   authorInfo: {
     zIndex: "100",
@@ -102,12 +102,12 @@ export const useHaloStyles = makeStyles<Theme>((theme: Theme) => ({
   circleIcon: {
     width: "5px",
     height: "5px",
-    color: "white",
+    color: theme.design.colors.waz_white,
     marginLeft: theme.spacing(1.5),
     marginBottom: theme.spacing(0.2),
   },
   date: {
-    color: "white",
+    color: theme.design.colors.waz_white
   },
   body: {
     display: "flex",
@@ -132,7 +132,7 @@ export const useHaloStyles = makeStyles<Theme>((theme: Theme) => ({
     width: "30px",
     height: "30px",
     borderRadius: "15px",
-    border: "1px solid lightGrey",
+    border: theme.design.colors.waz_grey100,
     margin: theme.spacing(2),
     display: "flex",
     justifyContent: "center",
@@ -264,7 +264,7 @@ export const useHaloStyles = makeStyles<Theme>((theme: Theme) => ({
   hr: {
     height: "1px",
     width: "70%",
-    backgroundColor: "black",
+    backgroundColor: theme.design.colors.waz_black,
     marginTop: theme.spacing(1),
     marginLeft: theme.spacing(-3),
     [theme.breakpoints.down("md")]: {
