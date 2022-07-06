@@ -8,7 +8,7 @@ import {RelatedPostHalo} from "./RelatedPost/RelatedPost"
 import { useDefaultAvatar } from "../../helpers";
 import { getDay } from "../../../../utilities/getTime";
 
-const Halo: FC<CoreArticleTemplateFields> = ({ article, site, domain, }) =>{
+export const Halo: FC<CoreArticleTemplateFields> = ({ article, site, domain, }) =>{
     const classes =  useHaloStyles()
     const [loaded, setLoaded] =  useState(false)
     const blogUrl = loaded && window.location.href;
@@ -72,7 +72,7 @@ const Halo: FC<CoreArticleTemplateFields> = ({ article, site, domain, }) =>{
   return (
     <>
      <head>
-     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@100;400;600&display=swap" rel="stylesheet" />
+     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600&display=swap" rel="stylesheet" />
         </head>
       <div className={classes.root}>
        
@@ -104,7 +104,6 @@ const Halo: FC<CoreArticleTemplateFields> = ({ article, site, domain, }) =>{
           </div>
           <div className={classes.heroOverlay}></div>
         </div>
-
         <div className={classes.body}>
           <div className={classes.topSocialIconsContainer}>{displayTopSocialIcons()}</div>
           <div
@@ -154,5 +153,3 @@ const Halo: FC<CoreArticleTemplateFields> = ({ article, site, domain, }) =>{
     </>
   );
 }
-
-export default Halo

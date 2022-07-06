@@ -113,9 +113,9 @@ export const useHaloStyles = makeStyles<Theme>((theme: Theme) => ({
     display: "flex",
     alignItems: "center",
     gap: theme.spacing(1.5),
-    width: "784px",
+    width: "60%",
     margin: "auto",
-    padding: "10px",
+    padding: theme.spacing(2),
     marginTop: theme.spacing(3),
     position: "relative",
     [theme.breakpoints.down("md")]: {
@@ -141,7 +141,7 @@ export const useHaloStyles = makeStyles<Theme>((theme: Theme) => ({
     width: "30px",
     height: "30px",
     borderRadius: "15px",
-    border: "1px solid lightGrey",
+    border: `1px solid ${theme.design.colors.lightGrey}`,
     margin: theme.spacing(1),
     display: "flex",
     justifyContent: "center",
@@ -149,7 +149,7 @@ export const useHaloStyles = makeStyles<Theme>((theme: Theme) => ({
   topSocialIconsContainer: {
     position: "absolute",
     top: "30px",
-    left: "-120px",
+    left:"-15%",
     margin: theme.spacing(1),
     marginTop: theme.spacing(-4),
   },
@@ -166,15 +166,15 @@ export const useHaloStyles = makeStyles<Theme>((theme: Theme) => ({
     height: "56px",
   },
   authorText: {
-    fontSize: "14px",
-    fontWeight: 400,
-    color: "#808782",
+    fontSize: theme.typography.fontSize + 2,
+    fontWeight: theme.typography.fontWeightRegular,
+    color: theme.design.colors.waz_grey100,
     LineHeight: "15px",
     textAlign: "center",
   },
   authorNameInfo: {
-    color: "black",
-    fontSize: "16px",
+    color: theme.design.colors.waz_black,
+    fontSize: theme.typography.fontSize + 2,
     lineHeight: "19px",
     textTransform: "uppercase",
     textAlign: "center",
@@ -195,7 +195,7 @@ export const useHaloStyles = makeStyles<Theme>((theme: Theme) => ({
     height: "1px",
     marginTop: theme.spacing(5),
     marginRight: theme.spacing(-2),
-    backgroundColor: "black",
+    backgroundColor: theme.design.colors.waz_black,
     [theme.breakpoints.down("md")]: {
       width: "200px",
     },
@@ -222,7 +222,7 @@ export const useHaloStyles = makeStyles<Theme>((theme: Theme) => ({
   relatedPostsTitle: {
     marginRight: theme.spacing(3),
     [theme.breakpoints.down("sm")]: {
-      fontSize: "16px",
+      fontSize: theme.typography.fontSize + 2,
       width: "100px",
       marginLeft: theme.spacing(-5),
       marginTop: theme.spacing(-2),
@@ -253,7 +253,7 @@ export const useHaloStyles = makeStyles<Theme>((theme: Theme) => ({
     textAlign: "center",
     marginTop: theme.spacing(1),
     marginBottom: theme.spacing(0.5),
-    fontSize: "18px",
+    fontSize: theme.typography.fontSize + 3,
   },
   relatedPostHeadingContainer: {
     display: "flex",
@@ -268,7 +268,7 @@ export const useHaloStyles = makeStyles<Theme>((theme: Theme) => ({
     marginTop: theme.spacing(1),
     marginLeft: theme.spacing(-3),
     [theme.breakpoints.down("md")]: {
-      width: "1300px",
+      width: "190%",
       marginRight: theme.spacing(-12),
       marginTop: theme.spacing(1),
     },
@@ -280,8 +280,8 @@ export const useHaloStyles = makeStyles<Theme>((theme: Theme) => ({
   },
   relatedPostsHeading: {
     width: "20%",
-    fontSize: "20px",
-    fontWeight: "600",
+    fontSize: theme.typography.fontSize + 4,
+    fontWeight: theme.typography.fontWeightRegular,
     [theme.breakpoints.down("md")]: {
       width: "83%",
       marginLeft: theme.spacing(-5),

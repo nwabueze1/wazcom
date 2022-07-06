@@ -47,13 +47,13 @@ export const useRelatedPostHaloStyles = makeStyles<Theme>((theme: Theme) => ({
     }
   },
   relatedPostAuthor: {
-    color: "#808782",
+    color: theme.design.colors.waz_grey100,
     lineHeight: "15px",
     fontSize: "12px"
   },
   articleDate: {
     lineHeight: "12px",
-    color: "#808782",
+    color: theme.design.colors.waz_grey100,
     marginTop: theme.spacing(2)
   }
   
