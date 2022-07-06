@@ -69,11 +69,8 @@ export const RichTextInput: React.FC<RichTextInputProps> = ({
             file_picker_types: "image",
             paste_data_images: true,
             file_picker_callback: (cb: any) => {
-              const input = document.createElement('input');
-              input.setAttribute('type', 'file');
               upload?.(cb, setLoading);
             },
-            
             plugins,
             toolbar,
           }}

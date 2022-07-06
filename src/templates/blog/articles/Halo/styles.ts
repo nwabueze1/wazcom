@@ -261,7 +261,6 @@ export const useHaloStyles = makeStyles<Theme>((theme: Theme) => ({
     width: "58%",
     margin: "auto",
   },
-
   hr: {
     height: "1px",
     width: "70%",
