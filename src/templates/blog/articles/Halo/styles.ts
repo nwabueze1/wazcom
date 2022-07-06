@@ -6,7 +6,7 @@ export const useHaloStyles = makeStyles<Theme>((theme: Theme) => ({
   root: {
     cursor: "pointer",
     marginBottom: theme.spacing(4),
-    fontFamily: "inter",
+    fontFamily: "inter, sans-serif",
   },
   defaultAvatar: {
     height: 32,
@@ -39,7 +39,7 @@ export const useHaloStyles = makeStyles<Theme>((theme: Theme) => ({
     position: "absolute",
     top: "0px",
     backgroundImage: "linear-gradient(to bottom, rgba(0,0,0,0), rgba(0,0,0,1))",
-    backgroundColor: "rgba(0,0,0,0)",
+    backgroundColor: theme.design.colors.waz_black
   },
   overlayContainer: {
     position: "relative",
