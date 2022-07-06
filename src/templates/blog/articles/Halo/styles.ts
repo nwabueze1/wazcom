@@ -6,7 +6,7 @@ export const useHaloStyles = makeStyles<Theme>((theme: Theme) => ({
   root: {
     cursor: "pointer",
     marginBottom: theme.spacing(4),
-    fontFamily: "inter, sans-serif",
+    fontFamily: "Inter, sans-serif",
   },
   defaultAvatar: {
     height: 32,
@@ -75,7 +75,7 @@ export const useHaloStyles = makeStyles<Theme>((theme: Theme) => ({
   },
   title: {
     fontSize: theme.typography.fontSize + 24,
-    fontFamily: "inter",
+    fontFamily: "Inter, sans-serif",
     width: "100%",
     color: theme.design.colors.waz_white,
     [theme.breakpoints.down("sm")]: {
