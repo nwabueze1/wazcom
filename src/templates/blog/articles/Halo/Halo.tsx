@@ -1,81 +1,75 @@
-import { useState, useEffect, FC } from 'react';
-import { useHaloStyles } from './styles';
-import { Chip } from '@mui/material';
+import { useState, useEffect, FC } from "react";
+import { useHaloStyles } from "./styles";
+import { Chip } from "@mui/material";
 import Circle from "@mui/icons-material/Circle";
-import { shareDataHalo } from './data';
+import { shareDataHalo } from "./data";
 import { CoreArticleTemplateFields } from "../types";
-import {RelatedPostHalo} from "./RelatedPost/RelatedPost"
-import { useDefaultAvatar } from "../../helpers";
+import { RelatedPostHalo } from "./RelatedPost/RelatedPost";
 import { getDay } from "../../../../utilities/getTime";
 
-export const Halo: FC<CoreArticleTemplateFields> = ({ article, site, domain, }) =>{
-    const classes =  useHaloStyles()
-    const [loaded, setLoaded] =  useState(false)
-    const blogUrl = loaded && window.location.href;
-  
-    useEffect(() => {
-        setLoaded(true);
-      }, []);
+export const Halo: FC<CoreArticleTemplateFields> = ({
+  article,
+  domain,
+}) => {
+  const classes = useHaloStyles();
+  const [loaded, setLoaded] = useState(false);
+  const blogUrl = loaded && window.location.href;
 
-      const isRelatedPosts = Boolean(
-        article.related_posts && article.related_posts.length > 0
-      );
+  useEffect(() => {
+    setLoaded(true);
+  }, []);
 
-      const displayRelatedPosts = () =>
+  const isRelatedPosts = Boolean(
+    article.related_posts && article.related_posts.length > 0
+  );
+
+  const displayRelatedPosts = () =>
     article.related_posts?.map((post, index) => (
       <RelatedPostHalo key={index} article={post} domain={domain} />
     ));
 
-    const displayTags = () =>
+  const displayTags = () =>
     article?.tags?.map((tag, index) => (
       <Chip
-      className={classes.tag}
-      label={tag?.name}
-      variant="outlined"
-      key={index}
-    />
+        className={classes.tag}
+        label={tag?.name}
+        variant="outlined"
+        key={index}
+      />
     ));
 
-    const displayTopSocialIcons = () => {
-        return shareDataHalo.map((social, index) => {
-          return (
-            <div className={classes.topSocialIcon} key={index}>
-                <a
-              href={`${social.href}${blogUrl}`}
-              target="_blank"
-              rel="noreferrer"
-            >
-              <img className={classes.icon} src={social.src} alt={social.alt} />
-            </a>
-            </div>
-          );
-        });
-      };
-      const displayBottomSocialIcons = () => {
-        return shareDataHalo.map((social, index) => {
-          return (
-            <div className={classes.bottomSocialIcon} key={index}>
-                <a
-              href={`${social.href}${blogUrl}`}
-              target="_blank"
-              rel="noreferrer"
-            >
-              <img className={classes.icon} src={social.src} alt={social.alt} />
-            </a>
-            </div>
-          );
-        });
-      };
-
-      const defaultAvatar = useDefaultAvatar(site);
+  const displayTopSocialIcons = () => {
+    return shareDataHalo.map((social, index) => {
+      return (
+        <div className={classes.topSocialIcon} key={index}>
+          <a href={`${social.href}${blogUrl}`} target="_blank" rel="noreferrer">
+            <img className={classes.icon} src={social.src} alt={social.alt} />
+          </a>
+        </div>
+      );
+    });
+  };
+  const displayBottomSocialIcons = () => {
+    return shareDataHalo.map((social, index) => {
+      return (
+        <div className={classes.bottomSocialIcon} key={index}>
+          <a href={`${social.href}${blogUrl}`} target="_blank" rel="noreferrer">
+            <img className={classes.icon} src={social.src} alt={social.alt} />
+          </a>
+        </div>
+      );
+    });
+  };
 
   return (
     <>
-     <head>
-     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600&display=swap" rel="stylesheet" />
-        </head>
+      <head>
+        <link
+          href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600&display=swap"
+          rel="stylesheet"
+        />
+      </head>
       <div className={classes.root}>
-       
         <div className={classes.overlayContainer}>
           <div className={classes.heroContainer}>
             <img
@@ -90,7 +84,6 @@ export const Halo: FC<CoreArticleTemplateFields> = ({ article, site, domain, }) 
                 <h1 className={classes.title}>{article?.title}</h1>
                 <div className={classes.authorInfo}>
                   <p>
-                    <span className={classes.authorName}>{site?.user ? site?.user?.firstname + " " + site?.user?.lastname : null}</span>
                     <span>
                       <Circle className={classes.circleIcon} />{" "}
                       <span className={classes.date}>
@@ -105,42 +98,27 @@ export const Halo: FC<CoreArticleTemplateFields> = ({ article, site, domain, }) 
           <div className={classes.heroOverlay}></div>
         </div>
         <div className={classes.body}>
-          <div className={classes.topSocialIconsContainer}>{displayTopSocialIcons()}</div>
+          <div className={classes.topSocialIconsContainer}>
+            {displayTopSocialIcons()}
+          </div>
           <div
             className={classes.postContent}
             dangerouslySetInnerHTML={{ __html: article.content }}
           />
         </div>
-          {site?.user?.avatar ? (
-              <div className={classes.avatarContainer}>
-                <img
-                  src={site?.user?.avatar}
-                  alt=""
-                  className={classes.avatarImage}
-                />
-              </div>
-            ) : (
-              <div className={classes.avatarContainer}>
-                <p className={classes.defaultAvatar}>{defaultAvatar}</p>
-              </div>
-            )}
+
         <div className={classes.authorDetails}>
           <div>
-          <p className={classes.authorText}>Writen By</p>
-              <p className={classes.name}>
-                {site?.user?.firstname}&nbsp;{site?.user?.lastname}
-              </p>
+            <p className={classes.authorText}>Writen By</p>
             <div className={classes.bottomSocialIconsContainer}>
               {displayBottomSocialIcons()}
             </div>
           </div>
         </div>
-      
-         <div className={classes.relatedPostsHeader}>
+
+        <div className={classes.relatedPostsHeader}>
           <span className={classes.relatedPostsLine}>
-            <p className={classes.relatedPostsHeading}>
-              RELATED POSTS
-            </p>
+            <p className={classes.relatedPostsHeading}>RELATED POSTS</p>
             <div className={classes.hr} />
           </span>
         </div>
@@ -154,4 +132,4 @@ export const Halo: FC<CoreArticleTemplateFields> = ({ article, site, domain, }) 
       </div>
     </>
   );
-}
+};

@@ -7,6 +7,7 @@ export const useBloomyRelatedPostStyles = makeStyles<Theme>((theme: Theme) => ({
     gap: theme.spacing(1.5),
     width: "47%",
     marginBottom: theme.spacing(5),
+    cursor: "pointer",
     [theme.breakpoints.down("md")]: {
       width: "95%",
       margin: theme.spacing(0, "auto", 5),
@@ -16,7 +17,7 @@ export const useBloomyRelatedPostStyles = makeStyles<Theme>((theme: Theme) => ({
     },
   },
   thumbnailImgContainer: {
-    height: 214,
+    height: 200,
     width: "85%",
     position: "relative",
     [theme.breakpoints.down("md")]: {

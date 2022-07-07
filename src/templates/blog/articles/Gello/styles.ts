@@ -3,13 +3,15 @@ import { Theme } from "@mui/material/styles";
 
 export const useGelloStyles = makeStyles<Theme>((theme: Theme) => ({
   root: {
-    width: "90%",
+    fontFamily: theme.design.font.nunitoSans,
+  },
+  container: {
     height: "100%",
     display: "flex",
     justifyContent: "space-between",
-    fontFamily: theme.design.font.nunitoSans,
     maxWidth: 1440,
-    margin: "auto",
+    margin: "0 auto",
+    width: "90%",
     padding: theme.spacing(6.5, 0),
     [theme.breakpoints.down("md")]: {
       flexDirection: "column",
@@ -114,7 +116,7 @@ export const useGelloStyles = makeStyles<Theme>((theme: Theme) => ({
       margin: theme.spacing(1.5, 0),
     },
     "& h1, h2, h3, h4, h5, h6": {
-      margin: theme.spacing(2.5, 0)
+      margin: theme.spacing(2.5, 0),
     },
     "& img": {
       margin: theme.spacing(4, "auto"),
@@ -180,5 +182,8 @@ export const useGelloStyles = makeStyles<Theme>((theme: Theme) => ({
     fontSize: theme.typography.fontSize + 4,
     color: theme.design.colors.waz_white,
     background: theme.design.colors.waz_orange,
+  },
+  footer: {
+    marginTop: theme.spacing(10),
   },
 }));

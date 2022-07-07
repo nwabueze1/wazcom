@@ -2,8 +2,7 @@ import { StyledEngineProvider, Theme, ThemeProvider } from "@mui/material";
 import { articleData, site } from "data";
 import * as React from "react";
 import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
-import { Noval } from "templates";
-import { Pearl } from "templates/blog/articles/Pearl/Pearl";
+import { Pearl } from "templates";
 import { Browser } from "view/Browser";
 import theme from "./theme";
 declare module "@mui/styles/defaultTheme" {
@@ -22,9 +21,6 @@ const App: React.FC<Props> = () => {
           <Switch>
             <Route exact path="/pearl">
               <Pearl article={articleData} domain="gello" site={site} />
-            </Route>
-            <Route exact path="/gello">
-              <Noval article={articleData} domain="gello" site={site} />
             </Route>
             <Route exact path="/">
               <Browser />
