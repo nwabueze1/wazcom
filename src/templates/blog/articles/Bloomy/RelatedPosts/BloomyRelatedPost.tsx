@@ -1,6 +1,6 @@
 import { Button } from "@mui/material";
 import { truncate } from "lodash";
-import React, { FC } from "react";
+import { FC } from "react";
 import { CoreArticleTemplateFields } from "templates";
 import { parseDate } from "utilities/getTime";
 import { stripHtml } from "utilities/Post";
@@ -31,9 +31,6 @@ export const BloomyRelatedPost: FC<CoreArticleTemplateFields> = ({
           {truncate(stripHtml(article.excerpt), { length: 100 })}
         </div>
         <p className={classes.authorContainer}>
-          <p className={classes.author}>
-            {site?.user?.firstname}&nbsp;{site?.user?.lastname}
-          </p>
           <p className={classes.postedTime}>
             <span className={classes.point} />
             {parseDate(article.created_at)}

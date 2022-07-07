@@ -1,4 +1,5 @@
 import { FC, useEffect, useState } from "react";
+import { parseDate } from "../../../../utilities/getTime";
 import { Footer } from "../common/Footer/Footer";
 import { CoreArticleTemplateFields } from "../types";
 import { shareDataPearl } from "./data";
@@ -65,7 +66,7 @@ export const Pearl: FC<CoreArticleTemplateFields> = ({
         <div className={classes.heroContent}>
           <div className={classes.tags}>{displayTags()}</div>
           <h1 className={classes.title}>{article.title}</h1>
-          <p className={classes.postedTime}>{article.created_at}</p>
+          <p className={classes.postedTime}>{parseDate(article.created_at)}</p>
         </div>
         <div className={classes.overlay} />
       </div>
@@ -83,7 +84,7 @@ export const Pearl: FC<CoreArticleTemplateFields> = ({
           <div>{displayRelatedPosts()}</div>
         </div>
       </div>
-      <Footer name={site?.name as string} className={classes.footer}/>
+      <Footer name={site?.name as string} className={classes.footer} />
     </div>
   );
 };

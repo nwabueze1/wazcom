@@ -1,5 +1,5 @@
 import { FC, useState, useEffect } from "react";
-import { CoreArticleTemplateFields, useDefaultAvatar } from "templates";
+import { CoreArticleTemplateFields } from "templates";
 import { useBloomyStyles } from ".";
 import { shareDataBloomy } from "./data";
 import clx from "classnames";
@@ -13,7 +13,6 @@ export const Bloomy: FC<CoreArticleTemplateFields> = ({
   handleClick,
 }) => {
   const classes = useBloomyStyles();
-  const defaultAvatar = useDefaultAvatar(site);
   const [loaded, setLoaded] = useState(false);
 
   const displayTags = () =>
@@ -78,24 +77,7 @@ export const Bloomy: FC<CoreArticleTemplateFields> = ({
             <p className={classes.tags}>{displayTags()}</p>
             <h1 className={classes.articleTitle}>{article.title}</h1>
             <div className={classes.blogInfo}>
-              <div className={classes.blogInfoContainer}>
-                {site?.user?.avatar ? (
-                  <div className={classes.avatar}>
-                    <img
-                      src={site?.user?.avatar ?? ""}
-                      className={clx(
-                        classes.featuredImage,
-                        classes.avatarImage
-                      )}
-                    />
-                  </div>
-                ) : (
-                  <p className={classes.defaultAvatar}>{defaultAvatar}</p>
-                )}
-                <p className={classes.writtenBy}>
-                  {site?.user?.firstname}&nbsp;{site?.user?.lastname}
-                </p>
-              </div>
+              <div className={classes.blogInfoContainer}></div>
               <p className={classes.postedTime}>
                 <span className={classes.point} />
                 {parseDate(article.created_at)}
