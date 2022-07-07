@@ -1,4 +1,5 @@
 import { FC, useEffect, useState } from "react";
+import { Footer } from "../common/Footer/Footer";
 import { CoreArticleTemplateFields } from "../types";
 import { shareDataPearl } from "./data";
 import { RelatedPostPearl } from "./RelatedPost/RelatedPost";
@@ -75,12 +76,14 @@ export const Pearl: FC<CoreArticleTemplateFields> = ({
             className={classes.content}
             dangerouslySetInnerHTML={{ __html: article.content }}
           />
+          <div className={classes.iconContainer}>{displaySocialIcons()}</div>
         </div>
         <div className={classes.rightColumn}>
           <h3 className={classes.relatedPost}>Related Posts</h3>
           <div>{displayRelatedPosts()}</div>
         </div>
       </div>
+      <Footer name={site?.name as string} className={classes.footer}/>
     </div>
   );
 };

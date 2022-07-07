@@ -2,7 +2,7 @@ import { StyledEngineProvider, Theme, ThemeProvider } from "@mui/material";
 import { articleData, site } from "data";
 import * as React from "react";
 import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
-import { Gello, Noval } from "templates";
+import { Noval } from "templates";
 import { Pearl } from "templates/blog/articles/Pearl/Pearl";
 import { Browser } from "view/Browser";
 import theme from "./theme";

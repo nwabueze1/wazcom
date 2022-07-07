@@ -8,6 +8,7 @@ export const useRelatedPostPearlStyles = makeStyles<Theme>((theme: Theme) => ({
     position: "relative",
     marginBottom: theme.spacing(1.5),
     cursor: "pointer",
+    borderRadius: "4px",
   },
   thumbnailImage: {
     position: "absolute",

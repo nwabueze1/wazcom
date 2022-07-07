@@ -84,7 +84,7 @@ const corePost = {
 export const site = {
   id: "string",
   uuid: "string",
-  name: "string",
+  name: "olaiya",
   display_name: null,
   description: null,
   domain: "hfjkfshjkd",

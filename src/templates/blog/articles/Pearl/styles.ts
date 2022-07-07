@@ -3,7 +3,6 @@ import { Theme } from "@mui/material/styles";
 
 export const usePearlStyles = makeStyles<Theme>((theme: Theme) => ({
   root: {
-    maxWidth: 1280,
     margin: theme.spacing(0, "auto"),
     fontFamily: theme.design.font.inter,
   },
@@ -50,6 +49,10 @@ export const usePearlStyles = makeStyles<Theme>((theme: Theme) => ({
     fontWeight: 900,
     fontSize: theme.typography.fontSize + 28,
     lineHeight: "60px",
+    [theme.breakpoints.down("sm")]: {
+      fontSize: theme.typography.fontSize + 12,
+      lineHeight: "36px",
+    },
   },
   contentContainer: {
     display: "flex",
@@ -66,6 +69,9 @@ export const usePearlStyles = makeStyles<Theme>((theme: Theme) => ({
   content: {
     fontSize: theme.typography.fontSize + 6,
     lineHeight: "32px",
+    [theme.breakpoints.down("md")]: {
+      fontSize: theme.typography.fontSize + 4,
+    },
   },
   leftColumn: {
     width: "60%",
@@ -103,11 +109,17 @@ export const usePearlStyles = makeStyles<Theme>((theme: Theme) => ({
       width: "100%",
     },
   },
+  postedTime: {
+    fontSize: theme.typography.fontSize,
+  },
   relatedPost: {
     fontSize: theme.typography.fontSize + 8,
     lineHeight: "24px",
     textTransform: "uppercase",
     fontWeight: theme.typography.fontWeightMedium,
     margin: theme.spacing(4, 0, 2, 0),
+  },
+  footer: {
+    marginTop: theme.spacing(10),
   },
 }));
