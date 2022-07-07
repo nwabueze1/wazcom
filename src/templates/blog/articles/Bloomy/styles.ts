@@ -5,7 +5,7 @@ export const useBloomyStyles = makeStyles<Theme>((theme: Theme) => ({
   root: {
     width: "100%",
     maxWidth: 1200,
-    margin: "72px auto",
+    margin: theme.spacing(9, "auto"),
     fontFamily: theme.design.font.inter,
   },
   header: {
