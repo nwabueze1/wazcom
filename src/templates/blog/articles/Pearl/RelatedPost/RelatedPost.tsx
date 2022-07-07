@@ -1,4 +1,4 @@
-import React, { FC } from "react";
+import { FC } from "react";
 import { CoreArticleTemplateFields } from "../../types";
 import { useRelatedPostPearlStyles } from "./styles";
 import clx from "classnames";

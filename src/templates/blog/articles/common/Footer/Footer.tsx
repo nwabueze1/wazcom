@@ -1,4 +1,4 @@
-import React, { FC } from "react";
+import { FC } from "react";
 import { useFooterStyles } from "./styles";
 import { FooterProps } from "./types";
 import clx from "classnames";
