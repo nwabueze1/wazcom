@@ -40,3 +40,12 @@ export var getDay = function (datetime) {
     var year = date.getFullYear();
     return "".concat(months[month], " ").concat(day, ", ").concat(year);
 };
+export var parseDate = function (dt) {
+    var date = new Date(dt);
+    var year = date.getFullYear();
+    var month = date.getMonth() + 1;
+    var day = String(date.getDate()).length === 1
+        ? "0" + String(date.getDate())
+        : date.getDate();
+    return "".concat(months[month - 1], " ").concat(day, ", ").concat(year);
+};
