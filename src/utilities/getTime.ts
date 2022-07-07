@@ -59,3 +59,15 @@ export const getDay = (datetime: string) => {
   const year = date.getFullYear();
   return `${months[month]} ${day}, ${year}`;
 };
+
+export const parseDate = (dt: string) => {
+  const date = new Date(dt);
+  const year = date.getFullYear();
+  const month = date.getMonth() + 1;
+  const day =
+    String(date.getDate()).length === 1
+      ? "0" + String(date.getDate())
+      : date.getDate();
+
+  return `${months[month - 1]} ${day}, ${year}`;
+};
