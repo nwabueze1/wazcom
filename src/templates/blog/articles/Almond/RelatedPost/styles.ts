@@ -6,31 +6,30 @@ export const useRelatedPostGelloStyles = makeStyles<Theme>((theme: Theme) => ({
     width: "50%",
     display: "flex",
     justifyContent: "center",
-    // cursor: "pointer",
-    // backgroundColor:"red",
-    // marginBottom: theme.spacing(4),
-   
-    // [theme.breakpoints.down("md")]: {
-    //   width: "48%",
-    // },
-    // [theme.breakpoints.down("sm")]: {
-    //   width: "100%",
-    // },
   },
   thumbnailImgContainer: {
-    // height: 220,
     position: "relative",
   },
   thumbnailImg: {
     width: "120px",
     height: "100px",
     objectFit: "cover",
+    [theme.breakpoints.down("sm")]: {
+      width: "343px",
+      height: "164px"
+    },
   },
   articleTitle: {
     fontSize: theme.typography.fontSize + 8,
     fontWeight: theme.typography.fontWeightBold,
-    lineHeight: "22px",
-    marginTop: theme.spacing(1.5),
+    lineHeight: "30px",
+    
+    [theme.breakpoints.down("md")]: {
+      width: "270%"
+    },
+    [theme.breakpoints.down("sm")]: {
+      width: "200%"
+    },
   },
   post: {
     color: theme.design.colors.waz_grey600,
@@ -42,6 +41,20 @@ export const useRelatedPostGelloStyles = makeStyles<Theme>((theme: Theme) => ({
     width: "100%",
     display: "flex",
     flexDirection: "row",
-    gap: theme.spacing(3)
+    gap: theme.spacing(2.5),
+    marginTop: theme.spacing(2),
+    [theme.breakpoints.down("sm")]: {
+      flexDirection: "column",
+      gap: theme.spacing(0),
+      marginTop: theme.spacing(7)
+    },
+  },
+  date: {
+    fontSize: theme.typography.fontSize,
+    fontWeight: theme.typography.fontWeightBold,
+    color: theme.design.colors.waz_grey100,
+  },
+  alternateAvatar: {
+    marginBottom: theme.spacing(2.3)
   }
 }));

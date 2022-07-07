@@ -125,6 +125,7 @@ export const theme: any = {
       waz_grey500: "#1A261E",
       waz_grey600: "#676E69",
       waz_orange: "#F4CDB4",
+      waz_gold: "#CBA735"
     },
   },
   overrides: {

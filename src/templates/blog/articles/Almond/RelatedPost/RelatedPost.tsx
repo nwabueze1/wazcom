@@ -4,6 +4,7 @@ import { stripHtml } from "../../../../../utilities/Post";
 import { truncate } from "lodash";
 import { CoreArticleTemplateFields } from "../..";
 import { useRelatedPostGelloStyles } from ".";
+import { getDay } from "../../../../../utilities/getTime";
 
 export const RelatedPostAlmond: FC<CoreArticleTemplateFields> = ({
   article,
@@ -33,7 +34,10 @@ export const RelatedPostAlmond: FC<CoreArticleTemplateFields> = ({
                 className={classes.avatarImage}
               />
             </div>
-          ) : null}
+          ) : (
+            <div className={classes.alternateAvatar}></div>
+          )}
+          <span className={classes.date}>{getDay(article?.created_at)}</span>{" "}
         </div>
       </div>
     </div>

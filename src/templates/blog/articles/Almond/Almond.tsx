@@ -5,8 +5,6 @@ import { RelatedPostAlmond } from "./RelatedPost/RelatedPost";
 import { getDay } from "../../../../utilities/getTime";
 import { useAlmondStyles } from "./styles";
 import clx from "classnames";
-import Circle from "@mui/icons-material/Circle";
-import CopyrightIcon from '@mui/icons-material/Copyright';
 
 export const Almond: FC<CoreArticleTemplateFields> = ({
   article,
@@ -34,32 +32,27 @@ export const Almond: FC<CoreArticleTemplateFields> = ({
       />
     ));
 
-    const displaySocialIcons = () => {
-      return shareDataAlmond.map((social, index) => {
-        return (
-          <div className={classes.socialIcon} key={index}>
-            <a
-              href={`${social.href}${blogUrl}`}
-              target="_blank"
-              rel="noreferrer"
-            >
-              <img className={classes.icon} src={social.src} alt={social.alt} />
-            </a>
-          </div>
-        );
-      });
-    };
+  const displaySocialIcons = () => {
+    return shareDataAlmond.map((social, index) => {
+      return (
+        <div className={classes.socialIcon} key={index}>
+          <a href={`${social.href}${blogUrl}`} target="_blank" rel="noreferrer">
+            <img className={classes.icon} src={social.src} alt={social.alt} />
+          </a>
+        </div>
+      );
+    });
+  };
 
   const isRelatedPosts = Boolean(
     article.related_posts && article.related_posts.length > 0
   );
 
-
   return (
     <>
       <head>
         <link
-          href="https://fonts.googleapis.com/css2?family=Nunito+Sans:wght@300;400;600&display=swap"
+          href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600&family=Merriweather&display=swap"
           rel="stylesheet"
         />
       </head>
@@ -72,6 +65,7 @@ export const Almond: FC<CoreArticleTemplateFields> = ({
           <div className={classes.heroContainer}>
             <div className={classes.hero}>
               <div className={classes.heroItems}>
+                <p className={classes.upperText}>Glutten-free</p>
                 <p className={classes.title}>{article.title}</p>
                 <div className={classes.authorInfo}>
                   {site?.cover_image ? (
@@ -83,11 +77,9 @@ export const Almond: FC<CoreArticleTemplateFields> = ({
                       />
                     </div>
                   ) : null}
-                  <p>
-                    <span className={classes.date}>
-                      {getDay(article?.created_at)}
-                    </span>{" "}
-                  </p>
+                  <span className={classes.date}>
+                    {getDay(article?.created_at)}
+                  </span>{" "}
                 </div>
                 <div className={classes.socialIconsContainer}>
                   {displaySocialIcons()}
@@ -124,10 +116,12 @@ export const Almond: FC<CoreArticleTemplateFields> = ({
         </div>
       </div>
       <div className={classes.footer}>
-            <span className={classes.footerContent}>
-              <CopyrightIcon className={classes.copyright} />
-              2022 by {site?.display_name}. Proudly created wih Hivedeck.com
-            </span>
+        <span className={classes.footerContent}>
+          Ⓒ2022 by {site?.display_name}. Proudly created with
+          <a className={classes.link} href="/">
+            Hivedeck
+          </a>
+        </span>
       </div>
     </>
   );
