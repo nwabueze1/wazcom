@@ -87,6 +87,7 @@ export const theme: any = {
       raleway: "Raleway, sans-serif",
       dmSans: "DM Sans, sans-serif",
       nunitoSans: "Nunito Sans, sans-serif",
+      inter: "Inter, sans-serif",
     },
     colors: {
       waz_primaryColor100: "#0A7227",
@@ -105,6 +106,7 @@ export const theme: any = {
       waz_greyColor400: "#333333",
       waz_white: "#FFFFFF",
       waz_whiteColor200: "#f9f9f9",
+      waz_whiteColor300: "#F0F0F0",
       waz_black: "#010E05",
       waz_Grey: "#414141",
       waz_gray: "#BEBEBE",
@@ -125,6 +127,7 @@ export const theme: any = {
       waz_grey500: "#1A261E",
       waz_grey600: "#676E69",
       waz_orange: "#F4CDB4",
+      
     },
   },
   overrides: {
