@@ -38,7 +38,7 @@ export const Politico: FC<CoreArticleTemplateFields> = ({
   const displayTags = () =>
   article?.tags?.map((tag, index) => (
     <div className={classes.tag} key={index}>
-      {tag?.name}
+      {tag?.name?.toUpperCase}
     </div>
   ));
 

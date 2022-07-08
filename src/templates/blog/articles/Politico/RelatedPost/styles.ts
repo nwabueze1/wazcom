@@ -8,26 +8,31 @@ export const useRelatedPostPoliticoStyles = makeStyles<Theme>((theme: Theme) => 
     display: "flex",
     justifyContent: "center",
     flexDirection: "column",
-    margin: "10px",
+    fontFamily: theme.design.font.bitter,
+    margnLeft: theme.spacing(-3),
     [theme.breakpoints.down("md")]: {
       width: "45%",
     },
     [theme.breakpoints.down("sm")]: {
-      width: "90%",
+      width: "100%",
     }
   },
   thumbnailImg: {
-    width: "330px",
+    width: "380px",
+    objectFit: "cover",
     [theme.breakpoints.down("md")]: {
-      width: "100%",
+      width: "330px",
+    },
+    [theme.breakpoints.down("sm")]: {
+      width: "330px",
     }
   },
   body: {
     margin: "0 auto"
   },
   articleTitle: {
-    fontSize: theme.typography.fontSize + 10,
-    lineHeight: "32px",
+    fontSize: theme.typography.fontSize + 8,
+    lineHeight: "30px",
     fontWeight: theme.typography.fontWeightBold,
     width: "340px",
     [theme.breakpoints.down("md")]: {
@@ -39,9 +44,14 @@ export const useRelatedPostPoliticoStyles = makeStyles<Theme>((theme: Theme) => 
   },
   date: {
     fontSize: theme.typography.fontSize,
-    color: theme.design.colors.waz_grey300,
+    color: theme.design.colors.waz_grey400,
     fontWeight: theme.typography.fontWeightBold,
     marginTop: theme.spacing(2)
+  },
+  category: {
+    color: theme.design.colors.waz_red,
+    fontSize: theme.typography.fontSize,
+    marginTop: theme.spacing(1),
+    marginBottom: theme.spacing(1)
   }
- 
 }));

@@ -28,7 +28,8 @@ export const usePoliticoStyles = makeStyles<Theme>((theme: Theme) => ({
       display: "flex",
       flexDirection: "row",
       gap: theme.spacing(2),
-      marginBottom: theme.spacing(3)
+      marginBottom: theme.spacing(3),
+      textTransform: "capitalize"
     },
     headerImage: {
       width: "100%",
@@ -41,25 +42,32 @@ export const usePoliticoStyles = makeStyles<Theme>((theme: Theme) => ({
       marginTop: theme.spacing(4)
     },
     title: {
-      fontSize: theme.typography.fontSize + 30,
+      fontSize: theme.typography.fontSize + 28,
       fontWeight: theme.typography.fontWeightBold,
-      lineHeight: "48px",
+      lineHeight: "60px",
       marginBottom: theme.spacing(5)
     },
     date: {
       fontSize: theme.typography.fontSize,
+      fontWeight: theme.typography.fontWeightRegular,
+      marginBottom: theme.spacing(-4),
+      marginTop: theme.spacing(1),
+      [theme.breakpoints.down("sm")]: {
+        marginBottom: theme.spacing(0),
+        marginTop: theme.spacing(0),
+      },
     },
     circle: {
       color: theme.design.colors.waz_red,
-      height: "10px",
-      width: "10px"
+      height: "7px",
+      width: "7px"
     },
     socialIcons: {
-      width: "30px",
-      height: "30px",
-      borderRadius: "15px",
+      width: "40px",
+      height: "40px",
+      borderRadius: "20px",
       backgroundColor: theme.design.colors.waz_grey300,
-      margin: theme.spacing(2),
+      margin: theme.spacing(1),
       display: "flex",
       justifyContent: "center",
     },
@@ -71,20 +79,21 @@ export const usePoliticoStyles = makeStyles<Theme>((theme: Theme) => ({
       [theme.breakpoints.down("sm")]: {
         flexDirection: "column"
       }
-      
     },
     socialIconsContainer: {
       display: "flex",
       flexDirection: "row",
-      marginTop: theme.spacing(-3),
+      marginTop: theme.spacing(-2),
+      marginBottom: theme.spacing(2),
       [theme.breakpoints.down("sm")]: {
-        marginTop: theme.spacing(0),
-        marginLeft: theme.spacing(-2)
+        marginTop: theme.spacing(1.5),
+        marginLeft: theme.spacing(-1),
+        marginBottom: theme.spacing(1.5)
       }
     },
     icon: {
       margin: "auto 0",
-      marginTop: theme.spacing(0.8)
+      marginTop: theme.spacing(1.5)
     },
     relatedPosts: {
       width: "100%",
@@ -93,9 +102,11 @@ export const usePoliticoStyles = makeStyles<Theme>((theme: Theme) => ({
       width: "100%",
       display: "flex",
       justifyContent: "center",
+      justifyItems: "center",
+
     },
     relatedPostsHeader: {
-      width: "77%",
+      width: "85%",
       margin: "0 auto",
       [theme.breakpoints.down("md")]: {
         width: "90%",
@@ -103,21 +114,23 @@ export const usePoliticoStyles = makeStyles<Theme>((theme: Theme) => ({
     },
     relatedPostsHeading: {
       fontSize: theme.typography.fontSize + 6,
-      fontWeight: theme.typography.fontWeightBold
+      fontWeight: theme.typography.fontWeightBold,
+      fontFamily: theme.design.font.bitter
     },
     relatedPostsItems: {
-      width: "80%",
+      width: "85%",
       display: "flex",
       flexDirection: "row",
+      gap: theme.spacing(5),
+      justifyItems: "center",
+      marginTop: theme.spacing(1),
       [theme.breakpoints.down("md")]: {
         width: "90%",
         flexWrap: "wrap",
-        marginLeft: theme.spacing(2)
       },
-      justifyItems: "center",
       [theme.breakpoints.down("sm")]: {
         flexDirection: "column",
-        width: '90%',
+        width: '100%',
       }
     },
     hr: {
@@ -129,7 +142,7 @@ export const usePoliticoStyles = makeStyles<Theme>((theme: Theme) => ({
     },
     main: {
       backgroundColor: theme.design.colors.waz_peach,
-    }
+    },
   }));
   
   
