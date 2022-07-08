@@ -19,7 +19,8 @@ export const RelatedPostPolitico: FC<CoreArticleTemplateFields> = ({
       }}
       className={clx(classes.root, className)}
     >
-      <div className={classes.thumbnailImgContainer}>
+     <div className={classes.body}>
+     <div className={classes.thumbnailImgContainer}>
         <img src={article.featured_image} className={classes.thumbnailImg} />
       </div>
       <div className={classes.thumbnailDetails}>
@@ -28,12 +29,13 @@ export const RelatedPostPolitico: FC<CoreArticleTemplateFields> = ({
         </p>
         <div className={classes.authorContainer}>
           <div>
-            <p className={classes.timePosted}>
+            <p className={classes.date}>
               Posted {getTimeFrom(article.created_at)} ago
             </p>
           </div>
         </div>
       </div>
+     </div>
     </div>
   );
 };

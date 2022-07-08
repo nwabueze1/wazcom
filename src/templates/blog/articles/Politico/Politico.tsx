@@ -5,6 +5,7 @@ import { RelatedPostPolitico } from "./RelatedPost/RelatedPost";
 import { getDay } from "../../../../utilities/getTime";
 import { usePoliticoStyles } from "./styles";
 import clx from "classnames";
+import Circle from "@mui/icons-material/Circle";
 
 export const Politico: FC<CoreArticleTemplateFields> = ({
   article,
@@ -34,71 +35,83 @@ export const Politico: FC<CoreArticleTemplateFields> = ({
     article.related_posts && article.related_posts.length > 0
   );
 
+  const displayTags = () =>
+  article?.tags?.map((tag, index) => (
+    <div className={classes.tag} key={index}>
+      {tag?.name}
+    </div>
+  ));
+
   const displaySocialIcons = () => {
     return shareDataPolitico.map((social, index) => {
       return (
-        <a
-          key={index}
+       <div key={index} className={classes.socialIcons}>
+         <a
           href={`${social.href}${blogUrl}`}
           target="_blank"
           rel="noreferrer"
+          className={classes.icon}
         >
           <img src={social.src} alt={social.alt} />
         </a>
+       </div>
       );
     });
   };
 
   return (
-    <>
+    <div className={classes.main}>
       <head>
         <link
-          href="https://fonts.googleapis.com/css2?family=Nunito+Sans:wght@300;400;600&display=swap"
+          href="https://fonts.googleapis.com/css2?family=Bitter:wght@500&family=Inter:wght@400;600&family=Merriweather&display=swap"
           rel="stylesheet"
         />
       </head>
       <div className={classes.root}>
         <div
-          className={clx(classes.contentContainer, {
+          className={clx(classes.content, {
             [classes.fullContent]: !isRelatedPosts,
           })}
         >
-          <div className={classes.imgContainer}>
+          <div className={classes.tagContainer}>{displayTags()}</div>
+          <div className={classes.header}>
+            <div className={classes.title}>{article?.title}</div>
+            <div className={classes.authorInfo}>
+              <span className={classes.date}>
+                <Circle className={classes.circle} />{" "}
+                {getDay(article?.created_at)}
+              </span>{" "}
+              <div className={classes.socialIconsContainer}>
+                {displaySocialIcons()}
+              </div>
+            </div>
+          </div>
+          <div className={classes.imageContainer}>
             <img
-              src={article.featured_image}
+              className={classes.headerImage}
+              src={article?.featured_image}
               alt={article.title.slice(0, 20)}
-              className={classes.featuredImg}
             />
           </div>
-          <h1 className={classes.title}>{article.title}</h1>
-          <div className={classes.articleInfo}>
-            <div className={classes.dateWritten}>
-              <div className={classes.bulletPoint} />
-              <p className={classes.date}>{getDay(article.created_at)}</p>
-            </div>
-          </div>
-          <hr className={classes.line} />
           <div
+            className={classes.postContent}
             dangerouslySetInnerHTML={{ __html: article.content }}
-            className={classes.content}
           />
-          <div className={classes.shareRoot}>
-            <div className={classes.shareContainer}>
-              <hr className={classes.shareLine} />
-              <div className={classes.icons}>{displaySocialIcons()}</div>
-              <hr className={classes.shareLine} />
-            </div>
-            <p className={classes.shareText}>Share post</p>
-          </div>
         </div>
-        {isRelatedPosts && (
-          <div className={classes.relatedArticleContainer}>
-            <p className={classes.relatedPostHeader}>Related Posts</p>
-            <hr className={classes.postLine} />
-            <div className={classes.relatedPosts}>{displayRelatedPosts()}</div>
-          </div>
-        )}
       </div>
-    </>
+      <div className={classes.relatedPostsHeader}>
+      <p className={classes.relatedPostsHeading}>
+              Related Posts
+            </p>
+              <div className={classes.hr} />
+            </div>
+      <div className={classes.relatedPostsContainer}>
+            {isRelatedPosts && (
+            <div className={classes.relatedPostsItems}>
+              {displayRelatedPosts()}
+            </div>
+          )}
+          </div>
+    </div>
   );
 };
