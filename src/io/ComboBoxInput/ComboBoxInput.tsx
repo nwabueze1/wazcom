@@ -21,6 +21,7 @@ export const ComboBoxInput: FC<ComboBoxInputProps> = ({
   placeholder,
   feedback,
   className,
+  ...props
 }) => {
   const classes = useComboBoxStyles();
   const [options, setOptions] = useState(initialOptions);
@@ -76,6 +77,7 @@ export const ComboBoxInput: FC<ComboBoxInputProps> = ({
         </InputLabel>
       )}
       <Autocomplete
+        {...props}
         options={options ?? []}
         getOptionLabel={(option) => {
           return (typeof option == 'string') ? option : option?.label ?? "";
