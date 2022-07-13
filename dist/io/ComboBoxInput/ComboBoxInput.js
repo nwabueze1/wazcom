@@ -35,9 +35,9 @@ import { displayFeedback } from "../../helpers/io";
 var filter = createFilterOptions();
 export var ComboBoxInput = function (_a) {
     var _b;
-    var name = _a.name, onChange = _a.onChange, initialOptions = _a.options, label = _a.label, classNames = _a.classNames, helperText = _a.helperText, value = _a.value, error = _a.error, placeholder = _a.placeholder, feedback = _a.feedback, className = _a.className;
+    var name = _a.name, _c = _a.isAdd, isAdd = _c === void 0 ? true : _c, onChange = _a.onChange, initialOptions = _a.options, label = _a.label, classNames = _a.classNames, helperText = _a.helperText, value = _a.value, error = _a.error, placeholder = _a.placeholder, feedback = _a.feedback, className = _a.className;
     var classes = useComboBoxStyles();
-    var _c = __read(useState(initialOptions), 2), options = _c[0], setOptions = _c[1];
+    var _d = __read(useState(initialOptions), 2), options = _d[0], setOptions = _d[1];
     useEffect(function () {
         setOptions(initialOptions);
     }, [initialOptions]);
@@ -53,7 +53,7 @@ export var ComboBoxInput = function (_a) {
         var inputValue = params.inputValue;
         // Suggest the creation of a new value
         var isExisting = options.some(function (option) { return inputValue === option.label; });
-        if (inputValue !== "" && !isExisting) {
+        if (isAdd && (inputValue !== "" && !isExisting)) {
             filtered.push({
                 value: inputValue,
                 label: "Add ".concat(inputValue),
