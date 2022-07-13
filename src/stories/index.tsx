@@ -228,8 +228,7 @@ export const stories: ComponentPropType[] = [
       ],
       value: { label: "Love", value: "45" },
       placeholder: "Select Wazobia Member",
-      error: true,
-      feedback: { text: "Tariq is a weirdo", status: "error" },
+      isAdd: false,
     },
   },
   {
