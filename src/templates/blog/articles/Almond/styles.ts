@@ -16,17 +16,17 @@ export const useAlmondStyles = makeStyles<Theme>((theme: Theme) => ({
     justifyContent: "center",
   },
   heroContainer: {
-    height: "584px",
+    height: "60vh",
     width: "100%",
     display: "flex",
     flexDirection: "row",
     [theme.breakpoints.down("md")]: {
       flexDirection: "column-reverse",
-      height: "750px",
+      height: "75vh",
     },
     [theme.breakpoints.down("sm")]: {
       flexDirection: "column-reverse",
-      height: "800px",
+      height: "90vh",
     },
   },
   hero: {
@@ -36,12 +36,12 @@ export const useAlmondStyles = makeStyles<Theme>((theme: Theme) => ({
     [theme.breakpoints.down("md")]: {
       width: "100%",
       marginTop: theme.spacing(-2),
-      height: "570px",
+      height: "60vh",
     },
     [theme.breakpoints.down("sm")]: {
       width: "100%",
       marginTop: theme.spacing(-2),
-      height: "470px",
+      height: "100%",
     },
   },
   title: {
@@ -87,22 +87,22 @@ export const useAlmondStyles = makeStyles<Theme>((theme: Theme) => ({
     marginTop: theme.spacing(4),
   },
   icon: {
-    marginTop: theme.spacing(0.7),
+    marginTop: theme.spacing(0.5),
     filter: "invert(100%)",
   },
   headerImageContainer: {
     width: "50%",
   },
   headerImage: {
-    width: "720px",
+    width: "100%",
     height: "100%",
     objectFit: "cover",
     [theme.breakpoints.down("md")]: {
-      height: "420px",
+      height: "40vh",
       width: "100%",
     },
     [theme.breakpoints.down("sm")]: {
-      height: "450px",
+      height: "50vh",
       width: "100%",
     },
   },
@@ -174,8 +174,8 @@ export const useAlmondStyles = makeStyles<Theme>((theme: Theme) => ({
     display: "flex",
     justifyContent: "center",
     alignContent: "center",
-    height: "49px",
     marginTop: theme.spacing(6),
+    padding: theme.spacing(2)
   },
   footerContent: {
     marginTop: theme.spacing(1.5),
@@ -200,7 +200,7 @@ export const useAlmondStyles = makeStyles<Theme>((theme: Theme) => ({
     marginTop: theme.spacing(3),
   },
   link: {
-    marginTop: theme.spacing(0.4),
-    marginLeft: theme.spacing(0.7),
+    marginTop: theme.spacing(0.5),
+    marginLeft: theme.spacing(0.5),
   },
 }));

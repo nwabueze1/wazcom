@@ -20,7 +20,10 @@ export const RelatedPostAlmond: FC<CoreArticleTemplateFields> = ({
     >
       <div className={classes.container}>
         <div className={classes.thumbnailImgContainer}>
-          <img src={article.featured_image} className={classes.thumbnailImg} />
+          <img src={article.featured_image}
+           className={classes.thumbnailImg}
+           alt={site?.name}
+           />
         </div>
         <div className={classes.thumbnailDetails}>
           <p className={classes.articleTitle}>
