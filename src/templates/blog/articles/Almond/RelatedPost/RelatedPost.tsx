@@ -33,7 +33,7 @@ export const RelatedPostAlmond: FC<CoreArticleTemplateFields> = ({
             <div className={classes.avatarContainer}>
               <img
                 src={site?.cover_image}
-                alt=""
+                alt={site?.name}
                 className={classes.avatarImage}
               />
             </div>
