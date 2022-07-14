@@ -3,7 +3,7 @@ import { CoreArticleTemplateFields } from "../types";
 import { Footer } from "../common/Footer";
 import { useBloomyStyles } from "./styles";
 import { shareDataBloomy } from "./data";
-import { parseDate } from "utilities/getTime";
+import { parseDate } from "../../../../utilities/getTime";
 import { BloomyRelatedPost } from "./RelatedPosts";
 
 export const Bloomy: FC<CoreArticleTemplateFields> = ({
