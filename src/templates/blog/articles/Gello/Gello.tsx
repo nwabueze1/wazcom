@@ -5,10 +5,12 @@ import { RelatedPostGello } from "./RelatedPost/RelatedPost";
 import { getDay } from "../../../../utilities/getTime";
 import { useGelloStyles } from "./styles";
 import clx from "classnames";
+import { Footer } from "../common/Footer";
 
 export const Gello: FC<CoreArticleTemplateFields> = ({
   article,
   domain,
+  site,
   handleClick,
 }) => {
   const classes = useGelloStyles();
@@ -50,14 +52,14 @@ export const Gello: FC<CoreArticleTemplateFields> = ({
   };
 
   return (
-    <>
+    <div className={classes.root}>
       <head>
         <link
           href="https://fonts.googleapis.com/css2?family=Nunito+Sans:wght@300;400;600&display=swap"
           rel="stylesheet"
         />
       </head>
-      <div className={classes.root}>
+      <div className={classes.container}>
         <div
           className={clx(classes.contentContainer, {
             [classes.fullContent]: !isRelatedPosts,
@@ -99,6 +101,7 @@ export const Gello: FC<CoreArticleTemplateFields> = ({
           </div>
         )}
       </div>
-    </>
+      <Footer name={site?.name as string} className={classes.footer} />
+    </div>
   );
 };

@@ -2,12 +2,14 @@ import makeStyles from "@mui/styles/makeStyles";
 export var useNovalStyles = makeStyles(function (theme) {
     var _a, _b, _c, _d, _e, _f, _g, _h, _j, _k;
     return ({
-        root: (_a = {
-                width: "100%",
-                maxWidth: 1200,
+        root: {
+            fontFamily: theme.design.font.dmSans,
+        },
+        container: (_a = {
+                width: "95%",
+                maxWidth: theme.include.styles.templates.maxWidth,
                 padding: theme.spacing(5.5, 0),
                 height: "100%",
-                fontFamily: theme.design.font.dmSans,
                 margin: "auto"
             },
             _a[theme.breakpoints.down("md")] = {
@@ -99,11 +101,7 @@ export var useNovalStyles = makeStyles(function (theme) {
             gap: theme.spacing(1.5),
             marginTop: theme.spacing(3),
         },
-        postedTime: (_f = {
-                padding: theme.spacing(0, 1.5),
-                borderLeft: "1px solid ".concat(theme.design.colors.waz_grey200),
-                borderRight: "1px solid ".concat(theme.design.colors.waz_grey200)
-            },
+        postedTime: (_f = {},
             _f[theme.breakpoints.down("sm")] = {
                 fontSize: theme.typography.fontSize,
             },
@@ -129,7 +127,7 @@ export var useNovalStyles = makeStyles(function (theme) {
                     margin: theme.spacing(1.5, 0),
                 },
                 "& h1, h2, h3, h4, h5, h6": {
-                    margin: theme.spacing(2.5, 0)
+                    margin: theme.spacing(2.5, 0),
                 },
                 "& img": {
                     margin: theme.spacing(4, "auto"),
@@ -192,6 +190,9 @@ export var useNovalStyles = makeStyles(function (theme) {
             fontSize: theme.typography.fontSize + 4,
             color: theme.design.colors.waz_white,
             background: theme.design.colors.waz_orange,
+        },
+        footer: {
+            marginTop: theme.spacing(10),
         },
     });
 });

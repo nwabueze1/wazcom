@@ -25,13 +25,14 @@ var __read = (this && this.__read) || function (o, n) {
     }
     return ar;
 };
-import { jsx as _jsx, jsxs as _jsxs, Fragment as _Fragment } from "react/jsx-runtime";
+import { jsx as _jsx, jsxs as _jsxs } from "react/jsx-runtime";
 import { useEffect, useState } from "react";
 import clx from "classnames";
 import { RelatedPostNoval } from "./RelatedPost/RelatedPost";
 import { shareDataNoval } from "./data";
 import { getTimeFrom } from "../../../../utilities/getTime";
 import { useNovalStyles } from ".";
+import { Footer } from "../common/Footer";
 export var Noval = function (_a) {
     var _b;
     var article = _a.article, site = _a.site, domain = _a.domain, handleClick = _a.handleClick;
@@ -55,7 +56,7 @@ export var Noval = function (_a) {
             return (_jsx("a", __assign({ href: "".concat(social.href).concat(blogUrl), target: "_blank", rel: "noreferrer" }, { children: _jsx("img", { src: social.src, alt: social.alt }, void 0) }), index));
         });
     };
-    return (_jsxs(_Fragment, { children: [_jsx("head", { children: _jsx("link", { href: "https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;600;700&display=swap", rel: "stylesheet" }, void 0) }, void 0), _jsxs("div", __assign({ className: classes.root }, { children: [_jsxs("section", __assign({ className: classes.header }, { children: [_jsx("div", __assign({ className: classes.featuredImageContainer }, { children: _jsx("img", { src: article.featured_image, alt: article.title, className: classes.featuredImage }, void 0) }), void 0), _jsxs("div", __assign({ className: classes.blogInfoContainer }, { children: [_jsx("div", __assign({ className: classes.tags }, { children: displayTags() }), void 0), _jsx("h1", __assign({ className: classes.title }, { children: article.title }), void 0), _jsx("div", __assign({ className: classes.blogInfo }, { children: _jsxs("p", __assign({ className: classes.postedTime }, { children: ["Posted ", getTimeFrom(article.created_at), " ago"] }), void 0) }), void 0), _jsxs("div", __assign({ className: classes.shareContainer }, { children: [_jsx("p", __assign({ className: classes.shareText }, { children: "Share post" }), void 0), _jsx("div", __assign({ className: classes.socialIcons }, { children: displaySocialIcons() }), void 0)] }), void 0)] }), void 0)] }), void 0), _jsxs("div", __assign({ className: classes.contentContainer }, { children: [_jsx("div", { className: clx("templatePostContent", classes.content, (_b = {},
+    return (_jsxs("div", { children: [_jsx("head", { children: _jsx("link", { href: "https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;600;700&display=swap", rel: "stylesheet" }, void 0) }, void 0), _jsxs("div", __assign({ className: classes.container }, { children: [_jsxs("section", __assign({ className: classes.header }, { children: [_jsx("div", __assign({ className: classes.featuredImageContainer }, { children: _jsx("img", { src: article.featured_image, alt: article.title, className: classes.featuredImage }, void 0) }), void 0), _jsxs("div", __assign({ className: classes.blogInfoContainer }, { children: [_jsx("div", __assign({ className: classes.tags }, { children: displayTags() }), void 0), _jsx("h1", __assign({ className: classes.title }, { children: article.title }), void 0), _jsx("div", __assign({ className: classes.blogInfo }, { children: _jsxs("p", __assign({ className: classes.postedTime }, { children: ["Posted ", getTimeFrom(article.created_at), " ago"] }), void 0) }), void 0), _jsxs("div", __assign({ className: classes.shareContainer }, { children: [_jsx("p", __assign({ className: classes.shareText }, { children: "Share post" }), void 0), _jsx("div", __assign({ className: classes.socialIcons }, { children: displaySocialIcons() }), void 0)] }), void 0)] }), void 0)] }), void 0), _jsxs("div", __assign({ className: classes.contentContainer }, { children: [_jsx("div", { className: clx("templatePostContent", classes.content, (_b = {},
                                     _b[classes.fullContentWidth] = !isRelatedPosts,
-                                    _b)), dangerouslySetInnerHTML: { __html: article.content } }, void 0), isRelatedPosts && (_jsxs("div", __assign({ className: classes.relatedArticles }, { children: [_jsx("p", __assign({ className: classes.relatedPost }, { children: "Related Posts" }), void 0), _jsx("div", __assign({ className: classes.posts }, { children: displayRelatedPosts() }), void 0)] }), void 0))] }), void 0)] }), void 0)] }, void 0));
+                                    _b)), dangerouslySetInnerHTML: { __html: article.content } }, void 0), isRelatedPosts && (_jsxs("div", __assign({ className: classes.relatedArticles }, { children: [_jsx("p", __assign({ className: classes.relatedPost }, { children: "Related Posts" }), void 0), _jsx("div", __assign({ className: classes.posts }, { children: displayRelatedPosts() }), void 0)] }), void 0))] }), void 0)] }), void 0), _jsx(Footer, { name: site === null || site === void 0 ? void 0 : site.name, className: classes.footer }, void 0)] }, void 0));
 };

@@ -3,10 +3,12 @@ import { Theme } from "@mui/material/styles";
 
 export const useBloomyStyles = makeStyles<Theme>((theme: Theme) => ({
   root: {
-    width: "100%",
-    maxWidth: 1200,
-    margin: theme.spacing(9, "auto"),
     fontFamily: theme.design.font.inter,
+  },
+  container: {
+    width: "95%",
+    maxWidth: theme.include.styles.templates.maxWidth,
+    margin: theme.spacing(9, "auto"),
   },
   header: {
     width: "100%",
@@ -197,5 +199,8 @@ export const useBloomyStyles = makeStyles<Theme>((theme: Theme) => ({
     display: "flex",
     alignItems: "center",
     gap: theme.spacing(0.5),
+  },
+  footer: {
+    marginTop: theme.spacing(10),
   },
 }));
