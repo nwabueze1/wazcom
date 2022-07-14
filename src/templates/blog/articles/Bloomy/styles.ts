@@ -7,7 +7,7 @@ export const useBloomyStyles = makeStyles<Theme>((theme: Theme) => ({
   },
   container: {
     width: "95%",
-    maxWidth: 1440,
+    maxWidth: theme.include.styles.templates.maxWidth,
     margin: theme.spacing(9, "auto"),
   },
   header: {

@@ -7,7 +7,7 @@ export var useNovalStyles = makeStyles(function (theme) {
         },
         container: (_a = {
                 width: "95%",
-                maxWidth: 1440,
+                maxWidth: theme.include.styles.templates.maxWidth,
                 padding: theme.spacing(5.5, 0),
                 height: "100%",
                 margin: "auto"

@@ -53,6 +53,9 @@ export var theme = {
                 maxWidth: 1294,
                 maxWidthMd: 700,
             },
+            templates: {
+                maxWidth: 1440,
+            },
             template4: {
                 font: "Nunito",
             },
@@ -84,8 +87,8 @@ export var theme = {
             waz_greyColor300: "#666666",
             waz_greyColor400: "#333333",
             waz_white: "#FFFFFF",
-            waz_whiteColor200: "#f9f9f9",
-            waz_whiteColor300: "#F0F0F0",
+            waz_whiteAlpha: "#f9f9f9",
+            waz_whiteBeta: "#F0F0F0",
             waz_black: "#010E05",
             waz_Grey: "#414141",
             waz_gray: "#BEBEBE",

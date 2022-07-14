@@ -9,7 +9,7 @@ export var useGelloStyles = makeStyles(function (theme) {
                 height: "100%",
                 display: "flex",
                 justifyContent: "space-between",
-                maxWidth: 1440,
+                maxWidth: theme.include.styles.templates.maxWidth,
                 margin: "0 auto",
                 width: "90%",
                 padding: theme.spacing(6.5, 0)

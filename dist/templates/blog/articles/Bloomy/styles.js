@@ -7,7 +7,7 @@ export var useBloomyStyles = makeStyles(function (theme) {
         },
         container: {
             width: "95%",
-            maxWidth: 1440,
+            maxWidth: theme.include.styles.templates.maxWidth,
             margin: theme.spacing(9, "auto"),
         },
         header: (_a = {

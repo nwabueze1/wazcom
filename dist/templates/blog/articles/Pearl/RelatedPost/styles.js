@@ -41,7 +41,7 @@ export var useRelatedPostPearlStyles = makeStyles(function (theme) { return ({
     },
     postedTime: {
         fontSize: theme.typography.fontSize,
-        color: theme.design.colors.waz_whiteColor300,
+        color: theme.design.colors.waz_whiteBeta,
     },
     overlay: {
         position: "absolute",

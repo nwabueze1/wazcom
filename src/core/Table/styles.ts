@@ -11,7 +11,7 @@ export const useTableStyles = makeStyles((theme: Theme) => ({
     overflow: "hidden",
   },
   tableHead: {
-    background: theme.design.colors.waz_whiteColor200,
+    background: theme.design.colors.waz_whiteAlpha,
   },
   tableHeadCell: {
     fontWeight: theme.typography.fontWeightBold,
@@ -21,7 +21,7 @@ export const useTableStyles = makeStyles((theme: Theme) => ({
   },
   tableCell: {
     padding: theme.spacing(1.5, 2),
-    fontSize: theme.typography.fontSize + 2 ,
+    fontSize: theme.typography.fontSize + 2,
   },
   controls: {
     display: "flex",
