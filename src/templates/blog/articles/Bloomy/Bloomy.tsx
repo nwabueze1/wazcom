@@ -1,5 +1,6 @@
 import { FC, useState, useEffect } from "react";
-import { CoreArticleTemplateFields, Footer } from "templates";
+import { CoreArticleTemplateFields } from "../types";
+import { Footer } from "../common/Footer";
 import { useBloomyStyles } from ".";
 import { shareDataBloomy } from "./data";
 import { parseDate } from "utilities/getTime";
