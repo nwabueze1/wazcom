@@ -27,8 +27,8 @@ var __read = (this && this.__read) || function (o, n) {
 };
 import { jsx as _jsx, jsxs as _jsxs } from "react/jsx-runtime";
 import { useState, useEffect } from "react";
-import { Footer } from "templates";
-import { useBloomyStyles } from ".";
+import { Footer } from "../common/Footer";
+import { useBloomyStyles } from "./styles";
 import { shareDataBloomy } from "./data";
 import { parseDate } from "utilities/getTime";
 import { BloomyRelatedPost } from "./RelatedPosts";

@@ -1,6 +1,7 @@
 import { FC, useState, useEffect } from "react";
-import { CoreArticleTemplateFields, Footer } from "templates";
-import { useBloomyStyles } from ".";
+import { CoreArticleTemplateFields } from "../types";
+import { Footer } from "../common/Footer";
+import { useBloomyStyles } from "./styles";
 import { shareDataBloomy } from "./data";
 import { parseDate } from "utilities/getTime";
 import { BloomyRelatedPost } from "./RelatedPosts";
