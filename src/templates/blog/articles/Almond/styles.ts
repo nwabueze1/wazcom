@@ -5,7 +5,7 @@ export const useAlmondStyles = makeStyles<Theme>((theme: Theme) => ({
   root: {
     width: "100%",
     height: "100%",
-    fontFamily: "sans-seriff, merriweather",
+    fontFamily: theme.design.font.merriweather,
     [theme.breakpoints.down("md")]: {
       flexDirection: "column",
     },
