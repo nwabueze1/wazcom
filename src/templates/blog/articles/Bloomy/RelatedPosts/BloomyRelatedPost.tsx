@@ -1,6 +1,6 @@
 import { FC } from "react";
 import { truncate } from "lodash";
-import { CoreArticleTemplateFields } from "templates";
+import { CoreArticleTemplateFields } from "../../types";
 import { parseDate } from "utilities/getTime";
 import { stripHtml } from "utilities/Post";
 import { useBloomyRelatedPostStyles } from "./styles";
