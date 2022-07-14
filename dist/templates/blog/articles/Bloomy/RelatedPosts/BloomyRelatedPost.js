@@ -11,8 +11,8 @@ var __assign = (this && this.__assign) || function () {
 };
 import { jsx as _jsx, jsxs as _jsxs } from "react/jsx-runtime";
 import { truncate } from "lodash";
-import { parseDate } from "utilities/getTime";
-import { stripHtml } from "utilities/Post";
+import { parseDate } from "../../../../../utilities/getTime";
+import { stripHtml } from "../../../../../utilities/Post";
 import { useBloomyRelatedPostStyles } from "./styles";
 import clx from "classnames";
 export var BloomyRelatedPost = function (_a) {

@@ -30,7 +30,7 @@ import { useState, useEffect } from "react";
 import { Footer } from "../common/Footer";
 import { useBloomyStyles } from "./styles";
 import { shareDataBloomy } from "./data";
-import { parseDate } from "utilities/getTime";
+import { parseDate } from "../../../../utilities/getTime";
 import { BloomyRelatedPost } from "./RelatedPosts";
 export var Bloomy = function (_a) {
     var article = _a.article, site = _a.site, domain = _a.domain, handleClick = _a.handleClick;
