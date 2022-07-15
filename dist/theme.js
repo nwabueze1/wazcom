@@ -67,7 +67,7 @@ export var theme = {
             dmSans: "DM Sans, sans-serif",
             nunitoSans: "Nunito Sans, sans-serif",
             inter: "Inter, sans-serif",
-            merriweather: "sans-seriff, merriweather",
+            merriweather: "Merriweather, sans-serif",
         },
         colors: {
             waz_primaryColor100: "#0A7227",
