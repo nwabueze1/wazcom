@@ -88,7 +88,7 @@ export const theme: any = {
       dmSans: "DM Sans, sans-serif",
       nunitoSans: "Nunito Sans, sans-serif",
       inter: "Inter, sans-serif",
-      merriweather: "merriweather, sans-seriff",
+      merriweather: "Merriweather, sans-serif",
     },
     colors: {
       waz_primaryColor100: "#0A7227",
