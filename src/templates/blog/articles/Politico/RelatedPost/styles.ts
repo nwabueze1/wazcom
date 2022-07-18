@@ -14,17 +14,18 @@ export const useRelatedPostPoliticoStyles = makeStyles<Theme>((theme: Theme) => 
       width: "45%",
     },
     [theme.breakpoints.down("sm")]: {
-      width: "100%",
+      width: "90%",
+      margin: "0 auto"
     }
   },
   thumbnailImg: {
-    width: "380px",
+    width: "100%",
     objectFit: "cover",
     [theme.breakpoints.down("md")]: {
-      width: "330px",
+      width: "105%",
     },
     [theme.breakpoints.down("sm")]: {
-      width: "330px",
+      width: "100%",
     }
   },
   body: {
@@ -34,13 +35,7 @@ export const useRelatedPostPoliticoStyles = makeStyles<Theme>((theme: Theme) => 
     fontSize: theme.typography.fontSize + 8,
     lineHeight: "30px",
     fontWeight: theme.typography.fontWeightBold,
-    width: "340px",
-    [theme.breakpoints.down("md")]: {
-      width: "280px",
-    },
-    [theme.breakpoints.down("sm")]: {
-      width: "280px",
-    }
+    width: "100%",
   },
   date: {
     fontSize: theme.typography.fontSize,
