@@ -33,7 +33,7 @@ export const usePoliticoStyles = makeStyles<Theme>((theme: Theme) => ({
     },
     headerImage: {
       width: "100%",
-      height: "500px",
+      height: "100%",
       objectFit: "cover"
     },
     postContent: {
