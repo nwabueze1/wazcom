@@ -3,11 +3,13 @@ import { Theme } from "@mui/material/styles";
 
 export const useNovalStyles = makeStyles<Theme>((theme: Theme) => ({
   root: {
-    width: "100%",
-    maxWidth: 1200,
+    fontFamily: theme.design.font.dmSans,
+  },
+  container: {
+    width: "95%",
+    maxWidth: theme.include.styles.templates.maxWidth,
     padding: theme.spacing(5.5, 0),
     height: "100%",
-    fontFamily: theme.design.font.dmSans,
     margin: "auto",
     [theme.breakpoints.down("md")]: {
       width: "90%",
@@ -95,9 +97,6 @@ export const useNovalStyles = makeStyles<Theme>((theme: Theme) => ({
     marginTop: theme.spacing(3),
   },
   postedTime: {
-    padding: theme.spacing(0, 1.5),
-    borderLeft: `1px solid ${theme.design.colors.waz_grey200}`,
-    borderRight: `1px solid ${theme.design.colors.waz_grey200}`,
     [theme.breakpoints.down("sm")]: {
       fontSize: theme.typography.fontSize,
     },
@@ -122,7 +121,7 @@ export const useNovalStyles = makeStyles<Theme>((theme: Theme) => ({
       margin: theme.spacing(1.5, 0),
     },
     "& h1, h2, h3, h4, h5, h6": {
-      margin: theme.spacing(2.5, 0)
+      margin: theme.spacing(2.5, 0),
     },
     "& img": {
       margin: theme.spacing(4, "auto"),
@@ -183,5 +182,8 @@ export const useNovalStyles = makeStyles<Theme>((theme: Theme) => ({
     fontSize: theme.typography.fontSize + 4,
     color: theme.design.colors.waz_white,
     background: theme.design.colors.waz_orange,
+  },
+  footer: {
+    marginTop: theme.spacing(10),
   },
 }));

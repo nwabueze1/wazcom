@@ -8,7 +8,6 @@ import { getDay } from "../../../../../utilities/getTime";
 export const RelatedPostHalo: FC<CoreArticleTemplateFields> = ({
   article,
   handleClick,
-  className,
 }) => {
   const classes = useRelatedPostHaloStyles();
   return (
@@ -20,13 +19,13 @@ export const RelatedPostHalo: FC<CoreArticleTemplateFields> = ({
         <img src={article.featured_image} className={classes.thumbnailImg} />
       </div>
       <div className={classes.thumbnailDetails}>
-        <p className={classes.articleTitle}>{truncate(article.title, {length: 100})}</p>
+        <p className={classes.articleTitle}>
+          {truncate(article.title, { length: 100 })}
+        </p>
         <div className={classes.post}>
-          {truncate(stripHtml(article.excerpt), {length: 100})}
+          {truncate(stripHtml(article.excerpt), { length: 100 })}
         </div>
-        <div className={classes.articleDate}>
-          {getDay(article.created_at)}
-        </div>
+        <div className={classes.articleDate}>{getDay(article.created_at)}</div>
       </div>
     </div>
   );

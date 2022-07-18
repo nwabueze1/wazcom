@@ -19,7 +19,37 @@ export var useTableControlsStyles = makeStyles(function (theme) {
             gap: theme.spacing(1),
             justifyContent: "space-between",
             border: "1px solid ".concat(theme.design.colors.waz_primaryColor100),
-            borderColor: theme.design.colors.waz_greyColor100,
+            borderRadius: "6px",
+            "&:hover": {
+                opacity: "initial",
+                backgroundColor: theme.design.colors.waz_white,
+                borderColor: theme.design.colors.waz_greyColor100,
+            },
+        },
+        printButton: {
+            backgroundColor: theme.design.colors.waz_white,
+            color: theme.design.colors.waz_Grey,
+            height: "40px",
+            display: "flex",
+            gap: theme.spacing(1),
+            justifyContent: "space-between",
+            border: "1px solid ".concat(theme.design.colors.waz_grey300),
+            borderRadius: "6px",
+            "&:hover": {
+                opacity: "initial",
+                backgroundColor: theme.design.colors.waz_white,
+                borderColor: theme.design.colors.waz_greyColor100,
+            },
+        },
+        exportButton: {
+            backgroundColor: theme.design.colors.waz_white,
+            color: theme.design.colors.waz_Grey,
+            height: "40px",
+            display: "flex",
+            gap: theme.spacing(1),
+            justifyContent: "space-between",
+            border: "1px solid ".concat(theme.design.colors.waz_grey300),
+            borderRadius: "6px",
             "&:hover": {
                 opacity: "initial",
                 backgroundColor: theme.design.colors.waz_white,
@@ -28,6 +58,7 @@ export var useTableControlsStyles = makeStyles(function (theme) {
         },
         controlButtonText: {
             fontSize: theme.typography.fontSize + 2,
+            fontWeight: "200",
         },
         controlsInputField: {
             width: "320px",

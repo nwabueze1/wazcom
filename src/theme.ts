@@ -74,6 +74,9 @@ export const theme: any = {
         maxWidth: 1294,
         maxWidthMd: 700,
       },
+      templates: {
+        maxWidth: 1440,
+      },
       template4: {
         font: "Nunito",
       },
@@ -88,7 +91,8 @@ export const theme: any = {
       dmSans: "DM Sans, sans-serif",
       nunitoSans: "Nunito Sans, sans-serif",
       inter: "Inter, sans-serif",
-      bitter: "san-serif, Bitter"
+      bitter: "san-serif, Bitter",
+      merriweather: "Merriweather, sans-serif",
     },
     colors: {
       waz_primaryColor100: "#0A7227",
@@ -106,11 +110,13 @@ export const theme: any = {
       waz_greyColor300: "#666666",
       waz_greyColor400: "#333333",
       waz_white: "#FFFFFF",
-      waz_whiteColor200: "#f9f9f9",
+      waz_whiteAlpha: "#f9f9f9",
+      waz_whiteAlpha100: "#F0F0F0",
       waz_black: "#010E05",
       waz_Grey: "#414141",
       waz_gray: "#BEBEBE",
       waz_blue: "#0889F7",
+      waz_blue200: "#2F80ED",
       waz_grey: "#3A3335",
       waz_yellowsea: "#F5A53C",
       waz_greenishGrey: "#999F9B",
@@ -131,7 +137,7 @@ export const theme: any = {
       waz_gold: "#CBA735",
       waz_brown: "#A54227",
       waz_red: "#C23434",
-      waz_peach: "#FAF8F7"
+      waz_peach: "#FAF8F7",
     },
   },
   overrides: {
