@@ -36,25 +36,25 @@ export const Politico: FC<CoreArticleTemplateFields> = ({
   );
 
   const displayTags = () =>
-  article?.tags?.map((tag, index) => (
-    <div className={classes.tag} key={index}>
-      {tag?.name?.toUpperCase()}
-    </div>
-  ));
+    article?.tags?.map((tag, index) => (
+      <div className={classes.tag} key={index}>
+        {tag?.name?.toUpperCase()}
+      </div>
+    ));
 
   const displaySocialIcons = () => {
     return shareDataPolitico.map((social, index) => {
       return (
-       <div key={index} className={classes.socialIcons}>
-         <a
-          href={`${social.href}${blogUrl}`}
-          target="_blank"
-          rel="noreferrer"
-          className={classes.icon}
-        >
-          <img src={social.src} alt={social.alt} />
-        </a>
-       </div>
+        <div key={index} className={classes.socialIcons}>
+          <a
+            href={`${social.href}${blogUrl}`}
+            target="_blank"
+            rel="noreferrer"
+            className={classes.icon}
+          >
+            <img src={social.src} alt={social.alt} />
+          </a>
+        </div>
       );
     });
   };
@@ -100,18 +100,16 @@ export const Politico: FC<CoreArticleTemplateFields> = ({
         </div>
       </div>
       <div className={classes.relatedPostsHeader}>
-      <p className={classes.relatedPostsHeading}>
-              Related Posts
-            </p>
-              <div className={classes.hr} />
-            </div>
+        <p className={classes.relatedPostsHeading}>Related Posts</p>
+        <div className={classes.hr} />
+      </div>
       <div className={classes.relatedPostsContainer}>
-            {isRelatedPosts && (
-            <div className={classes.relatedPostsItems}>
-              {displayRelatedPosts()}
-            </div>
-          )}
+        {isRelatedPosts && (
+          <div className={classes.relatedPostsItems}>
+            {displayRelatedPosts()}
           </div>
+        )}
+      </div>
     </div>
   );
 };
