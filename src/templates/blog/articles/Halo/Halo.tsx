@@ -5,7 +5,6 @@ import Circle from "@mui/icons-material/Circle";
 import { shareDataHalo } from './data';
 import { CoreArticleTemplateFields } from "../types";
 import {RelatedPostHalo} from "./RelatedPost/RelatedPost"
-import { useDefaultAvatar } from "../../helpers";
 import { getDay } from "../../../../utilities/getTime";
 
 export const Halo: FC<CoreArticleTemplateFields> = ({ article, site, domain, }) =>{
@@ -67,8 +66,6 @@ export const Halo: FC<CoreArticleTemplateFields> = ({ article, site, domain, }) 
         });
       };
 
-      const defaultAvatar = useDefaultAvatar(site);
-
   return (
     <>
      <head>
@@ -90,7 +87,6 @@ export const Halo: FC<CoreArticleTemplateFields> = ({ article, site, domain, }) 
                 <h1 className={classes.title}>{article?.title}</h1>
                 <div className={classes.authorInfo}>
                   <p>
-                    <span className={classes.authorName}>{site?.user ? site?.user?.firstname + " " + site?.user?.lastname : null}</span>
                     <span>
                       <Circle className={classes.circleIcon} />{" "}
                       <span className={classes.date}>
@@ -111,25 +107,9 @@ export const Halo: FC<CoreArticleTemplateFields> = ({ article, site, domain, }) 
             dangerouslySetInnerHTML={{ __html: article.content }}
           />
         </div>
-          {site?.user?.avatar ? (
-              <div className={classes.avatarContainer}>
-                <img
-                  src={site?.user?.avatar}
-                  alt=""
-                  className={classes.avatarImage}
-                />
-              </div>
-            ) : (
-              <div className={classes.avatarContainer}>
-                <p className={classes.defaultAvatar}>{defaultAvatar}</p>
-              </div>
-            )}
         <div className={classes.authorDetails}>
           <div>
           <p className={classes.authorText}>Writen By</p>
-              <p className={classes.name}>
-                {site?.user?.firstname}&nbsp;{site?.user?.lastname}
-              </p>
             <div className={classes.bottomSocialIconsContainer}>
               {displayBottomSocialIcons()}
             </div>
