@@ -8,7 +8,7 @@ export var useTableStyles = makeStyles(function (theme) { return ({
         overflow: "hidden",
     },
     tableHead: {
-        background: theme.design.colors.waz_whiteColor200,
+        background: theme.design.colors.waz_whiteAlpha,
     },
     tableHeadCell: {
         fontWeight: theme.typography.fontWeightBold,

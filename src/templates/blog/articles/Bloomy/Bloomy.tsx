@@ -1,9 +1,9 @@
 import { FC, useState, useEffect } from "react";
-import { CoreArticleTemplateFields, useDefaultAvatar } from "templates";
-import { useBloomyStyles } from ".";
+import { CoreArticleTemplateFields } from "../types";
+import { Footer } from "../common/Footer";
+import { useBloomyStyles } from "./styles";
 import { shareDataBloomy } from "./data";
-import clx from "classnames";
-import { parseDate } from "utilities/getTime";
+import { parseDate } from "../../../../utilities/getTime";
 import { BloomyRelatedPost } from "./RelatedPosts";
 
 export const Bloomy: FC<CoreArticleTemplateFields> = ({
@@ -13,7 +13,6 @@ export const Bloomy: FC<CoreArticleTemplateFields> = ({
   handleClick,
 }) => {
   const classes = useBloomyStyles();
-  const defaultAvatar = useDefaultAvatar(site);
   const [loaded, setLoaded] = useState(false);
 
   const displayTags = () =>
@@ -59,63 +58,49 @@ export const Bloomy: FC<CoreArticleTemplateFields> = ({
 
   return (
     <div className={classes.root}>
-      <head>
-        <link
-          href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap"
-          rel="stylesheet"
-        />
-      </head>
-      <div className={classes.header}>
-        <div className={classes.imgContainer}>
-          <img
-            src={article.featured_image}
-            alt={article.title.slice(0, 20)}
-            className={classes.featuredImg}
+      <div className={classes.container}>
+        <head>
+          <link
+            href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap"
+            rel="stylesheet"
           />
-        </div>
-        <div className={classes.articleInfoContainer}>
-          <div className={classes.articleInfo}>
-            <p className={classes.tags}>{displayTags()}</p>
-            <h1 className={classes.articleTitle}>{article.title}</h1>
-            <div className={classes.blogInfo}>
-              <div className={classes.blogInfoContainer}>
-                {site?.user?.avatar ? (
-                  <div className={classes.avatar}>
-                    <img
-                      src={site?.user?.avatar ?? ""}
-                      className={clx(
-                        classes.featuredImage,
-                        classes.avatarImage
-                      )}
-                    />
-                  </div>
-                ) : (
-                  <p className={classes.defaultAvatar}>{defaultAvatar}</p>
-                )}
-                <p className={classes.writtenBy}>
-                  {site?.user?.firstname}&nbsp;{site?.user?.lastname}
+        </head>
+        <div className={classes.header}>
+          <div className={classes.imgContainer}>
+            <img
+              src={article.featured_image}
+              alt={article.title.slice(0, 20)}
+              className={classes.featuredImg}
+            />
+          </div>
+          <div className={classes.articleInfoContainer}>
+            <div className={classes.articleInfo}>
+              <p className={classes.tags}>{displayTags()}</p>
+              <h1 className={classes.articleTitle}>{article.title}</h1>
+              <div className={classes.blogInfo}>
+                <div className={classes.blogInfoContainer}></div>
+                <p className={classes.postedTime}>
+                  <span className={classes.point} />
+                  {parseDate(article.created_at)}
                 </p>
               </div>
-              <p className={classes.postedTime}>
-                <span className={classes.point} />
-                {parseDate(article.created_at)}
-              </p>
+              <div className={classes.socialIcons}>{displaySocialIcons()}</div>
             </div>
-            <div className={classes.socialIcons}>{displaySocialIcons()}</div>
           </div>
         </div>
-      </div>
-      <div
-        dangerouslySetInnerHTML={{ __html: article.content }}
-        className={classes.content}
-      />
-      <div>
-        <div className={classes.relatedPostHeader}>
-          <p className={classes.relatedPostHeaderTitle}>Related Posts</p>
-          <p className={classes.hr} />
+        <div
+          dangerouslySetInnerHTML={{ __html: article.content }}
+          className={classes.content}
+        />
+        <div>
+          <div className={classes.relatedPostHeader}>
+            <p className={classes.relatedPostHeaderTitle}>Related Posts</p>
+            <p className={classes.hr} />
+          </div>
+          <div className={classes.posts}>{displayRelatedPosts()}</div>
         </div>
-        <div className={classes.posts}>{displayRelatedPosts()}</div>
       </div>
+      <Footer name={site?.name as string} className={classes.footer} />
     </div>
   );
 };

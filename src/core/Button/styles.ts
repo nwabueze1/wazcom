@@ -30,6 +30,7 @@ export const useButtonStyles = makeStyles((theme: BaseTheme) => ({
     height: "100%",
     display: "flex",
     justifyContent: "center",
+    borderRadius: "4px",
     alignItems: "center",
     color: theme.design.colors.waz_white,
     zIndex: 5,

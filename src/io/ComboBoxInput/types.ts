@@ -6,6 +6,7 @@ export type ComboBoxInputProps = CommonProps &
     AutocompleteProps<any, undefined, undefined, undefined>,
     "onChange" | "renderInput"
   > & {
+    isAdd?: boolean;
     error?: boolean;
     label?: string;
     options: ComboBoxInputOptionProps[];

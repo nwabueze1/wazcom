@@ -5,6 +5,7 @@ import { shareDataNoval } from "./data";
 import { getTimeFrom } from "../../../../utilities/getTime";
 import { CoreArticleTemplateFields } from "..";
 import { useNovalStyles } from ".";
+import { Footer } from "../common/Footer";
 
 export const Noval: FC<CoreArticleTemplateFields> = ({
   article,
@@ -59,14 +60,14 @@ export const Noval: FC<CoreArticleTemplateFields> = ({
   };
 
   return (
-    <>
+    <div>
       <head>
         <link
           href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;600;700&display=swap"
           rel="stylesheet"
         />
       </head>
-      <div className={classes.root}>
+      <div className={classes.container}>
         <section className={classes.header}>
           <div className={classes.featuredImageContainer}>
             <img
@@ -104,6 +105,7 @@ export const Noval: FC<CoreArticleTemplateFields> = ({
           )}
         </div>
       </div>
-    </>
+      <Footer name={site?.name as string} className={classes.footer} />
+    </div>
   );
 };

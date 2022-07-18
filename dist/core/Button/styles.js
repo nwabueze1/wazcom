@@ -28,6 +28,7 @@ export var useButtonStyles = makeStyles(function (theme) { return ({
         height: "100%",
         display: "flex",
         justifyContent: "center",
+        borderRadius: "4px",
         alignItems: "center",
         color: theme.design.colors.waz_white,
         zIndex: 5,

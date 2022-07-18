@@ -1,6 +1,5 @@
 import makeStyles from "@mui/styles/makeStyles";
 import { Theme } from "@mui/material/styles";
-import { HeadsetMic, Height, LineWeight } from "@mui/icons-material";
 
 export const useHaloStyles = makeStyles<Theme>((theme: Theme) => ({
   root: {
