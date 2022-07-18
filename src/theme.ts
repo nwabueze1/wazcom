@@ -128,16 +128,10 @@ export const theme: any = {
       waz_grey600: "#676E69",
       waz_grey700: " #9B9B9B",
       waz_orange: "#F4CDB4",
-<<<<<<< HEAD
-<<<<<<< HEAD
-      waz_gold: "#CBA735"
-=======
+      waz_gold: "#CBA735",
       waz_brown: "#A54227",
->>>>>>> 21cc91277be9688a40b5420b9932f6085901b195
-=======
       waz_red: "#C23434",
       waz_peach: "#FAF8F7"
->>>>>>> ZIN-1221-wazcom-implement-politico-templ
     },
   },
   overrides: {
