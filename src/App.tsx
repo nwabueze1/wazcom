@@ -1,5 +1,4 @@
 import { StyledEngineProvider, Theme, ThemeProvider } from "@mui/material";
-import { articleData, site } from "data";
 import * as React from "react";
 import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
 import { Browser } from "view/Browser";
