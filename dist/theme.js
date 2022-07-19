@@ -70,7 +70,7 @@ export var theme = {
             dmSans: "DM Sans, sans-serif",
             nunitoSans: "Nunito Sans, sans-serif",
             inter: "Inter, sans-serif",
-            bitter: "san-serif, Bitter",
+            bitter: "Bitter, sans-serif",
             merriweather: "Merriweather, sans-serif",
         },
         colors: {
