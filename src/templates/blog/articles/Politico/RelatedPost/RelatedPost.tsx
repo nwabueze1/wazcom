@@ -27,7 +27,6 @@ export const RelatedPostPolitico: FC<CoreArticleTemplateFields> = ({
           {article.category ? article.category : "COUNTRY"}
         </p>
         <div className={classes.thumbnailDetails}>
-          <p></p>
           <p className={classes.articleTitle}>
             {truncate(article.title, { length: 100 })}
           </p>
