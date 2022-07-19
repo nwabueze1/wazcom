@@ -23,6 +23,7 @@ import {
   TextInputProps,
   ToggleInputProps,
   RadioButtonInputProps,
+  CurrencyInputFieldProps,
 } from "../io";
 
 import {
@@ -60,6 +61,7 @@ export type ComponentPropType = {
   | InputGroupStory
   | GqlMediaLibraryStory
   | GqlMediaLibrarySelectorStory
+  | CurrencyInputStory
 );
 
 type AccordionStory = {
@@ -136,6 +138,10 @@ type SelectStory = {
 
 type RichTextStory = {
   props: RichTextInputProps;
+};
+
+type CurrencyInputStory = {
+  props: CurrencyInputFieldProps;
 };
 
 type GqlComboBoxStory = {

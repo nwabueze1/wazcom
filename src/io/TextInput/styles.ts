@@ -15,7 +15,6 @@ export const useTextStyles = makeStyles((theme: Theme) => ({
         outline: theme.design.colors.waz_primaryColor100
       },
     },
-   
   },
   label: {
     display: "flex",
