@@ -91,6 +91,7 @@ export const theme: any = {
       dmSans: "DM Sans, sans-serif",
       nunitoSans: "Nunito Sans, sans-serif",
       inter: "Inter, sans-serif",
+      bitter: "Bitter, sans-serif",
       merriweather: "Merriweather, sans-serif",
     },
     colors: {
@@ -135,6 +136,8 @@ export const theme: any = {
       waz_orange: "#F4CDB4",
       waz_gold: "#CBA735",
       waz_brown: "#A54227",
+      waz_red: "#C23434",
+      waz_peach: "#FAF8F7",
     },
   },
   overrides: {
