@@ -140,6 +140,9 @@ export const usePoliticoStyles = makeStyles<Theme>((theme: Theme) => ({
     main: {
       backgroundColor: theme.design.colors.waz_peach,
     },
+    footer: {
+      marginTop: theme.spacing(10)
+    }
   }));
   
   
