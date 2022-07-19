@@ -20,9 +20,6 @@ export const usePoliticoStyles = makeStyles<Theme>((theme: Theme) => ({
       [theme.breakpoints.down("md")]: {
         width: "90%",
       },
-      [theme.breakpoints.down("sm")]: {
-        width: "90%",
-      }
     },
     tagContainer: {
       display: "flex",
@@ -92,7 +89,7 @@ export const usePoliticoStyles = makeStyles<Theme>((theme: Theme) => ({
       }
     },
     icon: {
-      margin: "auto 0",
+      margin: theme.spacing(0, "auto"),
       marginTop: theme.spacing(1.5)
     },
     relatedPosts: {
@@ -107,7 +104,7 @@ export const usePoliticoStyles = makeStyles<Theme>((theme: Theme) => ({
     },
     relatedPostsHeader: {
       width: "85%",
-      margin: "0 auto",
+      margin: theme.spacing(0, "auto"),
       [theme.breakpoints.down("md")]: {
         width: "90%",
       },

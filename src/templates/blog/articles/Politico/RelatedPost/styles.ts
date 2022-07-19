@@ -15,21 +15,15 @@ export const useRelatedPostPoliticoStyles = makeStyles<Theme>((theme: Theme) => 
     },
     [theme.breakpoints.down("sm")]: {
       width: "90%",
-      margin: "0 auto"
+      margin: theme.spacing(0, "auto")
     }
   },
   thumbnailImg: {
     width: "100%",
     objectFit: "cover",
-    [theme.breakpoints.down("md")]: {
-      width: "105%",
-    },
-    [theme.breakpoints.down("sm")]: {
-      width: "100%",
-    }
   },
   body: {
-    margin: "0 auto"
+    margin: theme.spacing(0, "auto")
   },
   articleTitle: {
     fontSize: theme.typography.fontSize + 8,
