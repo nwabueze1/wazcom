@@ -2,7 +2,7 @@ import { FC, useEffect, useState } from "react";
 import clx from "classnames";
 import { RelatedPostNoval } from "./RelatedPost/RelatedPost";
 import { shareDataNoval } from "./data";
-import { getTimeFrom } from "../../../../utilities/getTime";
+import { getDay } from "../../../../utilities/getTime";
 import { CoreArticleTemplateFields } from "..";
 import { useNovalStyles } from ".";
 import { Footer } from "../common/Footer";
@@ -81,7 +81,7 @@ export const Noval: FC<CoreArticleTemplateFields> = ({
             <h1 className={classes.title}>{article.title}</h1>
             <div className={classes.blogInfo}>
               <p className={classes.postedTime}>
-                Posted {getTimeFrom(article.created_at)} ago
+                Posted {getDay(article.created_at)}
               </p>
             </div>
             <div className={classes.shareContainer}>

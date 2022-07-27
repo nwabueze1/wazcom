@@ -19,12 +19,6 @@ export const useBloomyStyles = makeStyles<Theme>((theme: Theme) => ({
       flexDirection: "column",
     },
   },
-  point: {
-    width: 4,
-    height: 4,
-    background: theme.design.colors.waz_grey600,
-    borderRadius: "50%",
-  },
   imgContainer: {
     position: "relative",
     width: "62%",
@@ -109,7 +103,6 @@ export const useBloomyStyles = makeStyles<Theme>((theme: Theme) => ({
   blogInfo: {
     display: "flex",
     alignItems: "center",
-    gap: theme.spacing(1.5),
     margin: theme.spacing(2, 0),
   },
   defaultAvatar: {

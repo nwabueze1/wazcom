@@ -80,7 +80,6 @@ export const Bloomy: FC<CoreArticleTemplateFields> = ({
               <div className={classes.blogInfo}>
                 <div className={classes.blogInfoContainer}></div>
                 <p className={classes.postedTime}>
-                  <span className={classes.point} />
                   {parseDate(article.created_at)}
                 </p>
               </div>

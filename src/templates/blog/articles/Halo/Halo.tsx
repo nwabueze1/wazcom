@@ -1,16 +1,12 @@
 import { useState, useEffect, FC } from "react";
 import { useHaloStyles } from "./styles";
 import { Chip } from "@mui/material";
-import Circle from "@mui/icons-material/Circle";
 import { shareDataHalo } from "./data";
 import { CoreArticleTemplateFields } from "../types";
 import { RelatedPostHalo } from "./RelatedPost/RelatedPost";
 import { getDay } from "../../../../utilities/getTime";
 
-export const Halo: FC<CoreArticleTemplateFields> = ({
-  article,
-  domain,
-}) => {
+export const Halo: FC<CoreArticleTemplateFields> = ({ article, domain }) => {
   const classes = useHaloStyles();
   const [loaded, setLoaded] = useState(false);
   const blogUrl = loaded && window.location.href;
@@ -83,14 +79,10 @@ export const Halo: FC<CoreArticleTemplateFields> = ({
                 {displayTags()}
                 <h1 className={classes.title}>{article?.title}</h1>
                 <div className={classes.authorInfo}>
-                  <p>
-                    <span>
-                      <Circle className={classes.circleIcon} />{" "}
-                      <span className={classes.date}>
-                        {getDay(article?.created_at)}
-                      </span>{" "}
-                    </span>
-                  </p>
+                  <p className={classes.circleIcon} />
+                  <span className={classes.date}>
+                    {getDay(article?.created_at)}
+                  </span>{" "}
                 </div>
               </div>
             </div>

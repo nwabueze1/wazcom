@@ -14,12 +14,12 @@ export const getTimeFrom = (timestamp: string) => {
 
   if (difference < 86400000) {
     return `${Math.round(difference / 3600000)}${
-      Math.round(difference) > 1 ? ` years` : " year"
+      Math.round(difference) > 1 ? `hours` : "hour"
     } hours`;
   }
   if (difference < 604800000)
     return `${Math.round(difference / 86400000)}${
-      Math.round(difference) > 1 ? ` hours` : " hour"
+      Math.round(difference) > 1 ? `days` : "day"
     } days`;
 
   if (difference < 2419200000)

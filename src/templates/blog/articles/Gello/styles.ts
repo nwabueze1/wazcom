@@ -11,7 +11,7 @@ export const useGelloStyles = makeStyles<Theme>((theme: Theme) => ({
     justifyContent: "space-between",
     maxWidth: theme.include.styles.templates.maxWidth,
     margin: "0 auto",
-    width: "90%",
+    width: "100%",
     padding: theme.spacing(6.5, 0),
     [theme.breakpoints.down("md")]: {
       flexDirection: "column",
