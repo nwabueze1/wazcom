@@ -9,10 +9,10 @@ export var getTimeFrom = function (timestamp) {
         return "".concat(Math.round(difference / 60000)).concat(Math.round(difference) > 1 ? "minutes" : "minute");
     }
     if (difference < 86400000) {
-        return "".concat(Math.round(difference / 3600000)).concat(Math.round(difference) > 1 ? " years" : " year", " hours");
+        return "".concat(Math.round(difference / 3600000)).concat(Math.round(difference) > 1 ? "hours" : "hour", " hours");
     }
     if (difference < 604800000)
-        return "".concat(Math.round(difference / 86400000)).concat(Math.round(difference) > 1 ? " hours" : " hour", " days");
+        return "".concat(Math.round(difference / 86400000)).concat(Math.round(difference) > 1 ? "days" : "day", " days");
     if (difference < 2419200000)
         return "".concat(Math.round(difference / 604800000)).concat(Math.round(difference) > 1 ? " weeks" : " week");
     if (difference < 29030400000)

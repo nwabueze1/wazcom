@@ -38,7 +38,7 @@ export const useHaloStyles = makeStyles<Theme>((theme: Theme) => ({
     position: "absolute",
     top: "0px",
     backgroundImage: "linear-gradient(to bottom, rgba(0,0,0,0), rgba(0,0,0,1))",
-    backgroundColor: theme.design.colors.waz_black
+    backgroundColor: theme.design.colors.waz_black,
   },
   overlayContainer: {
     position: "relative",
@@ -48,7 +48,7 @@ export const useHaloStyles = makeStyles<Theme>((theme: Theme) => ({
   },
   heroItems: {
     position: "absolute",
-    top: "370px",
+    top: "340px",
     left: "63px",
     zIndex: "2",
     width: "80%",
@@ -93,20 +93,23 @@ export const useHaloStyles = makeStyles<Theme>((theme: Theme) => ({
     lineHeight: "19px",
     fontWeight: theme.typography.fontWeightBold,
     textTransform: "uppercase",
-    color: theme.design.colors.waz_white
+    color: theme.design.colors.waz_white,
   },
   authorInfo: {
     zIndex: "100",
+    display: "flex",
+    alignItems: "center",
+    gap: theme.spacing(1),
   },
   circleIcon: {
     width: "5px",
     height: "5px",
-    color: theme.design.colors.waz_white,
-    marginLeft: theme.spacing(1.5),
+    background: theme.design.colors.waz_white,
+    borderRadius: "50%",
     marginBottom: theme.spacing(0.2),
   },
   date: {
-    color: theme.design.colors.waz_white
+    color: theme.design.colors.waz_white,
   },
   body: {
     display: "flex",
@@ -148,7 +151,7 @@ export const useHaloStyles = makeStyles<Theme>((theme: Theme) => ({
   topSocialIconsContainer: {
     position: "absolute",
     top: "30px",
-    left:"-15%",
+    left: "-15%",
     margin: theme.spacing(1),
     marginTop: theme.spacing(-4),
   },
@@ -305,4 +308,3 @@ export const useHaloStyles = makeStyles<Theme>((theme: Theme) => ({
     },
   },
 }));
-

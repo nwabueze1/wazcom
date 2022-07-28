@@ -8,6 +8,7 @@ export const useNovalStyles = makeStyles<Theme>((theme: Theme) => ({
   container: {
     width: "95%",
     maxWidth: theme.include.styles.templates.maxWidth,
+    fontFamily: theme.design.font.dmSans,
     padding: theme.spacing(5.5, 0),
     height: "100%",
     margin: "auto",
@@ -115,6 +116,7 @@ export const useNovalStyles = makeStyles<Theme>((theme: Theme) => ({
   content: {
     color: theme.design.colors.waz_primaryBlack,
     fontSize: theme.typography.fontSize + 6,
+    fontFamily: theme.design.font.dmSans,
     width: "60%",
     lineHeight: "28px",
     "& p": {

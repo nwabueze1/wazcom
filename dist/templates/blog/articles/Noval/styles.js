@@ -8,6 +8,7 @@ export var useNovalStyles = makeStyles(function (theme) {
         container: (_a = {
                 width: "95%",
                 maxWidth: theme.include.styles.templates.maxWidth,
+                fontFamily: theme.design.font.dmSans,
                 padding: theme.spacing(5.5, 0),
                 height: "100%",
                 margin: "auto"
@@ -121,6 +122,7 @@ export var useNovalStyles = makeStyles(function (theme) {
         content: (_h = {
                 color: theme.design.colors.waz_primaryBlack,
                 fontSize: theme.typography.fontSize + 6,
+                fontFamily: theme.design.font.dmSans,
                 width: "60%",
                 lineHeight: "28px",
                 "& p": {
