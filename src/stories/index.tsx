@@ -13,6 +13,7 @@ import {
   Carousel,
   EmptyState,
   Scheduler,
+  BlogScheduler
 } from "../core";
 import { BiLink } from "react-icons/bi";
 
@@ -457,6 +458,20 @@ export const stories: ComponentPropType[] = [
   {
     name: "Scheduler",
     component: Scheduler,
+    props: {
+      label: "Menu Schedule",
+      value: [
+        {
+          day: "0",
+          start_time: "12:00",
+          end_time: "18:00",
+        },
+      ],
+    },
+  },
+  {
+    name: "BlogScheduler",
+    component: BlogScheduler,
     props: {
       label: "Menu Schedule",
       value: [

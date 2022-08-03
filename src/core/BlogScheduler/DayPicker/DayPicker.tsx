@@ -1,13 +1,13 @@
 import React from "react";
 import { Select, SelectProps } from "@mui/material";
 import { menuItemTableStyles, BootstrapInput } from "./styles";
-import { Schedule } from "..";
+import { BlogSchedule } from "..";
 import { days, filterDaysOptions } from "./helper";
 import CalendarTodayIcon from '@mui/icons-material/CalendarToday';
 
 interface DayPickerProps extends SelectProps {
   value?: string;
-  scheduleData: Schedule[];
+  scheduleData: BlogSchedule[];
 }
 
 
@@ -25,6 +25,7 @@ export const DayPicker: React.FC<DayPickerProps> = ({
     <>
       <Select
         IconComponent={()=><CalendarTodayIcon />}
+        renderValue={()=><CalendarTodayIcon />}
         native
         multiline
         required
@@ -34,6 +35,7 @@ export const DayPicker: React.FC<DayPickerProps> = ({
         variant="outlined"
         value={value}
         input={<BootstrapInput />}
+        className={classes.dayPicker}
       >
         {days.map((day) => (
           <option key={day.id} value={String(day.id)} className={classes.option} disabled={!filteredOptions.includes(day)} hidden={!filteredOptions.includes(day)}>

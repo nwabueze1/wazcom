@@ -8,7 +8,6 @@ import clx from "classnames";
 import { FiPlus } from "react-icons/fi";
 import { days, filterDaysOptions } from "./DayPicker/helper";
 import { Schedule } from ".";
-import { BlogScheduler } from "../BlogScheduler/BlogScheduler"
 
 export const Scheduler: React.FC<SchedulerProps> = ({
   className,
@@ -97,6 +96,7 @@ export const Scheduler: React.FC<SchedulerProps> = ({
           </div>
         );
       })}
+
       {multiple && !isEverydaySelected && (
         <div className={`${classes.button} ${availableOption.length == 0 && classes.hidden}`} onClick={addNewRow}>
           <p className={classes.buttonText}>
@@ -104,7 +104,6 @@ export const Scheduler: React.FC<SchedulerProps> = ({
           </p>
         </div>
       )}
-      <BlogScheduler  />
     </div>
   );
 };

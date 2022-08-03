@@ -1,6 +1,6 @@
-import { Schedule } from "..";
+import { BlogSchedule } from "..";
 
-export const filterDaysOptions = (days: { id: number; name: string }[], scheduleData: Schedule[]) => {
+export const filterDaysOptions = (days: { id: number; name: string }[], scheduleData: BlogSchedule[]) => {
     const isWeekdays = scheduleData.some((day) => String(day.day) == "8");
     const isWeekends = scheduleData.some((day) => String(day.day) == "9");
     const isAWeekday = scheduleData.some((day) => Number(day.day) >= 2 && Number(day.day) <= 6);
@@ -34,7 +34,7 @@ export const filterDaysOptions = (days: { id: number; name: string }[], schedule
        
         return !scheduleData?.some((item) => String(item.day) == String(value.id))
     })
-} 
+}
 
 export const days: { id: number; name: string }[] = [
     { id: 0, name: "Everyday" },

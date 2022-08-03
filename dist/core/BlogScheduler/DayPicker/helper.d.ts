@@ -1,8 +1,8 @@
-import { Schedule } from "..";
+import { BlogSchedule } from "..";
 export declare const filterDaysOptions: (days: {
     id: number;
     name: string;
-}[], scheduleData: Schedule[]) => {
+}[], scheduleData: BlogSchedule[]) => {
     id: number;
     name: string;
 }[];

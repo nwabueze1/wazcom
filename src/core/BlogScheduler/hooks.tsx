@@ -1,12 +1,13 @@
 import { DayPicker } from "./DayPicker/DayPicker";
 import { TimeSelector } from "./TimePicker/TimePicker";
-import { Schedule } from "./types";
+import { BlogSchedule } from "./types";
 import CloseIcon from "@mui/icons-material/Close";
 import clx from "classnames";
 
+
 export const useScheduleData = () => {
   return (
-    scheduleData: Schedule[],
+    scheduleData: BlogSchedule[],
     handleChange: (
       event: React.ChangeEvent<{ name?: string; value?: unknown }>,
       index: number,
@@ -14,6 +15,7 @@ export const useScheduleData = () => {
     ) => void,
     classNames?: { [key: string]: string},
   ) => {
+    
     const data: { [key: string]: JSX.Element }[] = [];
     scheduleData.forEach((schedule, index) => {
       const parsedSchedule: { [key: string]: any } = {};

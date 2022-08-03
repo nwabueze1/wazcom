@@ -1,14 +1,13 @@
 export const days: { id: number; name: string, display:boolean }[] = [
-    { id: 0, name: "Everyday", display:true },
-    { id: 1, name: "Sunday", display:true },
-    { id: 2, name: "Monday", display:true },
-    { id: 3, name: "Tuesday", display:true },
-    { id: 4, name: "Wednesday", display:true },
-    { id: 5, name: "Thursday", display:true },
-    { id: 6, name: "Friday", display:true },
-    { id: 7, name: "Saturday", display:true },
-    { id: 8, name: "Weekdays", display:true },
-    { id: 9, name: "Weekends", display:true },
+    { id: 0, name: "Sunday", display:true },
+    { id: 1, name: "Monday", display:true },
+    { id: 2, name: "Tuesday", display:true },
+    { id: 3, name: "Wednesday", display:true },
+    { id: 4, name: "Thursday", display:true },
+    { id: 5, name: "Friday", display:true },
+    { id: 6, name: "Saturday", display:true },
+    { id: 7, name: "Weekdays", display:true },
+    { id: 8, name: "Weekends", display:true },
 ];
 
 export const fields = [

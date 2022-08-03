@@ -4,11 +4,11 @@ export type BlogSchedulerProps = CommonProps & {
     label?: string;
     gap?: string;
     multiple?: boolean;
-    value?: Schedule[];
+    value?: BlogSchedule[];
     orientation?: "horizontal" | "vertical";
 }
 
-export type Schedule = {
+export type BlogSchedule = {
     day: string;
     start_time: string;
     end_time: string;

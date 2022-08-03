@@ -5,7 +5,7 @@ import { BlogSchedulerProps } from "./types";
 import { fields } from "./data";
 import { useScheduleData } from "./hooks";
 import clx from "classnames";
-import { Schedule } from ".";
+import { BlogSchedule } from ".";
 
 export const BlogScheduler: React.FC<BlogSchedulerProps> = ({
   className,
@@ -26,7 +26,7 @@ export const BlogScheduler: React.FC<BlogSchedulerProps> = ({
       const {
         target: { name, value },
       } = event;
-      const newValue = [...(initialScheduleValue as Schedule[])];
+      const newValue = [...(initialScheduleValue as BlogSchedule[])];
       if (remove && newValue.length > 1) {
         newValue.splice(index, 1);
       } else {
@@ -38,7 +38,7 @@ export const BlogScheduler: React.FC<BlogSchedulerProps> = ({
   );
 
   const [scheduleValue, setScheduleValue] = useState<{ [key: string]: any }[]>(
-    parseSchedulevalue(initialScheduleValue as Schedule[],
+    parseSchedulevalue(initialScheduleValue as BlogSchedule[],
        handleChange,
        {
       timeSection: classes.timeContainer,
@@ -52,7 +52,7 @@ export const BlogScheduler: React.FC<BlogSchedulerProps> = ({
 
   useEffect(() => {
     const newScheduleValue = parseSchedulevalue(
-      initialScheduleValue as Schedule[],
+      initialScheduleValue as BlogSchedule[],
       handleChange,
       {
         timeSection: classes.timeContainer,

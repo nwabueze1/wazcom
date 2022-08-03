@@ -4,13 +4,19 @@ import createStyles from '@mui/styles/createStyles';
 import makeStyles from '@mui/styles/makeStyles';
 import withStyles from '@mui/styles/withStyles';
 
-export const menuItemTableStyles = makeStyles(() =>
+export const menuItemTableStyles = makeStyles((theme: Theme) =>
   createStyles({
     siteTypeSelect: {
       width: "6em",
     },
     option: {
       background: "red",
+    },
+    dayPicker: {
+      border: `1px solid ${theme.design.colors.waz_grey300}`,
+      borderRadius: "5px",
+      height: "50px",
+      paddingInline: theme.spacing(2),
     },
   }),
 );
@@ -48,6 +54,6 @@ export const BootstrapInput = withStyles((theme: Theme) =>
         borderRadius: 5,
       },
     },
-  }),
+  })
 )(InputBase);
   
