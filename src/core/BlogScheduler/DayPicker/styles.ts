@@ -35,9 +35,7 @@ export const BootstrapInput = withStyles((theme: Theme) =>
       fontSize: 16,
       padding: theme.spacing(0, 1.5),
       height: 40,
-
       transition: theme.transitions.create(["border-color", "box-shadow"]),
-
       fontFamily: [
         "-apple-system",
         "BlinkMacSystemFont",
