@@ -32,7 +32,7 @@ export var filterDaysOptions = function (days, scheduleData) {
     });
 };
 export var days = [
-    { id: 0, name: "Everyday" },
+    { id: 0, name: "Select Day" },
     { id: 1, name: "Sunday" },
     { id: 2, name: "Monday" },
     { id: 3, name: "Tuesday" },

@@ -37,7 +37,7 @@ export const filterDaysOptions = (days: { id: number; name: string }[], schedule
 }
 
 export const days: { id: number; name: string }[] = [
-    { id: 0, name: "Everyday" },
+    { id: 0, name: "Select Day" },
     { id: 1, name: "Sunday" },
     { id: 2, name: "Monday" },
     { id: 3, name: "Tuesday" },
