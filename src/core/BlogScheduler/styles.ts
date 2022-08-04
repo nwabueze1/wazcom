@@ -61,5 +61,8 @@ export const useSchedulerStyles = makeStyles((theme: Theme) => ({
   },
   dayContainer: {
   },
+  timeSection: {
+    
+  }
 
 }));

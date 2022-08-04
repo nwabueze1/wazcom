@@ -1,7 +1,8 @@
-import React from "react";
-import { TextField, BaseTextFieldProps, Theme } from "@mui/material";
+import React, { useState } from "react";
+import { TextField, BaseTextFieldProps, Theme, InputAdornment } from "@mui/material";
 import { useTimePickerStyles } from "./styles";
 import withStyles from '@mui/styles/withStyles';
+import ScheduleIcon from '@mui/icons-material/Schedule';
 
 
 const CustomCss = withStyles((theme: Theme) => ({
@@ -47,21 +48,31 @@ export const TimeSelector: React.FC<TimeSelectorProps> = ({
   value,
 }) => {
   const classes = useTimePickerStyles();
+  const [inputType, setInputType] = useState<string>("text");
+  const [defaultValue, setDefaultValue] = useState<string>("Select Time");
 
   return (
     <React.Fragment>
       <CustomCss />
       <TextField
         id="time"
-        type="time"
-        value={value}
+        type={inputType}
+        value={defaultValue}
         onChange={onChange}
         name={name}
         className={classes.textField}
-        sx={{
-          
+        InputProps={{
+          classes: { root: classes.inputRoot },
+          endAdornment: (
+            <InputAdornment position="end">
+              <ScheduleIcon />
+            </InputAdornment>
+          ),
         }}
-        InputProps={{ classes: { root: classes.inputRoot } }}
+        onFocus={() => {
+          setInputType("time");
+          setDefaultValue(value as string);
+        }}
       />
     </React.Fragment>
   );

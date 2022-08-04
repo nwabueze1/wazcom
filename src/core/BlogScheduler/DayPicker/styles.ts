@@ -16,6 +16,7 @@ export const menuItemTableStyles = makeStyles((theme: Theme) =>
       border: `1px solid ${theme.design.colors.waz_grey300}`,
       borderRadius: "5px",
       height: "50px",
+      width: "140%",
       paddingInline: theme.spacing(2),
     },
   }),
@@ -32,7 +33,6 @@ export const BootstrapInput = withStyles((theme: Theme) =>
       borderRadius: 5,
       position: "relative",
       fontSize: 16,
-      border: `solid 1px ${theme.design.colors.waz_grey5}`,
       padding: theme.spacing(0, 1.5),
       height: 40,
 

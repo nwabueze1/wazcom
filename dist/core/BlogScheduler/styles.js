@@ -57,4 +57,5 @@ export var useSchedulerStyles = makeStyles(function (theme) { return ({
         display: "none",
     },
     dayContainer: {},
+    timeSection: {}
 }); });

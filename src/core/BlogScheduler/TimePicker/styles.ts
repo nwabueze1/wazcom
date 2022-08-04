@@ -10,16 +10,16 @@ export const useTimePickerStyles = makeStyles((theme: Theme) => ({
     textField: {
       color: "transparent",
       textAlign: "center",
+      width: "200px",
       "& input[type='time']::-webkit-clear-button, & input::-webkit-outer-spin-button, & input::-webkit-inner-spin-button": {
         display: "none",
       },
       '& input[type="time"]::-webkit-calendar-picker-indicator': {
-        height: "20px",
-        width: "20px"
+        display: "none"
       },
     },
     inputRoot: {
-      fontSize: 15,
+      fontSize: theme.typography.fontSize + 3,
       textAlign: "center",
       borderBottom: "0px ",
       "&.Mui-focused fieldset.MuiOutlinedInput-notchedOutline": {
