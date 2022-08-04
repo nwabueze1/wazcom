@@ -20,7 +20,7 @@ export const DayPicker: React.FC<DayPickerProps> = ({
   scheduleData,
 }) => {
   const classes = menuItemTableStyles();
-  const filteredOptions = filterDaysOptions(days, scheduleData)
+  const filteredOptions = filterDaysOptions(days, scheduleData);
   return (
     <>
       <Select
