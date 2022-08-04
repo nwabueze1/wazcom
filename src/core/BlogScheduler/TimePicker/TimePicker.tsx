@@ -1,34 +1,8 @@
 import React from "react";
 import { TextField, BaseTextFieldProps, Theme } from "@mui/material";
-import makeStyles from '@mui/styles/makeStyles';
+import { useTimePickerStyles } from "./styles";
 import withStyles from '@mui/styles/withStyles';
 
-const useStyles = makeStyles((theme: Theme) => ({
-  container: {
-    display: "flex",
-    flexWrap: "wrap",
-    justifyContent: "center",
-  },
-  textField: {
-    color: "transparent",
-    "& input[type='time']::-webkit-clear-button, & input::-webkit-outer-spin-button, & input::-webkit-inner-spin-button": {
-      display: "none",
-    },
-    textAlign: "center",
-  },
-  inputRoot: {
-    fontSize: 15,
-    textAlign: "center",
-    borderBottom: "0px ",
-    "&.Mui-focused fieldset.MuiOutlinedInput-notchedOutline": {
-      borderColor: theme.design.colors.waz_primaryColor100,
-      outline: theme.design.colors.waz_primaryColor100,
-    },
-    "&:hover": {
-      outline: "none"
-    },
-  },
-}));
 
 const CustomCss = withStyles((theme: Theme) => ({
   "@global": {
@@ -72,7 +46,7 @@ export const TimeSelector: React.FC<TimeSelectorProps> = ({
   name,
   value,
 }) => {
-  const classes = useStyles();
+  const classes = useTimePickerStyles();
 
   return (
     <React.Fragment>
@@ -84,6 +58,9 @@ export const TimeSelector: React.FC<TimeSelectorProps> = ({
         onChange={onChange}
         name={name}
         className={classes.textField}
+        sx={{
+          
+        }}
         InputProps={{ classes: { root: classes.inputRoot } }}
       />
     </React.Fragment>

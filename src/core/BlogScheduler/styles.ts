@@ -60,13 +60,6 @@ export const useSchedulerStyles = makeStyles((theme: Theme) => ({
     display: "none",
   },
   dayContainer: {
-    border: `1px solid ${theme.design.colors.waz_grey_300}`,
-    // border: `1px solid ${theme.design.colors.waz_grey_300}`,
-    // borderRadius: "5px",
-    // paddingInline: theme.spacing(3),
-    // height: "50px",
-    // width: "200px",
-    // backgroundColor: "red"
   },
 
 }));

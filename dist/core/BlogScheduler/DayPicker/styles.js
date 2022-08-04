@@ -8,7 +8,7 @@ export var menuItemTableStyles = makeStyles(function (theme) {
             width: "6em",
         },
         option: {
-            background: "red",
+            background: "red"
         },
         dayPicker: {
             border: "1px solid ".concat(theme.design.colors.waz_grey300),

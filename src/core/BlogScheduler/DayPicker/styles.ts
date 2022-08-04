@@ -10,7 +10,7 @@ export const menuItemTableStyles = makeStyles((theme: Theme) =>
       width: "6em",
     },
     option: {
-      background: "red",
+      background: "red"
     },
     dayPicker: {
       border: `1px solid ${theme.design.colors.waz_grey300}`,

@@ -35,6 +35,7 @@ export const DayPicker: React.FC<DayPickerProps> = ({
         variant="outlined"
         value={value}
         input={<BootstrapInput />}
+        className={classes.dayPicker}
       >
         {days.map((day) => (
           <option key={day.id} value={String(day.id)} className={classes.option} disabled={!filteredOptions.includes(day)} hidden={!filteredOptions.includes(day)}>
