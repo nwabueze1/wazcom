@@ -73,26 +73,18 @@ export const TimeSelector: React.FC<TimeSelectorProps> = ({
   value,
 }) => {
   const classes = useStyles();
+
   return (
     <React.Fragment>
       <CustomCss />
       <TextField
-        sx={{
-          '& input[type="time"]::-webkit-calendar-picker-indicator': {
-            height: "20px",
-            width: "20px"
-          },
-        }}
-        placeholder="select time"
         id="time"
         type="time"
         value={value}
         onChange={onChange}
         name={name}
         className={classes.textField}
-        InputProps={{ classes: { root: classes.inputRoot },
-        
-      }}
+        InputProps={{ classes: { root: classes.inputRoot } }}
       />
     </React.Fragment>
   );
