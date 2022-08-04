@@ -45,8 +45,6 @@ export const useSchedulerStyles = makeStyles((theme: Theme) => ({
     display: "flex",
     justifyContent: "space-between",
     alignItems: "center",
-    border: `1px solid ${theme.design.colors.waz_grey_300}`,
-    borderRadius: "5px",
   },
   timeDivider: {
     margin: theme.spacing(0, 1),

@@ -42,8 +42,6 @@ export var useSchedulerStyles = makeStyles(function (theme) { return ({
         display: "flex",
         justifyContent: "space-between",
         alignItems: "center",
-        border: "1px solid ".concat(theme.design.colors.waz_grey_300),
-        borderRadius: "5px",
     },
     timeDivider: {
         margin: theme.spacing(0, 1),
