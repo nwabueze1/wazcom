@@ -1,1 +1,1 @@
-export declare const menuItemTableStyles: (props?: any) => import("@mui/styles").ClassNameMap<"option" | "siteTypeSelect" | "dayPicker">;
+export declare const menuItemTableStyles: (props?: any) => import("@mui/styles").ClassNameMap<"option" | "siteTypeSelect" | "dayPicker" | "calendarIcon">;

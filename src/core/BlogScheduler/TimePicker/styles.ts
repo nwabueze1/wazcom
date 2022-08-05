@@ -10,7 +10,7 @@ export const useTimePickerStyles = makeStyles((theme: Theme) => ({
     textField: {
       color: "transparent",
       textAlign: "center",
-      width: "100%",
+      width: "200px",
       height: "40px",
       border: `1px solid ${theme.design.colors.waz_grey_300}`,
       borderRadius: "5px",
@@ -26,6 +26,7 @@ export const useTimePickerStyles = makeStyles((theme: Theme) => ({
       textAlign: "center",
       borderBottom: "0px ",
       height: "40px",
+      width: "100%",
       "&.Mui-focused fieldset.MuiOutlinedInput-notchedOutline": {
         borderColor: theme.design.colors.waz_primaryColor100,
         outline: theme.design.colors.waz_primaryColor100,
@@ -34,4 +35,7 @@ export const useTimePickerStyles = makeStyles((theme: Theme) => ({
         outline: "none"
       },
     },
+    scheduleIcon: {
+      color: theme.design.colors.waz_black
+    }
   }));

@@ -19,7 +19,6 @@ export const useScheduleData = () => {
         <div className={classNames?.dayContainer}>
           <DayPicker
             name={"day"}
-            label={"Enter Site Name"}
             value={schedule.day}
             scheduleData={scheduleData}
             onChange={(event: any) => handleChange(event, index)}
@@ -33,7 +32,6 @@ export const useScheduleData = () => {
             value={schedule.time}
             onChange={(event) => handleChange(event, index)}
           />
-          
         </div>
       );
       data.push(parsedSchedule);

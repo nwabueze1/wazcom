@@ -62,5 +62,4 @@ export const useSchedulerStyles = makeStyles((theme: Theme) => ({
   timeSection: {
     height: "40px"
   }
-
 }));

@@ -18,6 +18,10 @@ export const menuItemTableStyles = makeStyles((theme: Theme) =>
       height: "40px",
       paddingInline: theme.spacing(2),
     },
+    calendarIcon: {
+      width: "30px",
+      height: "30px"
+    }
   }),
 );
 

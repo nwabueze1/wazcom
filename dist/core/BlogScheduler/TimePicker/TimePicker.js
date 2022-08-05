@@ -25,52 +25,21 @@ var __read = (this && this.__read) || function (o, n) {
     }
     return ar;
 };
-import { jsx as _jsx, jsxs as _jsxs } from "react/jsx-runtime";
+import { jsx as _jsx } from "react/jsx-runtime";
 import React, { useState } from "react";
 import { TextField, InputAdornment } from "@mui/material";
 import { useTimePickerStyles } from "./styles";
-import withStyles from '@mui/styles/withStyles';
 import ScheduleIcon from '@mui/icons-material/Schedule';
-var CustomCss = withStyles(function (theme) { return ({
-    "@global": {
-        ".MuiTextField-root": {
-            "& input[type='time']::-webkit-clear-button, & input::-webkit-outer-spin-button, & input::-webkit-inner-spin-button": {
-                display: "none",
-            },
-        },
-        ".MuiOutlinedInput-notchedOutline": {
-            border: "solid 1px ".concat(theme.design.colors.waz_grey5),
-            borderRadius: 5,
-            "&:hover": {
-                borderColor: "".concat(theme.design.colors.waz_grey5),
-                outline: "none",
-            },
-            "&:focus": {
-                borderColor: "".concat(theme.design.colors.waz_grey5),
-            },
-        },
-        ".Mui-focused.MuiOutlinedInput-notchedOutline": {
-            border: "solid 1px ".concat(theme.design.colors.waz_grey5),
-            "&:hover": {
-                borderColor: "".concat(theme.design.colors.waz_grey5),
-                outline: "none",
-            },
-            "&:focus": {
-                borderColor: "".concat(theme.design.colors.waz_grey5),
-            },
-        },
-    },
-}); })(function () { return null; });
 export var TimeSelector = function (_a) {
     var onChange = _a.onChange, name = _a.name, value = _a.value;
     var classes = useTimePickerStyles();
     var _b = __read(useState("text"), 2), inputType = _b[0], setInputType = _b[1];
     var _c = __read(useState("Select Time"), 2), defaultValue = _c[0], setDefaultValue = _c[1];
-    return (_jsxs(React.Fragment, { children: [_jsx(CustomCss, {}, void 0), _jsx(TextField, { id: "time", type: inputType, value: defaultValue, onChange: onChange, name: name, className: classes.textField, InputProps: {
-                    classes: { root: classes.inputRoot },
-                    endAdornment: (_jsx(InputAdornment, __assign({ position: "end" }, { children: _jsx(ScheduleIcon, {}, void 0) }), void 0)),
-                }, onFocus: function () {
-                    setInputType("time");
-                    setDefaultValue(value);
-                } }, void 0)] }, void 0));
+    return (_jsx(React.Fragment, { children: _jsx(TextField, { id: "time", type: inputType, value: defaultValue, onChange: onChange, name: name, className: classes.textField, InputProps: {
+                classes: { root: classes.inputRoot },
+                endAdornment: (_jsx(InputAdornment, __assign({ position: "end" }, { children: _jsx(ScheduleIcon, { className: classes.scheduleIcon }, void 0) }), void 0)),
+            }, onFocus: function () {
+                setInputType("time");
+                setDefaultValue(value);
+            } }, void 0) }, void 0));
 };

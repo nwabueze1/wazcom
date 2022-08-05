@@ -15,5 +15,9 @@ export var menuItemTableStyles = makeStyles(function (theme) {
             height: "40px",
             paddingInline: theme.spacing(2),
         },
+        calendarIcon: {
+            width: "30px",
+            height: "30px"
+        }
     });
 });

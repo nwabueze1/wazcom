@@ -3,19 +3,16 @@ import { Select, SelectProps } from "@mui/material";
 import { menuItemTableStyles } from "./styles";
 import { BlogSchedule } from "..";
 import { days, filterDaysOptions } from "./helper";
-import CalendarTodayIcon from '@mui/icons-material/CalendarToday';
+import { AiOutlineCalendar } from "react-icons/ai";
 
 interface DayPickerProps extends SelectProps {
   value?: string;
   scheduleData: BlogSchedule[];
 }
 
-
-
 export const DayPicker: React.FC<DayPickerProps> = ({
   value,
   onChange,
-  label,
   name,
   scheduleData,
 }) => {
@@ -24,14 +21,12 @@ export const DayPicker: React.FC<DayPickerProps> = ({
   return (
     <>
       <Select
-        IconComponent={()=><CalendarTodayIcon />}
-        renderValue={()=><CalendarTodayIcon />}
+        IconComponent={()=><AiOutlineCalendar className={classes.calendarIcon} />}
         native
         multiline
         required
         name={name}
         onChange={onChange}
-        label={label}
         variant="outlined"
         value={value}
         className={classes.dayPicker}

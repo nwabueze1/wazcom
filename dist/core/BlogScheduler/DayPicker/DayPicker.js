@@ -13,10 +13,10 @@ import { jsx as _jsx, Fragment as _Fragment } from "react/jsx-runtime";
 import { Select } from "@mui/material";
 import { menuItemTableStyles } from "./styles";
 import { days, filterDaysOptions } from "./helper";
-import CalendarTodayIcon from '@mui/icons-material/CalendarToday';
+import { AiOutlineCalendar } from "react-icons/ai";
 export var DayPicker = function (_a) {
-    var value = _a.value, onChange = _a.onChange, label = _a.label, name = _a.name, scheduleData = _a.scheduleData;
+    var value = _a.value, onChange = _a.onChange, name = _a.name, scheduleData = _a.scheduleData;
     var classes = menuItemTableStyles();
     var filteredOptions = filterDaysOptions(days, scheduleData);
-    return (_jsx(_Fragment, { children: _jsx(Select, __assign({ IconComponent: function () { return _jsx(CalendarTodayIcon, {}, void 0); }, renderValue: function () { return _jsx(CalendarTodayIcon, {}, void 0); }, native: true, multiline: true, required: true, name: name, onChange: onChange, label: label, variant: "outlined", value: value, className: classes.dayPicker }, { children: days.map(function (day) { return (_jsx("option", __assign({ value: String(day.id), className: classes.option, disabled: !filteredOptions.includes(day), hidden: day.name == "Select Day" }, { children: day.name }), day.id)); }) }), void 0) }, void 0));
+    return (_jsx(_Fragment, { children: _jsx(Select, __assign({ IconComponent: function () { return _jsx(AiOutlineCalendar, { className: classes.calendarIcon }, void 0); }, native: true, multiline: true, required: true, name: name, onChange: onChange, variant: "outlined", value: value, className: classes.dayPicker }, { children: days.map(function (day) { return (_jsx("option", __assign({ value: String(day.id), className: classes.option, disabled: !filteredOptions.includes(day), hidden: day.name == "Select Day" }, { children: day.name }), day.id)); }) }), void 0) }, void 0));
 };
