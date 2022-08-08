@@ -2,7 +2,7 @@ import React, { useState, useCallback, useEffect } from "react";
 import { useSchedulerStyles } from "./styles";
 import { InputLabel } from "@mui/material";
 import { BlogSchedulerProps } from "./types";
-import { fields } from "./data";
+import { fields } from "../../helpers/data";
 import { useScheduleData } from "./hooks";
 import clx from "classnames";
 import { BlogSchedule } from ".";

@@ -40,6 +40,4 @@ export var days = [
     { id: 5, name: "Thursday" },
     { id: 6, name: "Friday" },
     { id: 7, name: "Saturday" },
-    { id: 8, name: "Weekdays" },
-    { id: 9, name: "Weekends" },
 ];

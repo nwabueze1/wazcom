@@ -25,8 +25,8 @@ var __read = (this && this.__read) || function (o, n) {
     }
     return ar;
 };
-import { jsx as _jsx } from "react/jsx-runtime";
-import React, { useState } from "react";
+import { jsx as _jsx, Fragment as _Fragment } from "react/jsx-runtime";
+import { useState } from "react";
 import { TextField, InputAdornment } from "@mui/material";
 import { useTimePickerStyles } from "./styles";
 import ScheduleIcon from '@mui/icons-material/Schedule';
@@ -35,7 +35,7 @@ export var TimeSelector = function (_a) {
     var classes = useTimePickerStyles();
     var _b = __read(useState("text"), 2), inputType = _b[0], setInputType = _b[1];
     var _c = __read(useState("Select Time"), 2), defaultValue = _c[0], setDefaultValue = _c[1];
-    return (_jsx(React.Fragment, { children: _jsx(TextField, { id: "time", type: inputType, value: defaultValue, onChange: onChange, name: name, className: classes.textField, InputProps: {
+    return (_jsx(_Fragment, { children: _jsx(TextField, { id: "time", type: inputType, value: defaultValue, onChange: onChange, name: name, className: classes.textField, InputProps: {
                 classes: { root: classes.inputRoot },
                 endAdornment: (_jsx(InputAdornment, __assign({ position: "end" }, { children: _jsx(ScheduleIcon, { className: classes.scheduleIcon }, void 0) }), void 0)),
             }, onFocus: function () {

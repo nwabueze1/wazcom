@@ -38,7 +38,7 @@ import { jsx as _jsx, jsxs as _jsxs } from "react/jsx-runtime";
 import { useState, useCallback, useEffect } from "react";
 import { useSchedulerStyles } from "./styles";
 import { InputLabel } from "@mui/material";
-import { fields } from "./data";
+import { fields } from "../../helpers/data";
 import { useScheduleData } from "./hooks";
 import clx from "classnames";
 export var BlogScheduler = function (_a) {
