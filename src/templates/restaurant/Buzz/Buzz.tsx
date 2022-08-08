@@ -18,12 +18,15 @@ export const Buzz = () => {
       <div className={classes.restaurant}>
         <BuzzHero />
         <BuzzNav className={classes.nav} />
+      </div>
+      <div className={classes.body}>
         <Menus
           restaurant={restaurantdata}
           setSelectedItemId={setSelectedItemId}
           setDisplayDialog={setDisplayDialog}
           cartChanged={cartChanged}
         />
+        <Footer name="Basit" className={classes.footer} />
       </div>
       <CartDialog
         display={displayDialog}
@@ -38,7 +41,6 @@ export const Buzz = () => {
         restaurant={restaurantdata}
         siteId={0}
       />
-      {/* <Footer name="Basit" /> */}
     </div>
   );
 };

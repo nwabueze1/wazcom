@@ -10,6 +10,9 @@ export const useMenuSelectorStyles = makeStyles<Theme>((theme: Theme) => ({
       borderRadius: "4px",
       padding: theme.spacing(1.5, 2),
     },
+    "& .Mui-selected": {
+      background: theme.design.colors.waz_white,
+    },
   },
   container: {
     width: "100%",

@@ -6,7 +6,7 @@ import { StyleProps } from "./types";
 export const useStyles = makeStyles<Theme, StyleProps>((theme: Theme) =>
   createStyles({
     root: {
-      width: "30%",
+      width: "32%",
       height: "314px",
       alignItems: "center",
       background: "#fff",
@@ -41,6 +41,8 @@ export const useStyles = makeStyles<Theme, StyleProps>((theme: Theme) =>
       width: "100%",
       height: 156,
       display: "flex",
+      borderTopRightRadius: "4px",
+      borderTopLeftRadius: "4px",
       justifyContent: "center",
       alignItems: "center",
       position: "relative",
@@ -63,7 +65,6 @@ export const useStyles = makeStyles<Theme, StyleProps>((theme: Theme) =>
     title: {
       fontSize: theme.typography.fontSize + 4,
       margin: 0,
-      height: 48,
       textOverflow: "ellipsis",
       lineHeight: "25px",
       color: theme.design.colors.waz_black,
@@ -82,6 +83,8 @@ export const useStyles = makeStyles<Theme, StyleProps>((theme: Theme) =>
       fontSize: theme.typography.fontSize + 4,
       fontWeight: 600,
       color: theme.design.colors.black,
+      position: "absolute",
+      bottom: "20px",
 
       [theme.breakpoints.down("md")]: {
         fontSize: theme.typography.fontSize + 4,

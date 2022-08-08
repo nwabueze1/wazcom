@@ -11,9 +11,8 @@ export const useStyles = makeStyles<Theme>((theme: Theme) => ({
   dialog: {
     position: "relative",
     boxSizing: "border-box",
-    borderBottomLeftRadius: theme.spacing(1),
-    borderBottomRightRadius: theme.spacing(1),
-    width: 568,
+    borderRadius: theme.spacing(1),
+    width: 536,
     maxHeight: "75vh",
     overflowY: "auto",
     background: theme.design.colors.waz_white,
@@ -48,6 +47,9 @@ export const useStyles = makeStyles<Theme>((theme: Theme) => ({
       borderRadius: 0,
     },
   },
+  dialogOptionBox: {
+    position: "relative",
+  },
   closeIconContainer: {
     height: 32,
     width: 32,
@@ -81,8 +83,8 @@ export const useStyles = makeStyles<Theme>((theme: Theme) => ({
   },
   dialog__name: {
     fontSize: theme.typography.fontSize + 4,
-    color: theme.design.colors.waz_primaryColor100,
-    fontWeight: theme.typography.fontWeightMedium,
+    color: theme.design.colors.waz_primaryBlack,
+    fontWeight: 600,
     margin: "32px 0 10px 0",
     width: "90%",
     textTransform: "capitalize",
@@ -91,7 +93,7 @@ export const useStyles = makeStyles<Theme>((theme: Theme) => ({
     fontSize: theme.typography.fontSize,
     width: "90%",
     lineHeight: "24.55px",
-    color: theme.design.colors.grey2,
+    color: theme.design.colors.waz_grey400,
   },
   dialog__actions: {
     display: "flex",
@@ -144,10 +146,11 @@ export const useStyles = makeStyles<Theme>((theme: Theme) => ({
       fontSize: theme.typography.fontSize + 4,
     },
   },
-  dialog__option: {
+  dialogOption: {
     padding: theme.spacing(1, 8),
     fontSize: theme.typography.fontSize + 4,
     fontWeight: theme.typography.fontWeightMedium,
+    fontFamily: theme.design.font.openSans,
     borderRadius: "4px",
     [theme.breakpoints.down("xs")]: {
       padding: theme.spacing(1, 3),

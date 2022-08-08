@@ -6,7 +6,6 @@ export const useMenusStyles = makeStyles<Theme>((theme: Theme) => ({
     width: "100%",
     display: "flex",
     justifyContent: "center",
-    position: "absolute",
     top: "80%",
   },
   container: {

@@ -11,10 +11,10 @@ export const useMenuCategoryStyles = makeStyles<Theme>((theme: Theme) => ({
   categoryContainer: {
     display: "flex",
     width: "93%",
-    margin: "auto",
+    margin: theme.spacing(0, 2),
     gap: theme.spacing(1),
     alignItems: "center",
-    background: theme.design.colors.white,
+    background: theme.design.colors.waz_white,
     textTransform: "capitalize",
   },
   categoryArrow: {
@@ -44,7 +44,7 @@ export const useMenuCategoryStyles = makeStyles<Theme>((theme: Theme) => ({
     flexShrink: 0,
   },
   active: {
-    borderBottom: `2px solid ${theme.design.colors.greene}`,
+    borderBottom: `2px solid ${theme.design.colors.waz_primaryColor100}`,
   },
   textActive: {
     color: theme.design.colors.waz_primaryColor100,

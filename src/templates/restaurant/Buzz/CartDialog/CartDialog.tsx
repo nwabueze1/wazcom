@@ -155,13 +155,12 @@ export const CartDialog: React.FC<CartDialogProps> = ({
             />
           </div>
           <div className={classes.dialogOptions}>
-            <div style={{ position: "relative" }}>
+            <div className={classes.dialogOptionBox}>
               <button
                 onClick={() => {
                   console.log("add to cart");
                 }}
-                style={{ fontFamily: "Open Sans, sans-serif" }}
-                className={`${classes.dialog__option} ${classes.dialogOptionFilled}`}
+                className={`${classes.dialogOption} ${classes.dialogOptionFilled}`}
               >
                 {cartItemId ? "Update Order" : "Add to Order"}
               </button>
@@ -169,7 +168,8 @@ export const CartDialog: React.FC<CartDialogProps> = ({
           </div>
           <div className={classes.totalItemPrice}>
             <p className={classes.total}>
-              {currency} {getFloatOrIntAmount(calculateTotal())}
+              {currency}
+              {getFloatOrIntAmount(calculateTotal())}
             </p>
           </div>
         </div>

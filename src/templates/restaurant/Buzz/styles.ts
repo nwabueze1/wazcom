@@ -8,6 +8,10 @@ export const useBuzzStyles = makeStyles<Theme>((theme: Theme) => ({
   restaurant: {
     position: "relative",
   },
+  body: {
+    position: "absolute",
+    top: 345,
+  },
   nav: {
     position: "absolute",
     top: 20,
