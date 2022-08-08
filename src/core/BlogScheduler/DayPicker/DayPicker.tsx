@@ -19,24 +19,22 @@ export const DayPicker: React.FC<DayPickerProps> = ({
   const classes = menuItemTableStyles();
   const filteredOptions = filterDaysOptions(days, scheduleData);
   return (
-    <>
-      <Select
-        IconComponent={()=><AiOutlineCalendar className={classes.calendarIcon} />}
-        native
-        multiline
-        required
-        name={name}
-        onChange={onChange}
-        variant="outlined"
-        value={value}
-        className={classes.dayPicker}
-      >
-        {days.map((day) => (
-          <option key={day.id} value={String(day.id)} className={classes.option} disabled={!filteredOptions.includes(day)} hidden={day.name == "Select Day"}>
-            {day.name}
-          </option>
-        ))}
-      </Select>
-    </>
+    <Select
+    IconComponent={()=><AiOutlineCalendar className={classes.calendarIcon} />}
+    native
+    multiline
+    required
+    name={name}
+    onChange={onChange}
+    variant="outlined"
+    value={value}
+    className={classes.dayPicker}
+  >
+    {days.map((day) => (
+      <option key={day.id} value={String(day.id)} className={classes.option} disabled={!filteredOptions.includes(day)} hidden={day.name == "Select Day"}>
+        {day.name}
+      </option>
+    ))}
+  </Select>
   );
 };

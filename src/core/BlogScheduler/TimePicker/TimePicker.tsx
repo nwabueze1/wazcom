@@ -19,8 +19,7 @@ export const TimeSelector: React.FC<TimeSelectorProps> = ({
   const [defaultValue, setDefaultValue] = useState<string>("Select Time");
 
   return (
-    <>
-      <TextField
+    <TextField
         id="time"
         type={inputType}
         value={defaultValue}
@@ -40,6 +39,5 @@ export const TimeSelector: React.FC<TimeSelectorProps> = ({
           setDefaultValue(value as string);
         }}
       />
-    </>
   );
 };

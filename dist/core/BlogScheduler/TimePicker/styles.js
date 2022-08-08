@@ -22,7 +22,7 @@ export var useTimePickerStyles = makeStyles(function (theme) { return ({
     inputRoot: {
         fontSize: theme.typography.fontSize + 3,
         textAlign: "center",
-        borderBottom: "0px ",
+        borderBottom: 0,
         height: "40px",
         width: "100%",
         "&.Mui-focused fieldset.MuiOutlinedInput-notchedOutline": {
