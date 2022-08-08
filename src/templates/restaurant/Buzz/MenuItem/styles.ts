@@ -62,7 +62,7 @@ export const useStyles = makeStyles<Theme, StyleProps>((theme: Theme) =>
 
     title: {
       fontSize: theme.typography.fontSize + 4,
-      margin: "0",
+      margin: 0,
       height: 48,
       textOverflow: "ellipsis",
       lineHeight: "25px",
