@@ -72,6 +72,7 @@ export var theme = {
             inter: "Inter, sans-serif",
             bitter: "Bitter, sans-serif",
             merriweather: "Merriweather, sans-serif",
+            openSans: "Open Sans, sans-serif",
         },
         colors: {
             waz_primaryColor100: "#0A7227",

@@ -1,6 +1,6 @@
-import { CorePageFields } from "types/CorePageFields";
-import { CoreSiteFields } from "types/CoreSiteFields";
-import { CorePostFields } from "types/CorePostFields";
+import { CorePageFields } from "templates/blog/types/CorePageFields";
+import { CoreSiteFields } from "templates/blog/types/CoreSiteFields";
+import { CorePostFields } from "templates/blog/types/CorePostFields";
 export declare type CoreArticleTemplateFields = CommonProps & {
     article: CorePostFields;
     page?: CorePageFields;

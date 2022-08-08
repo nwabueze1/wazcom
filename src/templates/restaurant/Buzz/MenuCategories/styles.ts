@@ -1,0 +1,61 @@
+import { Theme } from "@mui/material/styles";
+import makeStyles from "@mui/styles/makeStyles";
+
+export const useMenuCategoryStyles = makeStyles<Theme>((theme: Theme) => ({
+  categoryParent: {
+    width: "100%",
+    position: "sticky",
+    top: 0,
+    zIndex: 5,
+  },
+  categoryContainer: {
+    display: "flex",
+    width: "93%",
+    margin: "auto",
+    gap: theme.spacing(1),
+    alignItems: "center",
+    background: theme.design.colors.white,
+    textTransform: "capitalize",
+  },
+  categoryArrow: {
+    position: "relative",
+    top: 2,
+  },
+  menuCategories: {
+    display: "flex",
+    alignItems: "center",
+    overflowX: "scroll",
+    gap: theme.spacing(7),
+    position: "relative",
+    width: "92%",
+    margin: theme.spacing(0, 1),
+    scrollBehavior: "smooth",
+
+    "&::-webkit-scrollbar": {
+      width: 0,
+      height: 0,
+    },
+  },
+  restaurantCategory: {
+    padding: theme.spacing(1, 0, 1.5, 0),
+    whiteSpace: "nowrap",
+  },
+  restaurantMenuCategory: {
+    flexShrink: 0,
+  },
+  active: {
+    borderBottom: `2px solid ${theme.design.colors.greene}`,
+  },
+  textActive: {
+    color: theme.design.colors.waz_primaryColor100,
+    fontSize: theme.typography.fontSize + 4,
+    fontWeight: theme.typography.fontWeightMedium,
+    textDecoration: "none",
+  },
+  categoryLink: {
+    color: theme.design.colors.waz_grey600,
+    fontSize: theme.typography.fontSize + 4,
+    fontWeight: theme.typography.fontWeightMedium,
+    textDecoration: "none",
+  },
+}));
