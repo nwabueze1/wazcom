@@ -154,8 +154,8 @@ export const useStyles = makeStyles<Theme>((theme: Theme) => ({
     },
   },
   dialog__option_outline: {
-    border: "2px solid #FF4C4C",
-    color: "#FF4C4C",
+    border: `2px solid ${theme.design.colors.waz_dangerColor400}`,
+    color: theme.design.colors.waz_dangerColor400,
     background: theme.design.colors.waz_white,
     [theme.breakpoints.down("xs")]: {
       width: "80%",
