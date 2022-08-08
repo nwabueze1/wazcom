@@ -10,7 +10,7 @@ export const useCartStyles = makeStyles<Theme>((theme: Theme) =>
       height: "fit-content",
       borderRadius: "5px",
       paddingBottom: theme.spacing(3),
-      background: theme.design.colors.white,
+      background: theme.design.colors.waz_white,
       alignItems: "center",
     },
     cartLoader: {
@@ -90,7 +90,7 @@ export const useCartStyles = makeStyles<Theme>((theme: Theme) =>
     },
     cartEmpty: {
       textAlign: "center",
-      color: "#ADADAD",
+      color: theme.design.colors.waz_greyColor500,
       padding: theme.spacing(0, 0, 6),
 
       "& p": {
@@ -129,7 +129,7 @@ export const useCartStyles = makeStyles<Theme>((theme: Theme) =>
       background: theme.design.colors.offWhite,
       color: theme.design.colors.white,
       border: "none",
-      fontFamily: "Open Sans, sans-serif",
+      fontFamily: theme.design.font.openSans,
       width: "100%",
     },
     cartButtonActive: {

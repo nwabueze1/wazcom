@@ -89,6 +89,7 @@ export var theme = {
             waz_greyColor200: "#8c8c8c",
             waz_greyColor300: "#666666",
             waz_greyColor400: "#333333",
+            waz_greyColor500: "#ADADAD",
             waz_white: "#FFFFFF",
             waz_whiteAlpha: "#f9f9f9",
             waz_whiteAlpha100: "#F0F0F0",

@@ -16,7 +16,7 @@ export const useStyles = makeStyles<Theme>((theme: Theme) => ({
     width: 568,
     maxHeight: "75vh",
     overflowY: "auto",
-    background: "#fff",
+    background: theme.design.colors.waz_white,
     display: "flex",
     flexDirection: "column",
     justifyContent: "space-between",
@@ -81,7 +81,7 @@ export const useStyles = makeStyles<Theme>((theme: Theme) => ({
   },
   dialog__name: {
     fontSize: theme.typography.fontSize + 4,
-    color: theme.design.colors.primaryBlack,
+    color: theme.design.colors.waz_primaryColor100,
     fontWeight: theme.typography.fontWeightMedium,
     margin: "32px 0 10px 0",
     width: "90%",
