@@ -96,34 +96,6 @@ export const CartDialog: React.FC<CartDialogProps> = ({
     close();
   };
 
-  // const addToCart = useCallback(async () => {
-  //   if (!menuItem?.options) {
-  //     return await addToCartHelper(
-  //       setLoading,
-  //       reloadCart,
-  //       close,
-  //       site_id,
-  //       currency,
-  //       menuItem as CoreMenuItemFields,
-  //       quantity,
-  //       selectedOptions,
-  //       cartItemId
-  //     );
-  //   }
-
-  // return await addToCartHelper(
-  //   setLoading,
-  //   reloadCart,
-  //   close,
-  //   site_id,
-  //   currency,
-  //   menuItem as CoreMenuItemFields,
-  //   quantity,
-  //   selectedOptions,
-  //   cartItemId
-  // );
-  // }, [menuItem, quantity, selectedOptions, cartItemId]);
-
   const changeQuantity = useCallback(
     (add: boolean) => changeQuantityHelper(add, quantity, setQuantity),
     [quantity]

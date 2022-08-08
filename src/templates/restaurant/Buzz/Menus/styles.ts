@@ -43,7 +43,7 @@ export const useMenusStyles = makeStyles<Theme>((theme: Theme) => ({
   },
   restaurantMenuItemCategory: {
     fontSize: theme.typography.fontSize + 8,
-    color: theme.design.colors.primaryBlack,
+    color: theme.design.colors.waz_primaryBlack,
     fontWeight: 600,
   },
   restaurantMenuItems: {
@@ -58,7 +58,7 @@ export const useMenusStyles = makeStyles<Theme>((theme: Theme) => ({
     justifyContent: "center",
     alignItems: "center",
     margin: "0 0 0 0",
-    background: theme.design.colors.white,
+    background: theme.design.colors.waz_white,
     width: "100%",
 
     "& p": {
