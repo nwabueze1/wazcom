@@ -11,10 +11,12 @@ export const Nav: FC<NavProps> = ({ className }) => {
   return (
     <div className={clx(classes.root, className)}>
       <div className={classes.header}>
-        <img
-          className={classes.headerLogo}
-          src="https://s3.eu-west-2.amazonaws.com/medusa.com/Restaurant/hivedecklogo.svg"
-        />
+        <div className={classes.logoContainer}>
+          <img
+            className={classes.headerLogo}
+            src="https://s3.eu-west-2.amazonaws.com/medusa.com/Restaurant/hivedecklogo.svg"
+          />
+        </div>
         <TextInput
           className={classes.searchField}
           type="text"

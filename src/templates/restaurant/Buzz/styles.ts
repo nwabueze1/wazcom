@@ -11,9 +11,17 @@ export const useBuzzStyles = makeStyles<Theme>((theme: Theme) => ({
   body: {
     position: "absolute",
     top: 345,
+    [theme.breakpoints.down("sm")]: {
+      position: "relative",
+      top: 0,
+    },
   },
   nav: {
     position: "absolute",
     top: 20,
+    [theme.breakpoints.down("sm")]: {
+      position: "relative",
+      top: 0,
+    },
   },
 }));

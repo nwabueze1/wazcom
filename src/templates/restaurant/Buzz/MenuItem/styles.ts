@@ -22,8 +22,15 @@ export const useStyles = makeStyles<Theme, StyleProps>((theme: Theme) =>
         boxShadow: ({ isOpen }) =>
           isOpen ? "0px 5px 18px -2px rgba(68, 68, 68, 0.12)" : "none",
       },
+      [theme.breakpoints.down("lg")]: {
+        width: "48%",
+      },
       [theme.breakpoints.down("xs")]: {
         width: "100%",
+      },
+      [theme.breakpoints.down("sm")]: {
+        width: "100%",
+        height: 306,
       },
     },
     noMargin: {

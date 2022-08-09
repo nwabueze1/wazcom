@@ -12,6 +12,9 @@ export const useCartStyles = makeStyles<Theme>((theme: Theme) =>
       paddingBottom: theme.spacing(3),
       background: theme.design.colors.waz_white,
       alignItems: "center",
+      [theme.breakpoints.down("sm")]: {
+        minHeight: "100vh",
+      },
     },
     cartLoader: {
       width: "100%",

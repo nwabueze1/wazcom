@@ -6,6 +6,9 @@ export const useHeroStyles = makeStyles<Theme>((theme: Theme) => ({
   container: {
     height: "400px",
     position: "relative",
+    [theme.breakpoints.down("sm")]: {
+      height: 200,
+    },
   },
   restaurantCoverImg: {
     position: "absolute",

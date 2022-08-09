@@ -16,7 +16,7 @@ export const MenuSelector: React.FC<MenuSelectorProps> = ({
       const startTime = parseMenuTime(times?.scheduleItems[0]?.start_time);
       const endtime = parseMenuTime(times?.scheduleItems[0]?.end_time);
       return (
-        <MenuItem value={name} key={index}>
+        <MenuItem value={name} key={index} className={classes.menuItem}>
           <p className={classes.options}>
             {name}
             <span className={classes.openingHours}>

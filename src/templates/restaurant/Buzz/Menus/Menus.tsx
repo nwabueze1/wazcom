@@ -10,11 +10,14 @@ import clx from "classnames";
 import { CoreRestaurantFields_activeMenus } from "templates/restaurant/types/CoreRestaurantFields";
 import { Cart } from "../Cart";
 import { MenuSelector } from "../MenuSelector";
+import { Badge } from "@mui/material";
+import { ShoppingCartOutlined } from "@mui/icons-material";
 
 export const Menus: FC<MenuProps> = ({
   restaurant,
   setDisplayDialog,
   setSelectedItemId,
+  cart,
 }) => {
   const classes = useMenusStyles();
   const displayMenuItemsHook = useDisplayMenuItems();
@@ -78,14 +81,28 @@ export const Menus: FC<MenuProps> = ({
                 <div
                   className={clx(classes.restaurantFooter)}
                   onClick={() => {
-                    setCartOpen(true);
+                    setCartOpen(!cartOpen);
                   }}
-                ></div>
+                >
+                  <Badge
+                    badgeContent={cart?.cartItems?.length}
+                    classes={{
+                      badge: classes.badge,
+                    }}
+                  >
+                    <ShoppingCartOutlined className={classes.shopCart} />
+                  </Badge>
+                </div>
               </div>
             </>
           )}
         </div>
-        <div className={classes.cartContainer}>
+        <div
+          className={clx(
+            classes.cartContainer,
+            cartOpen && classes.restaurantVisibleCart
+          )}
+        >
           <Cart />
         </div>
       </div>

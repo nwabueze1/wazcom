@@ -152,7 +152,7 @@ export const useStyles = makeStyles<Theme>((theme: Theme) => ({
     fontWeight: theme.typography.fontWeightMedium,
     fontFamily: theme.design.font.openSans,
     borderRadius: "4px",
-    [theme.breakpoints.down("xs")]: {
+    [theme.breakpoints.down("sm")]: {
       padding: theme.spacing(1, 3),
     },
   },
@@ -174,7 +174,7 @@ export const useStyles = makeStyles<Theme>((theme: Theme) => ({
     color: theme.design.colors.waz_white,
     border: "none",
     cursor: "pointer",
-    [theme.breakpoints.down("xs")]: {
+    [theme.breakpoints.down("sm")]: {
       textAlign: "center",
       justifyContent: "flex-end",
     },

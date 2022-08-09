@@ -3,7 +3,7 @@ import { Theme } from "@mui/material/styles";
 
 export const useMenusStyles = makeStyles<Theme>((theme: Theme) => ({
   root: {
-    width: "100%",
+    width: "100vw",
     display: "flex",
     justifyContent: "center",
     top: "80%",
@@ -14,12 +14,19 @@ export const useMenusStyles = makeStyles<Theme>((theme: Theme) => ({
     display: "flex",
     zIndex: 10,
     gap: theme.spacing(3),
+    [theme.breakpoints.down("md")]: {
+      width: "95%",
+    },
   },
   menuContainer: {
     width: "70%",
     background: theme.design.colors.waz_white,
+    marginBottom: theme.spacing(7),
     minHeight: "60vh",
     borderRadius: "8px",
+    [theme.breakpoints.down("md")]: {
+      width: "100%",
+    },
   },
   cartContainer: {
     width: "30%",
@@ -28,6 +35,18 @@ export const useMenusStyles = makeStyles<Theme>((theme: Theme) => ({
     borderRadius: "8px",
     boxShadow: "0px 2px 18px rgba(151, 151, 151, 0.16)",
     background: theme.design.colors.waz_white,
+    [theme.breakpoints.down("md")]: {
+      right: "0px",
+      top: " 14%",
+      width: "55vw",
+      position: "fixed",
+      opacity: 0,
+      zIndex: -999,
+    },
+    [theme.breakpoints.down("sm")]: {
+      top: 0,
+      width: "100vw",
+    },
   },
   restaurantMenuItem: {
     display: "flex",
@@ -71,5 +90,38 @@ export const useMenusStyles = makeStyles<Theme>((theme: Theme) => ({
   },
   emptyRestaurant: {
     width: "124px",
+  },
+  restaurantFooter: {
+    width: "56px",
+    height: "56px",
+    position: "fixed",
+    top: "85%",
+    right: "20px",
+    backgroundColor: theme.design.colors.waz_white,
+    display: "flex",
+    alignItems: "center",
+    justifyContent: "center",
+    transition: "height 0.5s ease-in",
+    borderRadius: "50%",
+    boxShadow: "0px 4px 20px rgba(77, 86, 80, 0.16)",
+    color: theme.design.colors.white,
+    cursor: "pointer",
+    [theme.breakpoints.up("lg")]: {
+      display: "none",
+    },
+  },
+  restaurantVisibleCart: {
+    [theme.breakpoints.down("md")]: {
+      opacity: 1,
+      zIndex: 999,
+    },
+  },
+  shopCart: {
+    color: theme.design.colors.waz_black,
+  },
+  badge: {
+    color: theme.design.colors.waz_primaryColor100,
+    fontSize: theme.typography.fontSize + 6,
+    right: -4,
   },
 }));

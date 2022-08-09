@@ -18,10 +18,24 @@ export const useNavStyles = makeStyles<Theme>((theme: Theme) => ({
     alignItems: "center",
     padding: theme.spacing(2, 3),
     zIndex: 10,
+    [theme.breakpoints.down("lg")]: {
+      width: "100%",
+      borderRadius: 0,
+    },
+    [theme.breakpoints.down("sm")]: {
+      flexDirection: "column",
+      padding: 0,
+      justifyContent: "flex-start",
+      alignItems: "flex-start",
+    },
+  },
+  logoContainer: {
+    [theme.breakpoints.down("sm")]: {
+      padding: theme.spacing(2, 3),
+    },
   },
   headerLogo: {
     objectFit: "cover",
-
     [theme.breakpoints.down("sm")]: {
       width: "120px",
     },
@@ -32,12 +46,19 @@ export const useNavStyles = makeStyles<Theme>((theme: Theme) => ({
     marginBottom: 0,
     "& .MuiOutlinedInput-root": {
       borderRadius: "20px",
+      [theme.breakpoints.down("sm")]: {
+        borderRadius: 0,
+      },
     },
     "& 	.MuiOutlinedInput-input": {
       padding: theme.spacing(1.5, 0),
     },
-    [theme.breakpoints.down("sm")]: {
+    [theme.breakpoints.down("md")]: {
       width: "60%",
+    },
+    [theme.breakpoints.down("sm")]: {
+      borderRadius: 0,
+      width: "100%",
     },
   },
 }));

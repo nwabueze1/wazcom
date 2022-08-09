@@ -19,12 +19,12 @@ export const useRestaurantDetailsStyles = makeStyles<Theme>((theme: Theme) => ({
 
     [theme.breakpoints.down("sm")]: {
       fontSize: theme.typography.fontSize + 4,
-      margin: theme.spacing(0, 0, 1, 2),
     },
   },
   restaurantDetails: {
     width: "100%",
     display: "flex",
+    flexWrap: "wrap",
     boxSizing: "border-box",
     fontSize: theme.typography.fontSize + 2,
     color: theme.design.colors.waz_grey1,

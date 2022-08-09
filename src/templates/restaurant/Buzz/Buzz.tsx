@@ -16,8 +16,8 @@ export const Buzz = () => {
   return (
     <div className={classes.root}>
       <div className={classes.restaurant}>
-        <BuzzHero />
         <BuzzNav className={classes.nav} />
+        <BuzzHero />
       </div>
       <div className={classes.body}>
         <Menus
@@ -25,6 +25,7 @@ export const Buzz = () => {
           setSelectedItemId={setSelectedItemId}
           setDisplayDialog={setDisplayDialog}
           cartChanged={cartChanged}
+          cart={undefined}
         />
         <Footer name="Basit" className={classes.footer} />
       </div>
