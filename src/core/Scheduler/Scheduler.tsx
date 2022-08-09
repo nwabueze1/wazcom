@@ -2,7 +2,7 @@ import React, { useState, useCallback, useEffect } from "react";
 import { useSchedulerStyles } from "./styles";
 import { InputLabel } from "@mui/material";
 import { SchedulerProps } from "./types";
-import { fields } from "./data";
+import { fields } from "../../helpers/data";
 import { useScheduleData } from "./hooks";
 import clx from "classnames";
 import { FiPlus } from "react-icons/fi";
@@ -96,6 +96,7 @@ export const Scheduler: React.FC<SchedulerProps> = ({
           </div>
         );
       })}
+
       {multiple && !isEverydaySelected && (
         <div className={`${classes.button} ${availableOption.length == 0 && classes.hidden}`} onClick={addNewRow}>
           <p className={classes.buttonText}>

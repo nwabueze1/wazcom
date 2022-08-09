@@ -12,7 +12,8 @@ import {
   Notification,
   Carousel,
   EmptyState,
-  Scheduler,
+  DayTimePicker,
+  Scheduler
 } from "../core";
 import { BiLink } from "react-icons/bi";
 
@@ -464,6 +465,19 @@ export const stories: ComponentPropType[] = [
           day: "0",
           start_time: "12:00",
           end_time: "18:00",
+        },
+      ],
+    },
+  },
+  {
+    name: "DayTimePicker",
+    component: DayTimePicker,
+    props: {
+      label: "Day time picker",
+      value: [
+        {
+          day: "0",
+          time: "18:00",
         },
       ],
     },
