@@ -1,8 +1,8 @@
-import { BlogSchedule } from "..";
+import { DayTimePickerFields } from "..";
 export declare const filterDaysOptions: (days: {
     id: number;
     name: string;
-}[], scheduleData: BlogSchedule[]) => {
+}[], scheduleData: DayTimePickerFields[]) => {
     id: number;
     name: string;
 }[];

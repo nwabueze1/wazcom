@@ -1,10 +1,10 @@
 import { DayPicker } from "./DayPicker/DayPicker";
 import { TimeSelector } from "./TimePicker/TimePicker";
-import { BlogSchedule } from "./types";
+import { DayTimePickerFields } from "./types";
 
 export const useScheduleData = () => {
   return (
-    scheduleData: BlogSchedule[],
+    scheduleData: DayTimePickerFields[],
     handleChange: (
       event: React.ChangeEvent<{ name?: string; value?: unknown }>,
       index: number,

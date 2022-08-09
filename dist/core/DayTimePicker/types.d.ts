@@ -1,11 +1,11 @@
 import { CommonProps } from "types";
-export declare type BlogSchedulerProps = CommonProps & {
+export declare type DayTimePickerProps = CommonProps & {
     label?: string;
     gap?: string;
-    value?: BlogSchedule[];
+    value?: DayTimePickerFields[];
     orientation?: "horizontal" | "vertical";
 };
-export declare type BlogSchedule = {
+export declare type DayTimePickerFields = {
     day: string;
     time: string;
 };

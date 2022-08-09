@@ -1,13 +1,13 @@
 import React, { useState, useCallback, useEffect } from "react";
 import { useSchedulerStyles } from "./styles";
 import { InputLabel } from "@mui/material";
-import { BlogSchedulerProps } from "./types";
+import { DayTimePickerProps } from "./types";
 import { fields } from "../../helpers/data";
 import { useScheduleData } from "./hooks";
 import clx from "classnames";
-import { BlogSchedule } from ".";
+import { DayTimePickerFields } from ".";
 
-export const BlogScheduler: React.FC<BlogSchedulerProps> = ({
+export const DayTimePicker: React.FC<DayTimePickerProps> = ({
   className,
   classNames,
   name: componentName,
@@ -26,7 +26,7 @@ export const BlogScheduler: React.FC<BlogSchedulerProps> = ({
       const {
         target: { name, value },
       } = event;
-      const newValue = [...(initialScheduleValue as BlogSchedule[])];
+      const newValue = [...(initialScheduleValue as DayTimePickerFields[])];
       if (remove && newValue.length > 1) {
         newValue.splice(index, 1);
       } else {
@@ -38,7 +38,7 @@ export const BlogScheduler: React.FC<BlogSchedulerProps> = ({
   );
 
   const [scheduleValue, setScheduleValue] = useState<{ [key: string]: any }[]>(
-    parseSchedulevalue(initialScheduleValue as BlogSchedule[],
+    parseSchedulevalue(initialScheduleValue as DayTimePickerFields[],
        handleChange,
        {
       timeSection: classes.timeContainer,
@@ -52,7 +52,7 @@ export const BlogScheduler: React.FC<BlogSchedulerProps> = ({
 
   useEffect(() => {
     const newScheduleValue = parseSchedulevalue(
-      initialScheduleValue as BlogSchedule[],
+      initialScheduleValue as DayTimePickerFields[],
       handleChange,
       {
         timeSection: classes.timeContainer,

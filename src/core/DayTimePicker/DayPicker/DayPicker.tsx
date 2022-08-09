@@ -1,13 +1,13 @@
 import React from "react";
 import { Select, SelectProps } from "@mui/material";
 import { menuItemTableStyles } from "./styles";
-import { BlogSchedule } from "..";
+import { DayTimePickerFields } from "..";
 import { days, filterDaysOptions } from "./helper";
 import { AiOutlineCalendar } from "react-icons/ai";
 
 interface DayPickerProps extends SelectProps {
   value?: string;
-  scheduleData: BlogSchedule[];
+  scheduleData: DayTimePickerFields[];
 }
 
 export const DayPicker: React.FC<DayPickerProps> = ({

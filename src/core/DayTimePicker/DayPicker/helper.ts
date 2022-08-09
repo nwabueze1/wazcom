@@ -1,6 +1,6 @@
-import { BlogSchedule } from "..";
+import { DayTimePickerFields } from "..";
 
-export const filterDaysOptions = (days: { id: number; name: string }[], scheduleData: BlogSchedule[]) => {
+export const filterDaysOptions = (days: { id: number; name: string }[], scheduleData: DayTimePickerFields[]) => {
     const isWeekdays = scheduleData.some((day) => String(day.day) == "8");
     const isWeekends = scheduleData.some((day) => String(day.day) == "9");
     const isAWeekday = scheduleData.some((day) => Number(day.day) >= 2 && Number(day.day) <= 6);

@@ -1,9 +1,9 @@
 import React from "react";
 import { SelectProps } from "@mui/material";
-import { BlogSchedule } from "..";
+import { DayTimePickerFields } from "..";
 interface DayPickerProps extends SelectProps {
     value?: string;
-    scheduleData: BlogSchedule[];
+    scheduleData: DayTimePickerFields[];
 }
 export declare const DayPicker: React.FC<DayPickerProps>;
 export {};

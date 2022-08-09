@@ -14,4 +14,4 @@ export * from "./Upload";
 export * from "./Modal";
 export * from "./EmptyState";
 export * from "./Scheduler";
-export * from "./BlogScheduler";
+export * from "./DayTimePicker";
