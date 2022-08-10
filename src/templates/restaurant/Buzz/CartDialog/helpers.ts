@@ -12,7 +12,6 @@ export const changeQuantity = (
     setQuantity(quantity + 1);
     return;
   }
-
   if (quantity > 1) {
     setQuantity(quantity - 1);
   }
