@@ -33,12 +33,15 @@ import ScheduleIcon from '@mui/icons-material/Schedule';
 export var TimeSelector = function (_a) {
     var onChange = _a.onChange, name = _a.name;
     var classes = useTimePickerStyles();
-    var _b = __read(useState("time"), 1), inputType = _b[0];
+    var _b = __read(useState("time"), 2), inputType = _b[0], setInputType = _b[1];
     // const [defaultValue, setDefaultValue] = useState<string>("Select Time");
     return (_jsx(TextField, { id: "time", type: inputType, 
         // value={value}
         onChange: onChange, name: name, className: classes.textField, InputProps: {
             classes: { root: classes.inputRoot },
             endAdornment: (_jsx(InputAdornment, __assign({ position: "end" }, { children: _jsx(ScheduleIcon, { className: classes.scheduleIcon }, void 0) }), void 0)),
+        }, onFocus: function () {
+            setInputType("time");
+            // setDefaultValue(value as string);
         } }, void 0));
 };

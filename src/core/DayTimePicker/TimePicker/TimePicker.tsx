@@ -15,7 +15,7 @@ export const TimeSelector: React.FC<TimeSelectorProps> = ({
   // value,
 }) => {
   const classes = useTimePickerStyles();
-  const [inputType,] = useState<string>("time");
+  const [inputType, setInputType] = useState<string>("time");
   // const [defaultValue, setDefaultValue] = useState<string>("Select Time");
 
   return (
@@ -34,10 +34,10 @@ export const TimeSelector: React.FC<TimeSelectorProps> = ({
             </InputAdornment>
           ),
         }}
-        // onFocus={() => {
-        //   setInputType("time");
-        //   setDefaultValue(value as string);
-        // }}
+        onFocus={() => {
+          setInputType("time");
+          // setDefaultValue(value as string);
+        }}
       />
   );
 };
