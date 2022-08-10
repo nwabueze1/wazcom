@@ -194,12 +194,12 @@ export const useStyles = makeStyles<Theme>((theme: Theme) => ({
     display: "flex",
     justifyContent: "center",
     alignItems: "center",
-    zIndex: -9999,
+    zIndex: -20,
     opacity: 0,
     transition: "opacity 0.5s ease-in",
   },
   dialogActive: {
-    zIndex: 9999,
+    zIndex: 20,
     opacity: 1,
   },
 }));

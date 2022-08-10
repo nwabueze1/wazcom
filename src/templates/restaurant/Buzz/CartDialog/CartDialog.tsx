@@ -65,7 +65,6 @@ export const CartDialog: React.FC<CartDialogProps> = ({
       document.documentElement.style.overflowY = "scroll";
       return;
     }
-
     if (dialogRef?.current) dialogRef.current.scrollTop = 0;
     document.documentElement.style.overflowY = "hidden";
   }, [display]);

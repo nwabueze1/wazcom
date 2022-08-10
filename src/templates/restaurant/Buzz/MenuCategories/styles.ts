@@ -10,12 +10,15 @@ export const useMenuCategoryStyles = makeStyles<Theme>((theme: Theme) => ({
   },
   categoryContainer: {
     display: "flex",
-    width: "93%",
+    width: "95%",
     margin: theme.spacing(0, 2),
     gap: theme.spacing(1),
     alignItems: "center",
     background: theme.design.colors.waz_white,
     textTransform: "capitalize",
+    [theme.breakpoints.down("sm")]: {
+      width: "100%",
+    },
   },
   categoryArrow: {
     position: "relative",

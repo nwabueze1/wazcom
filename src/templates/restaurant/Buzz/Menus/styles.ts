@@ -35,6 +35,8 @@ export const useMenusStyles = makeStyles<Theme>((theme: Theme) => ({
     borderRadius: "8px",
     boxShadow: "0px 2px 18px rgba(151, 151, 151, 0.16)",
     background: theme.design.colors.waz_white,
+    position: "sticky",
+    top: 0,
     [theme.breakpoints.down("md")]: {
       right: "0px",
       top: " 14%",
