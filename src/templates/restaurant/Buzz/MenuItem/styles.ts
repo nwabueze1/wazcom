@@ -92,7 +92,6 @@ export const useStyles = makeStyles<Theme, StyleProps>((theme: Theme) =>
       color: theme.design.colors.black,
       position: "absolute",
       bottom: "20px",
-
       [theme.breakpoints.down("md")]: {
         fontSize: theme.typography.fontSize + 4,
       },
@@ -122,7 +121,6 @@ export const useStyles = makeStyles<Theme, StyleProps>((theme: Theme) =>
       alignItems: "center",
       transition: "opacity 0.5s ease-in",
       border: "1px solid #EEEEEE",
-
       "&:before": {
         position: "absolute",
         top: "-22px",

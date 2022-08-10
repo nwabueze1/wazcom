@@ -33,7 +33,6 @@ export const useMenuCategoryStyles = makeStyles<Theme>((theme: Theme) => ({
     width: "92%",
     margin: theme.spacing(0, 1),
     scrollBehavior: "smooth",
-
     "&::-webkit-scrollbar": {
       width: 0,
       height: 0,

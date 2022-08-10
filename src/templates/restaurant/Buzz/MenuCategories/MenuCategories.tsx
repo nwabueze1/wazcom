@@ -54,7 +54,6 @@ export const MenuCategories = (content: CoreFosFields) => {
         <div ref={categoryRef} className={classes.menuCategories}>
           {displayCategories()}
         </div>
-
         {categoryRef.current && isScrollable && (
           <ArrowForwardIos onClick={() => scroll(200, categoryRef)} />
         )}

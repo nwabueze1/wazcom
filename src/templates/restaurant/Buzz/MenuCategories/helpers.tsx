@@ -11,6 +11,8 @@ export const useDisplayCategories = () => {
     setActiveCategory: (index: number) => void,
     searchValue?: string
   ) => {
+    const classes = useMenuCategoryStyles();
+    
     const categories =
       searchValue && searchValue.length > 0
         ? Object.keys(findCategories(activeMenu, searchValue))
@@ -19,7 +21,7 @@ export const useDisplayCategories = () => {
               (category) => category?.title
             ) ?? []),
           ];
-    const classes = useMenuCategoryStyles();
+
     return categories?.map((category, index) => {
       return (
         <div
