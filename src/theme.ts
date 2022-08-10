@@ -93,6 +93,7 @@ export const theme: any = {
       inter: "Inter, sans-serif",
       bitter: "Bitter, sans-serif",
       merriweather: "Merriweather, sans-serif",
+      openSans: "Open Sans, sans-serif",
     },
     colors: {
       waz_primaryColor100: "#0A7227",
@@ -100,6 +101,7 @@ export const theme: any = {
       waz_dangerColor100: "#990000",
       waz_dangerColor200: "#ff3333",
       waz_dangerColor300: "#ff5959",
+      waz_dangerColor400: "#FF4C4C",
       waz_successColor: baseColors.successColor,
       waz_successColor100: "#22803c",
       waz_successColor200: "#3b8e52",
@@ -109,6 +111,7 @@ export const theme: any = {
       waz_greyColor200: "#8c8c8c",
       waz_greyColor300: "#666666",
       waz_greyColor400: "#333333",
+      waz_greyColor500: "#ADADAD",
       waz_white: "#FFFFFF",
       waz_whiteAlpha: "#f9f9f9",
       waz_whiteAlpha100: "#F0F0F0",

@@ -9,7 +9,7 @@ export const useTableControlsStyles = makeStyles((theme: Theme) => ({
   },
   filterControls: {
     display: "flex",
-    gap: theme.spacing(3.75),
+    gap: theme.spacing(2),
   },
   controlButton: {
     backgroundColor: theme.design.colors.waz_white,
@@ -70,7 +70,7 @@ export const useTableControlsStyles = makeStyles((theme: Theme) => ({
     paddingLeft: theme.spacing(2),
     backgroundColor: theme.design.colors.waz_white,
     marginRight: "auto",
-    marginLeft: theme.spacing(3)
+    marginLeft: theme.spacing(3),
   },
   searchIcon: {
     fontSize: 24,

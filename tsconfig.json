@@ -28,6 +28,6 @@
     "./src/@types",
     "./src/stories",
     "./node_modules/@types",
-    "src/types/graphql-global-types.ts"
+    "src/templates/blog/types/graphql-global-types.ts"
   ]
 }
