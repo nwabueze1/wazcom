@@ -36,6 +36,7 @@ export const TimeSelector: React.FC<TimeSelectorProps> = ({
         }}
         onFocus={() => {
           setInputType("time");
+          
           setDefaultValue(value as string);
         }}
       />
