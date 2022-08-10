@@ -18,6 +18,7 @@ export const useBuzzStyles = makeStyles<Theme>((theme: Theme) => ({
   },
   nav: {
     position: "absolute",
+    zIndex: 20,
     top: 20,
     [theme.breakpoints.down("sm")]: {
       position: "relative",

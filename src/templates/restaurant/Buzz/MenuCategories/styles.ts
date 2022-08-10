@@ -7,6 +7,8 @@ export const useMenuCategoryStyles = makeStyles<Theme>((theme: Theme) => ({
     position: "sticky",
     top: 0,
     zIndex: 5,
+    boxShadow: "0px 2px 3px 1px rgba(151, 151, 151, 0.16)",
+    background: theme.design.colors.waz_white,
   },
   categoryContainer: {
     display: "flex",
@@ -28,9 +30,9 @@ export const useMenuCategoryStyles = makeStyles<Theme>((theme: Theme) => ({
     display: "flex",
     alignItems: "center",
     overflowX: "scroll",
-    gap: theme.spacing(7),
+    gap: theme.spacing(4),
     position: "relative",
-    width: "92%",
+    width: "100%",
     margin: theme.spacing(0, 1),
     scrollBehavior: "smooth",
     "&::-webkit-scrollbar": {
