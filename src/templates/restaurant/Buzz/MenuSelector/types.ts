@@ -6,7 +6,7 @@ export type MenuSelectorProps = {
   value: any;
   handleChange: (
     event: SelectChangeEvent<{
-      name?: string | undefined;
+      name?: string;
       value: unknown | string;
     }>
   ) => void;

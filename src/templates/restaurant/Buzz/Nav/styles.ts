@@ -50,7 +50,7 @@ export const useNavStyles = makeStyles<Theme>((theme: Theme) => ({
         borderRadius: 0,
       },
     },
-    "& 	.MuiOutlinedInput-input": {
+    "&.MuiOutlinedInput-input": {
       padding: theme.spacing(1.5, 0),
     },
     [theme.breakpoints.down("md")]: {
