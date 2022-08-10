@@ -12,17 +12,17 @@ interface TimeSelectorProps extends BaseTextFieldProps {
 export const TimeSelector: React.FC<TimeSelectorProps> = ({
   onChange,
   name,
-  value,
+  // value,
 }) => {
   const classes = useTimePickerStyles();
-  const [inputType, setInputType] = useState<string>("text");
-  const [defaultValue, setDefaultValue] = useState<string>("Select Time");
+  const [inputType,] = useState<string>("time");
+  // const [defaultValue, setDefaultValue] = useState<string>("Select Time");
 
   return (
     <TextField
         id="time"
         type={inputType}
-        value={defaultValue}
+        // value={value}
         onChange={onChange}
         name={name}
         className={classes.textField}
@@ -34,10 +34,10 @@ export const TimeSelector: React.FC<TimeSelectorProps> = ({
             </InputAdornment>
           ),
         }}
-        onFocus={() => {
-          setInputType("time");
-          setDefaultValue(value as string);
-        }}
+        // onFocus={() => {
+        //   setInputType("time");
+        //   setDefaultValue(value as string);
+        // }}
       />
   );
 };
