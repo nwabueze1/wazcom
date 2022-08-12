@@ -29,6 +29,7 @@ export var useEmptyStateStyles = makeStyles(function (theme) { return ({
     btn: {
         background: theme.design.colors.primary100,
         fontSize: theme.typography.fontSize + 4,
+        padding: theme.spacing(1, 2),
         fontWeight: theme.typography.fontWeightMedium,
         "&:hover": {
             backgroundColor: theme.design.colors.primary100,

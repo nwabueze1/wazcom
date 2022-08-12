@@ -70,7 +70,7 @@ export var useTableControlsStyles = makeStyles(function (theme) {
             paddingLeft: theme.spacing(2),
             backgroundColor: theme.design.colors.waz_white,
             marginRight: "auto",
-            marginLeft: theme.spacing(3),
+            gap: theme.spacing(4),
         },
         searchIcon: {
             fontSize: 24,
