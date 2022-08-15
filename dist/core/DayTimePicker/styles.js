@@ -54,9 +54,7 @@ export var useSchedulerStyles = makeStyles(function (theme) { return ({
     hidden: {
         display: "none",
     },
-    dayContainer: {
-        width: "20%"
-    },
+    dayContainer: {},
     timeSection: {
         height: "40px"
     }
