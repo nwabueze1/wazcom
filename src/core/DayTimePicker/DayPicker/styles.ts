@@ -15,12 +15,24 @@ export const menuItemTableStyles = makeStyles((theme: Theme) =>
       border: `1px solid ${theme.design.colors.waz_grey300}`,
       borderRadius: "5px",
       width: "140%",
-      height: "40px",
       paddingInline: theme.spacing(2),
     },
     calendarIcon: {
       width: "30px",
       height: "30px"
+    },
+    textInput: {
+      height: "40px",
+      width: "80%",
+      '&::-webkit-calendar-picker-indicator': {
+        width: "20px",
+        height: "20px"
+      }
+    },
+    icon: {
+      color: theme.design.colors.waz_black,
+      width: "20px",
+      height: "20px"
     }
   }),
 );

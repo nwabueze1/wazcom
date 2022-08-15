@@ -9,14 +9,40 @@ var __assign = (this && this.__assign) || function () {
     };
     return __assign.apply(this, arguments);
 };
+var __read = (this && this.__read) || function (o, n) {
+    var m = typeof Symbol === "function" && o[Symbol.iterator];
+    if (!m) return o;
+    var i = m.call(o), r, ar = [], e;
+    try {
+        while ((n === void 0 || n-- > 0) && !(r = i.next()).done) ar.push(r.value);
+    }
+    catch (error) { e = { error: error }; }
+    finally {
+        try {
+            if (r && !r.done && (m = i["return"])) m.call(i);
+        }
+        finally { if (e) throw e.error; }
+    }
+    return ar;
+};
 import { jsx as _jsx } from "react/jsx-runtime";
-import { Select } from "@mui/material";
+import { useState } from "react";
+import { TextField, InputAdornment } from "@mui/material";
 import { menuItemTableStyles } from "./styles";
-import { days, filterDaysOptions } from "./helper";
-import { AiOutlineCalendar } from "react-icons/ai";
+import { BiCalendarAlt } from "react-icons/bi";
 export var DayPicker = function (_a) {
-    var value = _a.value, onChange = _a.onChange, name = _a.name, scheduleData = _a.scheduleData;
+    var value = _a.value, onChange = _a.onChange, name = _a.name;
     var classes = menuItemTableStyles();
-    var filteredOptions = filterDaysOptions(days, scheduleData);
-    return (_jsx(Select, __assign({ IconComponent: function () { return _jsx(AiOutlineCalendar, { className: classes.calendarIcon }, void 0); }, native: true, multiline: true, required: true, name: name, onChange: onChange, variant: "outlined", value: value, className: classes.dayPicker }, { children: days.map(function (day) { return (_jsx("option", __assign({ value: String(day.id), className: classes.option, disabled: !filteredOptions.includes(day), hidden: day.name == "Select Day" }, { children: day.name }), day.id)); }) }), void 0));
+    var _b = __read(useState("text"), 2), type = _b[0], setType = _b[1];
+    var _c = __read(useState("Select Date"), 2), defaultValue = _c[0], setDefaultValue = _c[1];
+    return (_jsx(TextField, { id: "time", type: type, onChange: onChange, defaultValue: defaultValue, name: name, className: classes.dayPicker, InputProps: {
+            className: classes.textInput,
+            endAdornment: (type == "text" ?
+                _jsx(InputAdornment, __assign({ position: "end" }, { children: _jsx(BiCalendarAlt, { className: classes.icon }, void 0) }), void 0)
+                :
+                    null),
+        }, onFocus: function () {
+            setType("date");
+            setDefaultValue(value);
+        } }, void 0));
 };

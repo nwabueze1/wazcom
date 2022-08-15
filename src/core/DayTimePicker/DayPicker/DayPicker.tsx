@@ -1,40 +1,40 @@
-import React from "react";
-import { Select, SelectProps } from "@mui/material";
+import React, { useState } from "react";
+import { TextField, InputAdornment } from "@mui/material";
 import { menuItemTableStyles } from "./styles";
-import { DayTimePickerFields } from "..";
-import { days, filterDaysOptions } from "./helper";
-import { AiOutlineCalendar } from "react-icons/ai";
-
-interface DayPickerProps extends SelectProps {
-  value?: string;
-  scheduleData: DayTimePickerFields[];
-}
+import { BiCalendarAlt } from "react-icons/bi";
+import { DayPickerProps } from "../types"
 
 export const DayPicker: React.FC<DayPickerProps> = ({
   value,
   onChange,
   name,
-  scheduleData,
 }) => {
   const classes = menuItemTableStyles();
-  const filteredOptions = filterDaysOptions(days, scheduleData);
+  const [type, setType] = useState<string>("text");
+  const [defaultValue, setDefaultValue] = useState<any>("Select Date")
   return (
-    <Select
-    IconComponent={()=><AiOutlineCalendar className={classes.calendarIcon} />}
-    native
-    multiline
-    required
-    name={name}
-    onChange={onChange}
-    variant="outlined"
-    value={value}
-    className={classes.dayPicker}
-  >
-    {days.map((day) => (
-      <option key={day.id} value={String(day.id)} className={classes.option} disabled={!filteredOptions.includes(day)} hidden={day.name == "Select Day"}>
-        {day.name}
-      </option>
-    ))}
-  </Select>
+  <TextField
+        id="time"
+        type={type}
+        onChange={onChange}
+        defaultValue={defaultValue}
+        name={name}
+        className={classes.dayPicker}
+        InputProps={{
+          className: classes.textInput,
+          endAdornment: (
+            type == "text" ?
+            <InputAdornment position="end">
+              <BiCalendarAlt className={classes.icon} />
+            </InputAdornment>
+            :
+            null
+          ),
+        }}
+        onFocus={() => {
+          setType("date");
+          setDefaultValue(value as string);
+        }}
+      />
   );
 };

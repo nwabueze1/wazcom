@@ -13,7 +13,7 @@ export const DayTimePicker: React.FC<DayTimePickerProps> = ({
   name: componentName,
   label,
   value: initialScheduleValue = [
-    { day: "0", time: "00:00"},
+    { day: "2022-0-0", time: "00:00"},
   ],
   onChange,
   orientation = "horizontal",

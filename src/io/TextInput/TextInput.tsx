@@ -44,6 +44,7 @@ export const TextInput: FC<TextInputProps> = ({
             ? (classNames.classes as { [key: string]: string })
             : {}
         }
+      
       />
       {helperText}
       {feedback && displayFeedback(feedback)}
