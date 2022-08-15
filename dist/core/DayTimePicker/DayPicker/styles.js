@@ -21,7 +21,11 @@ export var menuItemTableStyles = makeStyles(function (theme) {
             '&::-webkit-calendar-picker-indicator': {
                 width: "20px",
                 height: "20px"
-            }
+            },
+            "&.Mui-focused fieldset.MuiOutlinedInput-notchedOutline": {
+                borderColor: theme.design.colors.waz_primaryColor100,
+                outline: theme.design.colors.waz_primaryColor100,
+            },
         },
         icon: {
             color: theme.design.colors.waz_black,
