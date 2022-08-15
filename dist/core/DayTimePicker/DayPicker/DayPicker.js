@@ -35,8 +35,8 @@ export var DayPicker = function (_a) {
     var classes = menuItemTableStyles();
     var _b = __read(useState("text"), 2), type = _b[0], setType = _b[1];
     var _c = __read(useState("Select Date"), 2), defaultValue = _c[0], setDefaultValue = _c[1];
-    return (_jsx(TextField, { id: "time", type: type, onChange: onChange, defaultValue: defaultValue, name: name, className: classes.dayPicker, InputProps: {
-            className: classes.textInput,
+    return (_jsx(TextField, { id: "time", type: type, onChange: onChange, defaultValue: defaultValue, name: name, InputProps: {
+            classes: { root: classes.textInput },
             endAdornment: (type == "text" ?
                 _jsx(InputAdornment, __assign({ position: "end" }, { children: _jsx(BiCalendarAlt, { className: classes.icon }, void 0) }), void 0)
                 :

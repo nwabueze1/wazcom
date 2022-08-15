@@ -19,9 +19,8 @@ export const DayPicker: React.FC<DayPickerProps> = ({
         onChange={onChange}
         defaultValue={defaultValue}
         name={name}
-        className={classes.dayPicker}
         InputProps={{
-          className: classes.textInput,
+          classes: {root: classes.textInput},
           endAdornment: (
             type == "text" ?
             <InputAdornment position="end">

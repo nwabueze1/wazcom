@@ -8,19 +8,16 @@ export var menuItemTableStyles = makeStyles(function (theme) {
         option: {
             background: "red"
         },
-        dayPicker: {
-            border: "1px solid ".concat(theme.design.colors.waz_grey300),
-            borderRadius: "5px",
-            width: "140%",
-            paddingInline: theme.spacing(2),
-        },
         calendarIcon: {
             width: "30px",
             height: "30px"
         },
         textInput: {
-            height: "40px",
-            width: "80%",
+            height: "43px",
+            width: "100%",
+            border: "1px solid ".concat(theme.design.colors.waz_grey300),
+            borderRadius: "5px",
+            paddingInline: theme.spacing(2),
             '&::-webkit-calendar-picker-indicator': {
                 width: "20px",
                 height: "20px"
