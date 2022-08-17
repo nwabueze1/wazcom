@@ -10,7 +10,6 @@ export var useTimePickerStyles = makeStyles(function (theme) { return ({
         textAlign: "center",
         width: "200px",
         height: "40px",
-        border: "1px solid ".concat(theme.design.colors.waz_grey_300),
         borderRadius: "5px",
         "& input[type='time']::-webkit-clear-button, & input::-webkit-outer-spin-button, & input::-webkit-inner-spin-button": {
             display: "none",
