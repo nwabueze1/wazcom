@@ -13,17 +13,12 @@ import { AiOutlineMinusCircle } from "react-icons/ai";
 
 export const Item: React.FC<CartItemProps> = ({
     onClick,
-    name,
-    price,
-    image_url: imageUrl,
-    status,
-    condition,
-    description,
-    quantity
+    data
 }) => {
     const currency = "$";
     const isOpen = true;
     const classes = useStyles({ isOpen });
+    const { name, uuid, image_url, options, status, description, price } = data.menuItem;
 
     const handleCancel = () => {
         console.log("closed");
@@ -36,13 +31,12 @@ export const Item: React.FC<CartItemProps> = ({
             className={clsx(
                 classes.root,
                 status && classes.visible,
-                condition && classes.noMargin
             )}
         >
             <div
                 className={classes.imageWrapper}
                 style={{
-                    backgroundImage: `url(${imageUrl ?? menuImagePlaceholder})`,
+                    backgroundImage: `url(${image_url ?? menuImagePlaceholder})`,
                 }}
             ></div>
             <div className={classes.content}>
@@ -56,7 +50,7 @@ export const Item: React.FC<CartItemProps> = ({
                 </div>
                 <div className={classes.optionsGroup}>
                     <div className={classes.amount}>
-                        {getCurrency(currency)}
+                        {getCurrency("NGN")}
                         {getFloatOrIntAmount(price)}
                     </div>
                     <div className={classes.optionsContainer}>
@@ -66,7 +60,7 @@ export const Item: React.FC<CartItemProps> = ({
                         //     changeQuantity(false);
                         // }}
                         />
-                        <p>{quantity}</p>
+                        <p>{data.quantity}</p>
                         <IoAddCircleOutline
                             className={classes.icon}
                         // onClick={() => {
@@ -79,7 +73,6 @@ export const Item: React.FC<CartItemProps> = ({
                     </div>
                 </div>
             </div>
-
         </div>
     );
 };

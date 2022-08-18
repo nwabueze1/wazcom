@@ -1,14 +1,8 @@
+import { CoreCartFields, CoreCartFields_cartItems } from "templates/restaurant/types/CoreCartFields";
+
 export type CartItemProps = {
   onClick?: () => void;
-  id: number;
-  name?: string;
-  description?: string;
-  price?: number;
-  image_url?: string;
-  status?: boolean;
-  condition?: boolean;
-  currency: string;
-  quantity:number
+  data: CoreCartFields_cartItems
 };
 
 export type StyleProps = {

@@ -12,16 +12,17 @@ export const useDisplayCategories = () => {
     searchValue?: string
   ) => {
     const classes = useMenuCategoryStyles();
-    
+
     const categories =
       searchValue && searchValue.length > 0
         ? Object.keys(findCategories(activeMenu, searchValue))
         : [
-            ...(activeMenu?.activeMenuCategories?.map(
-              (category) => category?.title
-            ) ?? []),
-          ];
+          ...(activeMenu?.activeMenuCategories?.map(
+            (category) => category?.title
+          ) ?? []),
+        ];
 
+    console.log("categories", categories);
     return categories?.map((category, index) => {
       return (
         <div
@@ -33,9 +34,8 @@ export const useDisplayCategories = () => {
           onClick={() => setActiveCategory(index)}
         >
           <p
-            className={`${classes.restaurantMenuCategory} ${
-              activeCategory === index && classes.textActive
-            }`}
+            className={`${classes.restaurantMenuCategory} ${activeCategory === index && classes.textActive
+              }`}
           >
             <a
               href={`#${category.toLowerCase()}`}

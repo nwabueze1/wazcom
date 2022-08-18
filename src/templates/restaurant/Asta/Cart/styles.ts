@@ -6,7 +6,6 @@ import { CartStyleProps } from ".";
 export const useCartStyles = makeStyles<Theme>((theme: Theme) =>
   createStyles({
     root: {
-      border: "1px solid red",
       height: "100%",
       width: "100%"
     },
@@ -347,5 +346,53 @@ export const useCartStyles = makeStyles<Theme>((theme: Theme) =>
         marginRight: theme.spacing(3),
       },
     },
+    checkoutContainer: {
+      width: `calc(100% - ${theme.spacing(4)})`,
+      padding: theme.spacing(2),
+      lineHeight: "25px"
+    },
+    prices: {
+      display: "flex",
+      justifyContent: "space-between",
+      alignItems: "center",
+      margin: theme.spacing(1, 0),
+    },
+    amount: {
+      fontWeight: 400,
+      color: theme.design.colors.waz_black,
+      fontSize: theme.typography.fontSize + 4,
+    },
+    name: {
+      fontWeight: 400,
+      color: theme.design.colors.waz_greenishGrey2,
+      fontSize: theme.typography.fontSize + 4,
+    },
+    total: {
+      fontWeight: 600,
+      color: theme.design.colors.waz_black,
+      fontSize: theme.typography.fontSize + 4,
+    },
+    dialogOption: {
+      padding: theme.spacing(1, 8),
+      marginTop: theme.spacing(2),
+      fontSize: theme.typography.fontSize + 4,
+      fontWeight: theme.typography.fontWeightMedium,
+      fontFamily: theme.design.font.openSans,
+      borderRadius: "4px",
+      width: "100%",
+    },
+    dialogOptionFilled: {
+      background: theme.design.colors.waz_primaryColor100,
+      color: theme.design.colors.waz_white,
+      border: "none",
+      cursor: "pointer",
+    },
+    subTotalContainer: {
+      borderBottom: `1px solid ${theme.design.colors.waz_grey300}`,
+    },
+    cartsContainer: {
+      maxHeight: "calc(100vh - 270px)",
+      overflowY: "scroll"
+    }
   })
 );

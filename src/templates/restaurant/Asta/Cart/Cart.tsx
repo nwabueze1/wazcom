@@ -1,4 +1,5 @@
 import React from "react";
+import { restaurantdata } from "templates/restaurant/data";
 import { emptyCartImagePlaceholder } from "utilities/restaurant";
 import { useCartStyles } from ".";
 import { useDisplayCartItems } from "./helper";
@@ -6,7 +7,7 @@ import { useDisplayCartItems } from "./helper";
 export const Cart = () => {
   const classes = useCartStyles();
   const listItems = useDisplayCartItems();
-
+  const cartItems = restaurantdata?.cart?.cartItems ?? [];
   const displayEmptyCart = () => (
     <div className={classes.emptyCartSection}>
       <div className={classes.emptyCartContainer}>
@@ -21,5 +22,9 @@ export const Cart = () => {
     </div>
   );
 
-  return <div className={classes.root}>{listItems()}</div>;
+  return <div className={classes.root}>{
+    cartItems.length > 0
+      ? listItems(cartItems) :
+      displayEmptyCart()
+  }</div>;
 };

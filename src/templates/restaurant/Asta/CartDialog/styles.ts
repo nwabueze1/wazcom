@@ -123,7 +123,6 @@ export const useStyles = makeStyles<Theme>((theme: Theme) => ({
     display: "flex",
     justifyContent: "space-around",
     width: "100%",
-    border: "1px solid red",
     [theme.breakpoints.down("xs")]: {
       flexDirection: "column",
       alignItems: "center",

@@ -12,8 +12,7 @@ export const useStyles = makeStyles<Theme, StyleProps>((theme: Theme) =>
       alignItems: "center",
       background: "#fff",
       borderRadius: "4px",
-      border: `1px solid ${theme.design.colors.waz_grey300}`,
-      opacity: 0.2,
+      borderBottom: `1px solid ${theme.design.colors.waz_grey300}`,
       boxSizing: "border-box",
       position: "relative",
       padding: theme.spacing(2),
@@ -122,8 +121,8 @@ export const useStyles = makeStyles<Theme, StyleProps>((theme: Theme) =>
       justifyContent: "space-between",
       alignItems: "center",
       "& p": {
-        margin: 0,
-        fontSize: theme.typography.fontSize + 2,
+        margin: theme.spacing(0, 1),
+        fontSize: theme.typography.fontSize + 4,
       },
     },
     closeIconContainer: {
