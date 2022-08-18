@@ -84,7 +84,7 @@ export const restaurantdata: CoreFosFields = {
             uuid: "wew",
             name: "Yam",
             status: true,
-            description: "Yam is very good",
+            description: "Yam is very good by Basit but have you tried okro ",
             price: 90,
             image_url:
               "https://images.unsplash.com/photo-1659474687643-a907aef696b7?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxlZGl0b3JpYWwtZmVlZHw0fHx8ZW58MHx8fHw%3D&auto=format&fit=crop&w=500&q=60",
