@@ -41,7 +41,7 @@ import { InputLabel } from "@mui/material";
 import { fields } from "../../helpers/data";
 import { useScheduleData } from "./hooks";
 import clx from "classnames";
-export var DayTimePicker = function (_a) {
+export var DateTimePicker = function (_a) {
     var _b;
     var className = _a.className, classNames = _a.classNames, componentName = _a.name, label = _a.label, _c = _a.value, initialScheduleValue = _c === void 0 ? [
         { day: "2022-0-0", time: "00:00" },

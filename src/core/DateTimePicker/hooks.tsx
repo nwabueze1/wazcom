@@ -1,4 +1,4 @@
-import { DayPicker } from "./DayPicker/DayPicker";
+import { DayPicker } from "./DatePicker/DatePicker";
 import { TimeSelector } from "./TimePicker/TimePicker";
 import { DayTimePickerFields } from "./types";
 

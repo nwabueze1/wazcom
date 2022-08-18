@@ -7,7 +7,7 @@ import { useScheduleData } from "./hooks";
 import clx from "classnames";
 import { DayTimePickerFields } from ".";
 
-export const DayTimePicker: React.FC<DayTimePickerProps> = ({
+export const DateTimePicker: React.FC<DayTimePickerProps> = ({
   className,
   classNames,
   name: componentName,
