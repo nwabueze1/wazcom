@@ -1,26 +1,15 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { CoreCartFields } from 'templates/restaurant/types/CoreCartFields';
+import { CoreCartItemFields } from 'templates/restaurant/types/CoreCartItemFields';
 import { getCurrency, getFloatOrIntAmount } from 'utilities/restaurant';
 import { Item } from './components/Item/Item';
 import { useCartStyles } from './styles';
 
 export const useDisplayCartItems = () => {
-    return (cartItems: CoreCartFields["cartItems"]) => {
+    return (cartItemsData: CoreCartFields["cartItems"]) => {
+        const currency = "$";
         const classes = useCartStyles();
-        const handleClick = () => {
-            console.log("okay");
-        };
-        const props = {
-            id: 1414,
-            name: "Ham hock, sausage and cider raised pie",
-            description: "150ml dry cider, 200ml fresh chicken stock, 1 .....",
-            price: 21331,
-            image_url: "https://images.unsplash.com/photo-1659653404358-5ad37211a0fa?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxlZGl0b3JpYWwtZmVlZHwxNHx8fGVufDB8fHx8&auto=format&fit=crop&w=500&q=60",
-            status: false,
-            condition: true,
-            currency: "NGN",
-            quantity: 20
-        }
+        const [cartItems, setCartItems] = useState<CoreCartItemFields[]>(cartItemsData ?? [])
 
         const displayPrice = (name: string, amount: number) => {
             return (
@@ -29,7 +18,7 @@ export const useDisplayCartItems = () => {
                         {name}
                     </p>
                     <p className={name === "Total" ? classes.total : classes.amount}>
-                        {getCurrency("NGN")}
+                        {getCurrency(currency)}
                         {getFloatOrIntAmount(amount)}
                     </p>
                 </div>
@@ -42,15 +31,15 @@ export const useDisplayCartItems = () => {
                     My order
                 </div>
                 <div className={classes.cartsContainer}>
-                    {cartItems.map(_ => (<Item onClick={handleClick} data={_} />))}
+                    {cartItems.map(_ => (<Item setCartItems={setCartItems} data={_} />))}
                 </div>
 
                 <div className={classes.checkoutContainer}>
                     <div className={classes.subTotalContainer}>
-                        {displayPrice("Sub-total", 15.60)}
+                        {displayPrice("Sub-total", subTotal(cartItems))}
                         {displayPrice("Delivery", 0.20)}
                     </div>
-                    {displayPrice("Total", 16.20)}
+                    {displayPrice("Total", subTotal(cartItems) + 0.20)}
                     <button
                         onClick={() => {
                             console.log("add to cart");
@@ -65,3 +54,10 @@ export const useDisplayCartItems = () => {
     }
 };
 
+const subTotal = (cartItems: CoreCartFields["cartItems"][]) => {
+    const onlyAmount = cartItems.map(cartItem => {
+        return cartItem.quantity * cartItem.menuItem.price
+    });
+
+    return onlyAmount.reduce((amount, initialAmount) => amount + initialAmount, 0);
+}

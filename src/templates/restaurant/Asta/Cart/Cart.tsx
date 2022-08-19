@@ -8,6 +8,7 @@ export const Cart = () => {
   const classes = useCartStyles();
   const listItems = useDisplayCartItems();
   const cartItems = restaurantdata?.cart?.cartItems ?? [];
+  
   const displayEmptyCart = () => (
     <div className={classes.emptyCartSection}>
       <div className={classes.emptyCartContainer}>

@@ -1,7 +1,9 @@
-import { CoreCartFields, CoreCartFields_cartItems } from "templates/restaurant/types/CoreCartFields";
+import React from 'react';
+import { CoreCartFields_cartItems } from "templates/restaurant/types/CoreCartFields";
+import { CoreCartItemFields } from 'templates/restaurant/types/CoreCartItemFields';
 
 export type CartItemProps = {
-  onClick?: () => void;
+  setCartItems?: React.Dispatch<React.SetStateAction<CoreCartItemFields[]>>
   data: CoreCartFields_cartItems
 };
 

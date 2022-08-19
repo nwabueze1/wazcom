@@ -12,7 +12,7 @@ import { IoAddCircleOutline } from "react-icons/io5";
 import { AiOutlineMinusCircle } from "react-icons/ai";
 
 export const Item: React.FC<CartItemProps> = ({
-    onClick,
+    setCartItems,
     data
 }) => {
     const currency = "$";
@@ -20,14 +20,27 @@ export const Item: React.FC<CartItemProps> = ({
     const classes = useStyles({ isOpen });
     const { name, uuid, image_url, options, status, description, price } = data.menuItem;
 
-    const handleCancel = () => {
-        console.log("closed");
-    }
+    const handleChangeQuantity = (uuid: string, method: string, value: number) => {
+        setCartItems(cartItems => {
+            const updatedtCartItems = cartItems.map(cartItem => {
+                if (cartItem.menuItem.uuid === uuid) {
+                    const quantity = method === "add" ? (+cartItem.quantity) + 1 : (+cartItem.quantity) > 1 ? (+cartItem.quantity) - 1 : 1;
+                    return { ...cartItem, quantity };
+                }
+                return cartItem;
+            });
+            return updatedtCartItems;
+        })
+    };
+
+    const handleRemove = (uuid: string) => {
+        setCartItems(cartItems => {
+            return cartItems.filter(cartItem => cartItem.menuItem.uuid !== uuid);
+        })
+    };
+
     return (
         <div
-            onClick={() => {
-                isOpen && onClick?.();
-            }}
             className={clsx(
                 classes.root,
                 status && classes.visible,
@@ -50,25 +63,25 @@ export const Item: React.FC<CartItemProps> = ({
                 </div>
                 <div className={classes.optionsGroup}>
                     <div className={classes.amount}>
-                        {getCurrency("NGN")}
-                        {getFloatOrIntAmount(price)}
+                        {getCurrency(currency)}
+                        {getFloatOrIntAmount(price * data.quantity)}
                     </div>
                     <div className={classes.optionsContainer}>
                         <AiOutlineMinusCircle
                             className={classes.icon}
-                        // onClick={() => {
-                        //     changeQuantity(false);
-                        // }}
+                            onClick={() => {
+                                handleChangeQuantity(uuid, "remove", data.quantity)
+                            }}
                         />
                         <p>{data.quantity}</p>
                         <IoAddCircleOutline
                             className={classes.icon}
-                        // onClick={() => {
-                        //     changeQuantity(true);
-                        // }}
+                            onClick={() => {
+                                handleChangeQuantity(uuid, "add", data.quantity)
+                            }}
                         />
                     </div>
-                    <div className={classes.closeIconContainer} onClick={handleCancel}>
+                    <div className={classes.closeIconContainer} onClick={() => handleRemove(uuid)}>
                         <Close className={classes.closeIcon} />
                     </div>
                 </div>
