@@ -10,7 +10,7 @@ var __assign = (this && this.__assign) || function () {
     return __assign.apply(this, arguments);
 };
 import { jsx as _jsx } from "react/jsx-runtime";
-import { DayPicker } from "./DayPicker/DayPicker";
+import { DayPicker } from "./DatePicker/DatePicker";
 import { TimeSelector } from "./TimePicker/TimePicker";
 export var useScheduleData = function () {
     return function (scheduleData, handleChange, classNames) {

@@ -12,7 +12,7 @@ import {
   Notification,
   Carousel,
   EmptyState,
-  DayTimePicker,
+  DateTimePicker,
   Scheduler
 } from "../core";
 import { BiLink } from "react-icons/bi";
@@ -470,10 +470,10 @@ export const stories: ComponentPropType[] = [
     },
   },
   {
-    name: "DayTimePicker",
-    component: DayTimePicker,
+    name: "DateTimePicker",
+    component: DateTimePicker,
     props: {
-      label: "Day time picker",
+      label: "Date time picker",
       value: [
         {
           day: "0",

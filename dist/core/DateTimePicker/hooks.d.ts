@@ -1,5 +1,5 @@
-import { DayTimePickerFields } from "./types";
-export declare const useScheduleData: () => (scheduleData: DayTimePickerFields[], handleChange: (event: React.ChangeEvent<{
+import { DateTimePickerFields } from "./types";
+export declare const useScheduleData: () => (scheduleData: DateTimePickerFields[], handleChange: (event: React.ChangeEvent<{
     name?: string;
     value?: unknown;
 }>, index: number, remove?: boolean | undefined) => void, classNames?: {

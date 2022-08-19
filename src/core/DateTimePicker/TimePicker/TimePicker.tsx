@@ -22,8 +22,8 @@ export const TimeSelector: React.FC<TimeSelectorProps> = ({
     <TextField
         id="time"
         type={inputType}
-        value={defaultValue}
         onChange={onChange}
+        defaultValue={defaultValue}
         name={name}
         className={classes.textField}
         InputProps={{
