@@ -8,7 +8,7 @@ export const useNavStyles = makeStyles<Theme>((theme: Theme) => ({
     justifyContent: "center",
   },
   header: {
-    width: "88%",
+    width: `calc(100% - ${theme.spacing(6)})`,
     maxWidth: theme.include.styles.maxWidth,
     margin: "0, auto",
     display: "flex",
@@ -16,10 +16,10 @@ export const useNavStyles = makeStyles<Theme>((theme: Theme) => ({
     borderRadius: "8px",
     justifyContent: "space-between",
     alignItems: "center",
-    padding: theme.spacing(2, 3),
+    padding: theme.spacing(1.5, 6),
     zIndex: 10,
     [theme.breakpoints.down("lg")]: {
-      width: "100%",
+      width: `calc(100% - ${theme.spacing(6)})`,
       borderRadius: 0,
     },
     [theme.breakpoints.down("sm")]: {
@@ -46,12 +46,14 @@ export const useNavStyles = makeStyles<Theme>((theme: Theme) => ({
     marginBottom: 0,
     "& .MuiOutlinedInput-root": {
       borderRadius: "20px",
+      height: 40,
       [theme.breakpoints.down("sm")]: {
         borderRadius: 0,
       },
+
     },
     "&.MuiOutlinedInput-input": {
-      padding: theme.spacing(1.5, 0),
+      // padding: theme.spacing(1, 0),
     },
     [theme.breakpoints.down("md")]: {
       width: "60%",

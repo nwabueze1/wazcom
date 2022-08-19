@@ -67,7 +67,7 @@ export const useStyles = makeStyles<Theme>((theme: Theme) => ({
     display: "flex",
     justifyContent: "center",
     alignItems: "center",
-    background: theme.design.colors.waz_greenishGrey2,
+    background: theme.design.colors.waz_white,
     cursor: "pointer",
     position: "absolute",
     zIndex: 5,
@@ -75,7 +75,7 @@ export const useStyles = makeStyles<Theme>((theme: Theme) => ({
     top: 16,
   },
   closeIcon: {
-    color: theme.design.colors.waz_white,
+    color: theme.design.colors.waz_primaryColor100,
   },
   dialogImageParent: {
     width: "100%",
@@ -95,7 +95,7 @@ export const useStyles = makeStyles<Theme>((theme: Theme) => ({
     fontSize: theme.typography.fontSize + 4,
     color: theme.design.colors.waz_primaryBlack,
     fontWeight: 600,
-    margin: "32px 0 10px 0",
+    margin: "24px 0 5px 0",
     width: "90%",
     textTransform: "capitalize",
   },
@@ -110,6 +110,7 @@ export const useStyles = makeStyles<Theme>((theme: Theme) => ({
     justifyContent: "space-between",
     alignItems: "center",
     width: "20%",
+    marginBottom: theme.spacing(3),
     "& p": {
       margin: 0,
       fontSize: theme.typography.fontSize * 2,
@@ -157,6 +158,16 @@ export const useStyles = makeStyles<Theme>((theme: Theme) => ({
     [theme.breakpoints.down("sm")]: {
       fontSize: theme.typography.fontSize + 4,
     },
+  },
+  iconInactive: {
+    cursor: "pointer",
+    fontSize: theme.typography.fontSize * 2.5,
+    color: theme.design.colors.waz_grey100,
+    opacity: .6,
+    [theme.breakpoints.down("sm")]: {
+      fontSize: theme.typography.fontSize + 4,
+    },
+
   },
   dialogOption: {
     padding: theme.spacing(1, 8),
@@ -215,4 +226,7 @@ export const useStyles = makeStyles<Theme>((theme: Theme) => ({
     zIndex: 20,
     opacity: 1,
   },
+  currency: {
+    opacity: .7
+  }
 }));

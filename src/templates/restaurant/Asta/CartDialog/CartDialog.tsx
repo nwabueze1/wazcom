@@ -139,12 +139,12 @@ export const CartDialog: React.FC<CartDialogProps> = ({
         )}
         <div className={classes.actions}>
           <div className={classes.quantityController}>
-            <p  className={classes.quantityText}>
+            <p className={classes.quantityText}>
               QTY
             </p>
             <div className={classes.dialog__actions}>
               <AiOutlineMinusCircle
-                className={classes.icon}
+                className={quantity > 1 ? classes.icon : classes.iconInactive}
                 onClick={() => {
                   changeQuantity(false);
                 }}
@@ -167,10 +167,10 @@ export const CartDialog: React.FC<CartDialogProps> = ({
                 className={`${classes.dialogOption} ${classes.dialogOptionFilled}`}
               >
                 {cartItemId ? "Update Order" : "Add to Order"}
-                {" "} (
-                {currency}
-                {getFloatOrIntAmount(calculateTotal())}
-                )
+                {" "}
+                <sapn className={classes.currency}>({currency}
+                  {getFloatOrIntAmount(calculateTotal())})</sapn>
+
               </button>
             </div>
           </div>
