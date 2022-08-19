@@ -35,10 +35,9 @@ export const useBuzzStyles = makeStyles<Theme>((theme: Theme) => ({
   },
   left: {
     width: '70%',
-    // [theme.breakpoints.down("sm")]: {
-    //   position: "relative",
-    //   top: 0,
-    // },
+    [theme.breakpoints.down("md")]: {
+      width:"100%"
+    },
   },
   right: {
     width: '30%',
@@ -47,12 +46,11 @@ export const useBuzzStyles = makeStyles<Theme>((theme: Theme) => ({
     minHeight: "100vh",
     position: "sticky",
     top: 0,
-    display:"flex",
+    display: "flex",
     alignItems: "flex-start",
     justifyContent: "center",
-    // [theme.breakpoints.down("sm")]: {
-    //   position: "relative",
-    //   top: 0,
-    // },
+    [theme.breakpoints.down("md")]: {
+      display: "none"
+    },
   },
 }));
