@@ -1,3 +1,3 @@
 import React from "react";
-import { DayPickerProps } from "../types";
-export declare const DayPicker: React.FC<DayPickerProps>;
+import { DatePickerProps } from "../types";
+export declare const DayPicker: React.FC<DatePickerProps>;

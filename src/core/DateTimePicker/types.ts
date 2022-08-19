@@ -1,18 +1,18 @@
 import { CommonProps } from "types";
 import { InputProps } from "@mui/material";
 
-export type DayTimePickerProps = CommonProps & {
+export type DateTimePickerProps = CommonProps & {
     label?: string;
     gap?: string;
-    value?: DayTimePickerFields[];
+    value?: DateTimePickerFields[];
     orientation?: "horizontal" | "vertical";
 }
 
-export type DayTimePickerFields = {
+export type DateTimePickerFields = {
     day: string;
     time: string;
 }
-export interface DayPickerProps extends InputProps {
+export interface DatePickerProps extends InputProps {
     value?: string;
-    scheduleData: DayTimePickerFields[];
+    scheduleData: DateTimePickerFields[];
   }

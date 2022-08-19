@@ -2,9 +2,9 @@ import React, { useState } from "react";
 import { TextField, InputAdornment } from "@mui/material";
 import { menuItemTableStyles } from "./styles";
 import { BiCalendarAlt } from "react-icons/bi";
-import { DayPickerProps } from "../types"
+import { DatePickerProps } from "../types"
 
-export const DayPicker: React.FC<DayPickerProps> = ({
+export const DayPicker: React.FC<DatePickerProps> = ({
   value,
   onChange,
   name,
