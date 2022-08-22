@@ -21,7 +21,7 @@ export const findMenuItem = (menus: CoreMenuFields[], itemId: number) => {
   let menuItems: any = menus.map(
     (menu) => menu.activeMenuItems
   ) as CoreMenuItemFields[][];
-  menuItems = [].concat.apply([], menuItems);
+  menuItems = [].concat?.apply([], menuItems);
   return menuItems.find(
     (item: any) => item.id.toString() === itemId.toString()
   );

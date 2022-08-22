@@ -1,0 +1,91 @@
+import React from "react";
+import { useStyles } from "./styles";
+import { CartItemProps } from "./types";
+import clsx from "clsx";
+import {
+    getCurrency,
+    getFloatOrIntAmount,
+    menuImagePlaceholder,
+} from "utilities/restaurant";
+import { Close } from "@mui/icons-material";
+import { IoAddCircleOutline } from "react-icons/io5";
+import { AiOutlineMinusCircle } from "react-icons/ai";
+
+export const Item: React.FC<CartItemProps> = ({
+    setCartItems,
+    data
+}) => {
+    const currency = "$";
+    const isOpen = true;
+    const classes = useStyles({ isOpen });
+    const { name, uuid, image_url, options, status, description, price } = data.menuItem;
+
+    const handleChangeQuantity = (uuid: string, method: string, value: number) => {
+        setCartItems(cartItems => {
+            const updatedtCartItems = cartItems.map(cartItem => {
+                if (cartItem.menuItem.uuid === uuid) {
+                    const quantity = method === "add" ? (+cartItem.quantity) + 1 : (+cartItem.quantity) > 1 ? (+cartItem.quantity) - 1 : 1;
+                    return { ...cartItem, quantity };
+                }
+                return cartItem;
+            });
+            return updatedtCartItems;
+        })
+    };
+
+    const handleRemove = (uuid: string) => {
+        setCartItems(cartItems => {
+            return cartItems.filter(cartItem => cartItem.menuItem.uuid !== uuid);
+        })
+    };
+
+    return (
+        <div
+            className={clsx(
+                classes.root,
+                status && classes.visible,
+            )}
+        >
+            <div
+                className={classes.imageWrapper}
+                style={{
+                    backgroundImage: `url(${image_url ?? menuImagePlaceholder})`,
+                }}
+            ></div>
+            <div className={classes.content}>
+                <div>
+                    <p className={classes.title}>{name} </p>
+                    <p className={classes.description}>
+                        {(description as string).length > 30
+                            ? (description as string).slice(0, 30) + "..."
+                            : description}
+                    </p>
+                </div>
+                <div className={classes.optionsGroup}>
+                    <div className={classes.amount}>
+                        {getCurrency(currency)}
+                        {getFloatOrIntAmount(price * data.quantity)}
+                    </div>
+                    <div className={classes.optionsContainer}>
+                        <AiOutlineMinusCircle
+                            className={classes.icon}
+                            onClick={() => {
+                                handleChangeQuantity(uuid, "remove", data.quantity)
+                            }}
+                        />
+                        <p>{data.quantity}</p>
+                        <IoAddCircleOutline
+                            className={classes.icon}
+                            onClick={() => {
+                                handleChangeQuantity(uuid, "add", data.quantity)
+                            }}
+                        />
+                    </div>
+                    <div className={classes.closeIconContainer} onClick={() => handleRemove(uuid)}>
+                        <Close className={classes.closeIcon} />
+                    </div>
+                </div>
+            </div>
+        </div>
+    );
+};

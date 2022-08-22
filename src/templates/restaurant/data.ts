@@ -1,3 +1,4 @@
+import { CoreCartFields } from "./types/CoreCartFields";
 import { CoreFosFields } from "./types/CoreFosFields";
 
 const menuCategory = {
@@ -8,6 +9,132 @@ const menuCategory = {
   position: 3,
   created_at: "",
   updated_at: "",
+};
+
+const menuCategory2 = {
+  id: "0",
+  uuid: "dwad",
+  title: "Cabrbohydrate",
+  status: true,
+  position: 3,
+  created_at: "",
+  updated_at: "",
+};
+
+export const CartData: CoreCartFields = {
+  id: "363",
+  uuid: "c95a7249-2b91-4ca3-a769-d5b6bcadd34e",
+  expires: "2022-08-19 12:35:24",
+  created_at: "2022-08-18 12:35:24",
+  updated_at: "2022-08-18 12:35:24",
+  guest: { id: "363", __typename: "Guest" },
+  customer: null,
+  cartItems: [
+    {
+      id: "788",
+      detail: "turkey",
+      quantity: "1",
+      options: null,
+      created_at: "2022-08-18 12:35:25",
+      updated_at: "2022-08-18 12:35:25",
+      menuItem: {
+        id: "133",
+        uuid: "342f6bd3-e997-4715-b469-2d2b27c7ec59",
+        name: "chicken wings",
+        status: true,
+        description: "turkey",
+        price: 12,
+        image_url:
+          "https://sytbuildr.s3.eu-west-2.amazonaws.com/zdpk0U95fFJNVodRZxpIYk6hMIJYReitDX4R7RX4.png",
+        created_at: "2022-04-05 14:25:59",
+        updated_at: "2022-06-16 09:27:50",
+        options: [
+          "c50f2b0d-bbed-4469-9ac2-3021d45d775c",
+          "aac87954-fa68-47bd-8d0d-171193608619",
+          "061c5228-7dcd-4c6f-884c-5ec715205746",
+        ],
+        menuCategory: {
+          id: "80",
+          uuid: "19d533f2-455c-40ca-9660-50f84fc7cd2a",
+          title: "Fish",
+          status: true,
+          position: 0,
+          created_at: "2022-04-05 14:14:49",
+          updated_at: "2022-06-16 09:27:50",
+          __typename: "MenuCategory",
+        },
+        __typename: "MenuItem",
+      },
+      __typename: "CartItem",
+    },
+    {
+      id: "789",
+      detail: "whiskey for the boys",
+      quantity: "1",
+      options: null,
+      created_at: "2022-08-18 12:35:35",
+      updated_at: "2022-08-18 12:35:35",
+      menuItem: {
+        id: "159",
+        uuid: "ccc50672-d7e0-4598-b779-90b96e288dce",
+        name: "whiskey",
+        status: true,
+        description: "whiskey for the boys",
+        price: 23,
+        image_url:
+          "https://sytbuildr.s3.eu-west-2.amazonaws.com/rmSdm8vHkNVpIeCll2ucr0I43XKBAONOuUhAy7q7.jpg",
+        created_at: "2022-04-08 09:02:14",
+        updated_at: "2022-06-16 09:27:50",
+        options: null,
+        menuCategory: {
+          id: "80",
+          uuid: "19d533f2-455c-40ca-9660-50f84fc7cd2a",
+          title: "Fish",
+          status: true,
+          position: 0,
+          created_at: "2022-04-05 14:14:49",
+          updated_at: "2022-06-16 09:27:50",
+          __typename: "MenuCategory",
+        },
+        __typename: "MenuItem",
+      },
+      __typename: "CartItem",
+    },
+    {
+      id: "790",
+      detail: "I like the dish",
+      quantity: "1",
+      options: null,
+      created_at: "2022-08-18 12:35:42",
+      updated_at: "2022-08-18 12:35:42",
+      menuItem: {
+        id: "256",
+        uuid: "ea9359de-d801-446e-8ea1-139f9948fa57",
+        name: "Bolingoli",
+        status: true,
+        description: "I like the dish",
+        price: 1000,
+        image_url:
+          "https://sytbuildr.s3.eu-west-2.amazonaws.com/C44Wzzz0dYO3EAy3RLV5t08J6Hs38x5yAYY5xr04.jpg",
+        created_at: "2022-07-04 13:35:14",
+        updated_at: "2022-07-04 13:35:14",
+        options: [],
+        menuCategory: {
+          id: "80",
+          uuid: "19d533f2-455c-40ca-9660-50f84fc7cd2a",
+          title: "Fish",
+          status: true,
+          position: 0,
+          created_at: "2022-04-05 14:14:49",
+          updated_at: "2022-06-16 09:27:50",
+          __typename: "MenuCategory",
+        },
+        __typename: "MenuItem",
+      },
+      __typename: "CartItem",
+    },
+  ],
+  __typename: "Cart",
 };
 
 export const restaurantdata: CoreFosFields = {
@@ -84,7 +211,7 @@ export const restaurantdata: CoreFosFields = {
             uuid: "wew",
             name: "Yam",
             status: true,
-            description: "Yam is very good",
+            description: "Yam is very good by Basit but have you tried okro ",
             price: 90,
             image_url:
               "https://images.unsplash.com/photo-1659474687643-a907aef696b7?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxlZGl0b3JpYWwtZmVlZHw0fHx8ZW58MHx8fHw%3D&auto=format&fit=crop&w=500&q=60",
@@ -198,9 +325,9 @@ export const restaurantdata: CoreFosFields = {
         options_config: null,
         activeMenuCategories: [
           menuCategory,
+          menuCategory2,
           menuCategory,
-          menuCategory,
-          menuCategory,
+          menuCategory2,
         ],
         activeMenuItems: [
           {
@@ -353,4 +480,5 @@ export const restaurantdata: CoreFosFields = {
     openingTimes: null,
     deliveryTimes: null,
   },
+  cart:CartData,
 };
