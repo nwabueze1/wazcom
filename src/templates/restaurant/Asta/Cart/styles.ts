@@ -159,7 +159,7 @@ export const useCartStyles = makeStyles<Theme>((theme: Theme) =>
       overflowY: "auto",
       flexDirection: "column",
       width: "100%",
-      margin: "5px 0 0 0",
+      margin: theme.spacing(1, 0, 0, 0),
       padding: theme.spacing(0, 3),
       boxSizing: "border-box",
       [theme.breakpoints.down("md")]: {
@@ -182,7 +182,7 @@ export const useCartStyles = makeStyles<Theme>((theme: Theme) =>
     cartItem: {
       alignItems: "center",
       borderBottom: `0.5px solid rgba(0,0,0,0.05)`,
-      padding: "15px 0",
+      padding: theme.spacing(2, 0),
       width: "100%",
       [theme.breakpoints.down("md")]: {
         alignItems: "center",
@@ -278,7 +278,7 @@ export const useCartStyles = makeStyles<Theme>((theme: Theme) =>
       display: "flex",
       flexDirection: "column",
       alignItems: "center",
-      margin: "20px 0 0 0",
+      margin: theme.spacing(2.8, 0, 0, 0),
       padding: theme.spacing(0, 3),
       [theme.breakpoints.down("md")]: {
         padding: theme.spacing(2, 3, 0),
