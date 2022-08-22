@@ -41,9 +41,6 @@ export const useDisplayCartItems = () => {
                     </div>
                     {displayPrice("Total", subTotal(cartItems) + 0.20)}
                     <button
-                        onClick={() => {
-                            console.log("add to cart");
-                        }}
                         className={`${classes.dialogOption} ${classes.dialogOptionFilled}`}
                     >
                         Checkout

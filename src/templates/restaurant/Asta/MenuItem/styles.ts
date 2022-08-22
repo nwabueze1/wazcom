@@ -10,7 +10,7 @@ export const useStyles = makeStyles<Theme, StyleProps>((theme: Theme) =>
       height: "156px",
       display: "flex",
       alignItems: "center",
-      background: theme.design.colors.waz_grey50,
+      background: theme.design.colors.waz_white,
       borderRadius: "4px",
       border: `1px solid ${theme.design.colors.waz_grey300}`,
       opacity: 0.2,

@@ -127,7 +127,7 @@ export const useCartStyles = makeStyles<Theme>((theme: Theme) =>
         display: "flex",
         justifyContent: "space-between",
         fontWeight: "bold",
-        margin: "0 0 50px 0",
+        marginBottom:theme.spacing(6),
       },
     },
     buttonWrapper: {
