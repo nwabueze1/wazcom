@@ -47,12 +47,14 @@ export const useNavStyles = makeStyles<Theme>((theme: Theme) => ({
     "& .MuiOutlinedInput-root": {
       borderRadius: "20px",
       height: 40,
+      border: `1px solid ${theme.design.colors.waz_grey300}`,
       [theme.breakpoints.down("sm")]: {
         borderRadius: 0,
       },
 
     },
     "&.MuiOutlinedInput-input": {
+      border: `1px solid ${theme.design.colors.waz_grey300}`,
       // padding: theme.spacing(1, 0),
     },
     [theme.breakpoints.down("md")]: {
@@ -63,4 +65,48 @@ export const useNavStyles = makeStyles<Theme>((theme: Theme) => ({
       width: "100%",
     },
   },
+  cartBtn: {
+    display: "flex",
+    justifyContent: "center",
+    alignItem: "center",
+    border: `1px solid ${theme.design.colors.waz_grey300}`,
+    padding: theme.spacing(1, 2),
+    fontSize: theme.typography.fontSize + 2,
+    borderRadius: 30,
+    cursor: "pointer",
+
+  },
+  cartIcon: {
+    padding: theme.spacing(.1, .5),
+    fontWeight: 600,
+    fontSize: theme.typography.fontSize + 6
+  },
+  cartBtnContainer: {
+    position: "relative",
+    display: "none",
+    [theme.breakpoints.down("md")]: {
+      display: "block"
+    },
+  },
+  cartPopup: {
+    width: '350px',
+    border: `1px solid ${theme.design.colors.waz_grey300}`,
+    position: "absolute",
+    display: "flex",
+    alignItems: "flex-start",
+    justifyContent: "center",
+    top: "calc(100% + 3px)",
+    right: 12,
+    backgroundColor: theme.design.colors.waz_white,
+    zIndex: 200
+  },
+  cartPopupOverlay: {
+    width: "100vw",
+    height: "100vh",
+    backgroudColor: "red",
+    position: "fixed",
+    zIndex: 50,
+    left: 0,
+    bottom: 0
+  }
 }));

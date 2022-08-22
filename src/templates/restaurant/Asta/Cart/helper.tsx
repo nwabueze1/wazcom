@@ -6,7 +6,7 @@ import { Item } from './components/Item/Item';
 import { useCartStyles } from './styles';
 
 export const useDisplayCartItems = () => {
-    return (cartItemsData: CoreCartFields["cartItems"]) => {
+    return (cartItemsData: CoreCartFields["cartItems"], open) => {
         const currency = "$";
         const classes = useCartStyles();
         const [cartItems, setCartItems] = useState<CoreCartItemFields[]>(cartItemsData ?? [])
@@ -30,7 +30,7 @@ export const useDisplayCartItems = () => {
                 <div className={classes.cartHeader}>
                     My order
                 </div>
-                <div className={classes.cartsContainer}>
+                <div className={open ? classes.cartsContainerMd : classes.cartsContainer}>
                     {cartItems.map(_ => (<Item setCartItems={setCartItems} data={_} />))}
                 </div>
 

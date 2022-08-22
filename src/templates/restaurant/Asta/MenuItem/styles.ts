@@ -45,7 +45,7 @@ export const useStyles = makeStyles<Theme, StyleProps>((theme: Theme) =>
       boxSizing: "border-box",
       padding: theme.spacing(2, 1.5),
       width: "60%",
-      height:"100%"
+      height: "100%"
     },
     imageWrapper: {
       width: "40%",
@@ -82,13 +82,18 @@ export const useStyles = makeStyles<Theme, StyleProps>((theme: Theme) =>
       textTransform: "capitalize",
     },
     description: {
+      marginTop:4,
       marginBottom: theme.spacing(1.5),
-      lineHeight: "19px",
+      lineHeight: "22px",
       textOverflow: "ellipsis",
       fontSize: theme.typography.fontSize,
-      height: 36,
+      height: 50,
       color: theme.design.colors.waz_grey400,
       opacity: 0.9,
+      display: "-webkit-box",
+      "-webkit-line-clamp": 2, // amount of line you want
+      "-webkit-box-orient": "vertical",
+      overflow: "hidden"
     },
     amount: {
       fontSize: theme.typography.fontSize + 4,

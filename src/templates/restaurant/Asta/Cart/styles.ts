@@ -162,9 +162,9 @@ export const useCartStyles = makeStyles<Theme>((theme: Theme) =>
       margin: "5px 0 0 0",
       padding: theme.spacing(0, 3),
       boxSizing: "border-box",
-      [theme.breakpoints.down("md")]: {
-        maxHeight: "500px",
-      },
+      // [theme.breakpoints.down("md")]: {
+      //   maxHeight: "500px",
+      // },
 
       "&::-webkit-scrollbar": {
         width: "4px",
@@ -392,6 +392,10 @@ export const useCartStyles = makeStyles<Theme>((theme: Theme) =>
     },
     cartsContainer: {
       maxHeight: "calc(100vh - 270px)",
+      overflowY: "scroll"
+    },
+    cartsContainerMd: {
+      maxHeight: "calc(50vh - 270px)",
       overflowY: "scroll"
     }
   })

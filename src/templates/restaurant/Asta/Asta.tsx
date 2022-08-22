@@ -36,6 +36,7 @@ export const Asta = () => {
         <div className={classes.right}>
           <Cart />
         </div>
+
       </div>
       <div>
         <CartDialog

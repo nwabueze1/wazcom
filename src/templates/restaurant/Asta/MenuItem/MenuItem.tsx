@@ -37,9 +37,7 @@ export const Item: React.FC<MenuItemProps> = ({
           <div>
             <p className={classes.title}>{name} </p>
             <p className={classes.description}>
-              {(description as string).length > 80
-                ? (description as string).slice(0, 80) + "..."
-                : description}
+              {description}
             </p>
           </div>
           <span className={classes.amount}>

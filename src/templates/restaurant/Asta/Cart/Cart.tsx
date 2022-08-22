@@ -3,12 +3,13 @@ import { restaurantdata } from "templates/restaurant/data";
 import { emptyCartImagePlaceholder } from "utilities/restaurant";
 import { useCartStyles } from ".";
 import { useDisplayCartItems } from "./helper";
+import { CartBoxProps } from './types';
 
-export const Cart = () => {
+export const Cart: FC<CartBoxProps> = ({ open }) => {
   const classes = useCartStyles();
   const listItems = useDisplayCartItems();
   const cartItems = restaurantdata?.cart?.cartItems ?? [];
-  
+
   const displayEmptyCart = () => (
     <div className={classes.emptyCartSection}>
       <div className={classes.emptyCartContainer}>
@@ -25,7 +26,7 @@ export const Cart = () => {
 
   return <div className={classes.root}>{
     cartItems.length > 0
-      ? listItems(cartItems) :
+      ? listItems(cartItems, open) :
       displayEmptyCart()
   }</div>;
 };
