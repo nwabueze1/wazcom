@@ -22,6 +22,11 @@ export const useNavStyles = makeStyles<Theme>((theme: Theme) => ({
       width: `calc(100% - ${theme.spacing(6)})`,
       borderRadius: 0,
     },
+    [theme.breakpoints.down("md")]: {
+      width: `calc(100% - ${theme.spacing(4)})`,
+      padding: theme.spacing(1.5, 4),
+      borderRadius: 0,
+    },
     [theme.breakpoints.down("sm")]: {
       padding: 0,
       alignItems: "center",

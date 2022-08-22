@@ -7,8 +7,11 @@ export const useRestaurantDetailsStyles = makeStyles<Theme>((theme: Theme) => ({
     maxWidth: theme.include.styles.maxWidth,
     background: theme.design.colors.white,
     padding: theme.spacing(2, 6),
-    borderBottom:`1px solid ${theme.design.colors.waz_grey300}`,
+    borderBottom: `1px solid ${theme.design.colors.waz_grey300}`,
     width: `calc(100% - ${theme.spacing(12)})`,
+    [theme.breakpoints.down("md")]: {
+      padding: theme.spacing(4),
+    },
     [theme.breakpoints.down("sm")]: {
       padding: theme.spacing(2),
     },
@@ -64,7 +67,7 @@ export const useRestaurantDetailsStyles = makeStyles<Theme>((theme: Theme) => ({
     textDecoration: "none",
     cursor: "pointer",
   },
-  logoContainer:{
+  logoContainer: {
     position: "relative",
     height: 60,
   },
@@ -73,7 +76,7 @@ export const useRestaurantDetailsStyles = makeStyles<Theme>((theme: Theme) => ({
     height: 100,
     width: 100,
     borderRadius: "50%",
-    top:-60,
+    top: -60,
   },
   logoImg: {
     position: "absolute",

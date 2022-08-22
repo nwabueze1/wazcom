@@ -18,9 +18,9 @@ export const useMenusStyles = makeStyles<Theme>((theme: Theme) => ({
     gap: theme.spacing(3),
     width: `calc(100% - ${theme.spacing(8)})`,
     [theme.breakpoints.down("md")]: {
-      width: "95%",
+      width: "100%",
     },
-    [theme.breakpoints.down("md")]: {
+    [theme.breakpoints.down("sm")]: {
       width: "100%",
     },
   },
@@ -75,7 +75,13 @@ export const useMenusStyles = makeStyles<Theme>((theme: Theme) => ({
   restaurantMenuItems: {
     display: "flex",
     flexDirection: "column",
-    padding: theme.spacing(3, 2, 3, 2),
+    padding: theme.spacing(3, 2),
+    [theme.breakpoints.down("md")]: {
+      padding: theme.spacing(3, 4),
+    },
+    [theme.breakpoints.down("sm")]: {
+      padding: theme.spacing(3, 2),
+    },
   },
   restaurantEmpty: {
     display: "flex",
@@ -115,7 +121,7 @@ export const useMenusStyles = makeStyles<Theme>((theme: Theme) => ({
     color: theme.design.colors.white,
     cursor: "pointer",
     diplay: "block",
-    [theme.breakpoints.up("nd")]: {
+    [theme.breakpoints.up("md")]: {
       display: "none",
     },
     [theme.breakpoints.up("sm")]: {

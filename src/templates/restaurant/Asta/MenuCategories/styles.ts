@@ -12,6 +12,10 @@ export const useMenuCategoryStyles = makeStyles<Theme>((theme: Theme) => ({
     borderRadius: 4,
     background: theme.design.colors.waz_white,
     padding: theme.spacing(1, 0),
+    [theme.breakpoints.down("md")]: {
+      width: "100%",
+      borderRaduis: 0,
+    },
     [theme.breakpoints.down("sm")]: {
       width: "100%",
       borderRaduis: 0,
@@ -25,6 +29,10 @@ export const useMenuCategoryStyles = makeStyles<Theme>((theme: Theme) => ({
     alignItems: "center",
     background: theme.design.colors.waz_white,
     textTransform: "capitalize",
+    [theme.breakpoints.down("sm")]: {
+      width: "100%",
+      margin: 0,
+    },
     [theme.breakpoints.down("sm")]: {
       width: "100%",
       margin: 0,
@@ -46,6 +54,11 @@ export const useMenuCategoryStyles = makeStyles<Theme>((theme: Theme) => ({
     "&::-webkit-scrollbar": {
       width: 0,
       height: 0,
+    },
+    [theme.breakpoints.down("md")]: {
+      margin: 0,
+      width: `calc(100% - ${theme.spacing(2)})`,
+      paddingLeft: theme.spacing(3)
     },
     [theme.breakpoints.down("sm")]: {
       margin: 0,

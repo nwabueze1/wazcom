@@ -9,10 +9,13 @@ export const useMenuSelectorStyles = makeStyles<Theme>((theme: Theme) => ({
     border: `1px solid ${theme.design.colors.waz_grey300}`,
     "&.MuiOutlinedInput-notchedOutline": {
       borderRadius: "4px",
-      padding: theme.spacing(1.5, 2),
+      padding: theme.spacing(2, 2),
     },
     "&.MuiSelect-select:focus": {
       background: theme.design.colors.white,
+    },
+    [theme.breakpoints.down("md")]: {
+      width: "60%",
     },
     [theme.breakpoints.down("sm")]: {
       width: "100%",
@@ -27,6 +30,9 @@ export const useMenuSelectorStyles = makeStyles<Theme>((theme: Theme) => ({
   container: {
     padding: theme.spacing(0, 2),
     margin: theme.spacing(2, 0),
+    [theme.breakpoints.down("md")]: {
+      padding: theme.spacing(0, 4),
+    },
     [theme.breakpoints.down("sm")]: {
       padding: theme.spacing(0, 1),
     },
