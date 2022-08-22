@@ -30,14 +30,13 @@ export const Asta = () => {
               cartChanged={cartChanged}
               cart={undefined}
             />
-            <Footer name="vic" className={classes.footer} />
           </div>
         </div>
         <div className={classes.right}>
           <Cart />
         </div>
-
       </div>
+      <Footer name="vic" className={classes.footer} />
       <div>
         <CartDialog
           display={displayDialog}

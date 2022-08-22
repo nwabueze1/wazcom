@@ -9,6 +9,9 @@ export const useRestaurantDetailsStyles = makeStyles<Theme>((theme: Theme) => ({
     padding: theme.spacing(2, 6),
     borderBottom:`1px solid ${theme.design.colors.waz_grey300}`,
     width: `calc(100% - ${theme.spacing(12)})`,
+    [theme.breakpoints.down("sm")]: {
+      padding: theme.spacing(2),
+    },
   },
   restaurantLocation: {
     fontWeight: 600,
@@ -70,7 +73,7 @@ export const useRestaurantDetailsStyles = makeStyles<Theme>((theme: Theme) => ({
     height: 100,
     width: 100,
     borderRadius: "50%",
-    top:-60
+    top:-60,
   },
   logoImg: {
     position: "absolute",

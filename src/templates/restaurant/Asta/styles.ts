@@ -28,10 +28,6 @@ export const useBuzzStyles = makeStyles<Theme>((theme: Theme) => ({
     display: "flex",
     alignItems: "flex-start",
     justifyContent: "flex-start",
-    // [theme.breakpoints.down("sm")]: {
-    //   position: "relative",
-    //   top: 0,
-    // },
   },
   left: {
     width: '70%',

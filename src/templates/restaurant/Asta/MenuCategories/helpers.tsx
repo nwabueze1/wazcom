@@ -22,7 +22,6 @@ export const useDisplayCategories = () => {
           ) ?? []),
         ];
 
-    console.log("categories", categories);
     return categories?.map((category, index) => {
       return (
         <div
