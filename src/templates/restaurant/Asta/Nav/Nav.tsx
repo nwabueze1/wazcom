@@ -50,7 +50,9 @@ export const Nav: FC<NavProps> = ({ className }) => {
           </div>}
         </div>
       </div>
-
+      {displayCart && <div className={classes.cartPopupSm}>
+        <Cart open={displayCart}  setOpen={setDisplayCart}/>
+      </div>}
     </div>
   );
 };

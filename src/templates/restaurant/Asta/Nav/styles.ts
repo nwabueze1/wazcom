@@ -118,6 +118,24 @@ export const useNavStyles = makeStyles<Theme>((theme: Theme) => ({
     backgroundColor: theme.design.colors.waz_white,
     zIndex: 200
   },
+  cartPopupSm: {
+    width: '100%',
+    border: `1px solid ${theme.design.colors.waz_grey300}`,
+    position: "fixed",
+    display: "none",
+    alignItems: "flex-start",
+    justifyContent: "center",
+    top: 0,
+    right: 0,
+    bottom: 0,
+    left: 0,
+    backgroundColor: theme.design.colors.waz_white,
+    background: theme.design.colors.waz_white,
+    zIndex: 200,
+    [theme.breakpoints.down("sm")]: {
+      display: "flex"
+    },
+  },
   cartPopupOverlay: {
     width: "100vw",
     height: "100vh",

@@ -70,6 +70,9 @@ export const useRestaurantDetailsStyles = makeStyles<Theme>((theme: Theme) => ({
   logoContainer: {
     position: "relative",
     height: 60,
+    [theme.breakpoints.down("sm")]: {
+      height: 10,
+    },
   },
   logoWrapper: {
     position: "absolute",
@@ -77,6 +80,10 @@ export const useRestaurantDetailsStyles = makeStyles<Theme>((theme: Theme) => ({
     width: 100,
     borderRadius: "50%",
     top: -60,
+    [theme.breakpoints.down("sm")]: {
+      height: 64,
+      width: 64,
+    },
   },
   logoImg: {
     position: "absolute",

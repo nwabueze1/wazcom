@@ -5,7 +5,7 @@ import { useCartStyles } from ".";
 import { useDisplayCartItems } from "./helper";
 import { CartBoxProps } from './types';
 
-export const Cart: FC<CartBoxProps> = ({ open }) => {
+export const Cart: FC<CartBoxProps> = ({ open, setOpen }) => {
   const classes = useCartStyles();
   const listItems = useDisplayCartItems();
   const cartItems = restaurantdata?.cart?.cartItems ?? [];
@@ -26,7 +26,7 @@ export const Cart: FC<CartBoxProps> = ({ open }) => {
 
   return <div className={classes.root}>{
     cartItems.length > 0
-      ? listItems(cartItems, open) :
+      ? listItems(cartItems, open, setOpen) :
       displayEmptyCart()
   }</div>;
 };

@@ -4,6 +4,9 @@ import { Theme } from "@mui/material/styles";
 export const useBuzzStyles = makeStyles<Theme>((theme: Theme) => ({
   root: {
     fontFamily: theme.design.font.openSans,
+    [theme.breakpoints.down("md")]: {
+      overflowX: "hidden"
+    },
   },
   restaurant: {
     position: "relative",
@@ -32,7 +35,7 @@ export const useBuzzStyles = makeStyles<Theme>((theme: Theme) => ({
   mainContainer: {
     width: '70%',
     [theme.breakpoints.down("md")]: {
-      width:"100%"
+      width: "100%"
     },
   },
   cartContainer: {
