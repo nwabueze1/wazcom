@@ -23,21 +23,30 @@ export const useNavStyles = makeStyles<Theme>((theme: Theme) => ({
       borderRadius: 0,
     },
     [theme.breakpoints.down("sm")]: {
-      flexDirection: "column",
       padding: 0,
-      justifyContent: "flex-start",
-      alignItems: "flex-start",
+      alignItems: "center",
+      flexWrap: "wrap",
+      width: "100%",
+
     },
   },
   logoContainer: {
     [theme.breakpoints.down("sm")]: {
-      padding: theme.spacing(2, 3),
+      padding: theme.spacing(2),
+    },
+  },
+  mobileCartBtn: {
+    display: "none",
+    padding: theme.spacing(0, 2),
+    [theme.breakpoints.down("sm")]: {
+      display: "block",
     },
   },
   headerLogo: {
     objectFit: "cover",
     [theme.breakpoints.down("sm")]: {
       width: "120px",
+
     },
   },
   searchField: {
@@ -50,6 +59,7 @@ export const useNavStyles = makeStyles<Theme>((theme: Theme) => ({
       border: `1px solid ${theme.design.colors.waz_grey300}`,
       [theme.breakpoints.down("sm")]: {
         borderRadius: 0,
+        width: "100%"
       },
 
     },
@@ -86,6 +96,9 @@ export const useNavStyles = makeStyles<Theme>((theme: Theme) => ({
     display: "none",
     [theme.breakpoints.down("md")]: {
       display: "block"
+    },
+    [theme.breakpoints.down("sm")]: {
+      display: "none"
     },
   },
   cartPopup: {

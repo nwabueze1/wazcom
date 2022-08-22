@@ -20,6 +20,12 @@ export const Nav: FC<NavProps> = ({ className }) => {
             src="https://s3.eu-west-2.amazonaws.com/medusa.com/Restaurant/hivedecklogo.svg"
           />
         </div>
+        <div className={classes.mobileCartBtn}>
+          <div className={classes.cartBtn} onClick={() => setDisplayCart(prev => !prev)}>
+            <BsCart3 className={classes.cartIcon} />
+            Cart
+          </div>
+        </div>
         <TextInput
           className={classes.searchField}
           type="text"

@@ -10,11 +10,11 @@ type ExtendedThemeOptions = {
 
 declare module "@mui/material/styles" {
   // eslint-disable-next-line @typescript-eslint/no-empty-interface
-  interface Theme extends ExtendedThemeOptions {}
+  interface Theme extends ExtendedThemeOptions { }
 
   // allow configuration using `createMuiTheme`
   // eslint-disable-next-line @typescript-eslint/no-empty-interface
-  interface ThemeOptions extends ExtendedThemeOptions {}
+  interface ThemeOptions extends ExtendedThemeOptions { }
 }
 
 export type BaseTheme = MuiTheme & ExtendedThemeOptions;
@@ -97,6 +97,7 @@ export const theme: any = {
     },
     colors: {
       waz_primaryColor100: "#0A7227",
+      waz_primaryColor700: "#549C68",
       waz_dangerColor: baseColors.dangerColor,
       waz_dangerColor100: "#990000",
       waz_dangerColor200: "#ff3333",

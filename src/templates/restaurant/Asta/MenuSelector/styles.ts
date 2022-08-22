@@ -6,7 +6,7 @@ export const useMenuSelectorStyles = makeStyles<Theme>((theme: Theme) => ({
   root: {
     width: "40%",
     background: theme.design.colors.waz_white,
-    border:`1px solid ${theme.design.colors.waz_grey300}`,
+    border: `1px solid ${theme.design.colors.waz_grey300}`,
     "&.MuiOutlinedInput-notchedOutline": {
       borderRadius: "4px",
       padding: theme.spacing(1.5, 2),
@@ -27,6 +27,9 @@ export const useMenuSelectorStyles = makeStyles<Theme>((theme: Theme) => ({
   container: {
     padding: theme.spacing(0, 2),
     margin: theme.spacing(2, 0),
+    [theme.breakpoints.down("sm")]: {
+      padding: theme.spacing(0, 1),
+    },
   },
   options: {
     fontWeight: 600,

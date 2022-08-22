@@ -20,6 +20,9 @@ export const useMenusStyles = makeStyles<Theme>((theme: Theme) => ({
     [theme.breakpoints.down("md")]: {
       width: "95%",
     },
+    [theme.breakpoints.down("md")]: {
+      width: "100%",
+    },
   },
   menuContainer: {
     width: "100%",

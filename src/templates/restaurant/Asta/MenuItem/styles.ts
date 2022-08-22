@@ -7,7 +7,7 @@ export const useStyles = makeStyles<Theme, StyleProps>((theme: Theme) =>
   createStyles({
     root: {
       width: "49%",
-      height: "156px",
+      height: 156,
       display: "flex",
       alignItems: "center",
       background: theme.design.colors.waz_white,
@@ -31,7 +31,6 @@ export const useStyles = makeStyles<Theme, StyleProps>((theme: Theme) =>
       },
       [theme.breakpoints.down("sm")]: {
         width: "100%",
-        height: 306,
       },
     },
     noMargin: {
@@ -82,7 +81,7 @@ export const useStyles = makeStyles<Theme, StyleProps>((theme: Theme) =>
       textTransform: "capitalize",
     },
     description: {
-      marginTop:4,
+      marginTop: 4,
       marginBottom: theme.spacing(1.5),
       lineHeight: "22px",
       textOverflow: "ellipsis",
