@@ -6,10 +6,10 @@ export const useMenusStyles = makeStyles<Theme>((theme: Theme) => ({
     width: "100%",
     display: "flex",
     justifyContent: "center",
-    flexDirection:"column",
-    alignItems:"flex-start",
+    flexDirection: "column",
+    alignItems: "flex-start",
     top: "80%",
-    position:"relaive"
+    position: "relaive"
   },
   container: {
     margin: theme.spacing(0, "auto"),
@@ -111,9 +111,14 @@ export const useMenusStyles = makeStyles<Theme>((theme: Theme) => ({
     boxShadow: "0px 4px 20px rgba(77, 86, 80, 0.16)",
     color: theme.design.colors.white,
     cursor: "pointer",
-    [theme.breakpoints.up("lg")]: {
+    diplay: "block",
+    [theme.breakpoints.up("nd")]: {
       display: "none",
     },
+    [theme.breakpoints.up("sm")]: {
+      display: "none",
+    },
+
   },
   restaurantVisibleCart: {
     [theme.breakpoints.down("md")]: {
