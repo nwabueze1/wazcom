@@ -97,14 +97,6 @@ export const Menus: FC<MenuProps> = ({
             </>
           )}
         </div>
-        {/* <div
-          className={clx(
-            classes.cartContainer,
-            cartOpen && classes.restaurantVisibleCart
-          )}
-        >
-          <Cart />
-        </div> */}
       </div>
     </div>
   );

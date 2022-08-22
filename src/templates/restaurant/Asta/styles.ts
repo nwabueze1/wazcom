@@ -28,18 +28,14 @@ export const useBuzzStyles = makeStyles<Theme>((theme: Theme) => ({
     display: "flex",
     alignItems: "flex-start",
     justifyContent: "flex-start",
-    // [theme.breakpoints.down("sm")]: {
-    //   position: "relative",
-    //   top: 0,
-    // },
   },
-  left: {
+  mainContainer: {
     width: '70%',
     [theme.breakpoints.down("md")]: {
       width:"100%"
     },
   },
-  right: {
+  cartContainer: {
     width: '30%',
     border: `1px solid ${theme.design.colors.waz_grey300}`,
     height: "100%",

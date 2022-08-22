@@ -18,7 +18,7 @@ export const Asta = () => {
     <div className={classes.root}>
       <AstaNav className={classes.nav} />
       <div className={classes.layout}>
-        <div className={classes.left}>
+        <div className={classes.mainContainer}>
           <div className={classes.restaurant}>
             <AstaHero />
           </div>
@@ -33,7 +33,7 @@ export const Asta = () => {
             <Footer name="vic" className={classes.footer} />
           </div>
         </div>
-        <div className={classes.right}>
+        <div className={classes.cartContainer}>
           <Cart />
         </div>
 
