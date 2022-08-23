@@ -70,7 +70,6 @@ export const useNavStyles = makeStyles<Theme>((theme: Theme) => ({
     },
     "&.MuiOutlinedInput-input": {
       border: `1px solid ${theme.design.colors.waz_grey300}`,
-      // padding: theme.spacing(1, 0),
     },
     [theme.breakpoints.down("md")]: {
       width: "60%",
@@ -116,7 +115,7 @@ export const useNavStyles = makeStyles<Theme>((theme: Theme) => ({
     top: "calc(100% + 3px)",
     right: 12,
     backgroundColor: theme.design.colors.waz_white,
-    zIndex: 200
+    zIndex: 100
   },
   cartPopupSm: {
     width: '100%',
@@ -131,7 +130,7 @@ export const useNavStyles = makeStyles<Theme>((theme: Theme) => ({
     left: 0,
     backgroundColor: theme.design.colors.waz_white,
     background: theme.design.colors.waz_white,
-    zIndex: 200,
+    zIndex: 100,
     [theme.breakpoints.down("sm")]: {
       display: "flex"
     },

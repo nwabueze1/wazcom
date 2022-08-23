@@ -164,10 +164,7 @@ export const useCartStyles = makeStyles<Theme>((theme: Theme) =>
       margin: theme.spacing(1, 0, 0, 0),
       padding: theme.spacing(0, 3),
       boxSizing: "border-box",
-      // [theme.breakpoints.down("md")]: {
-      //   maxHeight: "500px",
-      // },
-
+      
       "&::-webkit-scrollbar": {
         width: "4px",
         background: "rgba(0,0,0,0.05)",
