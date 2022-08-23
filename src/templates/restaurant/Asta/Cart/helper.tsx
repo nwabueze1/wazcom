@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import { IoIosClose } from "react-icons/io";
 import { CoreCartFields } from 'templates/restaurant/types/CoreCartFields';
 import { CoreCartItemFields } from 'templates/restaurant/types/CoreCartItemFields';
 import { getCurrency, getFloatOrIntAmount } from 'utilities/restaurant';
@@ -6,7 +7,7 @@ import { Item } from './components/Item/Item';
 import { useCartStyles } from './styles';
 
 export const useDisplayCartItems = () => {
-    return (cartItemsData: CoreCartFields["cartItems"]) => {
+    return (cartItemsData: CoreCartFields["cartItems"], open, setOpen) => {
         const currency = "$";
         const classes = useCartStyles();
         const [cartItems, setCartItems] = useState<CoreCartItemFields[]>(cartItemsData ?? [])
@@ -28,9 +29,12 @@ export const useDisplayCartItems = () => {
         return (
             <>
                 <div className={classes.cartHeader}>
-                    My order
+                    My orders
+                    <div className={classes.closeBtn} onClick={() => setOpen(false)}>
+                        <IoIosClose size={30} />
+                    </div>
                 </div>
-                <div className={classes.cartsContainer}>
+                <div className={open ? classes.cartsContainerMd : classes.cartsContainer}>
                     {cartItems.map(_ => (<Item setCartItems={setCartItems} data={_} />))}
                 </div>
 

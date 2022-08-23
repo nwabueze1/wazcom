@@ -41,10 +41,11 @@ export const useStyles = makeStyles<Theme>((theme: Theme) => ({
       width: "80%",
     },
     [theme.breakpoints.down("sm")]: {
-      minHeight: "100vh",
+      height: "100vh",
       width: "100%",
       justifyContent: "flex-start",
       borderRadius: 0,
+      maxHeight: "100vh",
     },
   },
   quantityController: {
@@ -104,6 +105,10 @@ export const useStyles = makeStyles<Theme>((theme: Theme) => ({
     width: "90%",
     lineHeight: "24.55px",
     color: theme.design.colors.waz_grey400,
+    display: "-webkit-box",
+    "-webkit-line-clamp": 2, // amount of line you want
+    "-webkit-box-orient": "vertical",
+    overflow: "hidden"
   },
   dialog__actions: {
     display: "flex",
@@ -117,6 +122,9 @@ export const useStyles = makeStyles<Theme>((theme: Theme) => ({
       [theme.breakpoints.down("sm")]: {
         fontSize: theme.typography.fontSize + 4,
       },
+    },
+    [theme.breakpoints.down("sm")]: {
+      width: "30%",
     },
   },
   dialogOptions: {
@@ -156,7 +164,7 @@ export const useStyles = makeStyles<Theme>((theme: Theme) => ({
     cursor: "pointer",
     fontSize: theme.typography.fontSize * 2.5,
     [theme.breakpoints.down("sm")]: {
-      fontSize: theme.typography.fontSize + 4,
+      fontSize: theme.typography.fontSize * 3,
     },
   },
   iconInactive: {
@@ -165,7 +173,7 @@ export const useStyles = makeStyles<Theme>((theme: Theme) => ({
     color: theme.design.colors.waz_grey100,
     opacity: .6,
     [theme.breakpoints.down("sm")]: {
-      fontSize: theme.typography.fontSize + 4,
+      fontSize: theme.typography.fontSize * 3,
     },
 
   },
@@ -221,6 +229,9 @@ export const useStyles = makeStyles<Theme>((theme: Theme) => ({
     zIndex: -20,
     opacity: 0,
     transition: "opacity 0.5s ease-in",
+    [theme.breakpoints.down("sm")]: {
+      alignItems: "flex-start",
+    },
   },
   dialogActive: {
     zIndex: 20,

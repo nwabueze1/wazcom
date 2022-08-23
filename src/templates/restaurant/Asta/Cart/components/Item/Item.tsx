@@ -7,7 +7,7 @@ import {
     getFloatOrIntAmount,
     menuImagePlaceholder,
 } from "utilities/restaurant";
-import { Close } from "@mui/icons-material";
+import { IoIosClose } from "react-icons/io";
 import { IoAddCircleOutline } from "react-icons/io5";
 import { AiOutlineMinusCircle } from "react-icons/ai";
 
@@ -82,7 +82,7 @@ export const Item: React.FC<CartItemProps> = ({
                         />
                     </div>
                     <div className={classes.closeIconContainer} onClick={() => handleRemove(uuid)}>
-                        <Close className={classes.closeIcon} />
+                        <IoIosClose size={24} className={classes.closeIcon} />
                     </div>
                 </div>
             </div>

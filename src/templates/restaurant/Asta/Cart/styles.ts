@@ -7,7 +7,8 @@ export const useCartStyles = makeStyles<Theme>((theme: Theme) =>
   createStyles({
     root: {
       height: "100%",
-      width: "100%"
+      width: "100%",
+      background: theme.design.colors.waz_white,
     },
     cart: {
       minHeight: "380px",
@@ -28,7 +29,8 @@ export const useCartStyles = makeStyles<Theme>((theme: Theme) =>
       height: 56,
       fontSize: theme.typography.fontSize + 4,
       borderBottom: `1px solid ${theme.design.colors.waz_grey300}`,
-      fontWeight: 600
+      fontWeight: 600,
+      position: "relative"
     },
     cartLoader: {
       width: "100%",
@@ -127,7 +129,7 @@ export const useCartStyles = makeStyles<Theme>((theme: Theme) =>
         display: "flex",
         justifyContent: "space-between",
         fontWeight: "bold",
-        marginBottom:theme.spacing(6),
+        marginBottom: theme.spacing(6),
       },
     },
     buttonWrapper: {
@@ -162,10 +164,7 @@ export const useCartStyles = makeStyles<Theme>((theme: Theme) =>
       margin: theme.spacing(1, 0, 0, 0),
       padding: theme.spacing(0, 3),
       boxSizing: "border-box",
-      [theme.breakpoints.down("md")]: {
-        maxHeight: "500px",
-      },
-
+      
       "&::-webkit-scrollbar": {
         width: "4px",
         background: "rgba(0,0,0,0.05)",
@@ -349,7 +348,8 @@ export const useCartStyles = makeStyles<Theme>((theme: Theme) =>
     checkoutContainer: {
       width: `calc(100% - ${theme.spacing(4)})`,
       padding: theme.spacing(2),
-      lineHeight: "25px"
+      lineHeight: "25px",
+      backgroundColor: theme.design.colors.waz_white,
     },
     prices: {
       display: "flex",
@@ -393,6 +393,20 @@ export const useCartStyles = makeStyles<Theme>((theme: Theme) =>
     cartsContainer: {
       maxHeight: "calc(100vh - 270px)",
       overflowY: "scroll"
+    },
+    cartsContainerMd: {
+      maxHeight: "calc(50vh - 270px)",
+      minHeight: "calc(50vh - 300px)",
+      overflowY: "scroll",
+      [theme.breakpoints.down("sm")]: {
+        maxHeight: "calc(100vh - 270px)",
+        minHeight: "calc(100vh - 350px)",
+      },
+    },
+    closeBtn: {
+      position: "absolute",
+      right: 20,
+      marginTop: theme.spacing(1)
     }
   })
 );

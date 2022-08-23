@@ -6,6 +6,11 @@ export interface CartProps {
   close: () => void;
   restaurant: CoreFosFields;
 }
+
+export interface CartBoxProps {
+  open?: boolean
+}
+
 export type CartStyleProps = {
   isCheckout?: boolean;
 };

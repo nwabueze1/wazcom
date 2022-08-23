@@ -6,10 +6,10 @@ export const useMenusStyles = makeStyles<Theme>((theme: Theme) => ({
     width: "100%",
     display: "flex",
     justifyContent: "center",
-    flexDirection:"column",
-    alignItems:"flex-start",
+    flexDirection: "column",
+    alignItems: "flex-start",
     top: "80%",
-    position:"relaive"
+    position: "relaive"
   },
   container: {
     margin: theme.spacing(0, "auto"),
@@ -18,7 +18,10 @@ export const useMenusStyles = makeStyles<Theme>((theme: Theme) => ({
     gap: theme.spacing(3),
     width: `calc(100% - ${theme.spacing(8)})`,
     [theme.breakpoints.down("md")]: {
-      width: "95%",
+      width: "100%",
+    },
+    [theme.breakpoints.down("sm")]: {
+      width: "100%",
     },
   },
   menuContainer: {
@@ -72,7 +75,13 @@ export const useMenusStyles = makeStyles<Theme>((theme: Theme) => ({
   restaurantMenuItems: {
     display: "flex",
     flexDirection: "column",
-    padding: theme.spacing(3, 2, 3, 2),
+    padding: theme.spacing(3, 2),
+    [theme.breakpoints.down("md")]: {
+      padding: theme.spacing(3, 4),
+    },
+    [theme.breakpoints.down("sm")]: {
+      padding: theme.spacing(3, 2),
+    },
   },
   restaurantEmpty: {
     display: "flex",
@@ -111,9 +120,14 @@ export const useMenusStyles = makeStyles<Theme>((theme: Theme) => ({
     boxShadow: "0px 4px 20px rgba(77, 86, 80, 0.16)",
     color: theme.design.colors.white,
     cursor: "pointer",
-    [theme.breakpoints.up("lg")]: {
+    diplay: "block",
+    [theme.breakpoints.up("md")]: {
       display: "none",
     },
+    [theme.breakpoints.up("sm")]: {
+      display: "none",
+    },
+
   },
   restaurantVisibleCart: {
     [theme.breakpoints.down("md")]: {

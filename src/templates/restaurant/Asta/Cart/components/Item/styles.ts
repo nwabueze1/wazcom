@@ -66,11 +66,14 @@ export const useStyles = makeStyles<Theme, StyleProps>((theme: Theme) =>
     },
     description: {
       lineHeight: "19px",
-      textOverflow: "ellipsis",
       fontSize: theme.typography.fontSize,
       height: 36,
       color: theme.design.colors.waz_grey400,
       opacity: 0.9,
+      display: "-webkit-box",
+      "-webkit-line-clamp": 1, // amount of line you want
+      "-webkit-box-orient": "vertical",
+      overflow: "hidden"
     },
     amount: {
       fontSize: theme.typography.fontSize + 4,
@@ -126,14 +129,14 @@ export const useStyles = makeStyles<Theme, StyleProps>((theme: Theme) =>
       },
     },
     closeIconContainer: {
-      height: 20,
-      width: 20,
       borderRadius: "50%",
-      display: "flex",
-      justifyContent: "center",
-      alignItems: "center",
       background: theme.design.colors.waz_grey300,
       cursor: "pointer",
+      display: "flex",
+      alignItems: "center",
+    },
+    closeIcon: {
+      color: theme.design.colors.waz_greenishGrey2
     },
     optionsGroup: {
       display: "flex",
