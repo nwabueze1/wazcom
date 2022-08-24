@@ -180,7 +180,7 @@ export const RichTextInput: React.FC<RichTextInputProps> = ({
           }}
           onEditorChange={handleContentChange}
         />
-        <Modal className={classes.mediaLibrary} open={mediaOpen}>
+        <Modal open={mediaOpen}>
         <div className={classes.wrapper}>
           <GqlMediaLibrary
             config={{

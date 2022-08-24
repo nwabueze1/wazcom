@@ -21,17 +21,14 @@ export const useRichInputStyles = makeStyles((theme: Theme) => ({
     zIndex: 15,
     height: "70%",
     width: "70%",
-    margin: "0 auto",
+    margin: theme.spacing(0, "auto"),
     marginTop: theme.spacing(6)
-  },
-  mediaLibrary: {
-
   },
   editMediaModal: {
     backgroundColor: theme.design.colors.waz_white,
     width: "20%",
     height: "32%",
-    margin: "0 auto",
+    margin: theme.spacing(0, "auto"),
     borderRadius: "6px",
     marginTop: theme.spacing(30),
     padding: theme.spacing(3),
@@ -40,7 +37,7 @@ export const useRichInputStyles = makeStyles((theme: Theme) => ({
   editMediaInput: {
     Height: "40px",
     width: "350px",
-    margin: "0 auto",
+    margin: theme.spacing(0, "auto"),
     marginTop: theme.spacing(3),
     borderRadius: "5px",
     paddingInline: theme.spacing(1),
@@ -55,7 +52,7 @@ export const useRichInputStyles = makeStyles((theme: Theme) => ({
     width: "200px",
     Height: "40px",
     marginTop: theme.spacing(3),
-    margin: "0 auto",
+    margin: theme.spacing(0, "auto"),
     borderRadius: "5px",
     paddingInline: theme.spacing(1),
   },

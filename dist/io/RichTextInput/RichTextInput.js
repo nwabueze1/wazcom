@@ -110,7 +110,7 @@ export var RichTextInput = function (_a) {
                             },
                             plugins: plugins,
                             toolbar: toolbar,
-                        }, onEditorChange: handleContentChange }, void 0), _jsx(Modal, __assign({ className: classes.mediaLibrary, open: mediaOpen }, { children: _jsx("div", __assign({ className: classes.wrapper }, { children: _jsx(GqlMediaLibrary, { config: {
+                        }, onEditorChange: handleContentChange }, void 0), _jsx(Modal, __assign({ open: mediaOpen }, { children: _jsx("div", __assign({ className: classes.wrapper }, { children: _jsx(GqlMediaLibrary, { config: {
                                     client: createApolloClient("https://nicodemus.sytbuilder.com/graphql"),
                                     query: {
                                         name: GET_IMAGES,
