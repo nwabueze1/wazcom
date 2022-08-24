@@ -1,1 +1,1 @@
-export declare const useRichInputStyles: (props?: any) => import("@mui/styles").ClassNameMap<"root" | "required" | "editor" | "editorError">;
+export declare const useRichInputStyles: (props?: any) => import("@mui/styles").ClassNameMap<"root" | "required" | "editor" | "editorError" | "wrapper" | "mediaLibrary" | "editMediaModal" | "editMediaInput" | "inputContainer" | "editMediaSizeInput" | "editMediaSizeContainer" | "editButtonContainer" | "editMediaSubmitBtn" | "editMediaCancelBtn" | "editImageHeader">;
