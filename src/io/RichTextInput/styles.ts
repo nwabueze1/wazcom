@@ -32,24 +32,27 @@ export const useRichInputStyles = makeStyles((theme: Theme) => ({
     borderRadius: "6px",
     marginTop: theme.spacing(30),
     padding: theme.spacing(3),
-    border: "none"
+    border: "none",
+    [theme.breakpoints.down("md")]: {
+      width: "60%"
+    },
   },
   editMediaInput: {
     Height: "40px",
-    width: "350px",
+    width: "100%",
     margin: theme.spacing(0, "auto"),
     marginTop: theme.spacing(3),
     borderRadius: "5px",
     paddingInline: theme.spacing(1),
-    marginLeft: theme.spacing(-1)
   },
   inputContainer: {
     display: "flex",
     justifyContent: "center",
     flexDirection: "column",
+ 
   },
   editMediaSizeInput: {
-    width: "200px",
+    width: "100%",
     Height: "40px",
     marginTop: theme.spacing(3),
     margin: theme.spacing(0, "auto"),
@@ -59,15 +62,16 @@ export const useRichInputStyles = makeStyles((theme: Theme) => ({
   editMediaSizeContainer: {
     display: "flex",
     flexDirection: "row",
-    marginLeft: theme.spacing(-1),
+  
   },
   editButtonContainer: {
     display: "flex",
     flexDirection: "row",
     justifyContent: "end",
     justifyItems: "center",
-    gap: theme.spacing(3),
-    marginTop: theme.spacing(4)
+    gap: theme.spacing(2),
+    marginTop: theme.spacing(4),
+    marginLeft: theme.spacing(-1)
   },
   editMediaSubmitBtn: {
     backgroundColor: theme.design.colors.waz_primaryColor100,
