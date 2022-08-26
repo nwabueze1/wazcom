@@ -38,7 +38,6 @@ export const Buzz = () => {
           setCartChanged(cartChanged + 1);
         }}
         itemId={selectedItemId}
-        cart={undefined}
         restaurant={restaurantdata}
         siteId={0}
       />

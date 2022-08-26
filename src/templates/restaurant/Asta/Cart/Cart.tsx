@@ -1,9 +1,9 @@
-import React from "react";
+import React, { FC } from "react";
 import { restaurantdata } from "templates/restaurant/data";
 import { emptyCartImagePlaceholder } from "utilities/restaurant";
 import { useCartStyles } from ".";
 import { useDisplayCartItems } from "./helper";
-import { CartBoxProps } from './types';
+import { CartBoxProps } from "./types";
 
 export const Cart: FC<CartBoxProps> = ({ open, setOpen }) => {
   const classes = useCartStyles();
@@ -24,9 +24,11 @@ export const Cart: FC<CartBoxProps> = ({ open, setOpen }) => {
     </div>
   );
 
-  return <div className={classes.root}>{
-    cartItems.length > 0
-      ? listItems(cartItems, open, setOpen) :
-      displayEmptyCart()
-  }</div>;
+  return (
+    <div className={classes.root}>
+      {cartItems.length > 0
+        ? listItems(cartItems, open, setOpen)
+        : displayEmptyCart()}
+    </div>
+  );
 };

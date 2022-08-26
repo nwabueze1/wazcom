@@ -10,6 +10,7 @@ import {
 import { IoIosClose } from "react-icons/io";
 import { IoAddCircleOutline } from "react-icons/io5";
 import { AiOutlineMinusCircle } from "react-icons/ai";
+import { CoreCartItemFields } from "templates/restaurant/types/CoreCartItemFields";
 
 export const Item: React.FC<CartItemProps> = ({
     setCartItems,
@@ -21,14 +22,14 @@ export const Item: React.FC<CartItemProps> = ({
     const { name, uuid, image_url, options, status, description, price } = data.menuItem;
 
     const handleChangeQuantity = (uuid: string, method: string, value: number) => {
-        setCartItems(cartItems => {
+        setCartItems((cartItems:CoreCartItemFields[]) => {
             const updatedtCartItems = cartItems.map(cartItem => {
                 if (cartItem.menuItem.uuid === uuid) {
                     const quantity = method === "add" ? (+cartItem.quantity) + 1 : (+cartItem.quantity) > 1 ? (+cartItem.quantity) - 1 : 1;
                     return { ...cartItem, quantity };
                 }
                 return cartItem;
-            });
+            }) as CoreCartItemFields[];
             return updatedtCartItems;
         })
     };
@@ -64,20 +65,20 @@ export const Item: React.FC<CartItemProps> = ({
                 <div className={classes.optionsGroup}>
                     <div className={classes.amount}>
                         {getCurrency(currency)}
-                        {getFloatOrIntAmount(price * data.quantity)}
+                        {getFloatOrIntAmount(price * +data.quantity)}
                     </div>
                     <div className={classes.optionsContainer}>
                         <AiOutlineMinusCircle
                             className={classes.icon}
                             onClick={() => {
-                                handleChangeQuantity(uuid, "remove", data.quantity)
+                                handleChangeQuantity(uuid, "remove", +data.quantity)
                             }}
                         />
                         <p>{data.quantity}</p>
                         <IoAddCircleOutline
                             className={classes.icon}
                             onClick={() => {
-                                handleChangeQuantity(uuid, "add", data.quantity)
+                                handleChangeQuantity(uuid, "add", +data.quantity)
                             }}
                         />
                     </div>

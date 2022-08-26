@@ -19,6 +19,7 @@ import { Options } from "../Options/Options";
 import clx from "classnames";
 import { CoreMenuItemFields } from "templates/restaurant/types/CoreMenuItemFields";
 import { CoreMenuFields } from "templates/restaurant/types/CoreMenuFields";
+import { CoreCartFields } from "templates/restaurant/types/CoreCartFields";
 import {
   getCurrency,
   getFloatOrIntAmount,
@@ -46,14 +47,14 @@ export const CartDialog: React.FC<CartDialogProps> = ({
   const [menuItem, setCurrentMenuItem] = useState<CoreMenuItemFields>();
   const [selectedOptions, setSelectedOptions] = useState<Option[]>([]);
   const [loading, setLoading] = useState<boolean>(false);
-
+  
   useEffect(() => {
     const menuItem = findMenuItem(
       restaurant.restaurant.activeMenus as CoreMenuFields[],
       itemId
     );
     setCurrentMenuItem(menuItem);
-    const [quantity, selectedOptions] = parseCartItem(cart, cartItemId);
+    const [quantity, selectedOptions] = parseCartItem(cart as CoreCartFields, cartItemId);
     setQuantity(Number(quantity));
     setSelectedOptions(selectedOptions);
   }, [itemId, cartItemId]);
@@ -168,8 +169,9 @@ export const CartDialog: React.FC<CartDialogProps> = ({
               >
                 {cartItemId ? "Update Order" : "Add to Order"}
                 {" "}
-                <sapn className={classes.currency}>({currency}
-                  {getFloatOrIntAmount(calculateTotal())})</sapn>
+                <span className={classes.currency}>({currency}
+                  {getFloatOrIntAmount(calculateTotal())})
+                  </span>
 
               </button>
             </div>

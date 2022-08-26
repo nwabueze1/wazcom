@@ -8,7 +8,8 @@ export interface CartProps {
 }
 
 export interface CartBoxProps {
-  open?: boolean
+  open: boolean;
+  setOpen: React.Dispatch<React.SetStateAction<boolean>>;
 }
 
 export type CartStyleProps = {

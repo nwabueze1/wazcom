@@ -9,7 +9,7 @@ export const useMenusStyles = makeStyles<Theme>((theme: Theme) => ({
     flexDirection: "column",
     alignItems: "flex-start",
     top: "80%",
-    position: "relaive"
+    position: "relative"
   },
   container: {
     margin: theme.spacing(0, "auto"),

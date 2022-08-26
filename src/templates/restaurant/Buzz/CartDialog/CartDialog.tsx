@@ -25,6 +25,7 @@ import {
   menuImagePlaceholder,
 } from "utilities/restaurant";
 import { calculateOptionsTotal } from "templates/restaurant/helpers";
+import { CoreCartFields } from "templates/restaurant/types/CoreCartFields";
 
 export const CartDialog: React.FC<CartDialogProps> = ({
   display,
@@ -53,7 +54,7 @@ export const CartDialog: React.FC<CartDialogProps> = ({
       itemId
     );
     setCurrentMenuItem(menuItem);
-    const [quantity, selectedOptions] = parseCartItem(cart, cartItemId);
+    const [quantity, selectedOptions] = parseCartItem(cart as CoreCartFields, cartItemId);
     setQuantity(Number(quantity));
     setSelectedOptions(selectedOptions);
   }, [itemId, cartItemId]);

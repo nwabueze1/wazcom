@@ -16,7 +16,7 @@ export type CartDialogProps = {
   reloadCart: () => void;
   itemId: number;
   cartItemId?: number;
-  cart: CoreCartFields;
+  cart?: CoreCartFields;
   restaurant: CoreFosFields;
   siteId: number;
 };

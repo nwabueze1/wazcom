@@ -21,7 +21,10 @@ export const Nav: FC<NavProps> = ({ className }) => {
           />
         </div>
         <div className={classes.mobileCartBtn}>
-          <div className={classes.cartBtn} onClick={() => setDisplayCart(prev => !prev)}>
+          <div
+            className={classes.cartBtn}
+            onClick={() => setDisplayCart((prev) => !prev)}
+          >
             <BsCart3 className={classes.cartIcon} />
             Cart
           </div>
@@ -39,20 +42,31 @@ export const Nav: FC<NavProps> = ({ className }) => {
           }}
         />
         <div className={classes.cartBtnContainer}>
-          <div className={classes.cartBtn} onClick={() => setDisplayCart(prev => !prev)}>
+          <div
+            className={classes.cartBtn}
+            onClick={() => setDisplayCart((prev) => !prev)}
+          >
             <BsCart3 className={classes.cartIcon} />
             Cart
           </div>
-          {displayCart && <div className={classes.cartPopup}>
-            <Cart open={displayCart} />
-          </div>}
-          {displayCart && <div className={classes.cartPopupOverlay} onClick={() => setDisplayCart(false)}>
-          </div>}
+          {displayCart && (
+            <div className={classes.cartPopup}>
+              <Cart open={displayCart} setOpen={() => {}} />
+            </div>
+          )}
+          {displayCart && (
+            <div
+              className={classes.cartPopupOverlay}
+              onClick={() => setDisplayCart(false)}
+            ></div>
+          )}
         </div>
       </div>
-      {displayCart && <div className={classes.cartPopupSm}>
-        <Cart open={displayCart}  setOpen={setDisplayCart}/>
-      </div>}
+      {displayCart && (
+        <div className={classes.cartPopupSm}>
+          <Cart open={displayCart} setOpen={setDisplayCart} />
+        </div>
+      )}
     </div>
   );
 };
