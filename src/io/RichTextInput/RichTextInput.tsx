@@ -1,16 +1,12 @@
 import React, {useRef, useState} from "react";
-import { InputLabel, Modal, TextField, Button } from "@mui/material";
+import { InputLabel } from "@mui/material";
 import { Editor } from "@tinymce/tinymce-react";
 import { useRichInputStyles } from "./styles";
-import { RichTextInputProps } from "./types";
+import { RichTextInputProps, ImageProperties } from "./types";
 import { displayFeedback } from "../../helpers/io";
 import clx from "classnames";
-import { GqlMediaLibrary } from "../../gql/GqlMediaLibrary";
-import {
-  createApolloClient,
-  GET_IMAGES,
-  UPLOAD_IMAGE,
-} from "../../helpers/graphQL";
+import { EditImageDialog } from "./EditImageDialog/EditMediaDialog";
+import { EditorMediaLibrary } from "./EditorMediaLibrary/EditorMediaLibrary";
 
 const plugins = [
   "advlist autolink lists link code",
@@ -40,105 +36,50 @@ export const RichTextInput: React.FC<RichTextInputProps> = ({
   ...props
 }) => {
   const classes = useRichInputStyles();
-  const [loading, ] = React.useState<boolean>(false);
 
   const [mediaOpen, setMediaOpen] = useState(false);
-  const [imgUrl, setImgUrl] = useState<string>("");
-  const [imgWidth, setImgWidth] = useState<string>("100");
-  const [imgHeight, setImgHeight] = useState<string>("100");
-  const [imgTitle, setImgTitle] = useState<string>("");
-  const [, setEvent] = useState()
+  const [image, setImage] = useState<ImageProperties>({
+    url: "",
+    width: "100",
+    height: "100",
+    title: "",
+  });
 
-  const editorRef = useRef<any>()
+  const editorRef = useRef<any>();
 
   const handleContentChange = (content: string) => {
     onChange?.({ name: name as string, value: content });
   };
 
-  const handleSelectImage = ({ value }: { value: any }) => {
+  const handleSelectImage = (value: ImageProperties) => {
     setMediaOpen(false);
-    setImgUrl(value?.url);
-    setImgTitle(value?.title);
+    setImage({ ...image, url: value?.url, title: value?.title });
   };
-  const handleClose = () => {
+  
+  const handleMediaLibraryClose = () => {
     setMediaOpen(false);
   };
 
   const handleDialogClose = () => {
-    setImgUrl("")
-  }
+    setImage({ ...image, url: "" });
+  };
 
   const insertImage = () => {
-    if(imgUrl) editorRef.current.insertContent(`<img src=${imgUrl} width=${imgWidth} height=${imgHeight} />`)
-    setImgUrl("")
-  }
+    if (image.url)
+      editorRef.current.insertContent(
+        `<img src=${image?.url} width=${image?.width} height=${image?.height} />`
+      );
+    setImage({
+      url: "",
+      title: "",
+      width: "100",
+      height: "100",
+    });
+  };
 
-  const onEditorInit = (event: any, editor: any) => {
-    setEvent(event)
-    editorRef.current = editor
-  }
-
-  const editImageDialog = () => {
-    return (
-      <Modal open={true}>
-        <div className={classes.editMediaModal}>
-          <p className={classes.editImageHeader}>Edit Image</p>
-          <div className={classes.inputContainer}>
-          <TextField
-          label="Title"
-          variant="outlined"
-          size="small"
-          className={classes.editMediaInput}
-            value={imgTitle}
-            type="text"
-            placeholder="Image Title"
-            onChange={(event) => setImgTitle(event.target.value)}
-          />
-          <TextField
-          label="Url"
-          variant="outlined"
-          size="small"
-          className={classes.editMediaInput}
-            value={imgUrl}
-            type="text"
-            placeholder="Image URL"
-            onChange={(event) => setImgUrl(event.target.value)}
-          />
-          <div className={classes.editMediaSizeContainer}>
-          <TextField
-          label="Width"
-          variant="outlined"
-          size="small"
-          className={classes.editMediaSizeInput}
-            value={imgWidth}
-            type="number"
-            placeholder="Image Width"
-            onChange={(event) => setImgWidth(event.target.value)}
-          />
-          <TextField
-          label="Height"
-          variant="outlined"
-          size="small"
-          className={classes.editMediaSizeInput}
-            value={imgHeight}
-            type="number"
-            placeholder="Image Height"
-            onChange={(event) => setImgHeight(event.target.value)}
-          />
-          </div>
-          </div>
-          <div className={classes.editButtonContainer}>
-            <Button onClick={handleDialogClose} className={classes.editMediaCancelBtn}>
-              Cancel
-            </Button>
-            <Button onClick={insertImage} className={classes.editMediaSubmitBtn}>
-              Submit
-            </Button>
-          </div>
-        </div>
-      </Modal>
-    )
-  }
+  const editImage = (name: string, value: string) => {
+    setImage({ ...image, [name]: value });
+  };
 
   return (
     <div className={clx(className, classes.root)}>
@@ -161,7 +102,9 @@ export const RichTextInput: React.FC<RichTextInputProps> = ({
         <Editor
           value={value}
           apiKey={apiKey}
-          onInit={onEditorInit}
+          onInit={(event, editor) => {
+            (editorRef.current = editor), event;
+          }}
           init={{
             height: 500,
             menubar: true,
@@ -170,9 +113,9 @@ export const RichTextInput: React.FC<RichTextInputProps> = ({
             file_picker_types: "image",
             paste_data_images: true,
             setup: (editor: any) => {
-              editor.ui.registry.addButton('imageSelector', {
+              editor.ui.registry.addButton("imageSelector", {
                 icon: "image",
-                onAction: () => setMediaOpen(true)
+                onAction: () => setMediaOpen(true),
               });
             },
             plugins,
@@ -180,40 +123,24 @@ export const RichTextInput: React.FC<RichTextInputProps> = ({
           }}
           onEditorChange={handleContentChange}
         />
-        <Modal open={mediaOpen}>
-        <div className={classes.wrapper}>
-          <GqlMediaLibrary
-            config={{
-              client: createApolloClient(
-                "https://nicodemus.sytbuilder.com/graphql"
-              ),
-              query: {
-                name: GET_IMAGES,
-                variables: {
-                  page: 1,
-                  count: 7,
-                },
-              },
-              upload: {
-                name: UPLOAD_IMAGE,
-                variables: {},
-              },
-              viewOnly: true,
-            }}
-            onChange={handleSelectImage}
-            name={name}
-            handleClose={handleClose}
-          />
-        </div>
-      </Modal>
+        <EditorMediaLibrary
+          mediaOpen={mediaOpen}
+          handleClose={handleMediaLibraryClose}
+          handleSelect={handleSelectImage}
+          name={name}
+        />
       </div>
-      {
-        imgUrl &&
-        editImageDialog()
-      }
+      {image.url && (
+        <EditImageDialog
+          image={image}
+          handleEditImage={editImage}
+          handleDialogClose={handleDialogClose}
+          handleInsertImage={insertImage}
+        />
+      )}
       {helperText}
       {feedback && displayFeedback(feedback)}
-      {loading && Loader}
+      {Loader}
     </div>
   );
 };

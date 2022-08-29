@@ -11,3 +11,10 @@ export type RichTextInputProps = CommonProps & {
   Loader?: JSX.Element;
   error?: boolean;
 };
+
+export type ImageProperties = {
+  url: string,
+  width: string,
+  height: string,
+  title: string
+}
