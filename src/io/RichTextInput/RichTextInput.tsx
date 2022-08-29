@@ -45,7 +45,7 @@ export const RichTextInput: React.FC<RichTextInputProps> = ({
     title: "",
   });
 
-  const editorRef = useRef<any>();
+  const editorRef = useRef<Editor | any>();
 
   const handleContentChange = (content: string) => {
     onChange?.({ name: name as string, value: content });
