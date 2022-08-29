@@ -16,7 +16,7 @@ export const useEditImageDialogStyles = makeStyles((theme: Theme) => ({
     },
   },
   editMediaInput: {
-    Height: "40px",
+    height: "40px",
     width: "100%",
     margin: theme.spacing(0, "auto"),
     marginTop: theme.spacing(3),
@@ -27,11 +27,10 @@ export const useEditImageDialogStyles = makeStyles((theme: Theme) => ({
     display: "flex",
     justifyContent: "center",
     flexDirection: "column",
- 
   },
   editMediaSizeInput: {
     width: "100%",
-    Height: "40px",
+    height: "40px",
     marginTop: theme.spacing(3),
     margin: theme.spacing(0, "auto"),
     borderRadius: "5px",
@@ -40,7 +39,6 @@ export const useEditImageDialogStyles = makeStyles((theme: Theme) => ({
   editMediaSizeContainer: {
     display: "flex",
     flexDirection: "row",
-  
   },
   editButtonContainer: {
     display: "flex",

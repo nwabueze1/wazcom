@@ -91,7 +91,7 @@ export var RichTextInput = function (_a) {
             height: "100",
         });
     };
-    var editImage = function (name, value) {
+    var updateImage = function (name, value) {
         var _a;
         setImage(__assign(__assign({}, image), (_a = {}, _a[name] = value, _a)));
     };
@@ -112,5 +112,5 @@ export var RichTextInput = function (_a) {
                             },
                             plugins: plugins,
                             toolbar: toolbar,
-                        }, onEditorChange: handleContentChange }, void 0), _jsx(EditorMediaLibrary, { mediaOpen: mediaOpen, handleClose: handleMediaLibraryClose, handleSelect: handleSelectImage, name: name }, void 0)] }), void 0), image.url && (_jsx(EditImageDialog, { image: image, handleEditImage: editImage, handleDialogClose: handleDialogClose, handleInsertImage: insertImage }, void 0)), helperText, feedback && displayFeedback(feedback), Loader] }), void 0));
+                        }, onEditorChange: handleContentChange }, void 0), _jsx(EditorMediaLibrary, { mediaOpen: mediaOpen, handleClose: handleMediaLibraryClose, handleSelect: handleSelectImage, name: name }, void 0)] }), void 0), image.url && (_jsx(EditImageDialog, { image: image, handleEditImage: updateImage, handleDialogClose: handleDialogClose, handleInsertImage: insertImage }, void 0)), helperText, feedback && displayFeedback(feedback), Loader] }), void 0));
 };

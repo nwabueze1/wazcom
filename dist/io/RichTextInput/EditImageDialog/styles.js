@@ -17,7 +17,7 @@ export var useEditImageDialogStyles = makeStyles(function (theme) {
             },
             _a),
         editMediaInput: {
-            Height: "40px",
+            height: "40px",
             width: "100%",
             margin: theme.spacing(0, "auto"),
             marginTop: theme.spacing(3),
@@ -31,7 +31,7 @@ export var useEditImageDialogStyles = makeStyles(function (theme) {
         },
         editMediaSizeInput: {
             width: "100%",
-            Height: "40px",
+            height: "40px",
             marginTop: theme.spacing(3),
             margin: theme.spacing(0, "auto"),
             borderRadius: "5px",

@@ -77,7 +77,7 @@ export const RichTextInput: React.FC<RichTextInputProps> = ({
     });
   };
 
-  const editImage = (name: string, value: string) => {
+  const updateImage = (name: string, value: string) => {
     setImage({ ...image, [name]: value });
   };
 
@@ -133,7 +133,7 @@ export const RichTextInput: React.FC<RichTextInputProps> = ({
       {image.url && (
         <EditImageDialog
           image={image}
-          handleEditImage={editImage}
+          handleEditImage={updateImage}
           handleDialogClose={handleDialogClose}
           handleInsertImage={insertImage}
         />
