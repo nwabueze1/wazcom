@@ -37,7 +37,7 @@ export const RichTextInput: React.FC<RichTextInputProps> = ({
 }) => {
   const classes = useRichInputStyles();
 
-  const [mediaOpen, setMediaOpen] = useState(false);
+  const [mediaOpen, setMediaOpen] = useState<boolean>(false);
   const [image, setImage] = useState<ImageProperties>({
     url: "",
     width: "100",
