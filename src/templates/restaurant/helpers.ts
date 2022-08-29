@@ -1,5 +1,7 @@
 import { Option } from "./Buzz/CartDialog";
 import { CoreCartItemFields } from "./types/CoreCartItemFields";
+import { CoreMenuFields } from "./types/CoreMenuFields";
+import { CoreMenuItemFields } from "./types/CoreMenuItemFields";
 
 export const calculateOptionsTotal = (options: Option[], quantity: number) => {
   if (!options || options.length === 0) return 0;
@@ -34,4 +36,19 @@ export const parseOptionString = (item: CoreCartItemFields) => {
   return parsedOptions.length > 150
     ? parsedOptions.slice(0, 145) + "..."
     : parsedOptions;
+};
+
+export const findMenuItem = (menus: CoreMenuFields[], itemId: number) => {
+  let menuItems: any = menus.map(
+    (menu) => menu.activeMenuItems
+  ) as CoreMenuItemFields[][];
+  let newMenuItems: CoreMenuItemFields[] = [];
+  menuItems.forEach((items: CoreMenuItemFields[]) => {
+    newMenuItems = [...newMenuItems, ...items];
+  });
+  menuItems = newMenuItems;
+  console.log(menuItems);
+  return menuItems.find(
+    (item: any) => item.id.toString() === itemId.toString()
+  );
 };

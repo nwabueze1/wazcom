@@ -12,7 +12,6 @@ import { IoAddCircleOutline } from "react-icons/io5";
 import { AiOutlineMinusCircle } from "react-icons/ai";
 import {
   changeQuantity as changeQuantityHelper,
-  findMenuItem,
   parseCartItem,
 } from "./helpers";
 import { Options } from "../Options/Options";
@@ -24,7 +23,10 @@ import {
   getFloatOrIntAmount,
   menuImagePlaceholder,
 } from "utilities/restaurant";
-import { calculateOptionsTotal } from "templates/restaurant/helpers";
+import {
+  calculateOptionsTotal,
+  findMenuItem,
+} from "templates/restaurant/helpers";
 import { CoreCartFields } from "templates/restaurant/types/CoreCartFields";
 
 export const CartDialog: React.FC<CartDialogProps> = ({
@@ -54,7 +56,10 @@ export const CartDialog: React.FC<CartDialogProps> = ({
       itemId
     );
     setCurrentMenuItem(menuItem);
-    const [quantity, selectedOptions] = parseCartItem(cart as CoreCartFields, cartItemId);
+    const [quantity, selectedOptions] = parseCartItem(
+      cart as CoreCartFields,
+      cartItemId
+    );
     setQuantity(Number(quantity));
     setSelectedOptions(selectedOptions);
   }, [itemId, cartItemId]);

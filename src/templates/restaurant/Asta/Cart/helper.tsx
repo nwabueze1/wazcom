@@ -50,10 +50,10 @@ export const useDisplayCartItems = () => {
 
         <div className={classes.checkoutContainer}>
           <div className={classes.subTotalContainer}>
-            {displayPrice("Sub-total", subTotal(cartItems))}
+            {displayPrice("Sub-total", cartSubTotal(cartItems))}
             {displayPrice("Delivery", 0.2)}
           </div>
-          {displayPrice("Total", subTotal(cartItems) + 0.2)}
+          {displayPrice("Total", cartSubTotal(cartItems) + 0.2)}
           <button
             className={`${classes.dialogOption} ${classes.dialogOptionFilled}`}
           >
@@ -65,7 +65,7 @@ export const useDisplayCartItems = () => {
   };
 };
 
-const subTotal = (cartItems: CoreCartItemFields[]) => {
+const cartSubTotal = (cartItems: CoreCartItemFields[]) => {
   const onlyAmount = cartItems.map((cartItem) => {
     return +cartItem.quantity * cartItem.menuItem.price;
   });
@@ -75,3 +75,5 @@ const subTotal = (cartItems: CoreCartItemFields[]) => {
     0
   );
 };
+
+export const ParseFloat = (quantity: string) => +quantity;

@@ -28,7 +28,7 @@ export const Menus: FC<MenuProps> = ({
   const [menuName, setMenuName] = useState<string>(
     menus.length > 0 ? menus[0].name : ""
   );
-
+  console.log(restaurant.restaurant.activeMenus);
   const displayEmptyRestaurant = () => {
     return (
       <div className={classes.restaurantEmpty}>
