@@ -15,7 +15,7 @@
     "@types/react-dom": "^17.0.9",
     "@types/react-swipeable-views": "^0.13.1",
     "@types/react-swipeable-views-utils": "^0.13.3",
-    "@types/tinymce": "^4.6.5",
+    "@types/tinymce": "4.6.4",
     "apollo-upload-client": "^17.0.0",
     "chart.js": "^3.5.1",
     "classnames": "^2.3.1",
