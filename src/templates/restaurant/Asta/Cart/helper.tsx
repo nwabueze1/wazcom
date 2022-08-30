@@ -1,10 +1,11 @@
-import React, { useState } from "react";
+import React, { useState, FC } from "react";
 import { IoIosClose } from "react-icons/io";
 import { CoreCartFields } from "templates/restaurant/types/CoreCartFields";
 import { CoreCartItemFields } from "templates/restaurant/types/CoreCartItemFields";
 import { getCurrency, getFloatOrIntAmount } from "utilities/restaurant";
 import { Item } from "./components/Item/Item";
 import { useCartStyles } from "./styles";
+import { DisplayPriceProps } from "./types";
 
 export const useDisplayCartItems = () => {
   return (
@@ -13,12 +14,13 @@ export const useDisplayCartItems = () => {
     setOpen: React.Dispatch<React.SetStateAction<boolean>>
   ) => {
     const currency = "$";
+    const deliveryFee = 0.5;
     const classes = useCartStyles();
     const [cartItems, setCartItems] = useState<CoreCartItemFields[]>(
       cartItemsData ?? []
     );
 
-    const displayPrice = (name: string, amount: number) => {
+    const DisplayPrice: FC<DisplayPriceProps> = ({ name, amount }) => {
       return (
         <div className={classes.prices}>
           <p className={name === "Total" ? classes.total : classes.name}>
@@ -43,17 +45,17 @@ export const useDisplayCartItems = () => {
         <div
           className={open ? classes.cartsContainerMd : classes.cartsContainer}
         >
-          {cartItems.map((_, index) => (
+          {cartItems.map((_, index: number) => (
             <Item setCartItems={setCartItems} data={_} key={index} />
           ))}
         </div>
 
         <div className={classes.checkoutContainer}>
           <div className={classes.subTotalContainer}>
-            {displayPrice("Sub-total", cartSubTotal(cartItems))}
-            {displayPrice("Delivery", 0.2)}
+            <DisplayPrice name="Sub-total" amount={cartSubTotal(cartItems)} />
+            <DisplayPrice name="Delivery" amount={deliveryFee} />
           </div>
-          {displayPrice("Total", cartSubTotal(cartItems) + 0.2)}
+          <DisplayPrice name="Total" amount={cartSubTotal(cartItems) + deliveryFee} />
           <button
             className={`${classes.dialogOption} ${classes.dialogOptionFilled}`}
           >
@@ -66,14 +68,14 @@ export const useDisplayCartItems = () => {
 };
 
 const cartSubTotal = (cartItems: CoreCartItemFields[]) => {
-  const onlyAmount = cartItems.map((cartItem) => {
+  const cartItemsAmount = cartItems.map((cartItem) => {
     return +cartItem.quantity * cartItem.menuItem.price;
   });
 
-  return onlyAmount.reduce(
+  return cartItemsAmount.reduce(
     (amount, initialAmount) => amount + initialAmount,
     0
   );
 };
 
-export const ParseFloat = (quantity: string) => +quantity;
+export const parseFloat = (quantity: string) => +quantity;

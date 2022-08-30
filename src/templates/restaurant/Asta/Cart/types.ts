@@ -1,3 +1,4 @@
+import React from "react";
 import { CoreFosFields } from "templates/restaurant/types/CoreFosFields";
 
 export interface CartProps {
@@ -14,4 +15,9 @@ export interface CartBoxProps {
 
 export type CartStyleProps = {
   isCheckout?: boolean;
+};
+
+export interface DisplayPriceProps {
+  name: string,
+  amount: number
 };

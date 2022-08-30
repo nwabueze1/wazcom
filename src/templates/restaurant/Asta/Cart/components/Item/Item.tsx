@@ -11,7 +11,7 @@ import { IoIosClose } from "react-icons/io";
 import { IoAddCircleOutline } from "react-icons/io5";
 import { AiOutlineMinusCircle } from "react-icons/ai";
 import { CoreCartItemFields } from "templates/restaurant/types/CoreCartItemFields";
-import { ParseFloat } from "../../helper";
+import { parseFloat } from "../../helper";
 
 export const Item: React.FC<CartItemProps> = ({ setCartItems, data }) => {
   const currency = "$";
@@ -74,14 +74,14 @@ export const Item: React.FC<CartItemProps> = ({ setCartItems, data }) => {
             <AiOutlineMinusCircle
               className={classes.icon}
               onClick={() => {
-                handleChangeQuantity(uuid, "remove", ParseFloat(data.quantity));
+                handleChangeQuantity(uuid, "remove", parseFloat(data.quantity));
               }}
             />
             <p>{data.quantity}</p>
             <IoAddCircleOutline
               className={classes.icon}
               onClick={() => {
-                handleChangeQuantity(uuid, "add", ParseFloat(data.quantity));
+                handleChangeQuantity(uuid, "add", parseFloat(data.quantity));
               }}
             />
           </div>
