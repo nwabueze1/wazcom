@@ -1,9 +1,8 @@
 import { FC } from "react";
 import clx from "classnames";
-import { stripHtml } from "../../../../../utilities/Post";
 import { truncate } from "lodash";
 import { CoreArticleTemplateFields } from "../..";
-import { useRelatedPostGelloStyles } from ".";
+import { useRelatedPostAlmondStyles } from ".";
 import { getDay } from "../../../../../utilities/getTime";
 
 export const RelatedPostAlmond: FC<CoreArticleTemplateFields> = ({
@@ -12,7 +11,7 @@ export const RelatedPostAlmond: FC<CoreArticleTemplateFields> = ({
   className,
   site
 }) => {
-  const classes = useRelatedPostGelloStyles();
+  const classes = useRelatedPostAlmondStyles();
   return (
     <div
       className={clx(classes.root, className)}
