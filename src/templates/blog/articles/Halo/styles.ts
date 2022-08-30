@@ -38,7 +38,6 @@ export const useHaloStyles = makeStyles<Theme>((theme: Theme) => ({
     position: "absolute",
     top: "0px",
     backgroundImage: "linear-gradient(to bottom, rgba(0,0,0,0), rgba(0,0,0,1))",
-    backgroundColor: theme.design.colors.waz_black,
   },
   overlayContainer: {
     position: "relative",

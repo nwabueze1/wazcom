@@ -3,7 +3,7 @@ import { Theme } from "@mui/material/styles";
 
 export const useRelatedPostGelloStyles = makeStyles<Theme>((theme: Theme) => ({
   root: {
-    width: "50%",
+    width: "48%",
     display: "flex",
     justifyContent: "center",
   },
