@@ -33,6 +33,7 @@ export const RichTextInput: React.FC<RichTextInputProps> = ({
   error,
   feedback,
   Loader,
+  apolloClient,
   ...props
 }) => {
   const classes = useRichInputStyles();
@@ -55,7 +56,7 @@ export const RichTextInput: React.FC<RichTextInputProps> = ({
     setMediaOpen(false);
     setImage({ ...image, url: value?.url, title: value?.title });
   };
-  
+
   const handleMediaLibraryClose = () => {
     setMediaOpen(false);
   };
@@ -128,6 +129,7 @@ export const RichTextInput: React.FC<RichTextInputProps> = ({
           handleClose={handleMediaLibraryClose}
           handleSelect={handleSelectImage}
           name={name}
+          apolloClient={apolloClient}
         />
       </div>
       {image.url && (

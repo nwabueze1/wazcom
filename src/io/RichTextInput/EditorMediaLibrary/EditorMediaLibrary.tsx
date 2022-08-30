@@ -1,6 +1,5 @@
 import { Modal } from "@mui/material"
 import {
-    createApolloClient,
     GET_IMAGES,
     UPLOAD_IMAGE,
 } from "../../../helpers/graphQL";
@@ -13,18 +12,17 @@ export const EditorMediaLibrary = (
     mediaOpen,
     name,
     handleSelect,
-    handleClose
+    handleClose,
+    apolloClient
   }: EditorMediaLibraryProps
 ) => {
     const classes = useEditorMediaLibStyles();
     return (
-        <Modal open={mediaOpen}>
+      <Modal open={mediaOpen}>
         <div className={classes.mediaLibraryWrapper}>
           <GqlMediaLibrary
             config={{
-              client: createApolloClient(
-                "https://nicodemus.sytbuilder.com/graphql"
-              ),
+              client: apolloClient,
               query: {
                 name: GET_IMAGES,
                 variables: {
@@ -44,5 +42,5 @@ export const EditorMediaLibrary = (
           />
         </div>
       </Modal>
-    )
+    );
 }
