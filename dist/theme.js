@@ -76,6 +76,7 @@ export var theme = {
         },
         colors: {
             waz_primaryColor100: "#0A7227",
+            waz_primaryColor700: "#549C68",
             waz_dangerColor: baseColors.dangerColor,
             waz_dangerColor100: "#990000",
             waz_dangerColor200: "#ff3333",
@@ -108,6 +109,7 @@ export var theme = {
             waz_mercury: "#CCCFCD",
             waz_primaryBlack: "#010E05",
             waz_grey6: "#FBFBFB",
+            waz_grey50: "#EEEEEE",
             waz_grey100: "#808782",
             waz_grey200: "#999F9B",
             waz_grey300: "#E8E8E8",

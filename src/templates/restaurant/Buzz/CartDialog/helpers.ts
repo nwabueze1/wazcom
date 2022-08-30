@@ -17,15 +17,7 @@ export const changeQuantity = (
   }
 };
 
-export const findMenuItem = (menus: CoreMenuFields[], itemId: number) => {
-  let menuItems: any = menus.map(
-    (menu) => menu.activeMenuItems
-  ) as CoreMenuItemFields[][];
-  menuItems = [].concat?.apply([], menuItems);
-  return menuItems.find(
-    (item: any) => item.id.toString() === itemId.toString()
-  );
-};
+
 
 export const parseCartItem = (cart: CoreCartFields, cartItemId?: number) => {
   if (!cartItemId) return [1, []];
@@ -37,4 +29,3 @@ export const parseCartItem = (cart: CoreCartFields, cartItemId?: number) => {
   const quantity = cartItem.quantity;
   return [quantity, options];
 };
-

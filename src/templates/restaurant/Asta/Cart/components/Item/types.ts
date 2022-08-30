@@ -3,7 +3,7 @@ import { CoreCartFields_cartItems } from "templates/restaurant/types/CoreCartFie
 import { CoreCartItemFields } from 'templates/restaurant/types/CoreCartItemFields';
 
 export type CartItemProps = {
-  setCartItems?: React.Dispatch<React.SetStateAction<CoreCartItemFields[]>>
+  setCartItems: React.Dispatch<React.SetStateAction<CoreCartItemFields[]>>
   data: CoreCartFields_cartItems
 };
 
