@@ -68,7 +68,7 @@ const corePost = {
   featured_image:
     "https://images.unsplash.com/photo-1648737965470-74f901ebf089?ixlib=rb-1.2.1&ixid=MnwxMjA3fDF8MHxlZGl0b3JpYWwtZmVlZHw2fHx8ZW58MHx8fHw%3D&auto=format&fit=crop&w=500&q=60",
   title:
-    "The Ultimate Habit Tracker Guide: Why and How to Track Your Habits The Ultimate Habit How to Track Your Habits ",
+    "The Ultimate Habit Tracker Guide: Why and How to Track Your Habits",
   author_uuid: null,
   language_attr: null,
   category_name: null,
