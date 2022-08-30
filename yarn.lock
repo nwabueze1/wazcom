@@ -2407,10 +2407,10 @@
   dependencies:
     "@types/jest" "*"
 
-"@types/tinymce@4.6.4":
-  version "4.6.4"
-  resolved "https://registry.yarnpkg.com/@types/tinymce/-/tinymce-4.6.4.tgz#c31d72ba55147233e2b8fa8ebb81960f23d74c32"
-  integrity sha512-7xo9AnZO9DXdS41zxmKHDzOEo+yxdj9KaZXokSLDYeZ9KcbzIHJJBppRrCoDA8PH2+k79Qj68B+Yj/ye2xQzow==
+"@types/tinymce@^4.6.4":
+  version "4.6.5"
+  resolved "https://registry.yarnpkg.com/@types/tinymce/-/tinymce-4.6.5.tgz#5301cf23d65102571795a022f6c8b257826cecae"
+  integrity sha512-C5gdEi85rUeYEXzXlwAm9MzvfMI8SooVbBMLLN/BQTeDnHWNtRWAkB6ON9s0lhWZYrmjSgLPrWSe86rjciACEQ==
   dependencies:
     "@types/jquery" "*"
 

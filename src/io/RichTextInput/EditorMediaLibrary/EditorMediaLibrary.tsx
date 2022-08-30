@@ -18,7 +18,7 @@ export const EditorMediaLibrary = (
 ) => {
     const classes = useEditorMediaLibStyles();
     return (
-      <Modal open={mediaOpen}>
+        <Modal open={mediaOpen}>
         <div className={classes.mediaLibraryWrapper}>
           <GqlMediaLibrary
             config={{
@@ -42,5 +42,5 @@ export const EditorMediaLibrary = (
           />
         </div>
       </Modal>
-    );
+    )
 }
