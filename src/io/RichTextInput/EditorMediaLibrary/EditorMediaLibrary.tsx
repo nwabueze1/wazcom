@@ -13,7 +13,7 @@ export const EditorMediaLibrary = (
     name,
     handleSelect,
     handleClose,
-    apolloClient
+    client
   }: EditorMediaLibraryProps
 ) => {
     const classes = useEditorMediaLibStyles();
@@ -22,7 +22,7 @@ export const EditorMediaLibrary = (
         <div className={classes.mediaLibraryWrapper}>
           <GqlMediaLibrary
             config={{
-              client: apolloClient,
+              client: client,
               query: {
                 name: GET_IMAGES,
                 variables: {

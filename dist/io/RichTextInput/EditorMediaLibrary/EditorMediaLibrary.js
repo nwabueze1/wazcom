@@ -15,10 +15,10 @@ import { GET_IMAGES, UPLOAD_IMAGE, } from "../../../helpers/graphQL";
 import { GqlMediaLibrary } from "../../../gql/GqlMediaLibrary";
 import { useEditorMediaLibStyles } from "./styles";
 export var EditorMediaLibrary = function (_a) {
-    var mediaOpen = _a.mediaOpen, name = _a.name, handleSelect = _a.handleSelect, handleClose = _a.handleClose, apolloClient = _a.apolloClient;
+    var mediaOpen = _a.mediaOpen, name = _a.name, handleSelect = _a.handleSelect, handleClose = _a.handleClose, client = _a.client;
     var classes = useEditorMediaLibStyles();
     return (_jsx(Modal, __assign({ open: mediaOpen }, { children: _jsx("div", __assign({ className: classes.mediaLibraryWrapper }, { children: _jsx(GqlMediaLibrary, { config: {
-                    client: apolloClient,
+                    client: client,
                     query: {
                         name: GET_IMAGES,
                         variables: {

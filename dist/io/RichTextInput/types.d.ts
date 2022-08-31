@@ -4,7 +4,7 @@ export declare type RichTextInputProps = CommonProps & {
     label?: string;
     apiKey: string;
     value: string;
-    apolloClient: ApolloClient<NormalizedCacheObject>;
+    client?: ApolloClient<NormalizedCacheObject>;
     upload?: (tinyCallback: (location: string, data: {
         [key: string]: string;
     }) => void, setLoadState: (loading: boolean) => void) => void;

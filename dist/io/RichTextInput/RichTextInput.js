@@ -58,7 +58,7 @@ var toolbar = [
 ];
 export var RichTextInput = function (_a) {
     var _b;
-    var name = _a.name, className = _a.className, classNames = _a.classNames, helperText = _a.helperText, label = _a.label, apiKey = _a.apiKey, value = _a.value, onChange = _a.onChange, error = _a.error, feedback = _a.feedback, Loader = _a.Loader, apolloClient = _a.apolloClient, props = __rest(_a, ["name", "className", "classNames", "helperText", "label", "apiKey", "value", "onChange", "error", "feedback", "Loader", "apolloClient"]);
+    var name = _a.name, className = _a.className, classNames = _a.classNames, helperText = _a.helperText, label = _a.label, apiKey = _a.apiKey, value = _a.value, onChange = _a.onChange, error = _a.error, feedback = _a.feedback, Loader = _a.Loader, client = _a.client, props = __rest(_a, ["name", "className", "classNames", "helperText", "label", "apiKey", "value", "onChange", "error", "feedback", "Loader", "client"]);
     var classes = useRichInputStyles();
     var _c = __read(useState(false), 2), mediaOpen = _c[0], setMediaOpen = _c[1];
     var _d = __read(useState({
@@ -112,5 +112,6 @@ export var RichTextInput = function (_a) {
                             },
                             plugins: plugins,
                             toolbar: toolbar,
-                        }, onEditorChange: handleContentChange }, void 0), _jsx(EditorMediaLibrary, { mediaOpen: mediaOpen, handleClose: handleMediaLibraryClose, handleSelect: handleSelectImage, name: name, apolloClient: apolloClient }, void 0)] }), void 0), image.url && (_jsx(EditImageDialog, { image: image, handleEditImage: updateImage, handleDialogClose: handleDialogClose, handleInsertImage: insertImage }, void 0)), helperText, feedback && displayFeedback(feedback), Loader] }), void 0));
+                        }, onEditorChange: handleContentChange }, void 0), client &&
+                        _jsx(EditorMediaLibrary, { mediaOpen: mediaOpen, handleClose: handleMediaLibraryClose, handleSelect: handleSelectImage, name: name, client: client }, void 0)] }), void 0), image.url && (_jsx(EditImageDialog, { image: image, handleEditImage: updateImage, handleDialogClose: handleDialogClose, handleInsertImage: insertImage }, void 0)), helperText, feedback && displayFeedback(feedback), Loader] }), void 0));
 };
