@@ -416,6 +416,7 @@ export const stories: ComponentPropType[] = [
       apiKey: "",
       error: true,
       feedback: { text: "Tariq is a weirdo", status: "error" },
+      apolloClient: createApolloClient(process.env.REACT_APP_NICODEMUS_API_TOKEN as string)
     },
   },
   {

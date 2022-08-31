@@ -1,13 +1,15 @@
-import * as React from "react";
+import React, {useRef, useState} from "react";
 import { InputLabel } from "@mui/material";
 import { Editor } from "@tinymce/tinymce-react";
 import { useRichInputStyles } from "./styles";
-import { RichTextInputProps } from "./types";
+import { RichTextInputProps, ImageProperties } from "./types";
 import { displayFeedback } from "../../helpers/io";
 import clx from "classnames";
+import { EditImageDialog } from "./EditImageDialog/EditMediaDialog";
+import { EditorMediaLibrary } from "./EditorMediaLibrary/EditorMediaLibrary";
 
 const plugins = [
-  "advlist autolink lists link image code",
+  "advlist autolink lists link code",
   "charmap print preview anchor help",
   "searchreplace visualblocks code",
   "insertdatetime media table paste wordcount",
@@ -16,7 +18,7 @@ const plugins = [
 const toolbar = [
   "undo redo | formatselect | link image | bold italic | \
     alignleft aligncenter alignright | \
-    bullist numlist outdent indent | help",
+    bullist numlist outdent indent | help | imageSelector",
 ];
 
 export const RichTextInput: React.FC<RichTextInputProps> = ({
@@ -27,18 +29,57 @@ export const RichTextInput: React.FC<RichTextInputProps> = ({
   label,
   apiKey,
   value,
-  upload,
   onChange,
   error,
   feedback,
   Loader,
+  apolloClient,
   ...props
 }) => {
   const classes = useRichInputStyles();
-  const [loading, setLoading] = React.useState<boolean>(false);
+
+  const [mediaOpen, setMediaOpen] = useState<boolean>(false);
+  const [image, setImage] = useState<ImageProperties>({
+    url: "",
+    width: "100",
+    height: "100",
+    title: "",
+  });
+
+  const editorRef = useRef<Editor | any>();
 
   const handleContentChange = (content: string) => {
     onChange?.({ name: name as string, value: content });
+  };
+
+  const handleSelectImage = (value: ImageProperties) => {
+    setMediaOpen(false);
+    setImage({ ...image, url: value?.url, title: value?.title });
+  };
+
+  const handleMediaLibraryClose = () => {
+    setMediaOpen(false);
+  };
+
+  const handleDialogClose = () => {
+    setImage({ ...image, url: "" });
+  };
+
+  const insertImage = () => {
+    if (image.url)
+      editorRef.current.insertContent(
+        `<img src=${image?.url} width=${image?.width} height=${image?.height} />`
+      );
+    setImage({
+      url: "",
+      title: "",
+      width: "100",
+      height: "100",
+    });
+  };
+
+  const updateImage = (name: string, value: string) => {
+    setImage({ ...image, [name]: value });
   };
 
   return (
@@ -48,7 +89,8 @@ export const RichTextInput: React.FC<RichTextInputProps> = ({
           className={(classNames?.label as string) ?? ""}
           htmlFor={name}
         >
-          {label} <p className={classes.required}>{props.required ? " *" : ""}</p>
+          {label}{" "}
+          <p className={classes.required}>{props.required ? " *" : ""}</p>
         </InputLabel>
       )}
       <div
@@ -61,6 +103,9 @@ export const RichTextInput: React.FC<RichTextInputProps> = ({
         <Editor
           value={value}
           apiKey={apiKey}
+          onInit={(event, editor) => {
+            (editorRef.current = editor), event;
+          }}
           init={{
             height: 500,
             menubar: true,
@@ -68,18 +113,36 @@ export const RichTextInput: React.FC<RichTextInputProps> = ({
             automatic_uploads: true,
             file_picker_types: "image",
             paste_data_images: true,
-            file_picker_callback: (cb: any) => {
-              upload?.(cb, setLoading);
+            setup: (editor: any) => {
+              editor.ui.registry.addButton("imageSelector", {
+                icon: "image",
+                onAction: () => setMediaOpen(true),
+              });
             },
             plugins,
             toolbar,
           }}
           onEditorChange={handleContentChange}
         />
+        <EditorMediaLibrary
+          mediaOpen={mediaOpen}
+          handleClose={handleMediaLibraryClose}
+          handleSelect={handleSelectImage}
+          name={name}
+          apolloClient={apolloClient}
+        />
       </div>
+      {image.url && (
+        <EditImageDialog
+          image={image}
+          handleEditImage={updateImage}
+          handleDialogClose={handleDialogClose}
+          handleInsertImage={insertImage}
+        />
+      )}
       {helperText}
       {feedback && displayFeedback(feedback)}
-      {loading && Loader}
+      {Loader}
     </div>
   );
 };
