@@ -68,8 +68,7 @@ export const GqlMediaLibrary: FC<GqlMediaLibraryProps> = ({
 
   useEffect(() => {
     setLoading({ ...loading, media: true });
-    if(client){
-      fetchData(client, query, { ...queryVariables })
+    fetchData(client, query, { ...queryVariables })
       .then((res) => {
         setLoading({ ...loading, media: false });
         setImages((images) =>
@@ -83,8 +82,6 @@ export const GqlMediaLibrary: FC<GqlMediaLibraryProps> = ({
       .catch(() => {
         setLoading({ ...loading, media: false });
       });
-    }
-   
   }, []);
 
   useEffect(() => {
@@ -92,18 +89,16 @@ export const GqlMediaLibrary: FC<GqlMediaLibraryProps> = ({
       const { currentPage, lastPage } = paginatorInfo;
       if (currentPage !== lastPage) {
         setLoading({ ...loading, media: true });
-        if(client){
-          fetchData(client, query, {
-            page: currentPage + 1,
-            count: queryVariables.count,
-          }).then((res) => {
-            setImages((images) =>
-              getUniqueImages([...images, ...(res.data.images.images as Image[])])
-            );
-            setLoading({ ...loading, media: false });
-            setPaginatorInfo(res.data.images.paginatorInfo);
-          });
-        }
+        fetchData(client, query, {
+          page: currentPage + 1,
+          count: queryVariables.count,
+        }).then((res) => {
+          setImages((images) =>
+            getUniqueImages([...images, ...(res.data.images.images as Image[])])
+          );
+          setLoading({ ...loading, media: false });
+          setPaginatorInfo(res.data.images.paginatorInfo);
+        });
       }
     }
   }, [activeMedia.index]);
@@ -158,17 +153,15 @@ export const GqlMediaLibrary: FC<GqlMediaLibraryProps> = ({
 
   const handleMediaAdd = useCallback(
     async (variables: ImageUpdate) => {
-      if(client){
-        await handleMediaUpload(
-          client,
-          upload?.name,
-          { ...variables, image: activeMedia.media as File },
-          setLoading,
-          (image: Image) => {
-            updateMediaLibrary(image, "add");
-          }
-        );
-      }
+      await handleMediaUpload(
+        client,
+        upload?.name,
+        { ...variables, image: activeMedia.media as File },
+        setLoading,
+        (image: Image) => {
+          updateMediaLibrary(image, "add");
+        }
+      );
     },
     [activeMedia, loading]
   );
@@ -180,7 +173,6 @@ export const GqlMediaLibrary: FC<GqlMediaLibraryProps> = ({
       }
       const media = activeMedia.media as Image;
       setLoading({ ...loading, mutate: true });
-     if(client){
       await mutateMedia(
         client,
         update?.name as DocumentNode,
@@ -190,7 +182,6 @@ export const GqlMediaLibrary: FC<GqlMediaLibraryProps> = ({
         },
         variables
       );
-     }
       setLoading({ ...loading, mutate: false });
     },
     [activeMedia]
@@ -199,12 +190,10 @@ export const GqlMediaLibrary: FC<GqlMediaLibraryProps> = ({
   const handleMediaDelete = useCallback(async () => {
     const media = activeMedia.media as Image;
     setLoading({ ...loading, mutate: true });
-   if(client){
     await mutateMedia(client, remove?.name as DocumentNode, media, () => {
       updateMediaLibrary(media, "delete");
       handleMediaAction("", undefined);
     });
-   }
     setLoading({ ...loading, mutate: false });
   }, [activeMedia, loading]);
 
