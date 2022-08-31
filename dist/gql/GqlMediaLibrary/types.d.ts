@@ -3,7 +3,7 @@ import { CommonProps } from "../../types";
 export declare type GqlMediaLibraryProps = CommonProps & GqlMediaSelectorConfigProps;
 export declare type GqlMediaSelectorConfigProps = {
     config: {
-        client: ApolloClient<NormalizedCacheObject>;
+        client?: ApolloClient<NormalizedCacheObject>;
         query: {
             name: DocumentNode;
             variables: {

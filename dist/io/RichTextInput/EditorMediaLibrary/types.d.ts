@@ -5,5 +5,5 @@ export declare type EditorMediaLibraryProps = {
     name?: string;
     handleClose: () => void;
     handleSelect: (value: ImageProperties) => void;
-    apolloClient: ApolloClient<NormalizedCacheObject>;
+    apolloClient?: ApolloClient<NormalizedCacheObject>;
 };

@@ -110,36 +110,40 @@ export var GqlMediaLibrary = function (_a) {
     var _p = __read(useState(1), 2), activeTab = _p[0], setActiveTab = _p[1];
     useEffect(function () {
         setLoading(__assign(__assign({}, loading), { media: true }));
-        fetchData(client, query, __assign({}, queryVariables))
-            .then(function (res) {
-            setLoading(__assign(__assign({}, loading), { media: false }));
-            setImages(function (images) {
-                return getUniqueImages(__spreadArray(__spreadArray([], __read(images), false), __read(res.data.images.images), false));
+        if (client) {
+            fetchData(client, query, __assign({}, queryVariables))
+                .then(function (res) {
+                setLoading(__assign(__assign({}, loading), { media: false }));
+                setImages(function (images) {
+                    return getUniqueImages(__spreadArray(__spreadArray([], __read(images), false), __read(res.data.images.images), false));
+                });
+                setDisplayedImages(function (images) {
+                    return getUniqueImages(__spreadArray(__spreadArray([], __read(images), false), __read(res.data.images.images), false));
+                });
+                setPaginatorInfo(res.data.images.paginatorInfo);
+            })
+                .catch(function () {
+                setLoading(__assign(__assign({}, loading), { media: false }));
             });
-            setDisplayedImages(function (images) {
-                return getUniqueImages(__spreadArray(__spreadArray([], __read(images), false), __read(res.data.images.images), false));
-            });
-            setPaginatorInfo(res.data.images.paginatorInfo);
-        })
-            .catch(function () {
-            setLoading(__assign(__assign({}, loading), { media: false }));
-        });
+        }
     }, []);
     useEffect(function () {
         if (activeMedia.index && activeMedia.index > 0) {
             var currentPage = paginatorInfo.currentPage, lastPage = paginatorInfo.lastPage;
             if (currentPage !== lastPage) {
                 setLoading(__assign(__assign({}, loading), { media: true }));
-                fetchData(client, query, {
-                    page: currentPage + 1,
-                    count: queryVariables.count,
-                }).then(function (res) {
-                    setImages(function (images) {
-                        return getUniqueImages(__spreadArray(__spreadArray([], __read(images), false), __read(res.data.images.images), false));
+                if (client) {
+                    fetchData(client, query, {
+                        page: currentPage + 1,
+                        count: queryVariables.count,
+                    }).then(function (res) {
+                        setImages(function (images) {
+                            return getUniqueImages(__spreadArray(__spreadArray([], __read(images), false), __read(res.data.images.images), false));
+                        });
+                        setLoading(__assign(__assign({}, loading), { media: false }));
+                        setPaginatorInfo(res.data.images.paginatorInfo);
                     });
-                    setLoading(__assign(__assign({}, loading), { media: false }));
-                    setPaginatorInfo(res.data.images.paginatorInfo);
-                });
+                }
             }
         }
     }, [activeMedia.index]);
@@ -176,12 +180,15 @@ export var GqlMediaLibrary = function (_a) {
     var handleMediaAdd = useCallback(function (variables) { return __awaiter(void 0, void 0, void 0, function () {
         return __generator(this, function (_a) {
             switch (_a.label) {
-                case 0: return [4 /*yield*/, handleMediaUpload(client, upload === null || upload === void 0 ? void 0 : upload.name, __assign(__assign({}, variables), { image: activeMedia.media }), setLoading, function (image) {
-                        updateMediaLibrary(image, "add");
-                    })];
+                case 0:
+                    if (!client) return [3 /*break*/, 2];
+                    return [4 /*yield*/, handleMediaUpload(client, upload === null || upload === void 0 ? void 0 : upload.name, __assign(__assign({}, variables), { image: activeMedia.media }), setLoading, function (image) {
+                            updateMediaLibrary(image, "add");
+                        })];
                 case 1:
                     _a.sent();
-                    return [2 /*return*/];
+                    _a.label = 2;
+                case 2: return [2 /*return*/];
             }
         });
     }); }, [activeMedia, loading]);
@@ -195,11 +202,14 @@ export var GqlMediaLibrary = function (_a) {
                     }
                     media = activeMedia.media;
                     setLoading(__assign(__assign({}, loading), { mutate: true }));
+                    if (!client) return [3 /*break*/, 2];
                     return [4 /*yield*/, mutateMedia(client, update === null || update === void 0 ? void 0 : update.name, media, function () {
                             updateMediaLibrary(media, "update", variables);
                         }, variables)];
                 case 1:
                     _a.sent();
+                    _a.label = 2;
+                case 2:
                     setLoading(__assign(__assign({}, loading), { mutate: false }));
                     return [2 /*return*/];
             }
@@ -212,12 +222,15 @@ export var GqlMediaLibrary = function (_a) {
                 case 0:
                     media = activeMedia.media;
                     setLoading(__assign(__assign({}, loading), { mutate: true }));
+                    if (!client) return [3 /*break*/, 2];
                     return [4 /*yield*/, mutateMedia(client, remove === null || remove === void 0 ? void 0 : remove.name, media, function () {
                             updateMediaLibrary(media, "delete");
                             handleMediaAction("", undefined);
                         })];
                 case 1:
                     _a.sent();
+                    _a.label = 2;
+                case 2:
                     setLoading(__assign(__assign({}, loading), { mutate: false }));
                     return [2 /*return*/];
             }
