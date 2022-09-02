@@ -11,4 +11,10 @@ export type EmptyStateProps = CommonProps & {
     text?: string;
     handleClick?: () => void;
   };
+  classnames?: {
+    container?: string,
+    text?: string,
+    image?: string,
+    button?: string
+  }
 };

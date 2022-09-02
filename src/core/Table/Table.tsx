@@ -178,7 +178,7 @@ export const Table = ({
             <TableRow>
               <TableCell colSpan={1000}>
                 {tableValue.length < 1 && (
-                  <EmptyState className={classes.empty} {...emptyTableState} />
+                  <EmptyState classnames={{ container: classes.empty, emptyTableState.classNames }} {...emptyTableState} />
                 )}
               </TableCell>
             </TableRow>
