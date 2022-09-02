@@ -12,19 +12,20 @@ export const EmptyState: React.FC<EmptyStateProps> = ({
 }) => {
   const classes = useEmptyStateStyles();
   return (
-    <div className={clx(classes.root, classnames.container)}>
-      <img src={image?.src} className={clx(classes.image, classnames.image)} alt={image?.alt ?? ""} />
-      <p className={clx(classes.text, classnames.text)}>{text}</p>
+    <div className={clx(classes.root, classnames?.container)}>
+      <img src={image?.src} className={clx(classes.image, classnames?.image)} alt={image?.alt ?? ""} />
+      <p className={clx(classes.text, classnames?.text)}>{text}</p>
 
       {button?.display && (
         <Button
-          className={clx(classes.btn, classnames.button)}
+          className={clx(classes.btn, classnames?.button)}
           size="small"
           onClick={() => {
             button?.handleClick?.();
           }}
         >
           {button?.text ?? text}
+          test
         </Button>
       )}
     </div>
