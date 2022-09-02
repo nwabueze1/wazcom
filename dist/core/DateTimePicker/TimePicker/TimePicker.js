@@ -37,9 +37,9 @@ export var TimeSelector = function (_a) {
     var _c = __read(useState("Select Time"), 2), defaultValue = _c[0], setDefaultValue = _c[1];
     return (_jsx(TextField, { id: "time", type: inputType, onChange: onChange, defaultValue: defaultValue, name: name, className: classes.textField, InputProps: {
             classes: { root: classes.inputRoot },
-            endAdornment: (_jsx(InputAdornment, __assign({ position: "end" }, { children: _jsx(ScheduleIcon, { className: classes.scheduleIcon }, void 0) }), void 0)),
+            endAdornment: (_jsx(InputAdornment, __assign({ position: "end" }, { children: _jsx(ScheduleIcon, { className: classes.scheduleIcon }) }))),
         }, onFocus: function () {
             setInputType("time");
             setDefaultValue(value);
-        } }, void 0));
+        } }));
 };

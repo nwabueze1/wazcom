@@ -35,17 +35,18 @@ export const EditImageDialog = ({
               placeholder="Image URL"
               onChange={(event) => handleEditImage("url", event.target.value)}
             />
+            <p className={classes.deviceHeader}>Desktop</p>
             <div className={classes.editMediaSizeContainer}>
               <TextField
                 label="Width"
                 variant="outlined"
                 size="small"
                 className={classes.editMediaSizeInput}
-                value={image.width}
+                value={image.width["desktop"]}
                 type="number"
                 placeholder="Image Width"
                 onChange={(event) =>
-                  handleEditImage("width", event.target.value)
+                  handleEditImage("width", event.target.value, "desktop")
                 }
               />
               <TextField
@@ -53,11 +54,65 @@ export const EditImageDialog = ({
                 variant="outlined"
                 size="small"
                 className={classes.editMediaSizeInput}
-                value={image.height}
+                value={image.height["desktop"]}
                 type="number"
                 placeholder="Image Height"
                 onChange={(event) =>
-                  handleEditImage("height", event.target.value)
+                  handleEditImage("height", event.target.value, "desktop")
+                }
+              />
+            </div>
+            <p className={classes.deviceHeader}>Tablet</p>
+            <div className={classes.editMediaSizeContainer}>
+              <TextField
+                label="Width"
+                variant="outlined"
+                size="small"
+                className={classes.editMediaSizeInput}
+                value={image.width["tablet"]}
+                type="number"
+                placeholder="Image Width"
+                onChange={(event) =>
+                  handleEditImage("width", event.target.value, "tablet")
+                }
+              />
+              <TextField
+                label="Height"
+                variant="outlined"
+                size="small"
+                className={classes.editMediaSizeInput}
+                value={image.height["tablet"]}
+                type="number"
+                placeholder="Image Height"
+                onChange={(event) =>
+                  handleEditImage("height", event.target.value, "tablet")
+                }
+              />
+            </div>
+            <p className={classes.deviceHeader}>Mobile</p>
+            <div className={classes.editMediaSizeContainer}>
+              <TextField
+                label="Width"
+                variant="outlined"
+                size="small"
+                className={classes.editMediaSizeInput}
+                value={image.width["mobile"]}
+                type="number"
+                placeholder="Image Width"
+                onChange={(event) =>
+                  handleEditImage("width", event.target.value, "mobile")
+                }
+              />
+              <TextField
+                label="Height"
+                variant="outlined"
+                size="small"
+                className={classes.editMediaSizeInput}
+                value={image.height["mobile"]}
+                type="number"
+                placeholder="Image Height"
+                onChange={(event) =>
+                  handleEditImage("height", event.target.value, "mobile")
                 }
               />
             </div>

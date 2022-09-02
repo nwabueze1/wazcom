@@ -63,9 +63,9 @@ export var RichTextInput = function (_a) {
     var _c = __read(useState(false), 2), mediaOpen = _c[0], setMediaOpen = _c[1];
     var _d = __read(useState({
         url: "",
-        width: "100",
-        height: "100",
         title: "",
+        width: { desktop: "100", tablet: "100", mobile: "100" },
+        height: { desktop: "100", tablet: "100", mobile: "100" },
     }), 2), image = _d[0], setImage = _d[1];
     var editorRef = useRef();
     var handleContentChange = function (content) {
@@ -83,19 +83,22 @@ export var RichTextInput = function (_a) {
     };
     var insertImage = function () {
         if (image.url)
-            editorRef.current.insertContent("<img src=".concat(image === null || image === void 0 ? void 0 : image.url, " width=").concat(image === null || image === void 0 ? void 0 : image.width, " height=").concat(image === null || image === void 0 ? void 0 : image.height, " />"));
+            editorRef.current.insertContent("<picture>\n        <source media=\"(min-width: 654px)\" srcset=".concat(image === null || image === void 0 ? void 0 : image.url, " width=").concat(image === null || image === void 0 ? void 0 : image.width["tablet"], " height=").concat(image === null || image === void 0 ? void 0 : image.height["tablet"], " />\n        <source media=\"(min-width: 354px)\" srcset=").concat(image === null || image === void 0 ? void 0 : image.url, " width=").concat(image === null || image === void 0 ? void 0 : image.width["mobile"], " height=").concat(image === null || image === void 0 ? void 0 : image.height["mobile"], " />\n        <img src=").concat(image === null || image === void 0 ? void 0 : image.url, " width=").concat(image === null || image === void 0 ? void 0 : image.width["desktop"], " height=").concat(image === null || image === void 0 ? void 0 : image.height["desktop"], " />\n        </picture>"));
         setImage({
             url: "",
             title: "",
-            width: "100",
-            height: "100",
+            width: { desktop: "100", tablet: "100", mobile: "100" },
+            height: { desktop: "100", tablet: "100", mobile: "100" },
         });
     };
-    var updateImage = function (name, value) {
-        var _a;
-        setImage(__assign(__assign({}, image), (_a = {}, _a[name] = value, _a)));
+    var updateImage = function (name, value, device) {
+        var _a, _b, _c;
+        if (device && (name == "width" || name == "height"))
+            setImage(__assign(__assign({}, image), (_a = {}, _a[name] = __assign(__assign({}, image[name]), (_b = {}, _b[device] = value, _b)), _a)));
+        else
+            setImage(__assign(__assign({}, image), (_c = {}, _c[name] = value, _c)));
     };
-    return (_jsxs("div", __assign({ className: clx(className, classes.root) }, { children: [label && (_jsxs(InputLabel, __assign({ className: (_b = classNames === null || classNames === void 0 ? void 0 : classNames.label) !== null && _b !== void 0 ? _b : "", htmlFor: name }, { children: [label, " ", _jsx("p", __assign({ className: classes.required }, { children: props.required ? " *" : "" }), void 0)] }), void 0)), _jsxs("div", __assign({ className: clx(classNames === null || classNames === void 0 ? void 0 : classNames.richTextInput, classes.editor, error && classes.editorError) }, { children: [_jsx(Editor, { value: value, apiKey: apiKey, onInit: function (event, editor) {
+    return (_jsxs("div", __assign({ className: clx(className, classes.root) }, { children: [label && (_jsxs(InputLabel, __assign({ className: (_b = classNames === null || classNames === void 0 ? void 0 : classNames.label) !== null && _b !== void 0 ? _b : "", htmlFor: name }, { children: [label, " ", _jsx("p", __assign({ className: classes.required }, { children: props.required ? " *" : "" }))] }))), _jsxs("div", __assign({ className: clx(classNames === null || classNames === void 0 ? void 0 : classNames.richTextInput, classes.editor, error && classes.editorError) }, { children: [_jsx(Editor, { value: value, apiKey: apiKey, onInit: function (event, editor) {
                             (editorRef.current = editor), event;
                         }, init: {
                             height: 500,
@@ -112,6 +115,6 @@ export var RichTextInput = function (_a) {
                             },
                             plugins: plugins,
                             toolbar: toolbar,
-                        }, onEditorChange: handleContentChange }, void 0), client &&
-                        _jsx(EditorMediaLibrary, { mediaOpen: mediaOpen, handleClose: handleMediaLibraryClose, handleSelect: handleSelectImage, name: name, client: client }, void 0)] }), void 0), image.url && (_jsx(EditImageDialog, { image: image, handleEditImage: updateImage, handleDialogClose: handleDialogClose, handleInsertImage: insertImage }, void 0)), helperText, feedback && displayFeedback(feedback), Loader] }), void 0));
+                        }, onEditorChange: handleContentChange }), client &&
+                        _jsx(EditorMediaLibrary, { mediaOpen: mediaOpen, handleClose: handleMediaLibraryClose, handleSelect: handleSelectImage, name: name, client: client })] })), image.url && (_jsx(EditImageDialog, { image: image, handleEditImage: updateImage, handleDialogClose: handleDialogClose, handleInsertImage: insertImage })), helperText, feedback && displayFeedback(feedback), Loader] })));
 };

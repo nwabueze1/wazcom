@@ -11,9 +11,14 @@ export declare type RichTextInputProps = CommonProps & {
     Loader?: JSX.Element;
     error?: boolean;
 };
+export declare type SizeFields = {
+    desktop: string;
+    tablet: string;
+    mobile: string;
+};
 export declare type ImageProperties = {
     url: string;
-    width: string;
-    height: string;
+    width: SizeFields;
+    height: SizeFields;
     title: string;
 };

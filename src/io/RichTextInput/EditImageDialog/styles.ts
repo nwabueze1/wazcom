@@ -4,15 +4,16 @@ import { Theme } from "@mui/material/styles";
 export const useEditImageDialogStyles = makeStyles((theme: Theme) => ({
   editMediaModal: {
     backgroundColor: theme.design.colors.waz_white,
-    width: "20%",
-    height: "32%",
+    width: "30%",
+    height: "67%",
     margin: theme.spacing(0, "auto"),
     borderRadius: "6px",
     marginTop: theme.spacing(30),
     padding: theme.spacing(3),
     border: "none",
     [theme.breakpoints.down("md")]: {
-      width: "60%"
+      width: "60%",
+      height: "50%",
     },
   },
   editMediaInput: {
@@ -70,5 +71,10 @@ export const useEditImageDialogStyles = makeStyles((theme: Theme) => ({
   editImageHeader: {
     fontWeight: theme.typography.fontWeightBold,
     fontSize: theme.typography.fontSize + 3,
+  },
+  deviceHeader: {
+    marginTop: theme.spacing(1),
+    marginBottom: theme.spacing(-1),
+    marginLeft: theme.spacing(1)
   }
 }));
