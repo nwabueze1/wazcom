@@ -26,13 +26,12 @@ import {
   TextInput,
   InputGroup,
   ToggleInput,
-  ToggleInputProps,
   PhoneNumberInput,
   RadioButtonInput,
   TextArea,
 } from "../io";
 
-import { GqlComboBox, GqlMediaLibrary, GqlMediaLibrarySelector, GqlComboBoxProps } from "../gql";
+import { GqlComboBox, GqlMediaLibrary, GqlMediaLibrarySelector } from "../gql";
 
 import {
   GETBLOGCATEGORIES,
