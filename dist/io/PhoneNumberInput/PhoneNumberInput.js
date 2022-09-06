@@ -9,11 +9,23 @@ var __assign = (this && this.__assign) || function () {
     };
     return __assign.apply(this, arguments);
 };
+var __rest = (this && this.__rest) || function (s, e) {
+    var t = {};
+    for (var p in s) if (Object.prototype.hasOwnProperty.call(s, p) && e.indexOf(p) < 0)
+        t[p] = s[p];
+    if (s != null && typeof Object.getOwnPropertySymbols === "function")
+        for (var i = 0, p = Object.getOwnPropertySymbols(s); i < p.length; i++) {
+            if (e.indexOf(p[i]) < 0 && Object.prototype.propertyIsEnumerable.call(s, p[i]))
+                t[p[i]] = s[p[i]];
+        }
+    return t;
+};
 import { jsx as _jsx } from "react/jsx-runtime";
 import PhoneNumber from "react-phone-input-2";
 import "react-phone-input-2/lib/style.css";
 import { usePhoneNumberInputStyles } from "./styles";
-export var PhoneNumberInput = function (props) {
+export var PhoneNumberInput = function (_a) {
+    var containerClass = _a.containerClass, dropdownClass = _a.dropdownClass, inputClass = _a.inputClass, props = __rest(_a, ["containerClass", "dropdownClass", "inputClass"]);
     var classes = usePhoneNumberInputStyles();
-    return (_jsx("div", __assign({ className: classes.root }, { children: _jsx(PhoneNumber, __assign({}, props, { inputClass: classes.textInput, dropdownClass: classes.dropDown, containerClass: classes.root }), void 0) }), void 0));
+    return (_jsx("div", __assign({ className: classes.root }, { children: _jsx(PhoneNumber, __assign({}, props, { inputClass: "".concat(classes.textInput, " ").concat(inputClass), dropdownClass: "".concat(classes.dropDown, " ").concat(dropdownClass), containerClass: "".concat(classes.root, " ").concat(containerClass) }), void 0) }), void 0));
 };
