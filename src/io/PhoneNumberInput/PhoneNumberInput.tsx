@@ -1,4 +1,4 @@
-import React, { FC, useState } from "react";
+import { FC } from "react";
 import PhoneNumber from "react-phone-input-2";
 import "react-phone-input-2/lib/style.css";
 import { usePhoneNumberInputStyles } from "./styles";

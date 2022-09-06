@@ -1,3 +1,4 @@
+/// <reference types="react" />
 import { Schedule } from "./types";
 export declare const useScheduleData: () => (scheduleData: Schedule[], handleChange: (event: React.ChangeEvent<{
     name?: string;
