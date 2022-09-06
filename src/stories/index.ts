@@ -50,8 +50,8 @@ import {
   TextInputProps,
   ToggleInput,
   ToggleInputProps,
+  PhoneNumberInput
 } from "../io";
-
 import { GqlComboBox, GqlComboBoxProps } from "../gql";
 
 import {
@@ -63,31 +63,31 @@ import {
 type ComponentPropType = {
   component: any;
 } & (
-  | AccordionStory
-  | BreadCrumbStory
-  | ButtonStory
-  | CardStory
-  | CheckBoxStory
-  | LoaderStory
-  | ComboBoxStory
-  | TextStory
-  | GalleryStory
-  | ImageSelectorStory
-  | ToggleStory
-  | TableStory
-  | MenuCardStory
-  | DisplayCardStory
-  | NotificationStory
-  | RadioButtonStory
-  | ImageUploadStory
-  | SelectStory
-  | TagStory
-  | RichTextStory
-  | GqlComboBoxStory
-  | EmptyStateStory
-  | SchedulerStory
-  | InputGroupStory
-);
+    | AccordionStory
+    | BreadCrumbStory
+    | ButtonStory
+    | CardStory
+    | CheckBoxStory
+    | LoaderStory
+    | ComboBoxStory
+    | TextStory
+    | GalleryStory
+    | ImageSelectorStory
+    | ToggleStory
+    | TableStory
+    | MenuCardStory
+    | DisplayCardStory
+    | NotificationStory
+    | RadioButtonStory
+    | ImageUploadStory
+    | SelectStory
+    | TagStory
+    | RichTextStory
+    | GqlComboBoxStory
+    | EmptyStateStory
+    | SchedulerStory
+    | InputGroupStory
+  );
 
 type AccordionStory = {
   name: string;
@@ -235,7 +235,7 @@ export const stories: ComponentPropType[] = [
           path: "/mob",
         },
       ],
-      handleClick: (path: string) => {},
+      handleClick: (path: string) => { },
     },
   },
   {
@@ -522,6 +522,13 @@ export const stories: ComponentPropType[] = [
     props: {
       variant: "",
       label: "@wazcom.zeus",
+    },
+  },
+  {
+    name: "PhoneNumberInput",
+    component: PhoneNumberInput,
+    props: {
+      country: "ng"
     },
   },
 ];

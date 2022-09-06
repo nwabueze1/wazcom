@@ -7,3 +7,4 @@ export * from "./TagInput";
 export * from "./TextInput";
 export * from "./ToggleInput";
 export * from "./TextArea"
+export * from "./PhoneNumberInput"

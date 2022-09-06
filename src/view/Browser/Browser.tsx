@@ -68,6 +68,10 @@ const sections = [
         id: "button",
         label: "Button",
       },
+      {
+        id: "phone",
+        label: "PhoneNumberInput",
+      },
     ],
   },
 ];
