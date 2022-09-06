@@ -8,8 +8,7 @@ import List from "@mui/material/List";
 import Toolbar from "@mui/material/Toolbar";
 import { startCase } from "lodash";
 import * as React from "react";
-import { ChangeEvent, FC, useState } from "react";
-import { useHistory, useLocation } from "react-router";
+import { FC, useState } from "react";
 import { TextInput } from "../../io";
 import { stories } from "../../stories";
 import { SidebarListItem } from "./SidebarListItem/SidebarListItem";
@@ -78,18 +77,17 @@ const sections = [
 
 export const Browser: FC<BrowserProps> = () => {
   const classes = useBrowserStyles();
-  const { pathname } = useLocation();
-  const { push } = useHistory();
   const [search, setSearch] = useState("");
-  const [selected, setSelected] = useState();
 
-  const handleClick = (route: string) => {
-    push(route);
-  };
-
-  const handleChange = (event: ChangeEvent<HTMLInputElement>) => {
-    setSearch(event?.target?.value);
-  };
+  const sections = [
+    {
+      label: "Base",
+      components: stories.map(({ name }) => ({
+        id: name.toLowerCase(),
+        label: startCase(name),
+      })),
+    },
+  ];
 
   return (
     <Box sx={{ display: "flex" }}>
@@ -104,7 +102,9 @@ export const Browser: FC<BrowserProps> = () => {
             color="secondary"
             placeholder="Search..."
             variant="outlined"
-            onChange={handleChange}
+            onChange={({ value }: { name: string; value: any }) => {
+              setSearch(value);
+            }}
             value={search}
           />
         </Toolbar>
@@ -138,9 +138,20 @@ export const Browser: FC<BrowserProps> = () => {
         className={classes.main}
       >
         {stories
-          .filter(({ name }) => name.includes(search))
+          .sort(({ name: aName }, { name: bName }) =>
+            aName.toLowerCase() < bName.toLowerCase()
+              ? -1
+              : aName.toLowerCase() > bName.toLowerCase()
+              ? 1
+              : 0
+          )
+          .filter(({ name }) => name.toLowerCase().includes(search))
           .map(({ name, component: Comp, props }, index) => (
-            <div key={index} className={classes.componentWrapper}>
+            <div
+              key={index}
+              className={classes.componentWrapper}
+              id={name.toLowerCase()}
+            >
               <Typography variant="h3">{startCase(name)}</Typography>
               <div className={classes.well}>
                 {React.cloneElement(<Comp />, props)}

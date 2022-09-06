@@ -6,8 +6,6 @@ export var useAccordionStyles = makeStyles(function (theme) { return ({
         borderRadius: 4,
     },
     icon: {
-        color: theme.design.colors.black,
+        color: theme.design.colors.waz_black,
     },
-    summary: {},
-    details: {},
 }); });

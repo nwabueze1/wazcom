@@ -18,7 +18,7 @@ export var useCardStyles = makeStyles(function (theme) { return ({
         alignItems: "right",
     },
     regtext: {
-        color: theme.design.colors.sunRed,
+        color: theme.design.colors.waz_dangerColor300,
         fontWeight: "bold",
         fontSize: theme.typography.fontSize,
         margin: theme.spacing(2, 0),

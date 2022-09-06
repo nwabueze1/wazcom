@@ -3,6 +3,7 @@ import { useImageSelectorStyles } from "./styles";
 import clx from "classnames";
 import { ImageSelectorProps } from "./types";
 import CameraAltIcon from "@mui/icons-material/CameraAlt";
+import { getSizeVariants } from "../../helpers/size";
 
 export const ImageSelector: FC<ImageSelectorProps> = ({
   variant,
@@ -34,9 +35,9 @@ export const ImageSelector: FC<ImageSelectorProps> = ({
 
   const handleSelect = (e: React.ChangeEvent<HTMLInputElement>) => {
     if (!e.target.files) return;
-    
+
     const file = e.target.files[0];
-    
+
     if (validate(file)) {
       const reader = new FileReader();
       reader.onload = (e: any) => {
@@ -49,37 +50,13 @@ export const ImageSelector: FC<ImageSelectorProps> = ({
     }
   };
 
-  const getSizeVariants = () => {
-    let sizeVariants;
-
-    switch (size) {
-      case "sm":
-        sizeVariants = [classes.sizeSm, classes.cameraIconSm];
-        break;
-      case "md":
-        sizeVariants = [classes.sizeMd, classes.cameraIconMd];
-        break;
-      case "lg":
-        sizeVariants = [classes.sizeLg, classes.cameraIconLg];
-        break;
-      case "xl":
-        sizeVariants = [classes.sizeXl, classes.cameraIconXl];
-        break;
-      default:
-        sizeVariants = [classes.sizeMd, classes.cameraIconMd];
-        break;
-    }
-
-    return sizeVariants;
-  };
-
-  const variants = getSizeVariants();
+  const variants = getSizeVariants(classes, size);
 
   return (
     <div
       className={clx(
-        className,
         classes.root,
+        className,
         variant === "circle" && classes.circle,
         variants[0],
       )}
@@ -87,13 +64,17 @@ export const ImageSelector: FC<ImageSelectorProps> = ({
     >
       <CameraAltIcon className={clx(classes.cameraIcon, variants[1])} />
       <input type="file" ref={inputRef} onChange={handleSelect} hidden />
-      {selected || src && (
-        <img
-          ref={imgRef}
-          src={src}
-          className={clx(classes.image, variant === "circle" && classes.circle)}
-        />
-      )}
+      {selected ||
+        (src && (
+          <img
+            ref={imgRef}
+            src={src}
+            className={clx(
+              classes.image,
+              variant === "circle" && classes.circle,
+            )}
+          />
+        ))}
     </div>
   );
 };

@@ -48,8 +48,10 @@ export const useSidebarListItemStyles = makeStyles((theme: Theme) => ({
       1,
     )} ${theme.spacing(1.5)}`,
     transition: theme.transitions.create(["background-color"]),
+    textDecoration: "none",
+    color: "inherit",
   },
   linkActive: {
-    backgroundColor: theme.design.colors.gray,
+    backgroundColor: theme.design.colors.waz_gray,
   },
 }));

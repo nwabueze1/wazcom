@@ -1,0 +1,47 @@
+import { Theme } from "@mui/material/styles";
+import createStyles from "@mui/styles/createStyles";
+import makeStyles from "@mui/styles/makeStyles";
+
+export const useOptionStyles = makeStyles<Theme>((theme: Theme) => ({
+  root: {
+    width: "100%",
+    background: theme.design.colors.grey7,
+    border: `1px solid ${theme.design.colors.grey5}`,
+    padding: theme.spacing(0, 4, 0, 4),
+    boxSizing: "border-box",
+  },
+  summary: {
+    padding: `${theme.spacing(0)} !important`,
+    textTransform: "capitalize",
+  },
+  details: {
+    padding: `${theme.spacing(0, 0, 2.5, 0)} !important`,
+    display: 'block',
+  },
+  optionType: {
+    fontSize: theme.typography.fontSize,
+    color: theme.design.colors.grey2,
+    textTransform: "capitalize",
+  },
+  option: {
+    display: 'flex',
+    justifyContent: 'space-between',
+    alignItems: 'center',
+    cursor: "pointer",
+  },
+  optionPickerParent: {
+    display: 'flex',
+    alignItems: 'center',
+  },
+  optionAmount: {
+    fontWeight: theme.typography.fontWeightMedium,
+    color: theme.design.colors.black,
+  },
+  optionPicker: {
+    position: 'relative',
+    left: -10,
+    "&.Mui-checked": {
+      color: theme.design.colors.greene
+    }
+  }
+}));

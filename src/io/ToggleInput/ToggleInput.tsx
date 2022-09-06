@@ -1,27 +1,50 @@
 import * as React from "react";
-import { FormLabel, Switch } from "@mui/material";
+import clx from "classnames";
+import { InputLabel, Switch } from "@mui/material";
 import { useToggleStyles } from "./styles";
 import { ToggleInputProps } from "./types";
+import { displayFeedback } from "../../helpers/io";
 
 export const ToggleInput: React.FC<ToggleInputProps> = ({
   name,
   label,
   value,
+  feedback,
   helperText,
+  onChange,
+  className,
+  classNames,
   ...props
 }) => {
   const classes = useToggleStyles();
 
+  const handleChange = (checked: boolean) => {
+    onChange?.({ name: name as string, value: checked });
+  };
+
   return (
-    <div className={classes.root}>
-      {label && <FormLabel className={classes.label}>{label}</FormLabel>}
+    <div className={clx(className, classes.root)}>
+      {label && (
+        <InputLabel className={(classNames?.label as string) ?? ""}>
+          {label}
+        </InputLabel>
+      )}
       <Switch
-        className={classes.toggle}
         name={name}
         checked={value}
+        onChange={(_, checked) => {
+          handleChange(checked);
+        }}
+        className={clx(classNames?.toggleInput, classes.toggle)}
+        classes={
+          classNames?.classes
+            ? (classNames.classes as { [key: string]: string })
+            : {}
+        }
         {...props}
       />
-      {helperText && <p className={classes.helperText}>{helperText}</p>}
+      {helperText}
+      {feedback && displayFeedback(feedback)}
     </div>
   );
 };

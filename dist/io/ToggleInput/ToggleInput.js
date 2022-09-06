@@ -21,10 +21,20 @@ var __rest = (this && this.__rest) || function (s, e) {
     return t;
 };
 import { jsx as _jsx, jsxs as _jsxs } from "react/jsx-runtime";
-import { FormLabel, Switch } from "@mui/material";
+import clx from "classnames";
+import { InputLabel, Switch } from "@mui/material";
 import { useToggleStyles } from "./styles";
+import { displayFeedback } from "../../helpers/io";
 export var ToggleInput = function (_a) {
-    var name = _a.name, label = _a.label, value = _a.value, helperText = _a.helperText, props = __rest(_a, ["name", "label", "value", "helperText"]);
+    var _b;
+    var name = _a.name, label = _a.label, value = _a.value, feedback = _a.feedback, helperText = _a.helperText, onChange = _a.onChange, className = _a.className, classNames = _a.classNames, props = __rest(_a, ["name", "label", "value", "feedback", "helperText", "onChange", "className", "classNames"]);
     var classes = useToggleStyles();
-    return (_jsxs("div", __assign({ className: classes.root }, { children: [label && _jsx(FormLabel, __assign({ className: classes.label }, { children: label }), void 0), _jsx(Switch, __assign({ className: classes.toggle, name: name, checked: value }, props), void 0), helperText && _jsx("p", __assign({ className: classes.helperText }, { children: helperText }), void 0)] }), void 0));
+    var handleChange = function (checked) {
+        onChange === null || onChange === void 0 ? void 0 : onChange({ name: name, value: checked });
+    };
+    return (_jsxs("div", __assign({ className: clx(className, classes.root) }, { children: [label && (_jsx(InputLabel, __assign({ className: (_b = classNames === null || classNames === void 0 ? void 0 : classNames.label) !== null && _b !== void 0 ? _b : "" }, { children: label }), void 0)), _jsx(Switch, __assign({ name: name, checked: value, onChange: function (_, checked) {
+                    handleChange(checked);
+                }, className: clx(classNames === null || classNames === void 0 ? void 0 : classNames.toggleInput, classes.toggle), classes: (classNames === null || classNames === void 0 ? void 0 : classNames.classes)
+                    ? classNames.classes
+                    : {} }, props), void 0), helperText, feedback && displayFeedback(feedback)] }), void 0));
 };

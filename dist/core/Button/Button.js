@@ -20,15 +20,15 @@ var __rest = (this && this.__rest) || function (s, e) {
         }
     return t;
 };
-import { jsx as _jsx } from "react/jsx-runtime";
-import { Button as MuiButton } from "@mui/material";
+import { jsx as _jsx, jsxs as _jsxs } from "react/jsx-runtime";
+import { Button as MuiButton, CircularProgress } from "@mui/material";
 import { useButtonStyles } from "./styles";
+import clx from "classnames";
 export var Button = function (_a) {
-    var props = __rest(_a, []);
+    var className = _a.className, _b = _a.variant, variant = _b === void 0 ? "contained" : _b, loading = _a.loading, props = __rest(_a, ["className", "variant", "loading"]);
     var classes = useButtonStyles();
-    return (_jsx(MuiButton, __assign({ classes: {
-            root: classes.root,
-            sizeSmall: classes.sizeSmall,
-            sizeLarge: classes.sizeLarge,
-        }, variant: "contained" }, props), void 0));
+    return (_jsxs("div", __assign({ className: classes.root }, { children: [_jsx(MuiButton, __assign({ classes: {
+                    root: clx(classes.button, className),
+                    sizeLarge: classes.sizeLarge,
+                }, variant: variant }, props), void 0), loading && (_jsx("div", __assign({ className: classes.loader }, { children: _jsx(CircularProgress, { color: "inherit", size: 12 }, void 0) }), void 0))] }), void 0));
 };

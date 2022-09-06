@@ -1,19 +1,51 @@
 import { FC } from "react";
 import { CheckBoxInputProps } from "./types";
-import Checkbox from "@mui/material/Checkbox";
+import { InputLabel, Checkbox } from "@mui/material";
+import clx from "classnames";
+import { useCheckboxInputStyles } from "./styles";
+import { displayFeedback } from "../../helpers/io";
 
 export const CheckBoxInput: FC<CheckBoxInputProps> = ({
+  name,
   className,
+  classNames,
+  helperText,
   label,
-  checked,
-  handleCheckChange,
+  value,
+  feedback,
+  onChange,
 }) => {
+  const classes = useCheckboxInputStyles();
+
+  const handleChange = (event: React.ChangeEvent<{ checked: boolean }>) => {
+    onChange?.({ name: name as string, value: event.target.checked });
+  };
+
   return (
-    <Checkbox
-      checked={checked}
-      className={className}
-      onChange={handleCheckChange}
-      inputProps={{ "aria-label": label }}
-    />
+    <div className={clx(className, classes.root)}>
+      {label && (
+        <InputLabel
+          className={(classNames?.label as string) ?? ""}
+          htmlFor={name}
+        >
+          {label}
+        </InputLabel>
+      )}
+      <Checkbox
+        checked={value}
+        onChange={handleChange}
+        inputProps={{ "aria-label": label }}
+        className={
+          classNames?.checkBoxInput ? (classNames.checkBoxInput as string) : ""
+        }
+        classes={
+          classNames?.classes
+            ? (classNames.classes as { [key: string]: string })
+            : {}
+        }
+      />
+      {helperText}
+      {feedback && displayFeedback(feedback)}
+    </div>
   );
 };

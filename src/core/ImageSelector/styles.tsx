@@ -36,8 +36,12 @@ export const useImageSelectorStyles = makeStyles((theme: BaseTheme) => ({
     width: "400px",
     height: "400px",
   },
+  full: {
+    width: "100%",
+    height: "400px",
+  },
   cameraIcon: {
-    color: theme.design.colors.white,
+    color: theme.design.colors.waz_white,
     zIndex: 5,
     background: "transparent",
   },
@@ -52,6 +56,9 @@ export const useImageSelectorStyles = makeStyles((theme: BaseTheme) => ({
   },
   cameraIconXl: {
     fontSize: 80,
+  },
+  cameraIconFull: {
+    fontSize: 100,
   },
   image: {
     position: "absolute",

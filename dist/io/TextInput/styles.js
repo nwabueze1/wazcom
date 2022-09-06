@@ -1,26 +1,25 @@
-import makeStyles from '@mui/styles/makeStyles';
+import { makeStyles } from "@mui/styles";
 export var useTextStyles = makeStyles(function (theme) { return ({
     root: {
         display: "flex",
         flexDirection: "column",
         marginBottom: 15,
-        zIndex: -1,
-        position: "relative"
+        position: "relative",
+        "& .Mui-focused fieldset.MuiOutlinedInput-notchedOutline": {
+            borderColor: theme.design.colors.waz_primaryColor100,
+            outline: theme.design.colors.waz_primaryColor100,
+            "&:hover": {
+                borderColor: theme.design.colors.waz_primaryColor100,
+                outline: theme.design.colors.waz_primaryColor100
+            },
+        },
     },
     label: {
-        marginBottom: theme.spacing(1),
-        fontSize: "1rem",
+        display: "flex",
+        alignItems: "center",
     },
-    feedback: {
-        marginTop: 16,
+    required: {
+        color: theme.design.colors.waz_dangerColor100,
+        margin: theme.spacing(0.5, 0, 0, 0.5),
     },
-    feedbackSuccess: {
-        color: 'green',
-    },
-    feedbackError: {
-        color: 'red'
-    },
-    feedbackNeutral: {
-        color: 'black',
-    }
 }); });

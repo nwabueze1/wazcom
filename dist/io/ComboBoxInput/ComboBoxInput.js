@@ -9,16 +9,46 @@ var __assign = (this && this.__assign) || function () {
     };
     return __assign.apply(this, arguments);
 };
+var __rest = (this && this.__rest) || function (s, e) {
+    var t = {};
+    for (var p in s) if (Object.prototype.hasOwnProperty.call(s, p) && e.indexOf(p) < 0)
+        t[p] = s[p];
+    if (s != null && typeof Object.getOwnPropertySymbols === "function")
+        for (var i = 0, p = Object.getOwnPropertySymbols(s); i < p.length; i++) {
+            if (e.indexOf(p[i]) < 0 && Object.prototype.propertyIsEnumerable.call(s, p[i]))
+                t[p[i]] = s[p[i]];
+        }
+    return t;
+};
+var __read = (this && this.__read) || function (o, n) {
+    var m = typeof Symbol === "function" && o[Symbol.iterator];
+    if (!m) return o;
+    var i = m.call(o), r, ar = [], e;
+    try {
+        while ((n === void 0 || n-- > 0) && !(r = i.next()).done) ar.push(r.value);
+    }
+    catch (error) { e = { error: error }; }
+    finally {
+        try {
+            if (r && !r.done && (m = i["return"])) m.call(i);
+        }
+        finally { if (e) throw e.error; }
+    }
+    return ar;
+};
 import { jsx as _jsx, jsxs as _jsxs } from "react/jsx-runtime";
 import { useCallback, useEffect, useState } from "react";
 import Autocomplete, { createFilterOptions } from "@mui/material/Autocomplete";
-import { InputLabel, TextField } from "@mui/material";
+import { Box, InputLabel, TextField } from "@mui/material";
 import { useComboBoxStyles } from "./styles";
+import clx from "classnames";
+import { displayFeedback } from "../../helpers/io";
 var filter = createFilterOptions();
 export var ComboBoxInput = function (_a) {
-    var name = _a.name, onChange = _a.onChange, initialOptions = _a.options, label = _a.label, value = _a.value, placeholder = _a.placeholder, helperText = _a.helperText;
+    var _b;
+    var name = _a.name, _c = _a.isAdd, isAdd = _c === void 0 ? true : _c, onChange = _a.onChange, initialOptions = _a.options, label = _a.label, classNames = _a.classNames, helperText = _a.helperText, value = _a.value, error = _a.error, placeholder = _a.placeholder, feedback = _a.feedback, className = _a.className, props = __rest(_a, ["name", "isAdd", "onChange", "options", "label", "classNames", "helperText", "value", "error", "placeholder", "feedback", "className"]);
     var classes = useComboBoxStyles();
-    var _b = useState(initialOptions), options = _b[0], setOptions = _b[1];
+    var _d = __read(useState(initialOptions), 2), options = _d[0], setOptions = _d[1];
     useEffect(function () {
         setOptions(initialOptions);
     }, [initialOptions]);
@@ -34,7 +64,7 @@ export var ComboBoxInput = function (_a) {
         var inputValue = params.inputValue;
         // Suggest the creation of a new value
         var isExisting = options.some(function (option) { return inputValue === option.label; });
-        if (inputValue !== "" && !isExisting) {
+        if (isAdd && (inputValue !== "" && !isExisting)) {
             filtered.push({
                 value: inputValue,
                 label: "Add ".concat(inputValue),
@@ -49,10 +79,14 @@ export var ComboBoxInput = function (_a) {
             return { label: label, value: value };
         return { label: "", value: "" };
     }, [options, value]);
-    return (_jsxs("div", __assign({ className: classes.root }, { children: [label && (_jsx(InputLabel, __assign({ className: classes.label, htmlFor: name }, { children: label }), void 0)), _jsx(Autocomplete, { options: options !== null && options !== void 0 ? options : [], getOptionLabel: function (option) {
+    return (_jsxs("div", __assign({ className: clx(className, classes.root) }, { children: [label && (_jsx(InputLabel, __assign({ className: (_b = classNames === null || classNames === void 0 ? void 0 : classNames.label) !== null && _b !== void 0 ? _b : "", htmlFor: name }, { children: label }), void 0)), _jsx(Autocomplete, __assign({}, props, { options: options !== null && options !== void 0 ? options : [], getOptionLabel: function (option) {
                     var _a;
-                    return (_a = option === null || option === void 0 ? void 0 : option.label) !== null && _a !== void 0 ? _a : "";
-                }, style: { width: 300 }, value: getValue(), onChange: function (_, selectedOption) {
+                    return (typeof option == 'string') ? option : (_a = option === null || option === void 0 ? void 0 : option.label) !== null && _a !== void 0 ? _a : "";
+                }, value: getValue(), onChange: function (_, selectedOption) {
                     handleChange(selectedOption);
-                }, filterOptions: handleFilterOptions, freeSolo: true, renderInput: function (params) { return (_jsx(TextField, __assign({}, params, { label: label, placeholder: placeholder, variant: "outlined" }), void 0)); } }, void 0), helperText && _jsx("p", __assign({ className: classes.helperText }, { children: helperText }), void 0)] }), void 0));
+                }, filterOptions: handleFilterOptions, freeSolo: true, renderOption: function (props, option) {
+                    return (_jsx(Box, __assign({ component: "li" }, props, { children: _jsxs("div", __assign({ className: classNames === null || classNames === void 0 ? void 0 : classNames.optionContainer }, { children: [_jsx("p", __assign({ className: classNames === null || classNames === void 0 ? void 0 : classNames.optionLabel }, { children: option === null || option === void 0 ? void 0 : option.label }), void 0), option.subText && _jsx("p", __assign({ className: classNames === null || classNames === void 0 ? void 0 : classNames.optionSubText }, { children: option.subText }), void 0)] }), void 0) }), void 0));
+                }, renderInput: function (params) { return (_jsx(TextField, __assign({}, params, { placeholder: placeholder, variant: "outlined", error: error, className: classes.renderInput }), void 0)); }, className: (classNames === null || classNames === void 0 ? void 0 : classNames.comboBoxInput) ? classNames.comboBoxInput : "", classes: (classNames === null || classNames === void 0 ? void 0 : classNames.classes)
+                    ? classNames.classes
+                    : {} }), void 0), helperText, feedback && displayFeedback(feedback)] }), void 0));
 };

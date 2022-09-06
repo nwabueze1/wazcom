@@ -19,14 +19,15 @@
     "outDir": "lib/esm",
     "declaration": true,
     "suppressImplicitAnyIndexErrors": true,
-    "strict": true
+    "strict": true,
+    "downlevelIteration": true
   },
-  "include": ["src"],
+  "include": ["src", "src/templates", "src/Browser", "src/Browser", "Browser"],
   "exclude": [
     "lib",
     "./src/@types",
     "./src/stories",
     "./node_modules/@types",
-    "src/types/graphql-global-types.ts"
+    "src/templates/blog/types/graphql-global-types.ts"
   ]
 }

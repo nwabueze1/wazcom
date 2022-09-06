@@ -4,10 +4,17 @@ import { Theme } from "@mui/material/styles";
 export const useRichInputStyles = makeStyles((theme: Theme) => ({
   root: {
     marginBottom: theme.spacing(2),
+    position: "relative"
   },
-  label: {
-    marginBottom: theme.spacing(1),
-    fontSize: "1rem",
-    color: theme.design.colors.black,
+  required: {
+    color: theme.design.colors.waz_dangerColor100,
+    margin: theme.spacing(0.5, 0, 0, 0.5),
+  },
+  editor: {
+    zIndex: 1
+  },
+  editorError: {
+    border: "1px solid red",
+    zIndex: 1
   },
 }));

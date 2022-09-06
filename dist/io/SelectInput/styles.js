@@ -3,21 +3,30 @@ export var useSelectStyles = makeStyles(function (theme) { return ({
     root: {
         borderRadius: theme.spacing(1),
         fontSize: "16px",
-        color: theme.design.colors.grey,
+        color: theme.design.colors.waz_greyColor400,
         width: "100%",
         marginBottom: theme.spacing(2),
     },
     label: {
-        marginBottom: theme.spacing(1),
-        fontSize: "1rem",
-        color: theme.design.colors.black,
+        display: "flex",
+        alignItems: "center",
+    },
+    required: {
+        color: theme.design.colors.waz_dangerColor100,
+        margin: theme.spacing(0.5, 0, 0, 0.5),
     },
     select: {
         width: "100%",
-        padding: theme.spacing(0.5, 2),
-    },
-    feedback: {
-        color: "#EA3C53",
-        marginTop: theme.spacing(2),
+        "& .MuiMenuItem-root": {
+            background: "none",
+        },
+        "&.Mui-focused fieldset.MuiOutlinedInput-notchedOutline": {
+            borderColor: theme.design.colors.waz_primaryColor100,
+            outline: theme.design.colors.waz_primaryColor100,
+            "&:hover": {
+                borderColor: theme.design.colors.waz_primaryColor100,
+                outline: theme.design.colors.waz_primaryColor100
+            },
+        },
     },
 }); });

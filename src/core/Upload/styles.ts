@@ -7,7 +7,7 @@ export const uploadStyles = makeStyles((theme: Theme) => ({
     minwidth: "384px",
     borderRadius: theme.spacing(0.5),
     border: `2px solid ${theme.design.colors.grey4}`,
-    color: theme.design.colors.grey2,
+    color: theme.design.colors.waz_greyColor300,
     fontWeight: "bold",
     padding: theme.spacing(2, 3),
   },
@@ -15,11 +15,11 @@ export const uploadStyles = makeStyles((theme: Theme) => ({
     borderRadius: "10px",
     padding: theme.spacing(2, 1),
     textAlign: "center",
-    color: theme.design.colors.grey2,
+    color: theme.design.colors.waz_greyColor300,
     margin: theme.spacing(3, 0),
     border: `2px dashed ${theme.design.colors.grey4}`,
     "&:hover": {
-      border: `2px dashed ${theme.design.colors.red70}`,
+      border: `2px dashed ${theme.design.colors.waz_dangerColor300}`,
     },
   },
   uploadlogo: {
@@ -27,7 +27,7 @@ export const uploadStyles = makeStyles((theme: Theme) => ({
     color: theme.design.colors.grey3,
   },
   upload: {
-    color: theme.design.colors.red70,
+    color: theme.design.colors.waz_dangerColor300,
     fontWeight: "bold",
   },
   text: {
@@ -41,9 +41,9 @@ export const uploadStyles = makeStyles((theme: Theme) => ({
   },
   innerbox: {
     width: ({ width }: any) => width,
-    backgroundColor: theme.design.colors.red70,
+    backgroundColor: theme.design.colors.waz_dangerColor300,
     borderRadius: "10px",
-    color: theme.design.colors.white,
+    color: theme.design.colors.waz_white,
     padding: theme.spacing(2, 1),
     textAlign: "center",
   },

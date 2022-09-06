@@ -1,4 +1,4 @@
-import makeStyles from '@mui/styles/makeStyles';
+import makeStyles from "@mui/styles/makeStyles";
 export var useSchedulerStyles = makeStyles(function (theme) { return ({
     root: {
         display: "flex",
@@ -6,30 +6,52 @@ export var useSchedulerStyles = makeStyles(function (theme) { return ({
         width: "100%",
         marginBottom: theme.spacing(2),
     },
-    label: {
-        marginBottom: theme.spacing(1),
-        fontSize: "1rem",
-    },
     button: {
-        width: "fit-content",
-        background: theme.design.colors.red70,
-        borderColor: theme.design.colors.white,
-        padding: theme.spacing(2),
-        marginTop: theme.spacing(2),
         display: "flex",
         alignItems: "center",
-        justifyContent: "center",
-        fontSize: theme.typography.fontSize + 1,
-        borderRadius: "8px",
-        color: " #ADADAD",
+        margin: theme.spacing(2, 0, 0, 0),
         cursor: "pointer",
     },
     buttonText: {
         margin: "0",
-        color: theme.design.colors.white,
+        fontSize: theme.typography.fontSize + 4,
+        fontWeight: theme.typography.fontWeightMedium,
+        color: theme.design.colors.waz_primaryColor100,
+        display: "flex",
+        alignItems: "center",
     },
     addIcon: {
-        color: theme.design.colors.white,
-        marginRight: theme.spacing(1),
+        marginRight: theme.spacing(1.5),
+    },
+    schedulerContainer: {
+        display: "flex",
+        alignItems: "center",
+        gap: theme.spacing(2.5),
+    },
+    verticalContainer: {
+        display: "flex",
+        alignItems: "flex-start",
+        flexDirection: "column",
+        gap: theme.spacing(2),
+        marginBottom: theme.spacing(2),
+        "& div": {
+            width: "100%"
+        }
+    },
+    timeContainer: {
+        display: "flex",
+        justifyContent: "space-between",
+        alignItems: "center",
+    },
+    timeDivider: {
+        margin: theme.spacing(0, 1),
+    },
+    closeIcon: {
+        color: theme.design.colors.waz_grey5,
+        marginLeft: theme.spacing(1.5),
+        cursor: "pointer",
+    },
+    hidden: {
+        display: "none",
     },
 }); });

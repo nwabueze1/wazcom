@@ -32,7 +32,7 @@ export var useGalleryStyles = makeStyles(function (theme) { return ({
     },
     itemHoverText: {
         marginTop: "75%",
-        color: theme.design.colors.white,
+        color: theme.design.colors.waz_white,
         textAlign: "center",
         fontSize: "24px",
         fontWeight: "bold",
@@ -61,6 +61,6 @@ export var useGalleryStyles = makeStyles(function (theme) { return ({
     itemCheckedActive: {
         zIndex: 10,
         opacity: 1,
-        border: "4px solid ".concat(theme.design.colors.red),
+        border: "4px solid ".concat(theme.design.colors.waz_dangerColor),
     },
 }); });

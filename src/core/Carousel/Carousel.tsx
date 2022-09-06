@@ -14,7 +14,7 @@ import { CarouselProps } from "./types";
 
 const AutoPlaySwipeableViews = autoPlay(SwipeableViews);
 
-export const Carousel: FC<CarouselProps> = ({ items }) => {
+export const Carousel: FC<CarouselProps> = ({ className, items }) => {
   const theme = useTheme();
   const [activeStep, setActiveStep] = React.useState(0);
   const maxSteps = items.length;
@@ -32,7 +32,7 @@ export const Carousel: FC<CarouselProps> = ({ items }) => {
   };
 
   return (
-    <Box sx={{ maxWidth: 400, flexGrow: 1 }}>
+    <Box sx={{ maxWidth: 400, flexGrow: 1 }} className={className}>
       <Paper
         square
         elevation={0}
@@ -52,7 +52,7 @@ export const Carousel: FC<CarouselProps> = ({ items }) => {
         onChangeIndex={handleStepChange}
         enableMouseEvents
       >
-        {items.map(({ image:{ src, alt }, label }, index) => (
+        {items.map(({ image: { src, alt }, label }, index) => (
           <div key={index}>
             {Math.abs(activeStep - index) <= 2 ? (
               <Box

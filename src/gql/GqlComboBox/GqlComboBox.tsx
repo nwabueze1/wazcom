@@ -9,17 +9,17 @@ export const GqlComboBox: FC<GqlComboBoxProps> = memo(
   ({
     value: initialValue,
     config: { client, key, labelKey, valueKey, name: query },
+    postFetchHook,
     addOption,
     onChange,
     variables,
+    classNames,
     ...props
   }) => {
     const classes = useGqlComboBoxStyles();
     const [options, setOptions] = useState<ComboBoxInputOptionProps[]>([]);
     const [fetching, setFetching] = useState<boolean>(true);
-    const [value, setValue] = useState(
-      initialValue,
-    );
+    const [value, setValue] = useState(initialValue);
 
     useEffect(() => {
       setValue(initialValue);
@@ -31,7 +31,7 @@ export const GqlComboBox: FC<GqlComboBoxProps> = memo(
         fetchPolicy: "network-only",
         variables,
       });
-    }
+    };
 
     useEffect(() => {
       const getData = async () => {
@@ -42,22 +42,28 @@ export const GqlComboBox: FC<GqlComboBoxProps> = memo(
             label: option[labelKey],
             value: option[valueKey],
           }));
+          postFetchHook?.(formattedOptions);
           setOptions(formattedOptions);
         }
         setFetching(false);
-      }
+      };
       getData();
     }, []);
 
     const handleChange = useCallback(
       async (selectedValue: string) => {
         let label = options?.find(
-          (option) => option.value.toLowerCase() === selectedValue.toLowerCase(),
+          (option) =>
+            option.value.toLowerCase() === selectedValue.toLowerCase(),
         )?.label;
         let value = selectedValue;
         if (!label) {
           setFetching(true);
-          const response = await handleAdd(selectedValue.startsWith('Add ') ? selectedValue.split('Add ')[1] : selectedValue);
+          const response = await handleAdd(
+            selectedValue.startsWith("Add ")
+              ? selectedValue.split("Add ")[1]
+              : selectedValue,
+          );
           label = response?.label as string;
           value = response?.value as string;
         }
@@ -77,6 +83,7 @@ export const GqlComboBox: FC<GqlComboBoxProps> = memo(
           const newOptions = [...options];
           newOptions.push({ label, value });
           setOptions(newOptions);
+          postFetchHook?.(newOptions);
           return { label, value };
         }
         return;
@@ -93,16 +100,15 @@ export const GqlComboBox: FC<GqlComboBoxProps> = memo(
     }
 
     return (
-      <div className={classes.root}>
-        <ComboBoxInput
-          options={options}
-          value={value ?? ""}
-          onChange={({ value }) => {
-            handleChange(value);
-          }}
-          {...props}
-        />
-      </div>
+      <ComboBoxInput
+        options={options}
+        value={value ?? ""}
+        onChange={({ value }) => {
+          handleChange(value);
+        }}
+        classNames={{ ...classNames, comboBoxInput: classNames?.gqlComboBox }}
+        {...props}
+      />
     );
   },
 );

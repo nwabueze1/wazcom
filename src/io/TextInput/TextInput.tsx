@@ -1,46 +1,52 @@
-import { FC } from "react";
+import React, { FC } from "react";
 import { TextInputProps } from "./types";
-import { OutlinedInput, InputLabel } from "@mui/material";
+import { TextField, InputLabel } from "@mui/material";
 import { useTextStyles } from "./styles";
-import Typography from "@mui/material/Typography";
-import clx from 'classnames';
+import clx from "classnames";
+import { displayFeedback } from "../../helpers/io";
 
 export const TextInput: FC<TextInputProps> = ({
+  className,
+  classNames,
   label,
+  variant,
+  onChange,
   feedback,
+  helperText,
   ...props
 }) => {
   const classes = useTextStyles();
 
-  const getFeedbackVariant = () => {
-    let feedbackVariant;
-
-    switch (feedback.status) {
-      case "success":
-        feedbackVariant = classes.feedbackSuccess;
-        break;
-      case "error":
-        feedbackVariant = classes.feedbackError;
-        break;
-      case "neutral":
-        feedbackVariant = classes.feedbackNeutral;
-        break;
-      default:
-        feedbackVariant = classes.feedbackNeutral;
-    }
-
-    return feedbackVariant;
-  }
+  const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+    onChange?.({ name: props.name ?? "", value: e.target.value });
+  };
 
   return (
-    <div className={classes.root}>
+    <div className={clx(className, classes.root)}>
       {label && (
-        <InputLabel className={classes.label} htmlFor={props.name}>
-          {label}
+        <InputLabel
+          className={classNames?.label ? (classNames?.label as string) : ""}
+          htmlFor={props.name}
+        >
+          {label}{" "}
+          <p className={classes.required}>{props.required ? " *" : ""}</p>
         </InputLabel>
       )}
-      <OutlinedInput {...props} />
-      {feedback && <Typography className={clx(classes.feedback, getFeedbackVariant())}>{feedback.text}</Typography>}
+      <TextField
+        {...props}
+        variant={variant ?? "outlined"}
+        onChange={handleChange}
+        className={
+          classNames?.textInput ? (classNames.textInput as string) : ""
+        }
+        classes={
+          classNames?.classes
+            ? (classNames.classes as { [key: string]: string })
+            : {}
+        }
+      />
+      {helperText}
+      {feedback && displayFeedback(feedback)}
     </div>
   );
 };

@@ -1,9 +1,8 @@
 import { CommonProps } from "../../types";
-import { OutlinedInputProps } from "@mui/material";
+import { TextFieldProps } from "@mui/material";
 
-export type TextInputProps = CommonProps & OutlinedInputProps & {
-    feedback?: {
-        text: string;
-        status?: "success" | "neutral" | "error"
-    }
-} & any;
+export type TextInputProps = CommonProps &
+  Omit<TextFieldProps, 'onChange'> & {
+    variant?: "filled" | "outlined" | "standard";
+    icon?: JSX.Element;
+  };
