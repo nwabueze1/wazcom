@@ -62,5 +62,5 @@ var CustomCss = withStyles(function (theme) { return ({
 export var TimeSelector = function (_a) {
     var onChange = _a.onChange, name = _a.name, value = _a.value;
     var classes = useStyles();
-    return (_jsxs(React.Fragment, { children: [_jsx(CustomCss, {}, void 0), _jsx(TextField, { id: "time", type: "time", value: value, onChange: onChange, name: name, className: classes.textField, InputProps: { classes: { root: classes.inputRoot } } }, void 0)] }, void 0));
+    return (_jsxs(React.Fragment, { children: [_jsx(CustomCss, {}), _jsx(TextField, { id: "time", type: "time", value: value, onChange: onChange, name: name, className: classes.textField, InputProps: { classes: { root: classes.inputRoot } } })] }));
 };

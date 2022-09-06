@@ -95,7 +95,7 @@ export var RichTextInput = function (_a) {
         var _a;
         setImage(__assign(__assign({}, image), (_a = {}, _a[name] = value, _a)));
     };
-    return (_jsxs("div", __assign({ className: clx(className, classes.root) }, { children: [label && (_jsxs(InputLabel, __assign({ className: (_b = classNames === null || classNames === void 0 ? void 0 : classNames.label) !== null && _b !== void 0 ? _b : "", htmlFor: name }, { children: [label, " ", _jsx("p", __assign({ className: classes.required }, { children: props.required ? " *" : "" }), void 0)] }), void 0)), _jsxs("div", __assign({ className: clx(classNames === null || classNames === void 0 ? void 0 : classNames.richTextInput, classes.editor, error && classes.editorError) }, { children: [_jsx(Editor, { value: value, apiKey: apiKey, onInit: function (event, editor) {
+    return (_jsxs("div", __assign({ className: clx(className, classes.root) }, { children: [label && (_jsxs(InputLabel, __assign({ className: (_b = classNames === null || classNames === void 0 ? void 0 : classNames.label) !== null && _b !== void 0 ? _b : "", htmlFor: name }, { children: [label, " ", _jsx("p", __assign({ className: classes.required }, { children: props.required ? " *" : "" }))] }))), _jsxs("div", __assign({ className: clx(classNames === null || classNames === void 0 ? void 0 : classNames.richTextInput, classes.editor, error && classes.editorError) }, { children: [_jsx(Editor, { value: value, apiKey: apiKey, onInit: function (event, editor) {
                             (editorRef.current = editor), event;
                         }, init: {
                             height: 500,
@@ -112,6 +112,6 @@ export var RichTextInput = function (_a) {
                             },
                             plugins: plugins,
                             toolbar: toolbar,
-                        }, onEditorChange: handleContentChange }, void 0), client &&
-                        _jsx(EditorMediaLibrary, { mediaOpen: mediaOpen, handleClose: handleMediaLibraryClose, handleSelect: handleSelectImage, name: name, client: client }, void 0)] }), void 0), image.url && (_jsx(EditImageDialog, { image: image, handleEditImage: updateImage, handleDialogClose: handleDialogClose, handleInsertImage: insertImage }, void 0)), helperText, feedback && displayFeedback(feedback), Loader] }), void 0));
+                        }, onEditorChange: handleContentChange }), client &&
+                        _jsx(EditorMediaLibrary, { mediaOpen: mediaOpen, handleClose: handleMediaLibraryClose, handleSelect: handleSelectImage, name: name, client: client })] })), image.url && (_jsx(EditImageDialog, { image: image, handleEditImage: updateImage, handleDialogClose: handleDialogClose, handleInsertImage: insertImage })), helperText, feedback && displayFeedback(feedback), Loader] })));
 };
