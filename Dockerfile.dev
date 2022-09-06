@@ -1,8 +1,4 @@
-<<<<<<< HEAD
-FROM node:14.17.6 as builder
-=======
 FROM node:14.18.0
->>>>>>> 9f3590eab252df59df91770ef4bb237cda024bec
 
 WORKDIR /app
 
@@ -14,11 +10,6 @@ RUN yarn install
 
 COPY . .
 
-<<<<<<< HEAD
-FROM builder
-
-=======
->>>>>>> 9f3590eab252df59df91770ef4bb237cda024bec
 EXPOSE 3000
 
 CMD ["yarn", "start"]

@@ -15,66 +15,6 @@ import { SidebarListItem } from "./SidebarListItem/SidebarListItem";
 import { drawerWidth, useBrowserStyles } from "./styles";
 import { BrowserProps } from "./types";
 
-const sections = [
-  {
-    label: "Base",
-    components: [
-      {
-        id: "accordion",
-        label: "Accordion",
-      },
-      {
-        id: "breadcrumb",
-        label: "Breadcrumb",
-      },
-      {
-        id: "button",
-        label: "Button",
-      },
-      {
-        id: "accordion",
-        label: "Accordion",
-      },
-      {
-        id: "breadcrumb",
-        label: "Breadcrumb",
-      },
-      {
-        id: "button",
-        label: "Button",
-      },
-      {
-        id: "accordion",
-        label: "Accordion",
-      },
-      {
-        id: "breadcrumb",
-        label: "Breadcrumb",
-      },
-      {
-        id: "button",
-        label: "Button",
-      },
-      {
-        id: "accordion",
-        label: "Accordion",
-      },
-      {
-        id: "breadcrumb",
-        label: "Breadcrumb",
-      },
-      {
-        id: "button",
-        label: "Button",
-      },
-      {
-        id: "phone",
-        label: "PhoneNumberInput",
-      },
-    ],
-  },
-];
-
 export const Browser: FC<BrowserProps> = () => {
   const classes = useBrowserStyles();
   const [search, setSearch] = useState("");
@@ -142,8 +82,8 @@ export const Browser: FC<BrowserProps> = () => {
             aName.toLowerCase() < bName.toLowerCase()
               ? -1
               : aName.toLowerCase() > bName.toLowerCase()
-              ? 1
-              : 0
+                ? 1
+                : 0
           )
           .filter(({ name }) => name.toLowerCase().includes(search))
           .map(({ name, component: Comp, props }, index) => (
