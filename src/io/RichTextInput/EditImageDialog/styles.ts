@@ -4,7 +4,7 @@ import { Theme } from "@mui/material/styles";
 export const useEditImageDialogStyles = makeStyles((theme: Theme) => ({
   editMediaModal: {
     backgroundColor: theme.design.colors.waz_white,
-    width: "30%",
+    width: "33%",
     height: "67%",
     margin: theme.spacing(0, "auto"),
     borderRadius: "6px",

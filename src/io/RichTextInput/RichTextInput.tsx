@@ -42,8 +42,8 @@ export const RichTextInput: React.FC<RichTextInputProps> = ({
   const [image, setImage] = useState<ImageProperties>({
     url: "",
     title: "",
-    width: {desktop: "100", tablet: "100", mobile: "100"},
-    height: {desktop: "100", tablet: "100", mobile: "100"},
+    width: { desktop: "100", tablet: "100", mobile: "100" },
+    height: { desktop: "100", tablet: "100", mobile: "100" },
   });
 
   const editorRef = useRef<Editor | any>();
@@ -77,13 +77,14 @@ export const RichTextInput: React.FC<RichTextInputProps> = ({
     setImage({
       url: "",
       title: "",
-      width:  {desktop: "100", tablet: "100", mobile: "100"},
-      height: {desktop: "100", tablet: "100", mobile: "100"},
+      width: { desktop: "100", tablet: "100", mobile: "100" },
+      height: { desktop: "100", tablet: "100", mobile: "100" },
     });
   };
 
   const updateImage = (name: string, value: string, device?: string) => {
-    if(device && (name == "width" || name == "height")) setImage({ ...image, [name]: {...image[name], [device]: value} });
+    if (device && (name == "width" || name == "height"))
+      setImage({ ...image, [name]: { ...image[name], [device]: value } });
     else setImage({ ...image, [name]: value });
   };
 
@@ -105,7 +106,6 @@ export const RichTextInput: React.FC<RichTextInputProps> = ({
           error && classes.editorError
         )}
       >
-        {/* @ts-ignore*/}
         <Editor
           value={value}
           apiKey={apiKey}
@@ -130,16 +130,15 @@ export const RichTextInput: React.FC<RichTextInputProps> = ({
           }}
           onEditorChange={handleContentChange}
         />
-        {
-          client &&
+        {client && (
           <EditorMediaLibrary
-          mediaOpen={mediaOpen}
-          handleClose={handleMediaLibraryClose}
-          handleSelect={handleSelectImage}
-          name={name}
-          client={client}
-        />
-        }
+            mediaOpen={mediaOpen}
+            handleClose={handleMediaLibraryClose}
+            handleSelect={handleSelectImage}
+            name={name}
+            client={client}
+          />
+        )}
       </div>
       {image.url && (
         <EditImageDialog

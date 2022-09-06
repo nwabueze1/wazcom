@@ -14,11 +14,7 @@ export type RichTextInputProps = CommonProps & {
   error?: boolean;
 };
 
-export type SizeFields = {
-  desktop: string,
-  tablet: string,
-  mobile: string
-}
+export type SizeFields = { [key in "desktop" | "tablet" | "mobile"]: string };
 
 export type ImageProperties = {
   url: string,
