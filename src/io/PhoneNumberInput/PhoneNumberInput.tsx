@@ -4,16 +4,16 @@ import "react-phone-input-2/lib/style.css";
 import { usePhoneNumberInputStyles } from "./styles";
 import { PhoneNumberInputProps } from "./types";
 
-export const PhoneNumberInput: FC<PhoneNumberInputProps> = ({ containerClass, dropdownClass, inputClass, ...props }) => {
+export const PhoneNumberInput: FC<PhoneNumberInputProps> = ({classNames, ...props}) => {
     const classes = usePhoneNumberInputStyles();
 
     return (
         <div className={classes.root}>
             <PhoneNumber
                 {...props}
-                inputClass={`${classes.textInput} ${inputClass}`}
-                dropdownClass={`${classes.dropDown} ${dropdownClass}`}
-                containerClass={`${classes.root} ${containerClass}`}
+                inputClass={`${classes.textInput} ${classNames.inputClass}`}
+                dropdownClass={`${classes.dropDown} ${classNames.dropdownClass}`}
+                containerClass={`${classes.root} ${classNames.containerClass}`}
             />
         </div>
     );
