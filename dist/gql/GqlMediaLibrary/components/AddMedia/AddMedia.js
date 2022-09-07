@@ -19,5 +19,5 @@ export var AddMedia = function (_a) {
     var classes = useAddMediaStyles();
     var handleOpen = function () { return handleCloseMedia(true); };
     var handleClose = function () { return handleCloseMedia(false); };
-    return (_jsxs("div", { children: [!viewOnly && (_jsx(Button, __assign({ color: "primary", onClick: handleOpen }, { children: "Add New" }), void 0)), _jsx(Modal, __assign({ className: classes.modalBox, open: handleOpenMedia, onClose: handleClose }, { children: _jsx(UploadDialogue, { handleCloseMedia: handleCloseMedia, handleFilesSelection: handleFilesSelection }, void 0) }), void 0)] }, void 0));
+    return (_jsxs("div", { children: [!viewOnly && (_jsx(Button, __assign({ color: "primary", onClick: handleOpen }, { children: "Add New" }))), _jsx(Modal, __assign({ className: classes.modalBox, open: handleOpenMedia, onClose: handleClose }, { children: _jsx(UploadDialogue, { handleCloseMedia: handleCloseMedia, handleFilesSelection: handleFilesSelection }) }))] }));
 };

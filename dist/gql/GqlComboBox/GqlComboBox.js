@@ -181,10 +181,10 @@ export var GqlComboBox = memo(function (_a) {
         });
     }); }, [options]);
     if (fetching) {
-        return (_jsx("div", __assign({ className: classes.loader }, { children: _jsx(CircularProgress, { size: 14, color: "inherit" }, void 0) }), void 0));
+        return (_jsx("div", __assign({ className: classes.loader }, { children: _jsx(CircularProgress, { size: 14, color: "inherit" }) })));
     }
     return (_jsx(ComboBoxInput, __assign({ options: options, value: value !== null && value !== void 0 ? value : "", onChange: function (_a) {
             var value = _a.value;
             handleChange(value);
-        }, classNames: __assign(__assign({}, classNames), { comboBoxInput: classNames === null || classNames === void 0 ? void 0 : classNames.gqlComboBox }) }, props), void 0));
+        }, classNames: __assign(__assign({}, classNames), { comboBoxInput: classNames === null || classNames === void 0 ? void 0 : classNames.gqlComboBox }) }, props)));
 });

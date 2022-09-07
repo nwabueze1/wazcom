@@ -4,16 +4,21 @@ export declare type RichTextInputProps = CommonProps & {
     label?: string;
     apiKey: string;
     value: string;
-    apolloClient: ApolloClient<NormalizedCacheObject>;
+    client?: ApolloClient<NormalizedCacheObject>;
     upload?: (tinyCallback: (location: string, data: {
         [key: string]: string;
     }) => void, setLoadState: (loading: boolean) => void) => void;
     Loader?: JSX.Element;
     error?: boolean;
 };
+export declare type SizeFields = {
+    desktop: string;
+    tablet: string;
+    mobile: string;
+};
 export declare type ImageProperties = {
     url: string;
-    width: string;
-    height: string;
+    width: SizeFields;
+    height: SizeFields;
     title: string;
 };

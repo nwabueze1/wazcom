@@ -5,7 +5,7 @@ export type RichTextInputProps = CommonProps & {
   label?: string;
   apiKey: string;
   value: string;
-  apolloClient: ApolloClient<NormalizedCacheObject>;
+  client?: ApolloClient<NormalizedCacheObject>;
   upload?: (
     tinyCallback: (location: string, data: { [key: string]: string }) => void,
     setLoadState: (loading: boolean) => void,
@@ -14,9 +14,11 @@ export type RichTextInputProps = CommonProps & {
   error?: boolean;
 };
 
+export type SizeFields = { [key in "desktop" | "tablet" | "mobile"]: string };
+
 export type ImageProperties = {
   url: string,
-  width: string,
-  height: string,
+  width: SizeFields,
+  height: SizeFields,
   title: string
 }

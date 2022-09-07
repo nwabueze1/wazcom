@@ -38,11 +38,11 @@ export var DayPicker = function (_a) {
     return (_jsx(TextField, { id: "time", type: type, onChange: onChange, defaultValue: defaultValue, name: name, InputProps: {
             classes: { root: classes.textInput },
             endAdornment: (type == "text" ?
-                _jsx(InputAdornment, __assign({ position: "end" }, { children: _jsx(BiCalendarAlt, { className: classes.icon }, void 0) }), void 0)
+                _jsx(InputAdornment, __assign({ position: "end" }, { children: _jsx(BiCalendarAlt, { className: classes.icon }) }))
                 :
                     null),
         }, onFocus: function () {
             setType("date");
             setDefaultValue(value);
-        } }, void 0));
+        } }));
 };

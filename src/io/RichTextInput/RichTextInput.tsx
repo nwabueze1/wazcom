@@ -33,7 +33,7 @@ export const RichTextInput: React.FC<RichTextInputProps> = ({
   error,
   feedback,
   Loader,
-  apolloClient,
+  client,
   ...props
 }) => {
   const classes = useRichInputStyles();
@@ -41,9 +41,9 @@ export const RichTextInput: React.FC<RichTextInputProps> = ({
   const [mediaOpen, setMediaOpen] = useState<boolean>(false);
   const [image, setImage] = useState<ImageProperties>({
     url: "",
-    width: "100",
-    height: "100",
     title: "",
+    width: { desktop: "100", tablet: "100", mobile: "100" },
+    height: { desktop: "100", tablet: "100", mobile: "100" },
   });
 
   const editorRef = useRef<Editor | any>();
@@ -68,18 +68,24 @@ export const RichTextInput: React.FC<RichTextInputProps> = ({
   const insertImage = () => {
     if (image.url)
       editorRef.current.insertContent(
-        `<img src=${image?.url} width=${image?.width} height=${image?.height} />`
+        `<picture>
+        <source media="(min-width: 654px)" srcset=${image?.url} width=${image?.width["tablet"]} height=${image?.height["tablet"]} />
+        <source media="(min-width: 354px)" srcset=${image?.url} width=${image?.width["mobile"]} height=${image?.height["mobile"]} />
+        <img src=${image?.url} width=${image?.width["desktop"]} height=${image?.height["desktop"]} />
+        </picture>`
       );
     setImage({
       url: "",
       title: "",
-      width: "100",
-      height: "100",
+      width: { desktop: "100", tablet: "100", mobile: "100" },
+      height: { desktop: "100", tablet: "100", mobile: "100" },
     });
   };
 
-  const updateImage = (name: string, value: string) => {
-    setImage({ ...image, [name]: value });
+  const updateImage = (name: string, value: string, device?: string) => {
+    if (device && (name == "width" || name == "height"))
+      setImage({ ...image, [name]: { ...image[name], [device]: value } });
+    else setImage({ ...image, [name]: value });
   };
 
   return (
@@ -124,13 +130,15 @@ export const RichTextInput: React.FC<RichTextInputProps> = ({
           }}
           onEditorChange={handleContentChange}
         />
-        <EditorMediaLibrary
-          mediaOpen={mediaOpen}
-          handleClose={handleMediaLibraryClose}
-          handleSelect={handleSelectImage}
-          name={name}
-          apolloClient={apolloClient}
-        />
+        {client && (
+          <EditorMediaLibrary
+            mediaOpen={mediaOpen}
+            handleClose={handleMediaLibraryClose}
+            handleSelect={handleSelectImage}
+            name={name}
+            client={client}
+          />
+        )}
       </div>
       {image.url && (
         <EditImageDialog
