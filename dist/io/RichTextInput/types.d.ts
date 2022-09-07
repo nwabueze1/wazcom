@@ -12,9 +12,7 @@ export declare type RichTextInputProps = CommonProps & {
     error?: boolean;
 };
 export declare type SizeFields = {
-    desktop: string;
-    tablet: string;
-    mobile: string;
+    [key in "desktop" | "tablet" | "mobile"]: string;
 };
 export declare type ImageProperties = {
     url: string;

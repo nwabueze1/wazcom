@@ -1,7 +1,5 @@
 import { CoreCartFields } from "templates/restaurant/types/CoreCartFields";
 import { CoreCartItemFields } from "templates/restaurant/types/CoreCartItemFields";
-import { CoreMenuFields } from "templates/restaurant/types/CoreMenuFields";
-import { CoreMenuItemFields } from "templates/restaurant/types/CoreMenuItemFields";
 
 export const changeQuantity = (
   add: boolean,

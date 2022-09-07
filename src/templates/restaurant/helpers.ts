@@ -47,7 +47,6 @@ export const findMenuItem = (menus: CoreMenuFields[], itemId: number) => {
     newMenuItems = [...newMenuItems, ...items];
   });
   menuItems = newMenuItems;
-  console.log(menuItems);
   return menuItems.find(
     (item: any) => item.id.toString() === itemId.toString()
   );

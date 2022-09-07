@@ -30,5 +30,5 @@ export var Button = function (_a) {
     return (_jsxs("div", __assign({ className: classes.root }, { children: [_jsx(MuiButton, __assign({ classes: {
                     root: clx(classes.button, className),
                     sizeLarge: classes.sizeLarge,
-                }, variant: variant }, props)), loading && (_jsx("div", __assign({ className: classes.loader }, { children: _jsx(CircularProgress, { color: "inherit", size: 12 }) })))] })));
+                }, variant: variant }, props), void 0), loading && (_jsx("div", __assign({ className: classes.loader }, { children: _jsx(CircularProgress, { color: "inherit", size: 12 }, void 0) }), void 0))] }), void 0));
 };

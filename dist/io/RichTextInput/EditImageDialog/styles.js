@@ -4,7 +4,7 @@ export var useEditImageDialogStyles = makeStyles(function (theme) {
     return ({
         editMediaModal: (_a = {
                 backgroundColor: theme.design.colors.waz_white,
-                width: "30%",
+                width: "33%",
                 height: "67%",
                 margin: theme.spacing(0, "auto"),
                 borderRadius: "6px",
