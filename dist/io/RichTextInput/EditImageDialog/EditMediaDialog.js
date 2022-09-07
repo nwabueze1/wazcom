@@ -9,15 +9,20 @@ var __assign = (this && this.__assign) || function () {
     };
     return __assign.apply(this, arguments);
 };
-import { jsx as _jsx, jsxs as _jsxs } from "react/jsx-runtime";
+import { jsx as _jsx, Fragment as _Fragment, jsxs as _jsxs } from "react/jsx-runtime";
 import { Modal, TextField, Button } from "@mui/material";
 import { useEditImageDialogStyles } from "./styles";
+import { desktopFields, tabletFields, mobileFields } from "./data";
 export var EditImageDialog = function (_a) {
     var image = _a.image, handleEditImage = _a.handleEditImage, handleDialogClose = _a.handleDialogClose, handleInsertImage = _a.handleInsertImage;
     var classes = useEditImageDialogStyles();
-    return (_jsx(Modal, __assign({ open: true }, { children: _jsxs("div", __assign({ className: classes.editMediaModal }, { children: [_jsx("p", __assign({ className: classes.editImageHeader }, { children: "Edit Image" })), _jsxs("div", __assign({ className: classes.inputContainer }, { children: [_jsx(TextField, { label: "Title", variant: "outlined", size: "small", className: classes.editMediaInput, value: image.title, type: "text", placeholder: "Image Title", onChange: function (event) { return handleEditImage("title", event.target.value); } }), _jsx(TextField, { label: "Url", variant: "outlined", size: "small", className: classes.editMediaInput, value: image.url, type: "text", placeholder: "Image URL", onChange: function (event) { return handleEditImage("url", event.target.value); } }), _jsxs("div", __assign({ className: classes.editMediaSizeContainer }, { children: [_jsx(TextField, { label: "Width", variant: "outlined", size: "small", className: classes.editMediaSizeInput, value: image.width, type: "number", placeholder: "Image Width", onChange: function (event) {
-                                        return handleEditImage("width", event.target.value);
-                                    } }), _jsx(TextField, { label: "Height", variant: "outlined", size: "small", className: classes.editMediaSizeInput, value: image.height, type: "number", placeholder: "Image Height", onChange: function (event) {
-                                        return handleEditImage("height", event.target.value);
-                                    } })] }))] })), _jsxs("div", __assign({ className: classes.editButtonContainer }, { children: [_jsx(Button, __assign({ onClick: handleDialogClose, className: classes.editMediaCancelBtn }, { children: "Cancel" })), _jsx(Button, __assign({ onClick: handleInsertImage, className: classes.editMediaSubmitBtn }, { children: "Submit" }))] }))] })) })));
+    var renderFields = function (image, handleEditImage, fields) {
+        return fields.map(function (_a) {
+            var placeholder = _a.placeholder, device = _a.device, label = _a.label;
+            return (_jsx(_Fragment, { children: _jsx(TextField, { label: label, variant: "outlined", size: "small", className: classes.editMediaSizeInput, value: image[label][device], type: "number", placeholder: placeholder, onChange: function (event) {
+                        return handleEditImage(label, event.target.value, device);
+                    } }) }));
+        });
+    };
+    return (_jsx(Modal, __assign({ open: true }, { children: _jsxs("div", __assign({ className: classes.editMediaModal }, { children: [_jsx("p", __assign({ className: classes.editImageHeader }, { children: "Edit Image" })), _jsxs("div", __assign({ className: classes.inputContainer }, { children: [_jsx(TextField, { label: "Title", variant: "outlined", size: "small", className: classes.editMediaInput, value: image.title, type: "text", placeholder: "Image Title", onChange: function (event) { return handleEditImage("title", event.target.value); } }), _jsx(TextField, { label: "Url", variant: "outlined", size: "small", className: classes.editMediaInput, value: image.url, type: "text", placeholder: "Image URL", onChange: function (event) { return handleEditImage("url", event.target.value); } }), _jsx("p", __assign({ className: classes.deviceHeader }, { children: "Desktop" })), _jsx("div", __assign({ className: classes.editMediaSizeContainer }, { children: renderFields(image, handleEditImage, desktopFields) })), _jsx("p", __assign({ className: classes.deviceHeader }, { children: "Tablet" })), _jsx("div", __assign({ className: classes.editMediaSizeContainer }, { children: renderFields(image, handleEditImage, tabletFields) })), _jsx("p", __assign({ className: classes.deviceHeader }, { children: "Mobile" })), _jsx("div", __assign({ className: classes.editMediaSizeContainer }, { children: renderFields(image, handleEditImage, mobileFields) }))] })), _jsxs("div", __assign({ className: classes.editButtonContainer }, { children: [_jsx(Button, __assign({ onClick: handleDialogClose, className: classes.editMediaCancelBtn }, { children: "Cancel" })), _jsx(Button, __assign({ onClick: handleInsertImage, className: classes.editMediaSubmitBtn }, { children: "Submit" }))] }))] })) })));
 };
