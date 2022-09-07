@@ -3,8 +3,8 @@ import clx from "classnames";
 import { RelatedPostNoval } from "./RelatedPost/RelatedPost";
 import { shareDataNoval } from "./data";
 import { getDay } from "../../../../utilities/getTime";
-import { CoreArticleTemplateFields } from "..";
-import { useNovalStyles } from ".";
+import { CoreArticleTemplateFields } from "../types";
+import { useNovalStyles } from "./styles";
 import { Footer } from "../common/Footer";
 
 export const Noval: FC<CoreArticleTemplateFields> = ({

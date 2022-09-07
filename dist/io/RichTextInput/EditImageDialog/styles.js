@@ -4,8 +4,8 @@ export var useEditImageDialogStyles = makeStyles(function (theme) {
     return ({
         editMediaModal: (_a = {
                 backgroundColor: theme.design.colors.waz_white,
-                width: "20%",
-                height: "32%",
+                width: "33%",
+                height: "67%",
                 margin: theme.spacing(0, "auto"),
                 borderRadius: "6px",
                 marginTop: theme.spacing(30),
@@ -13,7 +13,8 @@ export var useEditImageDialogStyles = makeStyles(function (theme) {
                 border: "none"
             },
             _a[theme.breakpoints.down("md")] = {
-                width: "60%"
+                width: "60%",
+                height: "50%",
             },
             _a),
         editMediaInput: {
@@ -71,6 +72,11 @@ export var useEditImageDialogStyles = makeStyles(function (theme) {
         editImageHeader: {
             fontWeight: theme.typography.fontWeightBold,
             fontSize: theme.typography.fontSize + 3,
+        },
+        deviceHeader: {
+            marginTop: theme.spacing(1),
+            marginBottom: theme.spacing(-1),
+            marginLeft: theme.spacing(1)
         }
     });
 });

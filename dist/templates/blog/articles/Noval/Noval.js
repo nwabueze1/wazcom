@@ -31,7 +31,7 @@ import clx from "classnames";
 import { RelatedPostNoval } from "./RelatedPost/RelatedPost";
 import { shareDataNoval } from "./data";
 import { getDay } from "../../../../utilities/getTime";
-import { useNovalStyles } from ".";
+import { useNovalStyles } from "./styles";
 import { Footer } from "../common/Footer";
 export var Noval = function (_a) {
     var _b;
