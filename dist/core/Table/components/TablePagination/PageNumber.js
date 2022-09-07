@@ -18,5 +18,5 @@ export var PageNumber = function (_a) {
     var classes = useTablePaginationStyles();
     return (_jsx("span", __assign({ className: clx(classes.pageNumber, (_b = {},
             _b[classes.activePage] = page == currentPage,
-            _b)), onClick: function () { return onPageChange(null, page); } }, { children: page })));
+            _b)), onClick: function () { return onPageChange(null, page); } }, { children: page }), void 0));
 };

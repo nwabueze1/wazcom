@@ -73,20 +73,20 @@ export var ComboBoxInput = function (_a) {
         return filtered;
     };
     var getValue = useCallback(function () {
-        var _a;
-        var label = (_a = options === null || options === void 0 ? void 0 : options.find(function (option) { return option.value.toLowerCase() === value.toString().toLowerCase(); })) === null || _a === void 0 ? void 0 : _a.label;
+        var _a, _b;
+        var label = (_b = (_a = options) === null || _a === void 0 ? void 0 : _a.find(function (option) { return option.value.toLowerCase() === value.toString().toLowerCase(); })) === null || _b === void 0 ? void 0 : _b.label;
         if (label)
             return { label: label, value: value };
         return { label: "", value: "" };
     }, [options, value]);
-    return (_jsxs("div", __assign({ className: clx(className, classes.root) }, { children: [label && (_jsx(InputLabel, __assign({ className: (_b = classNames === null || classNames === void 0 ? void 0 : classNames.label) !== null && _b !== void 0 ? _b : "", htmlFor: name }, { children: label }))), _jsx(Autocomplete, __assign({}, props, { options: options !== null && options !== void 0 ? options : [], getOptionLabel: function (option) {
+    return (_jsxs("div", __assign({ className: clx(className, classes.root) }, { children: [label && (_jsx(InputLabel, __assign({ className: (_b = classNames === null || classNames === void 0 ? void 0 : classNames.label) !== null && _b !== void 0 ? _b : "", htmlFor: name }, { children: label }), void 0)), _jsx(Autocomplete, __assign({}, props, { options: options !== null && options !== void 0 ? options : [], getOptionLabel: function (option) {
                     var _a;
                     return (typeof option == 'string') ? option : (_a = option === null || option === void 0 ? void 0 : option.label) !== null && _a !== void 0 ? _a : "";
                 }, value: getValue(), onChange: function (_, selectedOption) {
                     handleChange(selectedOption);
                 }, filterOptions: handleFilterOptions, freeSolo: true, renderOption: function (props, option) {
-                    return (_jsx(Box, __assign({ component: "li" }, props, { children: _jsxs("div", __assign({ className: classNames === null || classNames === void 0 ? void 0 : classNames.optionContainer }, { children: [_jsx("p", __assign({ className: classNames === null || classNames === void 0 ? void 0 : classNames.optionLabel }, { children: option === null || option === void 0 ? void 0 : option.label })), option.subText && _jsx("p", __assign({ className: classNames === null || classNames === void 0 ? void 0 : classNames.optionSubText }, { children: option.subText }))] })) })));
-                }, renderInput: function (params) { return (_jsx(TextField, __assign({}, params, { placeholder: placeholder, variant: "outlined", error: error, className: classes.renderInput }))); }, className: (classNames === null || classNames === void 0 ? void 0 : classNames.comboBoxInput) ? classNames.comboBoxInput : "", classes: (classNames === null || classNames === void 0 ? void 0 : classNames.classes)
+                    return (_jsx(Box, __assign({ component: "li" }, props, { children: _jsxs("div", __assign({ className: classNames === null || classNames === void 0 ? void 0 : classNames.optionContainer }, { children: [_jsx("p", __assign({ className: classNames === null || classNames === void 0 ? void 0 : classNames.optionLabel }, { children: option === null || option === void 0 ? void 0 : option.label }), void 0), option.subText && _jsx("p", __assign({ className: classNames === null || classNames === void 0 ? void 0 : classNames.optionSubText }, { children: option.subText }), void 0)] }), void 0) }), void 0));
+                }, renderInput: function (params) { return (_jsx(TextField, __assign({}, params, { placeholder: placeholder, variant: "outlined", error: error, className: classes.renderInput }), void 0)); }, className: (classNames === null || classNames === void 0 ? void 0 : classNames.comboBoxInput) ? classNames.comboBoxInput : "", classes: (classNames === null || classNames === void 0 ? void 0 : classNames.classes)
                     ? classNames.classes
-                    : {} })), helperText, feedback && displayFeedback(feedback)] })));
+                    : {} }), void 0), helperText, feedback && displayFeedback(feedback)] }), void 0));
 };

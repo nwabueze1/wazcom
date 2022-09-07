@@ -17,8 +17,8 @@ export var useScheduleData = function () {
         var data = [];
         scheduleData.forEach(function (schedule, index) {
             var parsedSchedule = {};
-            parsedSchedule["day"] = (_jsx("div", __assign({ className: classNames === null || classNames === void 0 ? void 0 : classNames.dayContainer }, { children: _jsx(DayPicker, { name: "day", value: schedule.day, scheduleData: scheduleData, onChange: function (event) { return handleChange(event, index); } }) })));
-            parsedSchedule["time"] = (_jsx("div", __assign({ className: classNames === null || classNames === void 0 ? void 0 : classNames.timeSection }, { children: _jsx(TimeSelector, { name: "time", value: schedule.time, onChange: function (event) { return handleChange(event, index); } }) })));
+            parsedSchedule["day"] = (_jsx("div", __assign({ className: classNames === null || classNames === void 0 ? void 0 : classNames.dayContainer }, { children: _jsx(DayPicker, { name: "day", value: schedule.day, scheduleData: scheduleData, onChange: function (event) { return handleChange(event, index); } }, void 0) }), void 0));
+            parsedSchedule["time"] = (_jsx("div", __assign({ className: classNames === null || classNames === void 0 ? void 0 : classNames.timeSection }, { children: _jsx(TimeSelector, { name: "time", value: schedule.time, onChange: function (event) { return handleChange(event, index); } }, void 0) }), void 0));
             data.push(parsedSchedule);
         });
         return data;

@@ -31,5 +31,5 @@ export var EditorMediaLibrary = function (_a) {
                         variables: {},
                     },
                     viewOnly: true,
-                }, onChange: function (data) { return handleSelect(data.value); }, name: name, handleClose: handleClose }) })) })));
+                }, onChange: function (data) { return handleSelect(data.value); }, name: name, handleClose: handleClose }, void 0) }), void 0) }), void 0));
 };
