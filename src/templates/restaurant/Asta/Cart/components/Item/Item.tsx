@@ -17,14 +17,9 @@ export const Item: React.FC<CartItemProps> = ({ setCartItems, data }) => {
   const currency = "$";
   const isOpen = true;
   const classes = useStyles({ isOpen });
-  const { name, uuid, image_url, options, status, description, price } =
-    data.menuItem;
+  const { name, uuid, image_url, status, description, price } = data.menuItem;
 
-  const handleChangeQuantity = (
-    uuid: string,
-    method: string,
-    value: number
-  ) => {
+  const handleChangeQuantity = (uuid: string, method: string) => {
     setCartItems((cartItems: CoreCartItemFields[]) => {
       const updatedtCartItems = cartItems.map((cartItem) => {
         if (cartItem.menuItem.uuid === uuid) {
@@ -74,14 +69,14 @@ export const Item: React.FC<CartItemProps> = ({ setCartItems, data }) => {
             <AiOutlineMinusCircle
               className={classes.icon}
               onClick={() => {
-                handleChangeQuantity(uuid, "remove", parseFloat(data.quantity));
+                handleChangeQuantity(uuid, "remove");
               }}
             />
             <p>{data.quantity}</p>
             <IoAddCircleOutline
               className={classes.icon}
               onClick={() => {
-                handleChangeQuantity(uuid, "add", parseFloat(data.quantity));
+                handleChangeQuantity(uuid, "add");
               }}
             />
           </div>

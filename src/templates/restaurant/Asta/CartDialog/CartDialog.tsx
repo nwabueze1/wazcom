@@ -1,10 +1,4 @@
-import React, {
-  useState,
-  useEffect,
-  useCallback,
-  useContext,
-  useRef,
-} from "react";
+import React, { useState, useEffect, useCallback, useRef } from "react";
 import { useStyles } from "./styles";
 import { CartDialogProps, Option } from "./types";
 import { Close } from "@mui/icons-material";
@@ -24,36 +18,38 @@ import {
   getFloatOrIntAmount,
   menuImagePlaceholder,
 } from "utilities/restaurant";
-import { calculateOptionsTotal, findMenuItem } from "templates/restaurant/helpers";
+import {
+  calculateOptionsTotal,
+  findMenuItem,
+} from "templates/restaurant/helpers";
 
 export const CartDialog: React.FC<CartDialogProps> = ({
   display,
   close,
-  reloadCart,
   itemId,
   cartItemId,
-  siteId,
   restaurant,
   cart,
 }) => {
   const classes = useStyles();
   const dialogRef = useRef<HTMLDivElement | null>(null);
-  const site_id = Number(siteId);
   const currency = getCurrency(
     restaurant.restaurant.bank_info?.currency as string
   );
   const [quantity, setQuantity] = useState<number>(1);
   const [menuItem, setCurrentMenuItem] = useState<CoreMenuItemFields>();
   const [selectedOptions, setSelectedOptions] = useState<Option[]>([]);
-  const [loading, setLoading] = useState<boolean>(false);
-  
+
   useEffect(() => {
     const menuItem = findMenuItem(
       restaurant.restaurant.activeMenus as CoreMenuFields[],
       itemId
     );
     setCurrentMenuItem(menuItem);
-    const [quantity, selectedOptions] = parseCartItem(cart as CoreCartFields, cartItemId);
+    const [quantity, selectedOptions] = parseCartItem(
+      cart as CoreCartFields,
+      cartItemId
+    );
     setQuantity(Number(quantity));
     setSelectedOptions(selectedOptions);
   }, [itemId, cartItemId]);
@@ -139,9 +135,7 @@ export const CartDialog: React.FC<CartDialogProps> = ({
         )}
         <div className={classes.actions}>
           <div className={classes.quantityController}>
-            <p className={classes.quantityText}>
-              QTY
-            </p>
+            <p className={classes.quantityText}>QTY</p>
             <div className={classes.dialog__actions}>
               <AiOutlineMinusCircle
                 className={quantity > 1 ? classes.icon : classes.iconInactive}
@@ -162,16 +156,15 @@ export const CartDialog: React.FC<CartDialogProps> = ({
             <div className={classes.dialogOptionBox}>
               <button
                 onClick={() => {
-                  console.log("add to cart");
+                  alert("add to cart");
                 }}
                 className={`${classes.dialogOption} ${classes.dialogOptionFilled}`}
               >
-                {cartItemId ? "Update Order" : "Add to Order"}
-                {" "}
-                <span className={classes.currency}>({currency}
+                {cartItemId ? "Update Order" : "Add to Order"}{" "}
+                <span className={classes.currency}>
+                  ({currency}
                   {getFloatOrIntAmount(calculateTotal())})
-                  </span>
-
+                </span>
               </button>
             </div>
           </div>
