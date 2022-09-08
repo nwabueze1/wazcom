@@ -26,7 +26,7 @@ import { useButtonStyles } from "./styles";
 export var Button = function (_a) {
     var className = _a.className, _b = _a.variant, variant = _b === void 0 ? "contained" : _b, loading = _a.loading, props = __rest(_a, ["className", "variant", "loading"]);
     var classes = useButtonStyles();
-    return (_jsxs("div", __assign({ className: classes.root }, { children: [_jsx(MuiButton, __assign({ classes: {
+    return (_jsxs("div", __assign({ className: classes.root }, { children: [_jsx(MuiButton, __assign({ id: "button-selector", classes: {
                     root: "".concat(classes.button, " ").concat(className),
                     sizeLarge: classes.sizeLarge,
                 }, variant: variant }, props), void 0), loading && (_jsx("div", __assign({ className: classes.loader }, { children: _jsx(CircularProgress, { color: "inherit", size: 12 }, void 0) }), void 0))] }), void 0));

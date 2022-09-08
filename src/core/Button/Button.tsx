@@ -13,6 +13,7 @@ export const Button = ({
   return (
     <div className={classes.root}>
       <MuiButton
+        id="button-selector"
         classes={{
           root: `${classes.button} ${className}`,
           sizeLarge: classes.sizeLarge,

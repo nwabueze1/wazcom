@@ -24,7 +24,6 @@ export const EmptyState: React.FC<EmptyStateProps> = ({
           onClick={() => {
             button?.handleClick?.();
           }}
-          id="button-selector"
         >
           {button?.text ?? text}
         </Button>
