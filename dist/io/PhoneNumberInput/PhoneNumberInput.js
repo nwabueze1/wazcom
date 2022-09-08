@@ -27,5 +27,5 @@ import { usePhoneNumberInputStyles } from "./styles";
 export var PhoneNumberInput = function (_a) {
     var classNames = _a.classNames, props = __rest(_a, ["classNames"]);
     var classes = usePhoneNumberInputStyles();
-    return (_jsx("div", __assign({ className: classes.root }, { children: _jsx(PhoneNumber, __assign({}, props, { inputClass: "".concat(classes.textInput, " ").concat(classNames === null || classNames === void 0 ? void 0 : classNames.input), dropdownClass: "".concat(classes.dropDown, " ").concat(classNames === null || classNames === void 0 ? void 0 : classNames.dropdown), containerClass: "".concat(classes.root, " ").concat(classNames === null || classNames === void 0 ? void 0 : classNames.container) }), void 0) }), void 0));
+    return (_jsx("div", __assign({ className: classes.root }, { children: _jsx(PhoneNumber, __assign({ inputClass: "".concat(classes.textInput, " ").concat(classNames === null || classNames === void 0 ? void 0 : classNames.input), dropdownClass: "".concat(classes.dropDown, " ").concat(classNames === null || classNames === void 0 ? void 0 : classNames.dropdown), containerClass: "".concat(classes.root, " ").concat(classNames === null || classNames === void 0 ? void 0 : classNames.container) }, props), void 0) }), void 0));
 };

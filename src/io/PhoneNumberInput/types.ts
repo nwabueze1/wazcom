@@ -1,6 +1,4 @@
-import { CommonProps } from "../../types";
-
-export type PhoneNumberInputProps = CommonProps & {
+export type PhoneNumberInputProps = {
     [key: string]: any,
     country: string,
 }

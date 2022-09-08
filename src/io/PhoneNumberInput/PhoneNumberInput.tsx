@@ -10,10 +10,10 @@ export const PhoneNumberInput: FC<PhoneNumberInputProps> = ({classNames, ...prop
     return (
         <div className={classes.root}>
             <PhoneNumber
-                {...props}
                 inputClass={`${classes.textInput} ${classNames?.input}`}
                 dropdownClass={`${classes.dropDown} ${classNames?.dropdown}`}
                 containerClass={`${classes.root} ${classNames?.container}`}
+                {...props}
             />
         </div>
     );
