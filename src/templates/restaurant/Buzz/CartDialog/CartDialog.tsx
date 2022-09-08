@@ -1,10 +1,4 @@
-import React, {
-  useState,
-  useEffect,
-  useCallback,
-  useContext,
-  useRef,
-} from "react";
+import React, { useState, useEffect, useCallback, useRef } from "react";
 import { useStyles } from "./styles";
 import { CartDialogProps, Option } from "./types";
 import { Close } from "@mui/icons-material";
@@ -32,23 +26,19 @@ import { CoreCartFields } from "templates/restaurant/types/CoreCartFields";
 export const CartDialog: React.FC<CartDialogProps> = ({
   display,
   close,
-  reloadCart,
   itemId,
   cartItemId,
-  siteId,
   restaurant,
   cart,
 }) => {
   const classes = useStyles();
   const dialogRef = useRef<HTMLDivElement | null>(null);
-  const site_id = Number(siteId);
   const currency = getCurrency(
     restaurant.restaurant.bank_info?.currency as string
   );
   const [quantity, setQuantity] = useState<number>(1);
   const [menuItem, setCurrentMenuItem] = useState<CoreMenuItemFields>();
   const [selectedOptions, setSelectedOptions] = useState<Option[]>([]);
-  const [loading, setLoading] = useState<boolean>(false);
 
   useEffect(() => {
     const menuItem = findMenuItem(
@@ -163,7 +153,7 @@ export const CartDialog: React.FC<CartDialogProps> = ({
             <div className={classes.dialogOptionBox}>
               <button
                 onClick={() => {
-                  console.log("add to cart");
+                  alert("add to cart");
                 }}
                 className={`${classes.dialogOption} ${classes.dialogOptionFilled}`}
               >

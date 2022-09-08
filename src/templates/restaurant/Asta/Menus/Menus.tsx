@@ -8,7 +8,6 @@ import { useMenusStyles } from "./styles";
 import { MenuProps } from "./types";
 import clx from "classnames";
 import { CoreRestaurantFields_activeMenus } from "templates/restaurant/types/CoreRestaurantFields";
-import { Cart } from "../Cart";
 import { MenuSelector } from "../MenuSelector";
 import { Badge } from "@mui/material";
 import { ShoppingCartOutlined } from "@mui/icons-material";

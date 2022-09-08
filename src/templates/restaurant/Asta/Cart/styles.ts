@@ -1,7 +1,6 @@
 import { Theme } from "@mui/material/styles";
 import createStyles from "@mui/styles/createStyles";
 import makeStyles from "@mui/styles/makeStyles";
-import { CartStyleProps } from ".";
 
 export const useCartStyles = makeStyles<Theme>((theme: Theme) =>
   createStyles({
