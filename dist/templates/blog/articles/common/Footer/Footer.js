@@ -16,5 +16,5 @@ export var Footer = function (_a) {
     var name = _a.name, className = _a.className;
     var classes = useFooterStyles();
     var fullYear = new Date().getFullYear();
-    return (_jsxs("div", __assign({ className: clx(classes.root, className) }, { children: [_jsxs("p", { children: ["\u00A9", fullYear, " by ", name, ". Proudly created with"] }), _jsx("a", __assign({ href: "https://hivedeck.com", target: "_blank", rel: "noopener noreferrer", className: classes.link }, { children: "Hivedeck" }))] })));
+    return (_jsxs("div", __assign({ className: clx(classes.root, className) }, { children: [_jsxs("p", { children: ["\u00A9", fullYear, " by ", name, ". Proudly created with"] }, void 0), _jsx("a", __assign({ href: "https://hivedeck.com", target: "_blank", rel: "noopener noreferrer", className: classes.link }, { children: "Hivedeck" }), void 0)] }), void 0));
 };

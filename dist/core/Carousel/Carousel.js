@@ -58,7 +58,7 @@ export var Carousel = function (_a) {
                     height: 50,
                     pl: 2,
                     bgcolor: "background.default",
-                } }, { children: _jsx(Typography, { children: items[activeStep].label }) })), _jsx(AutoPlaySwipeableViews, __assign({ axis: theme.direction === "rtl" ? "x-reverse" : "x", index: activeStep, onChangeIndex: handleStepChange, enableMouseEvents: true }, { children: items.map(function (_a, index) {
+                } }, { children: _jsx(Typography, { children: items[activeStep].label }, void 0) }), void 0), _jsx(AutoPlaySwipeableViews, __assign({ axis: theme.direction === "rtl" ? "x-reverse" : "x", index: activeStep, onChangeIndex: handleStepChange, enableMouseEvents: true }, { children: items.map(function (_a, index) {
                     var _b = _a.image, src = _b.src, alt = _b.alt, label = _a.label;
                     return (_jsx("div", { children: Math.abs(activeStep - index) <= 2 ? (_jsx(Box, { component: "img", sx: {
                                 height: 255,
@@ -66,6 +66,6 @@ export var Carousel = function (_a) {
                                 maxWidth: 400,
                                 overflow: "hidden",
                                 width: "100%",
-                            }, src: src, alt: alt !== null && alt !== void 0 ? alt : label })) : null }, index));
-                }) })), _jsx(MobileStepper, { steps: maxSteps, position: "static", activeStep: activeStep, nextButton: _jsxs(Button, __assign({ size: "small", onClick: handleNext, disabled: activeStep === maxSteps - 1 }, { children: ["Next", theme.direction === "rtl" ? (_jsx(KeyboardArrowLeft, {})) : (_jsx(KeyboardArrowRight, {}))] })), backButton: _jsxs(Button, __assign({ size: "small", onClick: handleBack, disabled: activeStep === 0 }, { children: [theme.direction === "rtl" ? (_jsx(KeyboardArrowRight, {})) : (_jsx(KeyboardArrowLeft, {})), "Back"] })) })] })));
+                            }, src: src, alt: alt !== null && alt !== void 0 ? alt : label }, void 0)) : null }, index));
+                }) }), void 0), _jsx(MobileStepper, { steps: maxSteps, position: "static", activeStep: activeStep, nextButton: _jsxs(Button, __assign({ size: "small", onClick: handleNext, disabled: activeStep === maxSteps - 1 }, { children: ["Next", theme.direction === "rtl" ? (_jsx(KeyboardArrowLeft, {}, void 0)) : (_jsx(KeyboardArrowRight, {}, void 0))] }), void 0), backButton: _jsxs(Button, __assign({ size: "small", onClick: handleBack, disabled: activeStep === 0 }, { children: [theme.direction === "rtl" ? (_jsx(KeyboardArrowRight, {}, void 0)) : (_jsx(KeyboardArrowLeft, {}, void 0)), "Back"] }), void 0) }, void 0)] }), void 0));
 };

@@ -25,7 +25,7 @@ import PhoneNumber from "react-phone-input-2";
 import "react-phone-input-2/lib/style.css";
 import { usePhoneNumberInputStyles } from "./styles";
 export var PhoneNumberInput = function (_a) {
-    var containerClass = _a.containerClass, dropdownClass = _a.dropdownClass, inputClass = _a.inputClass, props = __rest(_a, ["containerClass", "dropdownClass", "inputClass"]);
+    var classNames = _a.classNames, props = __rest(_a, ["classNames"]);
     var classes = usePhoneNumberInputStyles();
-    return (_jsx("div", __assign({ className: classes.root }, { children: _jsx(PhoneNumber, __assign({}, props, { inputClass: "".concat(classes.textInput, " ").concat(inputClass), dropdownClass: "".concat(classes.dropDown, " ").concat(dropdownClass), containerClass: "".concat(classes.root, " ").concat(containerClass) }), void 0) }), void 0));
+    return (_jsx("div", __assign({ className: classes.root }, { children: _jsx(PhoneNumber, __assign({}, props, { inputClass: "".concat(classes.textInput, " ").concat(classNames === null || classNames === void 0 ? void 0 : classNames.input), dropdownClass: "".concat(classes.dropDown, " ").concat(classNames === null || classNames === void 0 ? void 0 : classNames.dropdown), containerClass: "".concat(classes.root, " ").concat(classNames === null || classNames === void 0 ? void 0 : classNames.container) }), void 0) }), void 0));
 };

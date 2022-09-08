@@ -63,8 +63,8 @@ export var PageNumbers = function (_a) {
                 var newArr = __spreadArray(__spreadArray([], __read(leftPageNumbers), false), __read(initialRemainingNumbers.slice(n * pageRangeDisplayed, (n + 1) * pageRangeDisplayed)), false);
                 setN(function (n) { return n + 1; });
                 setLeftPages(newArr.slice(-pageRangeDisplayed));
-            } }, { children: "..." }))) : (_jsx(_Fragment, {}));
+            } }, { children: "..." }), void 0)) : (_jsx(_Fragment, {}, void 0));
         return [leftPages, dots, rightPages];
     };
-    return _jsx("div", __assign({ className: clx(classes.text) }, { children: renderNumbers() }));
+    return _jsx("div", __assign({ className: clx(classes.text) }, { children: renderNumbers() }), void 0);
 };

@@ -7,7 +7,7 @@ export var usePhoneNumberInputStyles = makeStyles(function (theme) {
             alignItems: "flex-start",
             justifyContent: "flex-start",
             border: "1px solid ".concat(theme.design.colors.grey900),
-            width: 350,
+            width: "100%",
             borderRadius: 4,
             "&:focus": {
                 border: 0,

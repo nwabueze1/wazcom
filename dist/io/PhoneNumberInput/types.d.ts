@@ -1,7 +1,5 @@
-export interface PhoneNumberInputProps {
+import { CommonProps } from "../../types";
+export declare type PhoneNumberInputProps = CommonProps & {
     [key: string]: any;
     country: string;
-    inputClass?: string;
-    dropdownClass?: string;
-    containerClass?: string;
-}
+};
