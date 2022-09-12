@@ -19,7 +19,7 @@ export const EmptyState: React.FC<EmptyStateProps> = ({
 
       {button?.display && (
         <Button
-          className={clx(classes.btn, classNames?.button)}
+          className={`${classes.btn} ${classNames?.button}`}
           size="small"
           onClick={() => {
             button?.handleClick?.();

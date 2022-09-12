@@ -1,3 +1,4 @@
+/// <reference types="react" />
 export declare const getFeedbackVariant: (status: Feedback["status"]) => string;
 export declare type Feedback = {
     text: string | string[] | JSX.Element;

@@ -26,8 +26,9 @@ import {
   TextInput,
   InputGroup,
   ToggleInput,
-  TextArea,
+  PhoneNumberInput,
   RadioButtonInput,
+  TextArea,
 } from "../io";
 
 import { GqlComboBox, GqlMediaLibrary, GqlMediaLibrarySelector } from "../gql";
@@ -504,6 +505,13 @@ export const stories: ComponentPropType[] = [
       name: "basit",
       currency: "£",
       placeholder: "enter amont",
+    },
+  },
+  {
+    name: "PhoneNumberInput",
+    component: PhoneNumberInput,
+    props: {
+      country: "ng"
     },
   },
 ];
