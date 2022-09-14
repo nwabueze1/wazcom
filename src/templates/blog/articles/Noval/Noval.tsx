@@ -29,16 +29,16 @@ export const Noval: FC<CoreArticleTemplateFields> = ({
       </div>
     ));
 
-  // const displayRelatedPosts = () =>
-  //   article.related_posts?.map((post, index) => (
-  //     <RelatedPostNoval
-  //       key={index}
-  //       article={post}
-  //       domain={domain}
-  //       site={site}
-  //       handleClick={handleClick}
-  //     />
-  //   ));
+  const displayRelatedPosts = () =>
+    article.related_posts?.map((post, index) => (
+      <RelatedPostNoval
+        key={index}
+        article={post}
+        domain={domain}
+        site={site}
+        handleClick={handleClick}
+      />
+    ));
 
   const isRelatedPosts = Boolean(
     article.related_posts && article.related_posts.length > 0
@@ -100,7 +100,7 @@ export const Noval: FC<CoreArticleTemplateFields> = ({
           {isRelatedPosts && (
             <div className={classes.relatedArticles}>
               <p className={classes.relatedPost}>Related Posts</p>
-              {/* <div className={classes.posts}>{displayRelatedPosts()}</div> */}
+              <div className={classes.posts}>{displayRelatedPosts()}</div>
             </div>
           )}
         </div>
