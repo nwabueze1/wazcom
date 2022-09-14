@@ -24,9 +24,9 @@ const App: React.FC<Props> = () => {
             <Route exact path="/">
               <Browser />
             </Route>
-            <Route exact path="/politico">
+            {/* <Route exact path="/politico">
               <Halo article={articleData} site={site} domain={""} />
-            </Route>
+            </Route> */}
             <Route exact path="/rest">
               <Buzz />
             </Route>

@@ -22,15 +22,15 @@ export const Gello: FC<CoreArticleTemplateFields> = ({
 
   const blogUrl = loaded && window.location.href;
 
-  const displayRelatedPosts = () =>
-    article.related_posts?.map((post, index) => (
-      <RelatedPostGello
-        key={index}
-        article={post}
-        domain={domain}
-        handleClick={handleClick}
-      />
-    ));
+  // const displayRelatedPosts = () =>
+  //   article.related_posts?.map((post, index) => (
+  //     <RelatedPostGello
+  //       key={index}
+  //       article={post}
+  //       domain={domain}
+  //       handleClick={handleClick}
+  //     />
+  //   ));
 
   const isRelatedPosts = Boolean(
     article.related_posts && article.related_posts.length > 0
@@ -97,7 +97,7 @@ export const Gello: FC<CoreArticleTemplateFields> = ({
           <div className={classes.relatedArticleContainer}>
             <p className={classes.relatedPostHeader}>Related Posts</p>
             <hr className={classes.postLine} />
-            <div className={classes.relatedPosts}>{displayRelatedPosts()}</div>
+            {/* <div className={classes.relatedPosts}>{displayRelatedPosts()}</div> */}
           </div>
         )}
       </div>

@@ -23,15 +23,15 @@ export const Politico: FC<CoreArticleTemplateFields> = ({
 
   const blogUrl = loaded && window.location.href;
 
-  const displayRelatedPosts = () =>
-    article.related_posts?.map((post, index) => (
-      <RelatedPostPolitico
-        key={index}
-        article={post}
-        domain={domain}
-        handleClick={handleClick}
-      />
-    ));
+  // const displayRelatedPosts = () =>
+  //   article.related_posts?.map((post, index) => (
+  //     <RelatedPostPolitico
+  //       key={index}
+  //       article={post}
+  //       domain={domain}
+  //       handleClick={handleClick}
+  //     />
+  //   ));
 
   const isRelatedPosts = Boolean(
     article.related_posts && article.related_posts.length > 0
@@ -108,7 +108,7 @@ export const Politico: FC<CoreArticleTemplateFields> = ({
       <div className={classes.relatedPostsContainer}>
         {isRelatedPosts && (
           <div className={classes.relatedPostsItems}>
-            {displayRelatedPosts()}
+            {/* {displayRelatedPosts()} */}
           </div>
         )}
       </div>

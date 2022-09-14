@@ -16,7 +16,7 @@ export const fields = [
     label: "Days/ No. of Days",
   },
   {
-    name: "time",
+    name: "time_section",
     label: "Start Time",
   },
   {
