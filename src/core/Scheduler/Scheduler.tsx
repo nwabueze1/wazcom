@@ -87,6 +87,7 @@ export const Scheduler: React.FC<SchedulerProps> = ({
           {label}
         </InputLabel>
       )}
+      
       {scheduleValue?.map((row: any, index: number) => {
         return (
           <div className={`${classes.schedulerContainer} ${orientation == "vertical" && classes.verticalContainer}`} key={index}>

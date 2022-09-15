@@ -31,6 +31,7 @@ import {
   GqlMediaLibraryProps,
   GqlMediaLibrarySelectorProps,
 } from "../gql";
+import { PhoneNumberInputProps } from "io/PhoneNumberInput/types";
 
 export type ComponentPropType = {
   component: any;
@@ -62,6 +63,7 @@ export type ComponentPropType = {
   | GqlMediaLibraryStory
   | GqlMediaLibrarySelectorStory
   | CurrencyInputStory
+  | PhoneNumberInputStroy
 );
 
 type AccordionStory = {
@@ -165,4 +167,8 @@ type GqlMediaLibraryStory = {
 
 type GqlMediaLibrarySelectorStory = {
   props: GqlMediaLibrarySelectorProps;
+};
+
+type PhoneNumberInputStroy = {
+  props: PhoneNumberInputProps;
 };

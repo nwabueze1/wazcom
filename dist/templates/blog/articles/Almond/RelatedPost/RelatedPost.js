@@ -12,8 +12,8 @@ var __assign = (this && this.__assign) || function () {
 import { jsx as _jsx, jsxs as _jsxs } from "react/jsx-runtime";
 import clx from "classnames";
 import { truncate } from "lodash";
-import { useRelatedPostAlmondStyles } from ".";
 import { getDay } from "../../../../../utilities/getTime";
+import { useRelatedPostAlmondStyles } from "./styles";
 export var RelatedPostAlmond = function (_a) {
     var article = _a.article, handleClick = _a.handleClick, className = _a.className, site = _a.site;
     var classes = useRelatedPostAlmondStyles();

@@ -511,7 +511,7 @@ export const stories: ComponentPropType[] = [
     name: "PhoneNumberInput",
     component: PhoneNumberInput,
     props: {
-      country: "ng"
+      country: "ng",
     },
   },
 ];
