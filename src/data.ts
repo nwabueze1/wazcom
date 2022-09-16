@@ -1,6 +1,6 @@
 import { CorePostFields } from "templates/blog/types/CorePostFields";
 
-const article = `
+export const article = `
 <p><span data-preserver-spaces="true">A dedicated development team is a collaborative business model where a business owner outsources a project to a development team. The hired team of developers works on your project(s), ensuring all your requirements and business needs are met. Working with development teams builds a long-lasting relationship, fostering team cohesion and understanding.</span></p>
 <p><span data-preserver-spaces="true">This article discusses the benefits of dedicated development teams to your business, the value they bring to the table, why this collaborative model works and the difference between dedicated development teams and team extension/ augmentation.</span></p>
 <p><span data-preserver-spaces="true">&nbsp;&nbsp;</span></p>
@@ -56,7 +56,7 @@ const article = `
 <p><span data-preserver-spaces="true">&nbsp;</span></p>
 `;
 
-const corePost = {
+export const corePost = {
   __typename: "bnsb",
   id: "xnzbjk",
   uuid: "623bdd",

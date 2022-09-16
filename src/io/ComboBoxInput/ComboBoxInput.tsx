@@ -87,7 +87,7 @@ export const ComboBoxInput: FC<ComboBoxInputProps> = ({
           handleChange(selectedOption as ComboBoxInputOptionProps);
         }}
         filterOptions={handleFilterOptions}
-        freeSolo
+        // freeSolo
         renderOption={(props, option) => {
           return (
             <Box component="li"  {...props}>
