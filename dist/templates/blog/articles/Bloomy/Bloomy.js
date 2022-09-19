@@ -45,5 +45,5 @@ export var Bloomy = function () {
     //         handleClick={handleClick}
     //       />
     //     ));
-    return (_jsx("div", { children: "ludex gundyr" }, void 0));
+    return (_jsx("div", { children: _jsx("p", { children: "ludex gundyr" }, void 0) }, void 0));
 };

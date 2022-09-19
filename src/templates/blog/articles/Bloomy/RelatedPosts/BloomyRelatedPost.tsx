@@ -1,23 +1,19 @@
-import { FC } from "react";
-import { truncate } from "lodash";
-import { CoreArticleTemplateFields } from "../../types";
-import { parseDate } from "../../../../../utilities/getTime";
-import { stripHtml } from "../../../../../utilities/Post";
-import { useBloomyRelatedPostStyles } from "./styles";
-import clx from "classnames";
+// import { FC } from "react";
+// import { truncate } from "lodash";
+// import { CoreArticleTemplateFields } from "../../types";
+// import { parseDate } from "../../../../../utilities/getTime";
+// import { stripHtml } from "../../../../../utilities/Post";
+// import { useBloomyRelatedPostStyles } from "./styles";
+// import clx from "classnames";
 
-export const BloomyRelatedPost: FC<CoreArticleTemplateFields> = ({
-  article,
-  className,
-  handleClick,
-}) => {
-  const classes = useBloomyRelatedPostStyles();
+export const BloomyRelatedPost: any = () => {
+  // const classes = useBloomyRelatedPostStyles();
   return (
     <div
-      className={clx(classes.root, className)}
-      onClick={() => handleClick?.(article.slug)}
+      // className={clx(classes.root, className)}
+      // onClick={() => handleClick?.(article.slug)}
     >
-      <div className={classes.thumbnailImgContainer}>
+      {/* <div className={classes.thumbnailImgContainer}>
         <img
           src={article.featured_image}
           alt={article.title.slice(0, 20)}
@@ -37,7 +33,7 @@ export const BloomyRelatedPost: FC<CoreArticleTemplateFields> = ({
             {parseDate(article.created_at)}
           </p>
         </p>
-      </div>
+      </div> */}
     </div>
   );
 };

@@ -96,7 +96,7 @@ export const Bloomy: any = () => {
           <div className={classes.posts}>{displayRelatedPosts()}</div>
         </div>
       </div> */}
-      ludex gundyr
+      <p>ludex gundyr</p>
       {/* <Footer name={site?.name as string} className={classes.footer} /> */}
     </div>
   );
