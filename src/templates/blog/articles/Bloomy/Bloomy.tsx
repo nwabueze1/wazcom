@@ -100,10 +100,6 @@ export const Bloomy: FC<CoreArticleTemplateFields> = ({
         </div>
       </div>
       <Footer name={site?.name as string} className={classes.footer} />
-      {article}
-      {domain}
-      {site}
-      {handleClick}
     </div>
   );
 };
