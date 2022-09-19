@@ -3,7 +3,7 @@ import { CoreSiteFields } from "templates/blog/types/CoreSiteFields";
 // import { CorePostFields } from "templates/blog/types/CorePostFields";
 
 export type CoreArticleTemplateFields = CommonProps & {
-  article: any;
+  article?: any;
   page?: CorePageFields;
   site?: CoreSiteFields;
   domain: string;

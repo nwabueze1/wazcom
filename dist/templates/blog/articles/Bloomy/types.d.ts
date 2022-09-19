@@ -1,7 +1,7 @@
 import { CorePageFields } from "templates/blog/types/CorePageFields";
 import { CoreSiteFields } from "templates/blog/types/CoreSiteFields";
 export declare type CoreArticleTemplateFields = CommonProps & {
-    article: any;
+    article?: any;
     page?: CorePageFields;
     site?: CoreSiteFields;
     domain: string;
