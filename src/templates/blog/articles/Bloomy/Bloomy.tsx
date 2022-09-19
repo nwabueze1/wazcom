@@ -1,5 +1,6 @@
 import { FC } from "react";
-import { CoreArticleTemplateFields } from "../types";
+// import { CoreArticleTemplateFields } from "../types";
+import { CoreArticleTemplateFields } from "./types";
 // import { Footer } from "../common/Footer";
 import { useBloomyStyles } from "./styles";
 // import { shareDataBloomy } from "./data";
