@@ -57,7 +57,7 @@ export var EditMedia = function (_a) {
     var displayFields = function () {
         return Object.entries(formData).map(function (_a, index) {
             var _b = __read(_a, 2), key = _b[0], value = _b[1];
-            return (_jsx("div", __assign({ className: classes.formControl }, { children: _jsx(TextInput, { label: key.charAt(0).toUpperCase() + key.slice(1).replace(/_/g, " "), value: value, name: key, onChange: handleChange }) }), index));
+            return (_jsx("div", __assign({ className: classes.formControl }, { children: _jsx(TextInput, { label: key.charAt(0).toUpperCase() + key.slice(1).replace(/_/g, " "), value: value, name: key, onChange: handleChange }, void 0) }), index));
         });
     };
     var handleSubmit = useCallback(function () {
@@ -79,5 +79,5 @@ export var EditMedia = function (_a) {
         reader.readAsDataURL(image);
         return;
     }, [image]);
-    return (_jsxs("div", __assign({ className: classes.root }, { children: [_jsx("img", { src: displayImage(), ref: ref, className: classes.image, alt: "" }), _jsxs("div", __assign({ className: classes.form }, { children: [_jsx("p", __assign({ className: classes.tab }, { children: "Image Properties" })), displayFields(), _jsxs("div", __assign({ className: classes.formButtons }, { children: [_jsx(Button, __assign({ onClick: handleSubmit, loading: loading }, { children: "Save" })), _jsx(Button, __assign({ onClick: handleClose }, { children: "Cancel" }))] }))] }))] })));
+    return (_jsxs("div", __assign({ className: classes.root }, { children: [_jsx("img", { src: displayImage(), ref: ref, className: classes.image, alt: "" }, void 0), _jsxs("div", __assign({ className: classes.form }, { children: [_jsx("p", __assign({ className: classes.tab }, { children: "Image Properties" }), void 0), displayFields(), _jsxs("div", __assign({ className: classes.formButtons }, { children: [_jsx(Button, __assign({ onClick: handleSubmit, loading: loading }, { children: "Save" }), void 0), _jsx(Button, __assign({ onClick: handleClose }, { children: "Cancel" }), void 0)] }), void 0)] }), void 0)] }), void 0));
 };

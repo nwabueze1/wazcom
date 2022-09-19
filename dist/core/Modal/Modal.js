@@ -17,5 +17,5 @@ export var Modal = function (_a) {
             timeout: 500,
         }, closeAfterTransition: true, onClose: function () {
             handleClose === null || handleClose === void 0 ? void 0 : handleClose();
-        }, onBackdropClick: function (e) { return e.stopPropagation(); }, className: className, BackdropComponent: Backdrop, "aria-labelledby": "transition-modal-title", "aria-describedby": "transition-modal-description" }, { children: _jsx(Fade, __assign({ in: open }, { children: children })) })));
+        }, onBackdropClick: function (e) { return e.stopPropagation(); }, className: className, BackdropComponent: Backdrop, "aria-labelledby": "transition-modal-title", "aria-describedby": "transition-modal-description" }, { children: _jsx(Fade, __assign({ in: open }, { children: children }), void 0) }), void 0));
 };

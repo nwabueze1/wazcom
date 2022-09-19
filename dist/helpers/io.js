@@ -34,11 +34,11 @@ export var getFeedbackVariant = function (status) {
 };
 var TextFeedback = function (_a) {
     var text = _a.text, status = _a.status;
-    return (_jsx(Typography, __assign({ className: getFeedbackVariant(status) }, { children: text })));
+    return (_jsx(Typography, __assign({ className: getFeedbackVariant(status) }, { children: text }), void 0));
 };
 export var displayFeedback = function (feedback) {
     if (!isValidElement(feedback.text)) {
-        return typeof feedback.text === "string" ? (_jsx(TextFeedback, { status: feedback.status, text: feedback.text })) : (feedback.text.map(function (text, index) { return (_jsx(TextFeedback, { status: feedback.status, text: text }, index)); }));
+        return typeof feedback.text === "string" ? (_jsx(TextFeedback, { status: feedback.status, text: feedback.text }, void 0)) : (feedback.text.map(function (text, index) { return (_jsx(TextFeedback, { status: feedback.status, text: text }, index)); }));
     }
-    return _jsx(_Fragment, { children: feedback.text });
+    return _jsx(_Fragment, { children: feedback.text }, void 0);
 };

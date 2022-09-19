@@ -65,8 +65,8 @@ export var Gallery = function (_a) {
                     handleItemSelect(id);
                 }, onMouseEnter: function () {
                     handleMouseEnter(id);
-                }, onMouseLeave: handleMouseLeave, className: classes.item }, { children: [_jsx("img", { src: src, className: classes.itemImage, alt: alt }), _jsx("div", __assign({ className: clx(classes.itemHover, ids.hover === id && classes.itemHoverActive) }, { children: _jsx("p", __assign({ className: classes.itemHoverText }, { children: text !== null && text !== void 0 ? text : "Select" })) })), _jsx("div", __assign({ className: clx(classes.itemChecked, ids.selected === id && classes.itemCheckedActive) }, { children: _jsx(CheckBoxInput, { checked: true, className: "checkbox" }) }))] }), index));
+                }, onMouseLeave: handleMouseLeave, className: classes.item }, { children: [_jsx("img", { src: src, className: classes.itemImage, alt: alt }, void 0), _jsx("div", __assign({ className: clx(classes.itemHover, ids.hover === id && classes.itemHoverActive) }, { children: _jsx("p", __assign({ className: classes.itemHoverText }, { children: text !== null && text !== void 0 ? text : "Select" }), void 0) }), void 0), _jsx("div", __assign({ className: clx(classes.itemChecked, ids.selected === id && classes.itemCheckedActive) }, { children: _jsx(CheckBoxInput, { checked: true, className: "checkbox" }, void 0) }), void 0)] }), index));
         });
     }, [ids]);
-    return _jsx("div", __assign({ className: clx(classes.root, className) }, { children: displayItems() }));
+    return _jsx("div", __assign({ className: clx(classes.root, className) }, { children: displayItems() }), void 0);
 };

@@ -100,8 +100,8 @@ export var TableFilter = function (_a) {
         return filterFields.map(function (_a, index) {
             var name = _a.name, label = _a.label;
             return (_jsx(MenuItem, __assign({ className: classes.filterItemContainer }, { children: _jsx(Accordion, __assign({ title: label }, { children: getUniqueValues(fieldNames === null || fieldNames === void 0 ? void 0 : fieldNames[index], tableValues).map(function (item, key) {
-                        return (_jsxs("div", __assign({ className: classes.filterItem }, { children: [_jsx(Checkbox, { checked: !getCheckedState(fieldNames === null || fieldNames === void 0 ? void 0 : fieldNames[index], item), onChange: function () { return handleSetFilter(fieldNames === null || fieldNames === void 0 ? void 0 : fieldNames[index], item); } }), _jsx("div", { children: item })] }), key));
-                    }) })) }), name));
+                        return (_jsxs("div", __assign({ className: classes.filterItem }, { children: [_jsx(Checkbox, { checked: !getCheckedState(fieldNames === null || fieldNames === void 0 ? void 0 : fieldNames[index], item), onChange: function () { return handleSetFilter(fieldNames === null || fieldNames === void 0 ? void 0 : fieldNames[index], item); } }, void 0), _jsx("div", { children: item }, void 0)] }), key));
+                    }) }), void 0) }), name));
         });
     }, [filterFields, newFilters, tableValues]);
     var handleClickAway = function () {
@@ -110,7 +110,7 @@ export var TableFilter = function (_a) {
     useEffect(function () {
         setFilterFields(fields);
     }, [fields]);
-    return (_jsx(ClickAwayListener, __assign({ onClickAway: handleClickAway }, { children: _jsxs("div", __assign({ className: classes.container }, { children: [_jsxs(Button, __assign({ variant: "outlined", className: controlClasses.controlButton, onClick: function () { return setShowFilter(true); } }, { children: [_jsx("span", __assign({ className: controlClasses.controlButtonText }, { children: "Filter" })), _jsx(FilterAlt, {})] })), _jsxs("div", __assign({ className: clx(classes.filterItems, (_b = {},
+    return (_jsx(ClickAwayListener, __assign({ onClickAway: handleClickAway }, { children: _jsxs("div", __assign({ className: classes.container }, { children: [_jsxs(Button, __assign({ variant: "outlined", className: controlClasses.controlButton, onClick: function () { return setShowFilter(true); } }, { children: [_jsx("span", __assign({ className: controlClasses.controlButtonText }, { children: "Filter" }), void 0), _jsx(FilterAlt, {}, void 0)] }), void 0), _jsxs("div", __assign({ className: clx(classes.filterItems, (_b = {},
                         _b[classes.show] = showFilter,
-                        _b)) }, { children: [_jsx(MenuItem, __assign({ className: clx(classes.filterItemContainer, classes.filterItemsHeader) }, { children: "FILTER BY:" })), renderFilterOptions(), _jsx(MenuItem, { children: _jsxs("div", __assign({ className: classes.filterActionButtons }, { children: [_jsx(Button, __assign({ className: clx(classes.filterActionButton, classes.filterActionButtonOutline), onClick: handleClickAway }, { children: "Cancel" })), _jsx(Button, __assign({ className: classes.filterActionButton, onClick: function () { return setFilters(newFilters); } }, { children: "Apply Filter" }))] })) })] }))] })) })));
+                        _b)) }, { children: [_jsx(MenuItem, __assign({ className: clx(classes.filterItemContainer, classes.filterItemsHeader) }, { children: "FILTER BY:" }), void 0), renderFilterOptions(), _jsx(MenuItem, { children: _jsxs("div", __assign({ className: classes.filterActionButtons }, { children: [_jsx(Button, __assign({ className: clx(classes.filterActionButton, classes.filterActionButtonOutline), onClick: handleClickAway }, { children: "Cancel" }), void 0), _jsx(Button, __assign({ className: classes.filterActionButton, onClick: function () { return setFilters(newFilters); } }, { children: "Apply Filter" }), void 0)] }), void 0) }, void 0)] }), void 0)] }), void 0) }), void 0));
 };

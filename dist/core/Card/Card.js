@@ -44,5 +44,5 @@ export var Card = function (_a) {
         }
         return variantClass;
     }, [align]);
-    return (_jsxs(MuiCard, __assign({ className: clx(classes.root, className, getAlignVariant()) }, { children: [_jsx(CardMedia, { component: "img", height: "140", image: src, alt: alt }), _jsxs(CardContent, { children: [_jsx(Typography, __assign({ gutterBottom: true, variant: "h5", component: "div" }, { children: title })), _jsx(Typography, __assign({ variant: "body2" }, { children: content }))] }), _jsx(CardActions, { children: displayButtons() })] })));
+    return (_jsxs(MuiCard, __assign({ className: clx(classes.root, className, getAlignVariant()) }, { children: [_jsx(CardMedia, { component: "img", height: "140", image: src, alt: alt }, void 0), _jsxs(CardContent, { children: [_jsx(Typography, __assign({ gutterBottom: true, variant: "h5", component: "div" }, { children: title }), void 0), _jsx(Typography, __assign({ variant: "body2" }, { children: content }), void 0)] }, void 0), _jsx(CardActions, { children: displayButtons() }, void 0)] }), void 0));
 };
