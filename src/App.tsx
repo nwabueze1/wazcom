@@ -25,7 +25,7 @@ const App: React.FC<Props> = () => {
             <Route exact path="/">
               <Browser />
             </Route>
-            <Route exact path="/pearl">
+            <Route exact path="/bloomy">
               <Bloomy article={articleData} domain={""} site={site} />
             </Route>
             <Route exact path="/rest">

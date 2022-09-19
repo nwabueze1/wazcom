@@ -1,13 +1,23 @@
-import { jsx as _jsx } from "react/jsx-runtime";
-// import { FC, useState, useEffect } from "react";
-// import { CoreArticleTemplateFields } from "../types";
+var __assign = (this && this.__assign) || function () {
+    __assign = Object.assign || function(t) {
+        for (var s, i = 1, n = arguments.length; i < n; i++) {
+            s = arguments[i];
+            for (var p in s) if (Object.prototype.hasOwnProperty.call(s, p))
+                t[p] = s[p];
+        }
+        return t;
+    };
+    return __assign.apply(this, arguments);
+};
+import { jsx as _jsx, jsxs as _jsxs } from "react/jsx-runtime";
 // import { Footer } from "../common/Footer";
-// import { useBloomyStyles } from "./styles";
+import { useBloomyStyles } from "./styles";
 // import { shareDataBloomy } from "./data";
-// import { parseDate } from "../../../../utilities/getTime";
+import { parseDate } from "../../../../utilities/getTime";
 // import { BloomyRelatedPost } from "./RelatedPosts";
-export var Bloomy = function () {
-    // const classes = useBloomyStyles();
+export var Bloomy = function (_a) {
+    var article = _a.article;
+    var classes = useBloomyStyles();
     // const [loaded, setLoaded] = useState(false);
     // const displayTags = () =>
     //   article?.tags?.map((tag, index) => (
@@ -45,5 +55,5 @@ export var Bloomy = function () {
     //         handleClick={handleClick}
     //       />
     //     ));
-    return (_jsx("div", { children: _jsx("p", { children: "ludex gundyr" }, void 0) }, void 0));
+    return (_jsx("div", __assign({ className: classes.root }, { children: _jsxs("div", __assign({ className: classes.container }, { children: [_jsx("head", { children: _jsx("link", { href: "https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap", rel: "stylesheet" }, void 0) }, void 0), _jsxs("div", __assign({ className: classes.header }, { children: [_jsx("div", __assign({ className: classes.imgContainer }, { children: _jsx("img", { src: article === null || article === void 0 ? void 0 : article.featured_image, alt: article === null || article === void 0 ? void 0 : article.title.slice(0, 20), className: classes.featuredImg }, void 0) }), void 0), _jsx("div", __assign({ className: classes.articleInfoContainer }, { children: _jsxs("div", __assign({ className: classes.articleInfo }, { children: [_jsx("h1", __assign({ className: classes.articleTitle }, { children: article === null || article === void 0 ? void 0 : article.title }), void 0), _jsxs("div", __assign({ className: classes.blogInfo }, { children: [_jsx("div", { className: classes.blogInfoContainer }, void 0), _jsx("p", __assign({ className: classes.postedTime }, { children: parseDate(article === null || article === void 0 ? void 0 : article.created_at) }), void 0)] }), void 0)] }), void 0) }), void 0)] }), void 0), _jsx("div", { dangerouslySetInnerHTML: { __html: article === null || article === void 0 ? void 0 : article.content }, className: classes.content }, void 0), _jsx("div", { children: _jsxs("div", __assign({ className: classes.relatedPostHeader }, { children: [_jsx("p", __assign({ className: classes.relatedPostHeaderTitle }, { children: "Related Posts" }), void 0), _jsx("p", { className: classes.hr }, void 0)] }), void 0) }, void 0)] }), void 0) }), void 0));
 };
