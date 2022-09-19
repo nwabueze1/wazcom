@@ -26,8 +26,9 @@ import {
   TextInput,
   InputGroup,
   ToggleInput,
-  TextArea,
+  PhoneNumberInput,
   RadioButtonInput,
+  TextArea,
 } from "../io";
 
 import { GqlComboBox, GqlMediaLibrary, GqlMediaLibrarySelector } from "../gql";
@@ -416,6 +417,7 @@ export const stories: ComponentPropType[] = [
       apiKey: "",
       error: true,
       feedback: { text: "Tariq is a weirdo", status: "error" },
+      client: createApolloClient(process.env.REACT_APP_NICODEMUS_API_TOKEN as string)
     },
   },
   {
@@ -503,6 +505,13 @@ export const stories: ComponentPropType[] = [
       name: "basit",
       currency: "£",
       placeholder: "enter amont",
+    },
+  },
+  {
+    name: "PhoneNumberInput",
+    component: PhoneNumberInput,
+    props: {
+      country: "ng",
     },
   },
 ];

@@ -78,6 +78,7 @@ export const ComboBoxInput: FC<ComboBoxInputProps> = ({
       )}
       <Autocomplete
         {...props}
+        freeSolo
         options={options ?? []}
         getOptionLabel={(option) => {
           return (typeof option == 'string') ? option : option?.label ?? "";
@@ -87,7 +88,6 @@ export const ComboBoxInput: FC<ComboBoxInputProps> = ({
           handleChange(selectedOption as ComboBoxInputOptionProps);
         }}
         filterOptions={handleFilterOptions}
-        // freeSolo
         renderOption={(props, option) => {
           return (
             <Box component="li"  {...props}>

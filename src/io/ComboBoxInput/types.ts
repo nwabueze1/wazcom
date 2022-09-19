@@ -3,7 +3,7 @@ import { AutocompleteProps } from "@mui/material";
 
 export type ComboBoxInputProps = CommonProps &
   Omit<
-    AutocompleteProps<any, undefined, undefined, undefined>,
+    AutocompleteProps<any, undefined, undefined, true>,
     "onChange" | "renderInput"
   > & {
     isAdd?: boolean;

@@ -1,7 +1,6 @@
 import { Button as MuiButton, CircularProgress } from "@mui/material";
 import { ButtonProps } from "./types";
 import { useButtonStyles } from "./styles";
-import clx from "classnames";
 
 export const Button = ({
   className,
@@ -14,8 +13,9 @@ export const Button = ({
   return (
     <div className={classes.root}>
       <MuiButton
+        id="button-selector"
         classes={{
-          root: clx(classes.button, className),
+          root: `${classes.button} ${className}`,
           sizeLarge: classes.sizeLarge,
         }}
         variant={variant}

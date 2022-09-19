@@ -33,7 +33,12 @@ export const Asta = () => {
           </div>
         </div>
         <div className={classes.cartContainer}>
-          <Cart open={false} setOpen={() => {}} />
+          <Cart
+            open={false}
+            setOpen={() => {
+              alert("open");
+            }}
+          />
         </div>
       </div>
       <Footer name="Hivedeck" className={classes.footer} />

@@ -2,8 +2,8 @@ import { FC } from "react";
 import clx from "classnames";
 import { truncate } from "lodash";
 import { CoreArticleTemplateFields } from "../..";
-import { useRelatedPostAlmondStyles } from ".";
 import { getDay } from "../../../../../utilities/getTime";
+import { useRelatedPostAlmondStyles } from "./styles"
 
 export const RelatedPostAlmond: FC<CoreArticleTemplateFields> = ({
   article,
