@@ -4,7 +4,7 @@ import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
 import { Asta } from "templates/restaurant/Asta/Asta";
 import { Buzz } from "templates/restaurant/Buzz/Buzz";
 import { Browser } from "view/Browser";
-import { Pearl } from "templates/blog/articles/Pearl"
+// import { Pearl } from "templates/blog/articles/Pearl"
 import { Bloomy } from "templates/blog/articles/Bloomy"
 import theme from "./theme";
 import { articleData, site } from "dummy"
