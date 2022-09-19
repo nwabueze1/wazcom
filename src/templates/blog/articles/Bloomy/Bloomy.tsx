@@ -58,7 +58,7 @@ export const Bloomy: FC<CoreArticleTemplateFields> = ({
 
   return (
     <div className={classes.root}>
-      <div className={classes.container}>
+      {/* <div className={classes.container}>
         <head>
           <link
             href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap"
@@ -98,7 +98,8 @@ export const Bloomy: FC<CoreArticleTemplateFields> = ({
           </div>
           <div className={classes.posts}>{displayRelatedPosts()}</div>
         </div>
-      </div>
+      </div> */}
+      ludex gundyr
       <Footer name={site?.name as string} className={classes.footer} />
     </div>
   );
