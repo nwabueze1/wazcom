@@ -101,6 +101,7 @@ export const Bloomy: FC<CoreArticleTemplateFields> = ({
           <div className={classes.posts}>{displayRelatedPosts()}</div>
         </div>
       </div>
+      ludex gundyr
       <Footer name={site?.name as string} className={classes.footer} />
     </div>
   );
