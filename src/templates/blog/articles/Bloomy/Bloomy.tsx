@@ -3,7 +3,7 @@ import { CoreArticleTemplateFields } from "../types";
 // import { Footer } from "../common/Footer";
 import { useBloomyStyles } from "./styles";
 // import { shareDataBloomy } from "./data";
-import { parseDate } from "../../../../utilities/getTime";
+// import { parseDate } from "../../../../utilities/getTime";
 // import { BloomyRelatedPost } from "./RelatedPosts";
 
 export const Bloomy: FC<CoreArticleTemplateFields> = ({
@@ -69,11 +69,11 @@ export const Bloomy: FC<CoreArticleTemplateFields> = ({
         </head>
         <div className={classes.header}>
           <div className={classes.imgContainer}>
-            <img
+            {/* <img
               src={article?.featured_image}
               alt={article?.title.slice(0, 20)}
               className={classes.featuredImg}
-            />
+            /> */}
           </div>
           <div className={classes.articleInfoContainer}>
             <div className={classes.articleInfo}>
@@ -81,18 +81,18 @@ export const Bloomy: FC<CoreArticleTemplateFields> = ({
               <h1 className={classes.articleTitle}>{article?.title}</h1>
               <div className={classes.blogInfo}>
                 <div className={classes.blogInfoContainer}></div>
-                <p className={classes.postedTime}>
+                {/* <p className={classes.postedTime}>
                   {parseDate(article?.created_at)}
-                </p>
+                </p> */}
               </div>
               {/* <div className={classes.socialIcons}>{displaySocialIcons()}</div> */}
             </div>
           </div>
         </div>
-        <div
+        {/* <div
           dangerouslySetInnerHTML={{ __html: article?.content }}
           className={classes.content}
-        />
+        /> */}
         <div>
           <div className={classes.relatedPostHeader}>
             <p className={classes.relatedPostHeaderTitle}>Related Posts</p>
