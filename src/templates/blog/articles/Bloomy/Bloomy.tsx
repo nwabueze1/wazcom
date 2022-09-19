@@ -56,52 +56,115 @@ export const Bloomy: FC<CoreArticleTemplateFields> = ({
   //       />
   //     ));
 
+  // return (
+  //   <div 
+  //   className={classes.root}
+  //   >
+  //     <div className={classes.container}>
+  //       <head>
+  //         <link
+  //           href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap"
+  //           rel="stylesheet"
+  //         />
+  //       </head>
+  //       <div className={classes.header}>
+  //         <div className={classes.imgContainer}>
+  //           {/* <img
+  //             src={article?.featured_image}
+  //             alt={article?.title.slice(0, 20)}
+  //             className={classes.featuredImg}
+  //           /> */}
+  //         </div>
+  //         <div className={classes.articleInfoContainer}>
+  //           <div className={classes.articleInfo}>
+  //             {/* <p className={classes.tags}>{displayTags()}</p> */}
+  //             <h1 className={classes.articleTitle}>{article?.title}</h1>
+  //             <div className={classes.blogInfo}>
+  //               <div className={classes.blogInfoContainer}></div>
+  //               {/* <p className={classes.postedTime}>
+  //                 {parseDate(article?.created_at)}
+  //               </p> */}
+  //             </div>
+  //             {/* <div className={classes.socialIcons}>{displaySocialIcons()}</div> */}
+  //           </div>
+  //         </div>
+  //       </div>
+  //       {/* <div
+  //         dangerouslySetInnerHTML={{ __html: article?.content }}
+  //         className={classes.content}
+  //       /> */}
+  //       <div>
+  //         <div className={classes.relatedPostHeader}>
+  //           <p className={classes.relatedPostHeaderTitle}>Related Posts</p>
+  //           <p className={classes.hr} />
+  //         </div>
+  //         {/* <div className={classes.posts}>{displayRelatedPosts()}</div> */}
+  //       </div>
+  //     </div>
+  //     {/* <Footer name={site?.name as string} className={classes.footer} /> */}
+  //   </div>
+  // );
+  // const blogUrl = loaded && window.location.href;
+
+  
+  // const isRelatedPosts = Boolean(
+  //   article.related_posts && article.related_posts.length > 0
+  // );
+
+
+
   return (
-    <div 
-    className={classes.root}
-    >
-      <div className={classes.container}>
-        <head>
-          <link
-            href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap"
-            rel="stylesheet"
-          />
-        </head>
-        <div className={classes.header}>
-          <div className={classes.imgContainer}>
-            {/* <img
+    <>
+      <head>
+        <link
+          href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600&display=swap"
+          rel="stylesheet"
+        />
+      </head>
+      <div className={classes.root}>
+        <div className={classes.overlayContainer}>
+          <div className={classes.heroContainer}>
+            <img
+              className={classes.headerImage}
               src={article?.featured_image}
-              alt={article?.title.slice(0, 20)}
-              className={classes.featuredImg}
-            /> */}
-          </div>
-          <div className={classes.articleInfoContainer}>
-            <div className={classes.articleInfo}>
-              {/* <p className={classes.tags}>{displayTags()}</p> */}
-              <h1 className={classes.articleTitle}>{article?.title}</h1>
-              <div className={classes.blogInfo}>
-                <div className={classes.blogInfoContainer}></div>
-                {/* <p className={classes.postedTime}>
-                  {parseDate(article?.created_at)}
-                </p> */}
+              // alt={article.title.slice(0, 20)}
+            />
+
+            <div className={classes.heroItems}>
+              <div className={classes.titleContainer}>
+
+                <h1 className={classes.title}>{article?.title}</h1>
+                <div className={classes.authorInfo}>
+                  <p className={classes.circleIcon} />
+
+                </div>
               </div>
-              {/* <div className={classes.socialIcons}>{displaySocialIcons()}</div> */}
             </div>
           </div>
+          <div className={classes.heroOverlay}></div>
         </div>
-        {/* <div
-          dangerouslySetInnerHTML={{ __html: article?.content }}
-          className={classes.content}
-        /> */}
-        <div>
-          <div className={classes.relatedPostHeader}>
-            <p className={classes.relatedPostHeaderTitle}>Related Posts</p>
-            <p className={classes.hr} />
+        <div className={classes.body}>
+          <div
+            className={classes.postContent}
+            dangerouslySetInnerHTML={{ __html: article?.content }}
+          />
+        </div>
+
+        <div className={classes.authorDetails}>
+          <div>
+            <p className={classes.authorText}>Writen By</p>
           </div>
-          {/* <div className={classes.posts}>{displayRelatedPosts()}</div> */}
+        </div>
+
+        <div className={classes.relatedPostsHeader}>
+          <span className={classes.relatedPostsLine}>
+            <p className={classes.relatedPostsHeading}>RELATED POSTS</p>
+            <div className={classes.hr} />
+          </span>
+        </div>
+        <div className={classes.relatedPostsContainer}>
         </div>
       </div>
-      {/* <Footer name={site?.name as string} className={classes.footer} /> */}
-    </div>
+    </>
   );
 };
