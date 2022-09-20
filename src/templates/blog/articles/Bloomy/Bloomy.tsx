@@ -1,66 +1,61 @@
-import { FC, useState, useEffect } from "react";
-import { CoreArticleTemplateFields } from "../types";
-import { Footer } from "../common/Footer";
+// import { FC, useState, useEffect } from "react";
+// import { CoreArticleTemplateFields } from "../types";
+// import { Footer } from "../common/Footer";
 import { useBloomyStyles } from "./styles";
-import { shareDataBloomy } from "./data";
-import { parseDate } from "../../../../utilities/getTime";
-import { BloomyRelatedPost } from "./RelatedPosts";
+// import { shareDataBloomy } from "./data";
+// import { parseDate } from "../../../../utilities/getTime";
+// import { BloomyRelatedPost } from "./RelatedPosts";
 
-export const Bloomy: FC<CoreArticleTemplateFields> = ({
-  article,
-  domain,
-  site,
-  handleClick,
-}) => {
+export const Bloomy: any = () => {
   const classes = useBloomyStyles();
-  const [loaded, setLoaded] = useState(false);
+  // const [loaded, setLoaded] = useState(false);
 
-  const displayTags = () =>
-    article?.tags?.map((tag, index) => (
-      <div key={index} className={classes.tag}>
-        {tag?.name}
-      </div>
-    ));
+  // const displayTags = () =>
+  //   article?.tags?.map((tag, index) => (
+  //     <div key={index} className={classes.tag}>
+  //       {tag?.name}
+  //     </div>
+  //   ));
 
-  useEffect(() => {
-    setLoaded(true);
-  }, []);
+  // useEffect(() => {
+  //   setLoaded(true);
+  // }, []);
 
-  const blogUrl = loaded && window.location.href;
+  // const blogUrl = loaded && window.location.href;
 
-  const displaySocialIcons = () => {
-    return shareDataBloomy.map((social, index) => {
-      return (
-        <a
-          key={index}
-          href={`${social.href}${blogUrl}`}
-          target="_blank"
-          rel="noreferrer"
-        >
-          <img src={social.src} alt={social.alt} />
-        </a>
-      );
-    });
-  };
+  // const displaySocialIcons = () => {
+  //   return shareDataBloomy.map((social, index) => {
+  //     return (
+  //       <a
+  //         key={index}
+  //         href={`${social.href}${blogUrl}`}
+  //         target="_blank"
+  //         rel="noreferrer"
+  //       >
+  //         <img src={social.src} alt={social.alt} />
+  //       </a>
+  //     );
+  //   });
+  // };
 
-  const displayRelatedPosts = () =>
-    article.related_posts
-      ?.slice(0, 4)
-      .map((post, index) => (
-        <BloomyRelatedPost
-          key={index}
-          article={post}
-          domain={domain}
-          site={site}
-          handleClick={handleClick}
-        />
-      ));
+  // const displayRelatedPosts = () =>
+  //   article.related_posts
+  //     ?.slice(0, 4)
+  //     .map((post, index) => (
+  //       <BloomyRelatedPost
+  //         key={index}
+  //         article={post}
+  //         domain={domain}
+  //         site={site}
+  //         handleClick={handleClick}
+  //       />
+  //     ));
 
   return (
     <div 
     className={classes.root}
     >
-      <div className={classes.container}>
+      {/* <div className={classes.container}>
         <head>
           <link
             href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap"
@@ -100,9 +95,9 @@ export const Bloomy: FC<CoreArticleTemplateFields> = ({
           </div>
           <div className={classes.posts}>{displayRelatedPosts()}</div>
         </div>
-      </div>
+      </div> */}
       ludex gundyr
-      <Footer name={site?.name as string} className={classes.footer} />
+      {/* <Footer name={site?.name as string} className={classes.footer} /> */}
     </div>
   );
 };
