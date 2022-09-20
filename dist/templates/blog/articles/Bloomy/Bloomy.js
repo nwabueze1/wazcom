@@ -9,52 +9,49 @@ var __assign = (this && this.__assign) || function () {
     };
     return __assign.apply(this, arguments);
 };
-import { jsx as _jsx } from "react/jsx-runtime";
-// import { FC, useState, useEffect } from "react";
-// import { CoreArticleTemplateFields } from "../types";
-// import { Footer } from "../common/Footer";
+var __read = (this && this.__read) || function (o, n) {
+    var m = typeof Symbol === "function" && o[Symbol.iterator];
+    if (!m) return o;
+    var i = m.call(o), r, ar = [], e;
+    try {
+        while ((n === void 0 || n-- > 0) && !(r = i.next()).done) ar.push(r.value);
+    }
+    catch (error) { e = { error: error }; }
+    finally {
+        try {
+            if (r && !r.done && (m = i["return"])) m.call(i);
+        }
+        finally { if (e) throw e.error; }
+    }
+    return ar;
+};
+import { jsx as _jsx, jsxs as _jsxs } from "react/jsx-runtime";
+import { useState, useEffect } from "react";
+import { Footer } from "../common/Footer";
 import { useBloomyStyles } from "./styles";
-// import { shareDataBloomy } from "./data";
-// import { parseDate } from "../../../../utilities/getTime";
-// import { BloomyRelatedPost } from "./RelatedPosts";
-export var Bloomy = function () {
+import { shareDataBloomy } from "./data";
+import { parseDate } from "../../../../utilities/getTime";
+import { BloomyRelatedPost } from "./RelatedPosts";
+export var Bloomy = function (_a) {
+    var article = _a.article, domain = _a.domain, site = _a.site, handleClick = _a.handleClick;
     var classes = useBloomyStyles();
-    // const [loaded, setLoaded] = useState(false);
-    // const displayTags = () =>
-    //   article?.tags?.map((tag, index) => (
-    //     <div key={index} className={classes.tag}>
-    //       {tag?.name}
-    //     </div>
-    //   ));
-    // useEffect(() => {
-    //   setLoaded(true);
-    // }, []);
-    // const blogUrl = loaded && window.location.href;
-    // const displaySocialIcons = () => {
-    //   return shareDataBloomy.map((social, index) => {
-    //     return (
-    //       <a
-    //         key={index}
-    //         href={`${social.href}${blogUrl}`}
-    //         target="_blank"
-    //         rel="noreferrer"
-    //       >
-    //         <img src={social.src} alt={social.alt} />
-    //       </a>
-    //     );
-    //   });
-    // };
-    // const displayRelatedPosts = () =>
-    //   article.related_posts
-    //     ?.slice(0, 4)
-    //     .map((post, index) => (
-    //       <BloomyRelatedPost
-    //         key={index}
-    //         article={post}
-    //         domain={domain}
-    //         site={site}
-    //         handleClick={handleClick}
-    //       />
-    //     ));
-    return (_jsx("div", __assign({ className: classes.root }, { children: "ludex gundyr" }), void 0));
+    var _b = __read(useState(false), 2), loaded = _b[0], setLoaded = _b[1];
+    var displayTags = function () {
+        var _a;
+        return (_a = article === null || article === void 0 ? void 0 : article.tags) === null || _a === void 0 ? void 0 : _a.map(function (tag, index) { return (_jsx("div", __assign({ className: classes.tag }, { children: tag === null || tag === void 0 ? void 0 : tag.name }), index)); });
+    };
+    useEffect(function () {
+        setLoaded(true);
+    }, []);
+    var blogUrl = loaded && window.location.href;
+    var displaySocialIcons = function () {
+        return shareDataBloomy.map(function (social, index) {
+            return (_jsx("a", __assign({ href: "".concat(social.href).concat(blogUrl), target: "_blank", rel: "noreferrer" }, { children: _jsx("img", { src: social.src, alt: social.alt }, void 0) }), index));
+        });
+    };
+    var displayRelatedPosts = function () {
+        var _a;
+        return (_a = article.related_posts) === null || _a === void 0 ? void 0 : _a.slice(0, 4).map(function (post, index) { return (_jsx(BloomyRelatedPost, { article: post, domain: domain, site: site, handleClick: handleClick }, index)); });
+    };
+    return (_jsxs("div", __assign({ className: classes.root }, { children: [_jsxs("div", __assign({ className: classes.container }, { children: [_jsx("head", { children: _jsx("link", { href: "https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap", rel: "stylesheet" }, void 0) }, void 0), _jsxs("div", __assign({ className: classes.header }, { children: [_jsx("div", __assign({ className: classes.imgContainer }, { children: _jsx("img", { src: article === null || article === void 0 ? void 0 : article.featured_image, alt: article === null || article === void 0 ? void 0 : article.title.slice(0, 20), className: classes.featuredImg }, void 0) }), void 0), _jsx("div", __assign({ className: classes.articleInfoContainer }, { children: _jsxs("div", __assign({ className: classes.articleInfo }, { children: [_jsx("p", __assign({ className: classes.tags }, { children: displayTags() }), void 0), _jsx("h1", __assign({ className: classes.articleTitle }, { children: article === null || article === void 0 ? void 0 : article.title }), void 0), _jsxs("div", __assign({ className: classes.blogInfo }, { children: [_jsx("div", { className: classes.blogInfoContainer }, void 0), _jsx("p", __assign({ className: classes.postedTime }, { children: parseDate(article === null || article === void 0 ? void 0 : article.created_at) }), void 0)] }), void 0), _jsx("div", __assign({ className: classes.socialIcons }, { children: displaySocialIcons() }), void 0)] }), void 0) }), void 0)] }), void 0), _jsx("div", { dangerouslySetInnerHTML: { __html: article === null || article === void 0 ? void 0 : article.content }, className: classes.content }, void 0), _jsxs("div", { children: [_jsxs("div", __assign({ className: classes.relatedPostHeader }, { children: [_jsx("p", __assign({ className: classes.relatedPostHeaderTitle }, { children: "Related Posts" }), void 0), _jsx("p", { className: classes.hr }, void 0)] }), void 0), _jsx("div", __assign({ className: classes.posts }, { children: displayRelatedPosts() }), void 0)] }, void 0)] }), void 0), "ludex gundyr", _jsx(Footer, { name: site === null || site === void 0 ? void 0 : site.name, className: classes.footer }, void 0)] }), void 0));
 };
