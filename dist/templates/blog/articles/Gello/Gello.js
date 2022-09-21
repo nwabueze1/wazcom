@@ -28,7 +28,7 @@ var __read = (this && this.__read) || function (o, n) {
 import { jsx as _jsx, jsxs as _jsxs } from "react/jsx-runtime";
 import { useEffect, useState } from "react";
 import { shareDataGello } from "./data";
-import { RelatedPostGello } from "./RelatedPost/RelatedPost";
+import { RelatedPostGello } from "./";
 import { getDay } from "../../../../utilities/getTime";
 import { useGelloStyles } from "./styles";
 import clx from "classnames";

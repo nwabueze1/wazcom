@@ -1,7 +1,7 @@
 import { FC, useEffect, useState } from "react";
 import { CoreArticleTemplateFields } from "../types";
 import { shareDataPolitico } from "./data";
-import { RelatedPostPolitico } from "./RelatedPost/RelatedPost";
+import { RelatedPostPolitico } from "./RelatedPost";
 import { getDay } from "../../../../utilities/getTime";
 import { usePoliticoStyles } from "./styles";
 import clx from "classnames";
