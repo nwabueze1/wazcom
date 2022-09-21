@@ -28,7 +28,7 @@ var __read = (this && this.__read) || function (o, n) {
 import { jsx as _jsx, jsxs as _jsxs } from "react/jsx-runtime";
 import { useEffect, useState } from "react";
 import clx from "classnames";
-import { RelatedPostNoval } from "./RelatedPost/RelatedPost";
+import { RelatedPostNoval } from "./";
 import { shareDataNoval } from "./data";
 import { getDay } from "../../../../utilities/getTime";
 import { useNovalStyles } from "./styles";
