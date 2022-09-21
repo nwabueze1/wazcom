@@ -1,6 +1,6 @@
 import { FC, useEffect, useState } from "react";
 import clx from "classnames";
-import { RelatedPostNoval } from "./RelatedPost/RelatedPost";
+import { RelatedPostNoval } from "./";
 import { shareDataNoval } from "./data";
 import { getDay } from "../../../../utilities/getTime";
 import { CoreArticleTemplateFields } from "../types";

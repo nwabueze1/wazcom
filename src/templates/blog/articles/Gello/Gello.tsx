@@ -1,7 +1,7 @@
 import { FC, useEffect, useState } from "react";
 import { CoreArticleTemplateFields } from "../types";
 import { shareDataGello } from "./data";
-import { RelatedPostGello } from "./RelatedPost/RelatedPost";
+import { RelatedPostGello } from "./";
 import { getDay } from "../../../../utilities/getTime";
 import { useGelloStyles } from "./styles";
 import clx from "classnames";

@@ -25,7 +25,7 @@ export const useScheduleData = () => {
           />
         </div>
       );
-      parsedSchedule["time"] = (
+      parsedSchedule["time_section"] = (
         <div className={classNames?.timeSection}>
           <TimeSelector
             name={"time"}
