@@ -6,7 +6,6 @@ export const useTaurantStyles = makeStyles<Theme>((theme: Theme) => ({
     width: "100%",
     display: "flex",
     justifyContent: "center",
-    marginTop: 100,
     fontFamily: theme.design.font.lato
   },
   paper: {
