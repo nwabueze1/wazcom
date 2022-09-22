@@ -6,6 +6,7 @@ export const useTableControlsStyles = makeStyles((theme: Theme) => ({
     display: "flex",
     justifyContent: "space-between",
     margin: theme.spacing(0, 0, 2, 0),
+    gap: theme.spacing(3)
   },
   filterControls: {
     display: "flex",
