@@ -7,6 +7,7 @@ import { Asta } from "templates/restaurant/Asta/Asta";
 import { Buzz } from "templates/restaurant/Buzz/Buzz";
 import { Browser } from "view/Browser";
 import theme from "./theme";
+import { Valour } from "./templates/Navs/Valour"
 declare module "@mui/styles/defaultTheme" {
   // eslint-disable-next-line @typescript-eslint/no-empty-interface
   interface DefaultTheme extends Theme {}
@@ -14,6 +15,12 @@ declare module "@mui/styles/defaultTheme" {
 interface Props {
   className?: string;
 }
+
+const links = [
+  {text: "ludex", url: ""}
+]
+
+const logo = "https://img.vt.co/2022/06/stillerzelenskyyft-1024x534.jpg"
 
 const App: React.FC<Props> = () => {
   return (
@@ -26,6 +33,9 @@ const App: React.FC<Props> = () => {
             </Route>
             <Route exact path="/politico">
               <Halo article={articleData} site={site} domain={""} />
+            </Route>
+            <Route exact path="/valour">
+              <Valour links={links} logo={logo} />
             </Route>
             <Route exact path="/rest">
               <Buzz />

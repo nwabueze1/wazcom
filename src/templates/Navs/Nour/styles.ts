@@ -16,10 +16,11 @@ export const useNourStyles = makeStyles<Theme>((theme: Theme) => ({
     justifyContent: "space-between",
     padding: theme.spacing(3, 4),
     alignItems: "center",
-    boxShadow: `0px 2px 12px ${theme.design.colors.waz_grey800}`
+    boxShadow: `0px 2px 12px ${theme.design.colors.waz_grey800}`,
+    maxHeight: "72px"
   },
   logo: {
-    height: "50px",
+    height: "40px",
     width: "50px"
   },
   linksContainer: {

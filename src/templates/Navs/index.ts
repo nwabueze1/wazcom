@@ -1,3 +1,3 @@
-export * from "./Nour/Nour";
-export * from "./Taurant/Taurant"
-export * from "./Valour/Valour"
+export * from "./Nour";
+export * from "./Taurant"
+export * from "./Valour"
