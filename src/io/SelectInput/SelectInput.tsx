@@ -28,8 +28,9 @@ export const SelectInput: FC<SelectInputProps> = ({
   };
 
   const displayLabelFromValue = (value: any) => {
-    const label = options.filter((option) => option.value == value)?.[0]?.label;
-    return label;
+    const option = options.filter((option) => option.value == value)?.[0];
+    const Icon = option.icon;
+    return <p>{Icon && <Icon className={classes.icon} />}{option.label}</p>;
   };
 
   return (
@@ -43,7 +44,8 @@ export const SelectInput: FC<SelectInputProps> = ({
           <p className={classes.required}>{props.required ? " *" : ""}</p>
         </InputLabel>
       )}
-      <Select
+      <div className={classes.selectContainer}>
+    <Select
         {...props}
         onChange={handleChange}
         className={clx(classNames?.selectInput, classes.select)}
@@ -59,10 +61,13 @@ export const SelectInput: FC<SelectInputProps> = ({
         {options.length === 0 && (
           <MenuItem value="Select a value">{placeholder}</MenuItem>
         )}
-        {options.map(({ label, value, subText }, index: number) => (
+        {options.map(({ label, value, subText, icon:Icon }, index: number) => (
           <MenuItem key={index} value={value}>
             <div className={classNames?.optionContainer as string}>
-              <p className={classNames?.optionLabel as string}>{label}</p>
+              <div className={classes.iconContianer}>
+                {Icon && <Icon className={classes.icon} />}
+              <p className={clx(classNames?.optionLabel, classes.optionLabel)}>{label}</p>
+              </div>
               {subText && (
                 <p className={classNames?.optionSubText as string}>{subText}</p>
               )}
@@ -70,6 +75,7 @@ export const SelectInput: FC<SelectInputProps> = ({
           </MenuItem>
         ))}
       </Select>
+      </div>
       {helperText}
       {feedback && displayFeedback(feedback)}
     </div>
