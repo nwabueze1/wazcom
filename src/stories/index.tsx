@@ -16,6 +16,7 @@ import {
   Scheduler
 } from "../core";
 import { BiLink } from "react-icons/bi";
+import { FaEdit } from "react-icons/fa"
 
 import {
   CheckBoxInput,
@@ -402,8 +403,8 @@ export const stories: ComponentPropType[] = [
     props: {
       label: "lslss",
       options: [
-        { label: "Basit", value: "basit" },
-        { label: "Chinazom", value: "chinazom" },
+        { label: "Basit", value: "basit", icon:FaEdit },
+        { label: "Chinazom", value: "chinazom", icon:FaEdit },
       ],
       error: true,
       required: true,
