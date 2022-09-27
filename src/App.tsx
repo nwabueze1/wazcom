@@ -15,8 +15,6 @@ interface Props {
   className?: string;
 }
 
-const logo = "https://img.vt.co/2022/06/stillerzelenskyyft-1024x534.jpg"
-
 const App: React.FC<Props> = () => {
   return (
     <StyledEngineProvider injectFirst>
