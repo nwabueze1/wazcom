@@ -1,53 +1,37 @@
 import { Theme } from "@mui/material/styles";
 import makeStyles from "@mui/styles/makeStyles";
 
-export const useSelectStyles = makeStyles((theme: Theme) => ({
-  root: {
-    borderRadius: theme.spacing(1),
-    fontSize: "16px",
-    color: theme.design.colors.waz_greyColor400,
-    width: "100%",
-    marginBottom: theme.spacing(2),
-  },
-  label: {
-    display: "flex",
-    alignItems: "center",
-  },
-  required: {
-    color: theme.design.colors.waz_dangerColor100,
-    margin: theme.spacing(0.5, 0, 0, 0.5),
-  },
-  selectContainer: {
-    display: "flex",
-    alignItem: "center",
-    justifyContent: "center"
-  },
-  iconContianer: {
-    display: "flex",
-    alignItem: "center",
-    justifyContent: "center"
-  },
-  icon: {
-    marginRight: theme.spacing(1),
-    fontSize: 20
-  },
-  select: {
-    width: "100%",
-    "& .MuiMenuItem-root": {
-      background: "none",
+export const useEditableTextStyles = makeStyles((theme: Theme) => ({
+    root: {
+        borderRadius: theme.spacing(1),
+        fontSize: "16px",
+        color: theme.design.colors.waz_greyColor400,
+        width: "100%",
+        marginBottom: theme.spacing(2),
     },
-    "&.Mui-focused fieldset.MuiOutlinedInput-notchedOutline": {
-      borderColor: theme.design.colors.waz_primaryColor100,
-      outline: theme.design.colors.waz_primaryColor100,
-      "&:hover": {
-        borderColor: theme.design.colors.waz_primaryColor100,
-        outline: theme.design.colors.waz_primaryColor100
-      },
+    editableTextInput: {
+        width: "100%",
+        height: 40,
+        border: `1px solid ${theme.design.colors.waz_primaryColor100}`,
+        display: "flex",
+        alignItems: "center",
+        justifyContent: "flex-start",
+        padding: theme.spacing(0, 2),
+        color: theme.design.colors.waz_greyColor400,
+        borderRadius: theme.spacing(0.5),
     },
-  },
-  optionLabel: {
-    display: "flex",
-    alignItem: "center",
-    justifyContent: "center"
-  }
+    editTagContainer: {
+        display: "flex",
+        alignItems: "center",
+        justifyContent: "flex-start",
+    },
+    controlIcon: {
+        fontSize: 16,
+        padding: theme.spacing(1),
+        backgroundColor: theme.design.colors.waz_white,
+        "&:hover": {
+            backgroundColor: theme.design.colors.waz_grey5,
+            transition: "ease-in-out .5s",
+        },
+    },
 }));
