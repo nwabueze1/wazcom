@@ -27,8 +27,6 @@ export const useTaurantStyles = makeStyles<Theme>((theme: Theme) => ({
     display: "flex",
     flexDirection: "row",
     gap: theme.spacing(4),
-    marginLeft: "15%",
-    marginRight: theme.spacing(3)
   },
   link: {
     color: theme.design.colors.waz_black,
@@ -38,7 +36,8 @@ export const useTaurantStyles = makeStyles<Theme>((theme: Theme) => ({
   socialsContainer: {
     display: "flex",
     flexDirection: "row",
-    gap: theme.spacing(3)
+    gap: theme.spacing(3),
+    marginTop: theme.spacing(0.5)
   },
   socialIntegration: {
     color: theme.design.colors.waz_black,
@@ -46,5 +45,13 @@ export const useTaurantStyles = makeStyles<Theme>((theme: Theme) => ({
   hivedeckLogo: {
     width: "90px",
     height: "30px"
+  },
+  content: {
+    display: "flex",
+    flexDirection: "row",
+    alignItems: "center",
+    justifyContent: "center",
+    margin: theme.spacing(0, "auto"),
+    gap: theme.spacing(4)
   }
 }));

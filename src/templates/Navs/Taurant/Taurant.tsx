@@ -37,8 +37,10 @@ export const Taurant = ({ links, socials, logo }: NavProps) => {
       >
           <img src={logo ?? hivedeckLogo} className={logo ? classes.logo : classes.hivedeckLogo} />
 
+        <div className={classes.content}>
         <div className={classes.linksContainer}>{displayLinks()}</div>
         <div className={classes.socialsContainer}>{displaySocials()}</div>
+        </div>
       </Paper>
     </div>
   );
