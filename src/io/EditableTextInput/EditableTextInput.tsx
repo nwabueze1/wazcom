@@ -44,7 +44,7 @@ const contols = [
     icon: <BsLink />
   }
 ];
-const EditableTextInput = () => {
+export const EditableTextInput = () => {
   const [fieldState, setFieldState] = useState<{
     editable?: boolean;
     html?: string;
@@ -87,8 +87,8 @@ const EditableTextInput = () => {
         onChange={handleChange}
         onBlur={sanitize}
       />
-      {contols.map((control) => (
-        <EditButton {...control} />
+      {contols.map((control, idx) => (
+        <EditButton key={idx} {...control} />
       ))}
       <button onClick={toggleEditable}>
         Make {fieldState.editable ? "readonly" : "editable"}
@@ -97,4 +97,3 @@ const EditableTextInput = () => {
   );
 };
 
-export default EditableTextInput;

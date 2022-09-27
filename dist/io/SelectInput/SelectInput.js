@@ -34,14 +34,15 @@ export var SelectInput = function (_a) {
         onChange === null || onChange === void 0 ? void 0 : onChange({ name: name, value: value });
     };
     var displayLabelFromValue = function (value) {
-        var _a, _b;
-        var label = (_b = (_a = options.filter(function (option) { return option.value == value; })) === null || _a === void 0 ? void 0 : _a[0]) === null || _b === void 0 ? void 0 : _b.label;
-        return label;
+        var _a;
+        var option = (_a = options.filter(function (option) { return option.value == value; })) === null || _a === void 0 ? void 0 : _a[0];
+        var Icon = option.icon;
+        return _jsxs("p", { children: [Icon && _jsx(Icon, { className: classes.icon }, void 0), option.label] }, void 0);
     };
-    return (_jsxs("div", __assign({ className: clx(className, classes.root) }, { children: [label && (_jsxs(InputLabel, __assign({ className: (_b = classNames === null || classNames === void 0 ? void 0 : classNames.label) !== null && _b !== void 0 ? _b : classes.label, htmlFor: props.name }, { children: [label, " ", _jsx("p", __assign({ className: classes.required }, { children: props.required ? " *" : "" }), void 0)] }), void 0)), _jsxs(Select, __assign({}, props, { onChange: handleChange, className: clx(classNames === null || classNames === void 0 ? void 0 : classNames.selectInput, classes.select), classes: (classNames === null || classNames === void 0 ? void 0 : classNames.classes)
-                    ? classNames.classes
-                    : {}, renderValue: function (value) { return (_jsx(MenuItem, __assign({ value: value }, { children: displayLabelFromValue(value) }), void 0)); } }, { children: [options.length === 0 && (_jsx(MenuItem, __assign({ value: "Select a value" }, { children: placeholder }), void 0)), options.map(function (_a, index) {
-                        var label = _a.label, value = _a.value, subText = _a.subText;
-                        return (_jsx(MenuItem, __assign({ value: value }, { children: _jsxs("div", __assign({ className: classNames === null || classNames === void 0 ? void 0 : classNames.optionContainer }, { children: [_jsx("p", __assign({ className: classNames === null || classNames === void 0 ? void 0 : classNames.optionLabel }, { children: label }), void 0), subText && (_jsx("p", __assign({ className: classNames === null || classNames === void 0 ? void 0 : classNames.optionSubText }, { children: subText }), void 0))] }), void 0) }), index));
-                    })] }), void 0), helperText, feedback && displayFeedback(feedback)] }), void 0));
+    return (_jsxs("div", __assign({ className: clx(className, classes.root) }, { children: [label && (_jsxs(InputLabel, __assign({ className: (_b = classNames === null || classNames === void 0 ? void 0 : classNames.label) !== null && _b !== void 0 ? _b : classes.label, htmlFor: props.name }, { children: [label, " ", _jsx("p", __assign({ className: classes.required }, { children: props.required ? " *" : "" }), void 0)] }), void 0)), _jsx("div", __assign({ className: classes.selectContainer }, { children: _jsxs(Select, __assign({}, props, { onChange: handleChange, className: clx(classNames === null || classNames === void 0 ? void 0 : classNames.selectInput, classes.select), classes: (classNames === null || classNames === void 0 ? void 0 : classNames.classes)
+                        ? classNames.classes
+                        : {}, renderValue: function (value) { return (_jsx(MenuItem, __assign({ value: value }, { children: displayLabelFromValue(value) }), void 0)); } }, { children: [options.length === 0 && (_jsx(MenuItem, __assign({ value: "Select a value" }, { children: placeholder }), void 0)), options.map(function (_a, index) {
+                            var label = _a.label, value = _a.value, subText = _a.subText, Icon = _a.icon;
+                            return (_jsx(MenuItem, __assign({ value: value }, { children: _jsxs("div", __assign({ className: classNames === null || classNames === void 0 ? void 0 : classNames.optionContainer }, { children: [_jsxs("div", __assign({ className: classes.iconContianer }, { children: [Icon && _jsx(Icon, { className: classes.icon }, void 0), _jsx("p", __assign({ className: clx(classNames === null || classNames === void 0 ? void 0 : classNames.optionLabel, classes.optionLabel) }, { children: label }), void 0)] }), void 0), subText && (_jsx("p", __assign({ className: classNames === null || classNames === void 0 ? void 0 : classNames.optionSubText }, { children: subText }), void 0))] }), void 0) }), index));
+                        })] }), void 0) }), void 0), helperText, feedback && displayFeedback(feedback)] }), void 0));
 };
