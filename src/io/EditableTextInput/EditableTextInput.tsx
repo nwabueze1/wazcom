@@ -15,7 +15,7 @@ export const EditableTextInput: FC<EditableTextInputProps> = ({ html, setHtml })
         html: "<p><p>",
         editable: true,
     });
-    const [collapse, setCollapse] = useState(true);
+    const [collapse, setCollapse] = useState(false);
     const classes = useEditableTextStyles();
     const sanitizeConf = {
         allowedTags: ["b", "i", "em", "strong", "a", "p", "h1", "h2"],
