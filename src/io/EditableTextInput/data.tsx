@@ -1,5 +1,5 @@
 import { MdFormatBold, MdOutlineFormatItalic } from "react-icons/md";
-import { BiHeading } from "react-icons/bi";
+import { CgFormatHeading } from "react-icons/cg";
 import { BsLink } from "react-icons/bs";
 
 export const contols = [
@@ -15,7 +15,7 @@ export const contols = [
   },
   {
     name: "heading",
-    icon: <BiHeading />,
+    icon: <CgFormatHeading />,
     cmd: "formatBlock",
     arg: "h1",
   },

@@ -11,12 +11,14 @@ export const useEditableTextStyles = makeStyles((theme: Theme) => ({
     },
     editableTextInput: {
         width: "100%",
-        height: 40,
+        maxHeight: 40,
+        minHeight: 40,
+        outline: 0,
+        padding: theme.spacing(1, 2),
         border: `1px solid ${theme.design.colors.waz_primaryColor100}`,
         display: "flex",
         alignItems: "center",
         justifyContent: "flex-start",
-        padding: theme.spacing(0, 2),
         color: theme.design.colors.waz_greyColor400,
         borderRadius: theme.spacing(0.5),
     },
@@ -26,12 +28,21 @@ export const useEditableTextStyles = makeStyles((theme: Theme) => ({
         justifyContent: "flex-start",
     },
     controlIcon: {
-        fontSize: 16,
-        padding: theme.spacing(1),
-        backgroundColor: theme.design.colors.waz_white,
+        fontSize: 20,
+        padding: theme.spacing(.5),
+        borderRadius: 4,
+        backgroundColor: "transparent",
+        cursor: "pointer",
+        marginRight: theme.spacing(.5),
+        color: theme.design.colors.waz_greyColor200,
+        display: "flex",
+        alignItems: "center",
+        justifyContent: "flex-start",
+
         "&:hover": {
-            backgroundColor: theme.design.colors.waz_grey5,
-            transition: "ease-in-out .5s",
+            backgroundColor: theme.design.colors.waz_greyColor200,
+            transition: "all ease-in-out .5s",
+            color: theme.design.colors.waz_black
         },
     },
 }));
