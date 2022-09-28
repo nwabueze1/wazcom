@@ -1,4 +1,4 @@
-export const days: { id: number; name: string}[] = [
+export const days: { id: number; name: string }[] = [
     { id: 0, name: "Sunday" },
     { id: 1, name: "Monday" },
     { id: 2, name: "Tuesday" },
@@ -11,16 +11,16 @@ export const days: { id: number; name: string}[] = [
 ];
 
 export const fields = [
-  {
-    name: "day",
-    label: "Days/ No. of Days",
-  },
-  {
-    name: "time_section",
-    label: "Start Time",
-  },
-  {
-    name: "action",
-    label: "",
-  },
+    {
+        name: "day",
+        label: "Days/ No. of Days",
+    },
+    {
+        name: "time_section",
+        label: "Start Time",
+    },
+    {
+        name: "action",
+        label: "",
+    },
 ];

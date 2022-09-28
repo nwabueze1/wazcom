@@ -8,35 +8,35 @@ import { Buzz } from "templates/restaurant/Buzz/Buzz";
 import { Browser } from "view/Browser";
 import theme from "./theme";
 declare module "@mui/styles/defaultTheme" {
-  // eslint-disable-next-line @typescript-eslint/no-empty-interface
-  interface DefaultTheme extends Theme {}
+    // eslint-disable-next-line @typescript-eslint/no-empty-interface
+    interface DefaultTheme extends Theme {}
 }
 interface Props {
-  className?: string;
+    className?: string;
 }
 
 const App: React.FC<Props> = () => {
-  return (
-    <StyledEngineProvider injectFirst>
-      <ThemeProvider theme={theme}>
-        <Router>
-          <Switch>
-            <Route exact path="/">
-              <Browser />
-            </Route>
-            <Route exact path="/politico">
-              <Halo article={articleData} site={site} domain={""} />
-            </Route>
-            <Route exact path="/rest">
-              <Buzz />
-            </Route>
-            <Route exact path="/asta">
-              <Asta />
-            </Route>
-          </Switch>
-        </Router>
-      </ThemeProvider>
-    </StyledEngineProvider>
-  );
+    return (
+        <StyledEngineProvider injectFirst>
+            <ThemeProvider theme={theme}>
+                <Router>
+                    <Switch>
+                        <Route exact path="/">
+                            <Browser />
+                        </Route>
+                        <Route exact path="/politico">
+                            <Halo article={articleData} site={site} domain={""} />
+                        </Route>
+                        <Route exact path="/rest">
+                            <Buzz />
+                        </Route>
+                        <Route exact path="/asta">
+                            <Asta />
+                        </Route>
+                    </Switch>
+                </Router>
+            </ThemeProvider>
+        </StyledEngineProvider>
+    );
 };
 export default App;

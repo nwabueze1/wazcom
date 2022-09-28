@@ -23,24 +23,23 @@ export const EditableTextInput: FC<EditableTextInputProps> = ({ html, setHtml })
     };
 
     useEffect(() => {
-        setFieldState(fieldState => ({ ...fieldState, html }))
-    }, [])
+        setFieldState((fieldState) => ({ ...fieldState, html }));
+    }, []);
 
     const handleChange = (evt: any) => {
         setFieldState({ html: evt.target.value });
-        if (setHtml)
-            setHtml(evt.target.value);
+        if (setHtml) setHtml(evt.target.value);
     };
 
     const sanitize = () => {
-        sanitizeHtml(fieldState?.html || "", sanitizeConf)
+        sanitizeHtml(fieldState?.html || "", sanitizeConf);
     };
 
     const handleBlur = () => {
         setCollapse(false);
         sanitize();
     };
-    
+
     const handleFocus = () => {
         setCollapse(true);
     };

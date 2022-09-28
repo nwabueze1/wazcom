@@ -2,99 +2,99 @@ import makeStyles from "@mui/styles/makeStyles";
 import { Theme } from "@mui/material/styles";
 
 export const useBlogArticle001Styles = makeStyles<Theme>((theme: Theme) => ({
-  root: {
-    width: "100%",
-    height: "100%",
-    fontFamiy: theme.include.styles.raleway,
-  },
-  container: {
-    maxWidth: theme.include.styles.template2.maxWidth,
-    margin: "0 auto",
-  },
-  imageContainer: {
-    display: "flex",
-    justifyContent: "center",
-    marginTop: theme.spacing(10),
-    [theme.breakpoints.down("md")]: {
-      marginTop: theme.spacing(2),
+    root: {
+        width: "100%",
+        height: "100%",
+        fontFamiy: theme.include.styles.raleway,
     },
-  },
-  contentContainer: {
-    width: "55%",
-    margin: "auto",
-    [theme.breakpoints.down("md")]: {
-      width: "90%",
+    container: {
+        maxWidth: theme.include.styles.template2.maxWidth,
+        margin: "0 auto",
     },
-  },
-  content: {
-    fontWeight: theme.typography.fontWeightLight,
-    lineHeight: "28px",
-    fontSize: theme.typography.fontSize + 4,
-  },
-  header: {
-    width: "90%",
-    margin: theme.spacing(4, 0),
-    fontWeight: theme.typography.fontWeightMedium,
-    fontSize: theme.typography.fontSize * 2.5,
-  },
-  image: {
-    width: 720,
-    height: "400px",
-    [theme.breakpoints.down("md")]: {
-      width: "95%",
+    imageContainer: {
+        display: "flex",
+        justifyContent: "center",
+        marginTop: theme.spacing(10),
+        [theme.breakpoints.down("md")]: {
+            marginTop: theme.spacing(2),
+        },
     },
-  },
-  slide: {
-    margin: theme.spacing(10, 0),
-    display: "flex",
-    width: "100%",
-    justifyContent: "space-between",
-    [theme.breakpoints.down("sm")]: {
-      flexDirection: "column",
+    contentContainer: {
+        width: "55%",
+        margin: "auto",
+        [theme.breakpoints.down("md")]: {
+            width: "90%",
+        },
     },
-  },
-  rightSlide: {
-    display: "flex",
-    fontWeight: theme.typography.fontWeightMedium,
-    fontSize: theme.typography.fontSize + 4,
-    gap: theme.spacing(1.5),
-    alignItems: "center",
-    width: "21%",
-    [theme.breakpoints.down("md")]: {
-      width: "40%",
+    content: {
+        fontWeight: theme.typography.fontWeightLight,
+        lineHeight: "28px",
+        fontSize: theme.typography.fontSize + 4,
     },
-    [theme.breakpoints.down("sm")]: {
-      width: "100%",
-      marginBottom: theme.spacing(2),
+    header: {
+        width: "90%",
+        margin: theme.spacing(4, 0),
+        fontWeight: theme.typography.fontWeightMedium,
+        fontSize: theme.typography.fontSize * 2.5,
     },
-  },
-  leftSlide: {
-    display: "flex",
-    fontWeight: theme.typography.fontWeightMedium,
-    fontSize: theme.typography.fontSize + 4,
-    gap: theme.spacing(1.5),
-    alignItems: "center",
-    width: "21%",
-    [theme.breakpoints.down("md")]: {
-      width: "40%",
+    image: {
+        width: 720,
+        height: "400px",
+        [theme.breakpoints.down("md")]: {
+            width: "95%",
+        },
     },
-    [theme.breakpoints.down("sm")]: {
-      width: "100%",
-      marginBottom: theme.spacing(2),
-      justifyContent: "flex-end",
+    slide: {
+        margin: theme.spacing(10, 0),
+        display: "flex",
+        width: "100%",
+        justifyContent: "space-between",
+        [theme.breakpoints.down("sm")]: {
+            flexDirection: "column",
+        },
     },
-  },
-  navContainer: {
-    [theme.breakpoints.down("md")]: {
-      width: "90%",
-      margin: "auto",
+    rightSlide: {
+        display: "flex",
+        fontWeight: theme.typography.fontWeightMedium,
+        fontSize: theme.typography.fontSize + 4,
+        gap: theme.spacing(1.5),
+        alignItems: "center",
+        width: "21%",
+        [theme.breakpoints.down("md")]: {
+            width: "40%",
+        },
+        [theme.breakpoints.down("sm")]: {
+            width: "100%",
+            marginBottom: theme.spacing(2),
+        },
     },
-  },
-  rightArrow: {
-    fontSize: theme.typography.fontSize * 3,
-  },
-  leftArrow: {
-    transform: "rotate(180deg)",
-    fontSize: theme.typography.fontSize * 3,
-  },
+    leftSlide: {
+        display: "flex",
+        fontWeight: theme.typography.fontWeightMedium,
+        fontSize: theme.typography.fontSize + 4,
+        gap: theme.spacing(1.5),
+        alignItems: "center",
+        width: "21%",
+        [theme.breakpoints.down("md")]: {
+            width: "40%",
+        },
+        [theme.breakpoints.down("sm")]: {
+            width: "100%",
+            marginBottom: theme.spacing(2),
+            justifyContent: "flex-end",
+        },
+    },
+    navContainer: {
+        [theme.breakpoints.down("md")]: {
+            width: "90%",
+            margin: "auto",
+        },
+    },
+    rightArrow: {
+        fontSize: theme.typography.fontSize * 3,
+    },
+    leftArrow: {
+        transform: "rotate(180deg)",
+        fontSize: theme.typography.fontSize * 3,
+    },
 }));

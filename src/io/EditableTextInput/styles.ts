@@ -29,11 +29,11 @@ export const useEditableTextStyles = makeStyles((theme: Theme) => ({
     },
     controlIcon: {
         fontSize: 20,
-        padding: theme.spacing(.5),
+        padding: theme.spacing(0.5),
         borderRadius: 4,
         backgroundColor: "transparent",
         cursor: "pointer",
-        marginRight: theme.spacing(.5),
+        marginRight: theme.spacing(0.5),
         color: theme.design.colors.waz_greyColor200,
         display: "flex",
         alignItems: "center",
@@ -42,7 +42,7 @@ export const useEditableTextStyles = makeStyles((theme: Theme) => ({
         "&:hover": {
             backgroundColor: theme.design.colors.waz_greyColor200,
             transition: "all ease-in-out .5s",
-            color: theme.design.colors.waz_black
+            color: theme.design.colors.waz_black,
         },
     },
 }));

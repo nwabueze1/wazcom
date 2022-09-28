@@ -1,14 +1,14 @@
 import { CommonProps } from "types";
 
 export type EmptyStateProps = CommonProps & {
-  image?: {
-    src?: string;
-    alt?: string;
-  };
-  text?: string;
-  button?: {
-    display?: boolean;
+    image?: {
+        src?: string;
+        alt?: string;
+    };
     text?: string;
-    handleClick?: () => void;
-  };
+    button?: {
+        display?: boolean;
+        text?: string;
+        handleClick?: () => void;
+    };
 };

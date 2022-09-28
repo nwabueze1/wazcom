@@ -1,4 +1,4 @@
-import { FC } from "react"
+import { FC } from "react";
 import { useEditableTextStyles } from "../../styles";
 import { EditTagProps } from "./types";
 
