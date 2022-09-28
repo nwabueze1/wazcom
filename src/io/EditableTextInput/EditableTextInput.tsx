@@ -40,6 +40,7 @@ export const EditableTextInput: FC<EditableTextInputProps> = ({ html, setHtml })
         setCollapse(false);
         sanitize();
     };
+    
     const handleFocus = () => {
         setCollapse(true);
     };
