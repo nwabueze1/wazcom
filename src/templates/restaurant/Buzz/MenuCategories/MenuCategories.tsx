@@ -18,7 +18,7 @@ export const MenuCategories = (content: CoreFosFields) => {
     offsetWidth: 0,
   });
   const menus = [...(restaurant.activeMenus as CoreMenuFields[])];
-  
+
   const isScrollable =
     categoryRef?.current && scrollProps?.scrollWidth > scrollProps.offsetWidth;
 

@@ -73,7 +73,7 @@ export const useStyles = makeStyles<Theme, StyleProps>((theme: Theme) =>
       display: "-webkit-box",
       "-webkit-line-clamp": 1, // amount of line you want
       "-webkit-box-orient": "vertical",
-      overflow: "hidden"
+      overflow: "hidden",
     },
     amount: {
       fontSize: theme.typography.fontSize + 4,
@@ -136,7 +136,7 @@ export const useStyles = makeStyles<Theme, StyleProps>((theme: Theme) =>
       alignItems: "center",
     },
     closeIcon: {
-      color: theme.design.colors.waz_greenishGrey2
+      color: theme.design.colors.waz_greenishGrey2,
     },
     optionsGroup: {
       display: "flex",

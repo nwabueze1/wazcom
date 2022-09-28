@@ -12,7 +12,7 @@ export const useDisplayCategories = () => {
     searchValue?: string
   ) => {
     const classes = useMenuCategoryStyles();
-    
+
     const categories =
       searchValue && searchValue.length > 0
         ? Object.keys(findCategories(activeMenu, searchValue))

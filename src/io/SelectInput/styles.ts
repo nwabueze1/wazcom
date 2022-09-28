@@ -20,16 +20,16 @@ export const useSelectStyles = makeStyles((theme: Theme) => ({
   selectContainer: {
     display: "flex",
     alignItem: "center",
-    justifyContent: "center"
+    justifyContent: "center",
   },
   iconContianer: {
     display: "flex",
     alignItem: "center",
-    justifyContent: "center"
+    justifyContent: "center",
   },
   icon: {
     marginRight: theme.spacing(1),
-    fontSize: 20
+    fontSize: 20,
   },
   select: {
     width: "100%",
@@ -41,13 +41,13 @@ export const useSelectStyles = makeStyles((theme: Theme) => ({
       outline: theme.design.colors.waz_primaryColor100,
       "&:hover": {
         borderColor: theme.design.colors.waz_primaryColor100,
-        outline: theme.design.colors.waz_primaryColor100
+        outline: theme.design.colors.waz_primaryColor100,
       },
     },
   },
   optionLabel: {
     display: "flex",
     alignItem: "center",
-    justifyContent: "center"
-  }
+    justifyContent: "center",
+  },
 }));

@@ -12,9 +12,7 @@ export const DateTimePicker: React.FC<DateTimePickerProps> = ({
   classNames,
   name: componentName,
   label,
-  value: initialScheduleValue = [
-    { day: "2022-0-0", time: "00:00"},
-  ],
+  value: initialScheduleValue = [{ day: "2022-0-0", time: "00:00" }],
   onChange,
   orientation = "horizontal",
 }) => {
@@ -34,20 +32,21 @@ export const DateTimePicker: React.FC<DateTimePickerProps> = ({
       }
       onChange?.({ name: componentName as string, value: newValue });
     },
-    [initialScheduleValue],
+    [initialScheduleValue]
   );
 
   const [scheduleValue, setScheduleValue] = useState<{ [key: string]: any }[]>(
-    parseSchedulevalue(initialScheduleValue as DateTimePickerFields[],
-       handleChange,
-       {
-      timeSection: classes.timeContainer,
-      timeDivider: classes.timeDivider,
-      closeIcon: classes.closeIcon,
-      hiddenCloseIcon: classes.hidden,
-      dayContainer: classes.dayContainer
-    },
-    ),
+    parseSchedulevalue(
+      initialScheduleValue as DateTimePickerFields[],
+      handleChange,
+      {
+        timeSection: classes.timeContainer,
+        timeDivider: classes.timeDivider,
+        closeIcon: classes.closeIcon,
+        hiddenCloseIcon: classes.hidden,
+        dayContainer: classes.dayContainer,
+      }
+    )
   );
 
   useEffect(() => {
@@ -59,8 +58,8 @@ export const DateTimePicker: React.FC<DateTimePickerProps> = ({
         timeDivider: classes.timeDivider,
         closeIcon: classes.closeIcon,
         hiddenCloseIcon: classes.hidden,
-        dayContainer: classes.dayContainer
-      },
+        dayContainer: classes.dayContainer,
+      }
     );
     setScheduleValue(newScheduleValue);
   }, [initialScheduleValue]);
@@ -77,10 +76,17 @@ export const DateTimePicker: React.FC<DateTimePickerProps> = ({
       )}
       {scheduleValue?.map((row: any, index: number) => {
         return (
-          <div className={`${classes.schedulerContainer} ${orientation == "vertical" && classes.verticalContainer}`} key={index}>
-            {fields.map(({ name }) => {
-              return row?.[name];
-            }).reverse()}
+          <div
+            className={`${classes.schedulerContainer} ${
+              orientation == "vertical" && classes.verticalContainer
+            }`}
+            key={index}
+          >
+            {fields
+              .map(({ name }) => {
+                return row?.[name];
+              })
+              .reverse()}
           </div>
         );
       })}

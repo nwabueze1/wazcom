@@ -23,7 +23,6 @@ export const InputGroup: FC<InputGroupProps> = ({
     setInputText(text ?? "");
   }, [text]);
 
-
   return (
     <div className={clx(classes.root, className)}>
       {label && (

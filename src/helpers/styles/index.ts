@@ -1,2 +1,2 @@
-export * from './feedback';
-export * from './label';
+export * from "./feedback";
+export * from "./label";

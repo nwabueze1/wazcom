@@ -29,7 +29,7 @@ export const useCartStyles = makeStyles<Theme>((theme: Theme) =>
       fontSize: theme.typography.fontSize + 4,
       borderBottom: `1px solid ${theme.design.colors.waz_grey300}`,
       fontWeight: 600,
-      position: "relative"
+      position: "relative",
     },
     cartLoader: {
       width: "100%",
@@ -163,7 +163,7 @@ export const useCartStyles = makeStyles<Theme>((theme: Theme) =>
       margin: theme.spacing(1, 0, 0, 0),
       padding: theme.spacing(0, 3),
       boxSizing: "border-box",
-      
+
       "&::-webkit-scrollbar": {
         width: "4px",
         background: "rgba(0,0,0,0.05)",
@@ -391,7 +391,7 @@ export const useCartStyles = makeStyles<Theme>((theme: Theme) =>
     },
     cartsContainer: {
       maxHeight: "calc(100vh - 270px)",
-      overflowY: "scroll"
+      overflowY: "scroll",
     },
     cartsContainerMd: {
       maxHeight: "calc(50vh - 270px)",
@@ -405,7 +405,7 @@ export const useCartStyles = makeStyles<Theme>((theme: Theme) =>
     closeBtn: {
       position: "absolute",
       right: 20,
-      marginTop: theme.spacing(1)
-    }
+      marginTop: theme.spacing(1),
+    },
   })
 );

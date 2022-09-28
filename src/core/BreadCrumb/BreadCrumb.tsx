@@ -5,7 +5,11 @@ import { FC } from "react";
 import { BreadCrumbStyles } from "./styles";
 import { BreadCrumbProps } from "./types";
 
-export const BreadCrumb: FC<BreadCrumbProps> = ({ className, crumbs, handleClick }) => {
+export const BreadCrumb: FC<BreadCrumbProps> = ({
+  className,
+  crumbs,
+  handleClick,
+}) => {
   const classes = BreadCrumbStyles();
 
   return (
@@ -19,10 +23,12 @@ export const BreadCrumb: FC<BreadCrumbProps> = ({ className, crumbs, handleClick
           >
             <p
               color="inherit"
-              onClick={() => { handleClick(crumb.path) }}
+              onClick={() => {
+                handleClick(crumb.path);
+              }}
               className={clx(
                 classes.link,
-                index === crumbs.length - 1 && classes.lastCrumb,
+                index === crumbs.length - 1 && classes.lastCrumb
               )}
             >
               {crumb.label}

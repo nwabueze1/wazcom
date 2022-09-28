@@ -92,23 +92,27 @@ export const useUpdateTableValue = (
       return newFilterResult.filter((rowValues) => {
         const status: boolean[] = [];
         Object.entries(rowValues).map(([key, value]) => {
-          let idx = -1
+          let idx = -1;
           filters.map((item, index) => {
             if (item.field == key) {
-              idx = index
+              idx = index;
             } else {
-              idx = -1
+              idx = -1;
             }
             if (idx !== -1) {
-              const term = value == null ? "" : typeof value == "object" ? getJsxContent(value): String(value);
+              const term =
+                value == null
+                  ? ""
+                  : typeof value == "object"
+                  ? getJsxContent(value)
+                  : String(value);
               if (!filters[idx].values.includes(term)) {
-                return status.push(true)
+                return status.push(true);
               }
-              status.push(false)
+              status.push(false);
             }
-            return
+            return;
           });
-          
         });
         return !status.includes(false);
       });

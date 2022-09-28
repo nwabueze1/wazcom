@@ -2,17 +2,17 @@ import { CommonProps } from "types";
 import { InputProps } from "@mui/material";
 
 export type DateTimePickerProps = CommonProps & {
-    label?: string;
-    gap?: string;
-    value?: DateTimePickerFields[];
-    orientation?: "horizontal" | "vertical";
-}
+  label?: string;
+  gap?: string;
+  value?: DateTimePickerFields[];
+  orientation?: "horizontal" | "vertical";
+};
 
 export type DateTimePickerFields = {
-    day: string;
-    time: string;
-}
+  day: string;
+  time: string;
+};
 export interface DatePickerProps extends InputProps {
-    value?: string;
-    scheduleData: DateTimePickerFields[];
-  }
+  value?: string;
+  scheduleData: DateTimePickerFields[];
+}

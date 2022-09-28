@@ -55,7 +55,10 @@ export const useDisplayCartItems = () => {
             <DisplayPrice name="Sub-total" amount={cartSubTotal(cartItems)} />
             <DisplayPrice name="Delivery" amount={deliveryFee} />
           </div>
-          <DisplayPrice name="Total" amount={cartSubTotal(cartItems) + deliveryFee} />
+          <DisplayPrice
+            name="Total"
+            amount={cartSubTotal(cartItems) + deliveryFee}
+          />
           <button
             className={`${classes.dialogOption} ${classes.dialogOptionFilled}`}
           >

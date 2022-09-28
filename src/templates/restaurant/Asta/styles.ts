@@ -5,7 +5,7 @@ export const useBuzzStyles = makeStyles<Theme>((theme: Theme) => ({
   root: {
     fontFamily: theme.design.font.openSans,
     [theme.breakpoints.down("md")]: {
-      overflowX: "hidden"
+      overflowX: "hidden",
     },
   },
   restaurant: {
@@ -33,13 +33,13 @@ export const useBuzzStyles = makeStyles<Theme>((theme: Theme) => ({
     justifyContent: "flex-start",
   },
   mainContainer: {
-    width: '70%',
+    width: "70%",
     [theme.breakpoints.down("md")]: {
-      width: "100%"
+      width: "100%",
     },
   },
   cartContainer: {
-    width: '30%',
+    width: "30%",
     border: `1px solid ${theme.design.colors.waz_grey300}`,
     height: "100%",
     minHeight: "100vh",
@@ -49,8 +49,7 @@ export const useBuzzStyles = makeStyles<Theme>((theme: Theme) => ({
     alignItems: "flex-start",
     justifyContent: "center",
     [theme.breakpoints.down("md")]: {
-      display: "none"
+      display: "none",
     },
   },
-
 }));

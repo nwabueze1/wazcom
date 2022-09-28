@@ -8,7 +8,7 @@ import { Typography } from "@mui/material";
 
 const getStatusClassName = (
   classes: ReturnType<typeof useNotificationStyles>,
-  status: NotificationProps["status"],
+  status: NotificationProps["status"]
 ) => {
   switch (status) {
     case "success":
@@ -27,7 +27,7 @@ export const Notification: FC<NotificationProps> = ({
   status,
   title,
   message,
-  onClose
+  onClose,
 }) => {
   const classes = useNotificationStyles();
   const StatusClassName = getStatusClassName(classes, status);
@@ -37,14 +37,23 @@ export const Notification: FC<NotificationProps> = ({
       <div
         className={clx(
           classes.notificationCard,
-          status !== "success" && classes.plainBg,
+          status !== "success" && classes.plainBg
         )}
       >
         <div className={clx(StatusClassName, classes.notificationHead)}>
           <Typography className={classes.report}>{title}</Typography>
-          <CloseIcon onClick={() => { onClose?.() }} className={classes.cancel} />
+          <CloseIcon
+            onClick={() => {
+              onClose?.();
+            }}
+            className={classes.cancel}
+          />
         </div>
-        {message && <Typography className={classes.notificationText}>{message}</Typography>}
+        {message && (
+          <Typography className={classes.notificationText}>
+            {message}
+          </Typography>
+        )}
       </div>
     </div>
   );

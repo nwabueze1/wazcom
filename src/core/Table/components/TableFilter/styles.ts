@@ -27,35 +27,35 @@ export const useFilterStyles = makeStyles((theme: Theme) => ({
     },
   },
   filterItemContainer: {
-    "& > .MuiAccordion-root" :{
-      boxShadow:"none",
-      border:"none",
-      paddingLeft:"unset",
-      paddingRight:"unset",
+    "& > .MuiAccordion-root": {
+      boxShadow: "none",
+      border: "none",
+      paddingLeft: "unset",
+      paddingRight: "unset",
       width: "100%",
 
-      "& > .MuiAccordionSummary-root":{
+      "& > .MuiAccordionSummary-root": {
         padding: 0,
 
-        "& p" :{
-          fontSize:theme.typography.fontSize
-        }
+        "& p": {
+          fontSize: theme.typography.fontSize,
+        },
       },
 
-      "& > .MuiAccordionDetails-root":{
-        padding: 0
+      "& > .MuiAccordionDetails-root": {
+        padding: 0,
       },
     },
 
     "&:hover": {
-      backgroundColor:theme.design.colors.waz_white
+      backgroundColor: theme.design.colors.waz_white,
     },
 
-    borderBottom:`1px solid #E6E7E6`
+    borderBottom: `1px solid #E6E7E6`,
   },
-  filterItemsHeader:{
+  filterItemsHeader: {
     fontSize: theme.typography.fontSize,
-    padding: theme.spacing(2)
+    padding: theme.spacing(2),
   },
   show: {
     opacity: 1,
@@ -68,28 +68,28 @@ export const useFilterStyles = makeStyles((theme: Theme) => ({
   filterItem: {
     display: "flex",
     alignItems: "center",
-    fontSize: theme.typography.fontSize
+    fontSize: theme.typography.fontSize,
   },
-  filterActionButtons:{
+  filterActionButtons: {
     display: "flex",
-    alignItems:"center",
+    alignItems: "center",
     padding: theme.spacing(2, 1),
     gap: theme.spacing(2),
-    justifyContent:"space-between",
-    margin: "0 auto"
+    justifyContent: "space-between",
+    margin: "0 auto",
   },
-  filterActionButton:{
-    height: 40,   
+  filterActionButton: {
+    height: 40,
   },
-  filterActionButtonOutline:{
+  filterActionButtonOutline: {
     background: theme.design.colors.waz_white,
     color: theme.design.colors.waz_greyColor400,
     border: `1px solid ${theme.design.colors.waz_greyColor100}`,
     boxShadow: "none",
 
-    "&:hover":{
+    "&:hover": {
       background: theme.design.colors.waz_white,
       color: theme.design.colors.waz_greyColor400,
-    }
-  }
+    },
+  },
 }));

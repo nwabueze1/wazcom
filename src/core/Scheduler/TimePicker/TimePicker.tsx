@@ -1,7 +1,7 @@
 import React from "react";
 import { TextField, BaseTextFieldProps, Theme } from "@mui/material";
-import makeStyles from '@mui/styles/makeStyles';
-import withStyles from '@mui/styles/withStyles';
+import makeStyles from "@mui/styles/makeStyles";
+import withStyles from "@mui/styles/withStyles";
 
 const useStyles = makeStyles((theme: Theme) => ({
   container: {
@@ -11,9 +11,10 @@ const useStyles = makeStyles((theme: Theme) => ({
   },
   textField: {
     color: "transparent",
-    "& input[type='time']::-webkit-clear-button, & input::-webkit-outer-spin-button, & input::-webkit-inner-spin-button": {
-      display: "none",
-    },
+    "& input[type='time']::-webkit-clear-button, & input::-webkit-outer-spin-button, & input::-webkit-inner-spin-button":
+      {
+        display: "none",
+      },
     textAlign: "center",
   },
   inputRoot: {
@@ -25,7 +26,7 @@ const useStyles = makeStyles((theme: Theme) => ({
       outline: theme.design.colors.waz_primaryColor100,
     },
     "&:hover": {
-      outline: "none"
+      outline: "none",
     },
   },
 }));
@@ -63,7 +64,7 @@ const CustomCss = withStyles((theme: Theme) => ({
 }))(() => null);
 interface TimeSelectorProps extends BaseTextFieldProps {
   onChange: (
-    event: React.ChangeEvent<{ name?: string; value: unknown }>,
+    event: React.ChangeEvent<{ name?: string; value: unknown }>
   ) => void;
 }
 

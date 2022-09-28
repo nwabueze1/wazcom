@@ -36,9 +36,7 @@ export const Item: React.FC<MenuItemProps> = ({
         <div className={classes.content}>
           <div>
             <p className={classes.title}>{name} </p>
-            <p className={classes.description}>
-              {description}
-            </p>
+            <p className={classes.description}>{description}</p>
           </div>
           <span className={classes.amount}>
             {getCurrency(currency)}

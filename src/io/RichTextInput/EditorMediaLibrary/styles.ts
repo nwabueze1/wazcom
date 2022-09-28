@@ -7,6 +7,6 @@ export const useEditorMediaLibStyles = makeStyles((theme: Theme) => ({
     height: "70%",
     width: "70%",
     margin: theme.spacing(0, "auto"),
-    marginTop: theme.spacing(6)
-  }
+    marginTop: theme.spacing(6),
+  },
 }));

@@ -16,6 +16,7 @@ export interface TableControlsProps {
   tableRef?: React.MutableRefObject<HTMLDivElement | null>;
 }
 
-export type SearchInputProps  = CommonProps & OutlinedInputProps & {
-  value?:string,
-}
+export type SearchInputProps = CommonProps &
+  OutlinedInputProps & {
+    value?: string;
+  };

@@ -16,19 +16,19 @@ export const useRelatedPostAlmondStyles = makeStyles<Theme>((theme: Theme) => ({
     objectFit: "cover",
     [theme.breakpoints.down("sm")]: {
       width: "343px",
-      height: "164px"
+      height: "164px",
     },
   },
   articleTitle: {
     fontSize: theme.typography.fontSize + 8,
     fontWeight: theme.typography.fontWeightBold,
     lineHeight: "30px",
-    
+
     [theme.breakpoints.down("md")]: {
-      width: "270%"
+      width: "270%",
     },
     [theme.breakpoints.down("sm")]: {
-      width: "200%"
+      width: "200%",
     },
   },
   post: {
@@ -46,7 +46,7 @@ export const useRelatedPostAlmondStyles = makeStyles<Theme>((theme: Theme) => ({
     [theme.breakpoints.down("sm")]: {
       flexDirection: "column",
       gap: theme.spacing(0),
-      marginTop: theme.spacing(7)
+      marginTop: theme.spacing(7),
     },
   },
   date: {
@@ -55,6 +55,6 @@ export const useRelatedPostAlmondStyles = makeStyles<Theme>((theme: Theme) => ({
     color: theme.design.colors.waz_grey100,
   },
   alternateAvatar: {
-    marginBottom: theme.spacing(2.3)
-  }
+    marginBottom: theme.spacing(2.3),
+  },
 }));

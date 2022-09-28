@@ -18,6 +18,6 @@ export type CartStyleProps = {
 };
 
 export interface DisplayPriceProps {
-  name: string,
-  amount: number
+  name: string;
+  amount: number;
 }

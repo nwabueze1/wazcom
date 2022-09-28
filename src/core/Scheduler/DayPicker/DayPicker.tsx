@@ -8,17 +8,15 @@ interface DayPickerProps extends SelectProps {
   scheduleData: Schedule[];
 }
 
-
-
 export const DayPicker: React.FC<DayPickerProps> = ({
   value,
   onChange,
   label,
   name,
-  scheduleData
+  scheduleData,
 }) => {
   const classes = menuItemTableStyles();
-  const filteredOptions = filterDaysOptions(days, scheduleData)
+  const filteredOptions = filterDaysOptions(days, scheduleData);
   return (
     <>
       <Select
@@ -33,7 +31,13 @@ export const DayPicker: React.FC<DayPickerProps> = ({
         input={<BootstrapInput />}
       >
         {days.map((day) => (
-          <option key={day.id} value={String(day.id)} className={classes.option} disabled={!filteredOptions.includes(day)} hidden={!filteredOptions.includes(day)}>
+          <option
+            key={day.id}
+            value={String(day.id)}
+            className={classes.option}
+            disabled={!filteredOptions.includes(day)}
+            hidden={!filteredOptions.includes(day)}
+          >
             {day.name}
           </option>
         ))}

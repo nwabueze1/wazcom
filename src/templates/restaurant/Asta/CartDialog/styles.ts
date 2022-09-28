@@ -50,16 +50,16 @@ export const useStyles = makeStyles<Theme>((theme: Theme) => ({
   },
   quantityController: {
     width: "100%",
-    marginBottom: theme.spacing(2)
+    marginBottom: theme.spacing(2),
   },
   quantityText: {
     marginBottom: theme.spacing(1),
-    marginLeft: theme.spacing(.5),
-    fontSize: theme.typography.fontSize
+    marginLeft: theme.spacing(0.5),
+    fontSize: theme.typography.fontSize,
   },
   dialogOptionBox: {
     position: "relative",
-    width: "100%"
+    width: "100%",
   },
   closeIconContainer: {
     height: 32,
@@ -108,7 +108,7 @@ export const useStyles = makeStyles<Theme>((theme: Theme) => ({
     display: "-webkit-box",
     "-webkit-line-clamp": 2, // amount of line you want
     "-webkit-box-orient": "vertical",
-    overflow: "hidden"
+    overflow: "hidden",
   },
   dialog__actions: {
     display: "flex",
@@ -171,11 +171,10 @@ export const useStyles = makeStyles<Theme>((theme: Theme) => ({
     cursor: "pointer",
     fontSize: theme.typography.fontSize * 2.5,
     color: theme.design.colors.waz_grey100,
-    opacity: .6,
+    opacity: 0.6,
     [theme.breakpoints.down("sm")]: {
       fontSize: theme.typography.fontSize * 3,
     },
-
   },
   dialogOption: {
     padding: theme.spacing(1, 8),
@@ -238,6 +237,6 @@ export const useStyles = makeStyles<Theme>((theme: Theme) => ({
     opacity: 1,
   },
   currency: {
-    opacity: .7
-  }
+    opacity: 0.7,
+  },
 }));

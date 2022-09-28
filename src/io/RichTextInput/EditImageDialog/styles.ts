@@ -48,15 +48,15 @@ export const useEditImageDialogStyles = makeStyles((theme: Theme) => ({
     justifyItems: "center",
     gap: theme.spacing(2),
     marginTop: theme.spacing(4),
-    marginLeft: theme.spacing(-1)
+    marginLeft: theme.spacing(-1),
   },
   editMediaSubmitBtn: {
     backgroundColor: theme.design.colors.waz_primaryColor100,
     width: "70px",
     height: "30px",
     color: theme.design.colors.waz_white,
-    '&:hover': {
-      background: theme.design.colors.waz_primaryColor100
+    "&:hover": {
+      background: theme.design.colors.waz_primaryColor100,
     },
   },
   editMediaCancelBtn: {
@@ -64,7 +64,7 @@ export const useEditImageDialogStyles = makeStyles((theme: Theme) => ({
     width: "70px",
     height: "30px",
     color: theme.design.colors.waz_white,
-    '&:hover': {
+    "&:hover": {
       background: theme.design.colors.waz_grey100,
     },
   },
@@ -75,6 +75,6 @@ export const useEditImageDialogStyles = makeStyles((theme: Theme) => ({
   deviceHeader: {
     marginTop: theme.spacing(1),
     marginBottom: theme.spacing(-1),
-    marginLeft: theme.spacing(1)
-  }
+    marginLeft: theme.spacing(1),
+  },
 }));

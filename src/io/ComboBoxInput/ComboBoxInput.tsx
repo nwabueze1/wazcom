@@ -33,22 +33,22 @@ export const ComboBoxInput: FC<ComboBoxInputProps> = ({
   const handleChange = (selectedOption: ComboBoxInputOptionProps) => {
     const value = options.find(
       (option) =>
-        option?.label.toLowerCase() === selectedOption?.label.toLowerCase(),
+        option?.label.toLowerCase() === selectedOption?.label.toLowerCase()
     )?.value;
     onChange?.({ name: String(name), value: value ?? selectedOption.label });
   };
 
   const handleFilterOptions = (
     options: ComboBoxInputOptionProps[],
-    params: any,
+    params: any
   ) => {
     const filtered = filter(options, params);
     const { inputValue } = params;
     // Suggest the creation of a new value
     const isExisting = options.some(
-      (option: any) => inputValue === option.label,
+      (option: any) => inputValue === option.label
     );
-    if (isAdd && (inputValue !== "" && !isExisting)) {
+    if (isAdd && inputValue !== "" && !isExisting) {
       filtered.push({
         value: inputValue,
         label: `Add ${inputValue}`,
@@ -60,7 +60,7 @@ export const ComboBoxInput: FC<ComboBoxInputProps> = ({
 
   const getValue = useCallback(() => {
     const label = (options as ComboBoxInputOptionProps[])?.find(
-      (option) => option.value.toLowerCase() === value.toString().toLowerCase(),
+      (option) => option.value.toLowerCase() === value.toString().toLowerCase()
     )?.label;
     if (label) return { label, value };
     return { label: "", value: "" };
@@ -81,7 +81,7 @@ export const ComboBoxInput: FC<ComboBoxInputProps> = ({
         freeSolo
         options={options ?? []}
         getOptionLabel={(option) => {
-          return (typeof option == 'string') ? option : option?.label ?? "";
+          return typeof option == "string" ? option : option?.label ?? "";
         }}
         value={getValue()}
         onChange={(_, selectedOption) => {
@@ -90,13 +90,19 @@ export const ComboBoxInput: FC<ComboBoxInputProps> = ({
         filterOptions={handleFilterOptions}
         renderOption={(props, option) => {
           return (
-            <Box component="li"  {...props}>
+            <Box component="li" {...props}>
               <div className={classNames?.optionContainer as string}>
-                <p className={(classNames?.optionLabel as string)}>{option?.label}</p>
-                {option.subText && <p className={(classNames?.optionSubText as string)}>{option.subText}</p>}
+                <p className={classNames?.optionLabel as string}>
+                  {option?.label}
+                </p>
+                {option.subText && (
+                  <p className={classNames?.optionSubText as string}>
+                    {option.subText}
+                  </p>
+                )}
               </div>
             </Box>
-          )
+          );
         }}
         renderInput={(params) => (
           <TextField
