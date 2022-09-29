@@ -33,6 +33,8 @@ import {
 } from "../gql";
 import { PhoneNumberInputProps } from "io/PhoneNumberInput/types";
 
+import { NavProps } from "templates/Navs/types";
+
 export type ComponentPropType = {
   component: any;
   name: string;
@@ -64,6 +66,13 @@ export type ComponentPropType = {
   | GqlMediaLibrarySelectorStory
   | CurrencyInputStory
   | PhoneNumberInputStroy
+);
+
+export type TemplatePropType = {
+  component: any;
+  name: string;
+} & (
+  | NavsStory
 );
 
 type AccordionStory = {
@@ -172,3 +181,7 @@ type GqlMediaLibrarySelectorStory = {
 type PhoneNumberInputStroy = {
   props: PhoneNumberInputProps;
 };
+
+type NavsStory = {
+  props: NavProps
+}
