@@ -480,5 +480,5 @@ export const restaurantdata: CoreFosFields = {
     openingTimes: null,
     deliveryTimes: null,
   },
-  cart:CartData,
+  cart: CartData,
 };

@@ -38,8 +38,8 @@ export const useSchedulerStyles = makeStyles((theme: Theme) => ({
     gap: theme.spacing(2),
     marginBottom: theme.spacing(2),
     "& div": {
-      width: "100%"
-    }
+      width: "100%",
+    },
   },
   timeContainer: {
     display: "flex",

@@ -89,8 +89,8 @@ export const Browser: FC<BrowserProps> = () => {
             aName.toLowerCase() < bName.toLowerCase()
               ? -1
               : aName.toLowerCase() > bName.toLowerCase()
-                ? 1
-                : 0
+              ? 1
+              : 0
           )
           .filter(({ name }) => name.toLowerCase().includes(search))
           .map(({ name, component: Comp, props }, index) => (

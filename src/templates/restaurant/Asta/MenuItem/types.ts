@@ -12,4 +12,4 @@ export type MenuItemProps = {
 
 export type StyleProps = {
   isOpen?: boolean;
-}
+};

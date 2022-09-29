@@ -13,9 +13,10 @@ import {
   Carousel,
   EmptyState,
   DateTimePicker,
-  Scheduler
+  Scheduler,
 } from "../core";
 import { BiLink } from "react-icons/bi";
+import { FaEdit } from "react-icons/fa";
 
 import {
   CheckBoxInput,
@@ -101,7 +102,7 @@ export const stories: ComponentPropType[] = [
       controls: {
         filter: ["id", "name"],
         canPrint: true,
-        canExport: {}
+        canExport: {},
       },
     },
   },
@@ -407,8 +408,8 @@ export const stories: ComponentPropType[] = [
     props: {
       label: "lslss",
       options: [
-        { label: "Basit", value: "basit" },
-        { label: "Chinazom", value: "chinazom" },
+        { label: "Basit", value: "basit", icon: FaEdit },
+        { label: "Chinazom", value: "chinazom", icon: FaEdit },
       ],
       error: true,
       required: true,
@@ -422,7 +423,9 @@ export const stories: ComponentPropType[] = [
       apiKey: "",
       error: true,
       feedback: { text: "Tariq is a weirdo", status: "error" },
-      client: createApolloClient(process.env.REACT_APP_NICODEMUS_API_TOKEN as string)
+      client: createApolloClient(
+        process.env.REACT_APP_NICODEMUS_API_TOKEN as string
+      ),
     },
   },
   {

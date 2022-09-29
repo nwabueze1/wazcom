@@ -32,7 +32,6 @@ export const useNavStyles = makeStyles<Theme>((theme: Theme) => ({
       alignItems: "center",
       flexWrap: "wrap",
       width: "100%",
-
     },
   },
   logoContainer: {
@@ -51,7 +50,6 @@ export const useNavStyles = makeStyles<Theme>((theme: Theme) => ({
     objectFit: "cover",
     [theme.breakpoints.down("sm")]: {
       width: "120px",
-
     },
   },
   searchField: {
@@ -64,9 +62,8 @@ export const useNavStyles = makeStyles<Theme>((theme: Theme) => ({
       border: `1px solid ${theme.design.colors.waz_grey300}`,
       [theme.breakpoints.down("sm")]: {
         borderRadius: 0,
-        width: "100%"
+        width: "100%",
       },
-
     },
     "&.MuiOutlinedInput-input": {
       border: `1px solid ${theme.design.colors.waz_grey300}`,
@@ -88,25 +85,24 @@ export const useNavStyles = makeStyles<Theme>((theme: Theme) => ({
     fontSize: theme.typography.fontSize + 2,
     borderRadius: 30,
     cursor: "pointer",
-
   },
   cartIcon: {
-    padding: theme.spacing(.1, .5),
+    padding: theme.spacing(0.1, 0.5),
     fontWeight: 600,
-    fontSize: theme.typography.fontSize + 6
+    fontSize: theme.typography.fontSize + 6,
   },
   cartBtnContainer: {
     position: "relative",
     display: "none",
     [theme.breakpoints.down("md")]: {
-      display: "block"
+      display: "block",
     },
     [theme.breakpoints.down("sm")]: {
-      display: "none"
+      display: "none",
     },
   },
   cartPopup: {
-    width: '350px',
+    width: "350px",
     border: `1px solid ${theme.design.colors.waz_grey300}`,
     position: "absolute",
     display: "flex",
@@ -115,10 +111,10 @@ export const useNavStyles = makeStyles<Theme>((theme: Theme) => ({
     top: "calc(100% + 3px)",
     right: 12,
     backgroundColor: theme.design.colors.waz_white,
-    zIndex: 100
+    zIndex: 100,
   },
   cartPopupSm: {
-    width: '100%',
+    width: "100%",
     border: `1px solid ${theme.design.colors.waz_grey300}`,
     position: "fixed",
     display: "none",
@@ -132,7 +128,7 @@ export const useNavStyles = makeStyles<Theme>((theme: Theme) => ({
     background: theme.design.colors.waz_white,
     zIndex: 100,
     [theme.breakpoints.down("sm")]: {
-      display: "flex"
+      display: "flex",
     },
   },
   cartPopupOverlay: {
@@ -142,6 +138,6 @@ export const useNavStyles = makeStyles<Theme>((theme: Theme) => ({
     position: "fixed",
     zIndex: 50,
     left: 0,
-    bottom: 0
-  }
+    bottom: 0,
+  },
 }));

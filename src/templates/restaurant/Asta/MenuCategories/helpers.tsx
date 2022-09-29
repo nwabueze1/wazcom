@@ -17,10 +17,10 @@ export const useDisplayCategories = () => {
       searchValue && searchValue.length > 0
         ? Object.keys(findCategories(activeMenu, searchValue))
         : [
-          ...(activeMenu?.activeMenuCategories?.map(
-            (category) => category?.title
-          ) ?? []),
-        ];
+            ...(activeMenu?.activeMenuCategories?.map(
+              (category) => category?.title
+            ) ?? []),
+          ];
 
     return categories?.map((category, index) => {
       return (
@@ -33,8 +33,9 @@ export const useDisplayCategories = () => {
           onClick={() => setActiveCategory(index)}
         >
           <p
-            className={`${classes.restaurantMenuCategory} ${activeCategory === index && classes.textActive
-              }`}
+            className={`${classes.restaurantMenuCategory} ${
+              activeCategory === index && classes.textActive
+            }`}
           >
             <a
               href={`#${category.toLowerCase()}`}

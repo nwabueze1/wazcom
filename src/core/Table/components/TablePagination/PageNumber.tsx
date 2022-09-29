@@ -2,7 +2,11 @@ import clx from "classnames";
 import { useTablePaginationStyles } from "./styles";
 import { PageNumberProps } from "./types";
 
-export const PageNumber: React.FC<PageNumberProps> = ({ onPageChange, page, currentPage }) => {
+export const PageNumber: React.FC<PageNumberProps> = ({
+  onPageChange,
+  page,
+  currentPage,
+}) => {
   const classes = useTablePaginationStyles();
 
   return (

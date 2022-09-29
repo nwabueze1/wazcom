@@ -13,11 +13,11 @@ export const useTextAreaStyles = makeStyles((theme: Theme) => ({
     width: "100%",
     "&:focus": {
       borderColor: theme.design.colors.waz_primaryColor100,
-      outline: theme.design.colors.waz_primaryColor100
+      outline: theme.design.colors.waz_primaryColor100,
     },
     "&:hover": {
       borderColor: theme.design.colors.waz_primaryColor100,
-      outline: theme.design.colors.waz_primaryColor100
+      outline: theme.design.colors.waz_primaryColor100,
     },
   },
   required: {

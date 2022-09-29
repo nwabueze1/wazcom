@@ -58,12 +58,12 @@ export const useMenuCategoryStyles = makeStyles<Theme>((theme: Theme) => ({
     [theme.breakpoints.down("md")]: {
       margin: 0,
       width: `calc(100% - ${theme.spacing(2)})`,
-      paddingLeft: theme.spacing(3)
+      paddingLeft: theme.spacing(3),
     },
     [theme.breakpoints.down("sm")]: {
       margin: 0,
       width: `calc(100% - ${theme.spacing(1)})`,
-      paddingLeft: theme.spacing(1)
+      paddingLeft: theme.spacing(1),
     },
   },
   restaurantCategory: {

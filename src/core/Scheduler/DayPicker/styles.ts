@@ -1,8 +1,8 @@
 import { Theme, InputBase } from "@mui/material";
 
-import createStyles from '@mui/styles/createStyles';
-import makeStyles from '@mui/styles/makeStyles';
-import withStyles from '@mui/styles/withStyles';
+import createStyles from "@mui/styles/createStyles";
+import makeStyles from "@mui/styles/makeStyles";
+import withStyles from "@mui/styles/withStyles";
 
 export const menuItemTableStyles = makeStyles(() =>
   createStyles({
@@ -12,7 +12,7 @@ export const menuItemTableStyles = makeStyles(() =>
     option: {
       background: "red",
     },
-  }),
+  })
 );
 
 export const BootstrapInput = withStyles((theme: Theme) =>
@@ -48,6 +48,5 @@ export const BootstrapInput = withStyles((theme: Theme) =>
         borderRadius: 5,
       },
     },
-  }),
+  })
 )(InputBase);
-  

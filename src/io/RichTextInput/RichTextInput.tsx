@@ -1,4 +1,4 @@
-import React, {useRef, useState} from "react";
+import React, { useRef, useState } from "react";
 import { InputLabel } from "@mui/material";
 import { Editor } from "@tinymce/tinymce-react";
 import { useRichInputStyles } from "./styles";

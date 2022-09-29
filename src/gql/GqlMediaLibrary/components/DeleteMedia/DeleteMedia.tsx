@@ -31,14 +31,19 @@ export const DeleteMedia: React.FC<DeleteMediaProps> = ({
         <div>
           <div className={classes.deleteHeading}>
             <p className={classes.deleteHeadingText}>Remove Image?</p>
-            <FaTimes onClick={handleClose} className={classes.deleteHeadingIcon} />
+            <FaTimes
+              onClick={handleClose}
+              className={classes.deleteHeadingIcon}
+            />
           </div>
           <div className={classes.deleteContent}>
             <p className={classes.deleteContentText}>
               Are you sure you want to delete this image?
             </p>
             <div className={classes.deleteActions}>
-              <Button onClick={handleDelete} loading={loading}>Delete</Button>
+              <Button onClick={handleDelete} loading={loading}>
+                Delete
+              </Button>
               <Button onClick={handleClose}>Cancel</Button>
             </div>
           </div>

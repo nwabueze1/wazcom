@@ -10,8 +10,7 @@ export const BreadCrumbStyles = makeStyles((theme: BaseTheme) => ({
   link: {
     display: "flex",
     textDecoration: "none",
-    color: theme.design.colors.waz_greyColor200
-    ,
+    color: theme.design.colors.waz_greyColor200,
     cursor: "pointer",
   },
   navIcon: {

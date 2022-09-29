@@ -9,7 +9,7 @@ export const useMenusStyles = makeStyles<Theme>((theme: Theme) => ({
     flexDirection: "column",
     alignItems: "flex-start",
     top: "80%",
-    position: "relative"
+    position: "relative",
   },
   container: {
     margin: theme.spacing(0, "auto"),
@@ -127,7 +127,6 @@ export const useMenusStyles = makeStyles<Theme>((theme: Theme) => ({
     [theme.breakpoints.up("sm")]: {
       display: "none",
     },
-
   },
   restaurantVisibleCart: {
     [theme.breakpoints.down("md")]: {

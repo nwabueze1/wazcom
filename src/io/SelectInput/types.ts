@@ -8,5 +8,6 @@ export type SelectInputProps = CommonProps &
       label: string;
       value: string;
       subText?: string;
+      icon?: React.FC<any>;
     }[];
   };

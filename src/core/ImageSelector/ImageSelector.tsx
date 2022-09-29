@@ -58,7 +58,7 @@ export const ImageSelector: FC<ImageSelectorProps> = ({
         classes.root,
         className,
         variant === "circle" && classes.circle,
-        variants[0],
+        variants[0]
       )}
       onClick={fileInputClick}
     >
@@ -71,7 +71,7 @@ export const ImageSelector: FC<ImageSelectorProps> = ({
             src={src}
             className={clx(
               classes.image,
-              variant === "circle" && classes.circle,
+              variant === "circle" && classes.circle
             )}
           />
         ))}

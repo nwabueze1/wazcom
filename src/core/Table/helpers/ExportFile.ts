@@ -16,16 +16,21 @@ const fileTypeExt = {
 
 export const exportToXlsx = (
   name: string,
-  data: { [key: string]: string }[],
+  data: { [key: string]: string }[]
 ) => {
   const parseData = data.map((item) => {
-    const obj = {}
+    const obj = {};
     Object.entries(item).map(([key, value]) => {
-      const innerValue = value === null ? "" : typeof value == "object" ? getJsxContent(value): value.toString();
-      obj[key] = innerValue
-    })
-    return obj
-  })
+      const innerValue =
+        value === null
+          ? ""
+          : typeof value == "object"
+          ? getJsxContent(value)
+          : value.toString();
+      obj[key] = innerValue;
+    });
+    return obj;
+  });
   const workSheet = XLSX.utils.json_to_sheet(parseData);
   const workBook = { Sheets: { data: workSheet }, SheetNames: ["data"] };
   const excelBuffer = XLSX.write(workBook, { bookType: "xlsx", type: "array" });
@@ -39,7 +44,12 @@ export const exportToCSV = (filename: string, rows: { [key: string]: any }) => {
   const processRow = function (row: any) {
     let finalVal = "";
     Object.values(row).map((value: any, index: any) => {
-      let innerValue = value === null ? "" : typeof value == "object" ? getJsxContent(value): value.toString();
+      let innerValue =
+        value === null
+          ? ""
+          : typeof value == "object"
+          ? getJsxContent(value)
+          : value.toString();
       if (value instanceof Date) {
         innerValue = value.toLocaleString();
       }

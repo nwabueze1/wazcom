@@ -15,7 +15,6 @@ export const changeQuantity = (
   }
 };
 
-
 export const parseCartItem = (cart: CoreCartFields, cartItemId?: number) => {
   if (!cartItemId) return [1, []];
   const cartItem = cart?.cartItems?.find(

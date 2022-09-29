@@ -2,14 +2,13 @@ import makeStyles from "@mui/styles/makeStyles";
 import { Theme } from "@mui/material/styles";
 
 export const useRelatedPostHaloStyles = makeStyles<Theme>((theme: Theme) => ({
-  
   thumbnailImg: {
     width: "240px",
     height: "140px",
     objectFit: "cover",
     [theme.breakpoints.down("sm")]: {
-      width: "100%"
-    }
+      width: "100%",
+    },
   },
   articleTitle: {
     fontSize: theme.typography.fontSize + 6,
@@ -34,8 +33,8 @@ export const useRelatedPostHaloStyles = makeStyles<Theme>((theme: Theme) => ({
     justifyContent: "center",
     margin: theme.spacing(3),
     [theme.breakpoints.down("sm")]: {
-      flexDirection: "column"
-    }
+      flexDirection: "column",
+    },
   },
   thumbnailDetails: {
     marginLeft: theme.spacing(2),
@@ -44,16 +43,16 @@ export const useRelatedPostHaloStyles = makeStyles<Theme>((theme: Theme) => ({
     },
     [theme.breakpoints.down("sm")]: {
       marginLeft: theme.spacing(0),
-    }
+    },
   },
   relatedPostAuthor: {
     color: theme.design.colors.waz_grey100,
     lineHeight: "15px",
-    fontSize: theme.typography.fontSize + 2
+    fontSize: theme.typography.fontSize + 2,
   },
   articleDate: {
     lineHeight: "12px",
     color: theme.design.colors.waz_grey100,
-    marginTop: theme.spacing(2)
+    marginTop: theme.spacing(2),
   },
 }));

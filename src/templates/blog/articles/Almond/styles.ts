@@ -33,8 +33,8 @@ export const useAlmondStyles = makeStyles<Theme>((theme: Theme) => ({
     width: "50%",
     backgroundColor: theme.design.colors.waz_grey500,
     position: "relative",
-    display: 'flex',
-    justifyContent: 'center',
+    display: "flex",
+    justifyContent: "center",
 
     [theme.breakpoints.down("md")]: {
       width: "100%",
@@ -64,9 +64,9 @@ export const useAlmondStyles = makeStyles<Theme>((theme: Theme) => ({
   },
   heroItems: {
     marginLeft: theme.spacing(5),
-    display: 'flex',
-    flexDirection: 'column',
-    justifyContent: 'center',
+    display: "flex",
+    flexDirection: "column",
+    justifyContent: "center",
 
     [theme.breakpoints.down("md")]: {
       top: "70px",
@@ -153,7 +153,7 @@ export const useAlmondStyles = makeStyles<Theme>((theme: Theme) => ({
     justifyContent: "space-between",
     width: "70%",
     flexWrap: "wrap",
-    
+
     [theme.breakpoints.down("md")]: {
       width: "90%",
       flexDirection: "column",
@@ -182,7 +182,7 @@ export const useAlmondStyles = makeStyles<Theme>((theme: Theme) => ({
     justifyContent: "center",
     alignContent: "center",
     marginTop: theme.spacing(6),
-    padding: theme.spacing(2)
+    padding: theme.spacing(2),
   },
   footerContent: {
     marginTop: theme.spacing(1.5),

@@ -13,6 +13,6 @@ export const useOptionsStyles = makeStyles<Theme>((theme: Theme) => ({
     },
     [theme.breakpoints.down("sm")]: {
       margin: theme.spacing(3, 0, 11),
-    }
+    },
   },
 }));

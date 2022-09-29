@@ -45,7 +45,7 @@ export const useSidebarListItemStyles = makeStyles((theme: Theme) => ({
     cursor: "pointer",
     borderRadius: theme.spacing(1),
     padding: `${theme.spacing(1)} ${theme.spacing(2)} ${theme.spacing(
-      1,
+      1
     )} ${theme.spacing(1.5)}`,
     transition: theme.transitions.create(["background-color"]),
     textDecoration: "none",

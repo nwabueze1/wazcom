@@ -3,9 +3,7 @@ import Typography from "@mui/material/Typography";
 import clx from "classnames";
 import { useFeedbackStyles } from "./styles";
 
-export const getFeedbackVariant = (
-  status: Feedback["status"],
-) => {
+export const getFeedbackVariant = (status: Feedback["status"]) => {
   let feedbackVariant;
   const classes = useFeedbackStyles();
 
@@ -35,27 +33,16 @@ const TextFeedback: FC<{
   text: string;
   status: Feedback["status"];
 }> = ({ text, status }) => (
-  <Typography
-    className={getFeedbackVariant(status)}
-  >
-    {text}
-  </Typography>
+  <Typography className={getFeedbackVariant(status)}>{text}</Typography>
 );
 
 export const displayFeedback = (feedback: Feedback) => {
   if (!isValidElement(feedback.text)) {
     return typeof feedback.text === "string" ? (
-      <TextFeedback
-        status={feedback.status}
-        text={feedback.text}
-      />
+      <TextFeedback status={feedback.status} text={feedback.text} />
     ) : (
       (feedback.text as string[]).map((text: string, index: number) => (
-        <TextFeedback
-          key={index}
-          status={feedback.status}
-          text={text}
-        />
+        <TextFeedback key={index} status={feedback.status} text={text} />
       ))
     );
   }

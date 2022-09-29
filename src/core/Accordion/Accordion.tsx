@@ -28,20 +28,24 @@ export const Accordion: FC<AccordionProps> = ({
       square={square}
       className={clx(classes.root, className)}
       defaultExpanded={defaultExpanded}
-      onClick={() => { handleClick?.() }}
+      onClick={() => {
+        handleClick?.();
+      }}
       {...props}
     >
       <MuiAccordionSummary
         id={kebabCase(title.toString())}
         aria-controls={kebabCase(title.toString())}
-        className={classNames?.summary ? classNames?.summary as string : ""}
+        className={classNames?.summary ? (classNames?.summary as string) : ""}
         expandIcon={
           displayExpandIcon ? <ExpandMoreIcon className={classes.icon} /> : null
         }
       >
         <Typography variant="body1">{title}</Typography>
       </MuiAccordionSummary>
-      <MuiAccordionDetails className={classNames?.details ? classNames?.details as string : ""}>
+      <MuiAccordionDetails
+        className={classNames?.details ? (classNames?.details as string) : ""}
+      >
         {children}
       </MuiAccordionDetails>
     </MuiAccordion>

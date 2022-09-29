@@ -14,7 +14,7 @@ export const MenuCard: FC<MenuCardProps> = ({
   description,
   title,
   status,
-  image:{ src },
+  image: { src },
 }) => {
   const classes = useMenuCardStyles();
 
@@ -37,9 +37,7 @@ export const MenuCard: FC<MenuCardProps> = ({
             {title}
           </Typography>
           <Typography className={classes.details}>{description}</Typography>
-          <Typography className={classes.price}>
-            {amount}
-          </Typography>
+          <Typography className={classes.price}>{amount}</Typography>
         </div>
         <div className={classes.icons}>
           <MoreVertIcon className={classes.vert} />

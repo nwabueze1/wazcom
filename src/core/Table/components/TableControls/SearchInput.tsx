@@ -8,7 +8,7 @@ export const SearchInput: React.FC<SearchInputProps> = ({
   className,
   value,
   type,
-  name
+  name,
 }) => {
   const classes = useTableControlsStyles();
   return (

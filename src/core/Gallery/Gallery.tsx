@@ -4,7 +4,12 @@ import { GalleryProps } from "./types";
 import clx from "classnames";
 import { CheckBoxInput } from "../../io";
 
-export const Gallery: FC<GalleryProps> = ({ className, items, text, onSelect }) => {
+export const Gallery: FC<GalleryProps> = ({
+  className,
+  items,
+  text,
+  onSelect,
+}) => {
   const classes = useGalleryStyles();
   const [ids, setIds] = useState<{ [key: string]: null | number }>({
     selected: null,
@@ -17,7 +22,7 @@ export const Gallery: FC<GalleryProps> = ({ className, items, text, onSelect }) 
       const newIds = { ...ids, hover: id };
       setIds(newIds);
     },
-    [ids],
+    [ids]
   );
 
   const handleMouseLeave = useCallback(() => {
@@ -37,7 +42,7 @@ export const Gallery: FC<GalleryProps> = ({ className, items, text, onSelect }) 
       setIds(newIds);
       onSelect?.(id);
     },
-    [ids],
+    [ids]
   );
 
   const displayItems = useCallback(() => {
@@ -57,7 +62,7 @@ export const Gallery: FC<GalleryProps> = ({ className, items, text, onSelect }) 
         <div
           className={clx(
             classes.itemHover,
-            ids.hover === id && classes.itemHoverActive,
+            ids.hover === id && classes.itemHoverActive
           )}
         >
           <p className={classes.itemHoverText}>{text ?? "Select"}</p>
@@ -65,7 +70,7 @@ export const Gallery: FC<GalleryProps> = ({ className, items, text, onSelect }) 
         <div
           className={clx(
             classes.itemChecked,
-            ids.selected === id && classes.itemCheckedActive,
+            ids.selected === id && classes.itemCheckedActive
           )}
         >
           <CheckBoxInput checked className="checkbox" />

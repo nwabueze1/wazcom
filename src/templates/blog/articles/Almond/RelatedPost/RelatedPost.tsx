@@ -3,13 +3,13 @@ import clx from "classnames";
 import { truncate } from "lodash";
 import { CoreArticleTemplateFields } from "../..";
 import { getDay } from "../../../../../utilities/getTime";
-import { useRelatedPostAlmondStyles } from "./styles"
+import { useRelatedPostAlmondStyles } from "./styles";
 
 export const RelatedPostAlmond: FC<CoreArticleTemplateFields> = ({
   article,
   handleClick,
   className,
-  site
+  site,
 }) => {
   const classes = useRelatedPostAlmondStyles();
   return (
@@ -19,10 +19,11 @@ export const RelatedPostAlmond: FC<CoreArticleTemplateFields> = ({
     >
       <div className={classes.container}>
         <div className={classes.thumbnailImgContainer}>
-          <img src={article.featured_image}
-           className={classes.thumbnailImg}
-           alt={site?.name}
-           />
+          <img
+            src={article.featured_image}
+            className={classes.thumbnailImg}
+            alt={site?.name}
+          />
         </div>
         <div className={classes.thumbnailDetails}>
           <p className={classes.articleTitle}>

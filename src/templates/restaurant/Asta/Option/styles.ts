@@ -15,7 +15,7 @@ export const useOptionStyles = makeStyles<Theme>((theme: Theme) => ({
   },
   details: {
     padding: `${theme.spacing(0, 0, 2.5, 0)} !important`,
-    display: 'block',
+    display: "block",
   },
   optionType: {
     fontSize: theme.typography.fontSize,
@@ -23,24 +23,24 @@ export const useOptionStyles = makeStyles<Theme>((theme: Theme) => ({
     textTransform: "capitalize",
   },
   option: {
-    display: 'flex',
-    justifyContent: 'space-between',
-    alignItems: 'center',
+    display: "flex",
+    justifyContent: "space-between",
+    alignItems: "center",
     cursor: "pointer",
   },
   optionPickerParent: {
-    display: 'flex',
-    alignItems: 'center',
+    display: "flex",
+    alignItems: "center",
   },
   optionAmount: {
     fontWeight: theme.typography.fontWeightMedium,
     color: theme.design.colors.black,
   },
   optionPicker: {
-    position: 'relative',
+    position: "relative",
     left: -10,
     "&.Mui-checked": {
-      color: theme.design.colors.greene
-    }
-  }
+      color: theme.design.colors.greene,
+    },
+  },
 }));

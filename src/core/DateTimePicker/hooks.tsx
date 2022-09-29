@@ -8,9 +8,9 @@ export const useScheduleData = () => {
     handleChange: (
       event: React.ChangeEvent<{ name?: string; value?: unknown }>,
       index: number,
-      remove?: boolean,
+      remove?: boolean
     ) => void,
-    classNames?: { [key: string]: string} 
+    classNames?: { [key: string]: string }
   ) => {
     const data: { [key: string]: JSX.Element }[] = [];
     scheduleData.forEach((schedule, index) => {

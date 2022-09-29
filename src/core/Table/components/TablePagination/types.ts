@@ -5,7 +5,7 @@ export type TablePaginationProps = MuiTablePaginationProps;
 export type PageNumbersProps = {
   onPageChange: (
     event: React.MouseEvent<HTMLButtonElement> | null,
-    newPage: number,
+    newPage: number
   ) => void;
   count: number;
   currentPage: number;
@@ -14,8 +14,8 @@ export type PageNumbersProps = {
 export type PageNumberProps = {
   onPageChange: (
     event: React.MouseEvent<HTMLButtonElement> | null,
-    newPage: number,
+    newPage: number
   ) => void;
   page: number;
   currentPage: number;
-}
+};

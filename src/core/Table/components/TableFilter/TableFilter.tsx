@@ -52,7 +52,10 @@ export const TableFilter: React.FC<TableFilterProps> = ({
     });
   };
 
-  const getUniqueValues = (fieldName: string, values: TableFilterProps["values"]) => {
+  const getUniqueValues = (
+    fieldName: string,
+    values: TableFilterProps["values"]
+  ) => {
     if (!values || values.length < 1) return [];
 
     const data: string[] = [];
@@ -64,8 +67,9 @@ export const TableFilter: React.FC<TableFilterProps> = ({
           fieldValue = getJsxContent(fieldValue);
         }
 
-        if (!fieldValue?.toString() || data.includes(fieldValue.toString())) return null;
-        
+        if (!fieldValue?.toString() || data.includes(fieldValue.toString()))
+          return null;
+
         data.push(fieldValue.toString());
         return null;
       }
@@ -80,32 +84,34 @@ export const TableFilter: React.FC<TableFilterProps> = ({
     }
     return false;
   };
-  
-  const renderFilterOptions = useCallback(
-    () => {
-      const fieldNames = tableValues && tableValues.length > 0 ? Object.keys(tableValues[0]) : []
-      return filterFields.map(({ name, label }, index) => {
-        return (
-          <MenuItem key={name} className={classes.filterItemContainer}>
-            <Accordion title={label}>
-              {getUniqueValues(fieldNames?.[index], tableValues).map((item, key) => {
+
+  const renderFilterOptions = useCallback(() => {
+    const fieldNames =
+      tableValues && tableValues.length > 0 ? Object.keys(tableValues[0]) : [];
+    return filterFields.map(({ name, label }, index) => {
+      return (
+        <MenuItem key={name} className={classes.filterItemContainer}>
+          <Accordion title={label}>
+            {getUniqueValues(fieldNames?.[index], tableValues).map(
+              (item, key) => {
                 return (
                   <div className={classes.filterItem} key={key}>
                     <Checkbox
                       checked={!getCheckedState(fieldNames?.[index], item)}
-                      onChange={() => handleSetFilter(fieldNames?.[index], item)}
+                      onChange={() =>
+                        handleSetFilter(fieldNames?.[index], item)
+                      }
                     />
                     <div>{item}</div>
                   </div>
                 );
-              })}
-            </Accordion>
-          </MenuItem>
-        )
-      })
-    },
-    [filterFields, newFilters, tableValues]
-  );
+              }
+            )}
+          </Accordion>
+        </MenuItem>
+      );
+    });
+  }, [filterFields, newFilters, tableValues]);
 
   const handleClickAway = () => {
     setShowFilter(false);

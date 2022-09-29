@@ -19,12 +19,14 @@ export const Scheduler: React.FC<SchedulerProps> = ({
     { day: "0", start_time: "00:00", end_time: "12:00" },
   ],
   onChange,
-  orientation = "horizontal"
+  orientation = "horizontal",
 }) => {
   const classes = useSchedulerStyles();
   const parseSchedulevalue = useScheduleData();
-  const isEverydaySelected = initialScheduleValue?.some((value) => value?.day == "0");
-  const availableOption = filterDaysOptions(days, initialScheduleValue)
+  const isEverydaySelected = initialScheduleValue?.some(
+    (value) => value?.day == "0"
+  );
+  const availableOption = filterDaysOptions(days, initialScheduleValue);
 
   const handleChange = useCallback(
     (event, index, remove = false) => {
@@ -39,19 +41,22 @@ export const Scheduler: React.FC<SchedulerProps> = ({
       }
       onChange?.({ name: componentName as string, value: newValue });
     },
-    [initialScheduleValue],
+    [initialScheduleValue]
   );
 
   const addNewRow = useCallback(() => {
-    const nextFieldId = days.filter((item) => item.id != 0 && !initialScheduleValue.some((option) => Number(option.day) == item.id))[0].id
+    const nextFieldId = days.filter(
+      (item) =>
+        item.id != 0 &&
+        !initialScheduleValue.some((option) => Number(option.day) == item.id)
+    )[0].id;
     onChange?.({
       name: componentName as string,
       value: [
         ...initialScheduleValue,
-        {day: String(nextFieldId), start_time: "01:00", end_time: "12:00"},
+        { day: String(nextFieldId), start_time: "01:00", end_time: "12:00" },
       ],
     });
-    
   }, [initialScheduleValue]);
 
   const [scheduleValue, setScheduleValue] = useState<{ [key: string]: any }[]>(
@@ -60,7 +65,7 @@ export const Scheduler: React.FC<SchedulerProps> = ({
       timeDivider: classes.timeDivider,
       closeIcon: classes.closeIcon,
       hiddenCloseIcon: classes.hidden,
-    }),
+    })
   );
 
   useEffect(() => {
@@ -72,7 +77,7 @@ export const Scheduler: React.FC<SchedulerProps> = ({
         timeDivider: classes.timeDivider,
         closeIcon: classes.closeIcon,
         hiddenCloseIcon: classes.hidden,
-      },
+      }
     );
     setScheduleValue(newScheduleValue);
   }, [initialScheduleValue]);
@@ -87,10 +92,15 @@ export const Scheduler: React.FC<SchedulerProps> = ({
           {label}
         </InputLabel>
       )}
-      
+
       {scheduleValue?.map((row: any, index: number) => {
         return (
-          <div className={`${classes.schedulerContainer} ${orientation == "vertical" && classes.verticalContainer}`} key={index}>
+          <div
+            className={`${classes.schedulerContainer} ${
+              orientation == "vertical" && classes.verticalContainer
+            }`}
+            key={index}
+          >
             {fields.map(({ name }) => {
               return row?.[name];
             })}
@@ -99,7 +109,12 @@ export const Scheduler: React.FC<SchedulerProps> = ({
       })}
 
       {multiple && !isEverydaySelected && (
-        <div className={`${classes.button} ${availableOption.length == 0 && classes.hidden}`} onClick={addNewRow}>
+        <div
+          className={`${classes.button} ${
+            availableOption.length == 0 && classes.hidden
+          }`}
+          onClick={addNewRow}
+        >
           <p className={classes.buttonText}>
             <FiPlus className={classes.addIcon} /> Add Schedule
           </p>
