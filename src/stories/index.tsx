@@ -43,10 +43,15 @@ import {
     DELETE_IMAGE,
     UPDATE_IMAGE,
 } from "../helpers/graphQL";
+import { Valour, Taurant, Nour } from "templates/Navs";
 
-import { ComponentPropType } from "./types";
+import { ComponentPropType, TemplatePropType } from "./types";
+
 import { data } from "./data";
 import { EditableTextInput } from "io/EditableTextInput";
+
+import AcUnitIcon from '@mui/icons-material/AcUnit';
+
 
 export const stories: ComponentPropType[] = [
     {
@@ -548,3 +553,51 @@ export const stories: ComponentPropType[] = [
         },
     },
 ];
+
+export const navs: TemplatePropType[] = [
+    {
+        name: "Nour",
+        component: Nour,
+        props: {
+            links: [
+                { text: "home", url: "/" },
+                { text: "blog", url: "/" },
+                { text: "restaurant", url: "/" }
+            ],
+            socials: [
+                { icon: <AcUnitIcon />, url: "/" },
+                { icon: <AcUnitIcon />, url: "/" }
+            ]
+        },
+    },
+    {
+        name: "Taurant",
+        component: Taurant,
+        props: {
+            links: [
+                { text: "home", url: "/" },
+                { text: "blog", url: "/" },
+                { text: "restaurant", url: "/" }
+            ],
+            socials: [
+                { icon: <AcUnitIcon />, url: "/" },
+                { icon: <AcUnitIcon />, url: "/" }
+            ]
+        },
+    },
+    {
+        name: "Valour",
+        component: Valour,
+        props: {
+            links: [
+                { text: "home", url: "/" },
+                { text: "blog", url: "/" },
+                { text: "restaurant", url: "/" }
+            ],
+            socials: [
+                { icon: <AcUnitIcon />, url: "/" },
+                { icon: <AcUnitIcon />, url: "/" }
+            ]
+        },
+    },
+]
