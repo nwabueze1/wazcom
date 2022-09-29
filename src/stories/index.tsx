@@ -47,6 +47,7 @@ import {
 import { ComponentPropType } from "./types";
 import { data } from "./data";
 import { EditableTextInput } from "io/EditableTextInput";
+import { DynamicInput } from "io/DynamicInput";
 
 export const stories: ComponentPropType[] = [
   {
@@ -435,8 +436,8 @@ export const stories: ComponentPropType[] = [
     props: {
       label: "lslss",
       options: [
-        { label: "Basit", value: "basit", icon:FaEdit },
-        { label: "Chinazom", value: "chinazom", icon:FaEdit },
+        { label: "Basit", value: "basit", icon: FaEdit },
+        { label: "Chinazom", value: "chinazom", icon: FaEdit },
       ],
       error: true,
       required: true,
@@ -545,6 +546,20 @@ export const stories: ComponentPropType[] = [
     component: PhoneNumberInput,
     props: {
       country: "ng",
+    },
+  },
+  {
+    name: "DynamicInput",
+    component: DynamicInput,
+    props: {
+      label: "lslss",
+      options: [
+        { label: "Basit", value: "basit", icon: FaEdit },
+        { label: "Chinazom", value: "chinazom", icon: FaEdit },
+      ],
+      error: true,
+      required: true,
+      feedback: { text: "Tariq is a weirdo", status: "error" },
     },
   },
 ];

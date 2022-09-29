@@ -44,6 +44,12 @@ export const useSelectStyles = makeStyles((theme: Theme) => ({
         outline: theme.design.colors.waz_primaryColor100
       },
     },
+    "& div": {
+      border: "5px solid green !important"
+    },
+    "&.css-11u53oe-MuiSelect-select-MuiInputBase-input-MuiOutlinedInput-input": {
+      border: "15px solid green !important"
+    }
   },
   optionLabel: {
     display: "flex",
