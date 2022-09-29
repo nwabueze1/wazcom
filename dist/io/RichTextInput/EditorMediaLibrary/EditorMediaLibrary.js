@@ -11,7 +11,7 @@ var __assign = (this && this.__assign) || function () {
 };
 import { jsx as _jsx } from "react/jsx-runtime";
 import { Modal } from "@mui/material";
-import { GET_IMAGES, UPLOAD_IMAGE, } from "../../../helpers/graphQL";
+import { GET_IMAGES, UPLOAD_IMAGE } from "../../../helpers/graphQL";
 import { GqlMediaLibrary } from "../../../gql/GqlMediaLibrary";
 import { useEditorMediaLibStyles } from "./styles";
 export var EditorMediaLibrary = function (_a) {

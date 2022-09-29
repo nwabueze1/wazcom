@@ -33,21 +33,21 @@ export var useFilterStyles = makeStyles(function (theme) { return ({
             "& > .MuiAccordionSummary-root": {
                 padding: 0,
                 "& p": {
-                    fontSize: theme.typography.fontSize
-                }
+                    fontSize: theme.typography.fontSize,
+                },
             },
             "& > .MuiAccordionDetails-root": {
-                padding: 0
+                padding: 0,
             },
         },
         "&:hover": {
-            backgroundColor: theme.design.colors.waz_white
+            backgroundColor: theme.design.colors.waz_white,
         },
-        borderBottom: "1px solid #E6E7E6"
+        borderBottom: "1px solid #E6E7E6",
     },
     filterItemsHeader: {
         fontSize: theme.typography.fontSize,
-        padding: theme.spacing(2)
+        padding: theme.spacing(2),
     },
     show: {
         opacity: 1,
@@ -60,7 +60,7 @@ export var useFilterStyles = makeStyles(function (theme) { return ({
     filterItem: {
         display: "flex",
         alignItems: "center",
-        fontSize: theme.typography.fontSize
+        fontSize: theme.typography.fontSize,
     },
     filterActionButtons: {
         display: "flex",
@@ -68,7 +68,7 @@ export var useFilterStyles = makeStyles(function (theme) { return ({
         padding: theme.spacing(2, 1),
         gap: theme.spacing(2),
         justifyContent: "space-between",
-        margin: "0 auto"
+        margin: "0 auto",
     },
     filterActionButton: {
         height: 40,
@@ -81,6 +81,6 @@ export var useFilterStyles = makeStyles(function (theme) { return ({
         "&:hover": {
             background: theme.design.colors.waz_white,
             color: theme.design.colors.waz_greyColor400,
-        }
-    }
+        },
+    },
 }); });

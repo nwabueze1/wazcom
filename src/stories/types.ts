@@ -65,11 +65,9 @@ export type ComponentPropType = {
 );
 
 export type TemplatePropType = {
-  component: any;
-  name: string;
-} & (
-  | NavsStory
-);
+    component: any;
+    name: string;
+} & NavsStory;
 
 type AccordionStory = {
     props: AccordionProps;
@@ -179,5 +177,5 @@ type PhoneNumberInputStroy = {
 };
 
 type NavsStory = {
-  props: NavProps
-}
+    props: NavProps;
+};

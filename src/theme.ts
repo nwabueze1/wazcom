@@ -10,11 +10,11 @@ type ExtendedThemeOptions = {
 
 declare module "@mui/material/styles" {
     // eslint-disable-next-line @typescript-eslint/no-empty-interface
-    interface Theme extends ExtendedThemeOptions { }
+    interface Theme extends ExtendedThemeOptions {}
 
     // allow configuration using `createMuiTheme`
     // eslint-disable-next-line @typescript-eslint/no-empty-interface
-    interface ThemeOptions extends ExtendedThemeOptions { }
+    interface ThemeOptions extends ExtendedThemeOptions {}
 }
 
 export type BaseTheme = MuiTheme & ExtendedThemeOptions;

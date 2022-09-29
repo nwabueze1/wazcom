@@ -91,9 +91,7 @@ export var useUpdateTableValue = function (setTableValue, initialTableValue, con
                     }
                     return null;
                 }
-                if ("".concat(value)
-                    .toLowerCase()
-                    .includes((_b = controlsFormData.search) === null || _b === void 0 ? void 0 : _b.toLowerCase())) {
+                if ("".concat(value).toLowerCase().includes((_b = controlsFormData.search) === null || _b === void 0 ? void 0 : _b.toLowerCase())) {
                     status = true;
                 }
                 return null;
@@ -117,7 +115,11 @@ export var useUpdateTableValue = function (setTableValue, initialTableValue, con
                             idx = -1;
                         }
                         if (idx !== -1) {
-                            var term = value == null ? "" : typeof value == "object" ? getJsxContent(value) : String(value);
+                            var term = value == null
+                                ? ""
+                                : typeof value == "object"
+                                    ? getJsxContent(value)
+                                    : String(value);
                             if (!filters[idx].values.includes(term)) {
                                 return status.push(true);
                             }

@@ -1,2 +1,2 @@
-export * from "./Taurant"
-export * from "./styles"
+export * from "./Taurant";
+export * from "./styles";

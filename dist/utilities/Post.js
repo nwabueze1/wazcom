@@ -10,7 +10,5 @@ export var truncate = function (fullStr, strLen, separator, frontChars, backChar
     if (backChars === void 0) { backChars = 9; }
     if (fullStr.length <= strLen)
         return fullStr;
-    return (fullStr.substr(0, frontChars) +
-        separator +
-        fullStr.substr(fullStr.length - backChars));
+    return fullStr.substr(0, frontChars) + separator + fullStr.substr(fullStr.length - backChars);
 };

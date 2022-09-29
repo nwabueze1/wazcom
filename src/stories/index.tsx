@@ -50,8 +50,7 @@ import { ComponentPropType, TemplatePropType } from "./types";
 import { data } from "./data";
 import { EditableTextInput } from "io/EditableTextInput";
 
-import AcUnitIcon from '@mui/icons-material/AcUnit';
-
+import AcUnitIcon from "@mui/icons-material/AcUnit";
 
 export const stories: ComponentPropType[] = [
     {
@@ -562,12 +561,12 @@ export const navs: TemplatePropType[] = [
             links: [
                 { text: "home", url: "/" },
                 { text: "blog", url: "/" },
-                { text: "restaurant", url: "/" }
+                { text: "restaurant", url: "/" },
             ],
             socials: [
                 { icon: <AcUnitIcon />, url: "/" },
-                { icon: <AcUnitIcon />, url: "/" }
-            ]
+                { icon: <AcUnitIcon />, url: "/" },
+            ],
         },
     },
     {
@@ -577,12 +576,12 @@ export const navs: TemplatePropType[] = [
             links: [
                 { text: "home", url: "/" },
                 { text: "blog", url: "/" },
-                { text: "restaurant", url: "/" }
+                { text: "restaurant", url: "/" },
             ],
             socials: [
                 { icon: <AcUnitIcon />, url: "/" },
-                { icon: <AcUnitIcon />, url: "/" }
-            ]
+                { icon: <AcUnitIcon />, url: "/" },
+            ],
         },
     },
     {
@@ -592,12 +591,12 @@ export const navs: TemplatePropType[] = [
             links: [
                 { text: "home", url: "/" },
                 { text: "blog", url: "/" },
-                { text: "restaurant", url: "/" }
+                { text: "restaurant", url: "/" },
             ],
             socials: [
                 { icon: <AcUnitIcon />, url: "/" },
-                { icon: <AcUnitIcon />, url: "/" }
-            ]
+                { icon: <AcUnitIcon />, url: "/" },
+            ],
         },
     },
-]
+];
