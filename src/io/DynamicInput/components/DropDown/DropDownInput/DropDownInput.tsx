@@ -1,0 +1,28 @@
+import { Close } from '@mui/icons-material'
+import { TextField } from '@mui/material'
+import React, { FC, useEffect, useRef, useState } from 'react';
+import { useDropDownInputStyles } from './styles'
+import { DropDownInputProps } from './types';
+
+export const DropDownInput: FC<DropDownInputProps> = ({ handleRemove, defaultValue, index, onFocus }) => {
+    const classes = useDropDownInputStyles();
+    const [value, setValue] = useState(defaultValue);
+    const inputRef = useRef<HTMLInputElement>(null)
+    console.log(defaultValue)
+
+    useEffect(() => {
+        setValue(defaultValue)
+    }, [defaultValue])
+
+    const handleChange = (event: React.ChangeEvent<HTMLInputElement>) => {
+        setValue(event.target.value);
+    }
+
+    return (
+        <div className={classes.root}>
+            <p>{index + 1}.</p>
+            <TextField className={classes.dropDownInput} inputMode="text" inputRef={inputRef} sx={{ border: 0 }} id="standard-basic" variant="standard" onChange={handleChange} defaultValue={value} value={value} onFocus={onFocus} />
+            <Close className={classes.dropDownIcon} onClick={handleRemove} />
+        </div>
+    )
+}

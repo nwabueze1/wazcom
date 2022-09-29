@@ -45,7 +45,7 @@ export const EditableTextInput: FC<EditableTextInputProps> = ({ html, setHtml })
     };
 
     return (
-        <div>
+        <div className={classes.root}>
             <ContentEditable
                 className={classes.editableTextInput}
                 tagName="pre"

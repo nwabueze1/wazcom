@@ -4,17 +4,15 @@ import { DynamicInputProps } from "./types";
 import clx from "classnames";
 import { EditableTextInput } from "io/EditableTextInput";
 import { SelectInput } from "io/SelectInput";
-import { BiLink } from "react-icons/bi";
-import { FaEdit } from "react-icons/fa";
+import { defaultInputs as options } from "./data";
+import { DefaultInputState } from "./components/DefautInputState/DefualtInputstate";
+import { DropDown } from "./components/DropDown/DropDown";
+
 
 const selectProps = {
-  options: [
-    { label: "Basit", value: "basit", icon: BiLink },
-    { label: "Chinazom", value: "chinazom", icon: FaEdit },
-  ],
+  options,
   error: true,
   required: true,
-  // feedback: { text: "Tariq is a weirdo", status: "error" },
 }
 
 export const DynamicInput: FC<DynamicInputProps> = () => {
@@ -28,6 +26,7 @@ export const DynamicInput: FC<DynamicInputProps> = () => {
         </div>
         <SelectInput {...selectProps} className={classes.selectInputContainer} />
       </div>
+      <DropDown />
     </div>
   );
 };

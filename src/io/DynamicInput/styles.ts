@@ -1,6 +1,5 @@
 import { Theme } from "@mui/material/styles";
 import makeStyles from "@mui/styles/makeStyles";
-import { EditableTextInput } from "io/EditableTextInput";
 
 export const useDynamicInputStyles = makeStyles((theme: Theme) => ({
     root: {
@@ -13,13 +12,19 @@ export const useDynamicInputStyles = makeStyles((theme: Theme) => ({
     inputControlsContainer: {
         display: "flex",
         justifyContent: "space-between",
-        alignItems: "center"
+        alignItems: "flex-start"
     },
     editableTextInput: {
         width: "65%"
     },
     selectInputContainer: {
-        width: "30%",
-        maxHeight: 50
+        width: "33%",
+        maxHeight: 50,
+        margin: 0,
+
+        "& div": {
+            padding: 0,
+            minHeight: 40
+        }
     }
 }));
