@@ -18,3 +18,8 @@ export type DefaultInputsStateProps = {
     defaultCount: number;
     defaultValue: string;
 };
+
+export type InputComponentProps = {
+    name: string,
+    component: JSX.Element
+}

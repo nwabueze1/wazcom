@@ -1,7 +1,7 @@
 import { DefaultInputState } from "../DefautInputState/DefualtInputstate";
 import { CheckBoxInput } from "./CheckBoxInput/CheckBoxInput";
 
-export const DropDown = () => {
+export const CheckBox = () => {
     return (
         <div>
             <DefaultInputState input={CheckBoxInput} defaultCount={5} defaultValue={"Option"} />

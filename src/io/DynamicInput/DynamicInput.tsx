@@ -1,12 +1,17 @@
-import React, { FC } from "react";
+import React, { FC, useState } from "react";
 import { useDynamicInputStyles } from "./styles";
 import { DynamicInputProps } from "./types";
 import clx from "classnames";
 import { EditableTextInput } from "io/EditableTextInput";
 import { SelectInput } from "io/SelectInput";
 import { defaultInputs as options } from "./data";
-import { DefaultInputState } from "./components/DefautInputState/DefualtInputstate";
-import { DropDown } from "./components/DropDown/DropDown";
+import { inputComponents } from "./helper";
+import { Button } from "@mui/material";
+import { QuestionAnswer } from "@mui/icons-material";
+import { BsThreeDotsVertical } from "react-icons/bs";
+import { MdOutlineContentCopy } from "react-icons/md";
+import { RiDeleteBin6Line } from "react-icons/ri";
+
 
 const selectProps = {
     options,
@@ -16,6 +21,11 @@ const selectProps = {
 
 export const DynamicInput: FC<DynamicInputProps> = () => {
     const classes = useDynamicInputStyles();
+    const [activeInputName, setActiveInputName] = useState("dropdown");
+
+    const handleChange = (event: { name: string, value: string }) => {
+        setActiveInputName(event.value);
+    }
 
     return (
         <div className={clx(classes.root)}>
@@ -23,9 +33,27 @@ export const DynamicInput: FC<DynamicInputProps> = () => {
                 <div className={classes.editableTextInput}>
                     <EditableTextInput />
                 </div>
-                <SelectInput {...selectProps} className={classes.selectInputContainer} />
+                <SelectInput {...selectProps} onChange={handleChange} className={classes.selectInputContainer} />
             </div>
-            <DropDown />
+            {
+                inputComponents.find(input => input.name === activeInputName)?.component
+            }
+            <div className={classes.questionSection}>
+                <div className={classes.questionContainer}>
+                    <Button variant="outlined" color="primary" className={classes.questionButton}>
+                        <QuestionAnswer className={classes.questionIcon} />
+                        Answer Key
+                    </Button>
+                    <div className={classes.questionPoint}>
+                        (0 points)
+                    </div>
+                </div>
+                <div className={classes.questionOptionContiner}>
+                    <RiDeleteBin6Line className={classes.questionOptionIcon} />
+                    <MdOutlineContentCopy className={classes.questionOptionIcon} />
+                    <BsThreeDotsVertical className={classes.questionOptionIcon} />
+                </div>
+            </div>
         </div>
     );
 };
