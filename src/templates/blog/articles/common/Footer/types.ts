@@ -1,4 +1,4 @@
 export type FooterProps = {
-  name: string;
-  className?: string;
+    name: string;
+    className?: string;
 };

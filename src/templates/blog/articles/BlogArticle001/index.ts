@@ -1,2 +1,2 @@
-export * from './BlogArticle001';
-export * from './styles';
+export * from "./BlogArticle001";
+export * from "./styles";

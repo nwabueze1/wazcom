@@ -7,6 +7,6 @@ export type BreadCrumbProps = CommonProps & {
 };
 
 type Crumb = {
-  label: string;
-  path: string;
+    label: string;
+    path: string;
 };

@@ -9,7 +9,7 @@ export var useComboBoxStyles = makeStyles(function (theme) { return ({
             outline: theme.design.colors.waz_primaryColor100,
             "&:hover": {
                 borderColor: theme.design.colors.waz_primaryColor100,
-                outline: theme.design.colors.waz_primaryColor100
+                outline: theme.design.colors.waz_primaryColor100,
             },
         },
     },
@@ -19,7 +19,7 @@ export var useComboBoxStyles = makeStyles(function (theme) { return ({
     },
     renderInput: {
         "& input.MuiOutlinedInput-input.MuiInputBase-input": {
-            padding: theme.spacing(0)
-        }
-    }
+            padding: theme.spacing(0),
+        },
+    },
 }); });

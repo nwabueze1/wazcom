@@ -1,3 +1,3 @@
-export * from "./TextArea"
-export * from "./styles"
-export * from "./types"
+export * from "./TextArea";
+export * from "./styles";
+export * from "./types";

@@ -57,46 +57,45 @@ const article = `
 `;
 
 const corePost = {
-  __typename: "bnsb",
-  id: "xnzbjk",
-  uuid: "623bdd",
-  slug: "hgfgfhsddgjsdh",
-  content: article,
-  excerpt:
-    "The most basic format is to get a calendar and cross off each day you stick with your routine. For example, if you meditate on Monday, Wednesday, and Friday....",
-  status: 1,
-  featured_image:
-    "https://images.unsplash.com/photo-1648737965470-74f901ebf089?ixlib=rb-1.2.1&ixid=MnwxMjA3fDF8MHxlZGl0b3JpYWwtZmVlZHw2fHx8ZW58MHx8fHw%3D&auto=format&fit=crop&w=500&q=60",
-  title:
-    "The Ultimate Habit Tracker Guide: Why and How to Track Your Habits",
-  author_uuid: null,
-  language_attr: null,
-  category_name: null,
-  created_at: "2022-03-15 07:14:23",
-  updated_at: "28/02/21",
-  category: null,
-  tags: [
-    { id: "1", name: "Glutten-free" },
-    { id: "2", name: "Habit" },
-    { id: "3", name: "Guide" },
-  ],
+    __typename: "bnsb",
+    id: "xnzbjk",
+    uuid: "623bdd",
+    slug: "hgfgfhsddgjsdh",
+    content: article,
+    excerpt:
+        "The most basic format is to get a calendar and cross off each day you stick with your routine. For example, if you meditate on Monday, Wednesday, and Friday....",
+    status: 1,
+    featured_image:
+        "https://images.unsplash.com/photo-1648737965470-74f901ebf089?ixlib=rb-1.2.1&ixid=MnwxMjA3fDF8MHxlZGl0b3JpYWwtZmVlZHw2fHx8ZW58MHx8fHw%3D&auto=format&fit=crop&w=500&q=60",
+    title: "The Ultimate Habit Tracker Guide: Why and How to Track Your Habits",
+    author_uuid: null,
+    language_attr: null,
+    category_name: null,
+    created_at: "2022-03-15 07:14:23",
+    updated_at: "28/02/21",
+    category: null,
+    tags: [
+        { id: "1", name: "Glutten-free" },
+        { id: "2", name: "Habit" },
+        { id: "3", name: "Guide" },
+    ],
 };
 
 export const site = {
-  id: "string",
-  uuid: "string",
-  name: "olaiya",
-  display_name: null,
-  description: null,
-  domain: "hfjkfshjkd",
-  cover_image: null,
-  currency: null,
-  user_id: "string",
-  updated_at: "any",
-  created_at: "any",
+    id: "string",
+    uuid: "string",
+    name: "olaiya",
+    display_name: null,
+    description: null,
+    domain: "hfjkfshjkd",
+    cover_image: null,
+    currency: null,
+    user_id: "string",
+    updated_at: "any",
+    created_at: "any",
 };
 
 export const articleData: CorePostFields = {
-  ...corePost,
-  related_posts: [{ ...corePost }, { ...corePost }, { ...corePost }],
+    ...corePost,
+    related_posts: [{ ...corePost }, { ...corePost }, { ...corePost }],
 };

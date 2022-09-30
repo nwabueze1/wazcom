@@ -138,9 +138,7 @@ export var GqlComboBox = memo(function (_a) {
         return __generator(this, function (_b) {
             switch (_b.label) {
                 case 0:
-                    label = (_a = options === null || options === void 0 ? void 0 : options.find(function (option) {
-                        return option.value.toLowerCase() === selectedValue.toLowerCase();
-                    })) === null || _a === void 0 ? void 0 : _a.label;
+                    label = (_a = options === null || options === void 0 ? void 0 : options.find(function (option) { return option.value.toLowerCase() === selectedValue.toLowerCase(); })) === null || _a === void 0 ? void 0 : _a.label;
                     value = selectedValue;
                     if (!!label) return [3 /*break*/, 2];
                     setFetching(true);

@@ -13,10 +13,10 @@ import {
     Carousel,
     EmptyState,
     DateTimePicker,
-    Scheduler
+    Scheduler,
 } from "../core";
 import { BiLink } from "react-icons/bi";
-import { FaEdit } from "react-icons/fa"
+import { FaEdit } from "react-icons/fa";
 
 import {
     CheckBoxInput,
@@ -43,11 +43,13 @@ import {
     DELETE_IMAGE,
     UPDATE_IMAGE,
 } from "../helpers/graphQL";
+import { Valour, Taurant, Nour } from "templates/Navs";
 
-import { ComponentPropType } from "./types";
+import { ComponentPropType, TemplatePropType } from "./types";
 import { data } from "./data";
 import { EditableTextInput } from "io/EditableTextInput";
 import { DynamicInput } from "io/DynamicInput";
+import AcUnitIcon from "@mui/icons-material/AcUnit";
 
 export const stories: ComponentPropType[] = [
     {
@@ -130,7 +132,7 @@ export const stories: ComponentPropType[] = [
             controls: {
                 filter: ["id", "name"],
                 canPrint: true,
-                canExport: {}
+                canExport: {},
             },
         },
     },
@@ -314,6 +316,20 @@ export const stories: ComponentPropType[] = [
         },
     },
     {
+        name: "DynamicInput",
+        component: DynamicInput,
+        props: {
+            label: "lslss",
+            options: [
+                { label: "Basit", value: "basit", icon: FaEdit },
+                { label: "Chinazom", value: "chinazom", icon: FaEdit },
+            ],
+            error: true,
+            required: true,
+            feedback: { text: "Tariq is a weirdo", status: "error" },
+        },
+    },
+    {
         name: "Image Selector",
         component: ImageSelector,
         props: {
@@ -451,7 +467,7 @@ export const stories: ComponentPropType[] = [
             apiKey: "",
             error: true,
             feedback: { text: "Tariq is a weirdo", status: "error" },
-            client: createApolloClient(process.env.REACT_APP_NICODEMUS_API_TOKEN as string)
+            client: createApolloClient(process.env.REACT_APP_NICODEMUS_API_TOKEN as string),
         },
     },
     {
@@ -548,18 +564,52 @@ export const stories: ComponentPropType[] = [
             country: "ng",
         },
     },
+];
+
+export const navs: TemplatePropType[] = [
     {
-        name: "DynamicInput",
-        component: DynamicInput,
+        name: "Nour",
+        component: Nour,
         props: {
-            label: "lslss",
-            options: [
-                { label: "Basit", value: "basit", icon: FaEdit },
-                { label: "Chinazom", value: "chinazom", icon: FaEdit },
+            links: [
+                { text: "home", url: "/" },
+                { text: "blog", url: "/" },
+                { text: "restaurant", url: "/" },
             ],
-            error: true,
-            required: true,
-            feedback: { text: "Tariq is a weirdo", status: "error" },
+            socials: [
+                { icon: <AcUnitIcon />, url: "/" },
+                { icon: <AcUnitIcon />, url: "/" },
+            ],
+        },
+    },
+    {
+        name: "Taurant",
+        component: Taurant,
+        props: {
+            links: [
+                { text: "home", url: "/" },
+                { text: "blog", url: "/" },
+                { text: "restaurant", url: "/" },
+            ],
+            socials: [
+                { icon: <AcUnitIcon />, url: "/" },
+                { icon: <AcUnitIcon />, url: "/" },
+            ],
+        },
+    },
+    {
+        name: "Valour",
+        component: Valour,
+        props: {
+            links: [
+                { text: "home", url: "/" },
+                { text: "blog", url: "/" },
+                { text: "restaurant", url: "/" },
+            ],
+            socials: [
+                { icon: <AcUnitIcon />, url: "/" },
+                { icon: <AcUnitIcon />, url: "/" },
+            ],
         },
     },
 ];

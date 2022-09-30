@@ -2,63 +2,63 @@ import makeStyles from "@mui/styles/makeStyles";
 import { Theme } from "@mui/material/styles";
 
 export const useNavStyles = makeStyles<Theme>((theme: Theme) => ({
-  root: {
-    width: "100%",
-    display: "flex",
-    justifyContent: "center",
-  },
-  header: {
-    width: "88%",
-    maxWidth: theme.include.styles.maxWidth,
-    margin: "0, auto",
-    display: "flex",
-    background: theme.design.colors.waz_white,
-    borderRadius: "8px",
-    justifyContent: "space-between",
-    alignItems: "center",
-    padding: theme.spacing(2, 3),
-    zIndex: 10,
-    [theme.breakpoints.down("lg")]: {
-      width: "100%",
-      borderRadius: 0,
+    root: {
+        width: "100%",
+        display: "flex",
+        justifyContent: "center",
     },
-    [theme.breakpoints.down("sm")]: {
-      flexDirection: "column",
-      padding: 0,
-      justifyContent: "flex-start",
-      alignItems: "flex-start",
+    header: {
+        width: "88%",
+        maxWidth: theme.include.styles.maxWidth,
+        margin: "0, auto",
+        display: "flex",
+        background: theme.design.colors.waz_white,
+        borderRadius: "8px",
+        justifyContent: "space-between",
+        alignItems: "center",
+        padding: theme.spacing(2, 3),
+        zIndex: 10,
+        [theme.breakpoints.down("lg")]: {
+            width: "100%",
+            borderRadius: 0,
+        },
+        [theme.breakpoints.down("sm")]: {
+            flexDirection: "column",
+            padding: 0,
+            justifyContent: "flex-start",
+            alignItems: "flex-start",
+        },
     },
-  },
-  logoContainer: {
-    [theme.breakpoints.down("sm")]: {
-      padding: theme.spacing(2, 3),
+    logoContainer: {
+        [theme.breakpoints.down("sm")]: {
+            padding: theme.spacing(2, 3),
+        },
     },
-  },
-  headerLogo: {
-    objectFit: "cover",
-    [theme.breakpoints.down("sm")]: {
-      width: "120px",
+    headerLogo: {
+        objectFit: "cover",
+        [theme.breakpoints.down("sm")]: {
+            width: "120px",
+        },
     },
-  },
-  searchField: {
-    borderRadius: "20px",
-    width: "40%",
-    marginBottom: 0,
-    "& .MuiOutlinedInput-root": {
-      borderRadius: "20px",
-      [theme.breakpoints.down("sm")]: {
-        borderRadius: 0,
-      },
+    searchField: {
+        borderRadius: "20px",
+        width: "40%",
+        marginBottom: 0,
+        "& .MuiOutlinedInput-root": {
+            borderRadius: "20px",
+            [theme.breakpoints.down("sm")]: {
+                borderRadius: 0,
+            },
+        },
+        "&.MuiOutlinedInput-input": {
+            padding: theme.spacing(1.5, 0),
+        },
+        [theme.breakpoints.down("md")]: {
+            width: "60%",
+        },
+        [theme.breakpoints.down("sm")]: {
+            borderRadius: 0,
+            width: "100%",
+        },
     },
-    "&.MuiOutlinedInput-input": {
-      padding: theme.spacing(1.5, 0),
-    },
-    [theme.breakpoints.down("md")]: {
-      width: "60%",
-    },
-    [theme.breakpoints.down("sm")]: {
-      borderRadius: 0,
-      width: "100%",
-    },
-  },
 }));

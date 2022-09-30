@@ -14,13 +14,13 @@ export var usePhoneNumberInputStyles = makeStyles(function (theme) {
             },
             "&.react-tel-input .form-control": {
                 width: "100%",
-                border: "none"
+                border: "none",
             },
             "&.react-tel-input .flag-dropdown": {
                 border: "none",
                 background: "none",
-                borderRight: "1px solid ".concat(theme.design.colors.grey900)
-            }
+                borderRight: "1px solid ".concat(theme.design.colors.grey900),
+            },
         },
         textInput: {
             height: 40,
@@ -39,7 +39,7 @@ export var usePhoneNumberInputStyles = makeStyles(function (theme) {
             },
         },
         dropDown: {
-            borderRight: "1px solid ".concat(theme.design.colors.grey900)
-        }
+            borderRight: "1px solid ".concat(theme.design.colors.grey900),
+        },
     });
 });

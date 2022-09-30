@@ -5,7 +5,7 @@ export * from "./SelectInput";
 export * from "./InputGroup";
 export * from "./TextInput";
 export * from "./ToggleInput";
-export * from "./TextArea"
-export * from "./PhoneNumberInput"
+export * from "./TextArea";
+export * from "./PhoneNumberInput";
 export * from "./RadioButtonInput";
 export * from "./CurrencyInput";

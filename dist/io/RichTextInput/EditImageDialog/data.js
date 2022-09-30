@@ -2,35 +2,35 @@ export var desktopFields = [
     {
         placeholder: "Image Width",
         label: "width",
-        device: "desktop"
+        device: "desktop",
     },
     {
         placeholder: "Image Height",
         label: "height",
-        device: "desktop"
-    }
+        device: "desktop",
+    },
 ];
 export var tabletFields = [
     {
         placeholder: "Image Width",
         label: "width",
-        device: "tablet"
+        device: "tablet",
     },
     {
         placeholder: "Image Height",
         label: "height",
-        device: "tablet"
-    }
+        device: "tablet",
+    },
 ];
 export var mobileFields = [
     {
         placeholder: "Image Width",
         label: "width",
-        device: "mobile"
+        device: "mobile",
     },
     {
         placeholder: "Image Height",
         label: "height",
-        device: "mobile"
-    }
+        device: "mobile",
+    },
 ];

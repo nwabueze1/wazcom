@@ -19,20 +19,7 @@ export var getTimeFrom = function (timestamp) {
         return "".concat(Math.round(difference / 2419200000)).concat(Math.round(difference) > 1 ? " months" : " month");
     return "".concat(Math.round(difference / 29030400000)).concat(Math.round(difference) > 1 ? " years" : " year");
 };
-var months = [
-    "Jan",
-    "Feb",
-    "Mar",
-    "Apr",
-    "May",
-    "Jun",
-    "Jul",
-    "Aug",
-    "Sep",
-    "Oct",
-    "Nov",
-    "Dec",
-];
+var months = ["Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sep", "Oct", "Nov", "Dec"];
 export var getDay = function (datetime) {
     var date = new Date(datetime);
     var month = date.getMonth();
@@ -44,8 +31,6 @@ export var parseDate = function (dt) {
     var date = new Date(dt);
     var year = date.getFullYear();
     var month = date.getMonth() + 1;
-    var day = String(date.getDate()).length === 1
-        ? "0" + String(date.getDate())
-        : date.getDate();
+    var day = String(date.getDate()).length === 1 ? "0" + String(date.getDate()) : date.getDate();
     return "".concat(months[month - 1], " ").concat(day, ", ").concat(year);
 };

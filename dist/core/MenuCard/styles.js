@@ -48,7 +48,7 @@ export var useMenuCardStyles = makeStyles(function (theme) { return ({
         marginLeft: theme.spacing(4),
     },
     vert: {
-        marginLeft: "20px"
+        marginLeft: "20px",
     },
     disableState: {
     // opacity: 0.1,

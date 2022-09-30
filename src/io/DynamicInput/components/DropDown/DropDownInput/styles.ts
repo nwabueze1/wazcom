@@ -7,7 +7,7 @@ export const useDropDownInputStyles = makeStyles(() => ({
         alignItems: "center",
         justifyContent: "center",
         width: "100%",
-        margin: theme.spacing(2, 0)
+        margin: theme.spacing(2, 0),
     },
     dropDownIcon: {
         fontSize: 30,
@@ -21,16 +21,15 @@ export const useDropDownInputStyles = makeStyles(() => ({
         padding: theme.spacing(0, 1),
 
         "& div::before": {
-            border: 0
+            border: 0,
         },
 
         "& div::after": {
-            border: `1px solid ${theme.design.colors.waz_primaryColor100}`
+            border: `1px solid ${theme.design.colors.waz_primaryColor100}`,
         },
 
         "& div:hover:not(.Mui-disabled):before": {
-            borderColor: theme.design.colors.waz_primaryColor100
-        }
+            borderColor: theme.design.colors.waz_primaryColor100,
+        },
     },
 }));
-

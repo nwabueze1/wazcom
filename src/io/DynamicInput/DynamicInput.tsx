@@ -8,25 +8,24 @@ import { defaultInputs as options } from "./data";
 import { DefaultInputState } from "./components/DefautInputState/DefualtInputstate";
 import { DropDown } from "./components/DropDown/DropDown";
 
-
 const selectProps = {
-  options,
-  error: true,
-  required: true,
-}
+    options,
+    error: true,
+    required: true,
+};
 
 export const DynamicInput: FC<DynamicInputProps> = () => {
-  const classes = useDynamicInputStyles();
+    const classes = useDynamicInputStyles();
 
-  return (
-    <div className={clx(classes.root)}>
-      <div className={classes.inputControlsContainer}>
-        <div className={classes.editableTextInput}>
-          <EditableTextInput />
+    return (
+        <div className={clx(classes.root)}>
+            <div className={classes.inputControlsContainer}>
+                <div className={classes.editableTextInput}>
+                    <EditableTextInput />
+                </div>
+                <SelectInput {...selectProps} className={classes.selectInputContainer} />
+            </div>
+            <DropDown />
         </div>
-        <SelectInput {...selectProps} className={classes.selectInputContainer} />
-      </div>
-      <DropDown />
-    </div>
-  );
+    );
 };

@@ -4,7 +4,7 @@ import "react-phone-input-2/lib/style.css";
 import { usePhoneNumberInputStyles } from "./styles";
 import { PhoneNumberInputProps } from "./types";
 
-export const PhoneNumberInput: FC<PhoneNumberInputProps> = ({classNames, ...props}) => {
+export const PhoneNumberInput: FC<PhoneNumberInputProps> = ({ classNames, ...props }) => {
     const classes = usePhoneNumberInputStyles();
 
     return (

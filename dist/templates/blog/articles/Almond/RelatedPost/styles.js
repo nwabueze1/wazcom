@@ -17,7 +17,7 @@ export var useRelatedPostAlmondStyles = makeStyles(function (theme) {
             },
             _a[theme.breakpoints.down("sm")] = {
                 width: "343px",
-                height: "164px"
+                height: "164px",
             },
             _a),
         articleTitle: (_b = {
@@ -26,10 +26,10 @@ export var useRelatedPostAlmondStyles = makeStyles(function (theme) {
                 lineHeight: "30px"
             },
             _b[theme.breakpoints.down("md")] = {
-                width: "270%"
+                width: "270%",
             },
             _b[theme.breakpoints.down("sm")] = {
-                width: "200%"
+                width: "200%",
             },
             _b),
         post: {
@@ -48,7 +48,7 @@ export var useRelatedPostAlmondStyles = makeStyles(function (theme) {
             _c[theme.breakpoints.down("sm")] = {
                 flexDirection: "column",
                 gap: theme.spacing(0),
-                marginTop: theme.spacing(7)
+                marginTop: theme.spacing(7),
             },
             _c),
         date: {
@@ -57,7 +57,7 @@ export var useRelatedPostAlmondStyles = makeStyles(function (theme) {
             color: theme.design.colors.waz_grey100,
         },
         alternateAvatar: {
-            marginBottom: theme.spacing(2.3)
-        }
+            marginBottom: theme.spacing(2.3),
+        },
     });
 });

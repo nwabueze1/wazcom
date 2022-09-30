@@ -35,8 +35,8 @@ export var useAlmondStyles = makeStyles(function (theme) {
                 width: "50%",
                 backgroundColor: theme.design.colors.waz_grey500,
                 position: "relative",
-                display: 'flex',
-                justifyContent: 'center'
+                display: "flex",
+                justifyContent: "center"
             },
             _c[theme.breakpoints.down("md")] = {
                 width: "100%",
@@ -67,9 +67,9 @@ export var useAlmondStyles = makeStyles(function (theme) {
         },
         heroItems: (_e = {
                 marginLeft: theme.spacing(5),
-                display: 'flex',
-                flexDirection: 'column',
-                justifyContent: 'center'
+                display: "flex",
+                flexDirection: "column",
+                justifyContent: "center"
             },
             _e[theme.breakpoints.down("md")] = {
                 top: "70px",
@@ -189,7 +189,7 @@ export var useAlmondStyles = makeStyles(function (theme) {
             justifyContent: "center",
             alignContent: "center",
             marginTop: theme.spacing(6),
-            padding: theme.spacing(2)
+            padding: theme.spacing(2),
         },
         footerContent: {
             marginTop: theme.spacing(1.5),

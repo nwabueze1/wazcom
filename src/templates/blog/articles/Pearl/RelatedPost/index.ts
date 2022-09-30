@@ -1,2 +1,2 @@
-export * from "./RelatedPost"
-export * from "./styles"
+export * from "./RelatedPost";
+export * from "./styles";

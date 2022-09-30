@@ -12,10 +12,10 @@ export const useDynamicInputStyles = makeStyles((theme: Theme) => ({
     inputControlsContainer: {
         display: "flex",
         justifyContent: "space-between",
-        alignItems: "flex-start"
+        alignItems: "flex-start",
     },
     editableTextInput: {
-        width: "65%"
+        width: "65%",
     },
     selectInputContainer: {
         width: "33%",
@@ -24,7 +24,7 @@ export const useDynamicInputStyles = makeStyles((theme: Theme) => ({
 
         "& div": {
             padding: 0,
-            minHeight: 40
-        }
-    }
+            minHeight: 40,
+        },
+    },
 }));
