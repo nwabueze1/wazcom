@@ -1,8 +1,6 @@
-import { Type } from "templates/blog/types/GlobalTypes/globaltypes";
-
 export type DropDownInputProps = {
     handleRemove: () => void;
-    handleChange: () => void;
+    handleChange: (value: string) => void;
     onFocus: () => void;
     index: number;
     defaultValue: string;

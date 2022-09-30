@@ -19,6 +19,11 @@ export const DropDownInput: FC<DropDownInputProps> = ({
         setValue(defaultValue);
     }, [defaultValue]);
 
+    const handleInputChange = (event: React.ChangeEvent<HTMLInputElement>) => {
+        setValue(event.target.value);
+        handleChange(event.target.value);
+    };
+
     return (
         <div className={classes.root}>
             <p>{index + 1}.</p>
@@ -29,7 +34,8 @@ export const DropDownInput: FC<DropDownInputProps> = ({
                 sx={{ border: 0 }}
                 id="standard-basic"
                 variant="standard"
-                onChange={handleChange}
+                onChange={handleInputChange}
+                defaultValue={value}
                 value={value}
                 onFocus={onFocus}
             />

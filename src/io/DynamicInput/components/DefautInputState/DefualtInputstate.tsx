@@ -9,7 +9,7 @@ export const DefaultInputState: FC<DefaultInputsStateProps> = ({
     const [count, setCount] = useState(defaultCount);
     const [jsx, setJSX] = useState<JSX.Element[] | null>();
     const [inputValues, setInputValues] = useState<string[]>([""]);
-    console.log(inputValues);
+
     useEffect(() => {
         setInputValues([...Array(defaultCount)].map((_, idx) => `${defaultValue} ${idx + 1}`));
     }, []);
@@ -25,22 +25,24 @@ export const DefaultInputState: FC<DefaultInputsStateProps> = ({
                     defaultValue={inputValues[idx]}
                     setCount={setCount}
                     setInputValues={setInputValues}
-                    handleChange={handleChange}
+                    handleChange={(value: string) => handleChange(value, idx)}
                 />
             )),
         );
     }, [count, inputValues]);
 
     const handleFocus = (idx: number) => {
-        console.log("okay");
         if (idx === count - 1) {
             setCount((count) => count + 1);
             setInputValues((inputValue) => [...inputValue, `${defaultValue} ${idx + 2}`]);
         }
     };
 
-    const handleChange = () => {
-        console.log("okere oke");
+    const handleChange = (value: string, idx: number) => {
+        setInputValues((inputValues) => {
+            inputValues.splice(idx, 1, value);
+            return inputValues;
+        });
     };
 
     const handleRemove = (idx: number) => {
