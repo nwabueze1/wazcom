@@ -1,8 +1,8 @@
 import { jsx as _jsx, jsxs as _jsxs } from "react/jsx-runtime";
 import React from "react";
 import { TextField } from "@mui/material";
-import makeStyles from '@mui/styles/makeStyles';
-import withStyles from '@mui/styles/withStyles';
+import makeStyles from "@mui/styles/makeStyles";
+import withStyles from "@mui/styles/withStyles";
 var useStyles = makeStyles(function (theme) { return ({
     container: {
         display: "flex",
@@ -25,7 +25,7 @@ var useStyles = makeStyles(function (theme) { return ({
             outline: theme.design.colors.waz_primaryColor100,
         },
         "&:hover": {
-            outline: "none"
+            outline: "none",
         },
     },
 }); });

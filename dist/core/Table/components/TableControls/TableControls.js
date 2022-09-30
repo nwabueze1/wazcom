@@ -29,7 +29,7 @@ import { jsx as _jsx, jsxs as _jsxs, Fragment as _Fragment } from "react/jsx-run
 import { Box, ListItemIcon, MenuItem } from "@mui/material";
 import { useState } from "react";
 import { useTableControlsStyles } from "./styles";
-import { Logout, Print, SendToMobileOutlined, Settings, } from "@mui/icons-material";
+import { Logout, Print, SendToMobileOutlined, Settings } from "@mui/icons-material";
 import { Button } from "../../../Button";
 import { exportToCSV, exportToXlsx } from "../../helpers";
 import Menu from "@mui/material/Menu";

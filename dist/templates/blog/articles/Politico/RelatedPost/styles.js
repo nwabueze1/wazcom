@@ -16,7 +16,7 @@ export var useRelatedPostPoliticoStyles = makeStyles(function (theme) {
             },
             _a[theme.breakpoints.down("sm")] = {
                 width: "90%",
-                margin: theme.spacing(0, "auto")
+                margin: theme.spacing(0, "auto"),
             },
             _a),
         thumbnailImg: {
@@ -24,7 +24,7 @@ export var useRelatedPostPoliticoStyles = makeStyles(function (theme) {
             objectFit: "cover",
         },
         body: {
-            margin: theme.spacing(0, "auto")
+            margin: theme.spacing(0, "auto"),
         },
         articleTitle: {
             fontSize: theme.typography.fontSize + 8,
@@ -36,13 +36,13 @@ export var useRelatedPostPoliticoStyles = makeStyles(function (theme) {
             fontSize: theme.typography.fontSize,
             color: theme.design.colors.waz_grey400,
             fontWeight: theme.typography.fontWeightBold,
-            marginTop: theme.spacing(2)
+            marginTop: theme.spacing(2),
         },
         category: {
             color: theme.design.colors.waz_red,
             fontSize: theme.typography.fontSize,
             marginTop: theme.spacing(1),
-            marginBottom: theme.spacing(1)
-        }
+            marginBottom: theme.spacing(1),
+        },
     });
 });

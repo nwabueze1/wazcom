@@ -34,7 +34,7 @@ export var getFeedbackVariant = function (status) {
 };
 var TextFeedback = function (_a) {
     var text = _a.text, status = _a.status;
-    return (_jsx(Typography, __assign({ className: getFeedbackVariant(status) }, { children: text }), void 0));
+    return _jsx(Typography, __assign({ className: getFeedbackVariant(status) }, { children: text }), void 0);
 };
 export var displayFeedback = function (feedback) {
     if (!isValidElement(feedback.text)) {

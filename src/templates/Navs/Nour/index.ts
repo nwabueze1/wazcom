@@ -1,2 +1,2 @@
-export * from "./Nour"
-export * from "./styles"
+export * from "./Nour";
+export * from "./styles";

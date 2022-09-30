@@ -8,25 +8,49 @@ export var filterDaysOptions = function (days, scheduleData) {
             return true;
         }
         if (isWeekdays && !isWeekends) {
-            return !(Number(value.id) >= 2 && Number(value.id) <= 6) && Number(value.id) != 8 && Number(value.id) != 0 && !(scheduleData === null || scheduleData === void 0 ? void 0 : scheduleData.some(function (item) { return String(item.day) == String(value.id); }));
+            return (!(Number(value.id) >= 2 && Number(value.id) <= 6) &&
+                Number(value.id) != 8 &&
+                Number(value.id) != 0 &&
+                !(scheduleData === null || scheduleData === void 0 ? void 0 : scheduleData.some(function (item) { return String(item.day) == String(value.id); })));
         }
         if (isWeekends && !isWeekdays) {
-            return Number(value.id) != 1 && Number(value.id) != 7 && Number(value.id) != 9 && Number(value.id) != 0 && !(scheduleData === null || scheduleData === void 0 ? void 0 : scheduleData.some(function (item) { return String(item.day) == String(value.id); }));
+            return (Number(value.id) != 1 &&
+                Number(value.id) != 7 &&
+                Number(value.id) != 9 &&
+                Number(value.id) != 0 &&
+                !(scheduleData === null || scheduleData === void 0 ? void 0 : scheduleData.some(function (item) { return String(item.day) == String(value.id); })));
         }
         if (isWeekdays && isWeekends) {
-            return Number(value.id) != 1 && Number(value.id) != 7 && Number(value.id) != 9 && !(Number(value.id) >= 2 && Number(value.id) <= 6) && Number(value.id) != 8 && Number(value.id) != 0 && !(scheduleData === null || scheduleData === void 0 ? void 0 : scheduleData.some(function (item) { return String(item.day) == String(value.id); }));
+            return (Number(value.id) != 1 &&
+                Number(value.id) != 7 &&
+                Number(value.id) != 9 &&
+                !(Number(value.id) >= 2 && Number(value.id) <= 6) &&
+                Number(value.id) != 8 &&
+                Number(value.id) != 0 &&
+                !(scheduleData === null || scheduleData === void 0 ? void 0 : scheduleData.some(function (item) { return String(item.day) == String(value.id); })));
         }
         if (isAWeekday && !isAWeekEnd) {
-            return Number(value.id) != 8 && Number(value.id) != 0 && !(scheduleData === null || scheduleData === void 0 ? void 0 : scheduleData.some(function (item) { return String(item.day) == String(value.id); }));
+            return (Number(value.id) != 8 &&
+                Number(value.id) != 0 &&
+                !(scheduleData === null || scheduleData === void 0 ? void 0 : scheduleData.some(function (item) { return String(item.day) == String(value.id); })));
         }
         if (isAWeekEnd && !isAWeekday) {
-            return Number(value.id) != 9 && Number(value.id) != 0 && !(scheduleData === null || scheduleData === void 0 ? void 0 : scheduleData.some(function (item) { return String(item.day) == String(value.id); }));
+            return (Number(value.id) != 9 &&
+                Number(value.id) != 0 &&
+                !(scheduleData === null || scheduleData === void 0 ? void 0 : scheduleData.some(function (item) { return String(item.day) == String(value.id); })));
         }
         if (isAWeekday && isAWeekEnd) {
-            return Number(value.id) != 9 && Number(value.id) != 8 && Number(value.id) != 0 && !(scheduleData === null || scheduleData === void 0 ? void 0 : scheduleData.some(function (item) { return String(item.day) == String(value.id); }));
+            return (Number(value.id) != 9 &&
+                Number(value.id) != 8 &&
+                Number(value.id) != 0 &&
+                !(scheduleData === null || scheduleData === void 0 ? void 0 : scheduleData.some(function (item) { return String(item.day) == String(value.id); })));
         }
         if (isWeekdays && isAWeekEnd) {
-            return Number(value.id) != 8 && Number(value.id) != 9 && Number(value.id) != 0 && !(Number(value.id) >= 2 && Number(value.id) <= 6) && !(scheduleData === null || scheduleData === void 0 ? void 0 : scheduleData.some(function (item) { return String(item.day) == String(value.id); }));
+            return (Number(value.id) != 8 &&
+                Number(value.id) != 9 &&
+                Number(value.id) != 0 &&
+                !(Number(value.id) >= 2 && Number(value.id) <= 6) &&
+                !(scheduleData === null || scheduleData === void 0 ? void 0 : scheduleData.some(function (item) { return String(item.day) == String(value.id); })));
         }
         return !(scheduleData === null || scheduleData === void 0 ? void 0 : scheduleData.some(function (item) { return String(item.day) == String(value.id); }));
     });

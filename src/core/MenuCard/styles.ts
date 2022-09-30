@@ -2,57 +2,57 @@ import { makeStyles } from "@mui/styles";
 import { BaseTheme } from "theme";
 
 export const useMenuCardStyles = makeStyles((theme: BaseTheme) => ({
-  root: {
-    width: "500px",
-    borderRadius: "15px",
-    fontFamily: theme.typography.fontFamily,
-    opacity: 1,
-    transition: "opacity 0.5s ease-in",
-  },
-  mealName: {
-    fontWeight: "bold",
-    marginTop: theme.spacing(2),
-  },
-  price: {
-    fontSize: "12px",
-    color: theme.design.colors.red100,
-  },
-  cardContents: {
-    margin: theme.spacing(1),
-    display: "flex",
-    justifyContent: "space-between",
-  },
-  mealDetail: {
-    width: "160px",
-    textOverflow: "ellipsis",
-    marginLeft: theme.spacing(2),
-    textAlign: "left",
-  },
-  outerBar: {
-    width: "142px",
-    height: "142px",
-  },
-  imgField: {
-    height: "142px",
-    borderRadius: "50%",
-    backgroundSize: "cover",
-    backgroundRepeat: "no-repeat",
-    backgroundPosition: "center",
-  },
-  details: {
-    margin: theme.spacing(1.25, 0),
-    fontSize: "14px",
-  },
-  icons: {
-    display: "flex",
-    flexDirection: "column",
-    justifyContent: "space-between",
-    marginLeft: theme.spacing(4),
-  },
-  vert: {
-    marginLeft: "20px",
-  },
-  disableState: {
-    // opacity: 0.1,
-  },
+    root: {
+        width: "500px",
+        borderRadius: "15px",
+        fontFamily: theme.typography.fontFamily,
+        opacity: 1,
+        transition: "opacity 0.5s ease-in",
+    },
+    mealName: {
+        fontWeight: "bold",
+        marginTop: theme.spacing(2),
+    },
+    price: {
+        fontSize: "12px",
+        color: theme.design.colors.red100,
+    },
+    cardContents: {
+        margin: theme.spacing(1),
+        display: "flex",
+        justifyContent: "space-between",
+    },
+    mealDetail: {
+        width: "160px",
+        textOverflow: "ellipsis",
+        marginLeft: theme.spacing(2),
+        textAlign: "left",
+    },
+    outerBar: {
+        width: "142px",
+        height: "142px",
+    },
+    imgField: {
+        height: "142px",
+        borderRadius: "50%",
+        backgroundSize: "cover",
+        backgroundRepeat: "no-repeat",
+        backgroundPosition: "center",
+    },
+    details: {
+        margin: theme.spacing(1.25, 0),
+        fontSize: "14px",
+    },
+    icons: {
+        display: "flex",
+        flexDirection: "column",
+        justifyContent: "space-between",
+        marginLeft: theme.spacing(4),
+    },
+    vert: {
+        marginLeft: "20px",
+    },
+    disableState: {
+        // opacity: 0.1,
+    },
 }));

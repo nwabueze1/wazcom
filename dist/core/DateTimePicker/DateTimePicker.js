@@ -43,9 +43,7 @@ import { useScheduleData } from "./hooks";
 import clx from "classnames";
 export var DateTimePicker = function (_a) {
     var _b;
-    var className = _a.className, classNames = _a.classNames, componentName = _a.name, label = _a.label, _c = _a.value, initialScheduleValue = _c === void 0 ? [
-        { day: "2022-0-0", time: "00:00" },
-    ] : _c, onChange = _a.onChange, _d = _a.orientation, orientation = _d === void 0 ? "horizontal" : _d;
+    var className = _a.className, classNames = _a.classNames, componentName = _a.name, label = _a.label, _c = _a.value, initialScheduleValue = _c === void 0 ? [{ day: "2022-0-0", time: "00:00" }] : _c, onChange = _a.onChange, _d = _a.orientation, orientation = _d === void 0 ? "horizontal" : _d;
     var classes = useSchedulerStyles();
     var parseSchedulevalue = useScheduleData();
     var handleChange = useCallback(function (event, index, remove) {
@@ -65,7 +63,7 @@ export var DateTimePicker = function (_a) {
         timeDivider: classes.timeDivider,
         closeIcon: classes.closeIcon,
         hiddenCloseIcon: classes.hidden,
-        dayContainer: classes.dayContainer
+        dayContainer: classes.dayContainer,
     })), 2), scheduleValue = _e[0], setScheduleValue = _e[1];
     useEffect(function () {
         var newScheduleValue = parseSchedulevalue(initialScheduleValue, handleChange, {
@@ -73,14 +71,16 @@ export var DateTimePicker = function (_a) {
             timeDivider: classes.timeDivider,
             closeIcon: classes.closeIcon,
             hiddenCloseIcon: classes.hidden,
-            dayContainer: classes.dayContainer
+            dayContainer: classes.dayContainer,
         });
         setScheduleValue(newScheduleValue);
     }, [initialScheduleValue]);
     return (_jsxs("div", __assign({ className: clx(classes.root, className) }, { children: [label && (_jsx(InputLabel, __assign({ className: (_b = classNames === null || classNames === void 0 ? void 0 : classNames.label) !== null && _b !== void 0 ? _b : "", htmlFor: componentName }, { children: label }), void 0)), scheduleValue === null || scheduleValue === void 0 ? void 0 : scheduleValue.map(function (row, index) {
-                return (_jsx("div", __assign({ className: "".concat(classes.schedulerContainer, " ").concat(orientation == "vertical" && classes.verticalContainer) }, { children: fields.map(function (_a) {
+                return (_jsx("div", __assign({ className: "".concat(classes.schedulerContainer, " ").concat(orientation == "vertical" && classes.verticalContainer) }, { children: fields
+                        .map(function (_a) {
                         var name = _a.name;
                         return row === null || row === void 0 ? void 0 : row[name];
-                    }).reverse() }), index));
+                    })
+                        .reverse() }), index));
             })] }), void 0));
 };
