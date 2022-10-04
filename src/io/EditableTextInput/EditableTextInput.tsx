@@ -7,12 +7,12 @@ import { contols } from "./data";
 import { useEditableTextStyles } from "./styles";
 import { EditableTextInputProps } from "./types";
 
-export const EditableTextInput: FC<EditableTextInputProps> = ({ html, setHtml, placeholder = "Question" }) => {
+export const EditableTextInput: FC<EditableTextInputProps> = ({ html, setHtml, placeholder }) => {
     const [fieldState, setFieldState] = useState<{
         editable?: boolean;
         html?: string;
     }>({
-        html: "<p><p>",
+        html: !html ? placeholder : html,
         editable: true,
     });
     const [collapse, setCollapse] = useState(false);
@@ -21,10 +21,6 @@ export const EditableTextInput: FC<EditableTextInputProps> = ({ html, setHtml, p
         allowedTags: ["b", "i", "em", "strong", "a", "p", "h1", "h2"],
         allowedAttributes: { a: ["href"] },
     };
-
-    useEffect(() => {
-        setFieldState((fieldState) => ({ ...fieldState, html }));
-    }, []);
 
     const handleChange = (evt: any) => {
         setFieldState({ html: evt.target.value });
@@ -41,6 +37,9 @@ export const EditableTextInput: FC<EditableTextInputProps> = ({ html, setHtml, p
     };
 
     const handleFocus = () => {
+        if (fieldState.html?.trim() === placeholder) {
+            setFieldState({ html: "" });
+        }
         setCollapse(true);
     };
 

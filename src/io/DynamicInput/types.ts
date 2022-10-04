@@ -17,9 +17,17 @@ export type DefaultInputsStateProps = {
     input: (() => JSX.Element) | React.FC<any>;
     defaultCount: number;
     defaultValue: string;
+    setQuestionOptions?: React.Dispatch<React.SetStateAction<string[]>>;
 };
 
 export type InputComponentProps = {
-    name: string,
-    component: JSX.Element
-}
+    name: string;
+    component: JSX.Element;
+};
+
+export type QuestionProps = {
+    text: string;
+    type: string;
+    options: string[];
+    required: boolean;
+};

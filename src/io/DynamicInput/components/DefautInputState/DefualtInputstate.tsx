@@ -5,6 +5,7 @@ export const DefaultInputState: FC<DefaultInputsStateProps> = ({
     input: Input,
     defaultCount,
     defaultValue,
+    setQuestionOptions,
 }) => {
     const [count, setCount] = useState(defaultCount);
     const [jsx, setJSX] = useState<JSX.Element[] | null>();
@@ -29,6 +30,7 @@ export const DefaultInputState: FC<DefaultInputsStateProps> = ({
                 />
             )),
         );
+        setQuestionOptions?.(inputValues);
     }, [count, inputValues]);
 
     const handleFocus = (idx: number) => {
@@ -39,6 +41,7 @@ export const DefaultInputState: FC<DefaultInputsStateProps> = ({
     };
 
     const handleChange = (value: string, idx: number) => {
+        console.log("okere");
         setInputValues((inputValues) => {
             inputValues.splice(idx, 1, value);
             return inputValues;
@@ -50,7 +53,9 @@ export const DefaultInputState: FC<DefaultInputsStateProps> = ({
         inputValues?.splice(idx, 1);
         setJSX(jsx);
         setCount((count) => count - 1);
-        setInputValues(inputValues);
+        setInputValues(() => {
+            return inputValues;
+        });
     };
 
     return <>{jsx}</>;
