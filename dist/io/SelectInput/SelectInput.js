@@ -36,6 +36,8 @@ export var SelectInput = function (_a) {
     var displayLabelFromValue = function (value) {
         var _a;
         var option = (_a = options.filter(function (option) { return option.value == value; })) === null || _a === void 0 ? void 0 : _a[0];
+        if (!option)
+            return (_jsx("p", {}, void 0));
         var Icon = option.icon;
         return (_jsxs("p", { children: [Icon && _jsx(Icon, { className: classes.icon }, void 0), option.label] }, void 0));
     };
