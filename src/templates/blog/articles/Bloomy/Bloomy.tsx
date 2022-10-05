@@ -6,9 +6,14 @@ import { shareDataBloomy } from "./data";
 import { parseDate } from "../../../../utilities/getTime";
 import { BloomyRelatedPost } from "./RelatedPosts";
 
-export const Bloomy: FC<CoreArticleTemplateFields> = ({ article, site, domain, handleClick }) => {
-    const classes = useBloomyStyles();
-    const [loaded, setLoaded] = useState(false);
+export const Bloomy: FC<CoreArticleTemplateFields> = ({
+  article,
+  domain,
+  site,
+  handleClick,
+}) => {
+  const classes = useBloomyStyles();
+  const [loaded, setLoaded] = useState(false);
 
     const displayTags = () =>
         article?.tags?.map((tag, index) => (
