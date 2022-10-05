@@ -29,8 +29,6 @@ export const DynamicInput: FC<DynamicInputProps> = () => {
         required: false,
     });
 
-    console.log("question", question);
-
     useEffect(() => {
         setQuestion((question) => {
             return { ...question, options: questionOptions };
@@ -41,6 +39,9 @@ export const DynamicInput: FC<DynamicInputProps> = () => {
         setQuestion((question) => ({ ...question, type: event.value }));
     };
 
+    const click = () => {
+        console.log("question", question);
+    };
     return (
         <div className={clx(classes.root)}>
             <div className={classes.inputControlsContainer}>
@@ -59,7 +60,12 @@ export const DynamicInput: FC<DynamicInputProps> = () => {
             }
             <div className={classes.questionSection}>
                 <div className={classes.questionContainer}>
-                    <Button variant="outlined" color="primary" className={classes.questionButton}>
+                    <Button
+                        onClick={click}
+                        variant="outlined"
+                        color="primary"
+                        className={classes.questionButton}
+                    >
                         <QuestionAnswer className={classes.questionIcon} />
                         Answer Key
                     </Button>

@@ -41,7 +41,6 @@ export const DefaultInputState: FC<DefaultInputsStateProps> = ({
     };
 
     const handleChange = (value: string, idx: number) => {
-        console.log("okere");
         setInputValues((inputValues) => {
             inputValues.splice(idx, 1, value);
             return inputValues;
