@@ -15,6 +15,20 @@ export var useSelectStyles = makeStyles(function (theme) { return ({
         color: theme.design.colors.waz_dangerColor100,
         margin: theme.spacing(0.5, 0, 0, 0.5),
     },
+    selectContainer: {
+        display: "flex",
+        alignItem: "center",
+        justifyContent: "center",
+    },
+    iconContianer: {
+        display: "flex",
+        alignItem: "center",
+        justifyContent: "center",
+    },
+    icon: {
+        marginRight: theme.spacing(1),
+        fontSize: 20,
+    },
     select: {
         width: "100%",
         "& .MuiMenuItem-root": {
@@ -25,8 +39,13 @@ export var useSelectStyles = makeStyles(function (theme) { return ({
             outline: theme.design.colors.waz_primaryColor100,
             "&:hover": {
                 borderColor: theme.design.colors.waz_primaryColor100,
-                outline: theme.design.colors.waz_primaryColor100
+                outline: theme.design.colors.waz_primaryColor100,
             },
         },
+    },
+    optionLabel: {
+        display: "flex",
+        alignItem: "center",
+        justifyContent: "center",
     },
 }); });

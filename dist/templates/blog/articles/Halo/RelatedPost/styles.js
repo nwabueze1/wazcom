@@ -8,7 +8,7 @@ export var useRelatedPostHaloStyles = makeStyles(function (theme) {
                 objectFit: "cover"
             },
             _a[theme.breakpoints.down("sm")] = {
-                width: "100%"
+                width: "100%",
             },
             _a),
         articleTitle: {
@@ -35,7 +35,7 @@ export var useRelatedPostHaloStyles = makeStyles(function (theme) {
                 margin: theme.spacing(3)
             },
             _b[theme.breakpoints.down("sm")] = {
-                flexDirection: "column"
+                flexDirection: "column",
             },
             _b),
         thumbnailDetails: (_c = {
@@ -51,12 +51,12 @@ export var useRelatedPostHaloStyles = makeStyles(function (theme) {
         relatedPostAuthor: {
             color: theme.design.colors.waz_grey100,
             lineHeight: "15px",
-            fontSize: theme.typography.fontSize + 2
+            fontSize: theme.typography.fontSize + 2,
         },
         articleDate: {
             lineHeight: "12px",
             color: theme.design.colors.waz_grey100,
-            marginTop: theme.spacing(2)
+            marginTop: theme.spacing(2),
         },
     });
 });

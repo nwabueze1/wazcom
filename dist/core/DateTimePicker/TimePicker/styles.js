@@ -1,4 +1,4 @@
-import makeStyles from '@mui/styles/makeStyles';
+import makeStyles from "@mui/styles/makeStyles";
 export var useTimePickerStyles = makeStyles(function (theme) { return ({
     container: {
         display: "flex",
@@ -16,7 +16,7 @@ export var useTimePickerStyles = makeStyles(function (theme) { return ({
             display: "none",
         },
         '& input[type="time"]::-webkit-calendar-picker-indicator': {
-            display: "none"
+            display: "none",
         },
     },
     inputRoot: {
@@ -31,10 +31,10 @@ export var useTimePickerStyles = makeStyles(function (theme) { return ({
             outline: theme.design.colors.waz_primaryColor100,
         },
         "&:hover": {
-            outline: "none"
+            outline: "none",
         },
     },
     scheduleIcon: {
-        color: theme.design.colors.waz_black
-    }
+        color: theme.design.colors.waz_black,
+    },
 }); });

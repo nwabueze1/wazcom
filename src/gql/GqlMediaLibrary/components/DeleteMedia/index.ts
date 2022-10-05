@@ -1,1 +1,1 @@
-export * from './DeleteMedia';
+export * from "./DeleteMedia";

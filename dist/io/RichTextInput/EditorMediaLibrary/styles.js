@@ -5,6 +5,6 @@ export var useEditorMediaLibStyles = makeStyles(function (theme) { return ({
         height: "70%",
         width: "70%",
         margin: theme.spacing(0, "auto"),
-        marginTop: theme.spacing(6)
-    }
+        marginTop: theme.spacing(6),
+    },
 }); });

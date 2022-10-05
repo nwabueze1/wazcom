@@ -32,7 +32,11 @@ export var exportToXlsx = function (name, data) {
         var obj = {};
         Object.entries(item).map(function (_a) {
             var _b = __read(_a, 2), key = _b[0], value = _b[1];
-            var innerValue = value === null ? "" : typeof value == "object" ? getJsxContent(value) : value.toString();
+            var innerValue = value === null
+                ? ""
+                : typeof value == "object"
+                    ? getJsxContent(value)
+                    : value.toString();
             obj[key] = innerValue;
         });
         return obj;
@@ -49,7 +53,11 @@ export var exportToCSV = function (filename, rows) {
     var processRow = function (row) {
         var finalVal = "";
         Object.values(row).map(function (value, index) {
-            var innerValue = value === null ? "" : typeof value == "object" ? getJsxContent(value) : value.toString();
+            var innerValue = value === null
+                ? ""
+                : typeof value == "object"
+                    ? getJsxContent(value)
+                    : value.toString();
             if (value instanceof Date) {
                 innerValue = value.toLocaleString();
             }

@@ -28,7 +28,7 @@ var __read = (this && this.__read) || function (o, n) {
 import { jsx as _jsx, jsxs as _jsxs } from "react/jsx-runtime";
 import { useEffect, useState } from "react";
 import { shareDataPolitico } from "./data";
-import { RelatedPostPolitico } from "./RelatedPost/RelatedPost";
+import { RelatedPostPolitico } from "./RelatedPost";
 import { getDay } from "../../../../utilities/getTime";
 import { usePoliticoStyles } from "./styles";
 import clx from "classnames";

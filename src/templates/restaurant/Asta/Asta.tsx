@@ -9,54 +9,54 @@ import { CartDialog } from "./CartDialog";
 import { Cart } from "./Cart";
 
 export const Asta = () => {
-  const classes = useBuzzStyles();
-  const [displayDialog, setDisplayDialog] = useState<boolean>(false);
-  const [cartChanged, setCartChanged] = useState<number>(0);
-  const [selectedItemId, setSelectedItemId] = useState<number>(0);
+    const classes = useBuzzStyles();
+    const [displayDialog, setDisplayDialog] = useState<boolean>(false);
+    const [cartChanged, setCartChanged] = useState<number>(0);
+    const [selectedItemId, setSelectedItemId] = useState<number>(0);
 
-  return (
-    <div className={classes.root}>
-      <AstaNav className={classes.nav} />
-      <div className={classes.layout}>
-        <div className={classes.mainContainer}>
-          <div className={classes.restaurant}>
-            <AstaHero />
-          </div>
-          <div className={classes.body}>
-            <Menus
-              restaurant={restaurantdata}
-              setSelectedItemId={setSelectedItemId}
-              setDisplayDialog={setDisplayDialog}
-              cartChanged={cartChanged}
-              cart={undefined}
-            />
-          </div>
+    return (
+        <div className={classes.root}>
+            <AstaNav className={classes.nav} />
+            <div className={classes.layout}>
+                <div className={classes.mainContainer}>
+                    <div className={classes.restaurant}>
+                        <AstaHero />
+                    </div>
+                    <div className={classes.body}>
+                        <Menus
+                            restaurant={restaurantdata}
+                            setSelectedItemId={setSelectedItemId}
+                            setDisplayDialog={setDisplayDialog}
+                            cartChanged={cartChanged}
+                            cart={undefined}
+                        />
+                    </div>
+                </div>
+                <div className={classes.cartContainer}>
+                    <Cart
+                        open={false}
+                        setOpen={() => {
+                            alert("open");
+                        }}
+                    />
+                </div>
+            </div>
+            <Footer name="Hivedeck" className={classes.footer} />
+            <div>
+                <CartDialog
+                    display={displayDialog}
+                    close={() => {
+                        setDisplayDialog(false);
+                    }}
+                    reloadCart={() => {
+                        setCartChanged(cartChanged + 1);
+                    }}
+                    itemId={selectedItemId}
+                    cart={undefined}
+                    restaurant={restaurantdata}
+                    siteId={0}
+                />
+            </div>
         </div>
-        <div className={classes.cartContainer}>
-          <Cart
-            open={false}
-            setOpen={() => {
-              alert("open");
-            }}
-          />
-        </div>
-      </div>
-      <Footer name="Hivedeck" className={classes.footer} />
-      <div>
-        <CartDialog
-          display={displayDialog}
-          close={() => {
-            setDisplayDialog(false);
-          }}
-          reloadCart={() => {
-            setCartChanged(cartChanged + 1);
-          }}
-          itemId={selectedItemId}
-          cart={undefined}
-          restaurant={restaurantdata}
-          siteId={0}
-        />
-      </div>
-    </div>
-  );
+    );
 };

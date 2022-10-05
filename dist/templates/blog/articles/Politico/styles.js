@@ -9,7 +9,7 @@ export var usePoliticoStyles = makeStyles(function (theme) {
             justifyContent: "center",
             width: "100%",
             height: "100%",
-            backgroundColor: theme.design.colors.waz_peach
+            backgroundColor: theme.design.colors.waz_peach,
         },
         tag: {
             color: theme.design.colors.waz_red,
@@ -27,23 +27,23 @@ export var usePoliticoStyles = makeStyles(function (theme) {
             flexDirection: "row",
             gap: theme.spacing(2),
             marginBottom: theme.spacing(3),
-            textTransform: "capitalize"
+            textTransform: "capitalize",
         },
         headerImage: {
             width: "100%",
             height: "100%",
-            objectFit: "cover"
+            objectFit: "cover",
         },
         postContent: {
             fontSize: theme.typography.fontSize + 4,
             lineHeight: "32px",
-            marginTop: theme.spacing(4)
+            marginTop: theme.spacing(4),
         },
         title: {
             fontSize: theme.typography.fontSize + 28,
             fontWeight: theme.typography.fontWeightBold,
             lineHeight: "60px",
-            marginBottom: theme.spacing(5)
+            marginBottom: theme.spacing(5),
         },
         date: (_b = {
                 fontSize: theme.typography.fontSize,
@@ -59,7 +59,7 @@ export var usePoliticoStyles = makeStyles(function (theme) {
         circle: {
             color: theme.design.colors.waz_red,
             height: "7px",
-            width: "7px"
+            width: "7px",
         },
         socialIcons: {
             width: "40px",
@@ -77,7 +77,7 @@ export var usePoliticoStyles = makeStyles(function (theme) {
                 marginTop: theme.spacing(2)
             },
             _c[theme.breakpoints.down("sm")] = {
-                flexDirection: "column"
+                flexDirection: "column",
             },
             _c),
         socialIconsContainer: (_d = {
@@ -89,12 +89,12 @@ export var usePoliticoStyles = makeStyles(function (theme) {
             _d[theme.breakpoints.down("sm")] = {
                 marginTop: theme.spacing(1.5),
                 marginLeft: theme.spacing(-1),
-                marginBottom: theme.spacing(1.5)
+                marginBottom: theme.spacing(1.5),
             },
             _d),
         icon: {
             margin: theme.spacing(0, "auto"),
-            marginTop: theme.spacing(1.5)
+            marginTop: theme.spacing(1.5),
         },
         relatedPosts: {
             width: "100%",
@@ -116,7 +116,7 @@ export var usePoliticoStyles = makeStyles(function (theme) {
         relatedPostsHeading: {
             fontSize: theme.typography.fontSize + 6,
             fontWeight: theme.typography.fontWeightBold,
-            fontFamily: theme.design.font.bitter
+            fontFamily: theme.design.font.bitter,
         },
         relatedPostsItems: (_f = {
                 width: "85%",
@@ -132,7 +132,7 @@ export var usePoliticoStyles = makeStyles(function (theme) {
             },
             _f[theme.breakpoints.down("sm")] = {
                 flexDirection: "column",
-                width: '100%',
+                width: "100%",
             },
             _f),
         hr: {
@@ -140,13 +140,13 @@ export var usePoliticoStyles = makeStyles(function (theme) {
             height: "1px",
             backgroundColor: theme.design.colors.waz_grey500,
             marginTop: theme.spacing(1),
-            marginBottom: theme.spacing(1)
+            marginBottom: theme.spacing(1),
         },
         main: {
             backgroundColor: theme.design.colors.waz_peach,
         },
         footer: {
-            marginTop: theme.spacing(10)
-        }
+            marginTop: theme.spacing(10),
+        },
     });
 });

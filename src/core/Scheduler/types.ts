@@ -5,11 +5,11 @@ export type SchedulerProps = CommonProps & {
     gap?: string;
     multiple?: boolean;
     value?: Schedule[];
-    orientation?: "horizontal" | "vertical"
-}
+    orientation?: "horizontal" | "vertical";
+};
 
 export type Schedule = {
     day: string;
     start_time: string;
     end_time: string;
-}
+};

@@ -10,7 +10,7 @@ export var useTextStyles = makeStyles(function (theme) { return ({
             outline: theme.design.colors.waz_primaryColor100,
             "&:hover": {
                 borderColor: theme.design.colors.waz_primaryColor100,
-                outline: theme.design.colors.waz_primaryColor100
+                outline: theme.design.colors.waz_primaryColor100,
             },
         },
     },

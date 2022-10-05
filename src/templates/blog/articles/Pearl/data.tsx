@@ -3,22 +3,22 @@ import { RiFacebookFill } from "react-icons/ri";
 import { TiSocialLinkedin } from "react-icons/ti";
 
 export const shareDataPearl = [
-  {
-    href: "https://www.facebook.com/sharer/sharer.php?u=",
-    className: "instagram",
-    icon: <RiFacebookFill />,
-    alt: "Social media icon for facebook",
-  },
-  {
-    href: "https://twitter.com/intent/tweet?url=",
-    className: "twitter",
-    icon: <AiOutlineTwitter />,
-    alt: "Social media icon for twitter",
-  },
-  {
-    href: "https://www.linkedin.com/shareArticle?mini=true&url=",
-    className: "linkedin",
-    icon: <TiSocialLinkedin />,
-    alt: "Social media icon for linkedin",
-  },
+    {
+        href: "https://www.facebook.com/sharer/sharer.php?u=",
+        className: "instagram",
+        icon: <RiFacebookFill />,
+        alt: "Social media icon for facebook",
+    },
+    {
+        href: "https://twitter.com/intent/tweet?url=",
+        className: "twitter",
+        icon: <AiOutlineTwitter />,
+        alt: "Social media icon for twitter",
+    },
+    {
+        href: "https://www.linkedin.com/shareArticle?mini=true&url=",
+        className: "linkedin",
+        icon: <TiSocialLinkedin />,
+        alt: "Social media icon for linkedin",
+    },
 ];

@@ -18,6 +18,8 @@ export var BreadCrumb = function (_a) {
     var className = _a.className, crumbs = _a.crumbs, handleClick = _a.handleClick;
     var classes = BreadCrumbStyles();
     return (_jsx("div", __assign({ className: clx(className, classes.root) }, { children: crumbs.map(function (crumb, index) {
-            return (_jsx(Breadcrumbs, __assign({ separator: _jsx(NavigateNextIcon, { fontSize: "small" }, void 0), "aria-label": "breadcrumb" }, { children: _jsxs("p", __assign({ color: "inherit", onClick: function () { handleClick(crumb.path); }, className: clx(classes.link, index === crumbs.length - 1 && classes.lastCrumb) }, { children: [crumb.label, index !== crumbs.length - 1 && (_jsx(NavigateNextIcon, { className: classes.navIcon, fontSize: "small" }, void 0))] }), void 0) }), index));
+            return (_jsx(Breadcrumbs, __assign({ separator: _jsx(NavigateNextIcon, { fontSize: "small" }, void 0), "aria-label": "breadcrumb" }, { children: _jsxs("p", __assign({ color: "inherit", onClick: function () {
+                        handleClick(crumb.path);
+                    }, className: clx(classes.link, index === crumbs.length - 1 && classes.lastCrumb) }, { children: [crumb.label, index !== crumbs.length - 1 && (_jsx(NavigateNextIcon, { className: classes.navIcon, fontSize: "small" }, void 0))] }), void 0) }), index));
         }) }), void 0));
 };

@@ -6,5 +6,5 @@ export interface ItemOptionsProps {
     selectedOptions: Option[];
     itemId: number;
     updateSelectedOptions: (option: Option) => void;
-    restaurant: CoreFosFields
+    restaurant: CoreFosFields;
 }

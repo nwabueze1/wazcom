@@ -4,8 +4,8 @@ import { menuItemTableStyles, BootstrapInput } from "./styles";
 import { Schedule } from "..";
 import { days, filterDaysOptions } from "./helper";
 interface DayPickerProps extends SelectProps {
-  value?: string;
-  scheduleData: Schedule[];
+    value?: string;
+    scheduleData: Schedule[];
 }
 
 export const DayPicker: React.FC<DayPickerProps> = ({

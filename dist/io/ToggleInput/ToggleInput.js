@@ -34,7 +34,5 @@ export var ToggleInput = function (_a) {
     };
     return (_jsxs("div", __assign({ className: clx(className, classes.root) }, { children: [label && (_jsx(InputLabel, __assign({ className: (_b = classNames === null || classNames === void 0 ? void 0 : classNames.label) !== null && _b !== void 0 ? _b : "" }, { children: label }), void 0)), _jsx(Switch, __assign({ name: name, checked: value, onChange: function (_, checked) {
                     handleChange(checked);
-                }, className: clx(classNames === null || classNames === void 0 ? void 0 : classNames.toggleInput, classes.toggle), classes: (classNames === null || classNames === void 0 ? void 0 : classNames.classes)
-                    ? classNames.classes
-                    : {} }, props), void 0), helperText, feedback && displayFeedback(feedback)] }), void 0));
+                }, className: clx(classNames === null || classNames === void 0 ? void 0 : classNames.toggleInput, classes.toggle), classes: (classNames === null || classNames === void 0 ? void 0 : classNames.classes) ? classNames.classes : {} }, props), void 0), helperText, feedback && displayFeedback(feedback)] }), void 0));
 };

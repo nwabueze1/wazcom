@@ -5,29 +5,33 @@ import { Button } from "..";
 import clx from "classnames";
 
 export const EmptyState: React.FC<EmptyStateProps> = ({
-  classNames,
-  text,
-  image,
-  button,
-  className
+    classNames,
+    text,
+    image,
+    button,
+    className,
 }) => {
-  const classes = useEmptyStateStyles();
-  return (
-    <div className={clx(classes.root, className)}>
-      <img src={image?.src} className={clx(classes.image, classNames?.image)} alt={image?.alt ?? ""} />
-      <p className={clx(classes.text, classNames?.text)}>{text}</p>
+    const classes = useEmptyStateStyles();
+    return (
+        <div className={clx(classes.root, className)}>
+            <img
+                src={image?.src}
+                className={clx(classes.image, classNames?.image)}
+                alt={image?.alt ?? ""}
+            />
+            <p className={clx(classes.text, classNames?.text)}>{text}</p>
 
-      {button?.display && (
-        <Button
-          className={`${classes.btn} ${classNames?.button}`}
-          size="small"
-          onClick={() => {
-            button?.handleClick?.();
-          }}
-        >
-          {button?.text ?? text}
-        </Button>
-      )}
-    </div>
-  );
+            {button?.display && (
+                <Button
+                    className={`${classes.btn} ${classNames?.button}`}
+                    size="small"
+                    onClick={() => {
+                        button?.handleClick?.();
+                    }}
+                >
+                    {button?.text ?? text}
+                </Button>
+            )}
+        </div>
+    );
 };

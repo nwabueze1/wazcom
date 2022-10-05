@@ -1,5 +1,5 @@
-import createStyles from '@mui/styles/createStyles';
-import makeStyles from '@mui/styles/makeStyles';
+import createStyles from "@mui/styles/createStyles";
+import makeStyles from "@mui/styles/makeStyles";
 export var menuItemTableStyles = makeStyles(function (theme) {
     return createStyles({
         siteTypeSelect: {
@@ -7,7 +7,7 @@ export var menuItemTableStyles = makeStyles(function (theme) {
         },
         calendarIcon: {
             width: "30px",
-            height: "30px"
+            height: "30px",
         },
         textInput: {
             height: "43px",
@@ -15,9 +15,9 @@ export var menuItemTableStyles = makeStyles(function (theme) {
             border: "1px solid ".concat(theme.design.colors.waz_grey300),
             borderRadius: "5px",
             paddingInline: theme.spacing(2),
-            '&::-webkit-calendar-picker-indicator': {
+            "&::-webkit-calendar-picker-indicator": {
                 width: "20px",
-                height: "20px"
+                height: "20px",
             },
             "&.Mui-focused fieldset.MuiOutlinedInput-notchedOutline": {
                 borderColor: theme.design.colors.waz_primaryColor100,
@@ -27,7 +27,7 @@ export var menuItemTableStyles = makeStyles(function (theme) {
         icon: {
             color: theme.design.colors.waz_black,
             width: "20px",
-            height: "20px"
+            height: "20px",
         },
     });
 });

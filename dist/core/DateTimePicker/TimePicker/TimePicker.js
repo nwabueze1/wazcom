@@ -29,7 +29,7 @@ import { jsx as _jsx } from "react/jsx-runtime";
 import { useState } from "react";
 import { TextField, InputAdornment } from "@mui/material";
 import { useTimePickerStyles } from "./styles";
-import ScheduleIcon from '@mui/icons-material/Schedule';
+import ScheduleIcon from "@mui/icons-material/Schedule";
 export var TimeSelector = function (_a) {
     var onChange = _a.onChange, name = _a.name, value = _a.value;
     var classes = useTimePickerStyles();

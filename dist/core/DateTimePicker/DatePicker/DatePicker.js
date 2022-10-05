@@ -37,10 +37,7 @@ export var DayPicker = function (_a) {
     var _c = __read(useState("Select Date"), 2), defaultValue = _c[0], setDefaultValue = _c[1];
     return (_jsx(TextField, { id: "time", type: type, onChange: onChange, defaultValue: defaultValue, name: name, InputProps: {
             classes: { root: classes.textInput },
-            endAdornment: (type == "text" ?
-                _jsx(InputAdornment, __assign({ position: "end" }, { children: _jsx(BiCalendarAlt, { className: classes.icon }, void 0) }), void 0)
-                :
-                    null),
+            endAdornment: type == "text" ? (_jsx(InputAdornment, __assign({ position: "end" }, { children: _jsx(BiCalendarAlt, { className: classes.icon }, void 0) }), void 0)) : null,
         }, onFocus: function () {
             setType("date");
             setDefaultValue(value);
