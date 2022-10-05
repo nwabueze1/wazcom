@@ -12,7 +12,6 @@ import { BsThreeDotsVertical } from "react-icons/bs";
 import { MdOutlineContentCopy } from "react-icons/md";
 import { RiDeleteBin6Line } from "react-icons/ri";
 
-
 const selectProps = {
     options,
     error: true,

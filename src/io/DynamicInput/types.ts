@@ -13,13 +13,13 @@ export type DynamicInputProps = CommonProps &
         }[];
     };
 
-export type DefaultInputsStateProps = {
+export type SampleInputDisplayProps = {
     input: (() => JSX.Element) | React.FC<any>;
     defaultCount: number;
     defaultValue: string;
 };
 
 export type InputComponentProps = {
-    name: string,
-    component: JSX.Element
-}
+    name: string;
+    component: JSX.Element;
+};

@@ -1,10 +1,10 @@
-import { DefaultInputState } from "../DefautInputState/DefualtInputstate";
+import { SampleInputDisplay } from "../SampleInputDisplay/SampleInputDisplay";
 import { DropDownInput } from "./DropDownInput/DropDownInput";
 
 export const DropDown = () => {
     return (
         <div>
-            <DefaultInputState input={DropDownInput} defaultCount={5} defaultValue={"Option"} />
+            <SampleInputDisplay input={DropDownInput} defaultCount={5} defaultValue={"Option"} />
         </div>
     );
 };

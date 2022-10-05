@@ -1,4 +1,4 @@
-import { DefaultInputState } from "./components/DefautInputState/DefualtInputstate";
+import { SampleInputDisplay } from "./components/SampleInputDisplay/SampleInputDisplay";
 import { DropDown } from "./components/DropDown/DropDown";
 import { CheckBox } from "./components/CheckBox/CheckBox";
 import { MultipleChoice } from "./components/MultipleChoice/MultipleChoice";
@@ -10,34 +10,34 @@ import { InputComponentProps } from "./types";
 export const inputComponents: InputComponentProps[] = [
     {
         name: "short_answer",
-        component: <ShortAnswer placeholderText="Short Answer Text" />
+        component: <ShortAnswer placeholderText="Short Answer Text" />,
     },
     {
         name: "paragraph",
-        component: <ShortAnswer placeholderText="Long Answer Text" />
+        component: <ShortAnswer placeholderText="Long Answer Text" />,
     },
     {
         name: "dropdown",
-        component: <DropDown />
+        component: <DropDown />,
     },
     {
         name: "checkboxes",
-        component: <CheckBox />
+        component: <CheckBox />,
     },
     {
         name: "multiple",
-        component: <MultipleChoice />
+        component: <MultipleChoice />,
     },
     {
         name: "file",
-        component: <ShortAnswer placeholderText="Long Answer Text" />
+        component: <ShortAnswer placeholderText="Long Answer Text" />,
     },
     {
         name: "date",
-        component: <Date />
+        component: <Date />,
     },
     {
         name: "time",
-        component: <Time />
-    }
-]
+        component: <Time />,
+    },
+];

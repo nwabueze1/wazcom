@@ -1,10 +1,10 @@
-import { DefaultInputState } from "../DefautInputState/DefualtInputstate";
+import { SampleInputDisplay } from "../SampleInputDisplay/SampleInputDisplay";
 import { CheckBoxInput } from "./CheckBoxInput/CheckBoxInput";
 
 export const CheckBox = () => {
     return (
         <div>
-            <DefaultInputState input={CheckBoxInput} defaultCount={5} defaultValue={"Option"} />
+            <SampleInputDisplay input={CheckBoxInput} defaultCount={5} defaultValue={"Option"} />
         </div>
     );
 };

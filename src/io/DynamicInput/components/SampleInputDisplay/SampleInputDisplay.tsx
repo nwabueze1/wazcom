@@ -1,7 +1,7 @@
 import { FC, useEffect, useState } from "react";
-import { DefaultInputsStateProps } from "../../types";
+import { SampleInputDisplayProps } from "../../types";
 
-export const DefaultInputState: FC<DefaultInputsStateProps> = ({
+export const SampleInputDisplay: FC<SampleInputDisplayProps> = ({
     input: Input,
     defaultCount,
     defaultValue,
@@ -23,8 +23,6 @@ export const DefaultInputState: FC<DefaultInputsStateProps> = ({
                     index={idx}
                     key={idx}
                     defaultValue={inputValues[idx]}
-                    setCount={setCount}
-                    setInputValues={setInputValues}
                     handleChange={(value: string) => handleChange(value, idx)}
                 />
             )),
