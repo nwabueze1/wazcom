@@ -1,4 +1,4 @@
-import { Close, RadioButtonUncheckedOutlined } from "@mui/icons-material";
+import { Close as CloseIcon, RadioButtonUncheckedOutlined } from "@mui/icons-material";
 import { TextField } from "@mui/material";
 import React, { FC, useEffect, useRef, useState } from "react";
 import { useMultipleChoiceInputPropsStyles } from "./styles";
@@ -38,7 +38,7 @@ export const MultipleChoiceInput: FC<MultipleChoiceInputProps> = ({
                 value={value}
                 onFocus={onFocus}
             />
-            <Close className={classes.multipleChoiceIcon} onClick={handleRemove} />
+            <CloseIcon className={classes.multipleChoiceIcon} onClick={handleRemove} />
         </div>
     );
 };

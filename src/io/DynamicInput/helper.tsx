@@ -1,4 +1,3 @@
-import { SampleInputDisplay } from "./components/SampleInputDisplay/SampleInputDisplay";
 import { DropDown } from "./components/DropDown/DropDown";
 import { CheckBox } from "./components/CheckBox/CheckBox";
 import { MultipleChoice } from "./components/MultipleChoice/MultipleChoice";

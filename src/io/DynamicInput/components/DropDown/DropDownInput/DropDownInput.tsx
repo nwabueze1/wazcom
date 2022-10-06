@@ -1,4 +1,4 @@
-import { Close } from "@mui/icons-material";
+import { Close as CloseIcon } from "@mui/icons-material";
 import { TextField } from "@mui/material";
 import React, { FC, useEffect, useRef, useState } from "react";
 import { useDropDownInputStyles } from "./styles";
@@ -39,7 +39,7 @@ export const DropDownInput: FC<DropDownInputProps> = ({
                 value={value}
                 onFocus={onFocus}
             />
-            <Close className={classes.dropDownIcon} onClick={handleRemove} />
+            <CloseIcon className={classes.dropDownIcon} onClick={handleRemove} />
         </div>
     );
 };

@@ -1,4 +1,4 @@
-import React, { FC, useState } from "react";
+import { FC, useState } from "react";
 import { useDynamicInputStyles } from "./styles";
 import { DynamicInputProps } from "./types";
 import clx from "classnames";

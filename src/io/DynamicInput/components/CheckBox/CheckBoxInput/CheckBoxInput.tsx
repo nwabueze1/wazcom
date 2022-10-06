@@ -1,4 +1,4 @@
-import { CheckBox, CheckBoxOutlineBlank, Close } from "@mui/icons-material";
+import { CheckBoxOutlineBlank, Close as CloseIcon } from "@mui/icons-material";
 import { TextField } from "@mui/material";
 import React, { FC, useEffect, useRef, useState } from "react";
 import { useCheckBoxInputPropsStyles } from "./styles";
@@ -38,7 +38,7 @@ export const CheckBoxInput: FC<CheckBoxInputProps> = ({
                 value={value}
                 onFocus={onFocus}
             />
-            <Close className={classes.checkBoxIcon} onClick={handleRemove} />
+            <CloseIcon className={classes.checkBoxIcon} onClick={handleRemove} />
         </div>
     );
 };
