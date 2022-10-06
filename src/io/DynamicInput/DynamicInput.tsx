@@ -11,6 +11,7 @@ import { QuestionAnswer } from "@mui/icons-material";
 import { BsThreeDotsVertical } from "react-icons/bs";
 import { MdOutlineContentCopy } from "react-icons/md";
 import { RiDeleteBin6Line } from "react-icons/ri";
+import { ToggleInput } from "../ToggleInput/ToggleInput";
 
 const selectProps = {
     options,
@@ -26,7 +27,7 @@ export const DynamicInput: FC<DynamicInputProps> = () => {
         text: "Address",
         type: "dropdown",
         options: questionOptions,
-        required: false,
+        required: true,
     });
 
     useEffect(() => {
@@ -38,6 +39,7 @@ export const DynamicInput: FC<DynamicInputProps> = () => {
     const handleChange = (event: { name: string; value: string }) => {
         setQuestion((question) => ({ ...question, type: event.value }));
     };
+    console.log("question", question);
 
     const click = () => {
         console.log("question", question);
@@ -74,6 +76,21 @@ export const DynamicInput: FC<DynamicInputProps> = () => {
                 </div>
                 <div className={classes.questionOptionContiner}>
                     <RiDeleteBin6Line className={classes.questionOptionIcon} />
+                    <div className={classes.questionRequired}>
+                        <p className={classes.questionText}>Required</p>
+                        <ToggleInput
+                            value={question.required}
+                            onChange={(event) => {
+                                setQuestion((question) => {
+                                    return {
+                                        ...question,
+                                        required: !event.value,
+                                    };
+                                });
+                                console.log(event);
+                            }}
+                        />
+                    </div>
                     <MdOutlineContentCopy className={classes.questionOptionIcon} />
                     <BsThreeDotsVertical className={classes.questionOptionIcon} />
                 </div>

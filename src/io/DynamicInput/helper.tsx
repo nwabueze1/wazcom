@@ -22,7 +22,7 @@ export const useInputComponents = () => {
                         setQuestionOptions={setQuestionOptions}
                         type="dropdown"
                         defaultCount={4}
-                        defaultValue="optional"
+                        value="optional"
                     />
                 ),
             },
@@ -33,7 +33,7 @@ export const useInputComponents = () => {
                         setQuestionOptions={setQuestionOptions}
                         type="checkboxes"
                         defaultCount={4}
-                        defaultValue="optional"
+                        value="optional"
                     />
                 ),
             },
@@ -44,7 +44,7 @@ export const useInputComponents = () => {
                         setQuestionOptions={setQuestionOptions}
                         type="multiple"
                         defaultCount={4}
-                        defaultValue="optional"
+                        value="optional"
                     />
                 ),
             },

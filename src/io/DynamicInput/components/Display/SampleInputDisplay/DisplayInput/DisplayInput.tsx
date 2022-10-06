@@ -11,17 +11,17 @@ import { TextInput } from "../../../../../TextInput/TextInput";
 export const DisplayInput: FC<DisplayInputProps> = ({
     handleRemove,
     handleChange,
-    defaultValue,
+    value: inputValue,
     index,
     onFocus,
     type,
 }) => {
     const classes = useDisplayInputStyles();
-    const [value, setValue] = useState(defaultValue);
+    const [value, setValue] = useState(inputValue);
 
     useEffect(() => {
-        setValue(defaultValue);
-    }, [defaultValue]);
+        setValue(inputValue);
+    }, [inputValue]);
 
     const handleInputChange = (event: { name: string; value: any }) => {
         setValue(event.value);

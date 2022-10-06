@@ -1,6 +1,6 @@
 export type SampleInputDisplayProps = {
     defaultCount: number;
-    defaultValue: string;
     setQuestionOptions?: React.Dispatch<React.SetStateAction<string[]>>;
+    value: string;
     type: string;
 };

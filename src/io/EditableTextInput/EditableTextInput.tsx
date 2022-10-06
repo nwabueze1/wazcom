@@ -32,6 +32,9 @@ export const EditableTextInput: FC<EditableTextInputProps> = ({ html, setHtml, p
     };
 
     const handleBlur = () => {
+        if (fieldState.html?.trim() === "") {
+            setFieldState({ html: placeholder });
+        }
         setCollapse(false);
         sanitize();
     };
