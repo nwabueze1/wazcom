@@ -1,7 +1,7 @@
 import makeStyles from "@mui/styles/makeStyles";
 import theme from "theme";
 
-export const useDropDownInputStyles = makeStyles(() => ({
+export const useDisplayInputStyles = makeStyles(() => ({
     root: {
         display: "flex",
         alignItems: "center",
@@ -9,12 +9,16 @@ export const useDropDownInputStyles = makeStyles(() => ({
         width: "100%",
         margin: theme.spacing(2, 0),
     },
-    dropDownIcon: {
+    newRoot: {
+        width: "100%",
+        height: "100%",
+    },
+    displayIcon: {
         fontSize: 30,
         color: theme.design.colors.waz_greyColor500,
         cursor: "pointer",
     },
-    dropDownInput: {
+    displayInput: {
         color: theme.design.colors.waz_primaryColor100,
         width: "calc(100% - 30px)",
         border: 0,

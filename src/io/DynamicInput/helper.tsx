@@ -1,10 +1,8 @@
-import { DropDown } from "./components/DropDown/DropDown";
-import { CheckBox } from "./components/CheckBox/CheckBox";
-import { MultipleChoice } from "./components/MultipleChoice/MultipleChoice";
-import { ShortAnswer } from "./components/ShortAnswer/ShortAnswer";
-import { Date } from "./components/Date/Date";
-import { Time } from "./components/Time/Time";
+import { ShortAnswer } from "./components/Display/ShortAnswer/ShortAnswer";
+import { Date } from "./components/Display/Date/Date";
+import { Time } from "./components/Display/Time/Time";
 import { InputComponentProps } from "./types";
+import { SampleInputDisplay } from "./components/Display/SampleInputDisplay/SampleInputDisplay";
 
 export const inputComponents: InputComponentProps[] = [
     {
@@ -17,15 +15,17 @@ export const inputComponents: InputComponentProps[] = [
     },
     {
         name: "dropdown",
-        component: <DropDown />,
+        component: <SampleInputDisplay type="dropdown" defaultCount={4} defaultValue="optional" />,
     },
     {
         name: "checkboxes",
-        component: <CheckBox />,
+        component: (
+            <SampleInputDisplay type="checkboxes" defaultCount={4} defaultValue="optional" />
+        ),
     },
     {
         name: "multiple",
-        component: <MultipleChoice />,
+        component: <SampleInputDisplay type="multiple" defaultCount={4} defaultValue="optional" />,
     },
     {
         name: "file",
