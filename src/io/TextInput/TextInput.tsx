@@ -13,6 +13,7 @@ export const TextInput: FC<TextInputProps> = ({
     onChange,
     feedback,
     helperText,
+    onFocus,
     ...props
 }) => {
     const classes = useTextStyles();
@@ -22,7 +23,7 @@ export const TextInput: FC<TextInputProps> = ({
     };
 
     return (
-        <div className={clx(className, classes.root)}>
+        <div className={clx(className, classNames?.newRoot ? classNames?.newRoot : classes.root)}>
             {label && (
                 <InputLabel
                     className={classNames?.label ? (classNames?.label as string) : ""}
@@ -35,6 +36,7 @@ export const TextInput: FC<TextInputProps> = ({
                 {...props}
                 variant={variant ?? "outlined"}
                 onChange={handleChange}
+                onFocus={onFocus}
                 className={classNames?.textInput ? (classNames.textInput as string) : ""}
                 classes={
                     classNames?.classes ? (classNames.classes as { [key: string]: string }) : {}

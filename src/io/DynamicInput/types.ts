@@ -13,13 +13,6 @@ export type DynamicInputProps = CommonProps &
         }[];
     };
 
-export type DefaultInputsStateProps = {
-    input: (() => JSX.Element) | React.FC<any>;
-    defaultCount: number;
-    defaultValue: string;
-    setQuestionOptions?: React.Dispatch<React.SetStateAction<string[]>>;
-};
-
 export type InputComponentProps = {
     name: string;
     component: JSX.Element;

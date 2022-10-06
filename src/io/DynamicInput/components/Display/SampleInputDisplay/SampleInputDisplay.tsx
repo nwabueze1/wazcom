@@ -1,11 +1,12 @@
 import { FC, useEffect, useState } from "react";
-import { DefaultInputsStateProps } from "../../types";
+import { SampleInputDisplayProps } from "./types";
+import { DisplayInput } from "./DisplayInput/DisplayInput";
 
-export const DefaultInputState: FC<DefaultInputsStateProps> = ({
-    input: Input,
+export const SampleInputDisplay: FC<SampleInputDisplayProps> = ({
     defaultCount,
     defaultValue,
     setQuestionOptions,
+    type,
 }) => {
     const [count, setCount] = useState(defaultCount);
     const [jsx, setJSX] = useState<JSX.Element[] | null>();
@@ -18,20 +19,19 @@ export const DefaultInputState: FC<DefaultInputsStateProps> = ({
     useEffect(() => {
         setJSX(
             [...Array(count)].map((_, idx) => (
-                <Input
+                <DisplayInput
                     handleRemove={() => handleRemove(idx)}
                     onFocus={() => handleFocus(idx)}
                     index={idx}
                     key={idx}
                     defaultValue={inputValues[idx]}
-                    setCount={setCount}
-                    setInputValues={setInputValues}
                     handleChange={(value: string) => handleChange(value, idx)}
+                    type={type}
                 />
             )),
         );
         setQuestionOptions?.(inputValues);
-    }, [count, inputValues]);
+    }, [count, inputValues, type]);
 
     const handleFocus = (idx: number) => {
         if (idx === count - 1) {

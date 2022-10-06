@@ -1,4 +1,4 @@
-import React, { FC, useEffect, useState } from "react";
+import { FC, useState, useEffect } from "react";
 import { useDynamicInputStyles } from "./styles";
 import { DynamicInputProps, QuestionProps } from "./types";
 import clx from "classnames";
@@ -42,7 +42,7 @@ export const DynamicInput: FC<DynamicInputProps> = () => {
     const click = () => {
         console.log("question", question);
     };
-    
+
     return (
         <div className={clx(classes.root)}>
             <div className={classes.inputControlsContainer}>
