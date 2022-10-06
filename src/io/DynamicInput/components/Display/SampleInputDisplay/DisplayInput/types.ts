@@ -3,6 +3,6 @@ export type DisplayInputProps = {
     handleChange: (value: string) => void;
     onFocus: () => void;
     index: number;
-    defaultValue: string;
+    value: string;
     type: string;
 };

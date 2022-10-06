@@ -15,17 +15,15 @@ export const inputComponents: InputComponentProps[] = [
     },
     {
         name: "dropdown",
-        component: <SampleInputDisplay type="dropdown" defaultCount={4} defaultValue="optional" />,
+        component: <SampleInputDisplay type="dropdown" defaultCount={4} value="optional" />,
     },
     {
         name: "checkboxes",
-        component: (
-            <SampleInputDisplay type="checkboxes" defaultCount={4} defaultValue="optional" />
-        ),
+        component: <SampleInputDisplay type="checkboxes" defaultCount={4} value="optional" />,
     },
     {
         name: "multiple",
-        component: <SampleInputDisplay type="multiple" defaultCount={4} defaultValue="optional" />,
+        component: <SampleInputDisplay type="multiple" defaultCount={4} value="optional" />,
     },
     {
         name: "file",

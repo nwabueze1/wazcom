@@ -1,5 +1,5 @@
 export type SampleInputDisplayProps = {
     defaultCount: number;
-    defaultValue: string;
+    value: string;
     type: string;
 };

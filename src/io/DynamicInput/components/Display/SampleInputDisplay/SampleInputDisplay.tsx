@@ -4,7 +4,7 @@ import { DisplayInput } from "./DisplayInput/DisplayInput";
 
 export const SampleInputDisplay: FC<SampleInputDisplayProps> = ({
     defaultCount,
-    defaultValue,
+    value,
     type,
 }) => {
     const [count, setCount] = useState(defaultCount);
@@ -12,7 +12,7 @@ export const SampleInputDisplay: FC<SampleInputDisplayProps> = ({
     const [inputValues, setInputValues] = useState<string[]>([""]);
 
     useEffect(() => {
-        setInputValues([...Array(defaultCount)].map((_, idx) => `${defaultValue} ${idx + 1}`));
+        setInputValues([...Array(defaultCount)].map((_, idx) => `${value} ${idx + 1}`));
     }, []);
 
     useEffect(() => {
@@ -23,7 +23,7 @@ export const SampleInputDisplay: FC<SampleInputDisplayProps> = ({
                     onFocus={() => handleFocus(idx)}
                     index={idx}
                     key={idx}
-                    defaultValue={inputValues[idx]}
+                    value={inputValues[idx]}
                     handleChange={(value: string) => handleChange(value, idx)}
                     type={type}
                 />
@@ -34,7 +34,7 @@ export const SampleInputDisplay: FC<SampleInputDisplayProps> = ({
     const handleFocus = (idx: number) => {
         if (idx === count - 1) {
             setCount((count) => count + 1);
-            setInputValues((inputValue) => [...inputValue, `${defaultValue} ${idx + 2}`]);
+            setInputValues((inputValue) => [...inputValue, `${value} ${idx + 2}`]);
         }
     };
 
