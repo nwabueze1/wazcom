@@ -7,7 +7,11 @@ import { contols } from "./data";
 import { useEditableTextStyles } from "./styles";
 import { EditableTextInputProps } from "./types";
 
-export const EditableTextInput: FC<EditableTextInputProps> = ({ html, setHtml }) => {
+export const EditableTextInput: FC<EditableTextInputProps> = ({
+    html,
+    setHtml,
+    placeholder = "Question",
+}) => {
     const [fieldState, setFieldState] = useState<{
         editable?: boolean;
         html?: string;
@@ -45,7 +49,7 @@ export const EditableTextInput: FC<EditableTextInputProps> = ({ html, setHtml })
     };
 
     return (
-        <div>
+        <div className={classes.root}>
             <ContentEditable
                 className={classes.editableTextInput}
                 tagName="pre"
@@ -53,6 +57,7 @@ export const EditableTextInput: FC<EditableTextInputProps> = ({ html, setHtml })
                 onChange={handleChange}
                 onBlur={handleBlur}
                 onFocus={handleFocus}
+                placeholder={"placeholder"}
             />
             <Collapse in={collapse}>
                 <div className={classes.editTagContainer}>

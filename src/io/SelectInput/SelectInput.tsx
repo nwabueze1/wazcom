@@ -34,7 +34,7 @@ export const SelectInput: FC<SelectInputProps> = ({
             
         const Icon = option.icon;
         return (
-            <p>
+            <p className={clx(classNames?.optionLabel, classes.optionLabel)}>
                 {Icon && <Icon className={classes.icon} />}
                 {option.label}
             </p>

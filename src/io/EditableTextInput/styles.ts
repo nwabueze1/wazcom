@@ -3,17 +3,14 @@ import makeStyles from "@mui/styles/makeStyles";
 
 export const useEditableTextStyles = makeStyles((theme: Theme) => ({
     root: {
-        borderRadius: theme.spacing(1),
-        fontSize: "16px",
-        color: theme.design.colors.waz_greyColor400,
-        width: "100%",
-        marginBottom: theme.spacing(2),
+        margin: 0,
     },
     editableTextInput: {
         width: "100%",
         maxHeight: 40,
         minHeight: 40,
         outline: 0,
+        margin: 0,
         padding: theme.spacing(1, 2),
         border: `1px solid ${theme.design.colors.waz_primaryColor100}`,
         display: "flex",

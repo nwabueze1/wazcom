@@ -46,10 +46,9 @@ import {
 import { Valour, Taurant, Nour } from "templates/Navs";
 
 import { ComponentPropType, TemplatePropType } from "./types";
-
 import { data } from "./data";
 import { EditableTextInput } from "io/EditableTextInput";
-
+import { DynamicInput } from "io/DynamicInput";
 import AcUnitIcon from "@mui/icons-material/AcUnit";
 
 export const stories: ComponentPropType[] = [
@@ -314,6 +313,20 @@ export const stories: ComponentPropType[] = [
                     id: 3,
                 },
             ],
+        },
+    },
+    {
+        name: "DynamicInput",
+        component: DynamicInput,
+        props: {
+            label: "lslss",
+            options: [
+                { label: "Basit", value: "basit", icon: FaEdit },
+                { label: "Chinazom", value: "chinazom", icon: FaEdit },
+            ],
+            error: true,
+            required: true,
+            feedback: { text: "Tariq is a weirdo", status: "error" },
         },
     },
     {
