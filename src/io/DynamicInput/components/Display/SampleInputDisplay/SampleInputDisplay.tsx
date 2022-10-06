@@ -2,11 +2,7 @@ import { FC, useEffect, useState } from "react";
 import { SampleInputDisplayProps } from "./types";
 import { DisplayInput } from "./DisplayInput/DisplayInput";
 
-export const SampleInputDisplay: FC<SampleInputDisplayProps> = ({
-    defaultCount,
-    value,
-    type,
-}) => {
+export const SampleInputDisplay: FC<SampleInputDisplayProps> = ({ defaultCount, value, type }) => {
     const [count, setCount] = useState(defaultCount);
     const [jsx, setJSX] = useState<JSX.Element[] | null>();
     const [inputValues, setInputValues] = useState<string[]>([""]);

@@ -22,9 +22,9 @@ export const DynamicInput: FC<DynamicInputProps> = () => {
     const classes = useDynamicInputStyles();
     const [activeInputName, setActiveInputName] = useState("dropdown");
 
-    const handleChange = (event: { name: string, value: string }) => {
+    const handleChange = (event: { name: string; value: string }) => {
         setActiveInputName(event.value);
-    }
+    };
 
     return (
         <div className={clx(classes.root)}>
@@ -32,20 +32,20 @@ export const DynamicInput: FC<DynamicInputProps> = () => {
                 <div className={classes.editableTextInput}>
                     <EditableTextInput />
                 </div>
-                <SelectInput {...selectProps} onChange={handleChange} className={classes.selectInputContainer} />
+                <SelectInput
+                    {...selectProps}
+                    onChange={handleChange}
+                    className={classes.selectInputContainer}
+                />
             </div>
-            {
-                inputComponents.find(input => input.name === activeInputName)?.component
-            }
+            {inputComponents.find((input) => input.name === activeInputName)?.component}
             <div className={classes.questionSection}>
                 <div className={classes.questionContainer}>
                     <Button variant="outlined" color="primary" className={classes.questionButton}>
                         <QuestionAnswer className={classes.questionIcon} />
                         Answer Key
                     </Button>
-                    <div className={classes.questionPoint}>
-                        (0 points)
-                    </div>
+                    <div className={classes.questionPoint}>(0 points)</div>
                 </div>
                 <div className={classes.questionOptionContiner}>
                     <RiDeleteBin6Line className={classes.questionOptionIcon} />

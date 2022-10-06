@@ -7,7 +7,11 @@ import { contols } from "./data";
 import { useEditableTextStyles } from "./styles";
 import { EditableTextInputProps } from "./types";
 
-export const EditableTextInput: FC<EditableTextInputProps> = ({ html, setHtml, placeholder = "Question" }) => {
+export const EditableTextInput: FC<EditableTextInputProps> = ({
+    html,
+    setHtml,
+    placeholder = "Question",
+}) => {
     const [fieldState, setFieldState] = useState<{
         editable?: boolean;
         html?: string;
