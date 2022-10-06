@@ -1,4 +1,3 @@
-import { DefaultInputState } from "./components/DefautInputState/DefualtInputstate";
 import { DropDown } from "./components/DropDown/DropDown";
 import { CheckBox } from "./components/CheckBox/CheckBox";
 import { MultipleChoice } from "./components/MultipleChoice/MultipleChoice";
