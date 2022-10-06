@@ -42,6 +42,7 @@ export const DynamicInput: FC<DynamicInputProps> = () => {
     const click = () => {
         console.log("question", question);
     };
+    
     return (
         <div className={clx(classes.root)}>
             <div className={classes.inputControlsContainer}>
