@@ -38,7 +38,7 @@ export const InputGroup: FC<InputGroupProps> = ({
                 <TextInput
                     {...props}
                     InputProps={{
-                        className: classes.textInput,
+                        className: clx(classes.textInput, classNames?.textInput),
                     }}
                 />
                 <div className={clx(classes.text, classNames?.text, !icon && classes.textPosition)}>
