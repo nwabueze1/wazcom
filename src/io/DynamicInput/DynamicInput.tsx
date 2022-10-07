@@ -88,8 +88,9 @@ export const DynamicInput: FC<DynamicInputProps> = () => {
                 </div>
             )}
             {!displayOutput &&
-                inputComponents(setQuestionOptions).find((input) => input.name === question.type)
-                    ?.component}
+                inputComponents(questionOptions, setQuestionOptions).find(
+                    (input) => input.name === question.type,
+                )?.component}
             {!displayOutput && (
                 <div className={classes.questionSection}>
                     <div className={classes.questionContainer}>

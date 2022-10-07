@@ -8,8 +8,8 @@ export const useDateStyles = makeStyles(() => ({
         justifyContent: "flex-between",
         margin: theme.spacing(2, 0),
         borderBottom: `1px solid ${theme.design.colors.waz_primaryColor100}`,
-        paddingBottom: theme.spacing(.5),
-        width: "fit-content"
+        paddingBottom: theme.spacing(0.5),
+        width: "fit-content",
     },
     dateIcon: {
         fontSize: 25,
@@ -20,6 +20,6 @@ export const useDateStyles = makeStyles(() => ({
         fontSize: 16,
         color: theme.design.colors.waz_greyColor500,
         cursor: "pointer",
-        paddingRight: theme.spacing(4)
+        paddingRight: theme.spacing(4),
     },
 }));

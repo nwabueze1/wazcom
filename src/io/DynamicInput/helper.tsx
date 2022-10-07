@@ -5,7 +5,10 @@ import { InputComponentProps } from "./types";
 import { SampleInputDisplay } from "./components/Display/SampleInputDisplay/SampleInputDisplay";
 
 export const useInputComponents = () => {
-    return (setQuestionOptions: React.Dispatch<React.SetStateAction<string[]>>) => {
+    return (
+        questionOptions: string[],
+        setQuestionOptions: React.Dispatch<React.SetStateAction<string[]>>,
+    ) => {
         const inputComponents: InputComponentProps[] = [
             {
                 name: "short_answer",
@@ -20,6 +23,7 @@ export const useInputComponents = () => {
                 component: (
                     <SampleInputDisplay
                         setQuestionOptions={setQuestionOptions}
+                        questionOptions={questionOptions}
                         type="dropdown"
                         defaultCount={4}
                         value="optional"
@@ -31,6 +35,7 @@ export const useInputComponents = () => {
                 component: (
                     <SampleInputDisplay
                         setQuestionOptions={setQuestionOptions}
+                        questionOptions={questionOptions}
                         type="checkboxes"
                         defaultCount={4}
                         value="optional"
@@ -42,6 +47,7 @@ export const useInputComponents = () => {
                 component: (
                     <SampleInputDisplay
                         setQuestionOptions={setQuestionOptions}
+                        questionOptions={questionOptions}
                         type="multiple"
                         defaultCount={4}
                         value="optional"

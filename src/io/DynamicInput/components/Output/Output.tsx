@@ -11,9 +11,15 @@ export const Output: FC<OutputProps> = ({ question, setAnswers, setPoint, resetD
 
     const displayInput = () => {
         switch (question.type) {
-            case "short_answer" || "paragraph":
+            case "short_answer":
                 return <TextInput type={"text"} placeholder={question.type} />;
-            case "dropdown" || "checkboxes" || "multiple":
+            case "paragraph":
+                return <TextInput type={"text"} placeholder={question.type} />;
+            case "dropdown":
+                return <InputDisplay question={question} setAnswers={setAnswers} />;
+            case "checkboxes":
+                return <InputDisplay question={question} setAnswers={setAnswers} />;
+            case "multiple":
                 return <InputDisplay question={question} setAnswers={setAnswers} />;
             default:
                 return <TextInput type={"text"} />;

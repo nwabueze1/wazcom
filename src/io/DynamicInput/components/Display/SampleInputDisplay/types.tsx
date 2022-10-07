@@ -3,4 +3,5 @@ export type SampleInputDisplayProps = {
     setQuestionOptions?: React.Dispatch<React.SetStateAction<string[]>>;
     value: string;
     type: string;
+    questionOptions: string[];
 };

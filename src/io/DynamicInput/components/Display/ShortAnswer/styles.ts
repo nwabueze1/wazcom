@@ -14,7 +14,7 @@ export const useShortAnswerStyles = makeStyles(() => ({
         width: "50%",
 
         "& div::before": {
-            borderBottom: `1px solid ${theme.design.colors.waz_primaryColor100}`
+            borderBottom: `1px solid ${theme.design.colors.waz_primaryColor100}`,
         },
 
         "& div::after": {

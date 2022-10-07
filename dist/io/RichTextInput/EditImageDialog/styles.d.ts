@@ -1,1 +1,0 @@
-export declare const useEditImageDialogStyles: (props?: any) => import("@mui/styles").ClassNameMap<"editMediaModal" | "editMediaInput" | "inputContainer" | "editMediaSizeInput" | "editMediaSizeContainer" | "editButtonContainer" | "editMediaSubmitBtn" | "editMediaCancelBtn" | "editImageHeader" | "deviceHeader">;
