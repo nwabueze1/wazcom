@@ -35,7 +35,9 @@ export var SelectInput = function (_a) {
     };
     var displayLabelFromValue = function (value) {
         var _a, _b;
-        var option = (_a = options.filter(function (option) { return option.value === value; })) === null || _a === void 0 ? void 0 : _a[0];
+        var option = (_a = options.filter(function (option) { return option.value == value; })) === null || _a === void 0 ? void 0 : _a[0];
+        if (!option)
+            return _jsx("p", {}, void 0);
         var Icon = option === null || option === void 0 ? void 0 : option.icon;
         return (_jsxs("p", __assign({ className: clx(classNames === null || classNames === void 0 ? void 0 : classNames.optionLabel, classes.optionLabel) }, { children: [Icon && _jsx(Icon, { className: classes.icon }, void 0), (_b = option === null || option === void 0 ? void 0 : option.label) !== null && _b !== void 0 ? _b : ""] }), void 0));
     };

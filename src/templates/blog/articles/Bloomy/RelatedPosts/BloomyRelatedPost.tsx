@@ -7,9 +7,9 @@ import { useBloomyRelatedPostStyles } from "./styles";
 import clx from "classnames";
 
 export const BloomyRelatedPost: FC<CoreArticleTemplateFields> = ({
-    article,
-    className,
-    handleClick,
+  article,
+  handleClick,
+  className,
 }) => {
     const classes = useBloomyRelatedPostStyles();
     return (

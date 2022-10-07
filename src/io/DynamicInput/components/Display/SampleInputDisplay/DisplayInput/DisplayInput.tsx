@@ -28,7 +28,7 @@ export const DisplayInput: FC<DisplayInputProps> = ({
         handleChange(event.value);
     };
 
-    const DisplayLabel = () => {
+    const displayLabel = () => {
         switch (type) {
             case "dropdown":
                 return <p>{index + 1}.</p>;
@@ -43,7 +43,7 @@ export const DisplayInput: FC<DisplayInputProps> = ({
 
     return (
         <div className={classes.root}>
-            {DisplayLabel()}
+            {displayLabel()}
             <TextInput
                 classNames={{
                     textInput: classes.displayInput,

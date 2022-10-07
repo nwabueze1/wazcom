@@ -33,7 +33,7 @@ import { shareDataBloomy } from "./data";
 import { parseDate } from "../../../../utilities/getTime";
 import { BloomyRelatedPost } from "./RelatedPosts";
 export var Bloomy = function (_a) {
-    var article = _a.article, site = _a.site, domain = _a.domain, handleClick = _a.handleClick;
+    var article = _a.article, domain = _a.domain, site = _a.site, handleClick = _a.handleClick;
     var classes = useBloomyStyles();
     var _b = __read(useState(false), 2), loaded = _b[0], setLoaded = _b[1];
     var displayTags = function () {
