@@ -18,9 +18,13 @@ export type InputComponentProps = {
     component: JSX.Element;
 };
 
+export type Any = string | number | boolean;
+
 export type QuestionProps = {
-    text: string;
+    text: string | JSX.Element;
     type: string;
     options: string[];
     required: boolean;
+    answers: Any[];
+    point: number;
 };
