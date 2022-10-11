@@ -1,6 +1,5 @@
 import makeStyles from "@mui/styles/makeStyles";
-import theme from "theme";
-export var useDisplayInputStyles = makeStyles(function () { return ({
+export var useDisplayInputStyles = makeStyles(function (theme) { return ({
     root: {
         display: "flex",
         alignItems: "center",

@@ -1,6 +1,5 @@
 import makeStyles from "@mui/styles/makeStyles";
-import theme from "theme";
-export var useShortAnswerStyles = makeStyles(function () { return ({
+export var useShortAnswerStyles = makeStyles(function (theme) { return ({
     root: {
         display: "flex",
         alignItems: "center",
