@@ -6,9 +6,8 @@ import { getDay } from "../../../../utilities/getTime";
 import { usePoliticoStyles } from "./styles";
 import clx from "classnames";
 import Circle from "@mui/icons-material/Circle";
-import { Footer } from "../common/Footer/Footer";
 
-export const Politico: FC<CoreArticleTemplateFields> = ({ article, domain, handleClick, site }) => {
+export const Politico: FC<CoreArticleTemplateFields> = ({ article, domain, handleClick }) => {
     const classes = usePoliticoStyles();
     const [loaded, setLoaded] = useState(false);
 
@@ -102,7 +101,6 @@ export const Politico: FC<CoreArticleTemplateFields> = ({ article, domain, handl
                     <div className={classes.relatedPostsItems}>{displayRelatedPosts()}</div>
                 )}
             </div>
-            <Footer name={site?.name as string} className={classes.footer} />
         </div>
     );
 };

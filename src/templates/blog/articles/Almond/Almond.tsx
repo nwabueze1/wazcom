@@ -106,14 +106,6 @@ export const Almond: FC<CoreArticleTemplateFields> = ({ article, domain, site, h
                     )}
                 </div>
             </div>
-            <div className={classes.footer}>
-                <span className={classes.footerContent}>
-                    Ⓒ2022 by {site?.display_name}. Proudly created with
-                    <a className={classes.link} href="/">
-                        Hivedeck
-                    </a>
-                </span>
-            </div>
         </>
     );
 };
