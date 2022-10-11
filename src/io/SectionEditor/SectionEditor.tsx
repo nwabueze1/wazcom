@@ -2,7 +2,7 @@ import { FC, useEffect, useState } from "react";
 import { useDynamicInputStyles } from "./styles";
 import { SectionEditorProps } from "./types";
 import clx from "classnames";
-import { EditableTextInput } from "io/EditableTextInput";
+import { EditableTextInput } from "../../io/EditableTextInput";
 
 export const SectionEditor: FC<SectionEditorProps> = ({
     title,

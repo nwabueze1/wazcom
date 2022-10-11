@@ -29,7 +29,7 @@ import { jsx as _jsx, jsxs as _jsxs } from "react/jsx-runtime";
 import { useEffect, useState } from "react";
 import { useDynamicInputStyles } from "./styles";
 import clx from "classnames";
-import { EditableTextInput } from "io/EditableTextInput";
+import { EditableTextInput } from "../../io/EditableTextInput";
 export var SectionEditor = function (_a) {
     var title = _a.title, description = _a.description, handleSetSection = _a.handleSetSection, className = _a.className;
     var classes = useDynamicInputStyles();
