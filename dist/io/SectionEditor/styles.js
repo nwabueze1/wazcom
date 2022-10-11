@@ -1,5 +1,5 @@
 import makeStyles from "@mui/styles/makeStyles";
-export var useDynamicInputStyles = makeStyles(function (theme) { return ({
+export var useSectionEditorStyles = makeStyles(function (theme) { return ({
     root: {
         borderRadius: theme.spacing(1),
         fontSize: "16px",

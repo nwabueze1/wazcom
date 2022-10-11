@@ -37,7 +37,7 @@ export const DisplayInput: FC<DisplayInputProps> = ({
             case "multiple":
                 return <RadioButtonUncheckedOutlined />;
             default:
-                <p>{index + 1}.</p>;
+                return <p>{index + 1}.</p>;
         }
     };
 

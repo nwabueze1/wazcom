@@ -20,7 +20,7 @@ export const Input: FC<InputProps> = ({ handleSelect, value, index, type, checke
             case "multiple":
                 return <RadioButtonUncheckedOutlined />;
             default:
-                <p>{index + 1}.</p>;
+                return <p>{index + 1}.</p>;
         }
     };
 

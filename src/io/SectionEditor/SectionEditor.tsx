@@ -1,5 +1,5 @@
 import { FC, useEffect, useState } from "react";
-import { useDynamicInputStyles } from "./styles";
+import { useSectionEditorStyles } from "./styles";
 import { SectionEditorProps } from "./types";
 import clx from "classnames";
 import { EditableTextInput } from "../../io/EditableTextInput";
@@ -10,7 +10,7 @@ export const SectionEditor: FC<SectionEditorProps> = ({
     handleSetSection,
     className,
 }) => {
-    const classes = useDynamicInputStyles();
+    const classes = useSectionEditorStyles();
     const [section, setSection] = useState<{
         title: string | JSX.Element;
         description: string | JSX.Element;

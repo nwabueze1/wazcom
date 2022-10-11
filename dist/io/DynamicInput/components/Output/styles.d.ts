@@ -1,0 +1,1 @@
+export declare const useOutputStyles: (props?: any) => import("@mui/styles").ClassNameMap<"root" | "title" | "outputIcon" | "outputRequired" | "outputNumberInput" | "outputQuestionContainer" | "outputPoints" | "outputTextInput" | "outputDone" | "outputOverAllContainer" | "outputAnswer">;

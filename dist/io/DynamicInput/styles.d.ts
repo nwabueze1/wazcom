@@ -1,0 +1,1 @@
+export declare const useDynamicInputStyles: (props?: any) => import("@mui/styles").ClassNameMap<"root" | "editableTextInput" | "selectInputContainer" | "questionContainer" | "questionSection" | "questionIcon" | "questionButton" | "questionPoint" | "questionOptionContiner" | "questionOptionIcon" | "inputControlsContainer" | "questionRequired" | "questionText">;

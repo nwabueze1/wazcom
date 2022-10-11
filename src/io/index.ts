@@ -10,3 +10,4 @@ export * from "./TextArea";
 export * from "./PhoneNumberInput";
 export * from "./RadioButtonInput";
 export * from "./CurrencyInput";
+export * from "./DynamicInput";

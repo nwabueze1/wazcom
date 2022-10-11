@@ -1,7 +1,7 @@
 import { Theme } from "@mui/material/styles";
 import makeStyles from "@mui/styles/makeStyles";
 
-export const useDynamicInputStyles = makeStyles((theme: Theme) => ({
+export const useSectionEditorStyles = makeStyles((theme: Theme) => ({
     root: {
         borderRadius: theme.spacing(1),
         fontSize: "16px",

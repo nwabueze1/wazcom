@@ -27,12 +27,12 @@ var __read = (this && this.__read) || function (o, n) {
 };
 import { jsx as _jsx, jsxs as _jsxs } from "react/jsx-runtime";
 import { useEffect, useState } from "react";
-import { useDynamicInputStyles } from "./styles";
+import { useSectionEditorStyles } from "./styles";
 import clx from "classnames";
 import { EditableTextInput } from "../../io/EditableTextInput";
 export var SectionEditor = function (_a) {
     var title = _a.title, description = _a.description, handleSetSection = _a.handleSetSection, className = _a.className;
-    var classes = useDynamicInputStyles();
+    var classes = useSectionEditorStyles();
     var _b = __read(useState({
         title: title !== null && title !== void 0 ? title : "Title",
         description: description !== null && description !== void 0 ? description : "description (optional)",
