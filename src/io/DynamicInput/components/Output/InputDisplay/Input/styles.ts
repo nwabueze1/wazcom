@@ -10,7 +10,7 @@ export const useDisplayInputStyles = makeStyles(() => ({
         margin: theme.spacing(2, 0),
     },
     inputIcon: {
-        fontSize: 30,
+        fontSize: theme.typography.fontSize + 18,
         color: theme.design.colors.waz_primaryColor100,
         cursor: "pointer",
     },

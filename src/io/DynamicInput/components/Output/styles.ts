@@ -16,7 +16,7 @@ export const useOutputStyles = makeStyles((theme: Theme) => ({
     },
     outputIcon: {
         paddingRight: theme.spacing(1),
-        fontSize: 28,
+        fontSize: theme.typography.fontSize + 16,
     },
     outputRequired: {
         color: theme.design.colors.waz_dangerColor200,
