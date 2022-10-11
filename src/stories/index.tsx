@@ -452,8 +452,8 @@ export const stories: ComponentPropType[] = [
         props: {
             label: "lslss",
             options: [
-                { label: "Basit", value: "basit", icon: FaEdit },
-                { label: "Chinazom", value: "chinazom", icon: FaEdit },
+                { label: "Basit", value: "basit" },
+                { label: "Chinazom", value: "chinazom" },
             ],
             error: true,
             required: true,

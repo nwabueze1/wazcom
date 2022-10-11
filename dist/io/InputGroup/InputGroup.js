@@ -52,6 +52,6 @@ export var InputGroup = function (_a) {
         setInputText(text !== null && text !== void 0 ? text : "");
     }, [text]);
     return (_jsxs("div", __assign({ className: clx(classes.root, className) }, { children: [label && (_jsxs(InputLabel, __assign({ className: (classNames === null || classNames === void 0 ? void 0 : classNames.label) ? classNames === null || classNames === void 0 ? void 0 : classNames.label : undefined, htmlFor: props.name }, { children: [label, _jsx("p", __assign({ className: classes.required }, { children: props.required ? "*" : "" }), void 0)] }), void 0)), _jsxs("div", __assign({ className: clx(classes.inputGroup, classNames === null || classNames === void 0 ? void 0 : classNames.inputGroup) }, { children: [_jsx(TextInput, __assign({}, props, { InputProps: {
-                            className: classes.textInput,
+                            className: clx(classes.textInput, classNames === null || classNames === void 0 ? void 0 : classNames.textInput),
                         } }), void 0), _jsxs("div", __assign({ className: clx(classes.text, classNames === null || classNames === void 0 ? void 0 : classNames.text, !icon && classes.textPosition) }, { children: [icon && _jsx("div", __assign({ className: clx(classes.icon, classNames === null || classNames === void 0 ? void 0 : classNames.groupIcon) }, { children: icon }), void 0), _jsx("p", { children: truncate(inputText) }, void 0)] }), void 0)] }), void 0), feedback && displayFeedback(feedback)] }), void 0));
 };

@@ -66,9 +66,19 @@ export const useDynamicInputStyles = makeStyles((theme: Theme) => ({
         marginRight: theme.spacing(1),
     },
     questionOptionIcon: {
-        marginLeft: theme.spacing(4),
+        marginLeft: theme.spacing(2),
         color: theme.design.colors.waz_greyColor600,
         fontSize: 22,
         cursor: "pointer",
+    },
+    questionRequired: {
+        display: "flex",
+        justifyContent: "space-between",
+        alignItems: "center",
+        marginLeft: theme.spacing(1),
+        paddingBottom: theme.spacing(1),
+    },
+    questionText: {
+        marginTop: theme.spacing(1),
     },
 }));
