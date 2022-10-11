@@ -1,6 +1,5 @@
 import { FC, useState, useEffect } from "react";
 import { CoreArticleTemplateFields } from "../types";
-import { Footer } from "../common/Footer";
 import { useBloomyStyles } from "./styles";
 import { shareDataBloomy } from "./data";
 import { parseDate } from "../../../../utilities/getTime";
@@ -94,7 +93,6 @@ export const Bloomy: FC<CoreArticleTemplateFields> = ({
                     <div className={classes.posts}>{displayRelatedPosts()}</div>
                 </div>
             </div>
-            <Footer name={site?.name as string} className={classes.footer} />
         </div>
     );
 };

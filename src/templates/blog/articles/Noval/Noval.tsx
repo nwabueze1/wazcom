@@ -5,7 +5,6 @@ import { shareDataNoval } from "./data";
 import { getDay } from "../../../../utilities/getTime";
 import { CoreArticleTemplateFields } from "../types";
 import { useNovalStyles } from "./styles";
-import { Footer } from "../common/Footer";
 
 export const Noval: FC<CoreArticleTemplateFields> = ({ article, site, domain, handleClick }) => {
     const classes = useNovalStyles();
@@ -93,7 +92,6 @@ export const Noval: FC<CoreArticleTemplateFields> = ({ article, site, domain, ha
                     )}
                 </div>
             </div>
-            <Footer name={site?.name as string} className={classes.footer} />
         </div>
     );
 };
