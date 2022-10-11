@@ -50,6 +50,7 @@ import { data } from "./data";
 import { EditableTextInput } from "io/EditableTextInput";
 import { DynamicInput } from "io/DynamicInput";
 import AcUnitIcon from "@mui/icons-material/AcUnit";
+import { SectionEditor } from "io/SectionEditor";
 
 export const stories: ComponentPropType[] = [
     {
@@ -318,6 +319,20 @@ export const stories: ComponentPropType[] = [
     {
         name: "DynamicInput",
         component: DynamicInput,
+        props: {
+            label: "lslss",
+            options: [
+                { label: "Basit", value: "basit", icon: FaEdit },
+                { label: "Chinazom", value: "chinazom", icon: FaEdit },
+            ],
+            error: true,
+            required: true,
+            feedback: { text: "Tariq is a weirdo", status: "error" },
+        },
+    },
+    {
+        name: "SectionEditor",
+        component: SectionEditor,
         props: {
             label: "lslss",
             options: [
