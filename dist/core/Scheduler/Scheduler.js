@@ -75,10 +75,10 @@ export var Scheduler = function (_a) {
         });
     }, [initialScheduleValue]);
     var _f = __read(useState(parseSchedulevalue(initialScheduleValue, handleChange, {
-        timeSection: classes.timeContainer,
-        timeDivider: classes.timeDivider,
-        closeIcon: classes.closeIcon,
-        hiddenCloseIcon: classes.hidden,
+        timeSection: clx(classes.timeContainer, classNames === null || classNames === void 0 ? void 0 : classNames.timeContainer),
+        timeDivider: clx(classes.timeDivider, classNames === null || classNames === void 0 ? void 0 : classNames.timeDivider),
+        closeIcon: clx(classes.closeIcon, classNames === null || classNames === void 0 ? void 0 : classNames.closeIcon),
+        hiddenCloseIcon: clx(classes.hidden, classNames === null || classNames === void 0 ? void 0 : classNames.hidden),
     })), 2), scheduleValue = _f[0], setScheduleValue = _f[1];
     useEffect(function () {
         var newScheduleValue = parseSchedulevalue(initialScheduleValue, handleChange, {

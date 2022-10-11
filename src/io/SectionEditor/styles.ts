@@ -9,10 +9,11 @@ export const useDynamicInputStyles = makeStyles((theme: Theme) => ({
         width: "100%",
         marginBottom: theme.spacing(2),
     },
-    inputControlsContainer: {
+    sectionTitle: {
         display: "flex",
         justifyContent: "space-between",
         alignItems: "flex-start",
+        marginBottom: theme.spacing(1),
     },
     editableTextInput: {
         width: "65%",

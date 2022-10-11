@@ -27,16 +27,13 @@ export const SelectInput: FC<SelectInputProps> = ({
 
     const displayLabelFromValue = (value: any) => {
         const option = options.filter((option) => option.value == value)?.[0];
-        if(!option)
-            return (
-                <p></p>
-            )
-            
-        const Icon = option.icon;
+        if (!option) return <p></p>;
+        const Icon = option?.icon;
+
         return (
             <p className={clx(classNames?.optionLabel, classes.optionLabel)}>
                 {Icon && <Icon className={classes.icon} />}
-                {option.label}
+                {option?.label ?? ""}
             </p>
         );
     };

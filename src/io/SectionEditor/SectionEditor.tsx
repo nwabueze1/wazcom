@@ -1,31 +1,48 @@
-import { FC, useState } from "react";
+import { FC, useEffect, useState } from "react";
 import { useDynamicInputStyles } from "./styles";
-import { DynamicInputProps } from "./types";
+import { SectionEditorProps } from "./types";
 import clx from "classnames";
 import { EditableTextInput } from "io/EditableTextInput";
-import { SelectInput } from "io/SelectInput";
-import { defaultInputs as options } from "./data";
 
-const selectProps = {
-    options,
-    error: true,
-    required: true,
-};
-
-export const SectionEditor: FC<DynamicInputProps> = () => {
+export const SectionEditor: FC<SectionEditorProps> = ({
+    title,
+    description,
+    handleSetSection,
+    className,
+}) => {
     const classes = useDynamicInputStyles();
-    const [activeInputName, setActiveInputName] = useState("dropdown");
+    const [section, setSection] = useState<{
+        title: string | JSX.Element;
+        description: string | JSX.Element;
+    }>({
+        title: title ?? "Title",
+        description: description ?? "description (optional)",
+    });
 
-    const handleChange = (event: { name: string; value: string }) => {
-        setActiveInputName(event.value);
+    useEffect(() => {
+        handleSetSection?.(section);
+    }, [section]);
+
+    const handleSetTitle = (title: string | JSX.Element) => {
+        setSection((section) => ({ ...section, title }));
     };
-
+    const handleSetDescription = (description: string | JSX.Element) => {
+        setSection((section) => ({ ...section, description }));
+    };
     return (
-        <div className={clx(classes.root)}>
-            <div className={classes.inputControlsContainer}>
-                <div className={classes.editableTextInput}>
-                    <EditableTextInput />
-                </div>
+        <div className={clx(classes.root, className)}>
+            <div className={classes.sectionTitle}>
+                <EditableTextInput
+                    placeholder={section.title as string}
+                    setHtml={handleSetTitle}
+                    heading={true}
+                />
+            </div>
+            <div className={classes.sectionTitle}>
+                <EditableTextInput
+                    placeholder={section.description as string}
+                    setHtml={handleSetDescription}
+                />
             </div>
         </div>
     );
