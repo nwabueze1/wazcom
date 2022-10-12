@@ -47,7 +47,7 @@ var selectProps = {
 };
 export var DynamicInput = function (_a) {
     var _b;
-    var handleSetQuestion = _a.handleSetQuestion, handleDelete = _a.handleDelete, handleDuplicate = _a.handleDuplicate;
+    var handleSetQuestion = _a.handleSetQuestion, handleDelete = _a.handleDelete, handleDuplicate = _a.handleDuplicate, defaultQuestion = _a.defaultQuestion;
     var classes = useDynamicInputStyles();
     var inputComponents = useInputComponents();
     var _c = __read(useState([""]), 2), questionOptions = _c[0], setQuestionOptions = _c[1];
@@ -56,7 +56,7 @@ export var DynamicInput = function (_a) {
         name: "required",
         value: true,
     }), 2), required = _e[0], setRequired = _e[1];
-    var _f = __read(useState({
+    var _f = __read(useState(defaultQuestion !== null && defaultQuestion !== void 0 ? defaultQuestion : {
         text: "",
         type: "dropdown",
         options: questionOptions,

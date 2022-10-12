@@ -24,6 +24,7 @@ export const DynamicInput: FC<DynamicInputProps> = ({
     handleSetQuestion,
     handleDelete,
     handleDuplicate,
+    defaultQuestion,
 }) => {
     const classes = useDynamicInputStyles();
     const inputComponents = useInputComponents();
@@ -36,14 +37,16 @@ export const DynamicInput: FC<DynamicInputProps> = ({
         name: "required",
         value: true,
     });
-    const [question, setQuestion] = useState<QuestionProps>({
-        text: "",
-        type: "dropdown",
-        options: questionOptions,
-        required: true,
-        answers: [0],
-        point: 0,
-    });
+    const [question, setQuestion] = useState<QuestionProps>(
+        defaultQuestion ?? {
+            text: "",
+            type: "dropdown",
+            options: questionOptions,
+            required: true,
+            answers: [0],
+            point: 0,
+        },
+    );
 
     useEffect(() => {
         setQuestion((question) => {
