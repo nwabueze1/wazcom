@@ -20,7 +20,11 @@ const selectProps = {
     required: true,
 };
 
-export const DynamicInput: FC<DynamicInputProps> = ({ handleSetQuestion }) => {
+export const DynamicInput: FC<DynamicInputProps> = ({
+    handleSetQuestion,
+    handleDelete,
+    handleDuplicate,
+}) => {
     const classes = useDynamicInputStyles();
     const inputComponents = useInputComponents();
     const [questionOptions, setQuestionOptions] = useState<string[]>([""]);
@@ -77,6 +81,7 @@ export const DynamicInput: FC<DynamicInputProps> = ({ handleSetQuestion }) => {
     const handleSetTitle = (text: string | JSX.Element) => {
         setQuestion((questions) => ({ ...questions, text }));
     };
+
     return (
         <div className={clx(classes.root)}>
             {!displayOutput && (
@@ -114,7 +119,10 @@ export const DynamicInput: FC<DynamicInputProps> = ({ handleSetQuestion }) => {
                         <div className={classes.questionPoint}>({question.point} points)</div>
                     </div>
                     <div className={classes.questionOptionContiner}>
-                        <RiDeleteBin6Line className={classes.questionOptionIcon} />
+                        <RiDeleteBin6Line
+                            className={classes.questionOptionIcon}
+                            onClick={handleDelete}
+                        />
                         <div className={classes.questionRequired}>
                             <p className={classes.questionText}>Required</p>
                             <ToggleInput
@@ -123,7 +131,10 @@ export const DynamicInput: FC<DynamicInputProps> = ({ handleSetQuestion }) => {
                                 onChange={setRequired}
                             />
                         </div>
-                        <MdOutlineContentCopy className={classes.questionOptionIcon} />
+                        <MdOutlineContentCopy
+                            className={classes.questionOptionIcon}
+                            onClick={handleDuplicate}
+                        />
                         <BsThreeDotsVertical className={classes.questionOptionIcon} />
                     </div>
                 </div>

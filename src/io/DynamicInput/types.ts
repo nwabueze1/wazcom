@@ -12,6 +12,8 @@ export type DynamicInputProps = CommonProps &
             icon?: React.FC<any>;
         }[];
         handleSetQuestion: (question: QuestionProps) => void;
+        handleDelete: () => void;
+        handleDuplicate: () => void;
     };
 
 export type InputComponentProps = {

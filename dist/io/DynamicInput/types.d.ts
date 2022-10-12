@@ -10,6 +10,8 @@ export declare type DynamicInputProps = CommonProps & Omit<MuiSelectProps, "onCh
         icon?: React.FC<any>;
     }[];
     handleSetQuestion: (question: QuestionProps) => void;
+    handleDelete: () => void;
+    handleDuplicate: () => void;
 };
 export declare type InputComponentProps = {
     name: string;
