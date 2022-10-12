@@ -34,6 +34,7 @@ export const useValourStyles = makeStyles<Theme>((theme: Theme) => ({
         color: theme.design.colors.waz_black,
         textDecoration: "none",
         fontSize: theme.typography.fontSize,
+        cursor: "pointer",
     },
     socialsContainer: {
         display: "flex",
