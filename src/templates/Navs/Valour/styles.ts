@@ -21,13 +21,14 @@ export const useValourStyles = makeStyles<Theme>((theme: Theme) => ({
     },
     logo: {
         height: "40px",
-        width: "50px",
+        width: "50px !important",
     },
     linksContainer: {
         display: "flex",
         flexDirection: "row",
         gap: theme.spacing(4),
-        marginLeft: "30%",
+        position: 'relative',
+        left: '30%',
         marginRight: theme.spacing(3),
     },
     link: {

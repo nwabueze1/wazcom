@@ -1,6 +1,7 @@
 import { FC } from "react";
 import { useValourStyles } from "./styles";
 import { Paper } from "@mui/material";
+import { AiOutlinePicture } from "react-icons/ai";
 import { NavProps } from "../types";
 
 export const Valour: FC<NavProps> = ({ mode = "view", handleLinkClick, links, socials, logo }) => {
@@ -15,7 +16,7 @@ export const Valour: FC<NavProps> = ({ mode = "view", handleLinkClick, links, so
                     key={index}
                     className={classes.link}
                     onClick={() => {
-                        handleLinkClick?.(mode === 'edit' ? String(index) : url);
+                        handleLinkClick?.(mode === "edit" ? String(index) : url);
                     }}
                 >
                     {text}
@@ -58,10 +59,16 @@ export const Valour: FC<NavProps> = ({ mode = "view", handleLinkClick, links, so
             </head>
             <Paper classes={{ root: classes.paper }} className={classes.root} elevation={3}>
                 <div className={classes.logoAndLinksContainer}>
-                    <img
-                        src={logo ?? hivedeckLogo}
-                        className={logo ? classes.logo : classes.hivedeckLogo}
-                    />
+                    {mode === "view" ? (
+                        <img
+                            src={logo ?? hivedeckLogo}
+                            className={logo ? classes.logo : classes.hivedeckLogo}
+                        />
+                    ) : logo ? (
+                        <img src={logo} className={classes.logo} />
+                    ) : (
+                        <AiOutlinePicture className={classes.logo} />
+                    )}
                     <div className={classes.linksContainer}>{displayLinks()}</div>
                 </div>
                 <div className={classes.socialsContainer}>{displaySocials()}</div>
