@@ -28,7 +28,9 @@ export const DynamicInput: FC<DynamicInputProps> = ({
 }) => {
     const classes = useDynamicInputStyles();
     const inputComponents = useInputComponents();
-    const [questionOptions, setQuestionOptions] = useState<string[]>([""]);
+    const [questionOptions, setQuestionOptions] = useState<string[]>(
+        defaultQuestion?.options ?? [""],
+    );
     const [displayOutput, setDisplayOutput] = useState(false);
     const [required, setRequired] = useState<{
         name: string;

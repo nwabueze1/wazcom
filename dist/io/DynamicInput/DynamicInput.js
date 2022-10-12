@@ -46,24 +46,24 @@ var selectProps = {
     required: true,
 };
 export var DynamicInput = function (_a) {
-    var _b;
+    var _b, _c;
     var handleSetQuestion = _a.handleSetQuestion, handleDelete = _a.handleDelete, handleDuplicate = _a.handleDuplicate, defaultQuestion = _a.defaultQuestion;
     var classes = useDynamicInputStyles();
     var inputComponents = useInputComponents();
-    var _c = __read(useState([""]), 2), questionOptions = _c[0], setQuestionOptions = _c[1];
-    var _d = __read(useState(false), 2), displayOutput = _d[0], setDisplayOutput = _d[1];
-    var _e = __read(useState({
+    var _d = __read(useState((_b = defaultQuestion === null || defaultQuestion === void 0 ? void 0 : defaultQuestion.options) !== null && _b !== void 0 ? _b : [""]), 2), questionOptions = _d[0], setQuestionOptions = _d[1];
+    var _e = __read(useState(false), 2), displayOutput = _e[0], setDisplayOutput = _e[1];
+    var _f = __read(useState({
         name: "required",
         value: true,
-    }), 2), required = _e[0], setRequired = _e[1];
-    var _f = __read(useState(defaultQuestion !== null && defaultQuestion !== void 0 ? defaultQuestion : {
+    }), 2), required = _f[0], setRequired = _f[1];
+    var _g = __read(useState(defaultQuestion !== null && defaultQuestion !== void 0 ? defaultQuestion : {
         text: "",
         type: "dropdown",
         options: questionOptions,
         required: true,
         answers: [0],
         point: 0,
-    }), 2), question = _f[0], setQuestion = _f[1];
+    }), 2), question = _g[0], setQuestion = _g[1];
     useEffect(function () {
         setQuestion(function (question) {
             return __assign(__assign({}, question), { options: questionOptions });
@@ -94,5 +94,5 @@ export var DynamicInput = function (_a) {
         setQuestion(function (questions) { return (__assign(__assign({}, questions), { text: text })); });
     };
     return (_jsxs("div", __assign({ className: clx(classes.root) }, { children: [!displayOutput && (_jsxs("div", __assign({ className: classes.inputControlsContainer }, { children: [_jsx("div", __assign({ className: classes.editableTextInput }, { children: _jsx(EditableTextInput, { html: question.text, placeholder: "Question", setHtml: handleSetTitle }, void 0) }), void 0), _jsx(SelectInput, __assign({}, selectProps, { onChange: handleChange, className: classes.selectInputContainer }), void 0)] }), void 0)), !displayOutput &&
-                ((_b = inputComponents(questionOptions, setQuestionOptions).find(function (input) { return input.name === question.type; })) === null || _b === void 0 ? void 0 : _b.component), !displayOutput && (_jsxs("div", __assign({ className: classes.questionSection }, { children: [_jsxs("div", __assign({ className: classes.questionContainer }, { children: [_jsxs(Button, __assign({ onClick: handleAnswer, variant: "outlined", color: "primary", className: classes.questionButton }, { children: [_jsx(QuestionAnswer, { className: classes.questionIcon }, void 0), "Answer Key"] }), void 0), _jsxs("div", __assign({ className: classes.questionPoint }, { children: ["(", question.point, " points)"] }), void 0)] }), void 0), _jsxs("div", __assign({ className: classes.questionOptionContiner }, { children: [_jsx(RiDeleteBin6Line, { className: classes.questionOptionIcon, onClick: handleDelete }, void 0), _jsxs("div", __assign({ className: classes.questionRequired }, { children: [_jsx("p", __assign({ className: classes.questionText }, { children: "Required" }), void 0), _jsx(ToggleInput, { name: required.name, value: required.value, onChange: setRequired }, void 0)] }), void 0), _jsx(MdOutlineContentCopy, { className: classes.questionOptionIcon, onClick: handleDuplicate }, void 0), _jsx(BsThreeDotsVertical, { className: classes.questionOptionIcon }, void 0)] }), void 0)] }), void 0)), displayOutput && (_jsx(Output, { question: question, setAnswers: handleSetAnswers, setPoint: handleSetPoint, resetDisplay: function () { return setDisplayOutput(false); } }, void 0))] }), void 0));
+                ((_c = inputComponents(questionOptions, setQuestionOptions).find(function (input) { return input.name === question.type; })) === null || _c === void 0 ? void 0 : _c.component), !displayOutput && (_jsxs("div", __assign({ className: classes.questionSection }, { children: [_jsxs("div", __assign({ className: classes.questionContainer }, { children: [_jsxs(Button, __assign({ onClick: handleAnswer, variant: "outlined", color: "primary", className: classes.questionButton }, { children: [_jsx(QuestionAnswer, { className: classes.questionIcon }, void 0), "Answer Key"] }), void 0), _jsxs("div", __assign({ className: classes.questionPoint }, { children: ["(", question.point, " points)"] }), void 0)] }), void 0), _jsxs("div", __assign({ className: classes.questionOptionContiner }, { children: [_jsx(RiDeleteBin6Line, { className: classes.questionOptionIcon, onClick: handleDelete }, void 0), _jsxs("div", __assign({ className: classes.questionRequired }, { children: [_jsx("p", __assign({ className: classes.questionText }, { children: "Required" }), void 0), _jsx(ToggleInput, { name: required.name, value: required.value, onChange: setRequired }, void 0)] }), void 0), _jsx(MdOutlineContentCopy, { className: classes.questionOptionIcon, onClick: handleDuplicate }, void 0), _jsx(BsThreeDotsVertical, { className: classes.questionOptionIcon }, void 0)] }), void 0)] }), void 0)), displayOutput && (_jsx(Output, { question: question, setAnswers: handleSetAnswers, setPoint: handleSetPoint, resetDisplay: function () { return setDisplayOutput(false); } }, void 0))] }), void 0));
 };
