@@ -16,7 +16,7 @@ export const EditableTextInput: FC<EditableTextInputProps> = ({
         editable?: boolean;
         html?: string;
     }>({
-        html: !html ? placeholder : html,
+        html: !html && html === "" ? placeholder : html,
         editable: true,
     });
     const [collapse, setCollapse] = useState(false);

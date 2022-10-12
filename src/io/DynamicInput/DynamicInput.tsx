@@ -20,7 +20,7 @@ const selectProps = {
     required: true,
 };
 
-export const DynamicInput: FC<DynamicInputProps> = () => {
+export const DynamicInput: FC<DynamicInputProps> = ({ handleSetQuestion }) => {
     const classes = useDynamicInputStyles();
     const inputComponents = useInputComponents();
     const [questionOptions, setQuestionOptions] = useState<string[]>([""]);
@@ -33,7 +33,7 @@ export const DynamicInput: FC<DynamicInputProps> = () => {
         value: true,
     });
     const [question, setQuestion] = useState<QuestionProps>({
-        text: "Address",
+        text: "",
         type: "dropdown",
         options: questionOptions,
         required: true,
@@ -52,6 +52,10 @@ export const DynamicInput: FC<DynamicInputProps> = () => {
             return { ...question, required: required.value };
         });
     }, [required]);
+
+    useEffect(() => {
+        handleSetQuestion?.(question);
+    }, [question]);
 
     const handleChange = (event: { name: string; value: string }) => {
         setQuestion((question) => ({ ...question, type: event.value }));
@@ -78,7 +82,11 @@ export const DynamicInput: FC<DynamicInputProps> = () => {
             {!displayOutput && (
                 <div className={classes.inputControlsContainer}>
                     <div className={classes.editableTextInput}>
-                        <EditableTextInput placeholder="Question" setHtml={handleSetTitle} />
+                        <EditableTextInput
+                            html={question.text as string}
+                            placeholder="Question"
+                            setHtml={handleSetTitle}
+                        />
                     </div>
                     <SelectInput
                         {...selectProps}

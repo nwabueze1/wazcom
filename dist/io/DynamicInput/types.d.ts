@@ -9,6 +9,7 @@ export declare type DynamicInputProps = CommonProps & Omit<MuiSelectProps, "onCh
         subText?: string;
         icon?: React.FC<any>;
     }[];
+    handleSetQuestion: (question: QuestionProps) => void;
 };
 export declare type InputComponentProps = {
     name: string;

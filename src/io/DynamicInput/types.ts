@@ -11,6 +11,7 @@ export type DynamicInputProps = CommonProps &
             subText?: string;
             icon?: React.FC<any>;
         }[];
+        handleSetQuestion: (question: QuestionProps) => void;
     };
 
 export type InputComponentProps = {

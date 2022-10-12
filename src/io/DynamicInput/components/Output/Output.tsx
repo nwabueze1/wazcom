@@ -36,7 +36,9 @@ export const Output: FC<OutputProps> = ({ question, setAnswers, setPoint, resetD
                 <div className={classes.outputQuestionContainer}>
                     <p>
                         <span dangerouslySetInnerHTML={{ __html: question.text as string }}></span>
-                        {question.text !== "" && <span className={classes.outputRequired}>*</span>}
+                        {question.text !== "" && question.required && (
+                            <span className={classes.outputRequired}>*</span>
+                        )}
                     </p>
                     <div className={classes.outputPoints}>
                         <TextInput

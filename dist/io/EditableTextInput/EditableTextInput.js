@@ -36,7 +36,7 @@ export var EditableTextInput = function (_a) {
     var _b;
     var html = _a.html, setHtml = _a.setHtml, placeholder = _a.placeholder, heading = _a.heading;
     var _c = __read(useState({
-        html: !html ? placeholder : html,
+        html: !html && html === "" ? placeholder : html,
         editable: true,
     }), 2), fieldState = _c[0], setFieldState = _c[1];
     var _d = __read(useState(false), 2), collapse = _d[0], setCollapse = _d[1];
