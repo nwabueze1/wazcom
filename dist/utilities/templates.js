@@ -14,7 +14,7 @@ import { AiOutlinePicture } from "react-icons/ai";
 export var renderNavItem = function (_a, mode, index, classes, handleClick) {
     var url = _a.url, text = _a.text;
     return (url === null || url === void 0 ? void 0 : url.startsWith("/")) || mode === "edit" ? (_jsx("p", __assign({ className: classes.link, onClick: function () {
-            handleClick === null || handleClick === void 0 ? void 0 : handleClick(mode === "edit" ? String(index) : url);
+            handleClick === null || handleClick === void 0 ? void 0 : handleClick(mode === "edit" ? 'nav_links.' + String(index) : url);
         } }, { children: text }), index)) : (_jsx("a", __assign({ className: classes.link, target: "_blank", rel: "noopener noreferrer", href: url }, { children: text }), index));
 };
 var hivedeckLogo = "https://sytbuildr.s3.eu-west-2.amazonaws.com/images/logo/hivedeck_logo.svg";

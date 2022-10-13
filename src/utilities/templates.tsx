@@ -13,7 +13,7 @@ export const renderNavItem = (
             key={index}
             className={classes.link}
             onClick={() => {
-                handleClick?.(mode === "edit" ? String(index) : url);
+                handleClick?.(mode === "edit" ? 'nav_links.' + String(index) : url);
             }}
         >
             {text}
