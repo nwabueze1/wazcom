@@ -68,6 +68,9 @@ export var DynamicInput = function (_a) {
         if (!active) {
             setDisplayOutput(true);
         }
+        else {
+            setDisplayOutput(false);
+        }
     }, [active]);
     useEffect(function () {
         setQuestion(function (question) {

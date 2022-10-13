@@ -56,6 +56,8 @@ export const DynamicInput: FC<DynamicInputProps> = ({
     useEffect(() => {
         if (!active) {
             setDisplayOutput(true);
+        } else {
+            setDisplayOutput(false);
         }
     }, [active]);
 

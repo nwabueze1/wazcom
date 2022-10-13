@@ -47,7 +47,7 @@ export const EditableTextInput: FC<EditableTextInputProps> = ({
                 onChange={handleChange}
                 onFocus={handleFocus}
                 onBlur={handleBlur}
-                style={heading ? { fontSize: 30, fontweight: 600, maxHeight: 60 } : {}}
+                style={heading ? { fontSize: 30, fontweight: 600, height: 60 } : {}}
             />
             <Collapse in={collapse}>
                 <div className={classes.editTagContainer}>
