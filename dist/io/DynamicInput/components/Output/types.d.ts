@@ -4,4 +4,5 @@ export declare type OutputProps = {
     setAnswers: (answers: Any[]) => void;
     setPoint: (point: number) => void;
     resetDisplay: () => void;
+    active: boolean;
 };

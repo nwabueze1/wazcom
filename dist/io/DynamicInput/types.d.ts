@@ -14,6 +14,8 @@ export declare type DynamicInputProps = CommonProps & Omit<MuiSelectProps, "onCh
     handleDuplicate: () => void;
     defaultQuestion?: QuestionProps;
     handleOpenLibrary: () => void;
+    handleDeleteMediaQuestion: () => void;
+    active: boolean;
 };
 export declare type InputComponentProps = {
     name: string;

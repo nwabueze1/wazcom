@@ -328,6 +328,7 @@ export const stories: ComponentPropType[] = [
             error: true,
             required: true,
             feedback: { text: "Tariq is a weirdo", status: "error" },
+            active: true,
             defaultQuestion: {
                 text: "",
                 type: "dropdown",

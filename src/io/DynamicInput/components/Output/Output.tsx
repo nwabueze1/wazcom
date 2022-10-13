@@ -6,7 +6,13 @@ import { Button } from "@mui/material";
 import { OutputProps } from "./types";
 import { InputDisplay } from "./InputDisplay/InputDisplay";
 
-export const Output: FC<OutputProps> = ({ question, setAnswers, setPoint, resetDisplay }) => {
+export const Output: FC<OutputProps> = ({
+    question,
+    setAnswers,
+    setPoint,
+    resetDisplay,
+    active,
+}) => {
     const classes = useOutputStyles();
 
     const displayInput = () => {
@@ -28,10 +34,12 @@ export const Output: FC<OutputProps> = ({ question, setAnswers, setPoint, resetD
 
     return (
         <div className={classes.root}>
-            <div className={classes.title}>
-                <BsClipboardCheck className={classes.outputIcon} />
-                Choose Correct Answers
-            </div>
+            {active && (
+                <div className={classes.title}>
+                    <BsClipboardCheck className={classes.outputIcon} />
+                    Choose Correct Answers
+                </div>
+            )}
             <div className={classes.outputOverAllContainer}>
                 <div className={classes.outputQuestionContainer}>
                     <p>
@@ -40,20 +48,22 @@ export const Output: FC<OutputProps> = ({ question, setAnswers, setPoint, resetD
                             <span className={classes.outputRequired}>*</span>
                         )}
                     </p>
-                    <div className={classes.outputPoints}>
-                        <TextInput
-                            type={"number"}
-                            classNames={{
-                                textInput: classes.outputTextInput,
-                                newRoot: classes.outputNumberInput,
-                            }}
-                            value={question.point}
-                            id="standard-basic"
-                            variant="standard"
-                            onChange={(event) => setPoint(parseFloat(event.value))}
-                        />
-                        <p>points</p>
-                    </div>
+                    {active && (
+                        <div className={classes.outputPoints}>
+                            <TextInput
+                                type={"number"}
+                                classNames={{
+                                    textInput: classes.outputTextInput,
+                                    newRoot: classes.outputNumberInput,
+                                }}
+                                value={question.point}
+                                id="standard-basic"
+                                variant="standard"
+                                onChange={(event) => setPoint(parseFloat(event.value))}
+                            />
+                            <p>points</p>
+                        </div>
+                    )}
                 </div>
                 {question?.supportImage && (
                     <img
@@ -62,11 +72,13 @@ export const Output: FC<OutputProps> = ({ question, setAnswers, setPoint, resetD
                     />
                 )}
                 <div className={classes.outputAnswer}>{displayInput()}</div>
-                <div className={classes.outputDone}>
-                    <Button variant="outlined" onClick={resetDisplay}>
-                        Done
-                    </Button>
-                </div>
+                {active && (
+                    <div className={classes.outputDone}>
+                        <Button variant="outlined" onClick={resetDisplay}>
+                            Done
+                        </Button>
+                    </div>
+                )}
             </div>
         </div>
     );

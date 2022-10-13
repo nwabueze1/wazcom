@@ -16,6 +16,8 @@ export type DynamicInputProps = CommonProps &
         handleDuplicate: () => void;
         defaultQuestion?: QuestionProps;
         handleOpenLibrary: () => void;
+        handleDeleteMediaQuestion: () => void;
+        active: boolean;
     };
 
 export type InputComponentProps = {

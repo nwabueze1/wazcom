@@ -26,6 +26,8 @@ export const DynamicInput: FC<DynamicInputProps> = ({
     handleDuplicate,
     defaultQuestion,
     handleOpenLibrary,
+    handleDeleteMediaQuestion,
+    active,
 }) => {
     const classes = useDynamicInputStyles();
     const inputComponents = useInputComponents();
@@ -50,6 +52,12 @@ export const DynamicInput: FC<DynamicInputProps> = ({
             point: 0,
         },
     );
+
+    useEffect(() => {
+        if (!active) {
+            setDisplayOutput(true);
+        }
+    }, [active]);
 
     useEffect(() => {
         setQuestion((question) => {
@@ -104,6 +112,14 @@ export const DynamicInput: FC<DynamicInputProps> = ({
                             <BsFillImageFill />
                         </div>
                     )}
+                    {defaultQuestion?.supportImage && (
+                        <div
+                            className={classes.questionMediaIcon}
+                            onClick={handleDeleteMediaQuestion}
+                        >
+                            <RiDeleteBin6Line />
+                        </div>
+                    )}
                     {defaultQuestion?.type !== "media" && (
                         <SelectInput
                             {...selectProps}
@@ -113,7 +129,7 @@ export const DynamicInput: FC<DynamicInputProps> = ({
                     )}
                 </div>
             )}
-            {defaultQuestion?.supportImage && (
+            {!displayOutput && defaultQuestion?.supportImage && active && (
                 <img
                     src={defaultQuestion?.supportImage.value.url}
                     className={classes.questionSupportImage}
@@ -168,6 +184,7 @@ export const DynamicInput: FC<DynamicInputProps> = ({
                     setAnswers={handleSetAnswers}
                     setPoint={handleSetPoint}
                     resetDisplay={() => setDisplayOutput(false)}
+                    active={active}
                 />
             )}
         </div>
