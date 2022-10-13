@@ -68,4 +68,9 @@ export const useOutputStyles = makeStyles((theme: Theme) => ({
     outputAnswer: {
         paddingBottom: theme.spacing(1),
     },
+    outputSupportImage: {
+        width: "50%",
+        height: 300,
+        padding: theme.spacing(3, 0),
+    },
 }));

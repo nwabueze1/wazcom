@@ -81,4 +81,23 @@ export const useDynamicInputStyles = makeStyles((theme: Theme) => ({
     questionText: {
         marginTop: theme.spacing(1),
     },
+    questionImage: {
+        width: "100%",
+        height: "100%",
+        padding: theme.spacing(3, 0),
+    },
+    questionMediaIcon: {
+        fontSize: theme.typography.fontSize + 10,
+        cursor: "pointer",
+        width: "5%",
+        height: 40,
+        display: "flex",
+        justifyContent: "center",
+        alignItems: "center",
+    },
+    questionSupportImage: {
+        width: "50%",
+        height: 300,
+        padding: theme.spacing(3, 0),
+    },
 }));

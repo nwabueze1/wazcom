@@ -8,7 +8,7 @@ import { defaultInputs as options } from "./data";
 import { useInputComponents } from "./helper";
 import { Button } from "@mui/material";
 import { QuestionAnswer } from "@mui/icons-material";
-import { BsThreeDotsVertical } from "react-icons/bs";
+import { BsFillImageFill, BsThreeDotsVertical } from "react-icons/bs";
 import { MdOutlineContentCopy } from "react-icons/md";
 import { RiDeleteBin6Line } from "react-icons/ri";
 import { ToggleInput } from "../ToggleInput/ToggleInput";
@@ -25,6 +25,7 @@ export const DynamicInput: FC<DynamicInputProps> = ({
     handleDelete,
     handleDuplicate,
     defaultQuestion,
+    handleOpenLibrary,
 }) => {
     const classes = useDynamicInputStyles();
     const inputComponents = useInputComponents();
@@ -98,18 +99,35 @@ export const DynamicInput: FC<DynamicInputProps> = ({
                             setHtml={handleSetTitle}
                         />
                     </div>
-                    <SelectInput
-                        {...selectProps}
-                        onChange={handleChange}
-                        className={classes.selectInputContainer}
-                    />
+                    {defaultQuestion?.type !== "media" && (
+                        <div className={classes.questionMediaIcon} onClick={handleOpenLibrary}>
+                            <BsFillImageFill />
+                        </div>
+                    )}
+                    {defaultQuestion?.type !== "media" && (
+                        <SelectInput
+                            {...selectProps}
+                            onChange={handleChange}
+                            className={classes.selectInputContainer}
+                        />
+                    )}
                 </div>
             )}
+            {defaultQuestion?.supportImage && (
+                <img
+                    src={defaultQuestion?.supportImage.value.url}
+                    className={classes.questionSupportImage}
+                />
+            )}
+            {defaultQuestion?.type === "media" && defaultQuestion.media && (
+                <img src={defaultQuestion?.media.value.url} className={classes.questionImage} />
+            )}
             {!displayOutput &&
+                defaultQuestion?.type !== "media" &&
                 inputComponents(questionOptions, setQuestionOptions).find(
                     (input) => input.name === question.type,
                 )?.component}
-            {!displayOutput && (
+            {!displayOutput && defaultQuestion?.type !== "media" && (
                 <div className={classes.questionSection}>
                     <div className={classes.questionContainer}>
                         <Button
@@ -144,7 +162,7 @@ export const DynamicInput: FC<DynamicInputProps> = ({
                     </div>
                 </div>
             )}
-            {displayOutput && (
+            {displayOutput && defaultQuestion?.type !== "media" && (
                 <Output
                     question={question}
                     setAnswers={handleSetAnswers}

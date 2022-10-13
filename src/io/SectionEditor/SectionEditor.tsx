@@ -26,9 +26,11 @@ export const SectionEditor: FC<SectionEditorProps> = ({
     const handleSetTitle = (title: string | JSX.Element) => {
         setSection((section) => ({ ...section, title }));
     };
+    
     const handleSetDescription = (description: string | JSX.Element) => {
         setSection((section) => ({ ...section, description }));
     };
+
     return (
         <div className={clx(classes.root, className)}>
             <div className={classes.sectionTitle}>

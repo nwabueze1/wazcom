@@ -15,6 +15,7 @@ export type DynamicInputProps = CommonProps &
         handleDelete: () => void;
         handleDuplicate: () => void;
         defaultQuestion?: QuestionProps;
+        handleOpenLibrary: () => void;
     };
 
 export type InputComponentProps = {
@@ -27,8 +28,10 @@ export type Any = string | number | boolean;
 export type QuestionProps = {
     text: string | JSX.Element;
     type: string;
+    supportImage?: { name: string; value: any } | null;
     options: string[];
     required: boolean;
     answers: Any[];
     point: number;
+    media?: { name: string; value: any };
 };

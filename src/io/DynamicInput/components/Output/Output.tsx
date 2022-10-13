@@ -55,6 +55,12 @@ export const Output: FC<OutputProps> = ({ question, setAnswers, setPoint, resetD
                         <p>points</p>
                     </div>
                 </div>
+                {question?.supportImage && (
+                    <img
+                        src={question?.supportImage.value.url}
+                        className={classes.outputSupportImage}
+                    />
+                )}
                 <div className={classes.outputAnswer}>{displayInput()}</div>
                 <div className={classes.outputDone}>
                     <Button variant="outlined" onClick={resetDisplay}>
