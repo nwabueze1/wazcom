@@ -6,14 +6,14 @@ export const renderNavItem = (
     mode: "view" | "edit",
     index: number,
     classes: any,
-    handleLinkClick?: (route: string) => void,
+    handleClick?: (route: string) => void,
 ) =>
     url?.startsWith("/") || mode === "edit" ? (
         <p
             key={index}
             className={classes.link}
             onClick={() => {
-                handleLinkClick?.(mode === "edit" ? String(index) : url);
+                handleClick?.(mode === "edit" ? String(index) : url);
             }}
         >
             {text}
@@ -35,11 +35,11 @@ const hivedeckLogo = "https://sytbuildr.s3.eu-west-2.amazonaws.com/images/logo/h
 export const renderNavLogo = (
     mode: "view" | "edit",
     classes: any,
-    handleLinkClick?: (route: string) => void,
+    handleClick?: (route: string) => void,
     logo?: { src: string; url: string },
 ) => {
     return (
-        <LogoWrapper url={logo?.url ?? ""} handleLinkClick={handleLinkClick}>
+        <LogoWrapper url={logo?.url ?? ""} handleClick={handleClick}>
             {mode === "view" ? (
                 <img
                     src={logo?.src ?? hivedeckLogo}
@@ -56,15 +56,15 @@ export const renderNavLogo = (
 
 type LogoWrapperProps = {
     url: string;
-    handleLinkClick?: (route: string) => void;
+    handleClick?: (route: string) => void;
 };
 
-const LogoWrapper: FC<LogoWrapperProps> = ({ url, children, handleLinkClick }) => {
+const LogoWrapper: FC<LogoWrapperProps> = ({ url, children, handleClick }) => {
     if (url === "" || url.startsWith("/")) {
         return (
             <div
                 onClick={() => {
-                    handleLinkClick?.(url);
+                    handleClick?.(url);
                 }}
                 style={{ cursor: "pointer" }}
             >

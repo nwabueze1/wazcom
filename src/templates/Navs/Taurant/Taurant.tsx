@@ -4,13 +4,11 @@ import { Paper } from "@mui/material";
 import { NavProps } from "../types";
 import { renderNavItem, renderNavLogo } from "../../../utilities";
 
-export const Taurant: FC<NavProps> = ({ mode = "view", links, socials, handleLinkClick, logo }) => {
+export const Taurant: FC<NavProps> = ({ mode = "view", links, socials, handleClick, logo }) => {
     const classes = useTaurantStyles();
 
     const displayLinks = () => {
-        return links.map((link, index) =>
-            renderNavItem(link, mode, index, classes, handleLinkClick),
-        );
+        return links.map((link, index) => renderNavItem(link, mode, index, classes, handleClick));
     };
 
     const displaySocials = () => {
@@ -28,7 +26,12 @@ export const Taurant: FC<NavProps> = ({ mode = "view", links, socials, handleLin
     };
 
     return (
-        <div className={classes.root}>
+        <div
+            className={classes.root}
+            onClick={() => {
+                mode === "edit" && handleClick?.("nav");
+            }}
+        >
             <head>
                 <link
                     href="https://fonts.googleapis.com/css2?family=Bitter:wght@500&family=Inter:wght@400;600&family=Merriweather&display=swap"
@@ -36,7 +39,7 @@ export const Taurant: FC<NavProps> = ({ mode = "view", links, socials, handleLin
                 />
             </head>
             <Paper classes={{ root: classes.paper }} className={classes.root} elevation={3}>
-                {renderNavLogo(mode, classes, handleLinkClick, logo)}
+                {renderNavLogo(mode, classes, handleClick, logo)}
                 <div className={classes.content}>
                     <div className={classes.linksContainer}>{displayLinks()}</div>
                     <div className={classes.socialsContainer}>{displaySocials()}</div>
