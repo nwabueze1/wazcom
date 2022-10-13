@@ -12,7 +12,8 @@ export const renderNavItem = (
         <p
             key={index}
             className={classes.link}
-            onClick={() => {
+            onClick={(e) => {
+                e.stopPropagation();
                 handleClick?.(mode === "edit" ? 'nav_links.' + String(index) : url);
             }}
         >

@@ -19,7 +19,13 @@ const navProps = {
         { text: "Categories", url: "http://www.leke.com" },
         { text: "About", url: "/" },
     ],
-    logo: { src: "https://res.cloudinary.com/olamileke/image/upload/v1663418501/backmeup/assets/logos/logo_transparent_ligpzi.png", url: "https://www.facebook.com" }
+    logo: {
+        src: "https://res.cloudinary.com/olamileke/image/upload/v1663418501/backmeup/assets/logos/logo_transparent_ligpzi.png",
+        url: "https://www.facebook.com",
+    },
+    handleClick: (route: string) => {
+        alert(route);
+    },
 };
 
 const App: React.FC<Props> = () => {
@@ -32,7 +38,7 @@ const App: React.FC<Props> = () => {
                             <Browser />
                         </Route>
                         <Route exact path="/nour">
-                            <Nour {...navProps} />
+                            <Nour {...navProps} mode="edit" />
                         </Route>
                         <Route exact path="/asta">
                             <Asta />

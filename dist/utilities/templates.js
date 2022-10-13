@@ -13,7 +13,8 @@ import { jsx as _jsx } from "react/jsx-runtime";
 import { AiOutlinePicture } from "react-icons/ai";
 export var renderNavItem = function (_a, mode, index, classes, handleClick) {
     var url = _a.url, text = _a.text;
-    return (url === null || url === void 0 ? void 0 : url.startsWith("/")) || mode === "edit" ? (_jsx("p", __assign({ className: classes.link, onClick: function () {
+    return (url === null || url === void 0 ? void 0 : url.startsWith("/")) || mode === "edit" ? (_jsx("p", __assign({ className: classes.link, onClick: function (e) {
+            e.stopPropagation();
             handleClick === null || handleClick === void 0 ? void 0 : handleClick(mode === "edit" ? 'nav_links.' + String(index) : url);
         } }, { children: text }), index)) : (_jsx("a", __assign({ className: classes.link, target: "_blank", rel: "noopener noreferrer", href: url }, { children: text }), index));
 };
