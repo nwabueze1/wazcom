@@ -19,6 +19,7 @@ const navProps = {
         { text: "Categories", url: "http://www.leke.com" },
         { text: "About", url: "/" },
     ],
+    logo: { src: "https://res.cloudinary.com/olamileke/image/upload/v1663418501/backmeup/assets/logos/logo_transparent_ligpzi.png", url: "https://www.facebook.com" }
 };
 
 const App: React.FC<Props> = () => {

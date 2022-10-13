@@ -1,39 +1,16 @@
 import { FC } from "react";
 import { useNourStyles } from "./styles";
 import { Paper } from "@mui/material";
-import { AiOutlinePicture } from "react-icons/ai";
 import { NavProps } from "../types";
+import { renderNavItem, renderNavLogo } from "../../../utilities";
 
 export const Nour: FC<NavProps> = ({ mode = "view", handleLinkClick, links, socials, logo }) => {
     const classes = useNourStyles();
 
-    const hivedeckLogo =
-        "https://sytbuildr.s3.eu-west-2.amazonaws.com/images/logo/hivedeck_logo.svg";
-
     const displayLinks = () => {
-        return links.map(({ text, url }, index) => {
-            return url?.startsWith("/") || mode === "edit" ? (
-                <p
-                    key={index}
-                    className={classes.link}
-                    onClick={() => {
-                        handleLinkClick?.(mode === "edit" ? String(index) : url);
-                    }}
-                >
-                    {text}
-                </p>
-            ) : (
-                <a
-                    className={classes.link}
-                    key={index}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    href={url}
-                >
-                    {text}
-                </a>
-            );
-        });
+        return links.map((link, index) =>
+            renderNavItem(link, mode, index, classes, handleLinkClick),
+        );
     };
 
     const displaySocials = () => {
@@ -59,16 +36,7 @@ export const Nour: FC<NavProps> = ({ mode = "view", handleLinkClick, links, soci
                 />
             </head>
             <Paper classes={{ root: classes.paper }} className={classes.root} elevation={3}>
-                {mode === "view" ? (
-                    <img
-                        src={logo ?? hivedeckLogo}
-                        className={logo ? classes.logo : classes.hivedeckLogo}
-                    />
-                ) : logo ? (
-                    <img src={logo} className={classes.logo} />
-                ) : (
-                    <AiOutlinePicture className={classes.logo} />
-                )}
+                {renderNavLogo(mode, classes, handleLinkClick, logo)}
                 <div className={classes.linksContainer}>{displayLinks()}</div>
                 <div className={classes.socialsContainer}>{displaySocials()}</div>
             </Paper>
