@@ -65,6 +65,10 @@ export var DynamicInput = function (_a) {
         point: 0,
     }), 2), question = _g[0], setQuestion = _g[1];
     useEffect(function () {
+        if (defaultQuestion)
+            setQuestion(defaultQuestion);
+    }, [defaultQuestion]);
+    useEffect(function () {
         if (!active) {
             setDisplayOutput(true);
         }
