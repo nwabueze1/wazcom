@@ -54,10 +54,6 @@ export const DynamicInput: FC<DynamicInputProps> = ({
     );
 
     useEffect(() => {
-        if (defaultQuestion) setQuestion(defaultQuestion);
-    }, [defaultQuestion]);
-
-    useEffect(() => {
         if (!active) {
             setDisplayOutput(true);
         } else {
