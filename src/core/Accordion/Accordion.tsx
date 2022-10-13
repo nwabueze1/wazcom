@@ -27,6 +27,9 @@ export const Accordion: FC<AccordionProps> = ({
         <MuiAccordion
             square={square}
             className={clx(classes.root, className)}
+            classes={
+                classNames?.classes ? (classNames.classes as { [key: string]: string }) : {}
+            }
             defaultExpanded={defaultExpanded}
             onClick={() => {
                 handleClick?.();
