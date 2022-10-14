@@ -332,20 +332,6 @@ export const stories: ComponentPropType[] = [
             defaultQuestion: {
                 text: "",
                 type: "dropdown",
-                // supportImage: {
-                //     name: "",
-                //     value: {
-                //         alternative_text: "Screenshot 2022-07-25 at 14.33.36 (2).png",
-                //         caption: "",
-                //         created_at: "2022-10-13 09:33:44",
-                //         id: "22",
-                //         title: "Screenshot 2022-07-25 at 14.33.36 (2).png",
-                //         updated_at: "2022-10-13 09:33:44",
-                //         url: "https://sytbuildr.s3.eu-west-2.amazonaws.com/1a8ac99f-0e27-4784-8451-07c73953820d/G50PWn0yPElJjkYuSSbRxEKG0W522iYPJ9iq9VL1.png",
-                //         uuid: "fe3fc661-96af-49cf-b8a7-390a673cc4e0",
-                //         __typename: "Image",
-                //     },
-                // },
                 options: [
                     {
                         text: "edo",
@@ -368,20 +354,6 @@ export const stories: ComponentPropType[] = [
                 required: true,
                 answers: [0],
                 point: 0,
-                // media: {
-                //     name: "",
-                //     value: {
-                //         alternative_text: "Screenshot 2022-07-25 at 14.33.36 (2).png",
-                //         caption: "",
-                //         created_at: "2022-10-13 09:33:44",
-                //         id: "22",
-                //         title: "Screenshot 2022-07-25 at 14.33.36 (2).png",
-                //         updated_at: "2022-10-13 09:33:44",
-                //         url: "https://sytbuildr.s3.eu-west-2.amazonaws.com/1a8ac99f-0e27-4784-8451-07c73953820d/G50PWn0yPElJjkYuSSbRxEKG0W522iYPJ9iq9VL1.png",
-                //         uuid: "fe3fc661-96af-49cf-b8a7-390a673cc4e0",
-                //         __typename: "Image",
-                //     },
-                // },
             },
         },
     },
