@@ -1,8 +1,11 @@
+import { QuestionOption } from "../../../../types";
+
 export type DisplayInputProps = {
     handleRemove: () => void;
-    handleChange: (value: string) => void;
+    handleChange: (value: QuestionOption) => void;
     onFocus: () => void;
+    handleOptionMedia: () => void;
     index: number;
-    value: string;
+    value: QuestionOption;
     type: string;
 };

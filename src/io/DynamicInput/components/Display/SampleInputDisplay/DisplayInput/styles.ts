@@ -36,4 +36,27 @@ export const useDisplayInputStyles = makeStyles((theme: Theme) => ({
             borderColor: theme.design.colors.waz_primaryColor100,
         },
     },
+    mediaIcon: {
+        paddingRight: theme.spacing(1),
+    },
+    mediaContainer: {
+        marginLeft: theme.spacing(1),
+        position: "relative",
+        width: 200,
+        height: 100,
+    },
+    media: {
+        marginLeft: theme.spacing(1),
+        position: "relative",
+        width: 200,
+        height: 100,
+    },
+    mediaCancelIcon: {
+        fontSize: 20,
+        position: "absolute",
+        top: theme.spacing(-1),
+        right: theme.spacing(-1.5),
+        zIndex: 10,
+        cursor: "pointer",
+    },
 }));

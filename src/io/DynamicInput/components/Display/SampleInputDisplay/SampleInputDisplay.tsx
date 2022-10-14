@@ -1,6 +1,9 @@
 import { FC, useEffect, useState } from "react";
 import { SampleInputDisplayProps } from "./types";
 import { DisplayInput } from "./DisplayInput/DisplayInput";
+import { QuestionOption } from "../../../types";
+import { useDisplayInputStyles } from "./DisplayInput/styles";
+import { MdOutlineCancel } from "react-icons/md";
 
 export const SampleInputDisplay: FC<SampleInputDisplayProps> = ({
     defaultCount,
@@ -8,43 +11,62 @@ export const SampleInputDisplay: FC<SampleInputDisplayProps> = ({
     value,
     type,
     questionOptions,
+    handleOptionMedia,
+    handleRemoveOptionMedia,
 }) => {
+    const classes = useDisplayInputStyles();
     const [count, setCount] = useState(defaultCount);
     const [jsx, setJSX] = useState<JSX.Element[] | null>();
 
     useEffect(() => {
-        if (questionOptions[0] === "") {
-            setQuestionOptions?.([...Array(defaultCount)].map((_, idx) => `${value} ${idx + 1}`));
+        if (questionOptions[0].text === "") {
+            setQuestionOptions?.(
+                [...Array(defaultCount)].map((_, idx) => ({ ..._, text: `${value} ${idx + 1}` })),
+            );
         }
     }, []);
 
     useEffect(() => {
-        if (questionOptions[0] === "") {
+        if (questionOptions[0].text === "") {
             setJSX(
                 [...Array(count)].map((_, idx) => (
-                    <DisplayInput
-                        handleRemove={() => handleRemove(idx)}
-                        onFocus={() => handleFocus(idx)}
-                        index={idx}
-                        key={idx}
-                        value={questionOptions[idx]}
-                        handleChange={(value: string) => handleChange(value, idx)}
-                        type={type}
-                    />
+                    <div key={idx}>
+                        <DisplayInput
+                            handleRemove={() => handleRemove(idx)}
+                            onFocus={() => handleFocus(idx)}
+                            handleOptionMedia={() => handleOptionMedia(idx)}
+                            index={idx}
+                            key={idx}
+                            value={questionOptions[idx]}
+                            handleChange={(value: QuestionOption) => handleChange(value, idx)}
+                            type={type}
+                        />
+                    </div>
                 )),
             );
         } else {
             setJSX(
                 questionOptions.map((option, idx) => (
-                    <DisplayInput
-                        handleRemove={() => handleRemove(idx)}
-                        onFocus={() => handleFocus(idx)}
-                        index={idx}
-                        key={idx}
-                        value={option}
-                        handleChange={(value: string) => handleChange(value, idx)}
-                        type={type}
-                    />
+                    <div key={idx}>
+                        <DisplayInput
+                            handleRemove={() => handleRemove(idx)}
+                            onFocus={() => handleFocus(idx)}
+                            handleOptionMedia={() => handleOptionMedia(idx)}
+                            index={idx}
+                            value={option}
+                            handleChange={(value: QuestionOption) => handleChange(value, idx)}
+                            type={type}
+                        />
+                        {option.media && (
+                            <div className={classes.mediaContainer}>
+                                <MdOutlineCancel
+                                    className={classes.mediaCancelIcon}
+                                    onClick={() => handleRemoveOptionMedia(idx)}
+                                />
+                                <img src={option.media.value.url} className={classes.media} />
+                            </div>
+                        )}
+                    </div>
                 )),
             );
         }
@@ -53,11 +75,11 @@ export const SampleInputDisplay: FC<SampleInputDisplayProps> = ({
     const handleFocus = (idx: number) => {
         if (idx === questionOptions.length - 1) {
             setCount((count) => count + 1);
-            setQuestionOptions?.((inputValue) => [...inputValue, `${value} ${idx + 2}`]);
+            setQuestionOptions?.((inputValue) => [...inputValue, { text: `${value} ${idx + 2}` }]);
         }
     };
 
-    const handleChange = (value: string, idx: number) => {
+    const handleChange = (value: QuestionOption, idx: number) => {
         setQuestionOptions?.((questionOptions) => {
             questionOptions.splice(idx, 1, value);
             return questionOptions;

@@ -1,6 +1,6 @@
 import { FC, useState, useEffect } from "react";
 import { useDynamicInputStyles } from "./styles";
-import { Any, DynamicInputProps, QuestionProps } from "./types";
+import { Any, DynamicInputProps, QuestionOption, QuestionProps } from "./types";
 import clx from "classnames";
 import { EditableTextInput } from "../../io/EditableTextInput";
 import { SelectInput } from "../../io/SelectInput";
@@ -27,12 +27,14 @@ export const DynamicInput: FC<DynamicInputProps> = ({
     defaultQuestion,
     handleOpenLibrary,
     handleDeleteMediaQuestion,
+    handleOptionMedia,
+    handleRemoveOptionMedia,
     active,
 }) => {
     const classes = useDynamicInputStyles();
     const inputComponents = useInputComponents();
-    const [questionOptions, setQuestionOptions] = useState<string[]>(
-        defaultQuestion?.options ?? [""],
+    const [questionOptions, setQuestionOptions] = useState<QuestionOption[]>(
+        defaultQuestion?.options ?? [{ text: "" }],
     );
     const [displayOutput, setDisplayOutput] = useState(false);
     const [required, setRequired] = useState<{
@@ -142,9 +144,12 @@ export const DynamicInput: FC<DynamicInputProps> = ({
             )}
             {!displayOutput &&
                 defaultQuestion?.type !== "media" &&
-                inputComponents(questionOptions, setQuestionOptions).find(
-                    (input) => input.name === question.type,
-                )?.component}
+                inputComponents(
+                    questionOptions,
+                    setQuestionOptions,
+                    handleOptionMedia,
+                    handleRemoveOptionMedia,
+                ).find((input) => input.name === question.type)?.component}
             {!displayOutput && defaultQuestion?.type !== "media" && (
                 <div className={classes.questionSection}>
                     <div className={classes.questionContainer}>

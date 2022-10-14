@@ -15,6 +15,8 @@ export declare type DynamicInputProps = CommonProps & Omit<MuiSelectProps, "onCh
     defaultQuestion?: QuestionProps;
     handleOpenLibrary: () => void;
     handleDeleteMediaQuestion: () => void;
+    handleOptionMedia: (id: number) => void;
+    handleRemoveOptionMedia: (id: number) => void;
     active: boolean;
 };
 export declare type InputComponentProps = {
@@ -22,19 +24,21 @@ export declare type InputComponentProps = {
     component: JSX.Element;
 };
 export declare type Any = string | number | boolean;
+export declare type MediaProps = {
+    name: string;
+    value: any;
+};
+export declare type QuestionOption = {
+    text: string;
+    media?: MediaProps | null;
+};
 export declare type QuestionProps = {
     text: string | JSX.Element;
     type: string;
-    supportImage?: {
-        name: string;
-        value: any;
-    } | null;
-    options: string[];
+    supportImage?: MediaProps | null;
+    options: QuestionOption[];
     required: boolean;
     answers: Any[];
     point: number;
-    media?: {
-        name: string;
-        value: any;
-    };
+    media?: MediaProps;
 };

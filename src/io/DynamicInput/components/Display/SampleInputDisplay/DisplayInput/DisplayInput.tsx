@@ -7,25 +7,29 @@ import { FC, useEffect, useState } from "react";
 import { useDisplayInputStyles } from "./styles";
 import { DisplayInputProps } from "./types";
 import { TextInput } from "../../../../../TextInput/TextInput";
+import { FiImage } from "react-icons/fi";
+import clx from "classnames";
+import { QuestionOption } from "../../../../types";
 
 export const DisplayInput: FC<DisplayInputProps> = ({
     handleRemove,
     handleChange,
+    handleOptionMedia,
     value: inputValue,
     index,
     onFocus,
     type,
 }) => {
     const classes = useDisplayInputStyles();
-    const [value, setValue] = useState(inputValue);
+    const [value, setValue] = useState<QuestionOption>(inputValue);
 
     useEffect(() => {
         setValue(inputValue);
     }, [inputValue]);
 
     const handleInputChange = (event: { name: string; value: any }) => {
-        setValue(event.value);
-        handleChange(event.value);
+        setValue((value) => ({ ...value, text: event.value }));
+        handleChange({ ...value, text: event.value });
     };
 
     const displayLabel = () => {
@@ -49,11 +53,15 @@ export const DisplayInput: FC<DisplayInputProps> = ({
                     textInput: classes.displayInput,
                     newRoot: classes.newRoot,
                 }}
-                value={value}
+                value={value?.text}
                 onChange={handleInputChange}
                 id="standard-basic"
                 variant="standard"
                 onFocus={onFocus}
+            />
+            <FiImage
+                className={clx(classes.displayIcon, classes.mediaIcon)}
+                onClick={handleOptionMedia}
             />
             <CloseIcon className={classes.displayIcon} onClick={handleRemove} />
         </div>

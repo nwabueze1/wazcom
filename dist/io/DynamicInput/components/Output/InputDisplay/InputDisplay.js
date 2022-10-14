@@ -30,7 +30,7 @@ export var InputDisplay = function (_a) {
     var setAnswers = _a.setAnswers, question = _a.question;
     var _b = __read(useState(), 2), jsx = _b[0], setJSX = _b[1];
     useEffect(function () {
-        setJSX(question.options.map(function (value, idx) { return (_jsx(Input, { index: idx, value: value, handleSelect: function () { return handleSelect(idx); }, type: question.type, checked: question.answers.some(function (answer) { return answer === idx; }) }, idx)); }));
+        setJSX(question.options.map(function (value, idx) { return (_jsx(Input, { index: idx, value: value.text, handleSelect: function () { return handleSelect(idx); }, type: question.type, checked: question.answers.some(function (answer) { return answer === idx; }) }, idx)); }));
     }, [question]);
     var handleSelect = function (idx) {
         if (question.answers.some(function (answer) { return answer === idx; })) {

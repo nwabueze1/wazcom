@@ -30,16 +30,18 @@ import { CheckBoxOutlineBlank, Close as CloseIcon, RadioButtonUncheckedOutlined,
 import { useEffect, useState } from "react";
 import { useDisplayInputStyles } from "./styles";
 import { TextInput } from "../../../../../TextInput/TextInput";
+import { FiImage } from "react-icons/fi";
+import clx from "classnames";
 export var DisplayInput = function (_a) {
-    var handleRemove = _a.handleRemove, handleChange = _a.handleChange, inputValue = _a.value, index = _a.index, onFocus = _a.onFocus, type = _a.type;
+    var handleRemove = _a.handleRemove, handleChange = _a.handleChange, handleOptionMedia = _a.handleOptionMedia, inputValue = _a.value, index = _a.index, onFocus = _a.onFocus, type = _a.type;
     var classes = useDisplayInputStyles();
     var _b = __read(useState(inputValue), 2), value = _b[0], setValue = _b[1];
     useEffect(function () {
         setValue(inputValue);
     }, [inputValue]);
     var handleInputChange = function (event) {
-        setValue(event.value);
-        handleChange(event.value);
+        setValue(function (value) { return (__assign(__assign({}, value), { text: event.value })); });
+        handleChange(__assign(__assign({}, value), { text: event.value }));
     };
     var displayLabel = function () {
         switch (type) {
@@ -56,5 +58,5 @@ export var DisplayInput = function (_a) {
     return (_jsxs("div", __assign({ className: classes.root }, { children: [displayLabel(), _jsx(TextInput, { classNames: {
                     textInput: classes.displayInput,
                     newRoot: classes.newRoot,
-                }, value: value, onChange: handleInputChange, id: "standard-basic", variant: "standard", onFocus: onFocus }, void 0), _jsx(CloseIcon, { className: classes.displayIcon, onClick: handleRemove }, void 0)] }), void 0));
+                }, value: value === null || value === void 0 ? void 0 : value.text, onChange: handleInputChange, id: "standard-basic", variant: "standard", onFocus: onFocus }, void 0), _jsx(FiImage, { className: clx(classes.displayIcon, classes.mediaIcon), onClick: handleOptionMedia }, void 0), _jsx(CloseIcon, { className: classes.displayIcon, onClick: handleRemove }, void 0)] }), void 0));
 };
