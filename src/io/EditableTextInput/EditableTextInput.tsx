@@ -1,5 +1,5 @@
 import { Collapse } from "@mui/material";
-import { useState, FC, useEffect } from "react";
+import { useState, FC } from "react";
 import ContentEditable from "react-contenteditable";
 import { EditTag } from "./components/EditTag/EditTag";
 import { contols } from "./data";

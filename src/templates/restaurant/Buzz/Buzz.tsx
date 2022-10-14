@@ -2,7 +2,6 @@ import React, { useState } from "react";
 import { Hero as BuzzHero } from "./Hero";
 import { useBuzzStyles } from "./styles";
 import { Nav as BuzzNav } from "./Nav";
-import { Footer } from "templates";
 import { Menus } from "./Menus/Menus";
 import { restaurantdata } from "../data";
 import { CartDialog } from "./CartDialog";
@@ -27,7 +26,6 @@ export const Buzz = () => {
                     cartChanged={cartChanged}
                     cart={undefined}
                 />
-                <Footer name="Basit" className={classes.footer} />
             </div>
             <CartDialog
                 display={displayDialog}

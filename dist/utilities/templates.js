@@ -1,0 +1,34 @@
+var __assign = (this && this.__assign) || function () {
+    __assign = Object.assign || function(t) {
+        for (var s, i = 1, n = arguments.length; i < n; i++) {
+            s = arguments[i];
+            for (var p in s) if (Object.prototype.hasOwnProperty.call(s, p))
+                t[p] = s[p];
+        }
+        return t;
+    };
+    return __assign.apply(this, arguments);
+};
+import { jsx as _jsx } from "react/jsx-runtime";
+import { AiOutlinePicture } from "react-icons/ai";
+export var renderNavItem = function (_a, mode, index, classes, handleClick) {
+    var url = _a.url, text = _a.text;
+    return (url === null || url === void 0 ? void 0 : url.startsWith("/")) || mode === "edit" ? (_jsx("p", __assign({ className: classes.link, onClick: function (e) {
+            e.stopPropagation();
+            handleClick === null || handleClick === void 0 ? void 0 : handleClick(mode === "edit" ? 'nav_links.' + String(index) : url);
+        } }, { children: text }), index)) : (_jsx("a", __assign({ className: classes.link, target: "_blank", rel: "noopener noreferrer", href: url }, { children: text }), index));
+};
+var hivedeckLogo = "https://sytbuildr.s3.eu-west-2.amazonaws.com/images/logo/hivedeck_logo.svg";
+export var renderNavLogo = function (mode, classes, handleClick, logo) {
+    var _a, _b;
+    return (_jsx(LogoWrapper, __assign({ url: (_a = logo === null || logo === void 0 ? void 0 : logo.url) !== null && _a !== void 0 ? _a : "", handleClick: handleClick }, { children: mode === "view" ? (_jsx("img", { src: (_b = logo === null || logo === void 0 ? void 0 : logo.src) !== null && _b !== void 0 ? _b : hivedeckLogo, className: logo ? classes.logo : classes.hivedeckLogo }, void 0)) : logo ? (_jsx("img", { src: logo === null || logo === void 0 ? void 0 : logo.src, className: classes.logo }, void 0)) : (_jsx(AiOutlinePicture, { className: classes.logo }, void 0)) }), void 0));
+};
+var LogoWrapper = function (_a) {
+    var url = _a.url, children = _a.children, handleClick = _a.handleClick;
+    if (url === "" || url.startsWith("/")) {
+        return (_jsx("div", __assign({ onClick: function () {
+                handleClick === null || handleClick === void 0 ? void 0 : handleClick(url);
+            }, style: { cursor: "pointer" } }, { children: children }), void 0));
+    }
+    return (_jsx("a", __assign({ href: url, target: "_blank", rel: "noopener noreferrer" }, { children: children }), void 0));
+};
