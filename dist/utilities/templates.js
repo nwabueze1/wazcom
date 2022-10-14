@@ -37,7 +37,7 @@ var LogoWrapper = function (_a) {
     if (isNotRenderAnchor(url, mode)) {
         return (_jsx("div", __assign({ onClick: function (e) {
                 e.stopPropagation();
-                clickAction(url, mode, function () { handleClick === null || handleClick === void 0 ? void 0 : handleClick(url); });
+                clickAction(url, mode, function () { handleClick === null || handleClick === void 0 ? void 0 : handleClick(mode === 'view' ? url : 'navLogo'); });
             }, style: { cursor: "pointer" } }, { children: children }), void 0));
     }
     return (_jsx("a", __assign({ href: url, target: "_blank", rel: "noopener noreferrer" }, { children: children }), void 0));

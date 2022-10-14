@@ -76,7 +76,7 @@ const LogoWrapper: FC<LogoWrapperProps> = ({ url, mode, children, handleClick })
             <div
                 onClick={(e) => {
                     e.stopPropagation();
-                    clickAction(url, mode, () => { handleClick?.(url) })
+                    clickAction(url, mode, () => { handleClick?.(mode === 'view' ? url : 'navLogo') })
                 }}
                 style={{ cursor: "pointer" }}
             >
