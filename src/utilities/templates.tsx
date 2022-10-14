@@ -8,13 +8,15 @@ export const renderNavItem = (
     classes: any,
     handleClick?: (route: string) => void,
 ) =>
-    url?.startsWith("/") || mode === "edit" ? (
+    isNotRenderAnchor(url, mode) ? (
         <p
             key={index}
             className={classes.link}
             onClick={(e) => {
                 e.stopPropagation();
-                handleClick?.(mode === "edit" ? 'nav_links.' + String(index) : url);
+                clickAction(url, mode, () => {
+                    handleClick?.(mode === "edit" ? "nav_links." + String(index) : url);
+                });
             }}
         >
             {text}
@@ -33,6 +35,13 @@ export const renderNavItem = (
 
 const hivedeckLogo = "https://sytbuildr.s3.eu-west-2.amazonaws.com/images/logo/hivedeck_logo.svg";
 
+const isNotRenderAnchor = (url: string, mode: "view" | "edit") =>
+    url?.startsWith("/") || url === "#" || mode === "edit";
+
+const clickAction = (url: string, mode: "view" | "edit", handleClick?: () => void) => {
+    if (url.trim() === '#' || mode === "edit") handleClick?.();
+};
+
 export const renderNavLogo = (
     mode: "view" | "edit",
     classes: any,
@@ -40,7 +49,7 @@ export const renderNavLogo = (
     logo?: { src: string; url: string },
 ) => {
     return (
-        <LogoWrapper url={logo?.url ?? ""} handleClick={handleClick}>
+        <LogoWrapper url={logo?.url ?? ""} mode={mode} handleClick={handleClick}>
             {mode === "view" ? (
                 <img
                     src={logo?.src ?? hivedeckLogo}
@@ -57,15 +66,17 @@ export const renderNavLogo = (
 
 type LogoWrapperProps = {
     url: string;
+    mode: "view" | "edit";
     handleClick?: (route: string) => void;
 };
 
-const LogoWrapper: FC<LogoWrapperProps> = ({ url, children, handleClick }) => {
-    if (url === "" || url.startsWith("/")) {
+const LogoWrapper: FC<LogoWrapperProps> = ({ url, mode, children, handleClick }) => {
+    if (isNotRenderAnchor(url, mode)) {
         return (
             <div
-                onClick={() => {
-                    handleClick?.(url);
+                onClick={(e) => {
+                    e.stopPropagation();
+                    clickAction(url, mode, () => { handleClick?.(url) })
                 }}
                 style={{ cursor: "pointer" }}
             >
