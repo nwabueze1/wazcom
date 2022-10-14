@@ -3,5 +3,7 @@ export type NavProps = {
     handleClick?: (route: string) => void;
     logo?: { src: string, url: string };
     links: { text: string; url: string; subLinks?: { text: string; url: string } }[];
-    socials?: { icon: JSX.Element; url: string }[];
+    socials?: { type: "FACEBOOK" | "TWITTER", url: string }[];
 };
+
+export type SocialType = "FACEBOOK" | "TWITTER";

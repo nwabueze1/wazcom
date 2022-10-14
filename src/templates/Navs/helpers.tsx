@@ -1,7 +1,10 @@
 import { FC } from "react";
 import { AiOutlinePicture } from "react-icons/ai";
+import { FaFacebookF } from "react-icons/fa";
+import { BsTwitter } from "react-icons/bs";
+import { NavProps, SocialType } from "./types";
 
-export const renderNavItem = (
+export const renderNavLink = (
     { url, text }: { url: string; text: string },
     mode: "view" | "edit",
     index: number,
@@ -39,7 +42,7 @@ const isNotRenderAnchor = (url: string, mode: "view" | "edit") =>
     url?.startsWith("/") || url === "#" || mode === "edit";
 
 const clickAction = (url: string, mode: "view" | "edit", handleClick?: () => void) => {
-    if (url.trim() === '#' || mode === "edit") handleClick?.();
+    if (url.trim() === "#" || mode === "edit") handleClick?.();
 };
 
 export const renderNavLogo = (
@@ -76,7 +79,9 @@ const LogoWrapper: FC<LogoWrapperProps> = ({ url, mode, children, handleClick })
             <div
                 onClick={(e) => {
                     e.stopPropagation();
-                    clickAction(url, mode, () => { handleClick?.(mode === 'view' ? url : 'navLogo') })
+                    clickAction(url, mode, () => {
+                        handleClick?.(mode === "view" ? url : "navLogo");
+                    });
                 }}
                 style={{ cursor: "pointer" }}
             >
@@ -90,4 +95,49 @@ const LogoWrapper: FC<LogoWrapperProps> = ({ url, mode, children, handleClick })
             {children}
         </a>
     );
+};
+
+export const displaySocials = (
+    socials: NavProps["socials"],
+    mode: "view" | "edit",
+    classes: any,
+    handleClick?: (route: string) => void,
+) => {
+    return socials?.map(({ type, url }, index) => {
+        if (mode === "edit") {
+            return (
+                <div
+                    onClick={(e) => {
+                        e.stopPropagation();
+                        handleClick?.("nav_socials." + String(index));
+                    }}
+                    style={{ cursor: 'pointer' }}
+                >
+                    {renderSocialIcon(type)}
+                </div>
+            );
+        }
+        return (
+            <a
+                className={classes.socialIntegration}
+                target="_blank"
+                rel="noopener noreferrer"
+                key={index}
+                href={url}
+            >
+                {renderSocialIcon(type)}
+            </a>
+        );
+    });
+};
+
+const renderSocialIcon = (type: SocialType) => {
+    switch (type) {
+        case "FACEBOOK":
+            return <FaFacebookF />;
+        case "TWITTER":
+            return <BsTwitter />;
+        default:
+            return <FaFacebookF />;
+    }
 };

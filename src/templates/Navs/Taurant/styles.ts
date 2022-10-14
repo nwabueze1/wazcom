@@ -37,6 +37,7 @@ export const useTaurantStyles = makeStyles<Theme>((theme: Theme) => ({
     socialsContainer: {
         display: "flex",
         flexDirection: "row",
+        alignItems: 'center',
         gap: theme.spacing(3),
         marginTop: theme.spacing(0.5),
     },

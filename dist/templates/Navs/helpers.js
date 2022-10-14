@@ -11,7 +11,9 @@ var __assign = (this && this.__assign) || function () {
 };
 import { jsx as _jsx } from "react/jsx-runtime";
 import { AiOutlinePicture } from "react-icons/ai";
-export var renderNavItem = function (_a, mode, index, classes, handleClick) {
+import { FaFacebookF } from "react-icons/fa";
+import { BsTwitter } from "react-icons/bs";
+export var renderNavLink = function (_a, mode, index, classes, handleClick) {
     var url = _a.url, text = _a.text;
     return isNotRenderAnchor(url, mode) ? (_jsx("p", __assign({ className: classes.link, onClick: function (e) {
             e.stopPropagation();
@@ -25,7 +27,7 @@ var isNotRenderAnchor = function (url, mode) {
     return (url === null || url === void 0 ? void 0 : url.startsWith("/")) || url === "#" || mode === "edit";
 };
 var clickAction = function (url, mode, handleClick) {
-    if (url.trim() === '#' || mode === "edit")
+    if (url.trim() === "#" || mode === "edit")
         handleClick === null || handleClick === void 0 ? void 0 : handleClick();
 };
 export var renderNavLogo = function (mode, classes, handleClick, logo) {
@@ -37,8 +39,32 @@ var LogoWrapper = function (_a) {
     if (isNotRenderAnchor(url, mode)) {
         return (_jsx("div", __assign({ onClick: function (e) {
                 e.stopPropagation();
-                clickAction(url, mode, function () { handleClick === null || handleClick === void 0 ? void 0 : handleClick(mode === 'view' ? url : 'navLogo'); });
+                clickAction(url, mode, function () {
+                    handleClick === null || handleClick === void 0 ? void 0 : handleClick(mode === "view" ? url : "navLogo");
+                });
             }, style: { cursor: "pointer" } }, { children: children }), void 0));
     }
     return (_jsx("a", __assign({ href: url, target: "_blank", rel: "noopener noreferrer" }, { children: children }), void 0));
+};
+export var displaySocials = function (socials, mode, classes, handleClick) {
+    return socials === null || socials === void 0 ? void 0 : socials.map(function (_a, index) {
+        var type = _a.type, url = _a.url;
+        if (mode === "edit") {
+            return (_jsx("div", __assign({ onClick: function (e) {
+                    e.stopPropagation();
+                    handleClick === null || handleClick === void 0 ? void 0 : handleClick("nav_socials." + String(index));
+                }, style: { cursor: 'pointer' } }, { children: renderSocialIcon(type) }), void 0));
+        }
+        return (_jsx("a", __assign({ className: classes.socialIntegration, target: "_blank", rel: "noopener noreferrer", href: url }, { children: renderSocialIcon(type) }), index));
+    });
+};
+var renderSocialIcon = function (type) {
+    switch (type) {
+        case "FACEBOOK":
+            return _jsx(FaFacebookF, {}, void 0);
+        case "TWITTER":
+            return _jsx(BsTwitter, {}, void 0);
+        default:
+            return _jsx(FaFacebookF, {}, void 0);
+    }
 };

@@ -2,27 +2,13 @@ import { FC } from "react";
 import { useTaurantStyles } from "./styles";
 import { Paper } from "@mui/material";
 import { NavProps } from "../types";
-import { renderNavItem, renderNavLogo } from "../../../utilities";
+import { displaySocials, renderNavLink, renderNavLogo } from "../helpers";
 
 export const Taurant: FC<NavProps> = ({ mode = "view", links, socials, handleClick, logo }) => {
     const classes = useTaurantStyles();
 
     const displayLinks = () => {
-        return links.map((link, index) => renderNavItem(link, mode, index, classes, handleClick));
-    };
-
-    const displaySocials = () => {
-        return socials?.map(({ icon, url }, index) => (
-            <a
-                className={classes.socialIntegration}
-                target="_blank"
-                rel="noopener noreferrer"
-                key={index}
-                href={url}
-            >
-                {icon}
-            </a>
-        ));
+        return links.map((link, index) => renderNavLink(link, mode, index, classes, handleClick));
     };
 
     return (
@@ -42,7 +28,9 @@ export const Taurant: FC<NavProps> = ({ mode = "view", links, socials, handleCli
                 {renderNavLogo(mode, classes, handleClick, logo)}
                 <div className={classes.content}>
                     <div className={classes.linksContainer}>{displayLinks()}</div>
-                    <div className={classes.socialsContainer}>{displaySocials()}</div>
+                    <div className={classes.socialsContainer}>
+                        {displaySocials(socials, mode, classes, handleClick)}
+                    </div>
                 </div>
             </Paper>
         </div>

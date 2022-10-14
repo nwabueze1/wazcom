@@ -49,7 +49,6 @@ import { ComponentPropType, TemplatePropType } from "./types";
 import { data } from "./data";
 import { EditableTextInput } from "io/EditableTextInput";
 import { DynamicInput } from "io/DynamicInput";
-import AcUnitIcon from "@mui/icons-material/AcUnit";
 
 export const stories: ComponentPropType[] = [
     {
@@ -576,10 +575,6 @@ export const navs: TemplatePropType[] = [
                 { text: "blog", url: "/" },
                 { text: "restaurant", url: "/" },
             ],
-            socials: [
-                { icon: <AcUnitIcon />, url: "/" },
-                { icon: <AcUnitIcon />, url: "/" },
-            ],
         },
     },
     {
@@ -591,10 +586,6 @@ export const navs: TemplatePropType[] = [
                 { text: "blog", url: "/" },
                 { text: "restaurant", url: "/" },
             ],
-            socials: [
-                { icon: <AcUnitIcon />, url: "/" },
-                { icon: <AcUnitIcon />, url: "/" },
-            ],
         },
     },
     {
@@ -605,10 +596,6 @@ export const navs: TemplatePropType[] = [
                 { text: "home", url: "/" },
                 { text: "blog", url: "/" },
                 { text: "restaurant", url: "/" },
-            ],
-            socials: [
-                { icon: <AcUnitIcon />, url: "/" },
-                { icon: <AcUnitIcon />, url: "/" },
             ],
         },
     },

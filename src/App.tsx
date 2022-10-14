@@ -26,6 +26,7 @@ const navProps = {
     handleClick: (route: string) => {
         alert(route);
     },
+    socials: [{ type: 'FACEBOOK', url: 'wwww' }, { type: 'TWITTER', url: 'wwww' }]
 };
 
 const App: React.FC<Props> = () => {
@@ -38,7 +39,7 @@ const App: React.FC<Props> = () => {
                             <Browser />
                         </Route>
                         <Route exact path="/nour">
-                            <Nour {...navProps} mode="edit" />
+                            <Nour {...navProps} mode="edit" socials={[{ type: 'FACEBOOK', url: 'wwww' }, { type: 'TWITTER', url: 'wwww' }]} />
                         </Route>
                         <Route exact path="/asta">
                             <Asta />
