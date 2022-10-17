@@ -1,4 +1,3 @@
-/// <reference types="react" />
 export declare type NavProps = {
     mode?: "view" | "edit";
     handleClick?: (route: string) => void;
@@ -15,7 +14,8 @@ export declare type NavProps = {
         };
     }[];
     socials?: {
-        icon: JSX.Element;
+        type: "FACEBOOK" | "TWITTER";
         url: string;
     }[];
 };
+export declare type SocialType = "FACEBOOK" | "TWITTER";

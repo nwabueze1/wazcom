@@ -15,6 +15,7 @@ export var useValourStyles = makeStyles(function (theme) { return ({
         padding: theme.spacing(3, 4),
         alignItems: "center",
         maxHeight: "72px",
+        boxShadow: 'none',
     },
     logo: {
         height: "40px",

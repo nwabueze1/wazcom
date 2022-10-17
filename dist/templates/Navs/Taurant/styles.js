@@ -15,6 +15,7 @@ export var useTaurantStyles = makeStyles(function (theme) { return ({
         padding: theme.spacing(3, 4),
         alignItems: "center",
         maxHeight: "72px",
+        boxShadow: 'none',
     },
     logo: {
         height: "40px",
@@ -34,6 +35,7 @@ export var useTaurantStyles = makeStyles(function (theme) { return ({
     socialsContainer: {
         display: "flex",
         flexDirection: "row",
+        alignItems: 'center',
         gap: theme.spacing(3),
         marginTop: theme.spacing(0.5),
     },
