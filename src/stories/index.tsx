@@ -618,10 +618,6 @@ export const navs: TemplatePropType[] = [
                 { text: "blog", url: "/" },
                 { text: "restaurant", url: "/" },
             ],
-            socials: [
-                { icon: <AcUnitIcon />, url: "/" },
-                { icon: <AcUnitIcon />, url: "/" },
-            ],
         },
     },
     {
@@ -633,10 +629,6 @@ export const navs: TemplatePropType[] = [
                 { text: "blog", url: "/" },
                 { text: "restaurant", url: "/" },
             ],
-            socials: [
-                { icon: <AcUnitIcon />, url: "/" },
-                { icon: <AcUnitIcon />, url: "/" },
-            ],
         },
     },
     {
@@ -647,10 +639,6 @@ export const navs: TemplatePropType[] = [
                 { text: "home", url: "/" },
                 { text: "blog", url: "/" },
                 { text: "restaurant", url: "/" },
-            ],
-            socials: [
-                { icon: <AcUnitIcon />, url: "/" },
-                { icon: <AcUnitIcon />, url: "/" },
             ],
         },
     },

@@ -2,7 +2,6 @@ import React, { useState } from "react";
 import { Hero as AstaHero } from "./Hero";
 import { useBuzzStyles } from "./styles";
 import { Nav as AstaNav } from "./Nav";
-import { Footer } from "templates";
 import { Menus } from "./Menus/Menus";
 import { restaurantdata } from "../data";
 import { CartDialog } from "./CartDialog";
@@ -41,7 +40,6 @@ export const Asta = () => {
                     />
                 </div>
             </div>
-            <Footer name="Hivedeck" className={classes.footer} />
             <div>
                 <CartDialog
                     display={displayDialog}

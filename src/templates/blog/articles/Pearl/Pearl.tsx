@@ -1,6 +1,5 @@
 import { FC, useEffect, useState } from "react";
 import { parseDate } from "../../../../utilities/getTime";
-import { Footer } from "../common/Footer/Footer";
 import { CoreArticleTemplateFields } from "../types";
 import { shareDataPearl } from "./data";
 import { RelatedPostPearl } from "./RelatedPost/RelatedPost";
@@ -74,7 +73,6 @@ export const Pearl: FC<CoreArticleTemplateFields> = ({ article, site, handleClic
                     <div>{displayRelatedPosts()}</div>
                 </div>
             </div>
-            <Footer name={site?.name as string} className={classes.footer} />
         </div>
     );
 };

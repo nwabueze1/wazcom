@@ -5,9 +5,8 @@ import { RelatedPostGello } from "./";
 import { getDay } from "../../../../utilities/getTime";
 import { useGelloStyles } from "./styles";
 import clx from "classnames";
-import { Footer } from "../common/Footer";
 
-export const Gello: FC<CoreArticleTemplateFields> = ({ article, domain, site, handleClick }) => {
+export const Gello: FC<CoreArticleTemplateFields> = ({ article, domain, handleClick }) => {
     const classes = useGelloStyles();
     const [loaded, setLoaded] = useState(false);
 
@@ -89,7 +88,6 @@ export const Gello: FC<CoreArticleTemplateFields> = ({ article, domain, site, ha
                     </div>
                 )}
             </div>
-            <Footer name={site?.name as string} className={classes.footer} />
         </div>
     );
 };
