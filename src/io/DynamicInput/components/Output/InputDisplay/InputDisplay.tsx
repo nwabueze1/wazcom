@@ -11,7 +11,7 @@ export const InputDisplay: FC<InputDisplayProps> = ({ setAnswers, question }) =>
                 <Input
                     index={idx}
                     key={idx}
-                    value={value}
+                    value={value.text}
                     handleSelect={() => handleSelect(idx)}
                     type={question.type}
                     checked={question.answers.some((answer) => answer === idx)}

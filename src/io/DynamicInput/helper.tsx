@@ -1,13 +1,15 @@
 import { ShortAnswer } from "./components/Display/ShortAnswer/ShortAnswer";
 import { Date } from "./components/Display/Date/Date";
 import { Time } from "./components/Display/Time/Time";
-import { InputComponentProps } from "./types";
+import { InputComponentProps, QuestionOption } from "./types";
 import { SampleInputDisplay } from "./components/Display/SampleInputDisplay/SampleInputDisplay";
 
 export const useInputComponents = () => {
     return (
-        questionOptions: string[],
-        setQuestionOptions: React.Dispatch<React.SetStateAction<string[]>>,
+        questionOptions: QuestionOption[],
+        setQuestionOptions: React.Dispatch<React.SetStateAction<QuestionOption[]>>,
+        handleOptionMedia: (id: number) => void,
+        handleRemoveOptionMedia: (id: number) => void,
     ) => {
         const inputComponents: InputComponentProps[] = [
             {
@@ -24,6 +26,8 @@ export const useInputComponents = () => {
                     <SampleInputDisplay
                         setQuestionOptions={setQuestionOptions}
                         questionOptions={questionOptions}
+                        handleOptionMedia={handleOptionMedia}
+                        handleRemoveOptionMedia={handleRemoveOptionMedia}
                         type="dropdown"
                         defaultCount={4}
                         value="optional"
@@ -36,6 +40,8 @@ export const useInputComponents = () => {
                     <SampleInputDisplay
                         setQuestionOptions={setQuestionOptions}
                         questionOptions={questionOptions}
+                        handleOptionMedia={handleOptionMedia}
+                        handleRemoveOptionMedia={handleRemoveOptionMedia}
                         type="checkboxes"
                         defaultCount={4}
                         value="optional"
@@ -48,6 +54,8 @@ export const useInputComponents = () => {
                     <SampleInputDisplay
                         setQuestionOptions={setQuestionOptions}
                         questionOptions={questionOptions}
+                        handleOptionMedia={handleOptionMedia}
+                        handleRemoveOptionMedia={handleRemoveOptionMedia}
                         type="multiple"
                         defaultCount={4}
                         value="optional"

@@ -1,14 +1,14 @@
 import { FC, useState, useEffect } from "react";
 import { useDynamicInputStyles } from "./styles";
-import { Any, DynamicInputProps, QuestionProps } from "./types";
+import { Any, DynamicInputProps, QuestionOption, QuestionProps } from "./types";
 import clx from "classnames";
-import { EditableTextInput } from "io/EditableTextInput";
-import { SelectInput } from "io/SelectInput";
+import { EditableTextInput } from "../../io/EditableTextInput";
+import { SelectInput } from "../../io/SelectInput";
 import { defaultInputs as options } from "./data";
 import { useInputComponents } from "./helper";
 import { Button } from "@mui/material";
 import { QuestionAnswer } from "@mui/icons-material";
-import { BsThreeDotsVertical } from "react-icons/bs";
+import { BsFillImageFill, BsThreeDotsVertical } from "react-icons/bs";
 import { MdOutlineContentCopy } from "react-icons/md";
 import { RiDeleteBin6Line } from "react-icons/ri";
 import { ToggleInput } from "../ToggleInput/ToggleInput";
@@ -20,10 +20,22 @@ const selectProps = {
     required: true,
 };
 
-export const DynamicInput: FC<DynamicInputProps> = () => {
+export const DynamicInput: FC<DynamicInputProps> = ({
+    handleSetQuestion,
+    handleDelete,
+    handleDuplicate,
+    defaultQuestion,
+    handleOpenLibrary,
+    handleDeleteMediaQuestion,
+    handleOptionMedia,
+    handleRemoveOptionMedia,
+    active,
+}) => {
     const classes = useDynamicInputStyles();
     const inputComponents = useInputComponents();
-    const [questionOptions, setQuestionOptions] = useState<string[]>([""]);
+    const [questionOptions, setQuestionOptions] = useState<QuestionOption[]>(
+        defaultQuestion?.options ?? [{ text: "" }],
+    );
     const [displayOutput, setDisplayOutput] = useState(false);
     const [required, setRequired] = useState<{
         name: string;
@@ -32,14 +44,24 @@ export const DynamicInput: FC<DynamicInputProps> = () => {
         name: "required",
         value: true,
     });
-    const [question, setQuestion] = useState<QuestionProps>({
-        text: "Address",
-        type: "dropdown",
-        options: questionOptions,
-        required: true,
-        answers: [0],
-        point: 0,
-    });
+    const [question, setQuestion] = useState<QuestionProps>(
+        defaultQuestion ?? {
+            text: "",
+            type: "dropdown",
+            options: questionOptions,
+            required: true,
+            answers: [0],
+            point: 0,
+        },
+    );
+
+    useEffect(() => {
+        if (!active) {
+            setDisplayOutput(true);
+        } else {
+            setDisplayOutput(false);
+        }
+    }, [active]);
 
     useEffect(() => {
         setQuestion((question) => {
@@ -52,6 +74,10 @@ export const DynamicInput: FC<DynamicInputProps> = () => {
             return { ...question, required: required.value };
         });
     }, [required]);
+
+    useEffect(() => {
+        handleSetQuestion?.(question);
+    }, [question]);
 
     const handleChange = (event: { name: string; value: string }) => {
         setQuestion((question) => ({ ...question, type: event.value }));
@@ -73,25 +99,58 @@ export const DynamicInput: FC<DynamicInputProps> = () => {
     const handleSetTitle = (text: string | JSX.Element) => {
         setQuestion((questions) => ({ ...questions, text }));
     };
+
     return (
         <div className={clx(classes.root)}>
             {!displayOutput && (
                 <div className={classes.inputControlsContainer}>
                     <div className={classes.editableTextInput}>
-                        <EditableTextInput placeholder="Question" setHtml={handleSetTitle} />
+                        <EditableTextInput
+                            html={question.text as string}
+                            placeholder="Question"
+                            setHtml={handleSetTitle}
+                        />
                     </div>
-                    <SelectInput
-                        {...selectProps}
-                        onChange={handleChange}
-                        className={classes.selectInputContainer}
-                    />
+                    {defaultQuestion?.type !== "media" && (
+                        <div className={classes.questionMediaIcon} onClick={handleOpenLibrary}>
+                            <BsFillImageFill />
+                        </div>
+                    )}
+                    {defaultQuestion?.supportImage && (
+                        <div
+                            className={classes.questionMediaIcon}
+                            onClick={handleDeleteMediaQuestion}
+                        >
+                            <RiDeleteBin6Line />
+                        </div>
+                    )}
+                    {defaultQuestion?.type !== "media" && (
+                        <SelectInput
+                            {...selectProps}
+                            onChange={handleChange}
+                            className={classes.selectInputContainer}
+                        />
+                    )}
                 </div>
             )}
+            {!displayOutput && defaultQuestion?.supportImage && active && (
+                <img
+                    src={defaultQuestion?.supportImage.value.url}
+                    className={classes.questionSupportImage}
+                />
+            )}
+            {defaultQuestion?.type === "media" && defaultQuestion.media && (
+                <img src={defaultQuestion?.media.value.url} className={classes.questionImage} />
+            )}
             {!displayOutput &&
-                inputComponents(questionOptions, setQuestionOptions).find(
-                    (input) => input.name === question.type,
-                )?.component}
-            {!displayOutput && (
+                defaultQuestion?.type !== "media" &&
+                inputComponents(
+                    questionOptions,
+                    setQuestionOptions,
+                    handleOptionMedia,
+                    handleRemoveOptionMedia,
+                ).find((input) => input.name === question.type)?.component}
+            {!displayOutput && defaultQuestion?.type !== "media" && (
                 <div className={classes.questionSection}>
                     <div className={classes.questionContainer}>
                         <Button
@@ -106,7 +165,10 @@ export const DynamicInput: FC<DynamicInputProps> = () => {
                         <div className={classes.questionPoint}>({question.point} points)</div>
                     </div>
                     <div className={classes.questionOptionContiner}>
-                        <RiDeleteBin6Line className={classes.questionOptionIcon} />
+                        <RiDeleteBin6Line
+                            className={classes.questionOptionIcon}
+                            onClick={handleDelete}
+                        />
                         <div className={classes.questionRequired}>
                             <p className={classes.questionText}>Required</p>
                             <ToggleInput
@@ -115,17 +177,21 @@ export const DynamicInput: FC<DynamicInputProps> = () => {
                                 onChange={setRequired}
                             />
                         </div>
-                        <MdOutlineContentCopy className={classes.questionOptionIcon} />
+                        <MdOutlineContentCopy
+                            className={classes.questionOptionIcon}
+                            onClick={handleDuplicate}
+                        />
                         <BsThreeDotsVertical className={classes.questionOptionIcon} />
                     </div>
                 </div>
             )}
-            {displayOutput && (
+            {displayOutput && defaultQuestion?.type !== "media" && (
                 <Output
                     question={question}
                     setAnswers={handleSetAnswers}
                     setPoint={handleSetPoint}
                     resetDisplay={() => setDisplayOutput(false)}
+                    active={active}
                 />
             )}
         </div>

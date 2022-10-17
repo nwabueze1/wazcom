@@ -49,6 +49,8 @@ import { ComponentPropType, TemplatePropType } from "./types";
 import { data } from "./data";
 import { EditableTextInput } from "io/EditableTextInput";
 import { DynamicInput } from "io/DynamicInput";
+import AcUnitIcon from "@mui/icons-material/AcUnit";
+import { SectionEditor } from "io/SectionEditor";
 
 export const stories: ComponentPropType[] = [
     {
@@ -317,6 +319,47 @@ export const stories: ComponentPropType[] = [
     {
         name: "DynamicInput",
         component: DynamicInput,
+        props: {
+            label: "lslss",
+            options: [
+                { label: "Basit", value: "basit", icon: FaEdit },
+                { label: "Chinazom", value: "chinazom", icon: FaEdit },
+            ],
+            error: true,
+            required: true,
+            feedback: { text: "Tariq is a weirdo", status: "error" },
+            active: true,
+            defaultQuestion: {
+                text: "",
+                type: "dropdown",
+                options: [
+                    {
+                        text: "edo",
+                        media: {
+                            name: "",
+                            value: {
+                                alternative_text: "Screenshot 2022-07-25 at 14.33.36 (2).png",
+                                caption: "",
+                                created_at: "2022-10-13 09:33:44",
+                                id: "22",
+                                title: "Screenshot 2022-07-25 at 14.33.36 (2).png",
+                                updated_at: "2022-10-13 09:33:44",
+                                url: "https://sytbuildr.s3.eu-west-2.amazonaws.com/1a8ac99f-0e27-4784-8451-07c73953820d/G50PWn0yPElJjkYuSSbRxEKG0W522iYPJ9iq9VL1.png",
+                                uuid: "fe3fc661-96af-49cf-b8a7-390a673cc4e0",
+                                __typename: "Image",
+                            },
+                        },
+                    },
+                ],
+                required: true,
+                answers: [0],
+                point: 0,
+            },
+        },
+    },
+    {
+        name: "SectionEditor",
+        component: SectionEditor,
         props: {
             label: "lslss",
             options: [

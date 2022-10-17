@@ -4,6 +4,7 @@ import makeStyles from "@mui/styles/makeStyles";
 export const useEditableTextStyles = makeStyles((theme: Theme) => ({
     root: {
         margin: 0,
+        width: "100%",
     },
     editableTextInput: {
         width: "100%",

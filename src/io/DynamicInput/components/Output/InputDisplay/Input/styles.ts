@@ -1,7 +1,7 @@
+import { Theme } from "@mui/material/styles";
 import makeStyles from "@mui/styles/makeStyles";
-import theme from "theme";
 
-export const useDisplayInputStyles = makeStyles(() => ({
+export const useDisplayInputStyles = makeStyles((theme: Theme) => ({
     root: {
         display: "flex",
         alignItems: "center",

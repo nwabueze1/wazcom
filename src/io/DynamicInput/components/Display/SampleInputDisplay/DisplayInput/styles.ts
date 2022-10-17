@@ -1,7 +1,7 @@
+import { Theme } from "@mui/material/styles";
 import makeStyles from "@mui/styles/makeStyles";
-import theme from "theme";
 
-export const useDisplayInputStyles = makeStyles(() => ({
+export const useDisplayInputStyles = makeStyles((theme: Theme) => ({
     root: {
         display: "flex",
         alignItems: "center",
@@ -35,5 +35,28 @@ export const useDisplayInputStyles = makeStyles(() => ({
         "& div:hover:not(.Mui-disabled):before": {
             borderColor: theme.design.colors.waz_primaryColor100,
         },
+    },
+    mediaIcon: {
+        paddingRight: theme.spacing(1),
+    },
+    mediaContainer: {
+        marginLeft: theme.spacing(1),
+        position: "relative",
+        width: 200,
+        height: 100,
+    },
+    media: {
+        marginLeft: theme.spacing(1),
+        position: "relative",
+        width: 200,
+        height: 100,
+    },
+    mediaCancelIcon: {
+        fontSize: 20,
+        position: "absolute",
+        top: theme.spacing(-1),
+        right: theme.spacing(-1.5),
+        zIndex: 10,
+        cursor: "pointer",
     },
 }));
