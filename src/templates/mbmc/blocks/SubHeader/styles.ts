@@ -112,7 +112,7 @@ export const useSubHeaderStyles = makeStyles((theme: Theme) => ({
         backgroundImage: `url(https://sytbuildr.s3.eu-west-2.amazonaws.com/images/mbmc/hero1mobile.svg)`,
         backgroundSize: "cover",
         backgroundPosition: "center",
-        marginRight: -90,
+        marginRight: theme.spacing(-11),
         display: "none",
         alignItems: "center",
 

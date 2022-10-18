@@ -77,7 +77,7 @@ export const SidebarListItem: FC<SidebarListItemProps> = ({ title, sections }) =
                                             onMouseLeave={() =>
                                                 handleMouseLeave(sectionIndex, index)
                                             }
-                                            href={`/#${id}`}
+                                            href={`#${id}`}
                                         >
                                             {label}
                                         </a>

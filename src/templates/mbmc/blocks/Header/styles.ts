@@ -82,7 +82,7 @@ export const useHeaderStyles = makeStyles((theme: Theme) => ({
         backgroundImage: `url(https://sytbuildr.s3.eu-west-2.amazonaws.com/images/mbmc/clipped1.svg)`,
         backgroundSize: "cover",
         backgroundPosition: "center",
-        marginRight: -90,
+        marginRight: theme.spacing(-11),
         display: "flex",
         alignItems: "center",
         [theme.breakpoints.down(1450)]: {
