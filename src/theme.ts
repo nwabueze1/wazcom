@@ -33,6 +33,7 @@ export const theme: any = {
             sm: 600,
             md: 960,
             lg: 1280,
+            ml: 1450,
             xl: 1920,
         },
     },
@@ -97,6 +98,7 @@ export const theme: any = {
         },
         colors: {
             waz_primaryColor100: "#0A7227",
+            waz_primaryColor200: "#014029",
             waz_primaryColor700: "#549C68",
             waz_dangerColor: baseColors.dangerColor,
             waz_dangerColor100: "#990000",

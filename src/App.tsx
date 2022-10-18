@@ -4,6 +4,7 @@ import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
 import { Nour } from "templates/Navs";
 import { Asta } from "templates/restaurant/Asta/Asta";
 import { Browser } from "view/Browser";
+import { Templates } from "view/Templates";
 import theme from "./theme";
 declare module "@mui/styles/defaultTheme" {
     // eslint-disable-next-line @typescript-eslint/no-empty-interface
@@ -26,7 +27,10 @@ const navProps = {
     handleClick: (route: string) => {
         alert(route);
     },
-    socials: [{ type: 'FACEBOOK', url: 'wwww' }, { type: 'TWITTER', url: 'wwww' }]
+    socials: [
+        { type: "FACEBOOK", url: "wwww" },
+        { type: "TWITTER", url: "wwww" },
+    ],
 };
 
 const App: React.FC<Props> = () => {
@@ -38,8 +42,18 @@ const App: React.FC<Props> = () => {
                         <Route exact path="/">
                             <Browser />
                         </Route>
+                        <Route exact path="/templates/:uuid">
+                            <Templates />
+                        </Route>
                         <Route exact path="/nour">
-                            <Nour {...navProps} mode="edit" socials={[{ type: 'FACEBOOK', url: 'wwww' }, { type: 'TWITTER', url: 'wwww' }]} />
+                            <Nour
+                                {...navProps}
+                                mode="edit"
+                                socials={[
+                                    { type: "FACEBOOK", url: "wwww" },
+                                    { type: "TWITTER", url: "wwww" },
+                                ]}
+                            />
                         </Route>
                         <Route exact path="/asta">
                             <Asta />
