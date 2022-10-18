@@ -57,7 +57,7 @@ export const renderNavLogo = (
     classes: any,
     activeElement: string,
     handleClick: (element: string) => void,
-    logo?: { src: string; url: string },
+    logo?: { src?: string; url: string },
 ) => {
     return (
         <LogoWrapper url={logo?.url ?? ""} mode={mode} handleClick={handleClick}>
