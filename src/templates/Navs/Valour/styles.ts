@@ -18,6 +18,9 @@ export const useValourStyles = makeStyles<Theme>((theme: Theme) => ({
         alignItems: "center",
         maxHeight: "72px",
         boxShadow: 'none',
+        [theme.breakpoints.down("sm")]: {
+            padding: theme.spacing(3, 2),
+        },
     },
     logo: {
         height: "40px",
@@ -30,6 +33,10 @@ export const useValourStyles = makeStyles<Theme>((theme: Theme) => ({
         position: 'relative',
         left: '30%',
         marginRight: theme.spacing(3),
+        [theme.breakpoints.down("sm")]: {
+            gap: theme.spacing(2),
+            left: 20,
+        },
     },
     link: {
         color: theme.design.colors.waz_black,

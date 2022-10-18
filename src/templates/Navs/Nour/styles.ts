@@ -18,6 +18,9 @@ export const useNourStyles = makeStyles<Theme>((theme: Theme) => ({
         alignItems: "center",
         maxHeight: "72px",
         boxShadow: 'none',
+        [theme.breakpoints.down("sm")]: {
+            padding: theme.spacing(3, 2)
+        },
     },
     logo: {
         height: "40px",
@@ -29,6 +32,10 @@ export const useNourStyles = makeStyles<Theme>((theme: Theme) => ({
         gap: theme.spacing(4),
         marginLeft: "auto",
         marginRight: theme.spacing(3),
+        [theme.breakpoints.down("sm")]: {
+            gap: theme.spacing(1),
+            marginRight: theme.spacing(2),
+        },
     },
     link: {
         color: theme.design.colors.waz_black,
@@ -40,6 +47,9 @@ export const useNourStyles = makeStyles<Theme>((theme: Theme) => ({
         display: "flex",
         flexDirection: "row",
         gap: theme.spacing(3),
+        [theme.breakpoints.down("sm")]: {
+            gap: theme.spacing(1.5),
+        },
     },
     socialIntegration: {
         color: theme.design.colors.waz_black,

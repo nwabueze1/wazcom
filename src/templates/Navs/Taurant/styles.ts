@@ -18,6 +18,9 @@ export const useTaurantStyles = makeStyles<Theme>((theme: Theme) => ({
         alignItems: "center",
         maxHeight: "72px",
         boxShadow: 'none',
+        [theme.breakpoints.down("sm")]: {
+            padding: theme.spacing(3, 2),
+        },
     },
     logo: {
         height: "40px",
@@ -27,6 +30,9 @@ export const useTaurantStyles = makeStyles<Theme>((theme: Theme) => ({
         display: "flex",
         flexDirection: "row",
         gap: theme.spacing(4),
+        [theme.breakpoints.down("sm")]: {
+            gap: theme.spacing(2)
+        },
     },
     link: {
         color: theme.design.colors.waz_black,
@@ -55,5 +61,9 @@ export const useTaurantStyles = makeStyles<Theme>((theme: Theme) => ({
         justifyContent: "center",
         margin: theme.spacing(0, "auto"),
         gap: theme.spacing(4),
+        [theme.breakpoints.down("sm")]: {
+            gap: theme.spacing(1),
+            justifyContent: "space-between"
+        },
     },
 }));
