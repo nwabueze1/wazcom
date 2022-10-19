@@ -84,9 +84,5 @@ export var ComboBoxInput = function (_a) {
                     handleChange(selectedOption);
                 }, filterOptions: handleFilterOptions, renderOption: function (props, option) {
                     return (_jsx(Box, __assign({ component: "li" }, props, { children: _jsxs("div", __assign({ className: classNames === null || classNames === void 0 ? void 0 : classNames.optionContainer }, { children: [_jsx("p", __assign({ className: classNames === null || classNames === void 0 ? void 0 : classNames.optionLabel }, { children: option === null || option === void 0 ? void 0 : option.label }), void 0), option.subText && (_jsx("p", __assign({ className: classNames === null || classNames === void 0 ? void 0 : classNames.optionSubText }, { children: option.subText }), void 0))] }), void 0) }), void 0));
-                }, renderInput: function (params) { return (_jsx(TextField, __assign({}, params, { placeholder: placeholder, variant: "outlined", error: error, className: classes.renderInput, InputProps: {
-                        classes: {
-                            input: classNames === null || classNames === void 0 ? void 0 : classNames.textInputClasses,
-                        }
-                    } }), void 0)); }, className: (classNames === null || classNames === void 0 ? void 0 : classNames.comboBoxInput) ? classNames.comboBoxInput : "", classes: (classNames === null || classNames === void 0 ? void 0 : classNames.classes) ? classNames.classes : {} }), void 0), helperText, feedback && displayFeedback(feedback)] }), void 0));
+                }, renderInput: function (params) { return (_jsx(TextField, __assign({}, params, { placeholder: placeholder, variant: "outlined", error: error, className: classes.renderInput }), void 0)); }, className: (classNames === null || classNames === void 0 ? void 0 : classNames.comboBoxInput) ? classNames.comboBoxInput : "", classes: (classNames === null || classNames === void 0 ? void 0 : classNames.classes) ? classNames.classes : {} }), void 0), helperText, feedback && displayFeedback(feedback)] }), void 0));
 };
