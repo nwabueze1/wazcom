@@ -1,9 +1,9 @@
-import { useHeaderStyles } from "./styles";
+import { useMbmcBlock1Styles } from "./styles";
 import { MbmcButton } from "../../components/MbmcButton/MbmcButton";
 import { IoIosArrowRoundForward } from "react-icons/io";
 
-export const Header = () => {
-    const classes = useHeaderStyles();
+export const MbmcBlock1 = () => {
+    const classes = useMbmcBlock1Styles();
 
     return (
         <div className={classes.root}>
