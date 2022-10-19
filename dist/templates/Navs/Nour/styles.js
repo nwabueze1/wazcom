@@ -4,7 +4,9 @@ export var useNourStyles = makeStyles(function (theme) { return ({
         width: "100%",
         display: "flex",
         justifyContent: "center",
-        fontFamily: theme.design.font.lato,
+        fontFamily: theme.design.font.openSans,
+        border: '1px solid transparent',
+        transition: 'all 0.3s ease-in',
     },
     paper: {
         backgroundColor: theme.design.colors.waz_white,
@@ -20,6 +22,8 @@ export var useNourStyles = makeStyles(function (theme) { return ({
     logo: {
         height: "40px",
         width: "50px",
+        border: '1px solid transparent',
+        transition: 'all 0.3s ease-in',
     },
     linksContainer: {
         display: "flex",
@@ -32,7 +36,9 @@ export var useNourStyles = makeStyles(function (theme) { return ({
         color: theme.design.colors.waz_black,
         textDecoration: "none",
         fontSize: theme.typography.fontSize,
-        cursor: "pointer"
+        cursor: "pointer",
+        border: '1px solid transparent',
+        transition: 'all 0.3s ease-in',
     },
     socialsContainer: {
         display: "flex",
@@ -41,9 +47,17 @@ export var useNourStyles = makeStyles(function (theme) { return ({
     },
     socialIntegration: {
         color: theme.design.colors.waz_black,
+        border: '1px solid transparent',
+        transition: 'all 0.3s ease-in',
     },
     hivedeckLogo: {
         width: "90px",
         height: "30px",
+        border: '1px solid transparent',
+        transition: 'all 0.3s ease-in',
     },
+    activeElement: {
+        border: '1px dashed',
+        borderColor: theme.design.colors.waz_primaryColor100,
+    }
 }); });

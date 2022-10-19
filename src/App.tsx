@@ -1,7 +1,7 @@
 import { StyledEngineProvider, Theme, ThemeProvider } from "@mui/material";
 import * as React from "react";
 import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
-import { Nour } from "templates/Navs";
+import { Nour, Taurant, Valour } from "templates/Navs";
 import { Asta } from "templates/restaurant/Asta/Asta";
 import { Browser } from "view/Browser";
 import { Templates } from "view/Templates";
@@ -21,11 +21,11 @@ const navProps = {
         { text: "About", url: "/" },
     ],
     logo: {
-        src: "https://res.cloudinary.com/olamileke/image/upload/v1663418501/backmeup/assets/logos/logo_transparent_ligpzi.png",
+        src: "https://avatars.githubusercontent.com/u/108594113?s=200&v=4",
         url: "https://www.facebook.com",
     },
     handleClick: (route: string) => {
-        alert(route);
+        // alert(route);
     },
     socials: [
         { type: "FACEBOOK", url: "wwww" },
@@ -46,6 +46,7 @@ const App: React.FC<Props> = () => {
                             <Templates />
                         </Route>
                         <Route exact path="/nour">
+<<<<<<< HEAD
                             <Nour
                                 {...navProps}
                                 mode="edit"
@@ -54,6 +55,9 @@ const App: React.FC<Props> = () => {
                                     { type: "TWITTER", url: "wwww" },
                                 ]}
                             />
+=======
+                            <Taurant {...navProps} mode="edit" socials={[{ type: 'FACEBOOK', url: 'wwww' }, { type: 'TWITTER', url: 'wwww' }]} />
+>>>>>>> cde98c7086efcd23ebe13cb83e90df752e7907c5
                         </Route>
                         <Route exact path="/asta">
                             <Asta />

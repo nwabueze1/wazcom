@@ -2,7 +2,7 @@ export declare type NavProps = {
     mode?: "view" | "edit";
     handleClick?: (route: string) => void;
     logo?: {
-        src: string;
+        src?: string;
         url: string;
     };
     links: {
