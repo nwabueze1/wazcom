@@ -6,7 +6,7 @@ export const useValourStyles = makeStyles<Theme>((theme: Theme) => ({
         width: "100%",
         display: "flex",
         justifyContent: "center",
-        fontFamily: theme.design.font.lato,
+        fontFamily: theme.design.font.openSans,
     },
     paper: {
         backgroundColor: theme.design.colors.waz_white,
@@ -25,6 +25,8 @@ export const useValourStyles = makeStyles<Theme>((theme: Theme) => ({
     logo: {
         height: "40px",
         width: "50px !important",
+        border: '1px solid transparent',
+        transition: 'all 0.3s ease-in',
     },
     linksContainer: {
         display: "flex",
@@ -43,6 +45,8 @@ export const useValourStyles = makeStyles<Theme>((theme: Theme) => ({
         textDecoration: "none",
         fontSize: theme.typography.fontSize,
         cursor: "pointer",
+        border: '1px solid transparent',
+        transition: 'all 0.3s ease-in',
     },
     socialsContainer: {
         display: "flex",
@@ -51,6 +55,8 @@ export const useValourStyles = makeStyles<Theme>((theme: Theme) => ({
     },
     socialIntegration: {
         color: theme.design.colors.waz_black,
+        border: '1px solid transparent',
+        transition: 'all 0.3s ease-in',
     },
     logoAndLinksContainer: {
         display: "flex",
@@ -60,5 +66,11 @@ export const useValourStyles = makeStyles<Theme>((theme: Theme) => ({
     hivedeckLogo: {
         width: "90px",
         height: "30px",
+        border: '1px solid transparent',
+        transition: 'all 0.3s ease-in',
     },
+    activeElement: {
+        border: '1px dashed',
+        borderColor: theme.design.colors.waz_primaryColor100,
+    }
 }));
