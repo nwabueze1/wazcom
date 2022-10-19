@@ -6,7 +6,7 @@ export var useTaurantStyles = makeStyles(function (theme) {
             width: "100%",
             display: "flex",
             justifyContent: "center",
-            fontFamily: theme.design.font.lato,
+            fontFamily: theme.design.font.openSans,
         },
         paper: (_a = {
                 backgroundColor: theme.design.colors.waz_white,
@@ -26,6 +26,8 @@ export var useTaurantStyles = makeStyles(function (theme) {
         logo: {
             height: "40px",
             width: "50px",
+            border: '1px solid transparent',
+            transition: 'all 0.3s ease-in',
         },
         linksContainer: (_b = {
                 display: "flex",
@@ -41,6 +43,8 @@ export var useTaurantStyles = makeStyles(function (theme) {
             textDecoration: "none",
             fontSize: theme.typography.fontSize,
             cursor: "pointer",
+            border: '1px solid transparent',
+            transition: 'all 0.3s ease-in',
         },
         socialsContainer: {
             display: "flex",
@@ -51,10 +55,14 @@ export var useTaurantStyles = makeStyles(function (theme) {
         },
         socialIntegration: {
             color: theme.design.colors.waz_black,
+            border: '1px solid transparent',
+            transition: 'all 0.3s ease-in',
         },
         hivedeckLogo: {
             width: "90px",
             height: "30px",
+            border: '1px solid transparent',
+            transition: 'all 0.3s ease-in',
         },
         content: (_c = {
                 display: "flex",
@@ -69,5 +77,9 @@ export var useTaurantStyles = makeStyles(function (theme) {
                 justifyContent: "space-between"
             },
             _c),
+        activeElement: {
+            border: '1px dashed',
+            borderColor: theme.design.colors.waz_primaryColor100,
+        }
     });
 });
