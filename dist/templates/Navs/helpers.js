@@ -29,7 +29,7 @@ var isNotRenderAnchor = function (url, mode) {
     return (url === null || url === void 0 ? void 0 : url.startsWith("/")) || url === "#" || mode === "edit";
 };
 var clickAction = function (url, mode, handleClick) {
-    if (mode === "edit" || (mode === "view" && url !== '#'))
+    if (mode === "edit" || (mode === "view" && url === '#'))
         handleClick === null || handleClick === void 0 ? void 0 : handleClick();
 };
 export var renderNavLogo = function (mode, classes, activeElement, handleClick, logo) {
