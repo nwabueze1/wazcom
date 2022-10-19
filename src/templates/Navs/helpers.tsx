@@ -49,7 +49,7 @@ const isNotRenderAnchor = (url: string, mode: "view" | "edit") =>
     url?.startsWith("/") || url === "#" || mode === "edit";
 
 const clickAction = (url: string, mode: "view" | "edit", handleClick?: () => void) => {
-    if (url.trim() === "#" || mode === "edit") handleClick?.();
+    if (mode === "edit" || (mode === "view" && url !== '#')) handleClick?.();
 };
 
 export const renderNavLogo = (
