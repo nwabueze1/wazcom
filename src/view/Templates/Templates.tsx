@@ -65,10 +65,10 @@ export const Templates: FC<BrowserProps> = () => {
                 <Toolbar>
                     <div className={classes.logo}>
                         <WidgetsRoundedIcon className={classes.sidebarIcon} />
-                        <span className={classes.title}>WAZCOM</span>
+                        <span>WAZCOM</span>
                     </div>
                 </Toolbar>
-                <List className={classes.sidebarList}>
+                <List>
                     <SidebarListItem title="Blocks" sections={sections} />
                 </List>
             </Drawer>

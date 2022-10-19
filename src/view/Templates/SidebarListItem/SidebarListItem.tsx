@@ -15,9 +15,6 @@ export const SidebarListItem: FC<SidebarListItemProps> = ({ title, sections }) =
 
     const classes = useSidebarListItemStyles();
 
-    const showSelection = () => {
-        //
-    };
     const handleMouseEnter = useCallback(
         (rowIndex: number, index: number) => {
             setActiveLink({ rowIndex, index });
@@ -53,7 +50,6 @@ export const SidebarListItem: FC<SidebarListItemProps> = ({ title, sections }) =
                         <li
                             key={sectionIndex}
                             className={classes.listItem}
-                            onClick={() => showSelection()}
                         >
                             <Typography variant="h5">{sectionLabel}</Typography>
                             <ul className={classes.innerList}>
@@ -61,7 +57,6 @@ export const SidebarListItem: FC<SidebarListItemProps> = ({ title, sections }) =
                                     <li
                                         key={index}
                                         className={classes.innerListItem}
-                                        onClick={() => showSelection()}
                                     >
                                         <a
                                             className={clx(

@@ -35,7 +35,7 @@ export const useHeaderStyles = makeStyles((theme: Theme) => ({
         },
     },
     headerTitle: {
-        color: "#025939",
+        color: theme.design.colors.waz_primaryColor300,
         fontSize: theme.typography.fontSize * 6,
         letterSpacing: 0,
         textTransform: "capitalize",
@@ -59,7 +59,7 @@ export const useHeaderStyles = makeStyles((theme: Theme) => ({
         },
     },
     headerDescription: {
-        color: "#5A5959",
+        color: theme.design.colors.waz_greyColor600,
         fontSize: theme.typography.fontSize + 6,
         [theme.breakpoints.down(1450)]: {
             fontSize: theme.typography.fontSize + 3,

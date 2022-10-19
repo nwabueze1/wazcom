@@ -4,7 +4,6 @@ import { makeStyles } from "@mui/styles";
 export const drawerWidth = 260;
 
 export const useTemplateStyles = makeStyles((theme: Theme) => ({
-    root: {},
     drawer: {
         padding: `0 ${theme.spacing(2)}`,
     },
@@ -13,7 +12,6 @@ export const useTemplateStyles = makeStyles((theme: Theme) => ({
         width: drawerWidth,
         boxSizing: "border-box",
     },
-    sidebarList: {},
     sidebarIcon: {
         marginRight: theme.spacing(1),
     },
@@ -28,7 +26,6 @@ export const useTemplateStyles = makeStyles((theme: Theme) => ({
         margin: `${theme.spacing(1)}`,
         boxSizing: "border-box",
         textTransform: "uppercase",
-        "&:hover": {},
     },
     sidebarItemIsActive: {
         "&:hover": {
@@ -54,10 +51,8 @@ export const useTemplateStyles = makeStyles((theme: Theme) => ({
         justifyContent: "center",
         alignItems: "center",
         color: theme.design.colors.waz_black,
-        fontWeight: 500,
+        fontWeight: theme.typography.fontWeightMedium,
     },
-    title: {},
-    listItem: {},
     listItemButton: {
         width: "100%",
         textAlign: "left",
