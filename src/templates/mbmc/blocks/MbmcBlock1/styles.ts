@@ -1,7 +1,7 @@
 import { Theme } from "@mui/material";
 import { makeStyles } from "@mui/styles";
 
-export const useHeaderStyles = makeStyles((theme: Theme) => ({
+export const useMbmcBlock1Styles = makeStyles((theme: Theme) => ({
     root: {
         width: "100%",
         height: 600,

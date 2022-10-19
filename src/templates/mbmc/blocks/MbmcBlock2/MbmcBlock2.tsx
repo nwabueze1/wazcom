@@ -1,7 +1,7 @@
-import { useSubHeaderStyles } from "./styles";
+import { useMbmcBlock2Styles } from "./styles";
 
-export const SubHeader = () => {
-    const classes = useSubHeaderStyles();
+export const MbmcBlock2 = () => {
+    const classes = useMbmcBlock2Styles();
 
     return (
         <div className={classes.root}>
