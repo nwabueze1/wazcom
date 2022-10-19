@@ -100,9 +100,6 @@ export const ComboBoxInput: FC<ComboBoxInputProps> = ({
                         variant="outlined"
                         error={error}
                         className={classes.renderInput}
-                        inputProps={{
-                            ...(classNames?.textInput as any ?? {})
-                        }}
                     />
                 )}
                 className={classNames?.comboBoxInput ? (classNames.comboBoxInput as string) : ""}
