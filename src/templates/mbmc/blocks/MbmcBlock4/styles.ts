@@ -10,7 +10,6 @@ export const useMbmcBlock4Styles = makeStyles((theme: Theme) => ({
         display: "flex",
         alignItems: "flex-start",
         flexDirection: "column",
-        padding: theme.spacing(2, 8),
         overflow: "hidden",
 
         [theme.breakpoints.down("lg")]: {
@@ -93,7 +92,7 @@ export const useMbmcBlock4Styles = makeStyles((theme: Theme) => ({
         display: "flex",
         justifyContent: "center",
         alignItems: "center",
-        gap: theme.spacing(1),
+        gap: theme.spacing(2),
         [theme.breakpoints.down("sm")]: {
             flexDirection: "column",
         },

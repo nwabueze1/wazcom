@@ -1,6 +1,7 @@
 import { StyledEngineProvider, Theme, ThemeProvider } from "@mui/material";
 import * as React from "react";
 import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
+import { blocks } from "templates/mbmc";
 import { Nour } from "templates/Navs";
 import { Asta } from "templates/restaurant/Asta/Asta";
 import { Browser } from "view/Browser";
@@ -45,6 +46,23 @@ const App: React.FC<Props> = () => {
                         <Route exact path="/templates/:uuid">
                             <Templates />
                         </Route>
+                        {blocks
+                            .sort(({ name: aName }, { name: bName }) =>
+                                aName.toLowerCase() < bName.toLowerCase()
+                                    ? -1
+                                    : aName.toLowerCase() > bName.toLowerCase()
+                                    ? 1
+                                    : 0,
+                            )
+                            .map(({ name, component: Comp, props }, index) => (
+                                <Route
+                                    key={index}
+                                    exact
+                                    path={`/templates/:uuid/${name.split("").join("")}`}
+                                >
+                                    {React.cloneElement(<Comp />, props)}
+                                </Route>
+                            ))}
                         <Route exact path="/nour">
                             <Nour
                                 {...navProps}

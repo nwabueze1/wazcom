@@ -37,6 +37,7 @@ export const useServiceCardStyles = makeStyles<Theme, StyleProps>((theme: Theme)
                 width: "100%",
             },
             [theme.breakpoints.down("sm")]: {
+                height: 417,
                 width: "100%",
             },
         },
@@ -51,6 +52,9 @@ export const useServiceCardStyles = makeStyles<Theme, StyleProps>((theme: Theme)
             boxSizing: "border-box",
             padding: theme.spacing(2, 0),
             width: "100%",
+            [theme.breakpoints.down("md")]: {
+                padding: 0,
+            },
             [theme.breakpoints.down("sm")]: {
                 padding: 0,
             },
@@ -64,12 +68,16 @@ export const useServiceCardStyles = makeStyles<Theme, StyleProps>((theme: Theme)
             backgroundRepeat: "no-repeat",
             backgroundPosition: "center center",
             backgroundSize: "cover",
+            [theme.breakpoints.down("md")]: {
+                height: 230,
+                width: "100%",
+            },
             [theme.breakpoints.down("xs")]: {
                 height: "60%",
                 width: "100px",
             },
             [theme.breakpoints.down("sm")]: {
-                height: 377,
+                height: 350,
                 width: "100%",
             },
         },
