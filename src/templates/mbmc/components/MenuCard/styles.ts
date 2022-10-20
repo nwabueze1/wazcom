@@ -27,18 +27,12 @@ export const useServiceCardStyles = makeStyles<Theme, StyleProps>((theme: Theme)
             },
             [theme.breakpoints.down("lg")]: {
                 height: 300,
-                width: "48%",
             },
             [theme.breakpoints.down("md")]: {
                 height: 230,
-                width: "100%",
-            },
-            [theme.breakpoints.down("xs")]: {
-                width: "100%",
             },
             [theme.breakpoints.down("sm")]: {
                 height: 417,
-                width: "100%",
             },
         },
         noMargin: {

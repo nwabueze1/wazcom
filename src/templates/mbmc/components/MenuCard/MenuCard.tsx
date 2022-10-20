@@ -18,41 +18,39 @@ export const MenuCard: React.FC<MenuCardProps> = ({
     const classes = useServiceCardStyles({ isOpen });
 
     return (
-        <>
+        <div
+            onClick={() => {
+                isOpen && onClick?.();
+            }}
+            className={clsx(classes.root, classes.visible)}
+        >
             <div
-                onClick={() => {
-                    isOpen && onClick?.();
+                className={classes.imageWrapper}
+                style={{
+                    backgroundImage: `url(${imageUrl ?? menuImagePlaceholder})`,
                 }}
-                className={clsx(classes.root, classes.visible)}
-            >
-                <div
-                    className={classes.imageWrapper}
-                    style={{
-                        backgroundImage: `url(${imageUrl ?? menuImagePlaceholder})`,
-                    }}
-                ></div>
-                <div className={classes.content}>
-                    <div className={classes.menuHeaderContainer}>
-                        <p className={classes.title}>{name} </p>
-                        {startPrice ? (
-                            <p className={classes.price}>
-                                {currency}
-                                {price}
-                                {""} - {""}
-                                {currency}
-                                {price}
-                            </p>
-                        ) : (
-                            <p className={classes.price}>
-                                {currency}
-                                {price}
-                            </p>
-                        )}
-                    </div>
-                    <p className={classes.description}>{description}</p>
-                    <MbmcButton bgColor="#F25430">Order now</MbmcButton>
+            ></div>
+            <div className={classes.content}>
+                <div className={classes.menuHeaderContainer}>
+                    <p className={classes.title}>{name} </p>
+                    {startPrice ? (
+                        <p className={classes.price}>
+                            {currency}
+                            {price}
+                            {""} - {""}
+                            {currency}
+                            {price}
+                        </p>
+                    ) : (
+                        <p className={classes.price}>
+                            {currency}
+                            {price}
+                        </p>
+                    )}
                 </div>
+                <p className={classes.description}>{description}</p>
+                <MbmcButton bgColor="#F25430">Order now</MbmcButton>
             </div>
-        </>
+        </div>
     );
 };

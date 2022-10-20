@@ -2,6 +2,7 @@ import { FC } from "react";
 import { AiOutlinePicture } from "react-icons/ai";
 import { FaFacebookF } from "react-icons/fa";
 import { BsTwitter } from "react-icons/bs";
+import clx from "classnames";
 import { NavProps, SocialType } from "./types";
 
 export const renderNavLink = (
@@ -9,16 +10,21 @@ export const renderNavLink = (
     mode: "view" | "edit",
     index: number,
     classes: any,
-    handleClick?: (route: string) => void,
-) =>
-    isNotRenderAnchor(url, mode) ? (
+    activeElement: string,
+    handleClick: (element: string) => void,
+) => {
+    const id = "nav_links." + String(index);
+    return isNotRenderAnchor(url, mode) ? (
         <p
             key={index}
-            className={classes.link}
+            className={clx(
+                classes.link,
+                id.toLowerCase() === activeElement && mode === "edit" && classes.activeElement,
+            )}
             onClick={(e) => {
                 e.stopPropagation();
                 clickAction(url, mode, () => {
-                    handleClick?.(mode === "edit" ? "nav_links." + String(index) : url);
+                    handleClick?.(mode === "edit" ? id : url);
                 });
             }}
         >
@@ -35,6 +41,7 @@ export const renderNavLink = (
             {text}
         </a>
     );
+};
 
 const hivedeckLogo = "https://sytbuildr.s3.eu-west-2.amazonaws.com/images/logo/hivedeck_logo.svg";
 
@@ -42,14 +49,15 @@ const isNotRenderAnchor = (url: string, mode: "view" | "edit") =>
     url?.startsWith("/") || url === "#" || mode === "edit";
 
 const clickAction = (url: string, mode: "view" | "edit", handleClick?: () => void) => {
-    if (url.trim() === "#" || mode === "edit") handleClick?.();
+    if (mode === "edit" || (mode === "view" && url === '#')) handleClick?.();
 };
 
 export const renderNavLogo = (
     mode: "view" | "edit",
     classes: any,
-    handleClick?: (route: string) => void,
-    logo?: { src: string; url: string },
+    activeElement: string,
+    handleClick: (element: string) => void,
+    logo?: { src?: string; url: string },
 ) => {
     return (
         <LogoWrapper url={logo?.url ?? ""} mode={mode} handleClick={handleClick}>
@@ -59,9 +67,20 @@ export const renderNavLogo = (
                     className={logo ? classes.logo : classes.hivedeckLogo}
                 />
             ) : logo ? (
-                <img src={logo?.src} className={classes.logo} />
+                <img
+                    src={logo?.src}
+                    className={clx(
+                        classes.logo,
+                        activeElement === "nav_logo" && classes.activeElement,
+                    )}
+                />
             ) : (
-                <AiOutlinePicture className={classes.logo} />
+                <AiOutlinePicture
+                    className={clx(
+                        classes.logo,
+                        activeElement === "nav_logo" && classes.activeElement,
+                    )}
+                />
             )}
         </LogoWrapper>
     );
@@ -80,7 +99,7 @@ const LogoWrapper: FC<LogoWrapperProps> = ({ url, mode, children, handleClick })
                 onClick={(e) => {
                     e.stopPropagation();
                     clickAction(url, mode, () => {
-                        handleClick?.(mode === "view" ? url : "navLogo");
+                        handleClick?.(mode === "view" ? url : "nav_logo");
                     });
                 }}
                 style={{ cursor: "pointer" }}
@@ -101,17 +120,23 @@ export const displaySocials = (
     socials: NavProps["socials"],
     mode: "view" | "edit",
     classes: any,
-    handleClick?: (route: string) => void,
+    activeElement: string,
+    handleClick: (element: string) => void,
 ) => {
     return socials?.map(({ type, url }, index) => {
+        const id = "nav_socials." + String(index);
         if (mode === "edit") {
             return (
                 <div
+                    className={clx(
+                        classes.socialIntegration,
+                        activeElement === id && mode === "edit" && classes.activeElement,
+                    )}
                     onClick={(e) => {
                         e.stopPropagation();
-                        handleClick?.("nav_socials." + String(index));
+                        handleClick(id);
                     }}
-                    style={{ cursor: 'pointer' }}
+                    style={{ cursor: "pointer" }}
                 >
                     {renderSocialIcon(type)}
                 </div>

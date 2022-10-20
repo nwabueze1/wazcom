@@ -43,13 +43,14 @@ export const useMbmcBlock6Styles = makeStyles((theme: Theme) => ({
     },
     headerTitle: {
         color: theme.design.colors.waz_primaryColor300,
-        fontSize: theme.typography.fontSize * 3,
+        fontSize: theme.typography.fontSize * 4,
         letterSpacing: 0,
         textTransform: "capitalize",
         font: "normal normal medium 68px/100px Losta Masta;",
         margin: 0,
         textAlign: "center",
         marginTop: theme.spacing(6),
+        marginBottom: theme.spacing(2),
 
         [theme.breakpoints.down(1450)]: {
             fontSize: theme.typography.fontSize * 3,
@@ -94,9 +95,6 @@ export const useMbmcBlock6Styles = makeStyles((theme: Theme) => ({
         justifyContent: "center",
         alignItems: "center",
         gap: theme.spacing(2),
-        [theme.breakpoints.down("sm")]: {
-            flexDirection: "column",
-        },
     },
     scrollContainer: {
         overflowX: "scroll",
