@@ -4,7 +4,7 @@ import { displayLogo, displaySections, displaySocials } from "../helpers";
 import { FooterProps, TFooterSection } from "../types";
 import { useNoirStyles } from "./styles";
 import { FaFacebookSquare } from "react-icons/fa";
-import { BsTwitter, BsLinkedin, BsYoutube } from "react-icons/bs";
+import { BsTwitter, BsLinkedin } from "react-icons/bs";
 import { ImInstagram, ImYoutube } from "react-icons/im";
 
 export const Noir: FC<FooterProps> = ({ mode = "view", handleClick, logo, socials, items }) => {

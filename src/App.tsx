@@ -1,7 +1,7 @@
 import { StyledEngineProvider, Theme, ThemeProvider } from "@mui/material";
 import * as React from "react";
 import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
-import { Noir } from "templates/footers";
+import { Blaise, Noir } from "templates/footers";
 import { Asta } from "templates/restaurant/Asta/Asta";
 import { Browser } from "view/Browser";
 import theme from "./theme";
@@ -12,6 +12,36 @@ declare module "@mui/styles/defaultTheme" {
 interface Props {
     className?: string;
 }
+
+// items: [
+//     {
+//         title: "Company",
+//         links: [
+//             { text: "About us", url: "" },
+//             { text: "About us", url: "" },
+//             { text: "About us", url: "" },
+//             { text: "About us", url: "" },
+//         ],
+//     },
+//     {
+//         title: "Services",
+//         links: [
+//             { text: "About us", url: "" },
+//             { text: "About us", url: "" },
+//             { text: "About us", url: "" },
+//             { text: "About us", url: "" },
+//         ],
+//     },
+//     {
+//         title: "Contact Us",
+//         links: [
+//             { text: "About us", url: "" },
+//             { text: "About us", url: "" },
+//             { text: "About us", url: "" },
+//             { text: "About us", url: "" },
+//         ],
+//     },
+// ],
 
 const navProps = {
     links: [
@@ -28,33 +58,11 @@ const navProps = {
         // alert(route);
     },
     items: [
-        {
-            title: "Company",
-            links: [
-                { text: "About us", url: "" },
-                { text: "About us", url: "" },
-                { text: "About us", url: "" },
-                { text: "About us", url: "" },
-            ],
-        },
-        {
-            title: "Services",
-            links: [
-                { text: "About us", url: "" },
-                { text: "About us", url: "" },
-                { text: "About us", url: "" },
-                { text: "About us", url: "" },
-            ],
-        },
-        {
-            title: "Contact Us",
-            links: [
-                { text: "About us", url: "" },
-                { text: "About us", url: "" },
-                { text: "About us", url: "" },
-                { text: "About us", url: "" },
-            ],
-        },
+        { text: "Info", url: "" },
+        { text: "Support", url: "" },
+        { text: "Marketing", url: "" },
+        { text: "Contact Us", url: "" },
+        { text: "Privacy Policy", url: "" },
     ],
     socials: [
         { type: "FACEBOOK", url: "https://www.facebook.com" },
@@ -74,7 +82,7 @@ const App: React.FC<Props> = () => {
                             <Browser />
                         </Route>
                         <Route exact path="/noir">
-                            <Noir
+                            <Blaise
                                 {...navProps}
                                 mode="edit"
                                 socials={[

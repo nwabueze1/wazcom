@@ -1,4 +1,4 @@
-import { TFooterSection } from "../types";
+import { TFooterSection, TLink } from "../types";
 import { isNotRenderAnchor } from "./anchor";
 
 export const displaySections = (
@@ -25,4 +25,24 @@ export const displaySections = (
             })}
         </div>
     ));
+};
+
+export const displayLinks = (
+    mode: "view" | "edit",
+    classes: any,
+    links: TLink[],
+    activeElement: string,
+    handleClick: (element: string) => void,
+) => {
+    return links.map(({ text, url }, index) => {
+        return isNotRenderAnchor(url, mode) ? (
+            <p className={classes.footerSectionLink} key={index}>
+                {text}
+            </p>
+        ) : (
+            <a href={url} className={classes.footerSectionLink} key={index}>
+                {text}
+            </a>
+        );
+    });
 };
