@@ -6,6 +6,8 @@ import { MbmcBlock4 } from "./blocks/MbmcBlock4/MbmcBlock4";
 import { MbmcBlock5 } from "./blocks/MbmcBlock5/MbmcBlock5";
 import { MbmcBlock6 } from "./blocks/MbmcBlock6/MbmcBlock6";
 import { MbmcBlock7 } from "./blocks/MbmcBlock7/MbmcBlock7";
+import { MbmcBlock8 } from "./blocks/MbmcBlock8/MbmcBlock8";
+import { MbmcBlock9 } from "./blocks/MbmcBlock9/MbmcBlock9";
 
 export const blocks: ComponentPropType[] = [
     {
@@ -41,6 +43,16 @@ export const blocks: ComponentPropType[] = [
     {
         name: "mbmc-block-7",
         component: MbmcBlock7,
+        props: {},
+    },
+    {
+        name: "mbmc-block-8",
+        component: MbmcBlock8,
+        props: {},
+    },
+    {
+        name: "mbmc-block-9",
+        component: MbmcBlock9,
         props: {},
     },
 ];

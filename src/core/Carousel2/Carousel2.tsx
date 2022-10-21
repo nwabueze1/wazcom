@@ -1,0 +1,70 @@
+import * as React from "react";
+import { useTheme } from "@mui/material/styles";
+import Box from "@mui/material/Box";
+import MobileStepper from "@mui/material/MobileStepper";
+import Paper from "@mui/material/Paper";
+import Typography from "@mui/material/Typography";
+import Button from "@mui/material/Button";
+import KeyboardArrowLeft from "@mui/icons-material/KeyboardArrowLeft";
+import KeyboardArrowRight from "@mui/icons-material/KeyboardArrowRight";
+import SwipeableViews from "react-swipeable-views";
+import { autoPlay } from "react-swipeable-views-utils";
+import { FC } from "react";
+import { Carousel2Props } from "./types";
+import { useCarouselStyles } from "./styles";
+
+const AutoPlaySwipeableViews = autoPlay(SwipeableViews);
+
+export const Carousel2: FC<Carousel2Props> = ({ className, items }) => {
+    const theme = useTheme();
+    const classes = useCarouselStyles();
+    const [activeStep, setActiveStep] = React.useState(0);
+    const maxSteps = items.length;
+
+    const handleNext = React.useCallback(() => {
+        setActiveStep(activeStep + 1);
+    }, [activeStep]);
+
+    const handleBack = React.useCallback(() => {
+        setActiveStep(activeStep - 1);
+    }, [activeStep]);
+
+    const handleStepChange = (step: number) => {
+        setActiveStep(step);
+    };
+
+    return (
+        <Box sx={{ flexGrow: 1 }} className={className}>
+            <AutoPlaySwipeableViews
+                axis={theme.direction === "rtl" ? "x-reverse" : "x"}
+                index={activeStep}
+                onChangeIndex={handleStepChange}
+                enableMouseEvents
+            >
+                {items.map(({ component }, index) => (
+                    <div key={index}>{component}</div>
+                ))}
+            </AutoPlaySwipeableViews>
+            <MobileStepper
+                steps={maxSteps}
+                position="static"
+                activeStep={activeStep}
+                className={classes.stepper}
+                nextButton={
+                    <Button
+                        size="small"
+                        onClick={handleNext}
+                        disabled={activeStep === maxSteps - 1}
+                    >
+                        {theme.direction === "rtl" ? <KeyboardArrowLeft /> : <KeyboardArrowRight />}
+                    </Button>
+                }
+                backButton={
+                    <Button size="small" onClick={handleBack} disabled={activeStep === 0}>
+                        {theme.direction === "rtl" ? <KeyboardArrowRight /> : <KeyboardArrowLeft />}
+                    </Button>
+                }
+            />
+        </Box>
+    );
+};

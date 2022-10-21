@@ -108,6 +108,7 @@ export const theme: any = {
             waz_dangerColor300: "#ff5959",
             waz_dangerColor400: "#FF4C4C",
             waz_orangeColor100: "#F25430",
+            waz_orangeColor50: "#FAFAFA",
             waz_successColor: baseColors.successColor,
             waz_successColor100: "#22803c",
             waz_successColor200: "#3b8e52",

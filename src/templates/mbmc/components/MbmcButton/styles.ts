@@ -6,8 +6,9 @@ export const useButtonStyles = makeStyles((theme: Theme) => ({
         borderRadius: 50,
         padding: theme.spacing(1, 2),
         marginRight: theme.spacing(1),
-        backgroundColor: ({ bgColor }: { bgColor?: string }) =>
-            bgColor ? bgColor : theme.design.colors.waz_primaryColor200,
+        backgroundColor: ({ bgColor }: { bgColor?: string }) => {
+            return bgColor ? bgColor : theme.design.colors.waz_primaryColor200;
+        },
         [theme.breakpoints.down("md")]: {
             padding: theme.spacing(1, 2),
         },
