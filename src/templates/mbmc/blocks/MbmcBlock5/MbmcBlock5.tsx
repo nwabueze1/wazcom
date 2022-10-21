@@ -5,7 +5,7 @@ export const MbmcBlock5 = () => {
     const classes = useMbmcBlock5Styles();
 
     return (
-        <>
+        <div className={classes.mbmcContainer}>
             <div className={classes.root}>
                 <div className={classes.footerContainer}>
                     <div className={classes.logoContainer}>
@@ -15,7 +15,7 @@ export const MbmcBlock5 = () => {
                         />
                     </div>
                     {footerData.map((footer, idx) => (
-                        <div key={idx}>
+                        <div key={idx} className={classes.listContainer}>
                             <p className={classes.footerTitle}>{footer.title}</p>
                             {footer.lists.map((list, listIdx) => (
                                 <p key={listIdx} className={classes.footerList}>
@@ -29,6 +29,6 @@ export const MbmcBlock5 = () => {
             <p className={classes.footerNote}>
                 2022 © All rights reserved . Mrbaker & Mrs cook . Proudly created by Hivedeck
             </p>
-        </>
+        </div>
     );
 };

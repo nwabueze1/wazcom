@@ -9,6 +9,7 @@ import Toolbar from "@mui/material/Toolbar";
 import { startCase } from "lodash";
 import * as React from "react";
 import { FC, useState } from "react";
+import { useHistory } from "react-router-dom";
 import { blocks } from "templates/mbmc";
 import { TextInput } from "../../io";
 import { SidebarListItem } from "./SidebarListItem/SidebarListItem";
@@ -18,6 +19,7 @@ import { BrowserProps } from "./types";
 export const Templates: FC<BrowserProps> = () => {
     const classes = useTemplateStyles();
     const [search, setSearch] = useState("");
+    const history = useHistory();
 
     const sections = [
         {
@@ -28,6 +30,10 @@ export const Templates: FC<BrowserProps> = () => {
             })),
         },
     ];
+
+    const viewElement = (name: string) => {
+        history.push(`/templates/template_id/${name}`);
+    };
 
     return (
         <Box sx={{ display: "flex" }}>
@@ -93,7 +99,10 @@ export const Templates: FC<BrowserProps> = () => {
                             id={name.toLowerCase()}
                         >
                             <Typography variant="h3">{startCase(name)}</Typography>
-                            <div className={classes.well}>
+                            <div
+                                className={classes.well}
+                                onClick={() => viewElement(name.split("").join(""))}
+                            >
                                 {React.cloneElement(<Comp />, props)}
                             </div>
                         </div>

@@ -9,35 +9,33 @@ export const useMbmcBlock5Styles = makeStyles((theme: Theme) => ({
         display: "flex",
         alignItems: "flex-start",
         flexDirection: "column",
-        padding: theme.spacing(2, 8),
+        padding: theme.spacing(2, 0),
         paddingTop: theme.spacing(4),
         overflow: "hidden",
 
-        [theme.breakpoints.down("lg")]: {
-            padding: theme.spacing(2, 4),
-        },
-        [theme.breakpoints.down("md")]: {
-            padding: theme.spacing(2, 4),
-            flexWrap: "wrap",
-        },
         [theme.breakpoints.down("sm")]: {
+            width: "calc(100% - 16px)",
             padding: theme.spacing(2),
             height: "fit-content",
         },
     },
-
+    mbmcContainer: {
+        width: "100%",
+    },
     footerContainer: {
         width: "100%",
         display: "flex",
         justifyContent: "space-between",
         alignItems: "flex-start",
         gap: theme.spacing(1),
+
         [theme.breakpoints.down("sm")]: {
             flexDirection: "column",
         },
 
         "& > div": {
             minWidth: 80,
+            width: "100%",
         },
     },
     footerTitle: {
@@ -50,12 +48,15 @@ export const useMbmcBlock5Styles = makeStyles((theme: Theme) => ({
         fontsize: theme.typography.fontSize,
         opacity: 0.7,
         lineHeight: 2.5,
+        [theme.breakpoints.down("sm")]: {
+            lineHeight: 1.5,
+        },
     },
     footerNote: {
         width: "100%",
         textAlign: "center",
         backgroundColor: theme.design.colors.waz_primaryColor200,
-        padding: theme.spacing(2, 1),
+        padding: theme.spacing(2, 0),
         color: theme.design.colors.waz_white,
     },
     logoContainer: {
@@ -74,6 +75,11 @@ export const useMbmcBlock5Styles = makeStyles((theme: Theme) => ({
             justifyContent: "flex-start",
             alignItems: "flex-start",
             width: "100%",
+        },
+    },
+    listContainer: {
+        [theme.breakpoints.down("sm")]: {
+            marginBottom: theme.spacing(2),
         },
     },
 }));

@@ -10,10 +10,9 @@ export const useButtonStyles = makeStyles((theme: Theme) => ({
             bgColor ? bgColor : theme.design.colors.waz_primaryColor200,
         [theme.breakpoints.down("md")]: {
             padding: theme.spacing(1, 2),
-            fontSize: theme.typography.fontSize,
         },
         [theme.breakpoints.down("sm")]: {
-            padding: theme.spacing(0.5, 1),
+            padding: theme.spacing(1, 3),
             borderRadius: 30,
         },
     },

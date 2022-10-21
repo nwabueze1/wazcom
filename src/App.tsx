@@ -1,6 +1,7 @@
 import { StyledEngineProvider, Theme, ThemeProvider } from "@mui/material";
 import * as React from "react";
 import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
+import { blocks } from "templates/mbmc";
 import { Nour, Taurant, Valour } from "templates/Navs";
 import { Asta } from "templates/restaurant/Asta/Asta";
 import { Browser } from "view/Browser";
@@ -45,19 +46,25 @@ const App: React.FC<Props> = () => {
                         <Route exact path="/templates/:uuid">
                             <Templates />
                         </Route>
+                        {blocks
+                            .sort(({ name: aName }, { name: bName }) =>
+                                aName.toLowerCase() < bName.toLowerCase()
+                                    ? -1
+                                    : aName.toLowerCase() > bName.toLowerCase()
+                                    ? 1
+                                    : 0,
+                            )
+                            .map(({ name, component: Comp, props }, index) => (
+                                <Route
+                                    key={index}
+                                    exact
+                                    path={`/templates/:uuid/${name.split("").join("")}`}
+                                >
+                                    {React.cloneElement(<Comp />, props)}
+                                </Route>
+                            ))}
                         <Route exact path="/nour">
-<<<<<<< HEAD
-                            <Nour
-                                {...navProps}
-                                mode="edit"
-                                socials={[
-                                    { type: "FACEBOOK", url: "wwww" },
-                                    { type: "TWITTER", url: "wwww" },
-                                ]}
-                            />
-=======
                             <Taurant {...navProps} mode="edit" socials={[{ type: 'FACEBOOK', url: 'wwww' }, { type: 'TWITTER', url: 'wwww' }]} />
->>>>>>> cde98c7086efcd23ebe13cb83e90df752e7907c5
                         </Route>
                         <Route exact path="/asta">
                             <Asta />
