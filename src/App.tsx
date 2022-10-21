@@ -4,6 +4,7 @@ import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
 import { blocks } from "templates/mbmc";
 import { Nour, Taurant, Valour } from "templates/Navs";
 import { Asta } from "templates/restaurant/Asta/Asta";
+import { Mbmc } from "templates/restaurant/Mbmc/Mbmc";
 import { Browser } from "view/Browser";
 import { Templates } from "view/Templates";
 import theme from "./theme";
@@ -64,10 +65,20 @@ const App: React.FC<Props> = () => {
                                 </Route>
                             ))}
                         <Route exact path="/nour">
-                            <Taurant {...navProps} mode="edit" socials={[{ type: 'FACEBOOK', url: 'wwww' }, { type: 'TWITTER', url: 'wwww' }]} />
+                            <Taurant
+                                {...navProps}
+                                mode="edit"
+                                socials={[
+                                    { type: "FACEBOOK", url: "wwww" },
+                                    { type: "TWITTER", url: "wwww" },
+                                ]}
+                            />
                         </Route>
                         <Route exact path="/asta">
                             <Asta />
+                        </Route>
+                        <Route exact path="/mbmc">
+                            <Mbmc />
                         </Route>
                     </Switch>
                 </Router>
