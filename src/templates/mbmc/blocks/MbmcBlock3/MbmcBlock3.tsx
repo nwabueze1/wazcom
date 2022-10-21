@@ -19,12 +19,14 @@ export const MbmcBlock3 = () => {
                 </div>
                 <div className={classes.headerParagraph}>
                     <p className={classes.headerDescription}>
-                        Lorem Ipsum is simply dummy text of the printing and typesetting industry.
-                        Lorem Ipsum has been the industry's standard dummy
+                        Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy
+                        eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam
+                        voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet
+                        clita kasd
                     </p>
                     <p className={classes.headerDescription}>
-                        Lorem Ipsum is simply dummy text of the printing and typesetting industry.
-                        Lorem Ipsum has been the industry's standard dummy
+                        elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna
+                        aliquyam erat, sed diam voluptua. At vero eo…
                     </p>
                 </div>
                 <div className={classes.headerBtnContainer}>
