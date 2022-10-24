@@ -10,7 +10,7 @@ import clx from "classnames";
 import { CoreMenuItemFields } from "templates/restaurant/types/CoreMenuItemFields";
 import { CoreMenuFields } from "templates/restaurant/types/CoreMenuFields";
 import { getCurrency, getFloatOrIntAmount, menuImagePlaceholder } from "../../../../utilities";
-import { calculateOptionsTotal, findMenuItem } from "../../helpers";
+import { calculateOptionsTotal, findMenuItem } from "../../helpers/functions";
 import { CoreCartFields } from "templates/restaurant/types/CoreCartFields";
 
 export const CartDialog: React.FC<CartDialogProps> = ({
