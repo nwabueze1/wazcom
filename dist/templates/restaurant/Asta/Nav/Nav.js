@@ -28,7 +28,7 @@ var __read = (this && this.__read) || function (o, n) {
 import { jsx as _jsx, jsxs as _jsxs } from "react/jsx-runtime";
 import { useState } from "react";
 import { InputAdornment } from "@mui/material";
-import { TextInput } from "io";
+import { TextInput } from "../../../../io";
 import { useNavStyles } from "./styles";
 import { Search } from "@mui/icons-material";
 import { BsCart3 } from "react-icons/bs";
