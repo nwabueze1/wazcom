@@ -44,11 +44,11 @@ export const useSevynStyles = makeStyles<Theme>((theme: Theme) => ({
     footerSocials: {
         display: 'flex',
         gap: theme.spacing(1.5),
-        marginTop: theme.spacing(6),
+        marginTop: theme.spacing(4),
     },
     footerSocialParent: {
-        width: 35,
-        height: 35,
+        width: 30,
+        height: 30,
         display: 'flex',
         justifyContent: 'center',
         alignItems: 'center',
