@@ -36,7 +36,7 @@ var __spreadArray = (this && this.__spreadArray) || function (to, from, pack) {
 };
 import { jsx as _jsx, jsxs as _jsxs, Fragment as _Fragment } from "react/jsx-runtime";
 import { useCallback, useEffect, useState } from "react";
-import { emptyRestaurantPlaceholder } from "utilities/restaurant";
+import { emptyRestaurantPlaceholder } from "../../../../utilities";
 import { MenuCategories } from "../MenuCategories";
 import { RestaurantDetails } from "../RestaurantDetails/RestaurantDetails";
 import { useDisplayMenuItems, useHandleMenuChange } from "./helper";

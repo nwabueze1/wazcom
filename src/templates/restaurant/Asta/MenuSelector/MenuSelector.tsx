@@ -1,6 +1,6 @@
 import { MenuItem, Select } from "@mui/material";
 import React from "react";
-import { parseMenuTime } from "utilities/restaurant";
+import { parseMenuTime } from "../../../../utilities";
 import { useMenuSelectorStyles } from "./styles";
 import { MenuSelectorProps } from "./types";
 

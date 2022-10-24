@@ -40,7 +40,7 @@ import { Accordion, AccordionDetails, AccordionSummary, Typography, Checkbox, Ra
 import { useOptionStyles } from "./styles";
 import { ExpandMore } from "@mui/icons-material";
 import { parseSelectedChoices } from "./helper";
-import { getCurrency, getFloatOrIntAmount } from "utilities/restaurant";
+import { getCurrency, getFloatOrIntAmount } from "../../../../utilities";
 export var Option = function (_a) {
     var _b;
     var name = _a.name, type = _a.type, options = _a.options, selectedOptions = _a.selectedOptions, updateSelectedOptions = _a.updateSelectedOptions, restaurant = _a.restaurant;

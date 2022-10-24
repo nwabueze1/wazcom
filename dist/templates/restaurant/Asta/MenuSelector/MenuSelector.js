@@ -11,7 +11,7 @@ var __assign = (this && this.__assign) || function () {
 };
 import { jsxs as _jsxs, jsx as _jsx } from "react/jsx-runtime";
 import { MenuItem, Select } from "@mui/material";
-import { parseMenuTime } from "utilities/restaurant";
+import { parseMenuTime } from "../../../../utilities";
 import { useMenuSelectorStyles } from "./styles";
 export var MenuSelector = function (_a) {
     var menus = _a.menus, handleChange = _a.handleChange, value = _a.value;

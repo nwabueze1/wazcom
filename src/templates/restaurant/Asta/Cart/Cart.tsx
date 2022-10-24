@@ -1,6 +1,6 @@
 import { FC } from "react";
-import { restaurantdata } from "templates/restaurant/data";
-import { emptyCartImagePlaceholder } from "utilities/restaurant";
+import { restaurantdata } from "../../data";
+import { emptyCartImagePlaceholder } from "../../../../utilities";
 import { useCartStyles } from ".";
 import { useDisplayCartItems } from "./helper";
 import { CartBoxProps } from "./types";
