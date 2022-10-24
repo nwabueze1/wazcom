@@ -43,6 +43,7 @@ export const useTestimonialCardPropsStyles = makeStyles<Theme>((theme: Theme) =>
             fontSize: theme.typography.fontSize * 1.5,
             color: theme.design.colors.waz_grey400,
             opacity: 0.9,
+            fontFamily: theme.design.font.montserrat,
         },
         author: {
             marginTop: theme.spacing(1),
@@ -51,6 +52,7 @@ export const useTestimonialCardPropsStyles = makeStyles<Theme>((theme: Theme) =>
             fontSize: theme.typography.fontSize * 1.5,
             color: theme.design.colors.waz_black,
             fontWeight: theme.typography.fontWeightBold,
+            fontFamily: theme.design.font.montserrat,
         },
         type: {
             textOverflow: "ellipsis",

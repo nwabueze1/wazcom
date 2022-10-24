@@ -3,7 +3,7 @@ import { makeStyles } from "@mui/styles";
 
 export const useMbmcBlock2Styles = makeStyles((theme: Theme) => ({
     root: {
-        width: "calc(100% - 64px)",
+        width: "calc(100% - 128px)",
         height: 400,
         backgroundColor: theme.design.colors.waz_white,
         position: "relative",
@@ -14,7 +14,7 @@ export const useMbmcBlock2Styles = makeStyles((theme: Theme) => ({
         [theme.breakpoints.down("md")]: {
             height: 300,
             padding: theme.spacing(2, 4),
-            width: "calc(100% - 32px)",
+            width: "calc(100% - 64px)",
         },
         [theme.breakpoints.down("sm")]: {
             flexDirection: "column",
@@ -46,6 +46,7 @@ export const useMbmcBlock2Styles = makeStyles((theme: Theme) => ({
     headerTitle: {
         color: theme.design.colors.waz_primaryColor300,
         fontSize: theme.typography.fontSize * 6,
+        fontFamily: theme.design.font.lostaMasta,
         letterSpacing: 0,
         textTransform: "capitalize",
         font: "normal normal medium 68px/100px Losta Masta;",
@@ -69,26 +70,23 @@ export const useMbmcBlock2Styles = makeStyles((theme: Theme) => ({
     },
     heroContainer: {
         height: 500,
-        width: "65%",
+        width: "50%",
         position: "absolute",
         right: 0,
         backgroundImage: `url(https://sytbuildr.s3.eu-west-2.amazonaws.com/images/mbmc/clipped1.svg)`,
         backgroundSize: "cover",
         backgroundPosition: "center",
-        marginRight: theme.spacing(-5),
         display: "flex",
         alignItems: "center",
+        marginRight: theme.spacing(-5),
+
         [theme.breakpoints.down(1450)]: {
-            width: "70%",
-            marginRight: theme.spacing(-20),
-        },
-        [theme.breakpoints.down("lg")]: {
-            width: "65%",
-            marginRight: theme.spacing(-15),
+            width: "50%",
+            marginRight: theme.spacing(-5),
         },
         [theme.breakpoints.down("md")]: {
-            width: "120%",
-            marginRight: theme.spacing(-30),
+            width: "70%",
+            marginRight: theme.spacing(-5),
         },
         [theme.breakpoints.down("sm")]: {
             display: "none",
@@ -124,7 +122,7 @@ export const useMbmcBlock2Styles = makeStyles((theme: Theme) => ({
         [theme.breakpoints.down("md")]: {
             width: 300,
             marginBottom: theme.spacing(2),
-            marginLeft: theme.spacing(25),
+            marginLeft: theme.spacing(5),
         },
     },
     headerBtnContainer: {

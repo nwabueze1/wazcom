@@ -96,6 +96,8 @@ export const theme: any = {
             bitter: "Bitter, sans-serif",
             merriweather: "Merriweather, sans-serif",
             openSans: "Open Sans, sans-serif",
+            lostaMasta: "Losta Masta",
+            montserrat: "Montserrat",
         },
         colors: {
             waz_primaryColor100: "#0A7227",
@@ -114,6 +116,7 @@ export const theme: any = {
             waz_successColor200: "#3b8e52",
             waz_successColor300: "#e6f0e9",
             waz_greyColor: "#808080",
+            waz_greyColor50: "#F5F5F5",
             waz_greyColor100: "#e5e5e5",
             waz_greyColor200: "#8c8c8c",
             waz_greyColor300: "#666666",

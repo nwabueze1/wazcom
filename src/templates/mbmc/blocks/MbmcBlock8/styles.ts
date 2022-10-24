@@ -73,7 +73,7 @@ export const useMbmcBlock8Styles = makeStyles((theme: Theme) => ({
         margin: 0,
         textAlign: "center",
         marginBottom: theme.spacing(2),
-
+        fontFamily: theme.design.font.lostaMasta,
         [theme.breakpoints.down(1450)]: {
             fontSize: theme.typography.fontSize * 3,
         },
@@ -96,6 +96,7 @@ export const useMbmcBlock8Styles = makeStyles((theme: Theme) => ({
         textAlign: "left",
         fontSize: theme.typography.fontSize * 2,
         width: "100%",
+        fontFamily: theme.design.font.montserrat,
         [theme.breakpoints.down(1450)]: {
             fontSize: theme.typography.fontSize + 8,
         },
@@ -161,5 +162,11 @@ export const useMbmcBlock8Styles = makeStyles((theme: Theme) => ({
         justifyContent: "space-between",
         gap: theme.spacing(1),
         marginLeft: theme.spacing(1),
+    },
+    headerIcon: {
+        marginLeft: theme.spacing(1),
+        [theme.breakpoints.down("sm")]: {
+            display: "none",
+        },
     },
 }));

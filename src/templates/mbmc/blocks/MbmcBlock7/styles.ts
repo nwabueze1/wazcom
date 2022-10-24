@@ -51,7 +51,7 @@ export const useMbmcBlock7Styles = makeStyles((theme: Theme) => ({
         textAlign: "center",
         marginTop: theme.spacing(6),
         marginBottom: theme.spacing(2),
-
+        fontFamily: theme.design.font.lostaMasta,
         [theme.breakpoints.down(1450)]: {
             fontSize: theme.typography.fontSize * 3,
         },
@@ -75,6 +75,9 @@ export const useMbmcBlock7Styles = makeStyles((theme: Theme) => ({
         textAlign: "center",
         fontSize: theme.typography.fontSize + 6,
         width: "60%",
+        fontFamily: theme.design.font.montserrat,
+        marginBottom: theme.spacing(2),
+        
         [theme.breakpoints.down(1450)]: {
             fontSize: theme.typography.fontSize + 3,
         },

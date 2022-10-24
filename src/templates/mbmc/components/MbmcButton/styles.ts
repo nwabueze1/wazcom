@@ -4,10 +4,11 @@ import { makeStyles } from "@mui/styles";
 export const useButtonStyles = makeStyles((theme: Theme) => ({
     button: {
         borderRadius: 50,
-        padding: theme.spacing(1, 2),
+        fontSize: theme.typography.fontSize + 2,
+        padding: theme.spacing(2, 6),
         marginRight: theme.spacing(1),
         backgroundColor: ({ bgColor }: { bgColor?: string }) => {
-            return bgColor ? bgColor : theme.design.colors.waz_primaryColor200;
+            return `${bgColor ? bgColor : theme.design.colors.waz_primaryColor200} !important`;
         },
         [theme.breakpoints.down("md")]: {
             padding: theme.spacing(1, 2),

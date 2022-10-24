@@ -96,6 +96,8 @@ export const useServiceCardStyles = makeStyles<Theme, StyleProps>((theme: Theme)
             color: theme.design.colors.waz_orangeColor100,
             textTransform: "capitalize",
             fontWeight: theme.typography.fontWeightMedium,
+            fontFamily: theme.design.font.lostaMasta,
+
             [theme.breakpoints.down("md")]: {
                 fontSize: theme.typography.fontSize + 6,
             },
@@ -105,7 +107,7 @@ export const useServiceCardStyles = makeStyles<Theme, StyleProps>((theme: Theme)
             marginBottom: theme.spacing(0.5),
             lineHeight: "22px",
             textOverflow: "ellipsis",
-            fontSize: theme.typography.fontSize,
+            fontSize: theme.typography.fontSize + 2,
             color: theme.design.colors.waz_grey400,
             opacity: 0.9,
             display: "-webkit-box",

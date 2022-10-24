@@ -43,6 +43,7 @@ export const useMbmcBlock4Styles = makeStyles((theme: Theme) => ({
     headerTitle: {
         color: theme.design.colors.waz_primaryColor300,
         fontSize: theme.typography.fontSize * 3,
+        fontFamily: theme.design.font.lostaMasta,
         letterSpacing: 0,
         textTransform: "capitalize",
         font: "normal normal medium 68px/100px Losta Masta;",
@@ -72,6 +73,8 @@ export const useMbmcBlock4Styles = makeStyles((theme: Theme) => ({
         textAlign: "center",
         fontSize: theme.typography.fontSize + 6,
         width: "60%",
+        fontFamily: theme.design.font.montserrat,
+        margin: theme.spacing(2, 0),
         [theme.breakpoints.down(1450)]: {
             fontSize: theme.typography.fontSize + 3,
         },

@@ -12,7 +12,8 @@ export const MbmcBlock8 = () => {
             <div className={classes.headerContent}>
                 <h3 className={classes.headerTitle}>Testimonial</h3>
                 <p className={classes.headerDescription}>
-                    Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed <br />
+                    Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed{" "}
+                    <br className={classes.headerIcon} />
                     diam nonumy eirmod tempor invidunt ut labore et dolore a….
                 </p>
             </div>

@@ -5,7 +5,7 @@ export const useMbmcBlock6Styles = makeStyles((theme: Theme) => ({
     root: {
         width: "100%",
         height: 700,
-        backgroundColor: theme.design.colors.waz_gold100,
+        backgroundColor: theme.design.colors.waz_greyColor50,
         position: "relative",
         display: "flex",
         alignItems: "center",
@@ -32,7 +32,7 @@ export const useMbmcBlock6Styles = makeStyles((theme: Theme) => ({
         alignItems: "center",
         justifyContent: "flex-start",
         flexDirection: "column",
-        marginBottom: theme.spacing(2),
+        marginBottom: theme.spacing(4),
 
         [theme.breakpoints.down("md")]: {
             width: "100%",
@@ -51,6 +51,7 @@ export const useMbmcBlock6Styles = makeStyles((theme: Theme) => ({
         textAlign: "center",
         marginTop: theme.spacing(6),
         marginBottom: theme.spacing(2),
+        fontFamily: theme.design.font.lostaMasta,
 
         [theme.breakpoints.down(1450)]: {
             fontSize: theme.typography.fontSize * 3,
@@ -74,6 +75,7 @@ export const useMbmcBlock6Styles = makeStyles((theme: Theme) => ({
         textAlign: "center",
         fontSize: theme.typography.fontSize + 6,
         width: "60%",
+        fontFamily: theme.design.font.montserrat,
         [theme.breakpoints.down(1450)]: {
             fontSize: theme.typography.fontSize + 3,
         },

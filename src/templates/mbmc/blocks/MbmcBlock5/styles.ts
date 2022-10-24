@@ -42,6 +42,7 @@ export const useMbmcBlock5Styles = makeStyles((theme: Theme) => ({
         fontSize: theme.typography.fontSize + 6,
         color: theme.design.colors.waz_white,
         fontWeight: theme.typography.fontWeightMedium,
+        fontFamily: theme.design.font.lostaMasta,
     },
     footerList: {
         color: theme.design.colors.waz_white,
