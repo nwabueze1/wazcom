@@ -14,20 +14,13 @@ export const useMbmcBlock9Styles = makeStyles((theme: Theme) => ({
         width: "calc(100% - 128px)",
         gap: theme.spacing(2),
 
-        [theme.breakpoints.down("lg")]: {
-            height: 350,
-            padding: theme.spacing(2, 4),
-            width: "calc(100% - 64px)",
-        },
         [theme.breakpoints.down("md")]: {
-            height: 350,
+            height: "100%",
             padding: theme.spacing(2, 4),
-            flexDirection: "column",
             width: "calc(100% - 64px)",
         },
         [theme.breakpoints.down("sm")]: {
             padding: theme.spacing(1),
-
             height: "fit-content",
             width: "calc(100% - 16px)",
         },
@@ -47,30 +40,12 @@ export const useMbmcBlock9Styles = makeStyles((theme: Theme) => ({
             width: "100%",
         },
     },
-    carousel: {
-        width: 750,
-        [theme.breakpoints.down(780)]: {
-            width: 700,
-        },
-        [theme.breakpoints.down(720)]: {
-            width: 650,
-        },
-        [theme.breakpoints.down(680)]: {
-            width: 580,
-        },
-        [theme.breakpoints.down(600)]: {
-            width: 500,
-        },
-        [theme.breakpoints.down(520)]: {
-            width: "100%",
-        },
-    },
     headerTitle: {
         color: theme.design.colors.waz_black,
         fontSize: theme.typography.fontSize * 4,
         letterSpacing: 0,
         textTransform: "capitalize",
-        font: "normal normal medium 68px/100px Losta Masta;",
+        font: "Losta Masta",
         margin: 0,
         textAlign: "center",
         marginBottom: theme.spacing(2),
@@ -116,36 +91,6 @@ export const useMbmcBlock9Styles = makeStyles((theme: Theme) => ({
         width: "100%",
         display: "block",
         marginTop: theme.spacing(4),
-
-        [theme.breakpoints.down(1450)]: {
-            width: "60%",
-        },
-        [theme.breakpoints.down("lg")]: {
-            width: "70%",
-        },
-        [theme.breakpoints.down("md")]: {
-            width: "100%",
-        },
-        [theme.breakpoints.down("sm")]: {
-            display: "none",
-        },
-    },
-    headerCardContainerMobile: {
-        width: "50%",
-        display: "none",
-        [theme.breakpoints.down(1450)]: {
-            width: "60%",
-        },
-        [theme.breakpoints.down("lg")]: {
-            width: "70%",
-        },
-        [theme.breakpoints.down("md")]: {
-            width: "100%",
-        },
-        [theme.breakpoints.down("sm")]: {
-            width: "100%",
-            display: "block",
-        },
     },
     pointContainer: {
         width: "100%",
@@ -158,12 +103,21 @@ export const useMbmcBlock9Styles = makeStyles((theme: Theme) => ({
         boxSizing: "border-box",
         marginBottom: theme.spacing(2),
         padding: theme.spacing(3),
-        boxShadow: "0px 3px 60px #00000014;",
+        boxShadow: `0px 3px 60px ${theme.design.colors.waz_black100}`,
+        [theme.breakpoints.down("md")]: {
+            padding: theme.spacing(1, 2),
+        },
+    },
+    pointTextContainer: {
+        display: "flex",
+        alignItems: "flex-start",
+        justifyContent: "flex-start",
+        flexDirection: "column",
     },
     point: {
         padding: theme.spacing(2, 4),
         fontSize: theme.typography.fontSize * 2,
-        boxShadow: "0px 1px 10px #0000001A;",
+        boxShadow: `0px 1px 10px ${theme.design.colors.waz_black100}`,
         borderRadius: theme.spacing(1),
         marginRight: theme.spacing(2),
         color: theme.design.colors.waz_primaryColor300,
@@ -229,19 +183,109 @@ export const useMbmcBlock9Styles = makeStyles((theme: Theme) => ({
     },
     directions: {
         width: "90%",
-        height: "90%",
+        height: "80%",
         backgroundImage: `url(https://sytbuildr.s3.eu-west-2.amazonaws.com/images/mbmc/directionImage.svg)`,
         backgroundSize: "80%",
         backgroundPosition: "center",
         backgroundRepeat: "no-repeat",
-        // border: "2px solid red",
+        position: "relative",
+        [theme.breakpoints.down("lg")]: {
+            backgroundSize: "95%",
+        },
     },
     directionContainer: {
         width: "100%",
         height: "100%",
-        border: "2px solid green",
         display: "flex",
         alignItems: "center",
         padding: theme.spacing(2),
+        [theme.breakpoints.down("md")]: {
+            height: 500,
+        },
+        [theme.breakpoints.down("sm")]: {
+            display: "none",
+        },
+    },
+    directionContainerMobile: {
+        width: "100%",
+        height: "100%",
+        display: "none",
+        alignItems: "center",
+        padding: theme.spacing(2),
+
+        [theme.breakpoints.down("sm")]: {
+            display: "flex",
+            height: 500,
+        },
+    },
+    imgDirection1: {
+        position: "absolute",
+        top: 0,
+        left: 0,
+        backgroundColor: theme.design.colors.waz_white,
+        [theme.breakpoints.down(1400)]: {
+            marginTop: theme.spacing(5),
+        },
+        [theme.breakpoints.down("lg")]: {
+            marginTop: theme.spacing(5),
+        },
+        [theme.breakpoints.down("md")]: {
+            marginTop: theme.spacing(-1),
+            width: 100,
+        },
+    },
+    imgDirection2: {
+        position: "absolute",
+        top: 0,
+        right: 0,
+        backgroundColor: theme.design.colors.waz_white,
+        [theme.breakpoints.down(1400)]: {
+            marginTop: theme.spacing(5),
+        },
+        [theme.breakpoints.down("lg")]: {
+            marginTop: theme.spacing(5),
+        },
+        [theme.breakpoints.down("md")]: {
+            marginTop: theme.spacing(-1),
+            width: 100,
+        },
+    },
+    imgDirection3: {
+        position: "absolute",
+        bottom: 0,
+        left: 0,
+        backgroundColor: theme.design.colors.waz_white,
+        [theme.breakpoints.down(1400)]: {
+            marginBottom: theme.spacing(5),
+        },
+        [theme.breakpoints.down("lg")]: {
+            marginBottom: theme.spacing(5),
+        },
+        [theme.breakpoints.down("md")]: {
+            marginBottom: theme.spacing(-1),
+            width: 100,
+        },
+    },
+    imgDirection4: {
+        position: "absolute",
+        bottom: 0,
+        right: 0,
+        backgroundColor: theme.design.colors.waz_white,
+        [theme.breakpoints.down(1400)]: {
+            marginBottom: theme.spacing(5),
+        },
+        [theme.breakpoints.down("lg")]: {
+            marginBottom: theme.spacing(5),
+        },
+        [theme.breakpoints.down("md")]: {
+            marginBottom: theme.spacing(-1),
+            width: 100,
+        },
+    },
+    mobileHide: {
+        display: "block",
+        [theme.breakpoints.down("md")]: {
+            display: "none",
+        },
     },
 }));
