@@ -64,7 +64,14 @@ const App: React.FC<Props> = () => {
                                 </Route>
                             ))}
                         <Route exact path="/nour">
-                            <Taurant {...navProps} mode="edit" socials={[{ type: 'FACEBOOK', url: 'wwww' }, { type: 'TWITTER', url: 'wwww' }]} />
+                            <Taurant
+                                {...navProps}
+                                mode="edit"
+                                socials={[
+                                    { type: "FACEBOOK", url: "wwww" },
+                                    { type: "TWITTER", url: "wwww" },
+                                ]}
+                            />
                         </Route>
                         <Route exact path="/asta">
                             <Asta />

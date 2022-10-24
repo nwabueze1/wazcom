@@ -39,7 +39,7 @@
         "xlsx": "^0.18.3"
     },
     "scripts": {
-        "start": "react-scripts start",
+        "start": " set PORT=3002 && react-scripts start",
         "build": "react-scripts build",
         "compile": "tsc --p tsconfig-build.json",
         "test": "react-scripts test",
