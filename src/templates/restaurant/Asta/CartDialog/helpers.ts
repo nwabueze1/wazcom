@@ -25,3 +25,8 @@ export const parseCartItem = (cart: CoreCartFields, cartItemId?: number) => {
     const quantity = cartItem.quantity;
     return [quantity, options];
 };
+
+export default {
+    changeQuantity,
+    parseCartItem,
+};
