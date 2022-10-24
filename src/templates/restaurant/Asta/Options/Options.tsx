@@ -1,4 +1,4 @@
-import React, { FC, useCallback, useMemo } from "react";
+import { FC, useCallback, useMemo } from "react";
 import { ItemOptionsProps } from "./types";
 import { useOptionsStyles } from "./styles";
 import { Option } from "../Option/Option";

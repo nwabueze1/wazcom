@@ -1,4 +1,4 @@
-import React, { FC } from "react";
+import { FC } from "react";
 import { useRestaurantDetailsStyles } from "./styles";
 import { GoMail } from "react-icons/go";
 import { BiPhone } from "react-icons/bi";

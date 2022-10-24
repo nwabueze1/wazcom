@@ -1,4 +1,3 @@
-import React from "react";
 import { emptyCartImagePlaceholder } from "utilities/restaurant";
 import { useCartStyles } from ".";
 

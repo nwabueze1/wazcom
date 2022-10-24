@@ -1,4 +1,3 @@
-import React from "react";
 import { findCategories } from "../MenuCategories/helpers";
 import { SelectChangeEvent } from "@mui/material";
 import { CoreMenuFields } from "../../types/CoreMenuFields";

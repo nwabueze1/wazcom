@@ -1,4 +1,4 @@
-import React, { FC } from "react";
+import { FC } from "react";
 import { restaurantdata } from "templates/restaurant/data";
 import { emptyCartImagePlaceholder } from "utilities/restaurant";
 import { useCartStyles } from ".";
