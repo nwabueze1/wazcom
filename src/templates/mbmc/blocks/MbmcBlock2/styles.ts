@@ -3,7 +3,7 @@ import { makeStyles } from "@mui/styles";
 
 export const useMbmcBlock2Styles = makeStyles((theme: Theme) => ({
     root: {
-        width: "100%",
+        width: "calc(100% - 64px)",
         height: 400,
         backgroundColor: theme.design.colors.waz_white,
         position: "relative",
@@ -14,11 +14,15 @@ export const useMbmcBlock2Styles = makeStyles((theme: Theme) => ({
         [theme.breakpoints.down("md")]: {
             height: 300,
             padding: theme.spacing(2, 4),
+            width: "calc(100% - 32px)",
         },
         [theme.breakpoints.down("sm")]: {
+            flexDirection: "column",
             alignItems: "flex-start",
             padding: theme.spacing(0.5),
-            height: 450,
+            width: "calc(100% - 8px)",
+            height: "100%",
+            overflow: "visible",
         },
     },
     headerContent: {
@@ -29,11 +33,14 @@ export const useMbmcBlock2Styles = makeStyles((theme: Theme) => ({
         },
         [theme.breakpoints.down("sm")]: {
             width: "100%",
+            position: "relative",
             height: "40%",
             display: "flex",
             alignItems: "center",
             justifyContent: "center",
             flexDirection: "column",
+            marginBottom: theme.spacing(10),
+            marginTop: theme.spacing(4),
         },
     },
     headerTitle: {
@@ -60,22 +67,6 @@ export const useMbmcBlock2Styles = makeStyles((theme: Theme) => ({
             marginBottom: theme.spacing(1),
         },
     },
-    headerDescription: {
-        color: theme.design.colors.waz_greyColor600,
-        fontSize: theme.typography.fontSize + 6,
-        [theme.breakpoints.down(1450)]: {
-            fontSize: theme.typography.fontSize + 3,
-        },
-        [theme.breakpoints.down("lg")]: {
-            fontSize: theme.typography.fontSize + 3,
-        },
-        [theme.breakpoints.down("md")]: {
-            fontSize: theme.typography.fontSize,
-        },
-        [theme.breakpoints.down("sm")]: {
-            textAlign: "center",
-        },
-    },
     heroContainer: {
         height: 500,
         width: "65%",
@@ -93,7 +84,7 @@ export const useMbmcBlock2Styles = makeStyles((theme: Theme) => ({
         },
         [theme.breakpoints.down("lg")]: {
             width: "65%",
-            marginRight: theme.spacing(-20),
+            marginRight: theme.spacing(-15),
         },
         [theme.breakpoints.down("md")]: {
             width: "120%",
@@ -104,14 +95,13 @@ export const useMbmcBlock2Styles = makeStyles((theme: Theme) => ({
         },
     },
     heroContainerMobile: {
-        height: 500,
+        height: 350,
         marginBottom: theme.spacing(-12),
         width: "100%",
-        position: "absolute",
         bottom: 0,
         backgroundImage: `url(https://sytbuildr.s3.eu-west-2.amazonaws.com/images/mbmc/hero1mobile.svg)`,
-        backgroundSize: "cover",
-        backgroundPosition: "center",
+        backgroundRepeat: "no-repeat",
+
         marginRight: theme.spacing(-11),
         display: "none",
         alignItems: "center",
@@ -129,12 +119,12 @@ export const useMbmcBlock2Styles = makeStyles((theme: Theme) => ({
         [theme.breakpoints.down("lg")]: {
             width: 400,
             marginBottom: theme.spacing(2),
-            marginLeft: theme.spacing(-7),
+            marginLeft: theme.spacing(-1),
         },
         [theme.breakpoints.down("md")]: {
-            width: 250,
+            width: 300,
             marginBottom: theme.spacing(2),
-            marginLeft: theme.spacing(5),
+            marginLeft: theme.spacing(25),
         },
     },
     headerBtnContainer: {

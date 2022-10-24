@@ -2,7 +2,10 @@ import { StyledEngineProvider, Theme, ThemeProvider } from "@mui/material";
 import * as React from "react";
 import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
 import { Blaise, Noir, Sevyn } from "templates/footers";
+import { blocks } from "templates/mbmc";
+import { Nour, Taurant, Valour } from "templates/Navs";
 import { Asta } from "templates/restaurant/Asta/Asta";
+import { Mbmc } from "templates/restaurant/Mbmc/Mbmc";
 import { Browser } from "view/Browser";
 import theme from "./theme";
 declare module "@mui/styles/defaultTheme" {
@@ -73,21 +76,28 @@ const App: React.FC<Props> = () => {
                         <Route exact path="/">
                             <Browser />
                         </Route>
-                        <Route exact path="/noir">
-                            <Sevyn
-                                {...navProps}
-                                mode="edit"
-                                socials={[
-                                    { type: "FACEBOOK", url: "https://www.facebook.com" },
-                                    { type: "TWITTER", url: "https://www.twitter.com" },
-                                    { type: "YOUTUBE", url: "https://www.twitter.com" },
-                                    { type: "LINKEDIN", url: "https://www.twitter.com" },
-                                    { type: "INSTAGRAM", url: "https://www.twitter.com" },
-                                ]}
-                            />
-                        </Route>
+                        {blocks
+                            .sort(({ name: aName }, { name: bName }) =>
+                                aName.toLowerCase() < bName.toLowerCase()
+                                    ? -1
+                                    : aName.toLowerCase() > bName.toLowerCase()
+                                    ? 1
+                                    : 0,
+                            )
+                            .map(({ name, component: Comp, props }, index) => (
+                                <Route
+                                    key={index}
+                                    exact
+                                    path={`/templates/:uuid/${name.split("").join("")}`}
+                                >
+                                    {React.cloneElement(<Comp />, props)}
+                                </Route>
+                            ))}
                         <Route exact path="/asta">
                             <Asta />
+                        </Route>
+                        <Route exact path="/mbmc">
+                            <Mbmc />
                         </Route>
                     </Switch>
                 </Router>
