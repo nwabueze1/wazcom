@@ -2,7 +2,11 @@ import React from "react";
 import { useStyles } from "./styles";
 import { CartItemProps } from "./types";
 import clsx from "clsx";
-import { getCurrency, getFloatOrIntAmount, menuImagePlaceholder } from "utilities/restaurant";
+import {
+    getCurrency,
+    getFloatOrIntAmount,
+    menuImagePlaceholder,
+} from "../../../../../../utilities";
 import { IoIosClose } from "react-icons/io";
 import { IoAddCircleOutline } from "react-icons/io5";
 import { AiOutlineMinusCircle } from "react-icons/ai";
