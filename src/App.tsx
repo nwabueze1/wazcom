@@ -2,7 +2,7 @@ import { StyledEngineProvider, Theme, ThemeProvider } from "@mui/material";
 import * as React from "react";
 import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
 import { blocks } from "templates/mbmc";
-import { Nour } from "templates/Navs";
+import { Valour } from "templates/Navs";
 import { Asta } from "templates/restaurant/Asta/Asta";
 import { Browser } from "view/Browser";
 import { Templates } from "view/Templates";
@@ -66,7 +66,7 @@ const App: React.FC<Props> = () => {
                                 </Route>
                             ))}
                         <Route exact path="/nour">
-                            <Nour
+                            <Valour
                                 {...navProps}
                                 mode="edit"
                                 socials={[

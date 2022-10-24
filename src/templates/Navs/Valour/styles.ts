@@ -38,6 +38,7 @@ export const useValourStyles = makeStyles<Theme>((theme: Theme) => ({
         [theme.breakpoints.down("sm")]: {
             gap: theme.spacing(2),
             left: 20,
+            marginBottom: theme.spacing(0.5)
         },
     },
     link: {
@@ -52,6 +53,9 @@ export const useValourStyles = makeStyles<Theme>((theme: Theme) => ({
         display: "flex",
         flexDirection: "row",
         gap: theme.spacing(3),
+        [theme.breakpoints.down("sm")]: {
+            marginBottom: theme.spacing(0.5)
+        },
     },
     socialIntegration: {
         color: theme.design.colors.waz_black,

@@ -39,6 +39,7 @@ export const useNourStyles = makeStyles<Theme>((theme: Theme) => ({
         [theme.breakpoints.down("sm")]: {
             gap: theme.spacing(1),
             marginRight: theme.spacing(2),
+            marginBottom: theme.spacing(0.5)
         },
     },
     link: {
@@ -55,6 +56,7 @@ export const useNourStyles = makeStyles<Theme>((theme: Theme) => ({
         gap: theme.spacing(3),
         [theme.breakpoints.down("sm")]: {
             gap: theme.spacing(1.5),
+            marginBottom: theme.spacing(0.5)
         },
     },
     socialIntegration: {

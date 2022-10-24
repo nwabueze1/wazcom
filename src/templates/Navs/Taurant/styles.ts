@@ -33,7 +33,8 @@ export const useTaurantStyles = makeStyles<Theme>((theme: Theme) => ({
         flexDirection: "row",
         gap: theme.spacing(4),
         [theme.breakpoints.down("sm")]: {
-            gap: theme.spacing(2)
+            gap: theme.spacing(2),
+            marginBottom: theme.spacing(0.5)
         },
     },
     link: {
@@ -50,6 +51,9 @@ export const useTaurantStyles = makeStyles<Theme>((theme: Theme) => ({
         alignItems: 'center',
         gap: theme.spacing(3),
         marginTop: theme.spacing(0.5),
+        [theme.breakpoints.down("sm")]: {
+            marginBottom: theme.spacing(0.5)
+        },
     },
     socialIntegration: {
         color: theme.design.colors.waz_black,
