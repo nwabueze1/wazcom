@@ -36,3 +36,9 @@ export const findMenuItem = (menus: CoreMenuFields[], itemId: number) => {
     menuItems = newMenuItems;
     return menuItems.find((item: any) => item.id.toString() === itemId.toString());
 };
+
+export default {
+    calculateOptionsTotal,
+    parseOptionString,
+    findMenuItem,
+};

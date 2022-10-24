@@ -56,3 +56,8 @@ export var findMenuItem = function (menus, itemId) {
     menuItems = newMenuItems;
     return menuItems.find(function (item) { return item.id.toString() === itemId.toString(); });
 };
+export default {
+    calculateOptionsTotal: calculateOptionsTotal,
+    parseOptionString: parseOptionString,
+    findMenuItem: findMenuItem,
+};

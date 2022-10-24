@@ -18,7 +18,3 @@ export var parseCartItem = function (cart, cartItemId) {
     var quantity = cartItem.quantity;
     return [quantity, options];
 };
-export default {
-    changeQuantity: changeQuantity,
-    parseCartItem: parseCartItem,
-};
