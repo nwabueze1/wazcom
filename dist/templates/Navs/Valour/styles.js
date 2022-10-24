@@ -1,6 +1,6 @@
 import makeStyles from "@mui/styles/makeStyles";
 export var useValourStyles = makeStyles(function (theme) {
-    var _a, _b;
+    var _a, _b, _c;
     return ({
         root: {
             width: "100%",
@@ -40,6 +40,7 @@ export var useValourStyles = makeStyles(function (theme) {
             _b[theme.breakpoints.down("sm")] = {
                 gap: theme.spacing(2),
                 left: 20,
+                marginBottom: theme.spacing(0.5)
             },
             _b),
         link: {
@@ -50,11 +51,15 @@ export var useValourStyles = makeStyles(function (theme) {
             border: '1px solid transparent',
             transition: 'all 0.3s ease-in',
         },
-        socialsContainer: {
-            display: "flex",
-            flexDirection: "row",
-            gap: theme.spacing(3),
-        },
+        socialsContainer: (_c = {
+                display: "flex",
+                flexDirection: "row",
+                gap: theme.spacing(3)
+            },
+            _c[theme.breakpoints.down("sm")] = {
+                marginBottom: theme.spacing(0.5)
+            },
+            _c),
         socialIntegration: {
             color: theme.design.colors.waz_black,
             border: '1px solid transparent',

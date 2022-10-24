@@ -41,6 +41,7 @@ export var useNourStyles = makeStyles(function (theme) {
             _b[theme.breakpoints.down("sm")] = {
                 gap: theme.spacing(1),
                 marginRight: theme.spacing(2),
+                marginBottom: theme.spacing(0.5)
             },
             _b),
         link: {
@@ -58,6 +59,7 @@ export var useNourStyles = makeStyles(function (theme) {
             },
             _c[theme.breakpoints.down("sm")] = {
                 gap: theme.spacing(1.5),
+                marginBottom: theme.spacing(0.5)
             },
             _c),
         socialIntegration: {

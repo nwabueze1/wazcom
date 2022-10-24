@@ -1,6 +1,6 @@
 import makeStyles from "@mui/styles/makeStyles";
 export var useTaurantStyles = makeStyles(function (theme) {
-    var _a, _b, _c;
+    var _a, _b, _c, _d;
     return ({
         root: {
             width: "100%",
@@ -35,7 +35,8 @@ export var useTaurantStyles = makeStyles(function (theme) {
                 gap: theme.spacing(4)
             },
             _b[theme.breakpoints.down("sm")] = {
-                gap: theme.spacing(2)
+                gap: theme.spacing(2),
+                marginBottom: theme.spacing(0.5)
             },
             _b),
         link: {
@@ -46,13 +47,17 @@ export var useTaurantStyles = makeStyles(function (theme) {
             border: '1px solid transparent',
             transition: 'all 0.3s ease-in',
         },
-        socialsContainer: {
-            display: "flex",
-            flexDirection: "row",
-            alignItems: 'center',
-            gap: theme.spacing(3),
-            marginTop: theme.spacing(0.5),
-        },
+        socialsContainer: (_c = {
+                display: "flex",
+                flexDirection: "row",
+                alignItems: 'center',
+                gap: theme.spacing(3),
+                marginTop: theme.spacing(0.5)
+            },
+            _c[theme.breakpoints.down("sm")] = {
+                marginBottom: theme.spacing(0.5)
+            },
+            _c),
         socialIntegration: {
             color: theme.design.colors.waz_black,
             border: '1px solid transparent',
@@ -64,7 +69,7 @@ export var useTaurantStyles = makeStyles(function (theme) {
             border: '1px solid transparent',
             transition: 'all 0.3s ease-in',
         },
-        content: (_c = {
+        content: (_d = {
                 display: "flex",
                 flexDirection: "row",
                 alignItems: "center",
@@ -72,11 +77,11 @@ export var useTaurantStyles = makeStyles(function (theme) {
                 margin: theme.spacing(0, "auto"),
                 gap: theme.spacing(4)
             },
-            _c[theme.breakpoints.down("sm")] = {
+            _d[theme.breakpoints.down("sm")] = {
                 gap: theme.spacing(1),
                 justifyContent: "space-between"
             },
-            _c),
+            _d),
         activeElement: {
             border: '1px dashed',
             borderColor: theme.design.colors.waz_primaryColor100,
