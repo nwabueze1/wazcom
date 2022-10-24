@@ -11,7 +11,7 @@ var __assign = (this && this.__assign) || function () {
 };
 import { jsx as _jsx, jsxs as _jsxs } from "react/jsx-runtime";
 import { InputAdornment } from "@mui/material";
-import { TextInput } from "io";
+import { TextInput } from "../../../../io";
 import { useNavStyles } from "./styles";
 import { Search } from "@mui/icons-material";
 import clx from "classnames";
