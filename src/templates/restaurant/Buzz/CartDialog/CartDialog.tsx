@@ -9,7 +9,7 @@ import { Options } from "../Options/Options";
 import clx from "classnames";
 import { CoreMenuItemFields } from "templates/restaurant/types/CoreMenuItemFields";
 import { CoreMenuFields } from "templates/restaurant/types/CoreMenuFields";
-import { getCurrency, getFloatOrIntAmount, menuImagePlaceholder } from "utilities/restaurant";
+import { getCurrency, getFloatOrIntAmount, menuImagePlaceholder } from "../../../../utilities";
 import { calculateOptionsTotal, findMenuItem } from "templates/restaurant/helpers";
 import { CoreCartFields } from "templates/restaurant/types/CoreCartFields";
 

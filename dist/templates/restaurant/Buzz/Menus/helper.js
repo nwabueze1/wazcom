@@ -11,7 +11,7 @@ var __assign = (this && this.__assign) || function () {
 };
 import { jsx as _jsx, jsxs as _jsxs } from "react/jsx-runtime";
 import { findCategories } from "../MenuCategories/helpers";
-import { getCurrency } from "utilities/restaurant";
+import { getCurrency } from "../../../../utilities";
 import { Item } from "../MenuItem";
 import { useMenusStyles } from "./styles";
 var parseMenuItems = function (activeMenu, searchValue) {

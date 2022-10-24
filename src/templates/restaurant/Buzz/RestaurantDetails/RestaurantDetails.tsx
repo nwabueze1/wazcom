@@ -2,7 +2,7 @@ import { FC } from "react";
 import { useRestaurantDetailsStyles } from "./styles";
 import { GoMail } from "react-icons/go";
 import { BiPhone } from "react-icons/bi";
-import { getCurrency, menuImagePlaceholder } from "utilities/restaurant";
+import { getCurrency, menuImagePlaceholder } from "../../../../utilities";
 import { RestaurantDetailsProps } from "./types";
 
 export const RestaurantDetails: FC<RestaurantDetailsProps> = ({ restaurant }) => {

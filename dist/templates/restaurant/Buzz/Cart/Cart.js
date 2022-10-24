@@ -10,7 +10,7 @@ var __assign = (this && this.__assign) || function () {
     return __assign.apply(this, arguments);
 };
 import { jsx as _jsx, jsxs as _jsxs } from "react/jsx-runtime";
-import { emptyCartImagePlaceholder } from "utilities/restaurant";
+import { emptyCartImagePlaceholder } from "../../../../utilities";
 import { useCartStyles } from ".";
 export var Cart = function () {
     var classes = useCartStyles();

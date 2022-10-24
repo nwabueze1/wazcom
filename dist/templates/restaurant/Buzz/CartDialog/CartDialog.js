@@ -43,7 +43,7 @@ import { AiOutlineMinusCircle } from "react-icons/ai";
 import { changeQuantity as changeQuantityHelper, parseCartItem } from "./helpers";
 import { Options } from "../Options/Options";
 import clx from "classnames";
-import { getCurrency, getFloatOrIntAmount, menuImagePlaceholder } from "utilities/restaurant";
+import { getCurrency, getFloatOrIntAmount, menuImagePlaceholder } from "../../../../utilities";
 import { calculateOptionsTotal, findMenuItem } from "templates/restaurant/helpers";
 export var CartDialog = function (_a) {
     var _b, _c;

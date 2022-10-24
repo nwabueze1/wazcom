@@ -13,7 +13,7 @@ import { jsx as _jsx, jsxs as _jsxs } from "react/jsx-runtime";
 import { useRestaurantDetailsStyles } from "./styles";
 import { GoMail } from "react-icons/go";
 import { BiPhone } from "react-icons/bi";
-import { getCurrency, menuImagePlaceholder } from "utilities/restaurant";
+import { getCurrency, menuImagePlaceholder } from "../../../../utilities";
 export var RestaurantDetails = function (_a) {
     var _b, _c, _d, _e, _f, _g;
     var restaurant = _a.restaurant;
