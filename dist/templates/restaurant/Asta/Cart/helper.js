@@ -28,7 +28,7 @@ var __read = (this && this.__read) || function (o, n) {
 import { jsx as _jsx, jsxs as _jsxs, Fragment as _Fragment } from "react/jsx-runtime";
 import { useState } from "react";
 import { IoIosClose } from "react-icons/io";
-import { getCurrency, getFloatOrIntAmount } from "utilities/restaurant";
+import { getCurrency, getFloatOrIntAmount } from "../../../../utilities";
 import { Item } from "./components/Item/Item";
 import { useCartStyles } from "./styles";
 export var useDisplayCartItems = function () {
