@@ -44,7 +44,7 @@ import { changeQuantity as changeQuantityHelper, parseCartItem } from "./helpers
 import { Options } from "../Options/Options";
 import clx from "classnames";
 import { getCurrency, getFloatOrIntAmount, menuImagePlaceholder } from "../../../../utilities";
-import { findMenuItem, calculateOptionsTotal } from "build";
+import { findMenuItem, calculateOptionsTotal } from "../../../../build";
 export var CartDialog = function (_a) {
     var _b, _c;
     var display = _a.display, close = _a.close, itemId = _a.itemId, cartItemId = _a.cartItemId, restaurant = _a.restaurant, cart = _a.cart;

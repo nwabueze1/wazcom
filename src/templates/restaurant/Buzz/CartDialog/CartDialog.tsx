@@ -11,7 +11,7 @@ import { CoreMenuItemFields } from "templates/restaurant/types/CoreMenuItemField
 import { CoreMenuFields } from "templates/restaurant/types/CoreMenuFields";
 import { getCurrency, getFloatOrIntAmount, menuImagePlaceholder } from "../../../../utilities";
 import { CoreCartFields } from "templates/restaurant/types/CoreCartFields";
-import { findMenuItem, calculateOptionsTotal } from "build";
+import { findMenuItem, calculateOptionsTotal } from "../../../../build";
 
 export const CartDialog: React.FC<CartDialogProps> = ({
     display,
