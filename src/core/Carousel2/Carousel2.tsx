@@ -50,6 +50,10 @@ export const Carousel2: FC<Carousel2Props> = ({ className, items }) => {
                 position="static"
                 activeStep={activeStep}
                 className={classes.stepper}
+                classes={{
+                    dot: classes.dot,
+                    dotActive: classes.active,
+                }}
                 nextButton={
                     <Button
                         size="small"

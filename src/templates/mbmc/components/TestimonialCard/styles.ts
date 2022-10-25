@@ -6,7 +6,7 @@ export const useTestimonialCardPropsStyles = makeStyles<Theme>((theme: Theme) =>
     createStyles({
         root: {
             width: 350,
-            height: 200,
+            height: 210,
             display: "flex",
             alignItems: "center",
             flexDirection: "column",
@@ -19,6 +19,7 @@ export const useTestimonialCardPropsStyles = makeStyles<Theme>((theme: Theme) =>
             position: "relative",
             margin: theme.spacing(1, 0),
             transition: " boxShadow 1s ease",
+            paddingBottom: theme.spacing(2),
         },
         content: {
             display: "flex",

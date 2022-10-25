@@ -4,7 +4,7 @@ import { makeStyles } from "@mui/styles";
 export const useMbmcBlock7Styles = makeStyles((theme: Theme) => ({
     root: {
         width: "100%",
-        height: 700,
+        height: 800,
         backgroundColor: theme.design.colors.waz_white,
         position: "relative",
         display: "flex",
@@ -77,7 +77,7 @@ export const useMbmcBlock7Styles = makeStyles((theme: Theme) => ({
         width: "60%",
         fontFamily: theme.design.font.montserrat,
         marginBottom: theme.spacing(2),
-        
+
         [theme.breakpoints.down(1450)]: {
             fontSize: theme.typography.fontSize + 3,
         },
@@ -95,10 +95,8 @@ export const useMbmcBlock7Styles = makeStyles((theme: Theme) => ({
     },
     headerCardContainer: {
         width: "90%",
-        display: "flex",
-        justifyContent: "space-between",
-        alignItems: "center",
-        flexWrap: "wrap",
+        display: "grid",
+        gridTemplateColumns: "auto auto auto",
         gap: theme.spacing(2),
         height: 500,
         [theme.breakpoints.down("md")]: {
@@ -110,27 +108,13 @@ export const useMbmcBlock7Styles = makeStyles((theme: Theme) => ({
         },
     },
     imageContainer: {
-        width: "32%",
+        width: "100%",
         borderRadius: 4,
-        maxHeight: "49%",
-        [theme.breakpoints.down("md")]: {
-            width: "31%",
-        },
-        [theme.breakpoints.down("sm")]: {
-            borderRadius: 8,
-            width: "32%",
-        },
-        [theme.breakpoints.down(440)]: {
-            borderRadius: 8,
-            width: "31.5%",
-        },
-        [theme.breakpoints.down(330)]: {
-            borderRadius: 8,
-            width: "31%",
-        },
+        height: "100%",
     },
     flexGrow: {
-        flexGrow: 1,
+        gridRow: "1 / span 2",
+        gridColumn: "3/3",
     },
     mobileCardContainer: {
         width: "100%",

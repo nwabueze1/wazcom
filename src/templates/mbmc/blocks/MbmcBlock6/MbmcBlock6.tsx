@@ -1,9 +1,10 @@
 import { useMbmcBlock6Styles } from "./styles";
-import { ServiceCard } from "templates/mbmc/components/ServiceCard";
 import { menuData } from "./data";
 import { MenuCard } from "templates/mbmc/components/MenuCard";
+import { FC } from "react";
+import { MbmcBlock6Props } from "./types";
 
-export const MbmcBlock6 = () => {
+export const MbmcBlock6: FC<MbmcBlock6Props> = ({ style }) => {
     const classes = useMbmcBlock6Styles();
 
     return (

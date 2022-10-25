@@ -11,4 +11,11 @@ export const useCarouselStyles = makeStyles((theme: Theme) => ({
             fontSize: theme.typography.fontSize * 2,
         },
     },
+    active: {
+        backgroundColor: `${theme.design.colors.waz_white} !important`,
+    },
+    dot: {
+        backgroundColor: theme.design.colors.waz_lightOrange,
+        opactity: 0.1,
+    },
 }));

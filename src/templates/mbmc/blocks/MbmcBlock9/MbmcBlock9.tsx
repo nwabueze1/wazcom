@@ -1,9 +1,10 @@
 import { useMbmcBlock9Styles } from "./styles";
 import { menuData } from "./data";
-import { useState } from "react";
+import { FC, useState } from "react";
 import clx from "classnames";
+import { MbmcBlock9Props } from "./types";
 
-export const MbmcBlock9 = () => {
+export const MbmcBlock9: FC<MbmcBlock9Props> = () => {
     const classes = useMbmcBlock9Styles();
     const [active, setActive] = useState(0);
 
