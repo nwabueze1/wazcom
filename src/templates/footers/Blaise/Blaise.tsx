@@ -1,4 +1,4 @@
-import { FC } from "react";
+import { FC, useState } from "react";
 import { useBlaiseStyles } from "./styles";
 import { ImFacebook } from "react-icons/im";
 import { FaInstagram } from "react-icons/fa";
@@ -9,6 +9,7 @@ import { displayLinks, displayLogo, displaySocials } from "../helpers";
 import { Copyright } from "../Copyright";
 
 export const Blaise: FC<FooterProps> = ({ mode = "view", logo, socials, items, handleClick }) => {
+    const [activeElement, setActiveElement] = useState("");
     const classes = useBlaiseStyles();
 
     const renderSocialIcon = (Icon: JSX.Element) => (
@@ -25,11 +26,22 @@ export const Blaise: FC<FooterProps> = ({ mode = "view", logo, socials, items, h
         YOUTUBE: renderSocialIcon(<RiYoutubeFill className={classes.footerSocialIcon} />),
     };
 
+    const handleElementClick = (element: string) => {
+        setActiveElement(element);
+        handleClick?.(element);
+    };
+
     return (
         <div className={classes.root}>
             <div className={classes.footerContent}>
                 <div className={classes.footerSocials}>
-                    {displaySocials(mode, socialIcons, socials)}
+                    {displaySocials(
+                        mode,
+                        socialIcons,
+                        socials ?? [],
+                        activeElement,
+                        handleElementClick,
+                    )}
                 </div>
                 <div className={classes.footerSection}>
                     <div className={classes.footerSectionLinks}>
@@ -37,8 +49,8 @@ export const Blaise: FC<FooterProps> = ({ mode = "view", logo, socials, items, h
                             mode,
                             classes,
                             (items as TLink[]).slice(0, midIndex),
-                            "",
-                            (route: string) => {},
+                            activeElement,
+                            handleElementClick,
                         )}
                     </div>
                     <div className={classes.footerSectionLinks}>
@@ -46,12 +58,12 @@ export const Blaise: FC<FooterProps> = ({ mode = "view", logo, socials, items, h
                             mode,
                             classes,
                             (items as TLink[]).slice(midIndex),
-                            "",
-                            (route: string) => {},
+                            activeElement,
+                            handleElementClick,
                         )}
                     </div>
                 </div>
-                {displayLogo(mode, classes, '', (route: string) => {}, logo)}
+                {displayLogo(mode, classes, activeElement, handleElementClick, logo)}
             </div>
             <Copyright />
         </div>

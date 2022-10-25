@@ -18,7 +18,7 @@ export const useNoirStyles = makeStyles<Theme>((theme: Theme) => ({
         alignItems: 'space-between',
     },
     footerLogoParent: {
-    
+        cursor: "pointer"
     },
     footerLogo: {
         width: 100,
@@ -28,6 +28,7 @@ export const useNoirStyles = makeStyles<Theme>((theme: Theme) => ({
     },
     footerLogoText: {
         color: theme.design.colors.waz_white,
+        fontSize: theme.typography.fontSize + 1,
     },
     footerSocials: {
         display: 'flex',
@@ -43,11 +44,13 @@ export const useNoirStyles = makeStyles<Theme>((theme: Theme) => ({
 
     },
     footerSectionTitle: {
-        fontSize: theme.typography.fontSize + 3,
-        marginBottom: theme.spacing(2),
+        fontSize: theme.typography.fontSize + 1,
+        marginBottom: theme.spacing(3),
+        cursor: "pointer",
     },
     footerSectionLink: {
-        fontSize: theme.typography.fontSize + 1,
-        marginBottom: theme.spacing(1),
+        fontSize: theme.typography.fontSize ,
+        marginBottom: theme.spacing(2),
+        cursor: "pointer",
     }
 }));

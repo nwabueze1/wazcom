@@ -1,18 +1,21 @@
 import { FC } from "react";
 import { AiOutlinePicture } from "react-icons/ai";
-import { isNotRenderAnchor } from "./anchor";
+import { clickAction, isNotRenderAnchor } from "./anchor";
 
 export const displayLogo = (
     mode: "view" | "edit",
     classes: any,
     activeElement: string,
-    handleClick?: (element: string) => void,
+    handleClick: (element: string) => void,
     logo?: { src?: string; text?: string; url: string },
-) => (
-    <LogoWrapper mode={mode} url={logo?.url ?? "#"} handleClick={handleClick}>
-        <Logo mode={mode} classes={classes} {...logo} />
-    </LogoWrapper>
-);
+) => {
+    const url = logo?.url ?? "#";
+    return (
+        <LogoWrapper mode={mode} url={url} handleClick={handleClick}>
+            <Logo mode={mode} classes={classes} {...logo} />
+        </LogoWrapper>
+    );
+};
 
 interface LogoProps {
     mode: "view" | "edit";
@@ -37,11 +40,22 @@ const Logo: FC<LogoProps> = ({ mode, src, text, classes }) => (
 interface LogoWrapperProps {
     mode: "view" | "edit";
     url: string;
-    handleClick?: (route: string) => void;
+    handleClick: (route: string) => void;
 }
 
-const LogoWrapper: FC<LogoWrapperProps> = ({ mode, url, children }) => {
-    if (isNotRenderAnchor(url, mode)) return <div>{children}</div>;
+const LogoWrapper: FC<LogoWrapperProps> = ({ mode, url, children, handleClick }) => {
+    if (isNotRenderAnchor(url, mode))
+        return (
+            <div
+                onClick={() => {
+                    clickAction(url, mode, () => {
+                        handleClick(mode === "view" ? url : "footer_logo");
+                    });
+                }}
+            >
+                {children}
+            </div>
+        );
 
     return (
         <a href={url} target="_blank" rel="noopener noreferrer">

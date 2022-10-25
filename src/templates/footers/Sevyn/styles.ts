@@ -8,12 +8,14 @@ export const useSevynStyles = makeStyles<Theme>((theme: Theme) => ({
         color: theme.design.colors.waz_white,
     },
     footerContent: {
-        padding: theme.spacing(5, 4, 4, 4),
+        padding: theme.spacing(5, 4, 3, 4),
         display: "flex",
         flexDirection: "column",
         alignItems: "center",
     },
-    footerLogoParent: {},
+    footerLogoParent: {
+        cursor: 'pointer',
+    },
     footerLogo: {
         width: 100,
         height: 50,
@@ -31,31 +33,36 @@ export const useSevynStyles = makeStyles<Theme>((theme: Theme) => ({
         width: '100%',
     },
     footerSection: {
-
     },
     footerSectionTitle: {
-        fontSize: theme.typography.fontSize + 3,
-        marginBottom: theme.spacing(2),
+        fontSize: theme.typography.fontSize + 1,
+        marginBottom: theme.spacing(3),
+        cursor: 'pointer',
     },
     footerSectionLink: {
-        fontSize: theme.typography.fontSize + 1,
-        marginBottom: theme.spacing(1),
+        fontSize: theme.typography.fontSize,
+        marginBottom: theme.spacing(2),
+        cursor: 'pointer',
     },
     footerSocials: {
+        position: 'relative',
+        top: -12,
         display: 'flex',
         gap: theme.spacing(1.5),
         marginTop: theme.spacing(4),
     },
     footerSocialParent: {
-        width: 30,
-        height: 30,
+        width: 25,
+        height: 25,
         display: 'flex',
         justifyContent: 'center',
         alignItems: 'center',
         background: theme.design.colors.waz_white,
         borderRadius: '50%',
+        cursor: 'pointer',
     },
     footerSocialIcon: {
         color: theme.design.colors.waz_black,
+        fontSize: theme.typography.fontSize + 3,
     },
 }));
