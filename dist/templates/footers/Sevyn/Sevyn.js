@@ -35,7 +35,7 @@ import { FaInstagram } from "react-icons/fa";
 import { BsTwitter } from "react-icons/bs";
 import { RiLinkedinFill, RiYoutubeFill } from "react-icons/ri";
 export var Sevyn = function (_a) {
-    var _b = _a.mode, mode = _b === void 0 ? "view" : _b, socials = _a.socials, logo = _a.logo, handleClick = _a.handleClick, items = _a.items;
+    var _b = _a.mode, mode = _b === void 0 ? "view" : _b, socials = _a.socials, logo = _a.logo, handleClick = _a.handleClick, links = _a.links;
     var _c = __read(useState(""), 2), activeElement = _c[0], setActiveElement = _c[1];
     var classes = useSevynStyles();
     var renderSocialIcon = function (Icon) { return (_jsx("div", __assign({ className: classes.footerSocialParent }, { children: Icon }), void 0)); };
@@ -50,5 +50,5 @@ export var Sevyn = function (_a) {
         setActiveElement(element);
         handleClick === null || handleClick === void 0 ? void 0 : handleClick(element);
     };
-    return (_jsxs("div", __assign({ className: classes.root }, { children: [_jsxs("div", __assign({ className: classes.footerContent }, { children: [displayLogo(mode, classes, activeElement, handleElementClick, logo), _jsx("div", __assign({ className: classes.footerSections }, { children: displaySections(mode, classes, items, activeElement, handleElementClick) }), void 0), _jsx("div", __assign({ className: classes.footerSocials }, { children: displaySocials(mode, socialIcons, socials !== null && socials !== void 0 ? socials : [], classes, activeElement, handleElementClick) }), void 0)] }), void 0), _jsx(Copyright, {}, void 0)] }), void 0));
+    return (_jsxs("div", __assign({ className: classes.root }, { children: [_jsxs("div", __assign({ className: classes.footerContent }, { children: [displayLogo(mode, classes, activeElement, handleElementClick, logo), _jsx("div", __assign({ className: classes.footerSections }, { children: displaySections(mode, classes, links, activeElement, handleElementClick) }), void 0), _jsx("div", __assign({ className: classes.footerSocials }, { children: displaySocials(mode, socialIcons, socials !== null && socials !== void 0 ? socials : [], classes, activeElement, handleElementClick) }), void 0)] }), void 0), _jsx(Copyright, {}, void 0)] }), void 0));
 };

@@ -6,7 +6,7 @@ export declare type FooterProps = {
         text?: string;
         url: string;
     };
-    items: TFooterSection[] | TLink[];
+    links: TFooterSection[] | TLink[];
     socials?: {
         type: SocialType;
         url: string;

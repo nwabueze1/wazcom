@@ -8,7 +8,7 @@ import { FooterProps, TLink } from "../types";
 import { displayLinks, displayLogo, displaySocials } from "../helpers";
 import { Copyright } from "../Copyright";
 
-export const Blaise: FC<FooterProps> = ({ mode = "view", logo, socials, items, handleClick }) => {
+export const Blaise: FC<FooterProps> = ({ mode = "view", logo, socials, links, handleClick }) => {
     const [activeElement, setActiveElement] = useState("");
     const classes = useBlaiseStyles();
 
@@ -16,7 +16,7 @@ export const Blaise: FC<FooterProps> = ({ mode = "view", logo, socials, items, h
         <div className={classes.footerSocialParent}>{Icon}</div>
     );
 
-    const midIndex = items.length > 1 ? Math.ceil(items.length / 2) : 1;
+    const midIndex = links.length > 1 ? Math.ceil(links.length / 2) : 1;
 
     const socialIcons = {
         FACEBOOK: renderSocialIcon(<ImFacebook className={classes.footerSocialIcon} />),
@@ -49,7 +49,7 @@ export const Blaise: FC<FooterProps> = ({ mode = "view", logo, socials, items, h
                         {displayLinks(
                             mode,
                             classes,
-                            (items as TLink[]).slice(0, midIndex),
+                            (links as TLink[]).slice(0, midIndex),
                             activeElement,
                             handleElementClick,
                         )}
@@ -58,7 +58,7 @@ export const Blaise: FC<FooterProps> = ({ mode = "view", logo, socials, items, h
                         {displayLinks(
                             mode,
                             classes,
-                            (items as TLink[]).slice(midIndex),
+                            (links as TLink[]).slice(midIndex),
                             activeElement,
                             handleElementClick,
                         )}

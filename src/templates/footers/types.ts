@@ -2,7 +2,7 @@ export type FooterProps = {
     mode?: "view" | "edit";
     handleClick?: (route: string) => void;
     logo?: { src?: string; text?: string; url: string };
-    items: TFooterSection[] | TLink[];
+    links: TFooterSection[] | TLink[];
     socials?: {
         type: SocialType;
         url: string;

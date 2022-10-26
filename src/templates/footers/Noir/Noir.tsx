@@ -7,7 +7,7 @@ import { FaFacebookSquare } from "react-icons/fa";
 import { BsTwitter, BsLinkedin } from "react-icons/bs";
 import { ImInstagram, ImYoutube } from "react-icons/im";
 
-export const Noir: FC<FooterProps> = ({ mode = "view", handleClick, logo, socials, items }) => {
+export const Noir: FC<FooterProps> = ({ mode = "view", handleClick, logo, socials, links }) => {
     const [activeElement, setActiveElement] = useState("");
     const classes = useNoirStyles();
     const socialIcons = {
@@ -42,7 +42,7 @@ export const Noir: FC<FooterProps> = ({ mode = "view", handleClick, logo, social
                 {displaySections(
                     mode,
                     classes,
-                    items as TFooterSection[],
+                    links as TFooterSection[],
                     activeElement,
                     handleElementClick,
                 )}

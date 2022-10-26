@@ -8,7 +8,7 @@ import { FaInstagram } from "react-icons/fa";
 import { BsTwitter } from "react-icons/bs";
 import { RiLinkedinFill, RiYoutubeFill } from "react-icons/ri";
 
-export const Sevyn: FC<FooterProps> = ({ mode = "view", socials, logo, handleClick, items }) => {
+export const Sevyn: FC<FooterProps> = ({ mode = "view", socials, logo, handleClick, links }) => {
     const [activeElement, setActiveElement] = useState("");
     const classes = useSevynStyles();
 
@@ -37,7 +37,7 @@ export const Sevyn: FC<FooterProps> = ({ mode = "view", socials, logo, handleCli
                     {displaySections(
                         mode,
                         classes,
-                        items as TFooterSection[],
+                        links as TFooterSection[],
                         activeElement,
                         handleElementClick,
                     )}
