@@ -145,4 +145,12 @@ export const useMbmcBlock8Styles = makeStyles((theme: Theme) => ({
             display: "none",
         },
     },
+    navigationButton: {
+        color: "black",
+        fontSize: theme.typography.fontSize * 3,
+    },
+    arrow: {
+        fontWeight: 900,
+        fontSize: theme.typography.fontSize * 3,
+    },
 }));

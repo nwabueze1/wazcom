@@ -15,7 +15,7 @@ import { useCarouselStyles } from "./styles";
 
 const AutoPlaySwipeableViews = autoPlay(SwipeableViews);
 
-export const Carousel2: FC<Carousel2Props> = ({ className, items }) => {
+export const Carousel2: FC<Carousel2Props> = ({ className, items, classNames }) => {
     const theme = useTheme();
     const classes = useCarouselStyles();
     const [activeStep, setActiveStep] = React.useState(0);
@@ -59,13 +59,39 @@ export const Carousel2: FC<Carousel2Props> = ({ className, items }) => {
                         size="small"
                         onClick={handleNext}
                         disabled={activeStep === maxSteps - 1}
+                        className={(classNames?.button as string) ?? ""}
                     >
-                        {theme.direction === "rtl" ? <KeyboardArrowLeft /> : <KeyboardArrowRight />}
+                        {theme.direction === "rtl" ? (
+                            <KeyboardArrowLeft
+                                fontSize={"large"}
+                                className={(classNames?.arrow as string) ?? ""}
+                            />
+                        ) : (
+                            <KeyboardArrowRight
+                                fontSize={"large"}
+                                className={(classNames?.arrow as string) ?? ""}
+                            />
+                        )}
                     </Button>
                 }
                 backButton={
-                    <Button size="small" onClick={handleBack} disabled={activeStep === 0}>
-                        {theme.direction === "rtl" ? <KeyboardArrowRight /> : <KeyboardArrowLeft />}
+                    <Button
+                        className={(classNames?.button as string) ?? ""}
+                        size="small"
+                        onClick={handleBack}
+                        disabled={activeStep === 0}
+                    >
+                        {theme.direction === "rtl" ? (
+                            <KeyboardArrowRight
+                                className={(classNames?.arrow as string) ?? ""}
+                                fontSize={"large"}
+                            />
+                        ) : (
+                            <KeyboardArrowLeft
+                                className={(classNames?.arrow as string) ?? ""}
+                                fontSize={"large"}
+                            />
+                        )}
                     </Button>
                 }
             />

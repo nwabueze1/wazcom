@@ -20,6 +20,7 @@ export const MbmcBlock8: FC<MbmcBlock8Props> = ({ style }) => {
             </div>
             <div className={classes.headerCardContainer}>
                 <Carousel2
+                    classNames={{ button: classes.navigationButton }}
                     items={menuData.map((menu, idx) => ({
                         component: (
                             <div className={classes.carouselComponent}>
@@ -56,6 +57,7 @@ export const MbmcBlock8: FC<MbmcBlock8Props> = ({ style }) => {
                         ),
                     }))}
                     className={classes.carousel}
+                    classNames={{ button: classes.navigationButton, arrow: classes.arrow }}
                 />
             </div>
         </div>
