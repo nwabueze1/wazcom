@@ -119,6 +119,7 @@ export const theme: any = {
             waz_greyColor: "#808080",
             waz_greyColor50: "#F5F5F5",
             waz_greyColor100: "#e5e5e5",
+            waz_greyColor150: "#E3DFDF",
             waz_greyColor200: "#8c8c8c",
             waz_greyColor300: "#666666",
             waz_greyColor400: "#333333",

@@ -4,20 +4,22 @@ import { Layout } from "templates/mbmc/types";
 
 export const useMbmcBlock11Styles = makeStyles((theme: Theme) => ({
     root: {
-        width: "calc(100% - 128px)",
         backgroundColor: theme.design.colors.waz_white,
         position: "relative",
         display: "flex",
         alignItems: "center",
         justifyContent: "space-between",
         flexDirection: ({ flexDirection }: { flexDirection: Layout }) => flexDirection,
-        padding: theme.spacing(5, 8),
+        width: "calc(100% - 192px)",
+        padding: theme.spacing(5, 12),
 
         [theme.breakpoints.down("lg")]: {
-            padding: theme.spacing(4),
-            width: "calc(100% - 64px)",
+            padding: theme.spacing(5, 10),
+            width: "calc(100% - 160px)",
         },
         [theme.breakpoints.down("sm")]: {
+            padding: theme.spacing(4),
+            width: "calc(100% - 64px)",
             height: "100%",
             overflow: "visible",
         },

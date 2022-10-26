@@ -3,30 +3,26 @@ import { makeStyles } from "@mui/styles";
 
 export const useMbmcBlock8Styles = makeStyles((theme: Theme) => ({
     root: {
-        height: 350,
         backgroundColor: theme.design.colors.waz_orangeColor100,
         position: "relative",
         display: "flex",
         alignItems: "center",
         justifyContent: "center",
         overflow: "hidden",
-        padding: theme.spacing(0, 8),
-        width: "calc(100% - 128px)",
+        padding: theme.spacing(9, 12),
+        width: "calc(100% - 192px)",
 
         [theme.breakpoints.down("lg")]: {
-            height: 350,
             padding: theme.spacing(2, 4),
             width: "calc(100% - 64px)",
         },
         [theme.breakpoints.down("md")]: {
-            height: 350,
             padding: theme.spacing(2, 4),
             flexDirection: "column",
             width: "calc(100% - 64px)",
         },
         [theme.breakpoints.down("sm")]: {
-            padding: theme.spacing(1),
-
+            padding: theme.spacing(4),
             height: "fit-content",
             width: "calc(100% - 16px)",
         },
@@ -47,19 +43,8 @@ export const useMbmcBlock8Styles = makeStyles((theme: Theme) => ({
         },
     },
     carousel: {
-        width: 750,
-        [theme.breakpoints.down(780)]: {
-            width: 700,
-        },
-        [theme.breakpoints.down(720)]: {
-            width: 650,
-        },
-        [theme.breakpoints.down(680)]: {
-            width: 580,
-        },
-        [theme.breakpoints.down(600)]: {
-            width: 500,
-        },
+        width: "100%",
+        height: "100%",
         [theme.breakpoints.down(520)]: {
             width: "100%",
         },
@@ -94,11 +79,13 @@ export const useMbmcBlock8Styles = makeStyles((theme: Theme) => ({
     headerDescription: {
         color: theme.design.colors.waz_orangeColor50,
         textAlign: "left",
-        fontSize: theme.typography.fontSize * 2,
-        width: "100%",
+        fontSize: theme.typography.fontSize + 6,
+        width: "90%",
         fontFamily: theme.design.font.montserrat,
+        opacity: 0.7,
+        lineHeight: 1.4,
         [theme.breakpoints.down(1450)]: {
-            fontSize: theme.typography.fontSize + 8,
+            fontSize: theme.typography.fontSize + 6,
         },
         [theme.breakpoints.down("lg")]: {
             fontSize: theme.typography.fontSize + 6,
@@ -108,19 +95,14 @@ export const useMbmcBlock8Styles = makeStyles((theme: Theme) => ({
             fontSize: theme.typography.fontSize,
         },
         [theme.breakpoints.down("sm")]: {
-            fontSize: theme.typography.fontSize + 2,
+            fontSize: theme.typography.fontSize + 4,
             width: "100%",
         },
     },
     headerCardContainer: {
         width: "50%",
+        height: "auto",
         display: "block",
-        [theme.breakpoints.down(1450)]: {
-            width: "60%",
-        },
-        [theme.breakpoints.down("lg")]: {
-            width: "70%",
-        },
         [theme.breakpoints.down("md")]: {
             width: "100%",
         },
@@ -131,12 +113,6 @@ export const useMbmcBlock8Styles = makeStyles((theme: Theme) => ({
     headerCardContainerMobile: {
         width: "50%",
         display: "none",
-        [theme.breakpoints.down(1450)]: {
-            width: "60%",
-        },
-        [theme.breakpoints.down("lg")]: {
-            width: "70%",
-        },
         [theme.breakpoints.down("md")]: {
             width: "100%",
         },

@@ -14,9 +14,8 @@ export const MbmcBlock9: FC<MbmcBlock9Props> = () => {
                 <div className={classes.headerContent}>
                     <h3 className={classes.headerTitle}>How It Works</h3>
                     <p className={classes.headerDescription}>
-                        Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed{" "}
-                        <br className={classes.mobileHide} />
-                        diam nonumy eirmod tempor invidunt ut labore et dolore a….
+                        Lorem ipsum dolor sit amet, consetetur sadipscing eli tr, sed diam nonumy
+                        eirmod tempor invidunt ut lab
                     </p>
                 </div>
                 <div className={classes.directionContainerMobile}>

@@ -14,9 +14,8 @@ export const MbmcBlock8: FC<MbmcBlock8Props> = ({ style }) => {
             <div className={classes.headerContent}>
                 <h3 className={classes.headerTitle}>Testimonial</h3>
                 <p className={classes.headerDescription}>
-                    Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed{" "}
-                    <br className={classes.headerIcon} />
-                    diam nonumy eirmod tempor invidunt ut labore et dolore a….
+                    Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod
+                    tempor invidunt ut labore et dolore magna aliquyam erat, sed diam
                 </p>
             </div>
             <div className={classes.headerCardContainer}>

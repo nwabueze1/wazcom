@@ -4,13 +4,18 @@ import { makeStyles } from "@mui/styles";
 export const useMbmcBlock2Styles = makeStyles((theme: Theme) => ({
     root: {
         width: "calc(100% - 128px)",
-        height: 400,
+        height: 543,
         backgroundColor: theme.design.colors.waz_white,
         position: "relative",
         display: "flex",
         alignItems: "center",
         padding: theme.spacing(2, 8),
         overflow: "hidden",
+        [theme.breakpoints.down("lg")]: {
+            height: 400,
+            padding: theme.spacing(2, 4),
+            width: "calc(100% - 64px)",
+        },
         [theme.breakpoints.down("md")]: {
             height: 300,
             padding: theme.spacing(2, 4),
@@ -69,7 +74,7 @@ export const useMbmcBlock2Styles = makeStyles((theme: Theme) => ({
         },
     },
     heroContainer: {
-        height: 500,
+        height: "100%",
         width: "50%",
         position: "absolute",
         right: 0,
@@ -78,7 +83,7 @@ export const useMbmcBlock2Styles = makeStyles((theme: Theme) => ({
         backgroundPosition: "center",
         display: "flex",
         alignItems: "center",
-        marginRight: theme.spacing(-5),
+        marginRight: theme.spacing(-6),
 
         [theme.breakpoints.down(1450)]: {
             width: "50%",
@@ -93,14 +98,11 @@ export const useMbmcBlock2Styles = makeStyles((theme: Theme) => ({
         },
     },
     heroContainerMobile: {
-        height: 350,
-        marginBottom: theme.spacing(-12),
+        marginTop: theme.spacing(5),
         width: "100%",
-        bottom: 0,
         backgroundImage: `url(https://sytbuildr.s3.eu-west-2.amazonaws.com/images/mbmc/hero1mobile.svg)`,
+        backgroundSize: "105%",
         backgroundRepeat: "no-repeat",
-
-        marginRight: theme.spacing(-11),
         display: "none",
         alignItems: "center",
 
@@ -113,9 +115,9 @@ export const useMbmcBlock2Styles = makeStyles((theme: Theme) => ({
         marginTop: theme.spacing(-10),
     },
     heroImage: {
-        width: 450,
+        width: "70%",
         [theme.breakpoints.down("lg")]: {
-            width: 400,
+            width: "70%",
             marginBottom: theme.spacing(2),
             marginLeft: theme.spacing(-1),
         },

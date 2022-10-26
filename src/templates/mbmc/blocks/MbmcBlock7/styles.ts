@@ -3,27 +3,28 @@ import { makeStyles } from "@mui/styles";
 
 export const useMbmcBlock7Styles = makeStyles((theme: Theme) => ({
     root: {
-        width: "100%",
-        height: 800,
         backgroundColor: theme.design.colors.waz_white,
         position: "relative",
         display: "flex",
         alignItems: "center",
         justifyContent: "center",
         flexDirection: "column",
-        overflow: "hidden",
+        width: "calc(100% - 192px)",
+        padding: theme.spacing(6, 12),
 
         [theme.breakpoints.down("lg")]: {
-            height: "100%",
-            padding: theme.spacing(2, 4),
+            padding: theme.spacing(5, 10),
+            width: "calc(100% - 160px)",
         },
         [theme.breakpoints.down("md")]: {
             height: "100%",
             padding: theme.spacing(2, 4),
+            width: "calc(100% - 64px)",
         },
         [theme.breakpoints.down("sm")]: {
             padding: theme.spacing(1),
             height: "fit-content",
+            width: "calc(100% - 16px)",
         },
     },
     headerContent: {
@@ -76,17 +77,19 @@ export const useMbmcBlock7Styles = makeStyles((theme: Theme) => ({
         fontSize: theme.typography.fontSize + 6,
         width: "60%",
         fontFamily: theme.design.font.montserrat,
-        marginBottom: theme.spacing(2),
+        marginBottom: theme.spacing(6),
 
         [theme.breakpoints.down(1450)]: {
             fontSize: theme.typography.fontSize + 3,
         },
         [theme.breakpoints.down("lg")]: {
             fontSize: theme.typography.fontSize + 3,
+            marginBottom: theme.spacing(4),
         },
         [theme.breakpoints.down("md")]: {
             width: "80%",
-            fontSize: theme.typography.fontSize,
+            fontSize: theme.typography.fontSize + 2,
+            marginBottom: theme.spacing(2),
         },
         [theme.breakpoints.down("sm")]: {
             width: "100%",
@@ -94,14 +97,10 @@ export const useMbmcBlock7Styles = makeStyles((theme: Theme) => ({
         },
     },
     headerCardContainer: {
-        width: "90%",
+        width: "100%",
         display: "grid",
         gridTemplateColumns: "auto auto auto",
         gap: theme.spacing(2),
-        height: 500,
-        [theme.breakpoints.down("md")]: {
-            height: 350,
-        },
         [theme.breakpoints.down("sm")]: {
             display: "none",
             width: "100%",
@@ -125,7 +124,9 @@ export const useMbmcBlock7Styles = makeStyles((theme: Theme) => ({
         gap: theme.spacing(1),
         height: "100%",
         [theme.breakpoints.down("sm")]: {
-            display: "flex",
+            display: "grid",
+            gridTemplateColumns: "auto auto auto",
+            gridTemplateRows: "auto auto auto",
         },
     },
 }));

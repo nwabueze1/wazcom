@@ -5,8 +5,7 @@ import makeStyles from "@mui/styles/makeStyles";
 export const useTestimonialCardPropsStyles = makeStyles<Theme>((theme: Theme) =>
     createStyles({
         root: {
-            width: 350,
-            height: 210,
+            width: "100%",
             display: "flex",
             alignItems: "center",
             flexDirection: "column",
@@ -19,7 +18,6 @@ export const useTestimonialCardPropsStyles = makeStyles<Theme>((theme: Theme) =>
             position: "relative",
             margin: theme.spacing(1, 0),
             transition: " boxShadow 1s ease",
-            paddingBottom: theme.spacing(2),
         },
         content: {
             display: "flex",
@@ -29,12 +27,6 @@ export const useTestimonialCardPropsStyles = makeStyles<Theme>((theme: Theme) =>
             boxSizing: "border-box",
             padding: theme.spacing(2),
             width: "100%",
-            [theme.breakpoints.down("md")]: {
-                padding: 0,
-            },
-            [theme.breakpoints.down("sm")]: {
-                padding: 0,
-            },
         },
 
         description: {
@@ -57,8 +49,9 @@ export const useTestimonialCardPropsStyles = makeStyles<Theme>((theme: Theme) =>
         },
         type: {
             textOverflow: "ellipsis",
-            fontSize: theme.typography.fontSize,
+            fontSize: theme.typography.fontSize - 2,
             color: theme.design.colors.waz_grey400,
+            fontFamily: theme.design.font.montserrat,
             opacity: 0.9,
         },
         menuHeaderContainer: {

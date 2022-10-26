@@ -3,25 +3,22 @@ import { makeStyles } from "@mui/styles";
 
 export const useMbmcBlock4Styles = makeStyles((theme: Theme) => ({
     root: {
-        width: "100%",
-        height: 700,
         backgroundColor: theme.design.colors.waz_gold100,
         position: "relative",
         display: "flex",
         alignItems: "flex-start",
         flexDirection: "column",
-        overflow: "hidden",
+        width: "calc(100% - 192px)",
+        padding: theme.spacing(12),
 
         [theme.breakpoints.down("lg")]: {
-            height: 500,
-            padding: theme.spacing(2, 4),
+            padding: theme.spacing(5, 10),
+            width: "calc(100% - 160px)",
         },
-        [theme.breakpoints.down("md")]: {
-            height: 400,
-            padding: theme.spacing(2, 4),
-        },
+
         [theme.breakpoints.down("sm")]: {
-            padding: theme.spacing(1),
+            padding: theme.spacing(4, 1),
+            width: "calc(100% - 16px)",
             height: "fit-content",
         },
     },
@@ -42,18 +39,14 @@ export const useMbmcBlock4Styles = makeStyles((theme: Theme) => ({
     },
     headerTitle: {
         color: theme.design.colors.waz_primaryColor300,
-        fontSize: theme.typography.fontSize * 3,
+        fontSize: theme.typography.fontSize * 4,
         fontFamily: theme.design.font.lostaMasta,
         letterSpacing: 0,
         textTransform: "capitalize",
         font: "normal normal medium 68px/100px Losta Masta;",
         margin: 0,
         textAlign: "center",
-        marginTop: theme.spacing(6),
 
-        [theme.breakpoints.down(1450)]: {
-            fontSize: theme.typography.fontSize * 3,
-        },
         [theme.breakpoints.down("lg")]: {
             marginTop: theme.spacing(3),
             fontSize: theme.typography.fontSize * 2,
@@ -74,16 +67,16 @@ export const useMbmcBlock4Styles = makeStyles((theme: Theme) => ({
         fontSize: theme.typography.fontSize + 6,
         width: "60%",
         fontFamily: theme.design.font.montserrat,
-        margin: theme.spacing(2, 0),
-        [theme.breakpoints.down(1450)]: {
-            fontSize: theme.typography.fontSize + 3,
-        },
+        marginBottom: theme.spacing(4),
+        marginTop: theme.spacing(2),
+
         [theme.breakpoints.down("lg")]: {
-            fontSize: theme.typography.fontSize + 3,
+            width: "80%",
+            fontSize: theme.typography.fontSize + 4,
+            marginBottom: theme.spacing(2),
         },
         [theme.breakpoints.down("md")]: {
-            width: "80%",
-            fontSize: theme.typography.fontSize,
+            fontSize: theme.typography.fontSize + 2,
         },
         [theme.breakpoints.down("sm")]: {
             width: "100%",
