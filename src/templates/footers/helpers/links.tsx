@@ -9,7 +9,7 @@ export const displaySections = (
     activeElement: string,
     handleClick: (element: string) => void,
 ) => {
-    return sections.map(({ title, links }, index) => {
+    return sections.map(({ name, links }, index) => {
         const sectionId = "footer_sections." + String(index);
         return (
             <div
@@ -27,7 +27,7 @@ export const displaySections = (
                         })
                     }
                 >
-                    {title}
+                    {name}
                 </p>
 
                 {links.map(({ text, url }, index) => {

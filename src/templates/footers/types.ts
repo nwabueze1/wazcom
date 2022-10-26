@@ -13,4 +13,4 @@ export type SocialType = "FACEBOOK" | "TWITTER" | "YOUTUBE" | "LINKEDIN" | "INST
 
 export type TLink = { text: string; url: string };
 
-export type TFooterSection = { title: string; links: TLink[] };
+export type TFooterSection = { name: string; links: TLink[] };

@@ -41,7 +41,7 @@ const navProps: any = {
     },
     items: [
         {
-            title: "Company",
+            name: "Company",
             links: [
                 { text: "About us", url: "" },
                 { text: "About us", url: "" },
@@ -49,7 +49,7 @@ const navProps: any = {
             ],
         },
         {
-            title: "Services",
+            name: "Services",
             links: [
                 { text: "About us", url: "" },
                 { text: "About us", url: "" },
@@ -57,7 +57,7 @@ const navProps: any = {
             ],
         },
         {
-            title: "Contact Us",
+            name: "Contact Us",
             links: [
                 { text: "About us", url: "" },
                 { text: "About us", url: "" },

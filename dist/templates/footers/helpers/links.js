@@ -14,13 +14,13 @@ import { clickAction, isNotRenderAnchor } from "./anchor";
 import clx from "classnames";
 export var displaySections = function (mode, classes, sections, activeElement, handleClick) {
     return sections.map(function (_a, index) {
-        var title = _a.title, links = _a.links;
+        var name = _a.name, links = _a.links;
         var sectionId = "footer_sections." + String(index);
         return (_jsxs("div", __assign({ className: clx(classes.footerSection, activeElement === sectionId && classes.activeElement) }, { children: [_jsx("p", __assign({ className: classes.footerSectionTitle, onClick: function () {
                         return clickAction(sectionId, mode, function () {
                             handleClick(sectionId);
                         });
-                    } }, { children: title }), void 0), links.map(function (_a, index) {
+                    } }, { children: name }), void 0), links.map(function (_a, index) {
                     var text = _a.text, url = _a.url;
                     var linkId = sectionId + ".links." + String(index);
                     return isNotRenderAnchor(url, mode) ? (_jsx("p", __assign({ className: clx(classes.footerSectionLink, activeElement === linkId && classes.activeElement), onClick: function () {

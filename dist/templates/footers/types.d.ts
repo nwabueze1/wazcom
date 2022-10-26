@@ -18,6 +18,6 @@ export declare type TLink = {
     url: string;
 };
 export declare type TFooterSection = {
-    title: string;
+    name: string;
     links: TLink[];
 };
