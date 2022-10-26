@@ -47,6 +47,7 @@ export const Sevyn: FC<FooterProps> = ({ mode = "view", socials, logo, handleCli
                         mode,
                         socialIcons,
                         socials ?? [],
+                        classes,
                         activeElement,
                         handleElementClick,
                     )}

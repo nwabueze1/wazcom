@@ -28,9 +28,14 @@ export const useBlaiseStyles = makeStyles<Theme>((theme: Theme) => ({
         background: theme.design.colors.waz_white,
         borderRadius: '50%',
         cursor: 'pointer',
+        border: '1px solid transparent',
+        transition: 'all 0.3s ease-in',
     },
     footerSocialIcon: {
         color: theme.design.colors.waz_black,
+    },
+    footerSection: {
+        marginBottom: theme.spacing(2),
     },
     footerSectionLinks: {
         display: 'flex',
@@ -41,10 +46,13 @@ export const useBlaiseStyles = makeStyles<Theme>((theme: Theme) => ({
     footerSectionLink: {
         fontSize: theme.typography.fontSize,
         cursor: "pointer",
+        border: '1px solid transparent',
+        transition: 'all 0.3s ease-in',
     },
     footerLogoParent: {
-        marginTop: theme.spacing(2),
         cursor: "pointer",
+        border: '1px solid transparent',
+        transition: 'all 0.3s ease-in',
     },
     footerLogo: {
         width: 100,
@@ -56,4 +64,8 @@ export const useBlaiseStyles = makeStyles<Theme>((theme: Theme) => ({
         color: theme.design.colors.waz_white,
         fontSize: theme.typography.fontSize + 1,
     },
+    activeElement: {
+        border: '1px dashed',
+        borderColor: theme.design.colors.waz_white,
+    }
 }));

@@ -11,7 +11,12 @@ export const displayLogo = (
 ) => {
     const url = logo?.url ?? "#";
     return (
-        <LogoWrapper mode={mode} url={url} handleClick={handleClick}>
+        <LogoWrapper
+            mode={mode}
+            url={url}
+            handleClick={handleClick}
+            className={activeElement === "footer_logo" ? classes.activeElement : undefined}
+        >
             <Logo mode={mode} classes={classes} {...logo} />
         </LogoWrapper>
     );
@@ -41,9 +46,10 @@ interface LogoWrapperProps {
     mode: "view" | "edit";
     url: string;
     handleClick: (route: string) => void;
+    className?: string;
 }
 
-const LogoWrapper: FC<LogoWrapperProps> = ({ mode, url, children, handleClick }) => {
+const LogoWrapper: FC<LogoWrapperProps> = ({ mode, url, children, handleClick, className }) => {
     if (isNotRenderAnchor(url, mode))
         return (
             <div
@@ -52,6 +58,7 @@ const LogoWrapper: FC<LogoWrapperProps> = ({ mode, url, children, handleClick })
                         handleClick(mode === "view" ? url : "footer_logo");
                     });
                 }}
+                className={className}
             >
                 {children}
             </div>

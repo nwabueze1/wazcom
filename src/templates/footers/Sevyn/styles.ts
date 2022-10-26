@@ -15,6 +15,8 @@ export const useSevynStyles = makeStyles<Theme>((theme: Theme) => ({
     },
     footerLogoParent: {
         cursor: 'pointer',
+        border: '1px solid transparent',
+        transition: 'all 0.3s ease-in',
     },
     footerLogo: {
         width: 100,
@@ -33,6 +35,8 @@ export const useSevynStyles = makeStyles<Theme>((theme: Theme) => ({
         width: '100%',
     },
     footerSection: {
+        border: '1px solid transparent',
+        transition: 'all 0.3s ease-in',
     },
     footerSectionTitle: {
         fontSize: theme.typography.fontSize + 1,
@@ -43,6 +47,8 @@ export const useSevynStyles = makeStyles<Theme>((theme: Theme) => ({
         fontSize: theme.typography.fontSize,
         marginBottom: theme.spacing(2),
         cursor: 'pointer',
+        border: '1px solid transparent',
+        transition: 'all 0.3s ease-in',
     },
     footerSocials: {
         position: 'relative',
@@ -60,9 +66,15 @@ export const useSevynStyles = makeStyles<Theme>((theme: Theme) => ({
         background: theme.design.colors.waz_white,
         borderRadius: '50%',
         cursor: 'pointer',
+        border: '1px solid transparent',
+        transition: 'all 0.3s ease-in',
     },
     footerSocialIcon: {
         color: theme.design.colors.waz_black,
         fontSize: theme.typography.fontSize + 3,
     },
+    activeElement: {
+        border: '1px dashed',
+        borderColor: theme.design.colors.waz_white,
+    }
 }));

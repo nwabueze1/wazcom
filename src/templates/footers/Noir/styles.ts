@@ -18,10 +18,12 @@ export const useNoirStyles = makeStyles<Theme>((theme: Theme) => ({
         alignItems: 'space-between',
     },
     footerLogoParent: {
-        cursor: "pointer"
+        cursor: "pointer",
+        border: '1px solid transparent',
+        transition: 'all 0.3s ease-in',
     },
     footerLogo: {
-        width: 100,
+        width: '100%',
         height: 50,
         objectFit: 'cover',
         marginBottom: theme.spacing(1),
@@ -29,6 +31,7 @@ export const useNoirStyles = makeStyles<Theme>((theme: Theme) => ({
     footerLogoText: {
         color: theme.design.colors.waz_white,
         fontSize: theme.typography.fontSize + 1,
+        textAlign: 'center',
     },
     footerSocials: {
         display: 'flex',
@@ -39,9 +42,13 @@ export const useNoirStyles = makeStyles<Theme>((theme: Theme) => ({
     footerSocialIcon: {
         fontSize: theme.typography.fontSize + 8,
         color: theme.design.colors.waz_white,
+        border: '1px solid transparent',
+        transition: 'all 0.3s ease-in',
+        cursor: 'pointer',
     },
     footerSection: {
-
+        border: '1px solid transparent',
+        transition: 'all 0.3s ease-in',
     },
     footerSectionTitle: {
         fontSize: theme.typography.fontSize + 1,
@@ -52,5 +59,11 @@ export const useNoirStyles = makeStyles<Theme>((theme: Theme) => ({
         fontSize: theme.typography.fontSize ,
         marginBottom: theme.spacing(2),
         cursor: "pointer",
+        border: '1px solid transparent',
+        transition: 'all 0.3s ease-in',
+    },
+    activeElement: {
+        border: '1px dashed',
+        borderColor: theme.design.colors.waz_white,
     }
 }));

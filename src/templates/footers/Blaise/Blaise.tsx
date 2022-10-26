@@ -39,6 +39,7 @@ export const Blaise: FC<FooterProps> = ({ mode = "view", logo, socials, items, h
                         mode,
                         socialIcons,
                         socials ?? [],
+                        classes,
                         activeElement,
                         handleElementClick,
                     )}

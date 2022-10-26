@@ -5,6 +5,7 @@ export const displaySocials = (
     mode: "view" | "edit",
     socialIcons: { [key in SocialType]: JSX.Element },
     socials: { type: SocialType; url: string }[],
+    classes: any,
     activeElement: string,
     handleClick: (element: string) => void,
 ) => {
@@ -19,6 +20,7 @@ export const displaySocials = (
                             handleClick(mode === "edit" ? socialId : url);
                         });
                     }}
+                    className={activeElement === socialId && classes.activeElement}
                 >
                     {socialIcons[type]}
                 </div>

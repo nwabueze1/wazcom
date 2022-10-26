@@ -27,12 +27,13 @@ export const Noir: FC<FooterProps> = ({ mode = "view", handleClick, logo, social
         <div className={classes.root}>
             <div className={classes.footerContent}>
                 <div className={classes.footerLogoSocials}>
-                    {displayLogo(mode, classes, "", handleElementClick, logo)}
+                    {displayLogo(mode, classes, activeElement, handleElementClick, logo)}
                     <div className={classes.footerSocials}>
                         {displaySocials(
                             mode,
                             socialIcons,
                             socials ?? [],
+                            classes,
                             activeElement,
                             handleElementClick,
                         )}

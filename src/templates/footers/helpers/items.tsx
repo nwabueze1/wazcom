@@ -1,5 +1,6 @@
 import { TFooterSection, TLink } from "../types";
 import { clickAction, isNotRenderAnchor } from "./anchor";
+import clx from "classnames";
 
 export const displaySections = (
     mode: "view" | "edit",
@@ -11,7 +12,13 @@ export const displaySections = (
     return sections.map(({ title, links }, index) => {
         const sectionId = "footer_sections." + String(index);
         return (
-            <div className={classes.footerSection} key={index}>
+            <div
+                className={clx(
+                    classes.footerSection,
+                    activeElement === sectionId && classes.activeElement,
+                )}
+                key={index}
+            >
                 <p
                     className={classes.footerSectionTitle}
                     onClick={() =>
@@ -27,7 +34,10 @@ export const displaySections = (
                     const linkId = sectionId + ".links." + String(index);
                     return isNotRenderAnchor(url, mode) ? (
                         <p
-                            className={classes.footerSectionLink}
+                            className={clx(
+                                classes.footerSectionLink,
+                                activeElement === linkId && classes.activeElement,
+                            )}
                             key={index}
                             onClick={() =>
                                 clickAction(url, mode, () => {
@@ -59,7 +69,7 @@ export const displayLinks = (
         const linkId = "footer_links." + String(index);
         return isNotRenderAnchor(url, mode) ? (
             <p
-                className={classes.footerSectionLink}
+                className={clx(classes.footerSectionLink, activeElement === linkId && classes.activeElement)}
                 key={index}
                 onClick={() =>
                     clickAction(url, mode, () => {

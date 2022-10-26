@@ -37,35 +37,35 @@ const navProps: any = {
         text: "the heart of tech",
     },
     handleClick: (route: string) => {
-        alert(route);
+        // alert(route);
     },
-    // items: [
-    //     {
-    //         title: "Company",
-    //         links: [
-    //             { text: "About us", url: "" },
-    //             { text: "About us", url: "" },
-    //             { text: "About us", url: "" },
-    //         ],
-    //     },
-    //     {
-    //         title: "Services",
-    //         links: [
-    //             { text: "About us", url: "" },
-    //             { text: "About us", url: "" },
-    //             { text: "About us", url: "" },
-    //         ],
-    //     },
-    //     {
-    //         title: "Contact Us",
-    //         links: [
-    //             { text: "About us", url: "" },
-    //             { text: "About us", url: "" },
-    //             { text: "About us", url: "" },
-    //         ],
-    //     },
-    // ],
-    items: links,
+    items: [
+        {
+            title: "Company",
+            links: [
+                { text: "About us", url: "" },
+                { text: "About us", url: "" },
+                { text: "About us", url: "" },
+            ],
+        },
+        {
+            title: "Services",
+            links: [
+                { text: "About us", url: "" },
+                { text: "About us", url: "" },
+                { text: "About us", url: "" },
+            ],
+        },
+        {
+            title: "Contact Us",
+            links: [
+                { text: "About us", url: "" },
+                { text: "About us", url: "" },
+                { text: "About us", url: "" },
+            ],
+        },
+    ],
+    // items: links,
     socials: [
         { type: "FACEBOOK", url: "https://www.facebook.com" },
         { type: "TWITTER", url: "https://www.twitter.com" },
@@ -101,7 +101,7 @@ const App: React.FC<Props> = () => {
                                 </Route>
                             ))}
                         <Route path="/sevyn">
-                            <Blaise mode="edit" {...navProps} />
+                            <Sevyn mode="edit" {...navProps} />
                         </Route>
                         <Route exact path="/asta">
                             <Asta />
