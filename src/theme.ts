@@ -97,6 +97,7 @@ export const theme: any = {
             merriweather: "Merriweather, sans-serif",
             openSans: "Open Sans, sans-serif",
             lostaMasta: "Losta Masta",
+            lostaMastaLight: "Losta Masta Regular",
             montserrat: "Montserrat",
         },
         colors: {

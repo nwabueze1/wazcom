@@ -12,6 +12,7 @@ import { MbmcBlock10 } from "./blocks/MbmcBlock10/MbmcBlock10";
 import { MbmcTemplatePropType } from "./types";
 import { MbmcBlock11 } from "./blocks/MbmcBlock11/MbmcBlock11";
 import { MbmcBlock12 } from "./blocks/MbmcBlock12/MbmcBlock12";
+import { MbmcBlock13 } from "./blocks/MbmcBlock13/MbmcBlock13";
 
 export const blocks: MbmcTemplatePropType[] = [
     {
@@ -72,6 +73,11 @@ export const blocks: MbmcTemplatePropType[] = [
     {
         name: "mbmc-block-912",
         component: MbmcBlock12,
+        props: { style: "mui" },
+    },
+    {
+        name: "mbmc-block-913",
+        component: MbmcBlock13,
         props: { style: "mui" },
     },
 ];
