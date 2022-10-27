@@ -16,7 +16,16 @@ interface Props {
     className?: string;
 }
 
-const navProps = {
+const links = [
+    { text: "About us", url: "" },
+    { text: "About us", url: "" },
+    { text: "About us", url: "" },
+    { text: "About us", url: "" },
+    { text: "About us", url: "" },
+    { text: "About us", url: "" },
+];
+
+const navProps: any = {
     links: [
         { text: "Gallery", url: "/" },
         { text: "Categories", url: "http://www.leke.com" },
@@ -32,33 +41,31 @@ const navProps = {
     },
     items: [
         {
-            title: "Company",
+            name: "Company",
             links: [
-                { text: "About us", url: "" },
                 { text: "About us", url: "" },
                 { text: "About us", url: "" },
                 { text: "About us", url: "" },
             ],
         },
         {
-            title: "Services",
+            name: "Services",
             links: [
-                { text: "About us", url: "" },
                 { text: "About us", url: "" },
                 { text: "About us", url: "" },
                 { text: "About us", url: "" },
             ],
         },
         {
-            title: "Contact Us",
+            name: "Contact Us",
             links: [
-                { text: "About us", url: "" },
                 { text: "About us", url: "" },
                 { text: "About us", url: "" },
                 { text: "About us", url: "" },
             ],
         },
     ],
+    // items: links,
     socials: [
         { type: "FACEBOOK", url: "https://www.facebook.com" },
         { type: "TWITTER", url: "https://www.twitter.com" },
@@ -93,6 +100,9 @@ const App: React.FC<Props> = () => {
                                     {React.cloneElement(<Comp />, props)}
                                 </Route>
                             ))}
+                        <Route path="/sevyn">
+                            <Sevyn mode="edit" {...navProps} />
+                        </Route>
                         <Route exact path="/asta">
                             <Asta />
                         </Route>

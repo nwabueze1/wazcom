@@ -17,19 +17,25 @@ export const useBlaiseStyles = makeStyles<Theme>((theme: Theme) => ({
     footerSocials: {
         display: 'flex',
         gap: theme.spacing(1.5),
-        marginBottom: theme.spacing(4),
+        marginBottom: theme.spacing(3),
     },
     footerSocialParent: {
-        width: 35,
-        height: 35,
+        width: 30,
+        height: 30,
         display: 'flex',
         justifyContent: 'center',
         alignItems: 'center',
         background: theme.design.colors.waz_white,
         borderRadius: '50%',
+        cursor: 'pointer',
+        border: '1px solid transparent',
+        transition: 'all 0.3s ease-in',
     },
     footerSocialIcon: {
         color: theme.design.colors.waz_black,
+    },
+    footerSection: {
+        marginBottom: theme.spacing(2),
     },
     footerSectionLinks: {
         display: 'flex',
@@ -38,19 +44,28 @@ export const useBlaiseStyles = makeStyles<Theme>((theme: Theme) => ({
         marginBottom: theme.spacing(1.5),
     },
     footerSectionLink: {
-        fontSize: theme.typography.fontSize + 1,
+        fontSize: theme.typography.fontSize,
+        cursor: "pointer",
+        border: '1px solid transparent',
+        transition: 'all 0.3s ease-in',
     },
     footerLogoParent: {
-        marginTop: theme.spacing(1),
+        cursor: "pointer",
+        border: '1px solid transparent',
+        transition: 'all 0.3s ease-in',
     },
     footerLogo: {
         width: 100,
         height: 50,
         objectFit: 'cover',
-        marginBottom: theme.spacing(1),
     },
     footerLogoText: {
+        marginTop: theme.spacing(1),
         color: theme.design.colors.waz_white,
         fontSize: theme.typography.fontSize + 1,
     },
+    activeElement: {
+        border: '1px dashed',
+        borderColor: theme.design.colors.waz_white,
+    }
 }));
