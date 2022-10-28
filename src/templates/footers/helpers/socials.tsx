@@ -1,12 +1,30 @@
 import { SocialType } from "../types";
+import { clickAction } from "./anchor";
 
 export const displaySocials = (
     mode: "view" | "edit",
     socialIcons: { [key in SocialType]: JSX.Element },
-    socials?: { type: SocialType; url: string }[],
+    socials: { type: SocialType; url: string }[],
+    classes: any,
+    activeElement: string,
+    handleClick: (element: string) => void,
 ) => {
     return (socials ?? []).map(({ type, url }, index) => {
-        if (mode === "edit") return <div key={index}>{socialIcons[type]}</div>;
+        const socialId = "footer_socials." + String(index);
+        if (mode === "edit")
+            return (
+                <div
+                    key={index}
+                    onClick={() => {
+                        clickAction(url, mode, () => {
+                            handleClick(mode === "edit" ? socialId : url);
+                        });
+                    }}
+                    className={activeElement === socialId && classes.activeElement}
+                >
+                    {socialIcons[type]}
+                </div>
+            );
 
         return (
             <a href={url} key={index} target="_blank" rel="noopener noreferrer">
