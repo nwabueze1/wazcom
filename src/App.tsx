@@ -26,7 +26,7 @@ const links = [
 ];
 
 const navProps: any = {
-    links: [
+    linksss: [
         { text: "Gallery", url: "/" },
         { text: "Categories", url: "http://www.leke.com" },
         { text: "About", url: "/" },
@@ -39,9 +39,9 @@ const navProps: any = {
     handleClick: (route: string) => {
         // alert(route);
     },
-    linkssss: [
+    links: [
         {
-            name: "Company",
+            name: "",
             links: [
                 { text: "About us", url: "" },
                 { text: "About us", url: "" },
@@ -101,7 +101,7 @@ const App: React.FC<Props> = () => {
                                 </Route>
                             ))}
                         <Route path="/sevyn">
-                            <Blaise mode="edit" {...navProps} />
+                            <Sevyn mode="edit" {...navProps} />
                         </Route>
                         <Route exact path="/asta">
                             <Asta />

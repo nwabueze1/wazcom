@@ -21,11 +21,12 @@ export const displaySections = (
             >
                 <p
                     className={classes.footerSectionTitle}
-                    onClick={() =>
+                    onClick={(e) => {
+                        e.stopPropagation();
                         clickAction(sectionId, mode, () => {
                             handleClick(sectionId);
-                        })
-                    }
+                        });
+                    }}
                 >
                     {name}
                 </p>
@@ -39,11 +40,12 @@ export const displaySections = (
                                 activeElement === linkId && classes.activeElement,
                             )}
                             key={index}
-                            onClick={() =>
+                            onClick={(e) => {
+                                e.stopPropagation();
                                 clickAction(url, mode, () => {
                                     handleClick(mode === "view" ? url : linkId);
-                                })
-                            }
+                                });
+                            }}
                         >
                             {text}
                         </p>
@@ -69,13 +71,17 @@ export const displayLinks = (
         const linkId = "footer_links." + String(index);
         return isNotRenderAnchor(url, mode) ? (
             <p
-                className={clx(classes.footerSectionLink, activeElement === linkId && classes.activeElement)}
+                className={clx(
+                    classes.footerSectionLink,
+                    activeElement === linkId && classes.activeElement,
+                )}
                 key={index}
-                onClick={() =>
+                onClick={(e) => {
+                    e.stopPropagation();
                     clickAction(url, mode, () => {
                         handleClick(mode === "view" ? url : linkId);
-                    })
-                }
+                    });
+                }}
             >
                 {text}
             </p>

@@ -53,7 +53,8 @@ const LogoWrapper: FC<LogoWrapperProps> = ({ mode, url, children, handleClick, c
     if (isNotRenderAnchor(url, mode))
         return (
             <div
-                onClick={() => {
+                onClick={(e) => {
+                    e.stopPropagation();
                     clickAction(url, mode, () => {
                         handleClick(mode === "view" ? url : "footer_logo");
                     });

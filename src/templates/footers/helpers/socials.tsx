@@ -15,7 +15,8 @@ export const displaySocials = (
             return (
                 <div
                     key={index}
-                    onClick={() => {
+                    onClick={(e) => {
+                        e.stopPropagation();
                         clickAction(url, mode, () => {
                             handleClick(mode === "edit" ? socialId : url);
                         });
