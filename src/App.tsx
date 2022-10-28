@@ -39,7 +39,7 @@ const navProps: any = {
     handleClick: (route: string) => {
         // alert(route);
     },
-    items: [
+    linkssss: [
         {
             name: "Company",
             links: [
@@ -101,7 +101,7 @@ const App: React.FC<Props> = () => {
                                 </Route>
                             ))}
                         <Route path="/sevyn">
-                            <Sevyn mode="edit" {...navProps} />
+                            <Blaise mode="edit" {...navProps} />
                         </Route>
                         <Route exact path="/asta">
                             <Asta />

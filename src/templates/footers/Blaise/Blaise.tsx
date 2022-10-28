@@ -7,6 +7,7 @@ import { RiLinkedinFill, RiYoutubeFill } from "react-icons/ri";
 import { FooterProps, TLink } from "../types";
 import { displayLinks, displayLogo, displaySocials } from "../helpers";
 import { Copyright } from "../Copyright";
+import clx from "classnames";
 
 export const Blaise: FC<FooterProps> = ({ mode = "view", logo, socials, links, handleClick }) => {
     const [activeElement, setActiveElement] = useState("");
@@ -26,13 +27,28 @@ export const Blaise: FC<FooterProps> = ({ mode = "view", logo, socials, links, h
         YOUTUBE: renderSocialIcon(<RiYoutubeFill className={classes.footerSocialIcon} />),
     };
 
+    const handleFooterClick = () => {
+        if (mode === "edit") {
+            setActiveElement("footer");
+            handleClick?.("footer");
+        }
+    };
+
     const handleElementClick = (element: string) => {
         setActiveElement(element);
         handleClick?.(element);
     };
 
     return (
-        <div className={classes.root}>
+        <div
+            className={clx(
+                classes.root,
+                activeElement.toLowerCase() === "footer" &&
+                    mode === "edit" &&
+                    classes.activeElement,
+            )}
+            onClick={handleFooterClick}
+        >
             <div className={classes.footerContent}>
                 <div className={classes.footerSocials}>
                     {displaySocials(
