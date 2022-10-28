@@ -26,11 +26,11 @@ const navProps = {
         url: "https://www.facebook.com",
         text: "the heart of tech",
     },
-    handleClick: (
+    handleClick: () =>
         // route: string
-        ) => {
-        // alert(route);
-    },
+        {
+            // alert(route);
+        },
     items: [
         {
             title: "Company",
