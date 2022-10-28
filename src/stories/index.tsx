@@ -49,7 +49,6 @@ import { ComponentPropType, TemplatePropType } from "./types";
 import { data } from "./data";
 import { EditableTextInput } from "io/EditableTextInput";
 import { DynamicInput } from "io/DynamicInput";
-import AcUnitIcon from "@mui/icons-material/AcUnit";
 import { SectionEditor } from "io/SectionEditor";
 
 export const stories: ComponentPropType[] = [
