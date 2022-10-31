@@ -25,9 +25,9 @@ export const MbmcBlock12: FC<MbmcBlock12Props> = ({ style, layout }) => {
                         </MbmcButton>
                     </div>
                 </div>
-                    <div className={classes.demarcationContainer}>
-                        <span className={classes.demarcation}>OR</span>
-                    </div>
+                <div className={classes.demarcationContainer}>
+                    <span className={classes.demarcation}>OR</span>
+                </div>
 
                 <div className={classes.formContainer}>
                     <form action="" className={classes.form}>
