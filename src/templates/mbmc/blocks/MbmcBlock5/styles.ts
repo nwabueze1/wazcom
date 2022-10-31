@@ -3,18 +3,20 @@ import { makeStyles } from "@mui/styles";
 
 export const useMbmcBlock5Styles = makeStyles((theme: Theme) => ({
     root: {
-        width: "100%",
         backgroundColor: theme.design.colors.waz_primaryColor300,
         position: "relative",
         display: "flex",
         alignItems: "flex-start",
         flexDirection: "column",
-        padding: theme.spacing(2, 0),
-        paddingTop: theme.spacing(4),
-        overflow: "hidden",
+        width: "calc(100% - 192px)",
+        padding: theme.spacing(5, 12),
 
+        [theme.breakpoints.down("lg")]: {
+            padding: theme.spacing(5, 10),
+            width: "calc(100% - 160px)",
+        },
         [theme.breakpoints.down("sm")]: {
-            width: "calc(100% - 16px)",
+            width: "calc(100% - 32px)",
             padding: theme.spacing(2),
             height: "fit-content",
         },
@@ -41,11 +43,13 @@ export const useMbmcBlock5Styles = makeStyles((theme: Theme) => ({
     footerTitle: {
         fontSize: theme.typography.fontSize + 6,
         color: theme.design.colors.waz_white,
-        fontWeight: theme.typography.fontWeightMedium,
+        fontWeight: theme.typography.fontWeightBold,
+        fontFamily: theme.design.font.montserrat,
     },
     footerList: {
         color: theme.design.colors.waz_white,
-        fontsize: theme.typography.fontSize,
+        fontsize: theme.typography.fontSize + 2,
+        fontFamily: theme.design.font.montserrat,
         opacity: 0.7,
         lineHeight: 2.5,
         [theme.breakpoints.down("sm")]: {
@@ -58,6 +62,12 @@ export const useMbmcBlock5Styles = makeStyles((theme: Theme) => ({
         backgroundColor: theme.design.colors.waz_primaryColor200,
         padding: theme.spacing(2, 0),
         color: theme.design.colors.waz_white,
+        fontFamily: theme.design.font.montserrat,
+        fontSize: theme.typography.fontSize,
+
+        "& > span": {
+            opacity: 0.5,
+        },
     },
     logoContainer: {
         display: "flex",

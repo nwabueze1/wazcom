@@ -1,7 +1,10 @@
 import { useMbmcBlock5Styles } from "./styles";
 import { footerData } from "./data";
+import { FC } from "react";
+import { MbmcBlock4Props } from "../MbmcBlock4/types";
+import { MbmcBlock5Props } from "./types";
 
-export const MbmcBlock5 = () => {
+export const MbmcBlock5: FC<MbmcBlock5Props> = ({ style }) => {
     const classes = useMbmcBlock5Styles();
 
     return (
@@ -27,7 +30,9 @@ export const MbmcBlock5 = () => {
                 </div>
             </div>
             <p className={classes.footerNote}>
-                2022 © All rights reserved . Mrbaker & Mrs cook . Proudly created by Hivedeck
+                <span>
+                    2022 © All rights reserved . Mrbaker & Mrs cook . Proudly created by Hivedeck
+                </span>
             </p>
         </div>
     );

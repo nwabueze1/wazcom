@@ -49,7 +49,7 @@ export const MenuCard: React.FC<MenuCardProps> = ({
                     )}
                 </div>
                 <p className={classes.description}>{description}</p>
-                <MbmcButton bgColor="#F25430">Order now</MbmcButton>
+                <MbmcButton className={classes.menuButton} bgColor="#F25430">Order now</MbmcButton>
             </div>
         </div>
     );

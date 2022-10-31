@@ -3,26 +3,25 @@ import { makeStyles } from "@mui/styles";
 
 export const useMbmcBlock6Styles = makeStyles((theme: Theme) => ({
     root: {
-        width: "100%",
-        height: 700,
-        backgroundColor: theme.design.colors.waz_gold100,
+        backgroundColor: theme.design.colors.waz_greyColor50,
         position: "relative",
         display: "flex",
         alignItems: "center",
         justifyContent: "center",
         flexDirection: "column",
-        overflow: "hidden",
+        width: "calc(100% - 192px)",
+        padding: theme.spacing(10, 12),
 
         [theme.breakpoints.down("lg")]: {
-            height: 500,
-            padding: theme.spacing(2, 4),
+            padding: theme.spacing(5, 10),
+            width: "calc(100% - 160px)",
         },
         [theme.breakpoints.down("md")]: {
-            height: 400,
-            padding: theme.spacing(2, 4),
+            padding: theme.spacing(5, 4),
+            width: "calc(100% - 32px)",
         },
         [theme.breakpoints.down("sm")]: {
-            padding: theme.spacing(1),
+            padding: theme.spacing(4, 1),
             height: "fit-content",
         },
     },
@@ -32,14 +31,7 @@ export const useMbmcBlock6Styles = makeStyles((theme: Theme) => ({
         alignItems: "center",
         justifyContent: "flex-start",
         flexDirection: "column",
-        marginBottom: theme.spacing(2),
-
-        [theme.breakpoints.down("md")]: {
-            width: "100%",
-        },
-        [theme.breakpoints.down("sm")]: {
-            width: "100%",
-        },
+        marginBottom: theme.spacing(4),
     },
     headerTitle: {
         color: theme.design.colors.waz_primaryColor300,
@@ -49,8 +41,8 @@ export const useMbmcBlock6Styles = makeStyles((theme: Theme) => ({
         font: "normal normal medium 68px/100px Losta Masta;",
         margin: 0,
         textAlign: "center",
-        marginTop: theme.spacing(6),
         marginBottom: theme.spacing(2),
+        fontFamily: theme.design.font.lostaMasta,
 
         [theme.breakpoints.down(1450)]: {
             fontSize: theme.typography.fontSize * 3,
@@ -65,7 +57,7 @@ export const useMbmcBlock6Styles = makeStyles((theme: Theme) => ({
         [theme.breakpoints.down("sm")]: {
             textAlign: "left",
             fontSize: theme.typography.fontSize * 1.5,
-            fontWeight: 800,
+            fontWeight: 600,
             marginBottom: theme.spacing(1),
         },
     },
@@ -74,19 +66,20 @@ export const useMbmcBlock6Styles = makeStyles((theme: Theme) => ({
         textAlign: "center",
         fontSize: theme.typography.fontSize + 6,
         width: "60%",
-        [theme.breakpoints.down(1450)]: {
-            fontSize: theme.typography.fontSize + 3,
-        },
+        fontFamily: theme.design.font.montserrat,
+        marginBottom: theme.spacing(2),
+
         [theme.breakpoints.down("lg")]: {
-            fontSize: theme.typography.fontSize + 3,
+            width: "80%",
         },
         [theme.breakpoints.down("md")]: {
-            width: "80%",
-            fontSize: theme.typography.fontSize,
+            marginBottom: theme.spacing(1),
+            fontSize: theme.typography.fontSize + 4,
         },
         [theme.breakpoints.down("sm")]: {
             width: "100%",
             textAlign: "center",
+            fontSize: theme.typography.fontSize + 2,
         },
     },
     headerCardContainer: {
@@ -98,7 +91,7 @@ export const useMbmcBlock6Styles = makeStyles((theme: Theme) => ({
     },
     scrollContainer: {
         overflowX: "scroll",
-        width: "90%",
+        width: "100%",
         "&::-webkit-scrollbar": {
             display: "none",
         },
