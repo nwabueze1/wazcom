@@ -9,6 +9,7 @@ export const useMbmcBlock18Styles = makeStyles((theme: Theme) => ({
     step: {
         display: "flex",
         width: "33.33%",
+        justifyContent: "center",
         marginTop: theme.spacing(1),
         position: "relative",
     },
@@ -68,7 +69,7 @@ export const useMbmcBlock18Styles = makeStyles((theme: Theme) => ({
         width: "100%",
         height: "fit-content",
         top: theme.spacing(2),
-        right: theme.spacing(-2),
+        right: "-50%",
         position: "absolute",
         zIndex: "-1",
     },

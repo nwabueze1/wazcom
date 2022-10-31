@@ -12,10 +12,7 @@ const MbmcBlock18 = () => {
     const displaySteps = () => {
         return steps.map((step, idx) => {
             return (
-                <div
-                    className={`${classes.step} ${steps.length - 1 == idx && classes.lastStep}`}
-                    key={idx}
-                >
+                <div className={`${classes.step}`} key={idx}>
                     <div className={classes.stepContainer}>
                         <div
                             className={`${classes.stepNum} ${
