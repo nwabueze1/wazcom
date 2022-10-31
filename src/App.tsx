@@ -1,7 +1,7 @@
 import { StyledEngineProvider, Theme, ThemeProvider } from "@mui/material";
 import * as React from "react";
 import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
-import { Sevyn } from "templates";
+import { Blaise } from "templates";
 import { blocks } from "templates/mbmc";
 import { Valour } from "templates/Navs";
 import { Asta } from "templates/restaurant/Asta/Asta";
@@ -26,7 +26,7 @@ const links = [
 ];
 
 const navProps: any = {
-    links: [
+    linksss: [
         { text: "Gallery", url: "/" },
         { text: "Categories", url: "http://www.leke.com" },
         { text: "About", url: "/" },
@@ -113,7 +113,7 @@ const App: React.FC<Props> = () => {
                             />
                         </Route>
                         <Route path="/sevyn">
-                            <Sevyn mode="edit" {...navProps} />
+                            <Blaise mode="edit" {...navProps} />
                         </Route>
                         <Route exact path="/asta">
                             <Asta />

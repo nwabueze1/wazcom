@@ -25,7 +25,8 @@ var Logo = function (_a) {
 var LogoWrapper = function (_a) {
     var mode = _a.mode, url = _a.url, children = _a.children, handleClick = _a.handleClick, className = _a.className;
     if (isNotRenderAnchor(url, mode))
-        return (_jsx("div", __assign({ onClick: function () {
+        return (_jsx("div", __assign({ onClick: function (e) {
+                e.stopPropagation();
                 clickAction(url, mode, function () {
                     handleClick(mode === "view" ? url : "footer_logo");
                 });

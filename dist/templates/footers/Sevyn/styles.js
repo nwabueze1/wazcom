@@ -25,6 +25,7 @@ export var useSevynStyles = makeStyles(function (theme) { return ({
     footerLogoText: {
         color: theme.design.colors.waz_white,
         fontSize: theme.typography.fontSize,
+        textAlign: 'center',
     },
     footerSections: {
         marginTop: theme.spacing(3),
@@ -35,6 +36,8 @@ export var useSevynStyles = makeStyles(function (theme) { return ({
     footerSection: {
         border: '1px solid transparent',
         transition: 'all 0.3s ease-in',
+        marginBottom: theme.spacing(2),
+        textAlign: 'center',
     },
     footerSectionTitle: {
         fontSize: theme.typography.fontSize + 1,
@@ -47,6 +50,9 @@ export var useSevynStyles = makeStyles(function (theme) { return ({
         cursor: 'pointer',
         border: '1px solid transparent',
         transition: 'all 0.3s ease-in',
+        "&:last-of-type": {
+            marginBottom: 0,
+        }
     },
     footerSocials: {
         position: 'relative',
@@ -73,6 +79,6 @@ export var useSevynStyles = makeStyles(function (theme) { return ({
     },
     activeElement: {
         border: '1px dashed',
-        borderColor: theme.design.colors.waz_white,
+        borderColor: theme.design.colors.waz_primaryColor100,
     }
 }); });

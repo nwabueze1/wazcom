@@ -34,6 +34,7 @@ import { BsTwitter } from "react-icons/bs";
 import { RiLinkedinFill, RiYoutubeFill } from "react-icons/ri";
 import { displayLinks, displayLogo, displaySocials } from "../helpers";
 import { Copyright } from "../Copyright";
+import clx from "classnames";
 export var Blaise = function (_a) {
     var _b = _a.mode, mode = _b === void 0 ? "view" : _b, logo = _a.logo, socials = _a.socials, links = _a.links, handleClick = _a.handleClick;
     var _c = __read(useState(""), 2), activeElement = _c[0], setActiveElement = _c[1];
@@ -47,9 +48,17 @@ export var Blaise = function (_a) {
         LINKEDIN: renderSocialIcon(_jsx(RiLinkedinFill, { className: classes.footerSocialIcon }, void 0)),
         YOUTUBE: renderSocialIcon(_jsx(RiYoutubeFill, { className: classes.footerSocialIcon }, void 0)),
     };
+    var handleFooterClick = function () {
+        if (mode === "edit") {
+            setActiveElement("footer");
+            handleClick === null || handleClick === void 0 ? void 0 : handleClick("footer");
+        }
+    };
     var handleElementClick = function (element) {
         setActiveElement(element);
         handleClick === null || handleClick === void 0 ? void 0 : handleClick(element);
     };
-    return (_jsxs("div", __assign({ className: classes.root }, { children: [_jsxs("div", __assign({ className: classes.footerContent }, { children: [_jsx("div", __assign({ className: classes.footerSocials }, { children: displaySocials(mode, socialIcons, socials !== null && socials !== void 0 ? socials : [], classes, activeElement, handleElementClick) }), void 0), _jsxs("div", __assign({ className: classes.footerSection }, { children: [_jsx("div", __assign({ className: classes.footerSectionLinks }, { children: displayLinks(mode, classes, links.slice(0, midIndex), activeElement, handleElementClick) }), void 0), _jsx("div", __assign({ className: classes.footerSectionLinks }, { children: displayLinks(mode, classes, links.slice(midIndex), activeElement, handleElementClick) }), void 0)] }), void 0), displayLogo(mode, classes, activeElement, handleElementClick, logo)] }), void 0), _jsx(Copyright, {}, void 0)] }), void 0));
+    return (_jsxs("div", __assign({ className: clx(classes.root, activeElement.toLowerCase() === "footer" &&
+            mode === "edit" &&
+            classes.activeElement), onClick: handleFooterClick }, { children: [_jsxs("div", __assign({ className: classes.footerContent }, { children: [_jsx("div", __assign({ className: classes.footerSocials }, { children: displaySocials(mode, socialIcons, socials !== null && socials !== void 0 ? socials : [], classes, activeElement, handleElementClick) }), void 0), _jsxs("div", __assign({ className: classes.footerSection }, { children: [_jsx("div", __assign({ className: classes.footerSectionLinks }, { children: displayLinks(mode, classes, links.slice(0, midIndex), activeElement, handleElementClick, 0) }), void 0), _jsx("div", __assign({ className: classes.footerSectionLinks }, { children: displayLinks(mode, classes, links.slice(midIndex), activeElement, handleElementClick, midIndex) }), void 0)] }), void 0), displayLogo(mode, classes, activeElement, handleElementClick, logo)] }), void 0), _jsx(Copyright, {}, void 0)] }), void 0));
 };

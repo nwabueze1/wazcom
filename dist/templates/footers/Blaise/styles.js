@@ -61,9 +61,10 @@ export var useBlaiseStyles = makeStyles(function (theme) { return ({
         marginTop: theme.spacing(1),
         color: theme.design.colors.waz_white,
         fontSize: theme.typography.fontSize + 1,
+        textAlign: 'center',
     },
     activeElement: {
         border: '1px dashed',
-        borderColor: theme.design.colors.waz_white,
+        borderColor: theme.design.colors.waz_primaryColor100,
     }
 }); });
