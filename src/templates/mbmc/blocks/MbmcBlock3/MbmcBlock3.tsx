@@ -1,6 +1,5 @@
 import { useMbmcBlock3Styles } from "./styles";
 import { MbmcButton } from "../../components/MbmcButton/MbmcButton";
-import { IoIosArrowRoundForward } from "react-icons/io";
 
 export const MbmcBlock3 = () => {
     const classes = useMbmcBlock3Styles();

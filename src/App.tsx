@@ -1,9 +1,9 @@
 import { StyledEngineProvider, Theme, ThemeProvider } from "@mui/material";
 import * as React from "react";
 import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
-import { Blaise, Noir, Sevyn } from "templates/footers";
+import { Blaise } from "templates";
 import { blocks } from "templates/mbmc";
-import { Nour, Taurant, Valour } from "templates/Navs";
+import { Valour } from "templates/Navs";
 import { Asta } from "templates/restaurant/Asta/Asta";
 import { Mbmc } from "templates/restaurant/Mbmc/Mbmc";
 import { Browser } from "view/Browser";
@@ -36,36 +36,38 @@ const navProps: any = {
         url: "https://www.facebook.com",
         text: "the heart of tech",
     },
-    handleClick: (route: string) => {
-        alert(route);
-    },
-    // links: [
-    //     {
-    //         name: "Worthy",
-    //         links: [
-    //             { text: "Drop", url: "" },
-    //             { text: "Gallery", url: "" },
-    //             { text: "Categories", url: "" },
-    //         ],
-    //     },
-    //     {
-    //         name: "Services",
-    //         links: [
-    //             { text: "Scale", url: "" },
-    //             { text: "Gallery", url: "" },
-    //             { text: "Intuit", url: "" },
-    //         ],
-    //     },
-    //     {
-    //         name: "Contact Us",
-    //         links: [
-    //             { text: "Penny", url: "" },
-    //             { text: "Naira", url: "" },
-    //             { text: "Gallery", url: "" },
-    //         ],
-    //     },
-    // ],
-    links,
+    handleClick: () =>
+        // route: string
+        {
+            // alert(route);
+        },
+    items: [
+        {
+            name: "Company",
+            links: [
+                { text: "About us", url: "" },
+                { text: "About us", url: "" },
+                { text: "About us", url: "" },
+            ],
+        },
+        {
+            name: "Services",
+            links: [
+                { text: "About us", url: "" },
+                { text: "About us", url: "" },
+                { text: "About us", url: "" },
+            ],
+        },
+        {
+            name: "Contact Us",
+            links: [
+                { text: "About us", url: "" },
+                { text: "About us", url: "" },
+                { text: "About us", url: "" },
+            ],
+        },
+    ],
+    // items: links,
     socials: [
         { type: "FACEBOOK", url: "https://www.facebook.com" },
         { type: "TWITTER", url: "https://www.twitter.com" },
@@ -100,6 +102,16 @@ const App: React.FC<Props> = () => {
                                     {React.cloneElement(<Comp />, props)}
                                 </Route>
                             ))}
+                        <Route exact path="/nour">
+                            <Valour
+                                {...navProps}
+                                mode="edit"
+                                socials={[
+                                    { type: "FACEBOOK", url: "wwww" },
+                                    { type: "TWITTER", url: "wwww" },
+                                ]}
+                            />
+                        </Route>
                         <Route path="/sevyn">
                             <Blaise mode="edit" {...navProps} />
                         </Route>
