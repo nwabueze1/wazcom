@@ -1,0 +1,4 @@
+/// <reference types="react" />
+import { TFooterSection, TLink } from "../types";
+export declare const displaySections: (mode: "view" | "edit", classes: any, sections: TFooterSection[], activeElement: string, handleClick: (element: string) => void) => JSX.Element[];
+export declare const displayLinks: (mode: "view" | "edit", classes: any, links: TLink[], activeElement: string, handleClick: (element: string) => void) => JSX.Element[];
