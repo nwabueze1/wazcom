@@ -26,7 +26,6 @@ export const useMbmcBlock18Styles = makeStyles((theme: Theme) => ({
         letterSpacing: "0px",
         color: theme.design.colors.waz_white,
         fontSize: theme.typography.fontSize,
-        // padding: theme.spacing(1, 1.5),
         display: "flex",
         alignItems: "center",
         justifyContent: "center",
