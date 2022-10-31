@@ -59,9 +59,12 @@ export var useNoirStyles = makeStyles(function (theme) { return ({
         cursor: "pointer",
         border: '1px solid transparent',
         transition: 'all 0.3s ease-in',
+        "&:last-of-type": {
+            marginBottom: 0,
+        }
     },
     activeElement: {
         border: '1px dashed',
-        borderColor: theme.design.colors.waz_white,
+        borderColor: theme.design.colors.waz_primaryColor100,
     }
 }); });

@@ -68,6 +68,7 @@ export const Blaise: FC<FooterProps> = ({ mode = "view", logo, socials, links, h
                             (links as TLink[]).slice(0, midIndex),
                             activeElement,
                             handleElementClick,
+                            0
                         )}
                     </div>
                     <div className={classes.footerSectionLinks}>
@@ -77,6 +78,7 @@ export const Blaise: FC<FooterProps> = ({ mode = "view", logo, socials, links, h
                             (links as TLink[]).slice(midIndex),
                             activeElement,
                             handleElementClick,
+                            midIndex
                         )}
                     </div>
                 </div>

@@ -66,9 +66,10 @@ export const displayLinks = (
     links: TLink[],
     activeElement: string,
     handleClick: (element: string) => void,
+    step: number,
 ) => {
     return links.map(({ text, url }, index) => {
-        const linkId = "footer_links." + String(index);
+        const linkId = "footer_links." + String(index + step);
         return isNotRenderAnchor(url, mode) ? (
             <p
                 className={clx(

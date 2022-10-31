@@ -33,10 +33,10 @@ export var displaySections = function (mode, classes, sections, activeElement, h
                 })] }), index));
     });
 };
-export var displayLinks = function (mode, classes, links, activeElement, handleClick) {
+export var displayLinks = function (mode, classes, links, activeElement, handleClick, step) {
     return links.map(function (_a, index) {
         var text = _a.text, url = _a.url;
-        var linkId = "footer_links." + String(index);
+        var linkId = "footer_links." + String(index + step);
         return isNotRenderAnchor(url, mode) ? (_jsx("p", __assign({ className: clx(classes.footerSectionLink, activeElement === linkId && classes.activeElement), onClick: function (e) {
                 e.stopPropagation();
                 clickAction(url, mode, function () {
