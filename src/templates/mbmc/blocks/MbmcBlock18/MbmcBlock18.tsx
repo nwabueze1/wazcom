@@ -3,7 +3,7 @@ import { steps } from "./data";
 import { useMbmcBlock18Styles } from "./styles";
 import CheckRoundedIcon from "@mui/icons-material/CheckRounded";
 
-const MbmcBlock18 = () => {
+const MbmcBlock18: React.FC = () => {
     const classes = useMbmcBlock18Styles();
     const [activeStep, setActiveStep] = useState([1, 2]);
     const currentStep = activeStep.slice(-1)[0];
