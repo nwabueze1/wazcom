@@ -5,7 +5,7 @@ import CheckRoundedIcon from "@mui/icons-material/CheckRounded";
 
 const MbmcBlock18: React.FC = () => {
     const classes = useMbmcBlock18Styles();
-    const [activeStep, setActiveStep] = useState([1, 2]);
+    const [activeStep, setActiveStep] = useState<number[]>([1, 2]);
     const currentStep = activeStep.slice(-1)[0];
     const completedSteps = activeStep.slice(0, activeStep.length - 1);
 

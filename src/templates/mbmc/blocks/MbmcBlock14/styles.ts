@@ -6,6 +6,9 @@ export const useMbmcBlock14Styles = makeStyles((theme: Theme) => ({
         display: "flex",
         gap: "64px",
     },
+    leftSection: {
+        width: "39%",
+    },
     divider: {
         borderLeft: `solid 1px ${theme.design.colors.waz_greyColor150}`,
     },
@@ -13,16 +16,21 @@ export const useMbmcBlock14Styles = makeStyles((theme: Theme) => ({
         display: "flex",
         flexDirection: "column",
         gap: "24px",
+        width: "38%",
     },
     checkoutCard: {
-        width: "548px",
+        width: "100%",
+        boxSizing: "border-box",
         height: "auto",
         transition: "height 1s",
         padding: theme.spacing(4.5, 5),
         borderRadius: "5px",
         backgroundColor: theme.design.colors.waz_white,
     },
-    titleContainer: {},
+    titleContainer: {
+        display: "flex",
+        justifyContent: "space-between",
+    },
     title: {
         fontFamily: theme.design.font.lostaMasta,
         fontWeight: theme.typography.fontWeightMedium,
@@ -30,6 +38,20 @@ export const useMbmcBlock14Styles = makeStyles((theme: Theme) => ({
         letterSpacing: "0px",
         color: theme.design.colors.waz_black,
         textTransform: "capitalize",
+    },
+    completedPrice: {
+        fontFamily: theme.design.font.montserrat,
+    },
+    activeStepTitle: {
+        color: theme.design.colors.waz_black,
+    },
+    inactiveStepTitle: {
+        color: theme.design.colors.waz_greyColor600,
+        opacity: "0.6",
+    },
+    completedStepTitle: {
+        color: theme.design.colors.waz_black,
+        opacity: "0.6",
     },
     summaryDetailContainer: {
         marginTop: theme.spacing(3),
@@ -73,6 +95,7 @@ export const useMbmcBlock14Styles = makeStyles((theme: Theme) => ({
     },
     deliveryOptionItem: {
         display: "flex",
+        alignItems: "center",
         gap: "8px",
     },
     deliveryOptionDetail: {
@@ -85,6 +108,10 @@ export const useMbmcBlock14Styles = makeStyles((theme: Theme) => ({
     },
     deliveryOptionDescription: {
         fontSize: theme.typography.fontSize,
+        color: theme.design.colors.waz_greyColor600,
+    },
+    paymentOptionTitle: {
+        fontSize: theme.typography.fontSize + 2,
         color: theme.design.colors.waz_greyColor600,
     },
     radioInput: {
@@ -109,7 +136,6 @@ export const useMbmcBlock14Styles = makeStyles((theme: Theme) => ({
         color: theme.design.colors.waz_greyColor400,
         fontSize: theme.typography.fontSize - 2,
         fontFamily: theme.design.font.montserrat,
-        textTransform: "uppercase",
         marginBottom: theme.spacing(2),
     },
     textInput: {
@@ -120,5 +146,23 @@ export const useMbmcBlock14Styles = makeStyles((theme: Theme) => ({
         "& input": {
             padding: theme.spacing(2, 2.5),
         },
+    },
+    optionDetails: {
+        display: "flex",
+        alignItems: "center",
+    },
+    paymentDetail: {
+        backgroundColor: theme.design.colors.waz_white,
+        borderRadius: "100px",
+        display: "flex",
+        justifyContent: "space-between",
+        padding: theme.spacing(0, 1, 0, 2),
+        border: `solid 1px ${theme.design.colors.waz_greyColor150}`,
+    },
+    sectionTitle: {
+        letterSpacing: "0px",
+        color: theme.design.colors.waz_greyColor400,
+        fontSize: theme.typography.fontSize,
+        fontFamily: theme.design.font.montserrat,
     },
 }));

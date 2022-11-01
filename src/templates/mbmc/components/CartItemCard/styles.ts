@@ -4,7 +4,8 @@ import { makeStyles } from "@mui/styles";
 export const useCartItemCardStyles = makeStyles((theme: Theme) => ({
     root: {
         background: `${theme.design.colors.waz_orangeColor50} 0% 0% no-repeat padding-box`,
-        width: "564px",
+        width: "100%",
+        boxSizing: "border-box",
         padding: theme.spacing(2),
         backdropFilter: "blur(23px)",
         boxShadow: "0px 3px 60px #0000001A",
