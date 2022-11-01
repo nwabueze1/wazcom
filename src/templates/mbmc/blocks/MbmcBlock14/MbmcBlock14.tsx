@@ -2,17 +2,52 @@ import React, { useState } from "react";
 import { useMbmcBlock14Styles } from "./styles";
 import CartItemCard from "templates/mbmc/components/CartItemCard/CartItemCard";
 import { MbmcButton } from "templates/mbmc/components/MbmcButton/MbmcButton";
+import { RadioButtonInput, TextInput } from "io";
+import { pickupFormData } from "./data";
 
 const MbmcBlock14: React.FC = () => {
     const classes = useMbmcBlock14Styles();
-    const [count, setCount] = useState<number>(0);
+    const [deliveryOption, setDeliveryOption] = useState<string>("");
+    const [deliveryDetails, setDeliveryDetails] = useState<{ [key: string]: any }>({
+        email: "",
+        firstname: "",
+        lastname: "",
+        phoneNo: "",
+        address: "",
+        city: "",
+        country: "",
+        postalCode: "",
+    });
 
-    const handleIncrement = () => {
-        setCount((prev) => prev + 1);
+    const handleTextInputChange = (data: { name: string; value: any }) => {
+        const { name, value } = data;
+
+        setDeliveryDetails((prev) => {
+            return {
+                ...prev,
+                [name]: value,
+            };
+        });
     };
 
-    const handleDecrement = () => {
-        setCount((prev) => (prev <= 0 ? 0 : prev - 1));
+    const handleDeliveryOptionChange = (data: { name: string; value: any }) => {
+        const { value } = data;
+
+        setDeliveryOption(value);
+    };
+
+    const displayPickupForm = () => {
+        return pickupFormData.map(({ placeholder, name }) => {
+            return (
+                <TextInput
+                    key={name}
+                    placeholder={placeholder}
+                    name={name}
+                    classNames={{ textInput: classes.textInput }}
+                    onChange={handleTextInputChange}
+                />
+            );
+        });
     };
 
     return (
@@ -23,7 +58,7 @@ const MbmcBlock14: React.FC = () => {
                 <CartItemCard />
             </div>
             <div className={classes.divider} />
-            <div>
+            <div className={classes.checkoutProcessContainer}>
                 <div className={classes.checkoutCard}>
                     <div className={classes.titleContainer}>
                         <p className={classes.title}>Summary</p>
@@ -49,6 +84,68 @@ const MbmcBlock14: React.FC = () => {
                         </div>
                         <div>
                             <MbmcButton className={classes.checkoutBtn}>Checkout</MbmcButton>
+                        </div>
+                    </div>
+                </div>
+                <div className={classes.checkoutCard}>
+                    <div className={classes.titleContainer}>
+                        <p className={classes.title}>Delivery Details</p>
+                    </div>
+                    <div className={classes.summaryDetailContainer}>
+                        <div className={classes.deliveryDetail}>
+                            <div>
+                                <div className={classes.deliveryOptionItem}>
+                                    <div>
+                                        <img src="" alt="" />
+                                    </div>
+                                    <div className={classes.deliveryOptionDetail}>
+                                        <p className={classes.deliveryOptionTitle}>Self pick up</p>
+                                        <p className={classes.deliveryOptionDescription}>
+                                            Pick up your order from our station by yourself
+                                        </p>
+                                    </div>
+                                </div>
+                            </div>
+                            <div>
+                                <RadioButtonInput
+                                    classNames={{ radioButtonInput: classes.radioInput }}
+                                    name="pickup"
+                                    onChange={handleDeliveryOptionChange}
+                                />
+                            </div>
+                        </div>
+                        <div>
+                            <div>
+                                <p className={classes.formSectionTitle}>PERSONAL INFORMATION</p>
+                            </div>
+                            <div>{displayPickupForm()}</div>
+                        </div>
+                        <div className={classes.deliveryDetail}>
+                            <div>
+                                <div className={classes.deliveryOptionItem}>
+                                    <div>
+                                        <img src="" alt="" />
+                                    </div>
+                                    <div className={classes.deliveryOptionDetail}>
+                                        <p className={classes.deliveryOptionTitle}>Dispatch</p>
+                                        <p className={classes.deliveryOptionDescription}>
+                                            Get your order delivered to your preferred address
+                                        </p>
+                                    </div>
+                                </div>
+                            </div>
+                            <div>
+                                <RadioButtonInput
+                                    name="delivery"
+                                    classNames={{ radioButtonInput: classes.radioInput }}
+                                    onChange={handleDeliveryOptionChange}
+                                />
+                            </div>
+                        </div>
+                        <div>
+                            <MbmcButton className={classes.checkoutBtn}>
+                                Proceed to payment
+                            </MbmcButton>
                         </div>
                     </div>
                 </div>
