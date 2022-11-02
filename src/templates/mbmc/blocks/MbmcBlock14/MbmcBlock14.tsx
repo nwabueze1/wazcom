@@ -4,6 +4,7 @@ import CartItemCard from "templates/mbmc/components/CartItemCard/CartItemCard";
 import { MbmcButton } from "templates/mbmc/components/MbmcButton/MbmcButton";
 import { RadioButtonInput, TextInput } from "io";
 import { pickupFormData, shippingFormData } from "./data";
+import KeyboardBackspaceIcon from "@mui/icons-material/KeyboardBackspace";
 
 const MbmcBlock14: React.FC = () => {
     const classes = useMbmcBlock14Styles();
@@ -19,6 +20,7 @@ const MbmcBlock14: React.FC = () => {
         country: "",
         postalCode: "",
     });
+    const [isSummary, setIsSummary] = useState<boolean>(false);
 
     const currentStep = checkoutStep.slice(-1)[0];
     const completedSteps = checkoutStep.slice(0, checkoutStep.length - 1);
@@ -44,6 +46,15 @@ const MbmcBlock14: React.FC = () => {
 
             return [...prev, activeStep + 1];
         });
+    };
+
+    const gotoSummary = () => {
+        setIsSummary(true);
+    };
+
+    const goBack = () => {
+        setIsSummary(false);
+        setCheckoutStep([1]);
     };
 
     const displayPersonalInfoForm = () => {
@@ -73,16 +84,35 @@ const MbmcBlock14: React.FC = () => {
             );
         });
     };
-    console.log("checkoutStep", checkoutStep);
+
     return (
         <div className={classes.root}>
-            <div className={classes.leftSection}>
-                <CartItemCard />
-                <CartItemCard />
-                <CartItemCard />
+            <div className={`${classes.leftSection} ${isSummary && classes.hideCart}`}>
+                <div className={classes.cartContainer}>
+                    <CartItemCard />
+                    <CartItemCard />
+                    <CartItemCard />
+                </div>
+
+                <div className={classes.mobileFooter}>
+                    <MbmcButton onClick={gotoSummary} className={classes.checkoutBtn}>
+                        Proceed to summary
+                    </MbmcButton>
+                </div>
             </div>
+
             <div className={classes.divider} />
-            <div className={classes.checkoutProcessContainer}>
+            <div
+                className={`${classes.checkoutProcessContainer} ${
+                    isSummary && classes.showSummary
+                }`}
+            >
+                <div className={classes.backContainer}>
+                    <KeyboardBackspaceIcon onClick={goBack} />
+                    <div>
+                        <p className={classes.itemsCount}>Items (3)</p>
+                    </div>
+                </div>
                 <div className={classes.checkoutCard}>
                     <div className={classes.titleContainer}>
                         <p

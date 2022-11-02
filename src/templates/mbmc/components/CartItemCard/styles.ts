@@ -16,10 +16,22 @@ export const useCartItemCardStyles = makeStyles((theme: Theme) => ({
         display: "flex",
         gap: "8px",
     },
+    imgContainer: {
+        width: "31%",
+        [theme.breakpoints.down("md")]: {
+            width: "35%",
+        },
+    },
+    content: {
+        width: "60%",
+    },
     cartItemImg: {
-        width: "176px",
-        height: "116px",
+        width: "100%",
+        height: "100%",
         borderRadius: "5px",
+        [theme.breakpoints.down("md")]: {
+            height: "89%",
+        },
     },
     title: {
         letterSpacing: "0px",
@@ -29,12 +41,18 @@ export const useCartItemCardStyles = makeStyles((theme: Theme) => ({
         fontFamily: theme.design.font.lostaMasta,
         fontWeight: theme.typography.fontWeightMedium,
         marginBottom: theme.spacing(1),
+        [theme.breakpoints.down("md")]: {
+            fontFamily: theme.design.font.montserrat,
+        },
     },
     description: {
         letterSpacing: "0px",
         color: theme.design.colors.waz_greyColor600,
         fontSize: theme.typography.fontSize,
         fontFamily: theme.design.font.montserrat,
+        [theme.breakpoints.down("md")]: {
+            color: "black",
+        },
     },
     priceContainer: {
         marginTop: theme.spacing(2),

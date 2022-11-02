@@ -19,14 +19,14 @@ const CartItemCard: React.FC = () => {
     return (
         <div className={classes.root}>
             <div className={classes.topContent}>
-                <div>
+                <div className={classes.imgContainer}>
                     <img
                         className={classes.cartItemImg}
                         src={"https://sytbuildr.s3.eu-west-2.amazonaws.com/images/mbmc/img.png"}
                         alt="cart item image"
                     />
                 </div>
-                <div>
+                <div className={classes.content}>
                     <p className={classes.title}>Crispy Coated Prawn</p>
                     <p className={classes.description}>
                         Lorem ipsum dolor sit amet, consetetur sadip snn g elitr, sed diam nonumy.
