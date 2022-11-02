@@ -106,9 +106,11 @@ export const useMbmcBlock9Styles = makeStyles((theme: Theme) => ({
         alignItems: "flex-start",
         justifyContent: "flex-start",
         flexDirection: "column",
+        fontFamily: theme.design.font.montserrat,
     },
     point: {
         padding: theme.spacing(2, 3),
+        fontFamily: theme.design.font.openSans,
         fontSize: theme.typography.fontSize * 2,
         boxShadow: `0px 1px 10px ${theme.design.colors.waz_black100}`,
         borderRadius: theme.spacing(1),

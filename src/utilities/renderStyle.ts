@@ -1,3 +1,4 @@
-import { Style } from "templates/mbmc/types";
+import { BlockStyle } from "templates/mbmc/types";
 
-export const renderStyle = (style: Style, classes: { [key in Style]: any }) => classes[style];
+export const renderStyle = (style: BlockStyle, classes: { [key in BlockStyle]: any }) =>
+    classes[style];

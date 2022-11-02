@@ -1,10 +1,10 @@
 import { MbmcBlock1Props } from "./blocks/MbmcBlock1/types";
 
-export type Style = "mui" | "chakra" | "ant";
-export type Layout = "column" | "row" | "column-reverse" | "row-reverse";
+export type BlockStyle = "mbmc";
+export type BlockLayout = "column" | "row" | "column-reverse" | "row-reverse";
 
 export type MbmcCommonProps = {
-    style: Style;
+    style: BlockStyle;
     index?: number;
     mode?: "view" | "edit";
     handleClick?: (route: string) => void;
@@ -16,5 +16,5 @@ export type MbmcTemplatePropType = {
 } & Mmbc1Block;
 
 type Mmbc1Block = {
-    props: MbmcBlock1Props;
+    props: any;
 };

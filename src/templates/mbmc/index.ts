@@ -18,66 +18,138 @@ export const blocks: MbmcTemplatePropType[] = [
     {
         name: "mbmc-block-1",
         component: MbmcBlock1,
-        props: { style: "mui" },
+        props: { style: "mbmc" },
     },
     {
         name: "mbmc-block-2",
         component: MbmcBlock2,
-        props: { style: "mui" },
+        props: { style: "mbmc" },
     },
     {
         name: "mbmc-block-3",
         component: MbmcBlock3,
-        props: { style: "mui" },
+        props: { style: "mbmc" },
     },
     {
         name: "mbmc-block-4",
         component: MbmcBlock4,
-        props: { style: "mui" },
+        props: { style: "mbmc" },
     },
     {
         name: "mbmc-block-5",
         component: MbmcBlock5,
-        props: { style: "mui" },
+        props: { style: "mbmc" },
     },
     {
         name: "mbmc-block-6",
         component: MbmcBlock6,
-        props: { style: "mui" },
+        props: { style: "mbmc" },
     },
     {
         name: "mbmc-block-7",
         component: MbmcBlock7,
-        props: { style: "mui" },
+        props: { style: "mbmc" },
     },
     {
         name: "mbmc-block-8",
         component: MbmcBlock8,
-        props: { style: "mui" },
+        props: {
+            style: "mbmc",
+            heading: "Testimony",
+            description:
+                "Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam",
+            carouselData: [
+                {
+                    content:
+                        "“Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam.”",
+                    author: "Elizabeth Lizzy",
+                    jobRole: "OFFICE WORKER",
+                },
+                {
+                    content:
+                        "“Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam.”",
+                    author: "Elizabeth Lizzy",
+                    jobRole: "OFFICE WORKER2",
+                },
+                {
+                    content:
+                        "“Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam.”",
+                    author: "Elizabeth Lizzy",
+                    jobRole: "OFFICE WORKER3",
+                },
+            ],
+        },
     },
     {
         name: "mbmc-block-9",
         component: MbmcBlock9,
-        props: { style: "mui" },
+        props: {
+            style: "mbmc",
+            heading: "How It Works",
+            description:
+                "Lorem ipsum dolor sit amet, consetetur sadipscing eli tr, sed diam nonumy eirmod tempor invidunt ut lab",
+            steps: [
+                {
+                    heading: "Pick your favourite1",
+                    description:
+                        "Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam",
+                    image: "",
+                },
+                {
+                    heading: "Expertly prepared2",
+                    description:
+                        "Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam",
+                    image: "",
+                },
+                {
+                    heading: "Away it goes",
+                    description:
+                        "Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam",
+                    image: "",
+                },
+                {
+                    heading: "Heat - eat - repeat",
+                    description:
+                        "Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam",
+                    image: "",
+                },
+            ],
+        },
     },
     {
         name: "mbmc-block-910",
         component: MbmcBlock10,
-        props: { style: "mui" },
+        props: {
+            style: "mbmc",
+            tags: [
+                {
+                    text: "EXPERTLY PREPARED",
+                    icon: "https://sytbuildr.s3.eu-west-2.amazonaws.com/images/mbmc/chefLogo.svg",
+                },
+                {
+                    text: "FRESH & AUTHENTIC",
+                    icon: "https://sytbuildr.s3.eu-west-2.amazonaws.com/images/mbmc/foodIcon.svg",
+                },
+                {
+                    text: "UK WIDE DELIVERY",
+                    icon: "https://sytbuildr.s3.eu-west-2.amazonaws.com/images/mbmc/deliveryIcon.svg",
+                },
+            ],
+        },
     },
     {
         name: "mbmc-block-911",
         component: MbmcBlock11,
-        props: { style: "mui" },
+        props: { style: "mbmc" },
     },
     {
         name: "mbmc-block-912",
         component: MbmcBlock12,
-        props: { style: "mui" },
+        props: { style: "mbmc" },
     },
     {
         name: "mbmc-block-913",
         component: MbmcBlock13,
-        props: { style: "mui" },
+        props: { style: "mbmc" },
     },
 ];

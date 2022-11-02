@@ -9,7 +9,7 @@ export const MbmcBlock1: FC<MbmcBlock1Props> = ({ style }) => {
     const classes = useMbmcBlock1Styles();
 
     return (
-        <div className={renderStyle(style, { mui: classes.root, ant: "", chakra: "" })}>
+        <div className={renderStyle(style, { mbmc: classes.root })}>
             <div className={classes.headerContent}>
                 <h1 className={classes.headerTitle}>
                     From Our <br /> Kitchen <br /> To Your Table

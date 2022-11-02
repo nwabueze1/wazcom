@@ -4,7 +4,7 @@ import { FC, useState } from "react";
 import clx from "classnames";
 import { MbmcBlock9Props } from "./types";
 
-export const MbmcBlock9: FC<MbmcBlock9Props> = () => {
+export const MbmcBlock9: FC<MbmcBlock9Props> = ({ heading, description, steps }) => {
     const classes = useMbmcBlock9Styles();
     const [active, setActive] = useState(0);
 
@@ -12,11 +12,8 @@ export const MbmcBlock9: FC<MbmcBlock9Props> = () => {
         <div className={classes.root}>
             <div className={classes.textContainer}>
                 <div className={classes.headerContent}>
-                    <h3 className={classes.headerTitle}>How It Works</h3>
-                    <p className={classes.headerDescription}>
-                        Lorem ipsum dolor sit amet, consetetur sadipscing eli tr, sed diam nonumy
-                        eirmod tempor invidunt ut lab
-                    </p>
+                    <h3 className={classes.headerTitle}>{heading}</h3>
+                    <p className={classes.headerDescription}>{description}</p>
                 </div>
                 <div className={classes.directionContainerMobile}>
                     <div className={classes.directions}>
@@ -43,7 +40,7 @@ export const MbmcBlock9: FC<MbmcBlock9Props> = () => {
                     </div>
                 </div>
                 <div className={classes.headerCardContainer}>
-                    {menuData.map((menu, idx) => (
+                    {steps.map((step, idx) => (
                         <div
                             onClick={() => setActive(idx)}
                             key={idx}
@@ -61,9 +58,9 @@ export const MbmcBlock9: FC<MbmcBlock9Props> = () => {
                                         active === idx && classes.activeTitle,
                                     )}
                                 >
-                                    {menu.title}
+                                    {step.heading}
                                 </p>
-                                <p className={classes.pointDescription}>{menu.text}</p>
+                                <p className={classes.pointDescription}>{step.description}</p>
                             </div>
                         </div>
                     ))}
