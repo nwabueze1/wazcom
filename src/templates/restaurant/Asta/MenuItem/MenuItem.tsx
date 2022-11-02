@@ -2,7 +2,7 @@ import React from "react";
 import { useStyles } from "./styles";
 import { MenuItemProps } from "./types";
 import clsx from "clsx";
-import { getCurrency, getFloatOrIntAmount, menuImagePlaceholder } from "utilities/restaurant";
+import { getCurrency, getFloatOrIntAmount, menuImagePlaceholder } from "../../../../utilities";
 
 export const Item: React.FC<MenuItemProps> = ({
     onClick,

@@ -1,0 +1,249 @@
+import makeStyles from "@mui/styles/makeStyles";
+export var useStyles = makeStyles(function (theme) {
+    var _a, _b, _c, _d, _e, _f, _g, _h, _j, _k, _l;
+    return ({
+        dialog__close: {
+            position: "absolute",
+            top: "25px",
+            right: "25px",
+            zIndex: 99,
+        },
+        dialog: (_a = {
+                position: "relative",
+                boxSizing: "border-box",
+                borderRadius: theme.spacing(1),
+                width: 536,
+                maxHeight: "75vh",
+                overflowY: "auto",
+                background: theme.design.colors.waz_white,
+                display: "flex",
+                flexDirection: "column",
+                justifyContent: "space-between",
+                alignItems: "center",
+                "& .MuiRadio-colorSecondary.Mui-checked": {
+                    color: theme.design.colors.waz_primaryColor100,
+                },
+                "& .MuiCheckbox-colorSecondary.Mui-checked": {
+                    color: theme.design.colors.waz_primaryColor100,
+                },
+                "&::-webkit-scrollbar": {
+                    width: "4px",
+                },
+                "&::-webkit-scrollbar-thumb": {
+                    background: "rgba(0,0,0,0.2)",
+                }
+            },
+            _a[theme.breakpoints.down("md")] = {
+                width: "80%",
+            },
+            _a[theme.breakpoints.down("sm")] = {
+                height: "100vh",
+                width: "100%",
+                justifyContent: "flex-start",
+                borderRadius: 0,
+                maxHeight: "100vh",
+            },
+            _a),
+        quantityController: {
+            width: "100%",
+            marginBottom: theme.spacing(2),
+        },
+        quantityText: {
+            marginBottom: theme.spacing(1),
+            marginLeft: theme.spacing(0.5),
+            fontSize: theme.typography.fontSize,
+        },
+        dialogOptionBox: {
+            position: "relative",
+            width: "100%",
+        },
+        closeIconContainer: {
+            height: 32,
+            width: 32,
+            borderRadius: "50%",
+            display: "flex",
+            justifyContent: "center",
+            alignItems: "center",
+            background: theme.design.colors.waz_white,
+            cursor: "pointer",
+            position: "absolute",
+            zIndex: 5,
+            right: 16,
+            top: 16,
+        },
+        closeIcon: {
+            color: theme.design.colors.waz_primaryColor100,
+        },
+        dialogImageParent: {
+            width: "100%",
+            height: "236px",
+            position: "relative",
+            flexShrink: 0,
+        },
+        cartImage: {
+            position: "absolute",
+            top: 0,
+            height: "100%",
+            width: "100%",
+            objectFit: "cover",
+            objectPosition: "center",
+        },
+        dialog__name: {
+            fontSize: theme.typography.fontSize + 4,
+            color: theme.design.colors.waz_primaryBlack,
+            fontWeight: 600,
+            margin: "24px 0 5px 0",
+            width: "90%",
+            textTransform: "capitalize",
+        },
+        dialog__description: {
+            fontSize: theme.typography.fontSize,
+            width: "90%",
+            lineHeight: "24.55px",
+            color: theme.design.colors.waz_grey400,
+            display: "-webkit-box",
+            "-webkit-line-clamp": 2,
+            "-webkit-box-orient": "vertical",
+            overflow: "hidden",
+        },
+        dialog__actions: (_b = {
+                display: "flex",
+                justifyContent: "space-between",
+                alignItems: "center",
+                width: "20%",
+                marginBottom: theme.spacing(3),
+                "& p": (_c = {
+                        margin: 0,
+                        fontSize: theme.typography.fontSize * 2
+                    },
+                    _c[theme.breakpoints.down("sm")] = {
+                        fontSize: theme.typography.fontSize + 4,
+                    },
+                    _c)
+            },
+            _b[theme.breakpoints.down("sm")] = {
+                width: "30%",
+            },
+            _b),
+        dialogOptions: (_d = {
+                boxSizing: "border-box",
+                display: "flex",
+                justifyContent: "space-around",
+                width: "100%"
+            },
+            _d[theme.breakpoints.down("xs")] = {
+                flexDirection: "column",
+                alignItems: "center",
+            },
+            _d),
+        total: {
+            fontSize: theme.typography.fontSize + 4,
+            padding: theme.spacing(1, 3),
+            textAlign: "center",
+            fontWeight: theme.typography.fontWeightMedium,
+            lineHeight: "21px",
+        },
+        actions: (_e = {
+                position: "sticky",
+                bottom: 0,
+                width: "100%",
+                display: "flex",
+                justifyContent: "space-between",
+                alignItems: "center",
+                flexDirection: "column",
+                boxSizing: "border-box",
+                padding: theme.spacing(3, "5%"),
+                background: "rgba(255, 255, 255, 0.7)"
+            },
+            _e[theme.breakpoints.down("sm")] = {
+                position: "fixed",
+            },
+            _e),
+        icon: (_f = {
+                color: theme.design.colors.waz_primaryColor100,
+                cursor: "pointer",
+                fontSize: theme.typography.fontSize * 2.5
+            },
+            _f[theme.breakpoints.down("sm")] = {
+                fontSize: theme.typography.fontSize * 3,
+            },
+            _f),
+        iconInactive: (_g = {
+                cursor: "pointer",
+                fontSize: theme.typography.fontSize * 2.5,
+                color: theme.design.colors.waz_grey100,
+                opacity: 0.6
+            },
+            _g[theme.breakpoints.down("sm")] = {
+                fontSize: theme.typography.fontSize * 3,
+            },
+            _g),
+        dialogOption: (_h = {
+                padding: theme.spacing(1, 8),
+                fontSize: theme.typography.fontSize + 4,
+                fontWeight: theme.typography.fontWeightMedium,
+                fontFamily: theme.design.font.openSans,
+                borderRadius: "4px",
+                width: "100%"
+            },
+            _h[theme.breakpoints.down("sm")] = {
+                padding: theme.spacing(1, 3),
+            },
+            _h),
+        dialog__option_outline: (_j = {
+                border: "2px solid ".concat(theme.design.colors.waz_dangerColor400),
+                color: theme.design.colors.waz_dangerColor400,
+                background: theme.design.colors.waz_white
+            },
+            _j[theme.breakpoints.down("xs")] = {
+                width: "80%",
+                textAlign: "center",
+                marginBottom: theme.spacing(2),
+            },
+            _j),
+        totalItemPrice: {
+            background: " rgba(230, 231, 230, 0.5)",
+        },
+        dialogOptionFilled: (_k = {
+                background: theme.design.colors.waz_primaryColor100,
+                color: theme.design.colors.waz_white,
+                border: "none",
+                cursor: "pointer"
+            },
+            _k[theme.breakpoints.down("sm")] = {
+                textAlign: "center",
+                justifyContent: "flex-end",
+            },
+            _k),
+        errorMsg: {
+            color: theme.design.colors.sunRed,
+            fontSize: theme.typography.fontSize + 2,
+            margin: theme.spacing(1, 0, 1.5),
+        },
+        dialogBox: (_l = {
+                position: "fixed",
+                top: 0,
+                left: 0,
+                width: "100vw",
+                height: "100vh",
+                background: "rgba(0,0,0,0.6)",
+                display: "flex",
+                justifyContent: "center",
+                alignItems: "center",
+                zIndex: -20,
+                opacity: 0,
+                transition: "opacity 0.5s ease-in"
+            },
+            _l[theme.breakpoints.down("sm")] = {
+                alignItems: "flex-start",
+            },
+            _l),
+        dialogActive: {
+            zIndex: 20,
+            opacity: 1,
+        },
+        currency: {
+            opacity: 0.7,
+        },
+    });
+});

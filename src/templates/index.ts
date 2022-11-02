@@ -1,3 +1,4 @@
 export * from "./blog";
-export * from "./footers";
+export * from "./restaurant";
 export * from "./Navs";
+export * from "./footers";

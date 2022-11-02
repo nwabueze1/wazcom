@@ -1,6 +1,6 @@
 import { FC, useState } from "react";
 import { InputAdornment } from "@mui/material";
-import { TextInput } from "io";
+import { TextInput } from "../../../../io";
 import { useNavStyles } from "./styles";
 import { Search } from "@mui/icons-material";
 import { NavProps } from "./types";
