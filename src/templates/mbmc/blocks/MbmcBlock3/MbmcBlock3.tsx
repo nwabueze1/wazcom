@@ -1,15 +1,17 @@
 import { useMbmcBlock3Styles } from "./styles";
 import { MbmcButton } from "../../components/MbmcButton/MbmcButton";
-import { IoIosArrowRoundForward } from "react-icons/io";
+import { FC } from "react";
+import { MbmcBlock3Props } from "./types";
 
-export const MbmcBlock3 = () => {
+export const MbmcBlock3: FC<MbmcBlock3Props> = ({ style }) => {
     const classes = useMbmcBlock3Styles();
 
     return (
         <div className={classes.root}>
             <div className={classes.headerContent}>
                 <h3 className={classes.headerTitle}>
-                    Food is an important <br /> part of a balanced diet
+                    Food is an important <br className={classes.headerIcon} /> part of a balanced
+                    diet
                 </h3>
                 <div className={classes.heroContainerMobile}>
                     <img

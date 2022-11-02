@@ -1,6 +1,8 @@
+import { FC } from "react";
 import { useMbmcBlock2Styles } from "./styles";
+import { MbmcBlock2Props } from "./types";
 
-export const MbmcBlock2 = () => {
+export const MbmcBlock2: FC<MbmcBlock2Props> = ({ style }) => {
     const classes = useMbmcBlock2Styles();
 
     return (

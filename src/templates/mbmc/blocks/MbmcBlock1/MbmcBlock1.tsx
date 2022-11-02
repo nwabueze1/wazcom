@@ -1,12 +1,15 @@
 import { useMbmcBlock1Styles } from "./styles";
 import { MbmcButton } from "../../components/MbmcButton/MbmcButton";
 import { IoIosArrowRoundForward } from "react-icons/io";
+import { FC } from "react";
+import { MbmcBlock1Props } from "./types";
+import { renderStyle } from "utilities/renderStyle";
 
-export const MbmcBlock1 = () => {
+export const MbmcBlock1: FC<MbmcBlock1Props> = ({ style }) => {
     const classes = useMbmcBlock1Styles();
 
     return (
-        <div className={classes.root}>
+        <div className={renderStyle(style, { mui: classes.root, ant: "", chakra: "" })}>
             <div className={classes.headerContent}>
                 <h1 className={classes.headerTitle}>
                     From Our <br /> Kitchen <br /> To Your Table

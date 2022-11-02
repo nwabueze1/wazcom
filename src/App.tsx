@@ -1,9 +1,9 @@
 import { StyledEngineProvider, Theme, ThemeProvider } from "@mui/material";
 import * as React from "react";
 import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
-import { Blaise, Noir, Sevyn } from "templates/footers";
+import { Blaise } from "templates";
 import { blocks } from "templates/mbmc";
-import { Nour, Taurant, Valour } from "templates/Navs";
+import { Valour } from "templates/Navs";
 import { Asta } from "templates/restaurant/Asta/Asta";
 import { Mbmc } from "templates/restaurant/Mbmc/Mbmc";
 import { Browser } from "view/Browser";
@@ -16,8 +16,17 @@ interface Props {
     className?: string;
 }
 
-const navProps = {
-    links: [
+const links = [
+    { text: "About us", url: "" },
+    { text: "About us", url: "" },
+    { text: "About us", url: "" },
+    { text: "About us", url: "" },
+    { text: "About us", url: "" },
+    { text: "About us", url: "" },
+];
+
+const navProps: any = {
+    linksss: [
         { text: "Gallery", url: "/" },
         { text: "Categories", url: "http://www.leke.com" },
         { text: "About", url: "/" },
@@ -27,38 +36,38 @@ const navProps = {
         url: "https://www.facebook.com",
         text: "the heart of tech",
     },
-    handleClick: (route: string) => {
-        // alert(route);
-    },
+    handleClick: () =>
+        // route: string
+        {
+            // alert(route);
+        },
     items: [
         {
-            title: "Company",
+            name: "Company",
             links: [
-                { text: "About us", url: "" },
                 { text: "About us", url: "" },
                 { text: "About us", url: "" },
                 { text: "About us", url: "" },
             ],
         },
         {
-            title: "Services",
+            name: "Services",
             links: [
-                { text: "About us", url: "" },
                 { text: "About us", url: "" },
                 { text: "About us", url: "" },
                 { text: "About us", url: "" },
             ],
         },
         {
-            title: "Contact Us",
+            name: "Contact Us",
             links: [
-                { text: "About us", url: "" },
                 { text: "About us", url: "" },
                 { text: "About us", url: "" },
                 { text: "About us", url: "" },
             ],
         },
     ],
+    // items: links,
     socials: [
         { type: "FACEBOOK", url: "https://www.facebook.com" },
         { type: "TWITTER", url: "https://www.twitter.com" },
@@ -94,7 +103,7 @@ const App: React.FC<Props> = () => {
                                 </Route>
                             ))}
                         <Route exact path="/nour">
-                            <Taurant
+                            <Valour
                                 {...navProps}
                                 mode="edit"
                                 socials={[
@@ -102,6 +111,9 @@ const App: React.FC<Props> = () => {
                                     { type: "TWITTER", url: "wwww" },
                                 ]}
                             />
+                        </Route>
+                        <Route path="/sevyn">
+                            <Blaise mode="edit" {...navProps} />
                         </Route>
                         <Route exact path="/asta">
                             <Asta />

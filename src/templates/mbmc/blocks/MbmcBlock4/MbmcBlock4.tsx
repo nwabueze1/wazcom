@@ -1,8 +1,10 @@
 import { useMbmcBlock4Styles } from "./styles";
 import { ServiceCard } from "templates/mbmc/components/ServiceCard";
 import { services } from "./data";
+import { FC } from "react";
+import { MbmcBlock4Props } from "./types";
 
-export const MbmcBlock4 = () => {
+export const MbmcBlock4: FC<MbmcBlock4Props> = ({ style }) => {
     const classes = useMbmcBlock4Styles();
 
     return (

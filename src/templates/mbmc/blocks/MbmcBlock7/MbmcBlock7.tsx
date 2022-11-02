@@ -1,8 +1,11 @@
 import { useMbmcBlock7Styles } from "./styles";
 import { menuData } from "./data";
 import clx from "classnames";
+import { FC } from "react";
+import { MbmcBlock6Props } from "../MbmcBlock6/types";
+import { MbmcBlock7Props } from "./types";
 
-export const MbmcBlock7 = () => {
+export const MbmcBlock7: FC<MbmcBlock7Props> = ({ style }) => {
     const classes = useMbmcBlock7Styles();
 
     return (
@@ -21,7 +24,7 @@ export const MbmcBlock7 = () => {
                         <img
                             key={idx}
                             src={menu.imageUrl}
-                            className={clx(classes.imageContainer, idx === 4 && classes.flexGrow)}
+                            className={clx(classes.imageContainer, idx === 2 && classes.flexGrow)}
                         />
                     ))}
             </div>

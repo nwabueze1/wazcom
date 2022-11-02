@@ -1,4 +1,4 @@
-import { FC } from "react";
+import { FC, useState } from "react";
 import { Copyright } from "../Copyright";
 import { displayLogo, displaySections, displaySocials } from "../helpers";
 import { FooterProps, TFooterSection } from "../types";
@@ -7,8 +7,10 @@ import { ImFacebook } from "react-icons/im";
 import { FaInstagram } from "react-icons/fa";
 import { BsTwitter } from "react-icons/bs";
 import { RiLinkedinFill, RiYoutubeFill } from "react-icons/ri";
+import clx from "classnames";
 
-export const Sevyn: FC<FooterProps> = ({ mode = "view", socials, logo, items }) => {
+export const Sevyn: FC<FooterProps> = ({ mode = "view", socials, logo, handleClick, links }) => {
+    const [activeElement, setActiveElement] = useState("");
     const classes = useSevynStyles();
 
     const renderSocialIcon = (Icon: JSX.Element) => (
@@ -23,21 +25,48 @@ export const Sevyn: FC<FooterProps> = ({ mode = "view", socials, logo, items }) 
         YOUTUBE: renderSocialIcon(<RiYoutubeFill className={classes.footerSocialIcon} />),
     };
 
+    const handleFooterClick = () => {
+        if (mode === "edit") {
+            setActiveElement("footer");
+            handleClick?.("footer");
+        }
+    };
+
+    const handleElementClick = (element: string) => {
+        setActiveElement(element);
+        handleClick?.(element);
+    };
+
     return (
-        <div className={classes.root}>
+        <div
+            className={clx(
+                classes.root,
+                activeElement.toLowerCase() === "footer" &&
+                    mode === "edit" &&
+                    classes.activeElement,
+            )}
+            onClick={handleFooterClick}
+        >
             <div className={classes.footerContent}>
-                {displayLogo(mode, classes, "", (route: string) => {}, logo)}
+                {displayLogo(mode, classes, activeElement, handleElementClick, logo)}
                 <div className={classes.footerSections}>
                     {displaySections(
                         mode,
                         classes,
-                        items as TFooterSection[],
-                        "",
-                        (route: string) => {},
+                        links as TFooterSection[],
+                        activeElement,
+                        handleElementClick,
                     )}
                 </div>
                 <div className={classes.footerSocials}>
-                    {displaySocials(mode, socialIcons, socials)}
+                    {displaySocials(
+                        mode,
+                        socialIcons,
+                        socials ?? [],
+                        classes,
+                        activeElement,
+                        handleElementClick,
+                    )}
                 </div>
             </div>
             <Copyright />
