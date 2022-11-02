@@ -29,12 +29,10 @@ export const baseColors = {
 export const theme: any = {
     breakpoints: {
         values: {
-            xs: 0,
-            sm: 600,
-            md: 960,
-            lg: 1280,
-            ml: 1450,
-            xl: 1920,
+            sm: 480,
+            md: 768,
+            lg: 1024,
+            xl: 1280,
         },
     },
     typography: {

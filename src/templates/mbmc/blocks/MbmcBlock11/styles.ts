@@ -8,18 +8,19 @@ export const useMbmcBlock11Styles = makeStyles((theme: Theme) => ({
         position: "relative",
         display: "flex",
         alignItems: "center",
+        boxSizing: "border-box",
         justifyContent: "space-between",
         flexDirection: ({ flexDirection }: { flexDirection: BlockLayout }) => flexDirection,
-        width: "calc(100% - 192px)",
+        width: "100%",
         padding: theme.spacing(5, 12),
 
         [theme.breakpoints.down("lg")]: {
-            padding: theme.spacing(5, 10),
-            width: "calc(100% - 160px)",
+            padding: theme.spacing(5),
+            flexDirection: "column",
+            width: "100%",
         },
-        [theme.breakpoints.down("sm")]: {
+        [theme.breakpoints.down("md")]: {
             padding: theme.spacing(4),
-            width: "calc(100% - 64px)",
             height: "100%",
             overflow: "visible",
         },
@@ -27,7 +28,7 @@ export const useMbmcBlock11Styles = makeStyles((theme: Theme) => ({
     headerContent: {
         width: "46%",
 
-        [theme.breakpoints.down("sm")]: {
+        [theme.breakpoints.down("md")]: {
             width: "100%",
             display: "flex",
             alignItems: "flex-start",
@@ -86,10 +87,10 @@ export const useMbmcBlock11Styles = makeStyles((theme: Theme) => ({
         [theme.breakpoints.down("lg")]: {
             height: 419,
         },
+        // [theme.breakpoints.down("md")]: {
+        //     height: 319,
+        // },
         [theme.breakpoints.down("md")]: {
-            height: 319,
-        },
-        [theme.breakpoints.down("sm")]: {
             display: "none",
         },
     },
@@ -99,7 +100,7 @@ export const useMbmcBlock11Styles = makeStyles((theme: Theme) => ({
         display: "none",
         alignItems: "center",
 
-        [theme.breakpoints.down("sm")]: {
+        [theme.breakpoints.down("md")]: {
             display: "flex",
         },
     },
@@ -124,7 +125,7 @@ export const useMbmcBlock11Styles = makeStyles((theme: Theme) => ({
     },
     headerIcon: {
         marginLeft: theme.spacing(1),
-        [theme.breakpoints.down("sm")]: {
+        [theme.breakpoints.down("md")]: {
             display: "none",
         },
     },

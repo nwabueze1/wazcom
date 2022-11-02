@@ -1,10 +1,26 @@
 import { MbmcBlock1Props } from "./blocks/MbmcBlock1/types";
+import { MbmcBlock10Props } from "./blocks/MbmcBlock10/types";
+import { MbmcBlock11Props } from "./blocks/MbmcBlock11/types";
+import { MbmcBlock12Props } from "./blocks/MbmcBlock12/types";
+import { MbmcBlock2Props } from "./blocks/MbmcBlock2/types";
+import { MbmcBlock8Props } from "./blocks/MbmcBlock8/types";
+import { MbmcBlock9Props } from "./blocks/MbmcBlock9/types";
 
 export type BlockStyle = "mbmc";
+
 export type BlockLayout = "column" | "row" | "column-reverse" | "row-reverse";
 
+export type BlockCta = {
+    text: string;
+    handleClick?: () => void;
+    type?: "PRIMARY" | "SECONDARY";
+    styleProps?: { [key: string]: string | number };
+    rIcon?: JSX.Element;
+    lIcon?: JSX.Element;
+};
+
 export type MbmcCommonProps = {
-    style: BlockStyle;
+    style?: BlockStyle;
     index?: number;
     mode?: "view" | "edit";
     handleClick?: (route: string) => void;
@@ -16,5 +32,12 @@ export type MbmcTemplatePropType = {
 } & Mmbc1Block;
 
 type Mmbc1Block = {
-    props: any;
+    props:
+        | MbmcBlock1Props
+        | MbmcBlock2Props
+        | MbmcBlock8Props
+        | MbmcBlock9Props
+        | MbmcBlock10Props
+        | MbmcBlock11Props
+        | MbmcBlock12Props;
 };

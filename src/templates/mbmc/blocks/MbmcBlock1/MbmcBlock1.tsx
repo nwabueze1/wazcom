@@ -1,28 +1,30 @@
 import { useMbmcBlock1Styles } from "./styles";
 import { MbmcButton } from "../../components/MbmcButton/MbmcButton";
-import { IoIosArrowRoundForward } from "react-icons/io";
 import { FC } from "react";
 import { MbmcBlock1Props } from "./types";
-import { renderStyle } from "utilities/renderStyle";
+import { renderStyle, parseHtml } from "utilities/renderStyle";
 
-export const MbmcBlock1: FC<MbmcBlock1Props> = ({ style }) => {
+export const MbmcBlock1: FC<MbmcBlock1Props> = ({ style = "mbmc", heading, description, ctas }) => {
     const classes = useMbmcBlock1Styles();
+
+    const displayCtas = () => {
+        return (ctas ?? []).map(({ text, rIcon, lIcon, ...props }, index) => (
+            <MbmcButton key={index} {...props}>
+                {lIcon} {text} {rIcon}
+            </MbmcButton>
+        ));
+    };
 
     return (
         <div className={renderStyle(style, { mbmc: classes.root })}>
             <div className={classes.headerContent}>
-                <h1 className={classes.headerTitle}>
-                    From Our <br /> Kitchen <br /> To Your Table
-                </h1>
-                <p className={classes.headerDescription}>
-                    Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem
-                    Ipsum has been the industry's standard dummy
-                </p>
+                <h1
+                    className={classes.headerTitle}
+                    dangerouslySetInnerHTML={{ __html: parseHtml(heading) }}
+                />
+                <p className={classes.headerDescription}>{description}</p>
                 <div className={classes.headerBtnContainer}>
-                    <MbmcButton bgColor="#F25430">
-                        Order now <IoIosArrowRoundForward className={classes.headerIcon} />
-                    </MbmcButton>
-                    <MbmcButton>Contact us</MbmcButton>
+                    {displayCtas()}
                 </div>
             </div>
             <div className={classes.heroContainerMobile}>

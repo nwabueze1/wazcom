@@ -15,9 +15,6 @@ export const useMbmcBlock8Styles = makeStyles((theme: Theme) => ({
 
         [theme.breakpoints.down("lg")]: {
             padding: theme.spacing(2, 4),
-        },
-        [theme.breakpoints.down("md")]: {
-            padding: theme.spacing(2, 4),
             flexDirection: "column",
         },
         [theme.breakpoints.down("sm")]: {
@@ -33,10 +30,7 @@ export const useMbmcBlock8Styles = makeStyles((theme: Theme) => ({
         flexDirection: "column",
         marginBottom: theme.spacing(2),
 
-        [theme.breakpoints.down("md")]: {
-            width: "100%",
-        },
-        [theme.breakpoints.down("sm")]: {
+        [theme.breakpoints.down("lg")]: {
             width: "100%",
         },
     },
@@ -65,9 +59,6 @@ export const useMbmcBlock8Styles = makeStyles((theme: Theme) => ({
             fontSize: theme.typography.fontSize * 2,
         },
         [theme.breakpoints.down("md")]: {
-            fontSize: theme.typography.fontSize * 2,
-        },
-        [theme.breakpoints.down("sm")]: {
             textAlign: "left",
             fontSize: theme.typography.fontSize * 2,
             fontWeight: 800,
@@ -101,7 +92,7 @@ export const useMbmcBlock8Styles = makeStyles((theme: Theme) => ({
         width: "50%",
         height: "auto",
         display: "block",
-        [theme.breakpoints.down("md")]: {
+        [theme.breakpoints.down("lg")]: {
             width: "100%",
         },
         [theme.breakpoints.down("sm")]: {
@@ -135,13 +126,13 @@ export const useMbmcBlock8Styles = makeStyles((theme: Theme) => ({
         gridTemplateColumns: "1fr 1fr",
         gap: theme.spacing(1),
         marginLeft: theme.spacing(1),
-        [theme.breakpoints.down("sm")]: {
+        [theme.breakpoints.down("md")]: {
             gridTemplateColumns: "1fr",
         },
     },
     headerIcon: {
         marginLeft: theme.spacing(1),
-        [theme.breakpoints.down("sm")]: {
+        [theme.breakpoints.down("md")]: {
             display: "none",
         },
     },

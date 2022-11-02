@@ -17,11 +17,11 @@ export const useMbmcBlock13Styles = makeStyles((theme: Theme) => ({
             width: "calc(100% - 160px)",
         },
 
+        // [theme.breakpoints.down("md")]: {
+        //     padding: theme.spacing(1, 4),
+        //     width: "calc(100% - 64px)",
+        // },
         [theme.breakpoints.down("md")]: {
-            padding: theme.spacing(1, 4),
-            width: "calc(100% - 64px)",
-        },
-        [theme.breakpoints.down("sm")]: {
             backgroundColor: theme.design.colors.waz_white,
 
             padding: theme.spacing(1, 2),
@@ -40,10 +40,11 @@ export const useMbmcBlock13Styles = makeStyles((theme: Theme) => ({
             fontFamily: theme.design.font.lostaMasta,
             fontSize: theme.typography.fontSize * 2,
             color: theme.design.colors.waz_primaryColor300,
-            [theme.breakpoints.down("md")]: {
+            [theme.breakpoints.down("lg")]: {
                 fontSize: theme.typography.fontSize + 8,
+                display: "none",
             },
-            [theme.breakpoints.down("sm")]: {
+            [theme.breakpoints.down("md")]: {
                 display: "none",
             },
         },
@@ -75,6 +76,7 @@ export const useMbmcBlock13Styles = makeStyles((theme: Theme) => ({
         },
         [theme.breakpoints.down("lg")]: {
             paddingRight: theme.spacing(6),
+            display: "none",
         },
 
         [theme.breakpoints.down("md")]: {
@@ -101,14 +103,15 @@ export const useMbmcBlock13Styles = makeStyles((theme: Theme) => ({
         cursor: "pointer",
         [theme.breakpoints.down("lg")]: {
             marginRight: theme.spacing(0),
-        },
-        [theme.breakpoints.down("sm")]: {
             display: "none",
         },
+        // [theme.breakpoints.down("md")]: {
+        //     display: "none",
+        // },
     },
     menuOptionMobile: {
         display: "none",
-        [theme.breakpoints.down("sm")]: {
+        [theme.breakpoints.down("lg")]: {
             display: "block",
             color: theme.design.colors.waz_lightOrange,
         },

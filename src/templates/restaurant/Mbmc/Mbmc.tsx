@@ -8,12 +8,12 @@ import { MbmcBlock7 } from "templates/mbmc/blocks/MbmcBlock7/MbmcBlock7";
 export const Mbmc = () => {
     return (
         <>
-            <MbmcBlock1 style="mbmc" />
+            {/* <MbmcBlock1 style="mbmc" />
             <MbmcBlock4 style="mbmc" />
             <MbmcBlock3 style="mbmc" />
             <MbmcBlock7 style="mbmc" />
             <MbmcBlock6 style="mbmc" />
-            <MbmcBlock5 style="mbmc" />
+            <MbmcBlock5 style="mbmc" /> */}
         </>
     );
 };

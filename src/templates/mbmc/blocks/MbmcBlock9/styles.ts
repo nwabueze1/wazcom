@@ -13,12 +13,12 @@ export const useMbmcBlock9Styles = makeStyles((theme: Theme) => ({
         width: "calc(100% - 208px)",
         gap: theme.spacing(2),
 
-        [theme.breakpoints.down("md")]: {
+        [theme.breakpoints.down("lg")]: {
             height: "100%",
             padding: theme.spacing(8, 4),
             width: "calc(100% - 64px)",
         },
-        [theme.breakpoints.down("sm")]: {
+        [theme.breakpoints.down("md")]: {
             padding: theme.spacing(6, 1),
             height: "fit-content",
             width: "calc(100% - 16px)",
@@ -47,9 +47,6 @@ export const useMbmcBlock9Styles = makeStyles((theme: Theme) => ({
             fontSize: theme.typography.fontSize * 2,
         },
         [theme.breakpoints.down("md")]: {
-            fontSize: theme.typography.fontSize * 2,
-        },
-        [theme.breakpoints.down("sm")]: {
             textAlign: "left",
             fontSize: theme.typography.fontSize * 2,
             fontWeight: 800,
@@ -68,6 +65,7 @@ export const useMbmcBlock9Styles = makeStyles((theme: Theme) => ({
         },
         [theme.breakpoints.down("lg")]: {
             fontSize: theme.typography.fontSize + 6,
+            width: "80%",
         },
         [theme.breakpoints.down("md")]: {
             width: "80%",
@@ -97,7 +95,7 @@ export const useMbmcBlock9Styles = makeStyles((theme: Theme) => ({
         padding: theme.spacing(3),
         boxShadow: `0px 3px 60px ${theme.design.colors.waz_black100}`,
 
-        [theme.breakpoints.down("md")]: {
+        [theme.breakpoints.down("lg")]: {
             padding: theme.spacing(2),
         },
     },
@@ -127,13 +125,10 @@ export const useMbmcBlock9Styles = makeStyles((theme: Theme) => ({
             fontSize: theme.typography.fontSize,
         },
         [theme.breakpoints.down("lg")]: {
-            fontSize: theme.typography.fontSize,
-        },
-        [theme.breakpoints.down("md")]: {
             width: "80%",
             fontSize: theme.typography.fontSize,
         },
-        [theme.breakpoints.down("sm")]: {
+        [theme.breakpoints.down("md")]: {
             fontSize: theme.typography.fontSize + 2,
             width: "100%",
         },
@@ -156,9 +151,6 @@ export const useMbmcBlock9Styles = makeStyles((theme: Theme) => ({
             fontSize: theme.typography.fontSize + 4,
         },
         [theme.breakpoints.down("md")]: {
-            fontSize: theme.typography.fontSize + 4,
-        },
-        [theme.breakpoints.down("sm")]: {
             textAlign: "left",
             fontSize: theme.typography.fontSize + 4,
             fontWeight: 800,
@@ -193,10 +185,10 @@ export const useMbmcBlock9Styles = makeStyles((theme: Theme) => ({
         display: "flex",
         alignItems: "flex-start",
         justifyContent: "flex-end",
-        [theme.breakpoints.down("md")]: {
+        [theme.breakpoints.down("lg")]: {
             height: 500,
         },
-        [theme.breakpoints.down("sm")]: {
+        [theme.breakpoints.down("md")]: {
             display: "none",
         },
     },
@@ -207,7 +199,7 @@ export const useMbmcBlock9Styles = makeStyles((theme: Theme) => ({
         alignItems: "center",
         padding: theme.spacing(2),
 
-        [theme.breakpoints.down("sm")]: {
+        [theme.breakpoints.down("md")]: {
             display: "flex",
             height: 500,
         },
@@ -221,7 +213,7 @@ export const useMbmcBlock9Styles = makeStyles((theme: Theme) => ({
         backgroundColor: theme.design.colors.waz_white,
         marginTop: theme.spacing(-7),
 
-        [theme.breakpoints.down("md")]: {
+        [theme.breakpoints.down("lg")]: {
             marginTop: theme.spacing(-1),
             width: 100,
         },
@@ -235,7 +227,7 @@ export const useMbmcBlock9Styles = makeStyles((theme: Theme) => ({
         backgroundColor: theme.design.colors.waz_white,
         marginTop: theme.spacing(-7),
 
-        [theme.breakpoints.down("md")]: {
+        [theme.breakpoints.down("lg")]: {
             marginTop: theme.spacing(-1),
             width: 100,
         },
@@ -248,7 +240,7 @@ export const useMbmcBlock9Styles = makeStyles((theme: Theme) => ({
         left: 0,
         backgroundColor: theme.design.colors.waz_white,
         marginBottom: theme.spacing(-7),
-        [theme.breakpoints.down("md")]: {
+        [theme.breakpoints.down("lg")]: {
             marginBottom: theme.spacing(-1),
             width: 100,
         },
@@ -262,14 +254,14 @@ export const useMbmcBlock9Styles = makeStyles((theme: Theme) => ({
         backgroundColor: theme.design.colors.waz_white,
         marginBottom: theme.spacing(-7),
 
-        [theme.breakpoints.down("md")]: {
+        [theme.breakpoints.down("lg")]: {
             marginBottom: theme.spacing(-1),
             width: 100,
         },
     },
     mobileHide: {
         display: "block",
-        [theme.breakpoints.down("md")]: {
+        [theme.breakpoints.down("lg")]: {
             display: "none",
         },
     },

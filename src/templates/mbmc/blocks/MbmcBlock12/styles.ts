@@ -11,7 +11,7 @@ export const useMbmcBlock12Styles = makeStyles((theme: Theme) => ({
             padding: theme.spacing(5, 10),
             width: "calc(100% - 160px)",
         },
-        [theme.breakpoints.down("sm")]: {
+        [theme.breakpoints.down("md")]: {
             padding: theme.spacing(2, 1),
             width: "calc(100% - 16px)",
         },
@@ -25,7 +25,7 @@ export const useMbmcBlock12Styles = makeStyles((theme: Theme) => ({
         overflow: "hidden",
         flexDirection: ({ flexDirection }: { flexDirection: BlockLayout }) => flexDirection,
 
-        [theme.breakpoints.down("sm")]: {
+        [theme.breakpoints.down("lg")]: {
             display: "block",
             width: "100%",
         },
@@ -34,7 +34,7 @@ export const useMbmcBlock12Styles = makeStyles((theme: Theme) => ({
         width: "45%",
         paddingRight: theme.spacing(4),
 
-        [theme.breakpoints.down("sm")]: {
+        [theme.breakpoints.down("lg")]: {
             paddingRight: theme.spacing(0),
             width: "100%",
             display: "flex",
@@ -56,14 +56,8 @@ export const useMbmcBlock12Styles = makeStyles((theme: Theme) => ({
         [theme.breakpoints.down("lg")]: {
             marginTop: theme.spacing(3),
             fontSize: theme.typography.fontSize * 3,
-        },
-        [theme.breakpoints.down("md")]: {
-            fontSize: theme.typography.fontSize * 2,
-        },
-        [theme.breakpoints.down("sm")]: {
             width: "100%",
             textAlign: "center",
-            fontSize: theme.typography.fontSize * 3,
             fontWeight: 800,
             marginBottom: theme.spacing(1),
         },
@@ -76,12 +70,6 @@ export const useMbmcBlock12Styles = makeStyles((theme: Theme) => ({
 
         [theme.breakpoints.down("lg")]: {
             fontSize: theme.typography.fontSize + 4,
-        },
-        [theme.breakpoints.down("md")]: {
-            fontSize: theme.typography.fontSize,
-        },
-        [theme.breakpoints.down("sm")]: {
-            fontSize: theme.typography.fontSize + 4,
             textAlign: "center",
         },
     },
@@ -90,7 +78,7 @@ export const useMbmcBlock12Styles = makeStyles((theme: Theme) => ({
         position: "relative",
         display: "flex",
         alignItems: "center",
-        [theme.breakpoints.down("sm")]: {
+        [theme.breakpoints.down("lg")]: {
             height: "100%",
             width: "100%",
         },
@@ -110,7 +98,7 @@ export const useMbmcBlock12Styles = makeStyles((theme: Theme) => ({
             width: "100%",
         },
 
-        [theme.breakpoints.down("sm")]: {
+        [theme.breakpoints.down("lg")]: {
             display: "flex",
             alignItems: "center",
             justifyContent: "Center",
@@ -138,7 +126,7 @@ export const useMbmcBlock12Styles = makeStyles((theme: Theme) => ({
         backgroundColor: theme.design.colors.waz_orangeColor50,
         padding: theme.spacing(6, 4),
         borderRadius: theme.spacing(0.5),
-        [theme.breakpoints.down("sm")]: {
+        [theme.breakpoints.down("lg")]: {
             width: "100%",
         },
     },
@@ -156,7 +144,7 @@ export const useMbmcBlock12Styles = makeStyles((theme: Theme) => ({
         display: "flex",
         justifyContent: "center",
 
-        [theme.breakpoints.down("sm")]: {
+        [theme.breakpoints.down("lg")]: {
             position: "relative",
             width: "100%",
             marginBottom: theme.spacing(1),
@@ -190,7 +178,7 @@ export const useMbmcBlock12Styles = makeStyles((theme: Theme) => ({
             marginTop: theme.spacing(1),
         },
 
-        [theme.breakpoints.down("sm")]: {
+        [theme.breakpoints.down("lg")]: {
             width: "100%",
             alignItems: "center",
             color: theme.design.colors.waz_greyColor150,
