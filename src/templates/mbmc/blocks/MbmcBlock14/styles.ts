@@ -163,51 +163,7 @@ export const useMbmcBlock14Styles = makeStyles((theme: Theme) => ({
         fontWeight: theme.typography.fontWeightRegular,
         background: theme.design.colors.waz_primaryColor200,
     },
-    deliveryDetail: {
-        backgroundColor: theme.design.colors.waz_orangeColor50,
-        borderRadius: "100px",
-        display: "flex",
-        justifyContent: "space-between",
-        padding: theme.spacing(2),
-    },
-    deliveryOptionItem: {
-        display: "flex",
-        alignItems: "center",
-        gap: "8px",
-    },
-    deliveryOptionDetail: {
-        fontFamily: theme.design.font.montserrat,
-    },
-    deliveryOptionTitle: {
-        fontSize: theme.typography.fontSize + 2,
-        marginBottom: theme.spacing(1),
-        fontWeight: theme.typography.fontWeightMedium,
-    },
-    deliveryOptionDescription: {
-        fontSize: theme.typography.fontSize,
-        color: theme.design.colors.waz_greyColor600,
-    },
-    paymentOptionTitle: {
-        fontSize: theme.typography.fontSize + 2,
-        color: theme.design.colors.waz_greyColor600,
-    },
-    radioInput: {
-        color: theme.design.colors.waz_orangeColor100,
-        "&.Mui-checked": {
-            color: theme.design.colors.waz_orangeColor100,
-        },
-        "& span": {
-            "& svg:first-child": {
-                width: "24px",
-                height: "24px",
-            },
 
-            "& svg": {
-                width: "100%",
-                height: "100%",
-            },
-        },
-    },
     formSectionTitle: {
         letterSpacing: "0px",
         color: theme.design.colors.waz_greyColor400,
@@ -224,18 +180,7 @@ export const useMbmcBlock14Styles = makeStyles((theme: Theme) => ({
             padding: theme.spacing(2, 2.5),
         },
     },
-    optionDetails: {
-        display: "flex",
-        alignItems: "center",
-    },
-    paymentDetail: {
-        backgroundColor: theme.design.colors.waz_white,
-        borderRadius: "100px",
-        display: "flex",
-        justifyContent: "space-between",
-        padding: theme.spacing(0, 1, 0, 2),
-        border: `solid 1px ${theme.design.colors.waz_greyColor150}`,
-    },
+
     sectionTitle: {
         letterSpacing: "0px",
         color: theme.design.colors.waz_greyColor400,

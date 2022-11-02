@@ -16,7 +16,7 @@ const DeliveryOption: React.FC<DeliveryOptionProps> = ({
         <div className={classes.deliveryDetail}>
             <div>
                 <div className={classes.deliveryOptionItem}>
-                    <div>
+                    <div className={classes.imgContainer}>
                         <img src={img} alt={name} />
                     </div>
                     <div className={classes.deliveryOptionDetail}>

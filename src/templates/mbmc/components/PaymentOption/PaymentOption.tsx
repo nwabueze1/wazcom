@@ -9,7 +9,7 @@ const PaymentOption: React.FC<PaymentOptionProps> = ({ img, title, value, name, 
         <div className={classes.paymentDetail}>
             <div className={classes.optionDetails}>
                 <div className={classes.paymentOptionItem}>
-                    <div>
+                    <div className={classes.imgContainer}>
                         <img src={img} alt={name} />
                     </div>
                     <div className={classes.paymentOptionDetail}>

@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import { useMbmcBlock14Styles } from "./styles";
 import CartItemCard from "templates/mbmc/components/CartItemCard/CartItemCard";
 import { MbmcButton } from "templates/mbmc/components/MbmcButton/MbmcButton";
-import { RadioButtonInput, TextInput } from "io";
+import { TextInput } from "io";
 import { pickupFormData, shippingFormData } from "./data";
 import KeyboardBackspaceIcon from "@mui/icons-material/KeyboardBackspace";
 import DeliveryOption from "templates/mbmc/components/DeliveryOption/DeliveryOption";
@@ -196,7 +196,7 @@ const MbmcBlock14: React.FC = () => {
                     {currentStep == 2 && (
                         <div className={classes.summaryDetailContainer}>
                             <DeliveryOption
-                                img=""
+                                img="https://sytbuildr.s3.eu-west-2.amazonaws.com/images/mbmc/self+pick+up.png"
                                 title="Self pick up"
                                 description="Pick up your order from our station by yourself"
                                 name="pickup"
@@ -214,7 +214,7 @@ const MbmcBlock14: React.FC = () => {
                                 </div>
                             )}
                             <DeliveryOption
-                                img=""
+                                img="https://sytbuildr.s3.eu-west-2.amazonaws.com/images/mbmc/delivery+logo.png"
                                 title="Dispatch"
                                 description="Get your order delivered to your preferred address"
                                 name="delivery"
@@ -255,7 +255,7 @@ const MbmcBlock14: React.FC = () => {
                     {deliveryOption == "pickup" && completedSteps.includes(2) && (
                         <div className={classes.summaryDetailContainer}>
                             <DeliveryOption
-                                img=""
+                                img="https://sytbuildr.s3.eu-west-2.amazonaws.com/images/mbmc/self+pick+up.png"
                                 title="Self pick up"
                                 description="Pick up your order from our station by yourself"
                                 name="pickup"
@@ -267,7 +267,7 @@ const MbmcBlock14: React.FC = () => {
                     {deliveryOption == "delivery" && completedSteps.includes(2) && (
                         <div className={classes.summaryDetailContainer}>
                             <DeliveryOption
-                                img=""
+                                img="https://sytbuildr.s3.eu-west-2.amazonaws.com/images/mbmc/delivery+logo.png"
                                 title="Dispatch"
                                 description="Get your order delivered to your preferred address"
                                 name="delivery"
@@ -297,28 +297,28 @@ const MbmcBlock14: React.FC = () => {
                                 <p className={classes.sectionTitle}>Select payment option</p>
                             </div>
                             <PaymentOption
-                                img=""
+                                img="https://sytbuildr.s3.eu-west-2.amazonaws.com/images/mbmc/cash.png"
                                 title="Pay with cash"
                                 value={paymentOption}
                                 name="cash"
                                 handleChange={handlePaymentOptionChange}
                             />
                             <PaymentOption
-                                img=""
+                                img="https://sytbuildr.s3.eu-west-2.amazonaws.com/images/mbmc/Mastercard+logo.png"
                                 title="Pay with Credit card"
                                 value={paymentOption}
                                 name="creditCard"
                                 handleChange={handlePaymentOptionChange}
                             />
                             <PaymentOption
-                                img=""
+                                img="https://sytbuildr.s3.eu-west-2.amazonaws.com/images/mbmc/Paystack+logo.png"
                                 title="Pay with Paystack"
                                 value={paymentOption}
                                 name="paystack"
                                 handleChange={handlePaymentOptionChange}
                             />
                             <PaymentOption
-                                img=""
+                                img="https://sytbuildr.s3.eu-west-2.amazonaws.com/images/mbmc/Paypal.png"
                                 title="Pay with Paypal"
                                 value={paymentOption}
                                 name="paypal"
