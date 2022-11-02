@@ -2,7 +2,7 @@ import { StyledEngineProvider, Theme, ThemeProvider } from "@mui/material";
 import * as React from "react";
 import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
 import { Blaise } from "templates";
-import { blocks } from "templates/mbmc";
+import { useGetMbmcBlocks } from "templates/mbmc";
 import { Valour } from "templates/Navs";
 import { Asta } from "templates/restaurant/Asta/Asta";
 import { Mbmc } from "templates/restaurant/Mbmc/Mbmc";
@@ -77,6 +77,8 @@ const navProps: any = {
 };
 
 const App: React.FC<Props> = () => {
+    const getMbmcBlocks = useGetMbmcBlocks();
+
     return (
         <StyledEngineProvider injectFirst>
             <ThemeProvider theme={theme}>
@@ -85,7 +87,7 @@ const App: React.FC<Props> = () => {
                         <Route exact path="/">
                             <Browser />
                         </Route>
-                        {blocks
+                        {getMbmcBlocks()
                             .sort(({ name: aName }, { name: bName }) =>
                                 aName.toLowerCase() < bName.toLowerCase()
                                     ? -1

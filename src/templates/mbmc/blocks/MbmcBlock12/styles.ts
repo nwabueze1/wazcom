@@ -1,6 +1,6 @@
 import { Theme } from "@mui/material";
 import { makeStyles } from "@mui/styles";
-import { Layout } from "templates/mbmc/types";
+import { BlockLayout } from "templates/mbmc/types";
 
 export const useMbmcBlock12Styles = makeStyles((theme: Theme) => ({
     root: {
@@ -23,7 +23,7 @@ export const useMbmcBlock12Styles = makeStyles((theme: Theme) => ({
         alignItems: "flex-start",
         justifyContent: "space-between",
         overflow: "hidden",
-        flexDirection: ({ flexDirection }: { flexDirection: Layout }) => flexDirection,
+        flexDirection: ({ flexDirection }: { flexDirection: BlockLayout }) => flexDirection,
 
         [theme.breakpoints.down("sm")]: {
             display: "block",

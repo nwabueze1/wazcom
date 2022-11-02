@@ -68,6 +68,7 @@ export const useMbmcBlock1Styles = makeStyles((theme: Theme) => ({
         color: theme.design.colors.waz_greyColor600,
         fontSize: theme.typography.fontSize + 6,
         fontFamily: theme.design.font.montserrat,
+        lineHeight: 1.5,
 
         [theme.breakpoints.down(1450)]: {
             fontSize: theme.typography.fontSize + 8,
@@ -137,6 +138,7 @@ export const useMbmcBlock1Styles = makeStyles((theme: Theme) => ({
     headerBtnContainer: {
         display: "flex",
         marginTop: theme.spacing(3),
+        gap: theme.spacing(1.5),
     },
     headerIcon: {
         marginLeft: theme.spacing(1),

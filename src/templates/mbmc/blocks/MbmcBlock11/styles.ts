@@ -1,6 +1,6 @@
 import { Theme } from "@mui/material";
 import { makeStyles } from "@mui/styles";
-import { Layout } from "templates/mbmc/types";
+import { BlockLayout } from "templates/mbmc/types";
 
 export const useMbmcBlock11Styles = makeStyles((theme: Theme) => ({
     root: {
@@ -9,7 +9,7 @@ export const useMbmcBlock11Styles = makeStyles((theme: Theme) => ({
         display: "flex",
         alignItems: "center",
         justifyContent: "space-between",
-        flexDirection: ({ flexDirection }: { flexDirection: Layout }) => flexDirection,
+        flexDirection: ({ flexDirection }: { flexDirection: BlockLayout }) => flexDirection,
         width: "calc(100% - 192px)",
         padding: theme.spacing(5, 12),
 
