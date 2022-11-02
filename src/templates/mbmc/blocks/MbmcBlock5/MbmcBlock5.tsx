@@ -1,10 +1,9 @@
 import { useMbmcBlock5Styles } from "./styles";
 import { footerData } from "./data";
 import { FC } from "react";
-import { MbmcBlock4Props } from "../MbmcBlock4/types";
 import { MbmcBlock5Props } from "./types";
 
-export const MbmcBlock5: FC<MbmcBlock5Props> = ({ style }) => {
+export const MbmcBlock5: FC<MbmcBlock5Props> = () => {
     const classes = useMbmcBlock5Styles();
 
     return (

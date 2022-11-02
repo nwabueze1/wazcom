@@ -1,4 +1,3 @@
-import { ComponentPropType } from "stories/types";
 import { MbmcBlock1 } from "./blocks/MbmcBlock1/MbmcBlock1";
 import { MbmcBlock3 } from "./blocks/MbmcBlock3/MbmcBlock3";
 import { MbmcBlock2 } from "./blocks/MbmcBlock2/MbmcBlock2";

@@ -32,6 +32,7 @@ export const useMbmcBlock14Styles = makeStyles((theme: Theme) => ({
     cartContainer: {
         maxHeight: "85vh",
         overflowY: "scroll",
+        padding: theme.spacing(0, 1, 0, 0),
         "-ms-overflow-style": "none",
         scrollbarWidth: "none",
         [theme.breakpoints.down("md")]: {

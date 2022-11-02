@@ -8,7 +8,7 @@ export const useCartItemCardStyles = makeStyles((theme: Theme) => ({
         boxSizing: "border-box",
         padding: theme.spacing(2),
         backdropFilter: "blur(23px)",
-        boxShadow: "0px 3px 60px #0000001A",
+        boxShadow: "0px 3px 20px #0000001A",
         borderRadius: "5px",
         marginBottom: theme.spacing(3),
     },

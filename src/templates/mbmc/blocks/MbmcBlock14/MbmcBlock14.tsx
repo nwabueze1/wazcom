@@ -5,10 +5,13 @@ import { MbmcButton } from "templates/mbmc/components/MbmcButton/MbmcButton";
 import { RadioButtonInput, TextInput } from "io";
 import { pickupFormData, shippingFormData } from "./data";
 import KeyboardBackspaceIcon from "@mui/icons-material/KeyboardBackspace";
+import DeliveryOption from "templates/mbmc/components/DeliveryOption/DeliveryOption";
+import PaymentOption from "templates/mbmc/components/PaymentOption/PaymentOption";
 
 const MbmcBlock14: React.FC = () => {
     const classes = useMbmcBlock14Styles();
     const [deliveryOption, setDeliveryOption] = useState<string>("");
+    const [paymentOption, setPaymentOption] = useState<string>("");
     const [checkoutStep, setCheckoutStep] = useState<number[]>([1]);
     const [deliveryDetails, setDeliveryDetails] = useState<{ [key: string]: any }>({
         email: "",
@@ -38,6 +41,11 @@ const MbmcBlock14: React.FC = () => {
     const handleDeliveryOptionChange = (data: { name: string; value: any }) => {
         const { name } = data;
         setDeliveryOption(name);
+    };
+
+    const handlePaymentOptionChange = (data: { name: string; value: any }) => {
+        const { name } = data;
+        setPaymentOption(name);
     };
 
     const handleNextStep = () => {
@@ -187,31 +195,14 @@ const MbmcBlock14: React.FC = () => {
                     </div>
                     {currentStep == 2 && (
                         <div className={classes.summaryDetailContainer}>
-                            <div className={classes.deliveryDetail}>
-                                <div>
-                                    <div className={classes.deliveryOptionItem}>
-                                        <div>
-                                            <img src="" alt="" />
-                                        </div>
-                                        <div className={classes.deliveryOptionDetail}>
-                                            <p className={classes.deliveryOptionTitle}>
-                                                Self pick up
-                                            </p>
-                                            <p className={classes.deliveryOptionDescription}>
-                                                Pick up your order from our station by yourself
-                                            </p>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div>
-                                    <RadioButtonInput
-                                        classNames={{ radioButtonInput: classes.radioInput }}
-                                        name="pickup"
-                                        value={Boolean(deliveryOption == "pickup")}
-                                        onChange={handleDeliveryOptionChange}
-                                    />
-                                </div>
-                            </div>
+                            <DeliveryOption
+                                img=""
+                                title="Self pick up"
+                                description="Pick up your order from our station by yourself"
+                                name="pickup"
+                                value={deliveryOption}
+                                handleChange={handleDeliveryOptionChange}
+                            />
                             {deliveryOption == "pickup" && !completedSteps.includes(2) && (
                                 <div>
                                     <div>
@@ -222,29 +213,14 @@ const MbmcBlock14: React.FC = () => {
                                     <div>{displayPersonalInfoForm()}</div>
                                 </div>
                             )}
-                            <div className={classes.deliveryDetail}>
-                                <div>
-                                    <div className={classes.deliveryOptionItem}>
-                                        <div>
-                                            <img src="" alt="" />
-                                        </div>
-                                        <div className={classes.deliveryOptionDetail}>
-                                            <p className={classes.deliveryOptionTitle}>Dispatch</p>
-                                            <p className={classes.deliveryOptionDescription}>
-                                                Get your order delivered to your preferred address
-                                            </p>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div>
-                                    <RadioButtonInput
-                                        name="delivery"
-                                        value={Boolean(deliveryOption == "delivery")}
-                                        classNames={{ radioButtonInput: classes.radioInput }}
-                                        onChange={handleDeliveryOptionChange}
-                                    />
-                                </div>
-                            </div>
+                            <DeliveryOption
+                                img=""
+                                title="Dispatch"
+                                description="Get your order delivered to your preferred address"
+                                name="delivery"
+                                value={deliveryOption}
+                                handleChange={handleDeliveryOptionChange}
+                            />
                             {deliveryOption == "delivery" && !completedSteps.includes(2) && (
                                 <div>
                                     <div>
@@ -278,58 +254,26 @@ const MbmcBlock14: React.FC = () => {
 
                     {deliveryOption == "pickup" && completedSteps.includes(2) && (
                         <div className={classes.summaryDetailContainer}>
-                            <div className={classes.deliveryDetail}>
-                                <div>
-                                    <div className={classes.deliveryOptionItem}>
-                                        <div>
-                                            <img src="" alt="" />
-                                        </div>
-                                        <div className={classes.deliveryOptionDetail}>
-                                            <p className={classes.deliveryOptionTitle}>
-                                                Self pick up
-                                            </p>
-                                            <p className={classes.deliveryOptionDescription}>
-                                                Pick up your order from our station by yourself
-                                            </p>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div>
-                                    <RadioButtonInput
-                                        classNames={{ radioButtonInput: classes.radioInput }}
-                                        name="pickup"
-                                        value={Boolean(deliveryOption == "pickup")}
-                                        onChange={handleDeliveryOptionChange}
-                                    />
-                                </div>
-                            </div>
+                            <DeliveryOption
+                                img=""
+                                title="Self pick up"
+                                description="Pick up your order from our station by yourself"
+                                name="pickup"
+                                value={deliveryOption}
+                                handleChange={handleDeliveryOptionChange}
+                            />
                         </div>
                     )}
                     {deliveryOption == "delivery" && completedSteps.includes(2) && (
                         <div className={classes.summaryDetailContainer}>
-                            <div className={classes.deliveryDetail}>
-                                <div>
-                                    <div className={classes.deliveryOptionItem}>
-                                        <div>
-                                            <img src="" alt="" />
-                                        </div>
-                                        <div className={classes.deliveryOptionDetail}>
-                                            <p className={classes.deliveryOptionTitle}>Dispatch</p>
-                                            <p className={classes.deliveryOptionDescription}>
-                                                Get your order delivered to your preferred address
-                                            </p>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div>
-                                    <RadioButtonInput
-                                        name="delivery"
-                                        value={Boolean(deliveryOption == "delivery")}
-                                        classNames={{ radioButtonInput: classes.radioInput }}
-                                        onChange={handleDeliveryOptionChange}
-                                    />
-                                </div>
-                            </div>
+                            <DeliveryOption
+                                img=""
+                                title="Dispatch"
+                                description="Get your order delivered to your preferred address"
+                                name="delivery"
+                                value={deliveryOption}
+                                handleChange={handleDeliveryOptionChange}
+                            />
                         </div>
                     )}
                 </div>
@@ -352,86 +296,34 @@ const MbmcBlock14: React.FC = () => {
                             <div>
                                 <p className={classes.sectionTitle}>Select payment option</p>
                             </div>
-                            <div className={classes.paymentDetail}>
-                                <div className={classes.optionDetails}>
-                                    <div className={classes.deliveryOptionItem}>
-                                        <div>
-                                            <img src="" alt="" />
-                                        </div>
-                                        <div className={classes.deliveryOptionDetail}>
-                                            <p className={classes.paymentOptionTitle}>
-                                                Pay with cash
-                                            </p>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div>
-                                    <RadioButtonInput
-                                        classNames={{ radioButtonInput: classes.radioInput }}
-                                        name="pickup"
-                                    />
-                                </div>
-                            </div>
-                            <div className={classes.paymentDetail}>
-                                <div className={classes.optionDetails}>
-                                    <div className={classes.deliveryOptionItem}>
-                                        <div>
-                                            <img src="" alt="" />
-                                        </div>
-                                        <div className={classes.deliveryOptionDetail}>
-                                            <p className={classes.paymentOptionTitle}>
-                                                Pay with Credit card
-                                            </p>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div>
-                                    <RadioButtonInput
-                                        classNames={{ radioButtonInput: classes.radioInput }}
-                                        name="pickup"
-                                    />
-                                </div>
-                            </div>
-                            <div className={classes.paymentDetail}>
-                                <div className={classes.optionDetails}>
-                                    <div className={classes.deliveryOptionItem}>
-                                        <div>
-                                            <img src="" alt="" />
-                                        </div>
-                                        <div className={classes.deliveryOptionDetail}>
-                                            <p className={classes.paymentOptionTitle}>
-                                                Pay with Paystack
-                                            </p>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div>
-                                    <RadioButtonInput
-                                        classNames={{ radioButtonInput: classes.radioInput }}
-                                        name="pickup"
-                                    />
-                                </div>
-                            </div>
-                            <div className={classes.paymentDetail}>
-                                <div className={classes.optionDetails}>
-                                    <div className={classes.deliveryOptionItem}>
-                                        <div>
-                                            <img src="" alt="" />
-                                        </div>
-                                        <div className={classes.deliveryOptionDetail}>
-                                            <p className={classes.paymentOptionTitle}>
-                                                Pay with Paypal
-                                            </p>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div>
-                                    <RadioButtonInput
-                                        classNames={{ radioButtonInput: classes.radioInput }}
-                                        name="pickup"
-                                    />
-                                </div>
-                            </div>
+                            <PaymentOption
+                                img=""
+                                title="Pay with cash"
+                                value={paymentOption}
+                                name="cash"
+                                handleChange={handlePaymentOptionChange}
+                            />
+                            <PaymentOption
+                                img=""
+                                title="Pay with Credit card"
+                                value={paymentOption}
+                                name="creditCard"
+                                handleChange={handlePaymentOptionChange}
+                            />
+                            <PaymentOption
+                                img=""
+                                title="Pay with Paystack"
+                                value={paymentOption}
+                                name="paystack"
+                                handleChange={handlePaymentOptionChange}
+                            />
+                            <PaymentOption
+                                img=""
+                                title="Pay with Paypal"
+                                value={paymentOption}
+                                name="paypal"
+                                handleChange={handlePaymentOptionChange}
+                            />
                             <div>
                                 <MbmcButton className={classes.checkoutBtn}>Pay now</MbmcButton>
                             </div>
