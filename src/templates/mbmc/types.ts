@@ -2,6 +2,7 @@ import { MbmcBlock1Props } from "./blocks/MbmcBlock1/types";
 import { MbmcBlock10Props } from "./blocks/MbmcBlock10/types";
 import { MbmcBlock11Props } from "./blocks/MbmcBlock11/types";
 import { MbmcBlock12Props } from "./blocks/MbmcBlock12/types";
+import { MbmcBlock13Props } from "./blocks/MbmcBlock13/types";
 import { MbmcBlock2Props } from "./blocks/MbmcBlock2/types";
 import { MbmcBlock8Props } from "./blocks/MbmcBlock8/types";
 import { MbmcBlock9Props } from "./blocks/MbmcBlock9/types";
@@ -39,5 +40,6 @@ type Mmbc1Block = {
         | MbmcBlock9Props
         | MbmcBlock10Props
         | MbmcBlock11Props
-        | MbmcBlock12Props;
+        | MbmcBlock12Props
+        | MbmcBlock13Props;
 };

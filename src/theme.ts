@@ -30,8 +30,8 @@ export const theme: any = {
     breakpoints: {
         values: {
             sm: 480,
-            md: 768,
-            lg: 1024,
+            md: 769,
+            lg: 1025,
             xl: 1280,
         },
     },

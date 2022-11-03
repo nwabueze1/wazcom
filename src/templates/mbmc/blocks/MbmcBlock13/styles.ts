@@ -6,7 +6,8 @@ export const useMbmcBlock13Styles = makeStyles((theme: Theme) => ({
         backgroundColor: theme.design.colors.waz_greyColor50,
         overflow: "hidden",
         padding: theme.spacing(2, 12),
-        width: "calc(100% - 196px)",
+        width: "100%",
+        boxSizing: "border-box",
         gap: theme.spacing(2),
         display: "flex",
         alignItems: "center",
@@ -14,19 +15,12 @@ export const useMbmcBlock13Styles = makeStyles((theme: Theme) => ({
 
         [theme.breakpoints.down("lg")]: {
             padding: theme.spacing(2, 10),
-            width: "calc(100% - 160px)",
         },
-
-        // [theme.breakpoints.down("md")]: {
-        //     padding: theme.spacing(1, 4),
-        //     width: "calc(100% - 64px)",
-        // },
         [theme.breakpoints.down("md")]: {
             backgroundColor: theme.design.colors.waz_white,
 
             padding: theme.spacing(1, 2),
             height: "fit-content",
-            width: "calc(100% - 32px)",
         },
     },
     logoContainer: {
@@ -51,7 +45,18 @@ export const useMbmcBlock13Styles = makeStyles((theme: Theme) => ({
     },
     logo: {
         marginRight: theme.spacing(1),
-        width: 60,
+        width: "100%",
+        [theme.breakpoints.down("lg")]: {
+            display: "none",
+        },
+    },
+    mobilelogo: {
+        display: "none",
+        [theme.breakpoints.down("lg")]: {
+            display: "block",
+            marginRight: theme.spacing(1),
+            width: "50px",
+        },
     },
     mrBarkers: {
         fontFamily: theme.design.font.lostaMastaLight,
@@ -70,8 +75,9 @@ export const useMbmcBlock13Styles = makeStyles((theme: Theme) => ({
         fontWeight: theme.typography.fontWeightBold,
         paddingRight: theme.spacing(12),
 
-        "& > p": {
+        "& > a": {
             padding: theme.spacing(2, 4),
+            textDecoration: "none",
             cursor: "pointer",
         },
         [theme.breakpoints.down("lg")]: {
@@ -105,9 +111,6 @@ export const useMbmcBlock13Styles = makeStyles((theme: Theme) => ({
             marginRight: theme.spacing(0),
             display: "none",
         },
-        // [theme.breakpoints.down("md")]: {
-        //     display: "none",
-        // },
     },
     menuOptionMobile: {
         display: "none",
@@ -115,5 +118,95 @@ export const useMbmcBlock13Styles = makeStyles((theme: Theme) => ({
             display: "block",
             color: theme.design.colors.waz_lightOrange,
         },
+    },
+    openNav: {
+        display: "none",
+        [theme.breakpoints.down("lg")]: {
+            display: "block",
+            position: "absolute",
+            width: "100%",
+            top: 0,
+        },
+        [theme.breakpoints.down("md")]: {
+            height: "100vh",
+        },
+    },
+    expandedNav: {
+        backgroundColor: "rgba(0,0,0,0.4)",
+        overflow: "hidden",
+        padding: theme.spacing(0, 0, 0, 10),
+        width: "100%",
+        height: "auto",
+        boxSizing: "border-box",
+        display: "flex",
+        alignItems: "flex-start",
+        justifyContent: "space-between",
+
+        // [theme.breakpoints.down("lg")]: {
+        //     padding: theme.spacing(2, 10),
+        // },
+        [theme.breakpoints.down("md")]: {
+            padding: theme.spacing(0, 0, 0, 2),
+            height: "100%",
+        },
+    },
+    mobilelogoContainer: {
+        width: "30%",
+        display: "flex",
+        alignItems: "center",
+        paddingTop: theme.spacing(2),
+        // justifyContent: "center",
+    },
+    expandedMenuOptionMobile: {
+        display: "flex",
+        flexDirection: "column",
+        alignItems: "flex-end",
+        justifyContent: "center",
+        paddingRight: theme.spacing(10),
+        paddingTop: theme.spacing(3),
+        width: "70%",
+        height: "100%",
+        color: theme.design.colors.waz_white,
+        backgroundColor: theme.design.colors.waz_orangeColor100,
+        [theme.breakpoints.down("md")]: {
+            paddingRight: theme.spacing(2),
+            justifyContent: "flex-start",
+        },
+    },
+    expandedNavContent: {
+        width: "100%",
+        height: "100%",
+        display: "flex",
+        // justifyContent: "flex-end",
+        // backgroundColor: "rgba(0,0,0,0.4)",
+    },
+    expandedNavContentLeftSide: {
+        width: "30%",
+        backgroundColor: "rgba(0,0,0,0.4)",
+        padding: theme.spacing(0, 0, 0, 10),
+        [theme.breakpoints.down("md")]: {
+            padding: theme.spacing(0, 0, 0, 2),
+        },
+    },
+    expandedNavContentRightSide: {
+        width: "70%",
+        backgroundColor: theme.design.colors.waz_orangeColor100,
+        textAlign: "right",
+        padding: theme.spacing(4, 10, 10, 0),
+        "& a": {
+            textDecoration: "none",
+        },
+        [theme.breakpoints.down("md")]: {
+            paddingRight: theme.spacing(2),
+        },
+    },
+    NavLinks: {
+        letterSpacing: "0px",
+        color: theme.design.colors.waz_white,
+        textTransform: "capitalize",
+        fontSize: theme.typography.fontSize + 20,
+        fontWeight: theme.typography.fontWeightBold,
+        fontFamily: theme.design.font.lostaMasta,
+        marginBottom: theme.spacing(4),
     },
 }));

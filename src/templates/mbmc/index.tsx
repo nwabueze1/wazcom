@@ -202,7 +202,26 @@ export const useGetMbmcBlocks = () => {
         {
             name: "mbmc-block-913",
             component: MbmcBlock13,
-            props: { style: "mbmc" },
+            props: {
+                style: "mbmc",
+                logo: {
+                    desktopSrc:
+                        "https://sytbuildr.s3.eu-west-2.amazonaws.com/images/mbmc/Logo-Landscape.svg",
+                    url: "#",
+                    mobileSrc: "https://sytbuildr.s3.eu-west-2.amazonaws.com/images/mbmc/Logo.svg",
+                },
+                links: [
+                    { text: "About us", url: "#" },
+                    { text: "Menus", url: "#" },
+                    { text: "Contact us", url: "#" },
+                ],
+                ctas: [
+                    {
+                        text: "Order now",
+                        handleClick: () => console.log("clicked"),
+                    },
+                ],
+            },
         },
     ];
 };
