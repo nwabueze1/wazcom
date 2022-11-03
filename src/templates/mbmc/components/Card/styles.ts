@@ -3,7 +3,7 @@ import createStyles from "@mui/styles/createStyles";
 import makeStyles from "@mui/styles/makeStyles";
 import { StyleProps } from "./types";
 
-export const useServiceCardStyles = makeStyles<Theme, StyleProps>((theme: Theme) =>
+export const useCardStyles = makeStyles<Theme, StyleProps>((theme: Theme) =>
     createStyles({
         root: {
             width: 388,

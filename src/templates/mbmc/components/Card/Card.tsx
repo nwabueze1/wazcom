@@ -1,35 +1,31 @@
 import React from "react";
-import { useServiceCardStyles } from "./styles";
-import { ServiceCardProps } from "./types";
+import { useCardStyles } from "./styles";
+import { CardProps } from "./types";
 import clsx from "clsx";
 import { menuImagePlaceholder } from "utilities/restaurant";
 
-export const ServiceCard: React.FC<ServiceCardProps> = ({
-    onClick,
-    name,
-    image_url: imageUrl,
+export const Card: React.FC<CardProps> = ({
+    heading,
+    image,
     description,
 }) => {
     const isOpen = true;
-    const classes = useServiceCardStyles({ isOpen });
+    const classes = useCardStyles({ isOpen });
 
     return (
         <>
             <div
-                onClick={() => {
-                    isOpen && onClick?.();
-                }}
                 className={clsx(classes.root, classes.visible)}
             >
                 <div
                     className={classes.imageWrapper}
                     style={{
-                        backgroundImage: `url(${imageUrl ?? menuImagePlaceholder})`,
+                        backgroundImage: `url(${image ?? menuImagePlaceholder})`,
                     }}
                 ></div>
                 <div className={classes.content}>
                     <div>
-                        <p className={classes.title}>{name} </p>
+                        <p className={classes.title}>{heading} </p>
                         <p className={classes.description}>{description}</p>
                     </div>
                 </div>

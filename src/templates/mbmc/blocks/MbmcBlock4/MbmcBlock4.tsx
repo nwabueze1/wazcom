@@ -1,5 +1,5 @@
 import { useMbmcBlock4Styles } from "./styles";
-import { ServiceCard } from "templates/mbmc/components/ServiceCard";
+import { Card } from "templates/mbmc/components/Card";
 import { services } from "./data";
 import { FC } from "react";
 import { MbmcBlock4Props } from "./types";
@@ -18,10 +18,10 @@ export const MbmcBlock4: FC<MbmcBlock4Props> = ({ style }) => {
             </div>
             <div className={classes.headerCardContainer}>
                 {services.map((service, idx) => (
-                    <ServiceCard
+                    <Card
                         key={idx}
-                        image_url={service.imageUrl}
-                        name={service.name}
+                        image={service.imageUrl}
+                        heading={service.name}
                         description={service.description}
                     />
                 ))}

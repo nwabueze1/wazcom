@@ -4,8 +4,8 @@ import { FC } from "react";
 import { MbmcBlock1Props } from "./types";
 import { renderStyle, parseHtml } from "utilities/renderStyle";
 
-export const MbmcBlock1: FC<MbmcBlock1Props> = ({ style = "mbmc", heading, description, ctas }) => {
-    const classes = useMbmcBlock1Styles();
+export const MbmcBlock1: FC<MbmcBlock1Props> = ({ style = "mbmc", heading, description, ctas, fullHeight = true }) => {
+    const classes = useMbmcBlock1Styles({ fullHeight });
 
     const displayCtas = () => {
         return (ctas ?? []).map(({ text, rIcon, lIcon, ...props }, index) => (
@@ -20,7 +20,7 @@ export const MbmcBlock1: FC<MbmcBlock1Props> = ({ style = "mbmc", heading, descr
             <div className={classes.block1Container}>
                 <div className={classes.block1Content}>
                     <h1
-                        className={classes.block1Title}
+                        className={classes.block1Heading}
                         dangerouslySetInnerHTML={{ __html: parseHtml(heading) }}
                     />
                     <p className={classes.block1Description}>{description}</p>
