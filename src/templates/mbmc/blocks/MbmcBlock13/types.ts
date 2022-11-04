@@ -5,5 +5,11 @@ export type MbmcBlock13Props = MbmcCommonProps & {
     logo?: { desktopSrc?: string; url: string; mobileSrc?: string };
     links: { text: string; url: string; subLinks?: { text: string; url: string } }[];
     ctas?: BlockCta[];
+    icons?: {
+        url?: string;
+        icon?: JSX.Element | string;
+        badgeIcon?: boolean;
+        badgeCount?: number;
+    }[];
     socials?: { type: "FACEBOOK" | "TWITTER"; url: string }[];
 };

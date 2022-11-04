@@ -3,11 +3,12 @@ import { FC, useState } from "react";
 import { MbmcBlock13Props } from "./types";
 import { AiOutlineMenu } from "react-icons/ai";
 import { IoMdClose } from "react-icons/io";
+import { renderNavLink } from "templates/Navs/helpers";
 
-const menus = ["About us", "Menu", "Contact us"];
-export const MbmcBlock13: FC<MbmcBlock13Props> = ({ logo, links, ctas }) => {
+export const MbmcBlock13: FC<MbmcBlock13Props> = ({ mode = "view", logo, links, ctas, icons }) => {
     const classes = useMbmcBlock13Styles();
     const [openMenu, setOpenMenu] = useState<boolean>(false);
+    const [activeElement, setActiveElement] = useState("");
 
     const handleOpenMenu = () => {
         setOpenMenu(true);
@@ -15,6 +16,16 @@ export const MbmcBlock13: FC<MbmcBlock13Props> = ({ logo, links, ctas }) => {
 
     const handleCloseMenu = () => {
         setOpenMenu(false);
+    };
+
+    const handleElementClick = (element: string) => {
+        setActiveElement(element);
+    };
+
+    const displayLinks = () => {
+        return links.map((link, index) =>
+            renderNavLink(link, mode, index, classes, activeElement, handleElementClick),
+        );
     };
 
     return (
@@ -26,22 +37,44 @@ export const MbmcBlock13: FC<MbmcBlock13Props> = ({ logo, links, ctas }) => {
                             <img src={logo?.desktopSrc} alt="" className={classes.logo} />
                             <img src={logo?.mobileSrc} alt="" className={classes.mobilelogo} />
                         </a>
-
-                        {/* <p>
-                            mrbaker
-                            <span className={classes.mrBarkers}>mrscook</span>
-                        </p> */}
                     </div>
-                    <div className={classes.menuList}>
-                        {links.map((navLink, idx) => (
-                            <a key={idx} href={navLink.url}>
-                                <p>{navLink.text}</p>
-                            </a>
-                        ))}
+                    <div className={classes.menuList}>{displayLinks()}</div>
+                    <div className={classes.desktopIcons}>
+                        {icons?.map((item, idx) => {
+                            return (
+                                <a href={item.url} className={classes.icon} key={idx}>
+                                    {item.icon}
+                                    {item.badgeIcon && (
+                                        <div className={classes.badgeIcon}>{item.badgeCount}</div>
+                                    )}
+                                </a>
+                            );
+                        })}
                     </div>
 
-                    <div className={classes.orderBtn}>Order now</div>
+                    {ctas?.map((item, idx) => {
+                        return (
+                            <div key={idx} onClick={item.handleClick} className={classes.orderBtn}>
+                                {item.text}
+                            </div>
+                        );
+                    })}
+
                     <div className={classes.menuOptionMobile}>
+                        <div className={classes.mobileIcons}>
+                            {icons?.map((item, idx) => {
+                                return (
+                                    <a href={item.url} className={classes.icon} key={idx}>
+                                        {item.icon}
+                                        {item.badgeIcon && (
+                                            <div className={classes.badgeIcon}>
+                                                {item.badgeCount}
+                                            </div>
+                                        )}
+                                    </a>
+                                );
+                            })}
+                        </div>
                         <AiOutlineMenu size={34} onClick={handleOpenMenu} />
                     </div>
                 </div>
@@ -66,21 +99,20 @@ export const MbmcBlock13: FC<MbmcBlock13Props> = ({ logo, links, ctas }) => {
                                         </a>
                                     </div>
                                 ))}
-                                {/* <div className={classes.orderBtn}>Order now</div> */}
-                                {/* <p className={classes.NavLinks}>About Us</p>
-                            <p className={classes.NavLinks}>Menu</p>
-                            <p className={classes.NavLinks}>Contact Us</p> */}
+                                {ctas?.map((item, idx) => {
+                                    return (
+                                        <div
+                                            key={idx}
+                                            onClick={item.handleClick}
+                                            className={classes.mobileOrderBtn}
+                                        >
+                                            {item.text}
+                                        </div>
+                                    );
+                                })}
                             </div>
                         </div>
                     </div>
-                    {/* <div className={classes.expandedNavContent}>
-                    <div className={classes.expandedNavContentLeftSide}></div>
-                    <div className={classes.expandedNavContentRightSide}>
-                        <p className={classes.NavLinks}>About Us</p>
-                        <p className={classes.NavLinks}>Menu</p>
-                        <p className={classes.NavLinks}>Contact Us</p>
-                    </div>
-                </div> */}
                 </div>
             )}
         </>

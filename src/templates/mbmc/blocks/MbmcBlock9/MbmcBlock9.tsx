@@ -1,5 +1,4 @@
 import { useMbmcBlock9Styles } from "./styles";
-import { menuData } from "./data";
 import { FC, useState } from "react";
 import clx from "classnames";
 import { MbmcBlock9Props } from "./types";
@@ -16,28 +15,11 @@ export const MbmcBlock9: FC<MbmcBlock9Props> = ({ heading, description, steps })
                     <p className={classes.headerDescription}>{description}</p>
                 </div>
                 <div className={classes.directionContainerMobile}>
-                    <div className={classes.directions}>
-                        <img
-                            src="https://sytbuildr.s3.eu-west-2.amazonaws.com/images/mbmc/direction1.svg"
-                            alt="location"
-                            className={classes.imgDirection1}
-                        />
-                        <img
-                            src="https://sytbuildr.s3.eu-west-2.amazonaws.com/images/mbmc/direction2.svg"
-                            alt="location"
-                            className={classes.imgDirection2}
-                        />
-                        <img
-                            src="https://sytbuildr.s3.eu-west-2.amazonaws.com/images/mbmc/direction3.svg"
-                            alt="location"
-                            className={classes.imgDirection3}
-                        />
-                        <img
-                            src="https://sytbuildr.s3.eu-west-2.amazonaws.com/images/mbmc/direction4.svg"
-                            alt="location"
-                            className={classes.imgDirection4}
-                        />
-                    </div>
+                    <img
+                        className={classes.imageStep}
+                        src={steps[active].image}
+                        alt={steps[active].heading}
+                    />
                 </div>
                 <div className={classes.headerCardContainer}>
                     {steps.map((step, idx) => (
@@ -67,28 +49,11 @@ export const MbmcBlock9: FC<MbmcBlock9Props> = ({ heading, description, steps })
                 </div>
             </div>
             <div className={classes.directionContainer}>
-                <div className={classes.directions}>
-                    <img
-                        src="https://sytbuildr.s3.eu-west-2.amazonaws.com/images/mbmc/direction1.svg"
-                        alt="location"
-                        className={classes.imgDirection1}
-                    />
-                    <img
-                        src="https://sytbuildr.s3.eu-west-2.amazonaws.com/images/mbmc/direction2.svg"
-                        alt="location"
-                        className={classes.imgDirection2}
-                    />
-                    <img
-                        src="https://sytbuildr.s3.eu-west-2.amazonaws.com/images/mbmc/direction3.svg"
-                        alt="location"
-                        className={classes.imgDirection3}
-                    />
-                    <img
-                        src="https://sytbuildr.s3.eu-west-2.amazonaws.com/images/mbmc/direction4.svg"
-                        alt="location"
-                        className={classes.imgDirection4}
-                    />
-                </div>
+                <img
+                    src={steps[active].image}
+                    alt={steps[active].heading}
+                    className={classes.imageStep}
+                />
             </div>
         </div>
     );

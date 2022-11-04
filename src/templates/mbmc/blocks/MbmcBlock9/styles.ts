@@ -167,17 +167,8 @@ export const useMbmcBlock9Styles = makeStyles((theme: Theme) => ({
     textContainer: {
         width: "100%",
     },
-    directions: {
-        width: "90%",
-        height: "100%",
-        backgroundImage: `url(https://sytbuildr.s3.eu-west-2.amazonaws.com/images/mbmc/directionImage.svg)`,
-        backgroundSize: "80%",
-        backgroundPosition: "center",
-        backgroundRepeat: "no-repeat",
-        position: "relative",
-        [theme.breakpoints.down("lg")]: {
-            backgroundSize: "95%",
-        },
+    imageStep: {
+        width: "100%",
     },
     directionContainer: {
         width: "100%",
@@ -186,6 +177,7 @@ export const useMbmcBlock9Styles = makeStyles((theme: Theme) => ({
         alignItems: "flex-start",
         justifyContent: "flex-end",
         [theme.breakpoints.down("lg")]: {
+            alignItems: "flex-end",
             height: 500,
         },
         [theme.breakpoints.down("md")]: {

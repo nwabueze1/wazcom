@@ -14,6 +14,7 @@ import { MbmcBlock11 } from "./blocks/MbmcBlock11/MbmcBlock11";
 import { MbmcBlock12 } from "./blocks/MbmcBlock12/MbmcBlock12";
 import { MbmcBlock13 } from "./blocks/MbmcBlock13/MbmcBlock13";
 import { useMbmbcStyles } from "./styles";
+import { FiShoppingCart } from "react-icons/fi";
 
 export const useGetMbmcBlocks = () => {
     const classes = useMbmbcStyles();
@@ -112,25 +113,25 @@ export const useGetMbmcBlocks = () => {
                         heading: "Pick your favourite1",
                         description:
                             "Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam",
-                        image: "",
+                        image: "https://sytbuildr.s3.eu-west-2.amazonaws.com/images/mbmc/step1.svg",
                     },
                     {
                         heading: "Expertly prepared2",
                         description:
                             "Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam",
-                        image: "",
+                        image: "https://sytbuildr.s3.eu-west-2.amazonaws.com/images/mbmc/step2.svg",
                     },
                     {
                         heading: "Away it goes",
                         description:
                             "Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam",
-                        image: "",
+                        image: "https://sytbuildr.s3.eu-west-2.amazonaws.com/images/mbmc/step3.svg",
                     },
                     {
                         heading: "Heat - eat - repeat",
                         description:
                             "Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam",
-                        image: "",
+                        image: "https://sytbuildr.s3.eu-west-2.amazonaws.com/images/mbmc/step4.svg",
                     },
                 ],
             },
@@ -214,6 +215,14 @@ export const useGetMbmcBlocks = () => {
                     { text: "About us", url: "#" },
                     { text: "Menus", url: "#" },
                     { text: "Contact us", url: "#" },
+                ],
+                icons: [
+                    {
+                        url: "#",
+                        icon: <FiShoppingCart color="white" fontSize={20} />,
+                        badgeIcon: true,
+                        badgeCount: 4,
+                    },
                 ],
                 ctas: [
                     {
