@@ -8,10 +8,12 @@ export const MbmcButton: FC<MbmcButtonProps> = ({
     children,
     type = "PRIMARY",
     bgColor,
+    onClick,
 }) => {
     const classes = useButtonStyles();
     return (
         <MainButton
+            onClick={onClick}
             className={clx(
                 classes.button,
                 type === "PRIMARY" ? classes.buttonPrimary : classes.buttonSecondary,

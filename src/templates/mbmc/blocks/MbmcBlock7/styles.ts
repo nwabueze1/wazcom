@@ -75,7 +75,7 @@ export const useMbmcBlock7Styles = makeStyles((theme: Theme) => ({
         color: theme.design.colors.waz_greyColor600,
         textAlign: "center",
         fontSize: theme.typography.fontSize + 6,
-        width: "60%",
+        width: "38%",
         fontFamily: theme.design.font.montserrat,
         marginBottom: theme.spacing(6),
 
@@ -85,9 +85,9 @@ export const useMbmcBlock7Styles = makeStyles((theme: Theme) => ({
         [theme.breakpoints.down("lg")]: {
             fontSize: theme.typography.fontSize + 3,
             marginBottom: theme.spacing(4),
+            width: "70%",
         },
         [theme.breakpoints.down("md")]: {
-            width: "80%",
             fontSize: theme.typography.fontSize + 2,
             marginBottom: theme.spacing(2),
         },

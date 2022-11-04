@@ -1,5 +1,4 @@
 import { useMbmcBlock8Styles } from "./styles";
-import { menuData } from "./data";
 import { TestimonialCard } from "templates/mbmc/components/TestimonialCard";
 import { Carousel2 } from "core/Carousel2";
 import { FC } from "react";
@@ -8,7 +7,11 @@ import { sliceIntoChunks } from "utilities/mbmcblock";
 
 export const MbmcBlock8: FC<MbmcBlock8Props> = ({ heading, description, carouselData }) => {
     const classes = useMbmcBlock8Styles();
-    const splitData = sliceIntoChunks(carouselData, 2);
+    const splitData: {
+        content: string;
+        author: string;
+        jobRole?: string | undefined;
+    }[][] = sliceIntoChunks(carouselData, 2);
 
     return (
         <div className={classes.root}>

@@ -15,6 +15,8 @@ import { MbmcBlock12 } from "./blocks/MbmcBlock12/MbmcBlock12";
 import { MbmcBlock13 } from "./blocks/MbmcBlock13/MbmcBlock13";
 import { useMbmbcStyles } from "./styles";
 import { FiShoppingCart } from "react-icons/fi";
+import { MbmcBlock14 } from "./blocks/MbmcBlock14/MbmcBlock14";
+import { MbmcBlock15 } from "./blocks/MbmcBlock15/MbmcBlock15";
 
 export const useGetMbmcBlocks = () => {
     const classes = useMbmbcStyles();
@@ -68,7 +70,23 @@ export const useGetMbmcBlocks = () => {
         {
             name: "mbmc-block-7",
             component: MbmcBlock7,
-            props: { style: "mbmc" },
+            props: {
+                style: "mbmc",
+                heading: "Lorem Ipsum Dolor Sit.",
+                description: `Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod
+                tempor invidunt ut labore et dolore a….`,
+                images: [
+                    "https://sytbuildr.s3.eu-west-2.amazonaws.com/zdpk0U95fFJNVodRZxpIYk6hMIJYReitDX4R7RX4.png",
+                    "https://sytbuildr.s3.eu-west-2.amazonaws.com/zdpk0U95fFJNVodRZxpIYk6hMIJYReitDX4R7RX4.png",
+                    "https://sytbuildr.s3.eu-west-2.amazonaws.com/zdpk0U95fFJNVodRZxpIYk6hMIJYReitDX4R7RX4.png",
+                    "https://sytbuildr.s3.eu-west-2.amazonaws.com/zdpk0U95fFJNVodRZxpIYk6hMIJYReitDX4R7RX4.png",
+                    "https://sytbuildr.s3.eu-west-2.amazonaws.com/zdpk0U95fFJNVodRZxpIYk6hMIJYReitDX4R7RX4.png",
+                    "https://sytbuildr.s3.eu-west-2.amazonaws.com/zdpk0U95fFJNVodRZxpIYk6hMIJYReitDX4R7RX4.png",
+                    "https://sytbuildr.s3.eu-west-2.amazonaws.com/zdpk0U95fFJNVodRZxpIYk6hMIJYReitDX4R7RX4.png",
+                    "https://sytbuildr.s3.eu-west-2.amazonaws.com/zdpk0U95fFJNVodRZxpIYk6hMIJYReitDX4R7RX4.png",
+                    "https://sytbuildr.s3.eu-west-2.amazonaws.com/zdpk0U95fFJNVodRZxpIYk6hMIJYReitDX4R7RX4.png",
+                ],
+            },
         },
         {
             name: "mbmc-block-8",
@@ -230,6 +248,22 @@ export const useGetMbmcBlocks = () => {
                         handleClick: () => console.log("clicked"),
                     },
                 ],
+            },
+        },
+        {
+            name: "mbmc-block-914",
+            component: MbmcBlock14,
+            props: {
+                style: "mbmc",
+            },
+        },
+        {
+            name: "mbmc-block-915",
+            component: MbmcBlock15,
+            props: {
+                style: "mbmc",
+                steps: ["Checkout1", "Shipping Details", "Payment"],
+                stepHistory: [1, 2],
             },
         },
     ];

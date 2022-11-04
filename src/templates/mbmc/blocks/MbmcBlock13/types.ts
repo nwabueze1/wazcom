@@ -7,7 +7,7 @@ export type MbmcBlock13Props = MbmcCommonProps & {
     ctas?: BlockCta[];
     icons?: {
         url?: string;
-        icon?: JSX.Element | string;
+        icon?: JSX.Element;
         badgeIcon?: boolean;
         badgeCount?: number;
     }[];
