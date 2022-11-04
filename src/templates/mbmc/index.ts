@@ -1,4 +1,3 @@
-import { ComponentPropType } from "stories/types";
 import { MbmcBlock1 } from "./blocks/MbmcBlock1/MbmcBlock1";
 import { MbmcBlock3 } from "./blocks/MbmcBlock3/MbmcBlock3";
 import { MbmcBlock2 } from "./blocks/MbmcBlock2/MbmcBlock2";
@@ -13,77 +12,83 @@ import { MbmcTemplatePropType } from "./types";
 import { MbmcBlock11 } from "./blocks/MbmcBlock11/MbmcBlock11";
 import { MbmcBlock12 } from "./blocks/MbmcBlock12/MbmcBlock12";
 import { MbmcBlock13 } from "./blocks/MbmcBlock13/MbmcBlock13";
-import MbmcBlock18 from "./blocks/MbmcBlock18/MbmcBlock18";
+import { MbmcBlock18 } from "./blocks/MbmcBlock18/MbmcBlock18";
+import { MbmcBlock14 } from "./blocks/MbmcBlock14/MbmcBlock14";
 
 export const blocks: MbmcTemplatePropType[] = [
     {
         name: "mbmc-block-1",
         component: MbmcBlock1,
-        props: { style: "mui" },
+        props: { style: "mbmc" },
     },
     {
         name: "mbmc-block-2",
         component: MbmcBlock2,
-        props: { style: "mui" },
+        props: { style: "mbmc" },
     },
     {
         name: "mbmc-block-3",
         component: MbmcBlock3,
-        props: { style: "mui" },
+        props: { style: "mbmc" },
     },
     {
         name: "mbmc-block-4",
         component: MbmcBlock4,
-        props: { style: "mui" },
+        props: { style: "mbmc" },
     },
     {
         name: "mbmc-block-5",
         component: MbmcBlock5,
-        props: { style: "mui" },
+        props: { style: "mbmc" },
     },
     {
         name: "mbmc-block-6",
         component: MbmcBlock6,
-        props: { style: "mui" },
+        props: { style: "mbmc" },
     },
     {
         name: "mbmc-block-7",
         component: MbmcBlock7,
-        props: { style: "mui" },
+        props: { style: "mbmc" },
     },
     {
         name: "mbmc-block-8",
         component: MbmcBlock8,
-        props: { style: "mui" },
+        props: { style: "mbmc" },
     },
     {
         name: "mbmc-block-9",
         component: MbmcBlock9,
-        props: { style: "mui" },
+        props: { style: "mbmc" },
     },
     {
         name: "mbmc-block-910",
         component: MbmcBlock10,
-        props: { style: "mui" },
+        props: { style: "mbmc" },
     },
     {
         name: "mbmc-block-911",
         component: MbmcBlock11,
-        props: { style: "mui" },
+        props: { style: "mbmc" },
     },
     {
         name: "mbmc-block-912",
         component: MbmcBlock12,
-        props: { style: "mui" },
+        props: { style: "mbmc" },
     },
     {
         name: "mbmc-block-913",
         component: MbmcBlock13,
-        props: { style: "mui" },
+        props: { style: "mbmc" },
+    },
+    {
+        name: "mbmc-block-914",
+        component: MbmcBlock14,
+        props: { style: "mbmc" },
     },
     {
         name: "mbmc-block-918",
         component: MbmcBlock18,
-        props: { style: "mui" },
+        props: { style: "mbmc" },
     },
 ];

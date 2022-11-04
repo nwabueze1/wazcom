@@ -3,10 +3,9 @@ import { menuData } from "./data";
 import { TestimonialCard } from "templates/mbmc/components/TestimonialCard";
 import { Carousel2 } from "core/Carousel2";
 import { FC } from "react";
-import { MbmcBlock6Props } from "../MbmcBlock6/types";
 import { MbmcBlock8Props } from "./types";
 
-export const MbmcBlock8: FC<MbmcBlock8Props> = ({ style }) => {
+export const MbmcBlock8: FC<MbmcBlock8Props> = () => {
     const classes = useMbmcBlock8Styles();
 
     return (
