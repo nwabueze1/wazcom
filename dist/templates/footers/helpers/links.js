@@ -16,27 +16,30 @@ export var displaySections = function (mode, classes, sections, activeElement, h
     return sections.map(function (_a, index) {
         var name = _a.name, links = _a.links;
         var sectionId = "footer_sections." + String(index);
-        return (_jsxs("div", __assign({ className: clx(classes.footerSection, activeElement === sectionId && classes.activeElement) }, { children: [_jsx("p", __assign({ className: classes.footerSectionTitle, onClick: function () {
-                        return clickAction(sectionId, mode, function () {
+        return (_jsxs("div", __assign({ className: clx(classes.footerSection, activeElement === sectionId && classes.activeElement) }, { children: [_jsx("p", __assign({ className: classes.footerSectionTitle, onClick: function (e) {
+                        e.stopPropagation();
+                        clickAction(sectionId, mode, function () {
                             handleClick(sectionId);
                         });
                     } }, { children: name }), void 0), links.map(function (_a, index) {
                     var text = _a.text, url = _a.url;
                     var linkId = sectionId + ".links." + String(index);
-                    return isNotRenderAnchor(url, mode) ? (_jsx("p", __assign({ className: clx(classes.footerSectionLink, activeElement === linkId && classes.activeElement), onClick: function () {
-                            return clickAction(url, mode, function () {
+                    return isNotRenderAnchor(url, mode) ? (_jsx("p", __assign({ className: clx(classes.footerSectionLink, activeElement === linkId && classes.activeElement), onClick: function (e) {
+                            e.stopPropagation();
+                            clickAction(url, mode, function () {
                                 handleClick(mode === "view" ? url : linkId);
                             });
                         } }, { children: text }), index)) : (_jsx("a", __assign({ href: url, className: classes.footerSectionLink }, { children: text }), index));
                 })] }), index));
     });
 };
-export var displayLinks = function (mode, classes, links, activeElement, handleClick) {
+export var displayLinks = function (mode, classes, links, activeElement, handleClick, step) {
     return links.map(function (_a, index) {
         var text = _a.text, url = _a.url;
-        var linkId = "footer_links." + String(index);
-        return isNotRenderAnchor(url, mode) ? (_jsx("p", __assign({ className: clx(classes.footerSectionLink, activeElement === linkId && classes.activeElement), onClick: function () {
-                return clickAction(url, mode, function () {
+        var linkId = "footer_links." + String(index + step);
+        return isNotRenderAnchor(url, mode) ? (_jsx("p", __assign({ className: clx(classes.footerSectionLink, activeElement === linkId && classes.activeElement), onClick: function (e) {
+                e.stopPropagation();
+                clickAction(url, mode, function () {
                     handleClick(mode === "view" ? url : linkId);
                 });
             } }, { children: text }), index)) : (_jsx("a", __assign({ href: url, className: classes.footerSectionLink }, { children: text }), index));

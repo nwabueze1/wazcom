@@ -1,5 +1,4 @@
-import React from "react";
-import { emptyCartImagePlaceholder } from "utilities/restaurant";
+import { emptyCartImagePlaceholder } from "../../../../utilities";
 import { useCartStyles } from ".";
 
 export const Cart = () => {
