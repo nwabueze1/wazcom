@@ -8,7 +8,7 @@ import KeyboardBackspaceIcon from "@mui/icons-material/KeyboardBackspace";
 import DeliveryOption from "templates/mbmc/components/DeliveryOption/DeliveryOption";
 import PaymentOption from "templates/mbmc/components/PaymentOption/PaymentOption";
 
-const MbmcBlock14: React.FC = () => {
+export const MbmcBlock14: React.FC = () => {
     const classes = useMbmcBlock14Styles();
     const [deliveryOption, setDeliveryOption] = useState<string>("");
     const [paymentOption, setPaymentOption] = useState<string>("");
@@ -334,5 +334,3 @@ const MbmcBlock14: React.FC = () => {
         </div>
     );
 };
-
-export default MbmcBlock14;
