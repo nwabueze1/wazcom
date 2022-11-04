@@ -16,7 +16,8 @@ export var displaySocials = function (mode, socialIcons, socials, classes, activ
         var type = _a.type, url = _a.url;
         var socialId = "footer_socials." + String(index);
         if (mode === "edit")
-            return (_jsx("div", __assign({ onClick: function () {
+            return (_jsx("div", __assign({ onClick: function (e) {
+                    e.stopPropagation();
                     clickAction(url, mode, function () {
                         handleClick(mode === "edit" ? socialId : url);
                     });

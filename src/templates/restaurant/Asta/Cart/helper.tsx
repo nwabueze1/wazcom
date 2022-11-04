@@ -2,7 +2,7 @@ import React, { useState, FC } from "react";
 import { IoIosClose } from "react-icons/io";
 import { CoreCartFields } from "templates/restaurant/types/CoreCartFields";
 import { CoreCartItemFields } from "templates/restaurant/types/CoreCartItemFields";
-import { getCurrency, getFloatOrIntAmount } from "utilities/restaurant";
+import { getCurrency, getFloatOrIntAmount } from "../../../../utilities";
 import { Item } from "./components/Item/Item";
 import { useCartStyles } from "./styles";
 import { DisplayPriceProps } from "./types";

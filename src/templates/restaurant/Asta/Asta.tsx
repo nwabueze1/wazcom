@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import { useState } from "react";
 import { Hero as AstaHero } from "./Hero";
 import { useBuzzStyles } from "./styles";
 import { Nav as AstaNav } from "./Nav";

@@ -66,7 +66,7 @@ export const renderNavLogo = (
                     src={logo?.src ?? hivedeckLogo}
                     className={logo ? classes.logo : classes.hivedeckLogo}
                 />
-            ) : logo ? (
+            ) : logo?.src ? (
                 <img
                     src={logo?.src}
                     className={clx(

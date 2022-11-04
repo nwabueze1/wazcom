@@ -1,4 +1,4 @@
-import React, { useCallback, useState, useEffect, useRef } from "react";
+import { useCallback, useState, useEffect, useRef } from "react";
 import { ArrowBackIos, ArrowForwardIos } from "@mui/icons-material";
 import { useMenuCategoryStyles } from "./styles";
 import { useDisplayCategories } from "./helpers";

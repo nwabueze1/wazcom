@@ -1,10 +1,21 @@
 import { MbmcBlock1Props } from "./blocks/MbmcBlock1/types";
+import { MbmcBlock2Props } from "./blocks/MbmcBlock2/types";
 
-export type Style = "mui" | "chakra" | "ant";
-export type Layout = "column" | "row" | "column-reverse" | "row-reverse";
+export type BlockStyle = "mbmc";
+
+export type BlockLayout = "column" | "row" | "column-reverse" | "row-reverse";
+
+export type BlockCta = {
+    text: string;
+    handleClick?: () => void;
+    type?: 'PRIMARY' | 'SECONDARY';
+    styleProps?: { [key: string]: string | number };
+    rIcon?: JSX.Element;
+    lIcon?: JSX.Element;
+};
 
 export type MbmcCommonProps = {
-    style: Style;
+    style?: BlockStyle;
     index?: number;
     mode?: "view" | "edit";
     handleClick?: (route: string) => void;
@@ -16,5 +27,5 @@ export type MbmcTemplatePropType = {
 } & Mmbc1Block;
 
 type Mmbc1Block = {
-    props: MbmcBlock1Props;
+    props: MbmcBlock1Props | MbmcBlock2Props;
 };

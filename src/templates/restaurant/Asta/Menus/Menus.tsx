@@ -1,6 +1,6 @@
-import React, { FC, useCallback, useEffect, useState } from "react";
+import { FC, useCallback, useEffect, useState } from "react";
 import { CoreMenuFields } from "templates/restaurant/types/CoreMenuFields";
-import { emptyRestaurantPlaceholder } from "utilities/restaurant";
+import { emptyRestaurantPlaceholder } from "../../../../utilities";
 import { MenuCategories } from "../MenuCategories";
 import { RestaurantDetails } from "../RestaurantDetails/RestaurantDetails";
 import { useDisplayMenuItems, useHandleMenuChange } from "./helper";

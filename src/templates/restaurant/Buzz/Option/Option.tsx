@@ -1,4 +1,4 @@
-import React, { FC, useCallback, useState, useEffect } from "react";
+import { FC, useCallback, useState, useEffect } from "react";
 import {
     Accordion,
     AccordionDetails,
@@ -12,7 +12,7 @@ import { OptionProps } from "./types";
 import { ExpandMore } from "@mui/icons-material";
 import { Option as OptionType } from "../CartDialog/types";
 import { parseSelectedChoices } from "./helper";
-import { getCurrency, getFloatOrIntAmount } from "utilities/restaurant";
+import { getCurrency, getFloatOrIntAmount } from "../../../../utilities";
 
 export const Option: FC<OptionProps> = ({
     name,

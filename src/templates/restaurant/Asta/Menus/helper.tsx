@@ -1,9 +1,8 @@
-import React from "react";
 import { findCategories } from "../MenuCategories/helpers";
 import { SelectChangeEvent } from "@mui/material";
 import { CoreMenuFields } from "../../types/CoreMenuFields";
 import { CoreMenuItemFields } from "../../types/CoreMenuItemFields";
-import { getCurrency } from "utilities/restaurant";
+import { getCurrency } from "../../../../utilities";
 import { Item } from "../MenuItem";
 import { useMenusStyles } from "./styles";
 import { CoreFosFields } from "templates/restaurant/types/CoreFosFields";
