@@ -1,47 +1,47 @@
 import { Theme } from "@mui/material";
 import { makeStyles } from "@mui/styles";
-import { BlockLayout } from "templates/mbmc/types";
 
 export const useMbmcBlock12Styles = makeStyles((theme: Theme) => ({
     root: {
-        width: "calc(100% - 192px)",
-        padding: theme.spacing(7, 12),
+        padding: theme.spacing(7, 0),
 
-        [theme.breakpoints.down("lg")]: {
-            padding: theme.spacing(5, 10),
-            width: "calc(100% - 160px)",
-        },
-        [theme.breakpoints.down("sm")]: {
-            padding: theme.spacing(2, 1),
-            width: "calc(100% - 16px)",
-        },
+        "& .css-1t8l2tu-MuiInputBase-input-MuiOutlinedInput-input": {
+            background: `${theme.design.colors.waz_white} !important`,
+            padding: `14px 16px !important`,
+        }
     },
     container: {
-        width: "100%",
-        position: "relative",
+        maxWidth: 1240,
+        width: "90%",
+        margin: "0 auto",
         display: "flex",
-        alignItems: "flex-start",
-        justifyContent: "space-between",
-        overflow: "hidden",
-        flexDirection: ({ flexDirection }: { flexDirection: BlockLayout }) => flexDirection,
+        justifyContent: 'space-between',
+
+        [theme.breakpoints.down("lg")]: {
+            flexDirection: 'column',
+        },
 
         [theme.breakpoints.down("sm")]: {
-            display: "block",
-            width: "100%",
-        },
+            width: '100%',
+        }
     },
     headerContent: {
         width: "45%",
         paddingRight: theme.spacing(4),
 
-        [theme.breakpoints.down("sm")]: {
+        [theme.breakpoints.down("lg")]: {
             paddingRight: theme.spacing(0),
             width: "100%",
             display: "flex",
-            alignItems: "flex-start",
+            alignItems: "center",
             justifyContent: "flex-start",
             flexDirection: "column",
-            overflowX: "hidden",
+        },
+
+        [theme.breakpoints.down("sm")]: {
+            position: 'relative',
+            left: '5%',
+           width: '90%',
         },
     },
     headerTitle: {
@@ -54,17 +54,16 @@ export const useMbmcBlock12Styles = makeStyles((theme: Theme) => ({
         fontFamily: theme.design.font.lostaMasta,
 
         [theme.breakpoints.down("lg")]: {
-            marginTop: theme.spacing(3),
             fontSize: theme.typography.fontSize * 3,
+            textAlign: "center",
         },
+
         [theme.breakpoints.down("md")]: {
-            fontSize: theme.typography.fontSize * 2,
+            fontSize: (theme.typography.fontSize * 2) + 8,
         },
+
         [theme.breakpoints.down("sm")]: {
             width: "100%",
-            textAlign: "center",
-            fontSize: theme.typography.fontSize * 3,
-            fontWeight: 800,
             marginBottom: theme.spacing(1),
         },
     },
@@ -76,13 +75,13 @@ export const useMbmcBlock12Styles = makeStyles((theme: Theme) => ({
 
         [theme.breakpoints.down("lg")]: {
             fontSize: theme.typography.fontSize + 4,
+            textAlign: "center",
         },
         [theme.breakpoints.down("md")]: {
             fontSize: theme.typography.fontSize,
         },
         [theme.breakpoints.down("sm")]: {
             fontSize: theme.typography.fontSize + 4,
-            textAlign: "center",
         },
     },
     formContainer: {
@@ -90,8 +89,9 @@ export const useMbmcBlock12Styles = makeStyles((theme: Theme) => ({
         position: "relative",
         display: "flex",
         alignItems: "center",
-        [theme.breakpoints.down("sm")]: {
-            height: "100%",
+        fontFamily: theme.design.font.montserrat,
+
+        [theme.breakpoints.down("lg")]: {
             width: "100%",
         },
     },
@@ -106,10 +106,6 @@ export const useMbmcBlock12Styles = makeStyles((theme: Theme) => ({
         margin: theme.spacing(2, 0),
         gap: theme.spacing(2),
 
-        "& > div": {
-            width: "100%",
-        },
-
         [theme.breakpoints.down("sm")]: {
             display: "flex",
             alignItems: "center",
@@ -119,47 +115,59 @@ export const useMbmcBlock12Styles = makeStyles((theme: Theme) => ({
             },
         },
     },
-    input: {
+    btnParent: {
+        width: '50%',
+    },
+    formInput: {
+        marginBottom: theme.spacing(1.5),
+    },
+    formTextInput: {
+        fontFamily: theme.design.font.montserrat,
         "& > div": {
             borderRadius: theme.spacing(6),
         },
         marginBottom: theme.spacing(2),
     },
-    textArea: {
+    formTextArea: {
         borderRadius: theme.spacing(3),
         marginBottom: theme.spacing(2),
+        fontFamily: theme.design.font.montserrat,
     },
-    button: {
+    formButton: {
+        position: 'relative',
+        top: -6,
         width: "100%",
         padding: theme.spacing(1, 0),
+        fontWeight: theme.typography.fontWeightMedium,
     },
     form: {
         width: "90%",
         backgroundColor: theme.design.colors.waz_orangeColor50,
         padding: theme.spacing(6, 4),
         borderRadius: theme.spacing(0.5),
-        [theme.breakpoints.down("sm")]: {
+        
+        [theme.breakpoints.down("lg")]: {
             width: "100%",
         },
     },
-
     demarcationContainer: {
         width: "10%",
-        height: "100%",
+        height: "calc(100% - 112px)",
         position: "absolute",
         zIndex: 10,
         margin: theme.spacing(0, "auto"),
         right: 0,
         left: 0,
-        top: 0,
+        top: 56,
         bottom: 0,
         display: "flex",
         justifyContent: "center",
 
-        [theme.breakpoints.down("sm")]: {
+        [theme.breakpoints.down("lg")]: {
             position: "relative",
             width: "100%",
-            marginBottom: theme.spacing(1),
+            top: 0,
+            margin: theme.spacing(4, 0),
         },
     },
     demarcation: {
@@ -190,12 +198,11 @@ export const useMbmcBlock12Styles = makeStyles((theme: Theme) => ({
             marginTop: theme.spacing(1),
         },
 
-        [theme.breakpoints.down("sm")]: {
+        [theme.breakpoints.down("lg")]: {
             width: "100%",
             alignItems: "center",
             color: theme.design.colors.waz_greyColor150,
             flexDirection: "row",
-            margin: theme.spacing(6, 0),
 
             "&::before": {
                 content: "''",

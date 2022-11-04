@@ -1,7 +1,10 @@
+import { BlockCta } from "templates/mbmc/types";
+
 export type CardProps = {
-    heading?: string;
+    heading?: string | JSX.Element;
     description?: string;
     image?: string;
+    ctas?: BlockCta[];
 };
 
 export type StyleProps = {

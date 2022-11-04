@@ -69,6 +69,7 @@ export const useMbmcBlock4Styles = makeStyles((theme: Theme) => ({
         fontFamily: theme.design.font.montserrat,
         marginBottom: theme.spacing(4),
         marginTop: theme.spacing(2),
+        lineHeight: 1.7,
 
         [theme.breakpoints.down("lg")]: {
             width: "80%",

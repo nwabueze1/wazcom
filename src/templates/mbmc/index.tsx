@@ -13,6 +13,7 @@ import { MbmcBlock11 } from "./blocks/MbmcBlock11/MbmcBlock11";
 import { MbmcBlock12 } from "./blocks/MbmcBlock12/MbmcBlock12";
 import { MbmcBlock13 } from "./blocks/MbmcBlock13/MbmcBlock13";
 import { useMbmbcStyles } from "./styles";
+import { createApolloClient } from "helpers/graphQL";
 
 export const useGetMbmcBlocks = () => {
     const classes = useMbmbcStyles();
@@ -68,7 +69,32 @@ export const useGetMbmcBlocks = () => {
         {
             name: "mbmc-block-4",
             component: MbmcBlock4,
-            props: { style: "mbmc" },
+            props: {
+                style: "mbmc",
+                heading: "Our Premium Services",
+                description: `Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed
+            diam nonumy eirmod tempor invidunt ut labore et dolore a….`,
+                cards: [
+                    {
+                        heading: "Baking",
+                        description:
+                            "Lorem ips um dolor sit amet, consetetur sadipscin g elitr, sed diam nonumy eirmod.",
+                        image: 'https://sytbuildr.s3.eu-west-2.amazonaws.com/zdpk0U95fFJNVodRZxpIYk6hMIJYReitDX4R7RX4.png'
+                    },
+                    {
+                        heading: "Private Dining",
+                        description:
+                            "Lorem ips um dolor sit amet, consetetur sadipscin g elitr, sed diam nonumy eirmod.",
+                        image: 'https://sytbuildr.s3.eu-west-2.amazonaws.com/zdpk0U95fFJNVodRZxpIYk6hMIJYReitDX4R7RX4.png'
+                    },
+                    {
+                        heading: "Cocktail & Mocktail",
+                        description:
+                            "Lorem ips um dolor sit amet, consetetur sadipscin g elitr, sed diam nonumy eirmod.",
+                        image: 'https://sytbuildr.s3.eu-west-2.amazonaws.com/zdpk0U95fFJNVodRZxpIYk6hMIJYReitDX4R7RX4.png'
+                    },
+                ],
+            },
         },
         {
             name: "mbmc-block-5",
@@ -78,7 +104,14 @@ export const useGetMbmcBlocks = () => {
         {
             name: "mbmc-block-6",
             component: MbmcBlock6,
-            props: { style: "mbmc" },
+            props: {
+                style: "mbmc",
+                heading: "Explore Our Menu",
+                description: `Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed 
+                diam nonumy eirmod tempor invidunt ut labore et dolore a….`,
+                client: createApolloClient("https://ofambegbe-ambrosia.wazobia.uk/graphql"),
+                menu_uuid: "5a8b64b3-2fe7-4204-b23a-87dd6539d311",
+            },
         },
         {
             name: "mbmc-block-7",
@@ -108,7 +141,25 @@ export const useGetMbmcBlocks = () => {
         {
             name: "mbmc-block-912",
             component: MbmcBlock12,
-            props: { style: "mbmc" },
+            props: {
+                style: "mbmc",
+                heading: "We Are Available To Get Your Order",
+                description:
+                    "If you’d like to talk please call or email us, you can also use the form to get in touch. We’ll get back in touch within 24hrs",
+                ctas: [
+                    {
+                        text: "Call us",
+                        type: "SECONDARY",
+                        size: "sm",
+                        className: classes.mbmc12Button,
+                    },
+                    {
+                        text: "Email us",
+                        size: "sm",
+                        className: classes.mbmc12Button,
+                    },
+                ],
+            },
         },
         {
             name: "mbmc-block-913",
