@@ -8,3 +8,15 @@ export type MbmcBlock61Props = MbmcCommonProps & {
     client: ApolloClient<NormalizedCacheObject>;
     menu_uuid: string;
 };
+
+export type TMenuCategory = { title: string, id: number };
+
+export type TMenuItem = {
+    name: string;
+    description: string;
+    price: number;
+    image_url: string;
+    menuCategory: {
+        id: number;
+    }
+}

@@ -6,7 +6,10 @@ import { MbmcBlock4Props } from "./types";
 export const MbmcBlock4: FC<MbmcBlock4Props> = ({ style, heading, description, cards }) => {
     const classes = useMbmcBlock4Styles();
 
-    const displayCards = () => (cards ?? []).map((card, index) => <Card key={index} {...card} />);
+    const displayCards = () =>
+        (cards ?? []).map((card, index) => (
+            <Card key={index} {...card} className={classes.block4Card} classNames={{ heading: classes.block4CardHeading }} />
+        ));
 
     return (
         <div className={classes.root}>

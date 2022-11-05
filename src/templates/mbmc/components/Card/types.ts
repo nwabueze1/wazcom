@@ -6,9 +6,6 @@ export type CardProps = {
     image?: string;
     ctas?: BlockCta[];
     scrollableParent?: boolean;
-};
-
-export type StyleProps = {
-    isOpen?: boolean;
-    scrollableParent?: boolean;
+    className?: string;
+    classNames?: { [key: string]: string };
 };

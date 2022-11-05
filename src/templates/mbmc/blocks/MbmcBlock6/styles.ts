@@ -50,14 +50,13 @@ export const useMbmcBlock6Styles = makeStyles((theme: Theme) => ({
             width: '90%',
         },
 
-        
         [theme.breakpoints.down("sm")]: {
             marginBottom: theme.spacing(1),
             fontSize: theme.typography.fontSize + 4,
             width: '100%',
         },
     },
-    scrollContainer: {
+    block6ScrollContainer: {
         display: "flex",
         gap: theme.spacing(2.5),
 
@@ -66,8 +65,5 @@ export const useMbmcBlock6Styles = makeStyles((theme: Theme) => ({
         "&::-webkit-scrollbar": {
             display: "none",
         },
-    },
-    overallContainer: {
-        width: "100%",
     },
 }));

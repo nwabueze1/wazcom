@@ -10,7 +10,9 @@ export const Card: React.FC<CardProps> = ({
     image,
     description,
     ctas,
-    scrollableParent
+    scrollableParent,
+    className,
+    classNames,
 }) => {
     const isOpen = true;
     const classes = useCardStyles({ isOpen, scrollableParent });
@@ -25,9 +27,7 @@ export const Card: React.FC<CardProps> = ({
 
     return (
         <>
-            <div
-                className={clsx(classes.root, classes.visible)}
-            >
+            <div className={clsx(classes.root, classes.visible, className)}>
                 <div
                     className={classes.imageWrapper}
                     style={{
@@ -36,12 +36,12 @@ export const Card: React.FC<CardProps> = ({
                 ></div>
                 <div className={classes.content}>
                     <div>
-                        <p className={classes.title}>{heading}</p>
-                        <p className={classes.description}>{description}</p>
+                        <p className={clsx(classes.heading, classNames?.heading)}>{heading}</p>
+                        <p className={clsx(classes.description, classNames?.description)}>
+                            {description}
+                        </p>
                     </div>
-                    <div className={classes.ctas}>
-                        {displayCtas()}
-                    </div>
+                    <div className={classes.ctas}>{displayCtas()}</div>
                 </div>
             </div>
         </>

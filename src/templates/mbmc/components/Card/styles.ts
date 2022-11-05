@@ -1,12 +1,11 @@
 import { Theme } from "@mui/material/styles";
 import createStyles from "@mui/styles/createStyles";
 import makeStyles from "@mui/styles/makeStyles";
-import { StyleProps } from "./types";
 
-export const useCardStyles = makeStyles<Theme, StyleProps>((theme: Theme) =>
+export const useCardStyles = makeStyles((theme: Theme) =>
     createStyles({
         root: {
-            width: ({ scrollableParent }) => (scrollableParent ? "30%" : "calc((100% - 32px) / 3)"),
+            width: '30%',
             minHeight: 380,
             height: "100%",
             flexShrink: 0,
@@ -19,19 +18,18 @@ export const useCardStyles = makeStyles<Theme, StyleProps>((theme: Theme) =>
             border: `1px solid ${theme.design.colors.waz_grey300}`,
             boxSizing: "border-box",
             position: "relative",
-            cursor: ({ isOpen }) => (isOpen ? "pointer" : "default"),
+            cursor: 'pointer',
+
             "&:hover": {
-                boxShadow: ({ isOpen }) =>
-                    isOpen ? "0px 5px 18px -2px rgba(68, 68, 68, 0.12)" : "none",
+                boxShadow: "0px 5px 18px -2px rgba(68, 68, 68, 0.12)",
             },
 
             [theme.breakpoints.down("md")]: {
-                width: ({ scrollableParent }) =>
-                    scrollableParent ? "50%" : "calc((100% - 16px) / 2)",
+                width: "50%",
             },
 
             [theme.breakpoints.down("sm")]: {
-                width: ({ scrollableParent }) => (scrollableParent ? "80%" : "100%"),
+                width:  "80%",
             },
         },
         noMargin: {
@@ -65,8 +63,7 @@ export const useCardStyles = makeStyles<Theme, StyleProps>((theme: Theme) =>
             objectFit: "cover",
             boxSizing: "border-box",
         },
-
-        title: {
+        heading: {
             fontSize: theme.typography.fontSize * 2,
             marginTop: theme.spacing(1),
             textOverflow: "ellipsis",
@@ -74,10 +71,7 @@ export const useCardStyles = makeStyles<Theme, StyleProps>((theme: Theme) =>
             textTransform: "capitalize",
             fontWeight: theme.typography.fontWeightMedium,
             fontFamily: theme.design.font.lostaMasta,
-            color: ({ scrollableParent }) =>
-                scrollableParent
-                    ? theme.design.colors.waz_black
-                    : theme.design.colors.waz_orangeColor100,
+            color: theme.design.colors.waz_black,
 
             [theme.breakpoints.down("md")]: {
                 fontSize: theme.typography.fontSize + 6,

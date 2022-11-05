@@ -49,7 +49,7 @@ export const MbmcBlock6: FC<MbmcBlock6Props> = ({
                     <h3 className={classes.block6Title}>{heading}</h3>
                     <p className={classes.block6Description}>{description}</p>
                 </div>
-                <div className={classes.scrollContainer}>
+                <div className={classes.block6ScrollContainer}>
                     {displayCategories()}
                 </div>
             </div>
