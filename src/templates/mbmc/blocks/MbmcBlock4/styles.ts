@@ -4,25 +4,18 @@ import { makeStyles } from "@mui/styles";
 export const useMbmcBlock4Styles = makeStyles((theme: Theme) => ({
     root: {
         backgroundColor: theme.design.colors.waz_gold100,
-        position: "relative",
-        display: "flex",
-        alignItems: "flex-start",
-        flexDirection: "column",
-        width: "calc(100% - 192px)",
-        padding: theme.spacing(12),
-
-        [theme.breakpoints.down("lg")]: {
-            padding: theme.spacing(5, 10),
-            width: "calc(100% - 160px)",
-        },
+        padding: theme.spacing(9, 0),
 
         [theme.breakpoints.down("sm")]: {
-            padding: theme.spacing(4, 1),
-            width: "calc(100% - 16px)",
-            height: "fit-content",
+            padding: theme.spacing(5, 0),
         },
     },
-    headerContent: {
+    block6Container: {
+        maxWidth: 1240,
+        width: "90%",
+        margin: "0 auto",
+    },
+    block4Content: {
         width: "100%",
         display: "flex",
         alignItems: "center",
@@ -33,63 +26,60 @@ export const useMbmcBlock4Styles = makeStyles((theme: Theme) => ({
         [theme.breakpoints.down("md")]: {
             width: "100%",
         },
+
         [theme.breakpoints.down("sm")]: {
             width: "100%",
         },
     },
-    headerTitle: {
-        color: theme.design.colors.waz_primaryColor300,
+    block4Title: {
+        color: theme.design.colors.waz_primaryColor200,
         fontSize: theme.typography.fontSize * 4,
         fontFamily: theme.design.font.lostaMasta,
         letterSpacing: 0,
         textTransform: "capitalize",
-        font: "normal normal medium 68px/100px Losta Masta;",
         margin: 0,
         textAlign: "center",
 
         [theme.breakpoints.down("lg")]: {
-            marginTop: theme.spacing(3),
-            fontSize: theme.typography.fontSize * 2,
+            fontSize: theme.typography.fontSize * 3,
+            marginBottom: theme.spacing(2),
         },
-        [theme.breakpoints.down("md")]: {
-            fontSize: theme.typography.fontSize * 2,
-        },
+
         [theme.breakpoints.down("sm")]: {
             textAlign: "left",
-            fontSize: theme.typography.fontSize * 1.5,
+            fontSize: theme.typography.fontSize * 2,
             fontWeight: 800,
-            marginBottom: theme.spacing(1),
         },
     },
-    headerDescription: {
+    block4Description: {
         color: theme.design.colors.waz_greyColor600,
         textAlign: "center",
         fontSize: theme.typography.fontSize + 6,
-        width: "60%",
+        width: "45%",
         fontFamily: theme.design.font.montserrat,
-        marginBottom: theme.spacing(4),
-        marginTop: theme.spacing(2),
-        lineHeight: 1.7,
+        marginBottom: theme.spacing(3.5),
+        lineHeight: 1.5,
 
         [theme.breakpoints.down("lg")]: {
             width: "80%",
-            fontSize: theme.typography.fontSize + 4,
-            marginBottom: theme.spacing(2),
         },
+
         [theme.breakpoints.down("md")]: {
             fontSize: theme.typography.fontSize + 2,
         },
+
         [theme.breakpoints.down("sm")]: {
             width: "100%",
             textAlign: "center",
         },
     },
-    headerCardContainer: {
+    block4CardContainer: {
         width: "100%",
         display: "flex",
-        justifyContent: "center",
-        alignItems: "center",
+        justifyContent: 'space-between',
         gap: theme.spacing(2),
+        flexWrap: 'wrap',
+
         [theme.breakpoints.down("sm")]: {
             flexDirection: "column",
         },

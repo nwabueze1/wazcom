@@ -5,10 +5,6 @@ export const useMbmcBlock6Styles = makeStyles((theme: Theme) => ({
     root: {
         backgroundColor: theme.design.colors.waz_greyColor50,
         position: "relative",
-        display: "flex",
-        alignItems: "center",
-        justifyContent: "center",
-        flexDirection: "column",
         padding: theme.spacing(10, 0),
     },
     block6Container: {

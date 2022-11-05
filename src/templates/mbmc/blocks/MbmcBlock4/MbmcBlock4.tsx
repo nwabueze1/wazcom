@@ -10,12 +10,12 @@ export const MbmcBlock4: FC<MbmcBlock4Props> = ({ style, heading, description, c
 
     return (
         <div className={classes.root}>
-            <div className={classes.headerContent}>
-                <h3 className={classes.headerTitle}>{heading}</h3>
-                <p className={classes.headerDescription}>{description}</p>
-            </div>
-            <div className={classes.headerCardContainer}>
-                {displayCards()}
+            <div className={classes.block6Container}>
+                <div className={classes.block4Content}>
+                    <h3 className={classes.block4Title}>{heading}</h3>
+                    <p className={classes.block4Description}>{description}</p>
+                </div>
+                <div className={classes.block4CardContainer}>{displayCards()}</div>
             </div>
         </div>
     );

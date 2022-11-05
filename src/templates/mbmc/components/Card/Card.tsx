@@ -10,9 +10,10 @@ export const Card: React.FC<CardProps> = ({
     image,
     description,
     ctas,
+    scrollableParent
 }) => {
     const isOpen = true;
-    const classes = useCardStyles({ isOpen });
+    const classes = useCardStyles({ isOpen, scrollableParent });
 
     const displayCtas = () => {
         return (ctas ?? []).map(({ text, rIcon, lIcon, ...props }, index) => (

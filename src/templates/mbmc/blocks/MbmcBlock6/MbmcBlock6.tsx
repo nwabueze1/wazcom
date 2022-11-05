@@ -40,7 +40,7 @@ export const MbmcBlock6: FC<MbmcBlock6Props> = ({
     }, [data, error]);
 
     const displayCategories = () =>
-        categories.map((category, index) => <Card key={index} {...category} />);
+        categories.map((category, index) => <Card key={index} {...category} scrollableParent={true} />);
 
     return (
         <div className={classes.root}>

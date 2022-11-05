@@ -5,8 +5,10 @@ export type CardProps = {
     description?: string;
     image?: string;
     ctas?: BlockCta[];
+    scrollableParent?: boolean;
 };
 
 export type StyleProps = {
     isOpen?: boolean;
+    scrollableParent?: boolean;
 };

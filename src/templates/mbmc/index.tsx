@@ -14,6 +14,7 @@ import { MbmcBlock12 } from "./blocks/MbmcBlock12/MbmcBlock12";
 import { MbmcBlock13 } from "./blocks/MbmcBlock13/MbmcBlock13";
 import { useMbmbcStyles } from "./styles";
 import { createApolloClient } from "helpers/graphQL";
+import { MbmcBlock61 } from "./blocks/MbmcBlock6-1";
 
 export const useGetMbmcBlocks = () => {
     const classes = useMbmbcStyles();
@@ -107,6 +108,18 @@ export const useGetMbmcBlocks = () => {
             props: {
                 style: "mbmc",
                 heading: "Explore Our Menu",
+                description: `Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed 
+                diam nonumy eirmod tempor invidunt ut labore et dolore a….`,
+                client: createApolloClient("https://ofambegbe-ambrosia.wazobia.uk/graphql"),
+                menu_uuid: "5a8b64b3-2fe7-4204-b23a-87dd6539d311",
+            },
+        },
+        {
+            name: "mbmc-block-61",
+            component: MbmcBlock61,
+            props: {
+                style: "mbmc",
+                heading: "Explore Our Best Menu",
                 description: `Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed 
                 diam nonumy eirmod tempor invidunt ut labore et dolore a….`,
                 client: createApolloClient("https://ofambegbe-ambrosia.wazobia.uk/graphql"),

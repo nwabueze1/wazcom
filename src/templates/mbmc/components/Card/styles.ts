@@ -6,9 +6,9 @@ import { StyleProps } from "./types";
 export const useCardStyles = makeStyles<Theme, StyleProps>((theme: Theme) =>
     createStyles({
         root: {
-            width: '30%',
+            width: ({ scrollableParent }) => (scrollableParent ? "30%" : "calc((100% - 32px) / 3)"),
             minHeight: 380,
-            height: '100%',
+            height: "100%",
             flexShrink: 0,
             display: "flex",
             alignItems: "center",
@@ -20,18 +20,18 @@ export const useCardStyles = makeStyles<Theme, StyleProps>((theme: Theme) =>
             boxSizing: "border-box",
             position: "relative",
             cursor: ({ isOpen }) => (isOpen ? "pointer" : "default"),
-            margin: theme.spacing(1, 0),
             "&:hover": {
                 boxShadow: ({ isOpen }) =>
                     isOpen ? "0px 5px 18px -2px rgba(68, 68, 68, 0.12)" : "none",
             },
-            
+
             [theme.breakpoints.down("md")]: {
-                width: "50%",
+                width: ({ scrollableParent }) =>
+                    scrollableParent ? "50%" : "calc((100% - 16px) / 2)",
             },
 
             [theme.breakpoints.down("sm")]: {
-                width: "85%",
+                width: ({ scrollableParent }) => (scrollableParent ? "80%" : "100%"),
             },
         },
         noMargin: {
@@ -74,6 +74,10 @@ export const useCardStyles = makeStyles<Theme, StyleProps>((theme: Theme) =>
             textTransform: "capitalize",
             fontWeight: theme.typography.fontWeightMedium,
             fontFamily: theme.design.font.lostaMasta,
+            color: ({ scrollableParent }) =>
+                scrollableParent
+                    ? theme.design.colors.waz_black
+                    : theme.design.colors.waz_orangeColor100,
 
             [theme.breakpoints.down("md")]: {
                 fontSize: theme.typography.fontSize + 6,
