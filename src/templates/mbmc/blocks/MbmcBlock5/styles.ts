@@ -8,15 +8,14 @@ export const useMbmcBlock5Styles = makeStyles((theme: Theme) => ({
         display: "flex",
         alignItems: "flex-start",
         flexDirection: "column",
-        width: "calc(100% - 192px)",
+        width: "100%",
+        boxSizing: "border-box",
         padding: theme.spacing(5, 12),
 
         [theme.breakpoints.down("lg")]: {
-            padding: theme.spacing(5, 10),
-            width: "calc(100% - 160px)",
+            padding: theme.spacing(5, 2),
         },
-        [theme.breakpoints.down("sm")]: {
-            width: "calc(100% - 32px)",
+        [theme.breakpoints.down("md")]: {
             padding: theme.spacing(2),
             height: "fit-content",
         },
@@ -30,6 +29,7 @@ export const useMbmcBlock5Styles = makeStyles((theme: Theme) => ({
         justifyContent: "space-between",
         alignItems: "flex-start",
         gap: theme.spacing(1),
+        wordBreak: "break-word",
 
         [theme.breakpoints.down("sm")]: {
             flexDirection: "column",
@@ -45,16 +45,19 @@ export const useMbmcBlock5Styles = makeStyles((theme: Theme) => ({
         color: theme.design.colors.waz_white,
         fontWeight: theme.typography.fontWeightBold,
         fontFamily: theme.design.font.montserrat,
+        marginBottom: theme.spacing(2.5),
     },
     footerList: {
         color: theme.design.colors.waz_white,
-        fontsize: theme.typography.fontSize + 2,
+        fontSize: theme.typography.fontSize + 2,
+        textDecoration: "none",
         fontFamily: theme.design.font.montserrat,
         opacity: 0.7,
-        lineHeight: 2.5,
-        [theme.breakpoints.down("sm")]: {
-            lineHeight: 1.5,
-        },
+    },
+    footerLinks: {
+        display: "flex",
+        flexDirection: "column",
+        gap: "20px",
     },
     footerNote: {
         width: "100%",

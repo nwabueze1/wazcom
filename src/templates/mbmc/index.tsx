@@ -60,7 +60,72 @@ export const useGetMbmcBlocks = () => {
         {
             name: "mbmc-block-5",
             component: MbmcBlock5,
-            props: { style: "mbmc" },
+            props: {
+                style: "mbmc",
+                logo: "https://sytbuildr.s3.eu-west-2.amazonaws.com/images/mbmc/chefLogo.svg",
+                sections: [
+                    {
+                        heading: "Company",
+                        links: [
+                            {
+                                heading: "About us",
+                                url: "#",
+                            },
+                            {
+                                heading: "Our menu",
+                                url: "#",
+                            },
+                            {
+                                heading: "Delivery services",
+                                url: "#",
+                            },
+                        ],
+                    },
+                    {
+                        heading: "Services",
+                        links: [
+                            {
+                                heading: "Baking",
+                                url: "#",
+                            },
+                            {
+                                heading: "Private dining",
+                                url: "#",
+                            },
+                            {
+                                heading: "Mocktail and cocktail",
+                                url: "#",
+                            },
+                        ],
+                    },
+                    {
+                        heading: "Contact us:",
+                        links: [
+                            {
+                                heading: "+44444444444",
+                                url: "#",
+                            },
+                            {
+                                heading: "johndoe@wazobia.tech",
+                                url: "#",
+                            },
+                            {
+                                heading: "1 Ave, Kent, United Kingdom",
+                                url: "#",
+                            },
+                        ],
+                    },
+                    {
+                        heading: "Connect with us",
+                        links: [
+                            {
+                                heading: "@mrbakerandmrscook",
+                                url: "#",
+                            },
+                        ],
+                    },
+                ],
+            },
         },
         {
             name: "mbmc-block-6",

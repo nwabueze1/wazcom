@@ -5,6 +5,7 @@ import { MbmcBlock12Props } from "./blocks/MbmcBlock12/types";
 import { MbmcBlock13Props } from "./blocks/MbmcBlock13/types";
 import { MbmcBlock15Props } from "./blocks/MbmcBlock15/types";
 import { MbmcBlock2Props } from "./blocks/MbmcBlock2/types";
+import { MbmcBlock5Props } from "./blocks/MbmcBlock5/types";
 import { MbmcBlock7Props } from "./blocks/MbmcBlock7/types";
 import { MbmcBlock8Props } from "./blocks/MbmcBlock8/types";
 import { MbmcBlock9Props } from "./blocks/MbmcBlock9/types";
@@ -38,6 +39,7 @@ type Mmbc1Block = {
     props:
         | MbmcBlock1Props
         | MbmcBlock2Props
+        | MbmcBlock5Props
         | MbmcBlock7Props
         | MbmcBlock8Props
         | MbmcBlock9Props

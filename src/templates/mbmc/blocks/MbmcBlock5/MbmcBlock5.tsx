@@ -3,7 +3,7 @@ import { footerData } from "./data";
 import { FC } from "react";
 import { MbmcBlock5Props } from "./types";
 
-export const MbmcBlock5: FC<MbmcBlock5Props> = () => {
+export const MbmcBlock5: FC<MbmcBlock5Props> = ({ logo, sections }) => {
     const classes = useMbmcBlock5Styles();
 
     return (
@@ -11,19 +11,18 @@ export const MbmcBlock5: FC<MbmcBlock5Props> = () => {
             <div className={classes.root}>
                 <div className={classes.footerContainer}>
                     <div className={classes.logoContainer}>
-                        <img
-                            src="https://sytbuildr.s3.eu-west-2.amazonaws.com/images/mbmc/chefLogo.svg"
-                            alt="footer logo"
-                        />
+                        <img src={logo} alt="footer logo" />
                     </div>
-                    {footerData.map((footer, idx) => (
+                    {sections?.map((footer, idx) => (
                         <div key={idx} className={classes.listContainer}>
-                            <p className={classes.footerTitle}>{footer.title}</p>
-                            {footer.lists.map((list, listIdx) => (
-                                <p key={listIdx} className={classes.footerList}>
-                                    {list}
-                                </p>
-                            ))}
+                            <p className={classes.footerTitle}>{footer.heading}</p>
+                            <div className={classes.footerLinks}>
+                                {footer.links.map((link, listIdx) => (
+                                    <a key={listIdx} href={link.url} className={classes.footerList}>
+                                        {link.heading}
+                                    </a>
+                                ))}
+                            </div>
                         </div>
                     ))}
                 </div>
