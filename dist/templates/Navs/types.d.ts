@@ -13,6 +13,13 @@ export declare type NavProps = {
             url: string;
         };
     }[];
+    icons?: {
+        url?: string;
+    }[];
+    buttons?: {
+        text: string;
+        url: string;
+    }[];
     socials?: {
         type: "FACEBOOK" | "TWITTER";
         url: string;
