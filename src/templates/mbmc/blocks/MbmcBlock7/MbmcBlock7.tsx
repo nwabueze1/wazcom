@@ -2,10 +2,9 @@ import { useMbmcBlock7Styles } from "./styles";
 import { menuData } from "./data";
 import clx from "classnames";
 import { FC } from "react";
-import { MbmcBlock6Props } from "../MbmcBlock6/types";
 import { MbmcBlock7Props } from "./types";
 
-export const MbmcBlock7: FC<MbmcBlock7Props> = ({ style }) => {
+export const MbmcBlock7: FC<MbmcBlock7Props> = () => {
     const classes = useMbmcBlock7Styles();
 
     return (

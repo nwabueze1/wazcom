@@ -7,6 +7,7 @@ import { Valour } from "templates/Navs";
 import { Asta } from "templates/restaurant/Asta/Asta";
 import { Mbmc } from "templates/restaurant/Mbmc/Mbmc";
 import { Browser } from "view/Browser";
+import { Templates } from "view/Templates";
 import theme from "./theme";
 declare module "@mui/styles/defaultTheme" {
     // eslint-disable-next-line @typescript-eslint/no-empty-interface
@@ -122,6 +123,9 @@ const App: React.FC<Props> = () => {
                         </Route>
                         <Route exact path="/mbmc">
                             <Mbmc />
+                        </Route>
+                        <Route exact path="/blocks">
+                            <Templates />
                         </Route>
                     </Switch>
                 </Router>
