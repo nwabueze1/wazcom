@@ -19,10 +19,14 @@ export const useButtonStyles = makeStyles((theme: Theme) => ({
             borderRadius: 30,
         },
     },
+    buttonSmall: {
+        padding: theme.spacing(1, 3),
+        fontSize: theme.typography.fontSize,
+    },
     buttonPrimary: {
         background: theme.design.colors.waz_orangeColor100,
     },
     buttonSecondary: {
-        background: theme.design.colors.waz_primaryColor100,
+        background: theme.design.colors.waz_primaryColor200,
     },
 }));

@@ -40,14 +40,25 @@ export const useMbmcBlock5Styles = makeStyles((theme: Theme) => ({
             width: "100%",
         },
     },
-    footerTitle: {
+    footerSectionTitle: {
         fontSize: theme.typography.fontSize + 6,
         color: theme.design.colors.waz_white,
         fontWeight: theme.typography.fontWeightBold,
         fontFamily: theme.design.font.montserrat,
         marginBottom: theme.spacing(2.5),
     },
-    footerList: {
+    footerSocials: {
+        display: "flex",
+        alignItems: "flex-end",
+        margin: theme.spacing(3, 0, 0, 0),
+        gap: theme.spacing(2),
+    },
+    footerLogoSocials: {
+        display: "flex",
+        flexDirection: "column",
+        alignItems: "space-between",
+    },
+    footerSectionLink: {
         color: theme.design.colors.waz_white,
         fontSize: theme.typography.fontSize + 2,
         textDecoration: "none",
@@ -94,5 +105,13 @@ export const useMbmcBlock5Styles = makeStyles((theme: Theme) => ({
         [theme.breakpoints.down("sm")]: {
             marginBottom: theme.spacing(2),
         },
+    },
+    activeElement: {
+        border: "1px dashed",
+        borderColor: theme.design.colors.waz_primaryColor100,
+    },
+    footerLogo: {
+        width: "57px",
+        height: "53px",
     },
 }));

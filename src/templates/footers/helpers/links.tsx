@@ -30,31 +30,32 @@ export const displaySections = (
                 >
                     {name}
                 </p>
-
-                {links.map(({ text, url }, index) => {
-                    const linkId = sectionId + ".links." + String(index);
-                    return isNotRenderAnchor(url, mode) ? (
-                        <p
-                            className={clx(
-                                classes.footerSectionLink,
-                                activeElement === linkId && classes.activeElement,
-                            )}
-                            key={index}
-                            onClick={(e) => {
-                                e.stopPropagation();
-                                clickAction(url, mode, () => {
-                                    handleClick(mode === "view" ? url : linkId);
-                                });
-                            }}
-                        >
-                            {text}
-                        </p>
-                    ) : (
-                        <a href={url} className={classes.footerSectionLink} key={index}>
-                            {text}
-                        </a>
-                    );
-                })}
+                <div className={classes.footerLinks}>
+                    {links.map(({ text, url }, index) => {
+                        const linkId = sectionId + ".links." + String(index);
+                        return isNotRenderAnchor(url, mode) ? (
+                            <p
+                                className={clx(
+                                    classes.footerSectionLink,
+                                    activeElement === linkId && classes.activeElement,
+                                )}
+                                key={index}
+                                onClick={(e) => {
+                                    e.stopPropagation();
+                                    clickAction(url, mode, () => {
+                                        handleClick(mode === "view" ? url : linkId);
+                                    });
+                                }}
+                            >
+                                {text}
+                            </p>
+                        ) : (
+                            <a href={url} className={classes.footerSectionLink} key={index}>
+                                {text}
+                            </a>
+                        );
+                    })}
+                </div>
             </div>
         );
     });

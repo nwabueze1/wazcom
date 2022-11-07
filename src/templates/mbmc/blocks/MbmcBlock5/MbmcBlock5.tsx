@@ -1,30 +1,56 @@
 import { useMbmcBlock5Styles } from "./styles";
 import { footerData } from "./data";
-import { FC } from "react";
+import { FC, useState } from "react";
 import { MbmcBlock5Props } from "./types";
+import { displayLogo, displaySections, displaySocials } from "templates/footers/helpers";
+import { TFooterSection } from "templates/footers/types";
+import clx from "classnames";
 
-export const MbmcBlock5: FC<MbmcBlock5Props> = ({ logo, sections }) => {
+export const MbmcBlock5: FC<MbmcBlock5Props> = ({ mode, logo, sections, handleClick, links }) => {
+    const [activeElement, setActiveElement] = useState("");
     const classes = useMbmcBlock5Styles();
+
+    const handleFooterClick = () => {
+        if (mode === "edit") {
+            setActiveElement("footer");
+            handleClick?.("footer");
+        }
+    };
+
+    const handleElementClick = (element: string) => {
+        setActiveElement(element);
+        handleClick?.(element);
+    };
 
     return (
         <div className={classes.mbmcContainer}>
-            <div className={classes.root}>
+            <div
+                className={clx(
+                    classes.root,
+                    activeElement.toLowerCase() === "footer" &&
+                        mode === "edit" &&
+                        classes.activeElement,
+                )}
+                onClick={handleFooterClick}
+            >
                 <div className={classes.footerContainer}>
                     <div className={classes.logoContainer}>
-                        <img src={logo} alt="footer logo" />
+                        {displayLogo(
+                            mode as "view" | "edit",
+                            classes,
+                            activeElement,
+                            handleElementClick,
+                            logo,
+                        )}
                     </div>
-                    {sections?.map((footer, idx) => (
-                        <div key={idx} className={classes.listContainer}>
-                            <p className={classes.footerTitle}>{footer.heading}</p>
-                            <div className={classes.footerLinks}>
-                                {footer.links.map((link, listIdx) => (
-                                    <a key={listIdx} href={link.url} className={classes.footerList}>
-                                        {link.heading}
-                                    </a>
-                                ))}
-                            </div>
-                        </div>
-                    ))}
+
+                    {displaySections(
+                        mode as "view" | "edit",
+                        classes,
+                        links as TFooterSection[],
+                        activeElement,
+                        handleElementClick,
+                    )}
                 </div>
             </div>
             <p className={classes.footerNote}>

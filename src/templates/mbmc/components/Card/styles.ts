@@ -1,13 +1,14 @@
 import { Theme } from "@mui/material/styles";
 import createStyles from "@mui/styles/createStyles";
 import makeStyles from "@mui/styles/makeStyles";
-import { StyleProps } from "./types";
 
-export const useServiceCardStyles = makeStyles<Theme, StyleProps>((theme: Theme) =>
+export const useCardStyles = makeStyles((theme: Theme) =>
     createStyles({
         root: {
-            width: 388,
-            height: 417,
+            width: '30%',
+            minHeight: 380,
+            height: "100%",
+            flexShrink: 0,
             display: "flex",
             alignItems: "center",
             flexDirection: "column",
@@ -15,30 +16,20 @@ export const useServiceCardStyles = makeStyles<Theme, StyleProps>((theme: Theme)
             background: theme.design.colors.waz_white,
             borderRadius: "4px",
             border: `1px solid ${theme.design.colors.waz_grey300}`,
-            opacity: 0.2,
             boxSizing: "border-box",
             position: "relative",
-            cursor: ({ isOpen }) => (isOpen ? "pointer" : "default"),
-            margin: theme.spacing(1, 0),
-            transition: " boxShadow 1s ease",
+            cursor: 'pointer',
+
             "&:hover": {
-                boxShadow: ({ isOpen }) =>
-                    isOpen ? "0px 5px 18px -2px rgba(68, 68, 68, 0.12)" : "none",
+                boxShadow: "0px 5px 18px -2px rgba(68, 68, 68, 0.12)",
             },
-            [theme.breakpoints.down("lg")]: {
-                height: 300,
-                width: "48%",
-            },
+
             [theme.breakpoints.down("md")]: {
-                height: 230,
-                width: "100%",
+                width: "50%",
             },
-            [theme.breakpoints.down("xs")]: {
-                width: "100%",
-            },
+
             [theme.breakpoints.down("sm")]: {
-                height: 417,
-                width: "100%",
+                width:  "80%",
             },
         },
         noMargin: {
@@ -50,14 +41,11 @@ export const useServiceCardStyles = makeStyles<Theme, StyleProps>((theme: Theme)
             justifyContent: "space-between",
             textAlign: "left",
             boxSizing: "border-box",
-            padding: theme.spacing(2, 0),
+            padding: theme.spacing(2, 1),
             width: "100%",
-            [theme.breakpoints.down("md")]: {
-                padding: 0,
-            },
-            [theme.breakpoints.down("sm")]: {
-                padding: 0,
-            },
+        },
+        ctas: {
+            marginTop: theme.spacing(1),
         },
         imageWrapper: {
             width: "100%",
@@ -68,18 +56,6 @@ export const useServiceCardStyles = makeStyles<Theme, StyleProps>((theme: Theme)
             backgroundRepeat: "no-repeat",
             backgroundPosition: "center center",
             backgroundSize: "cover",
-            [theme.breakpoints.down("md")]: {
-                height: 230,
-                width: "100%",
-            },
-            [theme.breakpoints.down("xs")]: {
-                height: "60%",
-                width: "100px",
-            },
-            [theme.breakpoints.down("sm")]: {
-                height: 350,
-                width: "100%",
-            },
         },
         image: {
             width: "100%",
@@ -87,16 +63,15 @@ export const useServiceCardStyles = makeStyles<Theme, StyleProps>((theme: Theme)
             objectFit: "cover",
             boxSizing: "border-box",
         },
-
-        title: {
+        heading: {
             fontSize: theme.typography.fontSize * 2,
             marginTop: theme.spacing(1),
             textOverflow: "ellipsis",
             lineHeight: "25px",
-            color: theme.design.colors.waz_orangeColor100,
             textTransform: "capitalize",
             fontWeight: theme.typography.fontWeightMedium,
             fontFamily: theme.design.font.lostaMasta,
+            color: theme.design.colors.waz_black,
 
             [theme.breakpoints.down("md")]: {
                 fontSize: theme.typography.fontSize + 6,
@@ -110,9 +85,7 @@ export const useServiceCardStyles = makeStyles<Theme, StyleProps>((theme: Theme)
             fontSize: theme.typography.fontSize + 2,
             color: theme.design.colors.waz_grey400,
             opacity: 0.9,
-            display: "-webkit-box",
-            "-webkit-line-clamp": 2,
-            "-webkit-box-orient": "vertical",
+            fontFamily: theme.design.font.montserrat,
             overflow: "hidden",
         },
         options_parent: {

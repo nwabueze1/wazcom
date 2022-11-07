@@ -1,3 +1,3 @@
-export * from "./ServiceCard";
+export * from "./Card";
 export * from "./styles";
 export * from "./types";

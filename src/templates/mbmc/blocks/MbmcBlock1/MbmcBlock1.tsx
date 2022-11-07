@@ -4,8 +4,8 @@ import { FC } from "react";
 import { MbmcBlock1Props } from "./types";
 import { renderStyle, parseHtml } from "utilities/renderStyle";
 
-export const MbmcBlock1: FC<MbmcBlock1Props> = ({ style = "mbmc", heading, description, ctas }) => {
-    const classes = useMbmcBlock1Styles();
+export const MbmcBlock1: FC<MbmcBlock1Props> = ({ style = "mbmc", heading, description, ctas, fullHeight = true }) => {
+    const classes = useMbmcBlock1Styles({ fullHeight });
 
     const displayCtas = () => {
         return (ctas ?? []).map(({ text, rIcon, lIcon, ...props }, index) => (
@@ -17,29 +17,31 @@ export const MbmcBlock1: FC<MbmcBlock1Props> = ({ style = "mbmc", heading, descr
 
     return (
         <div className={renderStyle(style, { mbmc: classes.root })}>
-            <div className={classes.headerContent}>
-                <h1
-                    className={classes.headerTitle}
-                    dangerouslySetInnerHTML={{ __html: parseHtml(heading) }}
-                />
-                <p className={classes.headerDescription}>{description}</p>
-                <div className={classes.headerBtnContainer}>
-                    {displayCtas()}
+            <div className={classes.block1Container}>
+                <div className={classes.block1Content}>
+                    <h1
+                        className={classes.block1Heading}
+                        dangerouslySetInnerHTML={{ __html: parseHtml(heading) }}
+                    />
+                    <p className={classes.block1Description}>{description}</p>
+                    <div className={classes.block1BtnContainer}>{displayCtas()}</div>
                 </div>
-            </div>
-            <div className={classes.heroContainerMobile}>
-                <img
-                    src="https://sytbuildr.s3.eu-west-2.amazonaws.com/images/mbmc/heroFood.png"
-                    alt="food images"
-                    className={classes.heroImageMobile}
-                />
-            </div>
-            <div className={classes.heroContainer}>
-                <img
-                    src="https://sytbuildr.s3.eu-west-2.amazonaws.com/images/mbmc/heroFood.png"
-                    alt="food images"
-                    className={classes.heroImage}
-                />
+                <div className={classes.block1ImgContainerMobile}>
+                    <img
+                        src="https://sytbuildr.s3.eu-west-2.amazonaws.com/images/mbmc/heroFood.png"
+                        alt="food images"
+                        className={classes.block1ImageMobile}
+                    />
+                    <img src="https://sytbuildr.s3.eu-west-2.amazonaws.com/images/mbmc/hero1mobile.svg" alt="Image Overlay" className={classes.block1MobileOverlay} />
+                </div>
+                <div className={classes.block1ImgContainer}>
+                    <img
+                        src="https://sytbuildr.s3.eu-west-2.amazonaws.com/images/mbmc/heroFood.png"
+                        alt="food images"
+                        className={classes.block1Image}
+                    />
+                    <img src="https://sytbuildr.s3.eu-west-2.amazonaws.com/images/mbmc/clipped1.svg" alt="Image Overlay" className={classes.block1Overlay} />
+                </div>
             </div>
         </div>
     );

@@ -1,4 +1,3 @@
-import { BlockCta } from "templates/mbmc/types";
 export declare type NavProps = {
     mode?: "view" | "edit";
     handleClick?: (route: string) => void;
@@ -14,7 +13,13 @@ export declare type NavProps = {
             url: string;
         };
     }[];
-    ctas?: BlockCta[];
+    icons?: {
+        url?: string;
+    }[];
+    buttons?: {
+        text: string;
+        url: string;
+    }[];
     socials?: {
         type: "FACEBOOK" | "TWITTER";
         url: string;

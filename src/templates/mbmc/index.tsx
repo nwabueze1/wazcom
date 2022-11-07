@@ -1,7 +1,6 @@
 import { BsArrowRight } from "react-icons/bs";
 import { MbmcBlock1 } from "./blocks/MbmcBlock1/MbmcBlock1";
 import { MbmcBlock3 } from "./blocks/MbmcBlock3/MbmcBlock3";
-import { MbmcBlock2 } from "./blocks/MbmcBlock2/MbmcBlock2";
 import { MbmcBlock4 } from "./blocks/MbmcBlock4/MbmcBlock4";
 import { MbmcBlock5 } from "./blocks/MbmcBlock5/MbmcBlock5";
 import { MbmcBlock6 } from "./blocks/MbmcBlock6/MbmcBlock6";
@@ -17,6 +16,8 @@ import { useMbmbcStyles } from "./styles";
 import { FiShoppingCart } from "react-icons/fi";
 import { MbmcBlock14 } from "./blocks/MbmcBlock14/MbmcBlock14";
 import { MbmcBlock15 } from "./blocks/MbmcBlock15/MbmcBlock15";
+import { createApolloClient } from "helpers/graphQL";
+import { MbmcBlock61 } from "./blocks/MbmcBlock6-1";
 
 export const useGetMbmcBlocks = () => {
     const classes = useMbmbcStyles();
@@ -44,25 +45,79 @@ export const useGetMbmcBlocks = () => {
         },
         {
             name: "mbmc-block-2",
-            component: MbmcBlock2,
-            props: { style: "mbmc" },
+            component: MbmcBlock1,
+            props: {
+                style: "mbmc",
+                heading: "Our Menu",
+            },
         },
         {
             name: "mbmc-block-3",
             component: MbmcBlock3,
-            props: { style: "mbmc" },
+            props: {
+                style: "mbmc",
+                heading: "Food is an important part of a balanced diet",
+                description: `Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy
+                    eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam
+                    voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet
+                    clita kasd.
+                    elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna
+                    aliquyam erat, sed diam voluptua. At vero eo…`,
+                ctas: [
+                    {
+                        text: "Learn more",
+                    },
+                ],
+            },
         },
         {
             name: "mbmc-block-4",
             component: MbmcBlock4,
-            props: { style: "mbmc" },
+            props: {
+                style: "mbmc",
+                heading: "Our Premium Services",
+                description: `Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed
+            diam nonumy eirmod tempor invidunt ut labore et dolore a….`,
+                cards: [
+                    {
+                        heading: "Baking",
+                        description:
+                            "Lorem ips um dolor sit amet, consetetur sadipscin g elitr, sed diam nonumy eirmod.",
+                        image: "https://sytbuildr.s3.eu-west-2.amazonaws.com/zdpk0U95fFJNVodRZxpIYk6hMIJYReitDX4R7RX4.png",
+                    },
+                    {
+                        heading: "Private Dining",
+                        description:
+                            "Lorem ips um dolor sit amet, consetetur sadipscin g elitr, sed diam nonumy eirmod.",
+                        image: "https://sytbuildr.s3.eu-west-2.amazonaws.com/zdpk0U95fFJNVodRZxpIYk6hMIJYReitDX4R7RX4.png",
+                    },
+                    {
+                        heading: "Cocktail & Mocktail",
+                        description:
+                            "Lorem ips um dolor sit amet, consetetur sadipscin g elitr, sed diam nonumy eirmod.",
+                        image: "https://sytbuildr.s3.eu-west-2.amazonaws.com/zdpk0U95fFJNVodRZxpIYk6hMIJYReitDX4R7RX4.png",
+                    },
+                ],
+            },
         },
         {
             name: "mbmc-block-5",
             component: MbmcBlock5,
             props: {
                 style: "mbmc",
-                logo: "https://sytbuildr.s3.eu-west-2.amazonaws.com/images/mbmc/chefLogo.svg",
+                logo: {
+                    src: "https://sytbuildr.s3.eu-west-2.amazonaws.com/images/mbmc/chefLogo.svg",
+                    text: "",
+                    url: "#",
+                },
+                // logo: "https://sytbuildr.s3.eu-west-2.amazonaws.com/images/mbmc/chefLogo.svg",
+                // socialIcons : {
+                //     FACEBOOK: <FaFacebookSquare className={classes.footerSocialIcon} />,
+                //     TWITTER: <BsTwitter className={classes.footerSocialIcon} />,
+                //     LINKEDIN: <BsLinkedin className={classes.footerSocialIcon} />,
+                //     YOUTUBE: <ImYoutube className={classes.footerSocialIcon} />,
+                //     INSTAGRAM: <ImInstagram className={classes.footerSocialIcon} />,
+                // }
                 sections: [
                     {
                         heading: "Company",
@@ -125,12 +180,93 @@ export const useGetMbmcBlocks = () => {
                         ],
                     },
                 ],
+                links: [
+                    {
+                        name: "Company",
+                        links: [
+                            {
+                                text: "About us",
+                                url: "#",
+                            },
+                            {
+                                text: "Our menu",
+                                url: "#",
+                            },
+                            {
+                                text: "Delivery services",
+                                url: "#",
+                            },
+                        ],
+                    },
+                    {
+                        name: "Services",
+                        links: [
+                            {
+                                text: "Baking",
+                                url: "#",
+                            },
+                            {
+                                text: "Private dining",
+                                url: "#",
+                            },
+                            {
+                                text: "Mocktail and cocktail",
+                                url: "#",
+                            },
+                        ],
+                    },
+                    {
+                        name: "Contact us:",
+                        links: [
+                            {
+                                text: "+44444444444",
+                                url: "#",
+                            },
+                            {
+                                text: "johndoe@wazobia.tech",
+                                url: "#",
+                            },
+                            {
+                                text: "1 Ave, Kent, United Kingdom",
+                                url: "#",
+                            },
+                        ],
+                    },
+                    {
+                        name: "Connect with us",
+                        links: [
+                            {
+                                text: "@mrbakerandmrscook",
+                                url: "#",
+                            },
+                        ],
+                    },
+                ],
             },
         },
         {
             name: "mbmc-block-6",
             component: MbmcBlock6,
-            props: { style: "mbmc" },
+            props: {
+                style: "mbmc",
+                heading: "Explore Our Menu",
+                description: `Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed 
+                diam nonumy eirmod tempor invidunt ut labore et dolore a….`,
+                client: createApolloClient("https://ofambegbe-ambrosia.wazobia.uk/graphql"),
+                menu_uuid: "5a8b64b3-2fe7-4204-b23a-87dd6539d311",
+            },
+        },
+        {
+            name: "mbmc-block-61",
+            component: MbmcBlock61,
+            props: {
+                style: "mbmc",
+                heading: "Explore Our Best Menu",
+                description: `Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed 
+                diam nonumy eirmod tempor invidunt ut labore et dolore a….`,
+                client: createApolloClient("https://ofambegbe-ambrosia.wazobia.uk/graphql"),
+                menu_uuid: "5a8b64b3-2fe7-4204-b23a-87dd6539d311",
+            },
         },
         {
             name: "mbmc-block-7",
@@ -273,14 +409,19 @@ export const useGetMbmcBlocks = () => {
                     "If you’d like to talk please call or email us, you can also use the form to get in touch. We’ll get back in touch within 24hrs",
                 ctas: [
                     {
-                        type: "SECONDARY",
                         text: "Call us",
+                        type: "SECONDARY",
+                        size: "sm",
+                        className: classes.mbmc12Button,
                     },
                     {
-                        type: "PRIMARY",
                         text: "Email us",
+                        size: "sm",
+                        className: classes.mbmc12Button,
                     },
                 ],
+                handleSend: (name, email, phoneNo, message) =>
+                    console.log(name, email, phoneNo, message),
             },
         },
         {

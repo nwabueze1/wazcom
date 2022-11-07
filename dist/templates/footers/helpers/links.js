@@ -21,16 +21,16 @@ export var displaySections = function (mode, classes, sections, activeElement, h
                         clickAction(sectionId, mode, function () {
                             handleClick(sectionId);
                         });
-                    } }, { children: name }), void 0), links.map(function (_a, index) {
-                    var text = _a.text, url = _a.url;
-                    var linkId = sectionId + ".links." + String(index);
-                    return isNotRenderAnchor(url, mode) ? (_jsx("p", __assign({ className: clx(classes.footerSectionLink, activeElement === linkId && classes.activeElement), onClick: function (e) {
-                            e.stopPropagation();
-                            clickAction(url, mode, function () {
-                                handleClick(mode === "view" ? url : linkId);
-                            });
-                        } }, { children: text }), index)) : (_jsx("a", __assign({ href: url, className: classes.footerSectionLink }, { children: text }), index));
-                })] }), index));
+                    } }, { children: name }), void 0), _jsx("div", __assign({ className: classes.footerLinks }, { children: links.map(function (_a, index) {
+                        var text = _a.text, url = _a.url;
+                        var linkId = sectionId + ".links." + String(index);
+                        return isNotRenderAnchor(url, mode) ? (_jsx("p", __assign({ className: clx(classes.footerSectionLink, activeElement === linkId && classes.activeElement), onClick: function (e) {
+                                e.stopPropagation();
+                                clickAction(url, mode, function () {
+                                    handleClick(mode === "view" ? url : linkId);
+                                });
+                            } }, { children: text }), index)) : (_jsx("a", __assign({ href: url, className: classes.footerSectionLink }, { children: text }), index));
+                    }) }), void 0)] }), index));
     });
 };
 export var displayLinks = function (mode, classes, links, activeElement, handleClick, step) {

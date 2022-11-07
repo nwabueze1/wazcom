@@ -1,14 +1,17 @@
 import { MbmcBlock1Props } from "./blocks/MbmcBlock1/types";
 import { MbmcBlock10Props } from "./blocks/MbmcBlock10/types";
 import { MbmcBlock11Props } from "./blocks/MbmcBlock11/types";
-import { MbmcBlock12Props } from "./blocks/MbmcBlock12/types";
 import { MbmcBlock13Props } from "./blocks/MbmcBlock13/types";
 import { MbmcBlock15Props } from "./blocks/MbmcBlock15/types";
 import { MbmcBlock2Props } from "./blocks/MbmcBlock2/types";
 import { MbmcBlock5Props } from "./blocks/MbmcBlock5/types";
+import { MbmcBlock6Props } from "./blocks/MbmcBlock6/types";
 import { MbmcBlock7Props } from "./blocks/MbmcBlock7/types";
 import { MbmcBlock8Props } from "./blocks/MbmcBlock8/types";
 import { MbmcBlock9Props } from "./blocks/MbmcBlock9/types";
+import { MbmcBlock12Props } from "./blocks/MbmcBlock12/types";
+import { MbmcBlock3Props } from "./blocks/MbmcBlock3/types";
+import { MbmcBlock4Props } from "./blocks/MbmcBlock4/types";
 
 export type BlockStyle = "mbmc";
 
@@ -21,10 +24,13 @@ export type BlockCta = {
     styleProps?: { [key: string]: string | number };
     rIcon?: JSX.Element;
     lIcon?: JSX.Element;
+    className?: string;
+    size?: "sm" | "md" | "lg";
 };
 
 export type MbmcCommonProps = {
     style?: BlockStyle;
+    styleProps?: { [key: string]: string | number };
     index?: number;
     mode?: "view" | "edit";
     handleClick?: (route: string) => void;
@@ -39,7 +45,10 @@ type Mmbc1Block = {
     props:
         | MbmcBlock1Props
         | MbmcBlock2Props
+        | MbmcBlock3Props
+        | MbmcBlock4Props
         | MbmcBlock5Props
+        | MbmcBlock6Props
         | MbmcBlock7Props
         | MbmcBlock8Props
         | MbmcBlock9Props

@@ -2,7 +2,7 @@ import { TextareaAutosizeProps } from "@mui/base";
 import { CommonProps } from "../../types";
 
 export type TextAreaProps = CommonProps &
-    TextareaAutosizeProps & {
+    Omit<TextareaAutosizeProps, "onChange"> & {
         label?: string;
         error?: boolean;
     };
