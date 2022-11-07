@@ -3,164 +3,120 @@ import { makeStyles } from "@mui/styles";
 
 export const useMbmcBlock3Styles = makeStyles((theme: Theme) => ({
     root: {
-        width: "calc(100% - 128px)",
-        backgroundColor: theme.design.colors.waz_white,
         position: "relative",
+        overflow:'hidden',
+    },
+    block3Container: {
+        position: 'relative',
+        maxWidth: 1240,
+        width: "90%",
+        margin: "0 auto",
         display: "flex",
-        alignItems: "flex-start",
-        padding: theme.spacing(0, 8),
-        border: "1px solid red",
+        alignItems: "center",
+        zIndex: 10,
+    },
+    block3ImageContainer: {
+        width: '50%',
 
-        [theme.breakpoints.down("sm")]: {
-            padding: theme.spacing(5, 0),
-            width: "100%",
-            height: "100%",
-            overflow: "visible",
+        [theme.breakpoints.down("lg")]: {
+            display: 'none',
         },
     },
-    headerContent: {
-        position: "absolute",
-        width: "50%",
-        right: 0,
-        marginTop: "5%",
+    block3Image: {
+        width: '95%',
+        position: 'relative',
+        top: 60,
+        objectFit: 'cover',
+    },
+    block3Content: {
+        position: 'relative',
+        top: '-10vh',
+        width: '50%',
 
-        [theme.breakpoints.down("md")]: {
-            width: "45%",
+        [theme.breakpoints.down("lg")]: {
+            width: '100%',
+            top: 0,
+            paddingTop: theme.spacing(5),
         },
+
         [theme.breakpoints.down("sm")]: {
-            marginTop: 0,
-            position: "relative",
-            width: "100%",
-            display: "flex",
-            alignItems: "flex-start",
-            justifyContent: "flex-start",
-            flexDirection: "column",
+            width: '100%',
+            top: 0,
+            paddingTop: theme.spacing(7),
         },
     },
-    headerTitle: {
+    block3Heading: {
         color: theme.design.colors.waz_primaryColor300,
         fontSize: theme.typography.fontSize * 4,
         letterSpacing: 0,
-        textTransform: "capitalize",
-        font: "normal normal medium 68px/100px Losta Masta;",
         margin: 0,
-        marginTop: theme.spacing(6),
         fontFamily: theme.design.font.lostaMasta,
-        width: "90%",
+        width: '90%',
+        marginBottom: theme.spacing(2),
 
-        [theme.breakpoints.down(1450)]: {
-            fontSize: theme.typography.fontSize * 4,
-        },
         [theme.breakpoints.down("lg")]: {
-            marginTop: theme.spacing(3),
             fontSize: theme.typography.fontSize * 3,
+            width: '100%',
+            marginBottom: theme.spacing(5),
         },
+
         [theme.breakpoints.down("md")]: {
-            width: "100%",
-            fontSize: theme.typography.fontSize * 2,
+            fontSize: theme.typography.fontSize * 3,
+            width: '100%',
+            marginBottom: theme.spacing(4),
         },
+
         [theme.breakpoints.down("sm")]: {
-            width: "fit-content",
-            textAlign: "left",
             fontSize: theme.typography.fontSize * 2,
-            fontWeight: 800,
-            marginBottom: theme.spacing(3),
-            padding: theme.spacing(0, 2),
+            textTransform: 'capitalize',
         },
     },
-    headerDescription: {
+    block3ContentImageContainer: {
+        position: 'relative',
+        display: 'flex',
+        justifyContent: 'center',
+
+        [theme.breakpoints.up("lg")]: {
+            display: 'none',
+        },
+
+        "& img.hero": {
+            position: 'relative',
+            zIndex: 10,
+            width: '70%',
+        },
+
+        "& img.overlay": {
+            position: 'absolute',
+            top: 0,
+            left: '-10vw',
+            width: '60%',
+        }
+    },
+    block3Description: {
         color: theme.design.colors.waz_greyColor600,
-        fontSize: theme.typography.fontSize + 6,
-        width: "80%",
+        fontSize: theme.typography.fontSize + 4,
         fontFamily: theme.design.font.montserrat,
+        lineHeight: 1.5,
+        width: '90%',
+        marginBottom: theme.spacing(2.5),
 
         [theme.breakpoints.down("lg")]: {
-            fontSize: theme.typography.fontSize + 6,
-        },
-        [theme.breakpoints.down("md")]: {
-            fontSize: theme.typography.fontSize + 4,
-        },
-        [theme.breakpoints.down("sm")]: {
-            padding: theme.spacing(2),
-            width: "fit-content",
-            fontSize: theme.typography.fontSize + 4,
-            textAlign: "left",
+            width: '100%',
+            margin: theme.spacing(2.5, 0),
         },
     },
-    heroContainer: {
-        height: "100vh",
-        width: "65%",
-        position: "relative",
-        left: 0,
-        backgroundImage: `url(https://sytbuildr.s3.eu-west-2.amazonaws.com/images/mbmc/clippedbackground2.svg)`,
-        backgroundSize: "99%",
-        backgroundPosition: "center",
-        backgroundRepeat: "no-repeat",
-        display: "flex",
-        alignItems: "center",
-        marginLeft: theme.spacing(-40),
+    block3Ctas: {
+        display: 'flex',
+        gap: theme.spacing(1.5),
+    },
+    block3ImageOverlay: {
+        position: 'absolute',
+        top: '-24vh',
+        left: '-20vw',
 
-        [theme.breakpoints.down("md")]: {
-            width: "60%",
-            marginLeft: theme.spacing(-18),
-        },
-        [theme.breakpoints.down("sm")]: {
-            display: "none",
-        },
-    },
-    heroContainerMobile: {
-        marginTop: theme.spacing(8),
-        width: "100%",
-        backgroundImage: `url(https://sytbuildr.s3.eu-west-2.amazonaws.com/images/mbmc/hero1mobile.svg)`,
-        backgroundSize: "105%",
-        backgroundRepeat: "no-repeat",
-        display: "none",
-        alignItems: "center",
-
-        [theme.breakpoints.down("sm")]: {
-            display: "flex",
-        },
-    },
-    heroImageMobile: {
-        width: "90%",
-        marginTop: theme.spacing(-10),
-    },
-    heroImage: {
-        width: "80%",
-        height: "100%",
-        position: "absolute",
-        bottom: 0,
-        right: 0,
-        marginBottom: theme.spacing(-10),
-        marginRight: theme.spacing(-18),
-        [theme.breakpoints.down(1450)]: {
-            width: "80%",
-            height: "100%",
-        },
         [theme.breakpoints.down("lg")]: {
-            marginTop: theme.spacing(10),
+            display: 'none',
         },
-        [theme.breakpoints.down("md")]: {
-            marginRight: theme.spacing(-10),
-        },
-    },
-    headerParagraph: {
-        "& > p": {
-            margin: theme.spacing(2, 0),
-        },
-    },
-    headerBtnContainer: {
-        display: "flex",
-        margin: theme.spacing(2, 0),
-        [theme.breakpoints.down("sm")]: {
-            padding: theme.spacing(0, 2),
-            margin: theme.spacing(0),
-        },
-    },
-    headerIcon: {
-        marginLeft: theme.spacing(1),
-        [theme.breakpoints.down("sm")]: {
-            display: "none",
-        },
-    },
+    }
 }));

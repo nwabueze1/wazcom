@@ -4,26 +4,34 @@ import { FC } from "react";
 import { MbmcBlock12Props } from "./types";
 import { TextArea, TextInput } from "io";
 
-export const MbmcBlock12: FC<MbmcBlock12Props> = ({ style, layout }) => {
+export const MbmcBlock12: FC<MbmcBlock12Props> = ({
+    style,
+    layout,
+    heading,
+    description,
+    ctas,
+}) => {
     const classes = useMbmcBlock12Styles({ flexDirection: layout ?? "row" });
+
+    const displayCtas = () => {
+        return (ctas ?? []).map(({ text, rIcon, lIcon, ...props }, index) => (
+            <div className={classes.btnParent} key={index}>
+                <MbmcButton {...props}>
+                    {lIcon} {text} {rIcon}
+                </MbmcButton>
+            </div>
+        ));
+    };
 
     return (
         <div className={classes.root}>
             <div className={classes.container}>
                 <div className={classes.headerContent}>
-                    <h3 className={classes.headerTitle}>We Are Available To Get Your Order</h3>
+                    <h3 className={classes.headerTitle}>{heading}</h3>
                     <div className={classes.headerParagraph}>
-                        <p className={classes.headerDescription}>
-                            If you’d like to talk please call or email us, you can also use the form
-                            to get in touch. We’ll get back in touch within 24hrs
-                        </p>
+                        <p className={classes.headerDescription}>{description}</p>
                     </div>
-                    <div className={classes.headerBtnContainer}>
-                        <MbmcButton className={classes.button}>Call us</MbmcButton>
-                        <MbmcButton className={classes.button} bgColor="#F25430">
-                            Email us
-                        </MbmcButton>
-                    </div>
+                    <div className={classes.headerBtnContainer}>{displayCtas()}</div>
                 </div>
                 <div className={classes.demarcationContainer}>
                     <span className={classes.demarcation}>OR</span>
@@ -31,21 +39,32 @@ export const MbmcBlock12: FC<MbmcBlock12Props> = ({ style, layout }) => {
 
                 <div className={classes.formContainer}>
                     <form action="" className={classes.form}>
-                        <TextInput placeholder="Name" classNames={{ textInput: classes.input }} />
+                        <TextInput
+                            placeholder="Name"
+                            className={classes.formInput}
+                            classNames={{ textInput: classes.formTextInput }}
+                        />
                         <TextInput
                             placeholder="Email address"
-                            classNames={{ textInput: classes.input }}
+                            type="email"
+                            className={classes.formInput}
+                            classNames={{ textInput: classes.formTextInput }}
                         />
                         <TextInput
                             placeholder="Phone number"
-                            classNames={{ textInput: classes.input }}
+                            type="phone"
+                            className={classes.formInput}
+                            classNames={{ textInput: classes.formTextInput }}
                         />
                         <TextArea
                             placeholder="Send a message"
-                            classNames={{ textArea: classes.textArea }}
+                            className={classes.formInput}
+                            classNames={{ textArea: classes.formTextArea }}
                             minRows={12}
                         />
-                        <MbmcButton className={classes.button}>Send</MbmcButton>
+                        <MbmcButton className={classes.formButton} size="sm" type="SECONDARY">
+                            Send
+                        </MbmcButton>
                     </form>
                 </div>
             </div>
