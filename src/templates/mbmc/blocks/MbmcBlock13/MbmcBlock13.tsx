@@ -4,11 +4,26 @@ import { MbmcBlock13Props } from "./types";
 import { AiOutlineMenu } from "react-icons/ai";
 import { IoMdClose } from "react-icons/io";
 import { renderNavLink } from "templates/Navs/helpers";
+import clx from "classnames";
 
-export const MbmcBlock13: FC<MbmcBlock13Props> = ({ mode = "view", logo, links, ctas, icons }) => {
+export const MbmcBlock13: FC<MbmcBlock13Props> = ({
+    mode = "view",
+    logo,
+    links,
+    handleClick,
+    ctas,
+    icons,
+}) => {
     const classes = useMbmcBlock13Styles();
     const [openMenu, setOpenMenu] = useState<boolean>(false);
     const [activeElement, setActiveElement] = useState("");
+
+    const handleNavClick = () => {
+        if (mode === "edit") {
+            setActiveElement("nav");
+            handleClick?.("nav");
+        }
+    };
 
     const handleOpenMenu = () => {
         setOpenMenu(true);
@@ -31,7 +46,15 @@ export const MbmcBlock13: FC<MbmcBlock13Props> = ({ mode = "view", logo, links, 
     return (
         <>
             {!openMenu && (
-                <div className={classes.root}>
+                <div
+                    className={clx(
+                        classes.root,
+                        activeElement.toLowerCase() === "nav" &&
+                            mode === "edit" &&
+                            classes.activeElement,
+                    )}
+                    onClick={handleNavClick}
+                >
                     <div className={classes.logoContainer}>
                         <a href={logo?.url}>
                             <img src={logo?.desktopSrc} alt="" className={classes.logo} />

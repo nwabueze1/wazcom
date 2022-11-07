@@ -23,6 +23,10 @@ export const useMbmcBlock13Styles = makeStyles((theme: Theme) => ({
             height: "fit-content",
         },
     },
+    activeElement: {
+        border: "1px dashed",
+        borderColor: theme.design.colors.waz_primaryColor100,
+    },
     logoContainer: {
         width: "fit-content",
         display: "flex",
