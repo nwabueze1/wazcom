@@ -12,6 +12,7 @@ import { MbmcBlock9Props } from "./blocks/MbmcBlock9/types";
 import { MbmcBlock12Props } from "./blocks/MbmcBlock12/types";
 import { MbmcBlock3Props } from "./blocks/MbmcBlock3/types";
 import { MbmcBlock4Props } from "./blocks/MbmcBlock4/types";
+import { MbmcBlock61Props } from "./blocks/MbmcBlock6-1";
 
 export type BlockStyle = "mbmc";
 
@@ -49,6 +50,7 @@ type Mmbc1Block = {
         | MbmcBlock4Props
         | MbmcBlock5Props
         | MbmcBlock6Props
+        | MbmcBlock61Props
         | MbmcBlock7Props
         | MbmcBlock8Props
         | MbmcBlock9Props

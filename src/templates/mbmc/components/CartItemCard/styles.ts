@@ -18,6 +18,7 @@ export const useCartItemCardStyles = makeStyles((theme: Theme) => ({
     },
     imgContainer: {
         width: "31%",
+        height: "118px",
         [theme.breakpoints.down("md")]: {
             width: "35%",
         },

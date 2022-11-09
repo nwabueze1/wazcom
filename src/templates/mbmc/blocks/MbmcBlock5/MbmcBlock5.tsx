@@ -6,7 +6,7 @@ import { displayLogo, displaySections, displaySocials } from "templates/footers/
 import { TFooterSection } from "templates/footers/types";
 import clx from "classnames";
 
-export const MbmcBlock5: FC<MbmcBlock5Props> = ({ mode, logo, sections, handleClick, links }) => {
+export const MbmcBlock5: FC<MbmcBlock5Props> = ({ mode, logo, handleClick, links }) => {
     const [activeElement, setActiveElement] = useState("");
     const classes = useMbmcBlock5Styles();
 

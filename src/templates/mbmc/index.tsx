@@ -110,76 +110,6 @@ export const useGetMbmcBlocks = () => {
                     text: "",
                     url: "#",
                 },
-                // logo: "https://sytbuildr.s3.eu-west-2.amazonaws.com/images/mbmc/chefLogo.svg",
-                // socialIcons : {
-                //     FACEBOOK: <FaFacebookSquare className={classes.footerSocialIcon} />,
-                //     TWITTER: <BsTwitter className={classes.footerSocialIcon} />,
-                //     LINKEDIN: <BsLinkedin className={classes.footerSocialIcon} />,
-                //     YOUTUBE: <ImYoutube className={classes.footerSocialIcon} />,
-                //     INSTAGRAM: <ImInstagram className={classes.footerSocialIcon} />,
-                // }
-                sections: [
-                    {
-                        heading: "Company",
-                        links: [
-                            {
-                                heading: "About us",
-                                url: "#",
-                            },
-                            {
-                                heading: "Our menu",
-                                url: "#",
-                            },
-                            {
-                                heading: "Delivery services",
-                                url: "#",
-                            },
-                        ],
-                    },
-                    {
-                        heading: "Services",
-                        links: [
-                            {
-                                heading: "Baking",
-                                url: "#",
-                            },
-                            {
-                                heading: "Private dining",
-                                url: "#",
-                            },
-                            {
-                                heading: "Mocktail and cocktail",
-                                url: "#",
-                            },
-                        ],
-                    },
-                    {
-                        heading: "Contact us:",
-                        links: [
-                            {
-                                heading: "+44444444444",
-                                url: "#",
-                            },
-                            {
-                                heading: "johndoe@wazobia.tech",
-                                url: "#",
-                            },
-                            {
-                                heading: "1 Ave, Kent, United Kingdom",
-                                url: "#",
-                            },
-                        ],
-                    },
-                    {
-                        heading: "Connect with us",
-                        links: [
-                            {
-                                heading: "@mrbakerandmrscook",
-                                url: "#",
-                            },
-                        ],
-                    },
-                ],
                 links: [
                     {
                         name: "Company",
@@ -265,7 +195,8 @@ export const useGetMbmcBlocks = () => {
                 description: `Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed 
                 diam nonumy eirmod tempor invidunt ut labore et dolore a….`,
                 client: createApolloClient("https://ofambegbe-ambrosia.wazobia.uk/graphql"),
-                menu_uuid: "5a8b64b3-2fe7-4204-b23a-87dd6539d311",
+                menu_uuid: "80318466-810f-4456-b923-da8902545d19",
+                site_uuid: "",
             },
         },
         {

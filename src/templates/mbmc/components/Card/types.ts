@@ -8,4 +8,5 @@ export type CardProps = {
     scrollableParent?: boolean;
     className?: string;
     classNames?: { [key: string]: string };
+    onClick?: () => void;
 };

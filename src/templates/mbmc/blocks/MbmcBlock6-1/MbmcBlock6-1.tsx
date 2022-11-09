@@ -5,12 +5,26 @@ import { useMbmcBlock61Styles } from "./styles";
 import { GET_MENU_BY_UUID } from "./graphql";
 import clx from "classnames";
 import { Card } from "templates/mbmc/components/Card";
+import { Modal } from "core";
+import MbmcBlock16 from "../MbmcBlock16/MbmcBlock16";
+import { getCurrency } from "utilities";
 
-export const MbmcBlock61: FC<MbmcBlock61Props> = ({ heading, description, client, menu_uuid }) => {
+export const MbmcBlock61: FC<MbmcBlock61Props> = ({
+    heading,
+    description,
+    client,
+    menu_uuid,
+    site_uuid,
+}) => {
     const classes = useMbmcBlock61Styles();
     const [categories, setCategories] = useState<TMenuCategory[]>([]);
     const [activeCategory, setActiveCategory] = useState<TMenuCategory>();
     const [items, setItems] = useState<TMenuItem[]>([]);
+    const [optionsConfig, setOptionsConfig] = useState<{ [key: string]: any }[]>([]);
+    const [currency, setCurrency] = useState<string>("");
+    const [activeMenu, setActiveMenu] = useState<number | undefined>();
+    const [openModal, setOpenModal] = useState<boolean>(false);
+
     const categoryItems = useMemo(
         () =>
             items.filter(
@@ -21,14 +35,30 @@ export const MbmcBlock61: FC<MbmcBlock61Props> = ({ heading, description, client
 
     const { data, error } = useQuery(GET_MENU_BY_UUID, { client, variables: { uuid: menu_uuid } });
 
+    const handleOpenModal = (id?: number) => {
+        setActiveMenu(id);
+        setOpenModal(true);
+    };
+
+    const handleCloseModal = () => {
+        setOpenModal(false);
+    };
+
     useEffect(() => {
         if (data) {
             const {
-                menu: { activeMenuCategories: categories, activeMenuItems: items },
+                menu: {
+                    activeMenuCategories: categories,
+                    activeMenuItems: items,
+                    options_config,
+                    restaurant,
+                },
             } = data;
 
             setCategories(categories);
             setItems(items);
+            setOptionsConfig(options_config);
+            setCurrency(restaurant.bank_info.currency);
             categories.length > 0 && setActiveCategory(categories[0]);
         }
 
@@ -60,12 +90,17 @@ export const MbmcBlock61: FC<MbmcBlock61Props> = ({ heading, description, client
                 key={index}
                 heading={
                     <div className={classes.block61ItemHeading}>
-                        <p>{name}</p> <p className={classes.block61ItemPrice}>{price}</p>
+                        <p>{name}</p>{" "}
+                        <p className={classes.block61ItemPrice}>
+                            {getCurrency(currency)}
+                            {price}
+                        </p>
                     </div>
                 }
                 description={description}
                 image={image_url}
                 className={classes.block61Item}
+                onClick={() => handleOpenModal(index)}
             />
         ));
 
@@ -74,18 +109,36 @@ export const MbmcBlock61: FC<MbmcBlock61Props> = ({ heading, description, client
     };
 
     return (
-        <div className={classes.root}>
-            <div className={classes.block61Container}>
-                <h3 className={classes.block61Title}>{heading}</h3>
-                <p className={classes.block61Description}>{description}</p>
+        <>
+            <div className={classes.root}>
+                <div className={classes.block61Container}>
+                    <h3 className={classes.block61Title}>{heading}</h3>
+                    <p className={classes.block61Description}>{description}</p>
 
-                {categoryItems.length > 0 && (
-                    <>
-                        <div className={classes.block61Categories}>{displayCategories()}</div>
-                        <div className={classes.block61Items}>{displayItems()}</div>
-                    </>
-                )}
+                    {categoryItems.length > 0 && (
+                        <>
+                            <div className={classes.block61Categories}>{displayCategories()}</div>
+                            <div className={classes.block61Items}>{displayItems()}</div>
+                        </>
+                    )}
+                </div>
             </div>
-        </div>
+            <Modal open={openModal} handleClose={handleCloseModal}>
+                <div className={classes.modalContent}>
+                    <MbmcBlock16
+                        name={categoryItems?.[activeMenu as number]?.name}
+                        description={categoryItems?.[activeMenu as number]?.description}
+                        price={categoryItems?.[activeMenu as number]?.price}
+                        image={categoryItems?.[activeMenu as number]?.image_url}
+                        currency={currency}
+                        options={categoryItems?.[activeMenu as number]?.options}
+                        optionsConfig={optionsConfig}
+                        siteUuid={site_uuid}
+                        menuItemUuid={menu_uuid}
+                        client={client}
+                    />
+                </div>
+            </Modal>
+        </>
     );
 };

@@ -49,7 +49,6 @@ export const MbmcBlock14: React.FC = () => {
     };
 
     const handleNextStep = () => {
-        console.log("first");
         setCheckoutStep((prev) => {
             const activeStep = prev.slice(-1)[0];
 
@@ -93,7 +92,7 @@ export const MbmcBlock14: React.FC = () => {
             );
         });
     };
-    console.log("currentStep", currentStep, checkoutStep);
+
     return (
         <div className={classes.root}>
             <div className={`${classes.leftSection} ${isSummary && classes.hideCart}`}>
