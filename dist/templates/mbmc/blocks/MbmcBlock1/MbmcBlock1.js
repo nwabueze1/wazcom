@@ -23,7 +23,7 @@ var __rest = (this && this.__rest) || function (s, e) {
 import { jsxs as _jsxs, jsx as _jsx } from "react/jsx-runtime";
 import { useMbmcBlock1Styles } from "./styles";
 import { MbmcButton } from "../../components/MbmcButton/MbmcButton";
-import { renderStyle, parseHtml } from "utilities/renderStyle";
+import { renderStyle, parseHtml } from "../../../../utilities/renderStyle";
 export var MbmcBlock1 = function (_a) {
     var _b = _a.style, style = _b === void 0 ? "mbmc" : _b, heading = _a.heading, description = _a.description, ctas = _a.ctas, _c = _a.fullHeight, fullHeight = _c === void 0 ? true : _c;
     var classes = useMbmcBlock1Styles({ fullHeight: fullHeight });

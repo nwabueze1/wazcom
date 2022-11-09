@@ -2,9 +2,15 @@ import { useMbmcBlock1Styles } from "./styles";
 import { MbmcButton } from "../../components/MbmcButton/MbmcButton";
 import { FC } from "react";
 import { MbmcBlock1Props } from "./types";
-import { renderStyle, parseHtml } from "utilities/renderStyle";
+import { renderStyle, parseHtml } from "../../../../utilities/renderStyle";
 
-export const MbmcBlock1: FC<MbmcBlock1Props> = ({ style = "mbmc", heading, description, ctas, fullHeight = true }) => {
+export const MbmcBlock1: FC<MbmcBlock1Props> = ({
+    style = "mbmc",
+    heading,
+    description,
+    ctas,
+    fullHeight = true,
+}) => {
     const classes = useMbmcBlock1Styles({ fullHeight });
 
     const displayCtas = () => {
@@ -32,7 +38,11 @@ export const MbmcBlock1: FC<MbmcBlock1Props> = ({ style = "mbmc", heading, descr
                         alt="food images"
                         className={classes.block1ImageMobile}
                     />
-                    <img src="https://sytbuildr.s3.eu-west-2.amazonaws.com/images/mbmc/hero1mobile.svg" alt="Image Overlay" className={classes.block1MobileOverlay} />
+                    <img
+                        src="https://sytbuildr.s3.eu-west-2.amazonaws.com/images/mbmc/hero1mobile.svg"
+                        alt="Image Overlay"
+                        className={classes.block1MobileOverlay}
+                    />
                 </div>
                 <div className={classes.block1ImgContainer}>
                     <img
@@ -40,7 +50,11 @@ export const MbmcBlock1: FC<MbmcBlock1Props> = ({ style = "mbmc", heading, descr
                         alt="food images"
                         className={classes.block1Image}
                     />
-                    <img src="https://sytbuildr.s3.eu-west-2.amazonaws.com/images/mbmc/clipped1.svg" alt="Image Overlay" className={classes.block1Overlay} />
+                    <img
+                        src="https://sytbuildr.s3.eu-west-2.amazonaws.com/images/mbmc/clipped1.svg"
+                        alt="Image Overlay"
+                        className={classes.block1Overlay}
+                    />
                 </div>
             </div>
         </div>
