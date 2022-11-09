@@ -1,0 +1,1 @@
+export declare const useMbmcBlock7Styles: (props?: any) => import("@mui/styles").ClassNameMap<"root" | "flexGrow" | "imageContainer" | "headerContent" | "headerTitle" | "headerDescription" | "headerCardContainer" | "mobileCardContainer">;

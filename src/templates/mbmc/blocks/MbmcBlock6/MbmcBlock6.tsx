@@ -3,17 +3,11 @@ import { useQuery } from "@apollo/client";
 import { useMbmcBlock6Styles } from "./styles";
 import { MbmcBlock6Props } from "./types";
 import { GET_MENU_BY_UUID } from "./graphql";
-import { Card, CardProps } from "templates/mbmc/components/Card";
+import { MbmcCard, MbmcCardProps } from "templates/mbmc/components/MbmcCard";
 
-export const MbmcBlock6: FC<MbmcBlock6Props> = ({
-    style,
-    heading,
-    description,
-    client,
-    menu_uuid,
-}) => {
+export const MbmcBlock6: FC<MbmcBlock6Props> = ({ heading, description, client, menu_uuid }) => {
     const classes = useMbmcBlock6Styles();
-    const [categories, setCategories] = useState<CardProps[]>([]);
+    const [categories, setCategories] = useState<MbmcCardProps[]>([]);
     const { data, error } = useQuery(GET_MENU_BY_UUID, {
         client,
         variables: { uuid: menu_uuid },
@@ -40,7 +34,9 @@ export const MbmcBlock6: FC<MbmcBlock6Props> = ({
     }, [data, error]);
 
     const displayCategories = () =>
-        categories.map((category, index) => <Card key={index} {...category} scrollableParent={true} />);
+        categories.map((category, index) => (
+            <MbmcCard key={index} {...category} scrollableParent={true} />
+        ));
 
     return (
         <div className={classes.root}>
@@ -49,9 +45,7 @@ export const MbmcBlock6: FC<MbmcBlock6Props> = ({
                     <h3 className={classes.block6Title}>{heading}</h3>
                     <p className={classes.block6Description}>{description}</p>
                 </div>
-                <div className={classes.block6ScrollContainer}>
-                    {displayCategories()}
-                </div>
+                <div className={classes.block6ScrollContainer}>{displayCategories()}</div>
             </div>
         </div>
     );

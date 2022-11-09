@@ -361,10 +361,12 @@ export const useGetMbmcBlocks = () => {
             props: {
                 style: "mbmc",
                 logo: {
-                    desktopSrc:
-                        "https://sytbuildr.s3.eu-west-2.amazonaws.com/images/mbmc/Logo-Landscape.svg",
+                    src: {
+                        desktop:
+                            "https://sytbuildr.s3.eu-west-2.amazonaws.com/images/mbmc/Logo-Landscape.svg",
+                        mobile: "https://sytbuildr.s3.eu-west-2.amazonaws.com/images/mbmc/Logo.svg",
+                    },
                     url: "#",
-                    mobileSrc: "https://sytbuildr.s3.eu-west-2.amazonaws.com/images/mbmc/Logo.svg",
                 },
                 links: [
                     { text: "About us", url: "#" },
@@ -374,8 +376,6 @@ export const useGetMbmcBlocks = () => {
                 icons: [
                     {
                         url: "#",
-                        icon: <FiShoppingCart color="white" fontSize={20} />,
-                        badgeIcon: true,
                         badgeCount: 4,
                     },
                 ],

@@ -1,0 +1,1 @@
+export declare const useCartItemCardStyles: (props?: any) => import("@mui/styles").ClassNameMap<"root" | "content" | "title" | "deleteIcon" | "description" | "price" | "imgContainer" | "topContent" | "cartItemImg" | "priceContainer" | "quantityCountContainer" | "quantityButton" | "operationIcon" | "disable" | "bottomContent" | "deleteButton">;

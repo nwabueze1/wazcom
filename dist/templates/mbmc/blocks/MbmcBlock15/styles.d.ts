@@ -1,0 +1,1 @@
+export declare const useMbmcBlock18Styles: (props?: any) => import("@mui/styles").ClassNameMap<"root" | "step" | "lastStep" | "stepContainer" | "stepNum" | "stepName" | "activeStepName" | "activeStepNum" | "inactiveStepName" | "inactiveStepNum" | "completedStepNum" | "completedStepName" | "stepDivider">;

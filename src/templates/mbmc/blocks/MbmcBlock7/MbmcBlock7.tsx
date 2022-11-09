@@ -1,5 +1,4 @@
 import { useMbmcBlock7Styles } from "./styles";
-import { menuData } from "./data";
 import clx from "classnames";
 import { FC } from "react";
 import { MbmcBlock7Props } from "./types";

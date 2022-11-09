@@ -1,0 +1,1 @@
+export declare const useMbmcBlock6Styles: (props?: any) => import("@mui/styles").ClassNameMap<"root" | "block6Container" | "block6Content" | "block6Title" | "block6Description" | "block6ScrollContainer">;

@@ -1,14 +1,19 @@
 import { useMbmcBlock4Styles } from "./styles";
-import { Card } from "templates/mbmc/components/Card";
+import { MbmcCard } from "templates/mbmc/components/MbmcCard";
 import { FC } from "react";
 import { MbmcBlock4Props } from "./types";
 
-export const MbmcBlock4: FC<MbmcBlock4Props> = ({ style, heading, description, cards }) => {
+export const MbmcBlock4: FC<MbmcBlock4Props> = ({ heading, description, cards }) => {
     const classes = useMbmcBlock4Styles();
 
     const displayCards = () =>
         (cards ?? []).map((card, index) => (
-            <Card key={index} {...card} className={classes.block4Card} classNames={{ heading: classes.block4CardHeading }} />
+            <MbmcCard
+                key={index}
+                {...card}
+                className={classes.block4Card}
+                classNames={{ heading: classes.block4CardHeading }}
+            />
         ));
 
     return (

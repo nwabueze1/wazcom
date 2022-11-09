@@ -1,8 +1,7 @@
 import { useMbmcBlock5Styles } from "./styles";
-import { footerData } from "./data";
 import { FC, useState } from "react";
 import { MbmcBlock5Props } from "./types";
-import { displayLogo, displaySections, displaySocials } from "templates/footers/helpers";
+import { displayLogo, displaySections } from "templates/footers/helpers";
 import { TFooterSection } from "templates/footers/types";
 import clx from "classnames";
 

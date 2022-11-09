@@ -5,6 +5,7 @@ import { AiOutlineMenu } from "react-icons/ai";
 import { IoMdClose } from "react-icons/io";
 import { renderNavLink } from "templates/Navs/helpers";
 import clx from "classnames";
+import { FiShoppingCart } from "react-icons/fi";
 
 export const MbmcBlock13: FC<MbmcBlock13Props> = ({
     mode = "view",
@@ -57,8 +58,8 @@ export const MbmcBlock13: FC<MbmcBlock13Props> = ({
                 >
                     <div className={classes.logoContainer}>
                         <a href={logo?.url}>
-                            <img src={logo?.desktopSrc} alt="" className={classes.logo} />
-                            <img src={logo?.mobileSrc} alt="" className={classes.mobilelogo} />
+                            <img src={logo?.src?.desktop} alt="" className={classes.logo} />
+                            <img src={logo?.src?.mobile} alt="" className={classes.mobilelogo} />
                         </a>
                     </div>
                     <div className={classes.menuList}>{displayLinks()}</div>
@@ -66,10 +67,8 @@ export const MbmcBlock13: FC<MbmcBlock13Props> = ({
                         {icons?.map((item, idx) => {
                             return (
                                 <a href={item.url} className={classes.icon} key={idx}>
-                                    {item.icon}
-                                    {item.badgeIcon && (
-                                        <div className={classes.badgeIcon}>{item.badgeCount}</div>
-                                    )}
+                                    <FiShoppingCart color="white" fontSize={20} />
+                                    <div className={classes.badgeIcon}>{item.badgeCount}</div>
                                 </a>
                             );
                         })}
@@ -88,12 +87,9 @@ export const MbmcBlock13: FC<MbmcBlock13Props> = ({
                             {icons?.map((item, idx) => {
                                 return (
                                     <a href={item.url} className={classes.icon} key={idx}>
-                                        {item.icon}
-                                        {item.badgeIcon && (
-                                            <div className={classes.badgeIcon}>
-                                                {item.badgeCount}
-                                            </div>
-                                        )}
+                                        <FiShoppingCart color="white" fontSize={20} />
+
+                                        <div className={classes.badgeIcon}>{item.badgeCount}</div>
                                     </a>
                                 );
                             })}
@@ -107,7 +103,11 @@ export const MbmcBlock13: FC<MbmcBlock13Props> = ({
                     <div className={classes.expandedNav}>
                         <div className={classes.mobilelogoContainer}>
                             <a href={logo?.url}>
-                                <img src={logo?.mobileSrc} alt="" className={classes.mobilelogo} />
+                                <img
+                                    src={logo?.src?.mobile}
+                                    alt=""
+                                    className={classes.mobilelogo}
+                                />
                             </a>
                         </div>
 
