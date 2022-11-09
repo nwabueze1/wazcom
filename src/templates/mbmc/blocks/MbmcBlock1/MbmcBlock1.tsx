@@ -1,6 +1,6 @@
 import { useMbmcBlock1Styles } from "./styles";
 import { MbmcButton } from "../../components/MbmcButton/MbmcButton";
-import { FC } from "react";
+import { FC, useEffect, useState } from "react";
 import { MbmcBlock1Props } from "./types";
 import { renderStyle, parseHtml } from "../../../../utilities/renderStyle";
 
@@ -12,6 +12,7 @@ export const MbmcBlock1: FC<MbmcBlock1Props> = ({
     fullHeight = true,
 }) => {
     const classes = useMbmcBlock1Styles({ fullHeight });
+    const [loaded, setLoaded] = useState<boolean>(false);
 
     const displayCtas = () => {
         return (ctas ?? []).map(({ text, rIcon, lIcon, ...props }, index) => (
@@ -21,13 +22,19 @@ export const MbmcBlock1: FC<MbmcBlock1Props> = ({
         ));
     };
 
+    useEffect(() => {
+        if (typeof window !== "undefined") {
+            setLoaded(true);
+        }
+    }, []);
+
     return (
         <div className={renderStyle(style, { mbmc: classes.root })}>
             <div className={classes.block1Container}>
                 <div className={classes.block1Content}>
                     <h1
                         className={classes.block1Heading}
-                        dangerouslySetInnerHTML={{ __html: parseHtml(heading) }}
+                        dangerouslySetInnerHTML={{ __html: loaded ? parseHtml(heading) : "" }}
                     />
                     <p className={classes.block1Description}>{description}</p>
                     <div className={classes.block1BtnContainer}>{displayCtas()}</div>

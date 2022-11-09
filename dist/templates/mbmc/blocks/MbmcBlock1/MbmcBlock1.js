@@ -20,18 +20,41 @@ var __rest = (this && this.__rest) || function (s, e) {
         }
     return t;
 };
+var __read = (this && this.__read) || function (o, n) {
+    var m = typeof Symbol === "function" && o[Symbol.iterator];
+    if (!m) return o;
+    var i = m.call(o), r, ar = [], e;
+    try {
+        while ((n === void 0 || n-- > 0) && !(r = i.next()).done) ar.push(r.value);
+    }
+    catch (error) { e = { error: error }; }
+    finally {
+        try {
+            if (r && !r.done && (m = i["return"])) m.call(i);
+        }
+        finally { if (e) throw e.error; }
+    }
+    return ar;
+};
 import { jsxs as _jsxs, jsx as _jsx } from "react/jsx-runtime";
 import { useMbmcBlock1Styles } from "./styles";
 import { MbmcButton } from "../../components/MbmcButton/MbmcButton";
+import { useEffect, useState } from "react";
 import { renderStyle, parseHtml } from "../../../../utilities/renderStyle";
 export var MbmcBlock1 = function (_a) {
     var _b = _a.style, style = _b === void 0 ? "mbmc" : _b, heading = _a.heading, description = _a.description, ctas = _a.ctas, _c = _a.fullHeight, fullHeight = _c === void 0 ? true : _c;
     var classes = useMbmcBlock1Styles({ fullHeight: fullHeight });
+    var _d = __read(useState(false), 2), loaded = _d[0], setLoaded = _d[1];
     var displayCtas = function () {
         return (ctas !== null && ctas !== void 0 ? ctas : []).map(function (_a, index) {
             var text = _a.text, rIcon = _a.rIcon, lIcon = _a.lIcon, props = __rest(_a, ["text", "rIcon", "lIcon"]);
             return (_jsxs(MbmcButton, __assign({}, props, { children: [lIcon, " ", text, " ", rIcon] }), index));
         });
     };
-    return (_jsx("div", __assign({ className: renderStyle(style, { mbmc: classes.root }) }, { children: _jsxs("div", __assign({ className: classes.block1Container }, { children: [_jsxs("div", __assign({ className: classes.block1Content }, { children: [_jsx("h1", { className: classes.block1Heading, dangerouslySetInnerHTML: { __html: parseHtml(heading) } }, void 0), _jsx("p", __assign({ className: classes.block1Description }, { children: description }), void 0), _jsx("div", __assign({ className: classes.block1BtnContainer }, { children: displayCtas() }), void 0)] }), void 0), _jsxs("div", __assign({ className: classes.block1ImgContainerMobile }, { children: [_jsx("img", { src: "https://sytbuildr.s3.eu-west-2.amazonaws.com/images/mbmc/heroFood.png", alt: "food images", className: classes.block1ImageMobile }, void 0), _jsx("img", { src: "https://sytbuildr.s3.eu-west-2.amazonaws.com/images/mbmc/hero1mobile.svg", alt: "Image Overlay", className: classes.block1MobileOverlay }, void 0)] }), void 0), _jsxs("div", __assign({ className: classes.block1ImgContainer }, { children: [_jsx("img", { src: "https://sytbuildr.s3.eu-west-2.amazonaws.com/images/mbmc/heroFood.png", alt: "food images", className: classes.block1Image }, void 0), _jsx("img", { src: "https://sytbuildr.s3.eu-west-2.amazonaws.com/images/mbmc/clipped1.svg", alt: "Image Overlay", className: classes.block1Overlay }, void 0)] }), void 0)] }), void 0) }), void 0));
+    useEffect(function () {
+        if (typeof window !== "undefined") {
+            setLoaded(true);
+        }
+    }, []);
+    return (_jsx("div", __assign({ className: renderStyle(style, { mbmc: classes.root }) }, { children: _jsxs("div", __assign({ className: classes.block1Container }, { children: [_jsxs("div", __assign({ className: classes.block1Content }, { children: [_jsx("h1", { className: classes.block1Heading, dangerouslySetInnerHTML: { __html: loaded ? parseHtml(heading) : "" } }, void 0), _jsx("p", __assign({ className: classes.block1Description }, { children: description }), void 0), _jsx("div", __assign({ className: classes.block1BtnContainer }, { children: displayCtas() }), void 0)] }), void 0), _jsxs("div", __assign({ className: classes.block1ImgContainerMobile }, { children: [_jsx("img", { src: "https://sytbuildr.s3.eu-west-2.amazonaws.com/images/mbmc/heroFood.png", alt: "food images", className: classes.block1ImageMobile }, void 0), _jsx("img", { src: "https://sytbuildr.s3.eu-west-2.amazonaws.com/images/mbmc/hero1mobile.svg", alt: "Image Overlay", className: classes.block1MobileOverlay }, void 0)] }), void 0), _jsxs("div", __assign({ className: classes.block1ImgContainer }, { children: [_jsx("img", { src: "https://sytbuildr.s3.eu-west-2.amazonaws.com/images/mbmc/heroFood.png", alt: "food images", className: classes.block1Image }, void 0), _jsx("img", { src: "https://sytbuildr.s3.eu-west-2.amazonaws.com/images/mbmc/clipped1.svg", alt: "Image Overlay", className: classes.block1Overlay }, void 0)] }), void 0)] }), void 0) }), void 0));
 };
