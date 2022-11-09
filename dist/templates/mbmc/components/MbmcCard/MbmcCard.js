@@ -23,7 +23,7 @@ var __rest = (this && this.__rest) || function (s, e) {
 import { jsxs as _jsxs, jsx as _jsx, Fragment as _Fragment } from "react/jsx-runtime";
 import { useMbmcCardStyles } from "./styles";
 import clsx from "clsx";
-import { menuImagePlaceholder } from "utilities/restaurant";
+import { menuImagePlaceholder } from "../../../../utilities/restaurant";
 import { MbmcButton } from "../MbmcButton/MbmcButton";
 export var MbmcCard = function (_a) {
     var heading = _a.heading, image = _a.image, description = _a.description, ctas = _a.ctas, scrollableParent = _a.scrollableParent, className = _a.className, classNames = _a.classNames, onClick = _a.onClick;

@@ -76,8 +76,8 @@ import { jsxs as _jsxs, jsx as _jsx } from "react/jsx-runtime";
 import { useMbmcBlock12Styles } from "./styles";
 import { MbmcButton } from "../../components/MbmcButton/MbmcButton";
 import { useState } from "react";
-import { TextArea, TextInput } from "io";
-import { Loader } from "core";
+import { TextArea, TextInput } from "../../../../io";
+import { Loader } from "../../../../core";
 export var MbmcBlock12 = function (_a) {
     var layout = _a.layout, heading = _a.heading, description = _a.description, ctas = _a.ctas, handleSend = _a.handleSend;
     var classes = useMbmcBlock12Styles({ flexDirection: layout !== null && layout !== void 0 ? layout : "row" });

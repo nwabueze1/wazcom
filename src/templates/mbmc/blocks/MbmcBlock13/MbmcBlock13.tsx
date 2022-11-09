@@ -3,7 +3,7 @@ import { FC, useState } from "react";
 import { MbmcBlock13Props } from "./types";
 import { AiOutlineMenu } from "react-icons/ai";
 import { IoMdClose } from "react-icons/io";
-import { renderNavLink } from "templates/Navs/helpers";
+import { renderNavLink } from "../../../../templates/Navs/helpers";
 import clx from "classnames";
 import { FiShoppingCart } from "react-icons/fi";
 

@@ -31,10 +31,10 @@ import { useQuery } from "@apollo/client";
 import { useMbmcBlock61Styles } from "./styles";
 import { GET_MENU_BY_UUID } from "./graphql";
 import clx from "classnames";
-import { MbmcCard } from "templates/mbmc/components/MbmcCard";
+import { MbmcCard } from "../../../../templates/mbmc/components/MbmcCard";
 import { Modal } from "core";
 import MbmcBlock16 from "../MbmcBlock16/MbmcBlock16";
-import { getCurrency } from "utilities";
+import { getCurrency } from "../../../../utilities";
 export var MbmcBlock61 = function (_a) {
     var _b, _c, _d, _e, _f;
     var heading = _a.heading, description = _a.description, client = _a.client, menu_uuid = _a.menu_uuid, site_uuid = _a.site_uuid;

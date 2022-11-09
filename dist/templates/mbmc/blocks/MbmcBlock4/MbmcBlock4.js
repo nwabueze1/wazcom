@@ -11,7 +11,7 @@ var __assign = (this && this.__assign) || function () {
 };
 import { jsx as _jsx, jsxs as _jsxs } from "react/jsx-runtime";
 import { useMbmcBlock4Styles } from "./styles";
-import { MbmcCard } from "templates/mbmc/components/MbmcCard";
+import { MbmcCard } from "../../../../templates/mbmc/components/MbmcCard";
 export var MbmcBlock4 = function (_a) {
     var heading = _a.heading, description = _a.description, cards = _a.cards;
     var classes = useMbmcBlock4Styles();

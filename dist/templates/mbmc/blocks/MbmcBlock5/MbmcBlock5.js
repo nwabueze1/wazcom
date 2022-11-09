@@ -28,7 +28,7 @@ var __read = (this && this.__read) || function (o, n) {
 import { jsx as _jsx, jsxs as _jsxs } from "react/jsx-runtime";
 import { useMbmcBlock5Styles } from "./styles";
 import { useState } from "react";
-import { displayLogo, displaySections } from "templates/footers/helpers";
+import { displayLogo, displaySections } from "../../../../templates/footers/helpers";
 import clx from "classnames";
 export var MbmcBlock5 = function (_a) {
     var mode = _a.mode, logo = _a.logo, handleClick = _a.handleClick, links = _a.links;

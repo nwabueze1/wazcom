@@ -3,7 +3,7 @@ import { useQuery } from "@apollo/client";
 import { useMbmcBlock6Styles } from "./styles";
 import { MbmcBlock6Props } from "./types";
 import { GET_MENU_BY_UUID } from "./graphql";
-import { MbmcCard, MbmcCardProps } from "templates/mbmc/components/MbmcCard";
+import { MbmcCard, MbmcCardProps } from "../../../../templates/mbmc/components/MbmcCard";
 
 export const MbmcBlock6: FC<MbmcBlock6Props> = ({ heading, description, client, menu_uuid }) => {
     const classes = useMbmcBlock6Styles();

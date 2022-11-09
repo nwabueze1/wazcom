@@ -1,11 +1,11 @@
 import { CheckBoxInput, RadioButtonInput } from "io";
 import React, { useState } from "react";
-import { MbmcButton } from "templates/mbmc/components/MbmcButton/MbmcButton";
+import { MbmcButton } from "../../../../templates/mbmc/components/MbmcButton/MbmcButton";
 import RemoveRoundedIcon from "@mui/icons-material/RemoveRounded";
 import AddRoundedIcon from "@mui/icons-material/AddRounded";
 import { useMbmcBlock16Styles } from "./styles";
 import { MbmcBlock16Props } from "./types";
-import { getCurrency } from "utilities";
+import { getCurrency } from "../../../../utilities";
 // import Cookies from "universal-cookie";
 // import { useMutation, useQuery } from "@apollo/client";
 // import { CREATE_CART, GET_CART } from "./graphql";

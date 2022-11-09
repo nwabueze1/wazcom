@@ -2,7 +2,7 @@ import React from "react";
 import { useServiceCardStyles } from "./styles";
 import { MbmcMenuCardProps } from "./types";
 import clsx from "clsx";
-import { menuImagePlaceholder } from "utilities/restaurant";
+import { menuImagePlaceholder } from "../../../../utilities/restaurant";
 import { MbmcButton } from "../MbmcButton/MbmcButton";
 
 export const MbmcMenuCard: React.FC<MbmcMenuCardProps> = ({

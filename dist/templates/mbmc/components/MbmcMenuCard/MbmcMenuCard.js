@@ -12,7 +12,7 @@ var __assign = (this && this.__assign) || function () {
 import { jsx as _jsx, jsxs as _jsxs } from "react/jsx-runtime";
 import { useServiceCardStyles } from "./styles";
 import clsx from "clsx";
-import { menuImagePlaceholder } from "utilities/restaurant";
+import { menuImagePlaceholder } from "../../../../utilities/restaurant";
 import { MbmcButton } from "../MbmcButton/MbmcButton";
 export var MbmcMenuCard = function (_a) {
     var onClick = _a.onClick, name = _a.name, imageUrl = _a.image_url, description = _a.description, price = _a.price, startPrice = _a.startPrice;

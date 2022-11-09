@@ -4,10 +4,10 @@ import { MbmcBlock61Props, TMenuCategory, TMenuItem } from "./types";
 import { useMbmcBlock61Styles } from "./styles";
 import { GET_MENU_BY_UUID } from "./graphql";
 import clx from "classnames";
-import { MbmcCard } from "templates/mbmc/components/MbmcCard";
+import { MbmcCard } from "../../../../templates/mbmc/components/MbmcCard";
 import { Modal } from "core";
 import MbmcBlock16 from "../MbmcBlock16/MbmcBlock16";
-import { getCurrency } from "utilities";
+import { getCurrency } from "../../../../utilities";
 
 export const MbmcBlock61: FC<MbmcBlock61Props> = ({
     heading,

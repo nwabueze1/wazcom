@@ -1,8 +1,8 @@
 import { useMbmcBlock5Styles } from "./styles";
 import { FC, useState } from "react";
 import { MbmcBlock5Props } from "./types";
-import { displayLogo, displaySections } from "templates/footers/helpers";
-import { TFooterSection } from "templates/footers/types";
+import { displayLogo, displaySections } from "../../../../templates/footers/helpers";
+import { TFooterSection } from "../../../../templates/footers/types";
 import clx from "classnames";
 
 export const MbmcBlock5: FC<MbmcBlock5Props> = ({ mode, logo, handleClick, links }) => {

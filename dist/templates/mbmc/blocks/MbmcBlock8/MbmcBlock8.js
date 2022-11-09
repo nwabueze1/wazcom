@@ -11,9 +11,9 @@ var __assign = (this && this.__assign) || function () {
 };
 import { jsx as _jsx, jsxs as _jsxs } from "react/jsx-runtime";
 import { useMbmcBlock8Styles } from "./styles";
-import { TestimonialCard } from "templates/mbmc/components/TestimonialCard";
-import { Carousel2 } from "core/Carousel2";
-import { sliceIntoChunks } from "utilities/mbmcblock";
+import { TestimonialCard } from "../../../../templates/mbmc/components/TestimonialCard";
+import { Carousel2 } from "../../../../core/Carousel2";
+import { sliceIntoChunks } from "../../../../utilities/mbmcblock";
 export var MbmcBlock8 = function (_a) {
     var heading = _a.heading, description = _a.description, carouselData = _a.carouselData;
     var classes = useMbmcBlock8Styles();

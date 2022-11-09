@@ -37,11 +37,11 @@ var __spreadArray = (this && this.__spreadArray) || function (to, from, pack) {
 import { jsx as _jsx, jsxs as _jsxs } from "react/jsx-runtime";
 import { CheckBoxInput, RadioButtonInput } from "io";
 import { useState } from "react";
-import { MbmcButton } from "templates/mbmc/components/MbmcButton/MbmcButton";
+import { MbmcButton } from "../../../../templates/mbmc/components/MbmcButton/MbmcButton";
 import RemoveRoundedIcon from "@mui/icons-material/RemoveRounded";
 import AddRoundedIcon from "@mui/icons-material/AddRounded";
 import { useMbmcBlock16Styles } from "./styles";
-import { getCurrency } from "utilities";
+import { getCurrency } from "../../../../utilities";
 // import Cookies from "universal-cookie";
 // import { useMutation, useQuery } from "@apollo/client";
 // import { CREATE_CART, GET_CART } from "./graphql";

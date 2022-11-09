@@ -1,9 +1,9 @@
 import { useMbmcBlock8Styles } from "./styles";
-import { TestimonialCard } from "templates/mbmc/components/TestimonialCard";
-import { Carousel2 } from "core/Carousel2";
+import { TestimonialCard } from "../../../../templates/mbmc/components/TestimonialCard";
+import { Carousel2 } from "../../../../core/Carousel2";
 import { FC } from "react";
 import { MbmcBlock8Props } from "./types";
-import { sliceIntoChunks } from "utilities/mbmcblock";
+import { sliceIntoChunks } from "../../../../utilities/mbmcblock";
 
 export const MbmcBlock8: FC<MbmcBlock8Props> = ({ heading, description, carouselData }) => {
     const classes = useMbmcBlock8Styles();

@@ -1,5 +1,5 @@
 import { useMbmcBlock4Styles } from "./styles";
-import { MbmcCard } from "templates/mbmc/components/MbmcCard";
+import { MbmcCard } from "../../../../templates/mbmc/components/MbmcCard";
 import { FC } from "react";
 import { MbmcBlock4Props } from "./types";
 

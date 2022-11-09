@@ -30,7 +30,7 @@ import { useMbmcBlock13Styles } from "./styles";
 import { useState } from "react";
 import { AiOutlineMenu } from "react-icons/ai";
 import { IoMdClose } from "react-icons/io";
-import { renderNavLink } from "templates/Navs/helpers";
+import { renderNavLink } from "../../../../templates/Navs/helpers";
 import clx from "classnames";
 import { FiShoppingCart } from "react-icons/fi";
 export var MbmcBlock13 = function (_a) {

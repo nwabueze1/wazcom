@@ -41,7 +41,7 @@ import { useEffect, useState } from "react";
 import { useQuery } from "@apollo/client";
 import { useMbmcBlock6Styles } from "./styles";
 import { GET_MENU_BY_UUID } from "./graphql";
-import { MbmcCard } from "templates/mbmc/components/MbmcCard";
+import { MbmcCard } from "../../../../templates/mbmc/components/MbmcCard";
 export var MbmcBlock6 = function (_a) {
     var heading = _a.heading, description = _a.description, client = _a.client, menu_uuid = _a.menu_uuid;
     var classes = useMbmcBlock6Styles();
