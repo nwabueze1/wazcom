@@ -169,7 +169,7 @@ export const useServiceCardStyles = makeStyles<Theme, StyleProps>((theme: Theme)
         price: {
             color: theme.design.colors.waz_primaryColor200,
             fontFamily: theme.design.font.montserrat,
-            fontWeight:theme.typography.fontWeightMedium
+            fontWeight: theme.typography.fontWeightMedium,
         },
         visible: {
             opacity: "1",

@@ -4,6 +4,6 @@ export type TestimonialCardProps = {
     type?: string;
 };
 
-export type StyleProps = {
+export type StylesProps = {
     isOpen?: boolean;
 };
