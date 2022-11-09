@@ -45,6 +45,5 @@ export const useMbmcBlock10Styles = makeStyles((theme: Theme) => ({
     },
     border: {
         borderRight: "1px solid hsla(12, 73%, 56%, 1)",
-        borderLeft: "1px solid hsla(12, 73%, 56%, 1)",
     },
 }));

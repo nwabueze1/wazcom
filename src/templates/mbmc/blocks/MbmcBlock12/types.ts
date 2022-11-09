@@ -5,4 +5,5 @@ export type MbmcBlock12Props = MbmcCommonProps & {
     heading: string;
     description?: string;
     ctas?: BlockCta[];
+    handleSend: (name: string, email: string, phoneNo: string, message: string) => void;
 };

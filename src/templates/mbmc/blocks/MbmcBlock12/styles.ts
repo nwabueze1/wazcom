@@ -8,22 +8,22 @@ export const useMbmcBlock12Styles = makeStyles((theme: Theme) => ({
         "& .css-1t8l2tu-MuiInputBase-input-MuiOutlinedInput-input": {
             background: `${theme.design.colors.waz_white} !important`,
             padding: `14px 16px !important`,
-        }
+        },
     },
     container: {
         maxWidth: 1240,
         width: "90%",
         margin: "0 auto",
         display: "flex",
-        justifyContent: 'space-between',
+        justifyContent: "space-between",
 
         [theme.breakpoints.down("lg")]: {
-            flexDirection: 'column',
+            flexDirection: "column",
         },
 
         [theme.breakpoints.down("sm")]: {
-            width: '100%',
-        }
+            width: "100%",
+        },
     },
     headerContent: {
         width: "45%",
@@ -39,9 +39,9 @@ export const useMbmcBlock12Styles = makeStyles((theme: Theme) => ({
         },
 
         [theme.breakpoints.down("sm")]: {
-            position: 'relative',
-            left: '5%',
-           width: '90%',
+            position: "relative",
+            left: "5%",
+            width: "90%",
         },
     },
     headerTitle: {
@@ -59,7 +59,7 @@ export const useMbmcBlock12Styles = makeStyles((theme: Theme) => ({
         },
 
         [theme.breakpoints.down("md")]: {
-            fontSize: (theme.typography.fontSize * 2) + 8,
+            fontSize: theme.typography.fontSize * 2 + 8,
         },
 
         [theme.breakpoints.down("sm")]: {
@@ -116,7 +116,7 @@ export const useMbmcBlock12Styles = makeStyles((theme: Theme) => ({
         },
     },
     btnParent: {
-        width: '50%',
+        width: "50%",
     },
     formInput: {
         marginBottom: theme.spacing(1.5),
@@ -134,7 +134,7 @@ export const useMbmcBlock12Styles = makeStyles((theme: Theme) => ({
         fontFamily: theme.design.font.montserrat,
     },
     formButton: {
-        position: 'relative',
+        position: "relative",
         top: -6,
         width: "100%",
         padding: theme.spacing(1, 0),
@@ -145,7 +145,7 @@ export const useMbmcBlock12Styles = makeStyles((theme: Theme) => ({
         backgroundColor: theme.design.colors.waz_orangeColor50,
         padding: theme.spacing(6, 4),
         borderRadius: theme.spacing(0.5),
-        
+
         [theme.breakpoints.down("lg")]: {
             width: "100%",
         },
@@ -223,5 +223,13 @@ export const useMbmcBlock12Styles = makeStyles((theme: Theme) => ({
                 marginTop: theme.spacing(0),
             },
         },
+    },
+    error: {
+        color: theme.design.colors.waz_red,
+        marginTop: theme.spacing(1),
+    },
+    success: {
+        color: theme.design.colors.waz_successColor100,
+        marginTop: theme.spacing(1),
     },
 }));

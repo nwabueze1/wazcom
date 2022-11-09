@@ -7,4 +7,3 @@ export type MbmcBlock4Props = MbmcCommonProps & {
     description?: string;
     cards?: CardProps[];
 };
- 

@@ -1,16 +1,15 @@
-import React, { useState } from "react";
-import { steps } from "./data";
+import React from "react";
 import { useMbmcBlock18Styles } from "./styles";
 import CheckRoundedIcon from "@mui/icons-material/CheckRounded";
+import { MbmcBlock15Props } from "./types";
 
-export const MbmcBlock18: React.FC = () => {
+export const MbmcBlock15: React.FC<MbmcBlock15Props> = ({ steps, stepHistory }) => {
     const classes = useMbmcBlock18Styles();
-    const [activeStep, setActiveStep] = useState<number[]>([1, 2]);
-    const currentStep = activeStep.slice(-1)[0];
-    const completedSteps = activeStep.slice(0, activeStep.length - 1);
+    const currentStep = stepHistory?.slice(-1)[0];
+    const completedSteps = stepHistory?.slice(0, stepHistory.length - 1);
 
     const displaySteps = () => {
-        return steps.map((step, idx) => {
+        return steps?.map((step, idx) => {
             return (
                 <div className={`${classes.step}`} key={idx}>
                     <div className={classes.stepContainer}>

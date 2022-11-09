@@ -9,11 +9,14 @@ export const MbmcButton: FC<MbmcButtonProps> = ({
     type = "PRIMARY",
     size = "md",
     className,
-    bgColor,
+    buttonType = "button",
+    onClick,
 }) => {
     const classes = useButtonStyles();
     return (
         <MainButton
+            onClick={onClick}
+            type={buttonType}
             className={clx(
                 className,
                 classes.button,

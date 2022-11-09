@@ -13,6 +13,7 @@ export const Card: React.FC<CardProps> = ({
     scrollableParent,
     className,
     classNames,
+    onClick,
 }) => {
     const isOpen = true;
     const classes = useCardStyles({ isOpen, scrollableParent });
@@ -27,7 +28,7 @@ export const Card: React.FC<CardProps> = ({
 
     return (
         <>
-            <div className={clsx(classes.root, classes.visible, className)}>
+            <div onClick={onClick} className={clsx(classes.root, classes.visible, className)}>
                 <div
                     className={classes.imageWrapper}
                     style={{

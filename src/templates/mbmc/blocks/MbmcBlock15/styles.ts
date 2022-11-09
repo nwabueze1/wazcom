@@ -38,7 +38,7 @@ export const useMbmcBlock18Styles = makeStyles((theme: Theme) => ({
     stepName: {
         fontFamily: theme.design.font.montserrat,
         letterSpacing: "0px",
-
+        textAlign: "center",
         fontSize: theme.typography.fontSize,
         marginTop: theme.spacing(1),
     },

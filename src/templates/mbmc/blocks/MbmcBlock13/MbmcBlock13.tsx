@@ -1,34 +1,143 @@
 import { useMbmcBlock13Styles } from "./styles";
-import { FC } from "react";
+import { FC, useState } from "react";
 import { MbmcBlock13Props } from "./types";
 import { AiOutlineMenu } from "react-icons/ai";
+import { IoMdClose } from "react-icons/io";
+import { renderNavLink } from "templates/Navs/helpers";
+import clx from "classnames";
 
-const menus = ["About us", "Menu", "Contact us"];
-export const MbmcBlock13: FC<MbmcBlock13Props> = () => {
+export const MbmcBlock13: FC<MbmcBlock13Props> = ({
+    mode = "view",
+    logo,
+    links,
+    handleClick,
+    ctas,
+    icons,
+}) => {
     const classes = useMbmcBlock13Styles();
+    const [openMenu, setOpenMenu] = useState<boolean>(false);
+    const [activeElement, setActiveElement] = useState("");
+
+    const handleNavClick = () => {
+        if (mode === "edit") {
+            setActiveElement("nav");
+            handleClick?.("nav");
+        }
+    };
+
+    const handleOpenMenu = () => {
+        setOpenMenu(true);
+    };
+
+    const handleCloseMenu = () => {
+        setOpenMenu(false);
+    };
+
+    const handleElementClick = (element: string) => {
+        setActiveElement(element);
+    };
+
+    const displayLinks = () => {
+        return links.map((link, index) =>
+            renderNavLink(link, mode, index, classes, activeElement, handleElementClick),
+        );
+    };
 
     return (
-        <div className={classes.root}>
-            <div className={classes.logoContainer}>
-                <img
-                    src="https://sytbuildr.s3.eu-west-2.amazonaws.com/images/mbmc/chefLogo.svg"
-                    alt=""
-                    className={classes.logo}
-                />{" "}
-                <p>
-                    mrbaker
-                    <span className={classes.mrBarkers}>mrscook</span>
-                </p>
-            </div>
-            <div className={classes.menuList}>
-                {menus.map((menu, idx) => (
-                    <p key={idx}>{menu}</p>
-                ))}
-            </div>
-            <div className={classes.orderBtn}>Order now</div>
-            <div className={classes.menuOptionMobile}>
-                <AiOutlineMenu size={34} />
-            </div>
-        </div>
+        <>
+            {!openMenu && (
+                <div
+                    className={clx(
+                        classes.root,
+                        activeElement.toLowerCase() === "nav" &&
+                            mode === "edit" &&
+                            classes.activeElement,
+                    )}
+                    onClick={handleNavClick}
+                >
+                    <div className={classes.logoContainer}>
+                        <a href={logo?.url}>
+                            <img src={logo?.desktopSrc} alt="" className={classes.logo} />
+                            <img src={logo?.mobileSrc} alt="" className={classes.mobilelogo} />
+                        </a>
+                    </div>
+                    <div className={classes.menuList}>{displayLinks()}</div>
+                    <div className={classes.desktopIcons}>
+                        {icons?.map((item, idx) => {
+                            return (
+                                <a href={item.url} className={classes.icon} key={idx}>
+                                    {item.icon}
+                                    {item.badgeIcon && (
+                                        <div className={classes.badgeIcon}>{item.badgeCount}</div>
+                                    )}
+                                </a>
+                            );
+                        })}
+                    </div>
+
+                    {ctas?.map((item, idx) => {
+                        return (
+                            <div key={idx} onClick={item.handleClick} className={classes.orderBtn}>
+                                {item.text}
+                            </div>
+                        );
+                    })}
+
+                    <div className={classes.menuOptionMobile}>
+                        <div className={classes.mobileIcons}>
+                            {icons?.map((item, idx) => {
+                                return (
+                                    <a href={item.url} className={classes.icon} key={idx}>
+                                        {item.icon}
+                                        {item.badgeIcon && (
+                                            <div className={classes.badgeIcon}>
+                                                {item.badgeCount}
+                                            </div>
+                                        )}
+                                    </a>
+                                );
+                            })}
+                        </div>
+                        <AiOutlineMenu size={34} onClick={handleOpenMenu} />
+                    </div>
+                </div>
+            )}
+            {openMenu && (
+                <div className={classes.openNav}>
+                    <div className={classes.expandedNav}>
+                        <div className={classes.mobilelogoContainer}>
+                            <a href={logo?.url}>
+                                <img src={logo?.mobileSrc} alt="" className={classes.mobilelogo} />
+                            </a>
+                        </div>
+
+                        <div className={classes.expandedMenuOptionMobile}>
+                            <IoMdClose size={34} onClick={handleCloseMenu} />
+
+                            <div className={classes.expandedNavContentRightSide}>
+                                {links.map((navLink, idx) => (
+                                    <div key={idx}>
+                                        <a href={navLink.url}>
+                                            <p className={classes.NavLinks}>{navLink.text}</p>
+                                        </a>
+                                    </div>
+                                ))}
+                                {ctas?.map((item, idx) => {
+                                    return (
+                                        <div
+                                            key={idx}
+                                            onClick={item.handleClick}
+                                            className={classes.mobileOrderBtn}
+                                        >
+                                            {item.text}
+                                        </div>
+                                    );
+                                })}
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            )}
+        </>
     );
 };

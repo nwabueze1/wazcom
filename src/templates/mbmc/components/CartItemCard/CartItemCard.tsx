@@ -6,14 +6,14 @@ import DeleteIcon from "@mui/icons-material/Delete";
 
 const CartItemCard: React.FC = () => {
     const classes = useCartItemCardStyles();
-    const [count, setCount] = useState<number>(0);
+    const [count, setCount] = useState<number>(1);
 
     const handleIncrement = () => {
         setCount((prev) => prev + 1);
     };
 
     const handleDecrement = () => {
-        setCount((prev) => (prev <= 0 ? 0 : prev - 1));
+        setCount((prev) => (prev <= 1 ? 1 : prev - 1));
     };
 
     return (
@@ -38,7 +38,7 @@ const CartItemCard: React.FC = () => {
                         <div className={classes.quantityCountContainer}>
                             <div
                                 className={`${classes.quantityButton} ${
-                                    count == 0 && classes.disable
+                                    count == 1 && classes.disable
                                 }`}
                                 onClick={handleDecrement}
                             >

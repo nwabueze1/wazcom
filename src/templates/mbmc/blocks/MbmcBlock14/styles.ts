@@ -10,8 +10,7 @@ export const useMbmcBlock14Styles = makeStyles((theme: Theme) => ({
     },
     leftSection: {
         width: "39%",
-
-        [theme.breakpoints.down("md")]: {
+        [theme.breakpoints.down("lg")]: {
             width: "100%",
             zIndex: 1,
             position: "absolute",
@@ -35,7 +34,7 @@ export const useMbmcBlock14Styles = makeStyles((theme: Theme) => ({
         padding: theme.spacing(0, 1, 0, 0),
         "-ms-overflow-style": "none",
         scrollbarWidth: "none",
-        [theme.breakpoints.down("md")]: {
+        [theme.breakpoints.down("lg")]: {
             padding: theme.spacing(5, 1, 0),
         },
         "&::-webkit-scrollbar": {
@@ -44,7 +43,7 @@ export const useMbmcBlock14Styles = makeStyles((theme: Theme) => ({
     },
     mobileFooter: {
         display: "none",
-        [theme.breakpoints.down("md")]: {
+        [theme.breakpoints.down("lg")]: {
             height: "68px",
             width: "100%",
             backgroundColor: theme.design.colors.waz_white,
@@ -57,7 +56,7 @@ export const useMbmcBlock14Styles = makeStyles((theme: Theme) => ({
     },
     divider: {
         borderLeft: `solid 1px ${theme.design.colors.waz_greyColor150}`,
-        [theme.breakpoints.down("md")]: {
+        [theme.breakpoints.down("lg")]: {
             display: "none",
         },
     },
@@ -66,7 +65,7 @@ export const useMbmcBlock14Styles = makeStyles((theme: Theme) => ({
         flexDirection: "column",
         gap: "24px",
         width: "38%",
-        [theme.breakpoints.down("md")]: {
+        [theme.breakpoints.down("lg")]: {
             zIndex: -1,
             position: "absolute",
             width: "100%",
@@ -85,7 +84,7 @@ export const useMbmcBlock14Styles = makeStyles((theme: Theme) => ({
     },
     mobileCheckoutProcessContainer: {
         display: "none",
-        [theme.breakpoints.down("md")]: {
+        [theme.breakpoints.down("lg")]: {
             display: "flex",
             flexDirection: "column",
             gap: "24px",
@@ -100,7 +99,7 @@ export const useMbmcBlock14Styles = makeStyles((theme: Theme) => ({
         padding: theme.spacing(4.5, 5),
         borderRadius: "5px",
         backgroundColor: theme.design.colors.waz_white,
-        [theme.breakpoints.down("md")]: {
+        [theme.breakpoints.down("lg")]: {
             padding: theme.spacing(4.5, 1.5),
         },
     },
@@ -189,7 +188,7 @@ export const useMbmcBlock14Styles = makeStyles((theme: Theme) => ({
     },
     backContainer: {
         display: "none",
-        [theme.breakpoints.down("md")]: {
+        [theme.breakpoints.down("lg")]: {
             display: "flex",
             alignItems: "center",
             gap: "12px",
