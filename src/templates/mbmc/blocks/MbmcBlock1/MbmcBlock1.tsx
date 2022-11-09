@@ -26,7 +26,7 @@ export const MbmcBlock1: FC<MbmcBlock1Props> = ({
         if (typeof window !== "undefined") {
             setLoaded(true);
         }
-    }, []);
+    }, [window]);
 
     return (
         <div className={renderStyle(style, { mbmc: classes.root })}>
