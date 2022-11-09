@@ -1,4 +1,4 @@
-import { RadioButtonInput } from "io";
+import { RadioButtonInput } from "../../../../io";
 import React from "react";
 import { usePaymentOptionStyles } from "./styles";
 import { PaymentOptionProps } from "./types";

@@ -10,7 +10,7 @@ var __assign = (this && this.__assign) || function () {
     return __assign.apply(this, arguments);
 };
 import { jsx as _jsx, jsxs as _jsxs } from "react/jsx-runtime";
-import { RadioButtonInput } from "io";
+import { RadioButtonInput } from "../../../../io";
 import { usePaymentOptionStyles } from "./styles";
 var PaymentOption = function (_a) {
     var img = _a.img, title = _a.title, value = _a.value, name = _a.name, handleChange = _a.handleChange;
