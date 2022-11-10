@@ -76,26 +76,27 @@ export const useMbmcBlock4Styles = makeStyles((theme: Theme) => ({
     block4CardContainer: {
         width: "100%",
         display: "flex",
-        justifyContent: 'space-between',
+        justifyContent: "space-between",
         gap: theme.spacing(2),
-        flexWrap: 'wrap',
+        flexWrap: "wrap",
 
         [theme.breakpoints.down("sm")]: {
             flexDirection: "column",
+            alignItems: "center",
         },
     },
     block4Card: {
-        width: 'calc((100% - 32px) / 3)',
+        width: "calc((100% - 32px) / 3)",
 
         [theme.breakpoints.down("md")]: {
-            width: 'calc((100% - 16px) / 2)',
+            width: "calc((100% - 16px) / 2)",
         },
 
         [theme.breakpoints.down("sm")]: {
-            width: '100%',
+            width: "100%",
         },
     },
     block4CardHeading: {
         color: theme.design.colors.waz_orangeColor100,
-    }
+    },
 }));

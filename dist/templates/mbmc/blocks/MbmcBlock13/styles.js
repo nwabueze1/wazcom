@@ -182,6 +182,7 @@ export var useMbmcBlock13Styles = makeStyles(function (theme) {
             },
             _k[theme.breakpoints.down("md")] = {
                 height: "100vh",
+                zIndex: 12,
             },
             _k),
         expandedNav: (_l = {

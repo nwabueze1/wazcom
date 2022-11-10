@@ -17,13 +17,16 @@ export const MbmcBlock7: FC<MbmcBlock7Props> = ({ heading, description, images }
                     <img
                         key={idx}
                         src={image}
-                        className={clx(classes.imageContainer, idx === 2 && classes.flexGrow)}
+                        className={clx(
+                            classes.imageContainer,
+                            idx === 2 ? classes.flexGrow : classes.smallImageContainer,
+                        )}
                     />
                 ))}
             </div>
             <div className={classes.mobileCardContainer}>
                 {images?.map((image, idx) => (
-                    <img key={idx} src={image} className={clx(classes.imageContainer)} />
+                    <img key={idx} src={image} className={clx(classes.mobileImageContainer)} />
                 ))}
             </div>
         </div>
