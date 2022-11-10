@@ -132,7 +132,7 @@ export var useMbmcBlock8Styles = makeStyles(function (theme) {
                 gap: theme.spacing(1),
                 marginLeft: theme.spacing(1)
             },
-            _h[theme.breakpoints.down("md")] = {
+            _h[theme.breakpoints.down("sm")] = {
                 gridTemplateColumns: "1fr",
             },
             _h),

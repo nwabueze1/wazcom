@@ -18,7 +18,7 @@ export const useMbmcBlock7Styles = makeStyles((theme: Theme) => ({
         },
         [theme.breakpoints.down("md")]: {
             height: "100%",
-            padding: theme.spacing(2, 4),
+            padding: theme.spacing(5, 4),
         },
         [theme.breakpoints.down("sm")]: {
             padding: theme.spacing(4),
@@ -97,7 +97,7 @@ export const useMbmcBlock7Styles = makeStyles((theme: Theme) => ({
     headerCardContainer: {
         width: "100%",
         display: "grid",
-        gridTemplateColumns: "auto auto auto",
+        gridTemplateColumns: "1fr 1fr 1fr",
         gap: theme.spacing(2),
         [theme.breakpoints.down("lg")]: {
             display: "none",
@@ -107,6 +107,7 @@ export const useMbmcBlock7Styles = makeStyles((theme: Theme) => ({
     imageContainer: {
         width: "100%",
         borderRadius: 4,
+        objectFit: "cover",
     },
     flexGrow: {
         gridRow: "1 / span 2",
@@ -119,6 +120,7 @@ export const useMbmcBlock7Styles = makeStyles((theme: Theme) => ({
     mobileImageContainer: {
         width: "100%",
         height: "116px",
+        objectFit: "cover",
         borderRadius: 4,
     },
     mobileCardContainer: {

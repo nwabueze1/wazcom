@@ -76,6 +76,9 @@ export var useMbmcBlock4Styles = makeStyles(function (theme) {
                 gap: theme.spacing(2),
                 flexWrap: "wrap"
             },
+            _e[theme.breakpoints.down("lg")] = {
+                justifyContent: "center",
+            },
             _e[theme.breakpoints.down("sm")] = {
                 flexDirection: "column",
                 alignItems: "center",

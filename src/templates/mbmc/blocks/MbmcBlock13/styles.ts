@@ -122,8 +122,13 @@ export const useMbmcBlock13Styles = makeStyles((theme: Theme) => ({
         paddingRight: theme.spacing(4),
         position: "relative",
     },
+    cartIcon: {
+        color: theme.design.colors.waz_white,
+        [theme.breakpoints.down("lg")]: {
+            color: theme.design.colors.waz_orangeColor100,
+        },
+    },
     badgeIcon: {
-        background: theme.design.colors.waz_white,
         padding: "4px 6px",
         fontSize: theme.typography.fontSize - 2,
         borderRadius: "4px",
@@ -132,6 +137,12 @@ export const useMbmcBlock13Styles = makeStyles((theme: Theme) => ({
         left: "12px",
         fontFamily: theme.design.font.montserrat,
         color: theme.design.colors.waz_orangeColor100,
+        background: theme.design.colors.waz_white,
+
+        [theme.breakpoints.down("lg")]: {
+            color: theme.design.colors.waz_white,
+            backgroundColor: theme.design.colors.waz_orangeColor100,
+        },
     },
     orderBtn: {
         backgroundColor: theme.design.colors.waz_white,
@@ -170,7 +181,7 @@ export const useMbmcBlock13Styles = makeStyles((theme: Theme) => ({
         display: "none",
         [theme.breakpoints.down("lg")]: {
             display: "block",
-            position: "absolute",
+            position: "fixed",
             zIndex: 12,
             width: "100%",
             top: 0,
@@ -239,8 +250,14 @@ export const useMbmcBlock13Styles = makeStyles((theme: Theme) => ({
         flexDirection: "column",
         alignItems: "flex-end",
         padding: theme.spacing(4, 10, 10, 0),
-        "& a": {
+        "& a, p": {
             textDecoration: "none",
+            letterSpacing: "0px",
+            color: theme.design.colors.waz_white,
+            textTransform: "capitalize",
+            fontSize: theme.typography.fontSize + 20,
+            fontWeight: theme.typography.fontWeightBold,
+            fontFamily: theme.design.font.lostaMasta,
         },
         [theme.breakpoints.down("lg")]: {
             paddingRight: theme.spacing(2),

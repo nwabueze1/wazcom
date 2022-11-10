@@ -80,6 +80,10 @@ export const useMbmcBlock4Styles = makeStyles((theme: Theme) => ({
         gap: theme.spacing(2),
         flexWrap: "wrap",
 
+        [theme.breakpoints.down("lg")]: {
+            justifyContent: "center",
+        },
+
         [theme.breakpoints.down("sm")]: {
             flexDirection: "column",
             alignItems: "center",

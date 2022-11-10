@@ -96,6 +96,7 @@ export const useMbmcBlock9Styles = makeStyles((theme: Theme) => ({
 
         [theme.breakpoints.down("lg")]: {
             padding: theme.spacing(2),
+            maxWidth: "100%",
         },
     },
     pointTextContainer: {

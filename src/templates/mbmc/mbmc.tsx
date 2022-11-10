@@ -369,7 +369,7 @@ export const useGetMbmcBlocks = () => {
                     url: "#",
                 },
                 links: [
-                    { text: "About us", url: "#" },
+                    { text: "About us", url: "/mbmc/about" },
                     { text: "Menus", url: "#" },
                     { text: "Contact us", url: "#" },
                 ],
