@@ -1,8 +1,9 @@
 import { ButtonProps } from "../../../../core/Button";
-export declare type MbmcButtonProps = Omit<ButtonProps, "type" | "size"> & {
+export declare type MbmcButtonProps = Omit<ButtonProps, "variant" | "size"> & {
     bgColor?: string;
-    buttonType?: "button" | "submit";
-    type?: "PRIMARY" | "SECONDARY";
+    variant?: "PRIMARY" | "SECONDARY";
     size?: "sm" | "md" | "lg";
-    onClick?: () => void;
+    handleClick?: () => void;
+    url?: string;
+    activeElement?: string;
 };

@@ -21,19 +21,20 @@ export type BlockLayout = "column" | "row" | "column-reverse" | "row-reverse";
 export type BlockCta = {
     text: string;
     handleClick?: () => void;
-    type?: "PRIMARY" | "SECONDARY";
+    variant?: "PRIMARY" | "SECONDARY";
     styleProps?: { [key: string]: string | number };
     rIcon?: JSX.Element;
     lIcon?: JSX.Element;
     className?: string;
     size?: "sm" | "md" | "lg";
+    url?: string;
 };
 
 export type MbmcCommonProps = {
     style?: BlockStyle;
-    styleProps?: { [key: string]: string | number };
     index?: number;
     mode?: "view" | "edit";
+    activeElement?: string;
     handleClick?: (route: string) => void;
 };
 

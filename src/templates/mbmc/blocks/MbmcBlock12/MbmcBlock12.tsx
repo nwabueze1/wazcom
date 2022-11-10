@@ -124,7 +124,7 @@ export const MbmcBlock12: FC<MbmcBlock12Props> = ({
                             onClick={handleClick}
                             className={classes.formButton}
                             size="sm"
-                            type="SECONDARY"
+                            variant="SECONDARY"
                         >
                             Send
                         </MbmcButton>

@@ -9,6 +9,8 @@ export const useButtonStyles = makeStyles((theme: Theme) => ({
         padding: theme.spacing(1.5, 5),
         textTransform: "unset",
         fontWeight: theme.typography.fontWeightRegular,
+        border: '1px solid transparent',
+        transition: 'all 0.3s ease-in',
 
         [theme.breakpoints.down("md")]: {
             padding: theme.spacing(1, 2),
@@ -28,5 +30,9 @@ export const useButtonStyles = makeStyles((theme: Theme) => ({
     },
     buttonSecondary: {
         background: theme.design.colors.waz_primaryColor200,
+    },
+    buttonActive: {
+        border: "1px dashed",
+        borderColor: theme.design.colors.waz_primaryColor100,
     },
 }));

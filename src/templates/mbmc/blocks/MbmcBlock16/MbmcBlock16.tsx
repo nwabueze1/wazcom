@@ -281,7 +281,7 @@ const MbmcBlock16: React.FC<MbmcBlock16Props> = ({
                 </div>
 
                 <div className={classes.addToCartBtnContainer}>
-                    <MbmcButton type="SECONDARY">
+                    <MbmcButton variant="SECONDARY">
                         Add to cart ({getCurrency(currency)}
                         {total})
                     </MbmcButton>
