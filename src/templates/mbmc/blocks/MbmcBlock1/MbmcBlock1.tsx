@@ -2,7 +2,7 @@ import { useMbmcBlock1Styles } from "./styles";
 import { MbmcButton } from "../../components/MbmcButton/MbmcButton";
 import { FC } from "react";
 import { MbmcBlock1Props } from "./types";
-import { renderStyle } from "../../../../utilities/renderStyle";
+import { parseHtml, renderStyle } from "../../../../utilities/renderStyle";
 
 export const MbmcBlock1: FC<MbmcBlock1Props> = ({
     style = "mbmc",
@@ -27,7 +27,9 @@ export const MbmcBlock1: FC<MbmcBlock1Props> = ({
                 <div className={classes.block1Content}>
                     <h1
                         className={classes.block1Heading}
-                        dangerouslySetInnerHTML={{ __html: `${(<p>{heading}</p>)}` }}
+                        dangerouslySetInnerHTML={{
+                            __html: typeof window !== "undefined" ? parseHtml(heading) : "",
+                        }}
                     />
                     <p className={classes.block1Description}>{description}</p>
                     <div className={classes.block1BtnContainer}>{displayCtas()}</div>
