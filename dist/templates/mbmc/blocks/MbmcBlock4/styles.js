@@ -72,26 +72,27 @@ export var useMbmcBlock4Styles = makeStyles(function (theme) {
         block4CardContainer: (_e = {
                 width: "100%",
                 display: "flex",
-                justifyContent: 'space-between',
+                justifyContent: "space-between",
                 gap: theme.spacing(2),
-                flexWrap: 'wrap'
+                flexWrap: "wrap"
             },
             _e[theme.breakpoints.down("sm")] = {
                 flexDirection: "column",
+                alignItems: "center",
             },
             _e),
         block4Card: (_f = {
-                width: 'calc((100% - 32px) / 3)'
+                width: "calc((100% - 32px) / 3)"
             },
             _f[theme.breakpoints.down("md")] = {
-                width: 'calc((100% - 16px) / 2)',
+                width: "calc((100% - 16px) / 2)",
             },
             _f[theme.breakpoints.down("sm")] = {
-                width: '100%',
+                width: "100%",
             },
             _f),
         block4CardHeading: {
             color: theme.design.colors.waz_orangeColor100,
-        }
+        },
     });
 });

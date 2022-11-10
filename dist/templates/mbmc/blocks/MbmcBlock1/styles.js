@@ -162,7 +162,7 @@ export var useMbmcBlock1Styles = makeStyles(function (theme) {
             },
             height: "90%",
             zIndex: 10,
-            objectFit: "cover",
+            objectFit: "none",
         },
         block1Overlay: {
             position: "absolute",

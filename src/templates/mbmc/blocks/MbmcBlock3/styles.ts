@@ -4,10 +4,10 @@ import { makeStyles } from "@mui/styles";
 export const useMbmcBlock3Styles = makeStyles((theme: Theme) => ({
     root: {
         position: "relative",
-        overflow:'hidden',
+        overflow: "hidden",
     },
     block3Container: {
-        position: 'relative',
+        position: "relative",
         maxWidth: 1240,
         width: "90%",
         margin: "0 auto",
@@ -16,33 +16,35 @@ export const useMbmcBlock3Styles = makeStyles((theme: Theme) => ({
         zIndex: 10,
     },
     block3ImageContainer: {
-        width: '50%',
+        width: "50%",
 
         [theme.breakpoints.down("lg")]: {
-            display: 'none',
+            display: "none",
         },
     },
     block3Image: {
-        width: '95%',
-        position: 'relative',
+        width: "95%",
+        position: "relative",
         top: 60,
-        objectFit: 'cover',
+        objectFit: "cover",
     },
     block3Content: {
-        position: 'relative',
-        top: '-10vh',
-        width: '50%',
+        position: "relative",
+        top: "-10vh",
+        width: "50%",
 
         [theme.breakpoints.down("lg")]: {
-            width: '100%',
+            width: "100%",
             top: 0,
             paddingTop: theme.spacing(5),
+            paddingBottom: theme.spacing(5),
         },
 
         [theme.breakpoints.down("sm")]: {
-            width: '100%',
+            width: "100%",
             top: 0,
             paddingTop: theme.spacing(7),
+            paddingBottom: theme.spacing(7),
         },
     },
     block3Heading: {
@@ -51,72 +53,72 @@ export const useMbmcBlock3Styles = makeStyles((theme: Theme) => ({
         letterSpacing: 0,
         margin: 0,
         fontFamily: theme.design.font.lostaMasta,
-        width: '90%',
+        width: "90%",
         marginBottom: theme.spacing(2),
 
         [theme.breakpoints.down("lg")]: {
             fontSize: theme.typography.fontSize * 3,
-            width: '100%',
+            width: "100%",
             marginBottom: theme.spacing(5),
         },
 
         [theme.breakpoints.down("md")]: {
             fontSize: theme.typography.fontSize * 3,
-            width: '100%',
+            width: "100%",
             marginBottom: theme.spacing(4),
         },
 
         [theme.breakpoints.down("sm")]: {
             fontSize: theme.typography.fontSize * 2,
-            textTransform: 'capitalize',
+            textTransform: "capitalize",
         },
     },
     block3ContentImageContainer: {
-        position: 'relative',
-        display: 'flex',
-        justifyContent: 'center',
+        position: "relative",
+        display: "flex",
+        justifyContent: "center",
 
         [theme.breakpoints.up("lg")]: {
-            display: 'none',
+            display: "none",
         },
 
         "& img.hero": {
-            position: 'relative',
+            position: "relative",
             zIndex: 10,
-            width: '70%',
+            width: "70%",
         },
 
         "& img.overlay": {
-            position: 'absolute',
+            position: "absolute",
             top: 0,
-            left: '-10vw',
-            width: '60%',
-        }
+            left: "-10vw",
+            width: "60%",
+        },
     },
     block3Description: {
         color: theme.design.colors.waz_greyColor600,
         fontSize: theme.typography.fontSize + 4,
         fontFamily: theme.design.font.montserrat,
         lineHeight: 1.5,
-        width: '90%',
+        width: "90%",
         marginBottom: theme.spacing(2.5),
 
         [theme.breakpoints.down("lg")]: {
-            width: '100%',
+            width: "100%",
             margin: theme.spacing(2.5, 0),
         },
     },
     block3Ctas: {
-        display: 'flex',
+        display: "flex",
         gap: theme.spacing(1.5),
     },
     block3ImageOverlay: {
-        position: 'absolute',
-        top: '-24vh',
-        left: '-20vw',
+        position: "absolute",
+        top: "-24vh",
+        left: "-20vw",
 
         [theme.breakpoints.down("lg")]: {
-            display: 'none',
+            display: "none",
         },
-    }
+    },
 }));

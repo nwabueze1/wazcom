@@ -9,22 +9,20 @@ export var useMbmcBlock7Styles = makeStyles(function (theme) {
                 alignItems: "center",
                 justifyContent: "center",
                 flexDirection: "column",
-                width: "calc(100% - 192px)",
+                width: "100%",
+                boxSizing: "border-box",
                 padding: theme.spacing(6, 12)
             },
             _a[theme.breakpoints.down("lg")] = {
                 padding: theme.spacing(5, 10),
-                width: "calc(100% - 160px)",
             },
             _a[theme.breakpoints.down("md")] = {
                 height: "100%",
                 padding: theme.spacing(2, 4),
-                width: "calc(100% - 64px)",
             },
             _a[theme.breakpoints.down("sm")] = {
-                padding: theme.spacing(1),
+                padding: theme.spacing(4),
                 height: "fit-content",
-                width: "calc(100% - 16px)",
             },
             _a),
         headerContent: (_b = {
@@ -103,7 +101,7 @@ export var useMbmcBlock7Styles = makeStyles(function (theme) {
                 gridTemplateColumns: "auto auto auto",
                 gap: theme.spacing(2)
             },
-            _e[theme.breakpoints.down("sm")] = {
+            _e[theme.breakpoints.down("lg")] = {
                 display: "none",
                 width: "100%",
             },
@@ -111,11 +109,19 @@ export var useMbmcBlock7Styles = makeStyles(function (theme) {
         imageContainer: {
             width: "100%",
             borderRadius: 4,
-            height: "100%",
         },
         flexGrow: {
             gridRow: "1 / span 2",
             gridColumn: "3/3",
+            height: "100%",
+        },
+        smallImageContainer: {
+            height: "340px",
+        },
+        mobileImageContainer: {
+            width: "100%",
+            height: "116px",
+            borderRadius: 4,
         },
         mobileCardContainer: (_f = {
                 width: "100%",
@@ -126,10 +132,9 @@ export var useMbmcBlock7Styles = makeStyles(function (theme) {
                 gap: theme.spacing(1),
                 height: "100%"
             },
-            _f[theme.breakpoints.down("sm")] = {
+            _f[theme.breakpoints.down("lg")] = {
                 display: "grid",
-                gridTemplateColumns: "auto auto auto",
-                gridTemplateRows: "auto auto auto",
+                gridTemplateColumns: "1fr 1fr 1fr",
             },
             _f),
     });
