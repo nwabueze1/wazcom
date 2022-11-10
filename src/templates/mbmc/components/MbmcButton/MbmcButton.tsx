@@ -6,22 +6,25 @@ import clx from "classnames";
 
 export const MbmcButton: FC<MbmcButtonProps> = ({
     children,
-    type = "PRIMARY",
+    name,
+    variant = "PRIMARY",
     size = "md",
     className,
-    buttonType = "button",
-    onClick,
+    type = 'button',
+    handleClick,
+    activeElement
 }) => {
     const classes = useButtonStyles();
     return (
         <MainButton
-            onClick={onClick}
-            type={buttonType}
+            onClick={handleClick}
+            type={type}
             className={clx(
                 className,
                 classes.button,
-                type === "PRIMARY" ? classes.buttonPrimary : classes.buttonSecondary,
+                variant === "PRIMARY" ? classes.buttonPrimary : classes.buttonSecondary,
                 size === "sm" && classes.buttonSmall,
+                name?.toLowerCase() === activeElement?.toLowerCase() && classes.buttonActive,
             )}
         >
             {children}

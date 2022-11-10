@@ -31,6 +31,7 @@ export const useGetMbmcBlocks = () => {
                 heading: "From Our <br /> Kitchen <br /> To Your Table",
                 description:
                     "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy",
+                image: "https://sytbuildr.s3.eu-west-2.amazonaws.com/images/mbmc/heroFood.png",
                 ctas: [
                     {
                         text: "Order now",
@@ -38,9 +39,12 @@ export const useGetMbmcBlocks = () => {
                     },
                     {
                         text: "Contact us",
-                        type: "SECONDARY",
+                        variant: "SECONDARY",
                     },
                 ],
+                mode: "edit",
+                handleClick: (route: string) => alert(route),
+                activeElement: 'MbmcBlock1.ctas.1',
             },
         },
         {
@@ -324,7 +328,7 @@ export const useGetMbmcBlocks = () => {
                 image: "https://sytbuildr.s3.eu-west-2.amazonaws.com/zdpk0U95fFJNVodRZxpIYk6hMIJYReitDX4R7RX4.png",
                 ctas: [
                     {
-                        type: "PRIMARY",
+                        variant: "PRIMARY",
                         text: "Contact us",
                     },
                 ],
@@ -341,7 +345,7 @@ export const useGetMbmcBlocks = () => {
                 ctas: [
                     {
                         text: "Call us",
-                        type: "SECONDARY",
+                        variant: "SECONDARY",
                         size: "sm",
                         className: classes.mbmc12Button,
                     },

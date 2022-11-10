@@ -180,6 +180,6 @@ var MbmcBlock16 = function (_a) {
                                                                         ? "-"
                                                                         : "+", getCurrency(currency), opt === null || opt === void 0 ? void 0 : opt.amount] }), void 0) }, void 0)] }), idx)));
                                             }) }), void 0)] }), index));
-                            }) }), void 0), _jsx("div", __assign({ className: classes.addToCartBtnContainer }, { children: _jsxs(MbmcButton, __assign({ type: "SECONDARY" }, { children: ["Add to cart (", getCurrency(currency), total, ")"] }), void 0) }), void 0)] }), void 0)] }), void 0));
+                            }) }), void 0), _jsx("div", __assign({ className: classes.addToCartBtnContainer }, { children: _jsxs(MbmcButton, __assign({ variant: "SECONDARY" }, { children: ["Add to cart (", getCurrency(currency), total, ")"] }), void 0) }), void 0)] }), void 0)] }), void 0));
 };
 export default MbmcBlock16;

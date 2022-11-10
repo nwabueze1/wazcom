@@ -170,7 +170,6 @@ export const MbmcBlock14: React.FC = () => {
                             </div>
                             <div>
                                 <MbmcButton
-                                    type="PRIMARY"
                                     className={classes.checkoutBtn}
                                     onClick={handleNextStep}
                                 >
@@ -245,7 +244,6 @@ export const MbmcBlock14: React.FC = () => {
                             <div>
                                 <MbmcButton
                                     onClick={handleNextStep}
-                                    type="PRIMARY"
                                     className={classes.checkoutBtn}
                                 >
                                     Proceed to payment

@@ -19,7 +19,7 @@ export declare type BlockLayout = "column" | "row" | "column-reverse" | "row-rev
 export declare type BlockCta = {
     text: string;
     handleClick?: () => void;
-    type?: "PRIMARY" | "SECONDARY";
+    variant?: "PRIMARY" | "SECONDARY";
     styleProps?: {
         [key: string]: string | number;
     };
@@ -27,14 +27,13 @@ export declare type BlockCta = {
     lIcon?: JSX.Element;
     className?: string;
     size?: "sm" | "md" | "lg";
+    url?: string;
 };
 export declare type MbmcCommonProps = {
     style?: BlockStyle;
-    styleProps?: {
-        [key: string]: string | number;
-    };
     index?: number;
     mode?: "view" | "edit";
+    activeElement?: string;
     handleClick?: (route: string) => void;
 };
 export declare type MbmcTemplatePropType = {

@@ -8,7 +8,9 @@ export var useButtonStyles = makeStyles(function (theme) {
                 fontSize: theme.typography.fontSize + 2,
                 padding: theme.spacing(1.5, 5),
                 textTransform: "unset",
-                fontWeight: theme.typography.fontWeightRegular
+                fontWeight: theme.typography.fontWeightRegular,
+                border: '1px solid transparent',
+                transition: 'all 0.3s ease-in'
             },
             _a[theme.breakpoints.down("md")] = {
                 padding: theme.spacing(1, 2),
@@ -27,6 +29,10 @@ export var useButtonStyles = makeStyles(function (theme) {
         },
         buttonSecondary: {
             background: theme.design.colors.waz_primaryColor200,
+        },
+        buttonActive: {
+            border: "1px dashed",
+            borderColor: theme.design.colors.waz_primaryColor100,
         },
     });
 });
