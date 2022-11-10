@@ -10,6 +10,8 @@ export const useMbmcBlock13Styles = makeStyles((theme: Theme) => ({
         boxSizing: "border-box",
         gap: theme.spacing(2),
         display: "flex",
+        position: "absolute",
+        zIndex: 12,
         alignItems: "center",
         justifyContent: "space-between",
 
@@ -169,6 +171,7 @@ export const useMbmcBlock13Styles = makeStyles((theme: Theme) => ({
         [theme.breakpoints.down("lg")]: {
             display: "block",
             position: "absolute",
+            zIndex: 12,
             width: "100%",
             top: 0,
         },
