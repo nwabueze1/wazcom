@@ -8,8 +8,8 @@ export const useMbmcBlock1Styles = makeStyles<Theme, MbmcBlock1StyleProps>((them
         height: ({ fullHeight }) => (fullHeight ? "100vh" : "70vh"),
         position: "relative",
         overflow: "hidden",
-        border: '1px solid transparent',
-        transition: 'all 0.3s ease-in',
+        border: "1px solid transparent",
+        transition: "all 0.3s ease-in",
     },
     block1Container: {
         maxWidth: 1240,
@@ -21,6 +21,7 @@ export const useMbmcBlock1Styles = makeStyles<Theme, MbmcBlock1StyleProps>((them
 
         [theme.breakpoints.down("lg")]: {
             flexDirection: "column",
+            paddingTop: theme.spacing(10),
         },
     },
     block1Content: {
@@ -43,8 +44,8 @@ export const useMbmcBlock1Styles = makeStyles<Theme, MbmcBlock1StyleProps>((them
         textTransform: "capitalize",
         font: "normal normal medium 68px/100px Losta Masta;",
         margin: 0,
-        border: '1px solid transparent',
-        transition: 'all 0.3s ease-in',
+        border: "1px solid transparent",
+        transition: "all 0.3s ease-in",
 
         [theme.breakpoints.down("lg")]: {
             fontSize: theme.typography.fontSize * 4 + 4,
@@ -65,8 +66,8 @@ export const useMbmcBlock1Styles = makeStyles<Theme, MbmcBlock1StyleProps>((them
         fontSize: theme.typography.fontSize + 6,
         fontFamily: theme.design.font.montserrat,
         lineHeight: 1.5,
-        border: '1px solid transparent',
-        transition: 'all 0.3s ease-in',
+        border: "1px solid transparent",
+        transition: "all 0.3s ease-in",
 
         [theme.breakpoints.down(1450)]: {
             fontSize: theme.typography.fontSize + 8,

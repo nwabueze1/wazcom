@@ -10,8 +10,8 @@ export var useMbmcBlock1Styles = makeStyles(function (theme) {
             },
             position: "relative",
             overflow: "hidden",
-            border: '1px solid transparent',
-            transition: 'all 0.3s ease-in',
+            border: "1px solid transparent",
+            transition: "all 0.3s ease-in",
         },
         block1Container: (_a = {
                 maxWidth: 1240,
@@ -23,6 +23,7 @@ export var useMbmcBlock1Styles = makeStyles(function (theme) {
             },
             _a[theme.breakpoints.down("lg")] = {
                 flexDirection: "column",
+                paddingTop: theme.spacing(10),
             },
             _a),
         block1Content: (_b = {
@@ -45,8 +46,8 @@ export var useMbmcBlock1Styles = makeStyles(function (theme) {
                 textTransform: "capitalize",
                 font: "normal normal medium 68px/100px Losta Masta;",
                 margin: 0,
-                border: '1px solid transparent',
-                transition: 'all 0.3s ease-in'
+                border: "1px solid transparent",
+                transition: "all 0.3s ease-in"
             },
             _c[theme.breakpoints.down("lg")] = {
                 fontSize: theme.typography.fontSize * 4 + 4,
@@ -65,8 +66,8 @@ export var useMbmcBlock1Styles = makeStyles(function (theme) {
                 fontSize: theme.typography.fontSize + 6,
                 fontFamily: theme.design.font.montserrat,
                 lineHeight: 1.5,
-                border: '1px solid transparent',
-                transition: 'all 0.3s ease-in'
+                border: "1px solid transparent",
+                transition: "all 0.3s ease-in"
             },
             _d[theme.breakpoints.down(1450)] = {
                 fontSize: theme.typography.fontSize + 8,
