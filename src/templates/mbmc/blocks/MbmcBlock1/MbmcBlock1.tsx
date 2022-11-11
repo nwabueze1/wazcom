@@ -42,7 +42,6 @@ export const MbmcBlock1: FC<MbmcBlock1Props> = ({
     const handleElementClick = (element: string) => {
         if (mode === "view") return;
         const updatedElement = "MbmcBlock1." + element;
-        alert(updatedElement);
         handleClick?.(updatedElement);
     };
 

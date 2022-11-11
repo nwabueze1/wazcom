@@ -43,7 +43,6 @@ export var MbmcBlock1 = function (_a) {
         if (mode === "view")
             return;
         var updatedElement = "MbmcBlock1." + element;
-        alert(updatedElement);
         handleClick === null || handleClick === void 0 ? void 0 : handleClick(updatedElement);
     };
     return (_jsx("div", __assign({ className: renderStyle(style, { mbmc: classes.root }) }, { children: _jsxs("div", __assign({ className: classes.block1Container }, { children: [_jsxs("div", __assign({ className: classes.block1Content }, { children: [_jsx("h1", { className: clx(classes.block1Heading, activeElement === "MbmcBlock1.heading" && classes.block1ActiveElement), dangerouslySetInnerHTML: {
