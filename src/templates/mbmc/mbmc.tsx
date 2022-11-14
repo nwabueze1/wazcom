@@ -45,7 +45,7 @@ export const useGetMbmcBlocks = () => {
                 ],
                 mode: "edit",
                 handleClick: (route: string) => alert(route),
-                activeElement: "MbmcBlock1.ctas.1",
+                activeElement: "MbmcBlock1.image",
             },
         },
         {
@@ -73,6 +73,9 @@ export const useGetMbmcBlocks = () => {
                         text: "Learn more",
                     },
                 ],
+                mode: "edit",
+                handleClick: (route: string) => alert(route),
+                activeElement: "MbmcBlock3.ctas.0",
             },
         },
         {

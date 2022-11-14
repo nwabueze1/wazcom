@@ -1,61 +1,26 @@
 import { useMbmcBlock3Styles } from "./styles";
-import { MbmcButton } from "../../components/MbmcButton/MbmcButton";
 import { FC } from "react";
 import { MbmcBlock3Props } from "./types";
+import { renderCtas, handleElementClick } from "../../utilities";
+import clx from "classnames";
 
-export const MbmcBlock3: FC<MbmcBlock3Props> = ({ heading, description, ctas }) => {
+export const MbmcBlock3: FC<MbmcBlock3Props> = ({
+    mode = "view",
+    handleClick,
+    activeElement,
+    heading,
+    description,
+    ctas,
+}) => {
     const classes = useMbmcBlock3Styles();
 
-    const displayCtas = () => {
-        return (ctas ?? []).map(({ text, rIcon, lIcon, ...props }, index) => (
-            <MbmcButton key={index} {...props}>
-                {lIcon} {text} {rIcon}
-            </MbmcButton>
-        ));
-    };
-
-    // return (
-    //     <div className={classes.root}>
-    //         <div className={classes.headerContent}>
-    //             <h3 className={classes.headerTitle}>
-    //                 Food is an important <br className={classes.headerIcon} /> part of a balanced
-    //                 diet
-    //             </h3>
-    //             <div className={classes.heroContainerMobile}>
-    //                 <img
-    //                     src="https://sytbuildr.s3.eu-west-2.amazonaws.com/images/mbmc/heroFood.png"
-    //                     alt="food images"
-    //                     className={classes.heroImageMobile}
-    //                 />
-    //             </div>
-    //             <div className={classes.headerParagraph}>
-    //                 <p className={classes.headerDescription}>
-    //                     Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy
-    //                     eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam
-    //                     voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet
-    //                     clita kasd
-    //                 </p>
-    //                 <p className={classes.headerDescription}>
-    //                     elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna
-    //                     aliquyam erat, sed diam voluptua. At vero eo…
-    //                 </p>
-    //             </div>
-    //             <div className={classes.headerBtnContainer}>
-    //                 <MbmcButton bgColor="#F25430">Learn more</MbmcButton>
-    //             </div>
-    //         </div>
-    //         <div className={classes.heroContainer}>
-    //             <img
-    //                 src="https://sytbuildr.s3.eu-west-2.amazonaws.com/images/mbmc/heroFoodLabel.png"
-    //                 alt="food images"
-    //                 className={classes.heroImage}
-    //             />
-    //         </div>
-    //     </div>
-    // );
-
     return (
-        <div className={classes.root}>
+        <div
+            className={clx(
+                classes.root,
+                activeElement === "MbmcBlock3" && classes.block3ActiveElement,
+            )}
+        >
             <div className={classes.block3Container}>
                 <div className={classes.block3ImageContainer}>
                     <img
@@ -64,7 +29,15 @@ export const MbmcBlock3: FC<MbmcBlock3Props> = ({ heading, description, ctas }) 
                     />
                 </div>
                 <div className={classes.block3Content}>
-                    <h3 className={classes.block3Heading}>{heading}</h3>
+                    <h3
+                        className={clx(
+                            classes.block3Heading,
+                            activeElement === "MbmcBlock3.heading" && classes.block3ActiveElement,
+                        )}
+                        onClick={() => handleElementClick(mode, "MbmcBlock3.heading", handleClick)}
+                    >
+                        {heading}
+                    </h3>
                     <div className={classes.block3ContentImageContainer}>
                         <img
                             src="https://sytbuildr.s3.eu-west-2.amazonaws.com/images/mbmc/heroFood.png"
@@ -77,8 +50,21 @@ export const MbmcBlock3: FC<MbmcBlock3Props> = ({ heading, description, ctas }) 
                             className="overlay"
                         />
                     </div>
-                    <p className={classes.block3Description}>{description}</p>
-                    <div className={classes.block3Ctas}>{displayCtas()}</div>
+                    <p
+                        className={clx(
+                            classes.block3Description,
+                            activeElement === "MbmcBlock3.description" &&
+                                classes.block3ActiveElement,
+                        )}
+                        onClick={() =>
+                            handleElementClick(mode, "MbmcBlock3.description", handleClick)
+                        }
+                    >
+                        {description}
+                    </p>
+                    <div className={classes.block3Ctas}>
+                        {renderCtas(ctas ?? [], mode, "MbmcBlock3", handleClick, activeElement)}
+                    </div>
                 </div>
             </div>
             <img

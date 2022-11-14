@@ -5,6 +5,9 @@ export var useMbmcBlock3Styles = makeStyles(function (theme) {
         root: {
             position: "relative",
             overflow: "hidden",
+            background: theme.design.colors.white,
+            border: "1px solid transparent",
+            transition: "all 0.3s ease-in",
         },
         block3Container: {
             position: "relative",
@@ -53,7 +56,9 @@ export var useMbmcBlock3Styles = makeStyles(function (theme) {
                 margin: 0,
                 fontFamily: theme.design.font.lostaMasta,
                 width: "90%",
-                marginBottom: theme.spacing(2)
+                marginBottom: theme.spacing(2),
+                border: "1px solid transparent",
+                transition: "all 0.3s ease-in"
             },
             _c[theme.breakpoints.down("lg")] = {
                 fontSize: theme.typography.fontSize * 3,
@@ -96,7 +101,9 @@ export var useMbmcBlock3Styles = makeStyles(function (theme) {
                 fontFamily: theme.design.font.montserrat,
                 lineHeight: 1.5,
                 width: "90%",
-                marginBottom: theme.spacing(2.5)
+                marginBottom: theme.spacing(2.5),
+                border: "1px solid transparent",
+                transition: "all 0.3s ease-in"
             },
             _e[theme.breakpoints.down("lg")] = {
                 width: "100%",
@@ -116,5 +123,9 @@ export var useMbmcBlock3Styles = makeStyles(function (theme) {
                 display: "none",
             },
             _f),
+        block3ActiveElement: {
+            border: "1px dashed",
+            borderColor: theme.design.colors.waz_primaryColor100,
+        },
     });
 });
