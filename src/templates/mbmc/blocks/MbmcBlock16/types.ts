@@ -6,9 +6,8 @@ export type MbmcBlock16Props = {
     image: string;
     price: number;
     currency: string;
-    siteUuid: string;
-    client: ApolloClient<NormalizedCacheObject>;
-    menuItemUuid: string;
+    handleAddToCart: () => void;
+    client?: ApolloClient<NormalizedCacheObject>;
     optionsConfig?: { [key: string]: any }[];
     options?: string[];
 };

@@ -18,6 +18,7 @@ import { MbmcBlock14 } from "./blocks/MbmcBlock14/MbmcBlock14";
 import { MbmcBlock15 } from "./blocks/MbmcBlock15/MbmcBlock15";
 import { createApolloClient } from "helpers/graphQL";
 import { MbmcBlock61 } from "./blocks/MbmcBlock6-1";
+import MbmcBlock16 from "./blocks/MbmcBlock16/MbmcBlock16";
 
 export const useGetMbmcBlocks = () => {
     const classes = useMbmbcStyles();
@@ -44,7 +45,7 @@ export const useGetMbmcBlocks = () => {
                 ],
                 mode: "edit",
                 handleClick: (route: string) => alert(route),
-                activeElement: 'MbmcBlock1.ctas.1',
+                activeElement: "MbmcBlock1.ctas.1",
             },
         },
         {
@@ -405,6 +406,20 @@ export const useGetMbmcBlocks = () => {
                 style: "mbmc",
                 steps: ["Checkout1", "Shipping Details", "Payment"],
                 stepHistory: [1, 2],
+            },
+        },
+        {
+            name: "mbmc-block-916",
+            component: MbmcBlock16,
+            props: {
+                style: "mbmc",
+                name: "Sample heading",
+                description:
+                    "If you’d like to talk please call or email us, you can also use the form to get in touch. We’ll get back in touch within 24hrs",
+                image: "https://sytbuildr.s3.eu-west-2.amazonaws.com/zdpk0U95fFJNVodRZxpIYk6hMIJYReitDX4R7RX4.png",
+                price: 30,
+                currency: "NGN",
+                handleAddToCart: () => console.log("add to cart"),
             },
         },
     ];

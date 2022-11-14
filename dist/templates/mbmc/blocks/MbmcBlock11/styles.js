@@ -1,6 +1,6 @@
 import { makeStyles } from "@mui/styles";
 export var useMbmcBlock11Styles = makeStyles(function (theme) {
-    var _a, _b, _c, _d, _e, _f, _g;
+    var _a, _b, _c, _d, _e, _f, _g, _h;
     return ({
         root: (_a = {
                 backgroundColor: theme.design.colors.waz_white,
@@ -50,17 +50,14 @@ export var useMbmcBlock11Styles = makeStyles(function (theme) {
             },
             _c[theme.breakpoints.down("lg")] = {
                 marginTop: theme.spacing(3),
+                marginBottom: theme.spacing(3),
                 fontSize: theme.typography.fontSize * 3,
-            },
-            _c[theme.breakpoints.down("md")] = {
-                fontSize: theme.typography.fontSize * 2,
             },
             _c[theme.breakpoints.down("sm")] = {
                 width: "100%",
                 textAlign: "left",
-                fontSize: theme.typography.fontSize * 3,
                 fontWeight: 800,
-                marginBottom: theme.spacing(6),
+                marginBottom: theme.spacing(3),
             },
             _c),
         headerDescription: (_d = {
@@ -90,9 +87,6 @@ export var useMbmcBlock11Styles = makeStyles(function (theme) {
             _e[theme.breakpoints.down("lg")] = {
                 height: 419,
             },
-            // [theme.breakpoints.down("md")]: {
-            //     height: 319,
-            // },
             _e[theme.breakpoints.down("md")] = {
                 display: "none",
             },
@@ -105,13 +99,18 @@ export var useMbmcBlock11Styles = makeStyles(function (theme) {
             },
             _f[theme.breakpoints.down("md")] = {
                 display: "flex",
+                marginTop: theme.spacing(0),
             },
             _f),
-        heroImageMobile: {
-            width: "90%",
-            marginTop: theme.spacing(-10),
-            borderRadius: theme.spacing(0.5),
-        },
+        heroImageMobile: (_g = {
+                width: "90%",
+                marginTop: theme.spacing(-10),
+                borderRadius: theme.spacing(0.5)
+            },
+            _g[theme.breakpoints.down("lg")] = {
+                marginTop: theme.spacing(0),
+            },
+            _g),
         heroImage: {
             width: "100%",
             height: "100%",
@@ -126,12 +125,12 @@ export var useMbmcBlock11Styles = makeStyles(function (theme) {
             display: "flex",
             margin: theme.spacing(2, 0),
         },
-        headerIcon: (_g = {
+        headerIcon: (_h = {
                 marginLeft: theme.spacing(1)
             },
-            _g[theme.breakpoints.down("md")] = {
+            _h[theme.breakpoints.down("md")] = {
                 display: "none",
             },
-            _g),
+            _h),
     });
 });

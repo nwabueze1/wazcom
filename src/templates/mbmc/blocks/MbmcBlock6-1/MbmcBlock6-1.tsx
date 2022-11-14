@@ -9,13 +9,7 @@ import { Modal } from "../../../../core";
 import MbmcBlock16 from "../MbmcBlock16/MbmcBlock16";
 import { getCurrency } from "../../../../utilities";
 
-export const MbmcBlock61: FC<MbmcBlock61Props> = ({
-    heading,
-    description,
-    client,
-    menu_uuid,
-    site_uuid,
-}) => {
+export const MbmcBlock61: FC<MbmcBlock61Props> = ({ heading, description, client, menu_uuid }) => {
     const classes = useMbmcBlock61Styles();
     const [categories, setCategories] = useState<TMenuCategory[]>([]);
     const [activeCategory, setActiveCategory] = useState<TMenuCategory>();
@@ -133,9 +127,7 @@ export const MbmcBlock61: FC<MbmcBlock61Props> = ({
                         currency={currency}
                         options={categoryItems?.[activeMenu as number]?.options}
                         optionsConfig={optionsConfig}
-                        siteUuid={site_uuid}
-                        menuItemUuid={menu_uuid}
-                        client={client}
+                        handleAddToCart={() => console.log("add to cartt")}
                     />
                 </div>
             </Modal>
