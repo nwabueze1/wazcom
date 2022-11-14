@@ -48,17 +48,14 @@ export const useMbmcBlock11Styles = makeStyles((theme: Theme) => ({
 
         [theme.breakpoints.down("lg")]: {
             marginTop: theme.spacing(3),
+            marginBottom: theme.spacing(3),
             fontSize: theme.typography.fontSize * 3,
-        },
-        [theme.breakpoints.down("md")]: {
-            fontSize: theme.typography.fontSize * 2,
         },
         [theme.breakpoints.down("sm")]: {
             width: "100%",
             textAlign: "left",
-            fontSize: theme.typography.fontSize * 3,
             fontWeight: 800,
-            marginBottom: theme.spacing(6),
+            marginBottom: theme.spacing(3),
         },
     },
     headerDescription: {
@@ -87,9 +84,6 @@ export const useMbmcBlock11Styles = makeStyles((theme: Theme) => ({
         [theme.breakpoints.down("lg")]: {
             height: 419,
         },
-        // [theme.breakpoints.down("md")]: {
-        //     height: 319,
-        // },
         [theme.breakpoints.down("md")]: {
             display: "none",
         },
@@ -102,12 +96,17 @@ export const useMbmcBlock11Styles = makeStyles((theme: Theme) => ({
 
         [theme.breakpoints.down("md")]: {
             display: "flex",
+            marginTop: theme.spacing(0),
         },
     },
     heroImageMobile: {
         width: "90%",
         marginTop: theme.spacing(-10),
         borderRadius: theme.spacing(0.5),
+
+        [theme.breakpoints.down("lg")]: {
+            marginTop: theme.spacing(0),
+        },
     },
     heroImage: {
         width: "100%",

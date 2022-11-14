@@ -14,6 +14,7 @@ export var useMbmcBlock12Styles = makeStyles(function (theme) {
                 width: "90%",
                 margin: "0 auto",
                 display: "flex",
+                position: "relative",
                 justifyContent: "space-between"
             },
             _a[theme.breakpoints.down("lg")] = {

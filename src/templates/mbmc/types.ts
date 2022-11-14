@@ -13,6 +13,7 @@ import { MbmcBlock12Props } from "./blocks/MbmcBlock12/types";
 import { MbmcBlock3Props } from "./blocks/MbmcBlock3/types";
 import { MbmcBlock4Props } from "./blocks/MbmcBlock4/types";
 import { MbmcBlock61Props } from "./blocks/MbmcBlock6-1";
+import { MbmcBlock16Props } from "./blocks/MbmcBlock16/types";
 
 export type BlockStyle = "mbmc";
 
@@ -21,19 +22,20 @@ export type BlockLayout = "column" | "row" | "column-reverse" | "row-reverse";
 export type BlockCta = {
     text: string;
     handleClick?: () => void;
-    type?: "PRIMARY" | "SECONDARY";
+    variant?: "PRIMARY" | "SECONDARY";
     styleProps?: { [key: string]: string | number };
     rIcon?: JSX.Element;
     lIcon?: JSX.Element;
     className?: string;
     size?: "sm" | "md" | "lg";
+    url?: string;
 };
 
 export type MbmcCommonProps = {
     style?: BlockStyle;
-    styleProps?: { [key: string]: string | number };
     index?: number;
     mode?: "view" | "edit";
+    activeElement?: string;
     handleClick?: (route: string) => void;
 };
 
@@ -58,5 +60,6 @@ type Mmbc1Block = {
         | MbmcBlock11Props
         | MbmcBlock12Props
         | MbmcBlock13Props
-        | MbmcBlock15Props;
+        | MbmcBlock15Props
+        | MbmcBlock16Props;
 };

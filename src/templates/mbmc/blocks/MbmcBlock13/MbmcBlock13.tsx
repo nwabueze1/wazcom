@@ -67,7 +67,7 @@ export const MbmcBlock13: FC<MbmcBlock13Props> = ({
                         {icons?.map((item, idx) => {
                             return (
                                 <a href={item.url} className={classes.icon} key={idx}>
-                                    <FiShoppingCart color="white" fontSize={20} />
+                                    <FiShoppingCart className={classes.cartIcon} fontSize={20} />
                                     <div className={classes.badgeIcon}>{item.badgeCount}</div>
                                 </a>
                             );
@@ -87,7 +87,10 @@ export const MbmcBlock13: FC<MbmcBlock13Props> = ({
                             {icons?.map((item, idx) => {
                                 return (
                                     <a href={item.url} className={classes.icon} key={idx}>
-                                        <FiShoppingCart color="white" fontSize={20} />
+                                        <FiShoppingCart
+                                            className={classes.cartIcon}
+                                            fontSize={20}
+                                        />
 
                                         <div className={classes.badgeIcon}>{item.badgeCount}</div>
                                     </a>
@@ -115,13 +118,7 @@ export const MbmcBlock13: FC<MbmcBlock13Props> = ({
                             <IoMdClose size={34} onClick={handleCloseMenu} />
 
                             <div className={classes.expandedNavContentRightSide}>
-                                {links.map((navLink, idx) => (
-                                    <div key={idx}>
-                                        <a href={navLink.url}>
-                                            <p className={classes.NavLinks}>{navLink.text}</p>
-                                        </a>
-                                    </div>
-                                ))}
+                                {displayLinks()}
                                 {ctas?.map((item, idx) => {
                                     return (
                                         <div

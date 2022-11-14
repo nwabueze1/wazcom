@@ -3,6 +3,6 @@ import { CommonProps } from "../../types";
 
 export type TextAreaProps = CommonProps &
     Omit<TextareaAutosizeProps, "onChange"> & {
-        label?: string;
+        label?: string | JSX.Element;
         error?: boolean;
     };

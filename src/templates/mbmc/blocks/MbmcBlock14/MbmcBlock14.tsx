@@ -104,7 +104,7 @@ export const MbmcBlock14: React.FC = () => {
                     </div>
 
                     <div className={classes.mobileFooter}>
-                        <MbmcButton onClick={gotoSummary} className={classes.checkoutBtn}>
+                        <MbmcButton handleClick={gotoSummary} className={classes.checkoutBtn}>
                             Proceed to summary
                         </MbmcButton>
                     </div>
@@ -173,9 +173,8 @@ export const MbmcBlock14: React.FC = () => {
                                 </div>
                                 <div>
                                     <MbmcButton
-                                        type="PRIMARY"
                                         className={classes.checkoutBtn}
-                                        onClick={handleNextStep}
+                                        handleClick={handleNextStep}
                                     >
                                         Checkout
                                     </MbmcButton>
@@ -247,8 +246,7 @@ export const MbmcBlock14: React.FC = () => {
                                 )}
                                 <div>
                                     <MbmcButton
-                                        onClick={handleNextStep}
-                                        type="PRIMARY"
+                                        handleClick={handleNextStep}
                                         className={classes.checkoutBtn}
                                     >
                                         Proceed to payment

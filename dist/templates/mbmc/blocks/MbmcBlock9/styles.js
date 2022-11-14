@@ -10,18 +10,17 @@ export var useMbmcBlock9Styles = makeStyles(function (theme) {
                 justifyContent: "space-between",
                 overflow: "hidden",
                 padding: theme.spacing(12),
-                width: "calc(100% - 208px)",
+                width: "100%",
+                boxSizing: "border-box",
                 gap: theme.spacing(2)
             },
             _a[theme.breakpoints.down("lg")] = {
                 height: "100%",
                 padding: theme.spacing(8, 4),
-                width: "calc(100% - 64px)",
             },
             _a[theme.breakpoints.down("md")] = {
-                padding: theme.spacing(6, 1),
+                padding: theme.spacing(6, 4),
                 height: "fit-content",
-                width: "calc(100% - 16px)",
             },
             _a),
         headerContent: {
@@ -98,6 +97,7 @@ export var useMbmcBlock9Styles = makeStyles(function (theme) {
             },
             _d[theme.breakpoints.down("lg")] = {
                 padding: theme.spacing(2),
+                maxWidth: "100%",
             },
             _d),
         pointTextContainer: {
@@ -196,7 +196,8 @@ export var useMbmcBlock9Styles = makeStyles(function (theme) {
             },
             _h[theme.breakpoints.down("md")] = {
                 display: "flex",
-                height: 500,
+                height: "auto",
+                padding: theme.spacing(0),
             },
             _h),
         imgDirection1: (_j = {

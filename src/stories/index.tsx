@@ -88,7 +88,7 @@ export const stories: ComponentPropType[] = [
         name: "TextArea",
         component: TextArea,
         props: {
-            label: "Description",
+            label: <p style={{ color: 'red' }}>Description</p>,
             name: "description",
             onChange: ({ name, value }: { name: string; value: string }) => {
                 {

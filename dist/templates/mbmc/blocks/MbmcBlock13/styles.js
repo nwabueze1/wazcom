@@ -1,6 +1,6 @@
 import { makeStyles } from "@mui/styles";
 export var useMbmcBlock13Styles = makeStyles(function (theme) {
-    var _a, _b, _c, _d, _e, _f, _g, _h, _j, _k, _l, _m, _o, _p;
+    var _a, _b, _c, _d, _e, _f, _g, _h, _j, _k, _l, _m, _o, _p, _q, _r;
     return ({
         root: (_a = {
                 backgroundColor: theme.design.colors.waz_greyColor50,
@@ -10,6 +10,8 @@ export var useMbmcBlock13Styles = makeStyles(function (theme) {
                 boxSizing: "border-box",
                 gap: theme.spacing(2),
                 display: "flex",
+                position: "absolute",
+                zIndex: 12,
                 alignItems: "center",
                 justifyContent: "space-between"
             },
@@ -122,18 +124,30 @@ export var useMbmcBlock13Styles = makeStyles(function (theme) {
             paddingRight: theme.spacing(4),
             position: "relative",
         },
-        badgeIcon: {
-            background: theme.design.colors.waz_white,
-            padding: "4px 6px",
-            fontSize: theme.typography.fontSize - 2,
-            borderRadius: "4px",
-            position: "absolute",
-            top: "-16px",
-            left: "12px",
-            fontFamily: theme.design.font.montserrat,
-            color: theme.design.colors.waz_orangeColor100,
-        },
-        orderBtn: (_h = {
+        cartIcon: (_h = {
+                color: theme.design.colors.waz_white
+            },
+            _h[theme.breakpoints.down("lg")] = {
+                color: theme.design.colors.waz_orangeColor100,
+            },
+            _h),
+        badgeIcon: (_j = {
+                padding: "4px 6px",
+                fontSize: theme.typography.fontSize - 2,
+                borderRadius: "4px",
+                position: "absolute",
+                top: "-16px",
+                left: "12px",
+                fontFamily: theme.design.font.montserrat,
+                color: theme.design.colors.waz_orangeColor100,
+                background: theme.design.colors.waz_white
+            },
+            _j[theme.breakpoints.down("lg")] = {
+                color: theme.design.colors.waz_white,
+                backgroundColor: theme.design.colors.waz_orangeColor100,
+            },
+            _j),
+        orderBtn: (_k = {
                 backgroundColor: theme.design.colors.waz_white,
                 fontFamily: theme.design.font.montserrat,
                 fontWeight: theme.typography.fontWeightBold,
@@ -143,11 +157,11 @@ export var useMbmcBlock13Styles = makeStyles(function (theme) {
                 borderRadius: 50,
                 cursor: "pointer"
             },
-            _h[theme.breakpoints.down("lg")] = {
+            _k[theme.breakpoints.down("lg")] = {
                 marginRight: theme.spacing(0),
                 display: "none",
             },
-            _h),
+            _k),
         mobileOrderBtn: {
             backgroundColor: theme.design.colors.waz_white,
             color: theme.design.colors.waz_orangeColor100,
@@ -159,29 +173,31 @@ export var useMbmcBlock13Styles = makeStyles(function (theme) {
             borderRadius: 50,
             cursor: "pointer",
         },
-        menuOptionMobile: (_j = {
+        menuOptionMobile: (_l = {
                 display: "none"
             },
-            _j[theme.breakpoints.down("lg")] = {
+            _l[theme.breakpoints.down("lg")] = {
                 display: "flex",
                 alignItems: "center",
                 color: theme.design.colors.waz_lightOrange,
             },
-            _j),
-        openNav: (_k = {
+            _l),
+        openNav: (_m = {
                 display: "none"
             },
-            _k[theme.breakpoints.down("lg")] = {
+            _m[theme.breakpoints.down("lg")] = {
                 display: "block",
-                position: "absolute",
+                position: "fixed",
+                zIndex: 12,
                 width: "100%",
                 top: 0,
             },
-            _k[theme.breakpoints.down("md")] = {
+            _m[theme.breakpoints.down("md")] = {
                 height: "100vh",
+                zIndex: 12,
             },
-            _k),
-        expandedNav: (_l = {
+            _m),
+        expandedNav: (_o = {
                 backgroundColor: "rgba(0,0,0,0.4)",
                 overflow: "hidden",
                 padding: theme.spacing(0, 0, 0, 10),
@@ -192,18 +208,18 @@ export var useMbmcBlock13Styles = makeStyles(function (theme) {
                 alignItems: "flex-start",
                 justifyContent: "space-between"
             },
-            _l[theme.breakpoints.down("md")] = {
+            _o[theme.breakpoints.down("md")] = {
                 padding: theme.spacing(0, 0, 0, 2),
                 height: "100%",
             },
-            _l),
+            _o),
         mobilelogoContainer: {
             width: "30%",
             display: "flex",
             alignItems: "center",
             paddingTop: theme.spacing(2),
         },
-        expandedMenuOptionMobile: (_m = {
+        expandedMenuOptionMobile: (_p = {
                 display: "flex",
                 flexDirection: "column",
                 alignItems: "flex-end",
@@ -215,26 +231,26 @@ export var useMbmcBlock13Styles = makeStyles(function (theme) {
                 color: theme.design.colors.waz_white,
                 backgroundColor: theme.design.colors.waz_orangeColor100
             },
-            _m[theme.breakpoints.down("md")] = {
+            _p[theme.breakpoints.down("md")] = {
                 paddingRight: theme.spacing(2),
                 justifyContent: "flex-start",
             },
-            _m),
+            _p),
         expandedNavContent: {
             width: "100%",
             height: "100%",
             display: "flex",
         },
-        expandedNavContentLeftSide: (_o = {
+        expandedNavContentLeftSide: (_q = {
                 width: "30%",
                 backgroundColor: "rgba(0,0,0,0.4)",
                 padding: theme.spacing(0, 0, 0, 10)
             },
-            _o[theme.breakpoints.down("md")] = {
+            _q[theme.breakpoints.down("md")] = {
                 padding: theme.spacing(0, 0, 0, 2),
             },
-            _o),
-        expandedNavContentRightSide: (_p = {
+            _q),
+        expandedNavContentRightSide: (_r = {
                 width: "70%",
                 backgroundColor: theme.design.colors.waz_orangeColor100,
                 textAlign: "right",
@@ -243,14 +259,20 @@ export var useMbmcBlock13Styles = makeStyles(function (theme) {
                 flexDirection: "column",
                 alignItems: "flex-end",
                 padding: theme.spacing(4, 10, 10, 0),
-                "& a": {
+                "& a, p": {
                     textDecoration: "none",
+                    letterSpacing: "0px",
+                    color: theme.design.colors.waz_white,
+                    textTransform: "capitalize",
+                    fontSize: theme.typography.fontSize + 20,
+                    fontWeight: theme.typography.fontWeightBold,
+                    fontFamily: theme.design.font.lostaMasta,
                 }
             },
-            _p[theme.breakpoints.down("lg")] = {
+            _r[theme.breakpoints.down("lg")] = {
                 paddingRight: theme.spacing(2),
             },
-            _p),
+            _r),
         NavLinks: {
             letterSpacing: "0px",
             color: theme.design.colors.waz_white,
