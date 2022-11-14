@@ -342,6 +342,10 @@ export const useGetMbmcBlocks = () => {
                         text: "Contact us",
                     },
                 ],
+                mode: "edit",
+                handleClick: (route: string) => alert(route),
+                index: 0,
+                activeElement: "0.heading",
             },
         },
         {

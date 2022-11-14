@@ -27,7 +27,7 @@ export var useMbmcBlock11Styles = makeStyles(function (theme) {
                 overflow: "visible",
             },
             _a),
-        headerContent: (_b = {
+        block11Content: (_b = {
                 width: "46%"
             },
             _b[theme.breakpoints.down("md")] = {
@@ -39,14 +39,17 @@ export var useMbmcBlock11Styles = makeStyles(function (theme) {
                 overflowX: "hidden",
             },
             _b),
-        headerTitle: (_c = {
+        block11Heading: (_c = {
                 color: theme.design.colors.waz_black,
                 fontSize: theme.typography.fontSize * 4,
                 letterSpacing: 0,
                 textTransform: "capitalize",
                 font: "normal normal medium 68px/100px Losta Masta;",
                 margin: 0,
-                fontFamily: theme.design.font.lostaMasta
+                fontFamily: theme.design.font.lostaMasta,
+                border: "1px solid transparent",
+                transition: "all 0.3s ease-in",
+                width: 'fit-content'
             },
             _c[theme.breakpoints.down("lg")] = {
                 marginTop: theme.spacing(3),
@@ -60,11 +63,13 @@ export var useMbmcBlock11Styles = makeStyles(function (theme) {
                 marginBottom: theme.spacing(3),
             },
             _c),
-        headerDescription: (_d = {
+        block11Description: (_d = {
                 color: theme.design.colors.waz_greyColor600,
                 fontSize: theme.typography.fontSize + 6,
                 fontFamily: theme.design.font.montserrat,
-                lineHeight: 1.5
+                lineHeight: 1.5,
+                border: "1px solid transparent",
+                transition: "all 0.3s ease-in"
             },
             _d[theme.breakpoints.down("lg")] = {
                 fontSize: theme.typography.fontSize + 4,
@@ -116,21 +121,25 @@ export var useMbmcBlock11Styles = makeStyles(function (theme) {
             height: "100%",
             borderRadius: theme.spacing(0.5),
         },
-        headerParagraph: {
+        block11Paragraph: {
             "& > p": {
                 margin: theme.spacing(2, 0),
             },
         },
-        headerBtnContainer: {
+        block11BtnContainer: {
             display: "flex",
             margin: theme.spacing(2, 0),
         },
-        headerIcon: (_h = {
+        block11Icon: (_h = {
                 marginLeft: theme.spacing(1)
             },
             _h[theme.breakpoints.down("md")] = {
                 display: "none",
             },
             _h),
+        block11ActiveElement: {
+            border: "1px dashed",
+            borderColor: theme.design.colors.waz_primaryColor100,
+        },
     });
 });

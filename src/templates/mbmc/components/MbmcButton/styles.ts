@@ -4,7 +4,7 @@ import { makeStyles } from "@mui/styles";
 export const useButtonStyles = makeStyles((theme: Theme) => ({
     button: {
         borderRadius: 100,
-        width: "100%",
+        width: "fit-content",
         fontSize: theme.typography.fontSize + 2,
         padding: theme.spacing(1.5, 5),
         textTransform: "unset",

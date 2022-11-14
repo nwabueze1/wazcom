@@ -25,7 +25,7 @@ export const useMbmcBlock11Styles = makeStyles((theme: Theme) => ({
             overflow: "visible",
         },
     },
-    headerContent: {
+    block11Content: {
         width: "46%",
 
         [theme.breakpoints.down("md")]: {
@@ -37,7 +37,7 @@ export const useMbmcBlock11Styles = makeStyles((theme: Theme) => ({
             overflowX: "hidden",
         },
     },
-    headerTitle: {
+    block11Heading: {
         color: theme.design.colors.waz_black,
         fontSize: theme.typography.fontSize * 4,
         letterSpacing: 0,
@@ -45,6 +45,9 @@ export const useMbmcBlock11Styles = makeStyles((theme: Theme) => ({
         font: "normal normal medium 68px/100px Losta Masta;",
         margin: 0,
         fontFamily: theme.design.font.lostaMasta,
+        border: "1px solid transparent",
+        transition: "all 0.3s ease-in",
+        width: 'fit-content',
 
         [theme.breakpoints.down("lg")]: {
             marginTop: theme.spacing(3),
@@ -58,11 +61,13 @@ export const useMbmcBlock11Styles = makeStyles((theme: Theme) => ({
             marginBottom: theme.spacing(3),
         },
     },
-    headerDescription: {
+    block11Description: {
         color: theme.design.colors.waz_greyColor600,
         fontSize: theme.typography.fontSize + 6,
         fontFamily: theme.design.font.montserrat,
         lineHeight: 1.5,
+        border: "1px solid transparent",
+        transition: "all 0.3s ease-in",
 
         [theme.breakpoints.down("lg")]: {
             fontSize: theme.typography.fontSize + 4,
@@ -113,19 +118,23 @@ export const useMbmcBlock11Styles = makeStyles((theme: Theme) => ({
         height: "100%",
         borderRadius: theme.spacing(0.5),
     },
-    headerParagraph: {
+    block11Paragraph: {
         "& > p": {
             margin: theme.spacing(2, 0),
         },
     },
-    headerBtnContainer: {
+    block11BtnContainer: {
         display: "flex",
         margin: theme.spacing(2, 0),
     },
-    headerIcon: {
+    block11Icon: {
         marginLeft: theme.spacing(1),
         [theme.breakpoints.down("md")]: {
             display: "none",
         },
+    },
+    block11ActiveElement: {
+        border: "1px dashed",
+        borderColor: theme.design.colors.waz_primaryColor100,
     },
 }));
