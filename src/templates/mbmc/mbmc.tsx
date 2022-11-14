@@ -74,8 +74,9 @@ export const useGetMbmcBlocks = () => {
                     },
                 ],
                 mode: "edit",
+                index: 0,
                 handleClick: (route: string) => alert(route),
-                activeElement: "MbmcBlock3.ctas.0",
+                activeElement: "0.description",
             },
         },
         {

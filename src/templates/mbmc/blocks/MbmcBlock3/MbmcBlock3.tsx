@@ -6,6 +6,7 @@ import clx from "classnames";
 
 export const MbmcBlock3: FC<MbmcBlock3Props> = ({
     mode = "view",
+    index,
     handleClick,
     activeElement,
     heading,
@@ -18,7 +19,7 @@ export const MbmcBlock3: FC<MbmcBlock3Props> = ({
         <div
             className={clx(
                 classes.root,
-                activeElement === "MbmcBlock3" && classes.block3ActiveElement,
+                activeElement === String(index) && classes.block3ActiveElement,
             )}
         >
             <div className={classes.block3Container}>
@@ -32,9 +33,9 @@ export const MbmcBlock3: FC<MbmcBlock3Props> = ({
                     <h3
                         className={clx(
                             classes.block3Heading,
-                            activeElement === "MbmcBlock3.heading" && classes.block3ActiveElement,
+                            activeElement === `${String(index)}.heading` && classes.block3ActiveElement,
                         )}
-                        onClick={() => handleElementClick(mode, "MbmcBlock3.heading", handleClick)}
+                        onClick={() => handleElementClick(mode, `${String(index)}.heading`, handleClick)}
                     >
                         {heading}
                     </h3>
@@ -53,17 +54,17 @@ export const MbmcBlock3: FC<MbmcBlock3Props> = ({
                     <p
                         className={clx(
                             classes.block3Description,
-                            activeElement === "MbmcBlock3.description" &&
+                            activeElement === `${String(index)}.description` &&
                                 classes.block3ActiveElement,
                         )}
                         onClick={() =>
-                            handleElementClick(mode, "MbmcBlock3.description", handleClick)
+                            handleElementClick(mode, `${String(index)}.description`, handleClick)
                         }
                     >
                         {description}
                     </p>
                     <div className={classes.block3Ctas}>
-                        {renderCtas(ctas ?? [], mode, "MbmcBlock3", handleClick, activeElement)}
+                        {renderCtas(ctas ?? [], mode, index ?? 0, handleClick, activeElement)}
                     </div>
                 </div>
             </div>
