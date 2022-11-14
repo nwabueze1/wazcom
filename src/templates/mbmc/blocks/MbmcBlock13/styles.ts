@@ -3,7 +3,7 @@ import { makeStyles } from "@mui/styles";
 
 export const useMbmcBlock13Styles = makeStyles((theme: Theme) => ({
     root: {
-        backgroundColor: "transparent",
+        backgroundColor: theme.design.colors.waz_greyColor50,
         overflow: "hidden",
         padding: theme.spacing(2, 12),
         width: "100%",

@@ -3,7 +3,7 @@ export var useMbmcBlock13Styles = makeStyles(function (theme) {
     var _a, _b, _c, _d, _e, _f, _g, _h, _j, _k, _l, _m, _o, _p;
     return ({
         root: (_a = {
-                backgroundColor: "transparent",
+                backgroundColor: theme.design.colors.waz_greyColor50,
                 overflow: "hidden",
                 padding: theme.spacing(2, 12),
                 width: "100%",

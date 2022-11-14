@@ -24,8 +24,7 @@ export var useMbmcBlock12Styles = makeStyles(function (theme) {
             },
             _a),
         headerContent: (_b = {
-                width: "45%",
-                paddingRight: theme.spacing(4)
+                width: "45%"
             },
             _b[theme.breakpoints.down("lg")] = {
                 paddingRight: theme.spacing(0),
@@ -146,14 +145,12 @@ export var useMbmcBlock12Styles = makeStyles(function (theme) {
             },
             _g),
         demarcationContainer: (_h = {
-                width: "10%",
-                height: "calc(100% - 112px)",
-                position: "absolute",
+                width: "16.5%",
+                maxWidth: "195px",
                 zIndex: 10,
                 margin: theme.spacing(0, "auto"),
                 right: 0,
                 left: 0,
-                top: 56,
                 bottom: 0,
                 display: "flex",
                 justifyContent: "center"

@@ -3,10 +3,17 @@ import { makeStyles } from "@mui/styles";
 
 export const useMbmcBlock14Styles = makeStyles((theme: Theme) => ({
     root: {
+        backgroundColor: theme.design.colors.waz_greyColor50,
+        minHeight: "100vh",
+        width: "100vw",
+    },
+    container: {
         display: "flex",
         gap: "64px",
         width: "100%",
         boxSizing: "border-box",
+        justifyContent: "center",
+        paddingTop: "67.75px",
     },
     leftSection: {
         width: "39%",
@@ -31,7 +38,7 @@ export const useMbmcBlock14Styles = makeStyles((theme: Theme) => ({
     cartContainer: {
         maxHeight: "85vh",
         overflowY: "scroll",
-        padding: theme.spacing(0, 1, 0, 0),
+        padding: theme.spacing(2),
         "-ms-overflow-style": "none",
         scrollbarWidth: "none",
         [theme.breakpoints.down("lg")]: {
@@ -59,12 +66,14 @@ export const useMbmcBlock14Styles = makeStyles((theme: Theme) => ({
         [theme.breakpoints.down("lg")]: {
             display: "none",
         },
+        margin: theme.spacing(2, 0),
     },
     checkoutProcessContainer: {
         display: "flex",
         flexDirection: "column",
         gap: "24px",
         width: "38%",
+        margin: theme.spacing(2, 0),
         [theme.breakpoints.down("lg")]: {
             zIndex: -1,
             position: "absolute",
