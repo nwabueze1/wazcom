@@ -367,8 +367,7 @@ export const useGetMbmcBlocks = () => {
                 style: "mbmc",
                 logo: {
                     src: {
-                        desktop:
-                            "https://sytbuildr.s3.eu-west-2.amazonaws.com/images/mbmc/Logo-Landscape.svg",
+                        desktop: "https://sytbuildr.s3.eu-west-2.amazonaws.com/Logo-Icon.svg",
                         mobile: "https://sytbuildr.s3.eu-west-2.amazonaws.com/images/mbmc/Logo.svg",
                     },
                     url: "#",

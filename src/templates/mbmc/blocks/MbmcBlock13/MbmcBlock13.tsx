@@ -57,8 +57,18 @@ export const MbmcBlock13: FC<MbmcBlock13Props> = ({
                     onClick={handleNavClick}
                 >
                     <div className={classes.logoContainer}>
-                        <a href={logo?.url}>
-                            <img src={logo?.src?.desktop} alt="" className={classes.logo} />
+                        <a href={logo?.url} className={classes.logoLink}>
+                            <div className={classes.desktopLogo}>
+                                <img
+                                    src={logo?.src?.desktop}
+                                    alt=""
+                                    className={classes.desktopLogoImage}
+                                />
+                                <p className={classes.desktopLogoText}>
+                                    <span>mrbaker</span>
+                                    <span>mrscook</span>
+                                </p>
+                            </div>
                             <img src={logo?.src?.mobile} alt="" className={classes.mobilelogo} />
                         </a>
                     </div>

@@ -49,14 +49,33 @@ export var useMbmcBlock13Styles = makeStyles(function (theme) {
                 },
                 _b),
         },
-        logo: (_c = {
+        desktopLogo: (_c = {
                 marginRight: theme.spacing(1),
-                width: "100%"
+                display: "flex",
+                alignItems: "center",
+                justifyContent: "center",
+                gap: theme.spacing(2)
             },
             _c[theme.breakpoints.down("lg")] = {
                 display: "none",
             },
             _c),
+        desktopLogoImage: {
+            width: "100%",
+            display: "block",
+        },
+        desktopLogoText: {
+            fontFamily: theme.design.font.lostaMastaLight,
+            fontSize: theme.typography.fontSize + 12,
+            color: theme.design.colors.waz_primaryColor200,
+            "& > span:first-child": {
+                fontWeight: theme.typography.fontWeightBold,
+            },
+        },
+        logoLink: {
+            textDecoration: "none",
+            color: "inherit",
+        },
         mobilelogo: (_d = {
                 display: "none"
             },

@@ -49,12 +49,32 @@ export const useMbmcBlock13Styles = makeStyles((theme: Theme) => ({
             },
         },
     },
-    logo: {
+    desktopLogo: {
         marginRight: theme.spacing(1),
-        width: "100%",
+        display: "flex",
+        alignItems: "center",
+        justifyContent: "center",
+        gap: theme.spacing(2),
         [theme.breakpoints.down("lg")]: {
             display: "none",
         },
+    },
+    desktopLogoImage: {
+        width: "100%",
+        display: "block",
+    },
+    desktopLogoText: {
+        fontFamily: theme.design.font.lostaMastaLight,
+        fontSize: theme.typography.fontSize + 12,
+        color: theme.design.colors.waz_primaryColor200,
+
+        "& > span:first-child": {
+            fontWeight: theme.typography.fontWeightBold,
+        },
+    },
+    logoLink: {
+        textDecoration: "none",
+        color: "inherit",
     },
     mobilelogo: {
         display: "none",
