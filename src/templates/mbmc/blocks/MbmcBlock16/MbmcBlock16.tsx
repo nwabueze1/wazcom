@@ -1,14 +1,14 @@
 import { CheckBoxInput, RadioButtonInput } from "io";
 import React, { useState } from "react";
-import { MbmcButton } from "templates/mbmc/components/MbmcButton/MbmcButton";
+import { MbmcButton } from "../../../../templates/mbmc/components/MbmcButton/MbmcButton";
 import RemoveRoundedIcon from "@mui/icons-material/RemoveRounded";
 import AddRoundedIcon from "@mui/icons-material/AddRounded";
 import { useMbmcBlock16Styles } from "./styles";
 import { MbmcBlock16Props } from "./types";
-import { getCurrency } from "utilities";
-import Cookies from "universal-cookie";
-import { useMutation, useQuery } from "@apollo/client";
-import { CREATE_CART, CREATE_CART_ITEM, GET_CART, UPDATE_CART_ITEM } from "./graphql";
+import { getCurrency } from "../../../../utilities";
+// import Cookies from "universal-cookie";
+// import { useMutation, useQuery } from "@apollo/client";
+// import { CREATE_CART, GET_CART } from "./graphql";
 
 const MbmcBlock16: React.FC<MbmcBlock16Props> = ({
     name,
@@ -18,32 +18,29 @@ const MbmcBlock16: React.FC<MbmcBlock16Props> = ({
     currency,
     options,
     optionsConfig,
-    siteUuid,
-    menuItemUuid,
-    client,
 }) => {
     const classes = useMbmcBlock16Styles();
     const [count, setCount] = useState<number>(1);
     const [selection, setSelection] = useState<{ name?: string; amount?: number }>({});
     const [deselection, setDeselection] = useState<{ name?: string; amount?: number }[]>([]);
-    const [extras, setExtras] = useState<{ name?: string; amount?: number }[]>([]);
-    const { data: cartData, error: fetchCartError, refetch } = useQuery(GET_CART, { client });
-    const [createCart, { data, loading, error }] = useMutation(CREATE_CART, {
-        client,
-        variables: { site_uuid: siteUuid, currency },
-    });
-    const [
-        createCartItem,
-        { data: createdCartItem, loading: createCartItemLoading, error: createCartItemError },
-    ] = useMutation(CREATE_CART_ITEM, {
-        client,
-    });
-    const [
-        updateCartItem,
-        { data: updatedCartItem, loading: updateCartItemLoading, error: updateCartItemError },
-    ] = useMutation(UPDATE_CART_ITEM, {
-        client,
-    });
+    // const [extras, setExtras] = useState<{ name?: string; amount?: number }[]>([]);
+    // const { data: cartData, refetch } = useQuery(GET_CART, { client });
+    // const [createCart] = useMutation(CREATE_CART, {
+    //     client,
+    //     variables: { site_uuid: siteUuid, currency },
+    // });
+    // const [
+    //     createCartItem,
+    //     { data: createdCartItem, loading: createCartItemLoading, error: createCartItemError },
+    // ] = useMutation(CREATE_CART_ITEM, {
+    //     client,
+    // });
+    // const [
+    //     updateCartItem,
+    //     { data: updatedCartItem, loading: updateCartItemLoading, error: updateCartItemError },
+    // ] = useMutation(UPDATE_CART_ITEM, {
+    //     client,
+    // });
     const itemOptions = optionsConfig?.filter((option) => options?.includes(option?.uuid));
     const total = price * count;
 
@@ -78,80 +75,79 @@ const MbmcBlock16: React.FC<MbmcBlock16Props> = ({
         });
     };
 
-    const handleExtrasChange = (data: { name: string; value: any }, price: number) => {
-        const { name } = data;
-        const optionIndex = extras.findIndex((item) => item.name == name && item.amount == price);
-        const updatedExtras = extras;
-        if (optionIndex !== -1) {
-            updatedExtras.splice(optionIndex, 1);
-            return setExtras(() => {
-                return [...updatedExtras];
-            });
-        }
+    // const handleExtrasChange = (data: { name: string; value: any }, price: number) => {
+    //     const { name } = data;
+    //     const optionIndex = extras.findIndex((item) => item.name == name && item.amount == price);
+    //     const updatedExtras = extras;
+    //     if (optionIndex !== -1) {
+    //         updatedExtras.splice(optionIndex, 1);
+    //         return setExtras(() => {
+    //             return [...updatedExtras];
+    //         });
+    //     }
 
-        return setExtras((prev) => {
-            return [...prev, { name, amount: price }];
-        });
-    };
+    //     return setExtras((prev) => {
+    //         return [...prev, { name, amount: price }];
+    //     });
+    // };
 
-    const handleAddToCart = async () => {
-        const cookies = new Cookies();
-        const cart = cookies.get("cart");
-        const options = itemOptions?.map((option) => {
-            return {
-                name: option?.name as string,
-                type: option?.type as string,
-                selectedChoices:
-                    option?.type == "selection"
-                        ? [selection]
-                        : option.type == "deselection"
-                        ? [...deselection]
-                        : [...extras],
-            };
-        });
-        if (!cart || !cart[siteUuid]) {
-            await createCart();
-        }
+    // const handleAddToCart = async () => {
+    //     const cookies = new Cookies();
+    //     const cart = cookies.get("cart");
+    //     const options = itemOptions?.map((option) => {
+    //         return {
+    //             name: option?.name as string,
+    //             type: option?.type as string,
+    //             selectedChoices:
+    //                 option?.type == "selection"
+    //                     ? [selection]
+    //                     : option.type == "deselection"
+    //                     ? [...deselection]
+    //                     : [...extras],
+    //         };
+    //     });
+    //     if (!cart || !cart[siteUuid]) {
+    //         await createCart();
+    //     }
 
-        if (cart && cart[siteUuid]) {
-            const cartUuid = cart[siteUuid];
-            const parsedOptions =
-                (options as { [key: string]: any }[])?.length > 0 ? JSON.stringify(options) : null;
-            const f = refetch({ uuid: cartUuid });
-            console.log("f", f);
-            let operationStatus;
-            const params = {
-                detail: description as string,
-                quantity: count,
-                cart_uuid: cartUuid,
-                menu_item_uuid: menuItemUuid,
-                options: parsedOptions,
-            };
+    //     if (cart && cart[siteUuid]) {
+    //         const cartUuid = cart[siteUuid];
+    //         const parsedOptions =
+    //             (options as { [key: string]: any }[])?.length > 0 ? JSON.stringify(options) : null;
+    //         const f = refetch({ uuid: cartUuid });
+    //         console.log("f", f);
+    //         let operationStatus;
+    //         const params = {
+    //             detail: description as string,
+    //             quantity: count,
+    //             cart_uuid: cartUuid,
+    //             menu_item_uuid: menuItemUuid,
+    //             options: parsedOptions,
+    //         };
 
-            // if (!cartItemUuid) {
-            //     const result = await createCartItem({ variables: params });
-            //     // operationStatus = status;
-            // }  else if (cartItemUuid) {
-            //     const updatedResult = await updateCartItem({
-            //         uuid: cartItemUuid,
-            //         quantity: count,
-            //         options: parsedOptions ?? undefined,
-            //     });
-            //     // operationStatus = status;
-            // }
+    //         // if (!cartItemUuid) {
+    //         //     const result = await createCartItem({ variables: params });
+    //         //     // operationStatus = status;
+    //         // }  else if (cartItemUuid) {
+    //         //     const updatedResult = await updateCartItem({
+    //         //         uuid: cartItemUuid,
+    //         //         quantity: count,
+    //         //         options: parsedOptions ?? undefined,
+    //         //     });
+    //         //     // operationStatus = status;
+    //         // }
 
-            // if (operationStatus) {
-            // close();
-            // reloadCart();
-            // toast.success(
-            //     cartItemUuid ? "Item Updated Successfully" : "Item Added Successfully"
-            // );
-            // }
-            // setLoading(false);
-        }
-    };
-    console.log("itemOptions", itemOptions);
-    console.log("cartData", cartData);
+    //         // if (operationStatus) {
+    //         // close();
+    //         // reloadCart();
+    //         // toast.success(
+    //         //     cartItemUuid ? "Item Updated Successfully" : "Item Added Successfully"
+    //         // );
+    //         // }
+    //         // setLoading(false);
+    //     }
+    // };
+
     return (
         <div className={classes.cartItemContainer}>
             <div className={classes.topContent}>
@@ -285,7 +281,7 @@ const MbmcBlock16: React.FC<MbmcBlock16Props> = ({
                 </div>
 
                 <div className={classes.addToCartBtnContainer}>
-                    <MbmcButton type="SECONDARY">
+                    <MbmcButton variant="SECONDARY">
                         Add to cart ({getCurrency(currency)}
                         {total})
                     </MbmcButton>

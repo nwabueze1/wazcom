@@ -1,13 +1,11 @@
 import { useMbmcBlock12Styles } from "./styles";
 import { MbmcButton } from "../../components/MbmcButton/MbmcButton";
-import { FC, useRef, useState } from "react";
+import { FC, useState } from "react";
 import { MbmcBlock12Props } from "./types";
-import { TextArea, TextInput } from "io";
-import emailjs from "@emailjs/browser";
-import { Loader } from "core";
+import { TextArea, TextInput } from "../../../../io";
+import { Loader } from "../../../../core";
 
 export const MbmcBlock12: FC<MbmcBlock12Props> = ({
-    style,
     layout,
     heading,
     description,
@@ -126,7 +124,7 @@ export const MbmcBlock12: FC<MbmcBlock12Props> = ({
                             onClick={handleClick}
                             className={classes.formButton}
                             size="sm"
-                            type="SECONDARY"
+                            variant="SECONDARY"
                         >
                             Send
                         </MbmcButton>

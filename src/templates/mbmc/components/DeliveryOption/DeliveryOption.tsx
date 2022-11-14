@@ -1,4 +1,4 @@
-import { RadioButtonInput } from "io";
+import { RadioButtonInput } from "../../../../io";
 import React from "react";
 import { useDeliveryOptionStyles } from "./styles";
 import { DeliveryOptionProps } from "./types";

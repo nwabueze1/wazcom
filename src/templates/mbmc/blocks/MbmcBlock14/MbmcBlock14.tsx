@@ -1,12 +1,12 @@
 import React, { useState } from "react";
 import { useMbmcBlock14Styles } from "./styles";
-import CartItemCard from "templates/mbmc/components/CartItemCard/CartItemCard";
-import { MbmcButton } from "templates/mbmc/components/MbmcButton/MbmcButton";
-import { TextInput } from "io";
+import CartItemCard from "../../../../templates/mbmc/components/CartItemCard/CartItemCard";
+import { MbmcButton } from "../../../../templates/mbmc/components/MbmcButton/MbmcButton";
+import { TextInput } from "../../../../io";
 import { pickupFormData, shippingFormData } from "./data";
 import KeyboardBackspaceIcon from "@mui/icons-material/KeyboardBackspace";
-import DeliveryOption from "templates/mbmc/components/DeliveryOption/DeliveryOption";
-import PaymentOption from "templates/mbmc/components/PaymentOption/PaymentOption";
+import DeliveryOption from "../../../../templates/mbmc/components/DeliveryOption/DeliveryOption";
+import PaymentOption from "../../../../templates/mbmc/components/PaymentOption/PaymentOption";
 
 export const MbmcBlock14: React.FC = () => {
     const classes = useMbmcBlock14Styles();
@@ -170,7 +170,6 @@ export const MbmcBlock14: React.FC = () => {
                             </div>
                             <div>
                                 <MbmcButton
-                                    type="PRIMARY"
                                     className={classes.checkoutBtn}
                                     onClick={handleNextStep}
                                 >
@@ -245,7 +244,6 @@ export const MbmcBlock14: React.FC = () => {
                             <div>
                                 <MbmcButton
                                     onClick={handleNextStep}
-                                    type="PRIMARY"
                                     className={classes.checkoutBtn}
                                 >
                                     Proceed to payment

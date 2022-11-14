@@ -2,7 +2,7 @@ import { StyledEngineProvider, Theme, ThemeProvider } from "@mui/material";
 import * as React from "react";
 import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
 import { Blaise } from "templates";
-import { useGetMbmcBlocks } from "templates/mbmc";
+import { useGetMbmcBlocks } from "templates/mbmc/mbmc";
 import { Valour } from "templates/Navs";
 import { Asta } from "templates/restaurant/Asta/Asta";
 import { Mbmc } from "templates/restaurant/Mbmc/Mbmc";

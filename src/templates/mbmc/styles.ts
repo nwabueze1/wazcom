@@ -1,14 +1,13 @@
-import { Theme } from "@mui/material";
 import { makeStyles } from "@mui/styles";
 
-export const useMbmbcStyles = makeStyles((theme: Theme) => ({
+export const useMbmbcStyles = makeStyles(() => ({
     mbmc1CtaIcon: {
-        position: 'relative',
+        position: "relative",
         top: 1,
         marginLeft: 8,
     },
     mbmc12Button: {
-        width: '100%',
+        width: "100%",
         fontWeight: 600,
-    }
+    },
 }));

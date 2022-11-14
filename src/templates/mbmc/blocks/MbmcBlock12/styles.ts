@@ -15,6 +15,7 @@ export const useMbmcBlock12Styles = makeStyles((theme: Theme) => ({
         width: "90%",
         margin: "0 auto",
         display: "flex",
+        position: "relative",
         justifyContent: "space-between",
 
         [theme.breakpoints.down("lg")]: {

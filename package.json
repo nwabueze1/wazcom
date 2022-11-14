@@ -6,7 +6,6 @@
     "entry_point": "index.tsx",
     "dependencies": {
         "@apollo/client": "^3.4.11",
-        "@emailjs/browser": "^3.9.1",
         "@emotion/react": "^11.5.0",
         "@emotion/styled": "^11.3.0",
         "@paypal/react-paypal-js": "^7.3.3",

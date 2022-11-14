@@ -1,0 +1,1 @@
+export declare const useMbmcBlock5Styles: (props?: any) => import("@mui/styles").ClassNameMap<"root" | "logoContainer" | "activeElement" | "mbmcContainer" | "footerContainer" | "footerSectionTitle" | "footerSocials" | "footerLogoSocials" | "footerSectionLink" | "footerLinks" | "footerNote" | "listContainer" | "footerLogo">;
