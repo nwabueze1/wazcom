@@ -107,6 +107,11 @@ export const useGetMbmcBlocks = () => {
                         image: "https://sytbuildr.s3.eu-west-2.amazonaws.com/zdpk0U95fFJNVodRZxpIYk6hMIJYReitDX4R7RX4.png",
                     },
                 ],
+                
+                mode: "edit",
+                index: 0,
+                handleClick: (route: string) => alert(route),
+                activeElement: "0.cards.2.description",
             },
         },
         {

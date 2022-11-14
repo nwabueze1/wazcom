@@ -53,7 +53,7 @@ export const MbmcBlock1: FC<MbmcBlock1Props> = ({
                         {description}
                     </p>
                     <div className={classes.block1BtnContainer}>
-                        {renderCtas(ctas ?? [], mode, index ?? 0, handleClick, activeElement)}
+                        {renderCtas(ctas ?? [], mode, String(index ?? 0), handleClick, activeElement)}
                     </div>
                 </div>
                 <div className={classes.block1ImgContainerMobile}>

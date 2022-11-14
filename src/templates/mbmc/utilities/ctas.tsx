@@ -5,12 +5,12 @@ import { handleElementClick } from "./element";
 export const renderCtas = (
     ctas: BlockCta[],
     mode: "view" | "edit",
-    blockIndex: number,
+    parentKey: string,
     handleClick?: (element: string) => void,
     activeElement?: string,
 ) => {
     return (ctas ?? []).map(({ text, rIcon, url, lIcon, ...props }, index) => {
-        const name = String(blockIndex) + ".ctas." + String(index);
+        const name = parentKey + ".ctas." + String(index);
         return (
             <MbmcButton
                 key={index}

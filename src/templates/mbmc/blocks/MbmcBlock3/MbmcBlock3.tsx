@@ -33,9 +33,12 @@ export const MbmcBlock3: FC<MbmcBlock3Props> = ({
                     <h3
                         className={clx(
                             classes.block3Heading,
-                            activeElement === `${String(index)}.heading` && classes.block3ActiveElement,
+                            activeElement === `${String(index)}.heading` &&
+                                classes.block3ActiveElement,
                         )}
-                        onClick={() => handleElementClick(mode, `${String(index)}.heading`, handleClick)}
+                        onClick={() =>
+                            handleElementClick(mode, `${String(index)}.heading`, handleClick)
+                        }
                     >
                         {heading}
                     </h3>
@@ -64,7 +67,13 @@ export const MbmcBlock3: FC<MbmcBlock3Props> = ({
                         {description}
                     </p>
                     <div className={classes.block3Ctas}>
-                        {renderCtas(ctas ?? [], mode, index ?? 0, handleClick, activeElement)}
+                        {renderCtas(
+                            ctas ?? [],
+                            mode,
+                            String(index ?? 0),
+                            handleClick,
+                            activeElement,
+                        )}
                     </div>
                 </div>
             </div>
