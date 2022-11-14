@@ -24,11 +24,17 @@ export const MbmcCard: React.FC<MbmcCardProps> = ({
     return (
         <div className={clsx(classes.root, classes.visible, className)}>
             <div
-                className={classes.imageWrapper}
+                className={clsx(
+                    classes.imageWrapper,
+                    activeElement === parentKey + ".image" && classes.cardActiveElement,
+                )}
                 style={{
                     backgroundImage: `url(${image ?? menuImagePlaceholder})`,
                 }}
-            ></div>
+                onClick={() => {
+                    handleElementClick(mode, parentKey + ".image", handleClick);
+                }}
+            />
             <div className={classes.content}>
                 <div>
                     <p

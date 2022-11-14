@@ -111,7 +111,7 @@ export const useGetMbmcBlocks = () => {
                 mode: "edit",
                 index: 0,
                 handleClick: (route: string) => alert(route),
-                activeElement: "0.cards.2.description",
+                activeElement: "0.cards.2.image",
             },
         },
         {
