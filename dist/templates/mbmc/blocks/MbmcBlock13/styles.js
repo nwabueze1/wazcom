@@ -1,9 +1,9 @@
 import { makeStyles } from "@mui/styles";
 export var useMbmcBlock13Styles = makeStyles(function (theme) {
-    var _a, _b, _c, _d, _e, _f, _g, _h, _j, _k, _l, _m, _o, _p, _q, _r;
+    var _a, _b, _c, _d, _e, _f, _g, _h, _j, _k, _l, _m, _o, _p, _q, _r, _s;
     return ({
-        root: (_a = {
-                backgroundColor: theme.design.colors.waz_greyColor50,
+        container: (_a = {
+                background: "transparent",
                 overflow: "hidden",
                 padding: theme.spacing(2, 12),
                 width: "100%",
@@ -11,19 +11,25 @@ export var useMbmcBlock13Styles = makeStyles(function (theme) {
                 gap: theme.spacing(2),
                 display: "flex",
                 position: "absolute",
-                zIndex: 12,
+                zIndex: 10,
                 alignItems: "center",
-                justifyContent: "space-between"
+                justifyContent: "space-between",
+                maxWidth: 1440
             },
             _a[theme.breakpoints.down("lg")] = {
-                padding: theme.spacing(2, 10),
+                padding: theme.spacing(3, 10),
             },
             _a[theme.breakpoints.down("md")] = {
                 backgroundColor: theme.design.colors.waz_white,
-                padding: theme.spacing(1, 2),
+                padding: theme.spacing(3, 2),
                 height: "fit-content",
             },
             _a),
+        root: {
+            margin: "0 auto",
+            display: "flex",
+            justifyContent: "center",
+        },
         activeElement: {
             border: "1px dashed",
             borderColor: theme.design.colors.waz_primaryColor100,
@@ -208,16 +214,38 @@ export var useMbmcBlock13Styles = makeStyles(function (theme) {
                 display: "block",
                 position: "fixed",
                 zIndex: 12,
-                width: "100%",
+                width: "70vw",
                 top: 0,
+                right: "-100%",
+                transition: "all 0.5s",
             },
             _m[theme.breakpoints.down("md")] = {
                 height: "100vh",
                 zIndex: 12,
             },
             _m),
-        expandedNav: (_o = {
-                backgroundColor: "rgba(0,0,0,0.4)",
+        showMenu: (_o = {
+                right: theme.spacing(10)
+            },
+            _o[theme.breakpoints.down("md")] = {
+                right: theme.spacing(2),
+            },
+            _o),
+        overlay: {
+            backgroundColor: "rgba(0,0,0,0.3)",
+            opacity: 0,
+            visibility: "hidden",
+            width: "100vw",
+            zIndex: 11,
+            height: "100vh",
+            position: "fixed",
+            transition: "all 0.3s",
+        },
+        showOverlay: {
+            opacity: 1,
+            visibility: "visible",
+        },
+        expandedNav: (_p = {
                 overflow: "hidden",
                 padding: theme.spacing(0, 0, 0, 10),
                 width: "100%",
@@ -225,51 +253,52 @@ export var useMbmcBlock13Styles = makeStyles(function (theme) {
                 boxSizing: "border-box",
                 display: "flex",
                 alignItems: "flex-start",
-                justifyContent: "space-between"
+                justifyContent: "space-between",
+                minHeight: "100vh"
             },
-            _o[theme.breakpoints.down("md")] = {
+            _p[theme.breakpoints.down("md")] = {
                 padding: theme.spacing(0, 0, 0, 2),
                 height: "100%",
             },
-            _o),
+            _p),
         mobilelogoContainer: {
             width: "30%",
             display: "flex",
             alignItems: "center",
             paddingTop: theme.spacing(2),
         },
-        expandedMenuOptionMobile: (_p = {
+        expandedMenuOptionMobile: (_q = {
                 display: "flex",
                 flexDirection: "column",
                 alignItems: "flex-end",
-                justifyContent: "center",
                 paddingRight: theme.spacing(10),
                 paddingTop: theme.spacing(3),
-                width: "70%",
+                width: "100%",
                 height: "100%",
                 color: theme.design.colors.waz_white,
-                backgroundColor: theme.design.colors.waz_orangeColor100
+                backgroundColor: theme.design.colors.waz_orangeColor100,
+                minHeight: "100vh"
             },
-            _p[theme.breakpoints.down("md")] = {
+            _q[theme.breakpoints.down("md")] = {
                 paddingRight: theme.spacing(2),
                 justifyContent: "flex-start",
             },
-            _p),
+            _q),
         expandedNavContent: {
             width: "100%",
             height: "100%",
             display: "flex",
         },
-        expandedNavContentLeftSide: (_q = {
+        expandedNavContentLeftSide: (_r = {
                 width: "30%",
                 backgroundColor: "rgba(0,0,0,0.4)",
                 padding: theme.spacing(0, 0, 0, 10)
             },
-            _q[theme.breakpoints.down("md")] = {
+            _r[theme.breakpoints.down("md")] = {
                 padding: theme.spacing(0, 0, 0, 2),
             },
-            _q),
-        expandedNavContentRightSide: (_r = {
+            _r),
+        expandedNavContentRightSide: (_s = {
                 width: "70%",
                 backgroundColor: theme.design.colors.waz_orangeColor100,
                 textAlign: "right",
@@ -288,10 +317,10 @@ export var useMbmcBlock13Styles = makeStyles(function (theme) {
                     fontFamily: theme.design.font.lostaMasta,
                 }
             },
-            _r[theme.breakpoints.down("lg")] = {
+            _s[theme.breakpoints.down("lg")] = {
                 paddingRight: theme.spacing(2),
             },
-            _r),
+            _s),
         NavLinks: {
             letterSpacing: "0px",
             color: theme.design.colors.waz_white,
