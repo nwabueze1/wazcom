@@ -12,8 +12,9 @@ var __assign = (this && this.__assign) || function () {
 import { jsxs as _jsxs, jsx as _jsx } from "react/jsx-runtime";
 import { useTestimonialCardPropsStyles } from "./styles";
 import clsx from "clsx";
+import { handleElementClick } from "../../utilities";
 export var TestimonialCard = function (_a) {
-    var text = _a.text, author = _a.author, type = _a.type;
+    var _b = _a.mode, mode = _b === void 0 ? "view" : _b, handleClick = _a.handleClick, activeElement = _a.activeElement, parentKey = _a.parentKey, text = _a.text, name = _a.name, type = _a.type;
     var classes = useTestimonialCardPropsStyles();
-    return (_jsx("div", __assign({ className: clsx(classes.root, classes.visible) }, { children: _jsxs("div", __assign({ className: classes.content }, { children: [_jsxs("p", __assign({ className: classes.description }, { children: [text, " "] }), void 0), _jsxs("div", { children: [_jsx("p", __assign({ className: classes.author }, { children: author }), void 0), _jsx("p", __assign({ className: classes.type }, { children: type }), void 0)] }, void 0)] }), void 0) }), void 0));
+    return (_jsx("div", __assign({ className: clsx(classes.root, classes.visible) }, { children: _jsxs("div", __assign({ className: classes.content }, { children: [_jsxs("p", __assign({ className: clsx(classes.description, activeElement === parentKey + ".content" && classes.cardActiveElement), onClick: function () { return handleElementClick(mode, parentKey + ".content", handleClick); } }, { children: [text, " "] }), void 0), _jsxs("div", { children: [_jsx("p", __assign({ className: clsx(classes.name, activeElement === parentKey + ".name" && classes.cardActiveElement), onClick: function () { return handleElementClick(mode, parentKey + ".name", handleClick); } }, { children: name }), void 0), _jsx("p", __assign({ className: clsx(classes.type, activeElement === parentKey + ".role" && classes.cardActiveElement), onClick: function () { return handleElementClick(mode, parentKey + ".role", handleClick); } }, { children: type }), void 0)] }, void 0)] }), void 0) }), void 0));
 };

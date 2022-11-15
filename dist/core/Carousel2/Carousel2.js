@@ -34,9 +34,8 @@ import Button from "@mui/material/Button";
 import KeyboardArrowLeft from "@mui/icons-material/KeyboardArrowLeft";
 import KeyboardArrowRight from "@mui/icons-material/KeyboardArrowRight";
 import SwipeableViews from "react-swipeable-views";
-import { autoPlay } from "react-swipeable-views-utils";
 import { useCarouselStyles } from "./styles";
-var AutoPlaySwipeableViews = autoPlay(SwipeableViews);
+var AutoPlaySwipeableViews = SwipeableViews;
 export var Carousel2 = function (_a) {
     var _b, _c, _d, _e, _f, _g;
     var className = _a.className, items = _a.items, classNames = _a.classNames;

@@ -141,5 +141,9 @@ export var useMbmcCardStyles = makeStyles(function (theme) {
         visible: {
             opacity: "1",
         },
+        cardActiveElement: {
+            border: "1px dashed",
+            borderColor: theme.design.colors.waz_primaryColor100,
+        },
     });
 });

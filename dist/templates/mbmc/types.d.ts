@@ -36,6 +36,10 @@ export declare type MbmcCommonProps = {
     mode?: "view" | "edit";
     activeElement?: string;
     handleClick?: (route: string) => void;
+    className?: string;
+    classNames?: {
+        [key: string]: string;
+    };
 };
 export declare type MbmcTemplatePropType = {
     component: any;

@@ -1,7 +1,9 @@
-export declare type TestimonialCardProps = {
+import { MbmcCommonProps } from '../../types';
+export declare type TestimonialCardProps = MbmcCommonProps & {
     text?: string;
-    author?: string;
+    name?: string;
     type?: string;
+    parentKey?: string;
 };
 export declare type StylesProps = {
     isOpen?: boolean;

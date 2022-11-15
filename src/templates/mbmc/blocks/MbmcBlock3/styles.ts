@@ -5,6 +5,9 @@ export const useMbmcBlock3Styles = makeStyles((theme: Theme) => ({
     root: {
         position: "relative",
         overflow: "hidden",
+        background: theme.design.colors.white,
+        border: "1px solid transparent",
+        transition: "all 0.3s ease-in",
     },
     block3Container: {
         position: "relative",
@@ -55,6 +58,8 @@ export const useMbmcBlock3Styles = makeStyles((theme: Theme) => ({
         fontFamily: theme.design.font.lostaMasta,
         width: "90%",
         marginBottom: theme.spacing(2),
+        border: "1px solid transparent",
+        transition: "all 0.3s ease-in",
 
         [theme.breakpoints.down("lg")]: {
             fontSize: theme.typography.fontSize * 3,
@@ -102,6 +107,8 @@ export const useMbmcBlock3Styles = makeStyles((theme: Theme) => ({
         lineHeight: 1.5,
         width: "90%",
         marginBottom: theme.spacing(2.5),
+        border: "1px solid transparent",
+        transition: "all 0.3s ease-in",
 
         [theme.breakpoints.down("lg")]: {
             width: "100%",
@@ -120,5 +127,9 @@ export const useMbmcBlock3Styles = makeStyles((theme: Theme) => ({
         [theme.breakpoints.down("lg")]: {
             display: "none",
         },
+    },
+    block3ActiveElement: {
+        border: "1px dashed",
+        borderColor: theme.design.colors.waz_primaryColor100,
     },
 }));

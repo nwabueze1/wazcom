@@ -4,24 +4,28 @@ export var useMbmcBlock8Styles = makeStyles(function (theme) {
     return ({
         root: (_a = {
                 backgroundColor: theme.design.colors.waz_orangeColor100,
-                position: "relative",
-                display: "flex",
-                alignItems: "center",
-                justifyContent: "center",
                 overflow: "hidden",
                 boxSizing: "border-box",
-                padding: theme.spacing(9, 12),
+                padding: theme.spacing(9, 0),
                 width: "100%"
             },
             _a[theme.breakpoints.down("lg")] = {
-                padding: theme.spacing(2, 4),
+                padding: theme.spacing(2, 0),
                 flexDirection: "column",
             },
             _a[theme.breakpoints.down("sm")] = {
-                padding: theme.spacing(4),
+                padding: theme.spacing(4, 0),
                 height: "fit-content",
             },
             _a),
+        headerContainer: {
+            maxWidth: 1240,
+            width: "90%",
+            margin: "0 auto",
+            display: "flex",
+            alignItems: 'center',
+            justifyContent: 'center',
+        },
         headerContent: (_b = {
                 width: "50%",
                 display: "flex",
@@ -51,7 +55,9 @@ export var useMbmcBlock8Styles = makeStyles(function (theme) {
                 margin: 0,
                 textAlign: "center",
                 marginBottom: theme.spacing(2),
-                fontFamily: theme.design.font.lostaMasta
+                fontFamily: theme.design.font.lostaMasta,
+                border: "1px solid transparent",
+                transition: "all 0.3s ease-in"
             },
             _d[theme.breakpoints.down(1450)] = {
                 fontSize: theme.typography.fontSize * 3,
@@ -74,7 +80,9 @@ export var useMbmcBlock8Styles = makeStyles(function (theme) {
                 width: "90%",
                 fontFamily: theme.design.font.montserrat,
                 opacity: 0.7,
-                lineHeight: 1.4
+                lineHeight: 1.4,
+                border: "1px solid transparent",
+                transition: "all 0.3s ease-in"
             },
             _e[theme.breakpoints.down(1450)] = {
                 fontSize: theme.typography.fontSize + 6,
@@ -150,6 +158,10 @@ export var useMbmcBlock8Styles = makeStyles(function (theme) {
         arrow: {
             fontWeight: 900,
             fontSize: theme.typography.fontSize * 3,
+        },
+        block8ActiveElement: {
+            border: "1px dashed",
+            borderColor: theme.design.colors.waz_primaryColor100,
         },
     });
 });

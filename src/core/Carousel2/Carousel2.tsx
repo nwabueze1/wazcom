@@ -6,12 +6,11 @@ import Button from "@mui/material/Button";
 import KeyboardArrowLeft from "@mui/icons-material/KeyboardArrowLeft";
 import KeyboardArrowRight from "@mui/icons-material/KeyboardArrowRight";
 import SwipeableViews from "react-swipeable-views";
-import { autoPlay } from "react-swipeable-views-utils";
 import { FC } from "react";
 import { Carousel2Props } from "./types";
 import { useCarouselStyles } from "./styles";
 
-const AutoPlaySwipeableViews = autoPlay(SwipeableViews);
+const AutoPlaySwipeableViews = SwipeableViews;
 
 export const Carousel2: FC<Carousel2Props> = ({ className, items, classNames }) => {
     const theme = useTheme();
