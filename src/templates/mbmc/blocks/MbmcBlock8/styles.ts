@@ -56,13 +56,18 @@ export const useMbmcBlock8Styles = makeStyles((theme: Theme) => ({
         textAlign: "center",
         marginBottom: theme.spacing(2),
         fontFamily: theme.design.font.lostaMasta,
+        border: "1px solid transparent",
+        transition: "all 0.3s ease-in",
+
         [theme.breakpoints.down(1450)]: {
             fontSize: theme.typography.fontSize * 3,
         },
+
         [theme.breakpoints.down("lg")]: {
             marginTop: theme.spacing(3),
             fontSize: theme.typography.fontSize * 2,
         },
+
         [theme.breakpoints.down("md")]: {
             textAlign: "left",
             fontSize: theme.typography.fontSize * 2,
@@ -78,16 +83,22 @@ export const useMbmcBlock8Styles = makeStyles((theme: Theme) => ({
         fontFamily: theme.design.font.montserrat,
         opacity: 0.7,
         lineHeight: 1.4,
+        border: "1px solid transparent",
+        transition: "all 0.3s ease-in",
+
         [theme.breakpoints.down(1450)]: {
             fontSize: theme.typography.fontSize + 6,
         },
+
         [theme.breakpoints.down("lg")]: {
             fontSize: theme.typography.fontSize + 6,
         },
+
         [theme.breakpoints.down("md")]: {
             width: "80%",
             fontSize: theme.typography.fontSize,
         },
+
         [theme.breakpoints.down("sm")]: {
             fontSize: theme.typography.fontSize + 4,
             width: "100%",
@@ -148,5 +159,9 @@ export const useMbmcBlock8Styles = makeStyles((theme: Theme) => ({
     arrow: {
         fontWeight: 900,
         fontSize: theme.typography.fontSize * 3,
+    },
+    block8ActiveElement: {
+        border: "1px dashed",
+        borderColor: theme.design.colors.waz_primaryColor100,
     },
 }));

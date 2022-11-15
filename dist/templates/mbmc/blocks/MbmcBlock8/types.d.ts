@@ -5,7 +5,7 @@ export declare type MbmcBlock8Props = MbmcCommonProps & {
     description: string;
     cards: {
         content: string;
-        author: string;
-        jobRole?: string;
+        name: string;
+        role: string;
     }[];
 };

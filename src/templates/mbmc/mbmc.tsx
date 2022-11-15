@@ -253,45 +253,49 @@ export const useGetMbmcBlocks = () => {
                         content:
                             "“Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam.”",
                         name: "Elizabeth Lizzy",
-                        role: "OFFICE WORKER2",
+                        role: "OFFICE WORKER",
                     },
                     {
                         content:
                             "“Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam.”",
                         name: "Elizabeth Lizzy",
-                        role: "OFFICE WORKER3",
+                        role: "OFFICE WORKER",
                     },
                     {
                         content:
                             "“Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam.”",
                         name: "Elizabeth Lizzy",
-                        role: "OFFICE WORKER3",
+                        role: "OFFICE WORKER",
                     },
                     {
                         content:
                             "“Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam.”",
                         name: "Elizabeth Lizzy",
-                        role: "OFFICE WORKER3",
+                        role: "OFFICE WORKER",
                     },
                     {
                         content:
                             "“Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam.”",
                         name: "Elizabeth Lizzy",
-                        role: "OFFICE WORKER3",
+                        role: "OFFICE WORKER",
                     },
                     {
                         content:
                             "“Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam.”",
                         name: "Elizabeth Lizzy",
-                        role: "OFFICE WORKER3",
+                        role: "OFFICE WORKER",
                     },
                     {
                         content:
                             "“Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam.”",
                         name: "Elizabeth Lizzy",
-                        role: "OFFICE WORKER3",
+                        role: "OFFICE WORKER",
                     },
                 ],
+                mode: "edit",
+                index: 0,
+                activeElement: '0.cards.6.name',
+                handleClick: (element: string) => alert(element),
             },
         },
         {
