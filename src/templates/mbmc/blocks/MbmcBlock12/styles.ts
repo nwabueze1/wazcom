@@ -166,6 +166,7 @@ export const useMbmcBlock12Styles = makeStyles((theme: Theme) => ({
             width: "100%",
             top: 0,
             margin: theme.spacing(4, 0),
+            maxWidth: "unset",
         },
     },
     demarcation: {

@@ -46,10 +46,10 @@ export const MbmcBlock13: FC<MbmcBlock13Props> = ({
 
     return (
         <>
-            {!openMenu && (
+            <div className={classes.root}>
                 <div
                     className={clx(
-                        classes.root,
+                        classes.container,
                         activeElement.toLowerCase() === "nav" &&
                             mode === "edit" &&
                             classes.activeElement,
@@ -110,41 +110,31 @@ export const MbmcBlock13: FC<MbmcBlock13Props> = ({
                         <AiOutlineMenu size={34} onClick={handleOpenMenu} />
                     </div>
                 </div>
-            )}
-            {openMenu && (
-                <div className={classes.openNav}>
-                    <div className={classes.expandedNav}>
-                        <div className={classes.mobilelogoContainer}>
-                            <a href={logo?.url}>
-                                <img
-                                    src={logo?.src?.mobile}
-                                    alt=""
-                                    className={classes.mobilelogo}
-                                />
-                            </a>
-                        </div>
+            </div>
+            <div className={clx(classes.openNav, { [classes.showMenu]: openMenu })}>
+                <div className={classes.expandedMenuOptionMobile}>
+                    <IoMdClose size={34} onClick={handleCloseMenu} />
 
-                        <div className={classes.expandedMenuOptionMobile}>
-                            <IoMdClose size={34} onClick={handleCloseMenu} />
-
-                            <div className={classes.expandedNavContentRightSide}>
-                                {displayLinks()}
-                                {ctas?.map((item, idx) => {
-                                    return (
-                                        <div
-                                            key={idx}
-                                            onClick={item.handleClick}
-                                            className={classes.mobileOrderBtn}
-                                        >
-                                            {item.text}
-                                        </div>
-                                    );
-                                })}
-                            </div>
-                        </div>
+                    <div className={classes.expandedNavContentRightSide}>
+                        {displayLinks()}
+                        {ctas?.map((item, idx) => {
+                            return (
+                                <div
+                                    key={idx}
+                                    onClick={item.handleClick}
+                                    className={classes.mobileOrderBtn}
+                                >
+                                    {item.text}
+                                </div>
+                            );
+                        })}
                     </div>
                 </div>
-            )}
+            </div>
+            <div
+                className={clx(classes.overlay, { [classes.showOverlay]: openMenu })}
+                onClick={handleCloseMenu}
+            />
         </>
     );
 };

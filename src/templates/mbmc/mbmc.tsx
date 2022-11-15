@@ -292,7 +292,7 @@ export const useGetMbmcBlocks = () => {
             },
         },
         {
-            name: "mbmc-block-910",
+            name: "mbmc-block-10",
             component: MbmcBlock10,
             props: {
                 style: "mbmc",
@@ -313,7 +313,7 @@ export const useGetMbmcBlocks = () => {
             },
         },
         {
-            name: "mbmc-block-911",
+            name: "mbmc-block-11",
             component: MbmcBlock11,
             props: {
                 style: "mbmc",
@@ -336,7 +336,7 @@ export const useGetMbmcBlocks = () => {
             },
         },
         {
-            name: "mbmc-block-912",
+            name: "mbmc-block-12",
             component: MbmcBlock12,
             props: {
                 style: "mbmc",
@@ -361,7 +361,7 @@ export const useGetMbmcBlocks = () => {
             },
         },
         {
-            name: "mbmc-block-913",
+            name: "mbmc-block-13",
             component: MbmcBlock13,
             props: {
                 style: "mbmc",
@@ -392,7 +392,7 @@ export const useGetMbmcBlocks = () => {
             },
         },
         {
-            name: "mbmc-block-914",
+            name: "mbmc-block-14",
             component: MbmcBlock14,
             props: {
                 style: "mbmc",
