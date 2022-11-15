@@ -10,20 +10,25 @@ export const useMbmcBlock11Styles = makeStyles((theme: Theme) => ({
         alignItems: "center",
         boxSizing: "border-box",
         justifyContent: "space-between",
-        flexDirection: ({ flexDirection }: { flexDirection: BlockLayout }) => flexDirection,
-        width: "100%",
-        padding: theme.spacing(5, 12),
+        padding: theme.spacing(10, 0),
 
         [theme.breakpoints.down("lg")]: {
-            padding: theme.spacing(5),
             flexDirection: "column",
-            width: "100%",
         },
         [theme.breakpoints.down("md")]: {
-            padding: theme.spacing(4),
+            padding: theme.spacing(4, 0),
             height: "100%",
             overflow: "visible",
         },
+    },
+    block11Container: {
+        maxWidth: 1240,
+        width: "90%",
+        margin: "0 auto",
+        display: "flex",
+        alignItems: "center",
+        justifyContent: "space-between",
+        flexDirection: ({ flexDirection }: { flexDirection: BlockLayout }) => flexDirection,
     },
     block11Content: {
         width: "46%",
@@ -49,7 +54,7 @@ export const useMbmcBlock11Styles = makeStyles((theme: Theme) => ({
         transition: "all 0.3s ease-in",
         width: 'fit-content',
 
-        [theme.breakpoints.down("lg")]: {
+        [theme.breakpoints.down("lg")]: { 
             marginTop: theme.spacing(3),
             marginBottom: theme.spacing(3),
             fontSize: theme.typography.fontSize * 3,
@@ -81,14 +86,15 @@ export const useMbmcBlock11Styles = makeStyles((theme: Theme) => ({
         },
     },
     heroContainer: {
-        height: 519,
         width: "48%",
         position: "relative",
         display: "flex",
         alignItems: "center",
+
         [theme.breakpoints.down("lg")]: {
-            height: 419,
+            minHeight: 419,
         },
+
         [theme.breakpoints.down("md")]: {
             display: "none",
         },
@@ -116,7 +122,13 @@ export const useMbmcBlock11Styles = makeStyles((theme: Theme) => ({
     heroImage: {
         width: "100%",
         height: "100%",
+        minHeight: 500,
         borderRadius: theme.spacing(0.5),
+        objectFit: 'cover',
+
+        [theme.breakpoints.down("lg")]: {
+            minHeight: 419,
+        },
     },
     block11Paragraph: {
         "& > p": {
@@ -126,6 +138,10 @@ export const useMbmcBlock11Styles = makeStyles((theme: Theme) => ({
     block11BtnContainer: {
         display: "flex",
         margin: theme.spacing(2, 0),
+
+        [theme.breakpoints.down("md")]: {
+            margin: 0,
+        },
     },
     block11Icon: {
         marginLeft: theme.spacing(1),

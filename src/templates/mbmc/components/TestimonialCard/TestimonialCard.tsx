@@ -3,7 +3,7 @@ import { useTestimonialCardPropsStyles } from "./styles";
 import { TestimonialCardProps } from "./types";
 import clsx from "clsx";
 
-export const TestimonialCard: React.FC<TestimonialCardProps> = ({ text, author, type }) => {
+export const TestimonialCard: React.FC<TestimonialCardProps> = ({ text, name, type }) => {
     const classes = useTestimonialCardPropsStyles();
 
     return (
@@ -12,7 +12,7 @@ export const TestimonialCard: React.FC<TestimonialCardProps> = ({ text, author, 
                 <p className={classes.description}>{text} </p>
 
                 <div>
-                    <p className={classes.author}>{author}</p>
+                    <p className={classes.name}>{name}</p>
                     <p className={classes.type}>{type}</p>
                 </div>
             </div>

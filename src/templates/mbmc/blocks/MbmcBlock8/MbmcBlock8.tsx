@@ -5,61 +5,63 @@ import { FC } from "react";
 import { MbmcBlock8Props } from "./types";
 import { sliceIntoChunks } from "../../../../utilities/mbmcblock";
 
-export const MbmcBlock8: FC<MbmcBlock8Props> = ({ heading, description, carouselData }) => {
+export const MbmcBlock8: FC<MbmcBlock8Props> = ({ heading, description, cards }) => {
     const classes = useMbmcBlock8Styles();
     const splitData: {
         content: string;
-        author: string;
-        jobRole?: string | undefined;
-    }[][] = sliceIntoChunks(carouselData, 2);
+        name: string;
+        role: string;
+    }[][] = sliceIntoChunks(cards, 2);
 
     return (
         <div className={classes.root}>
-            <div className={classes.headerContent}>
-                <h3 className={classes.headerTitle}>{heading}</h3>
-                <p className={classes.headerDescription}>{description}</p>
-            </div>
-            <div className={classes.headerCardContainer}>
-                <Carousel2
-                    classNames={{ button: classes.navigationButton }}
-                    items={splitData.map((data) => {
-                        return {
+            <div className={classes.headerContainer}>
+                <div className={classes.headerContent}>
+                    <h3 className={classes.headerTitle}>{heading}</h3>
+                    <p className={classes.headerDescription}>{description}</p>
+                </div>
+                <div className={classes.headerCardContainer}>
+                    <Carousel2
+                        classNames={{ button: classes.navigationButton }}
+                        items={splitData.map((data) => {
+                            return {
+                                component: (
+                                    <div className={classes.carouselComponent}>
+                                        {data.map((item, idx) => {
+                                            return (
+                                                <TestimonialCard
+                                                    key={idx}
+                                                    text={item.content}
+                                                    name={item.name}
+                                                    type={item.role}
+                                                />
+                                            );
+                                        })}
+                                    </div>
+                                ),
+                            };
+                        })}
+                        className={classes.carousel}
+                    />
+                </div>
+                <div className={classes.headerCardContainerMobile}>
+                    <Carousel2
+                        items={cards.map((item, idx) => ({
                             component: (
                                 <div className={classes.carouselComponent}>
-                                    {data.map((item, idx) => {
-                                        return (
-                                            <TestimonialCard
-                                                key={idx}
-                                                text={item?.content}
-                                                author={item?.author}
-                                                type={item?.jobRole}
-                                            />
-                                        );
-                                    })}
+                                    <TestimonialCard
+                                        key={idx}
+                                        text={item.content}
+                                        name={item.name}
+                                        type={item.role}
+                                    />
                                 </div>
                             ),
-                        };
-                    })}
-                    className={classes.carousel}
-                />
-            </div>
-            <div className={classes.headerCardContainerMobile}>
-                <Carousel2
-                    items={carouselData.map((item, idx) => ({
-                        component: (
-                            <div className={classes.carouselComponent}>
-                                <TestimonialCard
-                                    key={idx}
-                                    text={item.content}
-                                    author={item.author}
-                                    type={item.jobRole}
-                                />
-                            </div>
-                        ),
-                    }))}
-                    className={classes.carousel}
-                    classNames={{ button: classes.navigationButton, arrow: classes.arrow }}
-                />
+                        }))}
+                        className={classes.carousel}
+                        classNames={{ button: classes.navigationButton, arrow: classes.arrow }}
+                    />
+                </div>
             </div>
         </div>
     );

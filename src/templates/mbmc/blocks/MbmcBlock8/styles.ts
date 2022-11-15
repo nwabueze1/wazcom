@@ -4,23 +4,28 @@ import { makeStyles } from "@mui/styles";
 export const useMbmcBlock8Styles = makeStyles((theme: Theme) => ({
     root: {
         backgroundColor: theme.design.colors.waz_orangeColor100,
-        position: "relative",
-        display: "flex",
-        alignItems: "center",
-        justifyContent: "center",
         overflow: "hidden",
         boxSizing: "border-box",
-        padding: theme.spacing(9, 12),
+        padding: theme.spacing(9, 0),
         width: "100%",
 
         [theme.breakpoints.down("lg")]: {
-            padding: theme.spacing(2, 4),
+            padding: theme.spacing(2, 0),
             flexDirection: "column",
         },
+        
         [theme.breakpoints.down("sm")]: {
-            padding: theme.spacing(4),
+            padding: theme.spacing(4, 0),
             height: "fit-content",
         },
+    },
+    headerContainer: {
+        maxWidth: 1240,
+        width: "90%",
+        margin: "0 auto",
+        display: "flex",
+        alignItems: 'center',
+        justifyContent: 'center',
     },
     headerContent: {
         width: "50%",

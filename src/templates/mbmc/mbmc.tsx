@@ -239,27 +239,57 @@ export const useGetMbmcBlocks = () => {
             component: MbmcBlock8,
             props: {
                 style: "mbmc",
-                heading: "Testimony",
+                heading: "Testimonial",
                 description:
                     "Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam",
-                carouselData: [
+                cards: [
                     {
                         content:
                             "“Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam.”",
-                        author: "Elizabeth Lizzy",
-                        jobRole: "OFFICE WORKER",
+                        name: "Elizabeth Lizzy",
+                        role: "OFFICE WORKER",
                     },
                     {
                         content:
                             "“Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam.”",
-                        author: "Elizabeth Lizzy",
-                        jobRole: "OFFICE WORKER2",
+                        name: "Elizabeth Lizzy",
+                        role: "OFFICE WORKER2",
                     },
                     {
                         content:
                             "“Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam.”",
-                        author: "Elizabeth Lizzy",
-                        jobRole: "OFFICE WORKER3",
+                        name: "Elizabeth Lizzy",
+                        role: "OFFICE WORKER3",
+                    },
+                    {
+                        content:
+                            "“Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam.”",
+                        name: "Elizabeth Lizzy",
+                        role: "OFFICE WORKER3",
+                    },
+                    {
+                        content:
+                            "“Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam.”",
+                        name: "Elizabeth Lizzy",
+                        role: "OFFICE WORKER3",
+                    },
+                    {
+                        content:
+                            "“Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam.”",
+                        name: "Elizabeth Lizzy",
+                        role: "OFFICE WORKER3",
+                    },
+                    {
+                        content:
+                            "“Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam.”",
+                        name: "Elizabeth Lizzy",
+                        role: "OFFICE WORKER3",
+                    },
+                    {
+                        content:
+                            "“Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam.”",
+                        name: "Elizabeth Lizzy",
+                        role: "OFFICE WORKER3",
                     },
                 ],
             },
