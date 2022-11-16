@@ -13,7 +13,6 @@ import { MbmcBlock11 } from "./blocks/MbmcBlock11/MbmcBlock11";
 import { MbmcBlock12 } from "./blocks/MbmcBlock12/MbmcBlock12";
 import { MbmcBlock13 } from "./blocks/MbmcBlock13/MbmcBlock13";
 import { useMbmbcStyles } from "./styles";
-import { FiShoppingCart } from "react-icons/fi";
 import { MbmcBlock14 } from "./blocks/MbmcBlock14/MbmcBlock14";
 import { MbmcBlock15 } from "./blocks/MbmcBlock15/MbmcBlock15";
 import { createApolloClient } from "helpers/graphQL";
@@ -396,10 +395,12 @@ export const useGetMbmcBlocks = () => {
             component: MbmcBlock14,
             props: {
                 style: "mbmc",
+                client: createApolloClient("https://ofambegbe-ambrosia.wazobia.uk/graphql"),
+                cart_uuid: "5a8b64b3-2fe7-4204-b23a-87dd6539d311",
             },
         },
         {
-            name: "mbmc-block-915",
+            name: "mbmc-block-15",
             component: MbmcBlock15,
             props: {
                 style: "mbmc",

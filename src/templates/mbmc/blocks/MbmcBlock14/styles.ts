@@ -14,6 +14,8 @@ export const useMbmcBlock14Styles = makeStyles((theme: Theme) => ({
         boxSizing: "border-box",
         justifyContent: "center",
         paddingTop: "67.75px",
+        maxWidth: 1440,
+        margin: "0 auto",
     },
     leftSection: {
         width: "39%",

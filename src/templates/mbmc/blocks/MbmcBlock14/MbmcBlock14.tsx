@@ -7,8 +7,9 @@ import { pickupFormData, shippingFormData } from "./data";
 import KeyboardBackspaceIcon from "@mui/icons-material/KeyboardBackspace";
 import DeliveryOption from "../../../../templates/mbmc/components/DeliveryOption/DeliveryOption";
 import PaymentOption from "../../../../templates/mbmc/components/PaymentOption/PaymentOption";
+import { MbmcBlock14Props } from "./types";
 
-export const MbmcBlock14: React.FC = () => {
+export const MbmcBlock14: React.FC<MbmcBlock14Props> = ({ client, cart_uuid }) => {
     const classes = useMbmcBlock14Styles();
     const [deliveryOption, setDeliveryOption] = useState<string>("");
     const [paymentOption, setPaymentOption] = useState<string>("");
