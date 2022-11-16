@@ -86,6 +86,9 @@ export var MbmcBlock6 = function (_a) {
             }
             setCategories(parsedCategories);
         }
+        if (error) {
+            console.log(error);
+        }
     }, [data, error]);
     var displayCategories = function () {
         return categories.map(function (category, index) { return _jsx(MbmcCard, __assign({}, category), index); });

@@ -50,6 +50,10 @@ export const MbmcBlock6: FC<MbmcBlock6Props> = ({
 
             setCategories(parsedCategories);
         }
+
+        if (error) {
+            console.log(error);
+        }
     }, [data, error]);
 
     const displayCategories = () =>
