@@ -196,8 +196,13 @@ export const useGetMbmcBlocks = () => {
                 heading: "Explore Our Menu",
                 description: `Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed 
                 diam nonumy eirmod tempor invidunt ut labore et dolore a….`,
-                client: createApolloClient("https://ofambegbe-ambrosia.wazobia.uk/graphql"),
                 menu_uuid: "5a8b64b3-2fe7-4204-b23a-87dd6539d311",
+                integratedService: 'AMBROSIA',
+                services: { AMBROSIA: 'https://ofambegbe-ambrosia.wazobia.uk/graphql', NICODEMUS: '', MUSE: '' },
+                mode: "edit",
+                index: 0,
+                activeElement: "0.menu_uuid",
+                handleClick: (route: string) => alert(route),
             },
         },
         {
