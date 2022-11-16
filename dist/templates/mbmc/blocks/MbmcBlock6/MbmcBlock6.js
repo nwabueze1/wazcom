@@ -37,7 +37,7 @@ var __values = (this && this.__values) || function(o) {
     throw new TypeError(s ? "Object is not iterable." : "Symbol.iterator is not defined.");
 };
 import { jsx as _jsx, jsxs as _jsxs } from "react/jsx-runtime";
-import { useEffect, useState } from "react";
+import { useEffect, useState, useMemo } from "react";
 import { useQuery } from "@apollo/client";
 import { useMbmcBlock6Styles } from "./styles";
 import { GET_MENU_BY_UUID } from "./graphql";
@@ -45,18 +45,11 @@ import { MbmcCard } from "../../../../templates/mbmc/components/MbmcCard";
 import clx from "classnames";
 import { handleElementClick } from "../../utilities";
 import { createApolloClient } from "../../../../helpers/graphQL";
-var client = createApolloClient('https://ofambegbe-ambrosia.wazobia.uk/graphql');
 export var MbmcBlock6 = function (_a) {
-    var _b = _a.mode, mode = _b === void 0 ? "view" : _b, activeElement = _a.activeElement, handleClick = _a.handleClick, 
-    // services,
-    // integratedService,
-    index = _a.index, heading = _a.heading, description = _a.description, menu_uuid = _a.menu_uuid;
+    var _b = _a.mode, mode = _b === void 0 ? "view" : _b, activeElement = _a.activeElement, handleClick = _a.handleClick, services = _a.services, integratedService = _a.integratedService, index = _a.index, heading = _a.heading, description = _a.description, menu_uuid = _a.menu_uuid;
     var classes = useMbmcBlock6Styles();
     var _c = __read(useState([]), 2), categories = _c[0], setCategories = _c[1];
-    // const client = useMemo(
-    //     () => createApolloClient(services ? services[integratedService] : ""),
-    //     [],
-    // );
+    var client = useMemo(function () { return createApolloClient(services ? services[integratedService] : ""); }, []);
     var _d = useQuery(GET_MENU_BY_UUID, {
         client: client,
         variables: { uuid: menu_uuid },
