@@ -4,10 +4,6 @@ export var useMbmcBlock9Styles = makeStyles(function (theme) {
     return ({
         root: (_a = {
                 backgroundColor: theme.design.colors.waz_white,
-                position: "relative",
-                display: "flex",
-                alignItems: "center",
-                justifyContent: "space-between",
                 overflow: "hidden",
                 padding: theme.spacing(12),
                 width: "100%",
@@ -25,6 +21,14 @@ export var useMbmcBlock9Styles = makeStyles(function (theme) {
                 height: "fit-content",
             },
             _a),
+        headerContainer: {
+            maxWidth: 1240,
+            width: "90%",
+            margin: "0 auto",
+            display: "flex",
+            alignItems: "center",
+            justifyContent: "space-between",
+        },
         headerContent: {
             display: "flex",
             alignItems: "flex-start",
@@ -36,11 +40,12 @@ export var useMbmcBlock9Styles = makeStyles(function (theme) {
                 fontSize: theme.typography.fontSize * 4,
                 letterSpacing: 0,
                 textTransform: "capitalize",
-                font: "Losta Masta",
                 margin: 0,
                 textAlign: "center",
                 marginBottom: theme.spacing(2),
-                fontFamily: theme.design.font.lostaMasta
+                fontFamily: theme.design.font.lostaMasta,
+                border: "1px solid transparent",
+                transition: "all 0.3s ease-in"
             },
             _b[theme.breakpoints.down(1450)] = {
                 fontSize: theme.typography.fontSize * 3,
@@ -60,6 +65,8 @@ export var useMbmcBlock9Styles = makeStyles(function (theme) {
                 textAlign: "left",
                 fontSize: theme.typography.fontSize + 6,
                 maxWidth: 500,
+                border: "1px solid transparent",
+                transition: "all 0.3s ease-in",
                 fontFamily: theme.design.font.montserrat
             },
             _c[theme.breakpoints.down(1450)] = {
@@ -189,7 +196,6 @@ export var useMbmcBlock9Styles = makeStyles(function (theme) {
             },
             _h[theme.breakpoints.down("lg")] = {
                 alignItems: "flex-end",
-                height: 500,
             },
             _h[theme.breakpoints.down("md")] = {
                 display: "none",
@@ -271,5 +277,9 @@ export var useMbmcBlock9Styles = makeStyles(function (theme) {
                 display: "none",
             },
             _p),
+        block11ActiveElement: {
+            border: "1px dashed",
+            borderColor: theme.design.colors.waz_primaryColor100,
+        },
     });
 });

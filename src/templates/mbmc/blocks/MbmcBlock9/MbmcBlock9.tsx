@@ -3,14 +3,7 @@ import { FC, useState } from "react";
 import clx from "classnames";
 import { MbmcBlock9Props } from "./types";
 
-export const MbmcBlock9: FC<MbmcBlock9Props> = ({
-    mode = "view",
-    handleClick,
-    activeElement,
-    heading,
-    description,
-    steps,
-}) => {
+export const MbmcBlock9: FC<MbmcBlock9Props> = ({ heading, description, steps }) => {
     const classes = useMbmcBlock9Styles();
     const [active, setActive] = useState(0);
 
