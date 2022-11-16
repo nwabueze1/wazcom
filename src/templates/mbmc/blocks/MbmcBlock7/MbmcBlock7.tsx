@@ -12,18 +12,6 @@ export const MbmcBlock7: FC<MbmcBlock7Props> = ({ heading, description, images }
                 <h3 className={classes.headerTitle}>{heading}</h3>
                 <p className={classes.headerDescription}>{description}</p>
             </div>
-            <div className={classes.headerCardContainer}>
-                {images?.slice(0, 5)?.map((image, idx) => (
-                    <img
-                        key={idx}
-                        src={image}
-                        className={clx(
-                            classes.imageContainer,
-                            idx === 2 ? classes.flexGrow : classes.smallImageContainer,
-                        )}
-                    />
-                ))}
-            </div>
             <div className={classes.mobileCardContainer}>
                 {images?.map((image, idx) => (
                     <img key={idx} src={image} className={clx(classes.mobileImageContainer)} />

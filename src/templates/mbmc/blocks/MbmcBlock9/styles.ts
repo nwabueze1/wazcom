@@ -273,7 +273,7 @@ export const useMbmcBlock9Styles = makeStyles((theme: Theme) => ({
             display: "none",
         },
     },
-    block11ActiveElement: {
+    block9ActiveElement: {
         border: "1px dashed",
         borderColor: theme.design.colors.waz_primaryColor100,
     },
