@@ -36,6 +36,7 @@ export const useMbmcBlock14Styles = makeStyles((theme: Theme) => ({
         visibility: "hidden",
         opacity: 0,
         transition: "visibility 1s ease, opacity 1s ease",
+        display: "none",
     },
     cartContainer: {
         maxHeight: "85vh",
@@ -44,7 +45,8 @@ export const useMbmcBlock14Styles = makeStyles((theme: Theme) => ({
         "-ms-overflow-style": "none",
         scrollbarWidth: "none",
         [theme.breakpoints.down("lg")]: {
-            padding: theme.spacing(5, 1, 0),
+            padding: theme.spacing(5, 1, 6),
+            maxHeight: "unset",
         },
         "&::-webkit-scrollbar": {
             display: "none",
@@ -59,7 +61,7 @@ export const useMbmcBlock14Styles = makeStyles((theme: Theme) => ({
             display: "flex",
             justifyContent: "center",
             alignItems: "center",
-            position: "absolute",
+            position: "fixed",
             bottom: 0,
         },
     },
