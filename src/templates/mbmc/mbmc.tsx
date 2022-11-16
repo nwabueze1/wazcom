@@ -13,7 +13,6 @@ import { MbmcBlock11 } from "./blocks/MbmcBlock11/MbmcBlock11";
 import { MbmcBlock12 } from "./blocks/MbmcBlock12/MbmcBlock12";
 import { MbmcBlock13 } from "./blocks/MbmcBlock13/MbmcBlock13";
 import { useMbmbcStyles } from "./styles";
-import { FiShoppingCart } from "react-icons/fi";
 import { MbmcBlock14 } from "./blocks/MbmcBlock14/MbmcBlock14";
 import { MbmcBlock15 } from "./blocks/MbmcBlock15/MbmcBlock15";
 import { createApolloClient } from "helpers/graphQL";
@@ -430,7 +429,7 @@ export const useGetMbmcBlocks = () => {
                     url: "#",
                 },
                 links: [
-                    { text: "About us", url: "/mbmc/about" },
+                    { text: "About us", url: "https://zeus.com" },
                     { text: "Menus", url: "#" },
                     { text: "Contact us", url: "#" },
                 ],

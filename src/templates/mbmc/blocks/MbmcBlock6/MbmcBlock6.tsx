@@ -1,4 +1,4 @@
-import { FC, useEffect, useState, useMemo } from "react";
+import { FC, useEffect, useState } from "react";
 import { useQuery } from "@apollo/client";
 import { useMbmcBlock6Styles } from "./styles";
 import { MbmcBlock6Props } from "./types";
@@ -8,12 +8,14 @@ import clx from "classnames";
 import { handleElementClick } from "../../utilities";
 import { createApolloClient } from "helpers/graphQL";
 
+const client = createApolloClient('https://ofambegbe-ambrosia.wazobia.uk/graphql');
+
 export const MbmcBlock6: FC<MbmcBlock6Props> = ({
     mode = "view",
     activeElement,
     handleClick,
-    services,
-    integratedService,
+    // services,
+    // integratedService,
     index,
     heading,
     description,
@@ -21,10 +23,10 @@ export const MbmcBlock6: FC<MbmcBlock6Props> = ({
 }) => {
     const classes = useMbmcBlock6Styles();
     const [categories, setCategories] = useState<MbmcCardProps[]>([]);
-    const client = useMemo(
-        () => createApolloClient(services ? services[integratedService] : ""),
-        [],
-    );
+    // const client = useMemo(
+    //     () => createApolloClient(services ? services[integratedService] : ""),
+    //     [],
+    // );
     const { data, error } = useQuery(GET_MENU_BY_UUID, {
         client,
         variables: { uuid: menu_uuid },
