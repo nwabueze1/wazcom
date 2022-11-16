@@ -45,7 +45,8 @@ export const renderNavLink = (
 
 const hivedeckLogo = "https://sytbuildr.s3.eu-west-2.amazonaws.com/images/logo/hivedeck_logo.svg";
 
-const isNotRenderAnchor = (url: string, mode: "view" | "edit") => url === "#" || mode === "edit";
+const isNotRenderAnchor = (url: string, mode: "view" | "edit") =>
+    url?.startsWith("/") || url === "#" || mode === "edit";
 
 const clickAction = (url: string, mode: "view" | "edit", handleClick?: () => void) => {
     if (mode === "edit" || (mode === "view" && url !== "#")) handleClick?.();

@@ -33,6 +33,7 @@ import { IoMdClose } from "react-icons/io";
 import { renderNavLink } from "../../../../templates/Navs/helpers";
 import clx from "classnames";
 import { FiShoppingCart } from "react-icons/fi";
+import { useHistory } from "react-router-dom";
 export var MbmcBlock13 = function (_a) {
     var _b, _c;
     var _d, _e;
@@ -40,6 +41,7 @@ export var MbmcBlock13 = function (_a) {
     var classes = useMbmcBlock13Styles();
     var _g = __read(useState(false), 2), openMenu = _g[0], setOpenMenu = _g[1];
     var _h = __read(useState(""), 2), activeElement = _h[0], setActiveElement = _h[1];
+    var history = useHistory();
     var handleNavClick = function () {
         if (mode === "edit") {
             setActiveElement("nav");
@@ -54,6 +56,8 @@ export var MbmcBlock13 = function (_a) {
     };
     var handleElementClick = function (element) {
         setActiveElement(element);
+        if (element.startsWith("/"))
+            history.push(element);
     };
     var displayLinks = function () {
         return links.map(function (link, index) {
