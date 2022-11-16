@@ -6,7 +6,7 @@ import { GET_MENU_BY_UUID } from "./graphql";
 import { MbmcCard, MbmcCardProps } from "../../../../templates/mbmc/components/MbmcCard";
 import clx from "classnames";
 import { handleElementClick } from "../../utilities";
-import { createApolloClient } from "helpers/graphQL";
+import { createApolloClient } from "../../../../helpers/graphQL";
 
 const client = createApolloClient('https://ofambegbe-ambrosia.wazobia.uk/graphql');
 

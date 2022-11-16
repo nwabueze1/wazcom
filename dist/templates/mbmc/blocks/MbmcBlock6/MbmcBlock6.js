@@ -44,7 +44,7 @@ import { GET_MENU_BY_UUID } from "./graphql";
 import { MbmcCard } from "../../../../templates/mbmc/components/MbmcCard";
 import clx from "classnames";
 import { handleElementClick } from "../../utilities";
-import { createApolloClient } from "helpers/graphQL";
+import { createApolloClient } from "../../../../helpers/graphQL";
 var client = createApolloClient('https://ofambegbe-ambrosia.wazobia.uk/graphql');
 export var MbmcBlock6 = function (_a) {
     var _b = _a.mode, mode = _b === void 0 ? "view" : _b, activeElement = _a.activeElement, handleClick = _a.handleClick, 
