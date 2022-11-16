@@ -1,12 +1,10 @@
-import { BlockCta } from "templates/mbmc/types";
+import { MbmcCommonProps, BlockCta } from "../../types";
 
-export type MbmcCardProps = {
+export type MbmcCardProps = MbmcCommonProps & {
     heading?: string | JSX.Element;
     description?: string;
     image?: string;
     ctas?: BlockCta[];
+    parentKey?: string;
     scrollableParent?: boolean;
-    className?: string;
-    classNames?: { [key: string]: string };
-    onClick?: () => void;
 };

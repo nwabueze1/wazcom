@@ -94,7 +94,7 @@ export const MbmcBlock61: FC<MbmcBlock61Props> = ({ heading, description, client
                 description={description}
                 image={image_url}
                 className={classes.block61Item}
-                onClick={() => handleOpenModal(index)}
+                handleClick={() => handleOpenModal(index)}
             />
         ));
 

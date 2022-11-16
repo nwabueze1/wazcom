@@ -30,14 +30,16 @@ export var useMbmcBlock4Styles = makeStyles(function (theme) {
                 width: "100%",
             },
             _b),
-        block4Title: (_c = {
+        block4Heading: (_c = {
                 color: theme.design.colors.waz_primaryColor200,
                 fontSize: theme.typography.fontSize * 4,
                 fontFamily: theme.design.font.lostaMasta,
                 letterSpacing: 0,
                 textTransform: "capitalize",
                 margin: 0,
-                textAlign: "center"
+                textAlign: "center",
+                border: "1px solid transparent",
+                transition: "all 0.3s ease-in"
             },
             _c[theme.breakpoints.down("lg")] = {
                 fontSize: theme.typography.fontSize * 3,
@@ -56,7 +58,9 @@ export var useMbmcBlock4Styles = makeStyles(function (theme) {
                 width: "45%",
                 fontFamily: theme.design.font.montserrat,
                 marginBottom: theme.spacing(3.5),
-                lineHeight: 1.5
+                lineHeight: 1.5,
+                border: "1px solid transparent",
+                transition: "all 0.3s ease-in"
             },
             _d[theme.breakpoints.down("lg")] = {
                 width: "80%",
@@ -96,6 +100,10 @@ export var useMbmcBlock4Styles = makeStyles(function (theme) {
             _f),
         block4CardHeading: {
             color: theme.design.colors.waz_orangeColor100,
+        },
+        block4ActiveElement: {
+            border: "1px dashed",
+            borderColor: theme.design.colors.waz_primaryColor100,
         },
     });
 });

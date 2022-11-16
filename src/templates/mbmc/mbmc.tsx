@@ -44,7 +44,7 @@ export const useGetMbmcBlocks = () => {
                 ],
                 mode: "edit",
                 handleClick: (route: string) => alert(route),
-                activeElement: "MbmcBlock1.ctas.1",
+                activeElement: "MbmcBlock1.image",
             },
         },
         {
@@ -72,6 +72,10 @@ export const useGetMbmcBlocks = () => {
                         text: "Learn more",
                     },
                 ],
+                mode: "edit",
+                index: 0,
+                handleClick: (route: string) => alert(route),
+                activeElement: "0.description",
             },
         },
         {
@@ -102,6 +106,11 @@ export const useGetMbmcBlocks = () => {
                         image: "https://sytbuildr.s3.eu-west-2.amazonaws.com/zdpk0U95fFJNVodRZxpIYk6hMIJYReitDX4R7RX4.png",
                     },
                 ],
+                
+                mode: "edit",
+                index: 0,
+                handleClick: (route: string) => alert(route),
+                activeElement: "0.cards.2.image",
             },
         },
         {
@@ -229,29 +238,63 @@ export const useGetMbmcBlocks = () => {
             component: MbmcBlock8,
             props: {
                 style: "mbmc",
-                heading: "Testimony",
+                heading: "Testimonial",
                 description:
                     "Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam",
-                carouselData: [
+                cards: [
                     {
                         content:
                             "“Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam.”",
-                        author: "Elizabeth Lizzy",
-                        jobRole: "OFFICE WORKER",
+                        name: "Elizabeth Lizzy",
+                        role: "OFFICE WORKER",
                     },
                     {
                         content:
                             "“Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam.”",
-                        author: "Elizabeth Lizzy",
-                        jobRole: "OFFICE WORKER2",
+                        name: "Elizabeth Lizzy",
+                        role: "OFFICE WORKER",
                     },
                     {
                         content:
                             "“Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam.”",
-                        author: "Elizabeth Lizzy",
-                        jobRole: "OFFICE WORKER3",
+                        name: "Elizabeth Lizzy",
+                        role: "OFFICE WORKER",
+                    },
+                    {
+                        content:
+                            "“Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam.”",
+                        name: "Elizabeth Lizzy",
+                        role: "OFFICE WORKER",
+                    },
+                    {
+                        content:
+                            "“Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam.”",
+                        name: "Elizabeth Lizzy",
+                        role: "OFFICE WORKER",
+                    },
+                    {
+                        content:
+                            "“Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam.”",
+                        name: "Elizabeth Lizzy",
+                        role: "OFFICE WORKER",
+                    },
+                    {
+                        content:
+                            "“Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam.”",
+                        name: "Elizabeth Lizzy",
+                        role: "OFFICE WORKER",
+                    },
+                    {
+                        content:
+                            "“Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam.”",
+                        name: "Elizabeth Lizzy",
+                        role: "OFFICE WORKER",
                     },
                 ],
+                mode: "edit",
+                index: 0,
+                activeElement: '0.cards.6.name',
+                handleClick: (element: string) => alert(element),
             },
         },
         {
@@ -332,6 +375,10 @@ export const useGetMbmcBlocks = () => {
                         text: "Contact us",
                     },
                 ],
+                mode: "edit",
+                handleClick: (route: string) => alert(route),
+                index: 0,
+                activeElement: "0.heading",
             },
         },
         {

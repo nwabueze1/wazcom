@@ -4,22 +4,25 @@ import { makeStyles } from "@mui/styles";
 export const useMbmcBlock8Styles = makeStyles((theme: Theme) => ({
     root: {
         backgroundColor: theme.design.colors.waz_orangeColor100,
-        position: "relative",
-        display: "flex",
-        alignItems: "center",
-        justifyContent: "center",
         overflow: "hidden",
         boxSizing: "border-box",
-        padding: theme.spacing(9, 12),
+        padding: theme.spacing(9, 0),
         width: "100%",
 
         [theme.breakpoints.down("lg")]: {
-            padding: theme.spacing(2, 4),
-            flexDirection: "column",
+            padding: theme.spacing(5, 0),
         },
-        [theme.breakpoints.down("sm")]: {
-            padding: theme.spacing(4),
-            height: "fit-content",
+    },
+    headerContainer: {
+        maxWidth: 1240,
+        width: "90%",
+        margin: "0 auto",
+        display: "flex",
+        alignItems: 'center',
+        justifyContent: 'center',
+
+        [theme.breakpoints.down("lg")]: {
+            flexDirection: "column",
         },
     },
     headerContent: {
@@ -32,6 +35,7 @@ export const useMbmcBlock8Styles = makeStyles((theme: Theme) => ({
 
         [theme.breakpoints.down("lg")]: {
             width: "100%",
+            alignItems: 'center',
         },
     },
     carousel: {
@@ -51,13 +55,18 @@ export const useMbmcBlock8Styles = makeStyles((theme: Theme) => ({
         textAlign: "center",
         marginBottom: theme.spacing(2),
         fontFamily: theme.design.font.lostaMasta,
+        border: "1px solid transparent",
+        transition: "all 0.3s ease-in",
+
         [theme.breakpoints.down(1450)]: {
             fontSize: theme.typography.fontSize * 3,
         },
+
         [theme.breakpoints.down("lg")]: {
             marginTop: theme.spacing(3),
             fontSize: theme.typography.fontSize * 2,
         },
+
         [theme.breakpoints.down("md")]: {
             textAlign: "left",
             fontSize: theme.typography.fontSize * 2,
@@ -73,16 +82,23 @@ export const useMbmcBlock8Styles = makeStyles((theme: Theme) => ({
         fontFamily: theme.design.font.montserrat,
         opacity: 0.7,
         lineHeight: 1.4,
+        border: "1px solid transparent",
+        transition: "all 0.3s ease-in",
+
         [theme.breakpoints.down(1450)]: {
             fontSize: theme.typography.fontSize + 6,
         },
+
         [theme.breakpoints.down("lg")]: {
             fontSize: theme.typography.fontSize + 6,
+            textAlign: 'center',
         },
+
         [theme.breakpoints.down("md")]: {
             width: "80%",
             fontSize: theme.typography.fontSize,
         },
+
         [theme.breakpoints.down("sm")]: {
             fontSize: theme.typography.fontSize + 4,
             width: "100%",
@@ -143,5 +159,9 @@ export const useMbmcBlock8Styles = makeStyles((theme: Theme) => ({
     arrow: {
         fontWeight: 900,
         fontSize: theme.typography.fontSize * 3,
+    },
+    block8ActiveElement: {
+        border: "1px dashed",
+        borderColor: theme.design.colors.waz_primaryColor100,
     },
 }));

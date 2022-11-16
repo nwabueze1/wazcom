@@ -1,13 +1,13 @@
 import { useMbmcBlock1Styles } from "./styles";
-import { MbmcButton } from "../../components/MbmcButton/MbmcButton";
 import { FC } from "react";
 import { MbmcBlock1Props } from "./types";
-import { parseHtml, renderStyle } from "../../../../utilities/renderStyle";
+import { parseHtml } from "../../../../utilities/renderStyle";
 import clx from "classnames";
+import { renderCtas, handleElementClick } from "../../utilities";
 
 export const MbmcBlock1: FC<MbmcBlock1Props> = ({
-    style = "mbmc",
     mode = "view",
+    index,
     activeElement = "",
     handleClick,
     image,
@@ -18,66 +18,55 @@ export const MbmcBlock1: FC<MbmcBlock1Props> = ({
 }) => {
     const classes = useMbmcBlock1Styles({ fullHeight });
 
-    const displayCtas = () => {
-        return (ctas ?? []).map(({ text, rIcon, url, lIcon, ...props }, index) => {
-            const name = "MbmcBlock1." + "ctas." + String(index);
-            return (
-                <MbmcButton
-                    key={index}
-                    name={name}
-                    {...props}
-                    handleClick={() => {
-                        mode === "view"
-                            ? handleClick?.(url ?? "")
-                            : handleElementClick("ctas." + String(index));
-                    }}
-                    activeElement={activeElement}
-                >
-                    {lIcon} {text} {rIcon}
-                </MbmcButton>
-            );
-        });
-    };
-
-    const handleElementClick = (element: string) => {
-        if (mode === "view") return;
-        const updatedElement = "MbmcBlock1." + element;
-        handleClick?.(updatedElement);
-    };
-
     return (
-        <div className={renderStyle(style, { mbmc: classes.root })}>
+        <div
+            className={clx(
+                classes.root,
+                activeElement === String(index) && classes.block1ActiveElement,
+            )}
+        >
             <div className={classes.block1Container}>
                 <div className={classes.block1Content}>
                     <h1
                         className={clx(
                             classes.block1Heading,
-                            activeElement === "MbmcBlock1.heading" && classes.block1ActiveElement,
+                            activeElement === `${String(index)}.heading` &&
+                                classes.block1ActiveElement,
                         )}
                         dangerouslySetInnerHTML={{
                             __html: typeof window !== "undefined" ? parseHtml(heading) : "",
                         }}
-                        onClick={() => handleElementClick("heading")}
+                        onClick={() =>
+                            handleElementClick(mode, `${String(index)}.heading`, handleClick)
+                        }
                     />
                     <p
                         className={clx(
                             classes.block1Description,
-                            activeElement === "MbmcBlock1.description" && classes.block1ActiveElement,
+                            activeElement === `${String(index)}.description` &&
+                                classes.block1ActiveElement,
                         )}
-                        onClick={() => handleElementClick("description")}
+                        onClick={() =>
+                            handleElementClick(mode, `${String(index)}.description`, handleClick)
+                        }
                     >
                         {description}
                     </p>
-                    <div className={classes.block1BtnContainer}>{displayCtas()}</div>
+                    <div className={classes.block1BtnContainer}>
+                        {renderCtas(ctas ?? [], mode, String(index ?? 0), handleClick, activeElement)}
+                    </div>
                 </div>
                 <div className={classes.block1ImgContainerMobile}>
                     <img
                         src={image}
-                        onClick={() => handleElementClick("image")}
+                        onClick={() =>
+                            handleElementClick(mode, `${String(index)}.image`, handleClick)
+                        }
                         alt="food images"
                         className={clx(
                             classes.block1ImageMobile,
-                            activeElement === "MbmcBlock1.image" && classes.block1ActiveElement,
+                            activeElement === `${String(index)}.image` &&
+                                classes.block1ActiveElement,
                         )}
                     />
                     <img
@@ -89,11 +78,14 @@ export const MbmcBlock1: FC<MbmcBlock1Props> = ({
                 <div className={classes.block1ImgContainer}>
                     <img
                         src={image}
-                        onClick={() => handleElementClick("image")}
+                        onClick={() =>
+                            handleElementClick(mode, `${String(index)}.image`, handleClick)
+                        }
                         alt="food images"
                         className={clx(
                             classes.block1Image,
-                            activeElement === "MbmcBlock1.image" && classes.block1ActiveElement,
+                            activeElement === `${String(index)}.image` &&
+                                classes.block1ActiveElement,
                         )}
                     />
                     <img

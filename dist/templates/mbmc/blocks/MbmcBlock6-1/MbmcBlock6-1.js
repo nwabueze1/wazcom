@@ -83,7 +83,7 @@ export var MbmcBlock61 = function (_a) {
     var displayItems = function () {
         return categoryItems.map(function (_a, index) {
             var name = _a.name, description = _a.description, image_url = _a.image_url, price = _a.price;
-            return (_jsx(MbmcCard, { heading: _jsxs("div", __assign({ className: classes.block61ItemHeading }, { children: [_jsx("p", { children: name }, void 0), " ", _jsxs("p", __assign({ className: classes.block61ItemPrice }, { children: [getCurrency(currency), price] }), void 0)] }), void 0), description: description, image: image_url, className: classes.block61Item, onClick: function () { return handleOpenModal(index); } }, index));
+            return (_jsx(MbmcCard, { heading: _jsxs("div", __assign({ className: classes.block61ItemHeading }, { children: [_jsx("p", { children: name }, void 0), " ", _jsxs("p", __assign({ className: classes.block61ItemPrice }, { children: [getCurrency(currency), price] }), void 0)] }), void 0), description: description, image: image_url, className: classes.block61Item, handleClick: function () { return handleOpenModal(index); } }, index));
         });
     };
     var handleCategoryChange = function (category) {

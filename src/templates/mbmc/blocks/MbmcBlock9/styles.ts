@@ -4,10 +4,6 @@ import { makeStyles } from "@mui/styles";
 export const useMbmcBlock9Styles = makeStyles((theme: Theme) => ({
     root: {
         backgroundColor: theme.design.colors.waz_white,
-        position: "relative",
-        display: "flex",
-        alignItems: "center",
-        justifyContent: "space-between",
         overflow: "hidden",
         padding: theme.spacing(12),
         width: "100%",
@@ -20,10 +16,19 @@ export const useMbmcBlock9Styles = makeStyles((theme: Theme) => ({
             height: "100%",
             padding: theme.spacing(8, 4),
         },
+
         [theme.breakpoints.down("md")]: {
             padding: theme.spacing(6, 4),
             height: "fit-content",
         },
+    },
+    headerContainer: {
+        maxWidth: 1240,
+        width: "90%",
+        margin: "0 auto",
+        display: "flex",
+        alignItems: "center",
+        justifyContent: "space-between",
     },
     headerContent: {
         display: "flex",
@@ -36,17 +41,21 @@ export const useMbmcBlock9Styles = makeStyles((theme: Theme) => ({
         fontSize: theme.typography.fontSize * 4,
         letterSpacing: 0,
         textTransform: "capitalize",
-        font: "Losta Masta",
         margin: 0,
         textAlign: "center",
         marginBottom: theme.spacing(2),
         fontFamily: theme.design.font.lostaMasta,
+        border: "1px solid transparent",
+        transition: "all 0.3s ease-in",
+
         [theme.breakpoints.down(1450)]: {
             fontSize: theme.typography.fontSize * 3,
         },
+
         [theme.breakpoints.down("lg")]: {
             fontSize: theme.typography.fontSize * 2,
         },
+
         [theme.breakpoints.down("md")]: {
             textAlign: "left",
             fontSize: theme.typography.fontSize * 2,
@@ -59,19 +68,25 @@ export const useMbmcBlock9Styles = makeStyles((theme: Theme) => ({
         textAlign: "left",
         fontSize: theme.typography.fontSize + 6,
         maxWidth: 500,
+        border: "1px solid transparent",
+        transition: "all 0.3s ease-in",
 
         fontFamily: theme.design.font.montserrat,
+
         [theme.breakpoints.down(1450)]: {
             fontSize: theme.typography.fontSize + 6,
         },
+
         [theme.breakpoints.down("lg")]: {
             fontSize: theme.typography.fontSize + 6,
             width: "80%",
         },
+
         [theme.breakpoints.down("md")]: {
             width: "80%",
             fontSize: theme.typography.fontSize,
         },
+
         [theme.breakpoints.down("sm")]: {
             fontSize: theme.typography.fontSize + 2,
             width: "100%",
@@ -186,8 +201,8 @@ export const useMbmcBlock9Styles = makeStyles((theme: Theme) => ({
 
         [theme.breakpoints.down("lg")]: {
             alignItems: "flex-end",
-            height: 500,
         },
+
         [theme.breakpoints.down("md")]: {
             display: "none",
         },
@@ -265,5 +280,9 @@ export const useMbmcBlock9Styles = makeStyles((theme: Theme) => ({
         [theme.breakpoints.down("lg")]: {
             display: "none",
         },
+    },
+    block11ActiveElement: {
+        border: "1px dashed",
+        borderColor: theme.design.colors.waz_primaryColor100,
     },
 }));

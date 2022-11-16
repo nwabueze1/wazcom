@@ -31,7 +31,7 @@ export const useMbmcBlock4Styles = makeStyles((theme: Theme) => ({
             width: "100%",
         },
     },
-    block4Title: {
+    block4Heading: {
         color: theme.design.colors.waz_primaryColor200,
         fontSize: theme.typography.fontSize * 4,
         fontFamily: theme.design.font.lostaMasta,
@@ -39,6 +39,8 @@ export const useMbmcBlock4Styles = makeStyles((theme: Theme) => ({
         textTransform: "capitalize",
         margin: 0,
         textAlign: "center",
+        border: "1px solid transparent",
+        transition: "all 0.3s ease-in",
 
         [theme.breakpoints.down("lg")]: {
             fontSize: theme.typography.fontSize * 3,
@@ -59,6 +61,8 @@ export const useMbmcBlock4Styles = makeStyles((theme: Theme) => ({
         fontFamily: theme.design.font.montserrat,
         marginBottom: theme.spacing(3.5),
         lineHeight: 1.5,
+        border: "1px solid transparent",
+        transition: "all 0.3s ease-in",
 
         [theme.breakpoints.down("lg")]: {
             width: "80%",
@@ -102,5 +106,9 @@ export const useMbmcBlock4Styles = makeStyles((theme: Theme) => ({
     },
     block4CardHeading: {
         color: theme.design.colors.waz_orangeColor100,
+    },
+    block4ActiveElement: {
+        border: "1px dashed",
+        borderColor: theme.design.colors.waz_primaryColor100,
     },
 }));

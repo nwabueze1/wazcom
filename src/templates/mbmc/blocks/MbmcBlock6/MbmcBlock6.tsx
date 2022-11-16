@@ -35,7 +35,7 @@ export const MbmcBlock6: FC<MbmcBlock6Props> = ({ heading, description, client, 
 
     const displayCategories = () =>
         categories.map((category, index) => (
-            <MbmcCard key={index} {...category} scrollableParent={true} />
+            <MbmcCard key={index} {...category} />
         ));
 
     return (

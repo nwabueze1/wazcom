@@ -16,6 +16,7 @@ export var useTestimonialCardPropsStyles = makeStyles(function (theme) {
             position: "relative",
             margin: theme.spacing(1, 0),
             transition: " boxShadow 1s ease",
+            fontFamily: theme.design.font.montserrat,
         },
         content: {
             display: "flex",
@@ -30,26 +31,31 @@ export var useTestimonialCardPropsStyles = makeStyles(function (theme) {
             marginBottom: theme.spacing(1),
             lineHeight: "22px",
             textOverflow: "ellipsis",
-            fontSize: theme.typography.fontSize * 1.5,
+            fontSize: theme.typography.fontSize + 2,
             color: theme.design.colors.waz_grey400,
             opacity: 0.9,
-            fontFamily: theme.design.font.montserrat,
+            border: "1px solid transparent",
+            transition: "all 0.3s ease-in",
         },
-        author: {
+        name: {
             marginTop: theme.spacing(1),
-            marginBottom: theme.spacing(1),
+            marginBottom: theme.spacing(0.5),
             lineHeight: "22px",
-            fontSize: theme.typography.fontSize * 1.5,
+            fontSize: theme.typography.fontSize,
             color: theme.design.colors.waz_black,
             fontWeight: theme.typography.fontWeightBold,
-            fontFamily: theme.design.font.montserrat,
+            border: "1px solid transparent",
+            transition: "all 0.3s ease-in",
+            width: 'fit-content',
         },
         type: {
             textOverflow: "ellipsis",
             fontSize: theme.typography.fontSize - 2,
             color: theme.design.colors.waz_grey400,
-            fontFamily: theme.design.font.montserrat,
             opacity: 0.9,
+            border: "1px solid transparent",
+            transition: "all 0.3s ease-in",
+            width: 'fit-content',
         },
         menuHeaderContainer: {
             display: "flex",
@@ -59,6 +65,10 @@ export var useTestimonialCardPropsStyles = makeStyles(function (theme) {
         },
         visible: {
             opacity: 1,
+        },
+        cardActiveElement: {
+            border: "1px dashed",
+            borderColor: theme.design.colors.waz_primaryColor100,
         },
     });
 });

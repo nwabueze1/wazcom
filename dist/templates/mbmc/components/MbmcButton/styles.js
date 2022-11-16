@@ -4,7 +4,7 @@ export var useButtonStyles = makeStyles(function (theme) {
     return ({
         button: (_a = {
                 borderRadius: 100,
-                width: "100%",
+                width: "fit-content",
                 fontSize: theme.typography.fontSize + 2,
                 padding: theme.spacing(1.5, 5),
                 textTransform: "unset",

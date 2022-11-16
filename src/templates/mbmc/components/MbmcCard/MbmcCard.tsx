@@ -3,9 +3,12 @@ import { useMbmcCardStyles } from "./styles";
 import { MbmcCardProps } from "./types";
 import clsx from "clsx";
 import { menuImagePlaceholder } from "../../../../utilities/restaurant";
-import { MbmcButton } from "../MbmcButton/MbmcButton";
+import { renderCtas, handleElementClick } from "../../utilities";
 
 export const MbmcCard: React.FC<MbmcCardProps> = ({
+    mode = "view",
+    activeElement,
+    parentKey,
     heading,
     image,
     description,
@@ -13,38 +16,57 @@ export const MbmcCard: React.FC<MbmcCardProps> = ({
     scrollableParent,
     className,
     classNames,
-    onClick,
+    handleClick,
 }) => {
     const isOpen = true;
     const classes = useMbmcCardStyles({ isOpen, scrollableParent });
 
-    const displayCtas = () => {
-        return (ctas ?? []).map(({ text, rIcon, lIcon, ...props }, index) => (
-            <MbmcButton key={index} {...props}>
-                {lIcon} {text} {rIcon}
-            </MbmcButton>
-        ));
-    };
-
     return (
-        <>
-            <div onClick={onClick} className={clsx(classes.root, classes.visible, className)}>
-                <div
-                    className={classes.imageWrapper}
-                    style={{
-                        backgroundImage: `url(${image ?? menuImagePlaceholder})`,
-                    }}
-                ></div>
-                <div className={classes.content}>
-                    <div>
-                        <p className={clsx(classes.heading, classNames?.heading)}>{heading}</p>
-                        <p className={clsx(classes.description, classNames?.description)}>
-                            {description}
-                        </p>
-                    </div>
-                    <div className={classes.ctas}>{displayCtas()}</div>
+        <div className={clsx(classes.root, classes.visible, className)}>
+            <div
+                className={clsx(
+                    classes.imageWrapper,
+                    activeElement === parentKey + ".image" && classes.cardActiveElement,
+                )}
+                style={{
+                    backgroundImage: `url(${image ?? menuImagePlaceholder})`,
+                }}
+                onClick={() => {
+                    handleElementClick(mode, parentKey + ".image", handleClick);
+                }}
+            />
+            <div className={classes.content}>
+                <div>
+                    <p
+                        className={clsx(
+                            classes.heading,
+                            classNames?.heading,
+                            activeElement === parentKey + ".heading" && classes.cardActiveElement,
+                        )}
+                        onClick={() => {
+                            handleElementClick(mode, parentKey + ".heading", handleClick);
+                        }}
+                    >
+                        {heading}
+                    </p>
+                    <p
+                        className={clsx(
+                            classes.description,
+                            classNames?.description,
+                            activeElement === parentKey + ".description" &&
+                                classes.cardActiveElement,
+                        )}
+                        onClick={() => {
+                            handleElementClick(mode, parentKey + ".description", handleClick);
+                        }}
+                    >
+                        {description}
+                    </p>
+                </div>
+                <div className={classes.ctas}>
+                    {renderCtas(ctas ?? [], mode, parentKey ?? "", handleClick, activeElement)}
                 </div>
             </div>
-        </>
+        </div>
     );
 };
