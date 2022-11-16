@@ -6,7 +6,6 @@ import { IoMdClose } from "react-icons/io";
 import { renderNavLink } from "../../../../templates/Navs/helpers";
 import clx from "classnames";
 import { FiShoppingCart } from "react-icons/fi";
-import { useHistory } from "react-router-dom";
 
 export const MbmcBlock13: FC<MbmcBlock13Props> = ({
     mode = "view",
@@ -19,7 +18,6 @@ export const MbmcBlock13: FC<MbmcBlock13Props> = ({
     const classes = useMbmcBlock13Styles();
     const [openMenu, setOpenMenu] = useState<boolean>(false);
     const [activeElement, setActiveElement] = useState("");
-    const history = useHistory();
 
     const handleNavClick = () => {
         if (mode === "edit") {
@@ -38,7 +36,7 @@ export const MbmcBlock13: FC<MbmcBlock13Props> = ({
 
     const handleElementClick = (element: string) => {
         setActiveElement(element);
-        if (element.startsWith("/")) history.push(element);
+        if (element.startsWith("/")) handleClick?.(element);
     };
 
     const displayLinks = () => {
