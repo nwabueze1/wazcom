@@ -39,7 +39,10 @@ export type MbmcCommonProps = {
     handleClick?: (route: string) => void;
     className?: string;
     classNames?: { [key: string]: string };
+    services?: { [key in HivedeckService]: string };
 };
+
+export type HivedeckService = 'NICODEMUS' | 'AMBROSIA' | 'MUSE';
 
 export type MbmcTemplatePropType = {
     component: any;

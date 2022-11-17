@@ -13,7 +13,6 @@ import { MbmcBlock11 } from "./blocks/MbmcBlock11/MbmcBlock11";
 import { MbmcBlock12 } from "./blocks/MbmcBlock12/MbmcBlock12";
 import { MbmcBlock13 } from "./blocks/MbmcBlock13/MbmcBlock13";
 import { useMbmbcStyles } from "./styles";
-import { FiShoppingCart } from "react-icons/fi";
 import { MbmcBlock14 } from "./blocks/MbmcBlock14/MbmcBlock14";
 import { MbmcBlock15 } from "./blocks/MbmcBlock15/MbmcBlock15";
 import { createApolloClient } from "helpers/graphQL";
@@ -196,8 +195,13 @@ export const useGetMbmcBlocks = () => {
                 heading: "Explore Our Menu",
                 description: `Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed 
                 diam nonumy eirmod tempor invidunt ut labore et dolore a….`,
-                client: createApolloClient("https://ofambegbe-ambrosia.wazobia.uk/graphql"),
                 menu_uuid: "5a8b64b3-2fe7-4204-b23a-87dd6539d311",
+                integratedService: 'AMBROSIA',
+                services: { AMBROSIA: 'https://ofambegbe-ambrosia.wazobia.uk/graphql', NICODEMUS: '', MUSE: '' },
+                mode: "edit",
+                index: 0,
+                activeElement: "0.menu_uuid",
+                handleClick: (route: string) => alert(route),
             },
         },
         {
@@ -425,7 +429,7 @@ export const useGetMbmcBlocks = () => {
                     url: "#",
                 },
                 links: [
-                    { text: "About us", url: "/mbmc/about" },
+                    { text: "About us", url: "https://zeus.com" },
                     { text: "Menus", url: "#" },
                     { text: "Contact us", url: "#" },
                 ],

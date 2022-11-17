@@ -40,7 +40,11 @@ export declare type MbmcCommonProps = {
     classNames?: {
         [key: string]: string;
     };
+    services?: {
+        [key in HivedeckService]: string;
+    };
 };
+export declare type HivedeckService = 'NICODEMUS' | 'AMBROSIA' | 'MUSE';
 export declare type MbmcTemplatePropType = {
     component: any;
     name: string;
