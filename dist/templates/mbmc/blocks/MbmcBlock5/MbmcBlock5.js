@@ -9,42 +9,22 @@ var __assign = (this && this.__assign) || function () {
     };
     return __assign.apply(this, arguments);
 };
-var __read = (this && this.__read) || function (o, n) {
-    var m = typeof Symbol === "function" && o[Symbol.iterator];
-    if (!m) return o;
-    var i = m.call(o), r, ar = [], e;
-    try {
-        while ((n === void 0 || n-- > 0) && !(r = i.next()).done) ar.push(r.value);
-    }
-    catch (error) { e = { error: error }; }
-    finally {
-        try {
-            if (r && !r.done && (m = i["return"])) m.call(i);
-        }
-        finally { if (e) throw e.error; }
-    }
-    return ar;
-};
-import { jsx as _jsx, jsxs as _jsxs } from "react/jsx-runtime";
+import { jsxs as _jsxs, jsx as _jsx } from "react/jsx-runtime";
 import { useMbmcBlock5Styles } from "./styles";
-import { useState } from "react";
 import { displayLogo, displaySections } from "../../../../templates/footers/helpers";
 import clx from "classnames";
 export var MbmcBlock5 = function (_a) {
-    var mode = _a.mode, logo = _a.logo, handleClick = _a.handleClick, links = _a.links;
-    var _b = __read(useState(""), 2), activeElement = _b[0], setActiveElement = _b[1];
+    var _b = _a.mode, mode = _b === void 0 ? "view" : _b, index = _a.index, _c = _a.activeElement, activeElement = _c === void 0 ? "" : _c, logo = _a.logo, handleClick = _a.handleClick, links = _a.links;
     var classes = useMbmcBlock5Styles();
     var handleFooterClick = function () {
         if (mode === "edit") {
-            setActiveElement("footer");
             handleClick === null || handleClick === void 0 ? void 0 : handleClick("footer");
         }
     };
     var handleElementClick = function (element) {
-        setActiveElement(element);
         handleClick === null || handleClick === void 0 ? void 0 : handleClick(element);
     };
-    return (_jsxs("div", __assign({ className: classes.mbmcContainer }, { children: [_jsx("div", __assign({ className: clx(classes.root, activeElement.toLowerCase() === "footer" &&
-                    mode === "edit" &&
-                    classes.activeElement), onClick: handleFooterClick }, { children: _jsxs("div", __assign({ className: classes.footerContainer }, { children: [_jsx("div", __assign({ className: classes.logoContainer }, { children: displayLogo(mode, classes, activeElement, handleElementClick, logo) }), void 0), displaySections(mode, classes, links, activeElement, handleElementClick)] }), void 0) }), void 0), _jsx("p", __assign({ className: classes.footerNote }, { children: _jsx("span", { children: "2022 \u00A9 All rights reserved . Mrbaker & Mrs cook . Proudly created by Hivedeck" }, void 0) }), void 0)] }), void 0));
+    return (_jsxs("div", __assign({ className: clx(classes.root, activeElement.toLowerCase() === "footer" &&
+            mode === "edit" &&
+            classes.activeElement), onClick: handleFooterClick }, { children: [_jsx("div", __assign({ className: classes.mbmcContainer }, { children: _jsxs("div", __assign({ className: classes.footerContainer }, { children: [displayLogo(mode, classes, activeElement, handleElementClick, logo, !index && index !== 0 ? undefined : "".concat(String(index), ".logo")), displaySections(mode, classes, links, activeElement, handleElementClick, !index && index !== 0 ? undefined : "".concat(String(index), ".links."))] }), void 0) }), void 0), _jsx("div", __assign({ className: classes.footerNote }, { children: _jsx("p", __assign({ className: classes.footerNoteText }, { children: "2022 \u00A9 All rights reserved . Mrbaker & Mrs cook . Proudly created by Hivedeck" }), void 0) }), void 0)] }), void 0));
 };

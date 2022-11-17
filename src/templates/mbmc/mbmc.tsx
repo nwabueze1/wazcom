@@ -123,6 +123,10 @@ export const useGetMbmcBlocks = () => {
                     text: "",
                     url: "#",
                 },
+                index: 0,
+                activeElement: '0.links.1.links.1',
+                mode: "edit",
+                handleClick: (route: string) => alert(route),
                 links: [
                     {
                         name: "Company",
@@ -181,6 +185,7 @@ export const useGetMbmcBlocks = () => {
                             {
                                 text: "@mrbakerandmrscook",
                                 url: "#",
+                                icon: "instagram"
                             },
                         ],
                     },
