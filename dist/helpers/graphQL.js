@@ -57,7 +57,7 @@ export var createApolloClient = function (uri) {
     var authLink = setContext(function (_, _a) {
         var headers = _a.headers;
         return {
-            headers: __assign(__assign({}, headers), { authorization: "Bearer ".concat(process.env.REACT_APP_TOKEN) }),
+            headers: __assign({}, headers),
         };
     });
     return new ApolloClient({

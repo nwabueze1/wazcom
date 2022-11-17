@@ -25,7 +25,7 @@ export var renderNavLink = function (_a, mode, index, classes, activeElement, ha
         } }, { children: text }), index)) : (_jsx("a", __assign({ className: classes.link, target: "_blank", rel: "noopener noreferrer", href: url }, { children: text }), index));
 };
 var hivedeckLogo = "https://sytbuildr.s3.eu-west-2.amazonaws.com/images/logo/hivedeck_logo.svg";
-var isNotRenderAnchor = function (url, mode) { return url === "#" || mode === "edit"; };
+var isNotRenderAnchor = function (url, mode) { return (url === null || url === void 0 ? void 0 : url.startsWith("/")) || url === "#" || mode === "edit"; };
 var clickAction = function (url, mode, handleClick) {
     if (mode === "edit" || (mode === "view" && url !== "#"))
         handleClick === null || handleClick === void 0 ? void 0 : handleClick();

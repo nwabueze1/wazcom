@@ -9,7 +9,6 @@ export const createApolloClient = (uri: string) => {
         return {
             headers: {
                 ...headers,
-                authorization: `Bearer ${process.env.REACT_APP_TOKEN}`,
             },
         };
     });

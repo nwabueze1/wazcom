@@ -37,19 +37,23 @@ var __values = (this && this.__values) || function(o) {
     throw new TypeError(s ? "Object is not iterable." : "Symbol.iterator is not defined.");
 };
 import { jsx as _jsx, jsxs as _jsxs } from "react/jsx-runtime";
-import { useEffect, useState } from "react";
+import { useEffect, useState, useMemo } from "react";
 import { useQuery } from "@apollo/client";
 import { useMbmcBlock6Styles } from "./styles";
 import { GET_MENU_BY_UUID } from "./graphql";
 import { MbmcCard } from "../../../../templates/mbmc/components/MbmcCard";
+import clx from "classnames";
+import { handleElementClick } from "../../utilities";
+import { createApolloClient } from "../../../../helpers/graphQL";
 export var MbmcBlock6 = function (_a) {
-    var heading = _a.heading, description = _a.description, client = _a.client, menu_uuid = _a.menu_uuid;
+    var _b = _a.mode, mode = _b === void 0 ? "view" : _b, activeElement = _a.activeElement, handleClick = _a.handleClick, services = _a.services, integratedService = _a.integratedService, index = _a.index, heading = _a.heading, description = _a.description, menu_uuid = _a.menu_uuid;
     var classes = useMbmcBlock6Styles();
-    var _b = __read(useState([]), 2), categories = _b[0], setCategories = _b[1];
-    var _c = useQuery(GET_MENU_BY_UUID, {
+    var _c = __read(useState([]), 2), categories = _c[0], setCategories = _c[1];
+    var client = useMemo(function () { return createApolloClient(services ? services[integratedService] : ""); }, []);
+    var _d = useQuery(GET_MENU_BY_UUID, {
         client: client,
         variables: { uuid: menu_uuid },
-    }), data = _c.data, error = _c.error;
+    }), data = _d.data, error = _d.error;
     useEffect(function () {
         var e_1, _a;
         if (data) {
@@ -75,9 +79,19 @@ export var MbmcBlock6 = function (_a) {
             }
             setCategories(parsedCategories);
         }
+        if (error) {
+            console.log(error);
+        }
     }, [data, error]);
     var displayCategories = function () {
-        return categories.map(function (category, index) { return (_jsx(MbmcCard, __assign({}, category), index)); });
+        return categories.map(function (category, index) { return _jsx(MbmcCard, __assign({}, category), index); });
     };
-    return (_jsx("div", __assign({ className: classes.root }, { children: _jsxs("div", __assign({ className: classes.block6Container }, { children: [_jsxs("div", __assign({ className: classes.block6Content }, { children: [_jsx("h3", __assign({ className: classes.block6Title }, { children: heading }), void 0), _jsx("p", __assign({ className: classes.block6Description }, { children: description }), void 0)] }), void 0), _jsx("div", __assign({ className: classes.block6ScrollContainer }, { children: displayCategories() }), void 0)] }), void 0) }), void 0));
+    return (_jsx("div", __assign({ className: classes.root }, { children: _jsxs("div", __assign({ className: classes.block6Container }, { children: [_jsxs("div", __assign({ className: classes.block6Content }, { children: [_jsx("h3", __assign({ className: clx(classes.block6Heading, activeElement === "".concat(String(index), ".heading") &&
+                                classes.block6ActiveElement), onClick: function () {
+                                return handleElementClick(mode, "".concat(String(index), ".heading"), handleClick);
+                            } }, { children: heading }), void 0), _jsx("p", __assign({ className: clx(classes.block6Description, activeElement === "".concat(String(index), ".description") &&
+                                classes.block6ActiveElement), onClick: function () {
+                                return handleElementClick(mode, "".concat(String(index), ".description"), handleClick);
+                            } }, { children: description }), void 0)] }), void 0), _jsx("div", __assign({ className: clx(classes.block6ScrollContainer, activeElement === "".concat(String(index), ".menu_uuid") &&
+                        classes.block6ActiveElement), onClick: function () { return handleElementClick(mode, "".concat(String(index), ".menu_uuid"), handleClick); } }, { children: displayCategories() }), void 0)] }), void 0) }), void 0));
 };
