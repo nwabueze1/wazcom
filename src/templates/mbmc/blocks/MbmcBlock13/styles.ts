@@ -54,11 +54,12 @@ export const useMbmcBlock13Styles = makeStyles((theme: Theme) => ({
         },
     },
     logo: {
-        width: "300px",
+        maxWidth: "300px",
+        maxHeight: '65px',
         objectFit: "cover",
 
         [theme.breakpoints.down("md")]: {
-            width: "200px",
+            maxWidth: "200px",
         },
     },
     link: {

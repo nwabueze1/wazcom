@@ -5,21 +5,15 @@ export const useMbmcBlock9Styles = makeStyles((theme: Theme) => ({
     root: {
         backgroundColor: theme.design.colors.waz_white,
         overflow: "hidden",
-        padding: theme.spacing(12),
+        padding: theme.spacing(6, 0),
         width: "100%",
-        boxSizing: "border-box",
-        gap: theme.spacing(2),
-        maxWidth: 1440,
-        margin: "0 auto",
 
         [theme.breakpoints.down("lg")]: {
-            height: "100%",
-            padding: theme.spacing(8, 4),
+            padding: theme.spacing(8, 0),
         },
 
         [theme.breakpoints.down("md")]: {
-            padding: theme.spacing(6, 4),
-            height: "fit-content",
+            padding: theme.spacing(6, 0),
         },
     },
     headerContainer: {
@@ -32,9 +26,12 @@ export const useMbmcBlock9Styles = makeStyles((theme: Theme) => ({
     },
     headerContent: {
         display: "flex",
-        alignItems: "flex-start",
         justifyContent: "center",
         flexDirection: "column",
+
+        [theme.breakpoints.down("md")]: {
+            alignItems: 'center',
+        },
     },
     headerTitle: {
         color: theme.design.colors.waz_black,
@@ -42,8 +39,7 @@ export const useMbmcBlock9Styles = makeStyles((theme: Theme) => ({
         letterSpacing: 0,
         textTransform: "capitalize",
         margin: 0,
-        textAlign: "center",
-        marginBottom: theme.spacing(2),
+        marginBottom: theme.spacing(1),
         fontFamily: theme.design.font.lostaMasta,
         border: "1px solid transparent",
         transition: "all 0.3s ease-in",
@@ -57,7 +53,6 @@ export const useMbmcBlock9Styles = makeStyles((theme: Theme) => ({
         },
 
         [theme.breakpoints.down("md")]: {
-            textAlign: "left",
             fontSize: theme.typography.fontSize * 2,
             fontWeight: 800,
             marginBottom: theme.spacing(1),
@@ -70,21 +65,17 @@ export const useMbmcBlock9Styles = makeStyles((theme: Theme) => ({
         maxWidth: 500,
         border: "1px solid transparent",
         transition: "all 0.3s ease-in",
-
         fontFamily: theme.design.font.montserrat,
-
-        [theme.breakpoints.down(1450)]: {
-            fontSize: theme.typography.fontSize + 6,
-        },
+        lineHeight: 1.6,
 
         [theme.breakpoints.down("lg")]: {
             fontSize: theme.typography.fontSize + 6,
-            width: "80%",
         },
 
         [theme.breakpoints.down("md")]: {
+            fontSize: theme.typography.fontSize + 3,
+            textAlign: 'center',
             width: "80%",
-            fontSize: theme.typography.fontSize,
         },
 
         [theme.breakpoints.down("sm")]: {
