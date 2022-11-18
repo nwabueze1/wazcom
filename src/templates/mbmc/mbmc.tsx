@@ -355,17 +355,21 @@ export const useGetMbmcBlocks = () => {
                 tags: [
                     {
                         text: "EXPERTLY PREPARED",
-                        icon: "https://sytbuildr.s3.eu-west-2.amazonaws.com/images/mbmc/chefLogo.svg",
+                        image: "https://sytbuildr.s3.eu-west-2.amazonaws.com/images/mbmc/chefLogo.svg",
                     },
                     {
                         text: "FRESH & AUTHENTIC",
-                        icon: "https://sytbuildr.s3.eu-west-2.amazonaws.com/images/mbmc/foodIcon.svg",
+                        image: "https://sytbuildr.s3.eu-west-2.amazonaws.com/images/mbmc/foodIcon.svg",
                     },
                     {
                         text: "UK WIDE DELIVERY",
-                        icon: "https://sytbuildr.s3.eu-west-2.amazonaws.com/images/mbmc/deliveryIcon.svg",
+                        image: "https://sytbuildr.s3.eu-west-2.amazonaws.com/images/mbmc/deliveryIcon.svg",
                     },
                 ],
+                mode: 'edit',
+                index: 0,
+                activeElement: '0.tags.0.text',
+                handleClick: (route: string) => alert(route),
             },
         },
         {

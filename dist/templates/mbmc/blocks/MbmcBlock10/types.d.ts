@@ -3,6 +3,6 @@ export declare type MbmcBlock10Props = MbmcCommonProps & {
     layout?: BlockLayout;
     tags: {
         text: string;
-        icon: string;
+        image: string;
     }[];
 };
