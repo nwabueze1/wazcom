@@ -19,6 +19,10 @@ export const useCartItemCardStyles = makeStyles((theme: Theme) => ({
     imgContainer: {
         width: "31%",
         height: "118px",
+        display: "flex",
+        justifyContent: "center",
+        alignItems: "center",
+        overflow: "hidden",
         [theme.breakpoints.down("md")]: {
             width: "35%",
         },
@@ -27,12 +31,10 @@ export const useCartItemCardStyles = makeStyles((theme: Theme) => ({
         width: "60%",
     },
     cartItemImg: {
-        width: "100%",
-        height: "100%",
+        minWidth: "100%",
+        minHeight: "100%",
+        flexShrink: 0,
         borderRadius: "5px",
-        [theme.breakpoints.down("md")]: {
-            height: "89%",
-        },
     },
     title: {
         letterSpacing: "0px",

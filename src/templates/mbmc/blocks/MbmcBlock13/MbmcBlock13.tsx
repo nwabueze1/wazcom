@@ -3,28 +3,23 @@ import { FC, useState } from "react";
 import { MbmcBlock13Props } from "./types";
 import { AiOutlineMenu } from "react-icons/ai";
 import { IoMdClose } from "react-icons/io";
-import { renderNavLink } from "../../../../templates/Navs/helpers";
+import { renderNavLink, renderNavLogo } from "../../../../templates/Navs/helpers";
 import clx from "classnames";
 import { FiShoppingCart } from "react-icons/fi";
+import { renderCtas } from "../../utilities";
 
 export const MbmcBlock13: FC<MbmcBlock13Props> = ({
     mode = "view",
+    activeElement = "",
+    index,
     logo,
     links,
     handleClick,
     ctas,
-    icons,
+    numCartItems,
 }) => {
     const classes = useMbmcBlock13Styles();
     const [openMenu, setOpenMenu] = useState<boolean>(false);
-    const [activeElement, setActiveElement] = useState("");
-
-    const handleNavClick = () => {
-        if (mode === "edit") {
-            setActiveElement("nav");
-            handleClick?.("nav");
-        }
-    };
 
     const handleOpenMenu = () => {
         setOpenMenu(true);
@@ -35,106 +30,86 @@ export const MbmcBlock13: FC<MbmcBlock13Props> = ({
     };
 
     const handleElementClick = (element: string) => {
-        setActiveElement(element);
+        handleClick?.(element);
     };
 
     const displayLinks = () => {
-        return links.map((link, index) =>
-            renderNavLink(link, mode, index, classes, activeElement, handleElementClick),
+        return links.map((link, linkIndex) =>
+            renderNavLink(
+                link,
+                mode,
+                linkIndex,
+                classes,
+                activeElement,
+                handleElementClick,
+                !index && index !== 0 ? undefined : `${String(index)}.links.`,
+            ),
         );
     };
 
     return (
         <>
-            {!openMenu && (
-                <div
-                    className={clx(
-                        classes.root,
-                        activeElement.toLowerCase() === "nav" &&
-                            mode === "edit" &&
-                            classes.activeElement,
+            <div className={classes.root}>
+                <div className={classes.container}>
+                    {renderNavLogo(
+                        mode,
+                        classes,
+                        activeElement,
+                        handleElementClick,
+                        logo,
+                        !index && index !== 0 ? undefined : `${String(index)}.logo`,
                     )}
-                    onClick={handleNavClick}
-                >
-                    <div className={classes.logoContainer}>
-                        <a href={logo?.url}>
-                            <img src={logo?.src?.desktop} alt="" className={classes.logo} />
-                            <img src={logo?.src?.mobile} alt="" className={classes.mobilelogo} />
-                        </a>
+                    <div className={classes.menuList}>
+                        {displayLinks()}
+                        <p className={clx(classes.icon, classes.link)}>
+                            <FiShoppingCart className={classes.cartIcon} fontSize={20} />
+                            <span className={classes.badgeIcon}>{numCartItems}</span>
+                        </p>
+                        {renderCtas(
+                            ctas ?? [],
+                            mode,
+                            !index && index !== 0 ? "nav" : `${String(index)}`,
+                            handleClick,
+                            activeElement,
+                            classes.ctaDesktop,
+                        )}
                     </div>
-                    <div className={classes.menuList}>{displayLinks()}</div>
-                    <div className={classes.desktopIcons}>
-                        {icons?.map((item, idx) => {
-                            return (
-                                <a href={item.url} className={classes.icon} key={idx}>
-                                    <FiShoppingCart className={classes.cartIcon} fontSize={20} />
-                                    <div className={classes.badgeIcon}>{item.badgeCount}</div>
-                                </a>
-                            );
-                        })}
-                    </div>
-
-                    {ctas?.map((item, idx) => {
-                        return (
-                            <div key={idx} onClick={item.handleClick} className={classes.orderBtn}>
-                                {item.text}
-                            </div>
-                        );
-                    })}
 
                     <div className={classes.menuOptionMobile}>
-                        <div className={classes.mobileIcons}>
-                            {icons?.map((item, idx) => {
-                                return (
-                                    <a href={item.url} className={classes.icon} key={idx}>
-                                        <FiShoppingCart
-                                            className={classes.cartIcon}
-                                            fontSize={20}
-                                        />
-
-                                        <div className={classes.badgeIcon}>{item.badgeCount}</div>
-                                    </a>
-                                );
-                            })}
-                        </div>
+                        <p
+                            className={clx(classes.icon, classes.link)}
+                            onClick={() => {
+                                handleElementClick("/cart");
+                            }}
+                        >
+                            <FiShoppingCart className={classes.cartIcon} fontSize={20} />
+                            <span className={classes.badgeIcon}>{numCartItems}</span>
+                        </p>
                         <AiOutlineMenu size={34} onClick={handleOpenMenu} />
                     </div>
                 </div>
-            )}
-            {openMenu && (
-                <div className={classes.openNav}>
-                    <div className={classes.expandedNav}>
-                        <div className={classes.mobilelogoContainer}>
-                            <a href={logo?.url}>
-                                <img
-                                    src={logo?.src?.mobile}
-                                    alt=""
-                                    className={classes.mobilelogo}
-                                />
-                            </a>
-                        </div>
+            </div>
+            <div className={clx(classes.openNav, { [classes.showMenu]: openMenu })}>
+                <div className={classes.expandedMenuOptionMobile}>
+                    <IoMdClose size={34} onClick={handleCloseMenu} />
 
-                        <div className={classes.expandedMenuOptionMobile}>
-                            <IoMdClose size={34} onClick={handleCloseMenu} />
-
-                            <div className={classes.expandedNavContentRightSide}>
-                                {displayLinks()}
-                                {ctas?.map((item, idx) => {
-                                    return (
-                                        <div
-                                            key={idx}
-                                            onClick={item.handleClick}
-                                            className={classes.mobileOrderBtn}
-                                        >
-                                            {item.text}
-                                        </div>
-                                    );
-                                })}
-                            </div>
-                        </div>
+                    <div className={classes.expandedNavContentRightSide}>
+                        {displayLinks()}
+                        {renderCtas(
+                            ctas ?? [],
+                            mode,
+                            !index && index !== 0 ? "nav" : `${String(index)}`,
+                            handleClick,
+                            activeElement,
+                            classes.ctaMobile,
+                        )}
                     </div>
                 </div>
-            )}
+            </div>
+            <div
+                className={clx(classes.overlay, { [classes.showOverlay]: openMenu })}
+                onClick={handleCloseMenu}
+            />
         </>
     );
 };

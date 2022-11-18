@@ -1,6 +1,6 @@
 import { makeStyles } from "@mui/styles";
 export var useCartItemCardStyles = makeStyles(function (theme) {
-    var _a, _b, _c, _d;
+    var _a, _b, _c;
     return ({
         root: {
             background: "".concat(theme.design.colors.waz_orangeColor50, " 0% 0% no-repeat padding-box"),
@@ -18,7 +18,11 @@ export var useCartItemCardStyles = makeStyles(function (theme) {
         },
         imgContainer: (_a = {
                 width: "31%",
-                height: "118px"
+                height: "118px",
+                display: "flex",
+                justifyContent: "center",
+                alignItems: "center",
+                overflow: "hidden"
             },
             _a[theme.breakpoints.down("md")] = {
                 width: "35%",
@@ -27,16 +31,13 @@ export var useCartItemCardStyles = makeStyles(function (theme) {
         content: {
             width: "60%",
         },
-        cartItemImg: (_b = {
-                width: "100%",
-                height: "100%",
-                borderRadius: "5px"
-            },
-            _b[theme.breakpoints.down("md")] = {
-                height: "89%",
-            },
-            _b),
-        title: (_c = {
+        cartItemImg: {
+            minWidth: "100%",
+            minHeight: "100%",
+            flexShrink: 0,
+            borderRadius: "5px",
+        },
+        title: (_b = {
                 letterSpacing: "0px",
                 color: theme.design.colors.waz_black,
                 textTransform: "capitalize",
@@ -45,20 +46,20 @@ export var useCartItemCardStyles = makeStyles(function (theme) {
                 fontWeight: theme.typography.fontWeightMedium,
                 marginBottom: theme.spacing(1)
             },
-            _c[theme.breakpoints.down("md")] = {
+            _b[theme.breakpoints.down("md")] = {
                 fontFamily: theme.design.font.montserrat,
             },
-            _c),
-        description: (_d = {
+            _b),
+        description: (_c = {
                 letterSpacing: "0px",
                 color: theme.design.colors.waz_greyColor600,
                 fontSize: theme.typography.fontSize,
                 fontFamily: theme.design.font.montserrat
             },
-            _d[theme.breakpoints.down("md")] = {
+            _c[theme.breakpoints.down("md")] = {
                 color: "black",
             },
-            _d),
+            _c),
         priceContainer: {
             marginTop: theme.spacing(2),
             display: "flex",

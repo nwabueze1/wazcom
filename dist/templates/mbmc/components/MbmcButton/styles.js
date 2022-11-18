@@ -30,6 +30,10 @@ export var useButtonStyles = makeStyles(function (theme) {
         buttonSecondary: {
             background: theme.design.colors.waz_primaryColor200,
         },
+        buttonNeutral: {
+            background: theme.design.colors.waz_white,
+            color: theme.design.colors.waz_black,
+        },
         buttonActive: {
             border: "1px dashed",
             borderColor: theme.design.colors.waz_primaryColor100,

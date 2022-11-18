@@ -8,6 +8,7 @@ export const renderCtas = (
     parentKey: string,
     handleClick?: (element: string) => void,
     activeElement?: string,
+    className?: string,
 ) => {
     return (ctas ?? []).map(({ text, rIcon, url, lIcon, ...props }, index) => {
         const name = parentKey + ".ctas." + String(index);
@@ -16,6 +17,7 @@ export const renderCtas = (
                 key={index}
                 name={name}
                 {...props}
+                className={className}
                 handleClick={() => {
                     mode === "view"
                         ? handleClick?.(url ?? "")

@@ -1,6 +1,6 @@
 import { makeStyles } from "@mui/styles";
 export var useMbmcBlock9Styles = makeStyles(function (theme) {
-    var _a, _b, _c, _d, _e, _f, _g, _h, _j, _k, _l, _m, _o;
+    var _a, _b, _c, _d, _e, _f, _g, _h, _j, _k, _l, _m, _o, _p;
     return ({
         root: (_a = {
                 backgroundColor: theme.design.colors.waz_white,
@@ -8,7 +8,9 @@ export var useMbmcBlock9Styles = makeStyles(function (theme) {
                 padding: theme.spacing(12),
                 width: "100%",
                 boxSizing: "border-box",
-                gap: theme.spacing(2)
+                gap: theme.spacing(2),
+                maxWidth: 1440,
+                margin: "0 auto"
             },
             _a[theme.breakpoints.down("lg")] = {
                 height: "100%",
@@ -23,7 +25,7 @@ export var useMbmcBlock9Styles = makeStyles(function (theme) {
             maxWidth: 1240,
             width: "90%",
             margin: "0 auto",
-            display: 'flex',
+            display: "flex",
             alignItems: "center",
             justifyContent: "space-between",
         },
@@ -176,55 +178,48 @@ export var useMbmcBlock9Styles = makeStyles(function (theme) {
         textContainer: {
             width: "100%",
         },
-        imageStep: {
-            width: "100%",
-        },
-        directionContainer: (_g = {
-                width: "100%",
-                display: "flex",
-                alignItems: "flex-start",
-                justifyContent: "flex-end"
+        imageStep: (_g = {
+                height: "100%"
             },
             _g[theme.breakpoints.down("lg")] = {
-                alignItems: "flex-end",
-            },
-            _g[theme.breakpoints.down("md")] = {
-                display: "none",
+                height: "unset",
+                width: "100%",
             },
             _g),
-        directionContainerMobile: (_h = {
+        directionContainer: (_h = {
+                width: "100%",
+                height: "100%",
+                display: "flex",
+                alignItems: "center",
+                justifyContent: "center",
+                overflow: "hidden"
+            },
+            _h[theme.breakpoints.down("lg")] = {
+                alignItems: "flex-end",
+            },
+            _h[theme.breakpoints.down("md")] = {
+                display: "none",
+            },
+            _h),
+        directionContainerMobile: (_j = {
                 width: "100%",
                 height: "100%",
                 display: "none",
                 alignItems: "center",
                 padding: theme.spacing(2)
             },
-            _h[theme.breakpoints.down("md")] = {
+            _j[theme.breakpoints.down("md")] = {
                 display: "flex",
                 height: "auto",
                 padding: theme.spacing(0),
             },
-            _h),
-        imgDirection1: (_j = {
+            _j),
+        imgDirection1: (_k = {
                 position: "absolute",
                 width: 168,
                 height: 160,
                 top: 0,
                 left: 0,
-                backgroundColor: theme.design.colors.waz_white,
-                marginTop: theme.spacing(-7)
-            },
-            _j[theme.breakpoints.down("lg")] = {
-                marginTop: theme.spacing(-1),
-                width: 100,
-            },
-            _j),
-        imgDirection2: (_k = {
-                position: "absolute",
-                width: 168,
-                height: 160,
-                top: 0,
-                right: 0,
                 backgroundColor: theme.design.colors.waz_white,
                 marginTop: theme.spacing(-7)
             },
@@ -233,7 +228,21 @@ export var useMbmcBlock9Styles = makeStyles(function (theme) {
                 width: 100,
             },
             _k),
-        imgDirection3: (_l = {
+        imgDirection2: (_l = {
+                position: "absolute",
+                width: 168,
+                height: 160,
+                top: 0,
+                right: 0,
+                backgroundColor: theme.design.colors.waz_white,
+                marginTop: theme.spacing(-7)
+            },
+            _l[theme.breakpoints.down("lg")] = {
+                marginTop: theme.spacing(-1),
+                width: 100,
+            },
+            _l),
+        imgDirection3: (_m = {
                 width: 168,
                 height: 160,
                 position: "absolute",
@@ -242,12 +251,12 @@ export var useMbmcBlock9Styles = makeStyles(function (theme) {
                 backgroundColor: theme.design.colors.waz_white,
                 marginBottom: theme.spacing(-7)
             },
-            _l[theme.breakpoints.down("lg")] = {
+            _m[theme.breakpoints.down("lg")] = {
                 marginBottom: theme.spacing(-1),
                 width: 100,
             },
-            _l),
-        imgDirection4: (_m = {
+            _m),
+        imgDirection4: (_o = {
                 width: 168,
                 height: 160,
                 position: "absolute",
@@ -256,18 +265,18 @@ export var useMbmcBlock9Styles = makeStyles(function (theme) {
                 backgroundColor: theme.design.colors.waz_white,
                 marginBottom: theme.spacing(-7)
             },
-            _m[theme.breakpoints.down("lg")] = {
+            _o[theme.breakpoints.down("lg")] = {
                 marginBottom: theme.spacing(-1),
                 width: 100,
             },
-            _m),
-        mobileHide: (_o = {
+            _o),
+        mobileHide: (_p = {
                 display: "block"
             },
-            _o[theme.breakpoints.down("lg")] = {
+            _p[theme.breakpoints.down("lg")] = {
                 display: "none",
             },
-            _o),
+            _p),
         block9ActiveElement: {
             border: "1px dashed",
             borderColor: theme.design.colors.waz_primaryColor100,

@@ -22,7 +22,7 @@ const CartItemCard: React.FC = () => {
                 <div className={classes.imgContainer}>
                     <img
                         className={classes.cartItemImg}
-                        src={"https://sytbuildr.s3.eu-west-2.amazonaws.com/images/mbmc/img.png"}
+                        src={"https://sytbuildr.s3.eu-west-2.amazonaws.com/img2x.png"}
                         alt="cart item image"
                     />
                 </div>

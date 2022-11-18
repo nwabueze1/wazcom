@@ -1,5 +1,5 @@
 import { useMbmcBlock1Styles } from "./styles";
-import { FC } from "react";
+import { FC, useEffect, useState } from "react";
 import { MbmcBlock1Props } from "./types";
 import { parseHtml } from "../../../../utilities/renderStyle";
 import clx from "classnames";
@@ -17,6 +17,11 @@ export const MbmcBlock1: FC<MbmcBlock1Props> = ({
     fullHeight = true,
 }) => {
     const classes = useMbmcBlock1Styles({ fullHeight });
+    const [isClient, setIsClient] = useState(false);
+
+    useEffect(() => {
+        setIsClient(true);
+    }, []);
 
     return (
         <div
@@ -27,19 +32,21 @@ export const MbmcBlock1: FC<MbmcBlock1Props> = ({
         >
             <div className={classes.block1Container}>
                 <div className={classes.block1Content}>
-                    <h1
-                        className={clx(
-                            classes.block1Heading,
-                            activeElement === `${String(index)}.heading` &&
-                                classes.block1ActiveElement,
-                        )}
-                        dangerouslySetInnerHTML={{
-                            __html: typeof window !== "undefined" ? parseHtml(heading) : "",
-                        }}
-                        onClick={() =>
-                            handleElementClick(mode, `${String(index)}.heading`, handleClick)
-                        }
-                    />
+                    {isClient && (
+                        <h1
+                            className={clx(
+                                classes.block1Heading,
+                                activeElement === `${String(index)}.heading` &&
+                                    classes.block1ActiveElement,
+                            )}
+                            dangerouslySetInnerHTML={{
+                                __html: parseHtml(heading),
+                            }}
+                            onClick={() =>
+                                handleElementClick(mode, `${String(index)}.heading`, handleClick)
+                            }
+                        />
+                    )}
                     <p
                         className={clx(
                             classes.block1Description,
@@ -53,7 +60,13 @@ export const MbmcBlock1: FC<MbmcBlock1Props> = ({
                         {description}
                     </p>
                     <div className={classes.block1BtnContainer}>
-                        {renderCtas(ctas ?? [], mode, String(index ?? 0), handleClick, activeElement)}
+                        {renderCtas(
+                            ctas ?? [],
+                            mode,
+                            String(index ?? 0),
+                            handleClick,
+                            activeElement,
+                        )}
                     </div>
                 </div>
                 <div className={classes.block1ImgContainerMobile}>

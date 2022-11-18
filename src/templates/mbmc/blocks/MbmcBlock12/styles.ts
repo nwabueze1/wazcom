@@ -28,7 +28,6 @@ export const useMbmcBlock12Styles = makeStyles((theme: Theme) => ({
     },
     headerContent: {
         width: "45%",
-        paddingRight: theme.spacing(4),
 
         [theme.breakpoints.down("lg")]: {
             paddingRight: theme.spacing(0),
@@ -152,14 +151,12 @@ export const useMbmcBlock12Styles = makeStyles((theme: Theme) => ({
         },
     },
     demarcationContainer: {
-        width: "10%",
-        height: "calc(100% - 112px)",
-        position: "absolute",
+        width: "16.5%",
+        maxWidth: "195px",
         zIndex: 10,
         margin: theme.spacing(0, "auto"),
         right: 0,
         left: 0,
-        top: 56,
         bottom: 0,
         display: "flex",
         justifyContent: "center",
@@ -169,6 +166,7 @@ export const useMbmcBlock12Styles = makeStyles((theme: Theme) => ({
             width: "100%",
             top: 0,
             margin: theme.spacing(4, 0),
+            maxWidth: "unset",
         },
     },
     demarcation: {

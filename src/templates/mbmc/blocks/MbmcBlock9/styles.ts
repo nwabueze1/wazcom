@@ -9,12 +9,14 @@ export const useMbmcBlock9Styles = makeStyles((theme: Theme) => ({
         width: "100%",
         boxSizing: "border-box",
         gap: theme.spacing(2),
+        maxWidth: 1440,
+        margin: "0 auto",
 
         [theme.breakpoints.down("lg")]: {
-            height: "100%", 
+            height: "100%",
             padding: theme.spacing(8, 4),
         },
-        
+
         [theme.breakpoints.down("md")]: {
             padding: theme.spacing(6, 4),
             height: "fit-content",
@@ -24,7 +26,7 @@ export const useMbmcBlock9Styles = makeStyles((theme: Theme) => ({
         maxWidth: 1240,
         width: "90%",
         margin: "0 auto",
-        display: 'flex',
+        display: "flex",
         alignItems: "center",
         justifyContent: "space-between",
     },
@@ -183,13 +185,19 @@ export const useMbmcBlock9Styles = makeStyles((theme: Theme) => ({
         width: "100%",
     },
     imageStep: {
-        width: "100%",
+        height: "100%",
+        [theme.breakpoints.down("lg")]: {
+            height: "unset",
+            width: "100%",
+        },
     },
     directionContainer: {
         width: "100%",
+        height: "100%",
         display: "flex",
-        alignItems: "flex-start",
-        justifyContent: "flex-end",
+        alignItems: "center",
+        justifyContent: "center",
+        overflow: "hidden",
 
         [theme.breakpoints.down("lg")]: {
             alignItems: "flex-end",
