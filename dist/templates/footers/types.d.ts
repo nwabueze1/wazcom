@@ -16,6 +16,7 @@ export declare type SocialType = "FACEBOOK" | "TWITTER" | "YOUTUBE" | "LINKEDIN"
 export declare type TLink = {
     text: string;
     url: string;
+    icon?: string;
 };
 export declare type TFooterSection = {
     name: string;

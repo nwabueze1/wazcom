@@ -123,6 +123,10 @@ export const useGetMbmcBlocks = () => {
                     text: "",
                     url: "#",
                 },
+                index: 0,
+                activeElement: '0.links.1.links.1',
+                mode: "edit",
+                handleClick: (route: string) => alert(route),
                 links: [
                     {
                         name: "Company",
@@ -181,6 +185,7 @@ export const useGetMbmcBlocks = () => {
                             {
                                 text: "@mrbakerandmrscook",
                                 url: "#",
+                                icon: "instagram"
                             },
                         ],
                     },
@@ -343,28 +348,32 @@ export const useGetMbmcBlocks = () => {
             },
         },
         {
-            name: "mbmc-block-910",
+            name: "mbmc-block-10",
             component: MbmcBlock10,
             props: {
                 style: "mbmc",
                 tags: [
                     {
                         text: "EXPERTLY PREPARED",
-                        icon: "https://sytbuildr.s3.eu-west-2.amazonaws.com/images/mbmc/chefLogo.svg",
+                        image: "https://sytbuildr.s3.eu-west-2.amazonaws.com/images/mbmc/chefLogo.svg",
                     },
                     {
                         text: "FRESH & AUTHENTIC",
-                        icon: "https://sytbuildr.s3.eu-west-2.amazonaws.com/images/mbmc/foodIcon.svg",
+                        image: "https://sytbuildr.s3.eu-west-2.amazonaws.com/images/mbmc/foodIcon.svg",
                     },
                     {
                         text: "UK WIDE DELIVERY",
-                        icon: "https://sytbuildr.s3.eu-west-2.amazonaws.com/images/mbmc/deliveryIcon.svg",
+                        image: "https://sytbuildr.s3.eu-west-2.amazonaws.com/images/mbmc/deliveryIcon.svg",
                     },
                 ],
+                mode: 'edit',
+                index: 0,
+                activeElement: '0.tags.0.text',
+                handleClick: (route: string) => alert(route),
             },
         },
         {
-            name: "mbmc-block-911",
+            name: "mbmc-block-11",
             component: MbmcBlock11,
             props: {
                 style: "mbmc",
@@ -391,7 +400,7 @@ export const useGetMbmcBlocks = () => {
             },
         },
         {
-            name: "mbmc-block-912",
+            name: "mbmc-block-12",
             component: MbmcBlock12,
             props: {
                 style: "mbmc",
@@ -416,16 +425,12 @@ export const useGetMbmcBlocks = () => {
             },
         },
         {
-            name: "mbmc-block-913",
+            name: "mbmc-block-13",
             component: MbmcBlock13,
             props: {
                 style: "mbmc",
                 logo: {
-                    src: {
-                        desktop:
-                            "https://sytbuildr.s3.eu-west-2.amazonaws.com/images/mbmc/Logo-Landscape.svg",
-                        mobile: "https://sytbuildr.s3.eu-west-2.amazonaws.com/images/mbmc/Logo.svg",
-                    },
+                    src: "https://sytbuildr.s3.eu-west-2.amazonaws.com/images/mbmc/Logo%402x.png",
                     url: "#",
                 },
                 links: [
@@ -433,29 +438,30 @@ export const useGetMbmcBlocks = () => {
                     { text: "Menus", url: "#" },
                     { text: "Contact us", url: "#" },
                 ],
-                icons: [
-                    {
-                        url: "#",
-                        badgeCount: 4,
-                    },
-                ],
                 ctas: [
                     {
                         text: "Order now",
-                        handleClick: () => console.log("clicked"),
+                        variant: 'NEUTRAL'
                     },
                 ],
+                mode: "edit",
+                index: 0,
+                activeElement: '0.ctas.0',
+                numCartItems: 5,
+                handleClick: (route: string) => alert(route),
             },
         },
         {
-            name: "mbmc-block-914",
+            name: "mbmc-block-14",
             component: MbmcBlock14,
             props: {
                 style: "mbmc",
+                client: createApolloClient("https://ofambegbe-ambrosia.wazobia.uk/graphql"),
+                cart_uuid: "5a8b64b3-2fe7-4204-b23a-87dd6539d311",
             },
         },
         {
-            name: "mbmc-block-915",
+            name: "mbmc-block-15",
             component: MbmcBlock15,
             props: {
                 style: "mbmc",

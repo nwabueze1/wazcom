@@ -3,4 +3,4 @@ export declare const displayLogo: (mode: "view" | "edit", classes: any, activeEl
     src?: string | undefined;
     text?: string | undefined;
     url: string;
-} | undefined) => JSX.Element;
+} | undefined, parentKey?: string | undefined) => JSX.Element;
