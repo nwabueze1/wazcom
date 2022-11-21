@@ -1,5 +1,5 @@
 import React from 'react';
 
 export const Payment = () => {
-    return <p>Payment</p>
+    return <p>This is the payment component</p>
 }

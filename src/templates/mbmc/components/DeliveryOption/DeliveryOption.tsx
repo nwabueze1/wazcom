@@ -3,8 +3,8 @@ import React from "react";
 import { useDeliveryOptionStyles } from "./styles";
 import { DeliveryOptionProps } from "./types";
 
-const DeliveryOption: React.FC<DeliveryOptionProps> = ({
-    img,
+export const DeliveryOption: React.FC<DeliveryOptionProps> = ({
+    image,
     value,
     name,
     handleChange,
@@ -12,12 +12,12 @@ const DeliveryOption: React.FC<DeliveryOptionProps> = ({
     description,
 }) => {
     const classes = useDeliveryOptionStyles();
-    return (
+    return ( 
         <div className={classes.deliveryDetail}>
             <div>
                 <div className={classes.deliveryOptionItem}>
                     <div className={classes.imgContainer}>
-                        <img src={img} alt={name} />
+                        <img src={image} alt={name} />
                     </div>
                     <div className={classes.deliveryOptionDetail}>
                         <p className={classes.deliveryOptionTitle}>{title}</p>
@@ -37,4 +37,3 @@ const DeliveryOption: React.FC<DeliveryOptionProps> = ({
     );
 };
 
-export default DeliveryOption;

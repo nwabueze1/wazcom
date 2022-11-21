@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useCallback } from "react";
 import { CheckoutStep } from "../CheckoutStep";
 import { Summary, Delivery, Payment } from "../";
 import { useCheckoutStyles } from "./styles";
@@ -31,7 +31,10 @@ export const Checkout = () => {
         },
     ];
 
-    const displaySteps = () => steps.map((step, index) => <CheckoutStep key={index} {...step} />);
+    const displaySteps = useCallback(
+        () => steps.map((step, index) => <CheckoutStep key={index} {...step} isActive={activeStep === index} />),
+        [activeStep],
+    );
 
     return <div className={classes.root}>{displaySteps()}</div>;
 };

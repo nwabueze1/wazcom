@@ -3,9 +3,7 @@ import { useMbmcBlock14Styles } from "./styles";
 import { CartItems, Checkout } from "./components";
 import { MbmcButton } from "../../../../templates/mbmc/components/MbmcButton/MbmcButton";
 import { TextInput } from "../../../../io";
-import { pickupFormData, shippingFormData } from "./data";
 import KeyboardBackspaceIcon from "@mui/icons-material/KeyboardBackspace";
-import DeliveryOption from "../../../../templates/mbmc/components/DeliveryOption/DeliveryOption";
 import PaymentOption from "../../../../templates/mbmc/components/PaymentOption/PaymentOption";
 import { MbmcBlock14Props } from "./types";
 

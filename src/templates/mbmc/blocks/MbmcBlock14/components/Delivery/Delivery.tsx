@@ -1,5 +1,5 @@
 import React from 'react';
 
 export const Delivery = () => {
-    return <p>Delivery</p>
+    return <p>This is the Delivery Component</p> 
 }

@@ -3,7 +3,6 @@ import { makeStyles } from "@mui/styles";
 
 export const useSummaryStyles = makeStyles((theme: Theme) => ({
     root: {
-        marginTop: theme.spacing(3),
         display: "flex",
         flexDirection: "column",
         gap: theme.spacing(3),
