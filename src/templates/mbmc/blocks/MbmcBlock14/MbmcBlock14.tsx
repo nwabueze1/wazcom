@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import { useMbmcBlock14Styles } from "./styles";
-import CartItemCard from "../../../../templates/mbmc/components/CartItemCard/CartItemCard";
+import { CartItems, Checkout } from "./components";
 import { MbmcButton } from "../../../../templates/mbmc/components/MbmcButton/MbmcButton";
 import { TextInput } from "../../../../io";
 import { pickupFormData, shippingFormData } from "./data";
@@ -11,108 +11,14 @@ import { MbmcBlock14Props } from "./types";
 
 export const MbmcBlock14: React.FC<MbmcBlock14Props> = ({ client, cart_uuid }) => {
     const classes = useMbmcBlock14Styles();
-    const [deliveryOption, setDeliveryOption] = useState<string>("");
-    const [paymentOption, setPaymentOption] = useState<string>("");
-    const [checkoutStep, setCheckoutStep] = useState<number[]>([1]);
-    const [deliveryDetails, setDeliveryDetails] = useState<{ [key: string]: any }>({
-        email: "",
-        firstname: "",
-        lastname: "",
-        phoneNo: "",
-        address: "",
-        city: "",
-        country: "",
-        postalCode: "",
-    });
-    const [isSummary, setIsSummary] = useState<boolean>(false);
-
-    const currentStep = checkoutStep.slice(-1)[0];
-    const completedSteps = checkoutStep.slice(0, checkoutStep.length - 1);
-
-    const handleTextInputChange = (data: { name: string; value: any }) => {
-        const { name, value } = data;
-        setDeliveryDetails((prev) => {
-            return {
-                ...prev,
-                [name]: value,
-            };
-        });
-    };
-
-    const handleDeliveryOptionChange = (data: { name: string; value: any }) => {
-        const { name } = data;
-        setDeliveryOption(name);
-    };
-
-    const handlePaymentOptionChange = (data: { name: string; value: any }) => {
-        const { name } = data;
-        setPaymentOption(name);
-    };
-
-    const handleNextStep = () => {
-        setCheckoutStep((prev) => {
-            const activeStep = prev.slice(-1)[0];
-
-            return [...prev, activeStep + 1];
-        });
-    };
-
-    const gotoSummary = () => {
-        setIsSummary(true);
-    };
-
-    const goBack = () => {
-        setIsSummary(false);
-        setCheckoutStep([1]);
-    };
-
-    const displayPersonalInfoForm = () => {
-        return pickupFormData.map(({ placeholder, name }) => {
-            return (
-                <TextInput
-                    key={name}
-                    placeholder={placeholder}
-                    name={name}
-                    classNames={{ textInput: classes.textInput }}
-                    onChange={handleTextInputChange}
-                />
-            );
-        });
-    };
-
-    const displayShippingInfoForm = () => {
-        return shippingFormData.map(({ placeholder, name }) => {
-            return (
-                <TextInput
-                    key={name}
-                    placeholder={placeholder}
-                    name={name}
-                    classNames={{ textInput: classes.textInput }}
-                    onChange={handleTextInputChange}
-                />
-            );
-        });
-    };
 
     return (
         <div className={classes.root}>
-            <div className={classes.container}>
-                <div className={`${classes.leftSection} ${isSummary && classes.hideCart}`}>
-                    <div className={classes.cartContainer}>
-                        {Array.from(Array(5).keys()).map((_, index) => (
-                            <CartItemCard key={index} />
-                        ))}
-                    </div>
-
-                    <div className={classes.mobileFooter}>
-                        <MbmcButton handleClick={gotoSummary} className={classes.checkoutBtn}>
-                            Proceed to summary
-                        </MbmcButton>
-                    </div>
-                </div>
-
-                <div className={classes.divider} />
-                <div
+            <div className={classes.block14Container}>
+                <CartItems />
+                <span className={classes.block14Divider} />
+                <Checkout />
+                {/* <div
                     className={`${classes.checkoutProcessContainer} ${
                         isSummary && classes.showSummary
                     }`}
@@ -124,63 +30,8 @@ export const MbmcBlock14: React.FC<MbmcBlock14Props> = ({ client, cart_uuid }) =
                         </div>
                     </div>
                     <div className={classes.checkoutCard}>
-                        <div className={classes.titleContainer}>
-                            <p
-                                className={`${classes.title} ${
-                                    currentStep == 1
-                                        ? classes.activeStepTitle
-                                        : completedSteps.includes(1)
-                                        ? classes.completedStepTitle
-                                        : classes.inactiveStepTitle
-                                }`}
-                            >
-                                Summary
-                            </p>
-                            {completedSteps.includes(1) && (
-                                <p
-                                    className={`${classes.title} ${classes.completedPrice} ${
-                                        currentStep == 1
-                                            ? classes.activeStepTitle
-                                            : completedSteps.includes(1)
-                                            ? classes.completedStepTitle
-                                            : classes.inactiveStepTitle
-                                    }`}
-                                >
-                                    £46.9
-                                </p>
-                            )}
-                        </div>
                         {currentStep == 1 && (
-                            <div className={classes.summaryDetailContainer}>
-                                <div className={classes.summaryDetail}>
-                                    <p className={classes.summaryItem}>Total no. of order</p>
-                                    <p className={classes.summaryItemDigit}>3</p>
-                                </div>
-                                <div className={classes.summaryDetail}>
-                                    <p className={classes.summaryItem}>Sub total</p>
-                                    <p className={classes.summaryItemDigit}>£36.9</p>
-                                </div>
-                                <div className={classes.summaryDetail}>
-                                    <p className={classes.summaryItem}>Delivery price</p>
-                                    <p className={classes.summaryItemDigit}>£10</p>
-                                </div>
-                                <div className={`${classes.summaryDetail} ${classes.summaryTotal}`}>
-                                    <p
-                                        className={`${classes.summaryItem} ${classes.summaryTotalItem}`}
-                                    >
-                                        Total
-                                    </p>
-                                    <p className={`${classes.summaryItemDigit} `}>£46.9</p>
-                                </div>
-                                <div>
-                                    <MbmcButton
-                                        className={classes.checkoutBtn}
-                                        handleClick={handleNextStep}
-                                    >
-                                        Checkout
-                                    </MbmcButton>
-                                </div>
-                            </div>
+                            <Summary />
                         )}
                     </div>
                     <div className={classes.checkoutCard}>
@@ -334,7 +185,7 @@ export const MbmcBlock14: React.FC<MbmcBlock14Props> = ({ client, cart_uuid }) =
                             </div>
                         )}
                     </div>
-                </div>
+                </div> */}
             </div>
         </div>
     );
