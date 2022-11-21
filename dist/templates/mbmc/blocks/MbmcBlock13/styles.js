@@ -1,35 +1,33 @@
 import { makeStyles } from "@mui/styles";
 export var useMbmcBlock13Styles = makeStyles(function (theme) {
-    var _a, _b, _c, _d, _e, _f, _g, _h, _j, _k, _l, _m, _o, _p, _q, _r, _s;
+    var _a, _b, _c, _d, _e, _f, _g, _h, _j, _k, _l, _m, _o, _p, _q;
     return ({
+        root: {
+            position: "absolute",
+            width: "100%",
+        },
         container: (_a = {
                 background: "transparent",
                 overflow: "hidden",
-                padding: theme.spacing(2, 12),
-                width: "100%",
+                padding: theme.spacing(2, 0),
                 boxSizing: "border-box",
                 gap: theme.spacing(2),
                 display: "flex",
-                position: "absolute",
                 zIndex: 10,
                 alignItems: "center",
                 justifyContent: "space-between",
-                maxWidth: 1440
+                maxWidth: 1240,
+                width: "90%",
+                margin: "0 auto"
             },
             _a[theme.breakpoints.down("lg")] = {
-                padding: theme.spacing(3, 10),
+                padding: theme.spacing(3, 0),
             },
             _a[theme.breakpoints.down("md")] = {
                 backgroundColor: theme.design.colors.waz_white,
-                padding: theme.spacing(3, 2),
-                height: "fit-content",
+                padding: theme.spacing(3, 0),
             },
             _a),
-        root: {
-            margin: "0 auto",
-            display: "flex",
-            justifyContent: "center",
-        },
         activeElement: {
             border: "1px dashed",
             borderColor: theme.design.colors.waz_primaryColor100,
@@ -55,42 +53,20 @@ export var useMbmcBlock13Styles = makeStyles(function (theme) {
                 },
                 _b),
         },
-        desktopLogo: (_c = {
-                marginRight: theme.spacing(1),
-                display: "flex",
-                alignItems: "center",
-                justifyContent: "center",
-                gap: theme.spacing(2)
+        logo: (_c = {
+                maxWidth: "300px",
+                maxHeight: '65px',
+                objectFit: "cover"
             },
-            _c[theme.breakpoints.down("lg")] = {
-                display: "none",
+            _c[theme.breakpoints.down("md")] = {
+                maxWidth: "200px",
             },
             _c),
-        desktopLogoImage: {
-            width: "100%",
-            display: "block",
-        },
-        desktopLogoText: {
-            fontFamily: theme.design.font.lostaMastaLight,
-            fontSize: theme.typography.fontSize + 12,
-            color: theme.design.colors.waz_primaryColor200,
-            "& > span:first-child": {
-                fontWeight: theme.typography.fontWeightBold,
-            },
-        },
-        logoLink: {
+        link: {
+            cursor: 'pointer',
             textDecoration: "none",
-            color: "inherit",
+            color: theme.design.colors.waz_black,
         },
-        mobilelogo: (_d = {
-                display: "none"
-            },
-            _d[theme.breakpoints.down("lg")] = {
-                display: "block",
-                marginRight: theme.spacing(1),
-                width: "50px",
-            },
-            _d),
         mrBarkers: {
             fontFamily: theme.design.font.lostaMastaLight,
         },
@@ -98,26 +74,20 @@ export var useMbmcBlock13Styles = makeStyles(function (theme) {
             borderRight: "1px solid hsla(12, 73%, 56%, 1)",
             borderLeft: "1px solid hsla(12, 73%, 56%, 1)",
         },
-        menuList: (_e = {
+        menuList: (_d = {
                 display: "flex",
                 alignItems: "center",
                 justifyContent: "flex-end",
+                gap: theme.spacing(7),
                 fontSize: theme.typography.fontSize + 2,
-                width: "100%",
                 fontFamily: theme.design.font.montserrat,
-                fontWeight: theme.typography.fontWeightBold,
-                "& > a, p": {
-                    padding: theme.spacing(2, 4),
-                    textDecoration: "none",
-                    color: theme.design.colors.waz_black,
-                    cursor: "pointer",
-                }
+                fontWeight: theme.typography.fontWeightBold
             },
-            _e[theme.breakpoints.down("lg")] = {
+            _d[theme.breakpoints.down("lg")] = {
                 paddingRight: theme.spacing(6),
                 display: "none",
             },
-            _e[theme.breakpoints.down("md")] = {
+            _d[theme.breakpoints.down("md")] = {
                 paddingRight: theme.spacing(2),
                 fontSize: theme.typography.fontSize,
                 "& > p": {
@@ -125,92 +95,73 @@ export var useMbmcBlock13Styles = makeStyles(function (theme) {
                     cursor: "pointer",
                 },
             },
-            _e[theme.breakpoints.down("sm")] = {
+            _d[theme.breakpoints.down("sm")] = {
                 display: "none",
             },
-            _e),
-        desktopIcons: (_f = {
+            _d),
+        desktopIcons: (_e = {
                 display: "flex",
                 gap: "16px"
             },
-            _f[theme.breakpoints.down("lg")] = {
+            _e[theme.breakpoints.down("lg")] = {
                 display: "none",
             },
-            _f),
-        mobileIcons: (_g = {
+            _e),
+        mobileIcons: (_f = {
                 display: "none",
                 gap: "8px"
             },
-            _g[theme.breakpoints.down("lg")] = {
+            _f[theme.breakpoints.down("lg")] = {
                 display: "flex",
             },
-            _g),
+            _f),
         icon: {
-            paddingRight: theme.spacing(4),
             position: "relative",
         },
-        cartIcon: (_h = {
+        cartIcon: (_g = {
                 color: theme.design.colors.waz_white
             },
-            _h[theme.breakpoints.down("lg")] = {
+            _g[theme.breakpoints.down("lg")] = {
                 color: theme.design.colors.waz_orangeColor100,
+                paddingRight: theme.spacing(4),
             },
-            _h),
-        badgeIcon: (_j = {
+            _g),
+        badgeIcon: (_h = {
                 padding: "4px 6px",
                 fontSize: theme.typography.fontSize - 2,
                 borderRadius: "4px",
                 position: "absolute",
-                top: "-16px",
-                left: "12px",
+                top: -16,
+                left: 12,
                 fontFamily: theme.design.font.montserrat,
                 color: theme.design.colors.waz_orangeColor100,
                 background: theme.design.colors.waz_white
             },
-            _j[theme.breakpoints.down("lg")] = {
+            _h[theme.breakpoints.down("lg")] = {
                 color: theme.design.colors.waz_white,
                 backgroundColor: theme.design.colors.waz_orangeColor100,
             },
-            _j),
-        orderBtn: (_k = {
-                backgroundColor: theme.design.colors.waz_white,
-                fontFamily: theme.design.font.montserrat,
-                fontWeight: theme.typography.fontWeightBold,
-                padding: theme.spacing(1.5, 3),
-                width: "fit-content",
-                whiteSpace: "nowrap",
-                borderRadius: 50,
-                cursor: "pointer"
-            },
-            _k[theme.breakpoints.down("lg")] = {
-                marginRight: theme.spacing(0),
-                display: "none",
-            },
-            _k),
-        mobileOrderBtn: {
-            backgroundColor: theme.design.colors.waz_white,
-            color: theme.design.colors.waz_orangeColor100,
-            fontFamily: theme.design.font.montserrat,
-            fontWeight: theme.typography.fontWeightBold,
-            padding: theme.spacing(1.5, 3),
-            width: "fit-content",
-            whiteSpace: "nowrap",
-            borderRadius: 50,
-            cursor: "pointer",
+            _h),
+        ctaDesktop: {
+            fontWeight: theme.typography.fontWeightMedium,
         },
-        menuOptionMobile: (_l = {
+        ctaMobile: {
+            color: theme.design.colors.waz_orangeColor100,
+            fontWeight: theme.typography.fontWeightMedium,
+        },
+        menuOptionMobile: (_j = {
                 display: "none"
             },
-            _l[theme.breakpoints.down("lg")] = {
+            _j[theme.breakpoints.down("lg")] = {
                 display: "flex",
                 alignItems: "center",
                 color: theme.design.colors.waz_lightOrange,
             },
-            _l),
-        openNav: (_m = {
+            _j),
+        openNav: (_k = {
                 display: "none"
             },
-            _m[theme.breakpoints.down("lg")] = {
+            _k[theme.breakpoints.down("lg")] = {
                 display: "block",
                 position: "fixed",
                 zIndex: 12,
@@ -219,18 +170,18 @@ export var useMbmcBlock13Styles = makeStyles(function (theme) {
                 right: "-100%",
                 transition: "all 0.5s",
             },
-            _m[theme.breakpoints.down("md")] = {
+            _k[theme.breakpoints.down("md")] = {
                 height: "100vh",
                 zIndex: 12,
             },
-            _m),
-        showMenu: (_o = {
+            _k),
+        showMenu: (_l = {
                 right: theme.spacing(10)
             },
-            _o[theme.breakpoints.down("md")] = {
+            _l[theme.breakpoints.down("md")] = {
                 right: theme.spacing(2),
             },
-            _o),
+            _l),
         overlay: {
             backgroundColor: "rgba(0,0,0,0.3)",
             opacity: 0,
@@ -245,7 +196,7 @@ export var useMbmcBlock13Styles = makeStyles(function (theme) {
             opacity: 1,
             visibility: "visible",
         },
-        expandedNav: (_p = {
+        expandedNav: (_m = {
                 overflow: "hidden",
                 padding: theme.spacing(0, 0, 0, 10),
                 width: "100%",
@@ -256,18 +207,18 @@ export var useMbmcBlock13Styles = makeStyles(function (theme) {
                 justifyContent: "space-between",
                 minHeight: "100vh"
             },
-            _p[theme.breakpoints.down("md")] = {
+            _m[theme.breakpoints.down("md")] = {
                 padding: theme.spacing(0, 0, 0, 2),
                 height: "100%",
             },
-            _p),
+            _m),
         mobilelogoContainer: {
             width: "30%",
             display: "flex",
             alignItems: "center",
             paddingTop: theme.spacing(2),
         },
-        expandedMenuOptionMobile: (_q = {
+        expandedMenuOptionMobile: (_o = {
                 display: "flex",
                 flexDirection: "column",
                 alignItems: "flex-end",
@@ -279,26 +230,26 @@ export var useMbmcBlock13Styles = makeStyles(function (theme) {
                 backgroundColor: theme.design.colors.waz_orangeColor100,
                 minHeight: "100vh"
             },
-            _q[theme.breakpoints.down("md")] = {
+            _o[theme.breakpoints.down("md")] = {
                 paddingRight: theme.spacing(2),
                 justifyContent: "flex-start",
             },
-            _q),
+            _o),
         expandedNavContent: {
             width: "100%",
             height: "100%",
             display: "flex",
         },
-        expandedNavContentLeftSide: (_r = {
+        expandedNavContentLeftSide: (_p = {
                 width: "30%",
                 backgroundColor: "rgba(0,0,0,0.4)",
                 padding: theme.spacing(0, 0, 0, 10)
             },
-            _r[theme.breakpoints.down("md")] = {
+            _p[theme.breakpoints.down("md")] = {
                 padding: theme.spacing(0, 0, 0, 2),
             },
-            _r),
-        expandedNavContentRightSide: (_s = {
+            _p),
+        expandedNavContentRightSide: (_q = {
                 width: "70%",
                 backgroundColor: theme.design.colors.waz_orangeColor100,
                 textAlign: "right",
@@ -317,10 +268,10 @@ export var useMbmcBlock13Styles = makeStyles(function (theme) {
                     fontFamily: theme.design.font.lostaMasta,
                 }
             },
-            _s[theme.breakpoints.down("lg")] = {
+            _q[theme.breakpoints.down("lg")] = {
                 paddingRight: theme.spacing(2),
             },
-            _s),
+            _q),
         NavLinks: {
             letterSpacing: "0px",
             color: theme.design.colors.waz_white,

@@ -8,6 +8,7 @@ export const displayLogo = (
     activeElement: string,
     handleClick: (element: string) => void,
     logo?: { src?: string; text?: string; url: string },
+    parentKey?: string,
 ) => {
     const url = logo?.url ?? "#";
     return (
@@ -15,7 +16,10 @@ export const displayLogo = (
             mode={mode}
             url={url}
             handleClick={handleClick}
-            className={activeElement === "footer_logo" ? classes.activeElement : undefined}
+            className={
+                activeElement === (parentKey ?? "footer_logo") ? classes.activeElement : undefined
+            }
+            parentKey={parentKey}
         >
             <Logo mode={mode} classes={classes} {...logo} />
         </LogoWrapper>
@@ -47,16 +51,17 @@ interface LogoWrapperProps {
     url: string;
     handleClick: (route: string) => void;
     className?: string;
+    parentKey?: string;
 }
 
-const LogoWrapper: FC<LogoWrapperProps> = ({ mode, url, children, handleClick, className }) => {
+const LogoWrapper: FC<LogoWrapperProps> = ({ mode, url, children, handleClick, parentKey, className }) => {
     if (isNotRenderAnchor(url, mode))
         return (
             <div
                 onClick={(e) => {
                     e.stopPropagation();
                     clickAction(url, mode, () => {
-                        handleClick(mode === "view" ? url : "footer_logo");
+                        handleClick(mode === "view" ? url : (parentKey ?? "footer_logo"));
                     });
                 }}
                 className={className}

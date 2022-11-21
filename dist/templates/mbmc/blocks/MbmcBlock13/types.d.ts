@@ -4,10 +4,7 @@ export declare type MbmcBlock13Props = MbmcCommonProps & {
     handleClick?: (route: string) => void;
     logo?: {
         url: string;
-        src?: {
-            mobile?: string;
-            desktop?: string;
-        };
+        src?: string;
     };
     links: {
         text: string;
@@ -18,12 +15,9 @@ export declare type MbmcBlock13Props = MbmcCommonProps & {
         };
     }[];
     ctas?: BlockCta[];
-    icons?: {
-        url?: string;
-        badgeCount?: number;
-    }[];
     socials?: {
         type: "FACEBOOK" | "TWITTER";
         url: string;
     }[];
+    numCartItems?: number;
 };

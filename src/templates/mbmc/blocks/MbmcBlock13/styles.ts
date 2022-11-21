@@ -2,34 +2,32 @@ import { Theme } from "@mui/material";
 import { makeStyles } from "@mui/styles";
 
 export const useMbmcBlock13Styles = makeStyles((theme: Theme) => ({
+    root: {
+        position: "absolute",
+        width: "100%",
+    },
     container: {
         background: "transparent",
         overflow: "hidden",
-        padding: theme.spacing(2, 12),
-        width: "100%",
+        padding: theme.spacing(2, 0),
         boxSizing: "border-box",
         gap: theme.spacing(2),
         display: "flex",
-        position: "absolute",
         zIndex: 10,
         alignItems: "center",
         justifyContent: "space-between",
-        maxWidth: 1440,
+        maxWidth: 1240,
+        width: "90%",
+        margin: "0 auto",
 
         [theme.breakpoints.down("lg")]: {
-            padding: theme.spacing(3, 10),
+            padding: theme.spacing(3, 0),
         },
+
         [theme.breakpoints.down("md")]: {
             backgroundColor: theme.design.colors.waz_white,
-
-            padding: theme.spacing(3, 2),
-            height: "fit-content",
+            padding: theme.spacing(3, 0),
         },
-    },
-    root: {
-        margin: "0 auto",
-        display: "flex",
-        justifyContent: "center",
     },
     activeElement: {
         border: "1px dashed",
@@ -55,40 +53,19 @@ export const useMbmcBlock13Styles = makeStyles((theme: Theme) => ({
             },
         },
     },
-    desktopLogo: {
-        marginRight: theme.spacing(1),
-        display: "flex",
-        alignItems: "center",
-        justifyContent: "center",
-        gap: theme.spacing(2),
-        [theme.breakpoints.down("lg")]: {
-            display: "none",
-        },
-    },
-    desktopLogoImage: {
-        width: "100%",
-        display: "block",
-    },
-    desktopLogoText: {
-        fontFamily: theme.design.font.lostaMastaLight,
-        fontSize: theme.typography.fontSize + 12,
-        color: theme.design.colors.waz_primaryColor200,
+    logo: {
+        maxWidth: "300px",
+        maxHeight: '65px',
+        objectFit: "cover",
 
-        "& > span:first-child": {
-            fontWeight: theme.typography.fontWeightBold,
+        [theme.breakpoints.down("md")]: {
+            maxWidth: "200px",
         },
     },
-    logoLink: {
+    link: {
+        cursor: 'pointer',
         textDecoration: "none",
-        color: "inherit",
-    },
-    mobilelogo: {
-        display: "none",
-        [theme.breakpoints.down("lg")]: {
-            display: "block",
-            marginRight: theme.spacing(1),
-            width: "50px",
-        },
+        color: theme.design.colors.waz_black,
     },
     mrBarkers: {
         fontFamily: theme.design.font.lostaMastaLight,
@@ -101,17 +78,11 @@ export const useMbmcBlock13Styles = makeStyles((theme: Theme) => ({
         display: "flex",
         alignItems: "center",
         justifyContent: "flex-end",
+        gap: theme.spacing(7),
         fontSize: theme.typography.fontSize + 2,
-        width: "100%",
         fontFamily: theme.design.font.montserrat,
         fontWeight: theme.typography.fontWeightBold,
 
-        "& > a, p": {
-            padding: theme.spacing(2, 4),
-            textDecoration: "none",
-            color: theme.design.colors.waz_black,
-            cursor: "pointer",
-        },
         [theme.breakpoints.down("lg")]: {
             paddingRight: theme.spacing(6),
             display: "none",
@@ -145,13 +116,13 @@ export const useMbmcBlock13Styles = makeStyles((theme: Theme) => ({
         },
     },
     icon: {
-        paddingRight: theme.spacing(4),
         position: "relative",
     },
     cartIcon: {
         color: theme.design.colors.waz_white,
         [theme.breakpoints.down("lg")]: {
             color: theme.design.colors.waz_orangeColor100,
+            paddingRight: theme.spacing(4),
         },
     },
     badgeIcon: {
@@ -159,8 +130,8 @@ export const useMbmcBlock13Styles = makeStyles((theme: Theme) => ({
         fontSize: theme.typography.fontSize - 2,
         borderRadius: "4px",
         position: "absolute",
-        top: "-16px",
-        left: "12px",
+        top: -16,
+        left: 12,
         fontFamily: theme.design.font.montserrat,
         color: theme.design.colors.waz_orangeColor100,
         background: theme.design.colors.waz_white,
@@ -170,30 +141,12 @@ export const useMbmcBlock13Styles = makeStyles((theme: Theme) => ({
             backgroundColor: theme.design.colors.waz_orangeColor100,
         },
     },
-    orderBtn: {
-        backgroundColor: theme.design.colors.waz_white,
-        fontFamily: theme.design.font.montserrat,
-        fontWeight: theme.typography.fontWeightBold,
-        padding: theme.spacing(1.5, 3),
-        width: "fit-content",
-        whiteSpace: "nowrap",
-        borderRadius: 50,
-        cursor: "pointer",
-        [theme.breakpoints.down("lg")]: {
-            marginRight: theme.spacing(0),
-            display: "none",
-        },
+    ctaDesktop: {
+        fontWeight: theme.typography.fontWeightMedium,
     },
-    mobileOrderBtn: {
-        backgroundColor: theme.design.colors.waz_white,
+    ctaMobile: {
         color: theme.design.colors.waz_orangeColor100,
-        fontFamily: theme.design.font.montserrat,
-        fontWeight: theme.typography.fontWeightBold,
-        padding: theme.spacing(1.5, 3),
-        width: "fit-content",
-        whiteSpace: "nowrap",
-        borderRadius: 50,
-        cursor: "pointer",
+        fontWeight: theme.typography.fontWeightMedium,
     },
     menuOptionMobile: {
         display: "none",

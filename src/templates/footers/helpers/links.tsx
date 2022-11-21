@@ -1,5 +1,9 @@
 import { TFooterSection, TLink } from "../types";
 import { clickAction, isNotRenderAnchor } from "./anchor";
+import { FaFacebookF } from "react-icons/fa";
+import { BsTwitter } from "react-icons/bs";
+import { FaInstagram } from "react-icons/fa";
+import { RiLinkedinFill, RiYoutubeFill } from "react-icons/ri";
 import clx from "classnames";
 
 export const displaySections = (
@@ -8,9 +12,10 @@ export const displaySections = (
     sections: TFooterSection[],
     activeElement: string,
     handleClick: (element: string) => void,
+    parentKey?: string,
 ) => {
     return sections.map(({ name, links }, index) => {
-        const sectionId = "footer_sections." + String(index);
+        const sectionId = (parentKey ?? "footer_sections.") + String(index);
         return (
             <div
                 className={clx(
@@ -31,28 +36,33 @@ export const displaySections = (
                     {name}
                 </p>
                 <div className={classes.footerLinks}>
-                    {links.map(({ text, url }, index) => {
+                    {links.map(({ text, url, icon }, index) => {
                         const linkId = sectionId + ".links." + String(index);
-                        return isNotRenderAnchor(url, mode) ? (
-                            <p
-                                className={clx(
-                                    classes.footerSectionLink,
-                                    activeElement === linkId && classes.activeElement,
-                                )}
+                        return (
+                            <div
                                 key={index}
+                                className={activeElement === linkId && classes.activeElement}
                                 onClick={(e) => {
                                     e.stopPropagation();
                                     clickAction(url, mode, () => {
                                         handleClick(mode === "view" ? url : linkId);
                                     });
                                 }}
+                                style={{ display: "flex" }}
                             >
-                                {text}
-                            </p>
-                        ) : (
-                            <a href={url} className={classes.footerSectionLink} key={index}>
-                                {text}
-                            </a>
+                                {icon && (
+                                    <span className={classes.footerSectionLinkIcon}>
+                                        {renderIcon(icon)}
+                                    </span>
+                                )}{" "}
+                                {isNotRenderAnchor(url, mode) ? (
+                                    <p className={classes.footerSectionLink}>{text}</p>
+                                ) : (
+                                    <a href={url} className={classes.footerSectionLink}>
+                                        {icon && renderIcon(icon)} {text}
+                                    </a>
+                                )}
+                            </div>
                         );
                     })}
                 </div>
@@ -69,28 +79,46 @@ export const displayLinks = (
     handleClick: (element: string) => void,
     step: number,
 ) => {
-    return links.map(({ text, url }, index) => {
+    return links.map(({ text, url, icon }, index) => {
         const linkId = "footer_links." + String(index + step);
-        return isNotRenderAnchor(url, mode) ? (
-            <p
-                className={clx(
-                    classes.footerSectionLink,
-                    activeElement === linkId && classes.activeElement,
-                )}
+        return (
+            <div
                 key={index}
+                className={activeElement === linkId && classes.activeElement}
                 onClick={(e) => {
                     e.stopPropagation();
                     clickAction(url, mode, () => {
                         handleClick(mode === "view" ? url : linkId);
                     });
                 }}
+                style={{ display: "flex" }}
             >
-                {text}
-            </p>
-        ) : (
-            <a href={url} className={classes.footerSectionLink} key={index}>
-                {text}
-            </a>
+                {icon && <span className={classes.footerSectionLinkIcon}>{renderIcon(icon)}</span>}{" "}
+                {isNotRenderAnchor(url, mode) ? (
+                    <p className={classes.footerSectionLink}>{text}</p>
+                ) : (
+                    <a href={url} className={classes.footerSectionLink}>
+                        {icon && renderIcon(icon)} {text}
+                    </a>
+                )}
+            </div>
         );
     });
+};
+
+const renderIcon = (icon: string) => {
+    switch (icon.toLowerCase()) {
+        case "facebook":
+            return <FaFacebookF />;
+        case "twitter":
+            return <BsTwitter />;
+        case "instagram":
+            return <FaInstagram />;
+        case "linkedin":
+            return <RiLinkedinFill />;
+        case "youtube":
+            return <RiYoutubeFill />;
+        default:
+            return <FaFacebookF />;
+    }
 };

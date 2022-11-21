@@ -21,7 +21,7 @@ export declare type BlockLayout = "column" | "row" | "column-reverse" | "row-rev
 export declare type BlockCta = {
     text: string;
     handleClick?: () => void;
-    variant?: "PRIMARY" | "SECONDARY";
+    variant?: "PRIMARY" | "SECONDARY" | "NEUTRAL";
     styleProps?: {
         [key: string]: string | number;
     };
@@ -41,7 +41,11 @@ export declare type MbmcCommonProps = {
     classNames?: {
         [key: string]: string;
     };
+    services?: {
+        [key in HivedeckService]: string;
+    };
 };
+export declare type HivedeckService = 'NICODEMUS' | 'AMBROSIA' | 'MUSE';
 export declare type MbmcTemplatePropType = {
     component: any;
     name: string;

@@ -23,7 +23,7 @@ export type BlockLayout = "column" | "row" | "column-reverse" | "row-reverse";
 export type BlockCta = {
     text: string;
     handleClick?: () => void;
-    variant?: "PRIMARY" | "SECONDARY";
+    variant?: "PRIMARY" | "SECONDARY" | "NEUTRAL";
     styleProps?: { [key: string]: string | number };
     rIcon?: JSX.Element;
     lIcon?: JSX.Element;
@@ -40,7 +40,10 @@ export type MbmcCommonProps = {
     handleClick?: (route: string) => void;
     className?: string;
     classNames?: { [key: string]: string };
+    services?: { [key in HivedeckService]: string };
 };
+
+export type HivedeckService = 'NICODEMUS' | 'AMBROSIA' | 'MUSE';
 
 export type MbmcTemplatePropType = {
     component: any;

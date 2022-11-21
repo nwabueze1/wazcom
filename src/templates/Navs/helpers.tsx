@@ -12,8 +12,9 @@ export const renderNavLink = (
     classes: any,
     activeElement: string,
     handleClick: (element: string) => void,
+    parentKey?: string,
 ) => {
-    const id = "nav_links." + String(index);
+    const id = (parentKey ?? "nav_links.") + String(index);
     return isNotRenderAnchor(url, mode) ? (
         <p
             key={index}
@@ -58,9 +59,15 @@ export const renderNavLogo = (
     activeElement: string,
     handleClick: (element: string) => void,
     logo?: { src?: string; url: string },
+    identifier?: string,
 ) => {
     return (
-        <LogoWrapper url={logo?.url ?? ""} mode={mode} handleClick={handleClick}>
+        <LogoWrapper
+            url={logo?.url ?? ""}
+            mode={mode}
+            handleClick={handleClick}
+            identifier={identifier}
+        >
             {mode === "view" ? (
                 <img
                     src={logo?.src ?? hivedeckLogo}
@@ -71,14 +78,14 @@ export const renderNavLogo = (
                     src={logo?.src}
                     className={clx(
                         classes.logo,
-                        activeElement === "nav_logo" && classes.activeElement,
+                        activeElement === (identifier ?? "nav_logo") && classes.activeElement,
                     )}
                 />
             ) : (
                 <AiOutlinePicture
                     className={clx(
                         classes.logo,
-                        activeElement === "nav_logo" && classes.activeElement,
+                        activeElement === (identifier ?? "nav_logo") && classes.activeElement,
                     )}
                 />
             )}
@@ -90,16 +97,17 @@ type LogoWrapperProps = {
     url: string;
     mode: "view" | "edit";
     handleClick?: (route: string) => void;
+    identifier?: string;
 };
 
-const LogoWrapper: FC<LogoWrapperProps> = ({ url, mode, children, handleClick }) => {
+const LogoWrapper: FC<LogoWrapperProps> = ({ url, mode, children, handleClick, identifier }) => {
     if (isNotRenderAnchor(url, mode)) {
         return (
             <div
                 onClick={(e) => {
                     e.stopPropagation();
                     clickAction(url, mode, () => {
-                        handleClick?.(mode === "view" ? url : "nav_logo");
+                        handleClick?.(mode === "view" ? url : identifier ?? "nav_logo");
                     });
                 }}
                 style={{ cursor: "pointer" }}

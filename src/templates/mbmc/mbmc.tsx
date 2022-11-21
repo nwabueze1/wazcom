@@ -123,6 +123,10 @@ export const useGetMbmcBlocks = () => {
                     text: "",
                     url: "#",
                 },
+                index: 0,
+                activeElement: '0.links.1.links.1',
+                mode: "edit",
+                handleClick: (route: string) => alert(route),
                 links: [
                     {
                         name: "Company",
@@ -181,6 +185,7 @@ export const useGetMbmcBlocks = () => {
                             {
                                 text: "@mrbakerandmrscook",
                                 url: "#",
+                                icon: "instagram"
                             },
                         ],
                     },
@@ -195,8 +200,13 @@ export const useGetMbmcBlocks = () => {
                 heading: "Explore Our Menu",
                 description: `Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed 
                 diam nonumy eirmod tempor invidunt ut labore et dolore a….`,
-                client: createApolloClient("https://ofambegbe-ambrosia.wazobia.uk/graphql"),
                 menu_uuid: "5a8b64b3-2fe7-4204-b23a-87dd6539d311",
+                integratedService: 'AMBROSIA',
+                services: { AMBROSIA: 'https://ofambegbe-ambrosia.wazobia.uk/graphql', NICODEMUS: '', MUSE: '' },
+                mode: "edit",
+                index: 0,
+                activeElement: "0.menu_uuid",
+                handleClick: (route: string) => alert(route),
             },
         },
         {
@@ -331,6 +341,10 @@ export const useGetMbmcBlocks = () => {
                         image: "https://sytbuildr.s3.eu-west-2.amazonaws.com/images/mbmc/step4.svg",
                     },
                 ],
+                mode: "edit",
+                index: 0,
+                activeElement: '0.steps.1.heading',
+                handleClick: (element: string) => alert(element),
             },
         },
         {
@@ -341,17 +355,21 @@ export const useGetMbmcBlocks = () => {
                 tags: [
                     {
                         text: "EXPERTLY PREPARED",
-                        icon: "https://sytbuildr.s3.eu-west-2.amazonaws.com/images/mbmc/chefLogo.svg",
+                        image: "https://sytbuildr.s3.eu-west-2.amazonaws.com/images/mbmc/chefLogo.svg",
                     },
                     {
                         text: "FRESH & AUTHENTIC",
-                        icon: "https://sytbuildr.s3.eu-west-2.amazonaws.com/images/mbmc/foodIcon.svg",
+                        image: "https://sytbuildr.s3.eu-west-2.amazonaws.com/images/mbmc/foodIcon.svg",
                     },
                     {
                         text: "UK WIDE DELIVERY",
-                        icon: "https://sytbuildr.s3.eu-west-2.amazonaws.com/images/mbmc/deliveryIcon.svg",
+                        image: "https://sytbuildr.s3.eu-west-2.amazonaws.com/images/mbmc/deliveryIcon.svg",
                     },
                 ],
+                mode: 'edit',
+                index: 0,
+                activeElement: '0.tags.0.text',
+                handleClick: (route: string) => alert(route),
             },
         },
         {
@@ -412,29 +430,25 @@ export const useGetMbmcBlocks = () => {
             props: {
                 style: "mbmc",
                 logo: {
-                    src: {
-                        desktop: "https://sytbuildr.s3.eu-west-2.amazonaws.com/Logo-Icon.svg",
-                        mobile: "https://sytbuildr.s3.eu-west-2.amazonaws.com/images/mbmc/Logo.svg",
-                    },
+                    src: "https://sytbuildr.s3.eu-west-2.amazonaws.com/images/mbmc/Logo%402x.png",
                     url: "#",
                 },
                 links: [
-                    { text: "About us", url: "/mbmc/about" },
+                    { text: "About us", url: "https://zeus.com" },
                     { text: "Menus", url: "#" },
                     { text: "Contact us", url: "#" },
-                ],
-                icons: [
-                    {
-                        url: "#",
-                        badgeCount: 4,
-                    },
                 ],
                 ctas: [
                     {
                         text: "Order now",
-                        handleClick: () => console.log("clicked"),
+                        variant: 'NEUTRAL'
                     },
                 ],
+                mode: "edit",
+                index: 0,
+                activeElement: '0.ctas.0',
+                numCartItems: 5,
+                handleClick: (route: string) => alert(route),
             },
         },
         {

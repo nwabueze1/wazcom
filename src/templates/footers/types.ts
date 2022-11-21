@@ -11,6 +11,6 @@ export type FooterProps = {
 
 export type SocialType = "FACEBOOK" | "TWITTER" | "YOUTUBE" | "LINKEDIN" | "INSTAGRAM"
 
-export type TLink = { text: string; url: string };
+export type TLink = { text: string; url: string; icon?: string };
 
 export type TFooterSection = { name: string; links: TLink[] };

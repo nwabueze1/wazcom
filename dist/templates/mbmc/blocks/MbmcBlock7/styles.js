@@ -1,6 +1,6 @@
 import { makeStyles } from "@mui/styles";
 export var useMbmcBlock7Styles = makeStyles(function (theme) {
-    var _a, _b, _c, _d, _e, _f;
+    var _a, _b, _c, _d;
     return ({
         root: (_a = {
                 backgroundColor: theme.design.colors.waz_white,
@@ -95,17 +95,6 @@ export var useMbmcBlock7Styles = makeStyles(function (theme) {
                 textAlign: "left",
             },
             _d),
-        headerCardContainer: (_e = {
-                width: "100%",
-                display: "grid",
-                gridTemplateColumns: "1fr 1fr 1fr",
-                gap: theme.spacing(2)
-            },
-            _e[theme.breakpoints.down("lg")] = {
-                display: "none",
-                width: "100%",
-            },
-            _e),
         imageContainer: {
             width: "100%",
             borderRadius: 4,
@@ -125,19 +114,15 @@ export var useMbmcBlock7Styles = makeStyles(function (theme) {
             objectFit: "cover",
             borderRadius: 4,
         },
-        mobileCardContainer: (_f = {
-                width: "100%",
-                display: "none",
-                justifyContent: "space-between",
-                alignItems: "center",
-                flexWrap: "wrap",
-                gap: theme.spacing(1),
-                height: "100%"
-            },
-            _f[theme.breakpoints.down("lg")] = {
-                display: "grid",
-                gridTemplateColumns: "1fr 1fr 1fr",
-            },
-            _f),
+        mobileCardContainer: {
+            width: "100%",
+            display: "grid",
+            gridTemplateColumns: "1fr 1fr 1fr",
+            justifyContent: "space-between",
+            alignItems: "center",
+            flexWrap: "wrap",
+            gap: theme.spacing(1),
+            height: "100%",
+        },
     });
 });

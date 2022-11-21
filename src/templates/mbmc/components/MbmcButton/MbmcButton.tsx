@@ -22,7 +22,9 @@ export const MbmcButton: FC<MbmcButtonProps> = ({
             className={clx(
                 className,
                 classes.button,
-                variant === "PRIMARY" ? classes.buttonPrimary : classes.buttonSecondary,
+                variant === "PRIMARY" && classes.buttonPrimary,
+                variant === "SECONDARY" && classes.buttonSecondary,
+                variant === "NEUTRAL" && classes.buttonNeutral,
                 size === "sm" && classes.buttonSmall,
                 name?.toLowerCase() === activeElement?.toLowerCase() && classes.buttonActive,
             )}

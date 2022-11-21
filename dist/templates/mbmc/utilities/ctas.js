@@ -23,11 +23,11 @@ var __rest = (this && this.__rest) || function (s, e) {
 import { jsxs as _jsxs } from "react/jsx-runtime";
 import { MbmcButton } from "../components";
 import { handleElementClick } from "./element";
-export var renderCtas = function (ctas, mode, parentKey, handleClick, activeElement) {
+export var renderCtas = function (ctas, mode, parentKey, handleClick, activeElement, className) {
     return (ctas !== null && ctas !== void 0 ? ctas : []).map(function (_a, index) {
         var text = _a.text, rIcon = _a.rIcon, url = _a.url, lIcon = _a.lIcon, props = __rest(_a, ["text", "rIcon", "url", "lIcon"]);
         var name = parentKey + ".ctas." + String(index);
-        return (_jsxs(MbmcButton, __assign({ name: name }, props, { handleClick: function () {
+        return (_jsxs(MbmcButton, __assign({ name: name }, props, { className: className, handleClick: function () {
                 mode === "view"
                     ? handleClick === null || handleClick === void 0 ? void 0 : handleClick(url !== null && url !== void 0 ? url : "")
                     : handleElementClick(mode, name, handleClick);
