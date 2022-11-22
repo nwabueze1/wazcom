@@ -1,4 +1,4 @@
-import { FC, useState, useEffect, useMemo } from "react";
+import { FC, useState, useEffect, useMemo, useContext } from "react";
 import { useQuery } from "@apollo/client";
 import { MbmcBlock61Props, TMenuCategory, TMenuItem } from "./types";
 import { useMbmcBlock61Styles } from "./styles";
@@ -8,52 +8,34 @@ import { MbmcCard } from "../../../../templates/mbmc/components/MbmcCard";
 import { Modal } from "../../../../core";
 import MbmcBlock16 from "../MbmcBlock16/MbmcBlock16";
 import { getCurrency } from "../../../../utilities";
+import { RestaurantContext, RestaurantContextProps } from "../../contexts";
 
 export const MbmcBlock61: FC<MbmcBlock61Props> = ({ heading, description, client, menu_uuid }) => {
     const classes = useMbmcBlock61Styles();
-    const [categories, setCategories] = useState<TMenuCategory[]>([]);
+    const { menu } = useContext(RestaurantContext);
+    const [contextData, setContextData] = useState<Omit<RestaurantContextProps, "setContext">>({});
     const [activeCategory, setActiveCategory] = useState<TMenuCategory>();
-    const [items, setItems] = useState<TMenuItem[]>([]);
-    const [optionsConfig, setOptionsConfig] = useState<{ [key: string]: any }[]>([]);
-    const [currency, setCurrency] = useState<string>("");
     const [activeMenu, setActiveMenu] = useState<number | undefined>();
     const [openModal, setOpenModal] = useState<boolean>(false);
+    const { data, error } = useQuery(GET_MENU_BY_UUID, { client, variables: { uuid: menu_uuid } });
 
     const categoryItems = useMemo(
         () =>
-            items.filter(
-                (item) => item.menuCategory.id.toString() === activeCategory?.id?.toString(),
+            menu?.menuItems?.filter(
+                (item) => item?.menuCategory?.id.toString() === activeCategory?.id?.toString(),
             ),
-        [activeCategory?.id, items],
+        [activeCategory?.id, menu?.menuItems],
     );
-
-    const { data, error } = useQuery(GET_MENU_BY_UUID, { client, variables: { uuid: menu_uuid } });
-
-    const handleOpenModal = (id?: number) => {
-        setActiveMenu(id);
-        setOpenModal(true);
-    };
-
-    const handleCloseModal = () => {
-        setOpenModal(false);
-    };
+    console.log(menu);
 
     useEffect(() => {
         if (data) {
             const {
-                menu: {
-                    activeMenuCategories: categories,
-                    activeMenuItems: items,
-                    options_config,
-                    restaurant,
-                },
+                menu: { activeMenuCategories: menuCategories, activeMenuItems: menuItems, ...rest },
             } = data;
-
-            setCategories(categories);
-            setItems(items);
-            setOptionsConfig(options_config);
-            setCurrency(restaurant.bank_info.currency);
-            categories.length > 0 && setActiveCategory(categories[0]);
+            const menu = { menuCategories, menuItems, ...rest };
+            setContextData({ menu });
+            menuCategories.length > 0 && setActiveCategory(menuCategories[0]);
         }
 
         if (error) {
@@ -62,7 +44,7 @@ export const MbmcBlock61: FC<MbmcBlock61Props> = ({ heading, description, client
     }, [data, error]);
 
     const displayCategories = () =>
-        categories.map(({ title, id }, index) => (
+        menu?.menuCategories?.map(({ title, id }, index) => (
             <div
                 key={index}
                 className={clx(
@@ -71,7 +53,7 @@ export const MbmcBlock61: FC<MbmcBlock61Props> = ({ heading, description, client
                         classes.block61CategoryActive,
                 )}
                 onClick={() => {
-                    handleCategoryChange({ title, id });
+                    handleCategoryChange({ title, id: Number(id) });
                 }}
             >
                 {title}
@@ -79,22 +61,21 @@ export const MbmcBlock61: FC<MbmcBlock61Props> = ({ heading, description, client
         ));
 
     const displayItems = () =>
-        categoryItems.map(({ name, description, image_url, price }, index) => (
+        categoryItems?.map(({ name, description, image_url, price }, index) => (
             <MbmcCard
                 key={index}
                 heading={
                     <div className={classes.block61ItemHeading}>
                         <p>{name}</p>{" "}
                         <p className={classes.block61ItemPrice}>
-                            {getCurrency(currency)}
+                            {getCurrency(menu?.restaurant?.bank_info?.currency ?? "")}
                             {price}
                         </p>
                     </div>
                 }
                 description={description}
-                image={image_url}
+                image={image_url ?? ""}
                 className={classes.block61Item}
-                handleClick={() => handleOpenModal(index)}
             />
         ));
 
@@ -103,21 +84,17 @@ export const MbmcBlock61: FC<MbmcBlock61Props> = ({ heading, description, client
     };
 
     return (
-        <>
+        <RestaurantContext.Provider value={{ ...contextData }}>
             <div className={classes.root}>
                 <div className={classes.block61Container}>
                     <h3 className={classes.block61Title}>{heading}</h3>
                     <p className={classes.block61Description}>{description}</p>
 
-                    {categoryItems.length > 0 && (
-                        <>
-                            <div className={classes.block61Categories}>{displayCategories()}</div>
-                            <div className={classes.block61Items}>{displayItems()}</div>
-                        </>
-                    )}
+                    <div className={classes.block61Categories}>{displayCategories()}</div>
+                    <div className={classes.block61Items}>{displayItems()}</div>
                 </div>
             </div>
-            <Modal open={openModal} handleClose={handleCloseModal}>
+            {/* <Modal open={openModal} handleClose={handleCloseModal}>
                 <div className={classes.modalContent}>
                     <MbmcBlock16
                         name={categoryItems?.[activeMenu as number]?.name}
@@ -130,7 +107,7 @@ export const MbmcBlock61: FC<MbmcBlock61Props> = ({ heading, description, client
                         handleAddToCart={() => console.log("add to cartt")}
                     />
                 </div>
-            </Modal>
-        </>
+            </Modal> */}
+        </RestaurantContext.Provider>
     );
 };
