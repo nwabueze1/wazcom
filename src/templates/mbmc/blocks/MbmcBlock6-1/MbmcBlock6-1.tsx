@@ -1,23 +1,20 @@
-import { FC, useState, useEffect, useMemo, useContext } from "react";
+import { FC, useState, useEffect, useMemo } from "react";
 import { useQuery } from "@apollo/client";
-import { MbmcBlock61Props, TMenuCategory, TMenuItem } from "./types";
+import { MbmcBlock61Props, TMenuCategory } from "./types";
 import { useMbmcBlock61Styles } from "./styles";
 import { GET_MENU_BY_UUID } from "./graphql";
 import clx from "classnames";
-import { MbmcCard } from "../../../../templates/mbmc/components/MbmcCard";
-import { Modal } from "../../../../core";
-import MbmcBlock16 from "../MbmcBlock16/MbmcBlock16";
+import { MbmcCard, OrderDialog } from "../../components";
 import { getCurrency } from "../../../../utilities";
 import { RestaurantContext, RestaurantContextProps } from "../../contexts";
 
 export const MbmcBlock61: FC<MbmcBlock61Props> = ({ heading, description, client, menu_uuid }) => {
     const classes = useMbmcBlock61Styles();
-    const { menu } = useContext(RestaurantContext);
     const [contextData, setContextData] = useState<Omit<RestaurantContextProps, "setContext">>({});
     const [activeCategory, setActiveCategory] = useState<TMenuCategory>();
-    const [activeMenu, setActiveMenu] = useState<number | undefined>();
-    const [openModal, setOpenModal] = useState<boolean>(false);
+    const [itemUuid, setItemUuid] = useState<string>();
     const { data, error } = useQuery(GET_MENU_BY_UUID, { client, variables: { uuid: menu_uuid } });
+    const { menu } = contextData;
 
     const categoryItems = useMemo(
         () =>
@@ -26,7 +23,6 @@ export const MbmcBlock61: FC<MbmcBlock61Props> = ({ heading, description, client
             ),
         [activeCategory?.id, menu?.menuItems],
     );
-    console.log(menu);
 
     useEffect(() => {
         if (data) {
@@ -61,7 +57,7 @@ export const MbmcBlock61: FC<MbmcBlock61Props> = ({ heading, description, client
         ));
 
     const displayItems = () =>
-        categoryItems?.map(({ name, description, image_url, price }, index) => (
+        categoryItems?.map(({ uuid, name, description, image_url, price }, index) => (
             <MbmcCard
                 key={index}
                 heading={
@@ -76,6 +72,9 @@ export const MbmcBlock61: FC<MbmcBlock61Props> = ({ heading, description, client
                 description={description}
                 image={image_url ?? ""}
                 className={classes.block61Item}
+                handleClick={(route: string) => {
+                    setItemUuid(uuid);
+                }}
             />
         ));
 
@@ -90,24 +89,20 @@ export const MbmcBlock61: FC<MbmcBlock61Props> = ({ heading, description, client
                     <h3 className={classes.block61Title}>{heading}</h3>
                     <p className={classes.block61Description}>{description}</p>
 
-                    <div className={classes.block61Categories}>{displayCategories()}</div>
-                    <div className={classes.block61Items}>{displayItems()}</div>
-                </div>
-            </div>
-            {/* <Modal open={openModal} handleClose={handleCloseModal}>
-                <div className={classes.modalContent}>
-                    <MbmcBlock16
-                        name={categoryItems?.[activeMenu as number]?.name}
-                        description={categoryItems?.[activeMenu as number]?.description}
-                        price={categoryItems?.[activeMenu as number]?.price}
-                        image={categoryItems?.[activeMenu as number]?.image_url}
-                        currency={currency}
-                        options={categoryItems?.[activeMenu as number]?.options}
-                        optionsConfig={optionsConfig}
-                        handleAddToCart={() => console.log("add to cartt")}
+                    {categoryItems && categoryItems?.length > 0 && (
+                        <>
+                            <div className={classes.block61Categories}>{displayCategories()}</div>
+                            <div className={classes.block61Items}>{displayItems()}</div>
+                        </>
+                    )}
+                    <OrderDialog
+                        itemUuid={itemUuid}
+                        handleClose={() => {
+                            setItemUuid(undefined);
+                        }}
                     />
                 </div>
-            </Modal> */}
+            </div>
         </RestaurantContext.Provider>
     );
 };

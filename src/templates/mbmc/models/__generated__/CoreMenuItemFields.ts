@@ -13,6 +13,7 @@ export interface CoreMenuItemFields_menuCategory {
 }
 
 export interface CoreMenuItemFields {
+    uuid: string;
     name: string;
     description: string;
     image_url: string | null;

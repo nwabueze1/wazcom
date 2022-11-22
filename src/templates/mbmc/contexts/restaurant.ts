@@ -1,8 +1,10 @@
 import { createContext } from "react";
+import { ApolloClient, NormalizedCacheObject } from '@apollo/client';
 import { CoreMenuFields } from "../models";
 
 export type RestaurantContextProps = {
     menu?: CoreMenuFields;
+    client?: ApolloClient<NormalizedCacheObject>,
     setContext?: (data: Omit<RestaurantContextProps, "setContext">) => void;
 };
 

@@ -43,6 +43,7 @@ export interface CoreMenuFields_menuItems_menuCategory {
 }
 
 export interface CoreMenuFields_menuItems {
+    uuid: string;
     name: string;
     description: string;
     price: number;
