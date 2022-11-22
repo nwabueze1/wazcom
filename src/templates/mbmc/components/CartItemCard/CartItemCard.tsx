@@ -4,7 +4,7 @@ import RemoveRoundedIcon from "@mui/icons-material/RemoveRounded";
 import AddRoundedIcon from "@mui/icons-material/AddRounded";
 import DeleteIcon from "@mui/icons-material/Delete";
 
-const CartItemCard: React.FC = () => {
+export const CartItemCard: React.FC = () => {
     const classes = useCartItemCardStyles();
     const [count, setCount] = useState<number>(1);
 
@@ -61,4 +61,3 @@ const CartItemCard: React.FC = () => {
     );
 };
 
-export default CartItemCard;

@@ -14,10 +14,10 @@ export const useDeliveryOptionStyles = makeStyles((theme: Theme) => ({
         alignItems: "center",
         gap: "8px",
     },
-    imgContainer: {
+    deliveryImage: {
         width: "32px",
         height: "32px",
-        display: "flex",
+        objectFit: "cover",
     },
     deliveryOptionDetail: {
         fontFamily: theme.design.font.montserrat,

@@ -1,8 +1,8 @@
 export type DeliveryOptionProps = {
-    img?: string;
+    image?: string;
     title: string;
     description?: string;
     value: string;
     name: string;
-    handleChange: (data: { name: string; value: any }) => void;
+    handleChange: (option: "pickup" | "delivery") => void;
 };

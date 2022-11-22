@@ -1,10 +1,10 @@
-import { RadioButtonInput } from "../../../../io";
 import React from "react";
+import { RadioButtonInput } from "../../../../../../../io";
 import { useDeliveryOptionStyles } from "./styles";
 import { DeliveryOptionProps } from "./types";
 
-const DeliveryOption: React.FC<DeliveryOptionProps> = ({
-    img,
+export const DeliveryOption: React.FC<DeliveryOptionProps> = ({
+    image,
     value,
     name,
     handleChange,
@@ -16,9 +16,7 @@ const DeliveryOption: React.FC<DeliveryOptionProps> = ({
         <div className={classes.deliveryDetail}>
             <div>
                 <div className={classes.deliveryOptionItem}>
-                    <div className={classes.imgContainer}>
-                        <img src={img} alt={name} />
-                    </div>
+                    <img src={image} alt={name} className={classes.deliveryImage} />
                     <div className={classes.deliveryOptionDetail}>
                         <p className={classes.deliveryOptionTitle}>{title}</p>
                         <p className={classes.deliveryOptionDescription}>{description}</p>
@@ -30,11 +28,11 @@ const DeliveryOption: React.FC<DeliveryOptionProps> = ({
                     classNames={{ radioButtonInput: classes.radioInput }}
                     name={name}
                     value={Boolean(value == name)}
-                    onChange={handleChange}
+                    onChange={() => {
+                        handleChange(name as "pickup" | "delivery");
+                    }}
                 />
             </div>
         </div>
     );
 };
-
-export default DeliveryOption;

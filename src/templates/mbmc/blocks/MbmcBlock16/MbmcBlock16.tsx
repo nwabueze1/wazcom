@@ -75,7 +75,8 @@ const MbmcBlock16: React.FC<MbmcBlock16Props> = ({
     };
 
     return (
-        <div className={classes.cartItemContainer}>
+       <div className={classes.root}>
+ <div className={classes.cartItemContainer}>
             <div className={classes.topContent}>
                 <div className={classes.imgContainer}>
                     <img className={classes.cartItemImg} src={image} alt="cart item image" />
@@ -220,6 +221,7 @@ const MbmcBlock16: React.FC<MbmcBlock16Props> = ({
                 </div>
             </div>
         </div>
+       </div>
     );
 };
 
