@@ -12,13 +12,11 @@ export const DeliveryOption: React.FC<DeliveryOptionProps> = ({
     description,
 }) => {
     const classes = useDeliveryOptionStyles();
-    return ( 
+    return (
         <div className={classes.deliveryDetail}>
             <div>
                 <div className={classes.deliveryOptionItem}>
-                    <div className={classes.imgContainer}>
-                        <img src={image} alt={name} />
-                    </div>
+                    <img src={image} alt={name} className={classes.deliveryImage} />
                     <div className={classes.deliveryOptionDetail}>
                         <p className={classes.deliveryOptionTitle}>{title}</p>
                         <p className={classes.deliveryOptionDescription}>{description}</p>
@@ -30,10 +28,11 @@ export const DeliveryOption: React.FC<DeliveryOptionProps> = ({
                     classNames={{ radioButtonInput: classes.radioInput }}
                     name={name}
                     value={Boolean(value == name)}
-                    onChange={handleChange}
+                    onChange={() => {
+                        handleChange(name as "pickup" | "delivery");
+                    }}
                 />
             </div>
         </div>
     );
 };
-

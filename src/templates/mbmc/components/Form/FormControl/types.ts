@@ -1,19 +1,21 @@
-import {
-    TextInputProps as WazTextInputProps,
-  } from "../../../../../io";
-  
-  export type CommonControlProps = {
+import { TextInputProps as WazTextInputProps } from "../../../../../io";
+import { GroupedInputProps as WazGroupedInputProps } from "../GroupedInput";
+
+export type CommonControlProps = {
     label?: string;
-    onChange: (e: React.ChangeEvent<any>) => void;
     errorMessage?: string;
-  };
-  
-  export type TextInputProps = {
+};
+
+type TextInputProps = {
     type: "text";
     properties: WazTextInputProps & CommonControlProps;
-  };
-  
-  export type FormControls = TextInputProps;
-  
-  export type FormControlProps = FormControls;
-  
+};
+
+type GroupedInputProps = {
+  type: "groupedInput",
+  properties: WazGroupedInputProps & CommonControlProps;
+}
+
+export type FormControls = TextInputProps | GroupedInputProps;
+
+export type FormControlProps = FormControls;

@@ -2,6 +2,7 @@ import React from "react";
 import { FormProps } from "./types";
 import { FormControl } from "./FormControl";
 import { MbmcButton } from "../MbmcButton";
+import { useFormStyles } from "./styles";
 
 export const Form: React.FC<FormProps> = ({
     className,
@@ -9,6 +10,7 @@ export const Form: React.FC<FormProps> = ({
     onSubmit,
     submitButtonText = "Save",
 }) => {
+    const classes = useFormStyles();
     const displayControls = () =>
         controls.map((control, index) => <FormControl key={index} {...control} />);
 
@@ -20,7 +22,7 @@ export const Form: React.FC<FormProps> = ({
     return (
         <form onSubmit={handleSubmit} className={className}>
             {displayControls()}
-            <MbmcButton variant="SECONDARY" size="sm" type="submit">
+            <MbmcButton variant="SECONDARY" size="sm" type="submit" className={classes.formButton}>
                 {submitButtonText}
             </MbmcButton>
         </form>
