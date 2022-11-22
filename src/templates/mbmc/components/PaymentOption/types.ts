@@ -3,5 +3,5 @@ export type PaymentOptionProps = {
     title: string;
     value: string;
     name: string;
-    handleChange: (data: { name: string; value: any }) => void;
+    handleChange: (paymentOption: string) => void;
 };
