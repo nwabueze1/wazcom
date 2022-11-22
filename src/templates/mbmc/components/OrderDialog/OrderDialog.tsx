@@ -7,6 +7,7 @@ import { OrderDialogProps, Option } from "./types";
 import { getCurrency } from "../../../../utilities";
 import { RestaurantContext } from "../../contexts";
 import { Modal } from "../../../../core";
+import { Options } from "./components";
 
 export const OrderDialog: FC<OrderDialogProps> = ({ itemUuid, handleClose }) => {
     const { menu } = useContext(RestaurantContext);
@@ -27,18 +28,18 @@ export const OrderDialog: FC<OrderDialogProps> = ({ itemUuid, handleClose }) => 
         setCount((prev) => (prev <= 1 ? 1 : prev - 1));
     };
 
+    const updateSelectedOptions = (option: Option) => {};
+
     return (
         <Modal open={Boolean(itemUuid)} handleClose={handleClose}>
             <div className={classes.root}>
                 <div className={classes.dialogContainer}>
                     <div className={classes.topContent}>
-                        <div className={classes.imgContainer}>
-                            <img
-                                className={classes.cartItemImg}
-                                src={menuItem?.image_url ?? ""}
-                                alt="cart item image"
-                            />
-                        </div>
+                        <img
+                            className={classes.dialogImage}
+                            src={menuItem?.image_url ?? ""}
+                            alt={menuItem?.name ?? ""}
+                        />
                         <div className={classes.content}>
                             <p className={classes.title}>{menuItem?.name}</p>
                             <p className={classes.description}>{menuItem?.description}</p>
@@ -69,6 +70,13 @@ export const OrderDialog: FC<OrderDialogProps> = ({ itemUuid, handleClose }) => 
                             </div>
                         </div>
                     </div>
+                    {menuItem?.options && menuItem.options.length > 0 && (
+                        <Options
+                            selectedOptions={selectedOptions}
+                            handleUpdateSelectedOptions={updateSelectedOptions}
+                            itemOptions={menuItem?.options ?? []}
+                        />
+                    )}
                     {/* <div className={classes.bottomContent}>
                     <div className={classes.dishOptions}>
                         {itemOptions &&

@@ -217,7 +217,7 @@ export const useGetMbmcBlocks = () => {
                 description: `Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed 
                 diam nonumy eirmod tempor invidunt ut labore et dolore a….`,
                 client: createApolloClient("https://ofambegbe-ambrosia.wazobia.uk/graphql"),
-                menu_uuid: "80318466-810f-4456-b923-da8902545d19",
+                menu_uuid: "86e9e1a1-8d9a-4673-b035-f720df10728a",
                 site_uuid: "",
             },
         },

@@ -11,31 +11,28 @@ export const useMbmcBlock16Styles = makeStyles((theme: Theme) => ({
     dialogContainer: {
         width: '39%',
         zIndex: 10,
-        background: '#FAFAFA',
+        background: 'rgba(255, 255, 255, 0.9)',
         padding: theme.spacing(2),
         borderRadius: 5,
     },
     topContent: {
         display: "flex",
         gap: "8px",
+        marginBottom: theme.spacing(2),
     },
-    imgContainer: {
+    dialogImage: {
         width: "31%",
-        height: "118px",
+        maxHeight: "125px",
+        height: '100%',
+        borderRadius: "5px",
+        objectFit: 'cover',
+
         [theme.breakpoints.down("md")]: {
-            width: "35%",
+            height: "89%",
         },
     },
     content: {
         width: "60%",
-    },
-    cartItemImg: {
-        width: "100%",
-        height: "100%",
-        borderRadius: "5px",
-        [theme.breakpoints.down("md")]: {
-            height: "89%",
-        },
     },
     title: {
         letterSpacing: "0px",
