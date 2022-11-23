@@ -30,7 +30,7 @@ import { useMbmcBlock9Styles } from "./styles";
 import { useState } from "react";
 import clx from "classnames";
 import { handleElementClick } from "../../utilities";
-import { ImageComponent } from "core";
+import { LazyImage } from "core";
 export var MbmcBlock9 = function (_a) {
     var _b = _a.mode, mode = _b === void 0 ? "view" : _b, handleClick = _a.handleClick, activeElement = _a.activeElement, index = _a.index, heading = _a.heading, description = _a.description, steps = _a.steps;
     var classes = useMbmcBlock9Styles();
@@ -50,7 +50,7 @@ export var MbmcBlock9 = function (_a) {
                                                         classes.block9ActiveElement), onClick: function () {
                                                         handleElementClick(mode, key + ".description", handleClick);
                                                     } }, { children: step.description }), void 0)] }), void 0)] }), idx));
-                            }) }), void 0)] }), void 0), _jsx("div", __assign({ className: classes.directionContainer }, { children: _jsx(ImageComponent, { src: steps[active].image, alt: steps[active].heading, className: clx(classes.imageStep, activeElement === "".concat(String(index), ".steps.").concat(String(active), ".image") &&
+                            }) }), void 0)] }), void 0), _jsx("div", __assign({ className: classes.directionContainer }, { children: _jsx(LazyImage, { src: steps[active].image, alt: steps[active].heading, className: clx(classes.imageStep, activeElement === "".concat(String(index), ".steps.").concat(String(active), ".image") &&
                             classes.block9ActiveElement), onClick: function () {
                             handleElementClick(mode, "".concat(String(index), ".steps.").concat(String(active), ".image"), handleClick);
                         } }, void 0) }), void 0)] }), void 0) }), void 0));

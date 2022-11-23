@@ -36,20 +36,20 @@ var __read = (this && this.__read) || function (o, n) {
     }
     return ar;
 };
-import { jsx as _jsx } from "react/jsx-runtime";
+import { jsx as _jsx, Fragment as _Fragment } from "react/jsx-runtime";
 import { useEffect, useRef, useState } from "react";
 import clx from "classnames";
 import { useImageStyles } from "./styles";
-export var ImageComponent = function (_a) {
+export var LazyImage = function (_a) {
     var _b;
-    var loadingPlaceholder = _a.loadingPlaceholder, loadingPlaceholderClassName = _a.loadingPlaceholderClassName, src = _a.src, className = _a.className, props = __rest(_a, ["loadingPlaceholder", "loadingPlaceholderClassName", "src", "className"]);
+    var blurDataurl = _a.blurDataurl, _c = _a.placeholder, placeholder = _c === void 0 ? "blur" : _c, src = _a.src, className = _a.className, classNames = _a.classNames, props = __rest(_a, ["blurDataurl", "placeholder", "src", "className", "classNames"]);
     var imageRef = useRef(null);
     var classes = useImageStyles();
-    var _c = __read(useState(false), 2), isVisible = _c[0], setIsVisible = _c[1];
-    var _d = __read(useState({
+    var _d = __read(useState(false), 2), isVisible = _d[0], setIsVisible = _d[1];
+    var _e = __read(useState({
         width: 1,
         height: 1,
-    }), 2), imageDimensions = _d[0], setImageDimensions = _d[1];
+    }), 2), imageDimensions = _e[0], setImageDimensions = _e[1];
     var checkImageVisbilitiy = function () {
         if (!imageRef.current)
             return;
@@ -81,7 +81,7 @@ export var ImageComponent = function (_a) {
         window.addEventListener("scroll", checkImageVisbilitiy);
         return function () { return window.removeEventListener("scroll", checkImageVisbilitiy); };
     }, []);
-    return (_jsx("img", __assign({}, props, { src: isVisible ? src : generatePlaceholderSrcUrl(loadingPlaceholder), ref: imageRef, className: clx((_b = {},
+    return placeholder === "blur" ? (_jsx("img", __assign({}, props, { src: isVisible ? src : generatePlaceholderSrcUrl(blurDataurl), ref: imageRef, className: clx((_b = {},
             _b[classes.blur] = !isVisible,
-            _b), className, !isVisible && loadingPlaceholderClassName) }), void 0));
+            _b), className, !isVisible && (classNames === null || classNames === void 0 ? void 0 : classNames.loadingPlaceholder)) }), void 0)) : isVisible ? (_jsx("img", __assign({}, props, { src: src, ref: imageRef, className: className }), void 0)) : (_jsx(_Fragment, {}, void 0));
 };

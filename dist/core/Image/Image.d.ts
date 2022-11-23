@@ -1,3 +1,3 @@
 import React from "react";
 import { ImageProps } from "./types";
-export declare const ImageComponent: React.FC<ImageProps>;
+export declare const LazyImage: React.FC<ImageProps>;

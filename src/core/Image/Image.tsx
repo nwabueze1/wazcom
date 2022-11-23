@@ -3,11 +3,12 @@ import clx from "classnames";
 import { useImageStyles } from "./styles";
 import { ImageProps } from "./types";
 
-export const ImageComponent: React.FC<ImageProps> = ({
-    loadingPlaceholder,
-    loadingPlaceholderClassName,
+export const LazyImage: React.FC<ImageProps> = ({
+    blurDataurl,
+    placeholder = "blur",
     src,
     className,
+    classNames,
     ...props
 }) => {
     const imageRef = useRef<HTMLImageElement>(null);
@@ -20,6 +21,7 @@ export const ImageComponent: React.FC<ImageProps> = ({
 
     const checkImageVisbilitiy = () => {
         if (!imageRef.current) return;
+
         const scrollTop = window.pageYOffset;
         const imageScrollPosition = imageRef.current.offsetTop;
         const pageBottomScrollPosition = window.innerHeight + scrollTop;
@@ -57,18 +59,22 @@ export const ImageComponent: React.FC<ImageProps> = ({
         return () => window.removeEventListener("scroll", checkImageVisbilitiy);
     }, []);
 
-    return (
+    return placeholder === "blur" ? (
         <img
             {...props}
-            src={isVisible ? src : generatePlaceholderSrcUrl(loadingPlaceholder)}
+            src={isVisible ? src : generatePlaceholderSrcUrl(blurDataurl)}
             ref={imageRef}
             className={clx(
                 {
                     [classes.blur]: !isVisible,
                 },
                 className,
-                !isVisible && loadingPlaceholderClassName,
+                !isVisible && classNames?.loadingPlaceholder,
             )}
         />
+    ) : isVisible ? (
+        <img {...props} src={src} ref={imageRef} className={className} />
+    ) : (
+        <></>
     );
 };

@@ -3,7 +3,7 @@ import { FC } from "react";
 import { MbmcBlock3Props } from "./types";
 import { renderCtas, handleElementClick } from "../../utilities";
 import clx from "classnames";
-import { ImageComponent } from "core";
+import { LazyImage } from "core";
 
 export const MbmcBlock3: FC<MbmcBlock3Props> = ({
     mode = "view",
@@ -25,7 +25,7 @@ export const MbmcBlock3: FC<MbmcBlock3Props> = ({
         >
             <div className={classes.block3Container}>
                 <div className={classes.block3ImageContainer}>
-                    <ImageComponent
+                    <LazyImage
                         src="https://sytbuildr.s3.eu-west-2.amazonaws.com/images/mbmc/heroFoodLabel.png"
                         className={classes.block3Image}
                     />

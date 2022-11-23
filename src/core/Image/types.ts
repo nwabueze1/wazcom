@@ -1,6 +1,12 @@
 import { ImgHTMLAttributes } from "react";
 
 export type ImageProps = ImgHTMLAttributes<HTMLImageElement> & {
-    loadingPlaceholder?: string;
-    loadingPlaceholderClassName?: string;
+    classNames?: LazyImageClassNames;
+    placeholder?: "empty" | "blur";
+    blurDataurl?: string;
 };
+
+export interface LazyImageClassNames {
+    loadingPlaceholder?: string;
+    image?: string;
+}

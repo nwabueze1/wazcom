@@ -3,7 +3,7 @@ import { FC, useState } from "react";
 import clx from "classnames";
 import { MbmcBlock9Props } from "./types";
 import { handleElementClick } from "../../utilities";
-import { ImageComponent } from "core";
+import { LazyImage } from "core";
 
 export const MbmcBlock9: FC<MbmcBlock9Props> = ({
     mode = "view",
@@ -116,7 +116,7 @@ export const MbmcBlock9: FC<MbmcBlock9Props> = ({
                     </div>
                 </div>
                 <div className={classes.directionContainer}>
-                    <ImageComponent
+                    <LazyImage
                         src={steps[active].image}
                         alt={steps[active].heading}
                         className={clx(
