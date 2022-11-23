@@ -1,11 +1,22 @@
+import { useContext } from "react";
 import { useCartItemsStyles } from "./styles";
-import { CartItemCard } from "../../../../components";
+import { CartItemCard } from "../CartItemCard";
+import { RestaurantContext } from "../../../../contexts";
+import { calculateCartSubTotal } from "../../helpers";
 
 export const CartItems = () => {
+    const { cart } = useContext(RestaurantContext);
     const classes = useCartItemsStyles();
 
     const displayCartItems = () =>
-        new Array(6).fill("").map((_, index) => <CartItemCard key={index} />);
+        cart?.cartItems?.map((cartItem, index) => (
+            <CartItemCard
+                key={index}
+                {...cartItem}
+                currency={cart?.currency ?? ""}
+                amount={calculateCartSubTotal(cart, cartItem.uuid as string)}
+            />
+        ));
 
     return <div className={classes.root}>{displayCartItems()}</div>;
 };

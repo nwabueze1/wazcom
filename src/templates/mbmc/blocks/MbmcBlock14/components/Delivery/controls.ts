@@ -2,9 +2,9 @@ import { FormControls, handleInputChange } from "../../../../components/Form";
 import { useDeliveryStyles } from "./styles";
 
 export const usePickupConfig = () => {
-    return () => ({
+    return (onSubmission?: () => void) => ({
         initialValues: { email: "", first_name: "", last_name: "", phone: "" },
-        onSubmit: () => {},
+        onSubmit: (variables: any) => {},
     });
 };
 
@@ -44,7 +44,7 @@ export const usePickupControls = () => {
                             type: "email",
                             onChange: ({ value }: { name: string; value: string }) =>
                                 handleInputChange(formik, "email", value),
-                            classNames: { textInput: classes.deliveryInput},
+                            classNames: { textInput: classes.deliveryInput },
                             className: classes.deliveryInputParent,
                         },
                     },
@@ -56,7 +56,7 @@ export const usePickupControls = () => {
                             type: "text",
                             onChange: ({ value }: { name: string; value: string }) =>
                                 handleInputChange(formik, "first_name", value),
-                            classNames: { textInput: classes.deliveryInput},
+                            classNames: { textInput: classes.deliveryInput },
                             className: classes.deliveryInputParent,
                         },
                     },
@@ -68,7 +68,7 @@ export const usePickupControls = () => {
                             type: "text",
                             onChange: ({ value }: { name: string; value: string }) =>
                                 handleInputChange(formik, "last_name", value),
-                            classNames: { textInput: classes.deliveryInput},
+                            classNames: { textInput: classes.deliveryInput },
                             className: classes.deliveryInputParent,
                         },
                     },
@@ -80,7 +80,7 @@ export const usePickupControls = () => {
                             type: "tel",
                             onChange: ({ value }: { name: string; value: string }) =>
                                 handleInputChange(formik, "phone", value),
-                            classNames: { textInput: classes.deliveryInput},
+                            classNames: { textInput: classes.deliveryInput },
                             className: classes.deliveryInputParent,
                         },
                     },
@@ -112,7 +112,7 @@ export const useDeliveryControls = () => {
                                 type: "text",
                                 onChange: ({ value }: { name: string; value: string }) =>
                                     handleInputChange(formik, "address", value),
-                                classNames: { textInput: classes.deliveryInput},
+                                classNames: { textInput: classes.deliveryInput },
                                 className: classes.deliveryInputParent,
                             },
                         },
@@ -124,7 +124,7 @@ export const useDeliveryControls = () => {
                                 type: "text",
                                 onChange: ({ value }: { name: string; value: string }) =>
                                     handleInputChange(formik, "city", value),
-                                classNames: { textInput: classes.deliveryInput},
+                                classNames: { textInput: classes.deliveryInput },
                                 className: classes.deliveryInputParent,
                             },
                         },
@@ -136,7 +136,7 @@ export const useDeliveryControls = () => {
                                 type: "text",
                                 onChange: ({ value }: { name: string; value: string }) =>
                                     handleInputChange(formik, "country", value),
-                                classNames: { textInput: classes.deliveryInput},
+                                classNames: { textInput: classes.deliveryInput },
                                 className: classes.deliveryInputParent,
                             },
                         },
@@ -148,7 +148,7 @@ export const useDeliveryControls = () => {
                                 type: "text",
                                 onChange: ({ value }: { name: string; value: string }) =>
                                     handleInputChange(formik, "postal_code", value),
-                                classNames: { textInput: classes.deliveryInput},
+                                classNames: { textInput: classes.deliveryInput },
                                 className: classes.deliveryInputParent,
                             },
                         },

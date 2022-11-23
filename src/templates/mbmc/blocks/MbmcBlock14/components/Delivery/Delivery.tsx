@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useState, FC } from "react";
 import { useFormik } from "formik";
 import { useDeliveryStyles } from "./styles";
 import { deliveryOptions } from "./helpers";
@@ -10,14 +10,15 @@ import {
     usePickupControls,
     useDeliveryControls,
 } from "./controls";
+import { DeliveryProps } from "./types";
 
-export const Delivery = () => {
+export const Delivery: FC<DeliveryProps> = ({ onSubmission }) => {
     const classes = useDeliveryStyles();
     const [selectedOption, setSelectedOption] = useState<"pickup" | "delivery">("pickup");
 
     const getPickupConfig = usePickupConfig();
     const getPickupControls = usePickupControls();
-    const pickupFormik = useFormik(getPickupConfig());
+    const pickupFormik = useFormik(getPickupConfig(onSubmission));
     const pickupControls = getPickupControls(pickupFormik);
 
     const getDeliveryConfig = useDeliveryConfig();

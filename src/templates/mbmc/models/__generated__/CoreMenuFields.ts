@@ -48,7 +48,7 @@ export interface CoreMenuFields_menuItems {
     description: string;
     price: number;
     image_url: string | null;
-    options: (string | null)[] | null;
+    options: string[] | null;
     menuCategory: CoreMenuFields_menuItems_menuCategory | null;
 }
 

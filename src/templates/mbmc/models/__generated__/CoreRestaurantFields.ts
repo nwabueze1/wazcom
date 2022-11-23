@@ -14,6 +14,7 @@ export interface CoreRestaurantFields_bank_info {
 
 export interface CoreRestaurantFields {
     id: string;
+    site_uuid: string;
     uuid: string;
     bank_info: CoreRestaurantFields_bank_info | null;
 }

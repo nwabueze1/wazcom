@@ -216,8 +216,9 @@ export const useGetMbmcBlocks = () => {
                 heading: "Explore Our Best Menu",
                 description: `Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed 
                 diam nonumy eirmod tempor invidunt ut labore et dolore a….`,
-                client: createApolloClient("https://ofambegbe-ambrosia.wazobia.uk/graphql"),
-                menu_uuid: "80318466-810f-4456-b923-da8902545d19",
+                services: { AMBROSIA: 'https://ofambegbe-ambrosia.wazobia.uk/graphql', NICODEMUS: '', MUSE: '' },
+                integratedService: 'AMBROSIA',
+                menu_uuid: "86e9e1a1-8d9a-4673-b035-f720df10728a",
                 site_uuid: "",
             },
         },
@@ -453,8 +454,9 @@ export const useGetMbmcBlocks = () => {
             component: MbmcBlock14,
             props: {
                 style: "mbmc",
-                client: createApolloClient("https://ofambegbe-ambrosia.wazobia.uk/graphql"),
-                cart_uuid: "5a8b64b3-2fe7-4204-b23a-87dd6539d311",
+                services: { AMBROSIA: 'https://ofambegbe-ambrosia.wazobia.uk/graphql', NICODEMUS: 'https://ofambegbe-nicodemus.wazobia.uk/graphql', MUSE: '' },
+                integratedServices: ['AMBROSIA', 'NICODEMUS'],
+                site_uuid: '896466aa-bacc-4817-b577-436a52540eff',
             },
         },
         {

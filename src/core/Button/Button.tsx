@@ -2,7 +2,13 @@ import { Button as MuiButton, CircularProgress } from "@mui/material";
 import { ButtonProps } from "./types";
 import { useButtonStyles } from "./styles";
 
-export const Button = ({ className, variant = "contained", loading, ...props }: ButtonProps) => {
+export const Button = ({
+    className,
+    variant = "contained",
+    loading,
+    children,
+    ...props
+}: ButtonProps) => {
     const classes = useButtonStyles();
 
     return (
@@ -15,12 +21,10 @@ export const Button = ({ className, variant = "contained", loading, ...props }: 
                 }}
                 variant={variant}
                 {...props}
-            />
-            {loading && (
-                <div className={classes.loader}>
-                    <CircularProgress color="inherit" size={12} />
-                </div>
-            )}
+            >
+                {loading && <CircularProgress color="inherit" size={12} className={classes.buttonLoader} />}
+                {children}
+            </MuiButton>
         </div>
     );
 };
