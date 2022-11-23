@@ -508,7 +508,7 @@ export const stories: ComponentPropType[] = [
             apiKey: "",
             error: true,
             feedback: { text: "Tariq is a weirdo", status: "error" },
-            client: createApolloClient(process.env.REACT_APP_NICODEMUS_API_TOKEN as string),
+            client: createApolloClient('https://ofambegbe-ambrosia.wazobia.uk/graphql'),
         },
     },
     {

@@ -7,10 +7,10 @@ export const usePaymentOptionStyles = makeStyles((theme: Theme) => ({
         alignItems: "center",
         gap: "8px",
     },
-    imgContainer: {
+    paymentImage: {
         width: "32px",
         height: "32px",
-        display: "flex",
+        objectFit: 'cover',
     },
     paymentOptionDetail: {
         fontFamily: theme.design.font.montserrat,
