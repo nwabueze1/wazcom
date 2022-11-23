@@ -1,50 +1,47 @@
-import React, { useState } from "react";
+import React from "react";
 import { useCartItemCardStyles } from "./styles";
 import RemoveRoundedIcon from "@mui/icons-material/RemoveRounded";
 import AddRoundedIcon from "@mui/icons-material/AddRounded";
 import DeleteIcon from "@mui/icons-material/Delete";
+import { CoreCartFields_cartItems } from "../../../../models";
+import { getCurrency } from "../../../../../../utilities";
 
-export const CartItemCard: React.FC = () => {
+export const CartItemCard: React.FC<CoreCartFields_cartItems & { currency: string, amount: number }> = ({
+    uuid,
+    amount,
+    quantity,
+    detail,
+    options,
+    menuItem,
+    currency: currencyId
+}) => {
     const classes = useCartItemCardStyles();
-    const [count, setCount] = useState<number>(1);
+    const currency = getCurrency(currencyId);
 
-    const handleIncrement = () => {
-        setCount((prev) => prev + 1);
-    };
+    const handleIncrement = () => {};
 
-    const handleDecrement = () => {
-        setCount((prev) => (prev <= 1 ? 1 : prev - 1));
-    };
+    const handleDecrement = () => {};
 
     return (
         <div className={classes.root}>
             <div className={classes.topContent}>
-                <div className={classes.imgContainer}>
-                    <img
-                        className={classes.cartItemImg}
-                        src={"https://sytbuildr.s3.eu-west-2.amazonaws.com/img2x.png"}
-                        alt="cart item image"
-                    />
-                </div>
+                <img
+                    className={classes.cartItemImg}
+                    src={menuItem?.image_url ?? ""}
+                    alt={menuItem?.name}
+                />
                 <div className={classes.content}>
-                    <p className={classes.title}>Crispy Coated Prawn</p>
-                    <p className={classes.description}>
-                        Lorem ipsum dolor sit amet, consetetur sadip snn g elitr, sed diam nonumy.
-                    </p>
+                    <p className={classes.title}>{menuItem?.name}</p>
+                    <p className={classes.description}>{detail}</p>
                     <div className={classes.priceContainer}>
                         <div className={classes.price}>
-                            <p>£12.5</p>
+                            <p>{currency}{amount}</p>
                         </div>
                         <div className={classes.quantityCountContainer}>
-                            <div
-                                className={`${classes.quantityButton} ${
-                                    count == 1 && classes.disable
-                                }`}
-                                onClick={handleDecrement}
-                            >
+                            <div className={classes.quantityButton} onClick={handleDecrement}>
                                 <RemoveRoundedIcon className={classes.operationIcon} />
                             </div>
-                            <div>{count}</div>
+                            <div>{quantity}</div>
                             <div className={classes.quantityButton} onClick={handleIncrement}>
                                 <AddRoundedIcon className={classes.operationIcon} />
                             </div>
@@ -60,4 +57,3 @@ export const CartItemCard: React.FC = () => {
         </div>
     );
 };
-

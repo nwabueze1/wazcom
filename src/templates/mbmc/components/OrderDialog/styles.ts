@@ -121,7 +121,6 @@ export const useMbmcBlock16Styles = makeStyles((theme: Theme) => ({
     dialogButtonContainer: {
         position: 'sticky',
         bottom: 0,
-        background: theme.design.colors.waz_white,
     },
     dialogButton: {
         width: '100%',

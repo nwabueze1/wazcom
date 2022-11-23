@@ -1,17 +1,17 @@
 import { gql } from "@apollo/client";
+import { CORE_CART_FIELDS, CORE_CART_ITEM_FIELDS } from "../../../models";
 
 export const CREATE_CART = gql`
+    ${CORE_CART_FIELDS}
     mutation GqlCreateCart($site_uuid: ID!, $currency: String!) {
         createCart(site_uuid: $site_uuid, currency: $currency) {
-            id
-            uuid
-            currency
-            expires
+            ...CoreCartFields
         }
     }
 `;
 
 export const CREATE_CART_ITEM = gql`
+    ${CORE_CART_ITEM_FIELDS}
     mutation GqlCreateCartItem(
         $detail: String!
         $quantity: Int!
@@ -26,18 +26,16 @@ export const CREATE_CART_ITEM = gql`
             menu_item_uuid: $menu_item_uuid
             options: $options
         ) {
-            id
-            detail
-            uuid
-        }
+            ...CoreCartItemFields
+        }   
     }
 `;
 
 export const UPDATE_CART_ITEM = gql`
+    ${CORE_CART_ITEM_FIELDS}
     mutation gqlUpdateCartItem($uuid: ID!, $quantity: Int!, $options: String) {
         updateCartItem(uuid: $uuid, quantity: $quantity, options: $options) {
-            uuid
-            currency
+            ...CoreCartItemFields
         }
     }
 `;

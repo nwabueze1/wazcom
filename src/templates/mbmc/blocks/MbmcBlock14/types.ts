@@ -1,10 +1,9 @@
-import { ApolloClient, NormalizedCacheObject } from "@apollo/client";
-import { BlockLayout, MbmcCommonProps } from "templates/mbmc/types";
+import { BlockLayout, MbmcCommonProps, HivedeckService } from "templates/mbmc/types";
 
 export type MbmcBlock14Props = MbmcCommonProps & {
     layout?: BlockLayout;
+    integratedService: HivedeckService;
     heading: string;
     description?: string;
-    client: ApolloClient<NormalizedCacheObject>;
-    cart_uuid: string;
+    site_uuid: string;
 };

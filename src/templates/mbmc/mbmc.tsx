@@ -454,8 +454,9 @@ export const useGetMbmcBlocks = () => {
             component: MbmcBlock14,
             props: {
                 style: "mbmc",
-                client: createApolloClient("https://ofambegbe-ambrosia.wazobia.uk/graphql"),
-                cart_uuid: "5a8b64b3-2fe7-4204-b23a-87dd6539d311",
+                services: { AMBROSIA: 'https://ofambegbe-ambrosia.wazobia.uk/graphql', NICODEMUS: '', MUSE: '' },
+                integratedService: 'AMBROSIA',
+                site_uuid: '896466aa-bacc-4817-b577-436a52540eff',
             },
         },
         {
