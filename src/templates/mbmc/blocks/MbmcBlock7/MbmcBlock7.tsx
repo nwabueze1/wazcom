@@ -2,7 +2,7 @@ import { useMbmcBlock7Styles } from "./styles";
 import clx from "classnames";
 import { FC } from "react";
 import { MbmcBlock7Props } from "./types";
-import { LazyImage } from "core";
+import { LazyImage } from "../../../../core";
 
 export const MbmcBlock7: FC<MbmcBlock7Props> = ({ heading, description, images }) => {
     const classes = useMbmcBlock7Styles();

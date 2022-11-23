@@ -12,7 +12,7 @@ var __assign = (this && this.__assign) || function () {
 import { jsx as _jsx, jsxs as _jsxs } from "react/jsx-runtime";
 import { useMbmcBlock7Styles } from "./styles";
 import clx from "classnames";
-import { LazyImage } from "core";
+import { LazyImage } from "../../../../core";
 export var MbmcBlock7 = function (_a) {
     var heading = _a.heading, description = _a.description, images = _a.images;
     var classes = useMbmcBlock7Styles();

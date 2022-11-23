@@ -14,7 +14,7 @@ import { useMbmcCardStyles } from "./styles";
 import clsx from "clsx";
 import { menuImagePlaceholder } from "../../../../utilities/restaurant";
 import { renderCtas, handleElementClick } from "../../utilities";
-import { LazyImage } from "core";
+import { LazyImage } from "../../../../core";
 export var MbmcCard = function (_a) {
     var _b = _a.mode, mode = _b === void 0 ? "view" : _b, activeElement = _a.activeElement, parentKey = _a.parentKey, heading = _a.heading, image = _a.image, description = _a.description, ctas = _a.ctas, scrollableParent = _a.scrollableParent, className = _a.className, classNames = _a.classNames, handleClick = _a.handleClick;
     var isOpen = true;

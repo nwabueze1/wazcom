@@ -3,7 +3,7 @@ import { FC, useState } from "react";
 import clx from "classnames";
 import { MbmcBlock9Props } from "./types";
 import { handleElementClick } from "../../utilities";
-import { LazyImage } from "core";
+import { LazyImage } from "../../../../core";
 
 export const MbmcBlock9: FC<MbmcBlock9Props> = ({
     mode = "view",

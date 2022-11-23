@@ -30,7 +30,7 @@ import { useMbmcBlock9Styles } from "./styles";
 import { useState } from "react";
 import clx from "classnames";
 import { handleElementClick } from "../../utilities";
-import { LazyImage } from "core";
+import { LazyImage } from "../../../../core";
 export var MbmcBlock9 = function (_a) {
     var _b = _a.mode, mode = _b === void 0 ? "view" : _b, handleClick = _a.handleClick, activeElement = _a.activeElement, index = _a.index, heading = _a.heading, description = _a.description, steps = _a.steps;
     var classes = useMbmcBlock9Styles();

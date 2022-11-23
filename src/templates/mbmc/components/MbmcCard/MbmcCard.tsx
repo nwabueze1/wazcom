@@ -4,7 +4,7 @@ import { MbmcCardProps } from "./types";
 import clsx from "clsx";
 import { menuImagePlaceholder } from "../../../../utilities/restaurant";
 import { renderCtas, handleElementClick } from "../../utilities";
-import { LazyImage } from "core";
+import { LazyImage } from "../../../../core";
 
 export const MbmcCard: React.FC<MbmcCardProps> = ({
     mode = "view",

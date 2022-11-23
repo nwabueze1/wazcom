@@ -13,7 +13,7 @@ import { jsx as _jsx, jsxs as _jsxs } from "react/jsx-runtime";
 import { useMbmcBlock3Styles } from "./styles";
 import { renderCtas, handleElementClick } from "../../utilities";
 import clx from "classnames";
-import { LazyImage } from "core";
+import { LazyImage } from "../../../../core";
 export var MbmcBlock3 = function (_a) {
     var _b = _a.mode, mode = _b === void 0 ? "view" : _b, index = _a.index, handleClick = _a.handleClick, activeElement = _a.activeElement, heading = _a.heading, description = _a.description, ctas = _a.ctas;
     var classes = useMbmcBlock3Styles();
