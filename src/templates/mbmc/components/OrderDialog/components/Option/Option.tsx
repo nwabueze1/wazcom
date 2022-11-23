@@ -5,6 +5,7 @@ import { Option as OptionType } from "../../types";
 import { RestaurantContext } from "../../../../contexts";
 import { getCurrency } from "../../../../../../utilities";
 import { RadioButtonInput, CheckBoxInput } from "../../../../../../io";
+import { useOptionStyles } from "./styles";
 
 export const Option: FC<OptionProps> = ({
     name,
@@ -13,6 +14,7 @@ export const Option: FC<OptionProps> = ({
     selectedOptions,
     handleUpdateSelectedOptions,
 }) => {
+    const classes = useOptionStyles();
     const { menu } = useContext(RestaurantContext);
     const [selectedChoices, setSelectedChoices] = useState<OptionType["selectedChoices"]>(
         parseSelectedChoices(selectedOptions, name),
@@ -92,7 +94,7 @@ export const Option: FC<OptionProps> = ({
                 >
                     <div className={classes.optionPickerParent}>
                         {picker}
-                        <p className={classes.optionName}>{name}</p>
+                        <p className={classes.optionText}>{name}</p>
                     </div>
                     <p className={classes.optionAmount}>
                         {(type === "deselection" ? "-" : config?.amount == 0 ? "" : "+") +
@@ -104,5 +106,25 @@ export const Option: FC<OptionProps> = ({
         });
     }, [selectedChoices, handleUpdateSelectedOptions]);
 
-    return <p>Option</p>;
+    const displayOption = () => {
+        switch (type) {
+            case "selection":
+                return "Please select a variant. You can only pick one option";
+            default:
+                return `You can pick multiple options`;
+        }
+    };
+
+    return (
+        <div className={classes.root}>
+            <div className={classes.optionDescription}>
+                <div>
+                    <p className={classes.optionName}>{name}</p>
+                    <p className={classes.optionHelperText}>{displayOption()}</p>
+                </div>
+                {type === 'selection' && <span className={classes.optionRequired}>REQUIRED</span>}
+            </div>
+            {displayConfig()}
+        </div>
+    );
 };

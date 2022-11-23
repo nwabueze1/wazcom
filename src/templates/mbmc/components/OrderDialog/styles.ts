@@ -98,116 +98,34 @@ export const useMbmcBlock16Styles = makeStyles((theme: Theme) => ({
     disable: {
         opacity: 0.4,
     },
+    dialogOptionsContent: {
+        background: theme.design.colors.waz_white,
+        padding: theme.spacing(3),
+        borderRadius: 5,
+        maxHeight: '50vh',
+        overflowY: 'auto',
 
-    // modalll
-    modalContent: {
-        width: "39%",
-        height: "100%",
-        margin: "auto",
-        display: "flex",
-        alignItems: "center",
-        outline: "none",
-
-        [theme.breakpoints.down("lg")]: {
-            width: "60%",
+        "&::-webkit-scrollbar": {
+            width: 4,
+	        background: 'rgba(0,0,0,0.05)',
         },
-        [theme.breakpoints.down("md")]: {
-            width: "90%",
-        },
-    },
-    cartItemContainer: {
-        width: "100%",
-        boxSizing: "border-box",
-        padding: theme.spacing(2),
-        backdropFilter: "blur(23px)",
-        boxShadow: "0px 3px 20px #0000001A",
-        borderRadius: "5px",
-        marginBottom: theme.spacing(3),
-    },
-    // bottomContent: {
-    //     marginTop: theme.spacing(1.5),
-    //     backgroundColor: theme.design.colors.waz_white,
-    //     borderRadius: "5px",
-    //     padding: theme.spacing(3),
-    //     fontFamily: theme.design.font.montserrat,
-    // },
-    // dishOptionTitleContainer: {
-    //     display: "flex",
-    //     justifyContent: "space-between",
-    //     alignItems: "center",
-    // },
-    // dishOptionTitle: {
-    //     color: theme.design.colors.waz_greyColor600,
-    //     fontSize: theme.typography.fontSize + 2,
-    //     fontWeight: theme.typography.fontWeightMedium,
-    //     marginBottom: theme.spacing(1),
-    // },
-    // dishOptionSubText: {
-    //     color: theme.design.colors.waz_greyColor600,
-    //     fontSize: theme.typography.fontSize,
-    // },
-    // requiredTag: {
-    //     fontSize: theme.typography.fontSize - 2,
-    //     padding: theme.spacing(1, 1.5),
-    //     background: "#0259391A",
-    //     color: theme.design.colors.waz_greyColor400,
-    //     textTransform: "uppercase",
-    //     borderRadius: "43px",
-    // },
-    // dishOptions: {
-    //     maxHeight: "304px",
-    //     overflowY: "scroll",
-    //     msOverflowStyle: "none",
-    //     scrollbarWidth: "none",
-    //     "&::-webkit-scrollbar": {
-    //         display: "none",
-    //     },
-    // },
-    // dishOptionContainer: {
-    //     marginBottom: theme.spacing(4),
-    // },
-    // dishOptionItemContainer: {
-    //     marginTop: theme.spacing(2.5),
-    // },
-    // dishOptionItem: {
-    //     display: "flex",
-    //     justifyContent: "space-between",
-    //     alignItems: "center",
-    //     marginBottom: theme.spacing(2.5),
-    // },
-    // dishOptionItemTitleContainer: {
-    //     display: "flex",
-    //     justifyContent: "center",
-    //     alignItems: "center",
-    //     gap: "25px",
-    // },
-    // dishOptionItemTitle: {
-    //     fontSize: theme.typography.fontSize + 2,
-    //     color: theme.design.colors.waz_greyColor600,
-    // },
-    // dishOptionItemPrice: {
-    //     color: theme.design.colors.waz_primaryColor200,
-    //     fontSize: theme.typography.fontSize + 2,
-    // },
-    // radioInput: {
-    //     color: theme.design.colors.waz_orangeColor100,
-    //     padding: theme.spacing(0),
-    //     "&.Mui-checked": {
-    //         color: theme.design.colors.waz_orangeColor100,
-    //     },
-    //     "& span": {
-    //         "& svg:first-child": {
-    //             width: "24px",
-    //             height: "24px",
-    //         },
 
-    //         "& svg": {
-    //             width: "100%",
-    //             height: "100%",
-    //         },
-    //     },
-    // },
-    // addToCartBtnContainer: {
-    //     padding: theme.spacing(2, 1, 0),
-    // },
+        "&::-webkit-scrollbar-thumb": {
+            background: 'rgba(0,0,0,0.25)',
+        },
+
+        "&::-webkit-scrollbar-track": {
+            background: 'rgba(0,0,0,0.01)',
+        }
+    },
+    dialogButtonContainer: {
+        position: 'sticky',
+        bottom: 0,
+        background: theme.design.colors.waz_white,
+    },
+    dialogButton: {
+        width: '100%',
+        padding: theme.spacing(1, 0),
+        fontSize: theme.typography.fontSize + 2,
+    }
 }));
