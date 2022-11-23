@@ -91,22 +91,22 @@ export const useGetMbmcBlocks = () => {
                         heading: "Baking",
                         description:
                             "Lorem ips um dolor sit amet, consetetur sadipscin g elitr, sed diam nonumy eirmod.",
-                        image: "https://sytbuildr.s3.eu-west-2.amazonaws.com/zdpk0U95fFJNVodRZxpIYk6hMIJYReitDX4R7RX4.png",
+                        image: "https://sytbuildr.s3.eu-west-2.amazonaws.com/images/mbmc/bake.webp",
                     },
                     {
                         heading: "Private Dining",
                         description:
                             "Lorem ips um dolor sit amet, consetetur sadipscin g elitr, sed diam nonumy eirmod.",
-                        image: "https://sytbuildr.s3.eu-west-2.amazonaws.com/zdpk0U95fFJNVodRZxpIYk6hMIJYReitDX4R7RX4.png",
+                        image: "https://sytbuildr.s3.eu-west-2.amazonaws.com/images/mbmc/tablevase.webp",
                     },
                     {
                         heading: "Cocktail & Mocktail",
                         description:
                             "Lorem ips um dolor sit amet, consetetur sadipscin g elitr, sed diam nonumy eirmod.",
-                        image: "https://sytbuildr.s3.eu-west-2.amazonaws.com/zdpk0U95fFJNVodRZxpIYk6hMIJYReitDX4R7RX4.png",
+                        image: "https://sytbuildr.s3.eu-west-2.amazonaws.com/images/mbmc/drink.webp",
                     },
                 ],
-                
+
                 mode: "edit",
                 index: 0,
                 handleClick: (route: string) => alert(route),
@@ -124,7 +124,7 @@ export const useGetMbmcBlocks = () => {
                     url: "#",
                 },
                 index: 0,
-                activeElement: '0.links.1.links.1',
+                activeElement: "0.links.1.links.1",
                 mode: "edit",
                 handleClick: (route: string) => alert(route),
                 links: [
@@ -185,7 +185,7 @@ export const useGetMbmcBlocks = () => {
                             {
                                 text: "@mrbakerandmrscook",
                                 url: "#",
-                                icon: "instagram"
+                                icon: "instagram",
                             },
                         ],
                     },
@@ -201,8 +201,12 @@ export const useGetMbmcBlocks = () => {
                 description: `Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed 
                 diam nonumy eirmod tempor invidunt ut labore et dolore a….`,
                 menu_uuid: "5a8b64b3-2fe7-4204-b23a-87dd6539d311",
-                integratedService: 'AMBROSIA',
-                services: { AMBROSIA: 'https://ofambegbe-ambrosia.wazobia.uk/graphql', NICODEMUS: '', MUSE: '' },
+                integratedService: "AMBROSIA",
+                services: {
+                    AMBROSIA: "https://ofambegbe-ambrosia.wazobia.uk/graphql",
+                    NICODEMUS: "",
+                    MUSE: "",
+                },
                 mode: "edit",
                 index: 0,
                 activeElement: "0.menu_uuid",
@@ -231,15 +235,15 @@ export const useGetMbmcBlocks = () => {
                 description: `Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod
                 tempor invidunt ut labore et dolore a….`,
                 images: [
-                    "https://sytbuildr.s3.eu-west-2.amazonaws.com/zdpk0U95fFJNVodRZxpIYk6hMIJYReitDX4R7RX4.png",
-                    "https://sytbuildr.s3.eu-west-2.amazonaws.com/zdpk0U95fFJNVodRZxpIYk6hMIJYReitDX4R7RX4.png",
-                    "https://sytbuildr.s3.eu-west-2.amazonaws.com/zdpk0U95fFJNVodRZxpIYk6hMIJYReitDX4R7RX4.png",
-                    "https://sytbuildr.s3.eu-west-2.amazonaws.com/zdpk0U95fFJNVodRZxpIYk6hMIJYReitDX4R7RX4.png",
-                    "https://sytbuildr.s3.eu-west-2.amazonaws.com/zdpk0U95fFJNVodRZxpIYk6hMIJYReitDX4R7RX4.png",
-                    "https://sytbuildr.s3.eu-west-2.amazonaws.com/zdpk0U95fFJNVodRZxpIYk6hMIJYReitDX4R7RX4.png",
-                    "https://sytbuildr.s3.eu-west-2.amazonaws.com/zdpk0U95fFJNVodRZxpIYk6hMIJYReitDX4R7RX4.png",
-                    "https://sytbuildr.s3.eu-west-2.amazonaws.com/zdpk0U95fFJNVodRZxpIYk6hMIJYReitDX4R7RX4.png",
-                    "https://sytbuildr.s3.eu-west-2.amazonaws.com/zdpk0U95fFJNVodRZxpIYk6hMIJYReitDX4R7RX4.png",
+                    "https://sytbuildr.s3.eu-west-2.amazonaws.com/images/mbmc/img.png",
+                    "https://sytbuildr.s3.eu-west-2.amazonaws.com/images/mbmc/img.png",
+                    "https://sytbuildr.s3.eu-west-2.amazonaws.com/images/mbmc/img.png",
+                    "https://sytbuildr.s3.eu-west-2.amazonaws.com/images/mbmc/img.png",
+                    "https://sytbuildr.s3.eu-west-2.amazonaws.com/images/mbmc/img.png",
+                    "https://sytbuildr.s3.eu-west-2.amazonaws.com/images/mbmc/img.png",
+                    "https://sytbuildr.s3.eu-west-2.amazonaws.com/images/mbmc/img.png",
+                    "https://sytbuildr.s3.eu-west-2.amazonaws.com/images/mbmc/img.png",
+                    "https://sytbuildr.s3.eu-west-2.amazonaws.com/images/mbmc/img.png",
                 ],
             },
         },
@@ -303,7 +307,7 @@ export const useGetMbmcBlocks = () => {
                 ],
                 mode: "edit",
                 index: 0,
-                activeElement: '0.cards.6.name',
+                activeElement: "0.cards.6.name",
                 handleClick: (element: string) => alert(element),
             },
         },
@@ -317,13 +321,13 @@ export const useGetMbmcBlocks = () => {
                     "Lorem ipsum dolor sit amet, consetetur sadipscing eli tr, sed diam nonumy eirmod tempor invidunt ut lab",
                 steps: [
                     {
-                        heading: "Pick your favourite1",
+                        heading: "Pick your favourite",
                         description:
                             "Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam",
                         image: "https://sytbuildr.s3.eu-west-2.amazonaws.com/images/mbmc/step1.svg",
                     },
                     {
-                        heading: "Expertly prepared2",
+                        heading: "Expertly prepared",
                         description:
                             "Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam",
                         image: "https://sytbuildr.s3.eu-west-2.amazonaws.com/images/mbmc/step2.svg",
@@ -343,7 +347,7 @@ export const useGetMbmcBlocks = () => {
                 ],
                 mode: "edit",
                 index: 0,
-                activeElement: '0.steps.1.heading',
+                activeElement: "0.steps.1.heading",
                 handleClick: (element: string) => alert(element),
             },
         },
@@ -366,9 +370,9 @@ export const useGetMbmcBlocks = () => {
                         image: "https://sytbuildr.s3.eu-west-2.amazonaws.com/images/mbmc/deliveryIcon.svg",
                     },
                 ],
-                mode: 'edit',
+                mode: "edit",
                 index: 0,
-                activeElement: '0.tags.0.text',
+                activeElement: "0.tags.0.text",
                 handleClick: (route: string) => alert(route),
             },
         },
@@ -441,12 +445,12 @@ export const useGetMbmcBlocks = () => {
                 ctas: [
                     {
                         text: "Order now",
-                        variant: 'NEUTRAL'
+                        variant: "NEUTRAL",
                     },
                 ],
                 mode: "edit",
                 index: 0,
-                activeElement: '0.ctas.0',
+                activeElement: "0.ctas.0",
                 numCartItems: 5,
                 handleClick: (route: string) => alert(route),
             },

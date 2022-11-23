@@ -108,8 +108,15 @@ export var useMbmcBlock16Styles = makeStyles(function (theme) {
                 width: "90%",
             },
             _e),
-        cartItemContainer: {
+        root: {
+            height: "100vh",
+            overflow: "hidden",
             background: "#bbbbbb 0% 0% no-repeat padding-box",
+            display: "flex",
+            alignItems: "center",
+            justifyContent: "center"
+        },
+        cartItemContainer: {
             width: "100%",
             boxSizing: "border-box",
             padding: theme.spacing(2),

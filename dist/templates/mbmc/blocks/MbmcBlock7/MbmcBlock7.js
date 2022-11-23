@@ -12,8 +12,9 @@ var __assign = (this && this.__assign) || function () {
 import { jsx as _jsx, jsxs as _jsxs } from "react/jsx-runtime";
 import { useMbmcBlock7Styles } from "./styles";
 import clx from "classnames";
+import { ImageComponent } from "core";
 export var MbmcBlock7 = function (_a) {
     var heading = _a.heading, description = _a.description, images = _a.images;
     var classes = useMbmcBlock7Styles();
-    return (_jsxs("div", __assign({ className: classes.root }, { children: [_jsxs("div", __assign({ className: classes.headerContent }, { children: [_jsx("h3", __assign({ className: classes.headerTitle }, { children: heading }), void 0), _jsx("p", __assign({ className: classes.headerDescription }, { children: description }), void 0)] }), void 0), _jsx("div", __assign({ className: classes.mobileCardContainer }, { children: images === null || images === void 0 ? void 0 : images.map(function (image, idx) { return (_jsx("img", { src: image, className: clx(classes.mobileImageContainer) }, idx)); }) }), void 0)] }), void 0));
+    return (_jsxs("div", __assign({ className: classes.root }, { children: [_jsxs("div", __assign({ className: classes.headerContent }, { children: [_jsx("h3", __assign({ className: classes.headerTitle }, { children: heading }), void 0), _jsx("p", __assign({ className: classes.headerDescription }, { children: description }), void 0)] }), void 0), _jsx("div", __assign({ className: classes.mobileCardContainer }, { children: images === null || images === void 0 ? void 0 : images.map(function (image, idx) { return (_jsx(ImageComponent, { src: image, className: clx(classes.imageContainer) }, idx)); }) }), void 0)] }), void 0));
 };

@@ -32,8 +32,8 @@ export var useCartItemCardStyles = makeStyles(function (theme) {
             width: "60%",
         },
         cartItemImg: {
-            minWidth: "100%",
-            minHeight: "100%",
+            width: "100%",
+            height: "100%",
             flexShrink: 0,
             borderRadius: "5px",
         },
