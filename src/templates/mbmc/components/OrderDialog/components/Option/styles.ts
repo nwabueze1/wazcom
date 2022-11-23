@@ -22,6 +22,12 @@ export const useOptionStyles = makeStyles<Theme>((theme: Theme) => ({
     optionHelperText: {
         fontSize: theme.typography.fontSize,
         marginBottom: theme.spacing(1),
+
+        [theme.breakpoints.down("sm")]: {
+            fontSize: theme.typography.fontSize - 1,
+            lineHeight: 1.6,
+            width: '80%',
+        },
     },
     optionRequired: {
         padding: theme.spacing(1, 1.5),

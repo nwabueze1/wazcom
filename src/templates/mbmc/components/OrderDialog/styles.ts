@@ -14,6 +14,19 @@ export const useMbmcBlock16Styles = makeStyles((theme: Theme) => ({
         background: 'rgba(255, 255, 255, 0.9)',
         padding: theme.spacing(2),
         borderRadius: 5,
+
+        [theme.breakpoints.down("lg")]: {
+            width: "50%",
+        },
+
+        
+        [theme.breakpoints.down("lg")]: {
+            width: "70%",
+        },
+        
+        [theme.breakpoints.down("md")]: {
+            width: "90%",
+        },
     },
     topContent: {
         display: "flex",
@@ -42,8 +55,9 @@ export const useMbmcBlock16Styles = makeStyles((theme: Theme) => ({
         fontFamily: theme.design.font.lostaMasta,
         fontWeight: theme.typography.fontWeightMedium,
         marginBottom: theme.spacing(1),
+
         [theme.breakpoints.down("md")]: {
-            fontFamily: theme.design.font.montserrat,
+            fontSize: theme.typography.fontSize + 2,
         },
     },
     description: {
@@ -51,6 +65,8 @@ export const useMbmcBlock16Styles = makeStyles((theme: Theme) => ({
         color: theme.design.colors.waz_greyColor600,
         fontSize: theme.typography.fontSize,
         fontFamily: theme.design.font.montserrat,
+        lineHeight: 1.7,
+
         [theme.breakpoints.down("md")]: {
             color: "black",
         },

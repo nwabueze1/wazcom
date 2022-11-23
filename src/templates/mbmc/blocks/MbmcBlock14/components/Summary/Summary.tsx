@@ -1,4 +1,4 @@
-import { useContext } from "react";
+import { useContext, FC } from "react";
 import { MbmcButton } from "../../../../components";
 import clx from "classnames";
 import { useSummaryStyles } from "./styles";
@@ -6,8 +6,9 @@ import { RestaurantContext } from "../../../../contexts";
 import { getCurrency } from "utilities";
 import { CoreCartFields } from "../../../../models";
 import { calculateCartSubTotal } from "../../helpers";
+import { SummaryProps } from "./types";
 
-export const Summary = () => {
+export const Summary: FC<SummaryProps> = ({ handleCheckout }) => {
     const { cart } = useContext(RestaurantContext);
     const classes = useSummaryStyles();
     const currency = getCurrency(cart?.currency ?? "");
@@ -41,7 +42,7 @@ export const Summary = () => {
                     {subTotal + deliveryFee}
                 </p>
             </div>
-            <MbmcButton variant="SECONDARY" size="sm" className={classes.summaryButton}>
+            <MbmcButton variant="SECONDARY" size="sm" handleClick={handleCheckout} className={classes.summaryButton}>
                 Checkout
             </MbmcButton>
         </div>

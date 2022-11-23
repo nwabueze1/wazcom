@@ -454,7 +454,7 @@ export const useGetMbmcBlocks = () => {
             component: MbmcBlock14,
             props: {
                 style: "mbmc",
-                services: { AMBROSIA: 'https://ofambegbe-ambrosia.wazobia.uk/graphql', NICODEMUS: '', MUSE: '' },
+                services: { AMBROSIA: 'https://ofambegbe-ambrosia.wazobia.uk/graphql', NICODEMUS: 'https://ofambegbe-nicodemus.wazobia.uk/graphql', MUSE: '' },
                 integratedServices: ['AMBROSIA', 'NICODEMUS'],
                 site_uuid: '896466aa-bacc-4817-b577-436a52540eff',
             },

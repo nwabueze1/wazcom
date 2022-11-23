@@ -24,4 +24,9 @@ export const useMbmcBlock14Styles = makeStyles((theme: Theme) => ({
             display: "none",
         },
     },
+    block14Loader: {
+        position: 'fixed',
+        right: '50px',
+        bottom: '50px',
+    }
 }));

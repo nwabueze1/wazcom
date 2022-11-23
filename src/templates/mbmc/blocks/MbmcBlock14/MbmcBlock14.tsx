@@ -2,6 +2,7 @@ import React, { useMemo, useState, useEffect } from "react";
 import { ApolloClient, NormalizedCacheObject, useLazyQuery } from "@apollo/client";
 import Cookies from "universal-cookie";
 import { useMbmcBlock14Styles } from "./styles";
+import { CircularProgress } from "@mui/material";
 import { CartItems, Checkout, EmptyCart, Loader } from "./components";
 import { RestaurantContext, RestaurantContextProps } from "../../contexts";
 import { MbmcBlock14Props } from "./types";
@@ -72,6 +73,14 @@ export const MbmcBlock14: React.FC<MbmcBlock14Props> = ({
                     <Checkout />
                 </div>
             </div>
+            {contextData?.loading &&
+                contextData?.networkOperation === "update.cart-item.quantity" && (
+                    <CircularProgress
+                        size="25px"
+                        color="success"
+                        className={classes.block14Loader}
+                    />
+                )}
         </RestaurantContext.Provider>
     );
 };

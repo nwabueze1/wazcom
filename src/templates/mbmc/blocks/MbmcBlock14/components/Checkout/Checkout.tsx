@@ -10,14 +10,26 @@ export const Checkout = () => {
     const steps = [
         {
             name: "Summary",
-            StepComponent: <Summary />,
+            StepComponent: (
+                <Summary
+                    handleCheckout={() => {
+                        setActiveStep(1);
+                    }}
+                />
+            ),
             handleEdit: () => {
                 setActiveStep(0);
             },
         },
         {
             name: "Delivery Details",
-            StepComponent: <Delivery />,
+            StepComponent: (
+                <Delivery
+                    onSubmission={() => {
+                        setActiveStep(2);
+                    }}
+                />
+            ),
             handleEdit: () => {
                 setActiveStep(1);
             },
@@ -32,7 +44,10 @@ export const Checkout = () => {
     ];
 
     const displaySteps = useCallback(
-        () => steps.map((step, index) => <CheckoutStep key={index} {...step} isActive={activeStep === index} />),
+        () =>
+            steps.map((step, index) => (
+                <CheckoutStep key={index} {...step} isActive={activeStep === index} />
+            )),
         [activeStep],
     );
 
