@@ -42,7 +42,7 @@ export const MbmcBlock61: FC<MbmcBlock61Props> = ({
                 menu: { activeMenuCategories: menuCategories, activeMenuItems: menuItems, ...rest },
             } = data;
             const menu = { menuCategories, menuItems, ...rest };
-            setContextData({ menu, client });
+            setContextData({ menu, clients: { [integratedService]: client } });
             menuCategories.length > 0 && setActiveCategory(menuCategories[0]);
         }
 

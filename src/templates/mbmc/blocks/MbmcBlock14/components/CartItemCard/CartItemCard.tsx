@@ -5,22 +5,18 @@ import AddRoundedIcon from "@mui/icons-material/AddRounded";
 import DeleteIcon from "@mui/icons-material/Delete";
 import { CoreCartFields_cartItems } from "../../../../models";
 import { getCurrency } from "../../../../../../utilities";
+import { useUpdateCartItemQuantity } from "../../hooks";
 
-export const CartItemCard: React.FC<CoreCartFields_cartItems & { currency: string, amount: number }> = ({
-    uuid,
-    amount,
-    quantity,
-    detail,
-    options,
-    menuItem,
-    currency: currencyId
-}) => {
+export const CartItemCard: React.FC<
+    CoreCartFields_cartItems & { currency: string; amount: number }
+> = ({ uuid, amount, quantity, detail, options, menuItem, currency: currencyId }) => {
     const classes = useCartItemCardStyles();
     const currency = getCurrency(currencyId);
+    const updateCartItemQuantity = useUpdateCartItemQuantity();
 
-    const handleIncrement = () => {};
-
-    const handleDecrement = () => {};
+    const handleQuantityChange = async (quantity: number) => {
+        await updateCartItemQuantity({ uuid: uuid as string, quantity });
+    };
 
     return (
         <div className={classes.root}>
@@ -35,14 +31,27 @@ export const CartItemCard: React.FC<CoreCartFields_cartItems & { currency: strin
                     <p className={classes.description}>{detail}</p>
                     <div className={classes.priceContainer}>
                         <div className={classes.price}>
-                            <p>{currency}{amount}</p>
+                            <p>
+                                {currency}
+                                {amount}
+                            </p>
                         </div>
                         <div className={classes.quantityCountContainer}>
-                            <div className={classes.quantityButton} onClick={handleDecrement}>
+                            <div
+                                className={classes.quantityButton}
+                                onClick={() => {
+                                    handleQuantityChange(Number(quantity) - 1);
+                                }}
+                            >
                                 <RemoveRoundedIcon className={classes.operationIcon} />
                             </div>
                             <div>{quantity}</div>
-                            <div className={classes.quantityButton} onClick={handleIncrement}>
+                            <div
+                                className={classes.quantityButton}
+                                onClick={() => {
+                                    handleQuantityChange(Number(quantity) + 1);
+                                }}
+                            >
                                 <AddRoundedIcon className={classes.operationIcon} />
                             </div>
                         </div>
@@ -50,7 +59,12 @@ export const CartItemCard: React.FC<CoreCartFields_cartItems & { currency: strin
                 </div>
             </div>
             <div className={classes.bottomContent}>
-                <div className={`${classes.deleteButton}`}>
+                <div
+                    className={classes.deleteButton}
+                    onClick={() => {
+                        handleQuantityChange(0);
+                    }}
+                >
                     <DeleteIcon className={classes.deleteIcon} />
                 </div>
             </div>

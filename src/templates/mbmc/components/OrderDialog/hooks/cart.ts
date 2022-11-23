@@ -6,14 +6,16 @@ import { CREATE_CART, CREATE_CART_ITEM } from "../graphql";
 import { TAddToCartVariables } from "./types";
 
 export const useCreateCart = () => {
-    const { menu, client } = useContext(RestaurantContext);
+    const { menu, clients } = useContext(RestaurantContext);
     const cookies = new Cookies();
 
     return async () => {
         const cartCookie: { [key: string]: string } = cookies.get("cart") ?? {};
         const siteUuid = menu?.restaurant?.site_uuid as string;
         const currency = menu?.restaurant?.bank_info?.currency as string;
-        const { data, errors } = await (client as ApolloClient<NormalizedCacheObject>).mutate({
+        const { data, errors } = await (
+            clients?.AMBROSIA as ApolloClient<NormalizedCacheObject>
+        ).mutate({
             mutation: CREATE_CART,
             variables: { site_uuid: siteUuid, currency },
         });
@@ -32,7 +34,7 @@ export const useCreateCart = () => {
 };
 
 export const useAddToCart = () => {
-    const { menu, client, setContext } = useContext(RestaurantContext);
+    const { menu, clients, setContext } = useContext(RestaurantContext);
     const cookies = new Cookies();
     const createCart = useCreateCart();
 
@@ -46,7 +48,9 @@ export const useAddToCart = () => {
             if (!cartCookie || !cartCookie[siteUuid]) cartUuid = await createCart();
             else cartUuid = cartCookie[siteUuid];
 
-            const { data, errors } = await (client as ApolloClient<NormalizedCacheObject>).mutate({
+            const { data, errors } = await (
+                clients?.AMBROSIA as ApolloClient<NormalizedCacheObject>
+            ).mutate({
                 mutation: CREATE_CART_ITEM,
                 variables: { ...variables, cart_uuid: cartUuid },
             });

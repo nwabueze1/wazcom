@@ -455,7 +455,7 @@ export const useGetMbmcBlocks = () => {
             props: {
                 style: "mbmc",
                 services: { AMBROSIA: 'https://ofambegbe-ambrosia.wazobia.uk/graphql', NICODEMUS: '', MUSE: '' },
-                integratedService: 'AMBROSIA',
+                integratedServices: ['AMBROSIA', 'NICODEMUS'],
                 site_uuid: '896466aa-bacc-4817-b577-436a52540eff',
             },
         },
