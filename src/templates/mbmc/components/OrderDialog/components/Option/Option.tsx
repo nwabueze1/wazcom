@@ -76,9 +76,9 @@ export const Option: FC<OptionProps> = ({
             );
             const picker =
                 type === "selection" ? (
-                    <RadioButtonInput value={isChecked} className={classes.optionPicker} />
+                    <RadioButtonInput value={isChecked} classNames={{ radioButtonInput: classes.optionPicker }} />
                 ) : (
-                    <CheckBoxInput value={isChecked} className={classes.optionPicker} />
+                    <CheckBoxInput value={isChecked} classNames={{ checkBoxInput: classes.optionPicker }} />
                 );
 
             return (

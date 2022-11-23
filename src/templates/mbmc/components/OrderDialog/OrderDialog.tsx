@@ -9,12 +9,14 @@ import { RestaurantContext } from "../../contexts";
 import { Modal } from "../../../../core";
 import { Options } from "./components";
 import { calculateOptionsTotal } from "./helpers";
+import { useAddToCart } from "./hooks";
 
 export const OrderDialog: FC<OrderDialogProps> = ({ itemUuid, handleClose }) => {
-    const { menu } = useContext(RestaurantContext);
+    const { menu, loading } = useContext(RestaurantContext);
     const classes = useMbmcBlock16Styles();
     const [quantity, setQuantity] = useState<number>(1);
     const [selectedOptions, setSelectedOptions] = useState<Option[]>([]);
+    const addToCart = useAddToCart();
 
     const menuItem = useMemo(() => {
         if (!itemUuid) {
@@ -62,6 +64,15 @@ export const OrderDialog: FC<OrderDialogProps> = ({ itemUuid, handleClose }) => 
         menu?.restaurant?.bank_info?.currency ?? "",
     )}${calculateDishTotal()}`;
 
+    const handleAddToCart = async () => {
+        await addToCart({
+            menu_item_uuid: menuItem?.uuid as string,
+            quantity,
+            detail: menuItem?.description as string,
+            options: selectedOptions.length > 0 ? JSON.stringify(selectedOptions) : undefined,
+        }, handleClose);
+    };
+
     return (
         <Modal open={Boolean(itemUuid)} handleClose={handleClose}>
             <div className={classes.root}>
@@ -78,21 +89,21 @@ export const OrderDialog: FC<OrderDialogProps> = ({ itemUuid, handleClose }) => 
                             <div className={classes.priceContainer}>
                                 <p className={classes.price}>{price}</p>
                                 <div className={classes.quantityCountContainer}>
-                                    <div
+                                    <span
                                         className={`${classes.quantityButton} ${
                                             quantity == 1 && classes.disable
                                         }`}
                                         onClick={handleDecrement}
                                     >
                                         <RemoveRoundedIcon className={classes.operationIcon} />
-                                    </div>
-                                    <div>{quantity}</div>
-                                    <div
+                                    </span>
+                                    <span>{quantity}</span>
+                                    <span
                                         className={classes.quantityButton}
                                         onClick={handleIncrement}
                                     >
                                         <AddRoundedIcon className={classes.operationIcon} />
-                                    </div>
+                                    </span>
                                 </div>
                             </div>
                         </div>
@@ -110,6 +121,8 @@ export const OrderDialog: FC<OrderDialogProps> = ({ itemUuid, handleClose }) => 
                                 className={classes.dialogButton}
                                 variant="SECONDARY"
                                 size="sm"
+                                handleClick={handleAddToCart}
+                                loading={loading}
                             >
                                 Add to cart ({price})
                             </MbmcButton>

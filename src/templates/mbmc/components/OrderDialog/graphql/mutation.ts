@@ -4,7 +4,9 @@ export const CREATE_CART = gql`
     mutation GqlCreateCart($site_uuid: ID!, $currency: String!) {
         createCart(site_uuid: $site_uuid, currency: $currency) {
             id
+            uuid
             currency
+            expires
         }
     }
 `;

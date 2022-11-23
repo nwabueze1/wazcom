@@ -4,16 +4,10 @@ import makeStyles from "@mui/styles/makeStyles";
 export const useOptionStyles = makeStyles<Theme>((theme: Theme) => ({
     root: {
         width: "100%",
-        background: theme.design.colors.white,
-        // padding: theme.spacing(0, 3),
         boxSizing: "border-box",
         fontFamily: theme.design.font.montserrat,
         marginBottom: theme.spacing(2.5),
         color: theme.design.colors.waz_greyColor600,
-
-        "&.Mui-checked": {
-            color: `${theme.design.colors.waz_orangeColor100} !important`,
-        },
     },
     optionDescription: {
         display: "flex",
@@ -71,14 +65,15 @@ export const useOptionStyles = makeStyles<Theme>((theme: Theme) => ({
     optionPicker: {
         position: "relative",
         left: -10,
+
+        "&.Mui-checked": {
+            color: `${theme.design.colors.waz_orangeColor100} !important`,
+        },
     },
     optionHeader: {
         display: "flex",
         flexDirection: "row",
         width: "100%",
-    },
-    fieldType: {
-        marginLeft: "auto",
     },
     optionTitle: {
         fontSize: theme.typography.fontSize + 4,

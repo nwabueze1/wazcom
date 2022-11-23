@@ -5,6 +5,7 @@ import { CoreMenuFields } from "../models";
 export type RestaurantContextProps = {
     menu?: CoreMenuFields;
     client?: ApolloClient<NormalizedCacheObject>,
+    loading?: boolean,
     setContext?: (data: Omit<RestaurantContextProps, "setContext">) => void;
 };
 

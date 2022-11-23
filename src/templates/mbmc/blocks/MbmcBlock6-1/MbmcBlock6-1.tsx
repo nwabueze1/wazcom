@@ -7,12 +7,24 @@ import clx from "classnames";
 import { MbmcCard, OrderDialog } from "../../components";
 import { getCurrency } from "../../../../utilities";
 import { RestaurantContext, RestaurantContextProps } from "../../contexts";
+import { createApolloClient } from "../../../../helpers/graphQL";
 
-export const MbmcBlock61: FC<MbmcBlock61Props> = ({ heading, description, client, menu_uuid }) => {
+export const MbmcBlock61: FC<MbmcBlock61Props> = ({
+    heading,
+    description,
+    services,
+    integratedService,
+    menu_uuid,
+}) => {
     const classes = useMbmcBlock61Styles();
     const [contextData, setContextData] = useState<Omit<RestaurantContextProps, "setContext">>({});
     const [activeCategory, setActiveCategory] = useState<TMenuCategory>();
     const [itemUuid, setItemUuid] = useState<string>();
+    const client = useMemo(
+        () => createApolloClient(services ? services[integratedService] : ""),
+        [],
+    );
+
     const { data, error } = useQuery(GET_MENU_BY_UUID, { client, variables: { uuid: menu_uuid } });
     const { menu } = contextData;
 
@@ -30,7 +42,7 @@ export const MbmcBlock61: FC<MbmcBlock61Props> = ({ heading, description, client
                 menu: { activeMenuCategories: menuCategories, activeMenuItems: menuItems, ...rest },
             } = data;
             const menu = { menuCategories, menuItems, ...rest };
-            setContextData({ menu });
+            setContextData({ menu, client });
             menuCategories.length > 0 && setActiveCategory(menuCategories[0]);
         }
 
@@ -82,8 +94,12 @@ export const MbmcBlock61: FC<MbmcBlock61Props> = ({ heading, description, client
         setActiveCategory(category);
     };
 
+    const updateContext = (variables: Omit<RestaurantContextProps, "setContext">) => {
+        setContextData({ ...contextData, ...variables });
+    };
+
     return (
-        <RestaurantContext.Provider value={{ ...contextData }}>
+        <RestaurantContext.Provider value={{ ...contextData, setContext: updateContext }}>
             <div className={classes.root}>
                 <div className={classes.block61Container}>
                     <h3 className={classes.block61Title}>{heading}</h3>
