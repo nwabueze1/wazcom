@@ -3,7 +3,7 @@ import { useQuery } from "@apollo/client";
 import { GET_PAYMENT_METHODS } from "./graphql";
 import { PaymentMethod } from "./types";
 import { CircularProgress } from "@mui/material";
-import { PaymentOption } from "../../../../components";
+import { PaymentOption, MbmcButton } from "../../../../components";
 import { paymentMethodConfig } from "./helpers";
 import { usePaymentStyles } from "./styles";
 import { RestaurantContext } from "../../../../contexts";
@@ -48,5 +48,12 @@ export const Payment = () => {
             </div>
         );
 
-    return <div className={classes.root}>{displayPaymentMethods()}</div>;
+    return (
+        <div className={classes.root}>
+            {displayPaymentMethods()}
+            <MbmcButton variant="SECONDARY" size="sm" className={classes.paymentButton}>
+                Pay now
+            </MbmcButton>
+        </div>
+    );
 };

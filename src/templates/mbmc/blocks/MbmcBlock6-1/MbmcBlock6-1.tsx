@@ -86,6 +86,7 @@ export const MbmcBlock61: FC<MbmcBlock61Props> = ({
                 className={classes.block61Item}
                 handleClick={(route: string) => {
                     setItemUuid(uuid);
+                    console.log(route);
                 }}
             />
         ));

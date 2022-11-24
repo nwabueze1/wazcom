@@ -12,7 +12,7 @@ export const PaymentOption: React.FC<PaymentOptionProps> = ({
 }) => {
     const classes = usePaymentOptionStyles();
     return (
-        <div className={classes.paymentDetail}>
+        <div className={classes.root}>
             <div className={classes.optionDetails}>
                 <div className={classes.paymentOptionItem}>
                     <img src={img} alt={name} className={classes.paymentImage} />

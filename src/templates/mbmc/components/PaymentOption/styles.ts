@@ -2,6 +2,15 @@ import { Theme } from "@mui/material";
 import { makeStyles } from "@mui/styles";
 
 export const usePaymentOptionStyles = makeStyles((theme: Theme) => ({
+    root: {
+        backgroundColor: theme.design.colors.waz_white,
+        borderRadius: "100px",
+        display: "flex",
+        justifyContent: "space-between",
+        padding: theme.spacing(0, 1, 0, 2),
+        border: `solid 1px ${theme.design.colors.waz_greyColor150}`,
+        marginBottom: theme.spacing(3),
+    },
     paymentOptionItem: {
         display: "flex",
         alignItems: "center",
@@ -39,13 +48,5 @@ export const usePaymentOptionStyles = makeStyles((theme: Theme) => ({
     optionDetails: {
         display: "flex",
         alignItems: "center",
-    },
-    paymentDetail: {
-        backgroundColor: theme.design.colors.waz_white,
-        borderRadius: "100px",
-        display: "flex",
-        justifyContent: "space-between",
-        padding: theme.spacing(0, 1, 0, 2),
-        border: `solid 1px ${theme.design.colors.waz_greyColor150}`,
     },
 }));

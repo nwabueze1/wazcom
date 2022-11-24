@@ -25,10 +25,10 @@ export var useButtonStyles = makeStyles(function (theme) {
             fontSize: theme.typography.fontSize,
         },
         buttonPrimary: {
-            background: theme.design.colors.waz_orangeColor100,
+            background: "".concat(theme.design.colors.waz_orangeColor100, " !important"),
         },
         buttonSecondary: {
-            background: theme.design.colors.waz_primaryColor200,
+            background: "".concat(theme.design.colors.waz_primaryColor200, " !important"),
         },
         buttonNeutral: {
             background: theme.design.colors.waz_white,

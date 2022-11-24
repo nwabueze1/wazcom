@@ -9,6 +9,17 @@ var __assign = (this && this.__assign) || function () {
     };
     return __assign.apply(this, arguments);
 };
+var __rest = (this && this.__rest) || function (s, e) {
+    var t = {};
+    for (var p in s) if (Object.prototype.hasOwnProperty.call(s, p) && e.indexOf(p) < 0)
+        t[p] = s[p];
+    if (s != null && typeof Object.getOwnPropertySymbols === "function")
+        for (var i = 0, p = Object.getOwnPropertySymbols(s); i < p.length; i++) {
+            if (e.indexOf(p[i]) < 0 && Object.prototype.propertyIsEnumerable.call(s, p[i]))
+                t[p[i]] = s[p[i]];
+        }
+    return t;
+};
 var __read = (this && this.__read) || function (o, n) {
     var m = typeof Symbol === "function" && o[Symbol.iterator];
     if (!m) return o;
@@ -31,63 +42,63 @@ import { useQuery } from "@apollo/client";
 import { useMbmcBlock61Styles } from "./styles";
 import { GET_MENU_BY_UUID } from "./graphql";
 import clx from "classnames";
-import { MbmcCard } from "../../../../templates/mbmc/components/MbmcCard";
-import { Modal } from "../../../../core";
-import MbmcBlock16 from "../MbmcBlock16/MbmcBlock16";
+import { MbmcCard, OrderDialog } from "../../components";
 import { getCurrency } from "../../../../utilities";
+import { RestaurantContext } from "../../contexts";
+import { createApolloClient } from "../../../../helpers/graphQL";
 export var MbmcBlock61 = function (_a) {
-    var _b, _c, _d, _e, _f;
-    var heading = _a.heading, description = _a.description, client = _a.client, menu_uuid = _a.menu_uuid;
+    var heading = _a.heading, description = _a.description, services = _a.services, integratedService = _a.integratedService, menu_uuid = _a.menu_uuid;
     var classes = useMbmcBlock61Styles();
-    var _g = __read(useState([]), 2), categories = _g[0], setCategories = _g[1];
-    var _h = __read(useState(), 2), activeCategory = _h[0], setActiveCategory = _h[1];
-    var _j = __read(useState([]), 2), items = _j[0], setItems = _j[1];
-    var _k = __read(useState([]), 2), optionsConfig = _k[0], setOptionsConfig = _k[1];
-    var _l = __read(useState(""), 2), currency = _l[0], setCurrency = _l[1];
-    var _m = __read(useState(), 2), activeMenu = _m[0], setActiveMenu = _m[1];
-    var _o = __read(useState(false), 2), openModal = _o[0], setOpenModal = _o[1];
+    var _b = __read(useState({}), 2), contextData = _b[0], setContextData = _b[1];
+    var _c = __read(useState(), 2), activeCategory = _c[0], setActiveCategory = _c[1];
+    var _d = __read(useState(), 2), itemUuid = _d[0], setItemUuid = _d[1];
+    var client = useMemo(function () { return createApolloClient(services ? services[integratedService] : ""); }, []);
+    var _e = useQuery(GET_MENU_BY_UUID, { client: client, variables: { uuid: menu_uuid } }), data = _e.data, error = _e.error;
+    var menu = contextData.menu;
     var categoryItems = useMemo(function () {
-        return items.filter(function (item) { var _a; return item.menuCategory.id.toString() === ((_a = activeCategory === null || activeCategory === void 0 ? void 0 : activeCategory.id) === null || _a === void 0 ? void 0 : _a.toString()); });
-    }, [activeCategory === null || activeCategory === void 0 ? void 0 : activeCategory.id, items]);
-    var _p = useQuery(GET_MENU_BY_UUID, { client: client, variables: { uuid: menu_uuid } }), data = _p.data, error = _p.error;
-    var handleOpenModal = function (id) {
-        setActiveMenu(id);
-        setOpenModal(true);
-    };
-    var handleCloseModal = function () {
-        setOpenModal(false);
-    };
+        var _a;
+        return (_a = menu === null || menu === void 0 ? void 0 : menu.menuItems) === null || _a === void 0 ? void 0 : _a.filter(function (item) { var _a, _b; return ((_a = item === null || item === void 0 ? void 0 : item.menuCategory) === null || _a === void 0 ? void 0 : _a.id.toString()) === ((_b = activeCategory === null || activeCategory === void 0 ? void 0 : activeCategory.id) === null || _b === void 0 ? void 0 : _b.toString()); });
+    }, [activeCategory === null || activeCategory === void 0 ? void 0 : activeCategory.id, menu === null || menu === void 0 ? void 0 : menu.menuItems]);
     useEffect(function () {
+        var _a;
         if (data) {
-            var _a = data.menu, categories_1 = _a.activeMenuCategories, items_1 = _a.activeMenuItems, options_config = _a.options_config, restaurant = _a.restaurant;
-            setCategories(categories_1);
-            setItems(items_1);
-            setOptionsConfig(options_config);
-            setCurrency(restaurant.bank_info.currency);
-            categories_1.length > 0 && setActiveCategory(categories_1[0]);
+            var _b = data.menu, menuCategories = _b.activeMenuCategories, menuItems = _b.activeMenuItems, rest = __rest(_b, ["activeMenuCategories", "activeMenuItems"]);
+            var menu_1 = __assign({ menuCategories: menuCategories, menuItems: menuItems }, rest);
+            setContextData({ menu: menu_1, clients: (_a = {}, _a[integratedService] = client, _a) });
+            menuCategories.length > 0 && setActiveCategory(menuCategories[0]);
         }
         if (error) {
             console.log(error);
         }
     }, [data, error]);
     var displayCategories = function () {
-        return categories.map(function (_a, index) {
+        var _a;
+        return (_a = menu === null || menu === void 0 ? void 0 : menu.menuCategories) === null || _a === void 0 ? void 0 : _a.map(function (_a, index) {
             var _b;
             var title = _a.title, id = _a.id;
             return (_jsx("div", __assign({ className: clx(classes.block61Category, id.toString() === ((_b = activeCategory === null || activeCategory === void 0 ? void 0 : activeCategory.id) === null || _b === void 0 ? void 0 : _b.toString()) &&
                     classes.block61CategoryActive), onClick: function () {
-                    handleCategoryChange({ title: title, id: id });
+                    handleCategoryChange({ title: title, id: Number(id) });
                 } }, { children: title }), index));
         });
     };
     var displayItems = function () {
-        return categoryItems.map(function (_a, index) {
-            var name = _a.name, description = _a.description, image_url = _a.image_url, price = _a.price;
-            return (_jsx(MbmcCard, { heading: _jsxs("div", __assign({ className: classes.block61ItemHeading }, { children: [_jsx("p", { children: name }, void 0), " ", _jsxs("p", __assign({ className: classes.block61ItemPrice }, { children: [getCurrency(currency), price] }), void 0)] }), void 0), description: description, image: image_url, className: classes.block61Item, handleClick: function () { return handleOpenModal(index); } }, index));
+        return categoryItems === null || categoryItems === void 0 ? void 0 : categoryItems.map(function (_a, index) {
+            var _b, _c, _d;
+            var uuid = _a.uuid, name = _a.name, description = _a.description, image_url = _a.image_url, price = _a.price;
+            return (_jsx(MbmcCard, { heading: _jsxs("div", __assign({ className: classes.block61ItemHeading }, { children: [_jsx("p", { children: name }, void 0), " ", _jsxs("p", __assign({ className: classes.block61ItemPrice }, { children: [getCurrency((_d = (_c = (_b = menu === null || menu === void 0 ? void 0 : menu.restaurant) === null || _b === void 0 ? void 0 : _b.bank_info) === null || _c === void 0 ? void 0 : _c.currency) !== null && _d !== void 0 ? _d : ""), price] }), void 0)] }), void 0), description: description, image: image_url !== null && image_url !== void 0 ? image_url : "", className: classes.block61Item, handleClick: function (route) {
+                    setItemUuid(uuid);
+                    console.log(route);
+                } }, index));
         });
     };
     var handleCategoryChange = function (category) {
         setActiveCategory(category);
     };
-    return (_jsxs(_Fragment, { children: [_jsx("div", __assign({ className: classes.root }, { children: _jsxs("div", __assign({ className: classes.block61Container }, { children: [_jsx("h3", __assign({ className: classes.block61Title }, { children: heading }), void 0), _jsx("p", __assign({ className: classes.block61Description }, { children: description }), void 0), categoryItems.length > 0 && (_jsxs(_Fragment, { children: [_jsx("div", __assign({ className: classes.block61Categories }, { children: displayCategories() }), void 0), _jsx("div", __assign({ className: classes.block61Items }, { children: displayItems() }), void 0)] }, void 0))] }), void 0) }), void 0), _jsx(Modal, __assign({ open: openModal, handleClose: handleCloseModal }, { children: _jsx("div", __assign({ className: classes.modalContent }, { children: _jsx(MbmcBlock16, { name: (_b = categoryItems === null || categoryItems === void 0 ? void 0 : categoryItems[activeMenu]) === null || _b === void 0 ? void 0 : _b.name, description: (_c = categoryItems === null || categoryItems === void 0 ? void 0 : categoryItems[activeMenu]) === null || _c === void 0 ? void 0 : _c.description, price: (_d = categoryItems === null || categoryItems === void 0 ? void 0 : categoryItems[activeMenu]) === null || _d === void 0 ? void 0 : _d.price, image: (_e = categoryItems === null || categoryItems === void 0 ? void 0 : categoryItems[activeMenu]) === null || _e === void 0 ? void 0 : _e.image_url, currency: currency, options: (_f = categoryItems === null || categoryItems === void 0 ? void 0 : categoryItems[activeMenu]) === null || _f === void 0 ? void 0 : _f.options, optionsConfig: optionsConfig, handleAddToCart: function () { return console.log("add to cartt"); } }, void 0) }), void 0) }), void 0)] }, void 0));
+    var updateContext = function (variables) {
+        setContextData(__assign(__assign({}, contextData), variables));
+    };
+    return (_jsx(RestaurantContext.Provider, __assign({ value: __assign(__assign({}, contextData), { setContext: updateContext }) }, { children: _jsx("div", __assign({ className: classes.root }, { children: _jsxs("div", __assign({ className: classes.block61Container }, { children: [_jsx("h3", __assign({ className: classes.block61Title }, { children: heading }), void 0), _jsx("p", __assign({ className: classes.block61Description }, { children: description }), void 0), categoryItems && (categoryItems === null || categoryItems === void 0 ? void 0 : categoryItems.length) > 0 && (_jsxs(_Fragment, { children: [_jsx("div", __assign({ className: classes.block61Categories }, { children: displayCategories() }), void 0), _jsx("div", __assign({ className: classes.block61Items }, { children: displayItems() }), void 0)] }, void 0)), _jsx(OrderDialog, { itemUuid: itemUuid, handleClose: function () {
+                            setItemUuid(undefined);
+                        } }, void 0)] }), void 0) }), void 0) }), void 0));
 };

@@ -32,12 +32,15 @@ export type Feedback = {
 const TextFeedback: FC<{
     text: string;
     status: Feedback["status"];
-}> = ({ text, status }) => <Typography className={getFeedbackVariant(status)}>{text}</Typography>;
+    className?: string;
+}> = ({ text, status, className }) => (
+    <Typography className={clx(getFeedbackVariant(status), className)}>{text}</Typography>
+);
 
-export const displayFeedback = (feedback: Feedback) => {
+export const displayFeedback = (feedback: Feedback, className?: string) => {
     if (!isValidElement(feedback.text)) {
         return typeof feedback.text === "string" ? (
-            <TextFeedback status={feedback.status} text={feedback.text} />
+            <TextFeedback status={feedback.status} text={feedback.text} className={className} />
         ) : (
             (feedback.text as string[]).map((text: string, index: number) => (
                 <TextFeedback key={index} status={feedback.status} text={text} />

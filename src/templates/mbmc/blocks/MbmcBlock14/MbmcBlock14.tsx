@@ -2,7 +2,7 @@ import React, { useMemo, useState, useEffect } from "react";
 import { ApolloClient, NormalizedCacheObject, useLazyQuery } from "@apollo/client";
 import Cookies from "universal-cookie";
 import { useMbmcBlock14Styles } from "./styles";
-import { CartItems, Checkout, EmptyCart, Loader, Spinner } from "./components";
+import { CartItems, Checkout, EmptyCart, Loader } from "./components";
 import { RestaurantContext, RestaurantContextProps } from "../../contexts";
 import { MbmcBlock14Props } from "./types";
 import { createApolloClient } from "../../../../helpers/graphQL";
@@ -71,7 +71,6 @@ export const MbmcBlock14: React.FC<MbmcBlock14Props> = ({
                     <span className={classes.block14Divider} />
                     <Checkout />
                 </div>
-                <Spinner />
             </div>
         </RestaurantContext.Provider>
     );

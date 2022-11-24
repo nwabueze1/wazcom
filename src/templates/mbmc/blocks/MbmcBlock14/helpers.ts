@@ -17,6 +17,7 @@ export const calculateCartSubTotal = (cart: CoreCartFields, uuid?: string) => {
                 JSON.parse(item.options) as Option[],
                 Number(item?.quantity),
             );
+            subTotal += optionsTotal;
         }
     });
     return subTotal;

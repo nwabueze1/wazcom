@@ -1,4 +1,4 @@
-import React, { useState, useCallback } from "react";
+import { useState, useCallback } from "react";
 import { CheckoutStep } from "../CheckoutStep";
 import { Summary, Delivery, Payment } from "../";
 import { useCheckoutStyles } from "./styles";
