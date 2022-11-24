@@ -11,7 +11,7 @@ export const useMbmcBlock14Styles = makeStyles((theme: Theme) => ({
         gap: theme.spacing(8),
         boxSizing: "border-box",
         justifyContent: "space-between",
-        paddingTop: theme.spacing(8.5),
+        padding: theme.spacing(8.5, 0),
         maxWidth: 1240,
         width: "90%",
         margin: "0 auto",

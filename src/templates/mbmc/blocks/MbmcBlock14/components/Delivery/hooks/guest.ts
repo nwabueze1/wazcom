@@ -30,7 +30,7 @@ export const useUpdateGuest = () => {
             }
 
             const guest = data.updateGuest;
-            const updatedCart = { ...cart } as CoreCartFields;
+            const updatedCart = { ...cart, address: undefined } as CoreCartFields;
             updatedCart.guest = guest;
 
             isPickup && setContext?.({ loading: false, networkOperation: "", cart: updatedCart });
