@@ -26,7 +26,7 @@ export const MbmcBlock3: FC<MbmcBlock3Props> = ({
             <div className={classes.block3Container}>
                 <div className={classes.block3ImageContainer}>
                     <LazyImage
-                        src="https://sytbuildr.s3.eu-west-2.amazonaws.com/images/mbmc/heroFoodLabel.png"
+                        src="https://sytbuildr.s3.eu-west-2.amazonaws.com/images/mbmc/home/heroFoodLabel.webp"
                         className={classes.block3Image}
                     />
                 </div>
@@ -45,7 +45,7 @@ export const MbmcBlock3: FC<MbmcBlock3Props> = ({
                     </h3>
                     <div className={classes.block3ContentImageContainer}>
                         <img
-                            src="https://sytbuildr.s3.eu-west-2.amazonaws.com/images/mbmc/heroFood.png"
+                            src="https://sytbuildr.s3.eu-west-2.amazonaws.com/images/mbmc/home/hero-food.webp"
                             alt=""
                             className="hero"
                         />
