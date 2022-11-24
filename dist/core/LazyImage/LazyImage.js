@@ -36,7 +36,7 @@ var __read = (this && this.__read) || function (o, n) {
     }
     return ar;
 };
-import { jsx as _jsx, Fragment as _Fragment } from "react/jsx-runtime";
+import { jsx as _jsx } from "react/jsx-runtime";
 import { useEffect, useRef, useState } from "react";
 import clx from "classnames";
 import { useImageStyles } from "./styles";
@@ -82,5 +82,5 @@ export var LazyImage = function (_a) {
     }, []);
     return placeholder === "blur" ? (_jsx("img", __assign({}, props, { src: isVisible ? src : generatePlaceholderSrcUrl(blurDataurl, src), ref: imageRef, className: clx((_b = {},
             _b[classes.blur] = !isVisible,
-            _b), className, !isVisible && (classNames === null || classNames === void 0 ? void 0 : classNames.loadingPlaceholder)) }), void 0)) : isVisible ? (_jsx("img", __assign({}, props, { src: src, ref: imageRef, className: className }), void 0)) : (_jsx(_Fragment, {}, void 0));
+            _b), className, !isVisible && (classNames === null || classNames === void 0 ? void 0 : classNames.loadingPlaceholder)) }), void 0)) : (_jsx("img", __assign({}, props, { src: isVisible ? src : undefined, ref: imageRef, className: className }), void 0));
 };

@@ -70,9 +70,7 @@ export const LazyImage: React.FC<ImageProps> = ({
                 !isVisible && classNames?.loadingPlaceholder,
             )}
         />
-    ) : isVisible ? (
-        <img {...props} src={src} ref={imageRef} className={className} />
     ) : (
-        <></>
+        <img {...props} src={isVisible ? src : undefined} ref={imageRef} className={className} />
     );
 };
