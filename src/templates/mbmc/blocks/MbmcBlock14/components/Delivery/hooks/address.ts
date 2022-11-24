@@ -25,13 +25,12 @@ export const useCreateAddress = () => {
 
             if (!data || errors) throw new Error("We could not complete that operation");
 
-            const { address } = data.createAddress;
+            const address = data.createAddress;
             const updatedCart = { ...(cart as CoreCartFields), guest, address };
             setContext?.({ cart: updatedCart, loading: false, networkOperation: "" });
             notify("success", "Delivery option set as dispatch");
             onSuccess?.();
         } catch (error) {
-            console.log(error);
             setContext?.({ loading: false, networkOperation: "" });
             notify("error", "We could not complete that operation");
         }

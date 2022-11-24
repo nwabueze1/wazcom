@@ -9,6 +9,6 @@ export const deliveryOptions = [
         image: "https://sytbuildr.s3.eu-west-2.amazonaws.com/images/mbmc/delivery+logo.png",
         title: "Dispatch",
         description: "Get your order delivered to your preferred address",
-        name: "delivery",
+        name: "dispatch",
     },
 ];

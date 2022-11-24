@@ -1,4 +1,4 @@
-import { useState, FC, useEffect } from "react";
+import { useState, FC, useEffect, useContext } from "react";
 import { useFormik } from "formik";
 import { useDeliveryStyles } from "./styles";
 import { deliveryOptions } from "./helpers";
@@ -12,10 +12,14 @@ import {
 } from "./controls";
 import { DeliveryProps } from "./types";
 import { resetFormTouched } from "../../../../components";
+import { RestaurantContext } from "../../../../contexts";
 
 export const Delivery: FC<DeliveryProps> = ({ onSubmission }) => {
+    const { cart } = useContext(RestaurantContext);
     const classes = useDeliveryStyles();
-    const [selectedOption, setSelectedOption] = useState<"pickup" | "dispatch">("pickup");
+    const [selectedOption, setSelectedOption] = useState<"pickup" | "dispatch">(
+        cart?.address ? "dispatch" : "pickup",
+    );
 
     const getPickupConfig = usePickupConfig();
     const getPickupControls = usePickupControls();
