@@ -23,7 +23,7 @@ export const LazyImage: React.FC<ImageProps> = ({
         if (!imageRef.current) return;
 
         const scrollTop = window.pageYOffset;
-        const imageScrollPosition = imageRef.current.offsetTop;
+        const imageScrollPosition = imageRef.current.getBoundingClientRect().top;
         const pageBottomScrollPosition = window.innerHeight + scrollTop;
 
         setIsVisible(imageScrollPosition < pageBottomScrollPosition);
