@@ -9,18 +9,44 @@ var __assign = (this && this.__assign) || function () {
     };
     return __assign.apply(this, arguments);
 };
+var __read = (this && this.__read) || function (o, n) {
+    var m = typeof Symbol === "function" && o[Symbol.iterator];
+    if (!m) return o;
+    var i = m.call(o), r, ar = [], e;
+    try {
+        while ((n === void 0 || n-- > 0) && !(r = i.next()).done) ar.push(r.value);
+    }
+    catch (error) { e = { error: error }; }
+    finally {
+        try {
+            if (r && !r.done && (m = i["return"])) m.call(i);
+        }
+        finally { if (e) throw e.error; }
+    }
+    return ar;
+};
 import { jsx as _jsx, jsxs as _jsxs } from "react/jsx-runtime";
 import { useMbmcBlock3Styles } from "./styles";
+import { useEffect, useState } from "react";
 import { renderCtas, handleElementClick } from "../../utilities";
 import clx from "classnames";
 import { LazyImage } from "../../../../core";
 export var MbmcBlock3 = function (_a) {
     var _b = _a.mode, mode = _b === void 0 ? "view" : _b, index = _a.index, handleClick = _a.handleClick, activeElement = _a.activeElement, heading = _a.heading, description = _a.description, ctas = _a.ctas;
     var classes = useMbmcBlock3Styles();
+    var _c = __read(useState(0), 2), screenWidth = _c[0], setScreenWidth = _c[1];
+    var handleSetScreenWidth = function () {
+        setScreenWidth(window.innerWidth);
+    };
+    useEffect(function () {
+        handleSetScreenWidth();
+        window.addEventListener("resize", handleSetScreenWidth);
+        return function () { return window.removeEventListener("resize", handleSetScreenWidth); };
+    }, []);
     return (_jsxs("div", __assign({ className: clx(classes.root, activeElement === String(index) && classes.block3ActiveElement) }, { children: [_jsxs("div", __assign({ className: classes.block3Container }, { children: [_jsx("div", __assign({ className: classes.block3ImageContainer }, { children: _jsx(LazyImage, { src: "https://sytbuildr.s3.eu-west-2.amazonaws.com/images/mbmc/home/heroFoodLabel.webp", className: classes.block3Image }, void 0) }), void 0), _jsxs("div", __assign({ className: classes.block3Content }, { children: [_jsx("h3", __assign({ className: clx(classes.block3Heading, activeElement === "".concat(String(index), ".heading") &&
                                     classes.block3ActiveElement), onClick: function () {
                                     return handleElementClick(mode, "".concat(String(index), ".heading"), handleClick);
-                                } }, { children: heading }), void 0), _jsxs("div", __assign({ className: classes.block3ContentImageContainer }, { children: [_jsx("img", { src: "https://sytbuildr.s3.eu-west-2.amazonaws.com/images/mbmc/home/hero-food.webp", alt: "", className: "hero" }, void 0), _jsx("img", { src: "https://sytbuildr.s3.eu-west-2.amazonaws.com/images/mbmc/clippedbackground2.svg", alt: "Overlay", className: "overlay" }, void 0)] }), void 0), _jsx("p", __assign({ className: clx(classes.block3Description, activeElement === "".concat(String(index), ".description") &&
+                                } }, { children: heading }), void 0), screenWidth < 1024 && (_jsxs("div", __assign({ className: classes.block3ContentImageContainer }, { children: [_jsx("img", { src: "https://sytbuildr.s3.eu-west-2.amazonaws.com/images/mbmc/home/hero-food.webp", alt: "", className: "hero" }, void 0), _jsx("img", { src: "https://sytbuildr.s3.eu-west-2.amazonaws.com/images/mbmc/clippedbackground2.svg", alt: "Overlay", className: "overlay" }, void 0)] }), void 0)), _jsx("p", __assign({ className: clx(classes.block3Description, activeElement === "".concat(String(index), ".description") &&
                                     classes.block3ActiveElement), onClick: function () {
                                     return handleElementClick(mode, "".concat(String(index), ".description"), handleClick);
                                 } }, { children: description }), void 0), _jsx("div", __assign({ className: classes.block3Ctas }, { children: renderCtas(ctas !== null && ctas !== void 0 ? ctas : [], mode, String(index !== null && index !== void 0 ? index : 0), handleClick, activeElement) }), void 0)] }), void 0)] }), void 0), _jsx("img", { src: "https://sytbuildr.s3.eu-west-2.amazonaws.com/images/mbmc/clippedbackground2.svg", alt: "Overlay", className: classes.block3ImageOverlay }, void 0)] }), void 0));
