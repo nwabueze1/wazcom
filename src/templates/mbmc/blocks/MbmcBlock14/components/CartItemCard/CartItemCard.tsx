@@ -11,7 +11,7 @@ import { CircularProgress } from "@mui/material";
 
 export const CartItemCard: React.FC<
     CoreCartFields_cartItems & { currency: string; amount: number }
-> = ({ uuid, amount, quantity, detail, options, menuItem, currency: currencyId }) => {
+> = ({ uuid, amount, quantity, detail, menuItem, currency: currencyId }) => {
     const { loading, networkOperation } = useContext(RestaurantContext);
     const classes = useCartItemCardStyles();
     const currency = getCurrency(currencyId);

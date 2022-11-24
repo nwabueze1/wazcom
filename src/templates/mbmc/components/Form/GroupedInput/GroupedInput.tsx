@@ -1,4 +1,4 @@
-import React, { FC } from 'react';
+import { FC } from 'react';
 import { GroupedInputProps } from './types';
 import { useGroupedInputStyles } from './styles';
 import { FormControl } from '../FormControl';

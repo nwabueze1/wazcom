@@ -1,7 +1,6 @@
-import { FC, useContext } from "react";
+import { FC } from "react";
 import { useCheckoutStepStyles } from "./styles";
 import { CheckoutStepProps } from "./types";
-import { RestaurantContext } from "../../../../contexts";
 import clx from "classnames";
 import { StepHeader } from "./StepHeader";
 

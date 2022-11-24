@@ -5,7 +5,6 @@ import { RestaurantContext } from "../../../../../contexts";
 import { CREATE_ADDRESS } from "../graphql";
 import { notify } from "../../../../../utilities";
 import { CoreCartFields, CoreGuestFields } from "../../../../../models";
-import Cookies from "universal-cookie";
 
 export const useCreateAddress = () => {
     const { cart, clients, setContext } = useContext(RestaurantContext);
