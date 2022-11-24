@@ -4,6 +4,7 @@ import { ApolloClient, NormalizedCacheObject } from "@apollo/client";
 import { RestaurantContext } from "../../../contexts";
 import { CREATE_CART, CREATE_CART_ITEM } from "../graphql";
 import { TAddToCartVariables } from "./types";
+import { notify } from "../../../utilities";
 
 export const useCreateCart = () => {
     const { menu, clients } = useContext(RestaurantContext);
@@ -60,9 +61,10 @@ export const useAddToCart = () => {
                 throw error;
             }
 
+            notify('success', 'Item added successfully');
             onClose?.();
         } catch (error) {
-            console.log(error);
+            notify('error', 'We could not complete that operation');
         }
 
         setContext?.({ loading: false });

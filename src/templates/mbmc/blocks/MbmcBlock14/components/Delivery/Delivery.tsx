@@ -1,35 +1,45 @@
-import { useState, FC } from "react";
+import { useState, FC, useEffect, useContext } from "react";
 import { useFormik } from "formik";
 import { useDeliveryStyles } from "./styles";
 import { deliveryOptions } from "./helpers";
-import { DeliveryOption } from "./DeliveryOption";
+import { DeliveryOption } from "./components";
 import { Form } from "../../../../components";
 import {
     usePickupConfig,
-    useDeliveryConfig,
+    useDispatchConfig,
     usePickupControls,
-    useDeliveryControls,
+    useDispatchControls,
 } from "./controls";
 import { DeliveryProps } from "./types";
+import { resetFormTouched } from "../../../../components";
+import { RestaurantContext } from "../../../../contexts";
 
 export const Delivery: FC<DeliveryProps> = ({ onSubmission }) => {
+    const { cart } = useContext(RestaurantContext);
     const classes = useDeliveryStyles();
-    const [selectedOption, setSelectedOption] = useState<"pickup" | "delivery">("pickup");
+    const [selectedOption, setSelectedOption] = useState<"pickup" | "dispatch">(
+        cart?.address ? "dispatch" : "pickup",
+    );
 
     const getPickupConfig = usePickupConfig();
     const getPickupControls = usePickupControls();
     const pickupFormik = useFormik(getPickupConfig(onSubmission));
     const pickupControls = getPickupControls(pickupFormik);
 
-    const getDeliveryConfig = useDeliveryConfig();
-    const getDeliveryControls = useDeliveryControls();
-    const deliveryFormik = useFormik(getDeliveryConfig());
-    const deliveryControls = getDeliveryControls(deliveryFormik);
+    const getDispatchConfig = useDispatchConfig();
+    const getDispatchControls = useDispatchControls();
+    const dispatchFormik = useFormik(getDispatchConfig(onSubmission));
+    const dispatchControls = getDispatchControls(dispatchFormik);
+
+    useEffect(() => {
+        resetFormTouched(pickupFormik);
+        resetFormTouched(dispatchFormik);
+    }, [selectedOption]);
 
     const displayOptions = () => {
         return deliveryOptions.map((option, index) => {
-            const formik = selectedOption === "pickup" ? pickupFormik : deliveryFormik;
-            const controls = selectedOption === "pickup" ? pickupControls : deliveryControls;
+            const formik = selectedOption === "pickup" ? pickupFormik : dispatchFormik;
+            const controls = selectedOption === "pickup" ? pickupControls : dispatchControls;
 
             return (
                 <div key={index}>
@@ -44,6 +54,11 @@ export const Delivery: FC<DeliveryProps> = ({ onSubmission }) => {
                             onSubmit={formik.handleSubmit}
                             submitButtonText="Proceed to payment"
                             className={classes.deliveryForm}
+                            networkOperation={
+                                selectedOption === "pickup"
+                                    ? "set.delivery.pickup"
+                                    : "set.delivery.dispatch"
+                            }
                         />
                     )}
                 </div>

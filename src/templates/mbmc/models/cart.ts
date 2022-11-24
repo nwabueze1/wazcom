@@ -1,6 +1,7 @@
 import { gql } from "@apollo/client";
 import { CORE_RESTAURANT_FIELDS } from "./restaurant";
 import { CORE_MENU_ITEM_FIELDS } from "./menu";
+import { CORE_GUEST_FIELDS } from "./guest";
 
 export const CORE_CART_ITEM_FIELDS = gql`
     ${CORE_MENU_ITEM_FIELDS}

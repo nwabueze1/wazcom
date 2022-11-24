@@ -11,6 +11,7 @@ export const useCartItemCardStyles = makeStyles((theme: Theme) => ({
         boxShadow: "0px 3px 20px #0000001A",
         borderRadius: "5px",
         marginBottom: theme.spacing(3),
+        position: 'relative',
     },
     topContent: {
         display: "flex",
@@ -111,4 +112,9 @@ export const useCartItemCardStyles = makeStyles((theme: Theme) => ({
     bottomContent: {
         marginTop: theme.spacing(1.5),
     },
+    spinner: {
+        position: 'absolute',
+        bottom: 20,
+        right: 20,
+    }
 }));

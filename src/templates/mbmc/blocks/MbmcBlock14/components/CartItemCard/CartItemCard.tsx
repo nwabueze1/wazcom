@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useContext } from "react";
 import { useCartItemCardStyles } from "./styles";
 import RemoveRoundedIcon from "@mui/icons-material/RemoveRounded";
 import AddRoundedIcon from "@mui/icons-material/AddRounded";
@@ -6,10 +6,13 @@ import DeleteIcon from "@mui/icons-material/Delete";
 import { CoreCartFields_cartItems } from "../../../../models";
 import { getCurrency } from "../../../../../../utilities";
 import { useUpdateCartItemQuantity } from "../../hooks";
+import { RestaurantContext } from "../../../../contexts";
+import { CircularProgress } from "@mui/material";
 
 export const CartItemCard: React.FC<
     CoreCartFields_cartItems & { currency: string; amount: number }
 > = ({ uuid, amount, quantity, detail, options, menuItem, currency: currencyId }) => {
+    const { loading, networkOperation } = useContext(RestaurantContext);
     const classes = useCartItemCardStyles();
     const currency = getCurrency(currencyId);
     const updateCartItemQuantity = useUpdateCartItemQuantity();
@@ -68,6 +71,9 @@ export const CartItemCard: React.FC<
                     <DeleteIcon className={classes.deleteIcon} />
                 </div>
             </div>
+            {loading && networkOperation === `update.cart-item.${uuid}` && (
+                <CircularProgress color="success" size="15px" className={classes.spinner} />
+            )}
         </div>
     );
 };

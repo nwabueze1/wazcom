@@ -21,5 +21,8 @@ export const useDeliveryStyles = makeStyles((theme: Theme) => ({
         "& .css-1t8l2tu-MuiInputBase-input-MuiOutlinedInput-input": {
             padding: theme.spacing(1.5, 3),
         }
+    },
+    deliveryFeedback: {
+        marginTop: theme.spacing(1),
     }
 }));
