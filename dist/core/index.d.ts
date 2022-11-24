@@ -15,4 +15,4 @@ export * from "./Modal";
 export * from "./EmptyState";
 export * from "./Scheduler";
 export * from "./DateTimePicker";
-export * from "./Image";
+export * from "./LazyImage";

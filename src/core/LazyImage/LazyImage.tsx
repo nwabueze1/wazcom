@@ -5,7 +5,7 @@ import { ImageProps } from "./types";
 
 export const LazyImage: React.FC<ImageProps> = ({
     blurDataurl,
-    placeholder = "blur",
+    placeholder = "empty",
     src,
     className,
     classNames,
@@ -42,14 +42,12 @@ export const LazyImage: React.FC<ImageProps> = ({
         img.src = src;
     };
 
-    const generatePlaceholderSrcUrl = (placeholder?: string) => {
+    const generatePlaceholderSrcUrl = (placeholder?: string, src?: string) => {
         const baseImageUrl = "https://img.wazobia.tech/";
-        const defaultPlaceholderUrl =
-            "https://sytbuildr.s3.eu-west-2.amazonaws.com/images/mbmc/placeholder-light-gray.webp";
 
-        return `${baseImageUrl}${placeholder ?? defaultPlaceholderUrl}?tr=w-${
-            imageDimensions.width / 2
-        },h-${imageDimensions.height / 2}`;
+        return `${baseImageUrl}${placeholder ?? src}?tr=w-${imageDimensions.width / 2},h-${
+            imageDimensions.height / 2
+        }`;
     };
 
     useEffect(() => {
@@ -62,7 +60,7 @@ export const LazyImage: React.FC<ImageProps> = ({
     return placeholder === "blur" ? (
         <img
             {...props}
-            src={isVisible ? src : generatePlaceholderSrcUrl(blurDataurl)}
+            src={isVisible ? src : generatePlaceholderSrcUrl(blurDataurl, src)}
             ref={imageRef}
             className={clx(
                 {

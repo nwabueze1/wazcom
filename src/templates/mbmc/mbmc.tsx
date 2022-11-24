@@ -359,7 +359,7 @@ export const useGetMbmcBlocks = () => {
                 tags: [
                     {
                         text: "EXPERTLY PREPARED",
-                        image: "https://sytbuildr.s3.eu-west-2.amazonaws.com/images/mbmc/chefLogo.svg",
+                        image: "https://sytbuildr.s3.eu-west-2.amazonaws.com/images/mbmc/home/chefLogo.webp",
                     },
                     {
                         text: "FRESH & AUTHENTIC",

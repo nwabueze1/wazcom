@@ -42,7 +42,7 @@ import clx from "classnames";
 import { useImageStyles } from "./styles";
 export var LazyImage = function (_a) {
     var _b;
-    var blurDataurl = _a.blurDataurl, _c = _a.placeholder, placeholder = _c === void 0 ? "blur" : _c, src = _a.src, className = _a.className, classNames = _a.classNames, props = __rest(_a, ["blurDataurl", "placeholder", "src", "className", "classNames"]);
+    var blurDataurl = _a.blurDataurl, _c = _a.placeholder, placeholder = _c === void 0 ? "empty" : _c, src = _a.src, className = _a.className, classNames = _a.classNames, props = __rest(_a, ["blurDataurl", "placeholder", "src", "className", "classNames"]);
     var imageRef = useRef(null);
     var classes = useImageStyles();
     var _d = __read(useState(false), 2), isVisible = _d[0], setIsVisible = _d[1];
@@ -70,10 +70,9 @@ export var LazyImage = function (_a) {
         });
         img.src = src;
     };
-    var generatePlaceholderSrcUrl = function (placeholder) {
+    var generatePlaceholderSrcUrl = function (placeholder, src) {
         var baseImageUrl = "https://img.wazobia.tech/";
-        var defaultPlaceholderUrl = "https://sytbuildr.s3.eu-west-2.amazonaws.com/images/mbmc/placeholder-light-gray.webp";
-        return "".concat(baseImageUrl).concat(placeholder !== null && placeholder !== void 0 ? placeholder : defaultPlaceholderUrl, "?tr=w-").concat(imageDimensions.width / 2, ",h-").concat(imageDimensions.height / 2);
+        return "".concat(baseImageUrl).concat(placeholder !== null && placeholder !== void 0 ? placeholder : src, "?tr=w-").concat(imageDimensions.width / 2, ",h-").concat(imageDimensions.height / 2);
     };
     useEffect(function () {
         checkImageVisbilitiy();
@@ -81,7 +80,7 @@ export var LazyImage = function (_a) {
         window.addEventListener("scroll", checkImageVisbilitiy);
         return function () { return window.removeEventListener("scroll", checkImageVisbilitiy); };
     }, []);
-    return placeholder === "blur" ? (_jsx("img", __assign({}, props, { src: isVisible ? src : generatePlaceholderSrcUrl(blurDataurl), ref: imageRef, className: clx((_b = {},
+    return placeholder === "blur" ? (_jsx("img", __assign({}, props, { src: isVisible ? src : generatePlaceholderSrcUrl(blurDataurl, src), ref: imageRef, className: clx((_b = {},
             _b[classes.blur] = !isVisible,
             _b), className, !isVisible && (classNames === null || classNames === void 0 ? void 0 : classNames.loadingPlaceholder)) }), void 0)) : isVisible ? (_jsx("img", __assign({}, props, { src: src, ref: imageRef, className: className }), void 0)) : (_jsx(_Fragment, {}, void 0));
 };
