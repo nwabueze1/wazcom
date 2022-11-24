@@ -1,8 +1,8 @@
-import { useState, FC } from "react";
+import { useState, FC, useEffect } from "react";
 import { useFormik } from "formik";
 import { useDeliveryStyles } from "./styles";
 import { deliveryOptions } from "./helpers";
-import { DeliveryOption } from "./DeliveryOption";
+import { DeliveryOption } from "./components";
 import { Form } from "../../../../components";
 import {
     usePickupConfig,
@@ -11,6 +11,7 @@ import {
     useDeliveryControls,
 } from "./controls";
 import { DeliveryProps } from "./types";
+import { resetFormTouched } from "../../../../components";
 
 export const Delivery: FC<DeliveryProps> = ({ onSubmission }) => {
     const classes = useDeliveryStyles();
@@ -25,6 +26,11 @@ export const Delivery: FC<DeliveryProps> = ({ onSubmission }) => {
     const getDeliveryControls = useDeliveryControls();
     const deliveryFormik = useFormik(getDeliveryConfig());
     const deliveryControls = getDeliveryControls(deliveryFormik);
+
+    useEffect(() => {
+        resetFormTouched(pickupFormik);
+        resetFormTouched(deliveryFormik);
+    }, [selectedOption])
 
     const displayOptions = () => {
         return deliveryOptions.map((option, index) => {

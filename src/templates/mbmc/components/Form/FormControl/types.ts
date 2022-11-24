@@ -3,7 +3,6 @@ import { GroupedInputProps as WazGroupedInputProps } from "../GroupedInput";
 
 export type CommonControlProps = {
     label?: string;
-    errorMessage?: string;
 };
 
 type TextInputProps = {

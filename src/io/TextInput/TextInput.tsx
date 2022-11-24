@@ -43,7 +43,7 @@ export const TextInput: FC<TextInputProps> = ({
                 }
             />
             {helperText}
-            {feedback && displayFeedback(feedback)}
+            {feedback && displayFeedback(feedback, classNames?.feedback as string)}
         </div>
     );
 };

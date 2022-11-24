@@ -4,14 +4,17 @@ import { TUpdateCartItemQuantityVariables } from "./types";
 import { RestaurantContext } from "../../../contexts";
 import { CoreCartFields, CoreCartFields_cartItems, CoreCartItemFields } from "../../../models";
 import { UPDATE_CART_ITEM } from "../graphql";
+import { notify } from "../../../utilities";
 
 export const useUpdateCartItemQuantity = () => {
     const { cart, clients, setContext } = useContext(RestaurantContext);
 
     return async (variables: TUpdateCartItemQuantityVariables) => {
         try {
-            setContext?.({ loading: true, networkOperation: "update.cart-item.quantity" });
-            const { data, errors } = await (clients?.AMBROSIA as ApolloClient<NormalizedCacheObject>).mutate({
+            setContext?.({ loading: true, networkOperation: `update.cart-item.${variables.uuid}` });
+            const { data, errors } = await (
+                clients?.AMBROSIA as ApolloClient<NormalizedCacheObject>
+            ).mutate({
                 mutation: UPDATE_CART_ITEM,
                 variables,
             });
@@ -26,10 +29,16 @@ export const useUpdateCartItemQuantity = () => {
                 variables.uuid,
                 variables.quantity,
             );
-            setContext?.({ cart: updatedCart, loading: false, networkOperation: '' });
+            notify(
+                "success",
+                variables.quantity === 0
+                    ? "Item deleted successfully"
+                    : "Item updated successfully",
+            );
+            setContext?.({ cart: updatedCart, loading: false, networkOperation: "" });
         } catch (error) {
-            console.log(error);
             setContext?.({ loading: false, networkOperation: "" });
+            notify("error", "We could not complete that operation");
         }
     };
 };

@@ -16,3 +16,7 @@ p {
 body > iframe {
     display: none;
 }
+
+.notify--type-1 .notify__text {
+    font-family: 'Montserrat', sans-serif;
+}

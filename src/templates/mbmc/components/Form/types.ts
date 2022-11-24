@@ -5,4 +5,5 @@ export type FormProps = {
     controls: FormControls[];
     onSubmit: () => void;
     submitButtonText?: string;
+    networkOperation?: string;
 }
