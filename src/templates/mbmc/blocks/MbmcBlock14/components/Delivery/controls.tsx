@@ -1,19 +1,26 @@
 import { FormControls, handleInputBlur, handleInputChange } from "../../../../components/Form";
 import { useDeliveryStyles } from "./styles";
-import { pickupSchema, deliverySchema } from "./validators";
+import { pickupSchema, dispatchSchema } from "./validators";
+import { useUpdateGuest, useCreateAddress, TUpdateGuestVariables, TCreateAddressVariables } from "./hooks";
 
 export const usePickupConfig = () => {
+    const updateGuest = useUpdateGuest();
+
     return (onSubmission?: () => void) => ({
         initialValues: { email: "", firstname: "", lastname: "" },
         validationSchema: pickupSchema,
-        onSubmit: (variables: any) => {},
+        onSubmit: async (variables: TUpdateGuestVariables) => {
+            await updateGuest(variables, onSubmission, true);
+        },
     });
 };
 
-export const useDeliveryConfig = () => {
+export const useDispatchConfig = () => {
     const getPickupConfig = usePickupConfig();
+    const updateGuest = useUpdateGuest();
+    const createAddress = useCreateAddress();
 
-    return () => {
+    return (onSubmission?: () => void) => {
         const pickupConfig = getPickupConfig();
 
         return {
@@ -26,8 +33,13 @@ export const useDeliveryConfig = () => {
                 country: "",
                 postcode: "",
             },
-            validationSchema: deliverySchema,
-            onSubmit: () => {},
+            validationSchema: dispatchSchema,
+            onSubmit: async (variables: TUpdateGuestVariables & TCreateAddressVariables) => {
+                const { email, firstname, lastname, ...rest } = variables;
+                const guest = await updateGuest({ email, firstname, lastname });
+                
+                guest && await createAddress({ ...rest }, guest, onSubmission);
+            },
         };
     };
 };
@@ -116,7 +128,7 @@ export const usePickupControls = () => {
     ];
 };
 
-export const useDeliveryControls = () => {
+export const useDispatchControls = () => {
     const classes = useDeliveryStyles();
     const getPickupControls = usePickupControls();
 

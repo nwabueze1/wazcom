@@ -10,7 +10,11 @@ import Cookies from "universal-cookie";
 export const useCreateAddress = () => {
     const { cart, clients, setContext } = useContext(RestaurantContext);
 
-    return async (variables: TCreateAddressVariables, guest: CoreGuestFields) => {
+    return async (
+        variables: TCreateAddressVariables,
+        guest: CoreGuestFields,
+        onSuccess?: () => void,
+    ) => {
         try {
             const { data, errors } = await (
                 clients?.AMBROSIA as ApolloClient<NormalizedCacheObject>
@@ -19,11 +23,13 @@ export const useCreateAddress = () => {
                 variables: { ...variables, guest_uuid: guest.uuid },
             });
 
-            if (!data || !errors) throw new Error("We could not complete that operation");
+            if (!data || errors) throw new Error("We could not complete that operation");
 
             const { address } = data.createAddress;
             const updatedCart = { ...(cart as CoreCartFields), guest, address };
             setContext?.({ cart: updatedCart, loading: false, networkOperation: "" });
+            notify("success", "Delivery option set as dispatch");
+            onSuccess?.();
         } catch (error) {
             console.log(error);
             setContext?.({ loading: false, networkOperation: "" });

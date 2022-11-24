@@ -4,5 +4,5 @@ export type DeliveryOptionProps = {
     description?: string;
     value: string;
     name: string;
-    handleChange: (option: "pickup" | "delivery") => void;
+    handleChange: (option: "pickup" | "dispatch") => void;
 };

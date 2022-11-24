@@ -12,10 +12,13 @@ export const useUpdateGuest = () => {
     const cookies = new Cookies();
     const cartCookie = cookies.get("cart");
 
-    return async (variables: TUpdateGuestVariables) => {
+    return async (variables: TUpdateGuestVariables, onSuccess?: () => void, isPickup?: boolean) => {
         const siteUuid = cart?.restaurant?.site_uuid as string;
         const cartUuid = cartCookie[siteUuid];
-        setContext?.({ loading: true, networkOperation: "set.delivery.pickup" });
+        setContext?.({
+            loading: true,
+            networkOperation: isPickup ? "set.delivery.pickup" : "set.delivery.dispatch",
+        });
 
         try {
             const { data, errors } = await (
@@ -26,14 +29,15 @@ export const useUpdateGuest = () => {
                 throw new Error("We could not complete that operation");
             }
 
-            const { guest } = data.updateGuest;
-            console.log(guest);
+            const guest = data.updateGuest;
             const updatedCart = { ...cart } as CoreCartFields;
             updatedCart.guest = guest;
-            setContext?.({ loading: false, networkOperation: "", cart: updatedCart });
+
+            isPickup && setContext?.({ loading: false, networkOperation: "", cart: updatedCart });
+            isPickup && notify("success", "Delivery option set as pickup");
+            isPickup && onSuccess?.();
             return guest;
         } catch (error) {
-            console.log(error);
             setContext?.({ loading: false, networkOperation: "" });
             notify("error", "We could not complete that operation");
         }

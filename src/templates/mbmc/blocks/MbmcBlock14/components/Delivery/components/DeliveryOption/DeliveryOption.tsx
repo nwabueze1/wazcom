@@ -29,7 +29,7 @@ export const DeliveryOption: React.FC<DeliveryOptionProps> = ({
                     name={name}
                     value={Boolean(value == name)}
                     onChange={() => {
-                        handleChange(name as "pickup" | "delivery");
+                        handleChange(name as "pickup" | "dispatch");
                     }}
                 />
             </div>

@@ -9,7 +9,7 @@ export const pickupSchema = Yup.object().shape({
     email: Yup.string().required("Email is required").email("Invalid email address"),
 });
 
-export const deliverySchema = Yup.object().shape({
+export const dispatchSchema = Yup.object().shape({
     firstname: Yup.string().required("First name is required").min(1, "First name is required"),
     lastname: Yup.string().required("Last name is required").min(1, "Last name is required"),
     email: Yup.string().required("Email is required").email("Invalid email address"),
@@ -20,5 +20,5 @@ export const deliverySchema = Yup.object().shape({
     country: Yup.string().required("Country is required").min(1, "Country is required"),
     state: Yup.string().required("State is required").min(1, "Country is required"),
     city: Yup.string().required("City is required").min(1, "City is required"),
-    postcode: Yup.string().required("Zip code is required").min(1, "Zip code is required"),
+    postcode: Yup.string().required("Postal code is required").min(1, "Zip code is required"),
 });
