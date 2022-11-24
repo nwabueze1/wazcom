@@ -55,15 +55,19 @@ export var useMbmcBlock13Styles = makeStyles(function (theme) {
         },
         logo: (_c = {
                 maxWidth: "300px",
-                maxHeight: '65px',
+                maxHeight: "65px",
                 objectFit: "cover"
             },
             _c[theme.breakpoints.down("md")] = {
                 maxWidth: "200px",
             },
+            _c[theme.breakpoints.up("md")] = {
+                height: "60px",
+                width: "282.45px",
+            },
             _c),
         link: {
-            cursor: 'pointer',
+            cursor: "pointer",
             textDecoration: "none",
             color: theme.design.colors.waz_black,
         },

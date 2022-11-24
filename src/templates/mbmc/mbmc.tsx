@@ -235,15 +235,15 @@ export const useGetMbmcBlocks = () => {
                 description: `Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod
                 tempor invidunt ut labore et dolore a….`,
                 images: [
-                    "https://sytbuildr.s3.eu-west-2.amazonaws.com/images/mbmc/img.png",
-                    "https://sytbuildr.s3.eu-west-2.amazonaws.com/images/mbmc/img.png",
-                    "https://sytbuildr.s3.eu-west-2.amazonaws.com/images/mbmc/img.png",
-                    "https://sytbuildr.s3.eu-west-2.amazonaws.com/images/mbmc/img.png",
-                    "https://sytbuildr.s3.eu-west-2.amazonaws.com/images/mbmc/img.png",
-                    "https://sytbuildr.s3.eu-west-2.amazonaws.com/images/mbmc/img.png",
-                    "https://sytbuildr.s3.eu-west-2.amazonaws.com/images/mbmc/img.png",
-                    "https://sytbuildr.s3.eu-west-2.amazonaws.com/images/mbmc/img.png",
-                    "https://sytbuildr.s3.eu-west-2.amazonaws.com/images/mbmc/img.png",
+                    "https://sytbuildr.s3.eu-west-2.amazonaws.com/images/mbmc/home/img.webp",
+                    "https://sytbuildr.s3.eu-west-2.amazonaws.com/images/mbmc/home/img.webp",
+                    "https://sytbuildr.s3.eu-west-2.amazonaws.com/images/mbmc/home/img.webp",
+                    "https://sytbuildr.s3.eu-west-2.amazonaws.com/images/mbmc/home/img.webp",
+                    "https://sytbuildr.s3.eu-west-2.amazonaws.com/images/mbmc/home/img.webp",
+                    "https://sytbuildr.s3.eu-west-2.amazonaws.com/images/mbmc/home/img.webp",
+                    "https://sytbuildr.s3.eu-west-2.amazonaws.com/images/mbmc/home/img.webp",
+                    "https://sytbuildr.s3.eu-west-2.amazonaws.com/images/mbmc/home/img.webp",
+                    "https://sytbuildr.s3.eu-west-2.amazonaws.com/images/mbmc/home/img.webp",
                 ],
             },
         },
@@ -324,19 +324,19 @@ export const useGetMbmcBlocks = () => {
                         heading: "Pick your favourite",
                         description:
                             "Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam",
-                        image: "https://sytbuildr.s3.eu-west-2.amazonaws.com/images/mbmc/step1.svg",
+                        image: "https://sytbuildr.s3.eu-west-2.amazonaws.com/images/mbmc/home/step1.webp",
                     },
                     {
                         heading: "Expertly prepared",
                         description:
                             "Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam",
-                        image: "https://sytbuildr.s3.eu-west-2.amazonaws.com/images/mbmc/step2.svg",
+                        image: "https://sytbuildr.s3.eu-west-2.amazonaws.com/images/mbmc/home/step2.webp",
                     },
                     {
                         heading: "Away it goes",
                         description:
                             "Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam",
-                        image: "https://sytbuildr.s3.eu-west-2.amazonaws.com/images/mbmc/step3.svg",
+                        image: "https://sytbuildr.s3.eu-west-2.amazonaws.com/images/mbmc/home/step3.webp",
                     },
                     {
                         heading: "Heat - eat - repeat",
