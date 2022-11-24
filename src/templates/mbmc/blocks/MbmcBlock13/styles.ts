@@ -5,6 +5,9 @@ export const useMbmcBlock13Styles = makeStyles((theme: Theme) => ({
     root: {
         position: "absolute",
         width: "100%",
+        zIndex: 10,
+        top: 0,
+        left: 0,
     },
     container: {
         background: "transparent",
@@ -13,20 +16,23 @@ export const useMbmcBlock13Styles = makeStyles((theme: Theme) => ({
         boxSizing: "border-box",
         gap: theme.spacing(2),
         display: "flex",
-        zIndex: 10,
         alignItems: "center",
         justifyContent: "space-between",
         maxWidth: 1240,
-        width: "90%",
+        width: "100%",
         margin: "0 auto",
 
         [theme.breakpoints.down("lg")]: {
             padding: theme.spacing(3, 0),
         },
 
+        [theme.breakpoints.up("lg")]: {
+            width: "90%",
+        },
+
         [theme.breakpoints.down("md")]: {
             backgroundColor: theme.design.colors.waz_white,
-            padding: theme.spacing(3, 0),
+            padding: theme.spacing(3),
         },
     },
     activeElement: {
