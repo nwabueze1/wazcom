@@ -2,5 +2,8 @@ export * from './CartItems';
 export * from './Checkout';
 export * from './CheckoutStep';
 export * from './Delivery';
+export * from './EmptyCart';
+export * from './Loader';
 export * from './Payment';
+export * from './Spinner';
 export * from './Summary';

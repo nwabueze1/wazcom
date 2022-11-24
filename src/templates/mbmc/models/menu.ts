@@ -8,7 +8,7 @@ const CORE_MENU_CATEGORY_FIELDS = gql`
     }
 `;
 
-const CORE_MENU_ITEM_FIELDS = gql`
+export const CORE_MENU_ITEM_FIELDS = gql`
     fragment CoreMenuItemFields on MenuItem {
         uuid
         name

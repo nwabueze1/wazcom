@@ -1,6 +1,6 @@
 export * from "./Form";
 export * from "./MbmcCard";
-export * from "./CartItemCard";
+export * from "../blocks/MbmcBlock14/components/CartItemCard";
 export * from "./MbmcButton";
 export * from "./MbmcMenuCard";
 export * from "./OrderDialog";

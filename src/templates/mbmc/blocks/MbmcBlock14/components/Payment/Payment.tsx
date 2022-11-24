@@ -1,23 +1,22 @@
-import { useState, useEffect } from "react";
+import { useState, useEffect, useContext } from "react";
 import { useQuery } from "@apollo/client";
 import { GET_PAYMENT_METHODS } from "./graphql";
-import { createApolloClient } from "helpers/graphQL";
 import { PaymentMethod } from "./types";
 import { CircularProgress } from "@mui/material";
 import { PaymentOption } from "../../../../components";
 import { paymentMethodConfig } from "./helpers";
 import { usePaymentStyles } from "./styles";
-
-const client = createApolloClient("https://ofambegbe-nicodemus.wazobia.uk/graphql");
+import { RestaurantContext } from "../../../../contexts";
 
 export const Payment = () => {
+    const { clients, cart } = useContext(RestaurantContext);
     const classes = usePaymentStyles();
     const { data, error, loading } = useQuery(GET_PAYMENT_METHODS, {
-        client,
-        variables: { service_uuid: "a7f2e25c-1e08-48b7-8338-55a4de756404" },
+        client: clients?.NICODEMUS,
+        variables: { service_uuid: cart?.restaurant?.uuid },
     });
     const [paymentMethods, setPaymentMethods] = useState<PaymentMethod[]>([]);
-    const [selectedMethod, setSelectedMethod] = useState<PaymentMethod>()
+    const [selectedMethod, setSelectedMethod] = useState<PaymentMethod>();
 
     useEffect(() => {
         if (data) {
@@ -36,7 +35,9 @@ export const Payment = () => {
                 key={index}
                 {...paymentMethodConfig[paymentMethod.type]}
                 value={String(selectedMethod) ?? ""}
-                handleChange={(method: any) => { setSelectedMethod(method) }}
+                handleChange={(method: any) => {
+                    setSelectedMethod(method);
+                }}
             />
         ));
 
@@ -47,7 +48,5 @@ export const Payment = () => {
             </div>
         );
 
-    return <div className={classes.root}>
-        {displayPaymentMethods()}
-    </div>;
+    return <div className={classes.root}>{displayPaymentMethods()}</div>;
 };

@@ -12,7 +12,8 @@ export const MbmcButton: FC<MbmcButtonProps> = ({
     className,
     type = 'button',
     handleClick,
-    activeElement
+    activeElement,
+    ...props
 }) => {
     const classes = useButtonStyles();
     return (
@@ -28,6 +29,7 @@ export const MbmcButton: FC<MbmcButtonProps> = ({
                 size === "sm" && classes.buttonSmall,
                 name?.toLowerCase() === activeElement?.toLowerCase() && classes.buttonActive,
             )}
+            {...props}
         >
             {children}
         </MainButton>
