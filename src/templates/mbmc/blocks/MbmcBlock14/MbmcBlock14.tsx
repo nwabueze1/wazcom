@@ -56,20 +56,30 @@ export const MbmcBlock14: React.FC<MbmcBlock14Props> = ({
 
     if (loading) return <Loader />;
 
-    if (
+    const isCartEmpty =
         !cartCookie ||
         (cartCookie && !cartCookie[site_uuid]) ||
-        contextData?.cart?.cartItems?.length === 0
-    )
-        return <EmptyCart />;
+        contextData?.cart?.cartItems?.length === 0;
 
     return (
         <RestaurantContext.Provider value={{ ...contextData, setContext: updateContext }}>
             <div className={classes.root}>
                 <div className={classes.block14Container}>
-                    <CartItems />
-                    <span className={classes.block14Divider} />
-                    <Checkout />
+                    <p className={classes.block14Title}>
+                        Items(
+                        {contextData?.cart?.cartItems ? contextData?.cart?.cartItems?.length : 0})
+                    </p>
+                    <div className={classes.block14CartContent}>
+                        {isCartEmpty ? (
+                            <EmptyCart />
+                        ) : (
+                            <>
+                                <CartItems />
+                                <span className={classes.block14Divider} />
+                                <Checkout />
+                            </>
+                        )}
+                    </div>
                 </div>
             </div>
         </RestaurantContext.Provider>
