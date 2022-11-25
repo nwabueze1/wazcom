@@ -29,7 +29,7 @@ export var useMbmcBlock9Styles = makeStyles(function (theme) {
                 flexDirection: "column"
             },
             _b[theme.breakpoints.down("md")] = {
-                alignItems: 'center',
+                alignItems: "center",
             },
             _b),
         headerTitle: (_c = {
@@ -70,7 +70,7 @@ export var useMbmcBlock9Styles = makeStyles(function (theme) {
             },
             _d[theme.breakpoints.down("md")] = {
                 fontSize: theme.typography.fontSize + 3,
-                textAlign: 'center',
+                textAlign: "center",
                 width: "80%",
             },
             _d[theme.breakpoints.down("sm")] = {
@@ -172,11 +172,11 @@ export var useMbmcBlock9Styles = makeStyles(function (theme) {
             width: "100%",
         },
         imageStep: (_h = {
-                height: "100%"
+                height: "100%",
+                width: "100%"
             },
             _h[theme.breakpoints.down("lg")] = {
                 height: "unset",
-                width: "100%",
             },
             _h),
         directionContainer: (_j = {

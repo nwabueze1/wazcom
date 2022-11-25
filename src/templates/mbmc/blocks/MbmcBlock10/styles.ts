@@ -28,14 +28,16 @@ export const useMbmcBlock10Styles = makeStyles((theme: Theme) => ({
         justifyContent: "center",
     },
     tag: {
-        display: 'flex',
-        alignItems: 'center',
+        display: "flex",
+        alignItems: "center",
         paddingRight: theme.spacing(1),
     },
     tagImage: {
         margin: theme.spacing(0, 1, 0, 1.5),
         border: "1px solid transparent",
         transition: "all 0.3s ease-in",
+        width: 32,
+        height: 32,
     },
     tagText: {
         fontSize: theme.typography.fontSize,

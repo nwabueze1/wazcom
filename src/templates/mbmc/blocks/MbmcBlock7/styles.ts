@@ -98,6 +98,12 @@ export const useMbmcBlock7Styles = makeStyles((theme: Theme) => ({
         width: "100%",
         borderRadius: 4,
         objectFit: "cover",
+        height: "23.7vw",
+        maxHeight: "341px",
+
+        [theme.breakpoints.down("sm")]: {
+            height: "116px",
+        },
     },
     flexGrow: {
         gridRow: "1 / span 2",
