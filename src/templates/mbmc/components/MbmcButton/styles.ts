@@ -26,10 +26,10 @@ export const useButtonStyles = makeStyles((theme: Theme) => ({
         fontSize: theme.typography.fontSize,
     },
     buttonPrimary: {
-        background: theme.design.colors.waz_orangeColor100,
+        background: `${theme.design.colors.waz_orangeColor100} !important`,
     },
     buttonSecondary: {
-        background: theme.design.colors.waz_primaryColor200,
+        background: `${theme.design.colors.waz_primaryColor200} !important`,
     },
     buttonNeutral: {
         background: theme.design.colors.waz_white,

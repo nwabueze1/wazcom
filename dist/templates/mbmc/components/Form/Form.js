@@ -46,11 +46,14 @@ var __generator = (this && this.__generator) || function (thisArg, body) {
     }
 };
 import { jsx as _jsx, jsxs as _jsxs } from "react/jsx-runtime";
+import { useContext } from "react";
 import { FormControl } from "./FormControl";
 import { MbmcButton } from "../MbmcButton";
 import { useFormStyles } from "./styles";
+import { RestaurantContext } from "../../contexts";
 export var Form = function (_a) {
-    var className = _a.className, controls = _a.controls, onSubmit = _a.onSubmit, _b = _a.submitButtonText, submitButtonText = _b === void 0 ? "Save" : _b;
+    var className = _a.className, controls = _a.controls, onSubmit = _a.onSubmit, _b = _a.submitButtonText, submitButtonText = _b === void 0 ? "Save" : _b, networkOperation = _a.networkOperation;
+    var _c = useContext(RestaurantContext), loading = _c.loading, networkOperationCtxt = _c.networkOperation;
     var classes = useFormStyles();
     var displayControls = function () {
         return controls.map(function (control, index) { return _jsx(FormControl, __assign({}, control), index); });
@@ -67,5 +70,5 @@ export var Form = function (_a) {
             }
         });
     }); };
-    return (_jsxs("form", __assign({ onSubmit: handleSubmit, className: className }, { children: [displayControls(), _jsx(MbmcButton, __assign({ variant: "SECONDARY", size: "sm", type: "submit", className: classes.formButton }, { children: submitButtonText }), void 0)] }), void 0));
+    return (_jsxs("form", __assign({ onSubmit: handleSubmit, className: className }, { children: [displayControls(), _jsx(MbmcButton, __assign({ variant: "SECONDARY", size: "sm", type: "submit", className: classes.formButton, loading: loading && networkOperationCtxt === networkOperation }, { children: submitButtonText }), void 0)] }), void 0));
 };

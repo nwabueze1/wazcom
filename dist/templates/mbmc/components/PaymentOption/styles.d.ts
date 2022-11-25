@@ -1,1 +1,1 @@
-export declare const usePaymentOptionStyles: (props?: any) => import("@mui/styles").ClassNameMap<"imgContainer" | "paymentOptionItem" | "paymentOptionDetail" | "paymentOptionTitle" | "radioInput" | "optionDetails" | "paymentDetail">;
+export declare const usePaymentOptionStyles: (props?: any) => import("@mui/styles").ClassNameMap<"root" | "paymentOptionItem" | "paymentImage" | "paymentOptionDetail" | "paymentOptionTitle" | "radioInput" | "optionDetails">;

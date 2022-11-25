@@ -2,7 +2,6 @@ import { TextInputProps as WazTextInputProps } from "../../../../../io";
 import { GroupedInputProps as WazGroupedInputProps } from "../GroupedInput";
 export declare type CommonControlProps = {
     label?: string;
-    errorMessage?: string;
 };
 declare type TextInputProps = {
     type: "text";

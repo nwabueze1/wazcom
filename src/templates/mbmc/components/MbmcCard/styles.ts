@@ -7,7 +7,6 @@ export const useMbmcCardStyles = makeStyles((theme: Theme) =>
         root: {
             width: "30%",
             minHeight: 380,
-            height: "100%",
             flexShrink: 0,
             display: "flex",
             alignItems: "center",

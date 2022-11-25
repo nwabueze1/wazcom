@@ -4,4 +4,4 @@ export declare type Feedback = {
     text: string | string[] | JSX.Element;
     status?: "success" | "neutral" | "error";
 };
-export declare const displayFeedback: (feedback: Feedback) => JSX.Element | JSX.Element[];
+export declare const displayFeedback: (feedback: Feedback, className?: string | undefined) => JSX.Element | JSX.Element[];

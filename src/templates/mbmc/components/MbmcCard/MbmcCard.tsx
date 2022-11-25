@@ -23,7 +23,12 @@ export const MbmcCard: React.FC<MbmcCardProps> = ({
     const classes = useMbmcCardStyles({ isOpen, scrollableParent });
 
     return (
-        <div className={clsx(classes.root, classes.visible, className)}>
+        <div
+            className={clsx(classes.root, classes.visible, className)}
+            onClick={() => {
+                handleClick?.("");
+            }}
+        >
             <div
                 className={clsx(
                     classes.imageWrapper,

@@ -14,7 +14,6 @@ import { MbmcBlock12Props } from "./blocks/MbmcBlock12/types";
 import { MbmcBlock3Props } from "./blocks/MbmcBlock3/types";
 import { MbmcBlock4Props } from "./blocks/MbmcBlock4/types";
 import { MbmcBlock61Props } from "./blocks/MbmcBlock6-1";
-import { MbmcBlock16Props } from "./blocks/MbmcBlock16/types";
 import { MbmcBlock14Props } from "./blocks/MbmcBlock14/types";
 export declare type BlockStyle = "mbmc";
 export declare type BlockLayout = "column" | "row" | "column-reverse" | "row-reverse";
@@ -51,6 +50,6 @@ export declare type MbmcTemplatePropType = {
     name: string;
 } & Mmbc1Block;
 declare type Mmbc1Block = {
-    props: MbmcBlock1Props | MbmcBlock2Props | MbmcBlock3Props | MbmcBlock4Props | MbmcBlock5Props | MbmcBlock6Props | MbmcBlock61Props | MbmcBlock7Props | MbmcBlock8Props | MbmcBlock9Props | MbmcBlock10Props | MbmcBlock11Props | MbmcBlock12Props | MbmcBlock14Props | MbmcBlock13Props | MbmcBlock15Props | MbmcBlock16Props;
+    props: MbmcBlock1Props | MbmcBlock2Props | MbmcBlock3Props | MbmcBlock4Props | MbmcBlock5Props | MbmcBlock6Props | MbmcBlock61Props | MbmcBlock7Props | MbmcBlock8Props | MbmcBlock9Props | MbmcBlock10Props | MbmcBlock11Props | MbmcBlock12Props | MbmcBlock14Props | MbmcBlock13Props | MbmcBlock15Props;
 };
 export {};

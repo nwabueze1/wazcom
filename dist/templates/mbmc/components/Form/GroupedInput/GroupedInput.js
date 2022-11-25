@@ -10,8 +10,8 @@ var __assign = (this && this.__assign) || function () {
     return __assign.apply(this, arguments);
 };
 import { jsx as _jsx, jsxs as _jsxs } from "react/jsx-runtime";
-import { useGroupedInputStyles } from "./styles";
-import { FormControl } from "../FormControl";
+import { useGroupedInputStyles } from './styles';
+import { FormControl } from '../FormControl';
 export var GroupedInput = function (_a) {
     var name = _a.name, controls = _a.controls;
     var classes = useGroupedInputStyles();
