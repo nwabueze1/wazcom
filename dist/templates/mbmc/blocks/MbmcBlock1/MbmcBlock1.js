@@ -28,7 +28,6 @@ var __read = (this && this.__read) || function (o, n) {
 import { jsx as _jsx, jsxs as _jsxs } from "react/jsx-runtime";
 import { useMbmcBlock1Styles } from "./styles";
 import { useEffect, useState } from "react";
-import { parseHtml } from "../../../../utilities/renderStyle";
 import clx from "classnames";
 import { renderCtas, handleElementClick } from "../../utilities";
 export var MbmcBlock1 = function (_a) {
@@ -40,7 +39,7 @@ export var MbmcBlock1 = function (_a) {
     }, []);
     return (_jsx("div", __assign({ className: clx(classes.root, activeElement === String(index) && classes.block1ActiveElement) }, { children: _jsxs("div", __assign({ className: classes.block1Container }, { children: [_jsxs("div", __assign({ className: classes.block1Content }, { children: [isClient && (_jsx("h1", { className: clx(classes.block1Heading, activeElement === "".concat(String(index), ".heading") &&
                                 classes.block1ActiveElement), dangerouslySetInnerHTML: {
-                                __html: parseHtml(heading),
+                                __html: heading,
                             }, onClick: function () {
                                 return handleElementClick(mode, "".concat(String(index), ".heading"), handleClick);
                             } }, void 0)), _jsx("p", __assign({ className: clx(classes.block1Description, activeElement === "".concat(String(index), ".description") &&

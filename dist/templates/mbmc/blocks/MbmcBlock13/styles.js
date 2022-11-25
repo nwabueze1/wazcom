@@ -5,6 +5,9 @@ export var useMbmcBlock13Styles = makeStyles(function (theme) {
         root: {
             position: "absolute",
             width: "100%",
+            zIndex: 10,
+            top: 0,
+            left: 0,
         },
         container: (_a = {
                 background: "transparent",
@@ -13,19 +16,21 @@ export var useMbmcBlock13Styles = makeStyles(function (theme) {
                 boxSizing: "border-box",
                 gap: theme.spacing(2),
                 display: "flex",
-                zIndex: 10,
                 alignItems: "center",
                 justifyContent: "space-between",
                 maxWidth: 1240,
-                width: "90%",
+                width: "100%",
                 margin: "0 auto"
             },
             _a[theme.breakpoints.down("lg")] = {
                 padding: theme.spacing(3, 0),
             },
+            _a[theme.breakpoints.up("lg")] = {
+                width: "90%",
+            },
             _a[theme.breakpoints.down("md")] = {
                 backgroundColor: theme.design.colors.waz_white,
-                padding: theme.spacing(3, 0),
+                padding: theme.spacing(3),
             },
             _a),
         activeElement: {
@@ -55,15 +60,19 @@ export var useMbmcBlock13Styles = makeStyles(function (theme) {
         },
         logo: (_c = {
                 maxWidth: "300px",
-                maxHeight: '65px',
+                maxHeight: "65px",
                 objectFit: "cover"
             },
             _c[theme.breakpoints.down("md")] = {
                 maxWidth: "200px",
             },
+            _c[theme.breakpoints.up("md")] = {
+                height: "60px",
+                width: "282.45px",
+            },
             _c),
         link: {
-            cursor: 'pointer',
+            cursor: "pointer",
             textDecoration: "none",
             color: theme.design.colors.waz_black,
         },

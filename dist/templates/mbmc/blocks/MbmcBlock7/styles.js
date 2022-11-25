@@ -1,6 +1,6 @@
 import { makeStyles } from "@mui/styles";
 export var useMbmcBlock7Styles = makeStyles(function (theme) {
-    var _a, _b, _c, _d;
+    var _a, _b, _c, _d, _e;
     return ({
         root: (_a = {
                 backgroundColor: theme.design.colors.waz_white,
@@ -95,11 +95,17 @@ export var useMbmcBlock7Styles = makeStyles(function (theme) {
                 textAlign: "left",
             },
             _d),
-        imageContainer: {
-            width: "100%",
-            borderRadius: 4,
-            objectFit: "cover",
-        },
+        imageContainer: (_e = {
+                width: "100%",
+                borderRadius: 4,
+                objectFit: "cover",
+                height: "23.7vw",
+                maxHeight: "341px"
+            },
+            _e[theme.breakpoints.down("sm")] = {
+                height: "116px",
+            },
+            _e),
         flexGrow: {
             gridRow: "1 / span 2",
             gridColumn: "3/3",

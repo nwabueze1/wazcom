@@ -30,7 +30,7 @@ export const useMbmcBlock9Styles = makeStyles((theme: Theme) => ({
         flexDirection: "column",
 
         [theme.breakpoints.down("md")]: {
-            alignItems: 'center',
+            alignItems: "center",
         },
     },
     headerTitle: {
@@ -74,7 +74,7 @@ export const useMbmcBlock9Styles = makeStyles((theme: Theme) => ({
 
         [theme.breakpoints.down("md")]: {
             fontSize: theme.typography.fontSize + 3,
-            textAlign: 'center',
+            textAlign: "center",
             width: "80%",
         },
 
@@ -177,9 +177,10 @@ export const useMbmcBlock9Styles = makeStyles((theme: Theme) => ({
     },
     imageStep: {
         height: "100%",
+        width: "100%",
+
         [theme.breakpoints.down("lg")]: {
             height: "unset",
-            width: "100%",
         },
     },
     directionContainer: {

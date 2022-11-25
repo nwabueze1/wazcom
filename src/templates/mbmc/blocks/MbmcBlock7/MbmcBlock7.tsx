@@ -2,6 +2,7 @@ import { useMbmcBlock7Styles } from "./styles";
 import clx from "classnames";
 import { FC } from "react";
 import { MbmcBlock7Props } from "./types";
+import { LazyImage } from "../../../../core";
 
 export const MbmcBlock7: FC<MbmcBlock7Props> = ({ heading, description, images }) => {
     const classes = useMbmcBlock7Styles();
@@ -14,7 +15,7 @@ export const MbmcBlock7: FC<MbmcBlock7Props> = ({ heading, description, images }
             </div>
             <div className={classes.mobileCardContainer}>
                 {images?.map((image, idx) => (
-                    <img key={idx} src={image} className={clx(classes.mobileImageContainer)} />
+                    <LazyImage key={idx} src={image} className={clx(classes.imageContainer)} />
                 ))}
             </div>
         </div>
