@@ -5,4 +5,5 @@ export * from './CoreGuestFields';
 export * from './CoreMenuFields';
 export * from './CoreMenuCategoryFields';
 export * from './CoreMenuItemFields';
+export * from './CoreOrderFields';
 export * from './CoreRestaurantFields';

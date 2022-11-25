@@ -6,6 +6,7 @@
 import { CoreAddressFields } from "./CoreAddressFields";
 import { CoreGuestFields } from "./CoreGuestFields";
 import { CoreMenuItemFields } from "./CoreMenuItemFields";
+import { CoreOrderFields } from "./CoreOrderFields";
 import { CoreRestaurantFields } from "./CoreRestaurantFields";
 
 // ====================================================
@@ -26,6 +27,7 @@ export interface CoreCartFields {
     expires: any;
     address?: CoreAddressFields;
     guest?: CoreGuestFields;
+    order?: CoreOrderFields;
     cartItems: CoreCartFields_cartItems[] | null;
     restaurant: CoreRestaurantFields;
 }
