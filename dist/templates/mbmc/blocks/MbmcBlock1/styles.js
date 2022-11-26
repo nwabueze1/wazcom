@@ -163,7 +163,10 @@ export var useMbmcBlock1Styles = makeStyles(function (theme) {
             },
             height: "90%",
             zIndex: 10,
-            objectFit: "none",
+            objectFit: function (_a) {
+                var fullHeight = _a.fullHeight;
+                return (fullHeight ? "none" : "contain");
+            },
         },
         block1Overlay: {
             position: "absolute",

@@ -156,7 +156,7 @@ export const useMbmcBlock1Styles = makeStyles<Theme, MbmcBlock1StyleProps>((them
         width: ({ fullHeight }) => (fullHeight ? "95%" : "85%"),
         height: "90%",
         zIndex: 10,
-        objectFit: "none",
+        objectFit: ({ fullHeight }) => (fullHeight ? "none" : "contain"),
     },
     block1Overlay: {
         position: "absolute",
