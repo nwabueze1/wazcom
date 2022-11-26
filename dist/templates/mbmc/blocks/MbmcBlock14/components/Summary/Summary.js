@@ -15,7 +15,7 @@ import { MbmcButton } from "../../../../components";
 import clx from "classnames";
 import { useSummaryStyles } from "./styles";
 import { RestaurantContext } from "../../../../contexts";
-import { getCurrency } from "utilities";
+import { getCurrency } from "../../../../../../utilities";
 import { calculateCartSubTotal } from "../../helpers";
 export var Summary = function (_a) {
     var _b, _c, _d, _e;
