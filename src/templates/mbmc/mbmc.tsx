@@ -30,7 +30,7 @@ export const useGetMbmcBlocks = () => {
                 heading: "From Our <br /> Kitchen <br /> To Your Table",
                 description:
                     "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy",
-                image: "https://sytbuildr.s3.eu-west-2.amazonaws.com/images/mbmc/heroFood.png",
+                image: "https://sytbuildr.s3.eu-west-2.amazonaws.com/images/mbmc/home/hero-food.webp",
                 ctas: [
                     {
                         text: "Order now",
@@ -52,6 +52,7 @@ export const useGetMbmcBlocks = () => {
             props: {
                 style: "mbmc",
                 heading: "Our Menu",
+                image: "https://sytbuildr.s3.eu-west-2.amazonaws.com/images/mbmc/home/hero-food.webp",
             },
         },
         {
@@ -90,19 +91,19 @@ export const useGetMbmcBlocks = () => {
                         heading: "Baking",
                         description:
                             "Lorem ips um dolor sit amet, consetetur sadipscin g elitr, sed diam nonumy eirmod.",
-                        image: "https://sytbuildr.s3.eu-west-2.amazonaws.com/images/mbmc/bake.webp",
+                        image: "https://sytbuildr.s3.eu-west-2.amazonaws.com/images/mbmc/home/bake.webp",
                     },
                     {
                         heading: "Private Dining",
                         description:
                             "Lorem ips um dolor sit amet, consetetur sadipscin g elitr, sed diam nonumy eirmod.",
-                        image: "https://sytbuildr.s3.eu-west-2.amazonaws.com/images/mbmc/tablevase.webp",
+                        image: "https://sytbuildr.s3.eu-west-2.amazonaws.com/images/mbmc/home/tablevase.webp",
                     },
                     {
                         heading: "Cocktail & Mocktail",
                         description:
                             "Lorem ips um dolor sit amet, consetetur sadipscin g elitr, sed diam nonumy eirmod.",
-                        image: "https://sytbuildr.s3.eu-west-2.amazonaws.com/images/mbmc/drink.webp",
+                        image: "https://sytbuildr.s3.eu-west-2.amazonaws.com/images/mbmc/home/drink.webp",
                     },
                 ],
 
@@ -220,8 +221,12 @@ export const useGetMbmcBlocks = () => {
                 heading: "Explore Our Best Menu",
                 description: `Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed 
                 diam nonumy eirmod tempor invidunt ut labore et dolore a….`,
-                services: { AMBROSIA: 'https://ofambegbe-ambrosia.wazobia.uk/graphql', NICODEMUS: '', MUSE: '' },
-                integratedService: 'AMBROSIA',
+                services: {
+                    AMBROSIA: "https://ofambegbe-ambrosia.wazobia.uk/graphql",
+                    NICODEMUS: "",
+                    MUSE: "",
+                },
+                integratedService: "AMBROSIA",
                 menu_uuid: "86e9e1a1-8d9a-4673-b035-f720df10728a",
                 site_uuid: "",
             },
@@ -458,9 +463,13 @@ export const useGetMbmcBlocks = () => {
             component: MbmcBlock14,
             props: {
                 style: "mbmc",
-                services: { AMBROSIA: 'https://ofambegbe-ambrosia.wazobia.uk/graphql', NICODEMUS: 'https://ofambegbe-nicodemus.wazobia.uk/graphql', MUSE: '' },
-                integratedServices: ['AMBROSIA', 'NICODEMUS'],
-                site_uuid: '896466aa-bacc-4817-b577-436a52540eff',
+                services: {
+                    AMBROSIA: "https://ofambegbe-ambrosia.wazobia.uk/graphql",
+                    NICODEMUS: "https://ofambegbe-nicodemus.wazobia.uk/graphql",
+                    MUSE: "",
+                },
+                integratedServices: ["AMBROSIA", "NICODEMUS"],
+                site_uuid: "896466aa-bacc-4817-b577-436a52540eff",
             },
         },
         {

@@ -5,6 +5,7 @@ export type SidebarListItemProps = {
         components: {
             id: string;
             label: string;
+            route?: string;
         }[];
     }[];
 };

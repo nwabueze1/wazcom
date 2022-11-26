@@ -63,7 +63,17 @@ export const MbmcBlock4: FC<MbmcBlock4Props> = ({
                         {description}
                     </p>
                 </div>
-                <div className={classes.block4CardContainer}>{displayCards()}</div>
+                <div className={classes.block4CardContainer}>
+                    <img
+                        src="https://sytbuildr.s3.eu-west-2.amazonaws.com/images/mbmc/home/steam%402x.webp"
+                        className={classes.block4CardFlame}
+                    />
+                    {displayCards()}
+                    <img
+                        src="https://sytbuildr.s3.eu-west-2.amazonaws.com/images/mbmc/home/steam%402x.webp"
+                        className={clx(classes.block4CardFlame, classes.block4CardFlameRight)}
+                    />
+                </div>
             </div>
         </div>
     );

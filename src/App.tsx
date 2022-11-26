@@ -88,6 +88,9 @@ const App: React.FC<Props> = () => {
                         <Route exact path="/">
                             <Browser />
                         </Route>
+                        <Route exact path="/templates">
+                            <Templates />
+                        </Route>
                         {getMbmcBlocks()
                             .sort(({ name: aName }, { name: bName }) =>
                                 aName.toLowerCase() < bName.toLowerCase()
@@ -123,9 +126,6 @@ const App: React.FC<Props> = () => {
                         </Route>
                         <Route exact path="/mbmc">
                             <Mbmc />
-                        </Route>
-                        <Route exact path="/blocks">
-                            <Templates />
                         </Route>
                     </Switch>
                 </Router>
