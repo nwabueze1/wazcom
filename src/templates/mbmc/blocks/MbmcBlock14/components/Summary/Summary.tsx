@@ -3,7 +3,7 @@ import { MbmcButton } from "../../../../components";
 import clx from "classnames";
 import { useSummaryStyles } from "./styles";
 import { RestaurantContext } from "../../../../contexts";
-import { getCurrency } from "utilities";
+import { getCurrency } from "../../../../../../utilities";
 import { CoreCartFields } from "../../../../models";
 import { calculateCartSubTotal } from "../../helpers";
 import { SummaryProps } from "./types";

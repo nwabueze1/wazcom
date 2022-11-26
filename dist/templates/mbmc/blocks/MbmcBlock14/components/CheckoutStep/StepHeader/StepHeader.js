@@ -13,7 +13,7 @@ import { jsx as _jsx, jsxs as _jsxs } from "react/jsx-runtime";
 import { useContext } from "react";
 import { RestaurantContext } from "../../../../../contexts";
 import { useStepHeaderStyles } from "./styles";
-import { getCurrency } from "utilities";
+import { getCurrency } from "../../../../../../../utilities";
 import { calculateCartSubTotal } from "../../../helpers";
 import { DeliveryOption, deliveryOptions } from "../../Delivery";
 import clx from "classnames";
@@ -26,7 +26,6 @@ export var StepHeader = function (_a) {
     var currency = getCurrency((_b = cart === null || cart === void 0 ? void 0 : cart.currency) !== null && _b !== void 0 ? _b : "");
     var subTotal = calculateCartSubTotal(cart);
     var deliveryFee = Number((_d = (_c = cart === null || cart === void 0 ? void 0 : cart.restaurant) === null || _c === void 0 ? void 0 : _c.bank_info) === null || _d === void 0 ? void 0 : _d.delivery_fee);
-    console.log(cart);
     if (parsedName === "summary")
         return (_jsxs("div", __assign({ className: classes.stepSummaryHeader, onClick: function () {
                 handleEdit === null || handleEdit === void 0 ? void 0 : handleEdit();

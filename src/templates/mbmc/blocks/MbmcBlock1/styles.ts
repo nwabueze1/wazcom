@@ -146,8 +146,7 @@ export const useMbmcBlock1Styles = makeStyles<Theme, MbmcBlock1StyleProps>((them
 
         [theme.breakpoints.down("sm")]: {
             height: "100%",
-            marginTop: ({ fullHeight }) =>
-                fullHeight ? `${theme.spacing(0)} !important` : `${theme.spacing(8)} !important`,
+            marginTop: 0,
         },
     },
     block1Image: {
@@ -156,11 +155,11 @@ export const useMbmcBlock1Styles = makeStyles<Theme, MbmcBlock1StyleProps>((them
         width: ({ fullHeight }) => (fullHeight ? "95%" : "85%"),
         height: "90%",
         zIndex: 10,
-        objectFit: "none",
+        objectFit: ({ fullHeight }) => (fullHeight ? "none" : "contain"),
     },
     block1Overlay: {
         position: "absolute",
-        top: "-12vh",
+        top: 0,
     },
     block1BtnContainer: {
         display: "flex",

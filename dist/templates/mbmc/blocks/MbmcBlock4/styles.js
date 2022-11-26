@@ -1,6 +1,6 @@
 import { makeStyles } from "@mui/styles";
 export var useMbmcBlock4Styles = makeStyles(function (theme) {
-    var _a, _b, _c, _d, _e, _f;
+    var _a, _b, _c, _d, _e, _f, _g;
     return ({
         root: (_a = {
                 backgroundColor: theme.design.colors.waz_gold100,
@@ -78,7 +78,8 @@ export var useMbmcBlock4Styles = makeStyles(function (theme) {
                 display: "flex",
                 justifyContent: "space-between",
                 gap: theme.spacing(2),
-                flexWrap: "wrap"
+                flexWrap: "wrap",
+                position: "relative"
             },
             _e[theme.breakpoints.down("lg")] = {
                 justifyContent: "center",
@@ -88,16 +89,31 @@ export var useMbmcBlock4Styles = makeStyles(function (theme) {
                 alignItems: "center",
             },
             _e),
-        block4Card: (_f = {
-                width: "calc((100% - 32px) / 3)"
+        block4CardFlame: (_f = {
+                position: "absolute",
+                top: "50%",
+                left: -40,
+                width: 62
             },
             _f[theme.breakpoints.down("md")] = {
-                width: "calc((100% - 16px) / 2)",
-            },
-            _f[theme.breakpoints.down("sm")] = {
-                width: "100%",
+                display: "none",
             },
             _f),
+        block4CardFlameRight: {
+            left: "unset",
+            right: -40,
+        },
+        block4Card: (_g = {
+                width: "calc((100% - 32px) / 3)",
+                zIndex: 2
+            },
+            _g[theme.breakpoints.down("md")] = {
+                width: "calc((100% - 16px) / 2)",
+            },
+            _g[theme.breakpoints.down("sm")] = {
+                width: "100%",
+            },
+            _g),
         block4CardHeading: {
             color: theme.design.colors.waz_orangeColor100,
         },

@@ -47,17 +47,11 @@ export const SidebarListItem: FC<SidebarListItemProps> = ({ title, sections }) =
             <ul className={clx(classes.list, isVisible ? classes.isVisible : classes.isNotVisible)}>
                 {sections.map(({ label: sectionLabel, components }, sectionIndex) => {
                     return (
-                        <li
-                            key={sectionIndex}
-                            className={classes.listItem}
-                        >
+                        <li key={sectionIndex} className={classes.listItem}>
                             <Typography variant="h5">{sectionLabel}</Typography>
                             <ul className={classes.innerList}>
-                                {components.map(({ id, label }, index) => (
-                                    <li
-                                        key={index}
-                                        className={classes.innerListItem}
-                                    >
+                                {components.map(({ id, label, route }, index) => (
+                                    <li key={index} className={classes.innerListItem}>
                                         <a
                                             className={clx(
                                                 classes.link,
@@ -72,7 +66,7 @@ export const SidebarListItem: FC<SidebarListItemProps> = ({ title, sections }) =
                                             onMouseLeave={() =>
                                                 handleMouseLeave(sectionIndex, index)
                                             }
-                                            href={`#${id}`}
+                                            href={route ?? `#${id}`}
                                         >
                                             {label}
                                         </a>

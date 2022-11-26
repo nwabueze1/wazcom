@@ -148,10 +148,7 @@ export var useMbmcBlock1Styles = makeStyles(function (theme) {
             },
             _h[theme.breakpoints.down("sm")] = {
                 height: "100%",
-                marginTop: function (_a) {
-                    var fullHeight = _a.fullHeight;
-                    return fullHeight ? "".concat(theme.spacing(0), " !important") : "".concat(theme.spacing(8), " !important");
-                },
+                marginTop: 0,
             },
             _h),
         block1Image: {
@@ -163,11 +160,14 @@ export var useMbmcBlock1Styles = makeStyles(function (theme) {
             },
             height: "90%",
             zIndex: 10,
-            objectFit: "none",
+            objectFit: function (_a) {
+                var fullHeight = _a.fullHeight;
+                return (fullHeight ? "none" : "contain");
+            },
         },
         block1Overlay: {
             position: "absolute",
-            top: "-12vh",
+            top: 0,
         },
         block1BtnContainer: {
             display: "flex",
