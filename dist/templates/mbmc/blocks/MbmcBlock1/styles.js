@@ -170,7 +170,7 @@ export var useMbmcBlock1Styles = makeStyles(function (theme) {
         },
         block1Overlay: {
             position: "absolute",
-            top: "-12vh",
+            top: 0,
         },
         block1BtnContainer: {
             display: "flex",

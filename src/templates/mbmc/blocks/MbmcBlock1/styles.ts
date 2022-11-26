@@ -160,7 +160,7 @@ export const useMbmcBlock1Styles = makeStyles<Theme, MbmcBlock1StyleProps>((them
     },
     block1Overlay: {
         position: "absolute",
-        top: "-12vh",
+        top: 0,
     },
     block1BtnContainer: {
         display: "flex",
