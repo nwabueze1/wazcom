@@ -1,26 +1,5 @@
-import { FormControls } from "../../../../components/Form";
-import { TUpdateGuestVariables, TCreateAddressVariables } from "./hooks";
-export declare const usePickupConfig: () => (onSubmission?: (() => void) | undefined) => {
-    initialValues: {
-        email: string;
-        firstname: string;
-        lastname: string;
-    };
-    validationSchema: import("yup").ObjectSchema<import("yup/lib/object").Assign<import("yup/lib/object").ObjectShape, {
-        firstname: import("yup/lib/string").RequiredStringSchema<string | undefined, import("yup/lib/types").AnyObject>;
-        lastname: import("yup/lib/string").RequiredStringSchema<string | undefined, import("yup/lib/types").AnyObject>;
-        email: import("yup/lib/string").RequiredStringSchema<string | undefined, import("yup/lib/types").AnyObject>;
-    }>, import("yup/lib/object").AnyObject, import("yup/lib/object").TypeOfShape<import("yup/lib/object").Assign<import("yup/lib/object").ObjectShape, {
-        firstname: import("yup/lib/string").RequiredStringSchema<string | undefined, import("yup/lib/types").AnyObject>;
-        lastname: import("yup/lib/string").RequiredStringSchema<string | undefined, import("yup/lib/types").AnyObject>;
-        email: import("yup/lib/string").RequiredStringSchema<string | undefined, import("yup/lib/types").AnyObject>;
-    }>>, import("yup/lib/object").AssertsShape<import("yup/lib/object").Assign<import("yup/lib/object").ObjectShape, {
-        firstname: import("yup/lib/string").RequiredStringSchema<string | undefined, import("yup/lib/types").AnyObject>;
-        lastname: import("yup/lib/string").RequiredStringSchema<string | undefined, import("yup/lib/types").AnyObject>;
-        email: import("yup/lib/string").RequiredStringSchema<string | undefined, import("yup/lib/types").AnyObject>;
-    }>>>;
-    onSubmit: (variables: TUpdateGuestVariables) => Promise<void>;
-};
+import { FormControls } from "../../../../../components/Form";
+import { TUpdateGuestVariables, TCreateAddressVariables } from "../hooks";
 export declare const useDispatchConfig: () => (onSubmission?: (() => void) | undefined) => {
     initialValues: {
         phone: string;
@@ -66,5 +45,4 @@ export declare const useDispatchConfig: () => (onSubmission?: (() => void) | und
     }>>>;
     onSubmit: (variables: TUpdateGuestVariables & TCreateAddressVariables) => Promise<void>;
 };
-export declare const usePickupControls: () => (formik: any) => FormControls[];
 export declare const useDispatchControls: () => (formik: any) => FormControls[];
