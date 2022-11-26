@@ -4,7 +4,7 @@ import { makeStyles } from "@mui/styles";
 export const useMbmcBlock14Styles = makeStyles((theme: Theme) => ({
     root: {
         backgroundColor: theme.design.colors.waz_greyColor50,
-        minHeight: "100vh",
+        minHeight: "90vh",
     },
     block14Container: {
         boxSizing: "border-box",
