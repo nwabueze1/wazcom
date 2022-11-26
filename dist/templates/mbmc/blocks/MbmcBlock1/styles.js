@@ -167,7 +167,7 @@ export var useMbmcBlock1Styles = makeStyles(function (theme) {
         },
         block1Overlay: {
             position: "absolute",
-            top: 0,
+            top: "-3vw",
         },
         block1BtnContainer: {
             display: "flex",
