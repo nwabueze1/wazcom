@@ -146,8 +146,7 @@ export const useMbmcBlock1Styles = makeStyles<Theme, MbmcBlock1StyleProps>((them
 
         [theme.breakpoints.down("sm")]: {
             height: "100%",
-            marginTop: ({ fullHeight }) =>
-                fullHeight ? `${theme.spacing(0)} !important` : `${theme.spacing(8)} !important`,
+            marginTop: 0,
         },
     },
     block1Image: {
