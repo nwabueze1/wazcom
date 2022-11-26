@@ -3,6 +3,7 @@ import { FC, useEffect, useState } from "react";
 import { MbmcBlock1Props } from "./types";
 import clx from "classnames";
 import { renderCtas, handleElementClick } from "../../utilities";
+import { parseHtml } from "../../../../utilities/renderStyle";
 
 export const MbmcBlock1: FC<MbmcBlock1Props> = ({
     mode = "view",
@@ -39,7 +40,7 @@ export const MbmcBlock1: FC<MbmcBlock1Props> = ({
                                     classes.block1ActiveElement,
                             )}
                             dangerouslySetInnerHTML={{
-                                __html: heading,
+                                __html: parseHtml(heading),
                             }}
                             onClick={() =>
                                 handleElementClick(mode, `${String(index)}.heading`, handleClick)
@@ -101,7 +102,7 @@ export const MbmcBlock1: FC<MbmcBlock1Props> = ({
                         )}
                     />
                     <img
-                        src="https://sytbuildr.s3.eu-west-2.amazonaws.com/images/mbmc/clipped1.svg"
+                        src="https://sytbuildr.s3.eu-west-2.amazonaws.com/images/mbmc/home/hero-background.svg"
                         alt="Image Overlay"
                         className={classes.block1Overlay}
                     />

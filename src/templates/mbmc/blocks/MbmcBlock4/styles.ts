@@ -83,6 +83,7 @@ export const useMbmcBlock4Styles = makeStyles((theme: Theme) => ({
         justifyContent: "space-between",
         gap: theme.spacing(2),
         flexWrap: "wrap",
+        position: "relative",
 
         [theme.breakpoints.down("lg")]: {
             justifyContent: "center",
@@ -93,8 +94,23 @@ export const useMbmcBlock4Styles = makeStyles((theme: Theme) => ({
             alignItems: "center",
         },
     },
+    block4CardFlame: {
+        position: "absolute",
+        top: "50%",
+        left: -40,
+        width: 62,
+
+        [theme.breakpoints.down("md")]: {
+            display: "none",
+        },
+    },
+    block4CardFlameRight: {
+        left: "unset",
+        right: -40,
+    },
     block4Card: {
         width: "calc((100% - 32px) / 3)",
+        zIndex: 2,
 
         [theme.breakpoints.down("md")]: {
             width: "calc((100% - 16px) / 2)",

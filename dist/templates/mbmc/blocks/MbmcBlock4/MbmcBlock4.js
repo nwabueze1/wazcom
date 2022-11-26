@@ -29,5 +29,5 @@ export var MbmcBlock4 = function (_a) {
                             } }, { children: heading }), void 0), _jsx("p", __assign({ className: clx(classes.block4Description, activeElement === "".concat(String(index), ".description") &&
                                 classes.block4ActiveElement), onClick: function () {
                                 handleElementClick(mode, "".concat(String(index), ".description"), handleClick);
-                            } }, { children: description }), void 0)] }), void 0), _jsx("div", __assign({ className: classes.block4CardContainer }, { children: displayCards() }), void 0)] }), void 0) }), void 0));
+                            } }, { children: description }), void 0)] }), void 0), _jsxs("div", __assign({ className: classes.block4CardContainer }, { children: [_jsx("img", { src: "https://sytbuildr.s3.eu-west-2.amazonaws.com/images/mbmc/home/steam%402x.webp", className: classes.block4CardFlame }, void 0), displayCards(), _jsx("img", { src: "https://sytbuildr.s3.eu-west-2.amazonaws.com/images/mbmc/home/steam%402x.webp", className: clx(classes.block4CardFlame, classes.block4CardFlameRight) }, void 0)] }), void 0)] }), void 0) }), void 0));
 };
