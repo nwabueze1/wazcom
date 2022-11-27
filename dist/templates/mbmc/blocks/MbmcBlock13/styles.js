@@ -23,14 +23,13 @@ export var useMbmcBlock13Styles = makeStyles(function (theme) {
                 margin: "0 auto"
             },
             _a[theme.breakpoints.down("lg")] = {
-                padding: theme.spacing(3, 0),
+                padding: theme.spacing(3),
             },
             _a[theme.breakpoints.up("lg")] = {
                 width: "90%",
             },
             _a[theme.breakpoints.down("md")] = {
                 backgroundColor: theme.design.colors.waz_white,
-                padding: theme.spacing(3),
             },
             _a),
         activeElement: {
@@ -59,12 +58,11 @@ export var useMbmcBlock13Styles = makeStyles(function (theme) {
                 _b),
         },
         logo: (_c = {
-                maxWidth: "300px",
-                maxHeight: "65px",
                 objectFit: "cover"
             },
             _c[theme.breakpoints.down("md")] = {
-                maxWidth: "200px",
+                width: "200px",
+                height: "42.31px",
             },
             _c[theme.breakpoints.up("md")] = {
                 height: "60px",

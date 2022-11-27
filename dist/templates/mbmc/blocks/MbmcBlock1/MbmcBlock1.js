@@ -30,7 +30,6 @@ import { useMbmcBlock1Styles } from "./styles";
 import { useEffect, useState } from "react";
 import clx from "classnames";
 import { renderCtas, handleElementClick } from "../../utilities";
-import { parseHtml } from "../../../../utilities/renderStyle";
 export var MbmcBlock1 = function (_a) {
     var _b = _a.mode, mode = _b === void 0 ? "view" : _b, index = _a.index, _c = _a.activeElement, activeElement = _c === void 0 ? "" : _c, handleClick = _a.handleClick, image = _a.image, heading = _a.heading, description = _a.description, ctas = _a.ctas, _d = _a.fullHeight, fullHeight = _d === void 0 ? true : _d;
     var classes = useMbmcBlock1Styles({ fullHeight: fullHeight });
@@ -40,7 +39,7 @@ export var MbmcBlock1 = function (_a) {
     }, []);
     return (_jsx("div", __assign({ className: clx(classes.root, activeElement === String(index) && classes.block1ActiveElement) }, { children: _jsxs("div", __assign({ className: classes.block1Container }, { children: [_jsxs("div", __assign({ className: classes.block1Content }, { children: [isClient && (_jsx("h1", { className: clx(classes.block1Heading, activeElement === "".concat(String(index), ".heading") &&
                                 classes.block1ActiveElement), dangerouslySetInnerHTML: {
-                                __html: parseHtml(heading),
+                                __html: heading,
                             }, onClick: function () {
                                 return handleElementClick(mode, "".concat(String(index), ".heading"), handleClick);
                             } }, void 0)), _jsx("p", __assign({ className: clx(classes.block1Description, activeElement === "".concat(String(index), ".description") &&

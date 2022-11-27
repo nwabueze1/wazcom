@@ -6,12 +6,31 @@ import { MbmcBlock4 } from "templates/mbmc/blocks/MbmcBlock4/MbmcBlock4";
 import { MbmcBlock5 } from "templates/mbmc/blocks/MbmcBlock5/MbmcBlock5";
 import { MbmcBlock6 } from "templates/mbmc/blocks/MbmcBlock6/MbmcBlock6";
 import { MbmcBlock7 } from "templates/mbmc/blocks/MbmcBlock7/MbmcBlock7";
+import { MbmcBlock13 } from "templates/mbmc/blocks/MbmcBlock13/MbmcBlock13";
 
 export const Mbmc = () => {
     const classes = useMbmbcStyles();
 
     return (
         <>
+            <MbmcBlock13
+                logo={{
+                    src: "https://sytbuildr.s3.eu-west-2.amazonaws.com/images/mbmc/Logo%402x.png",
+                    url: "/",
+                }}
+                links={[
+                    { text: "About us", url: "/about" },
+                    { text: "Menus", url: "/menu" },
+                    { text: "Contact us", url: "/contact-us" },
+                ]}
+                ctas={[
+                    {
+                        text: "Order now",
+                        handleClick: () => console.log("clicked"),
+                    },
+                ]}
+                handleClick={(route: string) => {}}
+            />
             <MbmcBlock1
                 style="mbmc"
                 heading="From Our <br /> Kitchen <br /> To Your Table"

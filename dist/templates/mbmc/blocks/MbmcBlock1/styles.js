@@ -96,22 +96,13 @@ export var useMbmcBlock1Styles = makeStyles(function (theme) {
             },
             _e),
         block1ImgContainerMobile: (_f = {
-                position: "absolute",
                 bottom: 0,
-                width: "100%"
-            },
-            _f[theme.breakpoints.up("lg")] = {
-                display: "none",
-                position: function (_a) {
-                    var fullHeight = _a.fullHeight;
-                    return (fullHeight ? "absolute" : "relative");
-                },
+                width: "100%",
+                display: "none"
             },
             _f[theme.breakpoints.down("lg")] = {
-                position: function (_a) {
-                    var fullHeight = _a.fullHeight;
-                    return (fullHeight ? "absolute" : "relative");
-                },
+                display: "block",
+                position: "relative",
             },
             _f[theme.breakpoints.down("md")] = {
                 bottom: -40,
@@ -143,7 +134,7 @@ export var useMbmcBlock1Styles = makeStyles(function (theme) {
             _h[theme.breakpoints.down("lg")] = {
                 marginTop: function (_a) {
                     var fullHeight = _a.fullHeight;
-                    return (fullHeight ? theme.spacing(8) : 0);
+                    return (fullHeight ? theme.spacing(5) : 0);
                 },
             },
             _h[theme.breakpoints.down("sm")] = {
