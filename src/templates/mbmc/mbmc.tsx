@@ -429,6 +429,14 @@ export const useGetMbmcBlocks = () => {
                         className: classes.mbmc12Button,
                     },
                 ],
+                client: {
+                    type: "emailjs",
+                    credentials: {
+                        service_id: "default_service",
+                        template_id: "template_yw4xkdn",
+                        user_id: "ppLpfYN6_0WxA0xZ6",
+                    },
+                },
             },
         },
         {
