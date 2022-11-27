@@ -4,7 +4,7 @@ import { FC, useState } from "react";
 import { MbmcBlock12Props } from "./types";
 import { TextArea, TextInput } from "../../../../io";
 import { Loader } from "../../../../core";
-import { notify } from "templates/mbmc/utilities";
+import { notify } from "../../utilities";
 
 export const MbmcBlock12: FC<MbmcBlock12Props> = ({
     layout,

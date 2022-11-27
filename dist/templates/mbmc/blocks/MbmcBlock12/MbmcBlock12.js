@@ -78,7 +78,7 @@ import { MbmcButton } from "../../components/MbmcButton/MbmcButton";
 import { useState } from "react";
 import { TextArea, TextInput } from "../../../../io";
 import { Loader } from "../../../../core";
-import { notify } from "templates/mbmc/utilities";
+import { notify } from "../../utilities";
 export var MbmcBlock12 = function (_a) {
     var layout = _a.layout, heading = _a.heading, description = _a.description, ctas = _a.ctas, handleSend = _a.handleSend;
     var classes = useMbmcBlock12Styles({ flexDirection: layout !== null && layout !== void 0 ? layout : "row" });
