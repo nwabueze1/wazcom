@@ -1,16 +1,17 @@
 import { useMbmcBlock12Styles } from "./styles";
 import { MbmcButton } from "../../components/MbmcButton/MbmcButton";
 import { FC, useState } from "react";
-import { MbmcBlock12Props } from "./types";
+import { HandleSend, MbmcBlock12Props } from "./types";
 import { TextArea, TextInput } from "../../../../io";
 import { Loader } from "../../../../core";
+import { notify } from "../../utilities";
 
 export const MbmcBlock12: FC<MbmcBlock12Props> = ({
     layout,
     heading,
     description,
     ctas,
-    handleSend,
+    client,
 }) => {
     const classes = useMbmcBlock12Styles({ flexDirection: layout ?? "row" });
     const [loading, setLoading] = useState<boolean>(false);
@@ -46,7 +47,9 @@ export const MbmcBlock12: FC<MbmcBlock12Props> = ({
         });
     };
 
-    const handleClick = async () => {
+    const handleClick: React.FormEventHandler<HTMLFormElement> = async (e) => {
+        e.preventDefault();
+
         const hasEmptyField = Object.values(formData).includes("");
 
         if (hasEmptyField) {
@@ -55,18 +58,50 @@ export const MbmcBlock12: FC<MbmcBlock12Props> = ({
         setLoading(true);
         try {
             const { name, email, phoneNo, message } = formData;
-            await handleSend?.(name, email, phoneNo, message);
+            await handleSend({ name, email, phoneNo, message }, client);
             setFormData({
                 name: "",
                 email: "",
                 phoneNo: "",
                 message: "",
             });
-            setIsSubmitted(true);
+            notify("success", "Your message has been sent successfully, thanks for reaching out.");
         } catch (error) {
-            console.error(error);
+            notify("error", "Your email could not be sent, try again later. Thanks");
         }
         setLoading(false);
+    };
+
+    const handleSend: HandleSend = async (data, client) => {
+        if (!client) throw new Error();
+        const { email, message, name, phoneNo } = data;
+
+        switch (client.type) {
+            case "emailjs": {
+                const response = await fetch("https://api.emailjs.com/api/v1.0/email/send", {
+                    method: "POST",
+                    headers: {
+                        Accept: "application/json",
+                        "Content-Type": "application/json",
+                    },
+                    body: JSON.stringify({
+                        ...client.credentials,
+                        template_params: {
+                            name,
+                            to_name: "Mr Baker and Mrs Cook",
+                            message,
+                            reply_to: email,
+                            phone_number: phoneNo,
+                        },
+                    }),
+                });
+
+                if (response.status !== 200) throw new Error();
+                break;
+            }
+            default:
+                break;
+        }
     };
 
     return (
@@ -84,7 +119,7 @@ export const MbmcBlock12: FC<MbmcBlock12Props> = ({
                 </div>
 
                 <div className={classes.formContainer}>
-                    <form action="" className={classes.form}>
+                    <form className={classes.form} onSubmit={handleClick}>
                         <TextInput
                             placeholder="Name"
                             name="name"
@@ -121,10 +156,10 @@ export const MbmcBlock12: FC<MbmcBlock12Props> = ({
                             minRows={12}
                         />
                         <MbmcButton
-                            onClick={handleClick}
                             className={classes.formButton}
                             size="sm"
                             variant="SECONDARY"
+                            type="submit"
                         >
                             Send
                         </MbmcButton>
