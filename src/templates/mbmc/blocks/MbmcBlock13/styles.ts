@@ -23,7 +23,7 @@ export const useMbmcBlock13Styles = makeStyles((theme: Theme) => ({
         margin: "0 auto",
 
         [theme.breakpoints.down("lg")]: {
-            padding: theme.spacing(3, 0),
+            padding: theme.spacing(3),
         },
 
         [theme.breakpoints.up("lg")]: {
@@ -32,7 +32,6 @@ export const useMbmcBlock13Styles = makeStyles((theme: Theme) => ({
 
         [theme.breakpoints.down("md")]: {
             backgroundColor: theme.design.colors.waz_white,
-            padding: theme.spacing(3),
         },
     },
     activeElement: {
@@ -60,12 +59,11 @@ export const useMbmcBlock13Styles = makeStyles((theme: Theme) => ({
         },
     },
     logo: {
-        maxWidth: "300px",
-        maxHeight: "65px",
         objectFit: "cover",
 
         [theme.breakpoints.down("md")]: {
-            maxWidth: "200px",
+            width: "200px",
+            height: "42.31px",
         },
 
         [theme.breakpoints.up("md")]: {

@@ -3,7 +3,6 @@ import { FC, useEffect, useState } from "react";
 import { MbmcBlock1Props } from "./types";
 import clx from "classnames";
 import { renderCtas, handleElementClick } from "../../utilities";
-import { parseHtml } from "../../../../utilities/renderStyle";
 
 export const MbmcBlock1: FC<MbmcBlock1Props> = ({
     mode = "view",
@@ -40,7 +39,7 @@ export const MbmcBlock1: FC<MbmcBlock1Props> = ({
                                     classes.block1ActiveElement,
                             )}
                             dangerouslySetInnerHTML={{
-                                __html: parseHtml(heading),
+                                __html: heading,
                             }}
                             onClick={() =>
                                 handleElementClick(mode, `${String(index)}.heading`, handleClick)
