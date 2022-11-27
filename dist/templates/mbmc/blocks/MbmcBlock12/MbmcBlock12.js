@@ -80,7 +80,7 @@ import { TextArea, TextInput } from "../../../../io";
 import { Loader } from "../../../../core";
 import { notify } from "../../utilities";
 export var MbmcBlock12 = function (_a) {
-    var layout = _a.layout, heading = _a.heading, description = _a.description, ctas = _a.ctas, handleSend = _a.handleSend;
+    var layout = _a.layout, heading = _a.heading, description = _a.description, ctas = _a.ctas, client = _a.client;
     var classes = useMbmcBlock12Styles({ flexDirection: layout !== null && layout !== void 0 ? layout : "row" });
     var _b = __read(useState(false), 2), loading = _b[0], setLoading = _b[1];
     var _c = __read(useState(false), 2), hasError = _c[0], setHasError = _c[1];
@@ -121,7 +121,7 @@ export var MbmcBlock12 = function (_a) {
                 case 1:
                     _a.trys.push([1, 3, , 4]);
                     name_1 = formData.name, email = formData.email, phoneNo = formData.phoneNo, message = formData.message;
-                    return [4 /*yield*/, (handleSend === null || handleSend === void 0 ? void 0 : handleSend(name_1, email, phoneNo, message))];
+                    return [4 /*yield*/, handleSend({ name: name_1, email: email, phoneNo: phoneNo, message: message }, client)];
                 case 2:
                     _a.sent();
                     setFormData({
@@ -134,7 +134,7 @@ export var MbmcBlock12 = function (_a) {
                     return [3 /*break*/, 4];
                 case 3:
                     error_1 = _a.sent();
-                    notify("error", "Something went wrong, try again later. Thanks");
+                    notify("error", "Your email could not be sent, try again later. Thanks");
                     return [3 /*break*/, 4];
                 case 4:
                     setLoading(false);
@@ -142,5 +142,42 @@ export var MbmcBlock12 = function (_a) {
             }
         });
     }); };
-    return (_jsx("div", __assign({ className: classes.root }, { children: _jsxs("div", __assign({ className: classes.container }, { children: [_jsxs("div", __assign({ className: classes.headerContent }, { children: [_jsx("h3", __assign({ className: classes.headerTitle }, { children: heading }), void 0), _jsx("div", __assign({ className: classes.headerParagraph }, { children: _jsx("p", __assign({ className: classes.headerDescription }, { children: description }), void 0) }), void 0), _jsx("div", __assign({ className: classes.headerBtnContainer }, { children: displayCtas() }), void 0)] }), void 0), _jsx("div", __assign({ className: classes.demarcationContainer }, { children: _jsx("span", __assign({ className: classes.demarcation }, { children: "OR" }), void 0) }), void 0), _jsx("div", __assign({ className: classes.formContainer }, { children: _jsxs("form", __assign({ className: classes.form, onSubmit: handleClick }, { children: [_jsx(TextInput, { placeholder: "Name", name: "name", value: formData.name, onChange: handleChange, className: classes.formInput, classNames: { textInput: classes.formTextInput } }, void 0), _jsx(TextInput, { placeholder: "Email address", type: "email", name: "email", value: formData.email, onChange: handleChange, className: classes.formInput, classNames: { textInput: classes.formTextInput } }, void 0), _jsx(TextInput, { placeholder: "Phone number", type: "phone", name: "phoneNo", value: formData.phoneNo, onChange: handleChange, className: classes.formInput, classNames: { textInput: classes.formTextInput } }, void 0), _jsx(TextArea, { placeholder: "Send a message", name: "message", value: formData.message, onChange: handleChange, className: classes.formInput, classNames: { textArea: classes.formTextArea }, minRows: 12 }, void 0), _jsx(MbmcButton, __assign({ className: classes.formButton, size: "sm", variant: "SECONDARY" }, { children: "Send" }), void 0), hasError && (_jsx("p", __assign({ className: classes.error }, { children: "*Error Occurred, please fill all fields with correct data and try again" }), void 0)), isSubmitted && (_jsx("p", __assign({ className: classes.success }, { children: "Message sent successfully" }), void 0)), loading && _jsx(Loader, {}, void 0)] }), void 0) }), void 0)] }), void 0) }), void 0));
+    var handleSend = function (data, client) { return __awaiter(void 0, void 0, void 0, function () {
+        var email, message, name, phoneNo, _a, response;
+        return __generator(this, function (_b) {
+            switch (_b.label) {
+                case 0:
+                    if (!client)
+                        throw new Error();
+                    email = data.email, message = data.message, name = data.name, phoneNo = data.phoneNo;
+                    _a = client.type;
+                    switch (_a) {
+                        case "emailjs": return [3 /*break*/, 1];
+                    }
+                    return [3 /*break*/, 3];
+                case 1: return [4 /*yield*/, fetch("https://api.emailjs.com/api/v1.0/email/send", {
+                        method: "POST",
+                        headers: {
+                            Accept: "application/json",
+                            "Content-Type": "application/json",
+                        },
+                        body: JSON.stringify(__assign(__assign({}, client.credentials), { template_params: {
+                                name: name,
+                                to_name: "Mr Baker and Mrs Cook",
+                                message: message,
+                                reply_to: email,
+                                phone_number: phoneNo,
+                            } })),
+                    })];
+                case 2:
+                    response = _b.sent();
+                    if (response.status !== 200)
+                        throw new Error();
+                    return [3 /*break*/, 4];
+                case 3: return [3 /*break*/, 4];
+                case 4: return [2 /*return*/];
+            }
+        });
+    }); };
+    return (_jsx("div", __assign({ className: classes.root }, { children: _jsxs("div", __assign({ className: classes.container }, { children: [_jsxs("div", __assign({ className: classes.headerContent }, { children: [_jsx("h3", __assign({ className: classes.headerTitle }, { children: heading }), void 0), _jsx("div", __assign({ className: classes.headerParagraph }, { children: _jsx("p", __assign({ className: classes.headerDescription }, { children: description }), void 0) }), void 0), _jsx("div", __assign({ className: classes.headerBtnContainer }, { children: displayCtas() }), void 0)] }), void 0), _jsx("div", __assign({ className: classes.demarcationContainer }, { children: _jsx("span", __assign({ className: classes.demarcation }, { children: "OR" }), void 0) }), void 0), _jsx("div", __assign({ className: classes.formContainer }, { children: _jsxs("form", __assign({ className: classes.form, onSubmit: handleClick }, { children: [_jsx(TextInput, { placeholder: "Name", name: "name", value: formData.name, onChange: handleChange, className: classes.formInput, classNames: { textInput: classes.formTextInput } }, void 0), _jsx(TextInput, { placeholder: "Email address", type: "email", name: "email", value: formData.email, onChange: handleChange, className: classes.formInput, classNames: { textInput: classes.formTextInput } }, void 0), _jsx(TextInput, { placeholder: "Phone number", type: "phone", name: "phoneNo", value: formData.phoneNo, onChange: handleChange, className: classes.formInput, classNames: { textInput: classes.formTextInput } }, void 0), _jsx(TextArea, { placeholder: "Send a message", name: "message", value: formData.message, onChange: handleChange, className: classes.formInput, classNames: { textArea: classes.formTextArea }, minRows: 12 }, void 0), _jsx(MbmcButton, __assign({ className: classes.formButton, size: "sm", variant: "SECONDARY", type: "submit" }, { children: "Send" }), void 0), hasError && (_jsx("p", __assign({ className: classes.error }, { children: "*Error Occurred, please fill all fields with correct data and try again" }), void 0)), isSubmitted && (_jsx("p", __assign({ className: classes.success }, { children: "Message sent successfully" }), void 0)), loading && _jsx(Loader, {}, void 0)] }), void 0) }), void 0)] }), void 0) }), void 0));
 };
