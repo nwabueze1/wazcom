@@ -1,9 +1,10 @@
 import { useMbmcBlock3Styles } from "./styles";
-import { FC, useEffect, useState } from "react";
+import { FC } from "react";
 import { MbmcBlock3Props } from "./types";
 import { renderCtas, handleElementClick } from "../../utilities";
 import clx from "classnames";
 import { LazyImage } from "../../../../core";
+import { useMediaQuery, useTheme } from "@mui/material";
 
 export const MbmcBlock3: FC<MbmcBlock3Props> = ({
     mode = "view",
@@ -14,18 +15,10 @@ export const MbmcBlock3: FC<MbmcBlock3Props> = ({
     description,
     ctas,
 }) => {
+    const theme = useTheme();
     const classes = useMbmcBlock3Styles();
-    const [screenWidth, setScreenWidth] = useState(0);
-
-    const handleSetScreenWidth = () => {
-        setScreenWidth(window.innerWidth);
-    };
-
-    useEffect(() => {
-        handleSetScreenWidth();
-        window.addEventListener("resize", handleSetScreenWidth);
-        return () => window.removeEventListener("resize", handleSetScreenWidth);
-    }, []);
+    const isMobile = useMediaQuery(theme.breakpoints.down("lg"));
+    const isDesktop = useMediaQuery(theme.breakpoints.up("lg"));
 
     return (
         <div
@@ -35,12 +28,14 @@ export const MbmcBlock3: FC<MbmcBlock3Props> = ({
             )}
         >
             <div className={classes.block3Container}>
-                <div className={classes.block3ImageContainer}>
-                    <LazyImage
-                        src="https://sytbuildr.s3.eu-west-2.amazonaws.com/images/mbmc/home/heroFoodLabel.webp"
-                        className={classes.block3Image}
-                    />
-                </div>
+                {isDesktop && (
+                    <div className={classes.block3ImageContainer}>
+                        <LazyImage
+                            src="https://sytbuildr.s3.eu-west-2.amazonaws.com/images/mbmc/home/heroFoodLabel.webp"
+                            className={classes.block3Image}
+                        />
+                    </div>
+                )}
                 <div className={classes.block3Content}>
                     <h3
                         className={clx(
@@ -54,7 +49,7 @@ export const MbmcBlock3: FC<MbmcBlock3Props> = ({
                     >
                         {heading}
                     </h3>
-                    {screenWidth < 1024 && (
+                    {isMobile && (
                         <div className={classes.block3ContentImageContainer}>
                             <img
                                 src="https://sytbuildr.s3.eu-west-2.amazonaws.com/images/mbmc/home/hero-food.webp"

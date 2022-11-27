@@ -99,17 +99,13 @@ export const useMbmcBlock1Styles = makeStyles<Theme, MbmcBlock1StyleProps>((them
         },
     },
     block1ImgContainerMobile: {
-        position: "absolute",
         bottom: 0,
         width: "100%",
-
-        [theme.breakpoints.up("lg")]: {
-            display: "none",
-            position: ({ fullHeight }) => (fullHeight ? "absolute" : "relative"),
-        },
+        display: "none",
 
         [theme.breakpoints.down("lg")]: {
-            position: ({ fullHeight }) => (fullHeight ? "absolute" : "relative"),
+            display: "block",
+            position: "relative",
         },
 
         [theme.breakpoints.down("md")]: {
@@ -141,7 +137,7 @@ export const useMbmcBlock1Styles = makeStyles<Theme, MbmcBlock1StyleProps>((them
         marginTop: theme.spacing(8),
 
         [theme.breakpoints.down("lg")]: {
-            marginTop: ({ fullHeight }) => (fullHeight ? theme.spacing(8) : 0),
+            marginTop: ({ fullHeight }) => (fullHeight ? theme.spacing(5) : 0),
         },
 
         [theme.breakpoints.down("sm")]: {

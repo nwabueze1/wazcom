@@ -4,6 +4,7 @@ import clx from "classnames";
 import { MbmcBlock9Props } from "./types";
 import { handleElementClick } from "../../utilities";
 import { LazyImage } from "../../../../core";
+import { useMediaQuery, useTheme } from "@mui/material";
 
 export const MbmcBlock9: FC<MbmcBlock9Props> = ({
     mode = "view",
@@ -14,8 +15,11 @@ export const MbmcBlock9: FC<MbmcBlock9Props> = ({
     description,
     steps,
 }) => {
+    const theme = useTheme();
     const classes = useMbmcBlock9Styles();
     const [active, setActive] = useState(0);
+    const isMobile = useMediaQuery(theme.breakpoints.down("md"));
+    const isDesktop = useMediaQuery(theme.breakpoints.up("md"));
 
     return (
         <div className={classes.root}>
@@ -51,13 +55,15 @@ export const MbmcBlock9: FC<MbmcBlock9Props> = ({
                             {description}
                         </p>
                     </div>
-                    <div className={classes.directionContainerMobile}>
-                        <img
-                            className={classes.imageStep}
-                            src={steps[active].image}
-                            alt={steps[active].heading}
-                        />
-                    </div>
+                    {isMobile && (
+                        <div className={classes.directionContainerMobile}>
+                            <LazyImage
+                                className={classes.imageStep}
+                                src={steps[active].image}
+                                alt={steps[active].heading}
+                            />
+                        </div>
+                    )}
                     <div className={classes.headerCardContainer}>
                         {steps.map((step, idx) => {
                             const key = String(index) + ".steps." + String(idx);
@@ -115,24 +121,27 @@ export const MbmcBlock9: FC<MbmcBlock9Props> = ({
                         })}
                     </div>
                 </div>
-                <div className={classes.directionContainer}>
-                    <LazyImage
-                        src={steps[active].image}
-                        alt={steps[active].heading}
-                        className={clx(
-                            classes.imageStep,
-                            activeElement === `${String(index)}.steps.${String(active)}.image` &&
-                                classes.block9ActiveElement,
-                        )}
-                        onClick={() => {
-                            handleElementClick(
-                                mode,
-                                `${String(index)}.steps.${String(active)}.image`,
-                                handleClick,
-                            );
-                        }}
-                    />
-                </div>
+                {isDesktop && (
+                    <div className={classes.directionContainer}>
+                        <LazyImage
+                            src={steps[active].image}
+                            alt={steps[active].heading}
+                            className={clx(
+                                classes.imageStep,
+                                activeElement ===
+                                    `${String(index)}.steps.${String(active)}.image` &&
+                                    classes.block9ActiveElement,
+                            )}
+                            onClick={() => {
+                                handleElementClick(
+                                    mode,
+                                    `${String(index)}.steps.${String(active)}.image`,
+                                    handleClick,
+                                );
+                            }}
+                        />
+                    </div>
+                )}
             </div>
         </div>
     );
