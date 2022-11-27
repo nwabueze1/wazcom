@@ -4,6 +4,7 @@ import { FC, useState } from "react";
 import { MbmcBlock12Props } from "./types";
 import { TextArea, TextInput } from "../../../../io";
 import { Loader } from "../../../../core";
+import { notify } from "templates/mbmc/utilities";
 
 export const MbmcBlock12: FC<MbmcBlock12Props> = ({
     layout,
@@ -46,7 +47,9 @@ export const MbmcBlock12: FC<MbmcBlock12Props> = ({
         });
     };
 
-    const handleClick = async () => {
+    const handleClick: React.FormEventHandler<HTMLFormElement> = async (e) => {
+        e.preventDefault();
+
         const hasEmptyField = Object.values(formData).includes("");
 
         if (hasEmptyField) {
@@ -62,9 +65,9 @@ export const MbmcBlock12: FC<MbmcBlock12Props> = ({
                 phoneNo: "",
                 message: "",
             });
-            setIsSubmitted(true);
+            notify("success", "Your message has been sent successfully, thanks for reaching out.");
         } catch (error) {
-            console.error(error);
+            notify("error", "Something went wrong, try again later. Thanks");
         }
         setLoading(false);
     };
@@ -84,7 +87,7 @@ export const MbmcBlock12: FC<MbmcBlock12Props> = ({
                 </div>
 
                 <div className={classes.formContainer}>
-                    <form action="" className={classes.form}>
+                    <form className={classes.form} onSubmit={handleClick}>
                         <TextInput
                             placeholder="Name"
                             name="name"
@@ -120,12 +123,7 @@ export const MbmcBlock12: FC<MbmcBlock12Props> = ({
                             classNames={{ textArea: classes.formTextArea }}
                             minRows={12}
                         />
-                        <MbmcButton
-                            onClick={handleClick}
-                            className={classes.formButton}
-                            size="sm"
-                            variant="SECONDARY"
-                        >
+                        <MbmcButton className={classes.formButton} size="sm" variant="SECONDARY">
                             Send
                         </MbmcButton>
                         {hasError && (
