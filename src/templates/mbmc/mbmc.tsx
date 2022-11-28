@@ -14,7 +14,6 @@ import { MbmcBlock12 } from "./blocks/MbmcBlock12/MbmcBlock12";
 import { MbmcBlock13 } from "./blocks/MbmcBlock13/MbmcBlock13";
 import { useMbmbcStyles } from "./styles";
 import { MbmcBlock14 } from "./blocks/MbmcBlock14/MbmcBlock14";
-import { MbmcBlock15 } from "./blocks/MbmcBlock15/MbmcBlock15";
 import { createApolloClient } from "helpers/graphQL";
 import { MbmcBlock61 } from "./blocks/MbmcBlock6-1";
 
@@ -478,15 +477,6 @@ export const useGetMbmcBlocks = () => {
                 },
                 integratedServices: ["AMBROSIA", "NICODEMUS"],
                 site_uuid: "896466aa-bacc-4817-b577-436a52540eff",
-            },
-        },
-        {
-            name: "mbmc-block-15",
-            component: MbmcBlock15,
-            props: {
-                style: "mbmc",
-                steps: ["Checkout1", "Shipping Details", "Payment"],
-                stepHistory: [1, 2],
             },
         },
     ];

@@ -39,11 +39,19 @@ export var useCartItemCardStyles = makeStyles(function (theme) {
                 fontFamily: theme.design.font.montserrat,
             },
             _a),
+        options: {
+            marginBottom: theme.spacing(1),
+            color: theme.design.colors.waz_greyColor600,
+            fontSize: theme.typography.fontSize,
+            fontFamily: theme.design.font.montserrat,
+            lineHeight: 1.6,
+        },
         description: (_b = {
                 letterSpacing: "0px",
                 color: theme.design.colors.waz_greyColor600,
                 fontSize: theme.typography.fontSize,
-                fontFamily: theme.design.font.montserrat
+                fontFamily: theme.design.font.montserrat,
+                lineHeight: 1.6
             },
             _b[theme.breakpoints.down("md")] = {
                 color: "black",

@@ -25,14 +25,19 @@ var __read = (this && this.__read) || function (o, n) {
     }
     return ar;
 };
-import { jsx as _jsx } from "react/jsx-runtime";
-import { useState, useCallback } from "react";
+import { jsx as _jsx, jsxs as _jsxs } from "react/jsx-runtime";
+import { useState, useCallback, useContext } from "react";
 import { CheckoutStep } from "../CheckoutStep";
+import { BsArrowLeft } from "react-icons/bs";
 import { Summary, Delivery, Payment } from "../";
 import { useCheckoutStyles } from "./styles";
-export var Checkout = function () {
-    var classes = useCheckoutStyles();
-    var _a = __read(useState(0), 2), activeStep = _a[0], setActiveStep = _a[1];
+import { RestaurantContext } from "../../../../contexts";
+export var Checkout = function (_a) {
+    var _b, _c;
+    var display = _a.display, setDisplay = _a.setDisplay;
+    var classes = useCheckoutStyles({ display: display });
+    var _d = __read(useState(0), 2), activeStep = _d[0], setActiveStep = _d[1];
+    var cart = useContext(RestaurantContext).cart;
     var steps = [
         {
             name: "Summary",
@@ -63,5 +68,5 @@ export var Checkout = function () {
     var displaySteps = useCallback(function () {
         return steps.map(function (step, index) { return (_jsx(CheckoutStep, __assign({}, step, { isActive: activeStep === index }), index)); });
     }, [activeStep]);
-    return _jsx("div", __assign({ className: classes.root }, { children: displaySteps() }), void 0);
+    return (_jsxs("div", __assign({ className: classes.root }, { children: [_jsxs("div", __assign({ className: classes.checkoutTitle, onClick: function () { setDisplay(false); } }, { children: [_jsx(BsArrowLeft, {}, void 0), _jsxs("p", { children: ["Items (", (_c = (_b = cart === null || cart === void 0 ? void 0 : cart.cartItems) === null || _b === void 0 ? void 0 : _b.length) !== null && _c !== void 0 ? _c : 0, ")"] }, void 0)] }), void 0), displaySteps()] }), void 0));
 };

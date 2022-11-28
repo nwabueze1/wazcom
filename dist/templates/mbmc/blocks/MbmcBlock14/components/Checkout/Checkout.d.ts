@@ -1,2 +1,3 @@
-/// <reference types="react" />
-export declare const Checkout: () => JSX.Element;
+import { FC } from "react";
+import { CheckoutProps } from "./types";
+export declare const Checkout: FC<CheckoutProps>;

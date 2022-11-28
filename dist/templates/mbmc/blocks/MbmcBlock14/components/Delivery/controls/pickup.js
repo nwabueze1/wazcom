@@ -44,12 +44,13 @@ export var usePickupConfig = function () {
     var cart = useContext(RestaurantContext).cart;
     var updateGuest = useUpdateGuest();
     return function (onSubmission) {
-        var _a, _b, _c, _d, _e, _f;
+        var _a, _b, _c, _d, _e, _f, _g, _h;
         return {
             initialValues: {
                 email: (_b = (_a = cart === null || cart === void 0 ? void 0 : cart.guest) === null || _a === void 0 ? void 0 : _a.email) !== null && _b !== void 0 ? _b : "",
                 firstname: (_d = (_c = cart === null || cart === void 0 ? void 0 : cart.guest) === null || _c === void 0 ? void 0 : _c.firstname) !== null && _d !== void 0 ? _d : "",
                 lastname: (_f = (_e = cart === null || cart === void 0 ? void 0 : cart.guest) === null || _e === void 0 ? void 0 : _e.lastname) !== null && _f !== void 0 ? _f : "",
+                phone: (_h = (_g = cart === null || cart === void 0 ? void 0 : cart.guest) === null || _g === void 0 ? void 0 : _g.phone) !== null && _h !== void 0 ? _h : "",
             },
             validationSchema: pickupSchema,
             onSubmit: function (variables) { return __awaiter(void 0, void 0, void 0, function () {
@@ -68,7 +69,7 @@ export var usePickupConfig = function () {
 export var usePickupControls = function () {
     var classes = useDeliveryStyles();
     return function (formik) {
-        var _a, _b, _c, _d, _e, _f, _g, _h, _j, _k, _l, _m;
+        var _a, _b, _c, _d, _e, _f, _g, _h, _j, _k, _l, _m, _o, _p, _q, _r;
         return [
             {
                 type: "groupedInput",
@@ -147,6 +148,31 @@ export var usePickupControls = function () {
                                 error: ((_j = formik === null || formik === void 0 ? void 0 : formik.touched) === null || _j === void 0 ? void 0 : _j.lastname) && Boolean((_k = formik === null || formik === void 0 ? void 0 : formik.errors) === null || _k === void 0 ? void 0 : _k.lastname),
                                 feedback: ((_l = formik === null || formik === void 0 ? void 0 : formik.touched) === null || _l === void 0 ? void 0 : _l.lastname) && ((_m = formik === null || formik === void 0 ? void 0 : formik.errors) === null || _m === void 0 ? void 0 : _m.lastname)
                                     ? { status: "error", text: formik.errors.lastname }
+                                    : undefined,
+                            },
+                        },
+                        {
+                            type: "text",
+                            properties: {
+                                name: "phone",
+                                placeholder: "Phone number",
+                                type: "tel",
+                                onChange: function (_a) {
+                                    var value = _a.value;
+                                    return handleInputChange(formik, "phone", value);
+                                },
+                                onBlur: function () {
+                                    handleInputBlur(formik, "phone");
+                                },
+                                classNames: {
+                                    textInput: classes.deliveryInput,
+                                    feedback: classes.deliveryFeedback,
+                                },
+                                className: classes.deliveryInputParent,
+                                value: formik.values.phone,
+                                error: ((_o = formik === null || formik === void 0 ? void 0 : formik.touched) === null || _o === void 0 ? void 0 : _o.phone) && Boolean((_p = formik === null || formik === void 0 ? void 0 : formik.errors) === null || _p === void 0 ? void 0 : _p.phone),
+                                feedback: ((_q = formik === null || formik === void 0 ? void 0 : formik.touched) === null || _q === void 0 ? void 0 : _q.phone) && ((_r = formik === null || formik === void 0 ? void 0 : formik.errors) === null || _r === void 0 ? void 0 : _r.phone)
+                                    ? { status: "error", text: formik.errors.phone }
                                     : undefined,
                             },
                         },

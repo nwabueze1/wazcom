@@ -55,13 +55,15 @@ import { getCurrency } from "../../../../../../utilities";
 import { useUpdateCartItemQuantity } from "../../hooks";
 import { RestaurantContext } from "../../../../contexts";
 import { CircularProgress } from "@mui/material";
+import { parseOptionString } from "./helpers";
 export var CartItemCard = function (_a) {
     var _b;
-    var uuid = _a.uuid, amount = _a.amount, quantity = _a.quantity, detail = _a.detail, menuItem = _a.menuItem, currencyId = _a.currency;
-    var _c = useContext(RestaurantContext), loading = _c.loading, networkOperation = _c.networkOperation;
+    var uuid = _a.uuid, amount = _a.amount, quantity = _a.quantity, detail = _a.detail, options = _a.options, menuItem = _a.menuItem, currencyId = _a.currency;
+    var _c = useContext(RestaurantContext), loading = _c.loading, networkOperation = _c.networkOperation, cart = _c.cart;
     var classes = useCartItemCardStyles();
     var currency = getCurrency(currencyId);
     var updateCartItemQuantity = useUpdateCartItemQuantity();
+    console.log(options);
     var handleQuantityChange = function (quantity) { return __awaiter(void 0, void 0, void 0, function () {
         return __generator(this, function (_a) {
             switch (_a.label) {
@@ -72,11 +74,11 @@ export var CartItemCard = function (_a) {
             }
         });
     }); };
-    return (_jsxs("div", __assign({ className: classes.root }, { children: [_jsxs("div", __assign({ className: classes.topContent }, { children: [_jsx("img", { className: classes.cartItemImg, src: (_b = menuItem === null || menuItem === void 0 ? void 0 : menuItem.image_url) !== null && _b !== void 0 ? _b : "", alt: menuItem === null || menuItem === void 0 ? void 0 : menuItem.name }, void 0), _jsxs("div", __assign({ className: classes.content }, { children: [_jsx("p", __assign({ className: classes.title }, { children: menuItem === null || menuItem === void 0 ? void 0 : menuItem.name }), void 0), _jsx("p", __assign({ className: classes.description }, { children: detail }), void 0), _jsxs("div", __assign({ className: classes.priceContainer }, { children: [_jsx("div", __assign({ className: classes.price }, { children: _jsxs("p", { children: [currency, amount] }, void 0) }), void 0), _jsxs("div", __assign({ className: classes.quantityCountContainer }, { children: [_jsx("div", __assign({ className: classes.quantityButton, onClick: function () {
+    return (_jsxs("div", __assign({ className: classes.root }, { children: [_jsxs("div", __assign({ className: classes.topContent }, { children: [_jsx("img", { className: classes.cartItemImg, src: (_b = menuItem === null || menuItem === void 0 ? void 0 : menuItem.image_url) !== null && _b !== void 0 ? _b : "", alt: menuItem === null || menuItem === void 0 ? void 0 : menuItem.name }, void 0), _jsxs("div", __assign({ className: classes.content }, { children: [_jsx("p", __assign({ className: classes.title }, { children: menuItem === null || menuItem === void 0 ? void 0 : menuItem.name }), void 0), options && _jsx("p", __assign({ className: classes.options }, { children: parseOptionString(JSON.parse(options)) }), void 0), _jsx("p", __assign({ className: classes.description }, { children: detail }), void 0), _jsxs("div", __assign({ className: classes.priceContainer }, { children: [_jsx("div", __assign({ className: classes.price }, { children: _jsxs("p", { children: [currency, amount] }, void 0) }), void 0), (cart === null || cart === void 0 ? void 0 : cart.order) ? (_jsxs("p", __assign({ className: classes.price }, { children: ["QTY: ", quantity] }), void 0)) : (_jsxs("div", __assign({ className: classes.quantityCountContainer }, { children: [_jsx("div", __assign({ className: classes.quantityButton, onClick: function () {
                                                     handleQuantityChange(Number(quantity) - 1);
                                                 } }, { children: _jsx(RemoveRoundedIcon, { className: classes.operationIcon }, void 0) }), void 0), _jsx("div", { children: quantity }, void 0), _jsx("div", __assign({ className: classes.quantityButton, onClick: function () {
                                                     handleQuantityChange(Number(quantity) + 1);
-                                                } }, { children: _jsx(AddRoundedIcon, { className: classes.operationIcon }, void 0) }), void 0)] }), void 0)] }), void 0)] }), void 0)] }), void 0), _jsx("div", __assign({ className: classes.bottomContent }, { children: _jsx("div", __assign({ className: classes.deleteButton, onClick: function () {
+                                                } }, { children: _jsx(AddRoundedIcon, { className: classes.operationIcon }, void 0) }), void 0)] }), void 0))] }), void 0)] }), void 0)] }), void 0), !(cart === null || cart === void 0 ? void 0 : cart.order) && (_jsx("div", __assign({ className: classes.bottomContent }, { children: _jsx("div", __assign({ className: classes.deleteButton, onClick: function () {
                         handleQuantityChange(0);
-                    } }, { children: _jsx(DeleteIcon, { className: classes.deleteIcon }, void 0) }), void 0) }), void 0), loading && networkOperation === "update.cart-item.".concat(uuid) && (_jsx(CircularProgress, { color: "success", size: "15px", className: classes.spinner }, void 0))] }), void 0));
+                    } }, { children: _jsx(DeleteIcon, { className: classes.deleteIcon }, void 0) }), void 0) }), void 0)), loading && networkOperation === "update.cart-item.".concat(uuid) && (_jsx(CircularProgress, { color: "success", size: "15px", className: classes.spinner }, void 0))] }), void 0));
 };

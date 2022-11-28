@@ -3,4 +3,5 @@ export interface CoreGuestFields {
     firstname: string;
     lastname: string;
     email: string;
+    phone: string;
 }

@@ -18,7 +18,7 @@ export const Summary: FC<SummaryProps> = ({ handleCheckout }) => {
     return (
         <div className={classes.root}>
             <div className={classes.summaryDetail}>
-                <p className={classes.summaryItem}>Orders</p>
+                <p className={classes.summaryItem}>Dishes</p>
                 <p className={classes.summaryItemDigit}>{cart?.cartItems?.length}</p>
             </div>
             <div className={classes.summaryDetail}>
