@@ -1,11 +1,15 @@
-import { useState, useCallback } from "react";
+import { FC, useState, useCallback, useContext } from "react";
 import { CheckoutStep } from "../CheckoutStep";
+import { BsArrowLeft } from "react-icons/bs";
 import { Summary, Delivery, Payment } from "../";
 import { useCheckoutStyles } from "./styles";
+import { CheckoutProps } from "./types";
+import { RestaurantContext } from "../../../../contexts";
 
-export const Checkout = () => {
-    const classes = useCheckoutStyles();
+export const Checkout: FC<CheckoutProps> = ({ display, setDisplay }) => {
+    const classes = useCheckoutStyles({ display });
     const [activeStep, setActiveStep] = useState(0);
+    const { cart } = useContext(RestaurantContext);
 
     const steps = [
         {
@@ -51,5 +55,13 @@ export const Checkout = () => {
         [activeStep],
     );
 
-    return <div className={classes.root}>{displaySteps()}</div>;
+    return (
+        <div className={classes.root}>
+            <div className={classes.checkoutTitle} onClick={() => { setDisplay(false) }}>
+                <BsArrowLeft />
+                <p>Items ({cart?.cartItems?.length ?? 0})</p>
+            </div>
+            {displaySteps()}
+        </div>
+    );
 };

@@ -15,6 +15,7 @@ export const usePickupConfig = () => {
                 email: cart?.guest?.email ?? "",
                 firstname: cart?.guest?.firstname ?? "",
                 lastname: cart?.guest?.lastname ?? "",
+                phone: cart?.guest?.phone ?? "",
             },
             validationSchema: pickupSchema,
             onSubmit: async (variables: TUpdateGuestVariables) => {
@@ -102,6 +103,30 @@ export const usePickupControls = () => {
                             feedback:
                                 formik?.touched?.lastname && formik?.errors?.lastname
                                     ? { status: "error", text: formik.errors.lastname }
+                                    : undefined,
+                        },
+                    },
+                    {
+                        type: "text",
+                        properties: {
+                            name: "phone",
+                            placeholder: "Phone number",
+                            type: "tel",
+                            onChange: ({ value }: { name: string; value: string }) =>
+                                handleInputChange(formik, "phone", value),
+                            onBlur: () => {
+                                handleInputBlur(formik, "phone");
+                            },
+                            classNames: {
+                                textInput: classes.deliveryInput,
+                                feedback: classes.deliveryFeedback,
+                            },
+                            className: classes.deliveryInputParent,
+                            value: formik.values.phone,
+                            error: formik?.touched?.phone && Boolean(formik?.errors?.phone),
+                            feedback:
+                                formik?.touched?.phone && formik?.errors?.phone
+                                    ? { status: "error", text: formik.errors.phone }
                                     : undefined,
                         },
                     },

@@ -6,5 +6,6 @@ export const CORE_GUEST_FIELDS = gql`
         firstname
         lastname
         email
+        phone
     }
 `;

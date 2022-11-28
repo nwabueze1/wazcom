@@ -8,14 +8,16 @@ import { getCurrency } from "../../../../../../utilities";
 import { useUpdateCartItemQuantity } from "../../hooks";
 import { RestaurantContext } from "../../../../contexts";
 import { CircularProgress } from "@mui/material";
+import { parseOptionString } from "./helpers";
 
 export const CartItemCard: React.FC<
     CoreCartFields_cartItems & { currency: string; amount: number }
-> = ({ uuid, amount, quantity, detail, menuItem, currency: currencyId }) => {
-    const { loading, networkOperation } = useContext(RestaurantContext);
+> = ({ uuid, amount, quantity, detail, options, menuItem, currency: currencyId }) => {
+    const { loading, networkOperation, cart } = useContext(RestaurantContext);
     const classes = useCartItemCardStyles();
     const currency = getCurrency(currencyId);
     const updateCartItemQuantity = useUpdateCartItemQuantity();
+    console.log(options);
 
     const handleQuantityChange = async (quantity: number) => {
         await updateCartItemQuantity({ uuid: uuid as string, quantity });
@@ -31,6 +33,7 @@ export const CartItemCard: React.FC<
                 />
                 <div className={classes.content}>
                     <p className={classes.title}>{menuItem?.name}</p>
+                    {options && <p className={classes.options}>{parseOptionString(JSON.parse(options))}</p>}
                     <p className={classes.description}>{detail}</p>
                     <div className={classes.priceContainer}>
                         <div className={classes.price}>
@@ -39,38 +42,44 @@ export const CartItemCard: React.FC<
                                 {amount}
                             </p>
                         </div>
-                        <div className={classes.quantityCountContainer}>
-                            <div
-                                className={classes.quantityButton}
-                                onClick={() => {
-                                    handleQuantityChange(Number(quantity) - 1);
-                                }}
-                            >
-                                <RemoveRoundedIcon className={classes.operationIcon} />
+                        {cart?.order ? (
+                            <p className={classes.price}>QTY: {quantity}</p>
+                        ) : (
+                            <div className={classes.quantityCountContainer}>
+                                <div
+                                    className={classes.quantityButton}
+                                    onClick={() => {
+                                        handleQuantityChange(Number(quantity) - 1);
+                                    }}
+                                >
+                                    <RemoveRoundedIcon className={classes.operationIcon} />
+                                </div>
+                                <div>{quantity}</div>
+                                <div
+                                    className={classes.quantityButton}
+                                    onClick={() => {
+                                        handleQuantityChange(Number(quantity) + 1);
+                                    }}
+                                >
+                                    <AddRoundedIcon className={classes.operationIcon} />
+                                </div>
                             </div>
-                            <div>{quantity}</div>
-                            <div
-                                className={classes.quantityButton}
-                                onClick={() => {
-                                    handleQuantityChange(Number(quantity) + 1);
-                                }}
-                            >
-                                <AddRoundedIcon className={classes.operationIcon} />
-                            </div>
-                        </div>
+                        )}
                     </div>
                 </div>
             </div>
-            <div className={classes.bottomContent}>
-                <div
-                    className={classes.deleteButton}
-                    onClick={() => {
-                        handleQuantityChange(0);
-                    }}
-                >
-                    <DeleteIcon className={classes.deleteIcon} />
+            {!cart?.order && (
+                <div className={classes.bottomContent}>
+                    <div
+                        className={classes.deleteButton}
+                        onClick={() => {
+                            handleQuantityChange(0);
+                        }}
+                    >
+                        <DeleteIcon className={classes.deleteIcon} />
+                    </div>
                 </div>
-            </div>
+            )}
             {loading && networkOperation === `update.cart-item.${uuid}` && (
                 <CircularProgress color="success" size="15px" className={classes.spinner} />
             )}

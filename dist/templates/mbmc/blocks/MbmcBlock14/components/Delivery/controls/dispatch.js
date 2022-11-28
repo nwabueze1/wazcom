@@ -94,18 +94,18 @@ export var useDispatchConfig = function () {
     var updateGuest = useUpdateGuest();
     var createAddress = useCreateAddress();
     return function (onSubmission) {
-        var _a, _b, _c, _d, _e, _f, _g, _h, _j, _k, _l, _m;
+        var _a, _b, _c, _d, _e, _f, _g, _h, _j, _k;
         var pickupConfig = getPickupConfig();
         return {
-            initialValues: __assign(__assign({}, pickupConfig.initialValues), { phone: (_b = (_a = cart === null || cart === void 0 ? void 0 : cart.address) === null || _a === void 0 ? void 0 : _a.phone) !== null && _b !== void 0 ? _b : "", addressline1: (_d = (_c = cart === null || cart === void 0 ? void 0 : cart.address) === null || _c === void 0 ? void 0 : _c.addressline1) !== null && _d !== void 0 ? _d : "", city: (_f = (_e = cart === null || cart === void 0 ? void 0 : cart.address) === null || _e === void 0 ? void 0 : _e.city) !== null && _f !== void 0 ? _f : "", state: (_h = (_g = cart === null || cart === void 0 ? void 0 : cart.address) === null || _g === void 0 ? void 0 : _g.state) !== null && _h !== void 0 ? _h : "", country: (_k = (_j = cart === null || cart === void 0 ? void 0 : cart.address) === null || _j === void 0 ? void 0 : _j.country) !== null && _k !== void 0 ? _k : "", postcode: (_m = (_l = cart === null || cart === void 0 ? void 0 : cart.address) === null || _l === void 0 ? void 0 : _l.postcode) !== null && _m !== void 0 ? _m : "" }),
+            initialValues: __assign(__assign({}, pickupConfig.initialValues), { addressline1: (_b = (_a = cart === null || cart === void 0 ? void 0 : cart.address) === null || _a === void 0 ? void 0 : _a.addressline1) !== null && _b !== void 0 ? _b : "", city: (_d = (_c = cart === null || cart === void 0 ? void 0 : cart.address) === null || _c === void 0 ? void 0 : _c.city) !== null && _d !== void 0 ? _d : "", state: (_f = (_e = cart === null || cart === void 0 ? void 0 : cart.address) === null || _e === void 0 ? void 0 : _e.state) !== null && _f !== void 0 ? _f : "", country: (_h = (_g = cart === null || cart === void 0 ? void 0 : cart.address) === null || _g === void 0 ? void 0 : _g.country) !== null && _h !== void 0 ? _h : "", postcode: (_k = (_j = cart === null || cart === void 0 ? void 0 : cart.address) === null || _j === void 0 ? void 0 : _j.postcode) !== null && _k !== void 0 ? _k : "" }),
             validationSchema: dispatchSchema,
             onSubmit: function (variables) { return __awaiter(void 0, void 0, void 0, function () {
-                var email, firstname, lastname, rest, guest, _a;
+                var email, firstname, lastname, phone, rest, guest, _a;
                 return __generator(this, function (_b) {
                     switch (_b.label) {
                         case 0:
-                            email = variables.email, firstname = variables.firstname, lastname = variables.lastname, rest = __rest(variables, ["email", "firstname", "lastname"]);
-                            return [4 /*yield*/, updateGuest({ email: email, firstname: firstname, lastname: lastname })];
+                            email = variables.email, firstname = variables.firstname, lastname = variables.lastname, phone = variables.phone, rest = __rest(variables, ["email", "firstname", "lastname", "phone"]);
+                            return [4 /*yield*/, updateGuest({ email: email, firstname: firstname, lastname: lastname, phone: phone })];
                         case 1:
                             guest = _b.sent();
                             _a = guest;
@@ -127,7 +127,7 @@ export var useDispatchControls = function () {
     var classes = useDeliveryStyles();
     var getPickupControls = usePickupControls();
     return function (formik) {
-        var _a, _b, _c, _d, _e, _f, _g, _h, _j, _k, _l, _m, _o, _p, _q, _r, _s, _t, _u, _v, _w, _x, _y, _z;
+        var _a, _b, _c, _d, _e, _f, _g, _h, _j, _k, _l, _m, _o, _p, _q, _r, _s, _t, _u, _v;
         var pickupControls = getPickupControls(formik);
         return __spreadArray(__spreadArray([], __read(pickupControls), false), [
             {
@@ -135,31 +135,6 @@ export var useDispatchControls = function () {
                 properties: {
                     name: "SHIPPING INFORMATION",
                     controls: [
-                        {
-                            type: "text",
-                            properties: {
-                                name: "phone",
-                                placeholder: "Phone number",
-                                type: "tel",
-                                onChange: function (_a) {
-                                    var value = _a.value;
-                                    return handleInputChange(formik, "phone", value);
-                                },
-                                onBlur: function () {
-                                    handleInputBlur(formik, "phone");
-                                },
-                                classNames: {
-                                    textInput: classes.deliveryInput,
-                                    feedback: classes.deliveryFeedback,
-                                },
-                                className: classes.deliveryInputParent,
-                                value: formik.values.phone,
-                                error: ((_a = formik === null || formik === void 0 ? void 0 : formik.touched) === null || _a === void 0 ? void 0 : _a.phone) && Boolean((_b = formik === null || formik === void 0 ? void 0 : formik.errors) === null || _b === void 0 ? void 0 : _b.phone),
-                                feedback: ((_c = formik === null || formik === void 0 ? void 0 : formik.touched) === null || _c === void 0 ? void 0 : _c.phone) && ((_d = formik === null || formik === void 0 ? void 0 : formik.errors) === null || _d === void 0 ? void 0 : _d.phone)
-                                    ? { status: "error", text: formik.errors.phone }
-                                    : undefined,
-                            },
-                        },
                         {
                             type: "text",
                             properties: {
@@ -179,9 +154,9 @@ export var useDispatchControls = function () {
                                 },
                                 className: classes.deliveryInputParent,
                                 value: formik.values.addressline1,
-                                error: ((_e = formik === null || formik === void 0 ? void 0 : formik.touched) === null || _e === void 0 ? void 0 : _e.addressline1) &&
-                                    Boolean((_f = formik === null || formik === void 0 ? void 0 : formik.errors) === null || _f === void 0 ? void 0 : _f.addressline1),
-                                feedback: ((_g = formik === null || formik === void 0 ? void 0 : formik.touched) === null || _g === void 0 ? void 0 : _g.addressline1) && ((_h = formik === null || formik === void 0 ? void 0 : formik.errors) === null || _h === void 0 ? void 0 : _h.addressline1)
+                                error: ((_a = formik === null || formik === void 0 ? void 0 : formik.touched) === null || _a === void 0 ? void 0 : _a.addressline1) &&
+                                    Boolean((_b = formik === null || formik === void 0 ? void 0 : formik.errors) === null || _b === void 0 ? void 0 : _b.addressline1),
+                                feedback: ((_c = formik === null || formik === void 0 ? void 0 : formik.touched) === null || _c === void 0 ? void 0 : _c.addressline1) && ((_d = formik === null || formik === void 0 ? void 0 : formik.errors) === null || _d === void 0 ? void 0 : _d.addressline1)
                                     ? { status: "error", text: formik.errors.addressline1 }
                                     : undefined,
                             },
@@ -205,8 +180,8 @@ export var useDispatchControls = function () {
                                 },
                                 className: classes.deliveryInputParent,
                                 value: formik.values.city,
-                                error: ((_j = formik === null || formik === void 0 ? void 0 : formik.touched) === null || _j === void 0 ? void 0 : _j.city) && Boolean((_k = formik === null || formik === void 0 ? void 0 : formik.errors) === null || _k === void 0 ? void 0 : _k.city),
-                                feedback: ((_l = formik === null || formik === void 0 ? void 0 : formik.touched) === null || _l === void 0 ? void 0 : _l.city) && ((_m = formik === null || formik === void 0 ? void 0 : formik.errors) === null || _m === void 0 ? void 0 : _m.city)
+                                error: ((_e = formik === null || formik === void 0 ? void 0 : formik.touched) === null || _e === void 0 ? void 0 : _e.city) && Boolean((_f = formik === null || formik === void 0 ? void 0 : formik.errors) === null || _f === void 0 ? void 0 : _f.city),
+                                feedback: ((_g = formik === null || formik === void 0 ? void 0 : formik.touched) === null || _g === void 0 ? void 0 : _g.city) && ((_h = formik === null || formik === void 0 ? void 0 : formik.errors) === null || _h === void 0 ? void 0 : _h.city)
                                     ? { status: "error", text: formik.errors.city }
                                     : undefined,
                             },
@@ -230,8 +205,8 @@ export var useDispatchControls = function () {
                                 },
                                 className: classes.deliveryInputParent,
                                 value: formik.values.state,
-                                error: ((_o = formik === null || formik === void 0 ? void 0 : formik.touched) === null || _o === void 0 ? void 0 : _o.state) && Boolean((_p = formik === null || formik === void 0 ? void 0 : formik.errors) === null || _p === void 0 ? void 0 : _p.state),
-                                feedback: ((_q = formik === null || formik === void 0 ? void 0 : formik.touched) === null || _q === void 0 ? void 0 : _q.state) && ((_r = formik === null || formik === void 0 ? void 0 : formik.errors) === null || _r === void 0 ? void 0 : _r.state)
+                                error: ((_j = formik === null || formik === void 0 ? void 0 : formik.touched) === null || _j === void 0 ? void 0 : _j.state) && Boolean((_k = formik === null || formik === void 0 ? void 0 : formik.errors) === null || _k === void 0 ? void 0 : _k.state),
+                                feedback: ((_l = formik === null || formik === void 0 ? void 0 : formik.touched) === null || _l === void 0 ? void 0 : _l.state) && ((_m = formik === null || formik === void 0 ? void 0 : formik.errors) === null || _m === void 0 ? void 0 : _m.state)
                                     ? { status: "error", text: formik.errors.state }
                                     : undefined,
                             },
@@ -255,8 +230,8 @@ export var useDispatchControls = function () {
                                 },
                                 className: classes.deliveryInputParent,
                                 value: formik.values.error,
-                                error: ((_s = formik === null || formik === void 0 ? void 0 : formik.touched) === null || _s === void 0 ? void 0 : _s.country) && Boolean((_t = formik === null || formik === void 0 ? void 0 : formik.errors) === null || _t === void 0 ? void 0 : _t.country),
-                                feedback: ((_u = formik === null || formik === void 0 ? void 0 : formik.touched) === null || _u === void 0 ? void 0 : _u.country) && ((_v = formik === null || formik === void 0 ? void 0 : formik.errors) === null || _v === void 0 ? void 0 : _v.country)
+                                error: ((_o = formik === null || formik === void 0 ? void 0 : formik.touched) === null || _o === void 0 ? void 0 : _o.country) && Boolean((_p = formik === null || formik === void 0 ? void 0 : formik.errors) === null || _p === void 0 ? void 0 : _p.country),
+                                feedback: ((_q = formik === null || formik === void 0 ? void 0 : formik.touched) === null || _q === void 0 ? void 0 : _q.country) && ((_r = formik === null || formik === void 0 ? void 0 : formik.errors) === null || _r === void 0 ? void 0 : _r.country)
                                     ? { status: "error", text: formik.errors.country }
                                     : undefined,
                             },
@@ -280,8 +255,8 @@ export var useDispatchControls = function () {
                                 },
                                 className: classes.deliveryInputParent,
                                 value: formik.values.postcode,
-                                error: ((_w = formik === null || formik === void 0 ? void 0 : formik.touched) === null || _w === void 0 ? void 0 : _w.postcode) && Boolean((_x = formik === null || formik === void 0 ? void 0 : formik.errors) === null || _x === void 0 ? void 0 : _x.postcode),
-                                feedback: ((_y = formik === null || formik === void 0 ? void 0 : formik.touched) === null || _y === void 0 ? void 0 : _y.postcode) && ((_z = formik === null || formik === void 0 ? void 0 : formik.errors) === null || _z === void 0 ? void 0 : _z.postcode)
+                                error: ((_s = formik === null || formik === void 0 ? void 0 : formik.touched) === null || _s === void 0 ? void 0 : _s.postcode) && Boolean((_t = formik === null || formik === void 0 ? void 0 : formik.errors) === null || _t === void 0 ? void 0 : _t.postcode),
+                                feedback: ((_u = formik === null || formik === void 0 ? void 0 : formik.touched) === null || _u === void 0 ? void 0 : _u.postcode) && ((_v = formik === null || formik === void 0 ? void 0 : formik.errors) === null || _v === void 0 ? void 0 : _v.postcode)
                                     ? { status: "error", text: formik.errors.postcode }
                                     : undefined,
                             },

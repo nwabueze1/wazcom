@@ -1,12 +1,11 @@
-import React from "react";
-import { useMbmcBlock18Styles } from "./styles";
+import { FC } from "react";
+import { useCartStepsStyles } from "./styles";
 import CheckRoundedIcon from "@mui/icons-material/CheckRounded";
-import { MbmcBlock15Props } from "./types";
+import { CartStepsProps } from "./types";
 
-export const MbmcBlock15: React.FC<MbmcBlock15Props> = ({ steps, stepHistory }) => {
-    const classes = useMbmcBlock18Styles();
-    const currentStep = stepHistory?.slice(-1)[0];
-    const completedSteps = stepHistory?.slice(0, stepHistory.length - 1);
+export const CartSteps: FC<CartStepsProps> = ({ steps }) => {
+    const classes = useCartStepsStyles();
+    const currentStep = 2;
 
     const displaySteps = () => {
         return steps?.map((step, idx) => {
@@ -17,12 +16,12 @@ export const MbmcBlock15: React.FC<MbmcBlock15Props> = ({ steps, stepHistory }) 
                             className={`${classes.stepNum} ${
                                 currentStep == idx + 1
                                     ? classes.activeStepNum
-                                    : completedSteps.includes(idx + 1)
+                                    : currentStep > idx + 1
                                     ? classes.completedStepNum
                                     : classes.inactiveStepNum
                             }`}
                         >
-                            {completedSteps.includes(idx + 1) ? (
+                            {currentStep > idx + 1 ? (
                                 <CheckRoundedIcon fontSize="small" />
                             ) : (
                                 idx + 1
@@ -32,7 +31,7 @@ export const MbmcBlock15: React.FC<MbmcBlock15Props> = ({ steps, stepHistory }) 
                             className={`${classes.stepName} ${
                                 currentStep == idx + 1
                                     ? classes.activeStepName
-                                    : completedSteps.includes(idx + 1)
+                                    : currentStep > idx + 1
                                     ? classes.completedStepName
                                     : classes.inactiveStepName
                             }`}

@@ -1,7 +1,7 @@
 import { Theme } from "@mui/material";
 import { makeStyles } from "@mui/styles";
 
-export const useMbmcBlock18Styles = makeStyles((theme: Theme) => ({
+export const useCartStepsStyles = makeStyles((theme: Theme) => ({
     root: {
         display: "flex",
         justifyContent: "center",

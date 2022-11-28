@@ -23,7 +23,6 @@ export const useDispatchConfig = () => {
         return {
             initialValues: {
                 ...pickupConfig.initialValues,
-                phone: cart?.address?.phone ?? "",
                 addressline1: cart?.address?.addressline1 ?? "",
                 city: cart?.address?.city ?? "",
                 state: cart?.address?.state ?? "",
@@ -32,8 +31,8 @@ export const useDispatchConfig = () => {
             },
             validationSchema: dispatchSchema,
             onSubmit: async (variables: TUpdateGuestVariables & TCreateAddressVariables) => {
-                const { email, firstname, lastname, ...rest } = variables;
-                const guest = await updateGuest({ email, firstname, lastname });
+                const { email, firstname, lastname, phone, ...rest } = variables;
+                const guest = await updateGuest({ email, firstname, lastname, phone });
 
                 guest && (await createAddress({ ...rest }, guest, onSubmission));
             },
@@ -55,30 +54,6 @@ export const useDispatchControls = () => {
                 properties: {
                     name: "SHIPPING INFORMATION",
                     controls: [
-                        {
-                            type: "text",
-                            properties: {
-                                name: "phone",
-                                placeholder: "Phone number",
-                                type: "tel",
-                                onChange: ({ value }: { name: string; value: string }) =>
-                                    handleInputChange(formik, "phone", value),
-                                onBlur: () => {
-                                    handleInputBlur(formik, "phone");
-                                },
-                                classNames: {
-                                    textInput: classes.deliveryInput,
-                                    feedback: classes.deliveryFeedback,
-                                },
-                                className: classes.deliveryInputParent,
-                                value: formik.values.phone,
-                                error: formik?.touched?.phone && Boolean(formik?.errors?.phone),
-                                feedback:
-                                    formik?.touched?.phone && formik?.errors?.phone
-                                        ? { status: "error", text: formik.errors.phone }
-                                        : undefined,
-                            },
-                        },
                         {
                             type: "text",
                             properties: {

@@ -25,6 +25,7 @@ export interface CoreCartFields {
     uuid: string;
     currency: string;
     expires: any;
+    currentStep?: number;
     address?: CoreAddressFields;
     guest?: CoreGuestFields;
     order?: CoreOrderFields;

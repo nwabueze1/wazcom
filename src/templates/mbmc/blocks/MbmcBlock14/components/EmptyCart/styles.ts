@@ -6,7 +6,13 @@ export const useEmptyCartStyles = makeStyles((theme: Theme) => ({
         display: 'flex',
         flexDirection: 'column',
         alignItems:'center',
+        justifyContent: 'center',
         width: '100%',
+        height: '50vh',
+
+        [theme.breakpoints.down("md")]: {
+            height: '70vh',
+        },
     },
     emptyCartImage: {
         width: 190,

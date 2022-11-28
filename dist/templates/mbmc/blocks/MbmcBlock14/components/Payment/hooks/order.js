@@ -46,22 +46,25 @@ var __generator = (this && this.__generator) || function (thisArg, body) {
     }
 };
 import { useContext } from "react";
+import Cookies from "universal-cookie";
 import { RestaurantContext } from "../../../../../contexts";
 import { CREATE_ORDER } from "../graphql";
 import { calculateCartSubTotal } from "../../../helpers";
 import { notify } from "../../../../../utilities";
 export var useCreateOrder = function () {
     var _a = useContext(RestaurantContext), cart = _a.cart, clients = _a.clients, setContext = _a.setContext;
+    var cookies = new Cookies();
     return function (paymentMethod) { return __awaiter(void 0, void 0, void 0, function () {
-        var _a, data, errors, order, updatedCart, error_1;
-        var _b, _c, _d, _e;
-        return __generator(this, function (_f) {
-            switch (_f.label) {
+        var cartCookie, _a, data, errors, order, updatedCart, error_1;
+        var _b, _c, _d, _e, _f, _g;
+        return __generator(this, function (_h) {
+            switch (_h.label) {
                 case 0:
+                    cartCookie = cookies.get("cart");
                     setContext === null || setContext === void 0 ? void 0 : setContext({ loading: true, networkOperation: "create.order" });
-                    _f.label = 1;
+                    _h.label = 1;
                 case 1:
-                    _f.trys.push([1, 3, , 4]);
+                    _h.trys.push([1, 3, , 4]);
                     return [4 /*yield*/, (clients === null || clients === void 0 ? void 0 : clients.AMBROSIA).mutate({
                             mutation: CREATE_ORDER,
                             variables: {
@@ -74,16 +77,18 @@ export var useCreateOrder = function () {
                             },
                         })];
                 case 2:
-                    _a = _f.sent(), data = _a.data, errors = _a.errors;
+                    _a = _h.sent(), data = _a.data, errors = _a.errors;
                     if (!data || errors)
                         throw new Error("We could not complete that operation");
                     order = data.createOrder;
                     updatedCart = __assign(__assign({}, cart), { order: order });
                     setContext === null || setContext === void 0 ? void 0 : setContext({ loading: false, networkOperation: "", cart: updatedCart });
                     notify("success", "Order placed successfully");
+                    delete cartCookie[(_g = (_f = cart === null || cart === void 0 ? void 0 : cart.restaurant) === null || _f === void 0 ? void 0 : _f.site_uuid) !== null && _g !== void 0 ? _g : ""];
+                    cookies.set("cart", cartCookie, { path: "/" });
                     return [3 /*break*/, 4];
                 case 3:
-                    error_1 = _f.sent();
+                    error_1 = _h.sent();
                     setContext === null || setContext === void 0 ? void 0 : setContext({ loading: false, networkOperation: "" });
                     notify("error", "We could not complete that operation");
                     return [3 /*break*/, 4];

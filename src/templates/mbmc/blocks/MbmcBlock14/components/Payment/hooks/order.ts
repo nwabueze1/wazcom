@@ -1,4 +1,5 @@
 import { useContext } from "react";
+import Cookies from "universal-cookie";
 import { ApolloClient, NormalizedCacheObject } from "@apollo/client";
 import { RestaurantContext } from "../../../../../contexts";
 import { PaymentMethod } from "../types";
@@ -9,8 +10,10 @@ import { CoreCartFields } from "../../../../../models";
 
 export const useCreateOrder = () => {
     const { cart, clients, setContext } = useContext(RestaurantContext);
+    const cookies = new Cookies();
 
     return async (paymentMethod: PaymentMethod) => {
+        const cartCookie = cookies.get("cart");
         setContext?.({ loading: true, networkOperation: "create.order" });
         try {
             const { data, errors } = await (
@@ -35,6 +38,9 @@ export const useCreateOrder = () => {
 
             setContext?.({ loading: false, networkOperation: "", cart: updatedCart });
             notify("success", "Order placed successfully");
+
+            delete cartCookie[cart?.restaurant?.site_uuid ?? ""];
+            cookies.set("cart", cartCookie, { path: "/" });
         } catch (error) {
             setContext?.({ loading: false, networkOperation: "" });
             notify("error", "We could not complete that operation");
