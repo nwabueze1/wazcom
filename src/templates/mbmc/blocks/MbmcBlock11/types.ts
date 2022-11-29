@@ -6,4 +6,5 @@ export type MbmcBlock11Props = MbmcCommonProps & {
     description: string;
     image: string;
     ctas?: BlockCta[];
+    hasBackground?: boolean;
 };
