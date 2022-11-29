@@ -401,6 +401,8 @@ export const useGetMbmcBlocks = () => {
                         text: "Contact us",
                     },
                 ],
+                hasBackground: true,
+                layout: 'row-reverse',
                 mode: "edit",
                 handleClick: (route: string) => alert(route),
                 index: 0,

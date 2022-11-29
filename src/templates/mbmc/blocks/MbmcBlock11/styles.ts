@@ -2,9 +2,13 @@ import { Theme } from "@mui/material";
 import { makeStyles } from "@mui/styles";
 import { BlockLayout } from "templates/mbmc/types";
 
-export const useMbmcBlock11Styles = makeStyles((theme: Theme) => ({
+export const useMbmcBlock11Styles = makeStyles<
+    Theme,
+    { hasBackground?: boolean; layout: BlockLayout }
+>((theme: Theme) => ({
     root: {
-        backgroundColor: theme.design.colors.waz_white,
+        backgroundColor: ({ hasBackground }) =>
+            hasBackground ? theme.design.colors.waz_orangeColor50 : theme.design.colors.waz_white,
         position: "relative",
         display: "flex",
         alignItems: "center",
@@ -28,7 +32,7 @@ export const useMbmcBlock11Styles = makeStyles((theme: Theme) => ({
         display: "flex",
         alignItems: "center",
         justifyContent: "space-between",
-        flexDirection: ({ flexDirection }: { flexDirection: BlockLayout }) => flexDirection,
+        flexDirection: ({ layout }) => layout,
     },
     block11Content: {
         width: "46%",
@@ -44,7 +48,7 @@ export const useMbmcBlock11Styles = makeStyles((theme: Theme) => ({
     },
     block11Heading: {
         color: theme.design.colors.waz_black,
-        fontSize: theme.typography.fontSize * 4,
+        fontSize: theme.typography.fontSize * 3.5,
         letterSpacing: 0,
         textTransform: "capitalize",
         font: "normal normal medium 68px/100px Losta Masta;",
@@ -52,37 +56,33 @@ export const useMbmcBlock11Styles = makeStyles((theme: Theme) => ({
         fontFamily: theme.design.font.lostaMasta,
         border: "1px solid transparent",
         transition: "all 0.3s ease-in",
-        width: 'fit-content',
+        width: "fit-content",
 
-        [theme.breakpoints.down("lg")]: { 
+        [theme.breakpoints.down("lg")]: {
             marginTop: theme.spacing(3),
             marginBottom: theme.spacing(3),
             fontSize: theme.typography.fontSize * 3,
         },
+
         [theme.breakpoints.down("sm")]: {
             width: "100%",
             textAlign: "left",
             fontWeight: 800,
             marginBottom: theme.spacing(3),
+            fontSize: theme.typography.fontSize * 2,
         },
     },
     block11Description: {
         color: theme.design.colors.waz_greyColor600,
-        fontSize: theme.typography.fontSize + 6,
+        fontSize: theme.typography.fontSize + 4,
         fontFamily: theme.design.font.montserrat,
         lineHeight: 1.5,
         border: "1px solid transparent",
         transition: "all 0.3s ease-in",
 
-        [theme.breakpoints.down("lg")]: {
-            fontSize: theme.typography.fontSize + 4,
-        },
-        [theme.breakpoints.down("md")]: {
-            fontSize: theme.typography.fontSize,
-        },
         [theme.breakpoints.down("sm")]: {
-            fontSize: theme.typography.fontSize * 1.5,
             textAlign: "left",
+            fontSize: theme.typography.fontSize + 2,
         },
     },
     heroContainer: {
@@ -124,7 +124,7 @@ export const useMbmcBlock11Styles = makeStyles((theme: Theme) => ({
         height: "100%",
         minHeight: 500,
         borderRadius: theme.spacing(0.5),
-        objectFit: 'cover',
+        objectFit: "cover",
 
         [theme.breakpoints.down("lg")]: {
             minHeight: 419,

@@ -6,6 +6,7 @@ import clx from "classnames";
 
 export const MbmcBlock11: FC<MbmcBlock11Props> = ({
     mode = "view",
+    layout = 'row-reverse',
     index,
     activeElement = "",
     handleClick,
@@ -13,8 +14,9 @@ export const MbmcBlock11: FC<MbmcBlock11Props> = ({
     heading,
     description,
     ctas,
+    hasBackground,
 }) => {
-    const classes = useMbmcBlock11Styles({ flexDirection: "row-reverse" });
+    const classes = useMbmcBlock11Styles({ layout, hasBackground });
 
     return (
         <div className={classes.root}>

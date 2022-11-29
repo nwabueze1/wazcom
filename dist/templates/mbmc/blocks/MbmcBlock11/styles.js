@@ -3,7 +3,10 @@ export var useMbmcBlock11Styles = makeStyles(function (theme) {
     var _a, _b, _c, _d, _e, _f, _g, _h, _j, _k;
     return ({
         root: (_a = {
-                backgroundColor: theme.design.colors.waz_white,
+                backgroundColor: function (_a) {
+                    var hasBackground = _a.hasBackground;
+                    return hasBackground ? theme.design.colors.waz_orangeColor50 : theme.design.colors.waz_white;
+                },
                 position: "relative",
                 display: "flex",
                 alignItems: "center",
@@ -28,8 +31,8 @@ export var useMbmcBlock11Styles = makeStyles(function (theme) {
             alignItems: "center",
             justifyContent: "space-between",
             flexDirection: function (_a) {
-                var flexDirection = _a.flexDirection;
-                return flexDirection;
+                var layout = _a.layout;
+                return layout;
             },
         },
         block11Content: (_b = {
@@ -46,7 +49,7 @@ export var useMbmcBlock11Styles = makeStyles(function (theme) {
             _b),
         block11Heading: (_c = {
                 color: theme.design.colors.waz_black,
-                fontSize: theme.typography.fontSize * 4,
+                fontSize: theme.typography.fontSize * 3.5,
                 letterSpacing: 0,
                 textTransform: "capitalize",
                 font: "normal normal medium 68px/100px Losta Masta;",
@@ -54,7 +57,7 @@ export var useMbmcBlock11Styles = makeStyles(function (theme) {
                 fontFamily: theme.design.font.lostaMasta,
                 border: "1px solid transparent",
                 transition: "all 0.3s ease-in",
-                width: 'fit-content'
+                width: "fit-content"
             },
             _c[theme.breakpoints.down("lg")] = {
                 marginTop: theme.spacing(3),
@@ -66,25 +69,20 @@ export var useMbmcBlock11Styles = makeStyles(function (theme) {
                 textAlign: "left",
                 fontWeight: 800,
                 marginBottom: theme.spacing(3),
+                fontSize: theme.typography.fontSize * 2,
             },
             _c),
         block11Description: (_d = {
                 color: theme.design.colors.waz_greyColor600,
-                fontSize: theme.typography.fontSize + 6,
+                fontSize: theme.typography.fontSize + 4,
                 fontFamily: theme.design.font.montserrat,
                 lineHeight: 1.5,
                 border: "1px solid transparent",
                 transition: "all 0.3s ease-in"
             },
-            _d[theme.breakpoints.down("lg")] = {
-                fontSize: theme.typography.fontSize + 4,
-            },
-            _d[theme.breakpoints.down("md")] = {
-                fontSize: theme.typography.fontSize,
-            },
             _d[theme.breakpoints.down("sm")] = {
-                fontSize: theme.typography.fontSize * 1.5,
                 textAlign: "left",
+                fontSize: theme.typography.fontSize + 2,
             },
             _d),
         heroContainer: (_e = {
@@ -125,7 +123,7 @@ export var useMbmcBlock11Styles = makeStyles(function (theme) {
                 height: "100%",
                 minHeight: 500,
                 borderRadius: theme.spacing(0.5),
-                objectFit: 'cover'
+                objectFit: "cover"
             },
             _h[theme.breakpoints.down("lg")] = {
                 minHeight: 419,
