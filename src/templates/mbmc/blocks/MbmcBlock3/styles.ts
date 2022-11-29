@@ -11,12 +11,16 @@ export const useMbmcBlock3Styles = makeStyles((theme: Theme) => ({
     },
     block3Container: {
         position: "relative",
-        maxWidth: 1240,
-        width: "90%",
+        maxWidth: theme.include.styles.mbmc.maxWidth,
+        width: "85%",
         margin: "0 auto",
         display: "flex",
         alignItems: "center",
         zIndex: 10,
+
+        [theme.breakpoints.down("lg")]: {
+            width: "90%",
+        },
     },
     block3ImageContainer: {
         width: "50%",

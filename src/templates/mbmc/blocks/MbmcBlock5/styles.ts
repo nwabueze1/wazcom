@@ -8,13 +8,17 @@ export const useMbmcBlock5Styles = makeStyles((theme: Theme) => ({
         width: "100%",
     },
     mbmcContainer: {
-        maxWidth: 1240,
-        width: "90%",
+        maxWidth: theme.include.styles.mbmc.maxWidth,
+        width: "85%",
         margin: "0 auto",
         display: "flex",
         alignItems: "flex-start",
         flexDirection: "column",
         padding: theme.spacing(5, 0),
+
+        [theme.breakpoints.down("lg")]: {
+            width: "90%",
+        },
 
         [theme.breakpoints.down("md")]: {
             padding: theme.spacing(5, 0, 2, 0),

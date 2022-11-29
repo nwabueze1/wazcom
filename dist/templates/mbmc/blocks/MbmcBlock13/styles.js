@@ -18,14 +18,12 @@ export var useMbmcBlock13Styles = makeStyles(function (theme) {
                 display: "flex",
                 alignItems: "center",
                 justifyContent: "space-between",
-                maxWidth: 1240,
-                width: "100%",
+                maxWidth: theme.include.styles.mbmc.maxWidth,
+                width: "85%",
                 margin: "0 auto"
             },
             _a[theme.breakpoints.down("lg")] = {
-                padding: theme.spacing(3),
-            },
-            _a[theme.breakpoints.up("lg")] = {
+                padding: theme.spacing(3, 0),
                 width: "90%",
             },
             _a[theme.breakpoints.down("md")] = {
@@ -72,7 +70,8 @@ export var useMbmcBlock13Styles = makeStyles(function (theme) {
         link: {
             cursor: "pointer",
             textDecoration: "none",
-            color: theme.design.colors.waz_black,
+            color: '#000000',
+            fontWeight: theme.typography.fontWeightMedium,
         },
         mrBarkers: {
             fontFamily: theme.design.font.lostaMastaLight,

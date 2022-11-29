@@ -14,15 +14,16 @@ export const useMbmcBlock8Styles = makeStyles((theme: Theme) => ({
         },
     },
     headerContainer: {
-        maxWidth: 1240,
-        width: "90%",
+        maxWidth: theme.include.styles.mbmc.maxWidth,
+        width: "85%",
         margin: "0 auto",
         display: "flex",
-        alignItems: 'center',
-        justifyContent: 'center',
+        alignItems: "center",
+        justifyContent: "center",
 
         [theme.breakpoints.down("lg")]: {
             flexDirection: "column",
+            width: "90%",
         },
     },
     headerContent: {
@@ -35,7 +36,7 @@ export const useMbmcBlock8Styles = makeStyles((theme: Theme) => ({
 
         [theme.breakpoints.down("lg")]: {
             width: "100%",
-            alignItems: 'center',
+            alignItems: "center",
         },
     },
     carousel: {
@@ -91,7 +92,7 @@ export const useMbmcBlock8Styles = makeStyles((theme: Theme) => ({
 
         [theme.breakpoints.down("lg")]: {
             fontSize: theme.typography.fontSize + 6,
-            textAlign: 'center',
+            textAlign: "center",
         },
 
         [theme.breakpoints.down("md")]: {

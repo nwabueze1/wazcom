@@ -17,12 +17,16 @@ export const useMbmcBlock9Styles = makeStyles((theme: Theme) => ({
         },
     },
     headerContainer: {
-        maxWidth: 1240,
-        width: "90%",
+        maxWidth: theme.include.styles.mbmc.maxWidth,
+        width: "85%",
         margin: "0 auto",
         display: "flex",
         alignItems: "center",
         justifyContent: "space-between",
+
+        [theme.breakpoints.down("lg")]: {
+            width: "90%",
+        },
     },
     headerContent: {
         display: "flex",
@@ -62,7 +66,7 @@ export const useMbmcBlock9Styles = makeStyles((theme: Theme) => ({
         color: theme.design.colors.waz_greyColor600,
         textAlign: "left",
         fontSize: theme.typography.fontSize + 6,
-        maxWidth: 500,
+        width: '80%',
         border: "1px solid transparent",
         transition: "all 0.3s ease-in",
         fontFamily: theme.design.font.montserrat,
@@ -89,8 +93,7 @@ export const useMbmcBlock9Styles = makeStyles((theme: Theme) => ({
         marginTop: theme.spacing(4),
     },
     pointContainer: {
-        width: "100%",
-        maxWidth: 500,
+        width: '80%',
         display: "flex",
         alignItems: "flex-start",
         justifyContent: "flex-start",
@@ -104,7 +107,7 @@ export const useMbmcBlock9Styles = makeStyles((theme: Theme) => ({
 
         [theme.breakpoints.down("lg")]: {
             padding: theme.spacing(2),
-            maxWidth: "100%",
+            width: "100%",
         },
     },
     pointTextContainer: {

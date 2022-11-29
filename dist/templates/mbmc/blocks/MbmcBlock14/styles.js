@@ -14,9 +14,12 @@ export var useMbmcBlock14Styles = makeStyles(function (theme) {
         block14Container: (_b = {
                 boxSizing: "border-box",
                 padding: theme.spacing(8.5, 0),
-                maxWidth: 1240,
-                width: "90%",
+                maxWidth: theme.include.styles.mbmc.maxWidth,
+                width: "85%",
                 margin: "0 auto"
+            },
+            _b[theme.breakpoints.down("lg")] = {
+                width: "90%",
             },
             _b[theme.breakpoints.down("md")] = {
                 padding: theme.spacing(4, 0),
