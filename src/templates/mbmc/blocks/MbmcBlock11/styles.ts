@@ -59,7 +59,6 @@ export const useMbmcBlock11Styles = makeStyles<
         width: "fit-content",
 
         [theme.breakpoints.down("lg")]: {
-            marginTop: theme.spacing(3),
             marginBottom: theme.spacing(3),
             fontSize: theme.typography.fontSize * 3,
         },
