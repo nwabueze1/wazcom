@@ -10,6 +10,10 @@ export const useMbmcBlock1Styles = makeStyles<Theme, MbmcBlock1StyleProps>((them
         overflow: "hidden",
         border: "1px solid transparent",
         transition: "all 0.3s ease-in",
+
+        [theme.breakpoints.down("lg")]: {
+            height: ({ fullHeight }) => (fullHeight ? "100vh" : "80vh"),
+        },
     },
     block1Container: {
         maxWidth: 1240,
@@ -21,6 +25,9 @@ export const useMbmcBlock1Styles = makeStyles<Theme, MbmcBlock1StyleProps>((them
 
         [theme.breakpoints.down("lg")]: {
             flexDirection: "column",
+        },
+        
+        [theme.breakpoints.down("sm")]: {
             paddingTop: theme.spacing(10),
         },
     },
@@ -28,12 +35,18 @@ export const useMbmcBlock1Styles = makeStyles<Theme, MbmcBlock1StyleProps>((them
         width: "45%",
 
         [theme.breakpoints.down("lg")]: {
+            position: 'relative',
+            top: 80,
             width: "90%",
             display: "flex",
             alignItems: "center",
             justifyContent: "flex-start",
             flexDirection: "column",
             textAlign: "center",
+        },
+
+        [theme.breakpoints.down("sm")]: {
+            top: 0,
         },
     },
     block1Heading: {
@@ -46,6 +59,7 @@ export const useMbmcBlock1Styles = makeStyles<Theme, MbmcBlock1StyleProps>((them
         margin: 0,
         border: "1px solid transparent",
         transition: "all 0.3s ease-in",
+        zIndex: 10,
 
         [theme.breakpoints.down("lg")]: {
             fontSize: theme.typography.fontSize * 4 + 4,

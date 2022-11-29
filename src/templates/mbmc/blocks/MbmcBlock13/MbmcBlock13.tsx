@@ -61,7 +61,12 @@ export const MbmcBlock13: FC<MbmcBlock13Props> = ({
                     )}
                     <div className={classes.menuList}>
                         {displayLinks()}
-                        <p className={clx(classes.icon, classes.link)}>
+                        <p
+                            className={clx(classes.icon, classes.link)}
+                            onClick={() => {
+                                handleElementClick("/cart");
+                            }}
+                        >
                             <FiShoppingCart className={classes.cartIcon} fontSize={20} />
                             <span className={classes.badgeIcon}>{numCartItems}</span>
                         </p>

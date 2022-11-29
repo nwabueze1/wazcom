@@ -60,7 +60,6 @@ export var useMbmcBlock11Styles = makeStyles(function (theme) {
                 width: "fit-content"
             },
             _c[theme.breakpoints.down("lg")] = {
-                marginTop: theme.spacing(3),
                 marginBottom: theme.spacing(3),
                 fontSize: theme.typography.fontSize * 3,
             },
