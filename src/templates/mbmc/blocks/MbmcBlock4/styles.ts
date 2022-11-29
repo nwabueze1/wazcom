@@ -11,9 +11,13 @@ export const useMbmcBlock4Styles = makeStyles((theme: Theme) => ({
         },
     },
     block6Container: {
-        maxWidth: 1240,
-        width: "90%",
+        maxWidth: theme.include.styles.mbmc.maxWidth,
+        width: "85%",
         margin: "0 auto",
+
+        [theme.breakpoints.down("lg")]: {
+            width: "90%",
+        },
     },
     block4Content: {
         width: "100%",

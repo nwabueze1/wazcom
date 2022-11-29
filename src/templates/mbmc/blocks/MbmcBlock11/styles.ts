@@ -26,13 +26,17 @@ export const useMbmcBlock11Styles = makeStyles<
         },
     },
     block11Container: {
-        maxWidth: 1240,
-        width: "90%",
+        maxWidth: theme.include.styles.mbmc.maxWidth,
+        width: "85%",
         margin: "0 auto",
         display: "flex",
         alignItems: "center",
         justifyContent: "space-between",
         flexDirection: ({ layout }) => layout,
+
+        [theme.breakpoints.down("lg")]: {
+            width: "90%",
+        },
     },
     block11Content: {
         width: "46%",

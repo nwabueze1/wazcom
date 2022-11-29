@@ -49,6 +49,9 @@ export var theme = {
             to: { width: "100%" },
         },
         styles: {
+            mbmc: {
+                maxWidth: 1720,
+            },
             template2: {
                 maxWidth: 1294,
                 maxWidthMd: 700,

@@ -1,6 +1,6 @@
 import { makeStyles } from "@mui/styles";
 export var useMbmcBlock4Styles = makeStyles(function (theme) {
-    var _a, _b, _c, _d, _e, _f, _g;
+    var _a, _b, _c, _d, _e, _f, _g, _h;
     return ({
         root: (_a = {
                 backgroundColor: theme.design.colors.waz_gold100,
@@ -10,12 +10,16 @@ export var useMbmcBlock4Styles = makeStyles(function (theme) {
                 padding: theme.spacing(5, 0),
             },
             _a),
-        block6Container: {
-            maxWidth: 1240,
-            width: "90%",
-            margin: "0 auto",
-        },
-        block4Content: (_b = {
+        block6Container: (_b = {
+                maxWidth: theme.include.styles.mbmc.maxWidth,
+                width: "85%",
+                margin: "0 auto"
+            },
+            _b[theme.breakpoints.down("lg")] = {
+                width: "90%",
+            },
+            _b),
+        block4Content: (_c = {
                 width: "100%",
                 display: "flex",
                 alignItems: "center",
@@ -23,14 +27,14 @@ export var useMbmcBlock4Styles = makeStyles(function (theme) {
                 flexDirection: "column",
                 marginBottom: theme.spacing(2)
             },
-            _b[theme.breakpoints.down("md")] = {
+            _c[theme.breakpoints.down("md")] = {
                 width: "100%",
             },
-            _b[theme.breakpoints.down("sm")] = {
+            _c[theme.breakpoints.down("sm")] = {
                 width: "100%",
             },
-            _b),
-        block4Heading: (_c = {
+            _c),
+        block4Heading: (_d = {
                 color: theme.design.colors.waz_primaryColor200,
                 fontSize: theme.typography.fontSize * 4,
                 fontFamily: theme.design.font.lostaMasta,
@@ -41,17 +45,17 @@ export var useMbmcBlock4Styles = makeStyles(function (theme) {
                 border: "1px solid transparent",
                 transition: "all 0.3s ease-in"
             },
-            _c[theme.breakpoints.down("lg")] = {
+            _d[theme.breakpoints.down("lg")] = {
                 fontSize: theme.typography.fontSize * 3,
                 marginBottom: theme.spacing(2),
             },
-            _c[theme.breakpoints.down("sm")] = {
+            _d[theme.breakpoints.down("sm")] = {
                 textAlign: "left",
                 fontSize: theme.typography.fontSize * 2,
                 fontWeight: 800,
             },
-            _c),
-        block4Description: (_d = {
+            _d),
+        block4Description: (_e = {
                 color: theme.design.colors.waz_greyColor600,
                 textAlign: "center",
                 fontSize: theme.typography.fontSize + 6,
@@ -62,18 +66,18 @@ export var useMbmcBlock4Styles = makeStyles(function (theme) {
                 border: "1px solid transparent",
                 transition: "all 0.3s ease-in"
             },
-            _d[theme.breakpoints.down("lg")] = {
+            _e[theme.breakpoints.down("lg")] = {
                 width: "80%",
             },
-            _d[theme.breakpoints.down("md")] = {
+            _e[theme.breakpoints.down("md")] = {
                 fontSize: theme.typography.fontSize + 2,
             },
-            _d[theme.breakpoints.down("sm")] = {
+            _e[theme.breakpoints.down("sm")] = {
                 width: "100%",
                 textAlign: "center",
             },
-            _d),
-        block4CardContainer: (_e = {
+            _e),
+        block4CardContainer: (_f = {
                 width: "100%",
                 display: "flex",
                 justifyContent: "space-between",
@@ -81,39 +85,39 @@ export var useMbmcBlock4Styles = makeStyles(function (theme) {
                 flexWrap: "wrap",
                 position: "relative"
             },
-            _e[theme.breakpoints.down("lg")] = {
+            _f[theme.breakpoints.down("lg")] = {
                 justifyContent: "center",
             },
-            _e[theme.breakpoints.down("sm")] = {
+            _f[theme.breakpoints.down("sm")] = {
                 flexDirection: "column",
                 alignItems: "center",
             },
-            _e),
-        block4CardFlame: (_f = {
+            _f),
+        block4CardFlame: (_g = {
                 position: "absolute",
                 top: "50%",
                 left: -40,
                 width: 62
             },
-            _f[theme.breakpoints.down("md")] = {
+            _g[theme.breakpoints.down("md")] = {
                 display: "none",
             },
-            _f),
+            _g),
         block4CardFlameRight: {
             left: "unset",
             right: -40,
         },
-        block4Card: (_g = {
+        block4Card: (_h = {
                 width: "calc((100% - 32px) / 3)",
                 zIndex: 2
             },
-            _g[theme.breakpoints.down("md")] = {
+            _h[theme.breakpoints.down("md")] = {
                 width: "calc((100% - 16px) / 2)",
             },
-            _g[theme.breakpoints.down("sm")] = {
+            _h[theme.breakpoints.down("sm")] = {
                 width: "100%",
             },
-            _g),
+            _h),
         block4CardHeading: {
             color: theme.design.colors.waz_orangeColor100,
         },

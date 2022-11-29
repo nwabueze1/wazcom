@@ -11,8 +11,8 @@ export const useMbmcBlock12Styles = makeStyles((theme: Theme) => ({
         },
     },
     container: {
-        maxWidth: 1240,
-        width: "90%",
+        maxWidth: theme.include.styles.mbmc.maxWidth,
+        width: "85%",
         margin: "0 auto",
         display: "flex",
         position: "relative",
@@ -20,6 +20,7 @@ export const useMbmcBlock12Styles = makeStyles((theme: Theme) => ({
 
         [theme.breakpoints.down("lg")]: {
             flexDirection: "column",
+            width: '90%',
         },
 
         [theme.breakpoints.down("sm")]: {

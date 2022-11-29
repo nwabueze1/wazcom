@@ -21,8 +21,8 @@ export var useMbmcBlock1Styles = makeStyles(function (theme) {
             },
             _a),
         block1Container: (_b = {
-                maxWidth: 1240,
-                width: "90%",
+                maxWidth: theme.include.styles.mbmc.maxWidth,
+                width: "85%",
                 margin: "0 auto",
                 display: "flex",
                 alignItems: "center",
@@ -30,6 +30,7 @@ export var useMbmcBlock1Styles = makeStyles(function (theme) {
             },
             _b[theme.breakpoints.down("lg")] = {
                 flexDirection: "column",
+                width: "90%",
             },
             _b[theme.breakpoints.down("sm")] = {
                 paddingTop: theme.spacing(10),

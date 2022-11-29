@@ -33,6 +33,7 @@ export var useButtonStyles = makeStyles(function (theme) {
         buttonNeutral: {
             background: "".concat(theme.design.colors.waz_white, " !important"),
             color: theme.design.colors.waz_black,
+            fontWeight: theme.typography.fontWeightBold,
         },
         buttonActive: {
             border: "1px dashed",

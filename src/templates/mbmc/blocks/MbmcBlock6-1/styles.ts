@@ -7,9 +7,13 @@ export const useMbmcBlock61Styles = makeStyles((theme: Theme) => ({
         padding: theme.spacing(9, 0),
     },
     block61Container: {
-        maxWidth: 1110,
-        width: "90%",
+        maxWidth: 1600,
+        width: "85%",
         margin: "0 auto",
+
+        [theme.breakpoints.down("lg")]: {
+            width: "90%",
+        },
     },
     block61Title: {
         color: theme.design.colors.waz_primaryColor300,
