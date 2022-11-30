@@ -22,7 +22,7 @@ export const Payment = () => {
 
     useEffect(() => {
         if (data) {
-            const { getPaymentMethod: paymentMethods } = data;
+            const { getPaymentMethods: paymentMethods } = data;
             setPaymentMethods(paymentMethods);
         }
 
