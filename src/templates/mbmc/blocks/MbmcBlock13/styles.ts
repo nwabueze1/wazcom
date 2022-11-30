@@ -18,7 +18,7 @@ export const useMbmcBlock13Styles = makeStyles((theme: Theme) => ({
         display: "flex",
         alignItems: "center",
         justifyContent: "space-between",
-        maxWidth: theme.include.styles.mbmc.maxWidth,
+        maxWidth: 1720,
         width: "85%",
         margin: "0 auto",
 

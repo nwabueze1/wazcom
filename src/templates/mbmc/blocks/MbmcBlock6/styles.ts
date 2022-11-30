@@ -8,7 +8,7 @@ export const useMbmcBlock6Styles = makeStyles((theme: Theme) => ({
         padding: theme.spacing(10, 0),
     },
     block6Container: {
-        maxWidth: theme.include.styles.mbmc.maxWidth,
+        maxWidth: 1720,
         width: "85%",
         margin: "0 auto",
 

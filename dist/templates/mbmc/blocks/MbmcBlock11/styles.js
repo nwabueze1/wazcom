@@ -24,7 +24,7 @@ export var useMbmcBlock11Styles = makeStyles(function (theme) {
             },
             _a),
         block11Container: (_b = {
-                maxWidth: theme.include.styles.mbmc.maxWidth,
+                maxWidth: 1720,
                 width: "85%",
                 margin: "0 auto",
                 display: "flex",

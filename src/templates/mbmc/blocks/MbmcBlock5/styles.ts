@@ -8,7 +8,7 @@ export const useMbmcBlock5Styles = makeStyles((theme: Theme) => ({
         width: "100%",
     },
     mbmcContainer: {
-        maxWidth: theme.include.styles.mbmc.maxWidth,
+        maxWidth: 1720,
         width: "85%",
         margin: "0 auto",
         display: "flex",

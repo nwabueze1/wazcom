@@ -11,7 +11,7 @@ export var useMbmcBlock4Styles = makeStyles(function (theme) {
             },
             _a),
         block6Container: (_b = {
-                maxWidth: theme.include.styles.mbmc.maxWidth,
+                maxWidth: 1720,
                 width: "85%",
                 margin: "0 auto"
             },
