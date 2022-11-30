@@ -11,7 +11,7 @@ export const useMbmcBlock3Styles = makeStyles((theme: Theme) => ({
     },
     block3Container: {
         position: "relative",
-        maxWidth: theme.include.styles.mbmc.maxWidth,
+        maxWidth: 1720,
         width: "85%",
         margin: "0 auto",
         display: "flex",

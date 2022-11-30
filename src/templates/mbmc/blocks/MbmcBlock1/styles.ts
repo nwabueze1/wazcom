@@ -16,7 +16,7 @@ export const useMbmcBlock1Styles = makeStyles<Theme, MbmcBlock1StyleProps>((them
         },
     },
     block1Container: {
-        maxWidth: theme.include.styles.mbmc.maxWidth,
+        maxWidth: 1720,
         width: "85%",
         margin: "0 auto",
         display: "flex",

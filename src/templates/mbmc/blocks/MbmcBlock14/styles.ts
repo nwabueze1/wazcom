@@ -14,7 +14,7 @@ export const useMbmcBlock14Styles = makeStyles((theme: Theme) => ({
     block14Container: {
         boxSizing: "border-box",
         padding: theme.spacing(8.5, 0),
-        maxWidth: theme.include.styles.mbmc.maxWidth,
+        maxWidth: 1720,
         width: "85%",
         margin: "0 auto",
 
