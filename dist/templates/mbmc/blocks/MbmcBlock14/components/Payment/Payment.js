@@ -84,7 +84,7 @@ export var Payment = function () {
     var createOrder = useCreateOrder();
     useEffect(function () {
         if (data) {
-            var paymentMethods_1 = data.getPaymentMethod;
+            var paymentMethods_1 = data.getPaymentMethods;
             setPaymentMethods(paymentMethods_1);
         }
         if (error) {
