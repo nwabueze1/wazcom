@@ -423,12 +423,10 @@ export const useGetMbmcBlocks = () => {
                         text: "Call us",
                         variant: "SECONDARY",
                         size: "sm",
-                        className: classes.mbmc12Button,
                     },
                     {
                         text: "Email us",
                         size: "sm",
-                        className: classes.mbmc12Button,
                     },
                 ],
                 client: {

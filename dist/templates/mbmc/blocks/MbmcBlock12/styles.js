@@ -80,6 +80,10 @@ export var useMbmcBlock12Styles = makeStyles(function (theme) {
                 fontSize: theme.typography.fontSize + 4,
             },
             _d),
+        button: {
+            width: '100%',
+            fontWeight: theme.typography.fontWeightMedium,
+        },
         formContainer: (_e = {
                 width: "45%",
                 position: "relative",
