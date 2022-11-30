@@ -1,6 +1,6 @@
 import { makeStyles } from "@mui/styles";
 export var useMbmcBlock1Styles = makeStyles(function (theme) {
-    var _a, _b, _c, _d, _e, _f, _g, _h, _j, _k;
+    var _a, _b, _c, _d, _e, _f, _g, _h, _j, _k, _l, _m;
     return ({
         root: (_a = {
                 backgroundColor: theme.design.colors.waz_white,
@@ -147,47 +147,66 @@ export var useMbmcBlock1Styles = makeStyles(function (theme) {
                 position: "relative",
                 marginTop: theme.spacing(8)
             },
-            _j[theme.breakpoints.down("lg")] = {
-                marginTop: function (_a) {
-                    var fullHeight = _a.fullHeight;
-                    return (fullHeight ? theme.spacing(5) : 0);
-                },
-            },
             _j[theme.breakpoints.down("sm")] = {
                 height: "100%",
                 marginTop: 0,
             },
             _j),
-        block1Image: {
-            position: "relative",
-            top: "5vh",
-            width: function (_a) {
-                var fullHeight = _a.fullHeight;
-                return (fullHeight ? "95%" : "85%");
+        block1Image: (_k = {
+                position: "relative",
+                width: function (_a) {
+                    var fullHeight = _a.fullHeight;
+                    return (fullHeight ? "95%" : "85%");
+                },
+                zIndex: 10
             },
-            height: "90%",
-            zIndex: 10,
-            objectFit: function (_a) {
-                var fullHeight = _a.fullHeight;
-                return (fullHeight ? "none" : "contain");
+            _k[theme.breakpoints.up("xl")] = {
+                objectFit: function (_a) {
+                    var fullHeight = _a.fullHeight;
+                    return fullHeight ? 'cover' : 'contain';
+                },
+                height: "80%",
+                top: '2vh',
             },
-        },
-        block1Overlay: {
-            position: "absolute",
-            top: "-3vw",
-        },
+            _k[theme.breakpoints.down("xl")] = {
+                objectFit: function (_a) {
+                    var fullHeight = _a.fullHeight;
+                    return (fullHeight ? "none" : "contain");
+                },
+                height: "90%",
+                top: "5vh",
+            },
+            _k),
+        block1Overlay: (_l = {
+                position: "absolute",
+                top: function (_a) {
+                    var fullHeight = _a.fullHeight;
+                    return fullHeight ? "-3vw" : 'unset';
+                }
+            },
+            _l[theme.breakpoints.up("xl")] = {
+                right: function (_a) {
+                    var fullHeight = _a.fullHeight;
+                    return fullHeight ? 0 : '-5vw';
+                },
+                height: function (_a) {
+                    var fullHeight = _a.fullHeight;
+                    return fullHeight ? "calc(100% + 3vw)" : 'unset';
+                },
+            },
+            _l),
         block1BtnContainer: {
             display: "flex",
             marginTop: theme.spacing(3),
             gap: theme.spacing(1.5),
         },
-        block1Icon: (_k = {
+        block1Icon: (_m = {
                 marginLeft: theme.spacing(1)
             },
-            _k[theme.breakpoints.down("sm")] = {
+            _m[theme.breakpoints.down("sm")] = {
                 display: "none",
             },
-            _k),
+            _m),
         block1ActiveElement: {
             border: "1px dashed",
             borderColor: theme.design.colors.waz_primaryColor100,

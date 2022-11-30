@@ -52,6 +52,7 @@ export const useGetMbmcBlocks = () => {
                 style: "mbmc",
                 heading: "Our Menu",
                 image: "https://sytbuildr.s3.eu-west-2.amazonaws.com/images/mbmc/home/hero-food.webp",
+                fullHeight: false,
             },
         },
         {

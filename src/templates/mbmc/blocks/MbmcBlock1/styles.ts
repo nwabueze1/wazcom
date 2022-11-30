@@ -151,10 +151,6 @@ export const useMbmcBlock1Styles = makeStyles<Theme, MbmcBlock1StyleProps>((them
         position: "relative",
         marginTop: theme.spacing(8),
 
-        [theme.breakpoints.down("lg")]: {
-            marginTop: ({ fullHeight }) => (fullHeight ? theme.spacing(5) : 0),
-        },
-
         [theme.breakpoints.down("sm")]: {
             height: "100%",
             marginTop: 0,
@@ -162,15 +158,29 @@ export const useMbmcBlock1Styles = makeStyles<Theme, MbmcBlock1StyleProps>((them
     },
     block1Image: {
         position: "relative",
-        top: "5vh",
         width: ({ fullHeight }) => (fullHeight ? "95%" : "85%"),
-        height: "90%",
-        zIndex: 10,
-        objectFit: ({ fullHeight }) => (fullHeight ? "none" : "contain"),
+        zIndex: 10, 
+
+        [theme.breakpoints.up("xl")]: {
+            objectFit: ({ fullHeight }) => fullHeight ? 'cover' : 'contain',
+            height: "80%",
+            top: '2vh',
+        },
+
+        [theme.breakpoints.down("xl")]: {
+            objectFit: ({ fullHeight }) => (fullHeight ? "none" : "contain"),
+            height: "90%",
+            top: "5vh",
+        },
     },
     block1Overlay: {
         position: "absolute",
-        top: "-3vw",
+        top: ({ fullHeight }) => fullHeight ? "-3vw" : 'unset',
+
+        [theme.breakpoints.up("xl")]: {
+            right: ({ fullHeight }) => fullHeight ? 0 : '-5vw',
+            height: ({ fullHeight }) => fullHeight ? "calc(100% + 3vw)" : 'unset',
+        },
     },
     block1BtnContainer: {
         display: "flex",

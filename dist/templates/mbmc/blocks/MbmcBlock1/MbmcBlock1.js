@@ -51,5 +51,7 @@ export var MbmcBlock1 = function (_a) {
                                 classes.block1ActiveElement) }, void 0), _jsx("img", { src: "https://sytbuildr.s3.eu-west-2.amazonaws.com/images/mbmc/hero1mobile.svg", alt: "Image Overlay", className: classes.block1MobileOverlay }, void 0)] }), void 0), _jsxs("div", __assign({ className: classes.block1ImgContainer }, { children: [_jsx("img", { src: image, onClick: function () {
                                 return handleElementClick(mode, "".concat(String(index), ".image"), handleClick);
                             }, alt: "food images", className: clx(classes.block1Image, activeElement === "".concat(String(index), ".image") &&
-                                classes.block1ActiveElement) }, void 0), _jsx("img", { src: "https://sytbuildr.s3.eu-west-2.amazonaws.com/images/mbmc/clipped1.svg", alt: "Image Overlay", className: classes.block1Overlay }, void 0)] }), void 0)] }), void 0) }), void 0));
+                                classes.block1ActiveElement) }, void 0), _jsx("img", { src: fullHeight
+                                ? "https://sytbuildr.s3.eu-west-2.amazonaws.com/images/mbmc/Orange+bg+-+3xl.svg"
+                                : "https://sytbuildr.s3.eu-west-2.amazonaws.com/images/mbmc/clipped1.svg", alt: "Image Overlay", className: classes.block1Overlay }, void 0)] }), void 0)] }), void 0) }), void 0));
 };
