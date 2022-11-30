@@ -200,7 +200,7 @@ export const useGetMbmcBlocks = () => {
                 heading: "Explore Our Menu",
                 description: `Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed 
                 diam nonumy eirmod tempor invidunt ut labore et dolore a….`,
-                menu_uuid: "5a8b64b3-2fe7-4204-b23a-87dd6539d311",
+                menu_uuid: "86e9e1a1-8d9a-4673-b035-f720df10728a",
                 integratedService: "AMBROSIA",
                 services: {
                     AMBROSIA: "https://ofambegbe-ambrosia.wazobia.uk/graphql",

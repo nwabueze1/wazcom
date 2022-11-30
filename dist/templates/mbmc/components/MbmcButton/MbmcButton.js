@@ -25,7 +25,10 @@ import { useButtonStyles } from "./styles";
 import { Button as MainButton } from "../../../../core/Button";
 import clx from "classnames";
 export var MbmcButton = function (_a) {
-    var children = _a.children, name = _a.name, _b = _a.variant, variant = _b === void 0 ? "PRIMARY" : _b, _c = _a.size, size = _c === void 0 ? "md" : _c, className = _a.className, _d = _a.type, type = _d === void 0 ? 'button' : _d, handleClick = _a.handleClick, activeElement = _a.activeElement, props = __rest(_a, ["children", "name", "variant", "size", "className", "type", "handleClick", "activeElement"]);
+    var children = _a.children, name = _a.name, _b = _a.variant, variant = _b === void 0 ? "PRIMARY" : _b, _c = _a.size, size = _c === void 0 ? "md" : _c, className = _a.className, _d = _a.type, type = _d === void 0 ? "button" : _d, handleClick = _a.handleClick, activeElement = _a.activeElement, props = __rest(_a, ["children", "name", "variant", "size", "className", "type", "handleClick", "activeElement"]);
     var classes = useButtonStyles();
-    return (_jsx(MainButton, __assign({ onClick: handleClick, type: type, className: clx(className, classes.button, variant === "PRIMARY" && classes.buttonPrimary, variant === "SECONDARY" && classes.buttonSecondary, variant === "NEUTRAL" && classes.buttonNeutral, size === "sm" && classes.buttonSmall, (name === null || name === void 0 ? void 0 : name.toLowerCase()) === (activeElement === null || activeElement === void 0 ? void 0 : activeElement.toLowerCase()) && classes.buttonActive) }, props, { children: children }), void 0));
+    return (_jsx(MainButton, __assign({ onClick: function (e) {
+            e.stopPropagation();
+            handleClick === null || handleClick === void 0 ? void 0 : handleClick();
+        }, type: type, className: clx(className, classes.button, variant === "PRIMARY" && classes.buttonPrimary, variant === "SECONDARY" && classes.buttonSecondary, variant === "NEUTRAL" && classes.buttonNeutral, size === "sm" && classes.buttonSmall, (name === null || name === void 0 ? void 0 : name.toLowerCase()) === (activeElement === null || activeElement === void 0 ? void 0 : activeElement.toLowerCase()) && classes.buttonActive) }, props, { children: children }), void 0));
 };

@@ -65,7 +65,12 @@ export var MbmcBlock61 = function (_a) {
             var _b = data.menu, menuCategories = _b.activeMenuCategories, menuItems = _b.activeMenuItems, rest = __rest(_b, ["activeMenuCategories", "activeMenuItems"]);
             var menu_1 = __assign({ menuCategories: menuCategories, menuItems: menuItems }, rest);
             setContextData({ menu: menu_1, clients: (_a = {}, _a[integratedService] = client, _a) });
-            menuCategories.length > 0 && setActiveCategory(menuCategories[0]);
+            var queryParams_1 = new URLSearchParams(window.location.search);
+            var activeMenuCategory = menuCategories.length > 0 ? menuCategories[0] : undefined;
+            if (queryParams_1.get("category_uuid")) {
+                activeMenuCategory = menuCategories.find(function (category) { return category.uuid === queryParams_1.get("category_uuid"); });
+            }
+            menuCategories.length > 0 && setActiveCategory(activeMenuCategory !== null && activeMenuCategory !== void 0 ? activeMenuCategory : menuCategories[0]);
         }
         if (error) {
             console.log(error);

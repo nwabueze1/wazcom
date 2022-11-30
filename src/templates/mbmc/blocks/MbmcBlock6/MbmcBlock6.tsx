@@ -41,7 +41,13 @@ export const MbmcBlock6: FC<MbmcBlock6Props> = ({
                 const parsedCategory: any = {
                     heading: category["title"],
                     image: category["menuItems"][0]["image_url"],
-                    ctas: [{ text: "Order now", size: "sm" }],
+                    ctas: [
+                        {
+                            text: "Order now",
+                            size: "sm",
+                            url: `/menu?category_uuid=${category.uuid}`,
+                        },
+                    ],
                 };
                 parsedCategories.push(parsedCategory);
             }
@@ -49,14 +55,15 @@ export const MbmcBlock6: FC<MbmcBlock6Props> = ({
             setCategories(parsedCategories);
         }
 
-        
         if (error) {
             console.log(error);
         }
     }, [data, error]);
 
     const displayCategories = () =>
-        categories.map((category, index) => <MbmcCard key={index} {...category} />);
+        categories.map((category, index) => (
+            <MbmcCard key={index} {...category} handleClick={handleClick} />
+        ));
 
     return (
         <div className={classes.root}>
@@ -93,7 +100,9 @@ export const MbmcBlock6: FC<MbmcBlock6Props> = ({
                         activeElement === `${String(index)}.menu_uuid` &&
                             classes.block6ActiveElement,
                     )}
-                    onClick={() => handleElementClick(mode, `${String(index)}.menu_uuid`, handleClick) }
+                    onClick={() =>
+                        handleElementClick(mode, `${String(index)}.menu_uuid`, handleClick)
+                    }
                 >
                     {displayCategories()}
                 </div>
