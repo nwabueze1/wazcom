@@ -3,7 +3,6 @@ import { MbmcButton } from "../../components/MbmcButton/MbmcButton";
 import { FC, useState } from "react";
 import { HandleSend, MbmcBlock12Props } from "./types";
 import { TextArea, TextInput } from "../../../../io";
-import { Loader } from "../../../../core";
 import { notify } from "../../utilities";
 
 export const MbmcBlock12: FC<MbmcBlock12Props> = ({
@@ -27,7 +26,7 @@ export const MbmcBlock12: FC<MbmcBlock12Props> = ({
     const displayCtas = () => {
         return (ctas ?? []).map(({ text, rIcon, lIcon, ...props }, index) => (
             <div className={classes.btnParent} key={index}>
-                <MbmcButton {...props}>
+                <MbmcButton {...props} className={classes.button}>
                     {lIcon} {text} {rIcon}
                 </MbmcButton>
             </div>
@@ -160,6 +159,7 @@ export const MbmcBlock12: FC<MbmcBlock12Props> = ({
                             size="sm"
                             variant="SECONDARY"
                             type="submit"
+                            loading={loading}
                         >
                             Send
                         </MbmcButton>
@@ -172,7 +172,6 @@ export const MbmcBlock12: FC<MbmcBlock12Props> = ({
                         {isSubmitted && (
                             <p className={classes.success}>Message sent successfully</p>
                         )}
-                        {loading && <Loader />}
                     </form>
                 </div>
             </div>

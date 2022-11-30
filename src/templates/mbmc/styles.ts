@@ -6,8 +6,4 @@ export const useMbmbcStyles = makeStyles(() => ({
         top: 1,
         marginLeft: 8,
     },
-    mbmc12Button: {
-        width: "100%",
-        fontWeight: 600,
-    },
 }));
