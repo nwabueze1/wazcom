@@ -37,6 +37,7 @@ export interface CoreMenuFields_menuItems {
 }
 export interface CoreMenuFields_menuCategories {
     id: string;
+    uuid: string;
     title: string;
 }
 export interface CoreMenuFields {

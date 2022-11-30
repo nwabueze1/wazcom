@@ -43,7 +43,17 @@ export const MbmcBlock61: FC<MbmcBlock61Props> = ({
             } = data;
             const menu = { menuCategories, menuItems, ...rest };
             setContextData({ menu, clients: { [integratedService]: client } });
-            menuCategories.length > 0 && setActiveCategory(menuCategories[0]);
+
+            const queryParams = new URLSearchParams(window.location.search);
+            let activeMenuCategory = menuCategories.length > 0 ? menuCategories[0] : undefined;
+
+            if (queryParams.get("category_uuid")) {
+                activeMenuCategory = menuCategories.find(
+                    (category: any) => category.uuid === queryParams.get("category_uuid"),
+                );
+            }
+
+            menuCategories.length > 0 && setActiveCategory(activeMenuCategory ?? menuCategories[0]);
         }
 
         if (error) {

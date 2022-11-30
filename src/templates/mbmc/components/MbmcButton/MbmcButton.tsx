@@ -10,7 +10,7 @@ export const MbmcButton: FC<MbmcButtonProps> = ({
     variant = "PRIMARY",
     size = "md",
     className,
-    type = 'button',
+    type = "button",
     handleClick,
     activeElement,
     ...props
@@ -18,7 +18,10 @@ export const MbmcButton: FC<MbmcButtonProps> = ({
     const classes = useButtonStyles();
     return (
         <MainButton
-            onClick={handleClick}
+            onClick={(e) => {
+                e.stopPropagation();
+                handleClick?.();
+            }}
             type={type}
             className={clx(
                 className,
