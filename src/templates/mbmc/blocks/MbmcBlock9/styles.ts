@@ -41,7 +41,6 @@ export const useMbmcBlock9Styles = makeStyles((theme: Theme) => ({
         color: theme.design.colors.waz_black,
         fontSize: theme.typography.fontSize * 4,
         letterSpacing: 0,
-        textTransform: "capitalize",
         margin: 0,
         marginBottom: theme.spacing(1),
         fontFamily: theme.design.font.lostaMasta,
@@ -65,7 +64,7 @@ export const useMbmcBlock9Styles = makeStyles((theme: Theme) => ({
     headerDescription: {
         color: theme.design.colors.waz_greyColor600,
         textAlign: "left",
-        fontSize: theme.typography.fontSize + 6,
+        fontSize: theme.typography.fontSize + 4,
         width: '80%',
         border: "1px solid transparent",
         transition: "all 0.3s ease-in",
@@ -132,13 +131,17 @@ export const useMbmcBlock9Styles = makeStyles((theme: Theme) => ({
         textAlign: "left",
         fontSize: theme.typography.fontSize,
         width: "100%",
+        lineHeight: 1.7,
+
         [theme.breakpoints.down(1450)]: {
             fontSize: theme.typography.fontSize,
         },
+
         [theme.breakpoints.down("lg")]: {
             width: "80%",
             fontSize: theme.typography.fontSize,
         },
+
         [theme.breakpoints.down("md")]: {
             fontSize: theme.typography.fontSize + 2,
             width: "100%",
@@ -149,7 +152,6 @@ export const useMbmcBlock9Styles = makeStyles((theme: Theme) => ({
         fontWeight: theme.typography.fontWeightBold,
         fontSize: theme.typography.fontSize + 4,
         letterSpacing: 0,
-        textTransform: "capitalize",
         font: "Losta Masta;",
         margin: 0,
         textAlign: "left",
