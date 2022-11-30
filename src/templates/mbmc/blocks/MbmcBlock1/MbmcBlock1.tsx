@@ -101,7 +101,11 @@ export const MbmcBlock1: FC<MbmcBlock1Props> = ({
                         )}
                     />
                     <img
-                        src="https://sytbuildr.s3.eu-west-2.amazonaws.com/images/mbmc/clipped1.svg"
+                        src={
+                            fullHeight
+                                ? "https://sytbuildr.s3.eu-west-2.amazonaws.com/images/mbmc/Orange+bg+-+3xl.svg"
+                                : "https://sytbuildr.s3.eu-west-2.amazonaws.com/images/mbmc/clipped1.svg"
+                        }
                         alt="Image Overlay"
                         className={classes.block1Overlay}
                     />

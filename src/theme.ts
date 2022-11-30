@@ -32,7 +32,9 @@ export const theme: any = {
             sm: 480,
             md: 769,
             lg: 1025,
-            xl: 1280,
+            xl: 1440,
+            xxl: 1728,
+            xxxl: 1920, 
         },
     },
     typography: {
