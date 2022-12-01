@@ -250,6 +250,13 @@ export const useGetMbmcBlocks = () => {
                     "https://sytbuildr.s3.eu-west-2.amazonaws.com/images/mbmc/home/img.webp",
                     "https://sytbuildr.s3.eu-west-2.amazonaws.com/images/mbmc/home/img.webp",
                 ],
+                services: {
+                    AMBROSIA: "https://ambrosia.hogfort.com/graphql",
+                    NICODEMUS: "https://nicodemus.sytbuilder.com/graphql",
+                    MUSE: "",
+                },
+                integratedService: "NICODEMUS",
+                siteUuid: "8f88c29c-5b1d-44ff-a41d-4ca3cbbf48d5",
             },
         },
         {
@@ -403,7 +410,7 @@ export const useGetMbmcBlocks = () => {
                     },
                 ],
                 hasBackground: true,
-                layout: 'row-reverse',
+                layout: "row-reverse",
                 mode: "edit",
                 handleClick: (route: string) => alert(route),
                 index: 0,
