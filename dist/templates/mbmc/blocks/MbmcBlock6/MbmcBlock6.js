@@ -65,7 +65,13 @@ export var MbmcBlock6 = function (_a) {
                     var parsedCategory = {
                         heading: category["title"],
                         image: category["menuItems"][0]["image_url"],
-                        ctas: [{ text: "Order now", size: "sm" }],
+                        ctas: [
+                            {
+                                text: "Order now",
+                                size: "sm",
+                                url: "/menu?category_uuid=".concat(category.uuid),
+                            },
+                        ],
                     };
                     parsedCategories.push(parsedCategory);
                 }
@@ -84,7 +90,7 @@ export var MbmcBlock6 = function (_a) {
         }
     }, [data, error]);
     var displayCategories = function () {
-        return categories.map(function (category, index) { return _jsx(MbmcCard, __assign({}, category), index); });
+        return categories.map(function (category, index) { return (_jsx(MbmcCard, __assign({}, category, { handleClick: handleClick }), index)); });
     };
     return (_jsx("div", __assign({ className: classes.root }, { children: _jsxs("div", __assign({ className: classes.block6Container }, { children: [_jsxs("div", __assign({ className: classes.block6Content }, { children: [_jsx("h3", __assign({ className: clx(classes.block6Heading, activeElement === "".concat(String(index), ".heading") &&
                                 classes.block6ActiveElement), onClick: function () {
@@ -93,5 +99,7 @@ export var MbmcBlock6 = function (_a) {
                                 classes.block6ActiveElement), onClick: function () {
                                 return handleElementClick(mode, "".concat(String(index), ".description"), handleClick);
                             } }, { children: description }), void 0)] }), void 0), _jsx("div", __assign({ className: clx(classes.block6ScrollContainer, activeElement === "".concat(String(index), ".menu_uuid") &&
-                        classes.block6ActiveElement), onClick: function () { return handleElementClick(mode, "".concat(String(index), ".menu_uuid"), handleClick); } }, { children: displayCategories() }), void 0)] }), void 0) }), void 0));
+                        classes.block6ActiveElement), onClick: function () {
+                        return handleElementClick(mode, "".concat(String(index), ".menu_uuid"), handleClick);
+                    } }, { children: displayCategories() }), void 0)] }), void 0) }), void 0));
 };

@@ -4,7 +4,7 @@ import { FC, useEffect, useMemo, useState } from "react";
 import { MbmcBlock7Props } from "./types";
 import { LazyImage } from "../../../../core";
 import { GET_INSTAGRAM_IMAGES } from "./graphql";
-import { createApolloClient } from "helpers/graphQL";
+import { createApolloClient } from "../../../../helpers/graphQL";
 import { useQuery } from "@apollo/client";
 
 export const MbmcBlock7: FC<MbmcBlock7Props> = ({
@@ -13,7 +13,7 @@ export const MbmcBlock7: FC<MbmcBlock7Props> = ({
     images = [],
     services,
     integratedService,
-    siteUuid,
+    site_uuid,
 }) => {
     const classes = useMbmcBlock7Styles();
     const client = useMemo(
@@ -23,7 +23,7 @@ export const MbmcBlock7: FC<MbmcBlock7Props> = ({
     const { data, loading } = useQuery(GET_INSTAGRAM_IMAGES, {
         client,
         variables: {
-            uuid: siteUuid,
+            uuid: site_uuid,
             platform: "Instagram",
             sociable_type: "site",
         },

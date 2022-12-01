@@ -29,10 +29,10 @@ export const Mbmc = () => {
                         handleClick: () => console.log("clicked"),
                     },
                 ]}
+                site_uuid={"896466aa-bacc-4817-b577-436a52540eff"}
                 handleClick={(route: string) => {}}
             />
             <MbmcBlock1
-                style="mbmc"
                 heading="From Our <br /> Kitchen <br /> To Your Table"
                 description="Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy"
                 image="https://sytbuildr.s3.eu-west-2.amazonaws.com/images/mbmc/home/hero-food.webp"
@@ -50,11 +50,11 @@ export const Mbmc = () => {
                 handleClick={(route: string) => alert(route)}
                 activeElement="MbmcBlock1.image"
             />
-            {/* <MbmcBlock4 style="mbmc" />
-            <MbmcBlock3 style="mbmc" />
-            <MbmcBlock7 style="mbmc" />
-            <MbmcBlock6 style="mbmc" />
-            <MbmcBlock5 style="mbmc" /> */}
+            {/* <MbmcBlock4  />
+            <MbmcBlock3  />
+            <MbmcBlock7  />
+            <MbmcBlock6  />
+            <MbmcBlock5  /> */}
         </>
     );
 };

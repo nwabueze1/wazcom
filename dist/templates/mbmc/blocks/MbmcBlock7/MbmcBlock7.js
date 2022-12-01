@@ -31,16 +31,16 @@ import clx from "classnames";
 import { useEffect, useMemo, useState } from "react";
 import { LazyImage } from "../../../../core";
 import { GET_INSTAGRAM_IMAGES } from "./graphql";
-import { createApolloClient } from "helpers/graphQL";
+import { createApolloClient } from "../../../../helpers/graphQL";
 import { useQuery } from "@apollo/client";
 export var MbmcBlock7 = function (_a) {
-    var heading = _a.heading, description = _a.description, _b = _a.images, images = _b === void 0 ? [] : _b, services = _a.services, integratedService = _a.integratedService, siteUuid = _a.siteUuid;
+    var heading = _a.heading, description = _a.description, _b = _a.images, images = _b === void 0 ? [] : _b, services = _a.services, integratedService = _a.integratedService, site_uuid = _a.site_uuid;
     var classes = useMbmcBlock7Styles();
     var client = useMemo(function () { return createApolloClient(services ? services[integratedService] : ""); }, []);
     var _c = useQuery(GET_INSTAGRAM_IMAGES, {
         client: client,
         variables: {
-            uuid: siteUuid,
+            uuid: site_uuid,
             platform: "Instagram",
             sociable_type: "site",
         },

@@ -9,6 +9,10 @@ export const useCarouselStyles = makeStyles((theme: Theme) => ({
             padding: theme.spacing(1, 3),
             color: theme.design.colors.waz_orangeColor100,
             fontSize: theme.typography.fontSize * 2,
+
+            "&:hover": {
+                backgroundColor: `${theme.design.colors.waz_white} !important`,
+            }
         },
     },
     active: {

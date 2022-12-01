@@ -5,5 +5,5 @@ export declare type MbmcBlock7Props = MbmcCommonProps & {
     description?: string;
     images?: string[];
     integratedService: HivedeckService;
-    siteUuid: string;
+    site_uuid: string;
 };

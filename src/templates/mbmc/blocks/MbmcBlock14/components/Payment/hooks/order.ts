@@ -14,6 +14,7 @@ export const useCreateOrder = () => {
 
     return async (paymentMethod: PaymentMethod) => {
         const cartCookie = cookies.get("cart");
+        const cartItemCountCookie = cookies.get("cartItemCount");
         setContext?.({ loading: true, networkOperation: "create.order" });
         try {
             const { data, errors } = await (
@@ -22,7 +23,6 @@ export const useCreateOrder = () => {
                 mutation: CREATE_ORDER,
                 variables: {
                     payment_type: paymentMethod,
-                    currency_code: cart?.currency,
                     grand_total:
                         calculateCartSubTotal(cart as CoreCartFields) +
                         (cart?.restaurant?.bank_info?.delivery_fee as number),
@@ -40,7 +40,10 @@ export const useCreateOrder = () => {
             notify("success", "Order placed successfully");
 
             delete cartCookie[cart?.restaurant?.site_uuid ?? ""];
+            delete cartItemCountCookie[cart?.restaurant?.site_uuid ?? ""];
+
             cookies.set("cart", cartCookie, { path: "/" });
+            cookies.set("cartItemCount", cartItemCountCookie, { path: "/" });
         } catch (error) {
             setContext?.({ loading: false, networkOperation: "" });
             notify("error", "We could not complete that operation");

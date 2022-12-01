@@ -47,7 +47,7 @@ import { getCurrency } from "../../../../utilities";
 import { RestaurantContext } from "../../contexts";
 import { createApolloClient } from "../../../../helpers/graphQL";
 export var MbmcBlock61 = function (_a) {
-    var heading = _a.heading, description = _a.description, services = _a.services, integratedService = _a.integratedService, menu_uuid = _a.menu_uuid;
+    var heading = _a.heading, description = _a.description, services = _a.services, integratedService = _a.integratedService, menu_uuid = _a.menu_uuid, setContextProps = _a.setContextProps;
     var classes = useMbmcBlock61Styles();
     var _b = __read(useState({}), 2), contextData = _b[0], setContextData = _b[1];
     var _c = __read(useState(), 2), activeCategory = _c[0], setActiveCategory = _c[1];
@@ -65,7 +65,12 @@ export var MbmcBlock61 = function (_a) {
             var _b = data.menu, menuCategories = _b.activeMenuCategories, menuItems = _b.activeMenuItems, rest = __rest(_b, ["activeMenuCategories", "activeMenuItems"]);
             var menu_1 = __assign({ menuCategories: menuCategories, menuItems: menuItems }, rest);
             setContextData({ menu: menu_1, clients: (_a = {}, _a[integratedService] = client, _a) });
-            menuCategories.length > 0 && setActiveCategory(menuCategories[0]);
+            var queryParams_1 = new URLSearchParams(window.location.search);
+            var activeMenuCategory = menuCategories.length > 0 ? menuCategories[0] : undefined;
+            if (queryParams_1.get("category_uuid")) {
+                activeMenuCategory = menuCategories.find(function (category) { return category.uuid === queryParams_1.get("category_uuid"); });
+            }
+            menuCategories.length > 0 && setActiveCategory(activeMenuCategory !== null && activeMenuCategory !== void 0 ? activeMenuCategory : menuCategories[0]);
         }
         if (error) {
             console.log(error);
@@ -87,8 +92,8 @@ export var MbmcBlock61 = function (_a) {
             var _b, _c, _d;
             var uuid = _a.uuid, name = _a.name, description = _a.description, image_url = _a.image_url, price = _a.price;
             return (_jsx(MbmcCard, { heading: _jsxs("div", __assign({ className: classes.block61ItemHeading }, { children: [_jsx("p", { children: name }, void 0), " ", _jsxs("p", __assign({ className: classes.block61ItemPrice }, { children: [getCurrency((_d = (_c = (_b = menu === null || menu === void 0 ? void 0 : menu.restaurant) === null || _b === void 0 ? void 0 : _b.bank_info) === null || _c === void 0 ? void 0 : _c.currency) !== null && _d !== void 0 ? _d : ""), price] }), void 0)] }), void 0), description: description, image: image_url !== null && image_url !== void 0 ? image_url : "", className: classes.block61Item, handleClick: function (route) {
-                    setItemUuid(uuid);
                     console.log(route);
+                    setItemUuid(uuid);
                 } }, index));
         });
     };
@@ -100,5 +105,5 @@ export var MbmcBlock61 = function (_a) {
     };
     return (_jsx(RestaurantContext.Provider, __assign({ value: __assign(__assign({}, contextData), { setContext: updateContext }) }, { children: _jsx("div", __assign({ className: classes.root }, { children: _jsxs("div", __assign({ className: classes.block61Container }, { children: [_jsx("h3", __assign({ className: classes.block61Title }, { children: heading }), void 0), _jsx("p", __assign({ className: classes.block61Description }, { children: description }), void 0), categoryItems && (categoryItems === null || categoryItems === void 0 ? void 0 : categoryItems.length) > 0 && (_jsxs(_Fragment, { children: [_jsx("div", __assign({ className: classes.block61Categories }, { children: displayCategories() }), void 0), _jsx("div", __assign({ className: classes.block61Items }, { children: displayItems() }), void 0)] }, void 0)), _jsx(OrderDialog, { itemUuid: itemUuid, handleClose: function () {
                             setItemUuid(undefined);
-                        } }, void 0)] }), void 0) }), void 0) }), void 0));
+                        }, setContextProps: setContextProps }, void 0)] }), void 0) }), void 0) }), void 0));
 };

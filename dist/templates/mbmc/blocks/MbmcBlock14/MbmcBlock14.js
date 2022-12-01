@@ -37,7 +37,7 @@ import { GET_CART_BY_UUID } from "./graphql";
 import { MbmcButton } from "../../components";
 export var MbmcBlock14 = function (_a) {
     var _b, _c, _d, _e, _f, _g, _h, _j, _k;
-    var services = _a.services, integratedServices = _a.integratedServices, site_uuid = _a.site_uuid;
+    var services = _a.services, integratedServices = _a.integratedServices, site_uuid = _a.site_uuid, setContextProps = _a.setContextProps;
     var classes = useMbmcBlock14Styles();
     var _l = __read(useState({}), 2), contextData = _l[0], setContextData = _l[1];
     var _m = __read(useState(true), 2), loading = _m[0], setLoading = _m[1];
@@ -71,7 +71,6 @@ export var MbmcBlock14 = function (_a) {
             setLoading(false);
     }, [data, error]);
     var updateContext = function (variables) {
-        console.log(variables);
         setContextData(__assign(__assign({}, contextData), variables));
     };
     if (loading)
@@ -79,7 +78,7 @@ export var MbmcBlock14 = function (_a) {
     var isCartEmpty = !cartCookie ||
         (cartCookie && !cartCookie[site_uuid]) ||
         ((_c = (_b = contextData === null || contextData === void 0 ? void 0 : contextData.cart) === null || _b === void 0 ? void 0 : _b.cartItems) === null || _c === void 0 ? void 0 : _c.length) === 0;
-    return (_jsx(RestaurantContext.Provider, __assign({ value: __assign(__assign({}, contextData), { setContext: updateContext }) }, { children: _jsxs("div", __assign({ className: classes.root }, { children: [_jsxs("div", __assign({ className: classes.block14Container }, { children: [_jsxs("p", __assign({ className: classes.block14Title }, { children: ["Items(", ((_d = contextData === null || contextData === void 0 ? void 0 : contextData.cart) === null || _d === void 0 ? void 0 : _d.cartItems) ? (_f = (_e = contextData === null || contextData === void 0 ? void 0 : contextData.cart) === null || _e === void 0 ? void 0 : _e.cartItems) === null || _f === void 0 ? void 0 : _f.length : 0, ")"] }), void 0), _jsx("div", __assign({ className: classes.block14CartContent }, { children: isCartEmpty ? (_jsx(EmptyCart, {}, void 0)) : (_jsxs(_Fragment, { children: [_jsx(CartItems, {}, void 0), _jsx("span", { className: classes.block14Divider }, void 0), ((_g = contextData === null || contextData === void 0 ? void 0 : contextData.cart) === null || _g === void 0 ? void 0 : _g.order) ? (_jsx(OrderDetails, { display: displayCheckout, setDisplay: setDisplayCheckout }, void 0)) : (_jsx(Checkout, { display: displayCheckout, setDisplay: setDisplayCheckout }, void 0))] }, void 0)) }), void 0)] }), void 0), ((_h = contextData === null || contextData === void 0 ? void 0 : contextData.cart) === null || _h === void 0 ? void 0 : _h.cartItems) && ((_k = (_j = contextData === null || contextData === void 0 ? void 0 : contextData.cart) === null || _j === void 0 ? void 0 : _j.cartItems) === null || _k === void 0 ? void 0 : _k.length) > 0 && (_jsx("div", __assign({ className: classes.block14Action }, { children: _jsx(MbmcButton, __assign({ variant: "SECONDARY", onClick: function () {
+    return (_jsx(RestaurantContext.Provider, __assign({ value: __assign(__assign({}, contextData), { setContext: updateContext }) }, { children: _jsxs("div", __assign({ className: classes.root }, { children: [_jsxs("div", __assign({ className: classes.block14Container }, { children: [_jsxs("p", __assign({ className: classes.block14Title }, { children: ["Items(", ((_d = contextData === null || contextData === void 0 ? void 0 : contextData.cart) === null || _d === void 0 ? void 0 : _d.cartItems) ? (_f = (_e = contextData === null || contextData === void 0 ? void 0 : contextData.cart) === null || _e === void 0 ? void 0 : _e.cartItems) === null || _f === void 0 ? void 0 : _f.length : 0, ")"] }), void 0), _jsx("div", __assign({ className: classes.block14CartContent }, { children: isCartEmpty ? (_jsx(EmptyCart, {}, void 0)) : (_jsxs(_Fragment, { children: [_jsx(CartItems, { setContextProps: setContextProps }, void 0), _jsx("span", { className: classes.block14Divider }, void 0), ((_g = contextData === null || contextData === void 0 ? void 0 : contextData.cart) === null || _g === void 0 ? void 0 : _g.order) ? (_jsx(OrderDetails, { display: displayCheckout, setDisplay: setDisplayCheckout }, void 0)) : (_jsx(Checkout, { display: displayCheckout, setDisplay: setDisplayCheckout }, void 0))] }, void 0)) }), void 0)] }), void 0), ((_h = contextData === null || contextData === void 0 ? void 0 : contextData.cart) === null || _h === void 0 ? void 0 : _h.cartItems) && ((_k = (_j = contextData === null || contextData === void 0 ? void 0 : contextData.cart) === null || _j === void 0 ? void 0 : _j.cartItems) === null || _k === void 0 ? void 0 : _k.length) > 0 && (_jsx("div", __assign({ className: classes.block14Action }, { children: _jsx(MbmcButton, __assign({ variant: "SECONDARY", onClick: function () {
                             setDisplayCheckout(true);
                         } }, { children: "Proceed to summary" }), void 0) }), void 0))] }), void 0) }), void 0));
 };

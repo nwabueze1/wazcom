@@ -13,6 +13,7 @@ export const MbmcBlock14: React.FC<MbmcBlock14Props> = ({
     services,
     integratedServices,
     site_uuid,
+    setContextProps
 }) => {
     const classes = useMbmcBlock14Styles();
     const [contextData, setContextData] = useState<Omit<RestaurantContextProps, "setContext">>({});
@@ -52,7 +53,6 @@ export const MbmcBlock14: React.FC<MbmcBlock14Props> = ({
     }, [data, error]);
 
     const updateContext = (variables: Omit<RestaurantContextProps, "setContext">) => {
-        console.log(variables);
         setContextData({ ...contextData, ...variables });
     };
 
@@ -76,7 +76,7 @@ export const MbmcBlock14: React.FC<MbmcBlock14Props> = ({
                             <EmptyCart />
                         ) : (
                             <>
-                                <CartItems />
+                                <CartItems setContextProps={setContextProps} />
                                 <span className={classes.block14Divider} />
                                 {contextData?.cart?.order ? (
                                     <OrderDetails

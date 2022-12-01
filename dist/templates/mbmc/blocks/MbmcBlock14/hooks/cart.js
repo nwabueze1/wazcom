@@ -63,9 +63,11 @@ import { useContext } from "react";
 import { RestaurantContext } from "../../../contexts";
 import { UPDATE_CART_ITEM } from "../graphql";
 import { notify } from "../../../utilities";
+import Cookies from "universal-cookie";
 export var useUpdateCartItemQuantity = function () {
     var _a = useContext(RestaurantContext), cart = _a.cart, clients = _a.clients, setContext = _a.setContext;
-    return function (variables) { return __awaiter(void 0, void 0, void 0, function () {
+    var updateCartCount = useUpdateCartCount();
+    return function (variables, setContextProps) { return __awaiter(void 0, void 0, void 0, function () {
         var _a, data, errors, error, updatedCart, error_1;
         return __generator(this, function (_b) {
             switch (_b.label) {
@@ -87,6 +89,7 @@ export var useUpdateCartItemQuantity = function () {
                         ? "Item deleted successfully"
                         : "Item updated successfully");
                     setContext === null || setContext === void 0 ? void 0 : setContext({ cart: updatedCart, loading: false, networkOperation: "" });
+                    variables.quantity === 0 && updateCartCount(setContextProps);
                     return [3 /*break*/, 3];
                 case 2:
                     error_1 = _b.sent();
@@ -97,6 +100,22 @@ export var useUpdateCartItemQuantity = function () {
             }
         });
     }); };
+};
+var useUpdateCartCount = function () {
+    var cart = useContext(RestaurantContext).cart;
+    var cookies = new Cookies();
+    return function (setContextProps) {
+        var _a;
+        var cartItemCountCookie = cookies.get("cartItemCount");
+        var siteUuid = (_a = cart === null || cart === void 0 ? void 0 : cart.restaurant) === null || _a === void 0 ? void 0 : _a.site_uuid;
+        var updatedCount = cartItemCountCookie[siteUuid] - 1;
+        cartItemCountCookie[siteUuid] = updatedCount;
+        cookies.set("cartItemCount", cartItemCountCookie, {
+            path: "/",
+            expires: new Date(Date.now() + 86400000),
+        });
+        setContextProps === null || setContextProps === void 0 ? void 0 : setContextProps({ cartItemCount: updatedCount });
+    };
 };
 var getUpdatedCart = function (cart, itemUuid, quantity) {
     var cartItems = __spreadArray([], __read(cart.cartItems), false);
