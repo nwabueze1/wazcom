@@ -25,7 +25,6 @@ export const useGetMbmcBlocks = () => {
             name: "mbmc-block-1",
             component: MbmcBlock1,
             props: {
-                style: "mbmc",
                 heading: "From Our <br /> Kitchen <br /> To Your Table",
                 description:
                     "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy",
@@ -49,7 +48,6 @@ export const useGetMbmcBlocks = () => {
             name: "mbmc-block-2",
             component: MbmcBlock1,
             props: {
-                style: "mbmc",
                 heading: "Our Menu",
                 image: "https://sytbuildr.s3.eu-west-2.amazonaws.com/images/mbmc/home/hero-food.webp",
                 fullHeight: false,
@@ -59,7 +57,6 @@ export const useGetMbmcBlocks = () => {
             name: "mbmc-block-3",
             component: MbmcBlock3,
             props: {
-                style: "mbmc",
                 heading: "Food is an important part of a balanced diet",
                 description: `Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy
                     eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam
@@ -82,7 +79,6 @@ export const useGetMbmcBlocks = () => {
             name: "mbmc-block-4",
             component: MbmcBlock4,
             props: {
-                style: "mbmc",
                 heading: "Our Premium Services",
                 description: `Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed
             diam nonumy eirmod tempor invidunt ut labore et dolore a….`,
@@ -117,7 +113,6 @@ export const useGetMbmcBlocks = () => {
             name: "mbmc-block-5",
             component: MbmcBlock5,
             props: {
-                style: "mbmc",
                 logo: {
                     src: "https://sytbuildr.s3.eu-west-2.amazonaws.com/images/mbmc/chefLogo.svg",
                     text: "",
@@ -196,7 +191,6 @@ export const useGetMbmcBlocks = () => {
             name: "mbmc-block-6",
             component: MbmcBlock6,
             props: {
-                style: "mbmc",
                 heading: "Explore Our Menu",
                 description: `Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed 
                 diam nonumy eirmod tempor invidunt ut labore et dolore a….`,
@@ -217,7 +211,6 @@ export const useGetMbmcBlocks = () => {
             name: "mbmc-block-61",
             component: MbmcBlock61,
             props: {
-                style: "mbmc",
                 heading: "Explore Our Best Menu",
                 description: `Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed 
                 diam nonumy eirmod tempor invidunt ut labore et dolore a….`,
@@ -235,7 +228,6 @@ export const useGetMbmcBlocks = () => {
             name: "mbmc-block-7",
             component: MbmcBlock7,
             props: {
-                style: "mbmc",
                 heading: "Lorem Ipsum Dolor Sit.",
                 description: `Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod
                 tempor invidunt ut labore et dolore a….`,
@@ -256,7 +248,6 @@ export const useGetMbmcBlocks = () => {
             name: "mbmc-block-8",
             component: MbmcBlock8,
             props: {
-                style: "mbmc",
                 heading: "Testimonial",
                 description:
                     "Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam",
@@ -320,7 +311,6 @@ export const useGetMbmcBlocks = () => {
             name: "mbmc-block-9",
             component: MbmcBlock9,
             props: {
-                style: "mbmc",
                 heading: "How It Works",
                 description:
                     "Lorem ipsum dolor sit amet, consetetur sadipscing eli tr, sed diam nonumy eirmod tempor invidunt ut lab",
@@ -360,7 +350,6 @@ export const useGetMbmcBlocks = () => {
             name: "mbmc-block-10",
             component: MbmcBlock10,
             props: {
-                style: "mbmc",
                 tags: [
                     {
                         text: "EXPERTLY PREPARED",
@@ -385,7 +374,6 @@ export const useGetMbmcBlocks = () => {
             name: "mbmc-block-11",
             component: MbmcBlock11,
             props: {
-                style: "mbmc",
                 heading: "Baking",
                 description: `Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy
             eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam
@@ -414,7 +402,6 @@ export const useGetMbmcBlocks = () => {
             name: "mbmc-block-12",
             component: MbmcBlock12,
             props: {
-                style: "mbmc",
                 heading: "We Are Available To Get Your Order",
                 description:
                     "If you’d like to talk please call or email us, you can also use the form to get in touch. We’ll get back in touch within 24hrs",
@@ -443,7 +430,6 @@ export const useGetMbmcBlocks = () => {
             name: "mbmc-block-13",
             component: MbmcBlock13,
             props: {
-                style: "mbmc",
                 logo: {
                     src: "https://sytbuildr.s3.eu-west-2.amazonaws.com/images/mbmc/Logo%402x.png",
                     url: "#",
@@ -462,7 +448,6 @@ export const useGetMbmcBlocks = () => {
                 mode: "edit",
                 index: 0,
                 activeElement: "0.ctas.0",
-                numCartItems: 5,
                 handleClick: (route: string) => alert(route),
             },
         },
@@ -470,7 +455,6 @@ export const useGetMbmcBlocks = () => {
             name: "mbmc-block-14",
             component: MbmcBlock14,
             props: {
-                style: "mbmc",
                 services: {
                     AMBROSIA: "https://ofambegbe-ambrosia.wazobia.uk/graphql",
                     NICODEMUS: "https://ofambegbe-nicodemus.wazobia.uk/graphql",

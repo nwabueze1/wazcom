@@ -11,7 +11,7 @@ import { Options } from "./components";
 import { calculateOptionsTotal } from "./helpers";
 import { useAddToCart } from "./hooks";
 
-export const OrderDialog: FC<OrderDialogProps> = ({ itemUuid, handleClose }) => {
+export const OrderDialog: FC<OrderDialogProps> = ({ itemUuid, handleClose, setContextProps }) => {
     const { menu, loading } = useContext(RestaurantContext);
     const classes = useMbmcBlock16Styles();
     const [quantity, setQuantity] = useState<number>(1);

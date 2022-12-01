@@ -39,7 +39,11 @@ export const useAddToCart = () => {
     const cookies = new Cookies();
     const createCart = useCreateCart();
 
-    return async (variables: TAddToCartVariables, onClose?: () => void) => {
+    return async (
+        variables: TAddToCartVariables,
+        onClose?: () => void,
+        setContextProps?: (contextProps: { [key: string]: any }) => void,
+    ) => {
         const cartCookie = cookies.get("cart");
         const siteUuid = menu?.restaurant?.site_uuid as string;
         let cartUuid: string;
@@ -61,10 +65,11 @@ export const useAddToCart = () => {
                 throw error;
             }
 
-            notify('success', 'Item added successfully');
+            notify("success", "Item added successfully");
             onClose?.();
+            // setContextProps?.({ cartItemCount: cart })
         } catch (error) {
-            notify('error', 'We could not complete that operation');
+            notify("error", "We could not complete that operation");
         }
 
         setContext?.({ loading: false });

@@ -16,7 +16,7 @@ export const MbmcBlock13: FC<MbmcBlock13Props> = ({
     links,
     handleClick,
     ctas,
-    numCartItems,
+    contextProps,
 }) => {
     const classes = useMbmcBlock13Styles();
     const [openMenu, setOpenMenu] = useState<boolean>(false);
@@ -68,7 +68,11 @@ export const MbmcBlock13: FC<MbmcBlock13Props> = ({
                             }}
                         >
                             <FiShoppingCart className={classes.cartIcon} fontSize={20} />
-                            <span className={classes.badgeIcon}>{numCartItems}</span>
+                            {contextProps?.cartItemCount && contextProps?.cartItemCount > 0 && (
+                                <span className={classes.badgeIcon}>
+                                    {contextProps?.cartItemCount}
+                                </span>
+                            )}
                         </p>
                         {renderCtas(
                             ctas ?? [],
@@ -88,7 +92,11 @@ export const MbmcBlock13: FC<MbmcBlock13Props> = ({
                             }}
                         >
                             <FiShoppingCart className={classes.cartIcon} fontSize={20} />
-                            <span className={classes.badgeIcon}>{numCartItems}</span>
+                            {contextProps?.cartItemCount && contextProps?.cartItemCount > 0 && (
+                                <span className={classes.badgeIcon}>
+                                    {contextProps?.cartItemCount}
+                                </span>
+                            )}
                         </p>
                         <AiOutlineMenu size={34} onClick={handleOpenMenu} />
                     </div>
