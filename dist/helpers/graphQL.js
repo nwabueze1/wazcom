@@ -56,9 +56,8 @@ export var createApolloClient = function (uri) {
     var httpLink = createUploadLink({ uri: uri });
     var authLink = setContext(function (_, _a) {
         var headers = _a.headers;
-        var token = "eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiJ9.eyJhdWQiOiI5Njk0MzQwMS05NTNlLTRhYTYtODk2Zi1lOTk0NDdkMDA5ZTAiLCJqdGkiOiJhODU2M2E0MTc0ZmQxYWZhYzM5NTAyNjU0NDU0OGFjMjNkZDgzNzRkMzU5Y2EzMjEzM2Y1MzI3MzNmZGQ4Mjk5N2I5ODc3ODE3MzliNjJlNCIsImlhdCI6MTY2OTgyODI5NS42NTQ4NDksIm5iZiI6MTY2OTgyODI5NS42NTQ4NSwiZXhwIjoxNzAxMzY0Mjk1LjY1MDM0Nywic3ViIjoiMTA2Iiwic2NvcGVzIjpbXX0.B6SvM3ZbFGwq5UcJR460cgsUDxPggjE95DBrNJzNx8IpCCvn8rpXVuO-izJJRVvHtKfg22DgR4bQPoSTTNTcAB3cGWPJeHQ4I65WULQAjnnELNoNMU5C54FNbuXVcOP8_vOLkpXdsjA_IN5IHOz5JhGefhzDt3BkpUCErB1IT8OdHtLXfvhg2tKTG3geS8IWmbp1yxqodOC9ou6qzxmpBmCvtFsmpcF9OZYbPPYVpr-TdOic48qw45w_q6Nla5-hoZcc4GYXZ2brddOldn10MU1O7czlLF1U4uIm_if6twgVOZwzWTAqoD03KRWkl0829L6zOtt2Z0ZR0kbVhiTQImQcmvk5rdBENivz8m_W_Our_Uwh-T4VPz_-9EzrttawqCJ9ps7N0XsgyGyWeUairCOnskOREURw3E48L2SejWC0etPcjVMpoDCuPZFNCy_HyJXRBea9cD9klKhI4LEo9WQu2ASczOi5BZHeD_j5sTX6RMLt0phtz5kM6m6zlPE-ICuYoOP8TxGko2ve-STWA7ZiHIth4F8qWIQTVSCpFCqPdcJEePbLFNUGcbWEjcZiNNUhxHoJR-aiSW5JY4gU5L0CY5_IBwntcxQ-lwrN0C6sLJODIWP-2ElB_wtX8CWDxv1w1Hmd72tDxBmJJ1s7w38UtRMR9D9Fme2hG4wj5Z0";
         return {
-            headers: __assign(__assign({}, headers), { authorization: "Bearer ".concat(token !== null && token !== void 0 ? token : "") }),
+            headers: __assign({}, headers),
         };
     });
     return new ApolloClient({
