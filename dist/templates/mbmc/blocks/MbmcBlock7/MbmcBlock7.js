@@ -48,8 +48,18 @@ export var MbmcBlock7 = function (_a) {
     var _d = __read(useState([]), 2), instagramImages = _d[0], setInstagramImages = _d[1];
     useEffect(function () {
         if (data) {
-            setInstagramImages(data.getInstagramImages.images);
+            setInstagramImages(function () {
+                var images = data.getInstagramImages.images;
+                return images.filter(function (image) {
+                    var imageFileTypes = ["jpeg", "jpg", "gif", "png"];
+                    var imageUrl = image.split("?")[0];
+                    var ext = imageUrl.substring(imageUrl.lastIndexOf(".") + 1);
+                    return imageFileTypes.includes(ext);
+                });
+            });
         }
     }, [data]);
-    return (_jsxs("div", __assign({ className: classes.root }, { children: [_jsxs("div", __assign({ className: classes.headerContent }, { children: [_jsx("h3", __assign({ className: classes.headerTitle }, { children: heading }), void 0), _jsx("p", __assign({ className: classes.headerDescription }, { children: description }), void 0)] }), void 0), _jsx("div", __assign({ className: classes.mobileCardContainer }, { children: !loading ? (instagramImages.length > 0 ? (instagramImages.map(function (image, idx) { return (_jsx(LazyImage, { src: image, className: clx(classes.imageContainer) }, idx)); })) : (images.map(function (image, idx) { return (_jsx(LazyImage, { src: image, className: clx(classes.imageContainer) }, idx)); }))) : (_jsx(_Fragment, {}, void 0)) }), void 0)] }), void 0));
+    return (_jsxs("div", __assign({ className: classes.root }, { children: [_jsxs("div", __assign({ className: classes.headerContent }, { children: [_jsx("h3", __assign({ className: classes.headerTitle }, { children: heading }), void 0), _jsx("p", __assign({ className: classes.headerDescription }, { children: description }), void 0)] }), void 0), _jsx("div", __assign({ className: classes.mobileCardContainer }, { children: !loading ? (instagramImages.length > 0 ? (instagramImages
+                    .slice(0, 9)
+                    .map(function (image, idx) { return (_jsx(LazyImage, { src: image, className: clx(classes.imageContainer) }, idx)); })) : (images.map(function (image, idx) { return (_jsx(LazyImage, { src: image, className: clx(classes.imageContainer) }, idx)); }))) : (_jsx(_Fragment, {}, void 0)) }), void 0)] }), void 0));
 };

@@ -28,11 +28,19 @@ export const MbmcBlock7: FC<MbmcBlock7Props> = ({
             sociable_type: "site",
         },
     });
-    const [instagramImages, setInstagramImages] = useState([]);
+    const [instagramImages, setInstagramImages] = useState<string[]>([]);
 
     useEffect(() => {
         if (data) {
-            setInstagramImages(data.getInstagramImages.images);
+            setInstagramImages(() => {
+                const images: string[] = data.getInstagramImages.images;
+                return images.filter((image) => {
+                    const imageFileTypes = ["jpeg", "jpg", "gif", "png"];
+                    const imageUrl = image.split("?")[0];
+                    const ext = imageUrl.substring(imageUrl.lastIndexOf(".") + 1);
+                    return imageFileTypes.includes(ext);
+                });
+            });
         }
     }, [data]);
 
@@ -45,13 +53,15 @@ export const MbmcBlock7: FC<MbmcBlock7Props> = ({
             <div className={classes.mobileCardContainer}>
                 {!loading ? (
                     instagramImages.length > 0 ? (
-                        instagramImages.map((image, idx) => (
-                            <LazyImage
-                                key={idx}
-                                src={image}
-                                className={clx(classes.imageContainer)}
-                            />
-                        ))
+                        instagramImages
+                            .slice(0, 9)
+                            .map((image, idx) => (
+                                <LazyImage
+                                    key={idx}
+                                    src={image}
+                                    className={clx(classes.imageContainer)}
+                                />
+                            ))
                     ) : (
                         images.map((image, idx) => (
                             <LazyImage
