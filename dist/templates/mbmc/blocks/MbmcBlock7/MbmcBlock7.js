@@ -25,7 +25,7 @@ var __read = (this && this.__read) || function (o, n) {
     }
     return ar;
 };
-import { jsx as _jsx, jsxs as _jsxs } from "react/jsx-runtime";
+import { jsx as _jsx, jsxs as _jsxs, Fragment as _Fragment } from "react/jsx-runtime";
 import { useMbmcBlock7Styles } from "./styles";
 import clx from "classnames";
 import { useEffect, useMemo, useState } from "react";
@@ -37,21 +37,19 @@ export var MbmcBlock7 = function (_a) {
     var heading = _a.heading, description = _a.description, _b = _a.images, images = _b === void 0 ? [] : _b, services = _a.services, integratedService = _a.integratedService, site_uuid = _a.site_uuid;
     var classes = useMbmcBlock7Styles();
     var client = useMemo(function () { return createApolloClient(services ? services[integratedService] : ""); }, []);
-    var data = useQuery(GET_INSTAGRAM_IMAGES, {
+    var _c = useQuery(GET_INSTAGRAM_IMAGES, {
         client: client,
         variables: {
             uuid: site_uuid,
             platform: "Instagram",
             sociable_type: "site",
         },
-    }).data;
-    var _c = __read(useState([]), 2), instagramImages = _c[0], setInstagramImages = _c[1];
+    }), data = _c.data, loading = _c.loading;
+    var _d = __read(useState([]), 2), instagramImages = _d[0], setInstagramImages = _d[1];
     useEffect(function () {
         if (data) {
             setInstagramImages(data.getInstagramImages.images);
         }
     }, [data]);
-    return (_jsxs("div", __assign({ className: classes.root }, { children: [_jsxs("div", __assign({ className: classes.headerContent }, { children: [_jsx("h3", __assign({ className: classes.headerTitle }, { children: heading }), void 0), _jsx("p", __assign({ className: classes.headerDescription }, { children: description }), void 0)] }), void 0), _jsx("div", __assign({ className: classes.mobileCardContainer }, { children: []
-                    .concat(instagramImages.length > 0 ? instagramImages : images)
-                    .map(function (image, idx) { return (_jsx(LazyImage, { src: image, className: clx(classes.imageContainer) }, idx)); }) }), void 0)] }), void 0));
+    return (_jsxs("div", __assign({ className: classes.root }, { children: [_jsxs("div", __assign({ className: classes.headerContent }, { children: [_jsx("h3", __assign({ className: classes.headerTitle }, { children: heading }), void 0), _jsx("p", __assign({ className: classes.headerDescription }, { children: description }), void 0)] }), void 0), _jsx("div", __assign({ className: classes.mobileCardContainer }, { children: !loading ? (instagramImages.length > 0 ? (instagramImages.map(function (image, idx) { return (_jsx(LazyImage, { src: image, className: clx(classes.imageContainer) }, idx)); })) : (images.map(function (image, idx) { return (_jsx(LazyImage, { src: image, className: clx(classes.imageContainer) }, idx)); }))) : (_jsx(_Fragment, {}, void 0)) }), void 0)] }), void 0));
 };

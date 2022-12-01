@@ -20,7 +20,7 @@ export const MbmcBlock7: FC<MbmcBlock7Props> = ({
         () => createApolloClient(services ? services[integratedService] : ""),
         [],
     );
-    const { data } = useQuery(GET_INSTAGRAM_IMAGES, {
+    const { data, loading } = useQuery(GET_INSTAGRAM_IMAGES, {
         client,
         variables: {
             uuid: site_uuid,
@@ -43,11 +43,27 @@ export const MbmcBlock7: FC<MbmcBlock7Props> = ({
                 <p className={classes.headerDescription}>{description}</p>
             </div>
             <div className={classes.mobileCardContainer}>
-                {([] as string[])
-                    .concat(instagramImages.length > 0 ? instagramImages : images)
-                    .map((image, idx) => (
-                        <LazyImage key={idx} src={image} className={clx(classes.imageContainer)} />
-                    ))}
+                {!loading ? (
+                    instagramImages.length > 0 ? (
+                        instagramImages.map((image, idx) => (
+                            <LazyImage
+                                key={idx}
+                                src={image}
+                                className={clx(classes.imageContainer)}
+                            />
+                        ))
+                    ) : (
+                        images.map((image, idx) => (
+                            <LazyImage
+                                key={idx}
+                                src={image}
+                                className={clx(classes.imageContainer)}
+                            />
+                        ))
+                    )
+                ) : (
+                    <></>
+                )}
             </div>
         </div>
     );
