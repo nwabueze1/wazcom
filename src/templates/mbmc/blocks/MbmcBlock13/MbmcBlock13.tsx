@@ -23,7 +23,7 @@ export const MbmcBlock13: FC<MbmcBlock13Props> = ({
     const classes = useMbmcBlock13Styles();
     const [openMenu, setOpenMenu] = useState<boolean>(false);
     const cartItemCount =
-        contextProps?.cartItemCount ?? new Cookies().get("cartItemCount")[site_uuid] ?? 0;
+        contextProps?.cartItemCount ?? (new Cookies().get("cartItemCount") ?? {})[site_uuid] ?? 0;
 
     const handleOpenMenu = () => {
         setOpenMenu(true);

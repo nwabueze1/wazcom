@@ -37,11 +37,11 @@ import { renderCtas } from "../../utilities";
 import Cookies from "universal-cookie";
 export var MbmcBlock13 = function (_a) {
     var _b, _c;
-    var _d, _e;
-    var _f = _a.mode, mode = _f === void 0 ? "view" : _f, _g = _a.activeElement, activeElement = _g === void 0 ? "" : _g, index = _a.index, logo = _a.logo, links = _a.links, handleClick = _a.handleClick, ctas = _a.ctas, contextProps = _a.contextProps, site_uuid = _a.site_uuid;
+    var _d, _e, _f;
+    var _g = _a.mode, mode = _g === void 0 ? "view" : _g, _h = _a.activeElement, activeElement = _h === void 0 ? "" : _h, index = _a.index, logo = _a.logo, links = _a.links, handleClick = _a.handleClick, ctas = _a.ctas, contextProps = _a.contextProps, site_uuid = _a.site_uuid;
     var classes = useMbmcBlock13Styles();
-    var _h = __read(useState(false), 2), openMenu = _h[0], setOpenMenu = _h[1];
-    var cartItemCount = (_e = (_d = contextProps === null || contextProps === void 0 ? void 0 : contextProps.cartItemCount) !== null && _d !== void 0 ? _d : new Cookies().get("cartItemCount")[site_uuid]) !== null && _e !== void 0 ? _e : 0;
+    var _j = __read(useState(false), 2), openMenu = _j[0], setOpenMenu = _j[1];
+    var cartItemCount = (_f = (_d = contextProps === null || contextProps === void 0 ? void 0 : contextProps.cartItemCount) !== null && _d !== void 0 ? _d : ((_e = new Cookies().get("cartItemCount")) !== null && _e !== void 0 ? _e : {})[site_uuid]) !== null && _f !== void 0 ? _f : 0;
     var handleOpenMenu = function () {
         setOpenMenu(true);
     };
