@@ -95,6 +95,7 @@ export const MbmcBlock61: FC<MbmcBlock61Props> = ({
                 image={image_url ?? ""}
                 className={classes.block61Item}
                 handleClick={(route: string) => {
+                    console.log(route);
                     setItemUuid(uuid);
                 }}
             />

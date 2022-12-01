@@ -84,7 +84,7 @@ import { calculateOptionsTotal } from "./helpers";
 import { useAddToCart } from "./hooks";
 export var OrderDialog = function (_a) {
     var _b, _c, _d, _e, _f, _g;
-    var itemUuid = _a.itemUuid, handleClose = _a.handleClose;
+    var itemUuid = _a.itemUuid, handleClose = _a.handleClose, setContextProps = _a.setContextProps;
     var _h = useContext(RestaurantContext), menu = _h.menu, loading = _h.loading;
     var classes = useMbmcBlock16Styles();
     var _j = __read(useState(1), 2), quantity = _j[0], setQuantity = _j[1];
@@ -131,7 +131,7 @@ export var OrderDialog = function (_a) {
                         quantity: quantity,
                         detail: menuItem === null || menuItem === void 0 ? void 0 : menuItem.description,
                         options: selectedOptions.length > 0 ? JSON.stringify(selectedOptions) : undefined,
-                    }, handleClose)];
+                    }, handleClose, setContextProps)];
                 case 1:
                     _a.sent();
                     return [2 /*return*/];

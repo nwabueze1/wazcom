@@ -29,6 +29,7 @@ export const Mbmc = () => {
                         handleClick: () => console.log("clicked"),
                     },
                 ]}
+                site_uuid={"896466aa-bacc-4817-b577-436a52540eff"}
                 handleClick={(route: string) => {}}
             />
             <MbmcBlock1

@@ -65,12 +65,16 @@ export const OrderDialog: FC<OrderDialogProps> = ({ itemUuid, handleClose, setCo
     )}${calculateDishTotal()}`;
 
     const handleAddToCart = async () => {
-        await addToCart({
-            menu_item_uuid: menuItem?.uuid as string,
-            quantity,
-            detail: menuItem?.description as string,
-            options: selectedOptions.length > 0 ? JSON.stringify(selectedOptions) : undefined,
-        }, handleClose);
+        await addToCart(
+            {
+                menu_item_uuid: menuItem?.uuid as string,
+                quantity,
+                detail: menuItem?.description as string,
+                options: selectedOptions.length > 0 ? JSON.stringify(selectedOptions) : undefined,
+            },
+            handleClose,
+            setContextProps,
+        );
     };
 
     return (

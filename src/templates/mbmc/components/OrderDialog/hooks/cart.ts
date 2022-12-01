@@ -12,6 +12,7 @@ export const useCreateCart = () => {
 
     return async () => {
         const cartCookie: { [key: string]: string } = cookies.get("cart") ?? {};
+        const cartItemCountCookie: { [key: string]: number } = cookies.get("cartItemCount") ?? {};
         const siteUuid = menu?.restaurant?.site_uuid as string;
         const currency = menu?.restaurant?.bank_info?.currency as string;
         const { data, errors } = await (
@@ -28,7 +29,13 @@ export const useCreateCart = () => {
 
         const { uuid, expires } = data.createCart;
         cartCookie[siteUuid] = uuid;
+        cartItemCountCookie[siteUuid] = 0;
+
         cookies.set("cart", cartCookie, { path: "/", expires: new Date(expires) });
+        cookies.set("cartItemCount", cartItemCountCookie, {
+            path: "/",
+            expires: new Date(expires),
+        });
 
         return uuid;
     };
@@ -38,6 +45,7 @@ export const useAddToCart = () => {
     const { menu, clients, setContext } = useContext(RestaurantContext);
     const cookies = new Cookies();
     const createCart = useCreateCart();
+    const updateCartCount = useUpdateCartCount();
 
     return async (
         variables: TAddToCartVariables,
@@ -67,11 +75,28 @@ export const useAddToCart = () => {
 
             notify("success", "Item added successfully");
             onClose?.();
-            // setContextProps?.({ cartItemCount: cart })
+            setContextProps?.({ cartItemCount: cookies.get("cartItemCount")[siteUuid] + 1 });
+            updateCartCount();
         } catch (error) {
             notify("error", "We could not complete that operation");
         }
 
         setContext?.({ loading: false });
+    };
+};
+
+const useUpdateCartCount = () => {
+    const { menu } = useContext(RestaurantContext);
+    const cookies = new Cookies();
+
+    return () => {
+        const cartItemCountCookie = cookies.get("cartItemCount");
+        const siteUuid = menu?.restaurant?.site_uuid as string;
+        cartItemCountCookie[siteUuid] = cartItemCountCookie[siteUuid] + 1;
+
+        cookies.set("cartItemCount", cartItemCountCookie, {
+            path: "/",
+            expires: new Date(Date.now() + 86400000),
+        });
     };
 };

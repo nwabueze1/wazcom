@@ -1,2 +1,3 @@
-/// <reference types="react" />
-export declare const CartItems: () => JSX.Element;
+import { FC } from "react";
+import { CartItemsProps } from "./types";
+export declare const CartItems: FC<CartItemsProps>;
