@@ -31,7 +31,6 @@ export type BlockCta = {
 };
 
 export type MbmcCommonProps = {
-    style?: BlockStyle;
     index?: number;
     mode?: "view" | "edit";
     activeElement?: string;
@@ -39,9 +38,11 @@ export type MbmcCommonProps = {
     className?: string;
     classNames?: { [key: string]: string };
     services?: { [key in HivedeckService]: string };
+    contextProps?: { [key: string]: any };
+    setContextProps?: (contextProps: { [key: string]: any }) => void;
 };
 
-export type HivedeckService = 'NICODEMUS' | 'AMBROSIA' | 'MUSE';
+export type HivedeckService = "NICODEMUS" | "AMBROSIA" | "MUSE";
 
 export type MbmcTemplatePropType = {
     component: any;
@@ -64,5 +65,5 @@ type Mmbc1Block = {
         | MbmcBlock11Props
         | MbmcBlock12Props
         | MbmcBlock14Props
-        | MbmcBlock13Props
+        | MbmcBlock13Props;
 };

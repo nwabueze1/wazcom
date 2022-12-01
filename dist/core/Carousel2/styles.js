@@ -7,6 +7,9 @@ export var useCarouselStyles = makeStyles(function (theme) { return ({
             padding: theme.spacing(1, 3),
             color: theme.design.colors.waz_orangeColor100,
             fontSize: theme.typography.fontSize * 2,
+            "&:hover": {
+                backgroundColor: "".concat(theme.design.colors.waz_white, " !important"),
+            }
         },
     },
     active: {

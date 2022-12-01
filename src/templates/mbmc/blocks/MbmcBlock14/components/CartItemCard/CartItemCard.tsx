@@ -11,16 +11,28 @@ import { CircularProgress } from "@mui/material";
 import { parseOptionString } from "./helpers";
 
 export const CartItemCard: React.FC<
-    CoreCartFields_cartItems & { currency: string; amount: number }
-> = ({ uuid, amount, quantity, detail, options, menuItem, currency: currencyId }) => {
+    CoreCartFields_cartItems & {
+        currency: string;
+        amount: number;
+        setContextProps?: (contextProps: { [key: string]: any }) => void;
+    }
+> = ({
+    uuid,
+    amount,
+    quantity,
+    detail,
+    options,
+    menuItem,
+    currency: currencyId,
+    setContextProps,
+}) => {
     const { loading, networkOperation, cart } = useContext(RestaurantContext);
     const classes = useCartItemCardStyles();
     const currency = getCurrency(currencyId);
     const updateCartItemQuantity = useUpdateCartItemQuantity();
-    console.log(options);
 
     const handleQuantityChange = async (quantity: number) => {
-        await updateCartItemQuantity({ uuid: uuid as string, quantity });
+        await updateCartItemQuantity({ uuid: uuid as string, quantity }, setContextProps);
     };
 
     return (
@@ -33,7 +45,9 @@ export const CartItemCard: React.FC<
                 />
                 <div className={classes.content}>
                     <p className={classes.title}>{menuItem?.name}</p>
-                    {options && <p className={classes.options}>{parseOptionString(JSON.parse(options))}</p>}
+                    {options && (
+                        <p className={classes.options}>{parseOptionString(JSON.parse(options))}</p>
+                    )}
                     <p className={classes.description}>{detail}</p>
                     <div className={classes.priceContainer}>
                         <div className={classes.price}>

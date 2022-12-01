@@ -55,21 +55,21 @@ export var useCreateOrder = function () {
     var _a = useContext(RestaurantContext), cart = _a.cart, clients = _a.clients, setContext = _a.setContext;
     var cookies = new Cookies();
     return function (paymentMethod) { return __awaiter(void 0, void 0, void 0, function () {
-        var cartCookie, _a, data, errors, order, updatedCart, error_1;
-        var _b, _c, _d, _e, _f, _g;
-        return __generator(this, function (_h) {
-            switch (_h.label) {
+        var cartCookie, cartItemCountCookie, _a, data, errors, order, updatedCart, error_1;
+        var _b, _c, _d, _e, _f, _g, _h, _j;
+        return __generator(this, function (_k) {
+            switch (_k.label) {
                 case 0:
                     cartCookie = cookies.get("cart");
+                    cartItemCountCookie = cookies.get("cartItemCount");
                     setContext === null || setContext === void 0 ? void 0 : setContext({ loading: true, networkOperation: "create.order" });
-                    _h.label = 1;
+                    _k.label = 1;
                 case 1:
-                    _h.trys.push([1, 3, , 4]);
+                    _k.trys.push([1, 3, , 4]);
                     return [4 /*yield*/, (clients === null || clients === void 0 ? void 0 : clients.AMBROSIA).mutate({
                             mutation: CREATE_ORDER,
                             variables: {
                                 payment_type: paymentMethod,
-                                currency_code: cart === null || cart === void 0 ? void 0 : cart.currency,
                                 grand_total: calculateCartSubTotal(cart) +
                                     ((_c = (_b = cart === null || cart === void 0 ? void 0 : cart.restaurant) === null || _b === void 0 ? void 0 : _b.bank_info) === null || _c === void 0 ? void 0 : _c.delivery_fee),
                                 address_uuid: (_e = (_d = cart === null || cart === void 0 ? void 0 : cart.address) === null || _d === void 0 ? void 0 : _d.uuid) !== null && _e !== void 0 ? _e : undefined,
@@ -77,7 +77,7 @@ export var useCreateOrder = function () {
                             },
                         })];
                 case 2:
-                    _a = _h.sent(), data = _a.data, errors = _a.errors;
+                    _a = _k.sent(), data = _a.data, errors = _a.errors;
                     if (!data || errors)
                         throw new Error("We could not complete that operation");
                     order = data.createOrder;
@@ -85,10 +85,12 @@ export var useCreateOrder = function () {
                     setContext === null || setContext === void 0 ? void 0 : setContext({ loading: false, networkOperation: "", cart: updatedCart });
                     notify("success", "Order placed successfully");
                     delete cartCookie[(_g = (_f = cart === null || cart === void 0 ? void 0 : cart.restaurant) === null || _f === void 0 ? void 0 : _f.site_uuid) !== null && _g !== void 0 ? _g : ""];
+                    delete cartItemCountCookie[(_j = (_h = cart === null || cart === void 0 ? void 0 : cart.restaurant) === null || _h === void 0 ? void 0 : _h.site_uuid) !== null && _j !== void 0 ? _j : ""];
                     cookies.set("cart", cartCookie, { path: "/" });
+                    cookies.set("cartItemCount", cartItemCountCookie, { path: "/" });
                     return [3 /*break*/, 4];
                 case 3:
-                    error_1 = _h.sent();
+                    error_1 = _k.sent();
                     setContext === null || setContext === void 0 ? void 0 : setContext({ loading: false, networkOperation: "" });
                     notify("error", "We could not complete that operation");
                     return [3 /*break*/, 4];
