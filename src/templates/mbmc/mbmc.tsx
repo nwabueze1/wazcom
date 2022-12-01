@@ -248,7 +248,7 @@ export const useGetMbmcBlocks = () => {
                     MUSE: "",
                 },
                 integratedService: "NICODEMUS",
-                siteUuid: "8f88c29c-5b1d-44ff-a41d-4ca3cbbf48d5",
+                site_uuid: "8f88c29c-5b1d-44ff-a41d-4ca3cbbf48d5",
             },
         },
         {
