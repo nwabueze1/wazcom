@@ -15,6 +15,7 @@ export const MbmcBlock61: FC<MbmcBlock61Props> = ({
     services,
     integratedService,
     menu_uuid,
+    setContextProps
 }) => {
     const classes = useMbmcBlock61Styles();
     const [contextData, setContextData] = useState<Omit<RestaurantContextProps, "setContext">>({});
@@ -127,6 +128,7 @@ export const MbmcBlock61: FC<MbmcBlock61Props> = ({
                         handleClose={() => {
                             setItemUuid(undefined);
                         }}
+                        setContextProps={setContextProps}
                     />
                 </div>
             </div>

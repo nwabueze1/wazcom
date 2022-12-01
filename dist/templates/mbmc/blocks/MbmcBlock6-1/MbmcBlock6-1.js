@@ -47,7 +47,7 @@ import { getCurrency } from "../../../../utilities";
 import { RestaurantContext } from "../../contexts";
 import { createApolloClient } from "../../../../helpers/graphQL";
 export var MbmcBlock61 = function (_a) {
-    var heading = _a.heading, description = _a.description, services = _a.services, integratedService = _a.integratedService, menu_uuid = _a.menu_uuid;
+    var heading = _a.heading, description = _a.description, services = _a.services, integratedService = _a.integratedService, menu_uuid = _a.menu_uuid, setContextProps = _a.setContextProps;
     var classes = useMbmcBlock61Styles();
     var _b = __read(useState({}), 2), contextData = _b[0], setContextData = _b[1];
     var _c = __read(useState(), 2), activeCategory = _c[0], setActiveCategory = _c[1];
@@ -105,5 +105,5 @@ export var MbmcBlock61 = function (_a) {
     };
     return (_jsx(RestaurantContext.Provider, __assign({ value: __assign(__assign({}, contextData), { setContext: updateContext }) }, { children: _jsx("div", __assign({ className: classes.root }, { children: _jsxs("div", __assign({ className: classes.block61Container }, { children: [_jsx("h3", __assign({ className: classes.block61Title }, { children: heading }), void 0), _jsx("p", __assign({ className: classes.block61Description }, { children: description }), void 0), categoryItems && (categoryItems === null || categoryItems === void 0 ? void 0 : categoryItems.length) > 0 && (_jsxs(_Fragment, { children: [_jsx("div", __assign({ className: classes.block61Categories }, { children: displayCategories() }), void 0), _jsx("div", __assign({ className: classes.block61Items }, { children: displayItems() }), void 0)] }, void 0)), _jsx(OrderDialog, { itemUuid: itemUuid, handleClose: function () {
                             setItemUuid(undefined);
-                        } }, void 0)] }), void 0) }), void 0) }), void 0));
+                        }, setContextProps: setContextProps }, void 0)] }), void 0) }), void 0) }), void 0));
 };
