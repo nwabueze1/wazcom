@@ -82,7 +82,7 @@ export const useGetMbmcBlocks = () => {
                 heading: "Our Premium Services",
                 description: `Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed
             diam nonumy eirmod tempor invidunt ut labore et dolore a….`,
-            url: "/menu",
+                url: "/menu",
                 cards: [
                     {
                         heading: "Baking",
@@ -120,8 +120,7 @@ export const useGetMbmcBlocks = () => {
                     url: "#",
                 },
                 index: 0,
-                activeElement: "0.links.1.links.1",
-                mode: "edit",
+                mode: "view",
                 handleClick: (route: string) => alert(route),
                 links: [
                     {
@@ -129,15 +128,15 @@ export const useGetMbmcBlocks = () => {
                         links: [
                             {
                                 text: "About us",
-                                url: "#",
+                                url: "/about",
                             },
                             {
                                 text: "Our menu",
-                                url: "#",
+                                url: "/menu",
                             },
                             {
-                                text: "Delivery services",
-                                url: "#",
+                                text: "Services",
+                                url: "/about#services",
                             },
                         ],
                     },
@@ -145,16 +144,16 @@ export const useGetMbmcBlocks = () => {
                         name: "Services",
                         links: [
                             {
-                                text: "Baking",
-                                url: "#",
+                                text: "Private dining",
+                                url: "/about#private-dining",
                             },
                             {
-                                text: "Private dining",
-                                url: "#",
+                                text: "Baking",
+                                url: "/about#baking",
                             },
                             {
                                 text: "Mocktail and cocktail",
-                                url: "#",
+                                url: "/about#",
                             },
                         ],
                     },
@@ -163,11 +162,11 @@ export const useGetMbmcBlocks = () => {
                         links: [
                             {
                                 text: "+44444444444",
-                                url: "#",
+                                url: "tel:+44444444444",
                             },
                             {
                                 text: "johndoe@wazobia.tech",
-                                url: "#",
+                                url: "mailto:johndoe@wazobia.tech",
                             },
                             {
                                 text: "1 Ave, Kent, United Kingdom",
@@ -395,11 +394,12 @@ export const useGetMbmcBlocks = () => {
                     {
                         variant: "PRIMARY",
                         text: "Contact us",
+                        url: "/contact-us",
                     },
                 ],
                 hasBackground: true,
                 layout: "row-reverse",
-                mode: "edit",
+                mode: "view",
                 handleClick: (route: string) => alert(route),
                 index: 0,
                 activeElement: "0.heading",
@@ -442,9 +442,9 @@ export const useGetMbmcBlocks = () => {
                     url: "#",
                 },
                 links: [
-                    { text: "About us", url: "https://zeus.com" },
-                    { text: "Menus", url: "#" },
-                    { text: "Contact us", url: "#" },
+                    { text: "About us", url: "/about" },
+                    { text: "Menus", url: "/menu" },
+                    { text: "Contact us", url: "/contact-us" },
                 ],
                 ctas: [
                     {
@@ -453,7 +453,7 @@ export const useGetMbmcBlocks = () => {
                     },
                 ],
                 site_uuid: "896466aa-bacc-4817-b577-436a52540eff",
-                mode: "edit",
+                mode: "view",
                 index: 0,
                 activeElement: "0.ctas.0",
                 handleClick: (route: string) => alert(route),

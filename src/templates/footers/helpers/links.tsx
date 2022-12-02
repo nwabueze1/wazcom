@@ -42,27 +42,32 @@ export const displaySections = (
                             <div
                                 key={index}
                                 className={activeElement === linkId && classes.activeElement}
-                                onClick={(e) => {
-                                    e.stopPropagation();
-                                    clickAction(url, mode, () => {
-                                        handleClick(mode === "view" ? url : linkId);
-                                    });
-                                }}
                                 style={{ display: "flex" }}
                             >
                                 {icon && (
                                     <span className={classes.footerSectionLinkIcon}>
                                         {renderIcon(icon)}
                                     </span>
-                                )}{" "}
+                                )}
+                                &nbsp;
                                 {isNotRenderAnchor(url, mode) ? (
-                                    <p className={classes.footerSectionLink}>{text}</p>
+                                    <p
+                                        className={classes.footerSectionLink}
+                                        onClick={(e) => {
+                                            e.stopPropagation();
+                                            clickAction(url, mode, () => {
+                                                handleClick(mode === "view" ? url : linkId);
+                                            });
+                                        }}
+                                    >
+                                        {text}
+                                    </p>
                                 ) : (
                                     <a
                                         href={url}
-                                        target="_blank"
-                                        rel="noopener noreferrer"
                                         className={classes.footerSectionLink}
+                                        target={url.startsWith("/") ? "_self" : "_blank"}
+                                        rel={"noreferrer noopener"}
                                     >
                                         {text}
                                     </a>

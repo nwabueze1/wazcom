@@ -14,9 +14,9 @@ import { useMbmcBlock11Styles } from "./styles";
 import { renderCtas, handleElementClick } from "../../utilities";
 import clx from "classnames";
 export var MbmcBlock11 = function (_a) {
-    var _b = _a.mode, mode = _b === void 0 ? "view" : _b, _c = _a.layout, layout = _c === void 0 ? 'row-reverse' : _c, index = _a.index, _d = _a.activeElement, activeElement = _d === void 0 ? "" : _d, handleClick = _a.handleClick, image = _a.image, heading = _a.heading, description = _a.description, ctas = _a.ctas, hasBackground = _a.hasBackground;
+    var _b = _a.mode, mode = _b === void 0 ? "view" : _b, _c = _a.layout, layout = _c === void 0 ? "row-reverse" : _c, index = _a.index, _d = _a.activeElement, activeElement = _d === void 0 ? "" : _d, handleClick = _a.handleClick, image = _a.image, heading = _a.heading, description = _a.description, ctas = _a.ctas, hasBackground = _a.hasBackground;
     var classes = useMbmcBlock11Styles({ layout: layout, hasBackground: hasBackground });
-    return (_jsx("div", __assign({ className: classes.root }, { children: _jsxs("div", __assign({ className: classes.block11Container }, { children: [_jsxs("div", __assign({ className: classes.block11Content }, { children: [_jsx("h3", __assign({ className: clx(classes.block11Heading, activeElement === "".concat(String(index), ".heading") &&
+    return (_jsx("div", __assign({ className: classes.root, id: heading.toLowerCase().split(" ").join("-") }, { children: _jsxs("div", __assign({ className: classes.block11Container }, { children: [_jsxs("div", __assign({ className: classes.block11Content }, { children: [_jsx("h3", __assign({ className: clx(classes.block11Heading, activeElement === "".concat(String(index), ".heading") &&
                                 classes.block11ActiveElement), onClick: function () {
                                 return handleElementClick(mode, "".concat(String(index), ".heading"), handleClick);
                             } }, { children: heading }), void 0), _jsx("div", __assign({ className: classes.heroContainerMobile }, { children: _jsx("img", { src: image, alt: "food images", className: clx(classes.heroImageMobile, activeElement === "".concat(String(index), ".image") &&
