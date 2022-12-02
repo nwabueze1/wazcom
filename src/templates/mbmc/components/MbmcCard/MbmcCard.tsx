@@ -18,6 +18,7 @@ export const MbmcCard: React.FC<MbmcCardProps> = ({
     className,
     classNames,
     handleClick,
+    url
 }) => {
     const isOpen = true;
     const classes = useMbmcCardStyles({ isOpen, scrollableParent });
@@ -26,7 +27,7 @@ export const MbmcCard: React.FC<MbmcCardProps> = ({
         <div
             className={clsx(classes.root, classes.visible, className)}
             onClick={() => {
-                handleClick?.("");
+                url && handleClick?.(url);
             }}
         >
             <div

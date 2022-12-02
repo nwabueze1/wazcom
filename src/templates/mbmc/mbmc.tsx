@@ -82,6 +82,7 @@ export const useGetMbmcBlocks = () => {
                 heading: "Our Premium Services",
                 description: `Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed
             diam nonumy eirmod tempor invidunt ut labore et dolore a….`,
+            url: "/menu",
                 cards: [
                     {
                         heading: "Baking",
@@ -103,7 +104,7 @@ export const useGetMbmcBlocks = () => {
                     },
                 ],
 
-                mode: "edit",
+                // mode: "edit",
                 index: 0,
                 handleClick: (route: string) => alert(route),
                 activeElement: "0.cards.2.image",

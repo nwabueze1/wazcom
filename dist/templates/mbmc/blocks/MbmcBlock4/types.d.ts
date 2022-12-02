@@ -4,5 +4,6 @@ export declare type MbmcBlock4Props = MbmcCommonProps & {
     layout?: BlockLayout;
     heading: string;
     description?: string;
+    url?: string;
     cards?: MbmcCardProps[];
 };

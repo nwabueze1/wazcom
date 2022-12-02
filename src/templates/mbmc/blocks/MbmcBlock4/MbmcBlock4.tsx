@@ -13,6 +13,7 @@ export const MbmcBlock4: FC<MbmcBlock4Props> = ({
     heading,
     description,
     cards,
+    url
 }) => {
     const classes = useMbmcBlock4Styles();
 
@@ -27,6 +28,7 @@ export const MbmcBlock4: FC<MbmcBlock4Props> = ({
                     mode={mode}
                     activeElement={activeElement}
                     handleClick={handleClick}
+                    url={url}
                     className={classes.block4Card}
                     classNames={{ heading: classes.block4CardHeading }}
                 />

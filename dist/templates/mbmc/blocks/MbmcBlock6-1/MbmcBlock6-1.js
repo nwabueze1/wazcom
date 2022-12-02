@@ -91,7 +91,7 @@ export var MbmcBlock61 = function (_a) {
         return categoryItems === null || categoryItems === void 0 ? void 0 : categoryItems.map(function (_a, index) {
             var _b, _c, _d;
             var uuid = _a.uuid, name = _a.name, description = _a.description, image_url = _a.image_url, price = _a.price;
-            return (_jsx(MbmcCard, { heading: _jsxs("div", __assign({ className: classes.block61ItemHeading }, { children: [_jsx("p", { children: name }, void 0), " ", _jsxs("p", __assign({ className: classes.block61ItemPrice }, { children: [getCurrency((_d = (_c = (_b = menu === null || menu === void 0 ? void 0 : menu.restaurant) === null || _b === void 0 ? void 0 : _b.bank_info) === null || _c === void 0 ? void 0 : _c.currency) !== null && _d !== void 0 ? _d : ""), price] }), void 0)] }), void 0), description: description, image: image_url !== null && image_url !== void 0 ? image_url : "", className: classes.block61Item, handleClick: function (route) {
+            return (_jsx(MbmcCard, { heading: _jsxs("div", __assign({ className: classes.block61ItemHeading }, { children: [_jsx("p", { children: name }, void 0), " ", _jsxs("p", __assign({ className: classes.block61ItemPrice }, { children: [getCurrency((_d = (_c = (_b = menu === null || menu === void 0 ? void 0 : menu.restaurant) === null || _b === void 0 ? void 0 : _b.bank_info) === null || _c === void 0 ? void 0 : _c.currency) !== null && _d !== void 0 ? _d : ""), price] }), void 0)] }), void 0), description: description, image: image_url !== null && image_url !== void 0 ? image_url : "", className: classes.block61Item, url: name, handleClick: function (route) {
                     console.log(route);
                     setItemUuid(uuid);
                 } }, index));
