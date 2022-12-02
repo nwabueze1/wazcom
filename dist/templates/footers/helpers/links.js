@@ -33,7 +33,7 @@ export var displaySections = function (mode, classes, sections, activeElement, h
                                         clickAction(url, mode, function () {
                                             handleClick(mode === "view" ? url : linkId);
                                         });
-                                    } }, { children: text }), void 0)) : (_jsx("a", __assign({ href: url, className: classes.footerSectionLink, target: url.startsWith("/") ? "_self" : "_blank", rel: "noreferrer noopener" }, { children: text }), void 0))] }), index));
+                                    } }, { children: text }), void 0)) : (_jsx("a", __assign({ href: url, className: classes.footerSectionLink }, { children: text }), void 0))] }), index));
                     }) }), void 0)] }), index));
     });
 };

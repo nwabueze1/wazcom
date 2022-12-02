@@ -63,12 +63,7 @@ export const displaySections = (
                                         {text}
                                     </p>
                                 ) : (
-                                    <a
-                                        href={url}
-                                        className={classes.footerSectionLink}
-                                        target={url.startsWith("/") ? "_self" : "_blank"}
-                                        rel={"noreferrer noopener"}
-                                    >
+                                    <a href={url} className={classes.footerSectionLink}>
                                         {text}
                                     </a>
                                 )}

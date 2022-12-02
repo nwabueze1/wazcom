@@ -54,7 +54,7 @@ export var LazyImage = function (_a) {
         if (!imageRef.current)
             return;
         var scrollTop = window.pageYOffset;
-        var imageScrollPosition = imageRef.current.getBoundingClientRect().top;
+        var imageScrollPosition = imageRef.current.getBoundingClientRect().top - 150;
         var pageBottomScrollPosition = window.innerHeight + scrollTop;
         setIsVisible(imageScrollPosition < pageBottomScrollPosition);
     };

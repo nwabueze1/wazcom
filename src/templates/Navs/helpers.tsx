@@ -33,13 +33,7 @@ export const renderNavLink = (
             {text}
         </p>
     ) : (
-        <Link
-            className={classes.link}
-            key={index}
-            target={url.startsWith("/") ? "_self" : "_blank"}
-            rel={"noreferrer noopener"}
-            href={url}
-        >
+        <Link className={classes.link} key={index} href={url}>
             {text}
         </Link>
     );
@@ -117,11 +111,7 @@ const LogoWrapper: FC<LogoWrapperProps> = ({ url, mode, children, handleClick, i
         );
     }
 
-    return (
-        <a href={url} target={url.startsWith("/") ? "_self" : "_blank"} rel="noopener noreferrer">
-            {children}
-        </a>
-    );
+    return <Link href={url}>{children}</Link>;
 };
 
 export const displaySocials = (

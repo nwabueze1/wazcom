@@ -32,5 +32,5 @@ var LogoWrapper = function (_a) {
                     handleClick(mode === "view" ? url : parentKey !== null && parentKey !== void 0 ? parentKey : "footer_logo");
                 });
             }, className: className }, { children: children }), void 0));
-    return (_jsx(Link, __assign({ href: url, target: url.startsWith("/") ? "_self" : "_blank", rel: "noreferrer noopener" }, { children: children }), void 0));
+    return _jsx(Link, __assign({ href: url }, { children: children }), void 0);
 };

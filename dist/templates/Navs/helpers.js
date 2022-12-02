@@ -23,7 +23,7 @@ export var renderNavLink = function (_a, mode, index, classes, activeElement, ha
             clickAction(url, mode, function () {
                 handleClick === null || handleClick === void 0 ? void 0 : handleClick(mode === "edit" ? id : url);
             });
-        } }, { children: text }), index)) : (_jsx(Link, __assign({ className: classes.link, target: url.startsWith("/") ? "_self" : "_blank", rel: "noreferrer noopener", href: url }, { children: text }), index));
+        } }, { children: text }), index)) : (_jsx(Link, __assign({ className: classes.link, href: url }, { children: text }), index));
 };
 var hivedeckLogo = "https://sytbuildr.s3.eu-west-2.amazonaws.com/images/logo/hivedeck_logo.svg";
 var isNotRenderAnchor = function (url, mode) { return url === "#" || mode === "edit"; };
@@ -45,7 +45,7 @@ var LogoWrapper = function (_a) {
                 });
             }, style: { cursor: "pointer" } }, { children: children }), void 0));
     }
-    return (_jsx("a", __assign({ href: url, target: url.startsWith("/") ? "_self" : "_blank", rel: "noopener noreferrer" }, { children: children }), void 0));
+    return _jsx(Link, __assign({ href: url }, { children: children }), void 0);
 };
 export var displaySocials = function (socials, mode, classes, activeElement, handleClick) {
     return socials === null || socials === void 0 ? void 0 : socials.map(function (_a, index) {
