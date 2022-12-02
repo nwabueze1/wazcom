@@ -26,7 +26,7 @@ export const MbmcBlock9: FC<MbmcBlock9Props> = ({
 
         const activeInterval = setInterval(() => {
             setActive(active === steps.length - 1 ? 0 : active + 1);
-        }, 1000);
+        }, 1500);
 
         return () => {
             clearInterval(activeInterval);
