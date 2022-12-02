@@ -69,7 +69,7 @@ export var MbmcBlock6 = function (_a) {
                             {
                                 text: "Order now",
                                 size: "sm",
-                                url: "/menu?category_uuid=".concat(category.uuid),
+                                url: "/menu#menu?category_uuid=".concat(category.uuid),
                             },
                         ],
                     };

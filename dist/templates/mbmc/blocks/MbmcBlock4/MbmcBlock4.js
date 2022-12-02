@@ -19,8 +19,9 @@ export var MbmcBlock4 = function (_a) {
     var classes = useMbmcBlock4Styles();
     var displayCards = function () {
         return (cards !== null && cards !== void 0 ? cards : []).map(function (card, cardIndex) {
+            var _a;
             var parentKey = String(index) + ".cards." + String(cardIndex);
-            return (_jsx(MbmcCard, __assign({}, card, { parentKey: parentKey, mode: mode, activeElement: activeElement, handleClick: handleClick, url: url, className: classes.block4Card, classNames: { heading: classes.block4CardHeading } }), cardIndex));
+            return (_jsx(MbmcCard, __assign({}, card, { parentKey: parentKey, mode: mode, activeElement: activeElement, handleClick: handleClick, url: "".concat(url, "#").concat((_a = card.heading) === null || _a === void 0 ? void 0 : _a.toString().toLowerCase().replace(/ /g, "-")), className: classes.block4Card, classNames: { heading: classes.block4CardHeading } }), cardIndex));
         });
     };
     return (_jsx("div", __assign({ className: classes.root }, { children: _jsxs("div", __assign({ className: classes.block6Container }, { children: [_jsxs("div", __assign({ className: classes.block4Content }, { children: [_jsx("h3", __assign({ className: clx(classes.block4Heading, activeElement === "".concat(String(index), ".heading") &&

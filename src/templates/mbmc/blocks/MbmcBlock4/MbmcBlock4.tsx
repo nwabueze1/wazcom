@@ -13,7 +13,7 @@ export const MbmcBlock4: FC<MbmcBlock4Props> = ({
     heading,
     description,
     cards,
-    url
+    url,
 }) => {
     const classes = useMbmcBlock4Styles();
 
@@ -28,7 +28,7 @@ export const MbmcBlock4: FC<MbmcBlock4Props> = ({
                     mode={mode}
                     activeElement={activeElement}
                     handleClick={handleClick}
-                    url={url}
+                    url={`${url}#${card.heading?.toString().toLowerCase().replace(/ /g, "-")}`}
                     className={classes.block4Card}
                     classNames={{ heading: classes.block4CardHeading }}
                 />

@@ -113,7 +113,7 @@ export const MbmcBlock61: FC<MbmcBlock61Props> = ({
 
     return (
         <RestaurantContext.Provider value={{ ...contextData, setContext: updateContext }}>
-            <div className={classes.root}>
+            <div className={classes.root} id='menu'>
                 <div className={classes.block61Container}>
                     <h3 className={classes.block61Title}>{heading}</h3>
                     <p className={classes.block61Description}>{description}</p>
