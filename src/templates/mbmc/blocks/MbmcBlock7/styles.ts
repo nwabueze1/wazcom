@@ -123,10 +123,7 @@ export const useMbmcBlock7Styles = makeStyles((theme: Theme) => ({
         width: "100%",
         display: "grid",
         gridTemplateColumns: "1fr 1fr 1fr",
-        justifyContent: "space-between",
-        alignItems: "center",
-        flexWrap: "wrap",
         gap: theme.spacing(1),
-        height: "100%",
+        height: "fit-content",
     },
 }));
