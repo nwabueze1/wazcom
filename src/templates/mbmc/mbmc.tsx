@@ -394,11 +394,12 @@ export const useGetMbmcBlocks = () => {
                     {
                         variant: "PRIMARY",
                         text: "Contact us",
+                        url: "/contact-us",
                     },
                 ],
                 hasBackground: true,
                 layout: "row-reverse",
-                mode: "edit",
+                mode: "view",
                 handleClick: (route: string) => alert(route),
                 index: 0,
                 activeElement: "0.heading",

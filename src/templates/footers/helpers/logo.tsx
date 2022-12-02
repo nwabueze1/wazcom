@@ -1,5 +1,6 @@
 import { FC } from "react";
 import { AiOutlinePicture } from "react-icons/ai";
+import { Link } from "../../mbmc/components";
 import { clickAction, isNotRenderAnchor } from "./anchor";
 
 export const displayLogo = (
@@ -78,8 +79,12 @@ const LogoWrapper: FC<LogoWrapperProps> = ({
         );
 
     return (
-        <a href={url} target={url.startsWith("/") ? "_self" : "_blank"} rel={"noreferrer noopener"}>
+        <Link
+            href={url}
+            target={url.startsWith("/") ? "_self" : "_blank"}
+            rel={"noreferrer noopener"}
+        >
             {children}
-        </a>
+        </Link>
     );
 };

@@ -6,3 +6,4 @@ export * from "./MbmcMenuCard";
 export * from "./OrderDialog";
 export * from "./PaymentOption";
 export * from "./TestimonialCard";
+export * from "./Link";

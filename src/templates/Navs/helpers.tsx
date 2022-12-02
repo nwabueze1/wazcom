@@ -4,7 +4,7 @@ import { FaFacebookF } from "react-icons/fa";
 import { BsTwitter } from "react-icons/bs";
 import clx from "classnames";
 import { NavProps, SocialType } from "./types";
-import { Link } from "react-router-dom";
+import { Link } from "../mbmc/components";
 
 export const renderNavLink = (
     { url, text }: { url: string; text: string },
@@ -38,7 +38,7 @@ export const renderNavLink = (
             key={index}
             target={url.startsWith("/") ? "_self" : "_blank"}
             rel={"noreferrer noopener"}
-            to={url}
+            href={url}
         >
             {text}
         </Link>
