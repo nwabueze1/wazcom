@@ -4,6 +4,11 @@ export var paymentMethodConfig = {
         title: 'Pay with cash',
         name: 'Cash_On_Delivery',
     },
+    Bank_Transfer: {
+        img: 'https://sytbuildr.s3.eu-west-2.amazonaws.com/images/mbmc/image+(1).png',
+        title: 'Bank Transfer',
+        name: 'Bank_Transfer',
+    },
     Paypal: {
         img: "https://sytbuildr.s3.eu-west-2.amazonaws.com/images/mbmc/Paypal.png",
         title: 'Pay with Paypal',

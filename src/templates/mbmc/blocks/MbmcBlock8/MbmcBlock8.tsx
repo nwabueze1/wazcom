@@ -61,17 +61,11 @@ export const MbmcBlock8: FC<MbmcBlock8Props> = ({
                                     <div className={classes.carouselComponent}>
                                         {data.map((item, cardIndex) => {
                                             const parentKey =
-                                                String(index) +
-                                                ".cards." +
-                                                String(cardIndex + splitIndex * 2);
+                                                String(index) + ".cards." + String(cardIndex + (splitIndex * 2));
                                             return (
                                                 <TestimonialCard
                                                     key={cardIndex}
-                                                    text={
-                                                        item.content.length > 135
-                                                            ? item.content.slice(0, 133) + "..."
-                                                            : item.content
-                                                    }
+                                                    text={item.content}
                                                     name={item.name}
                                                     type={item.role}
                                                     parentKey={parentKey}
