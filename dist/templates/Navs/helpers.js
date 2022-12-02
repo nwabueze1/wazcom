@@ -14,6 +14,7 @@ import { AiOutlinePicture } from "react-icons/ai";
 import { FaFacebookF } from "react-icons/fa";
 import { BsTwitter } from "react-icons/bs";
 import clx from "classnames";
+import { Link } from "../mbmc/components";
 export var renderNavLink = function (_a, mode, index, classes, activeElement, handleClick, parentKey) {
     var url = _a.url, text = _a.text;
     var id = (parentKey !== null && parentKey !== void 0 ? parentKey : "nav_links.") + String(index);
@@ -22,12 +23,10 @@ export var renderNavLink = function (_a, mode, index, classes, activeElement, ha
             clickAction(url, mode, function () {
                 handleClick === null || handleClick === void 0 ? void 0 : handleClick(mode === "edit" ? id : url);
             });
-        } }, { children: text }), index)) : (_jsx("a", __assign({ className: classes.link, target: "_blank", rel: "noopener noreferrer", href: url }, { children: text }), index));
+        } }, { children: text }), index)) : (_jsx(Link, __assign({ className: classes.link, target: url.startsWith("/") ? "_self" : "_blank", rel: "noreferrer noopener", href: url }, { children: text }), index));
 };
 var hivedeckLogo = "https://sytbuildr.s3.eu-west-2.amazonaws.com/images/logo/hivedeck_logo.svg";
-var isNotRenderAnchor = function (url, mode) {
-    return (url === null || url === void 0 ? void 0 : url.startsWith("/")) || url === "#" || mode === "edit";
-};
+var isNotRenderAnchor = function (url, mode) { return url === "#" || mode === "edit"; };
 var clickAction = function (url, mode, handleClick) {
     if (mode === "edit" || (mode === "view" && url !== "#"))
         handleClick === null || handleClick === void 0 ? void 0 : handleClick();
@@ -46,7 +45,7 @@ var LogoWrapper = function (_a) {
                 });
             }, style: { cursor: "pointer" } }, { children: children }), void 0));
     }
-    return (_jsx("a", __assign({ href: url, target: "_blank", rel: "noopener noreferrer" }, { children: children }), void 0));
+    return (_jsx("a", __assign({ href: url, target: url.startsWith("/") ? "_self" : "_blank", rel: "noopener noreferrer" }, { children: children }), void 0));
 };
 export var displaySocials = function (socials, mode, classes, activeElement, handleClick) {
     return socials === null || socials === void 0 ? void 0 : socials.map(function (_a, index) {

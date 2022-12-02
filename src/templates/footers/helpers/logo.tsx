@@ -1,5 +1,6 @@
 import { FC } from "react";
 import { AiOutlinePicture } from "react-icons/ai";
+import { Link } from "../../mbmc/components";
 import { clickAction, isNotRenderAnchor } from "./anchor";
 
 export const displayLogo = (
@@ -54,14 +55,21 @@ interface LogoWrapperProps {
     parentKey?: string;
 }
 
-const LogoWrapper: FC<LogoWrapperProps> = ({ mode, url, children, handleClick, parentKey, className }) => {
+const LogoWrapper: FC<LogoWrapperProps> = ({
+    mode,
+    url,
+    children,
+    handleClick,
+    parentKey,
+    className,
+}) => {
     if (isNotRenderAnchor(url, mode))
         return (
             <div
                 onClick={(e) => {
                     e.stopPropagation();
                     clickAction(url, mode, () => {
-                        handleClick(mode === "view" ? url : (parentKey ?? "footer_logo"));
+                        handleClick(mode === "view" ? url : parentKey ?? "footer_logo");
                     });
                 }}
                 className={className}
@@ -71,8 +79,12 @@ const LogoWrapper: FC<LogoWrapperProps> = ({ mode, url, children, handleClick, p
         );
 
     return (
-        <a href={url} target="_blank" rel="noopener noreferrer">
+        <Link
+            href={url}
+            target={url.startsWith("/") ? "_self" : "_blank"}
+            rel={"noreferrer noopener"}
+        >
             {children}
-        </a>
+        </Link>
     );
 };
