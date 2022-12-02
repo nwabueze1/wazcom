@@ -179,7 +179,7 @@ export const useGetMbmcBlocks = () => {
                         links: [
                             {
                                 text: "@mrbakerandmrscook",
-                                url: "#",
+                                url: "https://www.instagram.com/mrbakermrscook/?hl=en",
                                 icon: "instagram",
                             },
                         ],
@@ -347,9 +347,8 @@ export const useGetMbmcBlocks = () => {
                         image: "https://sytbuildr.s3.eu-west-2.amazonaws.com/images/mbmc/step4.svg",
                     },
                 ],
-                mode: "edit",
-                index: 0,
-                activeElement: "0.steps.1.heading",
+                // mode: "edit",
+                // activeElement: "0.steps.1.heading",
                 handleClick: (element: string) => alert(element),
             },
         },

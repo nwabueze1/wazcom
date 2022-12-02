@@ -33,7 +33,7 @@ export var displaySections = function (mode, classes, sections, activeElement, h
                                 clickAction(url, mode, function () {
                                     handleClick(mode === "view" ? url : linkId);
                                 });
-                            }, style: { display: "flex" } }, { children: [icon && (_jsx("span", __assign({ className: classes.footerSectionLinkIcon }, { children: renderIcon(icon) }), void 0)), " ", isNotRenderAnchor(url, mode) ? (_jsx("p", __assign({ className: classes.footerSectionLink }, { children: text }), void 0)) : (_jsxs("a", __assign({ href: url, className: classes.footerSectionLink }, { children: [icon && renderIcon(icon), " ", text] }), void 0))] }), index));
+                            }, style: { display: "flex" } }, { children: [icon && (_jsx("span", __assign({ className: classes.footerSectionLinkIcon }, { children: renderIcon(icon) }), void 0)), " ", isNotRenderAnchor(url, mode) ? (_jsx("p", __assign({ className: classes.footerSectionLink }, { children: text }), void 0)) : (_jsx("a", __assign({ href: url, target: "_blank", rel: "noopener noreferrer", className: classes.footerSectionLink }, { children: text }), void 0))] }), index));
                     }) }), void 0)] }), index));
     });
 };

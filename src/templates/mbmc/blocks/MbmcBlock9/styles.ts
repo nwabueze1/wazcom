@@ -125,6 +125,11 @@ export const useMbmcBlock9Styles = makeStyles((theme: Theme) => ({
         marginRight: theme.spacing(2),
         color: theme.design.colors.waz_primaryColor300,
         fontWeight: theme.typography.fontWeightBold,
+
+        [theme.breakpoints.down("sm")]: {
+            fontSize: theme.typography.fontSize + 4,
+            padding: theme.spacing(2, 2.5),
+        },
     },
     pointDescription: {
         color: theme.design.colors.waz_greyColor600,

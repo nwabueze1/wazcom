@@ -58,8 +58,13 @@ export const displaySections = (
                                 {isNotRenderAnchor(url, mode) ? (
                                     <p className={classes.footerSectionLink}>{text}</p>
                                 ) : (
-                                    <a href={url} className={classes.footerSectionLink}>
-                                        {icon && renderIcon(icon)} {text}
+                                    <a
+                                        href={url}
+                                        target="_blank"
+                                        rel="noopener noreferrer"
+                                        className={classes.footerSectionLink}
+                                    >
+                                        {text}
                                     </a>
                                 )}
                             </div>
