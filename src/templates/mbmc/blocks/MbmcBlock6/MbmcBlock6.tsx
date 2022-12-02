@@ -45,7 +45,7 @@ export const MbmcBlock6: FC<MbmcBlock6Props> = ({
                         {
                             text: "Order now",
                             size: "sm",
-                            url: `/menu#menu?category_uuid=${category.uuid}`,
+                            url: `/menu?category_uuid=${category.uuid}#menu`,
                         },
                     ],
                 };
