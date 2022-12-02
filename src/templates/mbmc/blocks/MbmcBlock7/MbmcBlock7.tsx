@@ -20,7 +20,7 @@ export const MbmcBlock7: FC<MbmcBlock7Props> = ({
         () => createApolloClient(services ? services[integratedService] : ""),
         [],
     );
-    const { data } = useQuery(GET_INSTAGRAM_IMAGES, {
+    const { data, loading } = useQuery(GET_INSTAGRAM_IMAGES, {
         client,
         variables: {
             uuid: site_uuid,
@@ -28,11 +28,19 @@ export const MbmcBlock7: FC<MbmcBlock7Props> = ({
             sociable_type: "site",
         },
     });
-    const [instagramImages, setInstagramImages] = useState([]);
+    const [instagramImages, setInstagramImages] = useState<string[]>([]);
 
     useEffect(() => {
         if (data) {
-            setInstagramImages(data.getInstagramImages.images);
+            setInstagramImages(() => {
+                const images: string[] = data.getInstagramImages.images;
+                return images.filter((image) => {
+                    const imageFileTypes = ["jpeg", "jpg", "gif", "png"];
+                    const imageUrl = image.split("?")[0];
+                    const ext = imageUrl.substring(imageUrl.lastIndexOf(".") + 1);
+                    return imageFileTypes.includes(ext);
+                });
+            });
         }
     }, [data]);
 
@@ -43,11 +51,29 @@ export const MbmcBlock7: FC<MbmcBlock7Props> = ({
                 <p className={classes.headerDescription}>{description}</p>
             </div>
             <div className={classes.mobileCardContainer}>
-                {([] as string[])
-                    .concat(instagramImages.length > 0 ? instagramImages : images)
-                    .map((image, idx) => (
-                        <LazyImage key={idx} src={image} className={clx(classes.imageContainer)} />
-                    ))}
+                {!loading ? (
+                    instagramImages.length > 0 ? (
+                        instagramImages
+                            .slice(0, 9)
+                            .map((image, idx) => (
+                                <LazyImage
+                                    key={idx}
+                                    src={image}
+                                    className={clx(classes.imageContainer)}
+                                />
+                            ))
+                    ) : (
+                        images.map((image, idx) => (
+                            <LazyImage
+                                key={idx}
+                                src={image}
+                                className={clx(classes.imageContainer)}
+                            />
+                        ))
+                    )
+                ) : (
+                    <></>
+                )}
             </div>
         </div>
     );
