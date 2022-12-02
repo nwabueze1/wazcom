@@ -28,8 +28,8 @@ var LogoWrapper = function (_a) {
         return (_jsx("div", __assign({ onClick: function (e) {
                 e.stopPropagation();
                 clickAction(url, mode, function () {
-                    handleClick(mode === "view" ? url : (parentKey !== null && parentKey !== void 0 ? parentKey : "footer_logo"));
+                    handleClick(mode === "view" ? url : parentKey !== null && parentKey !== void 0 ? parentKey : "footer_logo");
                 });
             }, className: className }, { children: children }), void 0));
-    return (_jsx("a", __assign({ href: url, target: "_blank", rel: "noopener noreferrer" }, { children: children }), void 0));
+    return (_jsx("a", __assign({ href: url, target: url.startsWith("/") ? "_self" : "_blank", rel: "noreferrer noopener" }, { children: children }), void 0));
 };
