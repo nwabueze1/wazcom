@@ -58,12 +58,7 @@ export const useGetMbmcBlocks = () => {
             component: MbmcBlock3,
             props: {
                 heading: "Food is an important part of a balanced diet",
-                description: `Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy
-                    eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam
-                    voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet
-                    clita kasd.
-                    elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna
-                    aliquyam erat, sed diam voluptua. At vero eo…`,
+                description: `We serve the finest flavours and rich serving of mouth-watering Afro-Caribbean and Asian cuisines that include delicious Cocktails and bakes.<br/><br/>Founded on the love of bringing people together over intercontinental delicacies. We are a husband and wife team of passionate chefs who want to make your next meal a hit!`,
                 ctas: [
                     {
                         text: "Learn more",
@@ -215,12 +210,12 @@ export const useGetMbmcBlocks = () => {
                 description: `Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed 
                 diam nonumy eirmod tempor invidunt ut labore et dolore a….`,
                 services: {
-                    AMBROSIA: "https://ofambegbe-ambrosia.wazobia.uk/graphql",
+                    AMBROSIA: "https://ambrosia.hogfort.com/graphql",
                     NICODEMUS: "",
                     MUSE: "",
                 },
                 integratedService: "AMBROSIA",
-                menu_uuid: "86e9e1a1-8d9a-4673-b035-f720df10728a",
+                menu_uuid: "caac32a1-7213-4c5c-9378-78e488dd697f",
                 site_uuid: "",
             },
         },
@@ -327,6 +322,7 @@ export const useGetMbmcBlocks = () => {
                         description:
                             "Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam",
                         image: "https://sytbuildr.s3.eu-west-2.amazonaws.com/images/mbmc/home/step1.webp",
+                        url: "/menu",
                     },
                     {
                         heading: "Expertly prepared",

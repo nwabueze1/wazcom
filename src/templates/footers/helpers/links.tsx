@@ -5,6 +5,7 @@ import { BsTwitter } from "react-icons/bs";
 import { FaInstagram } from "react-icons/fa";
 import { RiLinkedinFill, RiYoutubeFill } from "react-icons/ri";
 import clx from "classnames";
+import { Link } from "../../mbmc/components";
 
 export const displaySections = (
     mode: "view" | "edit",
@@ -63,14 +64,9 @@ export const displaySections = (
                                         {text}
                                     </p>
                                 ) : (
-                                    <a
-                                        href={url}
-                                        className={classes.footerSectionLink}
-                                        target={url.startsWith("/") ? "_self" : "_blank"}
-                                        rel={"noreferrer noopener"}
-                                    >
+                                    <Link href={url} className={classes.footerSectionLink}>
                                         {text}
-                                    </a>
+                                    </Link>
                                 )}
                             </div>
                         );

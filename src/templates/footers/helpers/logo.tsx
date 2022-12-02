@@ -78,13 +78,5 @@ const LogoWrapper: FC<LogoWrapperProps> = ({
             </div>
         );
 
-    return (
-        <Link
-            href={url}
-            target={url.startsWith("/") ? "_self" : "_blank"}
-            rel={"noreferrer noopener"}
-        >
-            {children}
-        </Link>
-    );
+    return <Link href={url}>{children}</Link>;
 };

@@ -7,7 +7,12 @@ export const Link: React.FC<
     const classes = useLinkStyles();
 
     return (
-        <a {...props} className={clx(classes.linkRoot, className)}>
+        <a
+            {...props}
+            className={clx(classes.linkRoot, className)}
+            target={props.href?.startsWith("/") ? "_self" : "_blank"}
+            rel={"noreferrer noopener"}
+        >
             {children}
         </a>
     );

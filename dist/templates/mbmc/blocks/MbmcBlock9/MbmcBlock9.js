@@ -32,6 +32,7 @@ import clx from "classnames";
 import { handleElementClick } from "../../utilities";
 import { LazyImage } from "../../../../core";
 import { useMediaQuery, useTheme } from "@mui/material";
+import { Link } from "../../components";
 export var MbmcBlock9 = function (_a) {
     var _b = _a.mode, mode = _b === void 0 ? "view" : _b, handleClick = _a.handleClick, activeElement = _a.activeElement, index = _a.index, heading = _a.heading, description = _a.description, steps = _a.steps;
     var theme = useTheme();
@@ -57,7 +58,7 @@ export var MbmcBlock9 = function (_a) {
                                         handleElementClick(mode, "".concat(String(index), ".description"), handleClick);
                                     } }, { children: description }), void 0)] }), void 0), isMobile && (_jsx("div", __assign({ className: classes.directionContainerMobile }, { children: _jsx(LazyImage, { className: classes.imageStep, src: steps[active].image, alt: steps[active].heading }, void 0) }), void 0)), _jsx("div", __assign({ className: classes.headerCardContainer }, { children: steps.map(function (step, idx) {
                                 var key = String(index) + ".steps." + String(idx);
-                                return (_jsxs("div", __assign({ onClick: function () {
+                                return mode === "edit" ? (_jsxs("div", __assign({ onClick: function () {
                                         mode === "edit" && setActive(idx);
                                     }, className: classes.pointContainer }, { children: [_jsx("div", __assign({ className: clx(classes.point, active == idx && classes.activePoint) }, { children: idx + 1 }), void 0), _jsxs("div", __assign({ className: classes.pointTextContainer }, { children: [_jsx("p", __assign({ className: clx(classes.pointTitle, active === idx && classes.activeTitle, activeElement === key + ".heading" &&
                                                         classes.block9ActiveElement), onClick: function () {
@@ -65,7 +66,9 @@ export var MbmcBlock9 = function (_a) {
                                                     } }, { children: step.heading }), void 0), _jsx("p", __assign({ className: clx(classes.pointDescription, activeElement === key + ".description" &&
                                                         classes.block9ActiveElement), onClick: function () {
                                                         handleElementClick(mode, key + ".description", handleClick);
-                                                    } }, { children: step.description }), void 0)] }), void 0)] }), idx));
+                                                    } }, { children: step.description }), void 0)] }), void 0)] }), idx)) : (_jsxs(Link, __assign({ className: classes.pointContainer, href: step.url }, { children: [_jsx("div", __assign({ className: clx(classes.point, active == idx && classes.activePoint) }, { children: idx + 1 }), void 0), _jsxs("div", __assign({ className: classes.pointTextContainer }, { children: [_jsx("p", __assign({ className: clx(classes.pointTitle, active === idx && classes.activeTitle, activeElement === key + ".heading" &&
+                                                        classes.block9ActiveElement) }, { children: step.heading }), void 0), _jsx("p", __assign({ className: clx(classes.pointDescription, activeElement === key + ".description" &&
+                                                        classes.block9ActiveElement) }, { children: step.description }), void 0)] }), void 0)] }), idx));
                             }) }), void 0)] }), void 0), isDesktop && (_jsx("div", __assign({ className: classes.directionContainer }, { children: _jsx(LazyImage, { src: steps[active].image, alt: steps[active].heading, className: clx(classes.imageStep, activeElement ===
                             "".concat(String(index), ".steps.").concat(String(active), ".image") &&
                             classes.block9ActiveElement), onClick: function () {

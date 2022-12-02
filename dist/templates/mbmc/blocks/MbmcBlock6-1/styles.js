@@ -59,9 +59,15 @@ export var useMbmcBlock61Styles = makeStyles(function (theme) {
                 padding: theme.spacing(0.5),
                 boxShadow: "0px 5px 18px -2px rgba(68, 68, 68, 0.12)",
                 display: "flex",
-                flexWrap: "wrap",
+                flexWrap: "nowrap",
                 gap: theme.spacing(2),
-                marginBottom: theme.spacing(8)
+                marginBottom: theme.spacing(8),
+                overflow: "scroll",
+                scrollbarWidth: "none",
+                "&::-webkit-scrollbar": {
+                    display: "none",
+                },
+                "-ms-overflow-style": "none"
             },
             _d[theme.breakpoints.down("sm")] = {
                 padding: theme.spacing(1),
@@ -80,7 +86,8 @@ export var useMbmcBlock61Styles = makeStyles(function (theme) {
                 padding: theme.spacing(2, 4),
                 fontSize: theme.typography.fontSize + 1,
                 fontWeight: theme.typography.fontWeightMedium,
-                cursor: "pointer"
+                cursor: "pointer",
+                whiteSpace: "nowrap"
             },
             _e[theme.breakpoints.down("sm")] = {
                 borderRadius: "8px",

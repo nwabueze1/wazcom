@@ -8,5 +8,6 @@ export type MbmcBlock9Props = MbmcCommonProps & {
         heading: string;
         description: string;
         image: string;
+        url?: string;
     }[];
 };
