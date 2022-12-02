@@ -124,11 +124,8 @@ export var useMbmcBlock7Styles = makeStyles(function (theme) {
             width: "100%",
             display: "grid",
             gridTemplateColumns: "1fr 1fr 1fr",
-            justifyContent: "space-between",
-            alignItems: "center",
-            flexWrap: "wrap",
             gap: theme.spacing(1),
-            height: "100%",
+            height: "fit-content",
         },
     });
 });
