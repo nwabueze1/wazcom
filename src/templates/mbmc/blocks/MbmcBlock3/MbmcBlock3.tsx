@@ -72,9 +72,8 @@ export const MbmcBlock3: FC<MbmcBlock3Props> = ({
                         onClick={() =>
                             handleElementClick(mode, `${String(index)}.description`, handleClick)
                         }
-                    >
-                        {description}
-                    </p>
+                        dangerouslySetInnerHTML={{ __html: description }}
+                    />
                     <div className={classes.block3Ctas}>
                         {renderCtas(
                             ctas ?? [],

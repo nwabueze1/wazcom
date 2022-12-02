@@ -5,6 +5,7 @@ import { MbmcBlock9Props } from "./types";
 import { handleElementClick } from "../../utilities";
 import { LazyImage } from "../../../../core";
 import { useMediaQuery, useTheme } from "@mui/material";
+import { Link } from "../../components";
 
 export const MbmcBlock9: FC<MbmcBlock9Props> = ({
     mode = "view",
@@ -79,7 +80,7 @@ export const MbmcBlock9: FC<MbmcBlock9Props> = ({
                     <div className={classes.headerCardContainer}>
                         {steps.map((step, idx) => {
                             const key = String(index) + ".steps." + String(idx);
-                            return (
+                            return mode === "edit" ? (
                                 <div
                                     onClick={() => {
                                         mode === "edit" && setActive(idx);
@@ -131,6 +132,38 @@ export const MbmcBlock9: FC<MbmcBlock9Props> = ({
                                         </p>
                                     </div>
                                 </div>
+                            ) : (
+                                <Link key={idx} className={classes.pointContainer} href={step.url}>
+                                    <div
+                                        className={clx(
+                                            classes.point,
+                                            active == idx && classes.activePoint,
+                                        )}
+                                    >
+                                        {idx + 1}
+                                    </div>
+                                    <div className={classes.pointTextContainer}>
+                                        <p
+                                            className={clx(
+                                                classes.pointTitle,
+                                                active === idx && classes.activeTitle,
+                                                activeElement === key + ".heading" &&
+                                                    classes.block9ActiveElement,
+                                            )}
+                                        >
+                                            {step.heading}
+                                        </p>
+                                        <p
+                                            className={clx(
+                                                classes.pointDescription,
+                                                activeElement === key + ".description" &&
+                                                    classes.block9ActiveElement,
+                                            )}
+                                        >
+                                            {step.description}
+                                        </p>
+                                    </div>
+                                </Link>
                             );
                         })}
                     </div>

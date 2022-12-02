@@ -16,6 +16,7 @@ import { BsTwitter } from "react-icons/bs";
 import { FaInstagram } from "react-icons/fa";
 import { RiLinkedinFill, RiYoutubeFill } from "react-icons/ri";
 import clx from "classnames";
+import { Link } from "../../mbmc/components";
 export var displaySections = function (mode, classes, sections, activeElement, handleClick, parentKey) {
     return sections.map(function (_a, index) {
         var name = _a.name, links = _a.links;
@@ -33,7 +34,7 @@ export var displaySections = function (mode, classes, sections, activeElement, h
                                         clickAction(url, mode, function () {
                                             handleClick(mode === "view" ? url : linkId);
                                         });
-                                    } }, { children: text }), void 0)) : (_jsx("a", __assign({ href: url, className: classes.footerSectionLink, target: url.startsWith("/") ? "_self" : "_blank", rel: "noreferrer noopener" }, { children: text }), void 0))] }), index));
+                                    } }, { children: text }), void 0)) : (_jsx(Link, __assign({ href: url, className: classes.footerSectionLink }, { children: text }), void 0))] }), index));
                     }) }), void 0)] }), index));
     });
 };
