@@ -10,7 +10,6 @@ export var useMbmcBlock1Styles = makeStyles(function (theme) {
                 },
                 position: "relative",
                 overflow: "hidden",
-                border: "1px solid transparent",
                 transition: "all 0.3s ease-in"
             },
             _a[theme.breakpoints.down("lg")] = {

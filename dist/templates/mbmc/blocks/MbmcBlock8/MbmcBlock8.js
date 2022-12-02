@@ -29,8 +29,12 @@ export var MbmcBlock8 = function (_a) {
                             } }, { children: description }), void 0)] }), void 0), _jsx("div", __assign({ className: classes.headerCardContainer }, { children: _jsx(Carousel2, { classNames: { button: classes.navigationButton }, items: splitData.map(function (data, splitIndex) {
                             return {
                                 component: (_jsx("div", __assign({ className: classes.carouselComponent }, { children: data.map(function (item, cardIndex) {
-                                        var parentKey = String(index) + ".cards." + String(cardIndex + (splitIndex * 2));
-                                        return (_jsx(TestimonialCard, { text: item.content, name: item.name, type: item.role, parentKey: parentKey, mode: mode, handleClick: handleClick, activeElement: activeElement }, cardIndex));
+                                        var parentKey = String(index) +
+                                            ".cards." +
+                                            String(cardIndex + splitIndex * 2);
+                                        return (_jsx(TestimonialCard, { text: item.content.length > 135
+                                                ? item.content.slice(0, 133) + "..."
+                                                : item.content, name: item.name, type: item.role, parentKey: parentKey, mode: mode, handleClick: handleClick, activeElement: activeElement }, cardIndex));
                                     }) }), void 0)),
                             };
                         }), className: classes.carousel }, void 0) }), void 0), _jsx("div", __assign({ className: classes.headerCardContainerMobile }, { children: _jsx(Carousel2, { items: cards.map(function (item, idx) { return ({

@@ -1,5 +1,5 @@
 import { useMbmcBlock1Styles } from "./styles";
-import { FC, useEffect, useState } from "react";
+import { FC } from "react";
 import { MbmcBlock1Props } from "./types";
 import clx from "classnames";
 import { renderCtas, handleElementClick } from "../../utilities";
@@ -16,11 +16,6 @@ export const MbmcBlock1: FC<MbmcBlock1Props> = ({
     fullHeight = true,
 }) => {
     const classes = useMbmcBlock1Styles({ fullHeight });
-    const [isClient, setIsClient] = useState(false);
-
-    useEffect(() => {
-        setIsClient(true);
-    }, []);
 
     return (
         <div
@@ -31,21 +26,20 @@ export const MbmcBlock1: FC<MbmcBlock1Props> = ({
         >
             <div className={classes.block1Container}>
                 <div className={classes.block1Content}>
-                    {isClient && (
-                        <h1
-                            className={clx(
-                                classes.block1Heading,
-                                activeElement === `${String(index)}.heading` &&
-                                    classes.block1ActiveElement,
-                            )}
-                            dangerouslySetInnerHTML={{
-                                __html: heading,
-                            }}
-                            onClick={() =>
-                                handleElementClick(mode, `${String(index)}.heading`, handleClick)
-                            }
-                        />
-                    )}
+                    <h1
+                        className={clx(
+                            classes.block1Heading,
+                            activeElement === `${String(index)}.heading` &&
+                                classes.block1ActiveElement,
+                        )}
+                        dangerouslySetInnerHTML={{
+                            __html: heading,
+                        }}
+                        onClick={() =>
+                            handleElementClick(mode, `${String(index)}.heading`, handleClick)
+                        }
+                    >
+                    </h1>
                     <p
                         className={clx(
                             classes.block1Description,

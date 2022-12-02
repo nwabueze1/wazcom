@@ -6,7 +6,6 @@ export var useMbmcBlock3Styles = makeStyles(function (theme) {
             position: "relative",
             overflow: "hidden",
             background: theme.design.colors.white,
-            border: "1px solid transparent",
             transition: "all 0.3s ease-in",
         },
         block3Container: (_a = {

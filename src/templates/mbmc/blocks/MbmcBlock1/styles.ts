@@ -8,7 +8,6 @@ export const useMbmcBlock1Styles = makeStyles<Theme, MbmcBlock1StyleProps>((them
         height: ({ fullHeight }) => (fullHeight ? "100vh" : "70vh"),
         position: "relative",
         overflow: "hidden",
-        border: "1px solid transparent",
         transition: "all 0.3s ease-in",
 
         [theme.breakpoints.down("lg")]: {
