@@ -12,7 +12,7 @@ export const MbmcButton: FC<MbmcButtonProps> = ({
     className,
     type = "button",
     handleClick,
-    activeElement,
+    activeElement = "",
     ...props
 }) => {
     const classes = useButtonStyles();

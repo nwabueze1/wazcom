@@ -1,6 +1,6 @@
 import { makeStyles } from "@mui/styles";
 export var useMbmcBlock9Styles = makeStyles(function (theme) {
-    var _a, _b, _c, _d, _e, _f, _g, _h, _j, _k, _l, _m, _o, _p, _q, _r;
+    var _a, _b, _c, _d, _e, _f, _g, _h, _j, _k, _l, _m, _o, _p, _q, _r, _s;
     return ({
         root: (_a = {
                 backgroundColor: theme.design.colors.waz_white,
@@ -111,36 +111,41 @@ export var useMbmcBlock9Styles = makeStyles(function (theme) {
             flexDirection: "column",
             fontFamily: theme.design.font.montserrat,
         },
-        point: {
-            padding: theme.spacing(2, 3),
-            fontFamily: theme.design.font.openSans,
-            fontSize: theme.typography.fontSize * 2,
-            boxShadow: "0px 1px 10px ".concat(theme.design.colors.waz_black100),
-            borderRadius: theme.spacing(1),
-            marginRight: theme.spacing(2),
-            color: theme.design.colors.waz_primaryColor300,
-            fontWeight: theme.typography.fontWeightBold,
-        },
-        pointDescription: (_g = {
+        point: (_g = {
+                padding: theme.spacing(2, 3),
+                fontFamily: theme.design.font.openSans,
+                fontSize: theme.typography.fontSize * 2,
+                boxShadow: "0px 1px 10px ".concat(theme.design.colors.waz_black100),
+                borderRadius: theme.spacing(1),
+                marginRight: theme.spacing(2),
+                color: theme.design.colors.waz_primaryColor300,
+                fontWeight: theme.typography.fontWeightBold
+            },
+            _g[theme.breakpoints.down("sm")] = {
+                fontSize: theme.typography.fontSize + 4,
+                padding: theme.spacing(2, 2.5),
+            },
+            _g),
+        pointDescription: (_h = {
                 color: theme.design.colors.waz_greyColor600,
                 textAlign: "left",
                 fontSize: theme.typography.fontSize,
                 width: "100%",
                 lineHeight: 1.7
             },
-            _g[theme.breakpoints.down(1450)] = {
+            _h[theme.breakpoints.down(1450)] = {
                 fontSize: theme.typography.fontSize,
             },
-            _g[theme.breakpoints.down("lg")] = {
+            _h[theme.breakpoints.down("lg")] = {
                 width: "80%",
                 fontSize: theme.typography.fontSize,
             },
-            _g[theme.breakpoints.down("md")] = {
+            _h[theme.breakpoints.down("md")] = {
                 fontSize: theme.typography.fontSize + 2,
                 width: "100%",
             },
-            _g),
-        pointTitle: (_h = {
+            _h),
+        pointTitle: (_j = {
                 color: theme.design.colors.waz_black,
                 fontWeight: theme.typography.fontWeightBold,
                 fontSize: theme.typography.fontSize + 4,
@@ -150,19 +155,19 @@ export var useMbmcBlock9Styles = makeStyles(function (theme) {
                 textAlign: "left",
                 marginBottom: theme.spacing(0.5)
             },
-            _h[theme.breakpoints.down(1450)] = {
+            _j[theme.breakpoints.down(1450)] = {
                 fontSize: theme.typography.fontSize + 4,
             },
-            _h[theme.breakpoints.down("lg")] = {
+            _j[theme.breakpoints.down("lg")] = {
                 fontSize: theme.typography.fontSize + 4,
             },
-            _h[theme.breakpoints.down("md")] = {
+            _j[theme.breakpoints.down("md")] = {
                 textAlign: "left",
                 fontSize: theme.typography.fontSize + 4,
                 fontWeight: 800,
                 marginBottom: theme.spacing(1),
             },
-            _h),
+            _j),
         activePoint: {
             backgroundColor: theme.design.colors.waz_primaryColor300,
             color: theme.design.colors.waz_white,
@@ -173,15 +178,15 @@ export var useMbmcBlock9Styles = makeStyles(function (theme) {
         textContainer: {
             width: "100%",
         },
-        imageStep: (_j = {
+        imageStep: (_k = {
                 height: "100%",
                 width: "100%"
             },
-            _j[theme.breakpoints.down("lg")] = {
+            _k[theme.breakpoints.down("lg")] = {
                 height: "unset",
             },
-            _j),
-        directionContainer: (_k = {
+            _k),
+        directionContainer: (_l = {
                 width: "100%",
                 height: "100%",
                 display: "flex",
@@ -189,46 +194,32 @@ export var useMbmcBlock9Styles = makeStyles(function (theme) {
                 justifyContent: "center",
                 overflow: "hidden"
             },
-            _k[theme.breakpoints.down("lg")] = {
+            _l[theme.breakpoints.down("lg")] = {
                 alignItems: "flex-end",
             },
-            _k[theme.breakpoints.down("md")] = {
+            _l[theme.breakpoints.down("md")] = {
                 display: "none",
             },
-            _k),
-        directionContainerMobile: (_l = {
+            _l),
+        directionContainerMobile: (_m = {
                 width: "100%",
                 height: "100%",
                 display: "none",
                 alignItems: "center",
                 padding: theme.spacing(2)
             },
-            _l[theme.breakpoints.down("md")] = {
+            _m[theme.breakpoints.down("md")] = {
                 display: "flex",
                 height: "auto",
                 padding: theme.spacing(0),
             },
-            _l),
-        imgDirection1: (_m = {
+            _m),
+        imgDirection1: (_o = {
                 position: "absolute",
                 width: 168,
                 height: 160,
                 top: 0,
                 left: 0,
-                backgroundColor: theme.design.colors.waz_white,
-                marginTop: theme.spacing(-7)
-            },
-            _m[theme.breakpoints.down("lg")] = {
-                marginTop: theme.spacing(-1),
-                width: 100,
-            },
-            _m),
-        imgDirection2: (_o = {
-                position: "absolute",
-                width: 168,
-                height: 160,
-                top: 0,
-                right: 0,
                 backgroundColor: theme.design.colors.waz_white,
                 marginTop: theme.spacing(-7)
             },
@@ -237,7 +228,21 @@ export var useMbmcBlock9Styles = makeStyles(function (theme) {
                 width: 100,
             },
             _o),
-        imgDirection3: (_p = {
+        imgDirection2: (_p = {
+                position: "absolute",
+                width: 168,
+                height: 160,
+                top: 0,
+                right: 0,
+                backgroundColor: theme.design.colors.waz_white,
+                marginTop: theme.spacing(-7)
+            },
+            _p[theme.breakpoints.down("lg")] = {
+                marginTop: theme.spacing(-1),
+                width: 100,
+            },
+            _p),
+        imgDirection3: (_q = {
                 width: 168,
                 height: 160,
                 position: "absolute",
@@ -246,12 +251,12 @@ export var useMbmcBlock9Styles = makeStyles(function (theme) {
                 backgroundColor: theme.design.colors.waz_white,
                 marginBottom: theme.spacing(-7)
             },
-            _p[theme.breakpoints.down("lg")] = {
+            _q[theme.breakpoints.down("lg")] = {
                 marginBottom: theme.spacing(-1),
                 width: 100,
             },
-            _p),
-        imgDirection4: (_q = {
+            _q),
+        imgDirection4: (_r = {
                 width: 168,
                 height: 160,
                 position: "absolute",
@@ -260,18 +265,18 @@ export var useMbmcBlock9Styles = makeStyles(function (theme) {
                 backgroundColor: theme.design.colors.waz_white,
                 marginBottom: theme.spacing(-7)
             },
-            _q[theme.breakpoints.down("lg")] = {
+            _r[theme.breakpoints.down("lg")] = {
                 marginBottom: theme.spacing(-1),
                 width: 100,
             },
-            _q),
-        mobileHide: (_r = {
+            _r),
+        mobileHide: (_s = {
                 display: "block"
             },
-            _r[theme.breakpoints.down("lg")] = {
+            _s[theme.breakpoints.down("lg")] = {
                 display: "none",
             },
-            _r),
+            _s),
         block9ActiveElement: {
             border: "1px dashed",
             borderColor: theme.design.colors.waz_primaryColor100,

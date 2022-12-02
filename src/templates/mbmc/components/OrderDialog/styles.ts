@@ -19,7 +19,6 @@ export const useMbmcBlock16Styles = makeStyles((theme: Theme) => ({
             width: "50%",
         },
 
-        
         [theme.breakpoints.down("lg")]: {
             width: "70%",
         },
@@ -32,17 +31,13 @@ export const useMbmcBlock16Styles = makeStyles((theme: Theme) => ({
         display: "flex",
         gap: "8px",
         marginBottom: theme.spacing(2),
+        alignItems: 'center',
     },
     dialogImage: {
         width: "31%",
-        maxHeight: "125px",
-        height: '100%',
+        height: "172px",
         borderRadius: "5px",
         objectFit: 'cover',
-
-        [theme.breakpoints.down("md")]: {
-            height: "89%",
-        },
     },
     content: {
         width: "60%",

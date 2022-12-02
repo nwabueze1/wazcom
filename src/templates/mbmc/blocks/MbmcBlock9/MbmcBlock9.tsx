@@ -1,5 +1,5 @@
 import { useMbmcBlock9Styles } from "./styles";
-import { FC, useState } from "react";
+import { FC, useState, useEffect } from "react";
 import clx from "classnames";
 import { MbmcBlock9Props } from "./types";
 import { handleElementClick } from "../../utilities";
@@ -20,6 +20,18 @@ export const MbmcBlock9: FC<MbmcBlock9Props> = ({
     const [active, setActive] = useState(0);
     const isMobile = useMediaQuery(theme.breakpoints.down("md"));
     const isDesktop = useMediaQuery(theme.breakpoints.up("md"));
+
+    useEffect(() => {
+        if (mode === "edit") return;
+
+        const activeInterval = setInterval(() => {
+            setActive(active === steps.length - 1 ? 0 : active + 1);
+        }, 1500);
+
+        return () => {
+            clearInterval(activeInterval);
+        };
+    }, [active]);
 
     return (
         <div className={classes.root}>
@@ -69,7 +81,9 @@ export const MbmcBlock9: FC<MbmcBlock9Props> = ({
                             const key = String(index) + ".steps." + String(idx);
                             return (
                                 <div
-                                    onClick={() => setActive(idx)}
+                                    onClick={() => {
+                                        mode === "edit" && setActive(idx);
+                                    }}
                                     key={idx}
                                     className={classes.pointContainer}
                                 >

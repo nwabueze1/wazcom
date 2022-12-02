@@ -82,6 +82,7 @@ export const useGetMbmcBlocks = () => {
                 heading: "Our Premium Services",
                 description: `Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed
             diam nonumy eirmod tempor invidunt ut labore et dolore a….`,
+                url: "/menu",
                 cards: [
                     {
                         heading: "Baking",
@@ -103,7 +104,7 @@ export const useGetMbmcBlocks = () => {
                     },
                 ],
 
-                mode: "edit",
+                // mode: "edit",
                 index: 0,
                 handleClick: (route: string) => alert(route),
                 activeElement: "0.cards.2.image",
@@ -178,7 +179,7 @@ export const useGetMbmcBlocks = () => {
                         links: [
                             {
                                 text: "@mrbakerandmrscook",
-                                url: "https://www.instagram.com/mrbakermrscook/",
+                                url: "https://www.instagram.com/mrbakermrscook/?hl=en",
                                 icon: "instagram",
                             },
                         ],
@@ -346,9 +347,8 @@ export const useGetMbmcBlocks = () => {
                         image: "https://sytbuildr.s3.eu-west-2.amazonaws.com/images/mbmc/step4.svg",
                     },
                 ],
-                mode: "edit",
-                index: 0,
-                activeElement: "0.steps.1.heading",
+                // mode: "edit",
+                // activeElement: "0.steps.1.heading",
                 handleClick: (element: string) => alert(element),
             },
         },
