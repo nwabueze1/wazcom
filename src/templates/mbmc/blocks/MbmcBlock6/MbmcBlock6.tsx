@@ -62,7 +62,7 @@ export const MbmcBlock6: FC<MbmcBlock6Props> = ({
 
     const displayCategories = () =>
         categories.map((category, index) => (
-            <MbmcCard key={index} {...category} handleClick={handleClick} />
+            <MbmcCard key={index} {...category} mode={mode} handleClick={handleClick} />
         ));
 
     return (
