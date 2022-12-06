@@ -36,7 +36,7 @@ export const MbmcCard: React.FC<MbmcCardProps> = ({
                     activeElement === parentKey + ".image" && classes.cardActiveElement,
                 )}
                 onClick={(e) => {
-                    e.stopPropagation();
+                    mode === 'edit' && e.stopPropagation();
                     handleElementClick(mode, parentKey + ".image", handleClick);
                 }}
             >
@@ -51,7 +51,7 @@ export const MbmcCard: React.FC<MbmcCardProps> = ({
                             activeElement === parentKey + ".heading" && classes.cardActiveElement,
                         )}
                         onClick={(e) => {
-                            e.stopPropagation();
+                            mode === 'edit' && e.stopPropagation();
                             handleElementClick(mode, parentKey + ".heading", handleClick);
                         }}
                     >
@@ -65,7 +65,7 @@ export const MbmcCard: React.FC<MbmcCardProps> = ({
                                 classes.cardActiveElement,
                         )}
                         onClick={(e) => {
-                            e.stopPropagation();
+                            mode === 'edit' && e.stopPropagation();
                             handleElementClick(mode, parentKey + ".description", handleClick);
                         }}
                     >
