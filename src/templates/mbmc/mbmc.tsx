@@ -243,6 +243,10 @@ export const useGetMbmcBlocks = () => {
                 },
                 integratedService: "NICODEMUS",
                 site_uuid: "ca2291e7-7789-43c5-8ab3-5bbb01228b07",
+                mode: "edit",
+                index: 0,
+                activeElement: "0.description",
+                handleClick: (route: string) => alert(route),
             },
         },
         {

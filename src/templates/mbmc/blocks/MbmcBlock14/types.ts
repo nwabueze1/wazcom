@@ -3,7 +3,5 @@ import { BlockLayout, MbmcCommonProps, HivedeckService } from "templates/mbmc/ty
 export type MbmcBlock14Props = MbmcCommonProps & {
     layout?: BlockLayout;
     integratedServices: HivedeckService[];
-    heading: string;
-    description?: string;
     site_uuid: string;
 };

@@ -50,7 +50,8 @@ export var useMbmcBlock7Styles = makeStyles(function (theme) {
                 textAlign: "center",
                 marginTop: theme.spacing(6),
                 marginBottom: theme.spacing(2),
-                fontFamily: theme.design.font.lostaMasta
+                fontFamily: theme.design.font.lostaMasta,
+                border: "1px solid transparent"
             },
             _c[theme.breakpoints.down(1450)] = {
                 fontSize: theme.typography.fontSize * 3,
@@ -76,7 +77,8 @@ export var useMbmcBlock7Styles = makeStyles(function (theme) {
                 fontSize: theme.typography.fontSize + 6,
                 width: "38%",
                 fontFamily: theme.design.font.montserrat,
-                marginBottom: theme.spacing(6)
+                marginBottom: theme.spacing(6),
+                border: "1px solid transparent"
             },
             _d[theme.breakpoints.down(1450)] = {
                 fontSize: theme.typography.fontSize + 3,
@@ -126,6 +128,10 @@ export var useMbmcBlock7Styles = makeStyles(function (theme) {
             gridTemplateColumns: "1fr 1fr 1fr",
             gap: theme.spacing(1),
             height: "fit-content",
+        },
+        block7ActiveElement: {
+            border: "1px dashed",
+            borderColor: theme.design.colors.waz_primaryColor100,
         },
     });
 });

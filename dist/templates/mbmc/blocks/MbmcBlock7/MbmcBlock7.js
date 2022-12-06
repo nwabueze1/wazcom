@@ -33,19 +33,20 @@ import { LazyImage } from "../../../../core";
 import { GET_INSTAGRAM_IMAGES } from "./graphql";
 import { createApolloClient } from "../../../../helpers/graphQL";
 import { useQuery } from "@apollo/client";
+import { handleElementClick } from "../../utilities";
 export var MbmcBlock7 = function (_a) {
-    var heading = _a.heading, description = _a.description, _b = _a.images, images = _b === void 0 ? [] : _b, services = _a.services, integratedService = _a.integratedService, site_uuid = _a.site_uuid;
+    var _b = _a.mode, mode = _b === void 0 ? "view" : _b, _c = _a.activeElement, activeElement = _c === void 0 ? "" : _c, handleClick = _a.handleClick, index = _a.index, heading = _a.heading, description = _a.description, _d = _a.images, images = _d === void 0 ? [] : _d, services = _a.services, integratedService = _a.integratedService, site_uuid = _a.site_uuid;
     var classes = useMbmcBlock7Styles();
     var client = useMemo(function () { return createApolloClient(services ? services[integratedService] : ""); }, []);
-    var _c = useQuery(GET_INSTAGRAM_IMAGES, {
+    var _e = useQuery(GET_INSTAGRAM_IMAGES, {
         client: client,
         variables: {
             uuid: site_uuid,
             platform: "Instagram",
             sociable_type: "site",
         },
-    }), data = _c.data, loading = _c.loading;
-    var _d = __read(useState([]), 2), instagramImages = _d[0], setInstagramImages = _d[1];
+    }), data = _e.data, loading = _e.loading;
+    var _f = __read(useState([]), 2), instagramImages = _f[0], setInstagramImages = _f[1];
     useEffect(function () {
         if (data) {
             setInstagramImages(function () {
@@ -59,7 +60,11 @@ export var MbmcBlock7 = function (_a) {
             });
         }
     }, [data]);
-    return (_jsxs("div", __assign({ className: classes.root }, { children: [_jsxs("div", __assign({ className: classes.headerContent }, { children: [_jsx("h3", __assign({ className: classes.headerTitle }, { children: heading }), void 0), _jsx("p", __assign({ className: classes.headerDescription }, { children: description }), void 0)] }), void 0), _jsx("div", __assign({ className: classes.mobileCardContainer }, { children: !loading ? (instagramImages.length > 0 ? (instagramImages
+    return (_jsxs("div", __assign({ className: classes.root }, { children: [_jsxs("div", __assign({ className: classes.headerContent }, { children: [_jsx("h3", __assign({ className: clx(classes.headerTitle, activeElement === "".concat(String(index), ".heading") && classes.block7ActiveElement), onClick: function () {
+                            return handleElementClick(mode, "".concat(String(index), ".heading"), handleClick);
+                        } }, { children: heading }), void 0), _jsx("p", __assign({ className: clx(classes.headerDescription, activeElement === "".concat(String(index), ".description") && classes.block7ActiveElement), onClick: function () {
+                            return handleElementClick(mode, "".concat(String(index), ".description"), handleClick);
+                        } }, { children: description }), void 0)] }), void 0), _jsx("div", __assign({ className: classes.mobileCardContainer }, { children: !loading ? (instagramImages.length > 0 ? (instagramImages
                     .slice(0, 9)
-                    .map(function (image, idx) { return (_jsx(LazyImage, { src: image, className: clx(classes.imageContainer) }, idx)); })) : (images.map(function (image, idx) { return (_jsx(LazyImage, { src: image, className: clx(classes.imageContainer) }, idx)); }))) : (_jsx(_Fragment, {}, void 0)) }), void 0)] }), void 0));
+                    .map(function (image, idx) { return (_jsx(LazyImage, { src: image, mode: mode, className: clx(classes.imageContainer) }, idx)); })) : (images.map(function (image, idx) { return (_jsx(LazyImage, { src: image, className: clx(classes.imageContainer) }, idx)); }))) : (_jsx(_Fragment, {}, void 0)) }), void 0)] }), void 0));
 };

@@ -6,8 +6,13 @@ import { LazyImage } from "../../../../core";
 import { GET_INSTAGRAM_IMAGES } from "./graphql";
 import { createApolloClient } from "../../../../helpers/graphQL";
 import { useQuery } from "@apollo/client";
+import { handleElementClick } from "../../utilities";
 
 export const MbmcBlock7: FC<MbmcBlock7Props> = ({
+    mode = "view",
+    activeElement = "",
+    handleClick,
+    index,
     heading,
     description,
     images = [],
@@ -47,8 +52,28 @@ export const MbmcBlock7: FC<MbmcBlock7Props> = ({
     return (
         <div className={classes.root}>
             <div className={classes.headerContent}>
-                <h3 className={classes.headerTitle}>{heading}</h3>
-                <p className={classes.headerDescription}>{description}</p>
+                <h3
+                    className={clx(
+                        classes.headerTitle,
+                        activeElement === `${String(index)}.heading` && classes.block7ActiveElement,
+                    )}
+                    onClick={() =>
+                        handleElementClick(mode, `${String(index)}.heading`, handleClick)
+                    }
+                >
+                    {heading}
+                </h3>
+                <p
+                    className={clx(
+                        classes.headerDescription,
+                        activeElement === `${String(index)}.description` && classes.block7ActiveElement,
+                    )}
+                    onClick={() =>
+                        handleElementClick(mode, `${String(index)}.description`, handleClick)
+                    }
+                >
+                    {description}
+                </p>
             </div>
             <div className={classes.mobileCardContainer}>
                 {!loading ? (
@@ -59,6 +84,7 @@ export const MbmcBlock7: FC<MbmcBlock7Props> = ({
                                 <LazyImage
                                     key={idx}
                                     src={image}
+                                    mode={mode}
                                     className={clx(classes.imageContainer)}
                                 />
                             ))

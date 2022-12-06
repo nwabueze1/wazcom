@@ -51,6 +51,8 @@ export const useMbmcBlock7Styles = makeStyles((theme: Theme) => ({
         marginTop: theme.spacing(6),
         marginBottom: theme.spacing(2),
         fontFamily: theme.design.font.lostaMasta,
+        border: "1px solid transparent",
+
         [theme.breakpoints.down(1450)]: {
             fontSize: theme.typography.fontSize * 3,
         },
@@ -76,6 +78,7 @@ export const useMbmcBlock7Styles = makeStyles((theme: Theme) => ({
         width: "38%",
         fontFamily: theme.design.font.montserrat,
         marginBottom: theme.spacing(6),
+        border: "1px solid transparent",
 
         [theme.breakpoints.down(1450)]: {
             fontSize: theme.typography.fontSize + 3,
@@ -125,5 +128,9 @@ export const useMbmcBlock7Styles = makeStyles((theme: Theme) => ({
         gridTemplateColumns: "1fr 1fr 1fr",
         gap: theme.spacing(1),
         height: "fit-content",
+    },
+    block7ActiveElement: {
+        border: "1px dashed",
+        borderColor: theme.design.colors.waz_primaryColor100,
     },
 }));
