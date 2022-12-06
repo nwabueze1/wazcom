@@ -425,11 +425,15 @@ export const useGetMbmcBlocks = () => {
                 client: {
                     type: "emailjs",
                     credentials: {
-                        service_id: "default_service",
-                        template_id: "template_yw4xkdn",
-                        user_id: "ppLpfYN6_0WxA0xZ6",
+                        service_id: "service_e0r79wm",
+                        template_id: "template_1qe38gr",
+                        user_id: "_h6kVofH7LYFXtlsI",
                     },
                 },
+                mode: "edit",
+                handleClick: (route: string) => alert(route),
+                index: 0,
+                activeElement: "0.ctas.0",
             },
         },
         {
