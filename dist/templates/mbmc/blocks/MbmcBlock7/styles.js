@@ -1,6 +1,6 @@
 import { makeStyles } from "@mui/styles";
 export var useMbmcBlock7Styles = makeStyles(function (theme) {
-    var _a, _b, _c, _d, _e;
+    var _a, _b, _c, _d;
     return ({
         root: (_a = {
                 backgroundColor: theme.design.colors.waz_white,
@@ -11,36 +11,29 @@ export var useMbmcBlock7Styles = makeStyles(function (theme) {
                 flexDirection: "column",
                 width: "100%",
                 boxSizing: "border-box",
-                padding: theme.spacing(6, 12)
+                padding: theme.spacing(12, 0)
             },
             _a[theme.breakpoints.down("lg")] = {
-                padding: theme.spacing(5, 10),
+                padding: theme.spacing(8, 0),
             },
             _a[theme.breakpoints.down("md")] = {
                 height: "100%",
-                padding: theme.spacing(5, 4),
+                padding: theme.spacing(5, 0),
             },
             _a[theme.breakpoints.down("sm")] = {
-                padding: theme.spacing(4),
-                height: "fit-content",
+                padding: theme.spacing(4, 0),
             },
             _a),
-        headerContent: (_b = {
-                width: "100%",
-                display: "flex",
-                alignItems: "center",
-                justifyContent: "flex-start",
-                flexDirection: "column",
-                marginBottom: theme.spacing(2)
-            },
-            _b[theme.breakpoints.down("md")] = {
-                width: "100%",
-            },
-            _b[theme.breakpoints.down("sm")] = {
-                width: "100%",
-            },
-            _b),
-        headerTitle: (_c = {
+        headerContent: {
+            width: "85%",
+            display: "flex",
+            alignItems: "center",
+            justifyContent: "flex-start",
+            flexDirection: "column",
+            marginBottom: theme.spacing(2),
+            maxWidth: 1720,
+        },
+        headerTitle: (_b = {
                 color: theme.design.colors.waz_primaryColor300,
                 fontSize: theme.typography.fontSize * 4,
                 letterSpacing: 0,
@@ -48,30 +41,27 @@ export var useMbmcBlock7Styles = makeStyles(function (theme) {
                 font: "normal normal medium 68px/100px Losta Masta;",
                 margin: 0,
                 textAlign: "center",
-                marginTop: theme.spacing(6),
                 marginBottom: theme.spacing(2),
                 fontFamily: theme.design.font.lostaMasta,
                 border: "1px solid transparent"
             },
-            _c[theme.breakpoints.down(1450)] = {
+            _b[theme.breakpoints.down(1450)] = {
                 fontSize: theme.typography.fontSize * 3,
             },
-            _c[theme.breakpoints.down("lg")] = {
-                marginTop: theme.spacing(3),
+            _b[theme.breakpoints.down("lg")] = {
                 fontSize: theme.typography.fontSize * 2,
             },
-            _c[theme.breakpoints.down("md")] = {
+            _b[theme.breakpoints.down("md")] = {
                 fontSize: theme.typography.fontSize * 2,
             },
-            _c[theme.breakpoints.down("sm")] = {
-                textAlign: "left",
+            _b[theme.breakpoints.down("sm")] = {
                 fontSize: theme.typography.fontSize * 1.5,
                 fontWeight: 800,
                 marginBottom: theme.spacing(1),
                 width: "100%",
             },
-            _c),
-        headerDescription: (_d = {
+            _b),
+        headerDescription: (_c = {
                 color: theme.design.colors.waz_greyColor600,
                 textAlign: "center",
                 fontSize: theme.typography.fontSize + 6,
@@ -80,34 +70,33 @@ export var useMbmcBlock7Styles = makeStyles(function (theme) {
                 marginBottom: theme.spacing(6),
                 border: "1px solid transparent"
             },
-            _d[theme.breakpoints.down(1450)] = {
+            _c[theme.breakpoints.down(1450)] = {
                 fontSize: theme.typography.fontSize + 3,
             },
-            _d[theme.breakpoints.down("lg")] = {
+            _c[theme.breakpoints.down("lg")] = {
                 fontSize: theme.typography.fontSize + 3,
                 marginBottom: theme.spacing(4),
                 width: "70%",
             },
-            _d[theme.breakpoints.down("md")] = {
+            _c[theme.breakpoints.down("md")] = {
                 fontSize: theme.typography.fontSize + 2,
                 marginBottom: theme.spacing(2),
             },
-            _d[theme.breakpoints.down("sm")] = {
+            _c[theme.breakpoints.down("sm")] = {
                 width: "100%",
-                textAlign: "left",
             },
-            _d),
-        imageContainer: (_e = {
+            _c),
+        imageContainer: (_d = {
                 width: "100%",
                 borderRadius: 4,
                 objectFit: "cover",
                 height: "23.7vw",
                 maxHeight: "341px"
             },
-            _e[theme.breakpoints.down("sm")] = {
+            _d[theme.breakpoints.down("sm")] = {
                 height: "116px",
             },
-            _e),
+            _d),
         flexGrow: {
             gridRow: "1 / span 2",
             gridColumn: "3/3",
@@ -123,7 +112,8 @@ export var useMbmcBlock7Styles = makeStyles(function (theme) {
             borderRadius: 4,
         },
         mobileCardContainer: {
-            width: "100%",
+            width: "85%",
+            maxWidth: 1720,
             display: "grid",
             gridTemplateColumns: "1fr 1fr 1fr",
             gap: theme.spacing(1),
