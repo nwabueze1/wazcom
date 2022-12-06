@@ -42,14 +42,14 @@ import clx from "classnames";
 import { useImageStyles } from "./styles";
 export var LazyImage = function (_a) {
     var _b;
-    var blurDataurl = _a.blurDataurl, _c = _a.placeholder, placeholder = _c === void 0 ? "empty" : _c, src = _a.src, className = _a.className, classNames = _a.classNames, props = __rest(_a, ["blurDataurl", "placeholder", "src", "className", "classNames"]);
+    var _c = _a.mode, mode = _c === void 0 ? "view" : _c, blurDataurl = _a.blurDataurl, _d = _a.placeholder, placeholder = _d === void 0 ? "empty" : _d, src = _a.src, className = _a.className, classNames = _a.classNames, props = __rest(_a, ["mode", "blurDataurl", "placeholder", "src", "className", "classNames"]);
     var imageRef = useRef(null);
     var classes = useImageStyles();
-    var _d = __read(useState(false), 2), isVisible = _d[0], setIsVisible = _d[1];
-    var _e = __read(useState({
+    var _e = __read(useState(false), 2), isVisible = _e[0], setIsVisible = _e[1];
+    var _f = __read(useState({
         width: 1,
         height: 1,
-    }), 2), imageDimensions = _e[0], setImageDimensions = _e[1];
+    }), 2), imageDimensions = _f[0], setImageDimensions = _f[1];
     var checkImageVisbilitiy = function () {
         if (!imageRef.current)
             return;
@@ -82,5 +82,5 @@ export var LazyImage = function (_a) {
     }, []);
     return placeholder === "blur" ? (_jsx("img", __assign({}, props, { src: isVisible ? src : generatePlaceholderSrcUrl(blurDataurl, src), ref: imageRef, className: clx((_b = {},
             _b[classes.blur] = !isVisible,
-            _b), className, !isVisible && (classNames === null || classNames === void 0 ? void 0 : classNames.loadingPlaceholder)) }), void 0)) : (_jsx("img", __assign({}, props, { src: isVisible ? src : undefined, ref: imageRef, className: className }), void 0));
+            _b), className, !isVisible && (classNames === null || classNames === void 0 ? void 0 : classNames.loadingPlaceholder)) }), void 0)) : (_jsx("img", __assign({}, props, { src: mode === "edit" || isVisible ? src : undefined, ref: imageRef, className: className }), void 0));
 };

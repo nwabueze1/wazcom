@@ -39,7 +39,7 @@ export const MbmcCard: React.FC<MbmcCardProps> = ({
                     handleElementClick(mode, parentKey + ".image", handleClick);
                 }}
             >
-                <LazyImage src={image ?? menuImagePlaceholder} className={classes.image} />
+                <LazyImage src={image ?? menuImagePlaceholder} mode={mode} className={classes.image} />
             </div>
             <div className={classes.content}>
                 <div>
