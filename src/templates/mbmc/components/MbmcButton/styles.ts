@@ -32,8 +32,9 @@ export const useButtonStyles = makeStyles((theme: Theme) => ({
         background: `${theme.design.colors.waz_primaryColor200} !important`,
     },
     buttonNeutral: {
-        background: theme.design.colors.waz_white,
+        background: `${theme.design.colors.waz_white} !important`,
         color: theme.design.colors.waz_black,
+        fontWeight: theme.typography.fontWeightBold,
     },
     buttonActive: {
         border: "1px dashed",

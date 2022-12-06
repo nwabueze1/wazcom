@@ -2,7 +2,7 @@ import { FC, useContext } from "react";
 import { RestaurantContext } from "../../../../../contexts";
 import { useStepHeaderStyles } from "./styles";
 import { StepHeaderProps } from "./types";
-import { getCurrency } from "utilities";
+import { getCurrency } from "../../../../../../../utilities";
 import { calculateCartSubTotal } from "../../../helpers";
 import { CoreCartFields } from "../../../../../models";
 import { DeliveryOption, deliveryOptions } from "../../Delivery";
@@ -16,7 +16,6 @@ export const StepHeader: FC<StepHeaderProps> = ({ name, handleEdit }) => {
     const subTotal = calculateCartSubTotal(cart as CoreCartFields);
     const deliveryFee = Number(cart?.restaurant?.bank_info?.delivery_fee);
 
-    console.log(cart);
 
     if (parsedName === "summary")
         return (

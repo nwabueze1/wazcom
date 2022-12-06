@@ -1,5 +1,5 @@
 export interface CoreAddressFields {
-    phone: string;
+    uuid: string;
     addressline1: string;
     city: string;
     state: string;

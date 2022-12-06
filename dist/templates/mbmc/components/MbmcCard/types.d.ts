@@ -7,4 +7,5 @@ export declare type MbmcCardProps = MbmcCommonProps & {
     ctas?: BlockCta[];
     parentKey?: string;
     scrollableParent?: boolean;
+    url?: string;
 };

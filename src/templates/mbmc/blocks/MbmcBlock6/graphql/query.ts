@@ -5,6 +5,7 @@ export const GET_MENU_BY_UUID = gql`
         menu(uuid: $uuid) {
             name
             activeMenuCategories {
+                uuid
                 title 
                 menuItems {
                     image_url

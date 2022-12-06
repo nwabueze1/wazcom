@@ -10,8 +10,8 @@ export var useMbmcBlock12Styles = makeStyles(function (theme) {
             },
         },
         container: (_a = {
-                maxWidth: 1240,
-                width: "90%",
+                maxWidth: 1720,
+                width: "85%",
                 margin: "0 auto",
                 display: "flex",
                 position: "relative",
@@ -19,6 +19,7 @@ export var useMbmcBlock12Styles = makeStyles(function (theme) {
             },
             _a[theme.breakpoints.down("lg")] = {
                 flexDirection: "column",
+                width: '90%',
             },
             _a[theme.breakpoints.down("sm")] = {
                 width: "100%",
@@ -48,7 +49,8 @@ export var useMbmcBlock12Styles = makeStyles(function (theme) {
                 textTransform: "capitalize",
                 font: "normal normal medium 68px/100px Losta Masta;",
                 margin: 0,
-                fontFamily: theme.design.font.lostaMasta
+                fontFamily: theme.design.font.lostaMasta,
+                border: "1px solid transparent"
             },
             _c[theme.breakpoints.down("lg")] = {
                 fontSize: theme.typography.fontSize * 3,
@@ -66,7 +68,8 @@ export var useMbmcBlock12Styles = makeStyles(function (theme) {
                 color: theme.design.colors.waz_greyColor600,
                 fontSize: theme.typography.fontSize + 2,
                 fontFamily: theme.design.font.montserrat,
-                lineHeight: 1.5
+                lineHeight: 1.5,
+                border: "1px solid transparent"
             },
             _d[theme.breakpoints.down("lg")] = {
                 fontSize: theme.typography.fontSize + 4,
@@ -79,6 +82,10 @@ export var useMbmcBlock12Styles = makeStyles(function (theme) {
                 fontSize: theme.typography.fontSize + 4,
             },
             _d),
+        button: {
+            width: '100%',
+            fontWeight: theme.typography.fontWeightMedium,
+        },
         formContainer: (_e = {
                 width: "45%",
                 position: "relative",
@@ -223,6 +230,10 @@ export var useMbmcBlock12Styles = makeStyles(function (theme) {
         success: {
             color: theme.design.colors.waz_successColor100,
             marginTop: theme.spacing(1),
+        },
+        block12ActiveElement: {
+            border: "1px dashed",
+            borderColor: theme.design.colors.waz_primaryColor100,
         },
     });
 });

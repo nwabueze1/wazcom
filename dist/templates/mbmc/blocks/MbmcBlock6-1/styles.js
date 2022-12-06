@@ -1,17 +1,21 @@
 import { makeStyles } from "@mui/styles";
 export var useMbmcBlock61Styles = makeStyles(function (theme) {
-    var _a, _b, _c, _d, _e, _f, _g, _h, _j, _k;
+    var _a, _b, _c, _d, _e, _f, _g, _h, _j, _k, _l;
     return ({
         root: {
             backgroundColor: theme.design.colors.waz_greyColor50,
             padding: theme.spacing(9, 0),
         },
-        block61Container: {
-            maxWidth: 1110,
-            width: "90%",
-            margin: "0 auto",
-        },
-        block61Title: (_a = {
+        block61Container: (_a = {
+                maxWidth: 1600,
+                width: "85%",
+                margin: "0 auto"
+            },
+            _a[theme.breakpoints.down("lg")] = {
+                width: "90%",
+            },
+            _a),
+        block61Title: (_b = {
                 color: theme.design.colors.waz_primaryColor300,
                 fontSize: theme.typography.fontSize * 4,
                 letterSpacing: 0,
@@ -22,12 +26,12 @@ export var useMbmcBlock61Styles = makeStyles(function (theme) {
                 marginBottom: theme.spacing(1),
                 fontFamily: theme.design.font.lostaMasta
             },
-            _a[theme.breakpoints.down("md")] = {
+            _b[theme.breakpoints.down("md")] = {
                 marginBottom: theme.spacing(2),
                 fontSize: theme.typography.fontSize * 2,
             },
-            _a),
-        block61Description: (_b = {
+            _b),
+        block61Description: (_c = {
                 color: theme.design.colors.waz_greyColor600,
                 textAlign: "center",
                 fontSize: theme.typography.fontSize + 5,
@@ -38,34 +42,40 @@ export var useMbmcBlock61Styles = makeStyles(function (theme) {
                 marginBottom: theme.spacing(7),
                 lineHeight: 1.5
             },
-            _b[theme.breakpoints.down("md")] = {
+            _c[theme.breakpoints.down("md")] = {
                 marginBottom: theme.spacing(5),
                 fontSize: theme.typography.fontSize + 4,
                 left: "10%",
                 width: "90%",
             },
-            _b[theme.breakpoints.down("sm")] = {
+            _c[theme.breakpoints.down("sm")] = {
                 left: 0,
                 width: "100%",
             },
-            _b),
-        block61Categories: (_c = {
+            _c),
+        block61Categories: (_d = {
                 background: theme.design.colors.waz_white,
                 borderRadius: "50px",
                 padding: theme.spacing(0.5),
                 boxShadow: "0px 5px 18px -2px rgba(68, 68, 68, 0.12)",
                 display: "flex",
-                flexWrap: "wrap",
+                flexWrap: "nowrap",
                 gap: theme.spacing(2),
-                marginBottom: theme.spacing(8)
+                marginBottom: theme.spacing(8),
+                overflow: "scroll",
+                scrollbarWidth: "none",
+                "&::-webkit-scrollbar": {
+                    display: "none",
+                },
+                "-ms-overflow-style": "none"
             },
-            _c[theme.breakpoints.down("sm")] = {
+            _d[theme.breakpoints.down("sm")] = {
                 padding: theme.spacing(1),
                 borderRadius: "8px",
                 marginBottom: theme.spacing(5),
             },
-            _c),
-        block61Category: (_d = {
+            _d),
+        block61Category: (_e = {
                 fontFamily: theme.design.font.montserrat,
                 color: theme.design.colors.waz_black,
                 borderRadius: "50px",
@@ -76,12 +86,13 @@ export var useMbmcBlock61Styles = makeStyles(function (theme) {
                 padding: theme.spacing(2, 4),
                 fontSize: theme.typography.fontSize + 1,
                 fontWeight: theme.typography.fontWeightMedium,
-                cursor: "pointer"
+                cursor: "pointer",
+                whiteSpace: "nowrap"
             },
-            _d[theme.breakpoints.down("sm")] = {
+            _e[theme.breakpoints.down("sm")] = {
                 borderRadius: "8px",
             },
-            _d),
+            _e),
         block61CategoryActive: {
             background: theme.design.colors.waz_orangeColor100,
             color: theme.design.colors.waz_white,
@@ -91,16 +102,16 @@ export var useMbmcBlock61Styles = makeStyles(function (theme) {
             flexWrap: "wrap",
             gap: theme.spacing(4),
         },
-        block61Item: (_e = {
+        block61Item: (_f = {
                 width: "calc((100% - 64px) / 3)"
             },
-            _e[theme.breakpoints.down("md")] = {
+            _f[theme.breakpoints.down("md")] = {
                 width: "calc((100% - 32px) / 2)",
             },
-            _e[theme.breakpoints.down("sm")] = {
+            _f[theme.breakpoints.down("sm")] = {
                 width: "100%",
             },
-            _e),
+            _f),
         block61ItemHeading: {
             display: "flex",
             justifyContent: "space-between",
@@ -113,26 +124,26 @@ export var useMbmcBlock61Styles = makeStyles(function (theme) {
             display: "flex",
             gap: "8px",
         },
-        imgContainer: (_f = {
+        imgContainer: (_g = {
                 width: "31%"
             },
-            _f[theme.breakpoints.down("md")] = {
+            _g[theme.breakpoints.down("md")] = {
                 width: "35%",
             },
-            _f),
+            _g),
         content: {
             width: "60%",
         },
-        cartItemImg: (_g = {
+        cartItemImg: (_h = {
                 width: "100%",
                 height: "100%",
                 borderRadius: "5px"
             },
-            _g[theme.breakpoints.down("md")] = {
+            _h[theme.breakpoints.down("md")] = {
                 height: "89%",
             },
-            _g),
-        title: (_h = {
+            _h),
+        title: (_j = {
                 letterSpacing: "0px",
                 color: theme.design.colors.waz_black,
                 textTransform: "capitalize",
@@ -141,20 +152,20 @@ export var useMbmcBlock61Styles = makeStyles(function (theme) {
                 fontWeight: theme.typography.fontWeightMedium,
                 marginBottom: theme.spacing(1)
             },
-            _h[theme.breakpoints.down("md")] = {
+            _j[theme.breakpoints.down("md")] = {
                 fontFamily: theme.design.font.montserrat,
             },
-            _h),
-        description: (_j = {
+            _j),
+        description: (_k = {
                 letterSpacing: "0px",
                 color: theme.design.colors.waz_greyColor600,
                 fontSize: theme.typography.fontSize,
                 fontFamily: theme.design.font.montserrat
             },
-            _j[theme.breakpoints.down("md")] = {
+            _k[theme.breakpoints.down("md")] = {
                 color: "black",
             },
-            _j),
+            _k),
         priceContainer: {
             marginTop: theme.spacing(2),
             display: "flex",
@@ -198,7 +209,7 @@ export var useMbmcBlock61Styles = makeStyles(function (theme) {
         disable: {
             opacity: 0.4,
         },
-        modalContent: (_k = {
+        modalContent: (_l = {
                 width: "39%",
                 height: "100%",
                 margin: "auto",
@@ -206,12 +217,12 @@ export var useMbmcBlock61Styles = makeStyles(function (theme) {
                 alignItems: "center",
                 outline: "none"
             },
-            _k[theme.breakpoints.down("lg")] = {
+            _l[theme.breakpoints.down("lg")] = {
                 width: "60%",
             },
-            _k[theme.breakpoints.down("md")] = {
+            _l[theme.breakpoints.down("md")] = {
                 width: "90%",
             },
-            _k),
+            _l),
     });
 });

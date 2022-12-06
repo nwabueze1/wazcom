@@ -7,5 +7,5 @@ export type MbmcBlock13Props = MbmcCommonProps & {
     links: { text: string; url: string; subLinks?: { text: string; url: string } }[];
     ctas?: BlockCta[];
     socials?: { type: "FACEBOOK" | "TWITTER"; url: string }[];
-    numCartItems?: number;
+    site_uuid: string;
 };

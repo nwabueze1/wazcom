@@ -19,5 +19,5 @@ export declare type MbmcBlock13Props = MbmcCommonProps & {
         type: "FACEBOOK" | "TWITTER";
         url: string;
     }[];
-    numCartItems?: number;
+    site_uuid: string;
 };

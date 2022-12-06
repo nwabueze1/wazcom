@@ -7,9 +7,10 @@ import { PaymentOption, MbmcButton } from "../../../../components";
 import { paymentMethodConfig } from "./helpers";
 import { usePaymentStyles } from "./styles";
 import { RestaurantContext } from "../../../../contexts";
+import { useCreateOrder } from "./hooks";
 
 export const Payment = () => {
-    const { clients, cart } = useContext(RestaurantContext);
+    const { clients, cart, loading: ctxtLoading, networkOperation } = useContext(RestaurantContext);
     const classes = usePaymentStyles();
     const { data, error, loading } = useQuery(GET_PAYMENT_METHODS, {
         client: clients?.NICODEMUS,
@@ -17,10 +18,11 @@ export const Payment = () => {
     });
     const [paymentMethods, setPaymentMethods] = useState<PaymentMethod[]>([]);
     const [selectedMethod, setSelectedMethod] = useState<PaymentMethod>();
+    const createOrder = useCreateOrder();
 
     useEffect(() => {
         if (data) {
-            const { getPaymentMethod: paymentMethods } = data;
+            const { getPaymentMethods: paymentMethods } = data;
             setPaymentMethods(paymentMethods);
         }
 
@@ -28,6 +30,10 @@ export const Payment = () => {
             console.log(error);
         }
     }, [data, error]);
+
+    const handleCreateOrder = async () => {
+        await createOrder(selectedMethod as PaymentMethod);
+    };
 
     const displayPaymentMethods = () =>
         paymentMethods.map((paymentMethod, index) => (
@@ -51,7 +57,13 @@ export const Payment = () => {
     return (
         <div className={classes.root}>
             {displayPaymentMethods()}
-            <MbmcButton variant="SECONDARY" size="sm" className={classes.paymentButton}>
+            <MbmcButton
+                variant="SECONDARY"
+                size="sm"
+                className={classes.paymentButton}
+                loading={ctxtLoading && networkOperation === "create.order"}
+                handleClick={handleCreateOrder}
+            >
                 Pay now
             </MbmcButton>
         </div>

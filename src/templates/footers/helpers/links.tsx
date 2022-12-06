@@ -5,6 +5,7 @@ import { BsTwitter } from "react-icons/bs";
 import { FaInstagram } from "react-icons/fa";
 import { RiLinkedinFill, RiYoutubeFill } from "react-icons/ri";
 import clx from "classnames";
+import { Link } from "../../mbmc/components";
 
 export const displaySections = (
     mode: "view" | "edit",
@@ -42,25 +43,30 @@ export const displaySections = (
                             <div
                                 key={index}
                                 className={activeElement === linkId && classes.activeElement}
-                                onClick={(e) => {
-                                    e.stopPropagation();
-                                    clickAction(url, mode, () => {
-                                        handleClick(mode === "view" ? url : linkId);
-                                    });
-                                }}
                                 style={{ display: "flex" }}
                             >
                                 {icon && (
                                     <span className={classes.footerSectionLinkIcon}>
                                         {renderIcon(icon)}
                                     </span>
-                                )}{" "}
+                                )}
+                                &nbsp;
                                 {isNotRenderAnchor(url, mode) ? (
-                                    <p className={classes.footerSectionLink}>{text}</p>
+                                    <p
+                                        className={classes.footerSectionLink}
+                                        onClick={(e) => {
+                                            e.stopPropagation();
+                                            clickAction(url, mode, () => {
+                                                handleClick(mode === "view" ? url : linkId);
+                                            });
+                                        }}
+                                    >
+                                        {text}
+                                    </p>
                                 ) : (
-                                    <a href={url} className={classes.footerSectionLink}>
-                                        {icon && renderIcon(icon)} {text}
-                                    </a>
+                                    <Link href={url} className={classes.footerSectionLink}>
+                                        {text}
+                                    </Link>
                                 )}
                             </div>
                         );

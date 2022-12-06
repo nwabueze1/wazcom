@@ -11,8 +11,8 @@ export const useMbmcBlock12Styles = makeStyles((theme: Theme) => ({
         },
     },
     container: {
-        maxWidth: 1240,
-        width: "90%",
+        maxWidth: 1720,
+        width: "85%",
         margin: "0 auto",
         display: "flex",
         position: "relative",
@@ -20,6 +20,7 @@ export const useMbmcBlock12Styles = makeStyles((theme: Theme) => ({
 
         [theme.breakpoints.down("lg")]: {
             flexDirection: "column",
+            width: '90%',
         },
 
         [theme.breakpoints.down("sm")]: {
@@ -52,6 +53,7 @@ export const useMbmcBlock12Styles = makeStyles((theme: Theme) => ({
         font: "normal normal medium 68px/100px Losta Masta;",
         margin: 0,
         fontFamily: theme.design.font.lostaMasta,
+        border: "1px solid transparent",
 
         [theme.breakpoints.down("lg")]: {
             fontSize: theme.typography.fontSize * 3,
@@ -72,6 +74,7 @@ export const useMbmcBlock12Styles = makeStyles((theme: Theme) => ({
         fontSize: theme.typography.fontSize + 2,
         fontFamily: theme.design.font.montserrat,
         lineHeight: 1.5,
+        border: "1px solid transparent",
 
         [theme.breakpoints.down("lg")]: {
             fontSize: theme.typography.fontSize + 4,
@@ -83,6 +86,10 @@ export const useMbmcBlock12Styles = makeStyles((theme: Theme) => ({
         [theme.breakpoints.down("sm")]: {
             fontSize: theme.typography.fontSize + 4,
         },
+    },
+    button: {
+        width: '100%',
+        fontWeight: theme.typography.fontWeightMedium,
     },
     formContainer: {
         width: "45%",
@@ -230,5 +237,9 @@ export const useMbmcBlock12Styles = makeStyles((theme: Theme) => ({
     success: {
         color: theme.design.colors.waz_successColor100,
         marginTop: theme.spacing(1),
+    },
+    block12ActiveElement: {
+        border: "1px dashed",
+        borderColor: theme.design.colors.waz_primaryColor100,
     },
 }));

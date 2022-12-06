@@ -3,7 +3,7 @@ import { MbmcButton } from "../../../../components";
 import clx from "classnames";
 import { useSummaryStyles } from "./styles";
 import { RestaurantContext } from "../../../../contexts";
-import { getCurrency } from "utilities";
+import { getCurrency } from "../../../../../../utilities";
 import { CoreCartFields } from "../../../../models";
 import { calculateCartSubTotal } from "../../helpers";
 import { SummaryProps } from "./types";
@@ -18,7 +18,7 @@ export const Summary: FC<SummaryProps> = ({ handleCheckout }) => {
     return (
         <div className={classes.root}>
             <div className={classes.summaryDetail}>
-                <p className={classes.summaryItem}>Orders</p>
+                <p className={classes.summaryItem}>Dishes</p>
                 <p className={classes.summaryItemDigit}>{cart?.cartItems?.length}</p>
             </div>
             <div className={classes.summaryDetail}>

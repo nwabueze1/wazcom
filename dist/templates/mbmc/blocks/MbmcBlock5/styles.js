@@ -8,13 +8,16 @@ export var useMbmcBlock5Styles = makeStyles(function (theme) {
             width: "100%",
         },
         mbmcContainer: (_a = {
-                maxWidth: 1240,
-                width: "90%",
+                maxWidth: 1720,
+                width: "85%",
                 margin: "0 auto",
                 display: "flex",
                 alignItems: "flex-start",
                 flexDirection: "column",
                 padding: theme.spacing(5, 0)
+            },
+            _a[theme.breakpoints.down("lg")] = {
+                width: "90%",
             },
             _a[theme.breakpoints.down("md")] = {
                 padding: theme.spacing(5, 0, 2, 0),

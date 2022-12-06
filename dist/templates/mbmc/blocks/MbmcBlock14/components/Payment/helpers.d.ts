@@ -4,6 +4,11 @@ export declare const paymentMethodConfig: {
         title: string;
         name: string;
     };
+    Bank_Transfer: {
+        img: string;
+        title: string;
+        name: string;
+    };
     Paypal: {
         img: string;
         title: string;

@@ -38,11 +38,20 @@ export const useCartItemCardStyles = makeStyles((theme: Theme) => ({
             fontFamily: theme.design.font.montserrat,
         },
     },
+    options: {
+        marginBottom: theme.spacing(1),
+        color: theme.design.colors.waz_greyColor600,
+        fontSize: theme.typography.fontSize,
+        fontFamily: theme.design.font.montserrat,
+        lineHeight: 1.6,
+    },
     description: {
         letterSpacing: "0px",
         color: theme.design.colors.waz_greyColor600,
         fontSize: theme.typography.fontSize,
         fontFamily: theme.design.font.montserrat,
+        lineHeight: 1.6,
+
         [theme.breakpoints.down("md")]: {
             color: "black",
         },

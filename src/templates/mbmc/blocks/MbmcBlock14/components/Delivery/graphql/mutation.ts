@@ -5,7 +5,6 @@ export const CREATE_ADDRESS = gql`
     ${CORE_ADDRESS_FIELDS}
     mutation GqlCreateAddress(
         $guest_uuid: ID!
-        $phone: String!
         $addressline1: String!
         $city: String!
         $state: String!
@@ -14,7 +13,6 @@ export const CREATE_ADDRESS = gql`
     ) {
         createAddress(
             guest_uuid: $guest_uuid
-            phone: $phone
             addressline1: $addressline1
             city: $city
             state: $state
@@ -28,8 +26,20 @@ export const CREATE_ADDRESS = gql`
 
 export const UPDATE_GUEST = gql`
     ${CORE_GUEST_FIELDS}
-    mutation GqlUpdateGuest($cart_uuid: ID!, $email: String!, $firstname: String!, $lastname: String!) {
-        updateGuest(cart_uuid: $cart_uuid, email: $email, firstname: $firstname, lastname: $lastname) {
+    mutation GqlUpdateGuest(
+        $cart_uuid: ID!
+        $email: String!
+        $firstname: String!
+        $lastname: String!
+        $phone: String!
+    ) {
+        updateGuest(
+            cart_uuid: $cart_uuid
+            email: $email
+            firstname: $firstname
+            lastname: $lastname
+            phone: $phone
+        ) {
             ...CoreGuestFields
         }
     }

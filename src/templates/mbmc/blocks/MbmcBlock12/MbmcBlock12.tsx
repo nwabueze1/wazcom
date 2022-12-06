@@ -1,16 +1,22 @@
 import { useMbmcBlock12Styles } from "./styles";
 import { MbmcButton } from "../../components/MbmcButton/MbmcButton";
 import { FC, useState } from "react";
-import { MbmcBlock12Props } from "./types";
+import { HandleSend, MbmcBlock12Props } from "./types";
 import { TextArea, TextInput } from "../../../../io";
-import { Loader } from "../../../../core";
+import { notify } from "../../utilities";
+import clx from "classnames";
+import { handleElementClick } from "../../utilities";
 
 export const MbmcBlock12: FC<MbmcBlock12Props> = ({
+    mode = "view",
+    activeElement = "",
+    index,
+    handleClick,
     layout,
     heading,
     description,
     ctas,
-    handleSend,
+    client,
 }) => {
     const classes = useMbmcBlock12Styles({ flexDirection: layout ?? "row" });
     const [loading, setLoading] = useState<boolean>(false);
@@ -26,7 +32,7 @@ export const MbmcBlock12: FC<MbmcBlock12Props> = ({
     const displayCtas = () => {
         return (ctas ?? []).map(({ text, rIcon, lIcon, ...props }, index) => (
             <div className={classes.btnParent} key={index}>
-                <MbmcButton {...props}>
+                <MbmcButton {...props} className={classes.button}>
                     {lIcon} {text} {rIcon}
                 </MbmcButton>
             </div>
@@ -46,7 +52,9 @@ export const MbmcBlock12: FC<MbmcBlock12Props> = ({
         });
     };
 
-    const handleClick = async () => {
+    const handleSubmit: React.FormEventHandler<HTMLFormElement> = async (e) => {
+        e.preventDefault();
+
         const hasEmptyField = Object.values(formData).includes("");
 
         if (hasEmptyField) {
@@ -55,27 +63,85 @@ export const MbmcBlock12: FC<MbmcBlock12Props> = ({
         setLoading(true);
         try {
             const { name, email, phoneNo, message } = formData;
-            await handleSend?.(name, email, phoneNo, message);
+            await handleSend({ name, email, phoneNo, message }, client);
             setFormData({
                 name: "",
                 email: "",
                 phoneNo: "",
                 message: "",
             });
-            setIsSubmitted(true);
+            notify("success", "Your message has been sent successfully, thanks for reaching out.");
         } catch (error) {
-            console.error(error);
+            notify("error", "Your email could not be sent, try again later. Thanks");
         }
         setLoading(false);
+    };
+
+    const handleSend: HandleSend = async (data, client) => {
+        if (!client) throw new Error();
+        const { email, message, name, phoneNo } = data;
+
+        switch (client.type) {
+            case "emailjs": {
+                const response = await fetch("https://api.emailjs.com/api/v1.0/email/send", {
+                    method: "POST",
+                    headers: {
+                        Accept: "application/json",
+                        "Content-Type": "application/json",
+                    },
+                    body: JSON.stringify({
+                        ...client.credentials,
+                        template_params: {
+                            name,
+                            to_name: "Mr Baker and Mrs Cook",
+                            message,
+                            reply_to: email,
+                            phone_number: phoneNo,
+                        },
+                    }),
+                });
+
+                if (response.status !== 200) throw new Error();
+                break;
+            }
+            default:
+                break;
+        }
     };
 
     return (
         <div className={classes.root}>
             <div className={classes.container}>
                 <div className={classes.headerContent}>
-                    <h3 className={classes.headerTitle}>{heading}</h3>
+                    <h3
+                        className={clx(
+                            classes.headerTitle,
+                            activeElement === `${String(index)}.heading` &&
+                                classes.block12ActiveElement,
+                        )}
+                        onClick={() =>
+                            handleElementClick(mode, `${String(index)}.heading`, handleClick)
+                        }
+                    >
+                        {heading}
+                    </h3>
                     <div className={classes.headerParagraph}>
-                        <p className={classes.headerDescription}>{description}</p>
+                        <p
+                            className={clx(
+                                classes.headerDescription,
+                                activeElement === `${String(index)}.description` &&
+                                    classes.block12ActiveElement,
+                            )}
+                            onClick={() =>
+                                handleElementClick(
+                                    mode,
+                                    `${String(index)}.description`,
+                                    handleClick,
+                                )
+                            }
+                        >
+                            {description}
+                        </p>
                     </div>
                     <div className={classes.headerBtnContainer}>{displayCtas()}</div>
                 </div>
@@ -84,7 +150,7 @@ export const MbmcBlock12: FC<MbmcBlock12Props> = ({
                 </div>
 
                 <div className={classes.formContainer}>
-                    <form action="" className={classes.form}>
+                    <form className={classes.form} onSubmit={handleSubmit}>
                         <TextInput
                             placeholder="Name"
                             name="name"
@@ -121,10 +187,11 @@ export const MbmcBlock12: FC<MbmcBlock12Props> = ({
                             minRows={12}
                         />
                         <MbmcButton
-                            onClick={handleClick}
                             className={classes.formButton}
                             size="sm"
                             variant="SECONDARY"
+                            type="submit"
+                            loading={loading}
                         >
                             Send
                         </MbmcButton>
@@ -137,7 +204,6 @@ export const MbmcBlock12: FC<MbmcBlock12Props> = ({
                         {isSubmitted && (
                             <p className={classes.success}>Message sent successfully</p>
                         )}
-                        {loading && <Loader />}
                     </form>
                 </div>
             </div>

@@ -10,6 +10,7 @@ import { startCase } from "lodash";
 import * as React from "react";
 import { FC, useState } from "react";
 import { useHistory } from "react-router-dom";
+import { useGetMbmcBlocks } from "../../templates/mbmc/mbmc";
 import { TextInput } from "../../io";
 import { SidebarListItem } from "./SidebarListItem/SidebarListItem";
 import { drawerWidth, useTemplateStyles } from "./styles";
@@ -19,11 +20,24 @@ export const Templates: FC<BrowserProps> = () => {
     const classes = useTemplateStyles();
     const [search, setSearch] = useState("");
     const history = useHistory();
+    const getMbmcBlocks = useGetMbmcBlocks();
 
     const sections = [
         {
-            label: "",
-            components: []
+            label: "Mrbakermrscook",
+            components: getMbmcBlocks()
+                .sort(({ name: aName }, { name: bName }) =>
+                    aName.split("-")[-1] < bName.split("-")[-1]
+                        ? -1
+                        : aName.split("-")[-1] > bName.split("-")[-1]
+                        ? 1
+                        : 0,
+                )
+                .map(({ name }) => ({
+                    id: name.toLowerCase(),
+                    label: startCase(name),
+                    route: `/templates/22/${name.split("").join("")}`,
+                })),
         },
     ];
 
@@ -71,10 +85,9 @@ export const Templates: FC<BrowserProps> = () => {
                     </div>
                 </Toolbar>
                 <List>
-                    <SidebarListItem title="Blocks" sections={sections} />
+                    <SidebarListItem title="Templates" sections={sections} />
                 </List>
             </Drawer>
-            
         </Box>
     );
 };

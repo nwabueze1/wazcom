@@ -16,6 +16,7 @@ import { BsTwitter } from "react-icons/bs";
 import { FaInstagram } from "react-icons/fa";
 import { RiLinkedinFill, RiYoutubeFill } from "react-icons/ri";
 import clx from "classnames";
+import { Link } from "../../mbmc/components";
 export var displaySections = function (mode, classes, sections, activeElement, handleClick, parentKey) {
     return sections.map(function (_a, index) {
         var name = _a.name, links = _a.links;
@@ -28,12 +29,12 @@ export var displaySections = function (mode, classes, sections, activeElement, h
                     } }, { children: name }), void 0), _jsx("div", __assign({ className: classes.footerLinks }, { children: links.map(function (_a, index) {
                         var text = _a.text, url = _a.url, icon = _a.icon;
                         var linkId = sectionId + ".links." + String(index);
-                        return (_jsxs("div", __assign({ className: activeElement === linkId && classes.activeElement, onClick: function (e) {
-                                e.stopPropagation();
-                                clickAction(url, mode, function () {
-                                    handleClick(mode === "view" ? url : linkId);
-                                });
-                            }, style: { display: "flex" } }, { children: [icon && (_jsx("span", __assign({ className: classes.footerSectionLinkIcon }, { children: renderIcon(icon) }), void 0)), " ", isNotRenderAnchor(url, mode) ? (_jsx("p", __assign({ className: classes.footerSectionLink }, { children: text }), void 0)) : (_jsxs("a", __assign({ href: url, className: classes.footerSectionLink }, { children: [icon && renderIcon(icon), " ", text] }), void 0))] }), index));
+                        return (_jsxs("div", __assign({ className: activeElement === linkId && classes.activeElement, style: { display: "flex" } }, { children: [icon && (_jsx("span", __assign({ className: classes.footerSectionLinkIcon }, { children: renderIcon(icon) }), void 0)), "\u00A0", isNotRenderAnchor(url, mode) ? (_jsx("p", __assign({ className: classes.footerSectionLink, onClick: function (e) {
+                                        e.stopPropagation();
+                                        clickAction(url, mode, function () {
+                                            handleClick(mode === "view" ? url : linkId);
+                                        });
+                                    } }, { children: text }), void 0)) : (_jsx(Link, __assign({ href: url, className: classes.footerSectionLink }, { children: text }), void 0))] }), index));
                     }) }), void 0)] }), index));
     });
 };

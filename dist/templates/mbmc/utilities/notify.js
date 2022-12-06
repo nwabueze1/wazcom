@@ -10,6 +10,7 @@ export var notify = function (status, text) {
         customIcon: "",
         showIcon: true,
         showCloseButton: true,
+        autoclose: true,
         autotimeout: 3000,
         gap: 20,
         distance: 20,

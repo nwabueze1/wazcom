@@ -77,23 +77,25 @@ import { useMbmcBlock12Styles } from "./styles";
 import { MbmcButton } from "../../components/MbmcButton/MbmcButton";
 import { useState } from "react";
 import { TextArea, TextInput } from "../../../../io";
-import { Loader } from "../../../../core";
+import { notify } from "../../utilities";
+import clx from "classnames";
+import { handleElementClick } from "../../utilities";
 export var MbmcBlock12 = function (_a) {
-    var layout = _a.layout, heading = _a.heading, description = _a.description, ctas = _a.ctas, handleSend = _a.handleSend;
+    var _b = _a.mode, mode = _b === void 0 ? "view" : _b, _c = _a.activeElement, activeElement = _c === void 0 ? "" : _c, index = _a.index, handleClick = _a.handleClick, layout = _a.layout, heading = _a.heading, description = _a.description, ctas = _a.ctas, client = _a.client;
     var classes = useMbmcBlock12Styles({ flexDirection: layout !== null && layout !== void 0 ? layout : "row" });
-    var _b = __read(useState(false), 2), loading = _b[0], setLoading = _b[1];
-    var _c = __read(useState(false), 2), hasError = _c[0], setHasError = _c[1];
-    var _d = __read(useState(false), 2), isSubmitted = _d[0], setIsSubmitted = _d[1];
-    var _e = __read(useState({
+    var _d = __read(useState(false), 2), loading = _d[0], setLoading = _d[1];
+    var _e = __read(useState(false), 2), hasError = _e[0], setHasError = _e[1];
+    var _f = __read(useState(false), 2), isSubmitted = _f[0], setIsSubmitted = _f[1];
+    var _g = __read(useState({
         name: "",
         email: "",
         phoneNo: "",
         message: "",
-    }), 2), formData = _e[0], setFormData = _e[1];
+    }), 2), formData = _g[0], setFormData = _g[1];
     var displayCtas = function () {
         return (ctas !== null && ctas !== void 0 ? ctas : []).map(function (_a, index) {
             var text = _a.text, rIcon = _a.rIcon, lIcon = _a.lIcon, props = __rest(_a, ["text", "rIcon", "lIcon"]);
-            return (_jsx("div", __assign({ className: classes.btnParent }, { children: _jsxs(MbmcButton, __assign({}, props, { children: [lIcon, " ", text, " ", rIcon] }), void 0) }), index));
+            return (_jsx("div", __assign({ className: classes.btnParent }, { children: _jsxs(MbmcButton, __assign({}, props, { className: classes.button }, { children: [lIcon, " ", text, " ", rIcon] }), void 0) }), index));
         });
     };
     var handleChange = function (data) {
@@ -105,11 +107,12 @@ export var MbmcBlock12 = function (_a) {
             return __assign(__assign({}, prev), (_a = {}, _a[name] = value, _a));
         });
     };
-    var handleClick = function () { return __awaiter(void 0, void 0, void 0, function () {
+    var handleSubmit = function (e) { return __awaiter(void 0, void 0, void 0, function () {
         var hasEmptyField, name_1, email, phoneNo, message, error_1;
         return __generator(this, function (_a) {
             switch (_a.label) {
                 case 0:
+                    e.preventDefault();
                     hasEmptyField = Object.values(formData).includes("");
                     if (hasEmptyField) {
                         return [2 /*return*/, setHasError(true)];
@@ -119,7 +122,7 @@ export var MbmcBlock12 = function (_a) {
                 case 1:
                     _a.trys.push([1, 3, , 4]);
                     name_1 = formData.name, email = formData.email, phoneNo = formData.phoneNo, message = formData.message;
-                    return [4 /*yield*/, (handleSend === null || handleSend === void 0 ? void 0 : handleSend(name_1, email, phoneNo, message))];
+                    return [4 /*yield*/, handleSend({ name: name_1, email: email, phoneNo: phoneNo, message: message }, client)];
                 case 2:
                     _a.sent();
                     setFormData({
@@ -128,11 +131,11 @@ export var MbmcBlock12 = function (_a) {
                         phoneNo: "",
                         message: "",
                     });
-                    setIsSubmitted(true);
+                    notify("success", "Your message has been sent successfully, thanks for reaching out.");
                     return [3 /*break*/, 4];
                 case 3:
                     error_1 = _a.sent();
-                    console.error(error_1);
+                    notify("error", "Your email could not be sent, try again later. Thanks");
                     return [3 /*break*/, 4];
                 case 4:
                     setLoading(false);
@@ -140,5 +143,48 @@ export var MbmcBlock12 = function (_a) {
             }
         });
     }); };
-    return (_jsx("div", __assign({ className: classes.root }, { children: _jsxs("div", __assign({ className: classes.container }, { children: [_jsxs("div", __assign({ className: classes.headerContent }, { children: [_jsx("h3", __assign({ className: classes.headerTitle }, { children: heading }), void 0), _jsx("div", __assign({ className: classes.headerParagraph }, { children: _jsx("p", __assign({ className: classes.headerDescription }, { children: description }), void 0) }), void 0), _jsx("div", __assign({ className: classes.headerBtnContainer }, { children: displayCtas() }), void 0)] }), void 0), _jsx("div", __assign({ className: classes.demarcationContainer }, { children: _jsx("span", __assign({ className: classes.demarcation }, { children: "OR" }), void 0) }), void 0), _jsx("div", __assign({ className: classes.formContainer }, { children: _jsxs("form", __assign({ action: "", className: classes.form }, { children: [_jsx(TextInput, { placeholder: "Name", name: "name", value: formData.name, onChange: handleChange, className: classes.formInput, classNames: { textInput: classes.formTextInput } }, void 0), _jsx(TextInput, { placeholder: "Email address", type: "email", name: "email", value: formData.email, onChange: handleChange, className: classes.formInput, classNames: { textInput: classes.formTextInput } }, void 0), _jsx(TextInput, { placeholder: "Phone number", type: "phone", name: "phoneNo", value: formData.phoneNo, onChange: handleChange, className: classes.formInput, classNames: { textInput: classes.formTextInput } }, void 0), _jsx(TextArea, { placeholder: "Send a message", name: "message", value: formData.message, onChange: handleChange, className: classes.formInput, classNames: { textArea: classes.formTextArea }, minRows: 12 }, void 0), _jsx(MbmcButton, __assign({ onClick: handleClick, className: classes.formButton, size: "sm", variant: "SECONDARY" }, { children: "Send" }), void 0), hasError && (_jsx("p", __assign({ className: classes.error }, { children: "*Error Occurred, please fill all fields with correct data and try again" }), void 0)), isSubmitted && (_jsx("p", __assign({ className: classes.success }, { children: "Message sent successfully" }), void 0)), loading && _jsx(Loader, {}, void 0)] }), void 0) }), void 0)] }), void 0) }), void 0));
+    var handleSend = function (data, client) { return __awaiter(void 0, void 0, void 0, function () {
+        var email, message, name, phoneNo, _a, response;
+        return __generator(this, function (_b) {
+            switch (_b.label) {
+                case 0:
+                    if (!client)
+                        throw new Error();
+                    email = data.email, message = data.message, name = data.name, phoneNo = data.phoneNo;
+                    _a = client.type;
+                    switch (_a) {
+                        case "emailjs": return [3 /*break*/, 1];
+                    }
+                    return [3 /*break*/, 3];
+                case 1: return [4 /*yield*/, fetch("https://api.emailjs.com/api/v1.0/email/send", {
+                        method: "POST",
+                        headers: {
+                            Accept: "application/json",
+                            "Content-Type": "application/json",
+                        },
+                        body: JSON.stringify(__assign(__assign({}, client.credentials), { template_params: {
+                                name: name,
+                                to_name: "Mr Baker and Mrs Cook",
+                                message: message,
+                                reply_to: email,
+                                phone_number: phoneNo,
+                            } })),
+                    })];
+                case 2:
+                    response = _b.sent();
+                    if (response.status !== 200)
+                        throw new Error();
+                    return [3 /*break*/, 4];
+                case 3: return [3 /*break*/, 4];
+                case 4: return [2 /*return*/];
+            }
+        });
+    }); };
+    return (_jsx("div", __assign({ className: classes.root }, { children: _jsxs("div", __assign({ className: classes.container }, { children: [_jsxs("div", __assign({ className: classes.headerContent }, { children: [_jsx("h3", __assign({ className: clx(classes.headerTitle, activeElement === "".concat(String(index), ".heading") &&
+                                classes.block12ActiveElement), onClick: function () {
+                                return handleElementClick(mode, "".concat(String(index), ".heading"), handleClick);
+                            } }, { children: heading }), void 0), _jsx("div", __assign({ className: classes.headerParagraph }, { children: _jsx("p", __assign({ className: clx(classes.headerDescription, activeElement === "".concat(String(index), ".description") &&
+                                    classes.block12ActiveElement), onClick: function () {
+                                    return handleElementClick(mode, "".concat(String(index), ".description"), handleClick);
+                                } }, { children: description }), void 0) }), void 0), _jsx("div", __assign({ className: classes.headerBtnContainer }, { children: displayCtas() }), void 0)] }), void 0), _jsx("div", __assign({ className: classes.demarcationContainer }, { children: _jsx("span", __assign({ className: classes.demarcation }, { children: "OR" }), void 0) }), void 0), _jsx("div", __assign({ className: classes.formContainer }, { children: _jsxs("form", __assign({ className: classes.form, onSubmit: handleSubmit }, { children: [_jsx(TextInput, { placeholder: "Name", name: "name", value: formData.name, onChange: handleChange, className: classes.formInput, classNames: { textInput: classes.formTextInput } }, void 0), _jsx(TextInput, { placeholder: "Email address", type: "email", name: "email", value: formData.email, onChange: handleChange, className: classes.formInput, classNames: { textInput: classes.formTextInput } }, void 0), _jsx(TextInput, { placeholder: "Phone number", type: "phone", name: "phoneNo", value: formData.phoneNo, onChange: handleChange, className: classes.formInput, classNames: { textInput: classes.formTextInput } }, void 0), _jsx(TextArea, { placeholder: "Send a message", name: "message", value: formData.message, onChange: handleChange, className: classes.formInput, classNames: { textArea: classes.formTextArea }, minRows: 12 }, void 0), _jsx(MbmcButton, __assign({ className: classes.formButton, size: "sm", variant: "SECONDARY", type: "submit", loading: loading }, { children: "Send" }), void 0), hasError && (_jsx("p", __assign({ className: classes.error }, { children: "*Error Occurred, please fill all fields with correct data and try again" }), void 0)), isSubmitted && (_jsx("p", __assign({ className: classes.success }, { children: "Message sent successfully" }), void 0))] }), void 0) }), void 0)] }), void 0) }), void 0));
 };

@@ -49,9 +49,6 @@ export var useMbmcCardStyles = makeStyles(function (theme) {
             display: "flex",
             borderRadius: "4px",
             overflow: "hidden",
-            backgroundRepeat: "no-repeat",
-            backgroundPosition: "center center",
-            backgroundSize: "cover",
         },
         image: {
             width: "100%",

@@ -5,6 +5,9 @@ export const useMbmcBlock13Styles = makeStyles((theme: Theme) => ({
     root: {
         position: "absolute",
         width: "100%",
+        zIndex: 10,
+        top: 0,
+        left: 0,
     },
     container: {
         background: "transparent",
@@ -13,20 +16,19 @@ export const useMbmcBlock13Styles = makeStyles((theme: Theme) => ({
         boxSizing: "border-box",
         gap: theme.spacing(2),
         display: "flex",
-        zIndex: 10,
         alignItems: "center",
         justifyContent: "space-between",
-        maxWidth: 1240,
-        width: "90%",
+        maxWidth: 1720,
+        width: "85%",
         margin: "0 auto",
 
         [theme.breakpoints.down("lg")]: {
             padding: theme.spacing(3, 0),
+            width: "90%",
         },
 
         [theme.breakpoints.down("md")]: {
             backgroundColor: theme.design.colors.waz_white,
-            padding: theme.spacing(3, 0),
         },
     },
     activeElement: {
@@ -54,18 +56,23 @@ export const useMbmcBlock13Styles = makeStyles((theme: Theme) => ({
         },
     },
     logo: {
-        maxWidth: "300px",
-        maxHeight: '65px',
         objectFit: "cover",
 
         [theme.breakpoints.down("md")]: {
-            maxWidth: "200px",
+            width: "200px",
+            height: "42.31px",
+        },
+
+        [theme.breakpoints.up("md")]: {
+            height: "60px",
+            width: "282.45px",
         },
     },
     link: {
-        cursor: 'pointer',
+        cursor: "pointer",
         textDecoration: "none",
-        color: theme.design.colors.waz_black,
+        color: '#000000',
+        fontWeight: theme.typography.fontWeightMedium,
     },
     mrBarkers: {
         fontFamily: theme.design.font.lostaMastaLight,

@@ -15,6 +15,7 @@ export const MbmcBlock61: FC<MbmcBlock61Props> = ({
     services,
     integratedService,
     menu_uuid,
+    setContextProps
 }) => {
     const classes = useMbmcBlock61Styles();
     const [contextData, setContextData] = useState<Omit<RestaurantContextProps, "setContext">>({});
@@ -43,7 +44,17 @@ export const MbmcBlock61: FC<MbmcBlock61Props> = ({
             } = data;
             const menu = { menuCategories, menuItems, ...rest };
             setContextData({ menu, clients: { [integratedService]: client } });
-            menuCategories.length > 0 && setActiveCategory(menuCategories[0]);
+
+            const queryParams = new URLSearchParams(window.location.search);
+            let activeMenuCategory = menuCategories.length > 0 ? menuCategories[0] : undefined;
+
+            if (queryParams.get("category_uuid")) {
+                activeMenuCategory = menuCategories.find(
+                    (category: any) => category.uuid === queryParams.get("category_uuid"),
+                );
+            }
+
+            menuCategories.length > 0 && setActiveCategory(activeMenuCategory ?? menuCategories[0]);
         }
 
         if (error) {
@@ -84,9 +95,10 @@ export const MbmcBlock61: FC<MbmcBlock61Props> = ({
                 description={description}
                 image={image_url ?? ""}
                 className={classes.block61Item}
+                url={name}
                 handleClick={(route: string) => {
-                    setItemUuid(uuid);
                     console.log(route);
+                    setItemUuid(uuid);
                 }}
             />
         ));
@@ -101,7 +113,7 @@ export const MbmcBlock61: FC<MbmcBlock61Props> = ({
 
     return (
         <RestaurantContext.Provider value={{ ...contextData, setContext: updateContext }}>
-            <div className={classes.root}>
+            <div className={classes.root} id='menu'>
                 <div className={classes.block61Container}>
                     <h3 className={classes.block61Title}>{heading}</h3>
                     <p className={classes.block61Description}>{description}</p>
@@ -117,6 +129,7 @@ export const MbmcBlock61: FC<MbmcBlock61Props> = ({
                         handleClose={() => {
                             setItemUuid(undefined);
                         }}
+                        setContextProps={setContextProps}
                     />
                 </div>
             </div>

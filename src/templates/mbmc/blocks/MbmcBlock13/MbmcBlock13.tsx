@@ -7,6 +7,7 @@ import { renderNavLink, renderNavLogo } from "../../../../templates/Navs/helpers
 import clx from "classnames";
 import { FiShoppingCart } from "react-icons/fi";
 import { renderCtas } from "../../utilities";
+import Cookies from "universal-cookie";
 
 export const MbmcBlock13: FC<MbmcBlock13Props> = ({
     mode = "view",
@@ -16,10 +17,13 @@ export const MbmcBlock13: FC<MbmcBlock13Props> = ({
     links,
     handleClick,
     ctas,
-    numCartItems,
+    contextProps,
+    site_uuid,
 }) => {
     const classes = useMbmcBlock13Styles();
     const [openMenu, setOpenMenu] = useState<boolean>(false);
+    const cartItemCount =
+        contextProps?.cartItemCount ?? (new Cookies().get("cartItemCount") ?? {})[site_uuid] ?? 0;
 
     const handleOpenMenu = () => {
         setOpenMenu(true);
@@ -61,9 +65,16 @@ export const MbmcBlock13: FC<MbmcBlock13Props> = ({
                     )}
                     <div className={classes.menuList}>
                         {displayLinks()}
-                        <p className={clx(classes.icon, classes.link)}>
+                        <p
+                            className={clx(classes.icon, classes.link)}
+                            onClick={() => {
+                                handleElementClick("/cart");
+                            }}
+                        >
                             <FiShoppingCart className={classes.cartIcon} fontSize={20} />
-                            <span className={classes.badgeIcon}>{numCartItems}</span>
+                            {cartItemCount > 0 && (
+                                <span className={classes.badgeIcon}>{cartItemCount}</span>
+                            )}
                         </p>
                         {renderCtas(
                             ctas ?? [],
@@ -83,7 +94,9 @@ export const MbmcBlock13: FC<MbmcBlock13Props> = ({
                             }}
                         >
                             <FiShoppingCart className={classes.cartIcon} fontSize={20} />
-                            <span className={classes.badgeIcon}>{numCartItems}</span>
+                            {cartItemCount > 0 && (
+                                <span className={classes.badgeIcon}>{cartItemCount}</span>
+                            )}
                         </p>
                         <AiOutlineMenu size={34} onClick={handleOpenMenu} />
                     </div>

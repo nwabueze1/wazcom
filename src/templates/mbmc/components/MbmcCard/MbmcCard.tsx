@@ -4,6 +4,7 @@ import { MbmcCardProps } from "./types";
 import clsx from "clsx";
 import { menuImagePlaceholder } from "../../../../utilities/restaurant";
 import { renderCtas, handleElementClick } from "../../utilities";
+import { LazyImage } from "../../../../core";
 
 export const MbmcCard: React.FC<MbmcCardProps> = ({
     mode = "view",
@@ -17,6 +18,7 @@ export const MbmcCard: React.FC<MbmcCardProps> = ({
     className,
     classNames,
     handleClick,
+    url
 }) => {
     const isOpen = true;
     const classes = useMbmcCardStyles({ isOpen, scrollableParent });
@@ -25,7 +27,7 @@ export const MbmcCard: React.FC<MbmcCardProps> = ({
         <div
             className={clsx(classes.root, classes.visible, className)}
             onClick={() => {
-                handleClick?.("");
+                url && handleClick?.(url);
             }}
         >
             <div
@@ -33,13 +35,13 @@ export const MbmcCard: React.FC<MbmcCardProps> = ({
                     classes.imageWrapper,
                     activeElement === parentKey + ".image" && classes.cardActiveElement,
                 )}
-                style={{
-                    backgroundImage: `url(${image ?? menuImagePlaceholder})`,
-                }}
-                onClick={() => {
+                onClick={(e) => {
+                    mode === 'edit' && e.stopPropagation();
                     handleElementClick(mode, parentKey + ".image", handleClick);
                 }}
-            />
+            >
+                <LazyImage src={image ?? menuImagePlaceholder} mode={mode} className={classes.image} />
+            </div>
             <div className={classes.content}>
                 <div>
                     <p
@@ -48,7 +50,8 @@ export const MbmcCard: React.FC<MbmcCardProps> = ({
                             classNames?.heading,
                             activeElement === parentKey + ".heading" && classes.cardActiveElement,
                         )}
-                        onClick={() => {
+                        onClick={(e) => {
+                            mode === 'edit' && e.stopPropagation();
                             handleElementClick(mode, parentKey + ".heading", handleClick);
                         }}
                     >
@@ -61,7 +64,8 @@ export const MbmcCard: React.FC<MbmcCardProps> = ({
                             activeElement === parentKey + ".description" &&
                                 classes.cardActiveElement,
                         )}
-                        onClick={() => {
+                        onClick={(e) => {
+                            mode === 'edit' && e.stopPropagation();
                             handleElementClick(mode, parentKey + ".description", handleClick);
                         }}
                     >

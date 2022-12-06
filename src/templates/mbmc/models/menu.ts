@@ -4,6 +4,7 @@ import { CORE_RESTAURANT_FIELDS } from "./restaurant";
 const CORE_MENU_CATEGORY_FIELDS = gql`
     fragment CoreMenuCategoryFields on MenuCategory {
         id
+        uuid
         title
     }
 `;

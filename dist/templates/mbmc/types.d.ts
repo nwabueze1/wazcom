@@ -3,7 +3,6 @@ import { MbmcBlock1Props } from "./blocks/MbmcBlock1/types";
 import { MbmcBlock10Props } from "./blocks/MbmcBlock10/types";
 import { MbmcBlock11Props } from "./blocks/MbmcBlock11/types";
 import { MbmcBlock13Props } from "./blocks/MbmcBlock13/types";
-import { MbmcBlock15Props } from "./blocks/MbmcBlock15/types";
 import { MbmcBlock2Props } from "./blocks/MbmcBlock2/types";
 import { MbmcBlock5Props } from "./blocks/MbmcBlock5/types";
 import { MbmcBlock6Props } from "./blocks/MbmcBlock6/types";
@@ -31,7 +30,6 @@ export declare type BlockCta = {
     url?: string;
 };
 export declare type MbmcCommonProps = {
-    style?: BlockStyle;
     index?: number;
     mode?: "view" | "edit";
     activeElement?: string;
@@ -43,13 +41,19 @@ export declare type MbmcCommonProps = {
     services?: {
         [key in HivedeckService]: string;
     };
+    contextProps?: {
+        [key: string]: any;
+    };
+    setContextProps?: (contextProps: {
+        [key: string]: any;
+    }) => void;
 };
-export declare type HivedeckService = 'NICODEMUS' | 'AMBROSIA' | 'MUSE';
+export declare type HivedeckService = "NICODEMUS" | "AMBROSIA" | "MUSE";
 export declare type MbmcTemplatePropType = {
     component: any;
     name: string;
 } & Mmbc1Block;
 declare type Mmbc1Block = {
-    props: MbmcBlock1Props | MbmcBlock2Props | MbmcBlock3Props | MbmcBlock4Props | MbmcBlock5Props | MbmcBlock6Props | MbmcBlock61Props | MbmcBlock7Props | MbmcBlock8Props | MbmcBlock9Props | MbmcBlock10Props | MbmcBlock11Props | MbmcBlock12Props | MbmcBlock14Props | MbmcBlock13Props | MbmcBlock15Props;
+    props: MbmcBlock1Props | MbmcBlock2Props | MbmcBlock3Props | MbmcBlock4Props | MbmcBlock5Props | MbmcBlock6Props | MbmcBlock61Props | MbmcBlock7Props | MbmcBlock8Props | MbmcBlock9Props | MbmcBlock10Props | MbmcBlock11Props | MbmcBlock12Props | MbmcBlock14Props | MbmcBlock13Props;
 };
 export {};

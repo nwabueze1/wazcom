@@ -2,20 +2,23 @@ import React, { useMemo, useState, useEffect } from "react";
 import { ApolloClient, NormalizedCacheObject, useLazyQuery } from "@apollo/client";
 import Cookies from "universal-cookie";
 import { useMbmcBlock14Styles } from "./styles";
-import { CartItems, Checkout, EmptyCart, Loader } from "./components";
+import { CartItems, Checkout, EmptyCart, Loader, OrderDetails } from "./components";
 import { RestaurantContext, RestaurantContextProps } from "../../contexts";
 import { MbmcBlock14Props } from "./types";
 import { createApolloClient } from "../../../../helpers/graphQL";
 import { GET_CART_BY_UUID } from "./graphql";
+import { MbmcButton } from "../../components";
 
 export const MbmcBlock14: React.FC<MbmcBlock14Props> = ({
     services,
     integratedServices,
     site_uuid,
+    setContextProps
 }) => {
     const classes = useMbmcBlock14Styles();
     const [contextData, setContextData] = useState<Omit<RestaurantContextProps, "setContext">>({});
     const [loading, setLoading] = useState(true);
+    const [displayCheckout, setDisplayCheckout] = useState(false);
     const cookies = new Cookies();
     const cartCookie = cookies.get("cart");
     const clients = useMemo(() => {
@@ -50,27 +53,58 @@ export const MbmcBlock14: React.FC<MbmcBlock14Props> = ({
     }, [data, error]);
 
     const updateContext = (variables: Omit<RestaurantContextProps, "setContext">) => {
-        console.log(variables);
         setContextData({ ...contextData, ...variables });
     };
 
     if (loading) return <Loader />;
 
-    if (
+    const isCartEmpty =
         !cartCookie ||
         (cartCookie && !cartCookie[site_uuid]) ||
-        contextData?.cart?.cartItems?.length === 0
-    )
-        return <EmptyCart />;
+        contextData?.cart?.cartItems?.length === 0;
 
     return (
         <RestaurantContext.Provider value={{ ...contextData, setContext: updateContext }}>
             <div className={classes.root}>
                 <div className={classes.block14Container}>
-                    <CartItems />
-                    <span className={classes.block14Divider} />
-                    <Checkout />
+                    <p className={classes.block14Title}>
+                        Items(
+                        {contextData?.cart?.cartItems ? contextData?.cart?.cartItems?.length : 0})
+                    </p>
+                    <div className={classes.block14CartContent}>
+                        {isCartEmpty ? (
+                            <EmptyCart />
+                        ) : (
+                            <>
+                                <CartItems setContextProps={setContextProps} />
+                                <span className={classes.block14Divider} />
+                                {contextData?.cart?.order ? (
+                                    <OrderDetails
+                                        display={displayCheckout}
+                                        setDisplay={setDisplayCheckout}
+                                    />
+                                ) : (
+                                    <Checkout
+                                        display={displayCheckout}
+                                        setDisplay={setDisplayCheckout}
+                                    />
+                                )}
+                            </>
+                        )}
+                    </div>
                 </div>
+                {contextData?.cart?.cartItems && contextData?.cart?.cartItems?.length > 0 && (
+                    <div className={classes.block14Action}>
+                        <MbmcButton
+                            variant="SECONDARY"
+                            onClick={() => {
+                                setDisplayCheckout(true);
+                            }}
+                        >
+                            Proceed to summary
+                        </MbmcButton>
+                    </div>
+                )}
             </div>
         </RestaurantContext.Provider>
     );

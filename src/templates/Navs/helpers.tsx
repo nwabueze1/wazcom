@@ -4,6 +4,7 @@ import { FaFacebookF } from "react-icons/fa";
 import { BsTwitter } from "react-icons/bs";
 import clx from "classnames";
 import { NavProps, SocialType } from "./types";
+import { Link } from "../mbmc/components";
 
 export const renderNavLink = (
     { url, text }: { url: string; text: string },
@@ -32,22 +33,15 @@ export const renderNavLink = (
             {text}
         </p>
     ) : (
-        <a
-            className={classes.link}
-            key={index}
-            target="_blank"
-            rel="noopener noreferrer"
-            href={url}
-        >
+        <Link className={classes.link} key={index} href={url}>
             {text}
-        </a>
+        </Link>
     );
 };
 
 const hivedeckLogo = "https://sytbuildr.s3.eu-west-2.amazonaws.com/images/logo/hivedeck_logo.svg";
 
-const isNotRenderAnchor = (url: string, mode: "view" | "edit") =>
-    url?.startsWith("/") || url === "#" || mode === "edit";
+const isNotRenderAnchor = (url: string, mode: "view" | "edit") => url === "#" || mode === "edit";
 
 const clickAction = (url: string, mode: "view" | "edit", handleClick?: () => void) => {
     if (mode === "edit" || (mode === "view" && url !== "#")) handleClick?.();
@@ -117,11 +111,7 @@ const LogoWrapper: FC<LogoWrapperProps> = ({ url, mode, children, handleClick, i
         );
     }
 
-    return (
-        <a href={url} target="_blank" rel="noopener noreferrer">
-            {children}
-        </a>
-    );
+    return <Link href={url}>{children}</Link>;
 };
 
 export const displaySocials = (

@@ -9,11 +9,10 @@ export const GroupedInput: FC<GroupedInputProps> = ({ name, controls }) => {
     const displayControls = () =>
         controls.map((control, index) => <FormControl key={index} {...control} />);
 
-
     return (
         <div className={classes.root}>
             <p className={classes.groupedInputName}>{name}</p>
             {displayControls()}
         </div>
-    )
-}
+    );
+};

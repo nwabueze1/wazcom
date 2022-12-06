@@ -1,17 +1,21 @@
 import { makeStyles } from "@mui/styles";
 export var useMbmcBlock6Styles = makeStyles(function (theme) {
-    var _a, _b;
+    var _a, _b, _c;
     return ({
         root: {
             backgroundColor: theme.design.colors.waz_greyColor50,
             position: "relative",
             padding: theme.spacing(10, 0),
         },
-        block6Container: {
-            maxWidth: 1240,
-            width: "90%",
-            margin: "0 auto",
-        },
+        block6Container: (_a = {
+                maxWidth: 1720,
+                width: "85%",
+                margin: "0 auto"
+            },
+            _a[theme.breakpoints.down("lg")] = {
+                width: "90%",
+            },
+            _a),
         block6Content: {
             width: "100%",
             display: "flex",
@@ -20,7 +24,7 @@ export var useMbmcBlock6Styles = makeStyles(function (theme) {
             flexDirection: "column",
             marginBottom: theme.spacing(4),
         },
-        block6Heading: (_a = {
+        block6Heading: (_b = {
                 color: theme.design.colors.waz_primaryColor300,
                 fontSize: theme.typography.fontSize * 4,
                 letterSpacing: 0,
@@ -32,11 +36,11 @@ export var useMbmcBlock6Styles = makeStyles(function (theme) {
                 border: "1px solid transparent",
                 transition: "all 0.3s ease-in"
             },
-            _a[theme.breakpoints.down("md")] = {
+            _b[theme.breakpoints.down("md")] = {
                 fontSize: theme.typography.fontSize * 2,
             },
-            _a),
-        block6Description: (_b = {
+            _b),
+        block6Description: (_c = {
                 color: theme.design.colors.waz_greyColor600,
                 textAlign: "center",
                 fontSize: theme.typography.fontSize + 6,
@@ -47,17 +51,17 @@ export var useMbmcBlock6Styles = makeStyles(function (theme) {
                 border: "1px solid transparent",
                 transition: "all 0.3s ease-in"
             },
-            _b[theme.breakpoints.down("md")] = {
+            _c[theme.breakpoints.down("md")] = {
                 marginBottom: theme.spacing(1),
                 fontSize: theme.typography.fontSize + 4,
                 width: '90%',
             },
-            _b[theme.breakpoints.down("sm")] = {
+            _c[theme.breakpoints.down("sm")] = {
                 marginBottom: theme.spacing(1),
                 fontSize: theme.typography.fontSize + 4,
                 width: '100%',
             },
-            _b),
+            _c),
         block6ScrollContainer: {
             display: "flex",
             gap: theme.spacing(2.5),

@@ -1,6 +1,6 @@
 import { makeStyles } from "@mui/styles";
 export var useMbmcBlock16Styles = makeStyles(function (theme) {
-    var _a, _b, _c, _d;
+    var _a, _b, _c;
     return ({
         root: {
             display: 'flex',
@@ -29,22 +29,18 @@ export var useMbmcBlock16Styles = makeStyles(function (theme) {
             display: "flex",
             gap: "8px",
             marginBottom: theme.spacing(2),
+            alignItems: 'center',
         },
-        dialogImage: (_b = {
-                width: "31%",
-                maxHeight: "125px",
-                height: '100%',
-                borderRadius: "5px",
-                objectFit: 'cover'
-            },
-            _b[theme.breakpoints.down("md")] = {
-                height: "89%",
-            },
-            _b),
+        dialogImage: {
+            width: "31%",
+            height: "172px",
+            borderRadius: "5px",
+            objectFit: 'cover',
+        },
         content: {
             width: "60%",
         },
-        title: (_c = {
+        title: (_b = {
                 letterSpacing: "0px",
                 color: theme.design.colors.waz_black,
                 textTransform: "capitalize",
@@ -53,21 +49,21 @@ export var useMbmcBlock16Styles = makeStyles(function (theme) {
                 fontWeight: theme.typography.fontWeightMedium,
                 marginBottom: theme.spacing(1)
             },
-            _c[theme.breakpoints.down("md")] = {
+            _b[theme.breakpoints.down("md")] = {
                 fontSize: theme.typography.fontSize + 2,
             },
-            _c),
-        description: (_d = {
+            _b),
+        description: (_c = {
                 letterSpacing: "0px",
                 color: theme.design.colors.waz_greyColor600,
                 fontSize: theme.typography.fontSize,
                 fontFamily: theme.design.font.montserrat,
                 lineHeight: 1.7
             },
-            _d[theme.breakpoints.down("md")] = {
+            _c[theme.breakpoints.down("md")] = {
                 color: "black",
             },
-            _d),
+            _c),
         priceContainer: {
             marginTop: theme.spacing(2),
             display: "flex",

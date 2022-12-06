@@ -16,26 +16,30 @@ export const useMbmcBlock10Styles = makeStyles((theme: Theme) => ({
             height: "100%",
             padding: theme.spacing(2, 4),
         },
-        [theme.breakpoints.down("sm")]: {
-            padding: theme.spacing(1),
-            height: "fit-content",
-        },
     },
     tagsContainer: {
         width: "fit-content",
         display: "flex",
         alignItems: "center",
         justifyContent: "center",
+
+        
+        [theme.breakpoints.down("sm")]: {
+            flexDirection: 'column',
+            gap: theme.spacing(1),
+        },
     },
     tag: {
-        display: 'flex',
-        alignItems: 'center',
+        display: "flex",
+        alignItems: "center",
         paddingRight: theme.spacing(1),
     },
     tagImage: {
         margin: theme.spacing(0, 1, 0, 1.5),
         border: "1px solid transparent",
         transition: "all 0.3s ease-in",
+        width: 32,
+        height: 32,
     },
     tagText: {
         fontSize: theme.typography.fontSize,
@@ -43,9 +47,19 @@ export const useMbmcBlock10Styles = makeStyles((theme: Theme) => ({
         fontWeight: theme.typography.fontWeightMedium,
         border: "1px solid transparent",
         transition: "all 0.3s ease-in",
+
+        
+        [theme.breakpoints.down("sm")]: {
+            fontSize: theme.typography.fontSize + 2, 
+        },
     },
     border: {
         borderRight: "1px solid hsla(12, 73%, 56%, 1)",
+
+        
+        [theme.breakpoints.down("sm")]: {
+            borderRight: 'none',
+        },
     },
     block10ActiveElement: {
         border: "1px dashed",

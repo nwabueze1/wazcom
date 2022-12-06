@@ -6,17 +6,20 @@ export const useMbmcBlock3Styles = makeStyles((theme: Theme) => ({
         position: "relative",
         overflow: "hidden",
         background: theme.design.colors.white,
-        border: "1px solid transparent",
         transition: "all 0.3s ease-in",
     },
     block3Container: {
         position: "relative",
-        maxWidth: 1240,
-        width: "90%",
+        maxWidth: 1720,
+        width: "85%",
         margin: "0 auto",
         display: "flex",
         alignItems: "center",
         zIndex: 10,
+
+        [theme.breakpoints.down("lg")]: {
+            width: "90%",
+        },
     },
     block3ImageContainer: {
         width: "50%",

@@ -8,12 +8,15 @@ export const useMbmcBlock1Styles = makeStyles<Theme, MbmcBlock1StyleProps>((them
         height: ({ fullHeight }) => (fullHeight ? "100vh" : "70vh"),
         position: "relative",
         overflow: "hidden",
-        border: "1px solid transparent",
         transition: "all 0.3s ease-in",
+
+        [theme.breakpoints.down("lg")]: {
+            height: ({ fullHeight }) => (fullHeight ? "100vh" : "80vh"),
+        },
     },
     block1Container: {
-        maxWidth: 1240,
-        width: "90%",
+        maxWidth: 1720,
+        width: "85%",
         margin: "0 auto",
         display: "flex",
         alignItems: "center",
@@ -21,6 +24,10 @@ export const useMbmcBlock1Styles = makeStyles<Theme, MbmcBlock1StyleProps>((them
 
         [theme.breakpoints.down("lg")]: {
             flexDirection: "column",
+            width: "90%",
+        },
+        
+        [theme.breakpoints.down("sm")]: {
             paddingTop: theme.spacing(10),
         },
     },
@@ -28,12 +35,18 @@ export const useMbmcBlock1Styles = makeStyles<Theme, MbmcBlock1StyleProps>((them
         width: "45%",
 
         [theme.breakpoints.down("lg")]: {
+            position: 'relative',
+            top: 80,
             width: "90%",
             display: "flex",
             alignItems: "center",
             justifyContent: "flex-start",
             flexDirection: "column",
             textAlign: "center",
+        },
+
+        [theme.breakpoints.down("sm")]: {
+            top: 0,
         },
     },
     block1Heading: {
@@ -46,6 +59,7 @@ export const useMbmcBlock1Styles = makeStyles<Theme, MbmcBlock1StyleProps>((them
         margin: 0,
         border: "1px solid transparent",
         transition: "all 0.3s ease-in",
+        zIndex: 10,
 
         [theme.breakpoints.down("lg")]: {
             fontSize: theme.typography.fontSize * 4 + 4,
@@ -99,17 +113,13 @@ export const useMbmcBlock1Styles = makeStyles<Theme, MbmcBlock1StyleProps>((them
         },
     },
     block1ImgContainerMobile: {
-        position: "absolute",
         bottom: 0,
         width: "100%",
-
-        [theme.breakpoints.up("lg")]: {
-            display: "none",
-            position: ({ fullHeight }) => (fullHeight ? "absolute" : "relative"),
-        },
+        display: "none",
 
         [theme.breakpoints.down("lg")]: {
-            position: ({ fullHeight }) => (fullHeight ? "absolute" : "relative"),
+            display: "block",
+            position: "relative",
         },
 
         [theme.breakpoints.down("md")]: {
@@ -140,27 +150,36 @@ export const useMbmcBlock1Styles = makeStyles<Theme, MbmcBlock1StyleProps>((them
         position: "relative",
         marginTop: theme.spacing(8),
 
-        [theme.breakpoints.down("lg")]: {
-            marginTop: ({ fullHeight }) => (fullHeight ? theme.spacing(8) : 0),
-        },
-
         [theme.breakpoints.down("sm")]: {
             height: "100%",
-            marginTop: ({ fullHeight }) =>
-                fullHeight ? `${theme.spacing(0)} !important` : `${theme.spacing(8)} !important`,
+            marginTop: 0,
         },
     },
     block1Image: {
         position: "relative",
-        top: "5vh",
         width: ({ fullHeight }) => (fullHeight ? "95%" : "85%"),
-        height: "90%",
-        zIndex: 10,
-        objectFit: "none",
+        zIndex: 10, 
+
+        [theme.breakpoints.up("xl")]: {
+            objectFit: ({ fullHeight }) => fullHeight ? 'cover' : 'contain',
+            height: "80%",
+            top: '2vh',
+        },
+
+        [theme.breakpoints.down("xl")]: {
+            objectFit: ({ fullHeight }) => (fullHeight ? "none" : "contain"),
+            height: "90%",
+            top: "5vh",
+        },
     },
     block1Overlay: {
         position: "absolute",
-        top: "-12vh",
+        top: ({ fullHeight }) => fullHeight ? "-3vw" : 'unset',
+
+        [theme.breakpoints.up("xl")]: {
+            right: ({ fullHeight }) => fullHeight ? 0 : '-5vw',
+            height: ({ fullHeight }) => fullHeight ? "calc(100% + 3vw)" : 'unset',
+        },
     },
     block1BtnContainer: {
         display: "flex",

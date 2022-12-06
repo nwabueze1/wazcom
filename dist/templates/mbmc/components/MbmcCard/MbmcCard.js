@@ -14,20 +14,22 @@ import { useMbmcCardStyles } from "./styles";
 import clsx from "clsx";
 import { menuImagePlaceholder } from "../../../../utilities/restaurant";
 import { renderCtas, handleElementClick } from "../../utilities";
+import { LazyImage } from "../../../../core";
 export var MbmcCard = function (_a) {
-    var _b = _a.mode, mode = _b === void 0 ? "view" : _b, activeElement = _a.activeElement, parentKey = _a.parentKey, heading = _a.heading, image = _a.image, description = _a.description, ctas = _a.ctas, scrollableParent = _a.scrollableParent, className = _a.className, classNames = _a.classNames, handleClick = _a.handleClick;
+    var _b = _a.mode, mode = _b === void 0 ? "view" : _b, activeElement = _a.activeElement, parentKey = _a.parentKey, heading = _a.heading, image = _a.image, description = _a.description, ctas = _a.ctas, scrollableParent = _a.scrollableParent, className = _a.className, classNames = _a.classNames, handleClick = _a.handleClick, url = _a.url;
     var isOpen = true;
     var classes = useMbmcCardStyles({ isOpen: isOpen, scrollableParent: scrollableParent });
     return (_jsxs("div", __assign({ className: clsx(classes.root, classes.visible, className), onClick: function () {
-            handleClick === null || handleClick === void 0 ? void 0 : handleClick("");
-        } }, { children: [_jsx("div", { className: clsx(classes.imageWrapper, activeElement === parentKey + ".image" && classes.cardActiveElement), style: {
-                    backgroundImage: "url(".concat(image !== null && image !== void 0 ? image : menuImagePlaceholder, ")"),
-                }, onClick: function () {
+            url && (handleClick === null || handleClick === void 0 ? void 0 : handleClick(url));
+        } }, { children: [_jsx("div", __assign({ className: clsx(classes.imageWrapper, activeElement === parentKey + ".image" && classes.cardActiveElement), onClick: function (e) {
+                    mode === 'edit' && e.stopPropagation();
                     handleElementClick(mode, parentKey + ".image", handleClick);
-                } }, void 0), _jsxs("div", __assign({ className: classes.content }, { children: [_jsxs("div", { children: [_jsx("p", __assign({ className: clsx(classes.heading, classNames === null || classNames === void 0 ? void 0 : classNames.heading, activeElement === parentKey + ".heading" && classes.cardActiveElement), onClick: function () {
+                } }, { children: _jsx(LazyImage, { src: image !== null && image !== void 0 ? image : menuImagePlaceholder, mode: mode, className: classes.image }, void 0) }), void 0), _jsxs("div", __assign({ className: classes.content }, { children: [_jsxs("div", { children: [_jsx("p", __assign({ className: clsx(classes.heading, classNames === null || classNames === void 0 ? void 0 : classNames.heading, activeElement === parentKey + ".heading" && classes.cardActiveElement), onClick: function (e) {
+                                    mode === 'edit' && e.stopPropagation();
                                     handleElementClick(mode, parentKey + ".heading", handleClick);
                                 } }, { children: heading }), void 0), _jsx("p", __assign({ className: clsx(classes.description, classNames === null || classNames === void 0 ? void 0 : classNames.description, activeElement === parentKey + ".description" &&
-                                    classes.cardActiveElement), onClick: function () {
+                                    classes.cardActiveElement), onClick: function (e) {
+                                    mode === 'edit' && e.stopPropagation();
                                     handleElementClick(mode, parentKey + ".description", handleClick);
                                 } }, { children: description }), void 0)] }, void 0), _jsx("div", __assign({ className: classes.ctas }, { children: renderCtas(ctas !== null && ctas !== void 0 ? ctas : [], mode, parentKey !== null && parentKey !== void 0 ? parentKey : "", handleClick, activeElement) }), void 0)] }), void 0)] }), void 0));
 };

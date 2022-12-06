@@ -17,12 +17,16 @@ export const useMbmcBlock9Styles = makeStyles((theme: Theme) => ({
         },
     },
     headerContainer: {
-        maxWidth: 1240,
-        width: "90%",
+        maxWidth: 1720,
+        width: "85%",
         margin: "0 auto",
         display: "flex",
         alignItems: "center",
         justifyContent: "space-between",
+
+        [theme.breakpoints.down("lg")]: {
+            width: "90%",
+        },
     },
     headerContent: {
         display: "flex",
@@ -30,14 +34,13 @@ export const useMbmcBlock9Styles = makeStyles((theme: Theme) => ({
         flexDirection: "column",
 
         [theme.breakpoints.down("md")]: {
-            alignItems: 'center',
+            alignItems: "center",
         },
     },
     headerTitle: {
         color: theme.design.colors.waz_black,
         fontSize: theme.typography.fontSize * 4,
         letterSpacing: 0,
-        textTransform: "capitalize",
         margin: 0,
         marginBottom: theme.spacing(1),
         fontFamily: theme.design.font.lostaMasta,
@@ -61,8 +64,8 @@ export const useMbmcBlock9Styles = makeStyles((theme: Theme) => ({
     headerDescription: {
         color: theme.design.colors.waz_greyColor600,
         textAlign: "left",
-        fontSize: theme.typography.fontSize + 6,
-        maxWidth: 500,
+        fontSize: theme.typography.fontSize + 4,
+        width: '80%',
         border: "1px solid transparent",
         transition: "all 0.3s ease-in",
         fontFamily: theme.design.font.montserrat,
@@ -74,7 +77,7 @@ export const useMbmcBlock9Styles = makeStyles((theme: Theme) => ({
 
         [theme.breakpoints.down("md")]: {
             fontSize: theme.typography.fontSize + 3,
-            textAlign: 'center',
+            textAlign: "center",
             width: "80%",
         },
 
@@ -89,8 +92,7 @@ export const useMbmcBlock9Styles = makeStyles((theme: Theme) => ({
         marginTop: theme.spacing(4),
     },
     pointContainer: {
-        width: "100%",
-        maxWidth: 500,
+        width: '80%',
         display: "flex",
         alignItems: "flex-start",
         justifyContent: "flex-start",
@@ -104,7 +106,7 @@ export const useMbmcBlock9Styles = makeStyles((theme: Theme) => ({
 
         [theme.breakpoints.down("lg")]: {
             padding: theme.spacing(2),
-            maxWidth: "100%",
+            width: "100%",
         },
     },
     pointTextContainer: {
@@ -123,19 +125,28 @@ export const useMbmcBlock9Styles = makeStyles((theme: Theme) => ({
         marginRight: theme.spacing(2),
         color: theme.design.colors.waz_primaryColor300,
         fontWeight: theme.typography.fontWeightBold,
+
+        [theme.breakpoints.down("sm")]: {
+            fontSize: theme.typography.fontSize + 4,
+            padding: theme.spacing(2, 2.5),
+        },
     },
     pointDescription: {
         color: theme.design.colors.waz_greyColor600,
         textAlign: "left",
         fontSize: theme.typography.fontSize,
         width: "100%",
+        lineHeight: 1.7,
+
         [theme.breakpoints.down(1450)]: {
             fontSize: theme.typography.fontSize,
         },
+
         [theme.breakpoints.down("lg")]: {
             width: "80%",
             fontSize: theme.typography.fontSize,
         },
+
         [theme.breakpoints.down("md")]: {
             fontSize: theme.typography.fontSize + 2,
             width: "100%",
@@ -146,7 +157,6 @@ export const useMbmcBlock9Styles = makeStyles((theme: Theme) => ({
         fontWeight: theme.typography.fontWeightBold,
         fontSize: theme.typography.fontSize + 4,
         letterSpacing: 0,
-        textTransform: "capitalize",
         font: "Losta Masta;",
         margin: 0,
         textAlign: "left",
@@ -177,9 +187,10 @@ export const useMbmcBlock9Styles = makeStyles((theme: Theme) => ({
     },
     imageStep: {
         height: "100%",
+        width: "100%",
+
         [theme.breakpoints.down("lg")]: {
             height: "unset",
-            width: "100%",
         },
     },
     directionContainer: {
