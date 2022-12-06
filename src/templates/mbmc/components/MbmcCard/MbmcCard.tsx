@@ -35,11 +35,12 @@ export const MbmcCard: React.FC<MbmcCardProps> = ({
                     classes.imageWrapper,
                     activeElement === parentKey + ".image" && classes.cardActiveElement,
                 )}
-                onClick={() => {
+                onClick={(e) => {
+                    mode === 'edit' && e.stopPropagation();
                     handleElementClick(mode, parentKey + ".image", handleClick);
                 }}
             >
-                <LazyImage src={image ?? menuImagePlaceholder} className={classes.image} />
+                <LazyImage src={image ?? menuImagePlaceholder} mode={mode} className={classes.image} />
             </div>
             <div className={classes.content}>
                 <div>
@@ -49,7 +50,8 @@ export const MbmcCard: React.FC<MbmcCardProps> = ({
                             classNames?.heading,
                             activeElement === parentKey + ".heading" && classes.cardActiveElement,
                         )}
-                        onClick={() => {
+                        onClick={(e) => {
+                            mode === 'edit' && e.stopPropagation();
                             handleElementClick(mode, parentKey + ".heading", handleClick);
                         }}
                     >
@@ -62,7 +64,8 @@ export const MbmcCard: React.FC<MbmcCardProps> = ({
                             activeElement === parentKey + ".description" &&
                                 classes.cardActiveElement,
                         )}
-                        onClick={() => {
+                        onClick={(e) => {
+                            mode === 'edit' && e.stopPropagation();
                             handleElementClick(mode, parentKey + ".description", handleClick);
                         }}
                     >

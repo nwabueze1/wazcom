@@ -56,7 +56,7 @@ export var MbmcBlock9 = function (_a) {
                                     } }, { children: heading }), void 0), _jsx("p", __assign({ className: clx(classes.headerDescription, activeElement === "".concat(String(index), ".description") &&
                                         classes.block9ActiveElement), onClick: function () {
                                         handleElementClick(mode, "".concat(String(index), ".description"), handleClick);
-                                    } }, { children: description }), void 0)] }), void 0), isMobile && (_jsx("div", __assign({ className: classes.directionContainerMobile }, { children: _jsx(LazyImage, { className: classes.imageStep, src: steps[active].image, alt: steps[active].heading }, void 0) }), void 0)), _jsx("div", __assign({ className: classes.headerCardContainer }, { children: steps.map(function (step, idx) {
+                                    } }, { children: description }), void 0)] }), void 0), isMobile && (_jsx("div", __assign({ className: classes.directionContainerMobile }, { children: _jsx(LazyImage, { className: classes.imageStep, src: steps[active].image, alt: steps[active].heading, mode: mode }, void 0) }), void 0)), _jsx("div", __assign({ className: classes.headerCardContainer }, { children: steps.map(function (step, idx) {
                                 var key = String(index) + ".steps." + String(idx);
                                 return mode === "edit" ? (_jsxs("div", __assign({ onClick: function () {
                                         mode === "edit" && setActive(idx);
@@ -71,7 +71,7 @@ export var MbmcBlock9 = function (_a) {
                                                         classes.block9ActiveElement) }, { children: step.description }), void 0)] }), void 0)] }), idx));
                             }) }), void 0)] }), void 0), isDesktop && (_jsx("div", __assign({ className: classes.directionContainer }, { children: _jsx(LazyImage, { src: steps[active].image, alt: steps[active].heading, className: clx(classes.imageStep, activeElement ===
                             "".concat(String(index), ".steps.").concat(String(active), ".image") &&
-                            classes.block9ActiveElement), onClick: function () {
+                            classes.block9ActiveElement), mode: mode, onClick: function () {
                             handleElementClick(mode, "".concat(String(index), ".steps.").concat(String(active), ".image"), handleClick);
                         } }, void 0) }), void 0))] }), void 0) }), void 0));
 };

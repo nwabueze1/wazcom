@@ -33,6 +33,7 @@ export const MbmcBlock3: FC<MbmcBlock3Props> = ({
                         <LazyImage
                             src="https://sytbuildr.s3.eu-west-2.amazonaws.com/images/mbmc/home/heroFoodLabel.webp"
                             className={classes.block3Image}
+                            mode={mode}
                         />
                     </div>
                 )}

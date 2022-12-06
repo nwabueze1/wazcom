@@ -11,34 +11,27 @@ export const useMbmcBlock7Styles = makeStyles((theme: Theme) => ({
         flexDirection: "column",
         width: "100%",
         boxSizing: "border-box",
-        padding: theme.spacing(6, 12),
+        padding: theme.spacing(12, 0),
 
         [theme.breakpoints.down("lg")]: {
-            padding: theme.spacing(5, 10),
+            padding: theme.spacing(8, 0),
         },
         [theme.breakpoints.down("md")]: {
             height: "100%",
-            padding: theme.spacing(5, 4),
+            padding: theme.spacing(5, 0),
         },
         [theme.breakpoints.down("sm")]: {
-            padding: theme.spacing(4),
-            height: "fit-content",
+            padding: theme.spacing(4, 0),
         },
     },
     headerContent: {
-        width: "100%",
+        width: "85%",
         display: "flex",
         alignItems: "center",
         justifyContent: "flex-start",
         flexDirection: "column",
         marginBottom: theme.spacing(2),
-
-        [theme.breakpoints.down("md")]: {
-            width: "100%",
-        },
-        [theme.breakpoints.down("sm")]: {
-            width: "100%",
-        },
+        maxWidth: 1720,
     },
     headerTitle: {
         color: theme.design.colors.waz_primaryColor300,
@@ -48,21 +41,20 @@ export const useMbmcBlock7Styles = makeStyles((theme: Theme) => ({
         font: "normal normal medium 68px/100px Losta Masta;",
         margin: 0,
         textAlign: "center",
-        marginTop: theme.spacing(6),
         marginBottom: theme.spacing(2),
         fontFamily: theme.design.font.lostaMasta,
+        border: "1px solid transparent",
+
         [theme.breakpoints.down(1450)]: {
             fontSize: theme.typography.fontSize * 3,
         },
         [theme.breakpoints.down("lg")]: {
-            marginTop: theme.spacing(3),
             fontSize: theme.typography.fontSize * 2,
         },
         [theme.breakpoints.down("md")]: {
             fontSize: theme.typography.fontSize * 2,
         },
         [theme.breakpoints.down("sm")]: {
-            textAlign: "left",
             fontSize: theme.typography.fontSize * 1.5,
             fontWeight: 800,
             marginBottom: theme.spacing(1),
@@ -76,6 +68,7 @@ export const useMbmcBlock7Styles = makeStyles((theme: Theme) => ({
         width: "38%",
         fontFamily: theme.design.font.montserrat,
         marginBottom: theme.spacing(6),
+        border: "1px solid transparent",
 
         [theme.breakpoints.down(1450)]: {
             fontSize: theme.typography.fontSize + 3,
@@ -91,7 +84,6 @@ export const useMbmcBlock7Styles = makeStyles((theme: Theme) => ({
         },
         [theme.breakpoints.down("sm")]: {
             width: "100%",
-            textAlign: "left",
         },
     },
     imageContainer: {
@@ -120,10 +112,15 @@ export const useMbmcBlock7Styles = makeStyles((theme: Theme) => ({
         borderRadius: 4,
     },
     mobileCardContainer: {
-        width: "100%",
+        width: "85%",
+        maxWidth: 1720,
         display: "grid",
         gridTemplateColumns: "1fr 1fr 1fr",
         gap: theme.spacing(1),
         height: "fit-content",
+    },
+    block7ActiveElement: {
+        border: "1px dashed",
+        borderColor: theme.design.colors.waz_primaryColor100,
     },
 }));

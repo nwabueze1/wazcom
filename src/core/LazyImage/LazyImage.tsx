@@ -4,6 +4,7 @@ import { useImageStyles } from "./styles";
 import { ImageProps } from "./types";
 
 export const LazyImage: React.FC<ImageProps> = ({
+    mode = "view",
     blurDataurl,
     placeholder = "empty",
     src,
@@ -71,6 +72,11 @@ export const LazyImage: React.FC<ImageProps> = ({
             )}
         />
     ) : (
-        <img {...props} src={isVisible ? src : undefined} ref={imageRef} className={className} />
+        <img
+            {...props}
+            src={mode === "edit" || isVisible ? src : undefined}
+            ref={imageRef}
+            className={className}
+        />
     );
 };

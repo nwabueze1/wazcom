@@ -53,6 +53,7 @@ export const useMbmcBlock12Styles = makeStyles((theme: Theme) => ({
         font: "normal normal medium 68px/100px Losta Masta;",
         margin: 0,
         fontFamily: theme.design.font.lostaMasta,
+        border: "1px solid transparent",
 
         [theme.breakpoints.down("lg")]: {
             fontSize: theme.typography.fontSize * 3,
@@ -73,6 +74,7 @@ export const useMbmcBlock12Styles = makeStyles((theme: Theme) => ({
         fontSize: theme.typography.fontSize + 2,
         fontFamily: theme.design.font.montserrat,
         lineHeight: 1.5,
+        border: "1px solid transparent",
 
         [theme.breakpoints.down("lg")]: {
             fontSize: theme.typography.fontSize + 4,
@@ -235,5 +237,9 @@ export const useMbmcBlock12Styles = makeStyles((theme: Theme) => ({
     success: {
         color: theme.design.colors.waz_successColor100,
         marginTop: theme.spacing(1),
+    },
+    block12ActiveElement: {
+        border: "1px dashed",
+        borderColor: theme.design.colors.waz_primaryColor100,
     },
 }));

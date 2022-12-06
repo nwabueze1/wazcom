@@ -77,7 +77,6 @@ export const useGetMbmcBlocks = () => {
                 heading: "Our Premium Services",
                 description: `Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed
             diam nonumy eirmod tempor invidunt ut labore et dolore a….`,
-                url: "/menu",
                 cards: [
                     {
                         heading: "Baking",
@@ -99,7 +98,7 @@ export const useGetMbmcBlocks = () => {
                     },
                 ],
 
-                // mode: "edit",
+                mode: "edit",
                 index: 0,
                 handleClick: (route: string) => alert(route),
                 activeElement: "0.cards.2.image",
@@ -244,6 +243,10 @@ export const useGetMbmcBlocks = () => {
                 },
                 integratedService: "NICODEMUS",
                 site_uuid: "ca2291e7-7789-43c5-8ab3-5bbb01228b07",
+                mode: "edit",
+                index: 0,
+                activeElement: "0.description",
+                handleClick: (route: string) => alert(route),
             },
         },
         {
@@ -422,11 +425,15 @@ export const useGetMbmcBlocks = () => {
                 client: {
                     type: "emailjs",
                     credentials: {
-                        service_id: "default_service",
-                        template_id: "template_yw4xkdn",
-                        user_id: "ppLpfYN6_0WxA0xZ6",
+                        service_id: "service_e0r79wm",
+                        template_id: "template_1qe38gr",
+                        user_id: "_h6kVofH7LYFXtlsI",
                     },
                 },
+                mode: "edit",
+                handleClick: (route: string) => alert(route),
+                index: 0,
+                activeElement: "0.ctas.0",
             },
         },
         {

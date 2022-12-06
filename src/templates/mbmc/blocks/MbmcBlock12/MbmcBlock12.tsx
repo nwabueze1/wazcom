@@ -4,8 +4,14 @@ import { FC, useState } from "react";
 import { HandleSend, MbmcBlock12Props } from "./types";
 import { TextArea, TextInput } from "../../../../io";
 import { notify } from "../../utilities";
+import clx from "classnames";
+import { handleElementClick } from "../../utilities";
 
 export const MbmcBlock12: FC<MbmcBlock12Props> = ({
+    mode = "view",
+    activeElement = "",
+    index,
+    handleClick,
     layout,
     heading,
     description,
@@ -46,7 +52,7 @@ export const MbmcBlock12: FC<MbmcBlock12Props> = ({
         });
     };
 
-    const handleClick: React.FormEventHandler<HTMLFormElement> = async (e) => {
+    const handleSubmit: React.FormEventHandler<HTMLFormElement> = async (e) => {
         e.preventDefault();
 
         const hasEmptyField = Object.values(formData).includes("");
@@ -107,9 +113,35 @@ export const MbmcBlock12: FC<MbmcBlock12Props> = ({
         <div className={classes.root}>
             <div className={classes.container}>
                 <div className={classes.headerContent}>
-                    <h3 className={classes.headerTitle}>{heading}</h3>
+                    <h3
+                        className={clx(
+                            classes.headerTitle,
+                            activeElement === `${String(index)}.heading` &&
+                                classes.block12ActiveElement,
+                        )}
+                        onClick={() =>
+                            handleElementClick(mode, `${String(index)}.heading`, handleClick)
+                        }
+                    >
+                        {heading}
+                    </h3>
                     <div className={classes.headerParagraph}>
-                        <p className={classes.headerDescription}>{description}</p>
+                        <p
+                            className={clx(
+                                classes.headerDescription,
+                                activeElement === `${String(index)}.description` &&
+                                    classes.block12ActiveElement,
+                            )}
+                            onClick={() =>
+                                handleElementClick(
+                                    mode,
+                                    `${String(index)}.description`,
+                                    handleClick,
+                                )
+                            }
+                        >
+                            {description}
+                        </p>
                     </div>
                     <div className={classes.headerBtnContainer}>{displayCtas()}</div>
                 </div>
@@ -118,7 +150,7 @@ export const MbmcBlock12: FC<MbmcBlock12Props> = ({
                 </div>
 
                 <div className={classes.formContainer}>
-                    <form className={classes.form} onSubmit={handleClick}>
+                    <form className={classes.form} onSubmit={handleSubmit}>
                         <TextInput
                             placeholder="Name"
                             name="name"

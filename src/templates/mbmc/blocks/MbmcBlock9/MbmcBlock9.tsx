@@ -74,6 +74,7 @@ export const MbmcBlock9: FC<MbmcBlock9Props> = ({
                                 className={classes.imageStep}
                                 src={steps[active].image}
                                 alt={steps[active].heading}
+                                mode={mode}
                             />
                         </div>
                     )}
@@ -179,6 +180,7 @@ export const MbmcBlock9: FC<MbmcBlock9Props> = ({
                                     `${String(index)}.steps.${String(active)}.image` &&
                                     classes.block9ActiveElement,
                             )}
+                            mode={mode}
                             onClick={() => {
                                 handleElementClick(
                                     mode,
