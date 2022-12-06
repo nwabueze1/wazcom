@@ -6,6 +6,7 @@ import { IoMdClose } from "react-icons/io";
 import { renderNavLink, renderNavLogo } from "../../../../templates/Navs/helpers";
 import clx from "classnames";
 import { FiShoppingCart } from "react-icons/fi";
+import { Link } from "../../components";
 import { renderCtas } from "../../utilities";
 import Cookies from "universal-cookie";
 
@@ -51,6 +52,17 @@ export const MbmcBlock13: FC<MbmcBlock13Props> = ({
         );
     };
 
+    const CartLink = () => (
+        <Link
+            className={clx(classes.icon, classes.link)}
+            target="_self"
+            href={mode === "edit" ? "#" : "/cart"}
+        >
+            <FiShoppingCart className={classes.cartIcon} fontSize={20} />
+            {cartItemCount > 0 && <span className={classes.badgeIcon}>{cartItemCount}</span>}
+        </Link>
+    );
+
     return (
         <>
             <div className={classes.root}>
@@ -65,17 +77,7 @@ export const MbmcBlock13: FC<MbmcBlock13Props> = ({
                     )}
                     <div className={classes.menuList}>
                         {displayLinks()}
-                        <p
-                            className={clx(classes.icon, classes.link)}
-                            onClick={() => {
-                                handleElementClick("/cart");
-                            }}
-                        >
-                            <FiShoppingCart className={classes.cartIcon} fontSize={20} />
-                            {cartItemCount > 0 && (
-                                <span className={classes.badgeIcon}>{cartItemCount}</span>
-                            )}
-                        </p>
+                        <CartLink />
                         {renderCtas(
                             ctas ?? [],
                             mode,
@@ -87,17 +89,7 @@ export const MbmcBlock13: FC<MbmcBlock13Props> = ({
                     </div>
 
                     <div className={classes.menuOptionMobile}>
-                        <p
-                            className={clx(classes.icon, classes.link)}
-                            onClick={() => {
-                                handleElementClick("/cart");
-                            }}
-                        >
-                            <FiShoppingCart className={classes.cartIcon} fontSize={20} />
-                            {cartItemCount > 0 && (
-                                <span className={classes.badgeIcon}>{cartItemCount}</span>
-                            )}
-                        </p>
+                        <CartLink />
                         <AiOutlineMenu size={34} onClick={handleOpenMenu} />
                     </div>
                 </div>
