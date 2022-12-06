@@ -21,12 +21,15 @@ export var MbmcCard = function (_a) {
     var classes = useMbmcCardStyles({ isOpen: isOpen, scrollableParent: scrollableParent });
     return (_jsxs("div", __assign({ className: clsx(classes.root, classes.visible, className), onClick: function () {
             url && (handleClick === null || handleClick === void 0 ? void 0 : handleClick(url));
-        } }, { children: [_jsx("div", __assign({ className: clsx(classes.imageWrapper, activeElement === parentKey + ".image" && classes.cardActiveElement), onClick: function () {
+        } }, { children: [_jsx("div", __assign({ className: clsx(classes.imageWrapper, activeElement === parentKey + ".image" && classes.cardActiveElement), onClick: function (e) {
+                    e.stopPropagation();
                     handleElementClick(mode, parentKey + ".image", handleClick);
-                } }, { children: _jsx(LazyImage, { src: image !== null && image !== void 0 ? image : menuImagePlaceholder, mode: mode, className: classes.image }, void 0) }), void 0), _jsxs("div", __assign({ className: classes.content }, { children: [_jsxs("div", { children: [_jsx("p", __assign({ className: clsx(classes.heading, classNames === null || classNames === void 0 ? void 0 : classNames.heading, activeElement === parentKey + ".heading" && classes.cardActiveElement), onClick: function () {
+                } }, { children: _jsx(LazyImage, { src: image !== null && image !== void 0 ? image : menuImagePlaceholder, mode: mode, className: classes.image }, void 0) }), void 0), _jsxs("div", __assign({ className: classes.content }, { children: [_jsxs("div", { children: [_jsx("p", __assign({ className: clsx(classes.heading, classNames === null || classNames === void 0 ? void 0 : classNames.heading, activeElement === parentKey + ".heading" && classes.cardActiveElement), onClick: function (e) {
+                                    e.stopPropagation();
                                     handleElementClick(mode, parentKey + ".heading", handleClick);
                                 } }, { children: heading }), void 0), _jsx("p", __assign({ className: clsx(classes.description, classNames === null || classNames === void 0 ? void 0 : classNames.description, activeElement === parentKey + ".description" &&
-                                    classes.cardActiveElement), onClick: function () {
+                                    classes.cardActiveElement), onClick: function (e) {
+                                    e.stopPropagation();
                                     handleElementClick(mode, parentKey + ".description", handleClick);
                                 } }, { children: description }), void 0)] }, void 0), _jsx("div", __assign({ className: classes.ctas }, { children: renderCtas(ctas !== null && ctas !== void 0 ? ctas : [], mode, parentKey !== null && parentKey !== void 0 ? parentKey : "", handleClick, activeElement) }), void 0)] }), void 0)] }), void 0));
 };
