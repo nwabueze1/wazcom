@@ -46,4 +46,14 @@ export var usePaymentOptionStyles = makeStyles(function (theme) { return ({
         display: "flex",
         alignItems: "center",
     },
+    paymentConfig: {
+        position: 'relative',
+        top: -8,
+        padding: theme.spacing(0, 2),
+        fontFamily: theme.design.font.montserrat,
+        fontSize: theme.typography.fontSize + 2,
+    },
+    paymentConfigOption: {
+        marginBottom: theme.spacing(1),
+    }
 }); });

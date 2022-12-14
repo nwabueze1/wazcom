@@ -18,14 +18,18 @@ import { calculateCartSubTotal } from "../../../helpers";
 import { DeliveryOption, deliveryOptions } from "../../Delivery";
 import clx from "classnames";
 export var StepHeader = function (_a) {
-    var _b, _c, _d;
+    var _b, _c, _d, _e, _f, _g;
     var name = _a.name, handleEdit = _a.handleEdit;
     var cart = useContext(RestaurantContext).cart;
     var parsedName = name.toLowerCase().replace(/ /g, "_");
     var classes = useStepHeaderStyles();
     var currency = getCurrency((_b = cart === null || cart === void 0 ? void 0 : cart.currency) !== null && _b !== void 0 ? _b : "");
     var subTotal = calculateCartSubTotal(cart);
-    var deliveryFee = Number((_d = (_c = cart === null || cart === void 0 ? void 0 : cart.restaurant) === null || _c === void 0 ? void 0 : _c.bank_info) === null || _d === void 0 ? void 0 : _d.delivery_fee);
+    var deliveryFee = !(cart === null || cart === void 0 ? void 0 : cart.guest)
+        ? Number((_d = (_c = cart === null || cart === void 0 ? void 0 : cart.restaurant) === null || _c === void 0 ? void 0 : _c.bank_info) === null || _d === void 0 ? void 0 : _d.delivery_fee)
+        : ((_e = cart === null || cart === void 0 ? void 0 : cart.address) === null || _e === void 0 ? void 0 : _e.uuid)
+            ? Number((_g = (_f = cart === null || cart === void 0 ? void 0 : cart.restaurant) === null || _f === void 0 ? void 0 : _f.bank_info) === null || _g === void 0 ? void 0 : _g.delivery_fee)
+            : 0;
     if (parsedName === "summary")
         return (_jsxs("div", __assign({ className: classes.stepSummaryHeader, onClick: function () {
                 handleEdit === null || handleEdit === void 0 ? void 0 : handleEdit();

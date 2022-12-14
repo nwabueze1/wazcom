@@ -12,13 +12,15 @@ export const OrderDetails: FC<OrderDetailsProps> = ({ display, setDisplay }) => 
     const { cart } = useContext(RestaurantContext);
     const classes = useOrderDetailsStyles({ display });
     const subTotal = calculateCartSubTotal(cart as CoreCartFields);
-    const deliveryFee = cart?.restaurant?.bank_info?.delivery_fee as number;
+    const deliveryFee = cart?.address ? cart?.restaurant?.bank_info?.delivery_fee as number : 0;
     const currency = getCurrency(cart?.restaurant?.bank_info?.currency ?? '');
 
     const getPaymentMethod = () => {
-        switch(cart?.order?.payment_type) {
-            case 'Cash_On_Delivery':
+        switch(cart?.order?.payment_type?.toLowerCase()) {
+            case 'cash_on_delivery':
                 return 'Cash';
+            case 'bank_transfer':
+                return 'Bank Transfer'
             default:
                 return cart?.order?.payment_type;
         }
@@ -43,7 +45,7 @@ export const OrderDetails: FC<OrderDetailsProps> = ({ display, setDisplay }) => 
                 </div>
                 <div className={classes.details}>
                     <p>Delivery Fee</p>
-                    <p className={classes.detailsInfo}>{currency}{cart?.restaurant?.bank_info?.delivery_fee}</p>
+                    <p className={classes.detailsInfo}>{currency}{deliveryFee}</p>
                 </div>
                 <div className={classes.details}>
                     <p className={classes.detailsInfo}>Total</p>

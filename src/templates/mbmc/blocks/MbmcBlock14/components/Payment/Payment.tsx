@@ -23,6 +23,7 @@ export const Payment = () => {
     useEffect(() => {
         if (data) {
             const { getPaymentMethods: paymentMethods } = data;
+            console.log(paymentMethods);
             setPaymentMethods(paymentMethods);
         }
 
@@ -40,6 +41,7 @@ export const Payment = () => {
             <PaymentOption
                 key={index}
                 {...paymentMethodConfig[paymentMethod.type]}
+                config={JSON.parse(paymentMethod?.config ?? "{}")}
                 value={String(selectedMethod) ?? ""}
                 handleChange={(method: any) => {
                     setSelectedMethod(method);

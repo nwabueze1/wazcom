@@ -14,7 +14,11 @@ export const StepHeader: FC<StepHeaderProps> = ({ name, handleEdit }) => {
     const classes = useStepHeaderStyles();
     const currency = getCurrency(cart?.currency ?? "");
     const subTotal = calculateCartSubTotal(cart as CoreCartFields);
-    const deliveryFee = Number(cart?.restaurant?.bank_info?.delivery_fee);
+    const deliveryFee = !cart?.guest
+        ? Number(cart?.restaurant?.bank_info?.delivery_fee)
+        : cart?.address?.uuid
+            ? Number(cart?.restaurant?.bank_info?.delivery_fee)
+            : 0;
 
 
     if (parsedName === "summary")

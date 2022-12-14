@@ -8,12 +8,14 @@ import { MbmcBlock14Props } from "./types";
 import { createApolloClient } from "../../../../helpers/graphQL";
 import { GET_CART_BY_UUID } from "./graphql";
 import { MbmcButton } from "../../components";
+import { useUpdateOrder } from "./hooks";
+import { CoreCartFields } from "templates/mbmc/models";
 
 export const MbmcBlock14: React.FC<MbmcBlock14Props> = ({
     services,
     integratedServices,
     site_uuid,
-    setContextProps
+    setContextProps,
 }) => {
     const classes = useMbmcBlock14Styles();
     const [contextData, setContextData] = useState<Omit<RestaurantContextProps, "setContext">>({});
@@ -28,6 +30,8 @@ export const MbmcBlock14: React.FC<MbmcBlock14Props> = ({
         });
         return clients;
     }, []);
+    const updateOrder = useUpdateOrder();
+    const queryParams = new URLSearchParams(window.location.search);
 
     const [getCart, { data, error }] = useLazyQuery(GET_CART_BY_UUID, {
         client: clients?.AMBROSIA,
@@ -45,16 +49,38 @@ export const MbmcBlock14: React.FC<MbmcBlock14Props> = ({
     useEffect(() => {
         if (data) {
             const { cart } = data;
-            setContextData({ cart: JSON.parse(JSON.stringify(cart)), clients });
-            setLoading(false);
+            const contextData: Omit<RestaurantContextProps, "setContext"> = {
+                cart: JSON.parse(JSON.stringify(cart)),
+                clients,
+            };
+            handleOrderConfirmation(contextData);
         }
 
         if (error) setLoading(false);
     }, [data, error]);
 
+    const handleOrderConfirmation = async (
+        contextData: Omit<RestaurantContextProps, "setContext">,
+    ) => {
+        if (queryParams.get("partner") && queryParams.get("reference")) {
+            const order = await updateOrder(
+                clients?.AMBROSIA as ApolloClient<NormalizedCacheObject>,
+            );
+            contextData = {
+                ...contextData,
+                cart: { ...(contextData?.cart as CoreCartFields), order },
+            };
+        }
+
+        setContextData(contextData);
+        setLoading(false);
+    };
+
     const updateContext = (variables: Omit<RestaurantContextProps, "setContext">) => {
         setContextData({ ...contextData, ...variables });
     };
+
+    console.log(contextData);
 
     if (loading) return <Loader />;
 
