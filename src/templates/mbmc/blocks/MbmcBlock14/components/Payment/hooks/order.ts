@@ -24,13 +24,16 @@ export const useCreateOrder = () => {
             ).mutate({
                 mutation: CREATE_ORDER,
                 variables: {
-                    payment_type: paymentMethod,
+                    payment_type:
+                        String(paymentMethod).toLowerCase() === "paypal"
+                            ? undefined
+                            : paymentMethod,
                     grand_total:
                         calculateCartSubTotal(cart as CoreCartFields) +
-                        (cart?.address?.uuid
+                        (cart?.guest?.address?.uuid
                             ? (cart?.restaurant?.bank_info?.delivery_fee as number)
                             : 0),
-                    address_uuid: cart?.address?.uuid ?? undefined,
+                    address_uuid: cart?.guest?.address?.uuid ?? undefined,
                     cart_uuid: cart?.uuid,
                 },
             });

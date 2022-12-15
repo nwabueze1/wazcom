@@ -30,6 +30,7 @@ export const useUpdateGuest = () => {
             }
 
             const guest = data.updateGuest;
+            delete guest?.address;
             const updatedCart = { ...cart, address: undefined } as CoreCartFields;
             updatedCart.guest = guest;
 

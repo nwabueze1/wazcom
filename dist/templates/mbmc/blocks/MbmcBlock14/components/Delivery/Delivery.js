@@ -36,10 +36,11 @@ import { usePickupConfig, useDispatchConfig, usePickupControls, useDispatchContr
 import { resetFormTouched } from "../../../../components";
 import { RestaurantContext } from "../../../../contexts";
 export var Delivery = function (_a) {
+    var _b;
     var onSubmission = _a.onSubmission;
     var cart = useContext(RestaurantContext).cart;
     var classes = useDeliveryStyles();
-    var _b = __read(useState((cart === null || cart === void 0 ? void 0 : cart.address) ? "dispatch" : "pickup"), 2), selectedOption = _b[0], setSelectedOption = _b[1];
+    var _c = __read(useState(((_b = cart === null || cart === void 0 ? void 0 : cart.guest) === null || _b === void 0 ? void 0 : _b.address) ? "dispatch" : "pickup"), 2), selectedOption = _c[0], setSelectedOption = _c[1];
     var getPickupConfig = usePickupConfig();
     var getPickupControls = usePickupControls();
     var pickupFormik = useFormik(getPickupConfig(onSubmission));

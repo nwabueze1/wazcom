@@ -14,12 +14,11 @@ export const StepHeader: FC<StepHeaderProps> = ({ name, handleEdit }) => {
     const classes = useStepHeaderStyles();
     const currency = getCurrency(cart?.currency ?? "");
     const subTotal = calculateCartSubTotal(cart as CoreCartFields);
-    const deliveryFee = !cart?.guest
+    const deliveryFee = !cart?.guest?.firstname
         ? Number(cart?.restaurant?.bank_info?.delivery_fee)
-        : cart?.address?.uuid
-            ? Number(cart?.restaurant?.bank_info?.delivery_fee)
-            : 0;
-
+        : cart?.guest?.address?.uuid
+        ? Number(cart?.restaurant?.bank_info?.delivery_fee)
+        : 0;
 
     if (parsedName === "summary")
         return (
@@ -48,8 +47,16 @@ export const StepHeader: FC<StepHeaderProps> = ({ name, handleEdit }) => {
                 {cart?.guest && (
                     <DeliveryOption
                         className={classes.stepHeaderDelivery}
-                        {...(cart?.address ? deliveryOptions[1] : deliveryOptions[0])}
-                        value={cart?.address ? "dispatch" : "pickup"}
+                        {...(cart?.guest?.address ? deliveryOptions[1] : deliveryOptions[0])}
+                        value={
+                            cart?.order
+                                ? cart?.order?.order_type
+                                : !cart?.guest?.firstname
+                                ? "dispatch"
+                                : cart?.guest?.address
+                                ? "dispatch"
+                                : "pickup"
+                        }
                     />
                 )}
             </div>

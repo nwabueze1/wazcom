@@ -78,9 +78,8 @@ export var MbmcBlock14 = function (_a) {
     var classes = useMbmcBlock14Styles();
     var _l = __read(useState({}), 2), contextData = _l[0], setContextData = _l[1];
     var _m = __read(useState(true), 2), loading = _m[0], setLoading = _m[1];
-    var _o = __read(useState(false), 2), displayCheckout = _o[0], setDisplayCheckout = _o[1];
     var cookies = new Cookies();
-    var cartCookie = cookies.get("cart");
+    var cartCookie = useMemo(function () { return cookies.get("cart"); }, []);
     var clients = useMemo(function () {
         var clients = {};
         integratedServices.forEach(function (service) {
@@ -90,6 +89,7 @@ export var MbmcBlock14 = function (_a) {
     }, []);
     var updateOrder = useUpdateOrder();
     var queryParams = new URLSearchParams(window.location.search);
+    var _o = __read(useState(Boolean(queryParams.get("partner") && queryParams.get("reference"))), 2), displayCheckout = _o[0], setDisplayCheckout = _o[1];
     var _p = __read(useLazyQuery(GET_CART_BY_UUID, {
         client: clients === null || clients === void 0 ? void 0 : clients.AMBROSIA,
     }), 2), getCart = _p[0], _q = _p[1], data = _q.data, error = _q.error;
@@ -114,15 +114,16 @@ export var MbmcBlock14 = function (_a) {
     }, [data, error]);
     var handleOrderConfirmation = function (contextData) { return __awaiter(void 0, void 0, void 0, function () {
         var order;
-        return __generator(this, function (_a) {
-            switch (_a.label) {
+        var _a, _b;
+        return __generator(this, function (_c) {
+            switch (_c.label) {
                 case 0:
                     if (!(queryParams.get("partner") && queryParams.get("reference"))) return [3 /*break*/, 2];
-                    return [4 /*yield*/, updateOrder(clients === null || clients === void 0 ? void 0 : clients.AMBROSIA)];
+                    return [4 /*yield*/, updateOrder(clients === null || clients === void 0 ? void 0 : clients.AMBROSIA, (_b = (_a = contextData === null || contextData === void 0 ? void 0 : contextData.cart) === null || _a === void 0 ? void 0 : _a.restaurant) === null || _b === void 0 ? void 0 : _b.site_uuid)];
                 case 1:
-                    order = _a.sent();
+                    order = _c.sent();
                     contextData = __assign(__assign({}, contextData), { cart: __assign(__assign({}, contextData === null || contextData === void 0 ? void 0 : contextData.cart), { order: order }) });
-                    _a.label = 2;
+                    _c.label = 2;
                 case 2:
                     setContextData(contextData);
                     setLoading(false);
@@ -133,12 +134,11 @@ export var MbmcBlock14 = function (_a) {
     var updateContext = function (variables) {
         setContextData(__assign(__assign({}, contextData), variables));
     };
-    console.log(contextData);
     if (loading)
         return _jsx(Loader, {}, void 0);
-    var isCartEmpty = !cartCookie ||
-        (cartCookie && !cartCookie[site_uuid]) ||
-        ((_c = (_b = contextData === null || contextData === void 0 ? void 0 : contextData.cart) === null || _b === void 0 ? void 0 : _b.cartItems) === null || _c === void 0 ? void 0 : _c.length) === 0;
+    var isCartEmpty = ((_c = (_b = contextData === null || contextData === void 0 ? void 0 : contextData.cart) === null || _b === void 0 ? void 0 : _b.cartItems) === null || _c === void 0 ? void 0 : _c.length) === 0 ||
+        !cartCookie ||
+        (cartCookie && !cartCookie[site_uuid]);
     return (_jsx(RestaurantContext.Provider, __assign({ value: __assign(__assign({}, contextData), { setContext: updateContext }) }, { children: _jsxs("div", __assign({ className: classes.root }, { children: [_jsxs("div", __assign({ className: classes.block14Container }, { children: [_jsxs("p", __assign({ className: classes.block14Title }, { children: ["Items(", ((_d = contextData === null || contextData === void 0 ? void 0 : contextData.cart) === null || _d === void 0 ? void 0 : _d.cartItems) ? (_f = (_e = contextData === null || contextData === void 0 ? void 0 : contextData.cart) === null || _e === void 0 ? void 0 : _e.cartItems) === null || _f === void 0 ? void 0 : _f.length : 0, ")"] }), void 0), _jsx("div", __assign({ className: classes.block14CartContent }, { children: isCartEmpty ? (_jsx(EmptyCart, {}, void 0)) : (_jsxs(_Fragment, { children: [_jsx(CartItems, { setContextProps: setContextProps }, void 0), _jsx("span", { className: classes.block14Divider }, void 0), ((_g = contextData === null || contextData === void 0 ? void 0 : contextData.cart) === null || _g === void 0 ? void 0 : _g.order) ? (_jsx(OrderDetails, { display: displayCheckout, setDisplay: setDisplayCheckout }, void 0)) : (_jsx(Checkout, { display: displayCheckout, setDisplay: setDisplayCheckout }, void 0))] }, void 0)) }), void 0)] }), void 0), ((_h = contextData === null || contextData === void 0 ? void 0 : contextData.cart) === null || _h === void 0 ? void 0 : _h.cartItems) && ((_k = (_j = contextData === null || contextData === void 0 ? void 0 : contextData.cart) === null || _j === void 0 ? void 0 : _j.cartItems) === null || _k === void 0 ? void 0 : _k.length) > 0 && (_jsx("div", __assign({ className: classes.block14Action }, { children: _jsx(MbmcButton, __assign({ variant: "SECONDARY", onClick: function () {
                             setDisplayCheckout(true);
                         } }, { children: "Proceed to summary" }), void 0) }), void 0))] }), void 0) }), void 0));

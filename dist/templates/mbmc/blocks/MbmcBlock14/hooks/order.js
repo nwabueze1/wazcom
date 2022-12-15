@@ -36,15 +36,21 @@ var __generator = (this && this.__generator) || function (thisArg, body) {
 };
 import { notify } from "../../../utilities";
 import { UPDATE_ORDER } from "../graphql";
+import Cookies from "universal-cookie";
 export var useUpdateOrder = function () {
     var queryParams = new URLSearchParams(window.location.search);
-    return function (client) { return __awaiter(void 0, void 0, void 0, function () {
-        var _a, data, errors, error_1;
+    var cookies = new Cookies();
+    return function (client, site_uuid) { return __awaiter(void 0, void 0, void 0, function () {
+        var cartCookie, cartItemCountCookie, _a, data, errors, error_1;
         var _b;
         return __generator(this, function (_c) {
             switch (_c.label) {
                 case 0:
-                    _c.trys.push([0, 2, , 3]);
+                    cartCookie = cookies.get("cart");
+                    cartItemCountCookie = cookies.get("cartItemCount");
+                    _c.label = 1;
+                case 1:
+                    _c.trys.push([1, 3, , 4]);
                     return [4 /*yield*/, client.mutate({
                             mutation: UPDATE_ORDER,
                             variables: {
@@ -53,17 +59,21 @@ export var useUpdateOrder = function () {
                                 uuid: queryParams.get("reference"),
                             },
                         })];
-                case 1:
+                case 2:
                     _a = _c.sent(), data = _a.data, errors = _a.errors;
                     if (!data || errors)
                         throw new Error("We could not complete that operation");
                     notify("success", "Order placed successfully");
+                    delete cartCookie[site_uuid];
+                    delete cartItemCountCookie[site_uuid];
+                    cookies.set("cart", cartCookie, { path: "/" });
+                    cookies.set("cartItemCount", cartItemCountCookie, { path: "/" });
                     return [2 /*return*/, data.updateOrder];
-                case 2:
+                case 3:
                     error_1 = _c.sent();
                     notify("error", "We could not complete that operation");
-                    return [3 /*break*/, 3];
-                case 3: return [2 /*return*/, undefined];
+                    return [3 /*break*/, 4];
+                case 4: return [2 /*return*/, undefined];
             }
         });
     }); };

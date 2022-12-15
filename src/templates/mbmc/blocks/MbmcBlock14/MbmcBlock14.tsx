@@ -20,9 +20,8 @@ export const MbmcBlock14: React.FC<MbmcBlock14Props> = ({
     const classes = useMbmcBlock14Styles();
     const [contextData, setContextData] = useState<Omit<RestaurantContextProps, "setContext">>({});
     const [loading, setLoading] = useState(true);
-    const [displayCheckout, setDisplayCheckout] = useState(false);
     const cookies = new Cookies();
-    const cartCookie = cookies.get("cart");
+    const cartCookie = useMemo(() => cookies.get("cart"), []);
     const clients = useMemo(() => {
         const clients: { [key: string]: ApolloClient<NormalizedCacheObject> } = {};
         integratedServices.forEach((service) => {
@@ -32,6 +31,9 @@ export const MbmcBlock14: React.FC<MbmcBlock14Props> = ({
     }, []);
     const updateOrder = useUpdateOrder();
     const queryParams = new URLSearchParams(window.location.search);
+    const [displayCheckout, setDisplayCheckout] = useState(
+        Boolean(queryParams.get("partner") && queryParams.get("reference")),
+    );
 
     const [getCart, { data, error }] = useLazyQuery(GET_CART_BY_UUID, {
         client: clients?.AMBROSIA,
@@ -65,6 +67,7 @@ export const MbmcBlock14: React.FC<MbmcBlock14Props> = ({
         if (queryParams.get("partner") && queryParams.get("reference")) {
             const order = await updateOrder(
                 clients?.AMBROSIA as ApolloClient<NormalizedCacheObject>,
+                contextData?.cart?.restaurant?.site_uuid as string,
             );
             contextData = {
                 ...contextData,
@@ -80,14 +83,12 @@ export const MbmcBlock14: React.FC<MbmcBlock14Props> = ({
         setContextData({ ...contextData, ...variables });
     };
 
-    console.log(contextData);
-
     if (loading) return <Loader />;
 
     const isCartEmpty =
+        contextData?.cart?.cartItems?.length === 0 ||
         !cartCookie ||
-        (cartCookie && !cartCookie[site_uuid]) ||
-        contextData?.cart?.cartItems?.length === 0;
+        (cartCookie && !cartCookie[site_uuid]);
 
     return (
         <RestaurantContext.Provider value={{ ...contextData, setContext: updateContext }}>

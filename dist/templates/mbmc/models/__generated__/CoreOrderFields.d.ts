@@ -3,4 +3,5 @@ export interface CoreOrderFields {
     currency_code: string;
     grand_total: number;
     payment_type: string;
+    order_type: string;
 }

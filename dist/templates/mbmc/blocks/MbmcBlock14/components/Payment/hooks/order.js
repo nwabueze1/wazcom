@@ -58,30 +58,32 @@ export var useCreateOrder = function () {
     var makePaypalPayment = usePaypalPayment();
     return function (paymentMethod) { return __awaiter(void 0, void 0, void 0, function () {
         var cartCookie, cartItemCountCookie, _a, data, errors, order, updatedCart, error_1;
-        var _b, _c, _d, _e, _f, _g, _h, _j, _k;
-        return __generator(this, function (_l) {
-            switch (_l.label) {
+        var _b, _c, _d, _e, _f, _g, _h, _j, _k, _l, _m;
+        return __generator(this, function (_o) {
+            switch (_o.label) {
                 case 0:
                     cartCookie = cookies.get("cart");
                     cartItemCountCookie = cookies.get("cartItemCount");
                     setContext === null || setContext === void 0 ? void 0 : setContext({ loading: true, networkOperation: "create.order" });
-                    _l.label = 1;
+                    _o.label = 1;
                 case 1:
-                    _l.trys.push([1, 3, , 4]);
+                    _o.trys.push([1, 3, , 4]);
                     return [4 /*yield*/, (clients === null || clients === void 0 ? void 0 : clients.AMBROSIA).mutate({
                             mutation: CREATE_ORDER,
                             variables: {
-                                payment_type: paymentMethod,
+                                payment_type: String(paymentMethod).toLowerCase() === "paypal"
+                                    ? undefined
+                                    : paymentMethod,
                                 grand_total: calculateCartSubTotal(cart) +
-                                    (((_b = cart === null || cart === void 0 ? void 0 : cart.address) === null || _b === void 0 ? void 0 : _b.uuid)
-                                        ? (_d = (_c = cart === null || cart === void 0 ? void 0 : cart.restaurant) === null || _c === void 0 ? void 0 : _c.bank_info) === null || _d === void 0 ? void 0 : _d.delivery_fee
+                                    (((_c = (_b = cart === null || cart === void 0 ? void 0 : cart.guest) === null || _b === void 0 ? void 0 : _b.address) === null || _c === void 0 ? void 0 : _c.uuid)
+                                        ? (_e = (_d = cart === null || cart === void 0 ? void 0 : cart.restaurant) === null || _d === void 0 ? void 0 : _d.bank_info) === null || _e === void 0 ? void 0 : _e.delivery_fee
                                         : 0),
-                                address_uuid: (_f = (_e = cart === null || cart === void 0 ? void 0 : cart.address) === null || _e === void 0 ? void 0 : _e.uuid) !== null && _f !== void 0 ? _f : undefined,
+                                address_uuid: (_h = (_g = (_f = cart === null || cart === void 0 ? void 0 : cart.guest) === null || _f === void 0 ? void 0 : _f.address) === null || _g === void 0 ? void 0 : _g.uuid) !== null && _h !== void 0 ? _h : undefined,
                                 cart_uuid: cart === null || cart === void 0 ? void 0 : cart.uuid,
                             },
                         })];
                 case 2:
-                    _a = _l.sent(), data = _a.data, errors = _a.errors;
+                    _a = _o.sent(), data = _a.data, errors = _a.errors;
                     if (!data || errors)
                         throw new Error("We could not complete that operation");
                     order = data.createOrder;
@@ -90,13 +92,13 @@ export var useCreateOrder = function () {
                         return [2 /*return*/, makePaypalPayment(order.uuid)];
                     setContext === null || setContext === void 0 ? void 0 : setContext({ loading: false, networkOperation: "", cart: updatedCart });
                     notify("success", "Order placed successfully");
-                    delete cartCookie[(_h = (_g = cart === null || cart === void 0 ? void 0 : cart.restaurant) === null || _g === void 0 ? void 0 : _g.site_uuid) !== null && _h !== void 0 ? _h : ""];
-                    delete cartItemCountCookie[(_k = (_j = cart === null || cart === void 0 ? void 0 : cart.restaurant) === null || _j === void 0 ? void 0 : _j.site_uuid) !== null && _k !== void 0 ? _k : ""];
+                    delete cartCookie[(_k = (_j = cart === null || cart === void 0 ? void 0 : cart.restaurant) === null || _j === void 0 ? void 0 : _j.site_uuid) !== null && _k !== void 0 ? _k : ""];
+                    delete cartItemCountCookie[(_m = (_l = cart === null || cart === void 0 ? void 0 : cart.restaurant) === null || _l === void 0 ? void 0 : _l.site_uuid) !== null && _m !== void 0 ? _m : ""];
                     cookies.set("cart", cartCookie, { path: "/" });
                     cookies.set("cartItemCount", cartItemCountCookie, { path: "/" });
                     return [3 /*break*/, 4];
                 case 3:
-                    error_1 = _l.sent();
+                    error_1 = _o.sent();
                     setContext === null || setContext === void 0 ? void 0 : setContext({ loading: false, networkOperation: "" });
                     notify("error", "We could not complete that operation");
                     return [3 /*break*/, 4];

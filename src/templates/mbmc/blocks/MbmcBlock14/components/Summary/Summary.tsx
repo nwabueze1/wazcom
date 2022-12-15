@@ -13,10 +13,9 @@ export const Summary: FC<SummaryProps> = ({ handleCheckout }) => {
     const classes = useSummaryStyles();
     const currency = getCurrency(cart?.currency ?? "");
     const subTotal = calculateCartSubTotal(cart as CoreCartFields);
-    console.log(cart);
-    const deliveryFee = !cart?.guest
+    const deliveryFee = !cart?.guest?.firstname
         ? Number(cart?.restaurant?.bank_info?.delivery_fee)
-        : cart?.address?.uuid
+        : cart?.guest?.address?.uuid
         ? Number(cart?.restaurant?.bank_info?.delivery_fee)
         : 0;
 

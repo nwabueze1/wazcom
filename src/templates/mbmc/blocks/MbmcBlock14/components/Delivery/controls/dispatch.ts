@@ -23,11 +23,11 @@ export const useDispatchConfig = () => {
         return {
             initialValues: {
                 ...pickupConfig.initialValues,
-                addressline1: cart?.address?.addressline1 ?? "",
-                city: cart?.address?.city ?? "",
-                state: cart?.address?.state ?? "",
-                country: cart?.address?.country ?? "",
-                postcode: cart?.address?.postcode ?? "",
+                addressline1: cart?.guest?.address?.addressline1 ?? "",
+                city: cart?.guest?.address?.city ?? "",
+                state: cart?.guest?.address?.state ?? "",
+                country: cart?.guest?.address?.country ?? "",
+                postcode: cart?.guest?.address?.postcode ?? "",
             },
             validationSchema: dispatchSchema,
             onSubmit: async (variables: TUpdateGuestVariables & TCreateAddressVariables) => {
@@ -72,10 +72,10 @@ export const useDispatchControls = () => {
                                 className: classes.deliveryInputParent,
                                 value: formik.values.addressline1,
                                 error:
-                                    formik?.touched?.addressline1 &&
-                                    Boolean(formik?.errors?.addressline1),
+                                    formik?.touched?.guest?.addressline1 &&
+                                    Boolean(formik?.errors?.guest?.addressline1),
                                 feedback:
-                                    formik?.touched?.addressline1 && formik?.errors?.addressline1
+                                    formik?.touched?.guest?.addressline1 && formik?.errors?.guest?.addressline1
                                         ? { status: "error", text: formik.errors.addressline1 }
                                         : undefined,
                             },
