@@ -66,7 +66,7 @@ export var useCreateAddress = function () {
                     if (!data || errors)
                         throw new Error("We could not complete that operation");
                     address = data.createAddress;
-                    updatedCart = __assign(__assign({}, cart), { guest: guest, address: address });
+                    updatedCart = __assign(__assign({}, cart), { guest: __assign(__assign({}, guest), { address: address }) });
                     setContext === null || setContext === void 0 ? void 0 : setContext({ cart: updatedCart, loading: false, networkOperation: "" });
                     notify("success", "Delivery option set as dispatch");
                     onSuccess === null || onSuccess === void 0 ? void 0 : onSuccess();

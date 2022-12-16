@@ -3,7 +3,6 @@
 // @generated
 // This file was automatically generated and should not be edited.
 
-import { CoreAddressFields } from "./CoreAddressFields";
 import { CoreGuestFields } from "./CoreGuestFields";
 import { CoreMenuItemFields } from "./CoreMenuItemFields";
 import { CoreOrderFields } from "./CoreOrderFields";
@@ -26,7 +25,6 @@ export interface CoreCartFields {
     currency: string;
     expires: any;
     currentStep?: number;
-    address?: CoreAddressFields;
     guest?: CoreGuestFields;
     order?: CoreOrderFields;
     cartItems: CoreCartFields_cartItems[] | null;

@@ -26,16 +26,16 @@ var __spreadArray = (this && this.__spreadArray) || function (to, from, pack) {
 import { calculateOptionsTotal } from "../../components";
 export var calculateCartSubTotal = function (cart, uuid) {
     var _a;
-    var cartItems = __spreadArray([], __read(((_a = cart.cartItems) !== null && _a !== void 0 ? _a : [])), false);
+    var cartItems = __spreadArray([], __read(((_a = cart === null || cart === void 0 ? void 0 : cart.cartItems) !== null && _a !== void 0 ? _a : [])), false);
     if (uuid)
         cartItems = cartItems.filter(function (item) { return item.uuid === uuid; });
-    var subTotal = 0, optionsTotal = 0;
+    var subTotal = 0;
     cartItems.forEach(function (item) {
         var _a;
         var itemTotal = Number(item === null || item === void 0 ? void 0 : item.quantity) * ((_a = item === null || item === void 0 ? void 0 : item.menuItem) === null || _a === void 0 ? void 0 : _a.price);
         subTotal += itemTotal;
         if (item.options) {
-            optionsTotal += calculateOptionsTotal(JSON.parse(item.options), Number(item === null || item === void 0 ? void 0 : item.quantity));
+            var optionsTotal = calculateOptionsTotal(JSON.parse(item.options), Number(item === null || item === void 0 ? void 0 : item.quantity));
             subTotal += optionsTotal;
         }
     });

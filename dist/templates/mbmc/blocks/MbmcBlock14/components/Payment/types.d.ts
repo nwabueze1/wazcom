@@ -1,4 +1,4 @@
 export declare type PaymentMethod = {
-    type: 'Cash_On_Delivery' | 'STRIPE' | 'PAYPAL';
+    type: 'Cash_On_Delivery' | 'Bank_Transfer' | 'STRIPE' | 'PAYPAL';
     config: any;
 };

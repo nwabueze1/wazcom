@@ -7,10 +7,12 @@ import { CREATE_ORDER } from "../graphql";
 import { calculateCartSubTotal } from "../../../helpers";
 import { notify } from "../../../../../utilities";
 import { CoreCartFields } from "../../../../../models";
+import { usePaypalPayment } from "./payment";
 
 export const useCreateOrder = () => {
     const { cart, clients, setContext } = useContext(RestaurantContext);
     const cookies = new Cookies();
+    const makePaypalPayment = usePaypalPayment();
 
     return async (paymentMethod: PaymentMethod) => {
         const cartCookie = cookies.get("cart");
@@ -22,11 +24,16 @@ export const useCreateOrder = () => {
             ).mutate({
                 mutation: CREATE_ORDER,
                 variables: {
-                    payment_type: paymentMethod,
+                    payment_type:
+                        String(paymentMethod).toLowerCase() === "paypal"
+                            ? undefined
+                            : paymentMethod,
                     grand_total:
                         calculateCartSubTotal(cart as CoreCartFields) +
-                        (cart?.restaurant?.bank_info?.delivery_fee as number),
-                    address_uuid: cart?.address?.uuid ?? undefined,
+                        (cart?.guest?.address?.uuid
+                            ? (cart?.restaurant?.bank_info?.delivery_fee as number)
+                            : 0),
+                    address_uuid: cart?.guest?.address?.uuid ?? undefined,
                     cart_uuid: cart?.uuid,
                 },
             });
@@ -35,6 +42,8 @@ export const useCreateOrder = () => {
 
             const order = data.createOrder;
             const updatedCart = { ...(cart as CoreCartFields), order };
+
+            if (String(paymentMethod) === "PAYPAL") return makePaypalPayment(order.uuid);
 
             setContext?.({ loading: false, networkOperation: "", cart: updatedCart });
             notify("success", "Order placed successfully");

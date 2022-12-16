@@ -9,7 +9,7 @@ export declare const paymentMethodConfig: {
         title: string;
         name: string;
     };
-    Paypal: {
+    PAYPAL: {
         img: string;
         title: string;
         name: string;

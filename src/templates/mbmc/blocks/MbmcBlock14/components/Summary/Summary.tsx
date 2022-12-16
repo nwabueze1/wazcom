@@ -13,7 +13,11 @@ export const Summary: FC<SummaryProps> = ({ handleCheckout }) => {
     const classes = useSummaryStyles();
     const currency = getCurrency(cart?.currency ?? "");
     const subTotal = calculateCartSubTotal(cart as CoreCartFields);
-    const deliveryFee = Number(cart?.restaurant?.bank_info?.delivery_fee);
+    const deliveryFee = !cart?.guest?.firstname
+        ? Number(cart?.restaurant?.bank_info?.delivery_fee)
+        : cart?.guest?.address?.uuid
+        ? Number(cart?.restaurant?.bank_info?.delivery_fee)
+        : 0;
 
     return (
         <div className={classes.root}>
@@ -42,7 +46,12 @@ export const Summary: FC<SummaryProps> = ({ handleCheckout }) => {
                     {subTotal + deliveryFee}
                 </p>
             </div>
-            <MbmcButton variant="SECONDARY" size="sm" handleClick={handleCheckout} className={classes.summaryButton}>
+            <MbmcButton
+                variant="SECONDARY"
+                size="sm"
+                handleClick={handleCheckout}
+                className={classes.summaryButton}
+            >
                 Checkout
             </MbmcButton>
         </div>

@@ -6,5 +6,6 @@ export const CORE_ORDER_FIELDS = gql`
         currency_code
         grand_total
         payment_type
+        order_type
     }
 `;

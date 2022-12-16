@@ -8,19 +8,20 @@ import { MbmcBlock14Props } from "./types";
 import { createApolloClient } from "../../../../helpers/graphQL";
 import { GET_CART_BY_UUID } from "./graphql";
 import { MbmcButton } from "../../components";
+import { useUpdateOrder } from "./hooks";
+import { CoreCartFields } from "templates/mbmc/models";
 
 export const MbmcBlock14: React.FC<MbmcBlock14Props> = ({
     services,
     integratedServices,
     site_uuid,
-    setContextProps
+    setContextProps,
 }) => {
     const classes = useMbmcBlock14Styles();
     const [contextData, setContextData] = useState<Omit<RestaurantContextProps, "setContext">>({});
     const [loading, setLoading] = useState(true);
-    const [displayCheckout, setDisplayCheckout] = useState(false);
     const cookies = new Cookies();
-    const cartCookie = cookies.get("cart");
+    const cartCookie = useMemo(() => cookies.get("cart"), []);
     const clients = useMemo(() => {
         const clients: { [key: string]: ApolloClient<NormalizedCacheObject> } = {};
         integratedServices.forEach((service) => {
@@ -28,6 +29,11 @@ export const MbmcBlock14: React.FC<MbmcBlock14Props> = ({
         });
         return clients;
     }, []);
+    const updateOrder = useUpdateOrder();
+    const queryParams = new URLSearchParams(window.location.search);
+    const [displayCheckout, setDisplayCheckout] = useState(
+        Boolean(queryParams.get("partner") && queryParams.get("reference")),
+    );
 
     const [getCart, { data, error }] = useLazyQuery(GET_CART_BY_UUID, {
         client: clients?.AMBROSIA,
@@ -45,12 +51,33 @@ export const MbmcBlock14: React.FC<MbmcBlock14Props> = ({
     useEffect(() => {
         if (data) {
             const { cart } = data;
-            setContextData({ cart: JSON.parse(JSON.stringify(cart)), clients });
-            setLoading(false);
+            const contextData: Omit<RestaurantContextProps, "setContext"> = {
+                cart: JSON.parse(JSON.stringify(cart)),
+                clients,
+            };
+            handleOrderConfirmation(contextData);
         }
 
         if (error) setLoading(false);
     }, [data, error]);
+
+    const handleOrderConfirmation = async (
+        contextData: Omit<RestaurantContextProps, "setContext">,
+    ) => {
+        if (queryParams.get("partner") && queryParams.get("reference")) {
+            const order = await updateOrder(
+                clients?.AMBROSIA as ApolloClient<NormalizedCacheObject>,
+                contextData?.cart?.restaurant?.site_uuid as string,
+            );
+            contextData = {
+                ...contextData,
+                cart: { ...(contextData?.cart as CoreCartFields), order },
+            };
+        }
+
+        setContextData(contextData);
+        setLoading(false);
+    };
 
     const updateContext = (variables: Omit<RestaurantContextProps, "setContext">) => {
         setContextData({ ...contextData, ...variables });
@@ -59,9 +86,9 @@ export const MbmcBlock14: React.FC<MbmcBlock14Props> = ({
     if (loading) return <Loader />;
 
     const isCartEmpty =
+        contextData?.cart?.cartItems?.length === 0 ||
         !cartCookie ||
-        (cartCookie && !cartCookie[site_uuid]) ||
-        contextData?.cart?.cartItems?.length === 0;
+        (cartCookie && !cartCookie[site_uuid]);
 
     return (
         <RestaurantContext.Provider value={{ ...contextData, setContext: updateContext }}>

@@ -85,6 +85,7 @@ export var Payment = function () {
     useEffect(function () {
         if (data) {
             var paymentMethods_1 = data.getPaymentMethods;
+            console.log(paymentMethods_1);
             setPaymentMethods(paymentMethods_1);
         }
         if (error) {
@@ -103,8 +104,8 @@ export var Payment = function () {
     }); };
     var displayPaymentMethods = function () {
         return paymentMethods.map(function (paymentMethod, index) {
-            var _a;
-            return (_jsx(PaymentOption, __assign({}, paymentMethodConfig[paymentMethod.type], { value: (_a = String(selectedMethod)) !== null && _a !== void 0 ? _a : "", handleChange: function (method) {
+            var _a, _b;
+            return (_jsx(PaymentOption, __assign({}, paymentMethodConfig[paymentMethod.type], { config: JSON.parse((_a = paymentMethod === null || paymentMethod === void 0 ? void 0 : paymentMethod.config) !== null && _a !== void 0 ? _a : "{}"), value: (_b = String(selectedMethod)) !== null && _b !== void 0 ? _b : "", handleChange: function (method) {
                     setSelectedMethod(method);
                 } }), index));
         });

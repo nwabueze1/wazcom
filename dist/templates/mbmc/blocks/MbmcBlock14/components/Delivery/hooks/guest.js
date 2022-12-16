@@ -76,6 +76,7 @@ export var useUpdateGuest = function () {
                         throw new Error("We could not complete that operation");
                     }
                     guest = data.updateGuest;
+                    guest === null || guest === void 0 ? true : delete guest.address;
                     updatedCart = __assign(__assign({}, cart), { address: undefined });
                     updatedCart.guest = guest;
                     isPickup && (setContext === null || setContext === void 0 ? void 0 : setContext({ loading: false, networkOperation: "", cart: updatedCart }));

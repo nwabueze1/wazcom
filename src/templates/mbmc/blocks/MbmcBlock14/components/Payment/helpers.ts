@@ -10,7 +10,7 @@ export const paymentMethodConfig = {
         title: 'Bank Transfer',
         name: 'Bank_Transfer',
     },
-    Paypal: {
+    PAYPAL: {
         img: "https://sytbuildr.s3.eu-west-2.amazonaws.com/images/mbmc/Paypal.png",
         title: 'Pay with Paypal',
         name: 'PAYPAL'

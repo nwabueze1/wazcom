@@ -209,12 +209,12 @@ export const useGetMbmcBlocks = () => {
                 description: `Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed 
                 diam nonumy eirmod tempor invidunt ut labore et dolore a….`,
                 services: {
-                    AMBROSIA: "https://ambrosia.hogfort.com/graphql",
+                    AMBROSIA: "https://ofambegbe-ambrosia.wazobia.uk/graphql",
                     NICODEMUS: "",
                     MUSE: "",
                 },
                 integratedService: "AMBROSIA",
-                menu_uuid: "caac32a1-7213-4c5c-9378-78e488dd697f",
+                menu_uuid: "8b63de49-6087-4a66-b1e4-90e8d9ef1629",
                 site_uuid: "",
             },
         },
@@ -472,7 +472,7 @@ export const useGetMbmcBlocks = () => {
                     MUSE: "",
                 },
                 integratedServices: ["AMBROSIA", "NICODEMUS"],
-                site_uuid: "896466aa-bacc-4817-b577-436a52540eff",
+                site_uuid: "ae043bd3-6250-47e3-8717-e08a55937088",
             },
         },
     ];
