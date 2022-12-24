@@ -31,7 +31,6 @@ export const MbmcBlock14: React.FC<MbmcBlock14Props> = ({
         return clients;
     }, []);
     const updateOrder = useUpdateOrder();
-    const queryParams = new URLSearchParams(window.location.search);
     const [displayCheckout, setDisplayCheckout] = useState(
         false
     );
@@ -52,8 +51,10 @@ export const MbmcBlock14: React.FC<MbmcBlock14Props> = ({
     }, []);
 
     useEffect(() => {
-        const queryParams = new URLSearchParams(window.location.search);
-        setDisplayCheckout(Boolean(queryParams.get("partner") && queryParams.get("reference")))
+        if (isDomLoaded) {
+            const queryParams = new URLSearchParams(window.location.search);
+            setDisplayCheckout(Boolean(queryParams.get("partner") && queryParams.get("reference")))
+        }
     }, [isDomLoaded])
 
     useEffect(() => {
