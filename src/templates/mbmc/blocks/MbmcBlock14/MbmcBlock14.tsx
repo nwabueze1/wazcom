@@ -64,6 +64,7 @@ export const MbmcBlock14: React.FC<MbmcBlock14Props> = ({
     const handleOrderConfirmation = async (
         contextData: Omit<RestaurantContextProps, "setContext">,
     ) => {
+        const queryParams = new URLSearchParams(window.location.search);
         if (queryParams.get("partner") && queryParams.get("reference")) {
             const order = await updateOrder(
                 clients?.AMBROSIA as ApolloClient<NormalizedCacheObject>,

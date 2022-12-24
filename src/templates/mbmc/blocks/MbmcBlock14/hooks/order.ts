@@ -4,10 +4,10 @@ import { UPDATE_ORDER } from "../graphql";
 import Cookies from "universal-cookie";
 
 export const useUpdateOrder = () => {
-    const queryParams = new URLSearchParams(window.location.search);
     const cookies = new Cookies();
 
     return async (client: ApolloClient<NormalizedCacheObject>, site_uuid: string) => {
+        const queryParams = new URLSearchParams(window.location.search);
         const cartCookie = cookies.get("cart");
         const cartItemCountCookie = cookies.get("cartItemCount");
         try {
