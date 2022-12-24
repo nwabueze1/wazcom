@@ -38,14 +38,14 @@ import { notify } from "../../../utilities";
 import { UPDATE_ORDER } from "../graphql";
 import Cookies from "universal-cookie";
 export var useUpdateOrder = function () {
-    var queryParams = new URLSearchParams(window.location.search);
     var cookies = new Cookies();
     return function (client, site_uuid) { return __awaiter(void 0, void 0, void 0, function () {
-        var cartCookie, cartItemCountCookie, _a, data, errors, error_1;
+        var queryParams, cartCookie, cartItemCountCookie, _a, data, errors, error_1;
         var _b;
         return __generator(this, function (_c) {
             switch (_c.label) {
                 case 0:
+                    queryParams = new URLSearchParams(window.location.search);
                     cartCookie = cookies.get("cart");
                     cartItemCountCookie = cookies.get("cartItemCount");
                     _c.label = 1;

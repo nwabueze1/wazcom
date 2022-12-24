@@ -78,6 +78,7 @@ export var MbmcBlock14 = function (_a) {
     var classes = useMbmcBlock14Styles();
     var _l = __read(useState({}), 2), contextData = _l[0], setContextData = _l[1];
     var _m = __read(useState(true), 2), loading = _m[0], setLoading = _m[1];
+    var _o = __read(useState(false), 2), isDomLoaded = _o[0], setIsDomLoaded = _o[1];
     var cookies = new Cookies();
     var cartCookie = useMemo(function () { return cookies.get("cart"); }, []);
     var clients = useMemo(function () {
@@ -88,18 +89,24 @@ export var MbmcBlock14 = function (_a) {
         return clients;
     }, []);
     var updateOrder = useUpdateOrder();
-    var queryParams = new URLSearchParams(window.location.search);
-    var _o = __read(useState(Boolean(queryParams.get("partner") && queryParams.get("reference"))), 2), displayCheckout = _o[0], setDisplayCheckout = _o[1];
-    var _p = __read(useLazyQuery(GET_CART_BY_UUID, {
+    var _p = __read(useState(false), 2), displayCheckout = _p[0], setDisplayCheckout = _p[1];
+    var _q = __read(useLazyQuery(GET_CART_BY_UUID, {
         client: clients === null || clients === void 0 ? void 0 : clients.AMBROSIA,
-    }), 2), getCart = _p[0], _q = _p[1], data = _q.data, error = _q.error;
+    }), 2), getCart = _q[0], _r = _q[1], data = _r.data, error = _r.error;
     useEffect(function () {
+        setIsDomLoaded(true);
         if (!cartCookie || !cartCookie[site_uuid]) {
             setLoading(false);
             return;
         }
         getCart({ variables: { uuid: cartCookie[site_uuid] } });
     }, []);
+    useEffect(function () {
+        if (isDomLoaded) {
+            var queryParams = new URLSearchParams(window.location.search);
+            setDisplayCheckout(Boolean(queryParams.get("partner") && queryParams.get("reference")));
+        }
+    }, [isDomLoaded]);
     useEffect(function () {
         if (data) {
             var cart = data.cart;
@@ -113,11 +120,12 @@ export var MbmcBlock14 = function (_a) {
             setLoading(false);
     }, [data, error]);
     var handleOrderConfirmation = function (contextData) { return __awaiter(void 0, void 0, void 0, function () {
-        var order;
+        var queryParams, order;
         var _a, _b;
         return __generator(this, function (_c) {
             switch (_c.label) {
                 case 0:
+                    queryParams = new URLSearchParams(window.location.search);
                     if (!(queryParams.get("partner") && queryParams.get("reference"))) return [3 /*break*/, 2];
                     return [4 /*yield*/, updateOrder(clients === null || clients === void 0 ? void 0 : clients.AMBROSIA, (_b = (_a = contextData === null || contextData === void 0 ? void 0 : contextData.cart) === null || _a === void 0 ? void 0 : _a.restaurant) === null || _b === void 0 ? void 0 : _b.site_uuid)];
                 case 1:
