@@ -20,6 +20,7 @@ export const MbmcBlock14: React.FC<MbmcBlock14Props> = ({
     const classes = useMbmcBlock14Styles();
     const [contextData, setContextData] = useState<Omit<RestaurantContextProps, "setContext">>({});
     const [loading, setLoading] = useState(true);
+    const [isDomLoaded, setIsDomLoaded] = useState(false);
     const cookies = new Cookies();
     const cartCookie = useMemo(() => cookies.get("cart"), []);
     const clients = useMemo(() => {
@@ -32,7 +33,7 @@ export const MbmcBlock14: React.FC<MbmcBlock14Props> = ({
     const updateOrder = useUpdateOrder();
     const queryParams = new URLSearchParams(window.location.search);
     const [displayCheckout, setDisplayCheckout] = useState(
-        Boolean(queryParams.get("partner") && queryParams.get("reference")),
+        false
     );
 
     const [getCart, { data, error }] = useLazyQuery(GET_CART_BY_UUID, {
@@ -40,6 +41,8 @@ export const MbmcBlock14: React.FC<MbmcBlock14Props> = ({
     });
 
     useEffect(() => {
+        setIsDomLoaded(true);
+
         if (!cartCookie || !cartCookie[site_uuid]) {
             setLoading(false);
             return;
@@ -47,6 +50,11 @@ export const MbmcBlock14: React.FC<MbmcBlock14Props> = ({
 
         getCart({ variables: { uuid: cartCookie[site_uuid] } });
     }, []);
+
+    useEffect(() => {
+        const queryParams = new URLSearchParams(window.location.search);
+        setDisplayCheckout(Boolean(queryParams.get("partner") && queryParams.get("reference")))
+    }, [isDomLoaded])
 
     useEffect(() => {
         if (data) {
