@@ -1,8 +1,12 @@
 import { CommonProps } from "../../types";
-import { TextFieldProps } from "@mui/material";
 
-export type TextInputProps = CommonProps &
-    Omit<TextFieldProps, "onChange"> & {
-        variant?: "filled" | "outlined" | "standard";
-        icon?: JSX.Element;
-    };
+export type TextInputProps = CommonProps & {
+    className?: string;
+    label?: string;
+    helperText?: string;
+    hideLabel?: boolean;
+    info?: string;
+    onChange: (value: string) => void;
+    required?: boolean;
+    value?: string;
+}

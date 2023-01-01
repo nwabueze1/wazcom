@@ -1,49 +1,52 @@
 import React, { FC } from "react";
-import { TextInputProps } from "./types";
-import { TextField, InputLabel } from "@mui/material";
 import { useTextStyles } from "./styles";
-import clx from "classnames";
-import { displayFeedback } from "../../helpers/io";
+import { TextInputProps } from "./types";
+import clx from 'classnames';
 
+/**
+ * Text Input IO Component
+ * 
+ * - Should follow the following constraints;
+ * -- labels are optional (should show or hide if its provided but can be manually turned off. Manual turn off/on takes precedence over if provided or not).
+ * -- startIcons and endIcons
+ * -- should expose the following events: onFocus, onEnter
+ * -- helperText
+ * -- info
+ */
 export const TextInput: FC<TextInputProps> = ({
     className,
-    classNames,
     label,
-    variant,
-    onChange,
-    feedback,
     helperText,
-    onFocus,
-    ...props
+    hideLabel = false,
+    info,
+    onChange,
+    required = false,
+    value,
 }) => {
-    const classes = useTextStyles();
+    const textClasses = useTextStyles();
+
+    const name = `${Math.floor(Math.random() * 1000)}-text-field`;
 
     const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
-        onChange?.({ name: props.name ?? "", value: e.target.value });
+        onChange?.(e.target.value);
     };
 
     return (
-        <div className={clx(className, classNames?.newRoot ? classNames?.newRoot : classes.root)}>
-            {label && (
-                <InputLabel
-                    className={classNames?.label ? (classNames?.label as string) : ""}
-                    htmlFor={props.name}
-                >
-                    {label} <p className={classes.required}>{props.required ? " *" : ""}</p>
-                </InputLabel>
-            )}
-            <TextField
-                {...props}
-                variant={variant ?? "outlined"}
+        <div className={clx(textClasses.root, className)}>
+            { 
+                !hideLabel && 
+                label && 
+                <label htmlFor={name} className={textClasses.label}>
+                    { label }
+                    { required && <span className={textClasses.required}>*</span> }
+                </label>
+            } 
+            <input
+                name={name}
+                value={value}
                 onChange={handleChange}
-                onFocus={onFocus}
-                className={classNames?.textInput ? (classNames.textInput as string) : ""}
-                classes={
-                    classNames?.classes ? (classNames.classes as { [key: string]: string }) : {}
-                }
+                className={textClasses.input}
             />
-            {helperText}
-            {feedback && displayFeedback(feedback, classNames?.feedback as string)}
         </div>
     );
 };

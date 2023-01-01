@@ -4,7 +4,9 @@ import { makeStyles } from "@mui/styles";
 export const drawerWidth = 260;
 
 export const useBrowserStyles = makeStyles((theme: Theme) => ({
-    root: {},
+    root: {
+        // backgroundColor: theme.design.colors.white
+    },
     drawer: {
         padding: `0 ${theme.spacing(2)}`,
     },

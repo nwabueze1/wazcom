@@ -42,6 +42,10 @@ export const Browser: FC<BrowserProps> = () => {
             <AppBar
                 position="fixed"
                 sx={{ width: `calc(100% - ${drawerWidth}px)`, ml: `${drawerWidth}px` }}
+                className={classes.root}
+                classes={{
+                    root: classes.root
+                }}
             >
                 <Toolbar>
                     <TextInput

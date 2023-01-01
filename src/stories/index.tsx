@@ -279,7 +279,7 @@ export const stories: ComponentPropType[] = [
                 text: "Rebuilt successfully",
                 status: "success",
             },
-            required: true,
+            // required: true,
             type: "text",
             onChange: ({ value }: { name: string; value: any }) => {
                 value;

@@ -39,7 +39,7 @@ export const theme: any = {
     },
     typography: {
         fontWeightMedium: 600,
-        fontFamily: ["Poppins, sans-serif"].join(","),
+        fontFamily: ["'Open Sans', sans-serif"].join(","),
         fontSize: 12,
         fontWeightBold: "bold",
         h2: {
@@ -61,7 +61,7 @@ export const theme: any = {
     palette: {
         primary: {
             light: "#59598E",
-            main: "#38385F",
+            main: "#FFFFFF",
             dark: "#2E2E48",
             contrastText: "#fff",
         },
@@ -104,6 +104,11 @@ export const theme: any = {
             montserrat: "Montserrat",
         },
         colors: {
+            grey: "#fafafa",
+            pri100: "#e7f1e9",
+            pri200: "#cee3d4",
+            pri400: "#9dc7a9",
+
             waz_primaryColor100: "#0A7227",
             waz_primaryColor200: "#014029",
             waz_primaryColor300: "#025939",
