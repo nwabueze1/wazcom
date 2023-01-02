@@ -1,1 +1,1 @@
-export declare const useTextStyles: (props?: any) => import("@mui/styles").ClassNameMap<"root" | "label" | "required">;
+export declare const useTextStyles: (props?: any) => import("@mui/styles").ClassNameMap<"root" | "error" | "input" | "label" | "required" | "textAreaInput" | "wordCount" | "labelWrapper">;

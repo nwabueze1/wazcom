@@ -1,4 +1,3 @@
-/// <reference types="react" />
 import { CommonProps } from "../../types";
 import { ApolloClient, NormalizedCacheObject } from "@apollo/client";
 export declare type RichTextInputProps = CommonProps & {

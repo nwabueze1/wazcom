@@ -1,4 +1,3 @@
-/// <reference types="react" />
 import { NavProps } from "./types";
 export declare const renderNavLink: ({ url, text }: {
     url: string;

@@ -1,21 +1,76 @@
 import { makeStyles } from "@mui/styles";
 export var useImageSelectorStyles = makeStyles(function (theme) { return ({
     root: {
-        minHeight: "150px",
-        minWidth: "150px",
+        width: "100%",
+        paddingTop: "21.9%",
         position: "relative",
+        background: theme.design.colors.grey,
+        border: "1px dashed ".concat(theme.design.colors.primary),
+        borderRadius: 4,
+        fontFamily: theme.typography.fontFamily,
+    },
+    container: {
+        position: "absolute",
+        top: 0,
+        left: 0,
+        bottom: 0,
+        right: 0,
         display: "flex",
         justifyContent: "center",
         alignItems: "center",
-        cursor: "pointer",
-        width: "320px",
-        height: "320px",
-        background: "transparent",
-        transition: "background 0.5s ease-in",
-        "&:hover": {
-            background: "linear-gradient(180deg, rgba(0, 0, 0, 0) -9.73%, rgba(0, 0, 0, 0.8) 100%)",
-        },
+        flexDirection: "column"
     },
+    selector: {
+        border: "1px solid ".concat(theme.design.colors.primary),
+        padding: theme.spacing(1, 1.5),
+        borderRadius: 4,
+        color: "#343E37",
+        fontSize: 12,
+        background: "linear-gradient(".concat(theme.design.colors.primary, " 0 0) var(--p, 0) / var(--p, 0) no-repeat"),
+        transition: "0.4s, background-position 0s",
+        zIndex: 2,
+        fontFamily: "inherit",
+        "&:hover": {
+            "--p": "100%",
+            cursor: "pointer",
+            color: theme.design.colors.white,
+        }
+    },
+    error: {
+        color: theme.design.colors.waz_dangerColor,
+        zIndex: 2,
+        fontSize: 12,
+        marginTop: theme.spacing(2)
+    },
+    imgWrapper: {
+        backgroundColor: "rgba(0, 0, 0, 0.4)",
+        position: "absolute",
+        top: 0,
+        left: 0,
+        right: 0,
+        bottom: 0,
+        zIndex: 1,
+        borderRadius: 4
+    },
+    selectedRoot: {
+        border: "none"
+    },
+    // root: {
+    //     minHeight: "150px",
+    //     minWidth: "150px",
+    //     position: "relative",
+    //     display: "flex",
+    //     justifyContent: "center",
+    //     alignItems: "center",
+    //     cursor: "pointer",
+    //     width: "320px",
+    //     height: 160,
+    //     background: "transparent",
+    //     transition: "background 0.5s ease-in",
+    //     "&:hover": {
+    //         // background: "linear-gradient(180deg, rgba(0, 0, 0, 0) -9.73%, rgba(0, 0, 0, 0.8) 100%)",
+    //     },
+    // },
     sizeSm: {
         width: "100px",
         height: "100px",
@@ -63,6 +118,7 @@ export var useImageSelectorStyles = makeStyles(function (theme) { return ({
         width: "100%",
         height: "100%",
         objectFit: "cover",
+        borderRadius: theme.spacing(1)
     },
     circle: {
         borderRadius: "50%",

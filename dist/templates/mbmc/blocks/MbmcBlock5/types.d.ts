@@ -1,4 +1,3 @@
-/// <reference types="react" />
 import { SocialType, TFooterSection, TLink } from "templates/footers/types";
 import { BlockLayout, MbmcCommonProps } from "templates/mbmc/types";
 export declare type MbmcBlock5Props = MbmcCommonProps & {

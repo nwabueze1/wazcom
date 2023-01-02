@@ -1,4 +1,3 @@
-/// <reference types="react" />
 import { MbmcBlock1Props } from "./blocks/MbmcBlock1/types";
 import { MbmcBlock10Props } from "./blocks/MbmcBlock10/types";
 import { MbmcBlock11Props } from "./blocks/MbmcBlock11/types";

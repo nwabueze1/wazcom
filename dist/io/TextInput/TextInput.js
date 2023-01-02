@@ -20,17 +20,87 @@ var __rest = (this && this.__rest) || function (s, e) {
         }
     return t;
 };
+var __read = (this && this.__read) || function (o, n) {
+    var m = typeof Symbol === "function" && o[Symbol.iterator];
+    if (!m) return o;
+    var i = m.call(o), r, ar = [], e;
+    try {
+        while ((n === void 0 || n-- > 0) && !(r = i.next()).done) ar.push(r.value);
+    }
+    catch (error) { e = { error: error }; }
+    finally {
+        try {
+            if (r && !r.done && (m = i["return"])) m.call(i);
+        }
+        finally { if (e) throw e.error; }
+    }
+    return ar;
+};
+var __spreadArray = (this && this.__spreadArray) || function (to, from, pack) {
+    if (pack || arguments.length === 2) for (var i = 0, l = from.length, ar; i < l; i++) {
+        if (ar || !(i in from)) {
+            if (!ar) ar = Array.prototype.slice.call(from, 0, i);
+            ar[i] = from[i];
+        }
+    }
+    return to.concat(ar || Array.prototype.slice.call(from));
+};
 import { jsx as _jsx, jsxs as _jsxs } from "react/jsx-runtime";
-import { TextField, InputLabel } from "@mui/material";
+import { useCallback, useState } from "react";
 import { useTextStyles } from "./styles";
-import clx from "classnames";
-import { displayFeedback } from "../../helpers/io";
+import clx from 'classnames';
+/**
+ * Text Input IO Component
+ *
+ * - Should follow the following constraints;
+ * -- labels are optional (should show or hide if its provided but can be manually turned off. Manual turn off/on takes precedence over if provided or not).
+ * -- startIcons and endIcons
+ * -- should expose the following events: onFocus, onEnter
+ * -- helperText
+ * -- info
+ */
 export var TextInput = function (_a) {
-    var className = _a.className, classNames = _a.classNames, label = _a.label, variant = _a.variant, onChange = _a.onChange, feedback = _a.feedback, helperText = _a.helperText, onFocus = _a.onFocus, props = __rest(_a, ["className", "classNames", "label", "variant", "onChange", "feedback", "helperText", "onFocus"]);
+    var className = _a.className, label = _a.label, errors = _a.errors, helperText = _a.helperText, _b = _a.hideLabel, hideLabel = _b === void 0 ? false : _b, info = _a.info, name = _a.name, onChange = _a.onChange, _c = _a.required, required = _c === void 0 ? false : _c, showCC = _a.showCC, _d = _a.type, type = _d === void 0 ? "text" : _d, props = __rest(_a, ["className", "label", "errors", "helperText", "hideLabel", "info", "name", "onChange", "required", "showCC", "type"]);
     var classes = useTextStyles();
     var handleChange = function (e) {
-        var _a;
-        onChange === null || onChange === void 0 ? void 0 : onChange({ name: (_a = props.name) !== null && _a !== void 0 ? _a : "", value: e.target.value });
+        if (onChange) {
+            onChange === null || onChange === void 0 ? void 0 : onChange({ name: name, value: e.target.value });
+        }
     };
-    return (_jsxs("div", __assign({ className: clx(className, (classNames === null || classNames === void 0 ? void 0 : classNames.newRoot) ? classNames === null || classNames === void 0 ? void 0 : classNames.newRoot : classes.root) }, { children: [label && (_jsxs(InputLabel, __assign({ className: (classNames === null || classNames === void 0 ? void 0 : classNames.label) ? classNames === null || classNames === void 0 ? void 0 : classNames.label : "", htmlFor: props.name }, { children: [label, " ", _jsx("p", __assign({ className: classes.required }, { children: props.required ? " *" : "" }), void 0)] }), void 0)), _jsx(TextField, __assign({}, props, { variant: variant !== null && variant !== void 0 ? variant : "outlined", onChange: handleChange, onFocus: onFocus, className: (classNames === null || classNames === void 0 ? void 0 : classNames.textInput) ? classNames.textInput : "", classes: (classNames === null || classNames === void 0 ? void 0 : classNames.classes) ? classNames.classes : {} }), void 0), helperText, feedback && displayFeedback(feedback, classNames === null || classNames === void 0 ? void 0 : classNames.feedback)] }), void 0));
+    return (_jsxs("div", __assign({ className: clx(classes.root, className) }, { children: [_jsxs("div", __assign({ className: classes.labelWrapper }, { children: [!hideLabel &&
+                        label &&
+                        _jsxs("label", __assign({ htmlFor: name, className: classes.label }, { children: [label, required && _jsx("span", __assign({ className: classes.required }, { children: "*" }), void 0)] }), void 0), showCC && _jsx("span", __assign({ className: clx(classes.wordCount, classes.label) }, { children: (props === null || props === void 0 ? void 0 : props.value) && (props === null || props === void 0 ? void 0 : props.value.length) > 0 && (props === null || props === void 0 ? void 0 : props.value.length) }), void 0)] }), void 0), _jsx("input", __assign({ type: type, className: clx(classes.input, errors && classes.error), onChange: handleChange }, props), void 0)] }), void 0));
+};
+export var TextArea = function (_a) {
+    var className = _a.className, label = _a.label, helperText = _a.helperText, _b = _a.hideLabel, hideLabel = _b === void 0 ? false : _b, info = _a.info, name = _a.name, onChange = _a.onChange, _c = _a.required, required = _c === void 0 ? false : _c, showCC = _a.showCC, props = __rest(_a, ["className", "label", "helperText", "hideLabel", "info", "name", "onChange", "required", "showCC"]);
+    var classes = useTextStyles();
+    var handleChange = useCallback(function (e) {
+        onChange === null || onChange === void 0 ? void 0 : onChange({ name: name, value: e.target.value });
+    }, []);
+    return (_jsxs("div", __assign({ className: clx(classes.root, className) }, { children: [_jsxs("div", __assign({ className: classes.labelWrapper }, { children: [!hideLabel &&
+                        label &&
+                        _jsxs("label", __assign({ htmlFor: name, className: classes.label }, { children: [label, required && _jsx("span", __assign({ className: classes.required }, { children: "*" }), void 0)] }), void 0), showCC && _jsx("span", __assign({ className: clx(classes.wordCount, classes.label) }, { children: (props === null || props === void 0 ? void 0 : props.value) && (props === null || props === void 0 ? void 0 : props.value.length) > 0 && (props === null || props === void 0 ? void 0 : props.value.length) }), void 0)] }), void 0), _jsx("textarea", __assign({ className: clx(classes.input, classes.textAreaInput), onChange: handleChange, rows: 5 }, props), void 0)] }), void 0));
+};
+var validateEmail = function (email) {
+    var validator = String(email)
+        .toLowerCase()
+        .match(/^(([^<>()[\]\\.,;:\s@"]+(\.[^<>()[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/);
+    return !(validator == null);
+};
+export var EmailInput = function (_a) {
+    var name = _a.name, errors = _a.errors, onChange = _a.onChange, props = __rest(_a, ["name", "errors", "onChange"]);
+    var sErrors;
+    var _b = __read(useState(), 2), emailErrors = _b[0], setEmailErrors = _b[1];
+    var handleChange = useCallback(function (_a) {
+        var name = _a.name, value = _a.value;
+        (validateEmail(value) || value == "") ? setEmailErrors(undefined) : setEmailErrors([{ message: 'Invalid email !!' }]);
+        if (onChange) {
+            onChange === null || onChange === void 0 ? void 0 : onChange({ name: name, value: value });
+        }
+    }, [errors, setEmailErrors]);
+    if (errors || emailErrors) {
+        sErrors = errors ? errors : undefined;
+        sErrors = emailErrors ? (errors) ? __spreadArray(__spreadArray([], __read(errors), false), __read(emailErrors), false) : emailErrors : undefined;
+    }
+    return _jsx(TextInput, __assign({ type: "email", name: name, errors: sErrors, onChange: handleChange }, props), void 0);
 };

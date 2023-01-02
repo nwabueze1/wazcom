@@ -1,4 +1,3 @@
-/// <reference types="react" />
 export declare const contols: ({
     name: string;
     cmd: string;
