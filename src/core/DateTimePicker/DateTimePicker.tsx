@@ -76,7 +76,7 @@ export const DateTimePicker: React.FC<DateTimePickerProps> = ({
                         key={index}
                     >
                         {fields
-                            .map(({ name }) => {
+                            .map(({ name }, index) => {
                                 return row?.[name];
                             })
                             .reverse()}

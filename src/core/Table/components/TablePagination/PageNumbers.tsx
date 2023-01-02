@@ -1,4 +1,4 @@
-import { useState } from "react";
+import React, { useState } from "react";
 import clx from "classnames";
 import { useTablePaginationStyles } from "./styles";
 import { PageNumbersProps } from "./types";
@@ -34,21 +34,21 @@ export const PageNumbers: React.FC<PageNumbersProps> = function ({
             ));
         }
 
-        const leftPages = leftPageNumbers.map((page, index) => (
+        const leftPages = leftPageNumbers.map((page, leftIndex) => (
             <PageNumber
                 page={page}
                 onPageChange={onPageChange}
                 currentPage={currentPage}
-                key={index}
+                key={leftIndex}
             />
         ));
 
-        const rightPages = initialRightPageNumbers.map((page, index) => (
+        const rightPages = initialRightPageNumbers.map((page, rightIndex) => (
             <PageNumber
                 page={page}
                 onPageChange={onPageChange}
                 currentPage={currentPage}
-                key={index}
+                key={rightIndex}
             />
         ));
 

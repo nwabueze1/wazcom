@@ -1,12 +1,25 @@
 import { CommonProps } from "../../types";
 
-export type TextInputProps = CommonProps & {
-    className?: string;
-    label?: string;
+export type TextInputProps = TextFieldProps;
+
+export type BaseInputProps = React.InputHTMLAttributes<HTMLInputElement>;
+
+type TextBaseProps = CommonProps & {
     helperText?: string;
     hideLabel?: boolean;
     info?: string;
-    onChange: (value: string) => void;
+    label?: string;
+    name: string;
     required?: boolean;
+    showCC?: boolean;
     value?: string;
+    errors?: {
+        message: string;
+    }[];
+}
+
+export type TextFieldProps = Omit<BaseInputProps, "onChange"> & TextBaseProps;
+export type EmailInputProps = Omit<BaseInputProps, "onChange"> & TextBaseProps;
+export type TextAreaProps = Omit<React.HTMLProps<HTMLTextAreaElement>, "onChange"> & TextBaseProps & {
+    type?: 'textarea';
 }

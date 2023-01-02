@@ -104,10 +104,14 @@ export const theme: any = {
             montserrat: "Montserrat",
         },
         colors: {
+            white: "#ffffff",
             grey: "#fafafa",
+            error: "#c32611",
+            primary: "#0A7227",
             pri100: "#e7f1e9",
             pri200: "#cee3d4",
             pri400: "#9dc7a9",
+            pri600: "#6CAA7D",
 
             waz_primaryColor100: "#0A7227",
             waz_primaryColor200: "#014029",

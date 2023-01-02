@@ -30,6 +30,7 @@ import {
     PhoneNumberInput,
     RadioButtonInput,
     TextArea,
+    EmailInput,
 } from "../io";
 
 import { GqlComboBox, GqlMediaLibrary, GqlMediaLibrarySelector } from "../gql";
@@ -88,7 +89,7 @@ export const stories: ComponentPropType[] = [
         name: "TextArea",
         component: TextArea,
         props: {
-            label: <p style={{ color: 'red' }}>Description</p>,
+            label: "Description",
             name: "description",
             onChange: ({ name, value }: { name: string; value: string }) => {
                 {
@@ -98,22 +99,54 @@ export const stories: ComponentPropType[] = [
                     value;
                 }
             },
-            multiline: true,
-            minRows: 5,
-            feedback: {
-                text: (
-                    <div style={{ display: "flex", flexDirection: "column" }}>
-                        <p key={1} style={{ color: "blue" }}>
-                            Olamileke is a boy
-                        </p>
-                        <p key={2} style={{ color: "blue" }}>
-                            Olamileke is a boy
-                        </p>
-                    </div>
-                ),
-                status: "error",
+            // multiline: true,
+            // minRows: 5,
+            // feedback: {
+            //     text: (
+            //         <div style={{ display: "flex", flexDirection: "column" }}>
+            //             <p key={1} style={{ color: "blue" }}>
+            //                 Olamileke is a boy
+            //             </p>
+            //             <p key={2} style={{ color: "blue" }}>
+            //                 Olamileke is a boy
+            //             </p>
+            //         </div>
+            //     ),
+            //     status: "error",
+            // },
+            // error: true,
+        },
+    },
+    {
+        name: "Email",
+        component: EmailInput,
+        props: {
+            label: "Email Address",
+            name: "email",
+            onChange: ({ name, value }: { name: string; value: string }) => {
+                {
+                    name;
+                }
+                {
+                    value;
+                }
             },
-            error: true,
+            // multiline: true,
+            // minRows: 5,
+            // feedback: {
+            //     text: (
+            //         <div style={{ display: "flex", flexDirection: "column" }}>
+            //             <p key={1} style={{ color: "blue" }}>
+            //                 Olamileke is a boy
+            //             </p>
+            //             <p key={2} style={{ color: "blue" }}>
+            //                 Olamileke is a boy
+            //             </p>
+            //         </div>
+            //     ),
+            //     status: "error",
+            // },
+            // error: true,
         },
     },
     {

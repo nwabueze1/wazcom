@@ -39,5 +39,26 @@ export const useTextStyles = makeStyles((theme: Theme) => ({
         '&:hover:focus': {
             borderColor: theme.design.colors.pri400,
         },
+    },
+    error: {
+        border: `1px solid ${theme.design.colors.error}`,
+        '&:hover': {
+            borderColor: theme.design.colors.error,
+        },
+        '&:focus': {
+            borderColor: theme.design.colors.error,
+        },
+        '&:hover:focus': {
+            borderColor: theme.design.colors.error,
+        },
+    },
+    textAreaInput: {
+        height: "auto"
+    },
+    wordCount: {
+    },
+    labelWrapper: {
+        display: 'flex',
+        justifyContent: "space-between"
     }
 }));

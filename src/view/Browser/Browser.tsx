@@ -52,7 +52,6 @@ export const Browser: FC<BrowserProps> = () => {
                         name="search"
                         color="secondary"
                         placeholder="Search..."
-                        variant="outlined"
                         onChange={({ value }: { name: string; value: any }) => {
                             setSearch(value);
                         }}
