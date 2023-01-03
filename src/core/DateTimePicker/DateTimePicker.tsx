@@ -20,15 +20,17 @@ export const DateTimePicker: React.FC<DateTimePickerProps> = ({
     const parseSchedulevalue = useScheduleData();
 
     const handleChange = useCallback(
-        (event, index, remove = false) => {
+        (event: any, index: number, remove = false) => {
             const {
                 target: { name, value },
-            } = event;
+            }: { target: { name: string; value: any } } = event;
+
             const newValue = [...(initialScheduleValue as DateTimePickerFields[])];
+            
             if (remove && newValue.length > 1) {
                 newValue.splice(index, 1);
             } else {
-                newValue[index][name] = value;
+                newValue[index] = { day: name, time: value };
             }
             onChange?.({ name: componentName as string, value: newValue });
         },
@@ -76,7 +78,7 @@ export const DateTimePicker: React.FC<DateTimePickerProps> = ({
                         key={index}
                     >
                         {fields
-                            .map(({ name }, index) => {
+                            .map(({ name }) => {
                                 return row?.[name];
                             })
                             .reverse()}

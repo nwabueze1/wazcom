@@ -55,8 +55,15 @@ export var DisplayInput = function (_a) {
                 return _jsxs("p", { children: [index + 1, "."] }, void 0);
         }
     };
-    return (_jsxs("div", __assign({ className: classes.root }, { children: [displayLabel(), _jsx(TextInput, { classNames: {
-                    textInput: classes.displayInput,
-                    newRoot: classes.newRoot,
-                }, value: value === null || value === void 0 ? void 0 : value.text, onChange: handleInputChange, id: "standard-basic", variant: "standard", onFocus: onFocus }, void 0), _jsx(FiImage, { className: clx(classes.displayIcon, classes.mediaIcon), onClick: handleOptionMedia }, void 0), _jsx(CloseIcon, { className: classes.displayIcon, onClick: handleRemove }, void 0)] }), void 0));
+    return (_jsxs("div", __assign({ className: classes.root }, { children: [displayLabel(), _jsx(TextInput
+            // className={{
+            //     textInput: classes.displayInput,
+            //     newRoot: classes.newRoot,
+            // }}
+            , { 
+                // className={{
+                //     textInput: classes.displayInput,
+                //     newRoot: classes.newRoot,
+                // }}
+                value: value === null || value === void 0 ? void 0 : value.text, onChange: handleInputChange, id: "standard-basic", onFocus: onFocus }, void 0), _jsx(FiImage, { className: clx(classes.displayIcon, classes.mediaIcon), onClick: handleOptionMedia }, void 0), _jsx(CloseIcon, { className: classes.displayIcon, onClick: handleRemove }, void 0)] }), void 0));
 };

@@ -1,1 +1,0 @@
-export declare const useMbmcBlock16Styles: (props?: any) => import("@mui/styles").ClassNameMap<"root" | "content" | "title" | "description" | "price" | "topContent" | "priceContainer" | "quantityCountContainer" | "quantityButton" | "operationIcon" | "disable" | "dialogContainer" | "dialogImage" | "dialogOptionsContent" | "dialogButtonContainer" | "dialogButton">;

@@ -53,7 +53,6 @@ export var ImageSelector = function (_a) {
             return false;
         }
         ;
-        setError();
         return true;
     }, [error, setError]);
     var handleSelect = function (e) {

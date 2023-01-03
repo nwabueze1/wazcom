@@ -24,7 +24,7 @@ export const RelatedPostPolitico: FC<CoreArticleTemplateFields> = ({
                     <img src={article.featured_image} className={classes.thumbnailImg} />
                 </div>
                 <p className={classes.category}>
-                    {article.category ? article.category : "COUNTRY"}
+                    {article.category ? article.category?.name : "COUNTRY"}
                 </p>
                 <div className={classes.thumbnailDetails}>
                     <p className={classes.articleTitle}>

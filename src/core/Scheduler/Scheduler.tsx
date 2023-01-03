@@ -25,7 +25,7 @@ export const Scheduler: React.FC<SchedulerProps> = ({
     const availableOption = filterDaysOptions(days, initialScheduleValue);
 
     const handleChange = useCallback(
-        (event, index, remove = false) => {
+        (event: any, index: number, remove = false) => {
             const {
                 target: { name, value },
             } = event;
@@ -33,7 +33,7 @@ export const Scheduler: React.FC<SchedulerProps> = ({
             if (remove && newValue.length > 1) {
                 newValue.splice(index, 1);
             } else {
-                newValue[index][name] = value;
+                newValue[index] = { day: name, start_time: value, end_time: value };
             }
             onChange?.({ name: componentName as string, value: newValue });
         },

@@ -1,7 +1,8 @@
-import React, { ChangeEvent, FC, FormEvent, FormEventHandler, useCallback, useState } from "react";
-import { useTextStyles } from "./styles";
-import { TextInputProps, TextFieldProps, TextAreaProps } from "./types";
 import clx from 'classnames';
+import { isNumber } from 'lodash';
+import React, { ChangeEvent, FC, useCallback, useState } from "react";
+import { useTextStyles } from "./styles";
+import { TextAreaProps, TextFieldProps } from "./types";
 
 /**
  * Text Input IO Component
@@ -31,7 +32,7 @@ export const TextInput: FC<TextFieldProps> = ({
 
     const handleChange = (e: ChangeEvent<HTMLInputElement>) => {
         if ( onChange) {
-            onChange?.({ name, value: e.target.value });
+            onChange?.({ name: name ?? "", value: e.target.value });
         }
     };
 
@@ -68,7 +69,7 @@ export const TextArea: FC<Omit<TextAreaProps, "type">> = ({
     const classes = useTextStyles();
 
     const handleChange = useCallback((e: React.ChangeEvent<HTMLTextAreaElement>) => {
-        onChange?.({ name, value: e.target.value });
+        onChange?.({ name: name ?? "", value: e.target.value });
     }, []);
 
     return (
@@ -82,7 +83,7 @@ export const TextArea: FC<Omit<TextAreaProps, "type">> = ({
                         { required && <span className={classes.required}>*</span> }
                     </label>
                 }
-                { showCC && <span className={clx(classes.wordCount, classes.label)}>{ props?.value && props?.value.length > 0 && props?.value.length }</span> }
+                { showCC && <span className={clx(classes.wordCount, classes.label)}>{ props?.value && props?.value?.length && props?.value.length > 0 && props?.value.length }</span> }
             </div>
             <textarea className={clx(classes.input, classes.textAreaInput)} onChange={handleChange} rows={5} {...props} />
         </div>
@@ -121,4 +122,30 @@ export const EmailInput: FC<Omit<TextFieldProps, "type">> = ({
     }
 
     return <TextInput type="email" name={name} errors={sErrors} onChange={handleChange} {...props} />
+}
+
+export const NumberInput: FC<Omit<TextFieldProps, "type">> = ({
+    name,
+    errors,
+    onChange,
+    showCC,
+    ...props
+}) => {
+    let sErrors;
+    const [numberErrors, setNumberErrors] = useState<{ message: string }[]>();
+
+    const handleChange = useCallback(({ name, value }: { name: string, value: any }) => {
+        (isNumber(value) || value == "") ? setNumberErrors(undefined) : setNumberErrors([{ message: 'Invalid number !!'}]);
+
+        if ( onChange) {
+            onChange?.({ name, value });
+        }
+    }, [errors, setNumberErrors]);
+
+    if (errors || numberErrors) {
+        sErrors = errors ? errors : undefined;
+        sErrors = numberErrors ? (errors) ? [...errors, ...numberErrors] : numberErrors : undefined;
+    }
+
+    return <TextInput type="number" name={name} errors={sErrors} showCC={false} onChange={handleChange} {...props} />
 }

@@ -49,14 +49,13 @@ export const DisplayInput: FC<DisplayInputProps> = ({
         <div className={classes.root}>
             {displayLabel()}
             <TextInput
-                classNames={{
-                    textInput: classes.displayInput,
-                    newRoot: classes.newRoot,
-                }}
+                // className={{
+                //     textInput: classes.displayInput,
+                //     newRoot: classes.newRoot,
+                // }}
                 value={value?.text}
                 onChange={handleInputChange}
                 id="standard-basic"
-                variant="standard"
                 onFocus={onFocus}
             />
             <FiImage

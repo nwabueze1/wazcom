@@ -51,7 +51,7 @@ export const usePickupControls = () => {
                             },
                             className: classes.deliveryInputParent,
                             value: formik.values.email,
-                            error: formik?.touched?.email && Boolean(formik?.errors?.email),
+                            errors: [{ message: formik?.touched?.email && Boolean(formik?.errors?.email) }],
                             feedback:
                                 formik?.touched?.email && formik?.errors?.email
                                     ? { status: "error", text: formik.errors.email }
@@ -75,7 +75,7 @@ export const usePickupControls = () => {
                             },
                             className: classes.deliveryInputParent,
                             value: formik.values.firstname,
-                            error: formik?.touched?.firstname && Boolean(formik?.errors?.firstname),
+                            errors: [{ message: formik?.touched?.firstname && Boolean(formik?.errors?.firstname) }],
                             feedback:
                                 formik?.touched?.firstname && formik?.errors?.firstname
                                     ? { status: "error", text: formik.errors.firstname }
@@ -99,7 +99,7 @@ export const usePickupControls = () => {
                             },
                             className: classes.deliveryInputParent,
                             value: formik.values.lastname,
-                            error: formik?.touched?.lastname && Boolean(formik?.errors?.lastname),
+                            errors: [{ message: formik?.touched?.lastname && Boolean(formik?.errors?.lastname) }],
                             feedback:
                                 formik?.touched?.lastname && formik?.errors?.lastname
                                     ? { status: "error", text: formik.errors.lastname }
@@ -123,7 +123,7 @@ export const usePickupControls = () => {
                             },
                             className: classes.deliveryInputParent,
                             value: formik.values.phone,
-                            error: formik?.touched?.phone && Boolean(formik?.errors?.phone),
+                            errors: [{ message: formik?.touched?.phone && Boolean(formik?.errors?.phone) }],
                             feedback:
                                 formik?.touched?.phone && formik?.errors?.phone
                                     ? { status: "error", text: formik.errors.phone }

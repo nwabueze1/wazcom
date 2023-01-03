@@ -54,7 +54,7 @@ export var DateTimePicker = function (_a) {
             newValue.splice(index, 1);
         }
         else {
-            newValue[index][name] = value;
+            newValue[index] = { day: name, time: value };
         }
         onChange === null || onChange === void 0 ? void 0 : onChange({ name: componentName, value: newValue });
     }, [initialScheduleValue]);
@@ -77,7 +77,7 @@ export var DateTimePicker = function (_a) {
     }, [initialScheduleValue]);
     return (_jsxs("div", __assign({ className: clx(classes.root, className) }, { children: [label && (_jsx(InputLabel, __assign({ className: (_b = classNames === null || classNames === void 0 ? void 0 : classNames.label) !== null && _b !== void 0 ? _b : "", htmlFor: componentName }, { children: label }), void 0)), scheduleValue === null || scheduleValue === void 0 ? void 0 : scheduleValue.map(function (row, index) {
                 return (_jsx("div", __assign({ className: "".concat(classes.schedulerContainer, " ").concat(orientation == "vertical" && classes.verticalContainer) }, { children: fields
-                        .map(function (_a, index) {
+                        .map(function (_a) {
                         var name = _a.name;
                         return row === null || row === void 0 ? void 0 : row[name];
                     })

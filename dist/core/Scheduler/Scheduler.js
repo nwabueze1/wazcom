@@ -58,7 +58,7 @@ export var Scheduler = function (_a) {
             newValue.splice(index, 1);
         }
         else {
-            newValue[index][name] = value;
+            newValue[index] = { day: name, start_time: value, end_time: value };
         }
         onChange === null || onChange === void 0 ? void 0 : onChange({ name: componentName, value: newValue });
     }, [initialScheduleValue]);

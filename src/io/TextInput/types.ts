@@ -9,17 +9,20 @@ type TextBaseProps = CommonProps & {
     hideLabel?: boolean;
     info?: string;
     label?: string;
-    name: string;
+    name?: string;
     required?: boolean;
     showCC?: boolean;
-    value?: string;
     errors?: {
         message: string;
     }[];
+    value?: any;
 }
 
 export type TextFieldProps = Omit<BaseInputProps, "onChange"> & TextBaseProps;
 export type EmailInputProps = Omit<BaseInputProps, "onChange"> & TextBaseProps;
+export type NumberInputProps = Omit<BaseInputProps, "onChange"> & TextBaseProps;
+
 export type TextAreaProps = Omit<React.HTMLProps<HTMLTextAreaElement>, "onChange"> & TextBaseProps & {
     type?: 'textarea';
+    minRows?: number;
 }

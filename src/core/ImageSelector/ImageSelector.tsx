@@ -37,8 +37,6 @@ export const ImageSelector: FC<ImageSelectorProps> = ({
             return false;
         };
 
-        setError();
-
         return true;
     }, [error, setError]);
 
