@@ -6,6 +6,7 @@ export const useTextStyles = makeStyles((theme: Theme) => ({
         display: "flex",
         flexDirection: "column",
         position: "relative",
+        marginBottom: theme.spacing(2)
     },
     label: {
         fontSize: 10,
