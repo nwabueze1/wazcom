@@ -7,7 +7,7 @@ export var useTextStyles = makeStyles(function (theme) { return ({
         marginBottom: theme.spacing(2)
     },
     label: {
-        fontSize: 10,
+        fontSize: theme.typography.fontSize - 2,
         display: "flex",
         marginBottom: 8,
         color: "#333333",
@@ -28,7 +28,7 @@ export var useTextStyles = makeStyles(function (theme) { return ({
         outline: "none",
         fontFamily: theme.typography.fontFamily,
         fontWeight: 400,
-        fontSize: 12,
+        fontSize: theme.typography.fontSize,
         '&:hover': {
             borderColor: theme.design.colors.pri200,
         },

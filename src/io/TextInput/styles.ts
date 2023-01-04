@@ -9,7 +9,7 @@ export const useTextStyles = makeStyles((theme: Theme) => ({
         marginBottom: theme.spacing(2)
     },
     label: {
-        fontSize: 10,
+        fontSize: theme.typography.fontSize - 2,
         display: "flex",
         marginBottom: 8,
         color: "#333333",
@@ -30,7 +30,7 @@ export const useTextStyles = makeStyles((theme: Theme) => ({
         outline: "none",
         fontFamily: theme.typography.fontFamily,
         fontWeight: 400,
-        fontSize: 12,
+        fontSize: theme.typography.fontSize,
         '&:hover': {
             borderColor: theme.design.colors.pri200,
         },

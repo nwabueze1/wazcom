@@ -21,28 +21,33 @@ var __rest = (this && this.__rest) || function (s, e) {
     return t;
 };
 import { jsx as _jsx, jsxs as _jsxs } from "react/jsx-runtime";
-import { MenuItem, Select, InputLabel } from "@mui/material";
-import { useSelectStyles } from "./styles";
 import clx from "classnames";
-import { displayFeedback } from "../../helpers/io";
+import Select from 'react-select';
+import { useSelectStyles } from "./styles";
 export var SelectInput = function (_a) {
-    var _b;
-    var className = _a.className, classNames = _a.classNames, _c = _a.options, options = _c === void 0 ? [] : _c, _d = _a.placeholder, placeholder = _d === void 0 ? "Select a value" : _d, label = _a.label, helperText = _a.helperText, onChange = _a.onChange, feedback = _a.feedback, props = __rest(_a, ["className", "classNames", "options", "placeholder", "label", "helperText", "onChange", "feedback"]);
+    var onChange = _a.onChange, options = _a.options, value = _a.value, name = _a.name, className = _a.className, label = _a.label, errors = _a.errors, helperText = _a.helperText, _b = _a.hideLabel, hideLabel = _b === void 0 ? false : _b, info = _a.info, _c = _a.required, required = _c === void 0 ? false : _c, props = __rest(_a, ["onChange", "options", "value", "name", "className", "label", "errors", "helperText", "hideLabel", "info", "required"]);
     var classes = useSelectStyles();
     var handleChange = function (e) {
-        var _a = e.target, name = _a.name, value = _a.value;
-        onChange === null || onChange === void 0 ? void 0 : onChange({ name: name, value: value });
+        if (onChange) {
+            onChange === null || onChange === void 0 ? void 0 : onChange({ name: name !== null && name !== void 0 ? name : "", value: e === null || e === void 0 ? void 0 : e.value });
+        }
     };
-    var displayLabelFromValue = function (value) {
-        var _a, _b;
-        var option = (_a = options.filter(function (option) { return option.value == value; })) === null || _a === void 0 ? void 0 : _a[0];
-        if (!option)
-            return _jsx("p", {}, void 0);
-        var Icon = option === null || option === void 0 ? void 0 : option.icon;
-        return (_jsxs("p", __assign({ className: clx(classNames === null || classNames === void 0 ? void 0 : classNames.optionLabel, classes.optionLabel) }, { children: [Icon && _jsx(Icon, { className: classes.icon }, void 0), (_b = option === null || option === void 0 ? void 0 : option.label) !== null && _b !== void 0 ? _b : ""] }), void 0));
-    };
-    return (_jsxs("div", __assign({ className: clx(className, classes.root) }, { children: [label && (_jsxs(InputLabel, __assign({ className: (_b = classNames === null || classNames === void 0 ? void 0 : classNames.label) !== null && _b !== void 0 ? _b : classes.label, htmlFor: props.name }, { children: [label, " ", _jsx("p", __assign({ className: classes.required }, { children: props.required ? " *" : "" }), void 0)] }), void 0)), _jsx("div", __assign({ className: classes.selectContainer }, { children: _jsxs(Select, __assign({}, props, { onChange: handleChange, className: clx(classNames === null || classNames === void 0 ? void 0 : classNames.selectInput, classes.select), classes: (classNames === null || classNames === void 0 ? void 0 : classNames.classes) ? classNames.classes : {}, renderValue: function (value) { return (_jsx(MenuItem, __assign({ value: value }, { children: displayLabelFromValue(value) }), void 0)); } }, { children: [options.length === 0 && (_jsx(MenuItem, __assign({ value: "Select a value" }, { children: placeholder }), void 0)), options.map(function (_a, index) {
-                            var label = _a.label, value = _a.value, subText = _a.subText, Icon = _a.icon;
-                            return (_jsx(MenuItem, __assign({ value: value }, { children: _jsxs("div", __assign({ className: classNames === null || classNames === void 0 ? void 0 : classNames.optionContainer }, { children: [_jsxs("div", __assign({ className: classes.iconContianer }, { children: [Icon && _jsx(Icon, { className: classes.icon }, void 0), _jsx("p", __assign({ className: clx(classNames === null || classNames === void 0 ? void 0 : classNames.optionLabel, classes.optionLabel) }, { children: label }), void 0)] }), void 0), subText && (_jsx("p", __assign({ className: classNames === null || classNames === void 0 ? void 0 : classNames.optionSubText }, { children: subText }), void 0))] }), void 0) }), index));
-                        })] }), void 0) }), void 0), helperText, feedback && displayFeedback(feedback)] }), void 0));
+    return (_jsxs("div", __assign({ className: clx(classes.root, className) }, { children: [_jsx("div", __assign({ className: classes.labelWrapper }, { children: !hideLabel &&
+                    label &&
+                    _jsxs("label", __assign({ htmlFor: name, className: classes.label }, { children: [label, required && _jsx("span", __assign({ className: classes.required }, { children: "*" }), void 0)] }), void 0) }), void 0), _jsx(Select, __assign({ classNames: {
+                    control: function (_a) {
+                        var isDisabled = _a.isDisabled, isFocused = _a.isFocused;
+                        return clx(classes.select, !isDisabled && isFocused && classes.control);
+                    },
+                    menu: function (_a) {
+                        var innerRef = _a.innerRef, innerProps = _a.innerProps, isLoading = _a.isLoading, placement = _a.placement, children = _a.children;
+                        console.log({ innerRef: innerRef, innerProps: innerProps, isLoading: isLoading, placement: placement, children: children
+                        });
+                        return classes.control;
+                    },
+                    option: function (_a) {
+                        var isDisabled = _a.isDisabled, isFocused = _a.isFocused;
+                        return clx(!isDisabled && isFocused && classes.option);
+                    }
+                }, options: options, onChange: handleChange }, props), void 0)] }), void 0));
 };

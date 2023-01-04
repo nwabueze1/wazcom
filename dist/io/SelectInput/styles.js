@@ -1,51 +1,64 @@
 import makeStyles from "@mui/styles/makeStyles";
 export var useSelectStyles = makeStyles(function (theme) { return ({
     root: {
-        borderRadius: theme.spacing(1),
-        fontSize: "16px",
-        color: theme.design.colors.waz_greyColor400,
-        width: "100%",
-        marginBottom: theme.spacing(2),
+        display: "flex",
+        flexDirection: "column",
+        position: "relative",
+        marginBottom: theme.spacing(2)
     },
     label: {
+        fontSize: theme.typography.fontSize - 2,
         display: "flex",
+        marginBottom: 8,
+        color: "#333333",
         alignItems: "center",
+        letterSpacing: "0.13px",
+        textTransform: "uppercase",
     },
     required: {
         color: theme.design.colors.waz_dangerColor100,
-        margin: theme.spacing(0.5, 0, 0, 0.5),
-    },
-    selectContainer: {
-        display: "flex",
-        alignItem: "center",
-        justifyContent: "center",
-    },
-    iconContianer: {
-        display: "flex",
-        alignItem: "center",
-        justifyContent: "center",
-    },
-    icon: {
-        marginRight: theme.spacing(1),
-        fontSize: 20,
+        margin: theme.spacing(-.5, .5, 0, .5),
     },
     select: {
-        width: "100%",
-        "& .MuiMenuItem-root": {
-            background: "none",
+        height: 34,
+        borderColor: "".concat(theme.design.colors.pri100, " !important"),
+        fontFamily: theme.typography.fontFamily,
+        fontWeight: 400,
+        fontSize: theme.typography.fontSize,
+        '&:hover': {
+            borderColor: "".concat(theme.design.colors.pri200, " !important"),
         },
-        "&.Mui-focused fieldset.MuiOutlinedInput-notchedOutline": {
-            borderColor: theme.design.colors.waz_primaryColor100,
-            outline: theme.design.colors.waz_primaryColor100,
-            "&:hover": {
-                borderColor: theme.design.colors.waz_primaryColor100,
-                outline: theme.design.colors.waz_primaryColor100,
-            },
+        '&:focus': {
+            borderColor: theme.design.colors.pri400,
+        },
+        '&:hover:focus': {
+            borderColor: theme.design.colors.pri400,
         },
     },
-    optionLabel: {
-        display: "flex",
-        alignItem: "center",
-        justifyContent: "center",
+    error: {
+        border: "1px solid ".concat(theme.design.colors.error),
+        '&:hover': {
+            borderColor: theme.design.colors.error,
+        },
+        '&:focus': {
+            borderColor: theme.design.colors.error,
+        },
+        '&:hover:focus': {
+            borderColor: theme.design.colors.error,
+        },
     },
+    labelWrapper: {
+        display: 'flex',
+        justifyContent: "space-between"
+    },
+    control: {
+        borderColor: "".concat(theme.design.colors.pri400, " !important"),
+        boxShadow: 'none !important',
+        '&:hover': {
+            borderColor: theme.design.colors.pri200,
+        },
+    },
+    option: {
+        backgroundColor: "".concat(theme.design.colors.pri200, " !important")
+    }
 }); });
