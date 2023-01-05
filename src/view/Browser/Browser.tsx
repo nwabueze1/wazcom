@@ -1,18 +1,15 @@
 import WidgetsRoundedIcon from "@mui/icons-material/WidgetsRounded";
+import { BsBellFill } from "react-icons/bs"
 import { Typography } from "@mui/material";
-import AppBar from "@mui/material/AppBar";
-import Box from "@mui/material/Box";
 import CssBaseline from "@mui/material/CssBaseline";
-import Drawer from "@mui/material/Drawer";
 import List from "@mui/material/List";
-import Toolbar from "@mui/material/Toolbar";
 import { startCase } from "lodash";
 import * as React from "react";
 import { FC, useState } from "react";
 import { TextInput } from "../../io";
 import { stories, navs } from "../../stories";
 import { SidebarListItem } from "./SidebarListItem/SidebarListItem";
-import { drawerWidth, useBrowserStyles } from "./styles";
+import { useBrowserStyles } from "./styles";
 import { BrowserProps } from "./types";
 
 export const Browser: FC<BrowserProps> = () => {
@@ -37,63 +34,42 @@ export const Browser: FC<BrowserProps> = () => {
     ];
 
     return (
-        <Box sx={{ display: "flex" }}>
+        <div className={classes.container}>
             <CssBaseline />
-            <AppBar
-                position="fixed"
-                sx={{ width: `calc(100% - ${drawerWidth}px)`, ml: `${drawerWidth}px` }}
-                className={classes.root}
-                classes={{
-                    root: classes.root
-                }}
-            >
-                <Toolbar>
+            <div className={classes.drawer}>
+                <div className={classes.logo}>
+                    <WidgetsRoundedIcon className={classes.sidebarIcon} />
+                    <span className={classes.title}>WAZCOM</span>
+                </div>
+                <List className={classes.sidebarList}>
+                    <SidebarListItem title="Components" sections={sections} />
+                </List>
+            </div>
+            <div className={classes.appBarWrapper}>
+                <div className={classes.appBarComponents}>
                     <TextInput
                         name="search"
-                        color="secondary"
                         placeholder="Search..."
+                        type="search"
+                        className={classes.appBarSearchTextInput}
                         onChange={({ value }: { name: string; value: any }) => {
                             setSearch(value);
                         }}
                         value={search}
                     />
-                </Toolbar>
-            </AppBar>
-            <Drawer
-                sx={{
-                    width: drawerWidth,
-                    flexShrink: 0,
-                }}
-                PaperProps={{
-                    sx: {
-                        width: drawerWidth,
-                    },
-                }}
-                variant="permanent"
-                anchor="left"
-            >
-                <Toolbar>
-                    <div className={classes.logo}>
-                        <WidgetsRoundedIcon className={classes.sidebarIcon} />
-                        <span className={classes.title}>WAZCOM</span>
+                    <div className={classes.notificationWrapper}>
+                        <BsBellFill className={classes.notoficationIcon} />
                     </div>
-                </Toolbar>
-                <List className={classes.sidebarList}>
-                    <SidebarListItem title="Components" sections={sections} />
-                </List>
-            </Drawer>
-            <Box
-                component="main"
-                sx={{ flexGrow: 1, bgcolor: "background.default", p: 3 }}
-                className={classes.main}
-            >
+                </div>
+            </div>
+            <div className={classes.main}>
                 {stories
                     .sort(({ name: aName }, { name: bName }) =>
                         aName.toLowerCase() < bName.toLowerCase()
                             ? -1
                             : aName.toLowerCase() > bName.toLowerCase()
-                            ? 1
-                            : 0,
+                                ? 1
+                                : 0,
                     )
                     .filter(({ name }) => name.toLowerCase().includes(search))
                     .map(({ name, component: Comp, props }, index) => (
@@ -108,7 +84,7 @@ export const Browser: FC<BrowserProps> = () => {
                             </div>
                         </div>
                     ))}
-            </Box>
-        </Box>
+            </div>
+        </div >
     );
 };

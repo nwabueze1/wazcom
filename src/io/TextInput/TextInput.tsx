@@ -21,7 +21,7 @@ export const TextInput: FC<TextFieldProps> = ({
     helperText,
     hideLabel = false,
     info,
-    name, 
+    name,
     onChange,
     required = false,
     showCC,
@@ -31,7 +31,7 @@ export const TextInput: FC<TextFieldProps> = ({
     const classes = useTextStyles();
 
     const handleChange = (e: ChangeEvent<HTMLInputElement>) => {
-        if ( onChange) {
+        if (onChange) {
             onChange?.({ name: name ?? "", value: e.target.value });
         }
     };
@@ -39,15 +39,15 @@ export const TextInput: FC<TextFieldProps> = ({
     return (
         <div className={clx(classes.root, className)}>
             <div className={classes.labelWrapper}>
-                { 
-                    !hideLabel && 
-                    label && 
+                {
+                    !hideLabel &&
+                    label &&
                     <label htmlFor={name} className={classes.label}>
-                        { label }
-                        { required && <span className={classes.required}>*</span> }
+                        {label}
+                        {required && <span className={classes.required}>*</span>}
                     </label>
                 }
-                { showCC && <span className={clx(classes.wordCount, classes.label)}>{ props?.value && props?.value.length > 0 && props?.value.length }</span> }
+                {showCC && <span className={clx(classes.wordCount, classes.label)}>{props?.value && props?.value.length > 0 && props?.value.length}</span>}
             </div>
             <input type={type} className={clx(classes.input, errors && classes.error)} onChange={handleChange} {...props} />
         </div>
@@ -60,7 +60,7 @@ export const TextArea: FC<Omit<TextAreaProps, "type">> = ({
     helperText,
     hideLabel = false,
     info,
-    name, 
+    name,
     onChange,
     required = false,
     showCC,
@@ -75,15 +75,15 @@ export const TextArea: FC<Omit<TextAreaProps, "type">> = ({
     return (
         <div className={clx(classes.root, className)}>
             <div className={classes.labelWrapper}>
-                { 
-                    !hideLabel && 
-                    label && 
+                {
+                    !hideLabel &&
+                    label &&
                     <label htmlFor={name} className={classes.label}>
-                        { label }
-                        { required && <span className={classes.required}>*</span> }
+                        {label}
+                        {required && <span className={classes.required}>*</span>}
                     </label>
                 }
-                { showCC && <span className={clx(classes.wordCount, classes.label)}>{ props?.value && props?.value?.length && props?.value.length > 0 && props?.value.length }</span> }
+                {showCC && <span className={clx(classes.wordCount, classes.label)}>{props?.value && props?.value?.length && props?.value.length > 0 && props?.value.length}</span>}
             </div>
             <textarea className={clx(classes.input, classes.textAreaInput)} onChange={handleChange} rows={5} {...props} />
         </div>
@@ -91,13 +91,13 @@ export const TextArea: FC<Omit<TextAreaProps, "type">> = ({
 };
 const validateEmail = (email: string): boolean => {
     const validator = String(email)
-      .toLowerCase()
-      .match(
-        /^(([^<>()[\]\\.,;:\s@"]+(\.[^<>()[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/
-      );
-    
+        .toLowerCase()
+        .match(
+            /^(([^<>()[\]\\.,;:\s@"]+(\.[^<>()[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/
+        );
+
     return !(validator == null);
-  };
+};
 
 export const EmailInput: FC<Omit<TextFieldProps, "type">> = ({
     name,
@@ -109,9 +109,9 @@ export const EmailInput: FC<Omit<TextFieldProps, "type">> = ({
     const [emailErrors, setEmailErrors] = useState<{ message: string }[]>();
 
     const handleChange = useCallback(({ name, value }: { name: string, value: any }) => {
-        (validateEmail(value) || value == "") ? setEmailErrors(undefined) : setEmailErrors([{ message: 'Invalid email !!'}]);
+        (validateEmail(value) || value == "") ? setEmailErrors(undefined) : setEmailErrors([{ message: 'Invalid email !!' }]);
 
-        if ( onChange) {
+        if (onChange) {
             onChange?.({ name, value });
         }
     }, [errors, setEmailErrors]);
@@ -135,9 +135,9 @@ export const NumberInput: FC<Omit<TextFieldProps, "type">> = ({
     const [numberErrors, setNumberErrors] = useState<{ message: string }[]>();
 
     const handleChange = useCallback(({ name, value }: { name: string, value: any }) => {
-        (isNumber(value) || value == "") ? setNumberErrors(undefined) : setNumberErrors([{ message: 'Invalid number !!'}]);
+        (isNumber(value) || value == "") ? setNumberErrors(undefined) : setNumberErrors([{ message: 'Invalid number !!' }]);
 
-        if ( onChange) {
+        if (onChange) {
             onChange?.({ name, value });
         }
     }, [errors, setNumberErrors]);

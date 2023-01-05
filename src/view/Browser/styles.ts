@@ -7,9 +7,9 @@ export const useBrowserStyles = makeStyles((theme: Theme) => ({
     root: {
         // backgroundColor: theme.design.colors.white
     },
-    drawer: {
-        padding: `0 ${theme.spacing(2)}`,
-    },
+    // drawer: {
+    //     padding: `0 ${theme.spacing(2)}`,
+    // },
     paper: {
         padding: `0 ${theme.spacing(2)}`,
         width: drawerWidth,
@@ -41,6 +41,8 @@ export const useBrowserStyles = makeStyles((theme: Theme) => ({
         marginTop: theme.spacing(8),
         width: "calc(100vw - 244px)",
         overflow: "hidden",
+        padding: '7px 24px',
+        marginLeft: `${drawerWidth}px`,
     },
     componentWrapper: {
         marginBottom: theme.spacing(5),
@@ -58,10 +60,61 @@ export const useBrowserStyles = makeStyles((theme: Theme) => ({
         color: theme.design.colors.waz_black,
         fontWeight: 500,
     },
-    title: {},
+    title: {
+        fontWeight: theme.typography.fontWeightBold,
+        color: theme.design.colors.waz_black,
+    },
     listItem: {},
     listItemButton: {
         width: "100%",
         textAlign: "left",
     },
+
+    container: {
+        display: 'flex',
+    },
+    appBarWrapper: {
+        position: 'fixed',
+        display: 'flex',
+        alignItems: 'center',
+        width: `calc(100% - ${drawerWidth}px)`,
+        height: '60px',
+        marginLeft: `${drawerWidth}px`,
+        boxShadow: '0px 1px 25px rgba(0, 0, 0, 0.05)',
+        opacity: 1,
+        background: '#FFFFFF',
+        padding: '10px 40px',
+        zIndex: 9999
+    },
+    appBarComponents: {
+        display: 'flex',
+        justifyContent: 'space-between',
+        alignItems: 'center',
+        width: '100%'
+    },
+    appBarSearchTextInput: {
+        marginBottom: 0,
+        width: '480px',
+        '& input': {
+            border: 'none',
+            background: '#F9F9F9 0% 0% no-repeat padding-box',
+            borderRadius: '3px',
+        }
+    },
+    notificationWrapper: {
+        width: '24px',
+        height: '24px'
+    },
+    notoficationIcon: {
+        width: '18px',
+        height: '21px'
+    },
+
+    drawer: {
+        width: `${drawerWidth}px`,
+        padding: `22px ${theme.spacing(2)}`,
+        position: 'fixed',
+        background: '#FFFFFF 0% 0% no-repeat padding-box',
+        boxShadow: '0px 1px 25px rgba(0, 0, 0, 0.05)',
+    }
 }));
