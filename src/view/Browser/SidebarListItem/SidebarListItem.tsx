@@ -1,10 +1,11 @@
 import React, { FC, useState, useCallback } from "react";
+import { RiArrowDownSFill } from "react-icons/ri";
+import clx from "classnames";
+
 import { useSidebarListItemStyles } from "./styles";
 import { SidebarListItemProps } from "./types";
 import { Button } from "../../../core";
-import { FiChevronRight } from "react-icons/fi";
-import clx from "classnames";
-import { Typography } from "@mui/material";
+
 
 export const SidebarListItem: FC<SidebarListItemProps> = ({ title, sections }) => {
     const [isVisible, setVisibility] = useState(true);
@@ -37,10 +38,11 @@ export const SidebarListItem: FC<SidebarListItemProps> = ({ title, sections }) =
         <div className={classes.root}>
             <Button
                 className={classes.button}
-                endIcon={
-                    <FiChevronRight
+                iconSpacing={10}
+                rightIcon={
+                    <RiArrowDownSFill
                         className={classes.chevronIcon}
-                        style={{ transform: isVisible ? "rotate(90deg)" : "" }}
+                        style={{ transform: isVisible ? "rotate(180deg)" : "" }}
                     />
                 }
                 onClick={toggleSelection}
@@ -55,7 +57,7 @@ export const SidebarListItem: FC<SidebarListItemProps> = ({ title, sections }) =
                             className={classes.listItem}
                             onClick={() => showSelection()}
                         >
-                            <Typography variant="h5">{sectionLabel}</Typography>
+                            <h5 className={classes.sectionLabel}>{sectionLabel}</h5>
                             <ul className={classes.innerList}>
                                 {components.map(({ id, label }, index) => (
                                     <li
@@ -63,24 +65,14 @@ export const SidebarListItem: FC<SidebarListItemProps> = ({ title, sections }) =
                                         className={classes.innerListItem}
                                         onClick={() => showSelection()}
                                     >
-                                        <a
-                                            className={clx(
-                                                classes.link,
-                                                activeLink &&
-                                                    sectionIndex == activeLink?.rowIndex &&
-                                                    index == activeLink?.index &&
-                                                    classes.linkActive,
-                                            )}
-                                            onMouseEnter={() =>
-                                                handleMouseEnter(sectionIndex, index)
-                                            }
-                                            onMouseLeave={() =>
-                                                handleMouseLeave(sectionIndex, index)
-                                            }
+                                        <Button
+                                            className={clx(classes.link, activeLink && sectionIndex == activeLink?.rowIndex && index == activeLink?.index && classes.linkActive)}
+                                            onMouseEnter={() => handleMouseEnter(sectionIndex, index)}
+                                            onMouseLeave={() => handleMouseLeave(sectionIndex, index)}
                                             href={`/#${id}`}
                                         >
                                             {label}
-                                        </a>
+                                        </Button>
                                     </li>
                                 ))}
                             </ul>

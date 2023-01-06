@@ -55,10 +55,14 @@ export const useBrowserStyles = makeStyles((theme: Theme) => ({
     },
     logo: {
         display: "flex",
-        justifyContent: "center",
-        alignItems: "center",
+        justifyContent: "left",
+        alignItems: "left",
         color: theme.design.colors.waz_black,
-        fontWeight: 500,
+        fontWeight: 700,
+        fontSize: '20px',
+        width: '91px',
+        height: '27px',
+        textTransform: 'uppercase',
     },
     title: {
         fontWeight: theme.typography.fontWeightBold,
@@ -112,9 +116,12 @@ export const useBrowserStyles = makeStyles((theme: Theme) => ({
 
     drawer: {
         width: `${drawerWidth}px`,
-        padding: `22px ${theme.spacing(2)}`,
+        padding: '22px 19px',
         position: 'fixed',
         background: '#FFFFFF 0% 0% no-repeat padding-box',
         boxShadow: '0px 1px 25px rgba(0, 0, 0, 0.05)',
+        display: 'flex',
+        flexDirection: 'column',
+        gap: '19px',
     }
 }));

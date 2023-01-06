@@ -1,4 +1,3 @@
-import WidgetsRoundedIcon from "@mui/icons-material/WidgetsRounded";
 import { BsBellFill } from "react-icons/bs"
 import { Typography } from "@mui/material";
 import CssBaseline from "@mui/material/CssBaseline";
@@ -18,7 +17,7 @@ export const Browser: FC<BrowserProps> = () => {
 
     const sections = [
         {
-            label: "Base",
+            label: "General",
             components: stories.map(({ name }) => ({
                 id: name.toLowerCase(),
                 label: startCase(name),
@@ -38,11 +37,10 @@ export const Browser: FC<BrowserProps> = () => {
             <CssBaseline />
             <div className={classes.drawer}>
                 <div className={classes.logo}>
-                    <WidgetsRoundedIcon className={classes.sidebarIcon} />
                     <span className={classes.title}>WAZCOM</span>
                 </div>
                 <List className={classes.sidebarList}>
-                    <SidebarListItem title="Components" sections={sections} />
+                    <SidebarListItem title="Base Components" sections={sections} />
                 </List>
             </div>
             <div className={classes.appBarWrapper}>
