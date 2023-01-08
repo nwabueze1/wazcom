@@ -57,7 +57,7 @@ export const SelectInput: FC<SelectInputProps> = ({
                             ...baseStyles,
                             color: theme.design.colors.grey,
                             fontSize: theme.typography.fontSize,
-                            backgroundColor: data?.value == value?.value && !isFocused ? theme.design.colors.pri400 : theme.design.colors.white
+                            backgroundColor: data?.value == value?.value && !isFocused ? theme.design.colors.primary500 : theme.design.colors.white
                         };
                     },
                     menu: (baseStyles) => {
