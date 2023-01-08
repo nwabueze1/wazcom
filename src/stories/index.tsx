@@ -536,7 +536,7 @@ export const stories: ComponentPropType[] = [
             ],
             // error: true,
             // required: true,
-            value: { label: "Basit", value: "basit" },
+            value: "basit",
             feedback: { text: "Tariq is a weirdo", status: "error" },
         },
     },

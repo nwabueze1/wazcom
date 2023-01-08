@@ -22,6 +22,7 @@ var __rest = (this && this.__rest) || function (s, e) {
 };
 import { jsx as _jsx, jsxs as _jsxs } from "react/jsx-runtime";
 import clx from "classnames";
+import { useMemo } from "react";
 import Select from 'react-select';
 import theme from "../../theme";
 import { useSelectStyles } from "./styles";
@@ -33,6 +34,7 @@ export var SelectInput = function (_a) {
             onChange === null || onChange === void 0 ? void 0 : onChange({ name: name !== null && name !== void 0 ? name : "", value: e === null || e === void 0 ? void 0 : e.value });
         }
     };
+    var selectValue = useMemo(function () { return options === null || options === void 0 ? void 0 : options.find(function (option) { return option.value == value; }); }, [value]);
     return (_jsxs("div", __assign({ className: clx(classes.root, className) }, { children: [_jsx("div", __assign({ className: classes.labelWrapper }, { children: !hideLabel &&
                     label &&
                     _jsxs("label", __assign({ htmlFor: name, className: classes.label }, { children: [label, required && _jsx("span", __assign({ className: classes.required }, { children: "*" }), void 0)] }), void 0) }), void 0), _jsx(Select, __assign({ styles: {
@@ -60,5 +62,5 @@ export var SelectInput = function (_a) {
                         var isDisabled = _a.isDisabled, isFocused = _a.isFocused;
                         return clx(!isDisabled && isFocused && classes.option);
                     }
-                }, value: value, options: options, onChange: handleChange }, props), void 0)] }), void 0));
+                }, value: selectValue, options: options, onChange: handleChange }, props), void 0)] }), void 0));
 };

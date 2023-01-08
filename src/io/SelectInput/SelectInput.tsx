@@ -1,5 +1,5 @@
 import clx from "classnames";
-import { FC } from "react";
+import { FC, useMemo } from "react";
 import Select, { SingleValue } from 'react-select';
 import theme from "../../theme";
 import { useSelectStyles } from "./styles";
@@ -25,6 +25,8 @@ export const SelectInput: FC<SelectInputProps> = ({
             onChange?.({ name: name ?? "", value: e?.value });
         }
     };
+
+    const selectValue = useMemo(() => options?.find((option) => option.value == value), [value]);
 
     return (
         <div className={clx(classes.root, className)}>
@@ -84,7 +86,7 @@ export const SelectInput: FC<SelectInputProps> = ({
                             !isDisabled && isFocused && classes.option
                         ) 
                 }}
-                value={value}
+                value={selectValue}
                 options={options}
                 onChange={handleChange}
                 {...props}
