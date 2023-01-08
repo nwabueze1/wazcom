@@ -24,7 +24,7 @@ export const useTextStyles = makeStyles((theme: Theme) => ({
     input: {
         height: 34,
         padding: '8px 12px',
-        background: `${theme.design.colors.grey} 0% 0% no-repeat padding-box`,
+        background: `${theme.design.colors.grey100} 0% 0% no-repeat padding-box`,
         border: `1px solid ${theme.design.colors.pri100}`,
         borderRadius: 4,
         outline: "none",

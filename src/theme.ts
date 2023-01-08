@@ -105,6 +105,7 @@ export const theme: any = {
         },
         colors: {
             white: "#ffffff",
+            grey100: "#fafafa",
             grey: "#333333",
             error: "#c32611",
             primary: "#0A7227",

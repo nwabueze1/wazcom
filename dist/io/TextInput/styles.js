@@ -22,7 +22,7 @@ export var useTextStyles = makeStyles(function (theme) { return ({
     input: {
         height: 34,
         padding: '8px 12px',
-        background: "".concat(theme.design.colors.grey, " 0% 0% no-repeat padding-box"),
+        background: "".concat(theme.design.colors.grey100, " 0% 0% no-repeat padding-box"),
         border: "1px solid ".concat(theme.design.colors.pri100),
         borderRadius: 4,
         outline: "none",
