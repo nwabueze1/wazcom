@@ -20,6 +20,7 @@ export default defineConfig({
       { find: "templates", replacement: resolve(__dirname, "src/templates") },
       { find: "utilities", replacement: resolve(__dirname, "src/utilities") },
       { find: "view", replacement: resolve(__dirname, "src/view") },
+      { find: "src", replacement: resolve(__dirname, "src") },
     ]
   },
 })

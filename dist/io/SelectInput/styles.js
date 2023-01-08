@@ -21,6 +21,7 @@ export var useSelectStyles = makeStyles(function (theme) { return ({
     },
     select: {
         height: 34,
+        minHeight: 34,
         borderColor: "".concat(theme.design.colors.pri100, " !important"),
         fontFamily: theme.typography.fontFamily,
         fontWeight: 400,

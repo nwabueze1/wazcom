@@ -23,6 +23,7 @@ export const useSelectStyles = makeStyles((theme: Theme) => ({
     },
     select: {
         height: 34,
+        minHeight: 34,
         borderColor: `${theme.design.colors.pri100} !important`,
         fontFamily: theme.typography.fontFamily,
         fontWeight: 400,
