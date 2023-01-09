@@ -95,7 +95,7 @@ export const Scheduler: React.FC<SchedulerProps> = ({
                         key={index}
                     >
                         {fields.map(({ name }) => {
-                            return row?.[name];
+                            return <span key={Math.random() + index}>{row?.[name]}</span>
                         })}
                     </div>
                 );

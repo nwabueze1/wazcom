@@ -77,6 +77,7 @@ export var TextArea = function (_a) {
     var className = _a.className, label = _a.label, helperText = _a.helperText, _c = _a.hideLabel, hideLabel = _c === void 0 ? false : _c, info = _a.info, name = _a.name, onChange = _a.onChange, _d = _a.required, required = _d === void 0 ? false : _d, showCC = _a.showCC, props = __rest(_a, ["className", "label", "helperText", "hideLabel", "info", "name", "onChange", "required", "showCC"]);
     var classes = useTextStyles();
     var handleChange = useCallback(function (e) {
+        console.log(name, e.target.value);
         onChange === null || onChange === void 0 ? void 0 : onChange({ name: name !== null && name !== void 0 ? name : "", value: e.target.value });
     }, []);
     return (_jsxs("div", __assign({ className: clx(classes.root, className) }, { children: [_jsxs("div", __assign({ className: classes.labelWrapper }, { children: [!hideLabel &&

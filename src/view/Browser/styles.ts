@@ -43,6 +43,8 @@ export const useBrowserStyles = makeStyles((theme: Theme) => ({
         overflow: "hidden",
         padding: '7px 24px',
         marginLeft: `${drawerWidth}px`,
+        background: theme.design.colors.white100,
+        borderRadius: theme.spacing(.5)
     },
     componentWrapper: {
         marginBottom: theme.spacing(5),

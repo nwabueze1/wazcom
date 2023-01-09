@@ -14,6 +14,7 @@ import {
     EmptyState,
     DateTimePicker,
     Scheduler,
+    Tab
 } from "../core";
 import { BiLink } from "react-icons/bi";
 import { FaEdit } from "react-icons/fa";
@@ -231,6 +232,29 @@ export const stories: ComponentPropType[] = [
             children: "This is an example Wazcom Accordion",
             defaultExpanded: true,
             title: <p>leke</p>,
+        },
+    },
+    {
+        name: "tab",
+        component: Tab,
+        props: {
+            controls: [
+                {
+                    name: 'general',
+                    title: 'General',
+                    component: <div>General Tab</div>
+                },
+                {
+                    name: 'templates',
+                    title: 'Templates',
+                    component: <div>Templates Tab</div>
+                },
+                {
+                    name: 'seo',
+                    title: 'SEO',
+                    component: <div>SEO Tab</div>
+                }
+            ]
         },
     },
     {
@@ -528,9 +552,15 @@ export const stories: ComponentPropType[] = [
             options: [
                 { label: "Basit", value: "basit" },
                 { label: "Chinazom", value: "chinazom" },
+                { label: "Michael", value: "michael" },
+                { label: "Rose", value: "rose" },
+                { label: "Tami", value: "tami" },
+                { label: "Dara", value: "dara" },
+                { label: "Tiara", value: "tiara" },
             ],
             // error: true,
             // required: true,
+            value: "basit",
             feedback: { text: "Tariq is a weirdo", status: "error" },
         },
     },

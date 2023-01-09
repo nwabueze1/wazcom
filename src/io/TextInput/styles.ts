@@ -24,21 +24,21 @@ export const useTextStyles = makeStyles((theme: Theme) => ({
     input: {
         height: 34,
         padding: '8px 12px',
-        background: `${theme.design.colors.grey} 0% 0% no-repeat padding-box`,
-        border: `1px solid ${theme.design.colors.pri100}`,
+        background: `${theme.design.colors.white100} 0% 0% no-repeat padding-box`,
+        border: `1px solid ${theme.design.colors.primary700}`,
         borderRadius: 4,
         outline: "none",
         fontFamily: theme.typography.fontFamily,
         fontWeight: 400,
         fontSize: theme.typography.fontSize,
         '&:hover': {
-            borderColor: theme.design.colors.pri200,
+            borderColor: theme.design.colors.primary600,
         },
         '&:focus': {
-            borderColor: theme.design.colors.pri400,
+            borderColor: theme.design.colors.primary500,
         },
         '&:hover:focus': {
-            borderColor: theme.design.colors.pri400,
+            borderColor: theme.design.colors.primary500,
         },
     },
     error: {

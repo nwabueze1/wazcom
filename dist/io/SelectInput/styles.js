@@ -21,18 +21,19 @@ export var useSelectStyles = makeStyles(function (theme) { return ({
     },
     select: {
         height: 34,
-        borderColor: "".concat(theme.design.colors.pri100, " !important"),
+        minHeight: 34,
+        borderColor: "".concat(theme.design.colors.primary700, " !important"),
         fontFamily: theme.typography.fontFamily,
         fontWeight: 400,
         fontSize: theme.typography.fontSize,
         '&:hover': {
-            borderColor: "".concat(theme.design.colors.pri200, " !important"),
+            borderColor: "".concat(theme.design.colors.primary600, " !important"),
         },
         '&:focus': {
-            borderColor: theme.design.colors.pri400,
+            borderColor: theme.design.colors.primary500,
         },
         '&:hover:focus': {
-            borderColor: theme.design.colors.pri400,
+            borderColor: theme.design.colors.primary500,
         },
     },
     error: {
@@ -52,13 +53,13 @@ export var useSelectStyles = makeStyles(function (theme) { return ({
         justifyContent: "space-between"
     },
     control: {
-        borderColor: "".concat(theme.design.colors.pri400, " !important"),
+        borderColor: "".concat(theme.design.colors.primary500, " !important"),
         boxShadow: 'none !important',
         '&:hover': {
-            borderColor: theme.design.colors.pri200,
+            borderColor: theme.design.colors.primary600,
         },
     },
     option: {
-        backgroundColor: "".concat(theme.design.colors.pri200, " !important")
+        backgroundColor: "".concat(theme.design.colors.primary600, " !important")
     }
 }); });

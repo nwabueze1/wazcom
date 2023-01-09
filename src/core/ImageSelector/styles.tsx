@@ -6,8 +6,8 @@ export const useImageSelectorStyles = makeStyles((theme: BaseTheme) => ({
         width: "100%",
         paddingTop: "21.9%", /* 1:1 Aspect Ratio */
         position: "relative",
-        background: theme.design.colors.grey,
-        border: `1px dashed ${theme.design.colors.primary}`,
+        background: theme.design.colors.primary700,
+        border: `1px dashed ${theme.design.colors.primary500}`,
         borderRadius: 4,
         fontFamily: theme.typography.fontFamily,
     },
@@ -23,12 +23,13 @@ export const useImageSelectorStyles = makeStyles((theme: BaseTheme) => ({
         flexDirection: "column"
     },
     selector: {
-        border: `1px solid ${theme.design.colors.primary}`,
+        border: `1px solid ${theme.design.colors.primary100}`,
         padding: theme.spacing(1, 1.5),
         borderRadius: 4,
-        color: "#343E37",
-        fontSize: 12,
-        background: `linear-gradient(${theme.design.colors.primary} 0 0) var(--p, 0) / var(--p, 0) no-repeat`,
+        color: theme.design.colors.primary100,
+        fontSize: theme.typography.fontSize,
+        fontWeight: theme.typography.fontWeightMedium,
+        background: `linear-gradient(${theme.design.colors.primary100} 0 0) var(--p, 0) / var(--p, 0) no-repeat`,
         transition: "0.4s, background-position 0s",
         zIndex: 2,
         fontFamily: "inherit",
@@ -57,23 +58,6 @@ export const useImageSelectorStyles = makeStyles((theme: BaseTheme) => ({
     selectedRoot: {
         border: "none"
     },
-    // root: {
-    //     minHeight: "150px",
-    //     minWidth: "150px",
-    //     position: "relative",
-    //     display: "flex",
-    //     justifyContent: "center",
-    //     alignItems: "center",
-    //     cursor: "pointer",
-    //     width: "320px",
-    //     height: 160,
-    //     background: "transparent",
-    //     transition: "background 0.5s ease-in",
-
-    //     "&:hover": {
-    //         // background: "linear-gradient(180deg, rgba(0, 0, 0, 0) -9.73%, rgba(0, 0, 0, 0.8) 100%)",
-    //     },
-    // },
     sizeSm: {
         width: "100px",
         height: "100px",

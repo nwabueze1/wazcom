@@ -18,3 +18,4 @@ export * from "./DateTimePicker";
 export * from "./LazyImage";
 
 export * from "./BaseComponents/General/Button";
+export * from "./Tab";

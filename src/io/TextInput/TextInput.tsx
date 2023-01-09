@@ -69,6 +69,7 @@ export const TextArea: FC<Omit<TextAreaProps, "type">> = ({
     const classes = useTextStyles();
 
     const handleChange = useCallback((e: React.ChangeEvent<HTMLTextAreaElement>) => {
+        console.log(name, e.target.value);
         onChange?.({ name: name ?? "", value: e.target.value });
     }, []);
 
