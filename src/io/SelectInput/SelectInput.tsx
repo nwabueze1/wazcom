@@ -55,21 +55,17 @@ export const SelectInput: FC<SelectInputProps> = ({
                     option: (baseStyles, { isFocused, data }) => {
                         return {
                             ...baseStyles,
-                            color: theme.design.colors.grey,
+                            color: theme.design.colors.primary100,
                             fontSize: theme.typography.fontSize,
                             backgroundColor: data?.value == value?.value && !isFocused ? theme.design.colors.primary500 : theme.design.colors.white
-                        };
-                    },
-                    menu: (baseStyles) => {
-                        return {
-                            ...baseStyles,
-                            border: `1px solid ${theme.design.colors.grey}`,
                         };
                     },
                     menuList: (baseStyles) => {
                         return {
                             ...baseStyles,
-                            padding: 0
+                            padding: 0,
+                            border: `1px solid ${theme.design.colors.primary600}`,
+                            borderRadius: 4
                         };
                     },
                 }}

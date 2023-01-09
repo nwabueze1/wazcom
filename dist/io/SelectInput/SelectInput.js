@@ -44,13 +44,10 @@ export var SelectInput = function (_a) {
                         } })); },
                     option: function (baseStyles, _a) {
                         var isFocused = _a.isFocused, data = _a.data;
-                        return __assign(__assign({}, baseStyles), { color: theme.design.colors.grey, fontSize: theme.typography.fontSize, backgroundColor: (data === null || data === void 0 ? void 0 : data.value) == (value === null || value === void 0 ? void 0 : value.value) && !isFocused ? theme.design.colors.primary500 : theme.design.colors.white });
-                    },
-                    menu: function (baseStyles) {
-                        return __assign(__assign({}, baseStyles), { border: "1px solid ".concat(theme.design.colors.grey) });
+                        return __assign(__assign({}, baseStyles), { color: theme.design.colors.primary100, fontSize: theme.typography.fontSize, backgroundColor: (data === null || data === void 0 ? void 0 : data.value) == (value === null || value === void 0 ? void 0 : value.value) && !isFocused ? theme.design.colors.primary500 : theme.design.colors.white });
                     },
                     menuList: function (baseStyles) {
-                        return __assign(__assign({}, baseStyles), { padding: 0 });
+                        return __assign(__assign({}, baseStyles), { padding: 0, border: "1px solid ".concat(theme.design.colors.primary600), borderRadius: 4 });
                     },
                 }, classNames: {
                     control: function (_a) {
