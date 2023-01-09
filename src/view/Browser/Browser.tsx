@@ -1,12 +1,12 @@
 import { BsBellFill } from "react-icons/bs"
 import { Typography } from "@mui/material";
 import CssBaseline from "@mui/material/CssBaseline";
-import List from "@mui/material/List";
 import { startCase } from "lodash";
 import * as React from "react";
 import { FC, useState } from "react";
 import { TextInput } from "../../io";
 import { stories, navs } from "../../stories";
+import sidebarItems from "../../stories/sidebarItems"
 import { SidebarListItem } from "./SidebarListItem/SidebarListItem";
 import { useBrowserStyles } from "./styles";
 import { BrowserProps } from "./types";
@@ -15,23 +15,6 @@ export const Browser: FC<BrowserProps> = () => {
     const classes = useBrowserStyles();
     const [search, setSearch] = useState("");
 
-    const sections = [
-        {
-            label: "General",
-            components: stories.map(({ name }) => ({
-                id: name.toLowerCase(),
-                label: startCase(name),
-            })),
-        },
-        {
-            label: "Navs",
-            components: navs.map(({ name }) => ({
-                id: name.toLowerCase(),
-                label: startCase(name),
-            })),
-        },
-    ];
-
     return (
         <div className={classes.container}>
             <CssBaseline />
@@ -39,9 +22,9 @@ export const Browser: FC<BrowserProps> = () => {
                 <div className={classes.logo}>
                     <span className={classes.title}>WAZCOM</span>
                 </div>
-                <List className={classes.sidebarList}>
-                    <SidebarListItem title="Base Components" sections={sections} />
-                </List>
+                <div className={classes.sidebarList}>
+                    <SidebarListItem sections={sidebarItems} />
+                </div>
             </div>
             <div className={classes.appBarWrapper}>
                 <div className={classes.appBarComponents}>

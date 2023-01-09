@@ -122,6 +122,7 @@ export const useBrowserStyles = makeStyles((theme: Theme) => ({
         boxShadow: '0px 1px 25px rgba(0, 0, 0, 0.05)',
         display: 'flex',
         flexDirection: 'column',
-        gap: '19px',
+        gap: '0',
+        marginBottom: '50px'
     }
 }));

@@ -2,16 +2,10 @@ import { createUseStyles } from 'react-jss'
 
 export const useSidebarListItemStyles = createUseStyles({
     root: {
-        marginBottom: '',
         width: '100%',
         height: '100vh',
         overflowY: 'scroll',
         boxSizing: 'content-box',
-    },
-    menuItems: {
-        listStyle: "none",
-        overflow: "hidden",
-        marginLeft: '-30px'
     },
     list: {
         listStyle: "none",
@@ -19,10 +13,13 @@ export const useSidebarListItemStyles = createUseStyles({
         padding: 0
     },
     listItem: {
+        margin: 0,
         padding: 0,
         "& h5": {
             textTransform: "uppercase",
         },
+        borderBottom: '1px solid #E8E8E8',
+        marginRight: '10px',
     },
     label: {},
     chevronIcon: {
@@ -55,21 +52,25 @@ export const useSidebarListItemStyles = createUseStyles({
         justifyContent: 'center',
         alignItems: 'left',
         gap: '10px',
-        padding: 0
+        padding: 0,
     },
     innerListItem: {
         background: '#FFFFFF 0% 0% no-repeat padding-box',
         borderRadius: '1px',
         width: '200px',
         height: '33px',
-        color: '#010E05'
+        color: '#010E05',
     },
     link: {
-        width: '201px',
-        height: '33px',
+        fontSize: '12px',
         textAlign: 'left',
-        display: 'block',
-        padding: '0 20px'
+        padding: '0 20px',
+        textDecoration: 'none',
+        color: '#010E05',
+        display: 'flex',
+        justifyContent: 'start',
+        alignItems: 'center'
+
 
     },
     linkActive: {
@@ -78,8 +79,7 @@ export const useSidebarListItemStyles = createUseStyles({
         fontWeight: 600,
         fontSize: '12px',
         borderRadius: '1px',
-        padding: '',
-        width: '201px',
+        padding: '0 20px',
         height: '33px',
     },
 
