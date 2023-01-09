@@ -60,8 +60,12 @@ export const useSidebarListItemStyles = createUseStyles({
         width: '200px',
         height: '33px',
         color: '#010E05',
+        display: 'flex',
+        justifyContent: 'start',
+        alignItems: 'center'
     },
     link: {
+        width: '100%',
         fontSize: '12px',
         textAlign: 'left',
         padding: '0 20px',
