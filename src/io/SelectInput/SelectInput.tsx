@@ -44,7 +44,21 @@ export const SelectInput: FC<SelectInputProps> = ({
                 styles={{
                     control: (baseStyles) => ({
                         ...baseStyles,
-                        minHeight: 34
+                        minHeight: 34,
+                        height: 34,
+                        borderColor: theme.design.colors.primary700,
+                        fontFamily: theme.typography.fontFamily,
+                        fontWeight: 400,
+                        fontSize: theme.typography.fontSize,
+                        '&:hover': {
+                            borderColor: theme.design.colors.primary600,
+                        },
+                        '&:focus': {
+                            borderColor: theme.design.colors.primary500,
+                        },
+                        '&:hover:focus': {
+                            borderColor: theme.design.colors.primary500,
+                        }
                     }),
                     indicatorsContainer: (baseStyles) => ({
                         ...baseStyles,
@@ -60,6 +74,16 @@ export const SelectInput: FC<SelectInputProps> = ({
                             backgroundColor: data?.value == value?.value && !isFocused ? theme.design.colors.primary500 : theme.design.colors.white
                         };
                     },
+                    menu: (baseStyles) => {
+                        return {
+                            ...baseStyles,
+                            borderColor: theme.design.colors.primary500,
+                            boxShadow: 'none',
+                            '&:hover': {
+                                borderColor: theme.design.colors.primary600,
+                            },
+                        };
+                    },
                     menuList: (baseStyles) => {
                         return {
                             ...baseStyles,
@@ -72,11 +96,9 @@ export const SelectInput: FC<SelectInputProps> = ({
                 classNames={{ 
                     control: ({ isDisabled, isFocused }) => {
                         return clx(
-                            classes.select,
                             !isDisabled && isFocused && classes.control
                         )
                     },
-                    menu: () => classes.control,
                     option: ({ isDisabled, isFocused }) => 
                         clx(
                             !isDisabled && isFocused && classes.option

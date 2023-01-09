@@ -41,6 +41,8 @@ export const useBrowserStyles = makeStyles((theme: Theme) => ({
         marginTop: theme.spacing(8),
         width: "calc(100vw - 244px)",
         overflow: "hidden",
+        background: theme.design.colors.white100,
+        borderRadius: theme.spacing(.5)
     },
     componentWrapper: {
         marginBottom: theme.spacing(5),

@@ -4,8 +4,8 @@ export var useImageSelectorStyles = makeStyles(function (theme) { return ({
         width: "100%",
         paddingTop: "21.9%",
         position: "relative",
-        background: theme.design.colors.grey,
-        border: "1px dashed ".concat(theme.design.colors.primary),
+        background: theme.design.colors.primary700,
+        border: "1px dashed ".concat(theme.design.colors.primary500),
         borderRadius: 4,
         fontFamily: theme.typography.fontFamily,
     },
@@ -21,12 +21,13 @@ export var useImageSelectorStyles = makeStyles(function (theme) { return ({
         flexDirection: "column"
     },
     selector: {
-        border: "1px solid ".concat(theme.design.colors.primary),
+        border: "1px solid ".concat(theme.design.colors.primary100),
         padding: theme.spacing(1, 1.5),
         borderRadius: 4,
-        color: "#343E37",
-        fontSize: 12,
-        background: "linear-gradient(".concat(theme.design.colors.primary, " 0 0) var(--p, 0) / var(--p, 0) no-repeat"),
+        color: theme.design.colors.primary100,
+        fontSize: theme.typography.fontSize,
+        fontWeight: theme.typography.fontWeightMedium,
+        background: "linear-gradient(".concat(theme.design.colors.primary100, " 0 0) var(--p, 0) / var(--p, 0) no-repeat"),
         transition: "0.4s, background-position 0s",
         zIndex: 2,
         fontFamily: "inherit",
@@ -55,22 +56,6 @@ export var useImageSelectorStyles = makeStyles(function (theme) { return ({
     selectedRoot: {
         border: "none"
     },
-    // root: {
-    //     minHeight: "150px",
-    //     minWidth: "150px",
-    //     position: "relative",
-    //     display: "flex",
-    //     justifyContent: "center",
-    //     alignItems: "center",
-    //     cursor: "pointer",
-    //     width: "320px",
-    //     height: 160,
-    //     background: "transparent",
-    //     transition: "background 0.5s ease-in",
-    //     "&:hover": {
-    //         // background: "linear-gradient(180deg, rgba(0, 0, 0, 0) -9.73%, rgba(0, 0, 0, 0.8) 100%)",
-    //     },
-    // },
     sizeSm: {
         width: "100px",
         height: "100px",
