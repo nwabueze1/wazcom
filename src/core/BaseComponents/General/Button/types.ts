@@ -6,10 +6,13 @@ export type ButtonProps = {
     isDisabled?: boolean;
     leftIcon?: ReactElement;
     rightIcon?: ReactElement;
-    className?: object;
+    className?: object | string;
     children: ReactNode
     variant?: string;
     iconSpacing?: string | number;
+    size?: string | number;
+    
+    onClick?: () => void
 };
 
 export type ButtonContentProps = {

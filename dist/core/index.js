@@ -1,6 +1,6 @@
 export * from "./Accordion";
 export * from "./BreadCrumb";
-export * from "./Button";
+// export * from "./Button";
 export * from "./Card";
 export * from "./Carousel";
 export * from "./DisplayCard";
@@ -16,4 +16,5 @@ export * from "./EmptyState";
 export * from "./Scheduler";
 export * from "./DateTimePicker";
 export * from "./LazyImage";
+export * from "./BaseComponents/General/Button";
 export * from "./Tab";

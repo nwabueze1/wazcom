@@ -17,11 +17,10 @@ export const Button = ({
     ...props
 }: ButtonProps) => {
     const classes = useButtonStyles();
-    const buttonContentProps = { rightIcon, leftIcon, children, iconSpacing }
 
     return (
-        <button className={clx(classes.root, classes.button, className)} {...props}>
-            <ButtonContent {...buttonContentProps} />
+        <button className={clx(classes.root, classes.button)} {...props}>
+            <ButtonContent {...{ rightIcon, leftIcon, className, children, iconSpacing }} />
         </button>
     );
 };
@@ -36,13 +35,10 @@ function ButtonContent({ leftIcon, rightIcon, children, iconSpacing }: ButtonCon
     )
 }
 
-function ButtonIcon({ className, children, marginLeft, marginRight, ...rest }: ButtonIconProps) {
+function ButtonIcon({ children, marginLeft, marginRight, ...rest }: ButtonIconProps) {
     const classes = useButtonIconStyles({ marginLeft, marginRight });
-    const _className = clx(classes.root, classes.iconSpacing, className);
-    const _children = isValidElement(children) ? cloneElement(children, {
-        "aria-hidden": true,
-        focusable: false,
-    }) : children
+    const _className = clx(classes.root, classes.iconSpacing);
+    const _children = isValidElement(children) ? cloneElement(children, {}) : children
 
     return (
         <span {...rest} className={_className}>

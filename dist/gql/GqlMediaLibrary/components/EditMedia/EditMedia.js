@@ -79,5 +79,5 @@ export var EditMedia = function (_a) {
         reader.readAsDataURL(image);
         return;
     }, [image]);
-    return (_jsxs("div", __assign({ className: classes.root }, { children: [_jsx("img", { src: displayImage(), ref: ref, className: classes.image, alt: "" }, void 0), _jsxs("div", __assign({ className: classes.form }, { children: [_jsx("p", __assign({ className: classes.tab }, { children: "Image Properties" }), void 0), displayFields(), _jsxs("div", __assign({ className: classes.formButtons }, { children: [_jsx(Button, __assign({ onClick: handleSubmit, loading: loading }, { children: "Save" }), void 0), _jsx(Button, __assign({ onClick: handleClose }, { children: "Cancel" }), void 0)] }), void 0)] }), void 0)] }), void 0));
+    return (_jsxs("div", __assign({ className: classes.root }, { children: [_jsx("img", { src: displayImage(), ref: ref, className: classes.image, alt: "" }, void 0), _jsxs("div", __assign({ className: classes.form }, { children: [_jsx("p", __assign({ className: classes.tab }, { children: "Image Properties" }), void 0), displayFields(), _jsxs("div", __assign({ className: classes.formButtons }, { children: [_jsx(Button, __assign({ onClick: handleSubmit, isLoading: loading }, { children: "Save" }), void 0), _jsx(Button, __assign({ onClick: handleClose }, { children: "Cancel" }), void 0)] }), void 0)] }), void 0)] }), void 0));
 };
