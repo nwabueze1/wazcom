@@ -33,15 +33,15 @@ export type TextAreaProps = Omit<React.HTMLProps<HTMLTextAreaElement>, "onChange
 }
 
 export type TextInputContentProps = {
-    leftIcon?: React.ReactElement;
-    rightIcon?: React.ReactElement;
+    leftIcon?: React.ReactNode | React.ReactElement | string;
+    rightIcon?: React.ReactNode | React.ReactElement | string;
     iconSpacing?: string | number;
-    children?: React.ReactNode;
+    children?: React.ReactNode | React.ReactElement | string;
 };
 
 export type TextInputIconProps = {
     className?: object;
-    children?: React.ReactNode;
+    children?: React.ReactNode | React.ReactElement | string;
     iconSpacing?: string | number;
     marginLeft?: string | number;
     marginRight?: string | number;

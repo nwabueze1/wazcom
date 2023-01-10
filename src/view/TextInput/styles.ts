@@ -30,7 +30,11 @@ export const useTextInputStyles = makeStyles((theme: Theme) => ({
     description: {
         margin: 0,
         padding: 0,
+        width: '60vw'
+    },
+    descriptionText: {
         fontSize: theme.typography.h5.fontSize,
+        lineSpacing: theme.spacing(22),
     },
     inputContainer: {
         background: theme.design.background.waz_primaryWhite,
@@ -52,6 +56,10 @@ export const useTextInputStyles = makeStyles((theme: Theme) => ({
     },
     input: {
         width: '100%',
-        height: '34px'
+        height: '34px',
+        display: 'flex',
+        justifyContent: 'space-between',
+        alignItems: 'center',
+        padding: '0 10px'
     }
 }));

@@ -54,22 +54,14 @@ export const TextInput: FC<TextFieldProps> = ({
                 }
                 {showCC && <span className={clx(classes.wordCount, classes.label)}>{props?.value && props?.value.length > 0 && props?.value.length}</span>}
             </div>
-            <TextInputContent {...{ rightIcon, leftIcon, iconSpacing }}>
-                <input type={type} className={clx(classes.input, errors && classes.error)} onChange={handleChange} {...props} />
-            </TextInputContent>
+            <div className={clx(classes.inputContainer, errors && classes.error)}>
+                {leftIcon && (<TextInputIcon marginRight={iconSpacing}>{leftIcon}</TextInputIcon>)}
+                    <input type={type} className={classes.input} onChange={handleChange} {...props} />
+                {rightIcon && (<TextInputIcon marginLeft={iconSpacing}>{rightIcon}</TextInputIcon>)}
+            </div>
         </div>
     )
 };
-
-function TextInputContent({ leftIcon, rightIcon, children, iconSpacing }: TextInputContentProps) {
-    return (
-        <>
-            {leftIcon && (<TextInputIcon marginRight={iconSpacing}>{leftIcon}</TextInputIcon>)}
-            {children}
-            {rightIcon && (<TextInputIcon marginLeft={iconSpacing}>{rightIcon}</TextInputIcon>)}
-        </>
-    )
-}
 
 function TextInputIcon({ children, marginLeft, marginRight, ...rest }: TextInputIconProps) {
     const classes = useTextInputIconStyles({ marginLeft, marginRight });

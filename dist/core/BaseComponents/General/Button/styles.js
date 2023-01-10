@@ -1,5 +1,5 @@
-import { createUseStyles } from 'react-jss';
-export var useButtonStyles = createUseStyles({
+import makeStyles from "@mui/styles/makeStyles";
+export var useButtonStyles = makeStyles(function () { return ({
     root: {
         position: 'relative',
         backgroundColor: 'transparent'
@@ -25,8 +25,8 @@ export var useButtonStyles = createUseStyles({
         textDecoration: 'none',
         color: 'inherit',
     },
-});
-export var useButtonIconStyles = createUseStyles({
+}); });
+export var useButtonIconStyles = makeStyles(function () { return ({
     root: {
         position: 'relative',
         backgroundColor: 'transparent',
@@ -38,4 +38,4 @@ export var useButtonIconStyles = createUseStyles({
         marginRight: "".concat(props.marginRight, "px"),
         marginLeft: "".concat(props.marginLeft, "px"),
     }); }
-});
+}); });

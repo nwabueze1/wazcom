@@ -22,14 +22,11 @@ export const useTextStyles = makeStyles((theme: Theme) => ({
         color: theme.design.colors.waz_dangerColor100,
         margin: theme.spacing(-.5, .5, 0, .5),
     },
-    input: {
+    inputContainer: {
         height: 34,
-        padding: '8px 12px',
         background: `${theme.design.colors.white100} 0% 0% no-repeat padding-box`,
         border: `1px solid ${theme.design.colors.primary700}`,
         borderRadius: 4,
-        outline: "none",
-        fontFamily: theme.typography.fontFamily,
         fontWeight: 400,
         fontSize: theme.typography.fontSize,
         '&:hover': {
@@ -41,6 +38,16 @@ export const useTextStyles = makeStyles((theme: Theme) => ({
         '&:hover:focus': {
             borderColor: theme.design.colors.primary500,
         },
+    },
+    input: {
+        width: '100%',
+        padding: '8px 12px',
+        background: 'transparent',
+        border: 0,
+        outline: "none",
+        fontFamily: theme.typography.fontFamily,
+        fontWeight: 400,
+        fontSize: theme.typography.fontSize,
     },
     error: {
         border: `1px solid ${theme.design.colors.error}`,

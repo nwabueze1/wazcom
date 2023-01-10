@@ -38,13 +38,10 @@ export const useBrowserStyles = makeStyles((theme: Theme) => ({
         },
     },
     main: {
-        marginTop: theme.spacing(8),
-        width: "calc(100vw - 244px)",
-        overflow: "hidden",
-        padding: '7px 24px',
-        marginLeft: `${drawerWidth}px`,
-        background: theme.design.colors.white100,
-        borderRadius: theme.spacing(.5)
+        display: 'flex',
+        flexDirection: 'column',
+        justifyContent: 'start',
+        gap: theme.spacing(5)
     },
     componentWrapper: {
         marginBottom: theme.spacing(5),
