@@ -18,5 +18,5 @@ export var GroupedInput = function (_a) {
     var displayControls = function () {
         return controls.map(function (control, index) { return _jsx(FormControl, __assign({}, control), index); });
     };
-    return (_jsxs("div", __assign({ className: classes.root }, { children: [_jsx("p", __assign({ className: classes.groupedInputName }, { children: name }), void 0), displayControls()] }), void 0));
+    return (_jsxs("div", __assign({ className: classes.root }, { children: [_jsx("p", __assign({ className: classes.groupedInputName }, { children: name })), displayControls()] })));
 };

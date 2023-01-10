@@ -46,13 +46,13 @@ export var DisplayInput = function (_a) {
     var displayLabel = function () {
         switch (type) {
             case "dropdown":
-                return _jsxs("p", { children: [index + 1, "."] }, void 0);
+                return _jsxs("p", { children: [index + 1, "."] });
             case "checkboxes":
-                return _jsx(CheckBoxOutlineBlank, {}, void 0);
+                return _jsx(CheckBoxOutlineBlank, {});
             case "multiple":
-                return _jsx(RadioButtonUncheckedOutlined, {}, void 0);
+                return _jsx(RadioButtonUncheckedOutlined, {});
             default:
-                return _jsxs("p", { children: [index + 1, "."] }, void 0);
+                return _jsxs("p", { children: [index + 1, "."] });
         }
     };
     return (_jsxs("div", __assign({ className: classes.root }, { children: [displayLabel(), _jsx(TextInput
@@ -65,5 +65,5 @@ export var DisplayInput = function (_a) {
                 //     textInput: classes.displayInput,
                 //     newRoot: classes.newRoot,
                 // }}
-                value: value === null || value === void 0 ? void 0 : value.text, onChange: handleInputChange, id: "standard-basic", onFocus: onFocus }, void 0), _jsx(FiImage, { className: clx(classes.displayIcon, classes.mediaIcon), onClick: handleOptionMedia }, void 0), _jsx(CloseIcon, { className: classes.displayIcon, onClick: handleRemove }, void 0)] }), void 0));
+                value: value === null || value === void 0 ? void 0 : value.text, onChange: handleInputChange, id: "standard-basic", onFocus: onFocus }), _jsx(FiImage, { className: clx(classes.displayIcon, classes.mediaIcon), onClick: handleOptionMedia }), _jsx(CloseIcon, { className: classes.displayIcon, onClick: handleRemove })] })));
 };

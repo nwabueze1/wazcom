@@ -33,7 +33,7 @@ var clickAction = function (url, mode, handleClick) {
 };
 export var renderNavLogo = function (mode, classes, activeElement, handleClick, logo, identifier) {
     var _a, _b;
-    return (_jsx(LogoWrapper, __assign({ url: (_a = logo === null || logo === void 0 ? void 0 : logo.url) !== null && _a !== void 0 ? _a : "", mode: mode, handleClick: handleClick, identifier: identifier }, { children: mode === "view" ? (_jsx("img", { src: (_b = logo === null || logo === void 0 ? void 0 : logo.src) !== null && _b !== void 0 ? _b : hivedeckLogo, className: logo ? classes.logo : classes.hivedeckLogo }, void 0)) : (logo === null || logo === void 0 ? void 0 : logo.src) ? (_jsx("img", { src: logo === null || logo === void 0 ? void 0 : logo.src, className: clx(classes.logo, activeElement === (identifier !== null && identifier !== void 0 ? identifier : "nav_logo") && classes.activeElement) }, void 0)) : (_jsx(AiOutlinePicture, { className: clx(classes.logo, activeElement === (identifier !== null && identifier !== void 0 ? identifier : "nav_logo") && classes.activeElement) }, void 0)) }), void 0));
+    return (_jsx(LogoWrapper, __assign({ url: (_a = logo === null || logo === void 0 ? void 0 : logo.url) !== null && _a !== void 0 ? _a : "", mode: mode, handleClick: handleClick, identifier: identifier }, { children: mode === "view" ? (_jsx("img", { src: (_b = logo === null || logo === void 0 ? void 0 : logo.src) !== null && _b !== void 0 ? _b : hivedeckLogo, className: logo ? classes.logo : classes.hivedeckLogo })) : (logo === null || logo === void 0 ? void 0 : logo.src) ? (_jsx("img", { src: logo === null || logo === void 0 ? void 0 : logo.src, className: clx(classes.logo, activeElement === (identifier !== null && identifier !== void 0 ? identifier : "nav_logo") && classes.activeElement) })) : (_jsx(AiOutlinePicture, { className: clx(classes.logo, activeElement === (identifier !== null && identifier !== void 0 ? identifier : "nav_logo") && classes.activeElement) })) })));
 };
 var LogoWrapper = function (_a) {
     var url = _a.url, mode = _a.mode, children = _a.children, handleClick = _a.handleClick, identifier = _a.identifier;
@@ -43,9 +43,9 @@ var LogoWrapper = function (_a) {
                 clickAction(url, mode, function () {
                     handleClick === null || handleClick === void 0 ? void 0 : handleClick(mode === "view" ? url : identifier !== null && identifier !== void 0 ? identifier : "nav_logo");
                 });
-            }, style: { cursor: "pointer" } }, { children: children }), void 0));
+            }, style: { cursor: "pointer" } }, { children: children })));
     }
-    return _jsx(Link, __assign({ href: url }, { children: children }), void 0);
+    return _jsx(Link, __assign({ href: url }, { children: children }));
 };
 export var displaySocials = function (socials, mode, classes, activeElement, handleClick) {
     return socials === null || socials === void 0 ? void 0 : socials.map(function (_a, index) {
@@ -55,7 +55,7 @@ export var displaySocials = function (socials, mode, classes, activeElement, han
             return (_jsx("div", __assign({ className: clx(classes.socialIntegration, activeElement === id && mode === "edit" && classes.activeElement), onClick: function (e) {
                     e.stopPropagation();
                     handleClick(id);
-                }, style: { cursor: "pointer" } }, { children: renderSocialIcon(type) }), void 0));
+                }, style: { cursor: "pointer" } }, { children: renderSocialIcon(type) })));
         }
         return (_jsx("a", __assign({ className: classes.socialIntegration, target: "_blank", rel: "noopener noreferrer", href: url }, { children: renderSocialIcon(type) }), index));
     });
@@ -63,10 +63,10 @@ export var displaySocials = function (socials, mode, classes, activeElement, han
 var renderSocialIcon = function (type) {
     switch (type) {
         case "FACEBOOK":
-            return _jsx(FaFacebookF, {}, void 0);
+            return _jsx(FaFacebookF, {});
         case "TWITTER":
-            return _jsx(BsTwitter, {}, void 0);
+            return _jsx(BsTwitter, {});
         default:
-            return _jsx(FaFacebookF, {}, void 0);
+            return _jsx(FaFacebookF, {});
     }
 };

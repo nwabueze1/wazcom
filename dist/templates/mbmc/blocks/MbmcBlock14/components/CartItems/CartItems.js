@@ -26,5 +26,5 @@ export var CartItems = function (_a) {
             return (_jsx(CartItemCard, __assign({}, cartItem, { currency: (_a = cart === null || cart === void 0 ? void 0 : cart.currency) !== null && _a !== void 0 ? _a : "", amount: calculateCartSubTotal(cart, cartItem.uuid), setContextProps: setContextProps }), index));
         });
     };
-    return _jsx("div", __assign({ className: classes.root }, { children: displayCartItems() }), void 0);
+    return _jsx("div", __assign({ className: classes.root }, { children: displayCartItems() }));
 };

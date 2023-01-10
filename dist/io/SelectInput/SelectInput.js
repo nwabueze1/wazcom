@@ -37,7 +37,7 @@ export var SelectInput = function (_a) {
     var selectValue = useMemo(function () { return options === null || options === void 0 ? void 0 : options.find(function (option) { return option.value == value; }); }, [value]);
     return (_jsxs("div", __assign({ className: clx(classes.root, className) }, { children: [_jsx("div", __assign({ className: classes.labelWrapper }, { children: !hideLabel &&
                     label &&
-                    _jsxs("label", __assign({ htmlFor: name, className: classes.label }, { children: [label, required && _jsx("span", __assign({ className: classes.required }, { children: "*" }), void 0)] }), void 0) }), void 0), _jsx(Select, __assign({ styles: {
+                    _jsxs("label", __assign({ htmlFor: name, className: classes.label }, { children: [label, required && _jsx("span", __assign({ className: classes.required }, { children: "*" }))] })) })), _jsx(Select, __assign({ styles: {
                     control: function (baseStyles) { return (__assign(__assign({}, baseStyles), { minHeight: 34, height: 34, borderColor: theme.design.colors.primary700, fontFamily: theme.typography.fontFamily, fontWeight: 400, fontSize: theme.typography.fontSize, '&:hover': {
                             borderColor: theme.design.colors.primary600,
                         }, '&:focus': {
@@ -69,5 +69,5 @@ export var SelectInput = function (_a) {
                         var isDisabled = _a.isDisabled, isFocused = _a.isFocused;
                         return clx(!isDisabled && isFocused && classes.option);
                     }
-                }, value: selectValue, options: options, onChange: handleChange }, props), void 0)] }), void 0));
+                }, value: selectValue, options: options, onChange: handleChange }, props))] })));
 };

@@ -6,16 +6,16 @@ export var contols = [
     {
         name: "italic",
         cmd: "italic",
-        icon: _jsx(MdOutlineFormatItalic, {}, void 0),
+        icon: _jsx(MdOutlineFormatItalic, {}),
     },
     {
         name: "bold",
         cmd: "bold",
-        icon: _jsx(MdFormatBold, {}, void 0),
+        icon: _jsx(MdFormatBold, {}),
     },
     {
         name: "heading",
-        icon: _jsx(CgFormatHeading, {}, void 0),
+        icon: _jsx(CgFormatHeading, {}),
         cmd: "formatBlock",
         arg: "h1",
     },
@@ -23,6 +23,6 @@ export var contols = [
         cmd: "createLink",
         arg: "https://github.com/lovasoa/react-contenteditable",
         name: "hyperlink",
-        icon: _jsx(BsLink, {}, void 0),
+        icon: _jsx(BsLink, {}),
     },
 ];

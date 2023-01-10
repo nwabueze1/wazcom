@@ -14,5 +14,5 @@ import { useLoaderStyles } from "./styles";
 import { CircularProgress } from "@mui/material";
 export var Loader = function () {
     var classes = useLoaderStyles();
-    return (_jsx("div", __assign({ className: classes.root }, { children: _jsx(CircularProgress, { size: "20px", color: "success" }, void 0) }), void 0));
+    return (_jsx("div", __assign({ className: classes.root }, { children: _jsx(CircularProgress, { size: "20px", color: "success" }) })));
 };

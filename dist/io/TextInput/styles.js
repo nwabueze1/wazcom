@@ -60,3 +60,16 @@ export var useTextStyles = makeStyles(function (theme) { return ({
         justifyContent: "space-between"
     }
 }); });
+export var useTextInputIconStyles = makeStyles(function (theme) { return ({
+    root: {
+        position: 'relative',
+        backgroundColor: 'transparent',
+        display: 'inline-flex',
+        alignSelf: 'center',
+        flexShrink: 0
+    },
+    iconSpacing: function (props) { return ({
+        marginRight: "".concat(props.marginRight, "px"),
+        marginLeft: "".concat(props.marginLeft, "px"),
+    }); }
+}); });

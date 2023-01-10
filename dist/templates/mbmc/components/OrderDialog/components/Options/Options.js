@@ -26,5 +26,5 @@ export var Options = function (_a) {
             return (_jsx(Option, __assign({}, config, { selectedOptions: selectedOptions, handleUpdateSelectedOptions: handleUpdateSelectedOptions }), index));
         });
     };
-    return _jsx("div", __assign({ className: classes.root }, { children: displayOptions() }), void 0);
+    return _jsx("div", __assign({ className: classes.root }, { children: displayOptions() }));
 };

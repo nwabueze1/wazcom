@@ -40,5 +40,5 @@ export var InputDisplay = function (_a) {
             setAnswers(__spreadArray(__spreadArray([], __read(question.answers), false), [idx], false));
         }
     };
-    return _jsx(_Fragment, { children: jsx }, void 0);
+    return _jsx(_Fragment, { children: jsx });
 };

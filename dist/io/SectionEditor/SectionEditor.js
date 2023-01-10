@@ -46,5 +46,5 @@ export var SectionEditor = function (_a) {
     var handleSetDescription = function (description) {
         setSection(function (section) { return (__assign(__assign({}, section), { description: description })); });
     };
-    return (_jsxs("div", __assign({ className: clx(classes.root, className) }, { children: [_jsx("div", __assign({ className: classes.sectionTitle }, { children: _jsx(EditableTextInput, { placeholder: section.title, setHtml: handleSetTitle, heading: true }, void 0) }), void 0), _jsx("div", __assign({ className: classes.sectionTitle }, { children: _jsx(EditableTextInput, { placeholder: section.description, setHtml: handleSetDescription }, void 0) }), void 0)] }), void 0));
+    return (_jsxs("div", __assign({ className: clx(classes.root, className) }, { children: [_jsx("div", __assign({ className: classes.sectionTitle }, { children: _jsx(EditableTextInput, { placeholder: section.title, setHtml: handleSetTitle, heading: true }) })), _jsx("div", __assign({ className: classes.sectionTitle }, { children: _jsx(EditableTextInput, { placeholder: section.description, setHtml: handleSetDescription }) }))] })));
 };

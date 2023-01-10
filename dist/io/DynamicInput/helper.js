@@ -8,35 +8,35 @@ export var useInputComponents = function () {
         var inputComponents = [
             {
                 name: "short_answer",
-                component: _jsx(ShortAnswer, { placeholderText: "Short Answer Text" }, void 0),
+                component: _jsx(ShortAnswer, { placeholderText: "Short Answer Text" }),
             },
             {
                 name: "paragraph",
-                component: _jsx(ShortAnswer, { placeholderText: "Long Answer Text" }, void 0),
+                component: _jsx(ShortAnswer, { placeholderText: "Long Answer Text" }),
             },
             {
                 name: "dropdown",
-                component: (_jsx(SampleInputDisplay, { setQuestionOptions: setQuestionOptions, questionOptions: questionOptions, handleOptionMedia: handleOptionMedia, handleRemoveOptionMedia: handleRemoveOptionMedia, type: "dropdown", defaultCount: 4, value: "optional" }, void 0)),
+                component: (_jsx(SampleInputDisplay, { setQuestionOptions: setQuestionOptions, questionOptions: questionOptions, handleOptionMedia: handleOptionMedia, handleRemoveOptionMedia: handleRemoveOptionMedia, type: "dropdown", defaultCount: 4, value: "optional" })),
             },
             {
                 name: "checkboxes",
-                component: (_jsx(SampleInputDisplay, { setQuestionOptions: setQuestionOptions, questionOptions: questionOptions, handleOptionMedia: handleOptionMedia, handleRemoveOptionMedia: handleRemoveOptionMedia, type: "checkboxes", defaultCount: 4, value: "optional" }, void 0)),
+                component: (_jsx(SampleInputDisplay, { setQuestionOptions: setQuestionOptions, questionOptions: questionOptions, handleOptionMedia: handleOptionMedia, handleRemoveOptionMedia: handleRemoveOptionMedia, type: "checkboxes", defaultCount: 4, value: "optional" })),
             },
             {
                 name: "multiple",
-                component: (_jsx(SampleInputDisplay, { setQuestionOptions: setQuestionOptions, questionOptions: questionOptions, handleOptionMedia: handleOptionMedia, handleRemoveOptionMedia: handleRemoveOptionMedia, type: "multiple", defaultCount: 4, value: "optional" }, void 0)),
+                component: (_jsx(SampleInputDisplay, { setQuestionOptions: setQuestionOptions, questionOptions: questionOptions, handleOptionMedia: handleOptionMedia, handleRemoveOptionMedia: handleRemoveOptionMedia, type: "multiple", defaultCount: 4, value: "optional" })),
             },
             {
                 name: "file",
-                component: _jsx(ShortAnswer, { placeholderText: "Long Answer Text" }, void 0),
+                component: _jsx(ShortAnswer, { placeholderText: "Long Answer Text" }),
             },
             {
                 name: "date",
-                component: _jsx(Date, {}, void 0),
+                component: _jsx(Date, {}),
             },
             {
                 name: "time",
-                component: _jsx(Time, {}, void 0),
+                component: _jsx(Time, {}),
             },
         ];
         return inputComponents;

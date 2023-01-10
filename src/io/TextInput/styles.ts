@@ -1,5 +1,6 @@
 import { Theme } from "@mui/material";
 import { makeStyles } from "@mui/styles";
+import { TextInputIconStyleProps } from "./types";
 
 export const useTextStyles = makeStyles((theme: Theme) => ({
     root: {
@@ -62,4 +63,18 @@ export const useTextStyles = makeStyles((theme: Theme) => ({
         display: 'flex',
         justifyContent: "space-between"
     }
+}));
+
+export const useTextInputIconStyles = makeStyles((theme: Theme) => ({
+    root: {
+        position: 'relative',
+        backgroundColor: 'transparent',
+        display: 'inline-flex',
+        alignSelf: 'center',
+        flexShrink: 0
+    },
+    iconSpacing: (props: TextInputIconStyleProps) => ({
+        marginRight: `${props.marginRight}px`,
+        marginLeft: `${props.marginLeft}px`,
+    })
 }));

@@ -45,11 +45,12 @@ var __spreadArray = (this && this.__spreadArray) || function (to, from, pack) {
     }
     return to.concat(ar || Array.prototype.slice.call(from));
 };
-import { jsx as _jsx, jsxs as _jsxs } from "react/jsx-runtime";
+import { jsx as _jsx, jsxs as _jsxs, Fragment as _Fragment } from "react/jsx-runtime";
 import clx from 'classnames';
 import { isNumber } from 'lodash';
+import { cloneElement, isValidElement } from "react";
 import { useCallback, useState } from "react";
-import { useTextStyles } from "./styles";
+import { useTextStyles, useTextInputIconStyles } from "./styles";
 /**
  * Text Input IO Component
  *
@@ -61,7 +62,7 @@ import { useTextStyles } from "./styles";
  * -- info
  */
 export var TextInput = function (_a) {
-    var className = _a.className, label = _a.label, errors = _a.errors, helperText = _a.helperText, _b = _a.hideLabel, hideLabel = _b === void 0 ? false : _b, info = _a.info, name = _a.name, onChange = _a.onChange, _c = _a.required, required = _c === void 0 ? false : _c, showCC = _a.showCC, _d = _a.type, type = _d === void 0 ? "text" : _d, props = __rest(_a, ["className", "label", "errors", "helperText", "hideLabel", "info", "name", "onChange", "required", "showCC", "type"]);
+    var className = _a.className, label = _a.label, errors = _a.errors, helperText = _a.helperText, _b = _a.hideLabel, hideLabel = _b === void 0 ? false : _b, info = _a.info, name = _a.name, onChange = _a.onChange, _c = _a.required, required = _c === void 0 ? false : _c, showCC = _a.showCC, _d = _a.type, type = _d === void 0 ? "text" : _d, leftIcon = _a.leftIcon, rightIcon = _a.rightIcon, iconSpacing = _a.iconSpacing, props = __rest(_a, ["className", "label", "errors", "helperText", "hideLabel", "info", "name", "onChange", "required", "showCC", "type", "leftIcon", "rightIcon", "iconSpacing"]);
     var classes = useTextStyles();
     var handleChange = function (e) {
         if (onChange) {
@@ -70,8 +71,19 @@ export var TextInput = function (_a) {
     };
     return (_jsxs("div", __assign({ className: clx(classes.root, className) }, { children: [_jsxs("div", __assign({ className: classes.labelWrapper }, { children: [!hideLabel &&
                         label &&
-                        _jsxs("label", __assign({ htmlFor: name, className: classes.label }, { children: [label, required && _jsx("span", __assign({ className: classes.required }, { children: "*" }), void 0)] }), void 0), showCC && _jsx("span", __assign({ className: clx(classes.wordCount, classes.label) }, { children: (props === null || props === void 0 ? void 0 : props.value) && (props === null || props === void 0 ? void 0 : props.value.length) > 0 && (props === null || props === void 0 ? void 0 : props.value.length) }), void 0)] }), void 0), _jsx("input", __assign({ type: type, className: clx(classes.input, errors && classes.error), onChange: handleChange }, props), void 0)] }), void 0));
+                        _jsxs("label", __assign({ htmlFor: name, className: classes.label }, { children: [label, required && _jsx("span", __assign({ className: classes.required }, { children: "*" }))] })), showCC && _jsx("span", __assign({ className: clx(classes.wordCount, classes.label) }, { children: (props === null || props === void 0 ? void 0 : props.value) && (props === null || props === void 0 ? void 0 : props.value.length) > 0 && (props === null || props === void 0 ? void 0 : props.value.length) }))] })), _jsx(TextInputContent, __assign({}, { rightIcon: rightIcon, leftIcon: leftIcon, iconSpacing: iconSpacing }, { children: _jsx("input", __assign({ type: type, className: clx(classes.input, errors && classes.error), onChange: handleChange }, props)) }))] })));
 };
+function TextInputContent(_a) {
+    var leftIcon = _a.leftIcon, rightIcon = _a.rightIcon, children = _a.children, iconSpacing = _a.iconSpacing;
+    return (_jsxs(_Fragment, { children: [leftIcon && (_jsx(TextInputIcon, __assign({ marginRight: iconSpacing }, { children: leftIcon }))), children, rightIcon && (_jsx(TextInputIcon, __assign({ marginLeft: iconSpacing }, { children: rightIcon })))] }));
+}
+function TextInputIcon(_a) {
+    var children = _a.children, marginLeft = _a.marginLeft, marginRight = _a.marginRight, rest = __rest(_a, ["children", "marginLeft", "marginRight"]);
+    var classes = useTextInputIconStyles({ marginLeft: marginLeft, marginRight: marginRight });
+    var _className = clx(classes.root, classes.iconSpacing);
+    var _children = isValidElement(children) ? cloneElement(children, {}) : children;
+    return (_jsx("span", __assign({}, rest, { className: _className }, { children: _children })));
+}
 export var TextArea = function (_a) {
     var _b;
     var className = _a.className, label = _a.label, helperText = _a.helperText, _c = _a.hideLabel, hideLabel = _c === void 0 ? false : _c, info = _a.info, name = _a.name, onChange = _a.onChange, _d = _a.required, required = _d === void 0 ? false : _d, showCC = _a.showCC, props = __rest(_a, ["className", "label", "helperText", "hideLabel", "info", "name", "onChange", "required", "showCC"]);
@@ -82,7 +94,7 @@ export var TextArea = function (_a) {
     }, []);
     return (_jsxs("div", __assign({ className: clx(classes.root, className) }, { children: [_jsxs("div", __assign({ className: classes.labelWrapper }, { children: [!hideLabel &&
                         label &&
-                        _jsxs("label", __assign({ htmlFor: name, className: classes.label }, { children: [label, required && _jsx("span", __assign({ className: classes.required }, { children: "*" }), void 0)] }), void 0), showCC && _jsx("span", __assign({ className: clx(classes.wordCount, classes.label) }, { children: (props === null || props === void 0 ? void 0 : props.value) && ((_b = props === null || props === void 0 ? void 0 : props.value) === null || _b === void 0 ? void 0 : _b.length) && (props === null || props === void 0 ? void 0 : props.value.length) > 0 && (props === null || props === void 0 ? void 0 : props.value.length) }), void 0)] }), void 0), _jsx("textarea", __assign({ className: clx(classes.input, classes.textAreaInput), onChange: handleChange, rows: 5 }, props), void 0)] }), void 0));
+                        _jsxs("label", __assign({ htmlFor: name, className: classes.label }, { children: [label, required && _jsx("span", __assign({ className: classes.required }, { children: "*" }))] })), showCC && _jsx("span", __assign({ className: clx(classes.wordCount, classes.label) }, { children: (props === null || props === void 0 ? void 0 : props.value) && ((_b = props === null || props === void 0 ? void 0 : props.value) === null || _b === void 0 ? void 0 : _b.length) && (props === null || props === void 0 ? void 0 : props.value.length) > 0 && (props === null || props === void 0 ? void 0 : props.value.length) }))] })), _jsx("textarea", __assign({ className: clx(classes.input, classes.textAreaInput), onChange: handleChange, rows: 5 }, props))] })));
 };
 var validateEmail = function (email) {
     var validator = String(email)
@@ -105,7 +117,7 @@ export var EmailInput = function (_a) {
         sErrors = errors ? errors : undefined;
         sErrors = emailErrors ? (errors) ? __spreadArray(__spreadArray([], __read(errors), false), __read(emailErrors), false) : emailErrors : undefined;
     }
-    return _jsx(TextInput, __assign({ type: "email", name: name, errors: sErrors, onChange: handleChange }, props), void 0);
+    return _jsx(TextInput, __assign({ type: "email", name: name, errors: sErrors, onChange: handleChange }, props));
 };
 export var NumberInput = function (_a) {
     var name = _a.name, errors = _a.errors, onChange = _a.onChange, showCC = _a.showCC, props = __rest(_a, ["name", "errors", "onChange", "showCC"]);
@@ -122,5 +134,5 @@ export var NumberInput = function (_a) {
         sErrors = errors ? errors : undefined;
         sErrors = numberErrors ? (errors) ? __spreadArray(__spreadArray([], __read(errors), false), __read(numberErrors), false) : numberErrors : undefined;
     }
-    return _jsx(TextInput, __assign({ type: "number", name: name, errors: sErrors, showCC: false, onChange: handleChange }, props), void 0);
+    return _jsx(TextInput, __assign({ type: "number", name: name, errors: sErrors, showCC: false, onChange: handleChange }, props));
 };

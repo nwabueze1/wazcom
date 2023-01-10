@@ -1,8 +1,10 @@
 import clx from 'classnames';
 import { isNumber } from 'lodash';
-import React, { ChangeEvent, FC, useCallback, useState } from "react";
-import { useTextStyles } from "./styles";
+import { FC, cloneElement, isValidElement } from "react";
+import React, { ChangeEvent, useCallback, useState } from "react";
+import { useTextStyles, useTextInputIconStyles } from "./styles";
 import { TextAreaProps, TextFieldProps } from "./types";
+import { TextInputIconProps, TextInputContentProps } from "./types";
 
 /**
  * Text Input IO Component
@@ -26,6 +28,9 @@ export const TextInput: FC<TextFieldProps> = ({
     required = false,
     showCC,
     type = "text",
+    leftIcon,
+    rightIcon,
+    iconSpacing,
     ...props
 }) => {
     const classes = useTextStyles();
@@ -49,10 +54,34 @@ export const TextInput: FC<TextFieldProps> = ({
                 }
                 {showCC && <span className={clx(classes.wordCount, classes.label)}>{props?.value && props?.value.length > 0 && props?.value.length}</span>}
             </div>
-            <input type={type} className={clx(classes.input, errors && classes.error)} onChange={handleChange} {...props} />
+            <TextInputContent {...{ rightIcon, leftIcon, iconSpacing }}>
+                <input type={type} className={clx(classes.input, errors && classes.error)} onChange={handleChange} {...props} />
+            </TextInputContent>
         </div>
     )
 };
+
+function TextInputContent({ leftIcon, rightIcon, children, iconSpacing }: TextInputContentProps) {
+    return (
+        <>
+            {leftIcon && (<TextInputIcon marginRight={iconSpacing}>{leftIcon}</TextInputIcon>)}
+            {children}
+            {rightIcon && (<TextInputIcon marginLeft={iconSpacing}>{rightIcon}</TextInputIcon>)}
+        </>
+    )
+}
+
+function TextInputIcon({ children, marginLeft, marginRight, ...rest }: TextInputIconProps) {
+    const classes = useTextInputIconStyles({ marginLeft, marginRight });
+    const _className = clx(classes.root, classes.iconSpacing);
+    const _children = isValidElement(children) ? cloneElement(children, {}) : children
+
+    return (
+        <span {...rest} className={_className}>
+            {_children}
+        </span>
+    )
+}
 
 export const TextArea: FC<Omit<TextAreaProps, "type">> = ({
     className,

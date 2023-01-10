@@ -39,13 +39,13 @@ export var Sevyn = function (_a) {
     var _b = _a.mode, mode = _b === void 0 ? "view" : _b, socials = _a.socials, logo = _a.logo, handleClick = _a.handleClick, links = _a.links;
     var _c = __read(useState(""), 2), activeElement = _c[0], setActiveElement = _c[1];
     var classes = useSevynStyles();
-    var renderSocialIcon = function (Icon) { return (_jsx("div", __assign({ className: classes.footerSocialParent }, { children: Icon }), void 0)); };
+    var renderSocialIcon = function (Icon) { return (_jsx("div", __assign({ className: classes.footerSocialParent }, { children: Icon }))); };
     var socialIcons = {
-        FACEBOOK: renderSocialIcon(_jsx(ImFacebook, { className: classes.footerSocialIcon }, void 0)),
-        TWITTER: renderSocialIcon(_jsx(BsTwitter, { className: classes.footerSocialIcon }, void 0)),
-        INSTAGRAM: renderSocialIcon(_jsx(FaInstagram, { className: classes.footerSocialIcon }, void 0)),
-        LINKEDIN: renderSocialIcon(_jsx(RiLinkedinFill, { className: classes.footerSocialIcon }, void 0)),
-        YOUTUBE: renderSocialIcon(_jsx(RiYoutubeFill, { className: classes.footerSocialIcon }, void 0)),
+        FACEBOOK: renderSocialIcon(_jsx(ImFacebook, { className: classes.footerSocialIcon })),
+        TWITTER: renderSocialIcon(_jsx(BsTwitter, { className: classes.footerSocialIcon })),
+        INSTAGRAM: renderSocialIcon(_jsx(FaInstagram, { className: classes.footerSocialIcon })),
+        LINKEDIN: renderSocialIcon(_jsx(RiLinkedinFill, { className: classes.footerSocialIcon })),
+        YOUTUBE: renderSocialIcon(_jsx(RiYoutubeFill, { className: classes.footerSocialIcon })),
     };
     var handleFooterClick = function () {
         if (mode === "edit") {
@@ -59,5 +59,5 @@ export var Sevyn = function (_a) {
     };
     return (_jsxs("div", __assign({ className: clx(classes.root, activeElement.toLowerCase() === "footer" &&
             mode === "edit" &&
-            classes.activeElement), onClick: handleFooterClick }, { children: [_jsxs("div", __assign({ className: classes.footerContent }, { children: [displayLogo(mode, classes, activeElement, handleElementClick, logo), _jsx("div", __assign({ className: classes.footerSections }, { children: displaySections(mode, classes, links, activeElement, handleElementClick) }), void 0), _jsx("div", __assign({ className: classes.footerSocials }, { children: displaySocials(mode, socialIcons, socials !== null && socials !== void 0 ? socials : [], classes, activeElement, handleElementClick) }), void 0)] }), void 0), _jsx(Copyright, {}, void 0)] }), void 0));
+            classes.activeElement), onClick: handleFooterClick }, { children: [_jsxs("div", __assign({ className: classes.footerContent }, { children: [displayLogo(mode, classes, activeElement, handleElementClick, logo), _jsx("div", __assign({ className: classes.footerSections }, { children: displaySections(mode, classes, links, activeElement, handleElementClick) })), _jsx("div", __assign({ className: classes.footerSocials }, { children: displaySocials(mode, socialIcons, socials !== null && socials !== void 0 ? socials : [], classes, activeElement, handleElementClick) }))] })), _jsx(Copyright, {})] })));
 };

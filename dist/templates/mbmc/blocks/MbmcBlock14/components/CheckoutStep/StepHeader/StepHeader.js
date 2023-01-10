@@ -33,16 +33,16 @@ export var StepHeader = function (_a) {
     if (parsedName === "summary")
         return (_jsxs("div", __assign({ className: classes.stepSummaryHeader, onClick: function () {
                 handleEdit === null || handleEdit === void 0 ? void 0 : handleEdit();
-            } }, { children: [_jsx("p", __assign({ className: classes.stepTitle }, { children: name }), void 0), _jsxs("p", __assign({ className: classes.stepTitle }, { children: [currency, " ", subTotal + deliveryFee] }), void 0)] }), void 0));
+            } }, { children: [_jsx("p", __assign({ className: classes.stepTitle }, { children: name })), _jsxs("p", __assign({ className: classes.stepTitle }, { children: [currency, " ", subTotal + deliveryFee] }))] })));
     if (parsedName === "delivery_details")
         return (_jsxs("div", __assign({ style: { width: "100%" }, onClick: function () {
                 (cart === null || cart === void 0 ? void 0 : cart.guest) && (handleEdit === null || handleEdit === void 0 ? void 0 : handleEdit());
-            } }, { children: [_jsx("p", __assign({ className: clx(classes.stepTitle) }, { children: name }), void 0), (cart === null || cart === void 0 ? void 0 : cart.guest) && (_jsx(DeliveryOption, __assign({ className: classes.stepHeaderDelivery }, (((_k = cart === null || cart === void 0 ? void 0 : cart.guest) === null || _k === void 0 ? void 0 : _k.address) ? deliveryOptions[1] : deliveryOptions[0]), { value: (cart === null || cart === void 0 ? void 0 : cart.order)
+            } }, { children: [_jsx("p", __assign({ className: clx(classes.stepTitle) }, { children: name })), (cart === null || cart === void 0 ? void 0 : cart.guest) && (_jsx(DeliveryOption, __assign({ className: classes.stepHeaderDelivery }, (((_k = cart === null || cart === void 0 ? void 0 : cart.guest) === null || _k === void 0 ? void 0 : _k.address) ? deliveryOptions[1] : deliveryOptions[0]), { value: (cart === null || cart === void 0 ? void 0 : cart.order)
                         ? (_l = cart === null || cart === void 0 ? void 0 : cart.order) === null || _l === void 0 ? void 0 : _l.order_type
                         : !((_m = cart === null || cart === void 0 ? void 0 : cart.guest) === null || _m === void 0 ? void 0 : _m.firstname)
                             ? "dispatch"
                             : ((_o = cart === null || cart === void 0 ? void 0 : cart.guest) === null || _o === void 0 ? void 0 : _o.address)
                                 ? "dispatch"
-                                : "pickup" }), void 0))] }), void 0));
-    return _jsx("p", __assign({ className: classes.stepTitle }, { children: name }), void 0);
+                                : "pickup" })))] })));
+    return _jsx("p", __assign({ className: classes.stepTitle }, { children: name }));
 };
