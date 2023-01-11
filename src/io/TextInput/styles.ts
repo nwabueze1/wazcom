@@ -6,7 +6,7 @@ export const useTextStyles = makeStyles((theme: Theme) => ({
     root: {
         display: "flex",
         flexDirection: "column",
-        position: "relative",
+        justifyContent: 'start',
     },
     label: {
         fontSize: theme.typography.fontSize - 2,
@@ -41,7 +41,6 @@ export const useTextStyles = makeStyles((theme: Theme) => ({
             borderColor: theme.design.colors.primary400,
         },
     }),
-    test: (props) => { console.log('PROPS', props.width); return {}},
     defaultInput: (props: TextBaseProps) => ({
         borderColor: props?.borderColor ?? theme.design.colors.primary700,
         '&:hover': {
@@ -57,19 +56,14 @@ export const useTextStyles = makeStyles((theme: Theme) => ({
             borderColor: theme.design.colors.error,
         },
     }),
-    // error: {
-    //     border: `1px solid ${theme.design.colors.error}`,
-    //     '&:hover': {
-    //         borderColor: theme.design.colors.error,
-    //     },
-    //     '&:focus': {
-    //         borderColor: theme.design.colors.error,
-    //     },
-    //     '&:hover:focus': {
-    //         borderColor: theme.design.colors.error,
-    //     },
-    // },
+    successInput: () => ({
+        borderColor: theme.design.colors.waz_primaryColor100,
+        '&:hover, &:focus, &:hover:focus, &:active': {
+            borderColor: theme.design.colors.waz_primaryColor100,
+        },
+    }),
     input: {
+        display: 'flex',
         width: '100%',
         background: 'transparent',
         border: 0,
@@ -81,12 +75,29 @@ export const useTextStyles = makeStyles((theme: Theme) => ({
     textAreaInput: {
         height: "auto"
     },
-    wordCount: {
-    },
+    wordCount: {},
     labelWrapper: {
         display: 'flex',
         justifyContent: "space-between",
         width: '100%'
+    },
+    helperTextSuccess: {
+        display: 'flex',
+        width: '100%',
+        letterSpacing: 0,
+        color: theme.design.colors.waz_primaryColor100,
+        fontSize: 8,
+        textAlign: 'left',
+        marginTop: 4
+    },
+    helperTextError: {
+        display: 'flex',
+        width: '100%',
+        letterSpacing: 0,
+        color: theme.design.colors.error,
+        fontSize: 8,
+        textAlign: 'left',
+        marginTop: 4
     }
 }));
 

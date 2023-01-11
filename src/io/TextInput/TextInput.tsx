@@ -16,10 +16,15 @@ import { TextInputIconProps } from "./types";
  * -- helperText
  * -- info
  */
+
+/** TODO --  fix components success and error state */
+
 export const TextInput: FC<TextFieldProps> = ({
     className,
     label,
     errors,
+    isError,
+    isSuccess,
     helperText,
     hideLabel = false,
     info,
@@ -54,6 +59,8 @@ export const TextInput: FC<TextFieldProps> = ({
         borderStyle,
         borderRadius,
         isActive,
+        isError,
+        isSuccess,
         errors
     });
 
@@ -97,7 +104,9 @@ export const TextInput: FC<TextFieldProps> = ({
                     {props?.value && props?.value.length > 0 && props?.value.length}
                 </span>)}
             </div>
-            <div className={clx(classes.baseInput, (errors ? classes.errorInput : classes.defaultInput))}>
+            <div className={clx(classes.baseInput, classes.defaultInput, (
+                isError || isSuccess ? (isSuccess ? classes.successInput : classes.errorInput) : classes.defaultInput
+            ))}>
                 {leftIcon && (
                     <TextInputIcon marginRight={iconSpacing}>
                         {leftIcon}
@@ -117,7 +126,12 @@ export const TextInput: FC<TextFieldProps> = ({
                         {rightIcon}
                     </TextInputIcon>
                 )}
-            </div>
+            </div> {/** check and fix TODO */}
+            {helperText && (<span className={clx(isError || isSuccess && (
+                (isError && classes.helperTextError ), (isSuccess && classes.helperTextSuccess)
+            ))}>
+                {helperText}
+            </span>)}
         </div>
     )
 };

@@ -9,6 +9,12 @@ import { TextInputViewProps } from "./types";
 export type InputDataProps = {
     label: string;
     placeholder: string;
+    helperText: string;
+    isError: boolean;
+    isSuccess: boolean;
+    errors?: {
+        message?: string;
+    }[];
 };
 
 
@@ -17,11 +23,11 @@ export const TextInputView: FC<TextInputViewProps> = () => {
     const classes = useTextInputStyles();
 
     const inputData: InputDataProps[]  = [
-        { label: 'Default', placeholder: 'Placeholder' },
-        { label: 'Hover', placeholder: 'Placeholder' },
-        { label: 'Active', placeholder: 'Placeholder' },
-        { label: 'Error', placeholder: 'Placeholder' },
-        { label: 'Success', placeholder: 'Placeholder' },
+        { label: 'Default', placeholder: 'Placeholder', helperText: '' },
+        { label: 'Hover', placeholder: 'Placeholder', helperText: '' },
+        { label: 'Active', placeholder: 'Placeholder', helperText: '', },
+        { label: 'Error', placeholder: 'Placeholder', helperText: 'Error Message', isError: true },
+        { label: 'Success', placeholder: 'Placeholder', helperText: 'Success Message', isSuccess: true },
     ];
 
     return (
@@ -52,6 +58,9 @@ export const TextInputView: FC<TextInputViewProps> = () => {
                                 className={classes.input}
                                 label={item.label}
                                 placeholder={item.placeholder}
+                                helperText={item.helperText}
+                                isError={item.isError}
+                                isSuccess={item.isSuccess}
                                 rightIcon={<BsEye width={16} />}
                             />
                         ))}

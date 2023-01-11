@@ -14,6 +14,8 @@ export type TextBaseProps = CommonProps & {
     required?: boolean;
     showCC?: boolean;
     isActive?: boolean;
+    isError?: boolean;
+    isSuccess?: boolean;
     errors?: {
         message: string;
     }[];
