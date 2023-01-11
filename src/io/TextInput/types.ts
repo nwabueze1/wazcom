@@ -13,6 +13,7 @@ export type TextBaseProps = CommonProps & {
     name?: string;
     required?: boolean;
     showCC?: boolean;
+    isActive?: boolean;
     errors?: {
         message: string;
     }[];
@@ -32,11 +33,11 @@ export type TextBaseProps = CommonProps & {
     borderRadius?: string | number;
 }
 
-export type TextFieldProps = Omit<BaseInputProps, "onChange"> & TextBaseProps;
-export type EmailInputProps = Omit<BaseInputProps, "onChange"> & TextBaseProps;
-export type NumberInputProps = Omit<BaseInputProps, "onChange"> & TextBaseProps;
+export type TextFieldProps = Omit<BaseInputProps, "onChange" | "onFocus" | "onEnter"> & TextBaseProps;
+export type EmailInputProps = Omit<BaseInputProps, "onChange" | "onFocus" | "onEnter"> & TextBaseProps;
+export type NumberInputProps = Omit<BaseInputProps, "onChange" | "onFocus" | "onEnter"> & TextBaseProps;
 
-export type TextAreaProps = Omit<React.HTMLProps<HTMLTextAreaElement>, "onChange"> & TextBaseProps & {
+export type TextAreaProps = Omit<React.HTMLProps<HTMLTextAreaElement>, "onChange"|"onFocus"|"onEnter"> & TextBaseProps & {
     type?: 'textarea';
     minRows?: number;
 }

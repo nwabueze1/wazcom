@@ -1,7 +1,7 @@
 import clx from 'classnames';
 import { isNumber } from 'lodash';
 import { FC, cloneElement, isValidElement } from "react";
-import React, { ChangeEvent, useCallback, useState } from "react";
+import React, { ChangeEvent, KeyboardEvent, useCallback, useState } from "react";
 import { useTextStyles, useTextInputIconStyles } from "./styles";
 import { TextAreaProps, TextFieldProps } from "./types";
 import { TextInputIconProps } from "./types";
@@ -25,6 +25,8 @@ export const TextInput: FC<TextFieldProps> = ({
     info,
     name,
     onChange,
+    onFocus,
+    onEnter,
     required = false,
     showCC,
     type = "text",
@@ -41,6 +43,7 @@ export const TextInput: FC<TextFieldProps> = ({
     borderRadius,
     ...props
 }) => {
+    const [isActive, setIsActive] = React.useState<boolean>(false)
     const classes = useTextStyles({
         width,
         height,
@@ -49,13 +52,33 @@ export const TextInput: FC<TextFieldProps> = ({
         borderWidth,
         borderColor,
         borderStyle,
-        borderRadius
+        borderRadius,
+        isActive
     });
 
     const handleChange = (e: ChangeEvent<HTMLInputElement>) => {
         if (onChange) {
             onChange?.({ name: name ?? "", value: e.target.value });
         }
+    };
+    const handleOnKeyDown = (e: KeyboardEvent<HTMLInputElement>) => {
+        if (onEnter && (e.key === 'Enter')) {
+            onEnter?.({
+                name: (e.target as HTMLInputElement).name ?? '',
+                value: (e.target as HTMLInputElement).value
+            });
+        }
+    };
+
+    const handleFocus = (e: ChangeEvent<HTMLInputElement>) => {
+        setIsActive(() => true);
+        if (onFocus) {
+            onFocus?.({ name: e.target.name ?? '', value: e.target.value });
+        }
+    };
+
+    const handleBlur = (e: ChangeEvent<HTMLInputElement>) => {
+        setIsActive(() => false);
     };
 
     return (
@@ -73,7 +96,7 @@ export const TextInput: FC<TextFieldProps> = ({
             </div>
             <div className={clx(classes.inputContainer, errors && classes.error)}>
                 {leftIcon && (<TextInputIcon marginRight={iconSpacing}>{leftIcon}</TextInputIcon>)}
-                    <input type={type} className={classes.input} onChange={handleChange} {...props} />
+                <input type={type} className={classes.input} onFocus={handleFocus} onBlur={handleBlur} onChange={handleChange} onKeyDown={handleOnKeyDown} {...props} />
                 {rightIcon && (<TextInputIcon marginLeft={iconSpacing}>{rightIcon}</TextInputIcon>)}
             </div>
         </div>

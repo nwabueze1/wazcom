@@ -35,13 +35,22 @@ export const useTextStyles = makeStyles((theme: Theme) => ({
         fontWeight: 400,
         fontSize: theme.typography.fontSize,
         '&:hover': {
-            borderColor: theme.design.colors.primary600,
+            borderColor: theme.design.colors.primary500,
         },
         '&:focus': {
-            borderColor: theme.design.colors.primary500,
+            borderColor: theme.design.colors.primary400,
+        },
+        '&:active': {
+            borderColor: theme.design.colors.primary400,
         },
         '&:hover:focus': {
-            borderColor: theme.design.colors.primary500,
+            borderColor: theme.design.colors.primary400,
+        },
+        '&:hover:active': {
+            borderColor: theme.design.colors.primary400,
+        },
+        '&:active:focus': {
+            borderColor: theme.design.colors.primary400,
         },
     }),
     input: {

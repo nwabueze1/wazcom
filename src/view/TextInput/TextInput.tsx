@@ -56,7 +56,6 @@ export const TextInputView: FC<TextInputViewProps> = () => {
                             />
                         ))}
                     </div>
-                    
                 </div>
             </div>
         </div >
