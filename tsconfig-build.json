@@ -18,7 +18,7 @@
     "baseUrl": "src",
     "typeRoots": ["./src/@types", "./node_modules/@types"],
     "outDir": "dist",
-    // "declaration": true,
+    "declaration": true,
     "noUnusedLocals": true,
     "noUnusedParameters": true,
     "noImplicitReturns": true,
