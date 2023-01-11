@@ -117,5 +117,6 @@ export const useLayoutStyles = makeStyles((theme: Theme) => ({
         display: 'flex',
         justifyContent: 'center',
         alignItems: 'center',
+        // width: '100%'
     }
 }));

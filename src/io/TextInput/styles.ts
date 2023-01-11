@@ -21,38 +21,54 @@ export const useTextStyles = makeStyles((theme: Theme) => ({
         color: theme.design.colors.waz_dangerColor100,
         margin: theme.spacing(-.5, .5, 0, .5),
     },
-    inputContainer: (props: TextBaseProps) => ({
+    baseInput: (props: TextBaseProps) => ({
         display: 'flex',
         padding: '8px 12px',
         height: props.height ?? 34,
         width: props.width ?? '100%',
         background: `${props.background ?? theme.design.colors.white100} 0% 0% no-repeat padding-box`,
         color: props.color ?? theme.design.colors.waz_primaryBlack,
-        borderColor: props?.borderColor ?? theme.design.colors.primary700,
         borderWidth: props?.borderWidth ?? 1,
         borderStyle: props?.borderStyle ?? 'solid',
         borderRadius: props?.borderRadius ?? 4,
         fontWeight: 400,
         fontSize: theme.typography.fontSize,
+        borderColor: props?.borderColor ?? theme.design.colors.primary700,
         '&:hover': {
             borderColor: theme.design.colors.primary500,
         },
-        '&:focus': {
-            borderColor: theme.design.colors.primary400,
-        },
-        '&:active': {
-            borderColor: theme.design.colors.primary400,
-        },
-        '&:hover:focus': {
-            borderColor: theme.design.colors.primary400,
-        },
-        '&:hover:active': {
-            borderColor: theme.design.colors.primary400,
-        },
-        '&:active:focus': {
+        '&:focus, &:hover:focus, &:active': {
             borderColor: theme.design.colors.primary400,
         },
     }),
+    test: (props) => { console.log('PROPS', props.width); return {}},
+    defaultInput: (props: TextBaseProps) => ({
+        borderColor: props?.borderColor ?? theme.design.colors.primary700,
+        '&:hover': {
+            borderColor: theme.design.colors.primary500,
+        },
+        '&:focus, &:hover:focus, &:active': {
+            borderColor: theme.design.colors.primary400,
+        },
+    }),
+    errorInput: () => ({
+        borderColor: theme.design.colors.error,
+        '&:hover, &:focus, &:hover:focus, &:active': {
+            borderColor: theme.design.colors.error,
+        },
+    }),
+    // error: {
+    //     border: `1px solid ${theme.design.colors.error}`,
+    //     '&:hover': {
+    //         borderColor: theme.design.colors.error,
+    //     },
+    //     '&:focus': {
+    //         borderColor: theme.design.colors.error,
+    //     },
+    //     '&:hover:focus': {
+    //         borderColor: theme.design.colors.error,
+    //     },
+    // },
     input: {
         width: '100%',
         background: 'transparent',
@@ -62,18 +78,6 @@ export const useTextStyles = makeStyles((theme: Theme) => ({
         fontWeight: 400,
         fontSize: theme.typography.fontSize,
     },
-    error: {
-        border: `1px solid ${theme.design.colors.error}`,
-        '&:hover': {
-            borderColor: theme.design.colors.error,
-        },
-        '&:focus': {
-            borderColor: theme.design.colors.error,
-        },
-        '&:hover:focus': {
-            borderColor: theme.design.colors.error,
-        },
-    },
     textAreaInput: {
         height: "auto"
     },
@@ -81,7 +85,7 @@ export const useTextStyles = makeStyles((theme: Theme) => ({
     },
     labelWrapper: {
         display: 'flex',
-        justifyContent: "start",
+        justifyContent: "space-between",
         width: '100%'
     }
 }));

@@ -53,7 +53,8 @@ export const TextInput: FC<TextFieldProps> = ({
         borderColor,
         borderStyle,
         borderRadius,
-        isActive
+        isActive,
+        errors
     });
 
     const handleChange = (e: ChangeEvent<HTMLInputElement>) => {
@@ -92,12 +93,30 @@ export const TextInput: FC<TextFieldProps> = ({
                         {required && <span className={classes.required}>*</span>}
                     </label>
                 }
-                {showCC && <span className={clx(classes.wordCount, classes.label)}>{props?.value && props?.value.length > 0 && props?.value.length}</span>}
+                {showCC && (<span className={clx(classes.wordCount, classes.label)}>
+                    {props?.value && props?.value.length > 0 && props?.value.length}
+                </span>)}
             </div>
-            <div className={clx(classes.inputContainer, errors && classes.error)}>
-                {leftIcon && (<TextInputIcon marginRight={iconSpacing}>{leftIcon}</TextInputIcon>)}
-                <input type={type} className={classes.input} onFocus={handleFocus} onBlur={handleBlur} onChange={handleChange} onKeyDown={handleOnKeyDown} {...props} />
-                {rightIcon && (<TextInputIcon marginLeft={iconSpacing}>{rightIcon}</TextInputIcon>)}
+            <div className={clx(classes.baseInput, (errors ? classes.errorInput : classes.defaultInput))}>
+                {leftIcon && (
+                    <TextInputIcon marginRight={iconSpacing}>
+                        {leftIcon}
+                    </TextInputIcon>
+                )}
+                <input
+                    type={type}
+                    className={classes.input}
+                    onFocus={handleFocus}
+                    onBlur={handleBlur}
+                    onChange={handleChange}
+                    onKeyDown={handleOnKeyDown}
+                    {...props}
+                />
+                {rightIcon && (
+                    <TextInputIcon marginLeft={iconSpacing}>
+                        {rightIcon}
+                    </TextInputIcon>
+                )}
             </div>
         </div>
     )
@@ -145,7 +164,9 @@ export const TextArea: FC<Omit<TextAreaProps, "type">> = ({
                         {required && <span className={classes.required}>*</span>}
                     </label>
                 }
-                {showCC && <span className={clx(classes.wordCount, classes.label)}>{props?.value && props?.value?.length && props?.value.length > 0 && props?.value.length}</span>}
+                {showCC && <span className={clx(classes.wordCount, classes.label)}>
+                    {props?.value && props?.value?.length && props?.value.length > 0 && props?.value.length}
+                </span>}
             </div>
             <textarea className={clx(classes.input, classes.textAreaInput)} onChange={handleChange} rows={5} {...props} />
         </div>
