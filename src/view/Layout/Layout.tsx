@@ -1,11 +1,8 @@
-import { BsBellFill } from "react-icons/bs"
-import { Typography } from "@mui/material";
+import { BsBellFill } from "react-icons/bs";
+import { FiSearch } from "react-icons/fi";
 import CssBaseline from "@mui/material/CssBaseline";
-import { startCase } from "lodash";
-import * as React from "react";
 import { FC, useState } from "react";
 import { TextInput } from "../../io";
-import { stories } from "../../stories";
 import sidebarItems from "../../stories/sidebarItems"
 import { SidebarListItem } from "./Sidebar/SidebarItems";
 import { useLayoutStyles } from "./styles";
@@ -29,14 +26,20 @@ export const Layout: FC<LayoutProps> = ({ children }) => {
             <div className={classes.appBarWrapper}>
                 <div className={classes.appBarComponents}>
                     <TextInput
-                        name="search"
-                        placeholder="Search..."
-                        type="search"
-                        className={classes.appBarSearchTextInput}
+                        name={'search'}
+                        placeholder={'Search...'}
+                        type={'search'}
+                        width={480}
+                        height={40}
+                        leftIcon={<FiSearch size={'20px'} />}
+                        iconSpacing={5}
+                        background={'#F9F9F9'}
+                        borderColor={'#F9F9F9'}
                         onChange={({ value }: { name: string; value: any }) => {
                             setSearch(value);
                         }}
                         value={search}
+                        className={classes.searchBox}
                     />
                     <div className={classes.notificationWrapper}>
                         <BsBellFill className={classes.notoficationIcon} />

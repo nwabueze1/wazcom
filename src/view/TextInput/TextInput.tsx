@@ -1,18 +1,15 @@
 import { FC } from "react";
 import CssBaseline from "@mui/material/CssBaseline";
-import { BsEye, BsEyeSlash } from "react-icons/bs"
+import { BsEye } from "react-icons/bs"
 
 import { TextInput } from "../../io";
+import { useTextInputStyles } from "./styles";
+import { TextInputViewProps } from "./types";
 
 export type InputDataProps = {
     label: string;
     placeholder: string;
 };
-
-import { useTextInputStyles } from "./styles";
-import { TextInputViewProps } from "./types";
-
-
 
 
 export const TextInputView: FC<TextInputViewProps> = () => {
@@ -37,12 +34,11 @@ export const TextInputView: FC<TextInputViewProps> = () => {
                         <p className={classes.descriptionText}>Text inputs enable users to enter free-form text data. The type of text field used should reflect the length of the content you expect the user to enter. The default text input is for short, one-line content, whereas text area is for longer, multi-line entries.</p>
                     </div>
                 </div>
-                {/* <Tab controls={controls} /> */}
                 <div className={classes.inputContainer}>
                     <div className={classes.inputs}>
                         {inputData.map((item: InputDataProps, index) => (
                             <TextInput
-                                id={`${item.label}-${index + 1}`}
+                                id={`${item.label}-${index + Math.random()}`}
                                 className={classes.input}
                                 label={item.label}
                                 placeholder={item.placeholder}
@@ -52,7 +48,7 @@ export const TextInputView: FC<TextInputViewProps> = () => {
                     <div className={classes.inputs}>
                         {inputData.map((item: InputDataProps, index) => (
                             <TextInput
-                                id={`${item.label}-${index + 10}`}
+                                id={`${item.label}-${index + Math.random()}`}
                                 className={classes.input}
                                 label={item.label}
                                 placeholder={item.placeholder}

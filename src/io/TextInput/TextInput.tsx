@@ -4,7 +4,7 @@ import { FC, cloneElement, isValidElement } from "react";
 import React, { ChangeEvent, useCallback, useState } from "react";
 import { useTextStyles, useTextInputIconStyles } from "./styles";
 import { TextAreaProps, TextFieldProps } from "./types";
-import { TextInputIconProps, TextInputContentProps } from "./types";
+import { TextInputIconProps } from "./types";
 
 /**
  * Text Input IO Component
@@ -31,9 +31,26 @@ export const TextInput: FC<TextFieldProps> = ({
     leftIcon,
     rightIcon,
     iconSpacing,
+    width,
+    height,
+    color,
+    background,
+    borderWidth,
+    borderColor,
+    borderStyle,
+    borderRadius,
     ...props
 }) => {
-    const classes = useTextStyles();
+    const classes = useTextStyles({
+        width,
+        height,
+        background,
+        color,
+        borderWidth,
+        borderColor,
+        borderStyle,
+        borderRadius
+    });
 
     const handleChange = (e: ChangeEvent<HTMLInputElement>) => {
         if (onChange) {
@@ -87,7 +104,7 @@ export const TextArea: FC<Omit<TextAreaProps, "type">> = ({
     showCC,
     ...props
 }) => {
-    const classes = useTextStyles();
+    const classes = useTextStyles({});
 
     const handleChange = useCallback((e: React.ChangeEvent<HTMLTextAreaElement>) => {
         console.log(name, e.target.value);

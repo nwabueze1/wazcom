@@ -1,19 +1,18 @@
 import { Theme } from "@mui/material";
 import { makeStyles } from "@mui/styles";
-import { TextInputIconStyleProps } from "./types";
+import { TextInputIconStyleProps, TextBaseProps } from "./types";
 
 export const useTextStyles = makeStyles((theme: Theme) => ({
     root: {
         display: "flex",
         flexDirection: "column",
         position: "relative",
-        marginBottom: theme.spacing(2)
     },
     label: {
         fontSize: theme.typography.fontSize - 2,
         display: "flex",
-        marginBottom: 8,
-        color: "#333333",
+        marginBottom: 4,
+        color: theme.design.colors.waz_grey,
         alignItems: "center",
         letterSpacing: "0.13px",
         textTransform: "uppercase",
@@ -22,11 +21,17 @@ export const useTextStyles = makeStyles((theme: Theme) => ({
         color: theme.design.colors.waz_dangerColor100,
         margin: theme.spacing(-.5, .5, 0, .5),
     },
-    inputContainer: {
-        height: 34,
-        background: `${theme.design.colors.white100} 0% 0% no-repeat padding-box`,
-        border: `1px solid ${theme.design.colors.primary700}`,
-        borderRadius: 4,
+    inputContainer: (props: TextBaseProps) => ({
+        display: 'flex',
+        padding: '8px 12px',
+        height: props.height ?? 34,
+        width: props.width ?? '100%',
+        background: `${props.background ?? theme.design.colors.white100} 0% 0% no-repeat padding-box`,
+        color: props.color ?? theme.design.colors.waz_primaryBlack,
+        borderColor: props?.borderColor ?? theme.design.colors.primary700,
+        borderWidth: props?.borderWidth ?? 1,
+        borderStyle: props?.borderStyle ?? 'solid',
+        borderRadius: props?.borderRadius ?? 4,
         fontWeight: 400,
         fontSize: theme.typography.fontSize,
         '&:hover': {
@@ -38,10 +43,9 @@ export const useTextStyles = makeStyles((theme: Theme) => ({
         '&:hover:focus': {
             borderColor: theme.design.colors.primary500,
         },
-    },
+    }),
     input: {
         width: '100%',
-        padding: '8px 12px',
         background: 'transparent',
         border: 0,
         outline: "none",
@@ -68,7 +72,8 @@ export const useTextStyles = makeStyles((theme: Theme) => ({
     },
     labelWrapper: {
         display: 'flex',
-        justifyContent: "space-between"
+        justifyContent: "start",
+        width: '100%'
     }
 }));
 

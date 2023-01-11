@@ -1,4 +1,5 @@
 import React, { FC, useState, useCallback } from "react";
+import { Link } from "react-router-dom";
 import clx from "classnames";
 
 import { useSidebarListItemStyles } from "./styles";
@@ -19,7 +20,7 @@ export const SidebarListItem: FC<SidebarListItemProps> = ({ sections }) => {
     const handleMouseLeave = useCallback(
         (rowIndex: number, index: number) => {
             setActiveLink({ rowIndex, index });
-    }, []);
+        }, []);
 
     return (
         <div className={classes.root}>
@@ -30,7 +31,7 @@ export const SidebarListItem: FC<SidebarListItemProps> = ({ sections }) => {
                         <ul className={classes.innerList}>
                             {section.components.map((component, index) => (
                                 <li key={index} className={classes.innerListItem}>
-                                    <a
+                                    <Link
                                         className={clx(
                                             classes.link,
                                             activeLink &&
@@ -40,10 +41,10 @@ export const SidebarListItem: FC<SidebarListItemProps> = ({ sections }) => {
                                         )}
                                         onMouseEnter={() => handleMouseEnter(sectionIndex, index)}
                                         onMouseLeave={() => handleMouseLeave(sectionIndex, index)}
-                                        href={`/#${component.slug}`}
+                                        to={component.slug}
                                     >
                                         {component.name}
-                                    </a>
+                                    </Link>
                                 </li>
                             ))}
                         </ul>

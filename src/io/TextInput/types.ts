@@ -5,7 +5,7 @@ export type TextInputProps = TextFieldProps;
 
 export type BaseInputProps = React.InputHTMLAttributes<HTMLInputElement>;
 
-type TextBaseProps = CommonProps & {
+export type TextBaseProps = CommonProps & {
     helperText?: string;
     hideLabel?: boolean;
     info?: string;
@@ -21,6 +21,15 @@ type TextBaseProps = CommonProps & {
     rightIcon?: React.ReactElement;
     iconSpacing?: string | number;
     children?: React.ReactNode;
+
+    width?: string | number;
+    height?: string | number;
+    background?: string;
+    color?: string;
+    borderWidth?: string | number;
+    borderStyle?: string;
+    borderColor?: string;
+    borderRadius?: string | number;
 }
 
 export type TextFieldProps = Omit<BaseInputProps, "onChange"> & TextBaseProps;

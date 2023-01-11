@@ -9,6 +9,7 @@ export type SidebarListItemProps = {
 };
 
 export type SidebarLinksProps = {
+    rowIndex: number;
     index: number;
     sectionIndex: number;
 }

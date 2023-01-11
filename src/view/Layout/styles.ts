@@ -4,12 +4,7 @@ import { makeStyles } from "@mui/styles";
 export const drawerWidth = 260;
 
 export const useLayoutStyles = makeStyles((theme: Theme) => ({
-    root: {
-        // backgroundColor: theme.design.colors.white
-    },
-    // drawer: {
-    //     padding: `0 ${theme.spacing(2)}`,
-    // },
+    root: {},
     paper: {
         padding: `0 ${theme.spacing(2)}`,
         width: drawerWidth,
@@ -98,15 +93,6 @@ export const useLayoutStyles = makeStyles((theme: Theme) => ({
         alignItems: 'center',
         width: '100%'
     },
-    appBarSearchTextInput: {
-        marginBottom: 0,
-        width: '480px',
-        '& input': {
-            border: 'none',
-            background: '#F9F9F9 0% 0% no-repeat padding-box',
-            borderRadius: '3px',
-        }
-    },
     notificationWrapper: {
         width: '24px',
         height: '24px'
@@ -126,5 +112,10 @@ export const useLayoutStyles = makeStyles((theme: Theme) => ({
         flexDirection: 'column',
         gap: '0',
         marginBottom: '50px'
+    },
+    searchBox: {
+        display: 'flex',
+        justifyContent: 'center',
+        alignItems: 'center',
     }
 }));

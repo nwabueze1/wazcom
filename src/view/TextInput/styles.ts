@@ -41,12 +41,15 @@ export const useTextInputStyles = makeStyles((theme: Theme) => ({
         border: '1px solid #E8E8E8',
         borderRadius: 3,
         padding: '24px',
+        paddingBottom: '50px',
         display: 'flex',
         flexDirection: 'column',
         justifyContent: 'center',
+        alignItems: 'center',
         gap: '40px'
     },
     inputs: {
+        width: '100%',
         display: 'flex',
         justifyContent: 'space-between',
         alignItems: 'center',
