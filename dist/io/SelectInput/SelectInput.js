@@ -21,28 +21,53 @@ var __rest = (this && this.__rest) || function (s, e) {
     return t;
 };
 import { jsx as _jsx, jsxs as _jsxs } from "react/jsx-runtime";
-import { MenuItem, Select, InputLabel } from "@mui/material";
-import { useSelectStyles } from "./styles";
 import clx from "classnames";
-import { displayFeedback } from "../../helpers/io";
+import { useMemo } from "react";
+import Select from 'react-select';
+import theme from "../../theme";
+import { useSelectStyles } from "./styles";
 export var SelectInput = function (_a) {
-    var _b;
-    var className = _a.className, classNames = _a.classNames, _c = _a.options, options = _c === void 0 ? [] : _c, _d = _a.placeholder, placeholder = _d === void 0 ? "Select a value" : _d, label = _a.label, helperText = _a.helperText, onChange = _a.onChange, feedback = _a.feedback, props = __rest(_a, ["className", "classNames", "options", "placeholder", "label", "helperText", "onChange", "feedback"]);
+    var onChange = _a.onChange, options = _a.options, name = _a.name, className = _a.className, label = _a.label, value = _a.value, errors = _a.errors, _b = _a.hideLabel, hideLabel = _b === void 0 ? false : _b, info = _a.info, _c = _a.required, required = _c === void 0 ? false : _c, props = __rest(_a, ["onChange", "options", "name", "className", "label", "value", "errors", "hideLabel", "info", "required"]);
     var classes = useSelectStyles();
     var handleChange = function (e) {
-        var _a = e.target, name = _a.name, value = _a.value;
-        onChange === null || onChange === void 0 ? void 0 : onChange({ name: name, value: value });
+        if (onChange) {
+            onChange === null || onChange === void 0 ? void 0 : onChange({ name: name !== null && name !== void 0 ? name : "", value: e === null || e === void 0 ? void 0 : e.value });
+        }
     };
-    var displayLabelFromValue = function (value) {
-        var _a, _b;
-        var option = (_a = options.filter(function (option) { return option.value == value; })) === null || _a === void 0 ? void 0 : _a[0];
-        if (!option)
-            return _jsx("p", {}, void 0);
-        var Icon = option === null || option === void 0 ? void 0 : option.icon;
-        return (_jsxs("p", __assign({ className: clx(classNames === null || classNames === void 0 ? void 0 : classNames.optionLabel, classes.optionLabel) }, { children: [Icon && _jsx(Icon, { className: classes.icon }, void 0), (_b = option === null || option === void 0 ? void 0 : option.label) !== null && _b !== void 0 ? _b : ""] }), void 0));
-    };
-    return (_jsxs("div", __assign({ className: clx(className, classes.root) }, { children: [label && (_jsxs(InputLabel, __assign({ className: (_b = classNames === null || classNames === void 0 ? void 0 : classNames.label) !== null && _b !== void 0 ? _b : classes.label, htmlFor: props.name }, { children: [label, " ", _jsx("p", __assign({ className: classes.required }, { children: props.required ? " *" : "" }), void 0)] }), void 0)), _jsx("div", __assign({ className: classes.selectContainer }, { children: _jsxs(Select, __assign({}, props, { onChange: handleChange, className: clx(classNames === null || classNames === void 0 ? void 0 : classNames.selectInput, classes.select), classes: (classNames === null || classNames === void 0 ? void 0 : classNames.classes) ? classNames.classes : {}, renderValue: function (value) { return (_jsx(MenuItem, __assign({ value: value }, { children: displayLabelFromValue(value) }), void 0)); } }, { children: [options.length === 0 && (_jsx(MenuItem, __assign({ value: "Select a value" }, { children: placeholder }), void 0)), options.map(function (_a, index) {
-                            var label = _a.label, value = _a.value, subText = _a.subText, Icon = _a.icon;
-                            return (_jsx(MenuItem, __assign({ value: value }, { children: _jsxs("div", __assign({ className: classNames === null || classNames === void 0 ? void 0 : classNames.optionContainer }, { children: [_jsxs("div", __assign({ className: classes.iconContianer }, { children: [Icon && _jsx(Icon, { className: classes.icon }, void 0), _jsx("p", __assign({ className: clx(classNames === null || classNames === void 0 ? void 0 : classNames.optionLabel, classes.optionLabel) }, { children: label }), void 0)] }), void 0), subText && (_jsx("p", __assign({ className: classNames === null || classNames === void 0 ? void 0 : classNames.optionSubText }, { children: subText }), void 0))] }), void 0) }), index));
-                        })] }), void 0) }), void 0), helperText, feedback && displayFeedback(feedback)] }), void 0));
+    var selectValue = useMemo(function () { return options === null || options === void 0 ? void 0 : options.find(function (option) { return option.value == value; }); }, [value]);
+    return (_jsxs("div", __assign({ className: clx(classes.root, className) }, { children: [_jsx("div", __assign({ className: classes.labelWrapper }, { children: !hideLabel &&
+                    label &&
+                    _jsxs("label", __assign({ htmlFor: name, className: classes.label }, { children: [label, required && _jsx("span", __assign({ className: classes.required }, { children: "*" }), void 0)] }), void 0) }), void 0), _jsx(Select, __assign({ styles: {
+                    control: function (baseStyles) { return (__assign(__assign({}, baseStyles), { minHeight: 34, height: 34, borderColor: theme.design.colors.primary700, fontFamily: theme.typography.fontFamily, fontWeight: 400, fontSize: theme.typography.fontSize, '&:hover': {
+                            borderColor: theme.design.colors.primary600,
+                        }, '&:focus': {
+                            borderColor: theme.design.colors.primary500,
+                        }, '&:hover:focus': {
+                            borderColor: theme.design.colors.primary500,
+                        } })); },
+                    indicatorsContainer: function (baseStyles) { return (__assign(__assign({}, baseStyles), { "> div": {
+                            padding: 6
+                        } })); },
+                    option: function (baseStyles, _a) {
+                        var isFocused = _a.isFocused, data = _a.data;
+                        return __assign(__assign({}, baseStyles), { color: theme.design.colors.primary100, fontSize: theme.typography.fontSize, backgroundColor: (data === null || data === void 0 ? void 0 : data.value) == (value === null || value === void 0 ? void 0 : value.value) && !isFocused ? theme.design.colors.primary500 : theme.design.colors.white });
+                    },
+                    menu: function (baseStyles) {
+                        return __assign(__assign({}, baseStyles), { borderColor: theme.design.colors.primary500, boxShadow: 'none', '&:hover': {
+                                borderColor: theme.design.colors.primary600,
+                            } });
+                    },
+                    menuList: function (baseStyles) {
+                        return __assign(__assign({}, baseStyles), { padding: 0, border: "1px solid ".concat(theme.design.colors.primary600), borderRadius: 4 });
+                    },
+                }, classNames: {
+                    control: function (_a) {
+                        var isDisabled = _a.isDisabled, isFocused = _a.isFocused;
+                        return clx(!isDisabled && isFocused && classes.control);
+                    },
+                    option: function (_a) {
+                        var isDisabled = _a.isDisabled, isFocused = _a.isFocused;
+                        return clx(!isDisabled && isFocused && classes.option);
+                    }
+                }, value: selectValue, options: options, onChange: handleChange }, props), void 0)] }), void 0));
 };

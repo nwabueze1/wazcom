@@ -71,9 +71,9 @@ export const useDispatchControls = () => {
                                 },
                                 className: classes.deliveryInputParent,
                                 value: formik.values.addressline1,
-                                error:
-                                    formik?.touched?.guest?.addressline1 &&
-                                    Boolean(formik?.errors?.guest?.addressline1),
+                                errors:
+                                    [{ message: formik?.touched?.guest?.addressline1 &&
+                                    Boolean(formik?.errors?.guest?.addressline1) }],
                                 feedback:
                                     formik?.touched?.guest?.addressline1 && formik?.errors?.guest?.addressline1
                                         ? { status: "error", text: formik.errors.addressline1 }
@@ -97,7 +97,7 @@ export const useDispatchControls = () => {
                                 },
                                 className: classes.deliveryInputParent,
                                 value: formik.values.city,
-                                error: formik?.touched?.city && Boolean(formik?.errors?.city),
+                                errors: [{ message: formik?.touched?.city && Boolean(formik?.errors?.city) }],
                                 feedback:
                                     formik?.touched?.city && formik?.errors?.city
                                         ? { status: "error", text: formik.errors.city }
@@ -121,7 +121,7 @@ export const useDispatchControls = () => {
                                 },
                                 className: classes.deliveryInputParent,
                                 value: formik.values.state,
-                                error: formik?.touched?.state && Boolean(formik?.errors?.state),
+                                errors: [{ message: formik?.touched?.state && Boolean(formik?.errors?.state) }],
                                 feedback:
                                     formik?.touched?.state && formik?.errors?.state
                                         ? { status: "error", text: formik.errors.state }
@@ -145,7 +145,7 @@ export const useDispatchControls = () => {
                                 },
                                 className: classes.deliveryInputParent,
                                 value: formik.values.error,
-                                error: formik?.touched?.country && Boolean(formik?.errors?.country),
+                                errors: [{ message: formik?.touched?.country && Boolean(formik?.errors?.country)}],
                                 feedback:
                                     formik?.touched?.country && formik?.errors?.country
                                         ? { status: "error", text: formik.errors.country }
@@ -169,8 +169,8 @@ export const useDispatchControls = () => {
                                 },
                                 className: classes.deliveryInputParent,
                                 value: formik.values.postcode,
-                                error:
-                                    formik?.touched?.postcode && Boolean(formik?.errors?.postcode),
+                                errors:
+                                    [{ message: formik?.touched?.postcode && Boolean(formik?.errors?.postcode) }],
                                 feedback:
                                     formik?.touched?.postcode && formik?.errors?.postcode
                                         ? { status: "error", text: formik.errors.postcode }

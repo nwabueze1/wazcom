@@ -8,3 +8,8 @@ export type SidebarListItemProps = {
         }[];
     }[];
 };
+
+export type SidebarLinksProps = {
+    index: number;
+    sectionIndex: number;
+}

@@ -14,6 +14,9 @@ export const InputGroup: FC<InputGroupProps> = ({
     feedback,
     label,
     icon,
+    size,
+    defaultValue,
+    value,
     ...props
 }) => {
     const classes = useInputGroupStyles();
@@ -36,10 +39,9 @@ export const InputGroup: FC<InputGroupProps> = ({
             )}
             <div className={clx(classes.inputGroup, classNames?.inputGroup)}>
                 <TextInput
-                    {...props}
-                    InputProps={{
-                        className: clx(classes.textInput, classNames?.textInput),
-                    }}
+                    // {...props}
+                    value={""}
+                    className={clx(classes.textInput, classNames?.textInput)}
                 />
                 <div className={clx(classes.text, classNames?.text, !icon && classes.textPosition)}>
                     {icon && <div className={clx(classes.icon, classNames?.groupIcon)}>{icon}</div>}

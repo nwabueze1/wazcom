@@ -38,7 +38,7 @@ export const DeleteMedia: React.FC<DeleteMediaProps> = ({
                             Are you sure you want to delete this image?
                         </p>
                         <div className={classes.deleteActions}>
-                            <Button onClick={handleDelete} loading={loading}>
+                            <Button onClick={handleDelete} isLoading={loading}>
                                 Delete
                             </Button>
                             <Button onClick={handleClose}>Cancel</Button>

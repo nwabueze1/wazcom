@@ -7,12 +7,12 @@ import Typography from "@mui/material/Typography";
 import Button from "@mui/material/Button";
 import KeyboardArrowLeft from "@mui/icons-material/KeyboardArrowLeft";
 import KeyboardArrowRight from "@mui/icons-material/KeyboardArrowRight";
-import SwipeableViews from "react-swipeable-views";
-import { autoPlay } from "react-swipeable-views-utils";
+// import SwipeableViews from "react-swipeable-views";
+// import { autoPlay } from "react-swipeable-views-utils";
 import { FC } from "react";
 import { CarouselProps } from "./types";
 
-const AutoPlaySwipeableViews = autoPlay(SwipeableViews);
+// const AutoPlaySwipeableViews = autoPlay<typeof SwipeableViews>(SwipeableViews);
 
 export const Carousel: FC<CarouselProps> = ({ className, items }) => {
     const theme = useTheme();
@@ -27,9 +27,9 @@ export const Carousel: FC<CarouselProps> = ({ className, items }) => {
         setActiveStep(activeStep - 1);
     }, [activeStep]);
 
-    const handleStepChange = (step: number) => {
-        setActiveStep(step);
-    };
+    // const handleStepChange = (step: number) => {
+    //     setActiveStep(step);
+    // };
 
     return (
         <Box sx={{ maxWidth: 400, flexGrow: 1 }} className={className}>
@@ -46,7 +46,7 @@ export const Carousel: FC<CarouselProps> = ({ className, items }) => {
             >
                 <Typography>{items[activeStep].label}</Typography>
             </Paper>
-            <AutoPlaySwipeableViews
+            {/* <AutoPlaySwipeableViews
                 axis={theme.direction === "rtl" ? "x-reverse" : "x"}
                 index={activeStep}
                 onChangeIndex={handleStepChange}
@@ -70,7 +70,7 @@ export const Carousel: FC<CarouselProps> = ({ className, items }) => {
                         ) : null}
                     </div>
                 ))}
-            </AutoPlaySwipeableViews>
+            </AutoPlaySwipeableViews> */}
             <MobileStepper
                 steps={maxSteps}
                 position="static"

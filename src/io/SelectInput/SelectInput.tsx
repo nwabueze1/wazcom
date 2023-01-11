@@ -1,92 +1,114 @@
-import React, { FC } from "react";
-import { MenuItem, Select, InputLabel } from "@mui/material";
-import { useSelectStyles } from "./styles";
-import { SelectInputProps } from "./types";
 import clx from "classnames";
-import { displayFeedback } from "../../helpers/io";
+import { FC, useMemo } from "react";
+import Select, { SingleValue } from 'react-select';
+import theme from "../../theme";
+import { useSelectStyles } from "./styles";
+import { SelectInputOptionsProps, SelectInputProps } from "./types";
 
 export const SelectInput: FC<SelectInputProps> = ({
-    className,
-    classNames,
-    options = [],
-    placeholder = "Select a value",
-    label,
-    helperText,
     onChange,
-    feedback,
+    options,
+    name,
+    className,
+    label,
+    value,
+    errors,
+    hideLabel = false,
+    info,
+    required = false,
     ...props
 }) => {
     const classes = useSelectStyles();
 
-    const handleChange = (
-        e: (Event & { target: { value: any; name: string } }) | React.ChangeEvent<HTMLInputElement>,
-    ) => {
-        const { name, value } = e.target;
-        onChange?.({ name, value });
+    const handleChange = (e: SingleValue<SelectInputOptionsProps>) => {
+        if ( onChange) {
+            onChange?.({ name: name ?? "", value: e?.value });
+        }
     };
 
-    const displayLabelFromValue = (value: any) => {
-        const option = options.filter((option) => option.value == value)?.[0];
-        if (!option) return <p></p>;
-        const Icon = option?.icon;
-
-        return (
-            <p className={clx(classNames?.optionLabel, classes.optionLabel)}>
-                {Icon && <Icon className={classes.icon} />}
-                {option?.label ?? ""}
-            </p>
-        );
-    };
+    const selectValue = useMemo(() => options?.find((option) => option.value == value), [value]);
 
     return (
-        <div className={clx(className, classes.root)}>
-            {label && (
-                <InputLabel
-                    className={(classNames?.label as string) ?? classes.label}
-                    htmlFor={props.name}
-                >
-                    {label} <p className={classes.required}>{props.required ? " *" : ""}</p>
-                </InputLabel>
-            )}
-            <div className={classes.selectContainer}>
-                <Select
-                    {...props}
-                    onChange={handleChange}
-                    className={clx(classNames?.selectInput, classes.select)}
-                    classes={
-                        classNames?.classes ? (classNames.classes as { [key: string]: string }) : {}
-                    }
-                    renderValue={(value: any) => (
-                        <MenuItem value={value}>{displayLabelFromValue(value)}</MenuItem>
-                    )}
-                >
-                    {options.length === 0 && (
-                        <MenuItem value="Select a value">{placeholder}</MenuItem>
-                    )}
-                    {options.map(({ label, value, subText, icon: Icon }, index: number) => (
-                        <MenuItem key={index} value={value}>
-                            <div className={classNames?.optionContainer as string}>
-                                <div className={classes.iconContianer}>
-                                    {Icon && <Icon className={classes.icon} />}
-                                    <p
-                                        className={clx(
-                                            classNames?.optionLabel,
-                                            classes.optionLabel,
-                                        )}
-                                    >
-                                        {label}
-                                    </p>
-                                </div>
-                                {subText && (
-                                    <p className={classNames?.optionSubText as string}>{subText}</p>
-                                )}
-                            </div>
-                        </MenuItem>
-                    ))}
-                </Select>
+        <div className={clx(classes.root, className)}>
+            <div className={classes.labelWrapper}>
+                { 
+                    !hideLabel && 
+                    label && 
+                    <label htmlFor={name} className={classes.label}>
+                        { label }
+                        { required && <span className={classes.required}>*</span> }
+                    </label>
+                }
             </div>
-            {helperText}
-            {feedback && displayFeedback(feedback)}
+            <Select
+                styles={{
+                    control: (baseStyles) => ({
+                        ...baseStyles,
+                        minHeight: 34,
+                        height: 34,
+                        borderColor: theme.design.colors.primary700,
+                        fontFamily: theme.typography.fontFamily,
+                        fontWeight: 400,
+                        fontSize: theme.typography.fontSize,
+                        '&:hover': {
+                            borderColor: theme.design.colors.primary600,
+                        },
+                        '&:focus': {
+                            borderColor: theme.design.colors.primary500,
+                        },
+                        '&:hover:focus': {
+                            borderColor: theme.design.colors.primary500,
+                        }
+                    }),
+                    indicatorsContainer: (baseStyles) => ({
+                        ...baseStyles,
+                        "> div": {
+                            padding: 6
+                        }
+                    }),
+                    option: (baseStyles, { isFocused, data }) => {
+                        return {
+                            ...baseStyles,
+                            color: theme.design.colors.primary100,
+                            fontSize: theme.typography.fontSize,
+                            backgroundColor: data?.value == value?.value && !isFocused ? theme.design.colors.primary500 : theme.design.colors.white
+                        };
+                    },
+                    menu: (baseStyles) => {
+                        return {
+                            ...baseStyles,
+                            borderColor: theme.design.colors.primary500,
+                            boxShadow: 'none',
+                            '&:hover': {
+                                borderColor: theme.design.colors.primary600,
+                            },
+                        };
+                    },
+                    menuList: (baseStyles) => {
+                        return {
+                            ...baseStyles,
+                            padding: 0,
+                            border: `1px solid ${theme.design.colors.primary600}`,
+                            borderRadius: 4
+                        };
+                    },
+                }}
+                classNames={{ 
+                    control: ({ isDisabled, isFocused }) => {
+                        return clx(
+                            !isDisabled && isFocused && classes.control
+                        )
+                    },
+                    option: ({ isDisabled, isFocused }) => 
+                        clx(
+                            !isDisabled && isFocused && classes.option
+                        ) 
+                }}
+                value={selectValue}
+                options={options}
+                onChange={handleChange}
+                {...props}
+            />
         </div>
-    );
+    )
 };

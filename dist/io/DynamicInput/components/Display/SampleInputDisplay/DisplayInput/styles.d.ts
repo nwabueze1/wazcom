@@ -1,1 +1,0 @@
-export declare const useDisplayInputStyles: (props?: any) => import("@mui/styles").ClassNameMap<"root" | "media" | "newRoot" | "displayIcon" | "displayInput" | "mediaIcon" | "mediaContainer" | "mediaCancelIcon">;

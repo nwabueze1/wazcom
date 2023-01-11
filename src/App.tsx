@@ -77,7 +77,7 @@ const navProps: any = {
     ],
 };
 
-const App: React.FC<Props> = () => {
+const App: React.FC = () => {
     const getMbmcBlocks = useGetMbmcBlocks();
 
     return (

@@ -6,6 +6,7 @@
     "skipLibCheck": true,
     "esModuleInterop": true,
     "allowSyntheticDefaultImports": true,
+    "strict": true,
     "forceConsistentCasingInFileNames": true,
     "noFallthroughCasesInSwitch": true,
     "module": "esnext",
@@ -16,18 +17,15 @@
     "jsx": "react-jsx",
     "baseUrl": "src",
     "typeRoots": ["./src/@types", "./node_modules/@types"],
-    "outDir": "lib/esm",
-    "declaration": true,
-    "suppressImplicitAnyIndexErrors": true,
-    "strict": true,
-    "downlevelIteration": true
+    "downlevelIteration": true,
+    "types": ["vite/client"]
   },
-  "include": ["src", "src/templates", "src/Browser", "src/Browser", "Browser"],
+  "include": ["src"],
   "exclude": [
     "lib",
     "./src/@types",
     "./src/stories",
     "./node_modules/@types",
-    "src/templates/blog/types/graphql-global-types.ts"
+    "src/types/graphql-global-types.ts"
   ]
 }

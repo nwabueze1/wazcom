@@ -18,9 +18,9 @@ export const Output: FC<OutputProps> = ({
     const displayInput = () => {
         switch (question.type) {
             case "short_answer":
-                return <TextInput type={"text"} placeholder={question.type} />;
+                return <TextInput name="short_answer" placeholder={question.type} />;
             case "paragraph":
-                return <TextInput type={"text"} placeholder={question.type} />;
+                return <TextInput name="paragraph" placeholder={question.type} />;
             case "dropdown":
                 return <InputDisplay question={question} setAnswers={setAnswers} />;
             case "checkboxes":
@@ -28,7 +28,7 @@ export const Output: FC<OutputProps> = ({
             case "multiple":
                 return <InputDisplay question={question} setAnswers={setAnswers} />;
             default:
-                return <TextInput type={"text"} />;
+                return <TextInput name={question.type} />;
         }
     };
 
@@ -58,7 +58,6 @@ export const Output: FC<OutputProps> = ({
                                 }}
                                 value={question.point}
                                 id="standard-basic"
-                                variant="standard"
                                 onChange={(event) => setPoint(parseFloat(event.value))}
                             />
                             <p>points</p>

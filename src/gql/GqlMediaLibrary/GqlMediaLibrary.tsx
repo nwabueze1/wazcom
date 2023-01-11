@@ -333,7 +333,6 @@ export const GqlMediaLibrary: FC<GqlMediaLibraryProps> = ({
                                     placeholder="Search"
                                     onChange={handleSearchChange}
                                     className={classes.search}
-                                    classNames={{ textInput: classes.textInput }}
                                 />
                                 <Search className={classes.searchIcon} />
                             </div>

@@ -1,1 +1,0 @@
-export declare const useCartStepsStyles: (props?: any) => import("@mui/styles").ClassNameMap<"root" | "step" | "lastStep" | "stepContainer" | "stepNum" | "stepName" | "activeStepName" | "activeStepNum" | "inactiveStepName" | "inactiveStepNum" | "completedStepNum" | "completedStepName" | "stepDivider">;

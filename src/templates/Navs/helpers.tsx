@@ -92,6 +92,7 @@ type LogoWrapperProps = {
     mode: "view" | "edit";
     handleClick?: (route: string) => void;
     identifier?: string;
+    children?: React.ReactNode;
 };
 
 const LogoWrapper: FC<LogoWrapperProps> = ({ url, mode, children, handleClick, identifier }) => {
