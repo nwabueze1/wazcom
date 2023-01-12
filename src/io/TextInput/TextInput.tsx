@@ -3,8 +3,7 @@ import { isNumber } from 'lodash';
 import { FC, cloneElement, isValidElement } from "react";
 import React, { ChangeEvent, KeyboardEvent, useCallback, useState } from "react";
 import { useTextStyles, useTextInputIconStyles } from "./styles";
-import { TextAreaProps, TextFieldProps } from "./types";
-import { InputIconProps } from "./types";
+import { TextAreaProps, TextFieldProps, InputIconProps } from "./types";
 
 /**
  * Text Input IO Component
@@ -142,7 +141,7 @@ export const TextInput: FC<TextFieldProps> = ({
             </div>
             {helperText && (<span className={clx(
                 classes.helperTextDefault,
-                isSuccess &&  classes.helperTextSuccess, 
+                isSuccess && classes.helperTextSuccess,
                 isError && classes.helperTextError
             )}>
                 {helperText}
@@ -202,13 +201,20 @@ const validateEmail = (email: string): boolean => {
 export const EmailInput: FC<Omit<TextFieldProps, "type">> = ({
     name,
     errors,
+    isSuccess,
+    isError,
     onChange,
+    onBlur,
+    onFocus,
+    onEnter,
     ...props
 }) => {
     let sErrors;
     const [emailErrors, setEmailErrors] = useState<{ message: string }[]>();
+    const [isValidEmail, setIsValidEmail] = useState<boolean>(false);
 
     const handleChange = useCallback(({ name, value }: { name: string, value: any }) => {
+        setIsValidEmail(() => validateEmail(value));
         (validateEmail(value) || value == "") ? setEmailErrors(undefined) : setEmailErrors([{ message: 'Invalid email !!' }]);
 
         if (onChange) {
@@ -221,7 +227,20 @@ export const EmailInput: FC<Omit<TextFieldProps, "type">> = ({
         sErrors = emailErrors ? (errors) ? [...errors, ...emailErrors] : emailErrors : undefined;
     }
 
-    return <TextInput type="email" name={name} errors={sErrors} onChange={handleChange} {...props} />
+    return (
+        <TextInput
+            type="email"
+            name={name}
+            isSuccess={isValidEmail || isSuccess}
+            isError={!!sErrors || isError}
+            errors={sErrors}
+            onChange={handleChange}
+            onFocus={onFocus}
+            onEnter={onEnter}
+            onBlur={onBlur}
+            {...props}
+        />
+    )
 }
 
 export const NumberInput: FC<Omit<TextFieldProps, "type">> = ({

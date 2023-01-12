@@ -11,6 +11,7 @@ export default [
         components: [
             { name: 'Forms', slug: 'forms' },
             { name: 'Text Input', slug: 'text-input' },
+            { name: 'Email Input', slug: 'email-input' },
             { name: 'Select Input', slug: 'select-input' },
             { name: 'Search Bar', slug: 'search-bar' },
             { name: 'File Upload', slug: 'file-upload' },

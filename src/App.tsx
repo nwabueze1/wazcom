@@ -9,6 +9,7 @@ import { Mbmc } from "templates/restaurant/Mbmc/Mbmc";
 import { Layout } from "view/Layout";
 import { Browser } from "view/Browser";
 import { TextInputView } from "view/TextInput";
+import { EmailInputView } from "view/EmailInput";
 import { Templates } from "view/Templates";
 import theme from "./theme";
 
@@ -91,6 +92,7 @@ const App: React.FC = () => {
                         <Switch>
                             <Route path="/" exact component={Browser} />
                             <Route path="/text-input" exact component={TextInputView} />
+                            <Route path="/email-input" exact component={EmailInputView} />
                             <Route path="/templates">
                                 <Templates />
                             </Route>

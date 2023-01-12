@@ -4,20 +4,7 @@ import { BsEye } from "react-icons/bs"
 
 import { TextInput } from "../../io";
 import { useTextInputStyles } from "./styles";
-import { TextInputViewProps } from "./types";
-
-export type InputDataProps = {
-    name: string;
-    label: string;
-    placeholder: string;
-    helperText: string;
-    isError?: boolean;
-    isSuccess?: boolean;
-    errors?: {
-        message?: string;
-    }[];
-};
-
+import { TextInputViewProps, InputDataProps } from "./types";
 
 export const TextInputView: FC<TextInputViewProps> = () => {
 
@@ -59,6 +46,9 @@ export const TextInputView: FC<TextInputViewProps> = () => {
                                 className={classes.input}
                                 label={item.label}
                                 placeholder={item.placeholder}
+                                isError={item.isError}
+                                isSuccess={item.isSuccess}
+                                helperText={item.helperText}
                                 onEnter={handleEnter}
                                 onFocus={handleFocus}
                                 onBlur={handleBlur}

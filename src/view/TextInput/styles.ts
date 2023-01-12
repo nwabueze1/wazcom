@@ -46,7 +46,7 @@ export const useTextInputStyles = makeStyles((theme: Theme) => ({
         flexDirection: 'column',
         justifyContent: 'center',
         alignItems: 'center',
-        gap: '40px'
+        gap: '70px'
     },
     inputs: {
         width: '100%',
@@ -64,5 +64,5 @@ export const useTextInputStyles = makeStyles((theme: Theme) => ({
         justifyContent: 'space-between',
         alignItems: 'center',
         padding: '0 10px'
-    }
+    },
 }));
