@@ -63,7 +63,7 @@ export const EmailInputView: FC<EmailInputViewProps> = () => {
                                 helperText={item.helperText}
                                 isError={item.isError}
                                 isSuccess={item.isSuccess}
-                                leftIcon={<MdOutlineMail width={16} />}
+                                rightIcon={<MdOutlineMail width={16} />}
                                 iconSpacing={2}
                                 onEnter={handleEnter}
                                 onFocus={handleFocus}

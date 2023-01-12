@@ -11,7 +11,7 @@ import { LayoutProps } from "./types";
 export const Layout: FC<LayoutProps> = ({ children }) => {
     const classes = useLayoutStyles();
     const [search, setSearch] = useState("");
-
+    
     return (
         <div className={classes.container}>
             <CssBaseline />

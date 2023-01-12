@@ -7,11 +7,8 @@ import { Valour } from "templates/Navs";
 import { Asta } from "templates/restaurant/Asta/Asta";
 import { Mbmc } from "templates/restaurant/Mbmc/Mbmc";
 import { Layout } from "view/Layout";
-import { Browser } from "view/Browser";
-import { TextInputView } from "view/TextInput";
-import { EmailInputView } from "view/EmailInput";
-import { Templates } from "view/Templates";
 import theme from "./theme";
+import routes from "./routes";
 
 declare module "@mui/styles/defaultTheme" {
     // eslint-disable-next-line @typescript-eslint/no-empty-interface
@@ -90,12 +87,14 @@ const App: React.FC = () => {
                 <BrowserRouter>
                     <Layout>
                         <Switch>
-                            <Route path="/" exact component={Browser} />
-                            <Route path="/text-input" exact component={TextInputView} />
-                            <Route path="/email-input" exact component={EmailInputView} />
-                            <Route path="/templates">
-                                <Templates />
-                            </Route>
+                            {routes.map((route, index) => (
+                                <Route
+                                    key={`__${index}__router`}
+                                    path={route.path}
+                                    exact={route.exact}
+                                    component={route.component}
+                                />
+                            ))}
                             {getMbmcBlocks()
                                 .sort(({ name: aName }, { name: bName }) =>
                                     aName.toLowerCase() < bName.toLowerCase()

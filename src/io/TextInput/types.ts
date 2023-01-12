@@ -16,6 +16,7 @@ export type TextBaseProps = CommonProps & {
     isFocused?: boolean;
     isError?: boolean;
     isSuccess?: boolean;
+    isValidated?: boolean;
     errors?: {
         message: string;
     }[];

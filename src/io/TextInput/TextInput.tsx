@@ -246,19 +246,28 @@ export const EmailInput: FC<Omit<TextFieldProps, "type">> = ({
 export const NumberInput: FC<Omit<TextFieldProps, "type">> = ({
     name,
     errors,
+    isValidated,
+    isError,
     onChange,
+    onBlur,
+    onFocus,
+    onEnter,
     showCC,
     ...props
 }) => {
     let sErrors;
+    const [isValidNumber, setIsValidNumber] = useState<boolean>(false);
     const [numberErrors, setNumberErrors] = useState<{ message: string }[]>();
-
+    
     const handleChange = useCallback(({ name, value }: { name: string, value: any }) => {
-        (isNumber(value) || value == "") ? setNumberErrors(undefined) : setNumberErrors([{ message: 'Invalid number !!' }]);
+        // (isValidated || isValidNumber) ? setIsValidNumber(() => isNumber(parseFloat(value)) : setIsValidNumber(() => false));
+        (isNumber(parseFloat(value)) || value == "") ? setNumberErrors(undefined) : setNumberErrors([{ message: 'Invalid number !!' }]);
 
         if (onChange) {
             onChange?.({ name, value });
         }
+
+        console.log('isValidated', isValidated)
     }, [errors, setNumberErrors]);
 
     if (errors || numberErrors) {
@@ -266,7 +275,24 @@ export const NumberInput: FC<Omit<TextFieldProps, "type">> = ({
         sErrors = numberErrors ? (errors) ? [...errors, ...numberErrors] : numberErrors : undefined;
     }
 
-    return <TextInput type="number" name={name} errors={sErrors} showCC={false} onChange={handleChange} {...props} />
+    console.log('S_ERRORS', sErrors)
+    console.log('isValidNumber', isValidNumber)
+
+    return (
+        <TextInput
+            type="number"
+            name={name}
+            errors={sErrors}
+            showCC={false}
+            isSuccess={isValidated ?? isValidNumber}
+            isError={!!sErrors || isError}
+            onChange={handleChange}
+            onFocus={onFocus}
+            onEnter={onEnter}
+            onBlur={onBlur}
+            {...props}
+        />
+    )
 }
 
 function InputIcon({ children, marginLeft, marginRight, ...rest }: InputIconProps) {

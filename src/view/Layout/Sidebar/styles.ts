@@ -1,6 +1,7 @@
-import { createUseStyles } from 'react-jss'
+import { Theme } from "@mui/material";
+import { makeStyles } from "@mui/styles";
 
-export const useSidebarListItemStyles = createUseStyles({
+export const useSidebarListItemStyles = makeStyles((theme: Theme) => ({
     root: {
         width: '100%',
         height: '100vh',
@@ -73,7 +74,18 @@ export const useSidebarListItemStyles = createUseStyles({
         color: '#010E05',
         display: 'flex',
         justifyContent: 'start',
-        alignItems: 'center'
+        alignItems: 'center',
+        '&:hover, &:focus, &:hover:focus': {
+            transition: 'all 0.5s ease',
+            animationDelay: '250ms',
+            background: '#010E05 0% 0% no-repeat padding-box',
+            color: '#FAFAFA',
+            fontWeight: 600,
+            fontSize: '12px',
+            borderRadius: '1px',
+            padding: '0 20px',
+            height: '33px',
+        }
 
 
     },
@@ -92,4 +104,4 @@ export const useSidebarListItemStyles = createUseStyles({
         fontWeight: 'normal',
         fontSize: '8px',
     }
-});
+}));

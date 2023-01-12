@@ -1,5 +1,5 @@
 import React, { FC, useState, useCallback } from "react";
-import { Link } from "react-router-dom";
+import { Link, useLocation } from "react-router-dom";
 import clx from "classnames";
 
 import { useSidebarListItemStyles } from "./styles";
@@ -7,8 +7,8 @@ import { SidebarListItemProps, SidebarLinksProps } from "./types";
 
 
 export const SidebarListItem: FC<SidebarListItemProps> = ({ sections }) => {
+    const location = useLocation();
     const [activeLink, setActiveLink] = useState<SidebarLinksProps>();
-
     const classes = useSidebarListItemStyles();
 
     const handleMouseEnter = useCallback(
@@ -30,17 +30,12 @@ export const SidebarListItem: FC<SidebarListItemProps> = ({ sections }) => {
                         <h5 className={classes.sectionLabel}>{section.label}</h5>
                         <ul className={classes.innerList}>
                             {section.components.map((component, index) => (
-                                <li key={index} className={classes.innerListItem}>
+                                <li key={`_${index}__sidebar`} className={classes.innerListItem}>
                                     <Link
                                         className={clx(
                                             classes.link,
-                                            activeLink &&
-                                            sectionIndex == activeLink?.rowIndex &&
-                                            index == activeLink?.index &&
-                                            classes.linkActive
+                                            (location.pathname.slice(1) === component.slug) && classes.linkActive
                                         )}
-                                        onMouseEnter={() => handleMouseEnter(sectionIndex, index)}
-                                        onMouseLeave={() => handleMouseLeave(sectionIndex, index)}
                                         to={component.slug}
                                     >
                                         {component.name}
