@@ -1,7 +1,8 @@
-import { createUseStyles } from 'react-jss'
+import makeStyles from "@mui/styles/makeStyles";
 import { ButtonIconStyleProps } from "./types";
 
-export const useButtonStyles = createUseStyles({
+
+export const useButtonStyles = makeStyles(() => ({
     root: {
         position: 'relative',
         backgroundColor: 'transparent'
@@ -27,9 +28,9 @@ export const useButtonStyles = createUseStyles({
         textDecoration: 'none',
         color: 'inherit',
     },
-});
+}));
 
-export const useButtonIconStyles = createUseStyles({
+export const useButtonIconStyles = makeStyles(() => ({
     root: {
         position: 'relative',
         backgroundColor: 'transparent',
@@ -41,4 +42,4 @@ export const useButtonIconStyles = createUseStyles({
         marginRight: `${props.marginRight}px`,
         marginLeft: `${props.marginLeft}px`,
     })
-});
+}));

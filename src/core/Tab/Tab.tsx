@@ -26,7 +26,7 @@ export const Tab: FC<TabProps> = ({ controls }) => {
 
         history.replace({ pathname, search: query.toString() });
     }, [activeTab, query]);
-    
+
     return (
         <div className={classes.root}>
             <div className={classes.tabs}>
@@ -35,15 +35,15 @@ export const Tab: FC<TabProps> = ({ controls }) => {
                         <div
                             key={index}
                             onClick={() => handleTabClick(name)}
-                            className={clx(classes.tab, (name == activeTab) && classes.tabIsActive )}
-                        >{ title }</div>
+                            className={clx(classes.tab, (name == activeTab) && classes.tabIsActive)}
+                        >{title}</div>
                     ))
                 }
             </div>
             <div className={classes.contentWrapper}>
                 {
                     controls.map(({ name, component }, index) => (
-                        <div className={clx(classes.content, (name == activeTab) && classes.contentIsActive )} key={index}>{ component }</div>
+                        <div className={clx(classes.content, (name == activeTab) && classes.contentIsActive)} key={index}>{component}</div>
                     ))
                 }
             </div>

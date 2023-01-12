@@ -1,0 +1,1 @@
+export declare const useMbmcBlock4Styles: (props?: any) => import("@mui/styles").ClassNameMap<"root" | "block6Container" | "block4Content" | "block4Heading" | "block4Description" | "block4CardContainer" | "block4CardFlame" | "block4CardFlameRight" | "block4Card" | "block4CardHeading" | "block4ActiveElement">;
