@@ -50,6 +50,12 @@ export const useTextStyles = makeStyles((theme: Theme) => ({
             borderColor: theme.design.colors.primary400,
         },
     }),
+    focusedInput: (props: TextBaseProps) => ({
+        borderColor: props?.borderColor ?? theme.design.colors.primary400,
+        '&:hover, &:focus, &:hover:focus, &:active': {
+            borderColor: theme.design.colors.primary400,
+        },
+    }),
     errorInput: () => ({
         borderColor: theme.design.colors.error,
         '&:hover, &:focus, &:hover:focus, &:active': {

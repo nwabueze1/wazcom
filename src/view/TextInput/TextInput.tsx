@@ -7,6 +7,7 @@ import { useTextInputStyles } from "./styles";
 import { TextInputViewProps } from "./types";
 
 export type InputDataProps = {
+    name: string;
     label: string;
     placeholder: string;
     helperText: string;
@@ -20,14 +21,24 @@ export type InputDataProps = {
 
 export const TextInputView: FC<TextInputViewProps> = () => {
 
+    const handleEnter = (payload: any) => {
+        console.log('onEnter', payload)
+    }
+    const handleFocus = (payload: any) => {
+        console.log('onFocus', payload)
+    }
+    const handleBlur = (payload: any) => {
+        console.log('onBlur', payload)
+    }
+
     const classes = useTextInputStyles();
 
     const inputData: InputDataProps[]  = [
-        { label: 'Default', placeholder: 'Placeholder', helperText: '' },
-        { label: 'Hover', placeholder: 'Placeholder', helperText: '' },
-        { label: 'Active', placeholder: 'Placeholder', helperText: '', isSuccess: true },
-        { label: 'Error', placeholder: 'Placeholder', helperText: 'Error Message', isError: true },
-        { label: 'Success', placeholder: 'Placeholder', helperText: 'Success Message', isSuccess: true },
+        { name: 'TextInput', label: 'Default', placeholder: 'Placeholder', helperText: '' },
+        { name: 'TextInput', label: 'Hover', placeholder: 'Placeholder', helperText: '' },
+        { name: 'TextInput',  label: 'Active', placeholder: 'Placeholder', helperText: '', isSuccess: true },
+        { name: 'TextInput',  label: 'Error', placeholder: 'Placeholder', helperText: 'Error Message', isError: true },
+        { name: 'TextInput', label: 'Success', placeholder: 'Placeholder', helperText: 'Success Message', isSuccess: true },
     ];
 
     return (
@@ -48,6 +59,9 @@ export const TextInputView: FC<TextInputViewProps> = () => {
                                 className={classes.input}
                                 label={item.label}
                                 placeholder={item.placeholder}
+                                onEnter={handleEnter}
+                                onFocus={handleFocus}
+                                onBlur={handleBlur}
                             />
                         ))}
                     </div>
@@ -61,6 +75,9 @@ export const TextInputView: FC<TextInputViewProps> = () => {
                                 helperText={item.helperText}
                                 isError={item.isError}
                                 isSuccess={item.isSuccess}
+                                onEnter={handleEnter}
+                                onFocus={handleFocus}
+                                onBlur={handleBlur}
                                 rightIcon={<BsEye width={16} />}
                             />
                         ))}

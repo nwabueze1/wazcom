@@ -13,7 +13,7 @@ export type TextBaseProps = CommonProps & {
     name?: string;
     required?: boolean;
     showCC?: boolean;
-    isActive?: boolean;
+    isFocused?: boolean;
     isError?: boolean;
     isSuccess?: boolean;
     errors?: {
@@ -36,6 +36,7 @@ export type TextBaseProps = CommonProps & {
 
     onFocus?: (...args: any[]) => void;
     onEnter?: (...args: any[]) => void;
+    onBlur?: (...args: any[]) => void;
     onChange?: (...args: any[]) => void;
 }
 
@@ -48,14 +49,7 @@ export type TextAreaProps = Omit<React.HTMLProps<HTMLTextAreaElement>, "onChange
     minRows?: number;
 }
 
-export type TextInputContentProps = {
-    leftIcon?: React.ReactNode | React.ReactElement | string;
-    rightIcon?: React.ReactNode | React.ReactElement | string;
-    iconSpacing?: string | number;
-    children?: React.ReactNode | React.ReactElement | string;
-};
-
-export type TextInputIconProps = {
+export type InputIconProps = {
     className?: object;
     children?: React.ReactNode | React.ReactElement | string;
     iconSpacing?: string | number;

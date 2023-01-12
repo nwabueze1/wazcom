@@ -4,7 +4,7 @@ import { FC, cloneElement, isValidElement } from "react";
 import React, { ChangeEvent, KeyboardEvent, useCallback, useState } from "react";
 import { useTextStyles, useTextInputIconStyles } from "./styles";
 import { TextAreaProps, TextFieldProps } from "./types";
-import { TextInputIconProps } from "./types";
+import { InputIconProps } from "./types";
 
 /**
  * Text Input IO Component
@@ -32,6 +32,7 @@ export const TextInput: FC<TextFieldProps> = ({
     onChange,
     onFocus,
     onEnter,
+    onBlur,
     required = false,
     showCC,
     type = "text",
@@ -48,7 +49,7 @@ export const TextInput: FC<TextFieldProps> = ({
     borderRadius,
     ...props
 }) => {
-    const [isActive, setIsActive] = React.useState<boolean>(false)
+    const [isFocused, setIsFocused] = React.useState<boolean>(false)
     const classes = useTextStyles({
         width,
         height,
@@ -58,35 +59,43 @@ export const TextInput: FC<TextFieldProps> = ({
         borderColor,
         borderStyle,
         borderRadius,
-        isActive,
-        isError,
-        isSuccess,
-        errors
     });
 
     const handleChange = (e: ChangeEvent<HTMLInputElement>) => {
         if (onChange) {
-            onChange?.({ name: name ?? "", value: e.target.value });
+            onChange?.({
+                name: (e.target as HTMLInputElement).name ?? '',
+                value: (e.target as HTMLInputElement).value ?? ''
+            });
         }
     };
     const handleOnKeyDown = (e: KeyboardEvent<HTMLInputElement>) => {
         if (onEnter && (e.key === 'Enter')) {
             onEnter?.({
                 name: (e.target as HTMLInputElement).name ?? '',
-                value: (e.target as HTMLInputElement).value
+                value: (e.target as HTMLInputElement).value ?? ''
             });
         }
     };
 
     const handleFocus = (e: ChangeEvent<HTMLInputElement>) => {
-        setIsActive(() => true);
+        setIsFocused(() => true);
         if (onFocus) {
-            onFocus?.({ name: e.target.name ?? '', value: e.target.value });
+            onFocus?.({
+                name: (e.target as HTMLInputElement).name ?? '',
+                value: (e.target as HTMLInputElement).value ?? ''
+            });
         }
     };
 
     const handleBlur = (e: ChangeEvent<HTMLInputElement>) => {
-        setIsActive(() => false);
+        setIsFocused(() => false);
+        if (onBlur) {
+            onBlur?.({
+                name: (e.target as HTMLInputElement).name ?? '',
+                value: (e.target as HTMLInputElement).value ?? ''
+            });
+        }
     };
 
     return (
@@ -104,13 +113,17 @@ export const TextInput: FC<TextFieldProps> = ({
                     {props?.value && props?.value.length > 0 && props?.value.length}
                 </span>)}
             </div>
-            <div className={clx(classes.baseInput, classes.defaultInput, (
-                isError || isSuccess ? (isSuccess ? classes.successInput : classes.errorInput) : classes.defaultInput
-            ))}>
+            <div className={clx(
+                classes.baseInput,
+                classes.defaultInput,
+                isSuccess && classes.successInput,
+                (isError || errors) && classes.errorInput,
+                isFocused && classes.focusedInput
+            )}>
                 {leftIcon && (
-                    <TextInputIcon marginRight={iconSpacing}>
+                    <InputIcon marginRight={iconSpacing}>
                         {leftIcon}
-                    </TextInputIcon>
+                    </InputIcon>
                 )}
                 <input
                     type={type}
@@ -122,31 +135,21 @@ export const TextInput: FC<TextFieldProps> = ({
                     {...props}
                 />
                 {rightIcon && (
-                    <TextInputIcon marginLeft={iconSpacing}>
+                    <InputIcon marginLeft={iconSpacing}>
                         {rightIcon}
-                    </TextInputIcon>
+                    </InputIcon>
                 )}
-            </div> {/** check and fix TODO */}
-            {helperText && (<span className={clx(classes.helperTextDefault, (
-                isSuccess ? classes.helperTextSuccess : classes.helperTextError
-            ))}>
+            </div>
+            {helperText && (<span className={clx(
+                classes.helperTextDefault,
+                isSuccess &&  classes.helperTextSuccess, 
+                isError && classes.helperTextError
+            )}>
                 {helperText}
             </span>)}
         </div>
     )
 };
-
-function TextInputIcon({ children, marginLeft, marginRight, ...rest }: TextInputIconProps) {
-    const classes = useTextInputIconStyles({ marginLeft, marginRight });
-    const _className = clx(classes.root, classes.iconSpacing);
-    const _children = isValidElement(children) ? cloneElement(children, {}) : children
-
-    return (
-        <span {...rest} className={_className}>
-            {_children}
-        </span>
-    )
-}
 
 export const TextArea: FC<Omit<TextAreaProps, "type">> = ({
     className,
@@ -245,4 +248,16 @@ export const NumberInput: FC<Omit<TextFieldProps, "type">> = ({
     }
 
     return <TextInput type="number" name={name} errors={sErrors} showCC={false} onChange={handleChange} {...props} />
+}
+
+function InputIcon({ children, marginLeft, marginRight, ...rest }: InputIconProps) {
+    const classes = useTextInputIconStyles({ marginLeft, marginRight });
+    const _className = clx(classes.root, classes.iconSpacing);
+    const _children = isValidElement(children) ? cloneElement(children, {}) : children
+
+    return (
+        <span {...rest} className={_className}>
+            {_children}
+        </span>
+    )
 }
