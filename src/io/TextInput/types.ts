@@ -33,6 +33,10 @@ export type TextBaseProps = CommonProps & {
     borderStyle?: string;
     borderColor?: string;
     borderRadius?: string | number;
+
+    onFocus?: (...args: any[]) => void;
+    onEnter?: (...args: any[]) => void;
+    onChange?: (...args: any[]) => void;
 }
 
 export type TextFieldProps = Omit<BaseInputProps, "onChange" | "onFocus" | "onEnter"> & TextBaseProps;

@@ -127,8 +127,8 @@ export const TextInput: FC<TextFieldProps> = ({
                     </TextInputIcon>
                 )}
             </div> {/** check and fix TODO */}
-            {helperText && (<span className={clx(isError || isSuccess && (
-                (isError && classes.helperTextError ), (isSuccess && classes.helperTextSuccess)
+            {helperText && (<span className={clx(classes.helperTextDefault, (
+                isSuccess ? classes.helperTextSuccess : classes.helperTextError
             ))}>
                 {helperText}
             </span>)}

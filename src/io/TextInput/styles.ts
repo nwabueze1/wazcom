@@ -81,23 +81,19 @@ export const useTextStyles = makeStyles((theme: Theme) => ({
         justifyContent: "space-between",
         width: '100%'
     },
-    helperTextSuccess: {
+    helperTextDefault: {
         display: 'flex',
         width: '100%',
         letterSpacing: 0,
-        color: theme.design.colors.waz_primaryColor100,
         fontSize: 8,
         textAlign: 'left',
         marginTop: 4
     },
+    helperTextSuccess: {
+        color: theme.design.colors.waz_primaryColor100,
+    },
     helperTextError: {
-        display: 'flex',
-        width: '100%',
-        letterSpacing: 0,
         color: theme.design.colors.error,
-        fontSize: 8,
-        textAlign: 'left',
-        marginTop: 4
     }
 }));
 

@@ -10,8 +10,8 @@ export type InputDataProps = {
     label: string;
     placeholder: string;
     helperText: string;
-    isError: boolean;
-    isSuccess: boolean;
+    isError?: boolean;
+    isSuccess?: boolean;
     errors?: {
         message?: string;
     }[];
@@ -25,7 +25,7 @@ export const TextInputView: FC<TextInputViewProps> = () => {
     const inputData: InputDataProps[]  = [
         { label: 'Default', placeholder: 'Placeholder', helperText: '' },
         { label: 'Hover', placeholder: 'Placeholder', helperText: '' },
-        { label: 'Active', placeholder: 'Placeholder', helperText: '', },
+        { label: 'Active', placeholder: 'Placeholder', helperText: '', isSuccess: true },
         { label: 'Error', placeholder: 'Placeholder', helperText: 'Error Message', isError: true },
         { label: 'Success', placeholder: 'Placeholder', helperText: 'Success Message', isSuccess: true },
     ];
