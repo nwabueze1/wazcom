@@ -17,6 +17,7 @@ import {
 } from "../core";
 import { BiLink } from "react-icons/bi";
 import { FaEdit } from "react-icons/fa";
+import { AiOutlineEye } from "react-icons/ai";
 
 import {
     CheckBoxInput,
@@ -88,7 +89,7 @@ export const stories: ComponentPropType[] = [
         name: "TextArea",
         component: TextArea,
         props: {
-            label: <p style={{ color: 'red' }}>Description</p>,
+            label: <p style={{ color: "red" }}>Description</p>,
             name: "description",
             onChange: ({ name, value }: { name: string; value: string }) => {
                 {
@@ -405,6 +406,10 @@ export const stories: ComponentPropType[] = [
                     name: "email",
                     label: "email",
                 },
+                {
+                    name: "impression",
+                    label: <AiOutlineEye fontSize="20px" />,
+                },
             ],
             value: [],
             emptyTableState: {
@@ -412,6 +417,7 @@ export const stories: ComponentPropType[] = [
                     src: "https://sytbuildr.s3.eu-west-2.amazonaws.com/images/Posts/emptypostimg.svg",
                 },
                 text: "You have not created any blog post yet. Click below to create post.",
+                header: "Welcome to Post",
                 button: {
                     display: true,
                     text: "Create New Menu",
@@ -508,7 +514,7 @@ export const stories: ComponentPropType[] = [
             apiKey: "",
             error: true,
             feedback: { text: "Tariq is a weirdo", status: "error" },
-            client: createApolloClient('https://ofambegbe-ambrosia.wazobia.uk/graphql'),
+            client: createApolloClient("https://ofambegbe-ambrosia.wazobia.uk/graphql"),
         },
     },
     {
