@@ -1,6 +1,5 @@
 import { FC } from "react";
 import CssBaseline from "@mui/material/CssBaseline";
-import { BsEye } from "react-icons/bs"
 
 import { TextArea } from "../../io";
 import { useTextInputStyles } from "./styles";
