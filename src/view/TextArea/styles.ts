@@ -5,10 +5,12 @@ export const useTextInputStyles = makeStyles((theme: Theme) => ({
     root: {
         padding: theme.spacing(2),
         margin: 0,
-        height: '100vh'
+        height: '100vh',
+        overflow: 'scroll'
     },
     container: {
         display: 'flex',
+        flexWrap: 'wrap',
         flexDirection: 'column',
         justifyContent: 'start',
         gap: theme.spacing(5)
@@ -46,20 +48,33 @@ export const useTextInputStyles = makeStyles((theme: Theme) => ({
         flexDirection: 'column',
         justifyContent: 'center',
         alignItems: 'center',
-        gap: '70px'
+        gap: '70px',
+    },
+    sections: {
+        width: '100%',
+        display: 'flex',
+        flexDirection: 'column',
+        alignItems: 'start',
+        justifyContent: 'start'
     },
     inputs: {
         width: '100%',
         display: 'flex',
-        justifyContent: 'space-between',
-        alignItems: 'center',
-        gap: theme.spacing(4),
+        flexWrap: 'wrap',
+        justifyContent: 'start',
+        alignItems: 'start',
+        gap: 50,
         margin: 0,
-        padding: 0
+        padding: 0,
+    },
+    inputsHeader:{
+        fontWeight: 700,
+        fontSize: 16,
+        letterSpacing: 0,
+        lineSpacing: 24,
+        color: theme.design.colors.waz_black
     },
     input: {
-        width: '100%',
-        height: '34px',
         display: 'flex',
         justifyContent: 'space-between',
         alignItems: 'center',

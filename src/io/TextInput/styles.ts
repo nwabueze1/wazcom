@@ -41,6 +41,25 @@ export const useTextStyles = makeStyles((theme: Theme) => ({
             borderColor: theme.design.colors.primary400,
         },
     }),
+    baseTextArea: (props: TextBaseProps) => ({
+        display: 'flex',
+        padding: 10,
+        outline: 0,
+        background: `${props.background ?? theme.design.colors.white100} 0% 0% no-repeat padding-box`,
+        color: props.color ?? theme.design.colors.waz_primaryBlack,
+        borderWidth: props?.borderWidth ?? 1,
+        borderStyle: props?.borderStyle ?? 'solid',
+        borderRadius: props?.borderRadius ?? 4,
+        fontWeight: 400,
+        fontSize: theme.typography.fontSize,
+        borderColor: props?.borderColor ?? theme.design.colors.primary700,
+        '&:hover': {
+            borderColor: theme.design.colors.primary500,
+        },
+        '&:focus, &:hover:focus, &:active': {
+            borderColor: theme.design.colors.primary400,
+        },
+    }),
     defaultInput: (props: TextBaseProps) => ({
         borderColor: props?.borderColor ?? theme.design.colors.primary700,
         '&:hover': {
@@ -78,8 +97,16 @@ export const useTextStyles = makeStyles((theme: Theme) => ({
         fontWeight: 400,
         fontSize: theme.typography.fontSize,
     },
+    textAreaContainer: {
+        padding: 0,
+        margin: 0,
+        border: 0,
+        width: '100%'
+    },
     textAreaInput: {
-        height: "auto"
+        padding: 0,
+        margin: 0,
+        border: 0
     },
     wordCount: {},
     labelWrapper: {
