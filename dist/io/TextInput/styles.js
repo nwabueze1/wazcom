@@ -3,14 +3,13 @@ export var useTextStyles = makeStyles(function (theme) { return ({
     root: {
         display: "flex",
         flexDirection: "column",
-        position: "relative",
-        marginBottom: theme.spacing(2)
+        justifyContent: 'start',
     },
     label: {
         fontSize: theme.typography.fontSize - 2,
         display: "flex",
-        marginBottom: 8,
-        color: "#333333",
+        marginBottom: 4,
+        color: theme.design.colors.waz_grey,
         alignItems: "center",
         letterSpacing: "0.13px",
         textTransform: "uppercase",
@@ -19,37 +18,71 @@ export var useTextStyles = makeStyles(function (theme) { return ({
         color: theme.design.colors.waz_dangerColor100,
         margin: theme.spacing(-.5, .5, 0, .5),
     },
+    baseInput: function (props) {
+        var _a, _b, _c, _d, _e, _f, _g, _h;
+        return ({
+            display: 'flex',
+            padding: '8px 12px',
+            height: (_a = props.height) !== null && _a !== void 0 ? _a : 34,
+            width: (_b = props.width) !== null && _b !== void 0 ? _b : '100%',
+            background: "".concat((_c = props.background) !== null && _c !== void 0 ? _c : theme.design.colors.white100, " 0% 0% no-repeat padding-box"),
+            color: (_d = props.color) !== null && _d !== void 0 ? _d : theme.design.colors.waz_primaryBlack,
+            borderWidth: (_e = props === null || props === void 0 ? void 0 : props.borderWidth) !== null && _e !== void 0 ? _e : 1,
+            borderStyle: (_f = props === null || props === void 0 ? void 0 : props.borderStyle) !== null && _f !== void 0 ? _f : 'solid',
+            borderRadius: (_g = props === null || props === void 0 ? void 0 : props.borderRadius) !== null && _g !== void 0 ? _g : 4,
+            fontWeight: 400,
+            fontSize: theme.typography.fontSize,
+            borderColor: (_h = props === null || props === void 0 ? void 0 : props.borderColor) !== null && _h !== void 0 ? _h : theme.design.colors.primary700,
+            '&:hover': {
+                borderColor: theme.design.colors.primary500,
+            },
+            '&:focus, &:hover:focus, &:active': {
+                borderColor: theme.design.colors.primary400,
+            },
+        });
+    },
+    defaultInput: function (props) {
+        var _a;
+        return ({
+            borderColor: (_a = props === null || props === void 0 ? void 0 : props.borderColor) !== null && _a !== void 0 ? _a : theme.design.colors.primary700,
+            '&:hover': {
+                borderColor: theme.design.colors.primary500,
+            },
+            '&:focus, &:hover:focus, &:active': {
+                borderColor: theme.design.colors.primary400,
+            },
+        });
+    },
+    focusedInput: function (props) {
+        var _a;
+        return ({
+            borderColor: (_a = props === null || props === void 0 ? void 0 : props.borderColor) !== null && _a !== void 0 ? _a : theme.design.colors.primary400,
+            '&:hover, &:focus, &:hover:focus, &:active': {
+                borderColor: theme.design.colors.primary400,
+            },
+        });
+    },
+    errorInput: function () { return ({
+        borderColor: theme.design.colors.error,
+        '&:hover, &:focus, &:hover:focus, &:active': {
+            borderColor: theme.design.colors.error,
+        },
+    }); },
+    successInput: function () { return ({
+        borderColor: theme.design.colors.waz_primaryColor100,
+        '&:hover, &:focus, &:hover:focus, &:active': {
+            borderColor: theme.design.colors.waz_primaryColor100,
+        },
+    }); },
     input: {
-        height: 34,
-        padding: '8px 12px',
-        background: "".concat(theme.design.colors.white100, " 0% 0% no-repeat padding-box"),
-        border: "1px solid ".concat(theme.design.colors.primary700),
-        borderRadius: 4,
+        display: 'flex',
+        width: '100%',
+        background: 'transparent',
+        border: 0,
         outline: "none",
         fontFamily: theme.typography.fontFamily,
         fontWeight: 400,
         fontSize: theme.typography.fontSize,
-        '&:hover': {
-            borderColor: theme.design.colors.primary600,
-        },
-        '&:focus': {
-            borderColor: theme.design.colors.primary500,
-        },
-        '&:hover:focus': {
-            borderColor: theme.design.colors.primary500,
-        },
-    },
-    error: {
-        border: "1px solid ".concat(theme.design.colors.error),
-        '&:hover': {
-            borderColor: theme.design.colors.error,
-        },
-        '&:focus': {
-            borderColor: theme.design.colors.error,
-        },
-        '&:hover:focus': {
-            borderColor: theme.design.colors.error,
-        },
     },
     textAreaInput: {
         height: "auto"
@@ -57,7 +90,22 @@ export var useTextStyles = makeStyles(function (theme) { return ({
     wordCount: {},
     labelWrapper: {
         display: 'flex',
-        justifyContent: "space-between"
+        justifyContent: "space-between",
+        width: '100%'
+    },
+    helperTextDefault: {
+        display: 'flex',
+        width: '100%',
+        letterSpacing: 0,
+        fontSize: 8,
+        textAlign: 'left',
+        marginTop: 4
+    },
+    helperTextSuccess: {
+        color: theme.design.colors.waz_primaryColor100,
+    },
+    helperTextError: {
+        color: theme.design.colors.error,
     }
 }); });
 export var useTextInputIconStyles = makeStyles(function (theme) { return ({

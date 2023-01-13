@@ -1,5 +1,5 @@
 import { BlockLayout, HivedeckService, MbmcCommonProps } from "templates/mbmc/types";
-export declare type MbmcBlock7Props = MbmcCommonProps & {
+export type MbmcBlock7Props = MbmcCommonProps & {
     layout?: BlockLayout;
     heading: string;
     description?: string;

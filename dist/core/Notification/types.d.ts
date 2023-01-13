@@ -1,6 +1,6 @@
 import { CommonProps } from "../../types";
 /** !!-- Remember to update the interface name !! */
-export declare type NotificationProps = CommonProps & {
+export type NotificationProps = CommonProps & {
     status: string;
     title: string;
     message?: string;

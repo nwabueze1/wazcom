@@ -1,3 +1,3 @@
-export declare type SummaryProps = {
+export type SummaryProps = {
     handleCheckout: () => void;
 };

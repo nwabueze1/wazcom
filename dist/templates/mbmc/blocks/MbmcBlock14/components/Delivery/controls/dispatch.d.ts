@@ -1,6 +1,6 @@
 import { FormControls } from "../../../../../components/Form";
 import { TUpdateGuestVariables, TCreateAddressVariables } from "../hooks";
-export declare const useDispatchConfig: () => (onSubmission?: (() => void) | undefined) => {
+export declare const useDispatchConfig: () => (onSubmission?: () => void) => {
     initialValues: {
         addressline1: string;
         city: string;

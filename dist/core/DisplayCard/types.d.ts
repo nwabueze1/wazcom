@@ -1,5 +1,5 @@
 import { CommonProps } from "../../types";
-export declare type DisplayCardProps = CommonProps & {
+export type DisplayCardProps = CommonProps & {
     total: number;
     title: string;
     color?: string;

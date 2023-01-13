@@ -1,5 +1,5 @@
 import { QuestionOption } from "../../../../types";
-export declare type DisplayInputProps = {
+export type DisplayInputProps = {
     handleRemove: () => void;
     handleChange: (value: QuestionOption) => void;
     onFocus: () => void;

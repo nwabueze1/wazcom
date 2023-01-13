@@ -1,5 +1,5 @@
 import clx from 'classnames';
-import { isNumber } from 'lodash';
+import { isNumber, isBoolean } from 'lodash';
 import { FC, cloneElement, isValidElement } from "react";
 import React, { ChangeEvent, KeyboardEvent, useCallback, useState } from "react";
 import { useTextStyles, useTextInputIconStyles } from "./styles";
@@ -258,33 +258,33 @@ export const NumberInput: FC<Omit<TextFieldProps, "type">> = ({
     let sErrors;
     const [isValidNumber, setIsValidNumber] = useState<boolean>(false);
     const [numberErrors, setNumberErrors] = useState<{ message: string }[]>();
-    
+
     const handleChange = useCallback(({ name, value }: { name: string, value: any }) => {
-        // (isValidated || isValidNumber) ? setIsValidNumber(() => isNumber(parseFloat(value)) : setIsValidNumber(() => false));
         (isNumber(parseFloat(value)) || value == "") ? setNumberErrors(undefined) : setNumberErrors([{ message: 'Invalid number !!' }]);
 
         if (onChange) {
             onChange?.({ name, value });
         }
 
-        console.log('isValidated', isValidated)
-    }, [errors, setNumberErrors]);
+        if (isBoolean(isValidated)) {
+            (isValidated && isNumber(parseFloat(value))) ? setIsValidNumber(true) : setIsValidNumber(false);
+        } else {
+            isNumber(parseFloat(value)) ? setIsValidNumber(true) : setIsValidNumber(false);
+        }
+    }, [errors, setNumberErrors, isValidated]);
 
     if (errors || numberErrors) {
         sErrors = errors ? errors : undefined;
         sErrors = numberErrors ? (errors) ? [...errors, ...numberErrors] : numberErrors : undefined;
     }
 
-    console.log('S_ERRORS', sErrors)
-    console.log('isValidNumber', isValidNumber)
-
     return (
         <TextInput
             type="number"
             name={name}
             errors={sErrors}
-            showCC={false}
-            isSuccess={isValidated ?? isValidNumber}
+            showCC={showCC}
+            isSuccess={isValidNumber}
             isError={!!sErrors || isError}
             onChange={handleChange}
             onFocus={onFocus}

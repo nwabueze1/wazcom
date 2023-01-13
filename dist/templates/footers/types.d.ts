@@ -1,4 +1,4 @@
-export declare type FooterProps = {
+export type FooterProps = {
     mode?: "view" | "edit";
     handleClick?: (route: string) => void;
     logo?: {
@@ -12,13 +12,13 @@ export declare type FooterProps = {
         url: string;
     }[];
 };
-export declare type SocialType = "FACEBOOK" | "TWITTER" | "YOUTUBE" | "LINKEDIN" | "INSTAGRAM";
-export declare type TLink = {
+export type SocialType = "FACEBOOK" | "TWITTER" | "YOUTUBE" | "LINKEDIN" | "INSTAGRAM";
+export type TLink = {
     text: string;
     url: string;
     icon?: string;
 };
-export declare type TFooterSection = {
+export type TFooterSection = {
     name: string;
     links: TLink[];
 };

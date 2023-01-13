@@ -10,6 +10,7 @@ import { TextAreaProps, TextFieldProps } from "./types";
  * -- helperText
  * -- info
  */
+/** TODO --  fix components success and error state */
 export declare const TextInput: FC<TextFieldProps>;
 export declare const TextArea: FC<Omit<TextAreaProps, "type">>;
 export declare const EmailInput: FC<Omit<TextFieldProps, "type">>;

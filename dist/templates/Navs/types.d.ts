@@ -1,4 +1,4 @@
-export declare type NavProps = {
+export type NavProps = {
     mode?: "view" | "edit";
     handleClick?: (route: string) => void;
     logo?: {
@@ -25,4 +25,4 @@ export declare type NavProps = {
         url: string;
     }[];
 };
-export declare type SocialType = "FACEBOOK" | "TWITTER";
+export type SocialType = "FACEBOOK" | "TWITTER";

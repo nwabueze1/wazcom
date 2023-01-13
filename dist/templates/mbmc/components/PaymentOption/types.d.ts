@@ -1,4 +1,4 @@
-export declare type PaymentOptionProps = {
+export type PaymentOptionProps = {
     img?: string;
     title: string;
     value: string;

@@ -1,7 +1,7 @@
 import { ApolloClient, NormalizedCacheObject, DocumentNode } from "@apollo/client";
 import { CommonProps } from "../../types";
-export declare type GqlMediaLibraryProps = CommonProps & GqlMediaSelectorConfigProps;
-export declare type GqlMediaSelectorConfigProps = {
+export type GqlMediaLibraryProps = CommonProps & GqlMediaSelectorConfigProps;
+export type GqlMediaSelectorConfigProps = {
     config: {
         client: ApolloClient<NormalizedCacheObject>;
         query: {
@@ -26,7 +26,7 @@ export declare type GqlMediaSelectorConfigProps = {
     };
     handleClose?: () => void;
 };
-export declare type Image = {
+export type Image = {
     __typename: string;
     id: string;
     url: string;
@@ -35,4 +35,4 @@ export declare type Image = {
     alternative_text?: string;
     created_at: string;
 };
-export declare type ImageUpdate = Partial<Pick<Image, "id" | "title" | "alternative_text" | "caption">>;
+export type ImageUpdate = Partial<Pick<Image, "id" | "title" | "alternative_text" | "caption">>;

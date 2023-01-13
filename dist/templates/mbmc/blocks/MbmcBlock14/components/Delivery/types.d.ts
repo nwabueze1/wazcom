@@ -1,3 +1,3 @@
-export declare type DeliveryProps = {
+export type DeliveryProps = {
     onSubmission: () => void;
 };

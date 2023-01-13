@@ -1,6 +1,6 @@
 import { GqlMediaSelectorConfigProps } from "../../gql";
 import { CommonProps } from "../../types";
-export declare type GqlMediaLibrarySelectorProps = CommonProps & GqlMediaSelectorConfigProps & {
+export type GqlMediaLibrarySelectorProps = CommonProps & GqlMediaSelectorConfigProps & {
     label?: string;
     displayLibrary?: boolean;
     verbose?: boolean;

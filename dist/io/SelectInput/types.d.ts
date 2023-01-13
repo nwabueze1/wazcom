@@ -1,7 +1,7 @@
 import { CommonProps } from "../../types";
 import type StateManagedSelect from "react-select";
 import React from "react";
-export declare type SelectInputOptionsProps = {
+export type SelectInputOptionsProps = {
     label: string;
     value: string;
     subText?: string;
@@ -9,7 +9,7 @@ export declare type SelectInputOptionsProps = {
         [key: string]: any;
     }>;
 };
-declare type SelectProps = CommonProps & {
+type SelectProps = CommonProps & {
     helperText?: string;
     hideLabel?: boolean;
     info?: string;
@@ -23,5 +23,5 @@ declare type SelectProps = CommonProps & {
     value?: any;
     options?: SelectInputOptionsProps[];
 };
-export declare type SelectInputProps = Omit<StateManagedSelect, "onChange"> & SelectProps;
+export type SelectInputProps = Omit<StateManagedSelect, "onChange"> & SelectProps;
 export {};

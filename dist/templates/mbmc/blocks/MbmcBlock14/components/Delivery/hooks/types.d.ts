@@ -1,10 +1,10 @@
-export declare type TUpdateGuestVariables = {
+export type TUpdateGuestVariables = {
     email: string;
     firstname: string;
     lastname: string;
     phone: string;
 };
-export declare type TCreateAddressVariables = {
+export type TCreateAddressVariables = {
     addressline1: string;
     city: string;
     state: string;

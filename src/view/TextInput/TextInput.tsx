@@ -1,5 +1,4 @@
 import { FC } from "react";
-import CssBaseline from "@mui/material/CssBaseline";
 import { BsEye } from "react-icons/bs"
 
 import { TextInput } from "../../io";
@@ -30,7 +29,6 @@ export const TextInputView: FC<TextInputViewProps> = () => {
 
     return (
         <div className={classes.root}>
-            <CssBaseline />
             <div className={classes.container}>
                 <div className={classes.header}>
                     <h1 className={classes.title}>Text Input</h1>

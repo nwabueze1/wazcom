@@ -1,4 +1,4 @@
-export declare type InputProps = {
+export type InputProps = {
     handleSelect: () => void;
     index: number;
     value: string;

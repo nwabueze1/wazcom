@@ -1,6 +1,6 @@
 import { FormControls } from "../../../../../components/Form";
 import { TUpdateGuestVariables } from "../hooks";
-export declare const usePickupConfig: () => (onSubmission?: (() => void) | undefined) => {
+export declare const usePickupConfig: () => (onSubmission?: () => void) => {
     initialValues: {
         email: string;
         firstname: string;
