@@ -1,4 +1,4 @@
-import { FC } from "react";
+import { FC, useState } from "react";
 import CssBaseline from "@mui/material/CssBaseline";
 
 import { TextArea } from "../../io";
@@ -6,6 +6,7 @@ import { useTextInputStyles } from "./styles";
 import { TextAreaViewProps, InputDataProps } from "./types";
 
 export const TextAreaView: FC<TextAreaViewProps> = () => {
+    const [value, setValue] = useState<string>();
 
     const handleEnter = (payload: any) => {
         console.log('onEnter', payload)
@@ -15,6 +16,11 @@ export const TextAreaView: FC<TextAreaViewProps> = () => {
     }
     const handleBlur = (payload: any) => {
         console.log('onBlur', payload)
+    }
+
+    const handleChange = (payload: any) => {
+        console.log('VALUE', payload)
+        setValue(payload.value)
     }
 
     const classes = useTextInputStyles();
@@ -72,6 +78,9 @@ export const TextAreaView: FC<TextAreaViewProps> = () => {
                                     onEnter={handleEnter}
                                     onFocus={handleFocus}
                                     onBlur={handleBlur}
+                                    onChange={handleChange}
+                                    showCC={true}
+                                    value={value}
                                 />
                             ))}
                         </div>

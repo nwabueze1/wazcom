@@ -5,42 +5,49 @@ import { TextInputView } from "view/TextInput";
 import { EmailInputView } from "view/EmailInput";
 import { TextAreaView } from "view/TextArea";
 import { NumberInputView } from "view/NumberInput";
+import { ButtonView } from "view/Button";
 
 export default [
     {
-        name: 'Browser',
+        key: 'Browser',
         path: "/",
         exact: true,
         component: Browser
     },
     {
-        name: 'Templates',
+        key: 'Templates',
         path: "/",
         exact: true,
         component: Templates
     },
     {
-        name: 'TextInputView',
+        key: 'TextInputView',
         path: "/text-input",
         exact: true,
         component: TextInputView
     },
     {
-        name: 'EmailInputView',
+        key: 'EmailInputView',
         path: "/email-input",
         exact: true,
         component: EmailInputView
     },
     {
-        name: 'NumberInputView',
+        key: 'NumberInputView',
         path: "/number-input",
         exact: true,
         component: NumberInputView
     },
     {
-        name: 'TextAreaView',
+        key: 'TextAreaView',
         path: "/textarea-input",
         exact: true,
         component: TextAreaView
+    },
+    {
+        key: 'ButtonView',
+        path: "/buttons",
+        exact: true,
+        component: ButtonView
     },
 ];

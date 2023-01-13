@@ -1,7 +1,7 @@
 import React from "react";
 import { useAddMediaStyles } from "./styles";
 import { CloseSharp } from "@mui/icons-material";
-import { Button } from "../../../../core/Button";
+import { Button } from "../../../../core/Button_old";
 import { Box } from "@mui/material";
 import { DialogueProps } from "./types";
 import clx from "classnames";

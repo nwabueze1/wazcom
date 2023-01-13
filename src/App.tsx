@@ -87,13 +87,8 @@ const App: React.FC = () => {
                 <BrowserRouter>
                     <Layout>
                         <Switch>
-                            {routes.map((route, index) => (
-                                <Route
-                                    key={`__${index}__router`}
-                                    path={route.path}
-                                    exact={route.exact}
-                                    component={route.component}
-                                />
+                            {routes.map(({ key, path, exact, component}) => (
+                                <Route key={key} path={path} exact={exact} component={component} />
                             ))}
                             {getMbmcBlocks()
                                 .sort(({ name: aName }, { name: bName }) =>
