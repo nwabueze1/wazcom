@@ -16,13 +16,21 @@ export type ButtonProps = {
     borderRadius?: string | number;  
       
     onClick?: () => void
+    onFocus?: () => void
+    onBur?: () => void
 };
 
 export type ButtonContentProps = {
     leftIcon?: ReactElement;
     rightIcon?: ReactElement;
     iconSpacing?: string | number;
+    width?: string | number;
+    height?: string | number;
     children?: ReactNode;
+    variant?: string;
+    isLoading?: boolean;
+    isDisabled?: boolean;
+    isFocused?: boolean;
 };
 
 export type ButtonIconProps = {
@@ -47,4 +55,7 @@ export type ButtonStyleProps = {
     width?: string | number;
     height?: string | number;
     borderRadius?: string | number;
+    isDisabled?: boolean;
+    isLoading?: boolean;
+    isFocused?: boolean;
 }

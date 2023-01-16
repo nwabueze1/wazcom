@@ -21,7 +21,10 @@ export const ButtonView: FC<ButtonViewProps> = () => {
                 <div className={classes.inputContainer}>
                     <div className={classes.inputs}>
                         <Button
-                            // variant={'contained'}
+                            variant={'contained'}
+                            isDisabled={false}
+                            isLoading={true}
+                            rightIcon={<BsEye />}
                         >
                             Button
                         </Button>

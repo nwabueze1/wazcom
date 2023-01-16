@@ -1,14 +1,14 @@
 import { cloneElement, isValidElement } from 'react';
 import clx from 'classnames';
-import { useButtonIconStyles } from "./styles";
+import { RiLoader4Line } from "react-icons/ri";
 import { ButtonProps, ButtonIconProps, ButtonContentProps } from "./types";
-import { useButtonStyles } from "./styles";
+import { useButtonStyles, useButtonSpinnerStyles, useButtonIconStyles } from "./styles";
 
 export const Button = ({
     width,
     height,
     className,
-    variant = "outlined",
+    variant = "contained",
     children,   
     isDisabled,
     isLoading,
@@ -21,41 +21,58 @@ export const Button = ({
     const classes = useButtonStyles({
         variant,
         width,
-        height
+        height,
+        isDisabled,
+        isLoading,
     });
 
+    const _className = clx(
+        classes.root, classes.button,
+        variant === 'contained' ? classes.contained :
+            variant === 'outlined' ? classes.outlined : classes.default,
+        (isDisabled && !isLoading) && classes.disabled,
+        isLoading && classes.loading
+    );
+
     return (
-        
-        <ButtonContent {...{
-            rightIcon,
-            leftIcon,
-            className,
-            children,
-            iconSpacing
-        }}>
             <button
-                disabled={isDisabled}
-                className={clx(
-                    classes.root, classes.button,
-                    variant === 'contained' ? classes.contained :
-                    variant === 'outlined' ? classes.outlined : '',
-                    isDisabled && classes.disabled
-                )}
+                disabled={isDisabled || isLoading}
+                className={_className}
                 {...props}
             >
-                {children}
+                <ButtonContent {...{
+                    rightIcon,
+                    leftIcon,
+                    className,
+                    children,
+                    iconSpacing,
+                    variant,
+                    isLoading,
+                }} />
             </button>
-        </ButtonContent>
+       
         
     );
 };
 
-function ButtonContent({ leftIcon, rightIcon, children, iconSpacing }: ButtonContentProps) {
+function ButtonContent({
+    leftIcon,
+    rightIcon,
+    children,
+    iconSpacing,
+    variant,
+    isLoading,
+}: ButtonContentProps) {
+
     return (
         <>
             {leftIcon && (<ButtonIcon marginRight={iconSpacing}>{leftIcon}</ButtonIcon>)}
             {children}
-            {rightIcon && (<ButtonIcon marginLeft={iconSpacing}>{rightIcon}</ButtonIcon>)}
+            {(rightIcon || isLoading) && (
+                <ButtonIcon marginLeft={iconSpacing}>
+                    {isLoading ? <ButtonSpinner variant={variant} /> : rightIcon}
+                </ButtonIcon>
+            )}
         </>
     )
 }
@@ -69,5 +86,19 @@ function ButtonIcon({ children, marginLeft, marginRight, ...rest }: ButtonIconPr
         <span {...rest} className={_className}>
             {_children}
         </span>
+    )
+}
+
+function ButtonSpinner({ variant }: ButtonContentProps) {
+    const classes = useButtonSpinnerStyles({ variant });
+    const _className = clx(
+        variant === 'contained' ? classes.contained :
+            variant === 'outlined' ? classes.outlined : classes.default
+    );
+    
+    return (
+        <div className={classes.root}>
+            <RiLoader4Line className={_className} />
+        </div>
     )
 }
