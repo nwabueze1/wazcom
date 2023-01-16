@@ -1,20 +1,24 @@
 import { makeStyles } from "@mui/styles";
 import { BaseTheme } from "theme";
 
+import { TabStyleProps } from "./types"
+
 export const useTabStyles = makeStyles((theme: BaseTheme) => ({
-    root: {
+    root: (props: TabStyleProps) => ({
         display: 'flex',
+        flexDirection: props.variant === 'vertical' ? 'column' : 'row',
+        // justifyContent: props.variant === 'vertical' ? 'start' : '',
         fontSize: theme.typography.fontSize,
         width: "100%"
-    },
-    tabs: {
-        minWidth: 200,
-        minHeight: 300,
+    }),
+    tabs: (props: TabStyleProps) => ({
+        minWidth: props.variant === 'vertical' ? '100%' : 200,
+        minHeight: props.variant === 'vertical' ? '100%' : 300,
         padding: theme.spacing(2),
         background: theme.design.colors.white,
         marginRight: theme.spacing(2),
         borderRadius: theme.spacing(.5)
-    },
+    }),
     tab: {
         border: `1px solid ${theme.design.colors.primary700}`,
         padding: theme.spacing(1.7, 2),

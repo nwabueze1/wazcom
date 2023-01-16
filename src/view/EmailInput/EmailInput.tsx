@@ -1,8 +1,8 @@
 import { FC } from "react";
 import CssBaseline from "@mui/material/CssBaseline";
 import { MdOutlineMail } from "react-icons/md"
+import { EmailInput } from "io";
 
-import { EmailInput } from "../../io";
 import { useEmailInputStyles } from "./styles";
 import { EmailInputViewProps, InputDataProps } from "./types";
 

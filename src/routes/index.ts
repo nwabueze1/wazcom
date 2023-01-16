@@ -6,6 +6,7 @@ import { EmailInputView } from "view/EmailInput";
 import { TextAreaView } from "view/TextArea";
 import { NumberInputView } from "view/NumberInput";
 import { ButtonView } from "view/Button";
+import { TabsView } from "view/Tab";
 
 export default [
     {
@@ -49,5 +50,11 @@ export default [
         path: "/buttons",
         exact: true,
         component: ButtonView
+    },
+    {
+        key: 'TabsView',
+        path: "/tabs",
+        exact: true,
+        component: TabsView
     },
 ];
