@@ -17,6 +17,7 @@ export default [
             { name: 'Rating & Ranking', slug: 'rating-ranking' },
             { name: 'Selectors', slug: 'selectors' },
             { name: 'Pickers', slug: 'pickers' },
+            { name: 'Create Post', slug: 'create-post' },
         ],
     },
     {

@@ -1,3 +1,3 @@
-export * from "./RichTextInput";
+export * from "./CreatePostInput";
 export * from "./styles";
 export * from "./types";
