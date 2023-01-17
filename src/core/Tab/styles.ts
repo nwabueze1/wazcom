@@ -12,8 +12,8 @@ export const useTabStyles = makeStyles((theme: BaseTheme) => ({
         width: "100%"
     }),
     tabs: (props: TabStyleProps) => ({
-        width: props.width ?? '100%',
-        height: props.height ?? '100%',
+        width: props.variant === 'vertical' ? (props.width ?? '100%') : 200,
+        height: props.variant === 'vertical' ? (props.height ?? '100%') : 300,
         minWidth: props.variant === 'vertical' ? '100%' : 200,
         minHeight: props.variant === 'vertical' ? '100%' : 300,
         display: props.variant === 'vertical' ? 'flex' : '',
@@ -34,7 +34,7 @@ export const useTabStyles = makeStyles((theme: BaseTheme) => ({
         borderWidth: props.borderWidth ?? 1,
         borderStyle: props.borderStyle ?? 'solid',
         borderColor: props.variant === 'vertical' ? (props.borderColor ?? '#F7FCF8') : theme.design.colors.primary700,
-        borderRadius: props.borderRadius ?? theme.spacing(.5),
+        borderRadius: props.variant === 'vertical' ? (props.borderRadius ?? 14) : theme.spacing(.5),
         padding: theme.spacing(1.7, 2),
         marginBottom: theme.spacing(1),
         fontWeight: theme.typography.fontWeightMedium,
