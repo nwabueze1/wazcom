@@ -6,8 +6,23 @@ import { useTabStyles } from './styles';
 import { TabProps } from './types';
 
 
-export const Tab: FC<TabProps> = ({ controls, variant }) => {
-    const classes = useTabStyles({ variant });
+export const Tab: FC<TabProps> = ({
+    controls,
+    variant,
+    backgroundColor,
+    borderWidth,
+    borderColor,
+    borderStyle,
+    borderRadius,
+}) => {
+    const classes = useTabStyles({
+        variant,
+        backgroundColor,
+        borderWidth,
+        borderColor,
+        borderStyle,
+        borderRadius,
+    });
     const [activeTab, setActiveTab] = useState<string>();
     const { pathname, search } = useLocation();
     const history = useHistory();

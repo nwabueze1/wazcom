@@ -15,7 +15,12 @@ export const TabsView: FC<TabsProps> = () => {
 
     return (
         <div className={classes.container}>
-            <Tab controls={controls} />
+            <Tab
+                controls={controls}
+                variant="vertical"
+                borderRadius={14}
+                height={20}
+            />
         </div>
     );
 };
