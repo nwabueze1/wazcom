@@ -112,6 +112,8 @@ export const theme: any = {
         colors: {
             grey: "#333333",
             error: "#c32611",
+            info: "#4961E3",
+            warning: "#E0BC24",
 
             primary100: "#0A7227",
             primary200: "#23803D",

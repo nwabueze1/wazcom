@@ -1,26 +1,12 @@
 import { FC } from "react";
-import { useNotificationStyles } from "./style";
 import clx from "classnames";
-import { NotificationProps } from "./types";
-import CloseIcon from "@mui/icons-material/Close";
-import { Typography } from "@mui/material";
-// import Icon from "../../images/Vector.png";
+import { BsCheckCircle }from "react-icons/bs";
+import { GrFormClose }from "react-icons/gr";
+import { RiErrorWarningLine } from "react-icons/ri";
+import { AiOutlineInfoCircle } from "react-icons/ai";
 
-const getStatusClassName = (
-    classes: ReturnType<typeof useNotificationStyles>,
-    status: NotificationProps["status"],
-) => {
-    switch (status) {
-        case "success":
-            return classes.success;
-        case "failed":
-            return classes.failed;
-        case "plain":
-            return classes.plain;
-        default:
-            return classes.success;
-    }
-};
+import { useNotificationStyles } from "./style";
+import { NotificationProps, NotificationIconProps } from "./types";
 
 export const Notification: FC<NotificationProps> = ({
     className,
@@ -29,23 +15,40 @@ export const Notification: FC<NotificationProps> = ({
     message,
     onClose,
 }) => {
-    const classes = useNotificationStyles();
-    const StatusClassName = getStatusClassName(classes, status);
+    const classes = useNotificationStyles({ status });
 
     return (
-        <div className={clx(classes.card, className)}>
-            <div className={clx(classes.notificationCard, status !== "success" && classes.plainBg)}>
-                <div className={clx(StatusClassName, classes.notificationHead)}>
-                    <Typography className={classes.report}>{title}</Typography>
-                    <CloseIcon
-                        onClick={() => {
-                            onClose?.();
-                        }}
-                        className={classes.cancel}
-                    />
+        <div className={clx(classes.root, className,
+            status === 'success' ? classes.success :
+            status === 'warning' ? classes.warning :
+            status === 'info' ? classes.info :
+            status === 'error' ? classes.error : ''
+        )}>
+            <div className={classes.container}>
+                <div className={classes.main}>
+                    <div className={classes.header}>
+                        <NotificationIcon status={status} />
+                        <h3 className={classes.title}>{title}</h3>
+                    </div>
+                    <div className={classes.closeContainer} onClick={onClose}>
+                        <GrFormClose width={24} height={24} />
+                    </div>
                 </div>
-                {message && <Typography className={classes.notificationText}>{message}</Typography>}
+                {message && (<div className={classes.message}>{message}</div>)}
             </div>
         </div>
     );
+};
+
+export const NotificationIcon: FC<NotificationIconProps> = ({ status }) => {
+    const classes = useNotificationStyles({ status });
+
+    return (
+        <>
+            {status === 'success' && <BsCheckCircle className={clx(classes.icon, classes.success)} />}
+            {status === 'warning' && <RiErrorWarningLine className={clx(classes.icon, classes.warning)} />}
+            {status === 'info' && <AiOutlineInfoCircle className={clx(classes.icon, classes.info)} />}
+            {status === 'error' && <AiOutlineInfoCircle className={clx(classes.icon, classes.error)} />}
+        </>
+    )
 };

@@ -7,6 +7,7 @@ import { TextAreaView } from "view/TextArea";
 import { NumberInputView } from "view/NumberInput";
 import { ButtonView } from "view/Button";
 import { TabsView } from "view/Tab";
+import { NotificationView } from "view/Notification";
 
 export default [
     {
@@ -56,5 +57,11 @@ export default [
         path: "/tabs",
         exact: true,
         component: TabsView
+    },
+    {
+        key: 'NotificationView',
+        path: "/notification",
+        exact: true,
+        component: NotificationView
     },
 ];
