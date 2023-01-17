@@ -36,12 +36,6 @@ export const CreatePostInput: React.FC<CreatePostInputProps> = ({
     const classes = useCreatePostInputStyles();
 
     const [mediaOpen, setMediaOpen] = useState<boolean>(false);
-    const [image, setImage] = useState<ImageProperties>({
-        url: "",
-        title: "",
-        width: { desktop: "100", tablet: "100", mobile: "100" },
-        height: { desktop: "100", tablet: "100", mobile: "100" },
-    });
 
     const editorRef = useRef<Editor | any>();
 
@@ -49,10 +43,10 @@ export const CreatePostInput: React.FC<CreatePostInputProps> = ({
         onChange?.({ name: name as string, value: content });
     };
 
-    const handleSelectImage = (value: ImageProperties) => {
-        setMediaOpen(false);
-        setImage({ ...image, url: value?.url, title: value?.title });
-    };
+    // const handleSelectImage = (value: ImageProperties) => {
+    //     setMediaOpen(false);
+    //     setImage({ ...image, url: value?.url, title: value?.title });
+    // };
 
     const handleMediaLibraryClose = () => {
         setMediaOpen(false);
