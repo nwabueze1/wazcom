@@ -6,6 +6,11 @@ export type NotificationProps = CommonProps & {
     status: string;
     title: string;
     message?: string;
+    toastList?: any;
+    position?: string;
+    autoDelete?: boolean;
+    autoDeleteTime?: number;
+
     onClose?: () => void;
 };
 

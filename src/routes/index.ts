@@ -9,6 +9,8 @@ import { ButtonView } from "view/Button";
 import { TabsView } from "view/Tab";
 import { NotificationView } from "view/Notification";
 
+import {TestNotify} from "view/Notify/Toast";
+
 export default [
     {
         key: 'Browser',
@@ -63,5 +65,13 @@ export default [
         path: "/notification",
         exact: true,
         component: NotificationView
+    },
+
+
+    {
+        key: 'TestView',
+        path: "/test-notify",
+        exact: true,
+        component: TestNotify
     },
 ];
