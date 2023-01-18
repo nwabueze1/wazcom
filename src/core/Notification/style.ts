@@ -3,17 +3,17 @@ import { BaseTheme } from "theme";
 
 /** !!-- Remember to update the function name !! */
 export const useNotificationStyles = makeStyles((theme: BaseTheme) => ({
-    root: (props) => ({
+    root: {
         display: 'flex',
         width: 432,
         minHeight: 52,
-        background: theme.design.background.waz_white,
+        background: theme.design.colors.waz_white,
         boxShadow: '0px 3px 6px #00000029',
         borderRadius: 4,
         borderLeftWidth: 5,
         borderLeftStyle: 'solid',
-        padding: 15
-    }),
+        padding: 15,
+    },
     container: {
         width: '100%',
         display: 'flex',
@@ -79,77 +79,78 @@ export const useNotificationStyles = makeStyles((theme: BaseTheme) => ({
     warning: {
         color: theme.design.colors.warning,
         borderLeftColor: theme.design.colors.warning
-    }
+    },
+    notificationContainer: {
+        fontSize: 14,
+        boxSizing: 'border-box',
+        position: 'fixed',
+        zIndex: 999999,
+        display: 'flex',
+        flexDirection: 'column',
+        gap: 5,
+    },
+    topRight: {
+        top: 12,
+        right: 12,
+        transition: 'transform .6s ease-in-out',
+        animation: '$toastInRight .7s'
+    },
+    bottomRight: {
+        bottom: 12,
+        right: 12,
+        transition: 'transform .6s ease-in-out',
+        animation: '$toastInRight .7s'
+    },
+    topLeft: {
+        top: 12,
+        left: 12,
+        transition: 'transform .6s ease-in',
+        animation: '$toastInLeft .7s'
+    },
+    bottomLeft: {
+        bottom: 12,
+        left: 12,
+        transition: 'transform .6s ease-in',
+        animation: '$toastInLeft .7s'
+    },
+    notification: {
+        background: '#FFFFFF',
+        transition: '.3s ease',
+        position: 'relative',
+        pointerEvents: 'auto',
+        overflow: 'hidden',
+        margin: '0 0 6px',
+        padding: 30,
+        marginBottom: 15,
+        width: 300,
+        maxHeight: 100,
+        borderRadius: 3,
+        boxShadow: '0 0 10px #999999',
+        color: '#000000',
+        opacity: .9,
+        backgroundPosition: 15,
+        backgroundRepeat: 'no-repeat',
 
-    // notificationCard: {
-    //     borderRadius: "10px",
-    // },
-    // card: {
-    //     width: "28%",
-    //     marginRight: theme.spacing(5),
-    // },
-    // notificationHead: {
-    //     display: "flex",
-    //     alignItems: "center",
-    //     backgroundColor: theme.design.colors.success,
-    //     padding: theme.spacing(0.5, 0.5),
-    //     marginBottom: theme.spacing(1),
-    //     borderRadius: "8px",
-    // },
-    // success: {
-    //     backgroundColor: theme.design.colors.success,
-    //     opacity: 0.6,
-    // },
-    // failed: {
-    //     backgroundColor: theme.design.colors.red40,
-    // },
-    // plainBg: {
-    //     backgroundColor: theme.design.colors.gray20,
-    // },
-    // plain: {
-    //     backgroundColor: theme.design.colors.gray40,
-    // },
-    // cancel: {
-    //     backgroundColor: theme.design.colors.waz_white,
-    //     color: theme.design.colors.waz_dangerColor300,
-    //     marginLeft: "auto",
-    //     borderRadius: "50%",
-    //     cursor: "pointer",
-    // },
-    // alarm: {
-    //     color: theme.design.colors.gray80,
-    // },
-    // report: {
-    //     color: theme.design.colors.gray80,
-    //     fontFamily: theme.typography.fontFamily,
-    //     fontSize: theme.typography.fontSize + 3,
-    //     padding: theme.spacing(1),
-    // },
-    // notificationInfo: {
-    //     padding: theme.spacing(1),
-    // },
-    // notificationHeading: {
-    //     color: theme.design.colors.waz_black,
-    //     fontWeight: "bold",
-    //     fontFamily: theme.typography.fontFamily,
-    //     fontSize: "14px",
-    //     marginLeft: theme.spacing(1),
-    //     fontStyle: "normal",
-    // },
-    // notificationText: {
-    //     color: theme.design.colors.gray80,
-    //     fontFamily: theme.typography.fontFamily,
-    //     fontSize: theme.typography.fontSize + 1,
-    //     fontStyle: "normal",
-    //     marginLeft: theme.spacing(1),
-    //     padding: theme.spacing(1, 0, 2, 0),
-    // },
-    // status: {
-    //     color: theme.design.colors.gray80,
-    //     fontFamily: theme.typography.fontFamily,
-    //     fontWeight: "bold",
-    //     fontStyle: "normal",
-    //     fontSize: "16px",
-    //     marginTop: theme.spacing(2),
-    // },
+        '&:hover': {
+            boxShadow: ' 0 0 12px #FFFFFF',
+            opacity: 1,
+            cursor: 'pointer'
+        }
+    },
+    "@keyframes toastInRight": {
+        "from": {
+            transform: 'translateX(100%)'
+        },
+        "to": {
+            transform: 'translateX(0)'
+        }
+    },
+    "@keyframes toastInLeft": {
+        "from": {
+            transform: 'translateX(-100%)'
+        },
+        "to": {
+            transform: 'translateX(0)'
+        }
+    }
 }));

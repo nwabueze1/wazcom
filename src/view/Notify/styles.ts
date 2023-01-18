@@ -6,31 +6,49 @@ export const useNotificationStyles = makeStyles((theme: Theme) => ({
         fontSize: 14,
         boxSizing: 'border-box',
         position: 'fixed',
-        zIndex: 999999
+        zIndex: 999999,
+
+        '& button': {
+            position: 'relative',
+            right: '-.3em',
+            top: '-.3em',
+            float: 'right',
+            fontWeight: 700,
+            color: '#FFFFFF',
+            outline: 'none',
+            border: 'none',
+            textShadow: '0 1px 0 #FFFFFF',
+            opacity: .8,
+            lineHeight: 1,
+            fontSize: 16,
+            padding: 0,
+            cursor: 'pointer',
+            background: '0 0',
+        }
     },
     topRight: {
         top: 12,
         right: 12,
         transition: 'transform .6s ease-in-out',
-        animation: 'toast-in-right .7s'
+        animation: '$toastInRight .7s'
     },
     bottomRight: {
         bottom: 12,
         right: 12,
         transition: 'transform .6s ease-in-out',
-        animation: 'toast-in-right .7s'
+        animation: '$toastInRight .7s'
     },
     topLeft: {
         top: 12,
         left: 12,
         transition: 'transform .6s ease-in',
-        animation: 'toast-in-left .7s'
+        animation: '$toastInLeft .7s'
     },
     bottomLeft: {
         bottom: 12,
         left: 12,
         transition: 'transform .6s ease-in',
-        animation: 'toast-in-left .7s'
+        animation: '$toastInLeft .7s'
     },
     notification: {
         background: '#FFFFFF',
@@ -73,63 +91,36 @@ export const useNotificationStyles = makeStyles((theme: Theme) => ({
         overflow: 'hidden',
         textOverflow: 'ellipsis',
         whiteSpace: 'nowrap'
+    },
+    notificationImage: {
+        float: 'left',
+        marginRight: 15,
+
+        '&.img': {
+            width: 30,
+            height: 30
+        }
+    },
+    toast: {
+        height: 50,
+        width: 365,
+        color: '#FFFFFF',
+        padding: '20px 15px 10px 10px'
+    },
+    "@keyframes toastInRight": {
+        "from": {
+            transform: 'translateX(100%)'
+        },
+        "to": {
+            transform: 'translateX(0)'
+        }
+    },
+    "@keyframes toastInLeft": {
+        "from": {
+            transform: 'translateX(-100%)'
+        },
+        "to": {
+            transform: 'translateX(0)'
+        }
     }
-
-        .notification - image {
-            float: left;
-            margin - right: 15px;
-}
-
-.notification - image img {
-    width: 30px;
-    height: 30px;
-}
-
-.toast {
-    height: 50px;
-    width: 365px;
-    color: #fff;
-    padding: 20px 15px 10px 10px;
-}
-
-.notification - container button {
-    position: relative;
-    right: -.3em;
-    top: -.3em;
-    float: right;
-    font - weight: 700;
-    color: #fff;
-    outline: none;
-    border: none;
-    text - shadow: 0 1px 0 #fff;
-    opacity: .8;
-    line - height: 1;
-    font - size: 16px;
-    padding: 0;
-    cursor: pointer;
-    background: 0 0;
-    border: 0
-}
-
-@keyframes toast -in -right {
-    from {
-        transform: translateX(100 %);
-
-    }
-
-    to {
-        transform: translateX(0);
-    }
-}
-
-@keyframes toast -in -left {
-    from {
-        transform: translateX(-100 %);
-
-    }
-
-    to {
-        transform: translateX(0);
-    }
-}
 }));

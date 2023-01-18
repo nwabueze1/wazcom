@@ -1,47 +1,81 @@
-import { FC } from "react";
+import { FC, useState, useEffect } from 'react';
 import clx from "classnames";
-import { BsCheckCircle }from "react-icons/bs";
-import { GrFormClose }from "react-icons/gr";
+import { BsCheckCircle } from "react-icons/bs";
+import { GrFormClose } from "react-icons/gr";
 import { RiErrorWarningLine } from "react-icons/ri";
 import { AiOutlineInfoCircle } from "react-icons/ai";
 
+import { ToastProps, ToastListProps, NotificationIconProps } from './types';
 import { useNotificationStyles } from "./style";
-import { NotificationProps, NotificationIconProps } from "./types";
 
-export const Notification: FC<NotificationProps> = ({
-    className,
-    status,
-    title,
-    message,
-    onClose,
-}) => {
-    const classes = useNotificationStyles({ status });
+export function Notification ({ list, position, autoDelete, duration }: ToastProps) {
+    const [toasts, setToasts] = useState(list);
+    const classes = useNotificationStyles();
+
+    const _position = position === 'top-right' ? classes.topRight :
+        position === 'bottom-right' ? classes.bottomRight :
+            position === 'top-left' ? classes.topLeft :
+                position === 'bottom-left' ? classes.bottomLeft : ''
+        
+    useEffect(() => {
+        setToasts([...list]);
+    }, [list]);
+
+    useEffect(() => {
+        const interval = setInterval(() => {
+            if (autoDelete && list.length && toasts.length) {
+                onDeleteToast(list[0].id);
+            }
+        }, duration);
+
+        return () => {
+            clearInterval(interval);
+        }
+
+    }, [list, autoDelete, duration, toasts]);
+
+    const onDeleteToast = (id: string) => {
+        const listItemIndex = toasts.findIndex((e: any) => e.id === id);
+        const toastListItem = list.findIndex((e: any) => e.id === id);
+        toasts.splice(listItemIndex, 1);
+        list.splice(toastListItem, 1);
+        setToasts([...toasts]);
+    }
 
     return (
-        <div className={clx(classes.root, className,
-            status === 'success' ? classes.success :
-            status === 'warning' ? classes.warning :
-            status === 'info' ? classes.info :
-            status === 'error' ? classes.error : ''
-        )}>
-            <div className={classes.container}>
-                <div className={classes.main}>
-                    <div className={classes.header}>
-                        <NotificationIcon status={status} />
-                        <h3 className={classes.title}>{title}</h3>
+        <>
+            <div className={clx(classes.notificationContainer, _position)}>
+                {toasts.map((toast: ToastListProps) => (
+                    <div
+                        key={toast.id}
+                        className={clx(classes.root, _position,
+                            toast.status === 'success' ? classes.success :
+                                toast.status === 'warning' ? classes.warning :
+                                    toast.status === 'info' ? classes.info :
+                                        toast.status === 'error' ? classes.error : ''
+                        )}>
+                        <div className={classes.container}>
+                            <div className={classes.main}>
+                                <div className={classes.header}>
+                                    <NotificationIcon status={toast.status} />
+                                    <h3 className={classes.title}>{toast.title}</h3>
+                                </div>
+                                <div className={classes.closeContainer} onClick={() => onDeleteToast(toast.id)}>
+                                    <GrFormClose width={24} height={24} />
+                                </div>
+                            </div>
+                            {toast.message && (<div className={classes.message}>{toast.message}</div>)}
+                        </div>
                     </div>
-                    <div className={classes.closeContainer} onClick={onClose}>
-                        <GrFormClose width={24} height={24} />
-                    </div>
-                </div>
-                {message && (<div className={classes.message}>{message}</div>)}
+                ))
+                }
             </div>
-        </div>
+        </>
     );
 };
 
-export const NotificationIcon: FC<NotificationIconProps> = ({ status }) => {
-    const classes = useNotificationStyles({ status });
+const NotificationIcon: FC<NotificationIconProps> = ({ status }) => {
+    const classes = useNotificationStyles();
 
     return (
         <>

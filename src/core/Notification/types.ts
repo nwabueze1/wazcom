@@ -15,5 +15,26 @@ export type NotificationProps = CommonProps & {
 };
 
 export type NotificationIconProps = {
-    status: string;
+    status?: string;
+};
+
+export type ToastProps = {
+    list?: any,
+    position?: string;
+    autoDelete?: boolean;
+    duration?: number;
+    className?: string;
+    status?: string;
+    message?: string;
+    title?: string;
+};
+
+export type ToastListProps = {
+    id: string;
+    title?: string;
+    description?: string;
+    message?: string;
+    backgroundColor?: string;
+    icon?: string;
+    status?: string;
 };

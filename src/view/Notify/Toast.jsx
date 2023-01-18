@@ -1,7 +1,7 @@
 import { useState, useEffect } from 'react';
-import PropTypes from 'prop-types';
+import clx from "classnames";
 
-import './Toast.css';
+import { useNotificationStyles } from './styles';
 
 const TOAST_PROPERTIES = [
     {
@@ -35,9 +35,14 @@ export const TestNotify = () => {
     );
 }
 
-const Toast = props => {
-    const { toastList, position, autoDelete, autoDeleteTime } = props;
+const Toast = ({ toastList, position, autoDelete, autoDeleteTime }) => {
     const [list, setList] = useState(toastList);
+    const classes = useNotificationStyles();
+
+    const _position = position === 'top-right' ? classes.topRight :
+        position === 'bottom-right' ? classes.bottomRight :
+            position === 'top-left' ? classes.topLeft :
+                position === 'bottom-left' ? classes.bottomLeft : ''
 
     useEffect(() => {
         setList([...toastList]);
@@ -66,39 +71,30 @@ const Toast = props => {
 
     return (
         <>
-            <div className={`notification-container ${position}`}>
-                {
-                    list.map((toast, i) =>
+            <div className={clx(classes.notificationContainer, _position)}>
+                {list.map((toast, i) => (
                         <div
                             key={i}
-                            className={`notification toast ${position}`}
+                            className={clx(classes.notification, classes.toast, _position)}
                             style={{ backgroundColor: toast.backgroundColor }}
                         >
                             <button onClick={() => deleteToast(toast.id)}>
                                 X
                             </button>
-                            <div className="notification-image">
+                            <div className={classes.notificationImage}>
                                 <img src={toast.icon} alt="" />
                             </div>
                             <div>
-                                <p className="notification-title">{toast.title}</p>
-                                <p className="notification-message">
+                                <p className={classes.notificationTitle}>{toast.title}</p>
+                                <p className={classes.notificationMessage}>
                                     {toast.description}
                                 </p>
                             </div>
                         </div>
-                    )
+                    ))
                 }
             </div>
         </>
     );
 }
-
-Toast.propTypes = {
-    toastList: PropTypes.array.isRequired,
-    position: PropTypes.string.isRequired,
-    autoDelete: PropTypes.bool,
-    autoDeleteTime: PropTypes.number
-}
-
 export default Toast;
