@@ -4,6 +4,7 @@ import { makeStyles } from "@mui/styles";
 export const useMbmcBlock12Styles = makeStyles((theme: Theme) => ({
     root: {
         padding: theme.spacing(7, 0),
+        background: theme.design.colors.waz_greyColor50,
 
         "& .css-1t8l2tu-MuiInputBase-input-MuiOutlinedInput-input": {
             background: `${theme.design.colors.waz_white} !important`,
