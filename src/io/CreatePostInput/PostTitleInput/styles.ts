@@ -22,7 +22,7 @@ export const usePostTitleStyles = makeStyles((theme: Theme) => ({
         margin: theme.spacing(-.5, .5, 0, .5),
     },
     input: {
-        height: 34,
+        height: theme.spacing(4.125),
         padding: '8px 12px',
         background: `${theme.design.colors.white100} 0% 0% no-repeat padding-box`,
         border: `0px solid ${theme.design.colors.primary700}`,

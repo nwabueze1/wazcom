@@ -1,11 +1,9 @@
 import React, { useRef, useState } from "react";
-import { InputLabel } from "@mui/material";
-import { Editor } from "@tinymce/tinymce-react";
 import { useCreatePostInputStyles } from "./styles";
-import { CreatePostInputProps, ImageProperties } from "./types";
-import { displayFeedback } from "../../helpers/io";
+import { CreatePostInputProps } from "./types";
 import clx from "classnames";
 import { PosTitleInput } from "./PostTitleInput/PostTitleInput";
+import { Editor } from "./Editor";
 
 const plugins = [
     "advlist autolink lists link code",
@@ -91,7 +89,7 @@ export const CreatePostInput: React.FC<CreatePostInputProps> = ({
                     error && classes.editorError,
                 )}
             >
-                place holder for text editor
+                <Editor />
             </div>
             {/* {image.url && (
                 <EditImageDialog
