@@ -1,5 +1,4 @@
 import { CommonProps } from "../../types";
-import { ApolloClient, NormalizedCacheObject } from "@apollo/client";
 
 export type CreatePostInputProps = CommonProps & {
     label?: string;

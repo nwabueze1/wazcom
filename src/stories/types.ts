@@ -24,6 +24,7 @@ import {
     ToggleInputProps,
     RadioButtonInputProps,
     CurrencyInputFieldProps,
+    CreatePostInputProps
 } from "../io";
 
 import { GqlComboBoxProps, GqlMediaLibraryProps, GqlMediaLibrarySelectorProps } from "../gql";
@@ -62,6 +63,7 @@ export type ComponentPropType = {
     | GqlMediaLibrarySelectorStory
     | CurrencyInputStory
     | PhoneNumberInputStroy
+    | CreatePostStory
 );
 
 export type TemplatePropType = {
@@ -143,6 +145,9 @@ type SelectStory = {
 
 type RichTextStory = {
     props: RichTextInputProps;
+};
+type CreatePostStory = {
+    props: CreatePostInputProps;
 };
 
 type CurrencyInputStory = {

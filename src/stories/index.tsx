@@ -32,6 +32,7 @@ import {
     RadioButtonInput,
     TextArea,
     EmailInput,
+    CreatePostInput,
 } from "../io";
 
 import { GqlComboBox, GqlMediaLibrary, GqlMediaLibrarySelector } from "../gql";
@@ -572,6 +573,14 @@ export const stories: ComponentPropType[] = [
             error: true,
             feedback: { text: "Tariq is a weirdo", status: "error" },
             client: createApolloClient('https://ofambegbe-ambrosia.wazobia.uk/graphql'),
+        },
+    },
+    {
+        name: "Create Post Input",
+        component: CreatePostInput,
+        props: {
+            error: false,
+            feedback: { text: "feeback section", status: "error" },
         },
     },
     {
