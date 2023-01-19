@@ -8,9 +8,8 @@ import { NumberInputView } from "view/NumberInput";
 import { ButtonView } from "view/Button";
 import { TabsView } from "view/Tab";
 import { NotificationView } from "view/Notification";
-
-import {TestNotify} from "view/Notify/Toast";
 import { URLInputView } from "view/URLInput";
+import { CurrencyInputView } from "view/CurrencyInput";
 
 export default [
     {
@@ -50,6 +49,12 @@ export default [
         component: URLInputView
     },
     {
+        key: 'CurrencyInputView',
+        path: "/currency-input",
+        exact: true,
+        component: CurrencyInputView
+    },
+    {
         key: 'TextAreaView',
         path: "/textarea-input",
         exact: true,
@@ -75,10 +80,10 @@ export default [
     },
 
 
-    {
-        key: 'TestView',
-        path: "/test-notify",
-        exact: true,
-        component: TestNotify
-    },
+    // {
+    //     key: 'TestView',
+    //     path: "/test-notify",
+    //     exact: true,
+    //     component: TestNotify
+    // },
 ];
