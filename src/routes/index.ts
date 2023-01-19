@@ -10,6 +10,7 @@ import { TabsView } from "view/Tab";
 import { NotificationView } from "view/Notification";
 
 import {TestNotify} from "view/Notify/Toast";
+import { URLInputView } from "view/URLInput";
 
 export default [
     {
@@ -20,7 +21,7 @@ export default [
     },
     {
         key: 'Templates',
-        path: "/",
+        path: "/templates",
         exact: true,
         component: Templates
     },
@@ -41,6 +42,12 @@ export default [
         path: "/number-input",
         exact: true,
         component: NumberInputView
+    },
+    {
+        key: 'URLInputView',
+        path: "/url-input",
+        exact: true,
+        component: URLInputView
     },
     {
         key: 'TextAreaView',

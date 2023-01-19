@@ -13,6 +13,7 @@ export default [
             { name: 'Text Input', slug: 'text-input' },
             { name: 'Email Input', slug: 'email-input' },
             { name: 'Number Input', slug: 'number-input' },
+            { name: 'URL Input', slug: 'url-input' },
             { name: 'TextArea Input', slug: 'textarea-input' },
             { name: 'Select Input', slug: 'select-input' },
             { name: 'Search Bar', slug: 'search-bar' },

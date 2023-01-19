@@ -324,6 +324,60 @@ export const EmailInput: FC<Omit<TextFieldProps, "type">> = ({
     )
 }
 
+function validateURL(str: string) {
+    var pattern = new RegExp('^(https?:\\/\\/)?'+ // protocol
+        '((([a-z\\d]([a-z\\d-]*[a-z\\d])*)\\.)+[a-z]{2,}|'+ // domain name
+        '((\\d{1,3}\\.){3}\\d{1,3}))'+ // OR ip (v4) address
+        '(\\:\\d+)?(\\/[-a-z\\d%_.~+]*)*'+ // port and path
+        '(\\?[;&a-z\\d%_.~+=-]*)?'+ // query string
+        '(\\#[-a-z\\d_]*)?$','i'); // fragment locator
+    return !!pattern.test(str);
+}
+export const URLInput: FC<Omit<TextFieldProps, "type">> = ({
+    name,
+    errors,
+    isSuccess,
+    isError,
+    onChange,
+    onBlur,
+    onFocus,
+    onEnter,
+    ...props
+}) => {
+    let sErrors;
+    const [urlErrors, setURLErrors] = useState<{ message: string }[]>();
+    const [isValidURL, setIsValidURL] = useState<boolean>(false);
+
+    const handleChange = useCallback(({ name, value }: { name: string, value: any }) => {
+        setIsValidURL(() => validateURL(value));
+        (validateURL(value) || value == "") ? setURLErrors(undefined) : setURLErrors([{ message: 'Invalid email !!' }]);
+
+        if (onChange) {
+            onChange?.({ name, value });
+        }
+    }, [errors, setURLErrors]);
+
+    if (errors || urlErrors) {
+        sErrors = errors ? errors : undefined;
+        sErrors = urlErrors ? (errors) ? [...errors, ...urlErrors] : urlErrors : undefined;
+    }
+
+    return (
+        <TextInput
+            type="url"
+            name={name}
+            isSuccess={isValidURL || isSuccess}
+            isError={!!sErrors || isError}
+            errors={sErrors}
+            onChange={handleChange}
+            onFocus={onFocus}
+            onEnter={onEnter}
+            onBlur={onBlur}
+            {...props}
+        />
+    )
+}
+
 export const NumberInput: FC<Omit<TextFieldProps, "type">> = ({
     name,
     errors,

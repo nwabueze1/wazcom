@@ -1,4 +1,4 @@
-import { FC, useState, useEffect } from 'react';
+import { FC, useState, useEffect, createRef } from 'react';
 import clx from "classnames";
 import { BsCheckCircle } from "react-icons/bs";
 import { GrFormClose } from "react-icons/gr";
@@ -8,7 +8,7 @@ import { AiOutlineInfoCircle } from "react-icons/ai";
 import { ToastProps, ToastListProps, NotificationIconProps } from './types';
 import { useNotificationStyles } from "./style";
 
-export function Notification ({ list, position, autoDelete, duration }: ToastProps) {
+export function Notification ({ list = [], position, autoDelete, duration }: ToastProps) {
     const [toasts, setToasts] = useState(list);
     const classes = useNotificationStyles();
 
@@ -45,7 +45,7 @@ export function Notification ({ list, position, autoDelete, duration }: ToastPro
     return (
         <>
             <div className={clx(classes.notificationContainer, _position)}>
-                {toasts.map((toast: ToastListProps) => (
+                {toasts?.map((toast: ToastListProps) => (
                     <div
                         key={toast.id}
                         className={clx(classes.root, _position,
