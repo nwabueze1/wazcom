@@ -9,7 +9,7 @@ import { CurrencyInputViewProps, InputDataProps } from "./types";
 export const CurrencyInputView: FC<CurrencyInputViewProps> = () => {
 
     const [value, setValue] = useState(0);
-    const handleValueChange = useCallback(val => {
+    const handleValueChange = useCallback((val: any) => {
         // eslint-disable-next-line
         console.log(val);
         setValue(val);
@@ -40,30 +40,27 @@ export const CurrencyInputView: FC<CurrencyInputViewProps> = () => {
         <div className={classes.root}>
             <div className={classes.container}>
                 <div className={classes.header}>
-                    <h1 className={classes.title}>URL Input</h1>
+                    <h1 className={classes.title}>Currency Input</h1>
                     <div className={classes.description}>
-                        <p className={classes.descriptionText}>URL inputs enable users to enter url addresses with url validation. The url field should reflect the url with a validation.</p>
+                        <p className={classes.descriptionText}>Currency Inputs is used to collect currency types and values from users.</p>
                     </div>
                 </div>
                 <div className={classes.inputContainer}>
                     <div className={classes.inputs}>
                         {inputData.map((item: InputDataProps, index) => (
                             <CurrencyInputField
-                                id={`${item.label}-${index + Math.random()}`}
+                                key={`${item.label}-${index + Math.random()}`}
                                 className={classes.input}
                                 label={item.label}
                                 placeholder={item.placeholder}
-                                helperText={item.helperText}
                                 isError={item.isError}
                                 isSuccess={item.isSuccess}
-                                leftIcon={['$']}
-                                iconSpacing={2}
+                                currency={'$'}
+                                iconSpacing={3}
                                 onEnter={handleEnter}
                                 onFocus={handleFocus}
                                 onBlur={handleBlur}
                                 value={value}
-                                max={100000000}
-                                onValueChange={handleValueChange}
                             />
                         ))}
                     </div>

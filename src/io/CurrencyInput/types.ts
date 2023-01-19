@@ -39,7 +39,7 @@ export type TextBaseProps = CommonProps & {
 }
 
 export type CurrencyInputProps = TextBaseProps & InputProps & {
-    currency?: string;
+    currency?: string | string[];
     placeholder?: string;
     label?: string;
     className?: string;
