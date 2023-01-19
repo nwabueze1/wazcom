@@ -1,0 +1,15 @@
+import { CommonProps } from "../../../../types";
+
+export type InsertButtonProps = CommonProps & {
+    label?: string;
+    value: string;
+};
+
+export type ImageProperties = {
+    url: string;
+    width: SizeFields;
+    height: SizeFields;
+    title: string;
+};
+
+export type SizeFields = { [key in "desktop" | "tablet" | "mobile"]: string };
