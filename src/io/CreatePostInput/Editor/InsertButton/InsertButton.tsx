@@ -1,6 +1,6 @@
 import React, { useRef, useState } from "react";
 import { useInsertButtonStyles } from "./styles";
-import { InsertButtonProps } from './types';
+import { InsertButtonProps, OptionItemProps } from './types';
 import clx from "classnames";
 
 
@@ -68,6 +68,9 @@ export const InsertButton: React.FC<InsertButtonProps> = ({
     //     else setImage({ ...image, [name]: value });
     // };
 
+    const handleOptionClick = (event: React.MouseEvent<HTMLElement>, option: string) => {
+        console.log(option + "hello")
+    }
     return (
         <div className={clx(className, classes.root)}>
             <button
@@ -77,37 +80,38 @@ export const InsertButton: React.FC<InsertButtonProps> = ({
             <div className={classes.selectOption}>
                 <span className={classes.optionTitleSpan}>EMBEDS</span>
                 <div className={classes.options}>
-                    <div className={classes.option}>
-                        <div className={classes.optionItemIcon}>
-                            icon
-                        </div>
-                        <div className={classes.optionItemRight}>
-                            <div className={classes.optionItemTitle}>Picture</div>
-                            <div className={classes.optionItemSpan}>jpeg, png</div>
-                        </div>
-                    </div>
-
-                    <div className={classes.option}>
-                        <div className={classes.optionItemIcon}>
-                            icon
-                        </div>
-                        <div className={classes.optionItemRight}>
-                            <div className={classes.optionItemTitle}>Video</div>
-                            <div className={classes.optionItemSpan}>Embed a Youtube video</div>
-                        </div>
-                    </div>
-
-                    <div className={classes.option}>
-                        <div className={classes.optionItemIcon}>
-                            icon
-                        </div>
-                        <div className={classes.optionItemRight}>
-                            <div className={classes.optionItemTitle}>Social </div>
-                            <div className={classes.optionItemSpan}>Embed a Facebook Link</div>
-                        </div>
-                    </div>
+                    <OptionItem 
+                    icon={"icon"} 
+                    title={"Picture"} 
+                    itemInfo={"jpeg, png"} 
+                    handleOptionClick={()=>handleOptionClick(event, "picture")} />
+                    <OptionItem 
+                    icon={"icon"} 
+                    title={"Video"} 
+                    itemInfo={"Embed a Youtube video"} 
+                    handleOptionClick={()=>handleOptionClick(event, "video")} />
+                    <OptionItem 
+                    icon={"icon"} 
+                    title={"Social"} 
+                    itemInfo={"Embed a Facebook Link"} 
+                    handleOptionClick={()=>handleOptionClick(event, "social")} />
                 </div>
             </div>
         </div>
     );
 };
+
+export const OptionItem: React.FC<OptionItemProps> = ({icon, title, itemInfo, handleOptionClick}) => {
+    const classes = useInsertButtonStyles();
+    return (
+        <div className={classes.option} onClick={handleOptionClick}>
+            <div className={classes.optionItemIcon}>
+                {icon}
+            </div>
+            <div className={classes.optionItemRight}>
+                <div className={classes.optionItemTitle}>{title}</div>
+                <div className={classes.optionItemSpan}>{itemInfo}</div>
+            </div>
+        </div>
+    );
+}

@@ -31,7 +31,7 @@ export const useEditorToolbarStyles = makeStyles((theme: Theme) => ({
         position: 'absolute',
         bottom: '0',
         right: '0',
-        width: '100%'
+        width: '100%',
     },
     editor: {
         // border: `8px solid #FAFAFA`,

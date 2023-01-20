@@ -13,6 +13,7 @@ export const useInsertButtonStyles = makeStyles((theme: Theme) => ({
         fontSize: theme.typography.fontSize * 1.5,
         border: '0px',
         margin: theme.spacing(0, 0, 0.5, 2),
+        zIndex: "9999"
     },
     selectOption: {
         display: "flex",
@@ -23,9 +24,9 @@ export const useInsertButtonStyles = makeStyles((theme: Theme) => ({
         border: '0px',
         borderRadius: "3px",
         margin: theme.spacing(0, 0, 0, 2),
-        // padding: theme.spacing(1, 1, 1, 1.25),
+        boxShadow: '0px 1px 4px #00000014',
         background: theme.design.colors.waz_white,
-        zIndex: "-1"
+        zIndex: "99"
     },
     optionTitleSpan: {
         fontSize: theme.typography.fontSize,
