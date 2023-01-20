@@ -10,6 +10,8 @@ export type SelectInputOptionsProps = {
 };
 
 type SelectProps = CommonProps & {
+    width?: string | number;
+    height?: string | number;
     helperText?: string;
     hideLabel?: boolean;
     info?: string;

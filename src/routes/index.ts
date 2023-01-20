@@ -10,6 +10,7 @@ import { TabsView } from "view/Tab";
 import { NotificationView } from "view/Notification";
 import { URLInputView } from "view/URLInput";
 import { CurrencyInputView } from "view/CurrencyInput";
+import { SelectInputView } from "view/SelectInput";
 
 export default [
     {
@@ -77,6 +78,12 @@ export default [
         path: "/notification",
         exact: true,
         component: NotificationView
+    },
+    {
+        key: 'SelectInputView',
+        path: "/select-input",
+        exact: true,
+        component: SelectInputView
     },
 
 
