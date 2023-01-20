@@ -1,5 +1,5 @@
 import clx from "classnames";
-import { FC, useMemo } from "react";
+import { FC, useMemo, cloneElement, isValidElement } from "react";
 import Select, { SingleValue, components } from 'react-select';
 import { AiFillCaretDown } from "react-icons/ai";
 import theme from "../../theme";
@@ -30,6 +30,7 @@ export const SelectInput: FC<SelectInputProps> = ({
     };
 
     const selectValue = useMemo(() => options?.find((option) => option.value == value), [value]);
+    const labelElement = isValidElement(label) ? cloneElement(label, {}) : label;
 
     const DropdownIndicator = (props: any) => (
         <components.DropdownIndicator {...props}>
@@ -42,9 +43,9 @@ export const SelectInput: FC<SelectInputProps> = ({
             <div className={classes.labelWrapper}>
                 { 
                     !hideLabel && 
-                    label && 
+                    labelElement && 
                     <label htmlFor={name} className={classes.label}>
-                        { label }
+                        { labelElement }
                         { required && <span className={classes.required}>*</span> }
                     </label>
                 }

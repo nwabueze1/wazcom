@@ -39,6 +39,7 @@ export type TextBaseProps = CommonProps & {
 }
 
 export type CurrencyInputProps = TextBaseProps & InputProps & {
+    variant: 'basic'|'vertical'|'horizontal';
     currency?: string | string[];
     placeholder?: string;
     label?: string;
@@ -66,19 +67,6 @@ export type InputProps = {
         integerLimit?: number;
     }
   }
-
-export type TextInputProps = TextFieldProps;
-
-export type BaseInputProps = React.InputHTMLAttributes<HTMLInputElement>;
-
-export type TextFieldProps = Omit<BaseInputProps, "onChange" | "onFocus" | "onEnter"> & TextBaseProps;
-export type EmailInputProps = Omit<BaseInputProps, "onChange" | "onFocus" | "onEnter"> & TextBaseProps;
-export type NumberInputProps = Omit<BaseInputProps, "onChange" | "onFocus" | "onEnter"> & TextBaseProps;
-
-export type TextAreaProps = Omit<React.HTMLProps<HTMLTextAreaElement>, "onChange"|"onFocus"|"onEnter"> & TextBaseProps & {
-    type?: 'textarea';
-    minRows?: number;
-}
 
 export type CurrencyIconProps = {
     className?: object;

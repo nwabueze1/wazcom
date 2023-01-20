@@ -55,7 +55,7 @@ export const CurrencyInputView: FC<CurrencyInputViewProps> = () => {
                                 placeholder={item.placeholder}
                                 isError={item.isError}
                                 isSuccess={item.isSuccess}
-                                currency={'$'}
+                                currency={['$']}
                                 iconSpacing={3}
                                 onEnter={handleEnter}
                                 onFocus={handleFocus}

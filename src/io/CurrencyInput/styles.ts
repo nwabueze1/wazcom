@@ -1,37 +1,22 @@
-// import { makeStyles } from "@mui/styles";
-// import { BaseTheme } from "theme";
-
-// /** !!-- Remember to update the function name !! */
-// export const useCurrencyInputStyles = makeStyles((theme: BaseTheme) => ({
-//     root: {
-//         color: theme.design.colors.waz_dangerColor300,
-//     },
-//     input: {
-//         width: "100%",
-//         padding: theme.spacing(2, 2),
-//         borderRadius: "4px",
-//         border: `1px solid ${theme.design.colors.waz_greenishGrey}`,
-//         "&::placeholder": {
-//             color: theme.design.colors.grey300,
-//             fontSize: theme.typography.fontSize + 2,
-//         },
-//         "&:focus": {
-//             border: `1px solid ${theme.design.colors.waz_primaryColor100}`,
-//             outline: "none",
-//         },
-//     },
-//     required: {
-//         color: theme.design.colors.waz_dangerColor100,
-//         margin: theme.spacing(0.5, 0, 0, 0.5),
-//     },
-// }));
-
 import { Theme } from "@mui/material";
 import { makeStyles } from "@mui/styles";
 import { TextInputIconStyleProps, TextBaseProps } from "./types";
 
 export const useCurrencyInputStyles = makeStyles((theme: Theme) => ({
     root: {
+        position: 'relative',
+        display: "flex",
+        flexDirection: "column",
+        justifyContent: 'start',
+        width: '100%',
+        height: '100%',
+    },
+    currencyContainer: {
+        display: "flex",
+        flexDirection: "column",
+        justifyContent: 'start',
+    },
+    selectContainer: {
         display: "flex",
         flexDirection: "column",
         justifyContent: 'start',
@@ -44,6 +29,13 @@ export const useCurrencyInputStyles = makeStyles((theme: Theme) => ({
         alignItems: "center",
         letterSpacing: "0.13px",
         textTransform: "uppercase",
+    },
+    selectLabel: {
+        color: theme.design.colors.waz_grey,
+        display: 'flex',
+        justifyContent: 'start',
+        alignItems: 'center',
+        gap: 2
     },
     required: {
         color: theme.design.colors.waz_dangerColor100,
@@ -170,7 +162,7 @@ export const useTextInputIconStyles = makeStyles((theme: Theme) => ({
         marginRight: `${props.marginRight}px`,
         marginLeft: `${props.marginLeft}px`,
     }),
-    currencySymbol: {
+    currencySingle: {
         fontSize: 14,
         fontWeight: 700,
         lineSpacing: 22,
@@ -178,9 +170,26 @@ export const useTextInputIconStyles = makeStyles((theme: Theme) => ({
         textAlign: 'left',
         color: theme.design.colors.grey100,
         borderRightWidth: 1,
-        borderRightColor: theme.design.colors.primary500,
+        borderRightColor: theme.design.colors.primary600,
         borderRightStyle: 'solid',
         paddingRight: 10
+    },
+    currencyMultiple: {
+        fontSize: 14,
+        fontWeight: 700,
+        lineSpacing: 22,
+        letterSpacing: 0,
+        textAlign: 'left',
+        color: theme.design.colors.grey100,
+        borderRightWidth: 1,
+        borderRightColor: theme.design.colors.primary600,
+        borderRightStyle: 'solid',
+        paddingRight: 10,
+        display: 'flex',
+        justifyContent: 'center',
+        alignItems: 'center',
+        gap: 3,
+        cursor: 'pointer'
     }
 }));
 

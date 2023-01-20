@@ -433,7 +433,7 @@ export const NumberInput: FC<Omit<TextFieldProps, "type">> = ({
 function InputIcon({ children, marginLeft, marginRight, ...rest }: InputIconProps) {
     const classes = useTextInputIconStyles({ marginLeft, marginRight });
     const _className = clx(classes.root, classes.iconSpacing);
-    const _children = isValidElement(children) ? cloneElement(children, {}) : children
+    const _children = isValidElement(children) ? cloneElement(children, {}) : children;
 
     return (
         <span {...rest} className={_className}>
