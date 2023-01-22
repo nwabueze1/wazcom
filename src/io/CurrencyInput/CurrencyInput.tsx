@@ -5,7 +5,6 @@ import React, { ChangeEvent, KeyboardEvent } from "react";
 import { NumericFormat } from 'react-number-format';
 import { AiFillCaretDown, AiOutlineInfoCircle } from "react-icons/ai";
 import { SelectInput } from "io";
-import Select from 'react-select'
 
 
 import { useCurrencyInputStyles, useTextInputIconStyles } from "./styles";
@@ -13,7 +12,7 @@ import { CurrencyInputProps, CurrencyIconProps } from "./types";
 import currencies from "./currencies.json";
 
 export const CurrencyInputField: FC<CurrencyInputProps> = ({
-    variant = 'vertical',
+    variant = 'basic',
     className,
     currency,
     label,
@@ -41,6 +40,7 @@ export const CurrencyInputField: FC<CurrencyInputProps> = ({
     const [isFocused, setIsFocused] = React.useState<boolean>(false);
     const [selectedCurrency, setSelectedCurrency] = React.useState<any>({});
     const classes = useCurrencyInputStyles({
+        variant,
         width,
         height,
         background,
@@ -89,20 +89,19 @@ export const CurrencyInputField: FC<CurrencyInputProps> = ({
     };
 
     const _currencies = currencies?.map(currency => ({
-        ...currency,
-        label: currency.code,
-        value: currency.code
+        ...currency, label: currency.code, value: currency.code
     }));
-
-    console.log('CURRENCIES', _currencies)
 
     return (
         <div className={clx(classes.root, className)}>
             {(variant !== 'basic') && (
                 <div className={classes.selectContainer}>
                     <SelectInput
-                        options={_currencies}
                         label={<SelectLabel />}
+                        onChange={($v) => setSelectedCurrency($v)}
+                        options={currencies?.map(v => ({
+                            ...v,label: v.code, value: v.code
+                        }))}
                     />
                 </div>
             )}
@@ -122,11 +121,9 @@ export const CurrencyInputField: FC<CurrencyInputProps> = ({
                     (isError || errors) && classes.errorInput,
                     isFocused && classes.focusedInput
                 )}>
-                    {currency && (
-                        <CurrencyIcon marginRight={iconSpacing}>
-                            {currency}
-                        </CurrencyIcon>
-                    )}
+                    <CurrencyIcon marginRight={iconSpacing}>
+                        {variant === 'basic' ? currency : selectedCurrency.symbol}
+                    </CurrencyIcon>
                     <NumericFormat
                         className={clx(classes.input)}
                         thousandSeparator=","
@@ -155,18 +152,19 @@ function CurrencyIcon({ children, marginLeft, marginRight, ...rest }: CurrencyIc
         console.log('HANDLEE_CHANGE', value)
     }
 
+    console.log('isNull(children)', (children))
+
     const _children = isValidElement(children) ? cloneElement(children, {}) : (
-        !isArray(children) ? (<div className={classes.currencySingle}>{children}</div>) : (
+        (!isArray(children) && children !== undefined) ? (
+            <div className={classes.currencySingle}>{children ?? '$'}</div>
+        ) : (
             <div className={classes.currencyMultiple}>
-                {/* <span>{children}</span>
-                <AiFillCaretDown /> */}
+                <span>{children ?? '$'}</span>
+                <AiFillCaretDown />
                  {/* <SelectInput options={CURRENCIES} /> */}
-                {/* <select onChange={handleChange}>
-                    {currencies.map(child => (<option value={child.symbol}>{child.name}</option>))}
-                </select> */}
             </div>
         )
-    )
+    );
 
     return (
         <span {...rest} className={_className}>

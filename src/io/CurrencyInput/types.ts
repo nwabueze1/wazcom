@@ -3,6 +3,7 @@ import { CommonProps } from "../../types";
 
 export type TextBaseProps = CommonProps & {
     helperText?: string;
+    variant?: string;
     hideLabel?: boolean;
     info?: string;
     label?: string;

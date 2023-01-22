@@ -3,14 +3,16 @@ import { makeStyles } from "@mui/styles";
 import { TextInputIconStyleProps, TextBaseProps } from "./types";
 
 export const useCurrencyInputStyles = makeStyles((theme: Theme) => ({
-    root: {
+    root: (props: TextBaseProps) => ({
         position: 'relative',
         display: "flex",
-        flexDirection: "column",
+        flexDirection: props.variant === 'vertical' ? 'column' : 'row',
+        alignItems: 'start',
         justifyContent: 'start',
+        gap: 16,
         width: '100%',
         height: '100%',
-    },
+    }),
     currencyContainer: {
         display: "flex",
         flexDirection: "column",
@@ -20,11 +22,12 @@ export const useCurrencyInputStyles = makeStyles((theme: Theme) => ({
         display: "flex",
         flexDirection: "column",
         justifyContent: 'start',
+        marginBottom: -16
     },
     label: {
         fontSize: theme.typography.fontSize - 2,
         display: "flex",
-        marginBottom: 4,
+        marginBottom: 8,
         color: theme.design.colors.waz_grey,
         alignItems: "center",
         letterSpacing: "0.13px",

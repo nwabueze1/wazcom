@@ -24,8 +24,8 @@ export const SelectInput: FC<SelectInputProps> = ({
     const classes = useSelectStyles();
 
     const handleChange = (e: SingleValue<SelectInputOptionsProps>) => {
-        if ( onChange) {
-            onChange?.({ name: name ?? "", value: e?.value });
+        if (onChange) {
+            onChange?.({...e, name: name ?? "", value: e?.value });
         }
     };
 
