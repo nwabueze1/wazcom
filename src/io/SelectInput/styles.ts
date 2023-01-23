@@ -5,6 +5,8 @@ export const useSelectStyles = makeStyles((theme: Theme) => ({
     root: {
         display: "flex",
         flexDirection: "column",
+        justifyContent: 'start',
+        alignItems: 'start',
         position: "relative",
         marginBottom: theme.spacing(2)
     },
@@ -62,6 +64,6 @@ export const useSelectStyles = makeStyles((theme: Theme) => ({
         },
     },
     option: {
-        backgroundColor: `${theme.design.colors.primary600} !important`
+        backgroundColor: `${theme.design.colors.primary900} !important`
     }
 }));

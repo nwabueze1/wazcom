@@ -123,6 +123,7 @@ export const theme: any = {
             primary600: "#CEE3D4",
             primary700: "#E7F1E9",
             primary800: "#85B993",
+            primary900: "#F7FCF8",
             secondary100: "#F4CDB4",
             info100: "#2F80ED",
             success100: "#0BCE5A",
