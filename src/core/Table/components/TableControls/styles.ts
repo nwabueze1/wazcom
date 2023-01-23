@@ -62,7 +62,7 @@ export const useTableControlsStyles = makeStyles((theme: Theme) => ({
         fontWeight: "200",
     },
     controlsInputField: {
-        width: "320px",
+        width: "60%",
         height: "40px",
         border: `solid 1px ${theme.design.colors.waz_greyColor100}`,
         borderRadius: "4px",
@@ -71,7 +71,7 @@ export const useTableControlsStyles = makeStyles((theme: Theme) => ({
         paddingLeft: theme.spacing(2),
         backgroundColor: theme.design.colors.waz_white,
         marginRight: "auto",
-        gap: theme.spacing(4),
+        gap: theme.spacing(1),
     },
     searchIcon: {
         fontSize: 24,

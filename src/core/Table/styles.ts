@@ -23,7 +23,8 @@ export const useTableStyles = makeStyles((theme: Theme) => ({
     },
     tableCell: {
         padding: theme.spacing(1.5, 2),
-        fontSize: theme.typography.fontSize + 2,
+        fontSize: theme.typography.fontSize,
+        border: "none"
     },
     controls: {
         display: "flex",

@@ -124,7 +124,7 @@ export const stories: ComponentPropType[] = [
             headers: [],
             value: data,
             pagination: true,
-            hasCheckBox: true,
+            hasCheckBox: false      ,
             paginatorInfo: {
                 currentPage: 1,
                 perPage: 10,
@@ -229,6 +229,7 @@ export const stories: ComponentPropType[] = [
         component: Button,
         props: {
             children: "Testing",
+            loading: true
         },
     },
     {
