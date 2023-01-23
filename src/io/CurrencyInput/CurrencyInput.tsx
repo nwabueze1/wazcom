@@ -1,14 +1,14 @@
 import clx from 'classnames';
 import { isArray } from 'lodash';
-import { FC, useState, cloneElement, isValidElement } from "react";
+import { FC } from "react";
 import React, { ChangeEvent, KeyboardEvent } from "react";
 import { NumericFormat } from 'react-number-format';
 import { AiFillCaretDown, AiOutlineInfoCircle } from "react-icons/ai";
 import { SelectInput } from "io";
 
 
-import { useCurrencyInputStyles, useTextInputIconStyles } from "./styles";
-import { CurrencyInputProps, CurrencyIconProps } from "./types";
+import { useCurrencyInputStyles } from "./styles";
+import { CurrencyInputProps } from "./types";
 import currencies from "./currencies.json";
 
 export const CurrencyInputField: FC<CurrencyInputProps> = ({
@@ -39,6 +39,7 @@ export const CurrencyInputField: FC<CurrencyInputProps> = ({
 }) => {
     const [isFocused, setIsFocused] = React.useState<boolean>(false);
     const [selectedCurrency, setSelectedCurrency] = React.useState<any>({});
+    const [isSelectCurrency, setIsSelectCurrency] = React.useState<boolean>(false);
     const classes = useCurrencyInputStyles({
         variant,
         width,
@@ -49,6 +50,7 @@ export const CurrencyInputField: FC<CurrencyInputProps> = ({
         borderColor,
         borderStyle,
         borderRadius,
+        isSelectCurrency
     });
 
     const handleChange = (e: ChangeEvent<HTMLInputElement>) => {
@@ -88,20 +90,26 @@ export const CurrencyInputField: FC<CurrencyInputProps> = ({
         }
     };
 
-    const _currencies = currencies?.map(currency => ({
-        ...currency, label: currency.code, value: currency.code
-    }));
+    const handleSelectedCurrency = (currency: any) => {
+        setSelectedCurrency(currency);
+        setIsSelectCurrency(false);
+    }
 
     return (
         <div className={clx(classes.root, className)}>
             {(variant !== 'basic') && (
                 <div className={classes.selectContainer}>
                     <SelectInput
-                        label={<SelectLabel />}
+                        className={classes.selectInput}
+                        backgroundColor={'#FAFAFA'}
+
                         onChange={($v) => setSelectedCurrency($v)}
                         options={currencies?.map(v => ({
-                            ...v,label: v.code, value: v.code
+                            ...v, label: v.code, value: v.code
                         }))}
+                        label={<span className={classes.selectLabel}>
+                            DISPLAY CURRENCY <AiOutlineInfoCircle />
+                        </span>}
                     />
                 </div>
             )}
@@ -121,9 +129,28 @@ export const CurrencyInputField: FC<CurrencyInputProps> = ({
                     (isError || errors) && classes.errorInput,
                     isFocused && classes.focusedInput
                 )}>
-                    <CurrencyIcon marginRight={iconSpacing}>
-                        {variant === 'basic' ? currency : selectedCurrency.symbol}
-                    </CurrencyIcon>
+                    <div className={clx(classes.currencySelectRoot)}>
+                        {(!isArray(currency) && currency !== undefined && currency !== '') ? (
+                            <div className={classes.currencySingle}>{currency}</div>
+                        ) : (!isSelectCurrency ? (
+                            <div onClick={() => setIsSelectCurrency(true)}>
+                                <div className={classes.currencyMultiple}>
+                                    {selectedCurrency.symbol ?? '$'}
+                                    <AiFillCaretDown />
+                                </div>
+                            </div>
+                        ) : (
+                            <SelectInput
+                                className={classes.selectInputClass}
+                                borderWidth={0}
+                                menuIsOpen={true}
+                                onChange={handleSelectedCurrency}
+                                options={currencies?.map(v => ({
+                                    ...v, label: v.code, value: v.code
+                                }))}
+                            />
+                        ))}
+                    </div>
                     <NumericFormat
                         className={clx(classes.input)}
                         thousandSeparator=","
@@ -132,52 +159,8 @@ export const CurrencyInputField: FC<CurrencyInputProps> = ({
                         onBlur={handleBlur}
                         onKeyDown={handleOnKeyDown}
                     />
-                    {/* <Select options={options} /> */}
                 </div>
             </div>
         </div>
     )
 };
-
-function CurrencyIcon({ children, marginLeft, marginRight, ...rest }: CurrencyIconProps) {
-    const [toggle, setToggle] = useState<boolean>(false);
-    const classes = useTextInputIconStyles({ marginLeft, marginRight });
-    const _className = clx(classes.root, classes.iconSpacing);
-    const CURRENCIES = currencies?.map(currency => ({
-        label: currency.symbol,
-        value: currency.symbol
-    }));
-
-    const handleChange = (value: any) => {
-        console.log('HANDLEE_CHANGE', value)
-    }
-
-    console.log('isNull(children)', (children))
-
-    const _children = isValidElement(children) ? cloneElement(children, {}) : (
-        (!isArray(children) && children !== undefined) ? (
-            <div className={classes.currencySingle}>{children ?? '$'}</div>
-        ) : (
-            <div className={classes.currencyMultiple}>
-                <span>{children ?? '$'}</span>
-                <AiFillCaretDown />
-                 {/* <SelectInput options={CURRENCIES} /> */}
-            </div>
-        )
-    );
-
-    return (
-        <span {...rest} className={_className}>
-            {_children}
-        </span>
-    );
-}
-
-const SelectLabel = () => {
-    const classes = useCurrencyInputStyles({});
-    return (
-        <span className={classes.selectLabel}>
-            DISPLAY CURRENCY <AiOutlineInfoCircle />
-        </span>
-    );
-}

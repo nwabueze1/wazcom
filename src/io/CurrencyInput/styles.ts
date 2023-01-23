@@ -40,15 +40,16 @@ export const useCurrencyInputStyles = makeStyles((theme: Theme) => ({
         alignItems: 'center',
         gap: 2
     },
+    selectInput: (props: TextBaseProps) => ({}),
     required: {
         color: theme.design.colors.waz_dangerColor100,
         margin: theme.spacing(-.5, .5, 0, .5),
     },
     baseInput: (props: TextBaseProps) => ({
         display: 'flex',
-        padding: '8px 12px',
+        padding: !props.isSelectCurrency ? '8px 12px' : 0,
         height: props.height ?? 34,
-        width: props.width ?? '100%',
+        width: props.width ?? 187,
         background: `${props.background ?? theme.design.colors.white100} 0% 0% no-repeat padding-box`,
         color: props.color ?? theme.design.colors.waz_primaryBlack,
         borderWidth: props?.borderWidth ?? 1,
@@ -150,6 +151,50 @@ export const useCurrencyInputStyles = makeStyles((theme: Theme) => ({
     },
     helperTextError: {
         color: theme.design.colors.error,
+    },
+    currencySelectRoot: {
+        position: 'relative',
+        backgroundColor: 'transparent',
+        display: 'inline-flex',
+        alignSelf: 'center',
+        flexShrink: 0
+    },
+    currencySingle: {
+        fontSize: 14,
+        fontWeight: 700,
+        lineSpacing: 22,
+        letterSpacing: 0,
+        textAlign: 'left',
+        color: theme.design.colors.grey100,
+        borderRightWidth: 1,
+        borderRightColor: theme.design.colors.primary600,
+        borderRightStyle: 'solid',
+        paddingRight: 10
+    },
+    currencyMultiple: {
+        fontSize: 14,
+        fontWeight: 700,
+        lineSpacing: 22,
+        letterSpacing: 0,
+        textAlign: 'left',
+        color: theme.design.colors.grey100,
+        borderRightWidth: 1,
+        borderRightColor: theme.design.colors.primary600,
+        borderRightStyle: 'solid',
+        paddingRight: 10,
+        display: 'flex',
+        justifyContent: 'center',
+        alignItems: 'center',
+        gap: 3,
+        cursor: 'pointer'
+    },
+
+
+    selectInputClass: {
+        display: 'block',
+        // position: 'absolute',
+        marginBottom: 0,
+        border: 0
     }
 }));
 
@@ -193,6 +238,18 @@ export const useTextInputIconStyles = makeStyles((theme: Theme) => ({
         alignItems: 'center',
         gap: 3,
         cursor: 'pointer'
+    }
+}));
+
+export const useSelectInputStyles = makeStyles((theme: Theme) => ({
+    root: {
+        boxSizing: 'border-box',
+        '&:before, &:after': {
+            boxSizing: 'border-box',
+        },
+        '& select': {
+
+        }
     }
 }));
 

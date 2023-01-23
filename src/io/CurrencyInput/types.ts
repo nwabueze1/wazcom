@@ -14,6 +14,7 @@ export type TextBaseProps = CommonProps & {
     isError?: boolean;
     isSuccess?: boolean;
     isValidated?: boolean;
+    isSelectCurrency?: boolean;
     errors?: {
         message: string;
     }[];

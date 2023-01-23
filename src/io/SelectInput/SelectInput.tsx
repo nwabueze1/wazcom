@@ -19,13 +19,18 @@ export const SelectInput: FC<SelectInputProps> = ({
     required = false,
     width,
     height,
+    backgroundColor,
+    borderWidth,
+    borderColor,
+    borderStyle,
+    menuIsOpen,
     ...props
 }) => {
     const classes = useSelectStyles();
 
     const handleChange = (e: SingleValue<SelectInputOptionsProps>) => {
         if (onChange) {
-            onChange?.({...e, name: name ?? "", value: e?.value });
+            onChange?.({ ...e, name: name ?? "", value: e?.value });
         }
     };
 
@@ -41,16 +46,17 @@ export const SelectInput: FC<SelectInputProps> = ({
     return (
         <div className={clx(classes.root, className)}>
             <div className={classes.labelWrapper}>
-                { 
-                    !hideLabel && 
-                    labelElement && 
+                {
+                    !hideLabel &&
+                    labelElement &&
                     <label htmlFor={name} className={classes.label}>
-                        { labelElement }
-                        { required && <span className={classes.required}>*</span> }
+                        {labelElement}
+                        {required && <span className={classes.required}>*</span>}
                     </label>
                 }
             </div>
             <Select
+                menuIsOpen={menuIsOpen}
                 components={{
                     DropdownIndicator,
                     IndicatorSeparator: () => null
@@ -61,7 +67,10 @@ export const SelectInput: FC<SelectInputProps> = ({
                         minHeight: 34,
                         height: height || 34,
                         width: width || 187,
-                        borderColor: theme.design.colors.primary700,
+                        backgroundColor: backgroundColor || '',
+                        borderWidth: borderWidth ?? 1,
+                        borderStyle: borderStyle ?? 'solid',
+                        borderColor: borderColor ?? theme.design.colors.primary700,
                         fontFamily: theme.typography.fontFamily,
                         fontWeight: 400,
                         fontSize: theme.typography.fontSize,
@@ -108,16 +117,16 @@ export const SelectInput: FC<SelectInputProps> = ({
                         };
                     },
                 }}
-                classNames={{ 
+                classNames={{
                     control: ({ isDisabled, isFocused }) => {
                         return clx(
                             !isDisabled && isFocused && classes.control
                         )
                     },
-                    option: ({ isDisabled, isFocused }) => 
+                    option: ({ isDisabled, isFocused }) =>
                         clx(
                             !isDisabled && isFocused && classes.option
-                        ) 
+                        )
                 }}
                 value={selectValue}
                 options={options}

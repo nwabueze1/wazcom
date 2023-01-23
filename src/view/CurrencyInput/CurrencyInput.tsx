@@ -28,7 +28,7 @@ export const CurrencyInputView: FC<CurrencyInputViewProps> = () => {
 
     const classes = useCurrencyInputStyles();
 
-    const inputData: InputDataProps[]  = [
+    const inputData: InputDataProps[] = [
         { name: 'TextInput', label: 'Default', placeholder: 'Placeholder', helperText: '' },
         // { name: 'TextInput', label: 'Hover', placeholder: 'Placeholder', helperText: '' },
         // { name: 'TextInput',  label: 'Active', placeholder: 'Placeholder', helperText: '', isSuccess: true },
@@ -55,7 +55,8 @@ export const CurrencyInputView: FC<CurrencyInputViewProps> = () => {
                                 placeholder={item.placeholder}
                                 isError={item.isError}
                                 isSuccess={item.isSuccess}
-                                // currency={['$']}
+                                // currency={'$'}
+                                variant="basic"
                                 iconSpacing={3}
                                 onEnter={handleEnter}
                                 onFocus={handleFocus}
