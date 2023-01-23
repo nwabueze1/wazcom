@@ -1,7 +1,9 @@
 import React, { useRef, useState } from "react";
 import { useInsertButtonStyles } from "./styles";
-import { InsertButtonProps, OptionItemProps } from './types';
+import { InsertButtonProps, OptionItemProps, ImageProperties } from './types';
 import clx from "classnames";
+import { InsertDialog } from "../InsertDialog/InsertDialog";
+import { EditorMediaLibrary } from "../EditorMediaLibrary/EditorMediaLibrary";
 
 
 export const InsertButton: React.FC<InsertButtonProps> = ({
@@ -15,52 +17,44 @@ export const InsertButton: React.FC<InsertButtonProps> = ({
     const classes = useInsertButtonStyles();
 
     const [mediaOpen, setMediaOpen] = useState<boolean>(false);
-    // const [image, setImage] = useState<ImageProperties>({
-    //     url: "",
-    //     title: "",
-    //     width: { desktop: "100", tablet: "100", mobile: "100" },
-    //     height: { desktop: "100", tablet: "100", mobile: "100" },
-    // });
+    const [openDialog, setOpenDialog] = useState<boolean>(false)
+    const [selectedOption, setSelectedOption] = useState(null)
+    const [openMediaLibrary, setOpenMediaLibrary] = useState(false)
+    const [image, setImage] = useState<ImageProperties>({
+        url: "",
+        title: "",
+        width: { desktop: "100", tablet: "100", mobile: "100" },
+        height: { desktop: "100", tablet: "100", mobile: "100" },
+    });
 
-    const editorRef = useRef<Editor | any>();
+    // const editorRef = useRef<Editor | any>();
 
-    const handleContentChange = (content: string) => {
-        onChange?.({ name: name as string, value: content });
-    };
-
-    const handleClick = () => {
-       
-    }
-
-    // const handleSelectImage = (value: ImageProperties) => {
-    //     setMediaOpen(false);
-    //     setImage({ ...image, url: value?.url, title: value?.title });
+    // const handleContentChange = (content: string) => {
+    //     onChange?.({ name: name as string, value: content });
     // };
 
     // const handleMediaLibraryClose = () => {
     //     setMediaOpen(false);
     // };
 
-    // const handleDialogClose = () => {
-    //     setImage({ ...image, url: "" });
-    // };
+    
 
-    // const insertImage = () => {
-    //     if (image.url)
-    //         editorRef.current.insertContent(
-    //             `<picture>
-    //     <source media="(min-width: 654px)" srcset=${image?.url} width=${image?.width["tablet"]} height=${image?.height["tablet"]} />
-    //     <source media="(min-width: 354px)" srcset=${image?.url} width=${image?.width["mobile"]} height=${image?.height["mobile"]} />
-    //     <img src=${image?.url} width=${image?.width["desktop"]} height=${image?.height["desktop"]} />
-    //     </picture>`,
-    //         );
-    //     setImage({
-    //         url: "",
-    //         title: "",
-    //         width: { desktop: "100", tablet: "100", mobile: "100" },
-    //         height: { desktop: "100", tablet: "100", mobile: "100" },
-    //     });
-    // };
+    const insertImage = () => {
+        if (image.url)
+            // editorRef.current.insertContent(
+        //         `<picture>
+        // <source media="(min-width: 654px)" srcset=${image?.url} width=${image?.width["tablet"]} height=${image?.height["tablet"]} />
+        // <source media="(min-width: 354px)" srcset=${image?.url} width=${image?.width["mobile"]} height=${image?.height["mobile"]} />
+        // <img src=${image?.url} width=${image?.width["desktop"]} height=${image?.height["desktop"]} />
+        // </picture>`,
+        //     );
+        setImage({
+            url: "",
+            title: "",
+            width: { desktop: "100", tablet: "100", mobile: "100" },
+            height: { desktop: "100", tablet: "100", mobile: "100" },
+        });
+    };
 
     // const updateImage = (name: string, value: string, device?: string) => {
     //     if (device && (name == "width" || name == "height"))
@@ -68,16 +62,51 @@ export const InsertButton: React.FC<InsertButtonProps> = ({
     //     else setImage({ ...image, [name]: value });
     // };
 
+    const handleInsertOptions = () => {
+        setMediaOpen(!mediaOpen)
+     }
+
+     const handleMediaLibraryDialogClose = () => {
+        setOpenDialog(false)
+        setOpenMediaLibrary(!openMediaLibrary)
+    };
+
+    const handleSelectImage = (value: ImageProperties) => {
+        setMediaOpen(false);
+        setImage({ ...image, url: value?.url, title: value?.title });
+    };
+
     const handleOptionClick = (event: React.MouseEvent<HTMLElement>, option: string) => {
-        console.log(option + "hello")
+        if (option) {
+            
+            setSelectedOption(option)
+            if(option === 'picture') {
+                setOpenMediaLibrary(!openMediaLibrary)
+                setOpenDialog(false)
+            }else{
+                setOpenDialog(!openDialog)
+            }
+        }
     }
+
+    const handleDialogClose = (event: React.MouseEvent<HTMLElement>) => {
+        setOpenDialog(!openDialog)
+    }
+    
     return (
         <div className={clx(className, classes.root)}>
             <button
             className={classes.insertButton}
-            onClick = {handleClick}
+            onClick = {handleInsertOptions}
             >+</button>
-            <div className={classes.selectOption}>
+                { openDialog && <InsertDialog dialogType={selectedOption} handleDialogClose={handleDialogClose} /> }
+                { openMediaLibrary && 
+                <EditorMediaLibrary 
+                mediaOpen={openMediaLibrary}
+                handleSelect={handleSelectImage}
+                handleClose={handleMediaLibraryDialogClose}
+                 />}
+            <div className={clx(classes.selectOption, mediaOpen? classes.showOptions: classes.hideOptions)}>
                 <span className={classes.optionTitleSpan}>EMBEDS</span>
                 <div className={classes.options}>
                     <OptionItem 
