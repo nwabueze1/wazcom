@@ -1,5 +1,5 @@
 import { CommonProps } from "../../types";
-export declare type GalleryProps = CommonProps & {
+export type GalleryProps = CommonProps & {
     items: {
         image: {
             src: string;

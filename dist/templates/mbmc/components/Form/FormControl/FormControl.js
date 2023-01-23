@@ -18,11 +18,11 @@ export var FormControl = function (_a) {
         var controlProps = properties;
         switch (type) {
             case "text":
-                return _jsx(TextInput, __assign({}, controlProps), void 0);
+                return _jsx(TextInput, __assign({}, controlProps));
             case "groupedInput":
-                return _jsx(GroupedInput, __assign({}, controlProps), void 0);
+                return _jsx(GroupedInput, __assign({}, controlProps));
             default:
-                return _jsx(TextInput, __assign({}, controlProps), void 0);
+                return _jsx(TextInput, __assign({}, controlProps));
         }
     };
     return getControl();

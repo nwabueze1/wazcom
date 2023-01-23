@@ -16,5 +16,5 @@ import _ from "lodash";
 export var Layout = function (_a) {
     var className = _a.className, count = _a.count, onclick = _a.onclick;
     var classes = useLayoutStyles();
-    return (_jsx("div", __assign({ className: clx(classes.root, className), onClick: onclick }, { children: _.times(count, function (index) { return (_jsx("div", { className: classes.innerBox }, index)); }) }), void 0));
+    return (_jsx("div", __assign({ className: clx(classes.root, className), onClick: onclick }, { children: _.times(count, function (index) { return (_jsx("div", { className: classes.innerBox }, index)); }) })));
 };

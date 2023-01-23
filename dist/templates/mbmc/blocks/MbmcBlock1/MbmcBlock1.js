@@ -21,16 +21,16 @@ export var MbmcBlock1 = function (_a) {
                                 __html: heading,
                             }, onClick: function () {
                                 return handleElementClick(mode, "".concat(String(index), ".heading"), handleClick);
-                            } }, void 0), _jsx("p", __assign({ className: clx(classes.block1Description, activeElement === "".concat(String(index), ".description") &&
+                            } }), _jsx("p", __assign({ className: clx(classes.block1Description, activeElement === "".concat(String(index), ".description") &&
                                 classes.block1ActiveElement), onClick: function () {
                                 return handleElementClick(mode, "".concat(String(index), ".description"), handleClick);
-                            } }, { children: description }), void 0), _jsx("div", __assign({ className: classes.block1BtnContainer }, { children: renderCtas(ctas !== null && ctas !== void 0 ? ctas : [], mode, String(index !== null && index !== void 0 ? index : 0), handleClick, activeElement) }), void 0)] }), void 0), _jsxs("div", __assign({ className: classes.block1ImgContainerMobile }, { children: [_jsx("img", { src: image, onClick: function () {
+                            } }, { children: description })), _jsx("div", __assign({ className: classes.block1BtnContainer }, { children: renderCtas(ctas !== null && ctas !== void 0 ? ctas : [], mode, String(index !== null && index !== void 0 ? index : 0), handleClick, activeElement) }))] })), _jsxs("div", __assign({ className: classes.block1ImgContainerMobile }, { children: [_jsx("img", { src: image, onClick: function () {
                                 return handleElementClick(mode, "".concat(String(index), ".image"), handleClick);
                             }, alt: "food images", className: clx(classes.block1ImageMobile, activeElement === "".concat(String(index), ".image") &&
-                                classes.block1ActiveElement) }, void 0), _jsx("img", { src: "https://sytbuildr.s3.eu-west-2.amazonaws.com/images/mbmc/hero1mobile.svg", alt: "Image Overlay", className: classes.block1MobileOverlay }, void 0)] }), void 0), _jsxs("div", __assign({ className: classes.block1ImgContainer }, { children: [_jsx("img", { src: image, onClick: function () {
+                                classes.block1ActiveElement) }), _jsx("img", { src: "https://sytbuildr.s3.eu-west-2.amazonaws.com/images/mbmc/hero1mobile.svg", alt: "Image Overlay", className: classes.block1MobileOverlay })] })), _jsxs("div", __assign({ className: classes.block1ImgContainer }, { children: [_jsx("img", { src: image, onClick: function () {
                                 return handleElementClick(mode, "".concat(String(index), ".image"), handleClick);
                             }, alt: "food images", className: clx(classes.block1Image, activeElement === "".concat(String(index), ".image") &&
-                                classes.block1ActiveElement) }, void 0), _jsx("img", { src: fullHeight
+                                classes.block1ActiveElement) }), _jsx("img", { src: fullHeight
                                 ? "https://sytbuildr.s3.eu-west-2.amazonaws.com/images/mbmc/Orange+bg+-+3xl.svg"
-                                : "https://sytbuildr.s3.eu-west-2.amazonaws.com/images/mbmc/clipped1.svg", alt: "Image Overlay", className: classes.block1Overlay }, void 0)] }), void 0)] }), void 0) }), void 0));
+                                : "https://sytbuildr.s3.eu-west-2.amazonaws.com/images/mbmc/clipped1.svg", alt: "Image Overlay", className: classes.block1Overlay })] }))] })) })));
 };

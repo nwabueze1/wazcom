@@ -21,6 +21,10 @@ export var theme = {
         fontFamily: ["'Open Sans', sans-serif"].join(","),
         fontSize: 12,
         fontWeightBold: "bold",
+        h1: {
+            fontSize: '2.25rem',
+            fontWeight: 700,
+        },
         h2: {
             fontSize: "3rem",
             fontWeight: 500,
@@ -174,6 +178,13 @@ export var theme = {
             waz_red: "#C23434",
             waz_peach: "#FAF8F7",
         },
+        background: {
+            waz_primaryWhite: '#FFFFFF',
+            waz_primaryBlack: "#010E05",
+        },
+        border: {
+            waz_grey200: "1px solid #999F9B",
+        }
     },
     overrides: {
         MuiTypography: {

@@ -5,16 +5,18 @@ type ExtendedThemeOptions = {
     design: {
         font: { [key: string]: any };
         colors: { [key: string]: string };
+        background: { [key: string]: string };
+        border: { [key: string]: string };
     };
 };
 
 declare module "@mui/material/styles" {
     // eslint-disable-next-line @typescript-eslint/no-empty-interface
-    interface Theme extends ExtendedThemeOptions {}
+    interface Theme extends ExtendedThemeOptions { }
 
     // allow configuration using `createMuiTheme`
     // eslint-disable-next-line @typescript-eslint/no-empty-interface
-    interface ThemeOptions extends ExtendedThemeOptions {}
+    interface ThemeOptions extends ExtendedThemeOptions { }
 }
 
 export type BaseTheme = MuiTheme & ExtendedThemeOptions;
@@ -34,7 +36,7 @@ export const theme: any = {
             lg: 1025,
             xl: 1440,
             xxl: 1728,
-            xxxl: 1920, 
+            xxxl: 1920,
         },
     },
     typography: {
@@ -42,6 +44,10 @@ export const theme: any = {
         fontFamily: ["'Open Sans', sans-serif"].join(","),
         fontSize: 12,
         fontWeightBold: "bold",
+        h1: {
+            fontSize: '2.25rem',
+            fontWeight: 700,
+        },
         h2: {
             fontSize: "3rem",
             fontWeight: 500,
@@ -106,6 +112,8 @@ export const theme: any = {
         colors: {
             grey: "#333333",
             error: "#c32611",
+            info: "#4961E3",
+            warning: "#E0BC24",
 
             primary100: "#0A7227",
             primary200: "#23803D",
@@ -197,6 +205,13 @@ export const theme: any = {
             waz_red: "#C23434",
             waz_peach: "#FAF8F7",
         },
+        background: {
+            waz_primaryWhite: '#FFFFFF',
+            waz_primaryBlack: "#010E05",
+        },
+        border: {
+            waz_grey200: "1px solid #999F9B",
+        }
     },
     overrides: {
         MuiTypography: {

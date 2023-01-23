@@ -1,11 +1,11 @@
-export declare type OrderDialogProps = {
+export type OrderDialogProps = {
     itemUuid?: string;
     handleClose: () => void;
     setContextProps?: (contextProps: {
         [key: string]: any;
     }) => void;
 };
-export declare type Option = {
+export type Option = {
     name: string;
     type: string;
     selectedChoices: {

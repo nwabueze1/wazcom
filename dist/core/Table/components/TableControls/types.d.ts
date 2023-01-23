@@ -22,6 +22,6 @@ export interface TableControlsProps {
     setFilters: React.Dispatch<React.SetStateAction<Filter[]>>;
     tableRef?: React.MutableRefObject<HTMLDivElement | null>;
 }
-export declare type SearchInputProps = CommonProps & OutlinedInputProps & {
+export type SearchInputProps = CommonProps & OutlinedInputProps & {
     value?: string;
 };

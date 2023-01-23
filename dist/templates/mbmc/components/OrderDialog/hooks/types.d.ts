@@ -1,4 +1,4 @@
-export declare type TAddToCartVariables = {
+export type TAddToCartVariables = {
     detail: string;
     quantity: number;
     options?: string;

@@ -1,4 +1,4 @@
-export declare type DeliveryOptionProps = {
+export type DeliveryOptionProps = {
     className?: string;
     image?: string;
     title: string;

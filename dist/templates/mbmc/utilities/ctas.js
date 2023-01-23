@@ -29,6 +29,6 @@ export var renderCtas = function (ctas, mode, parentKey, handleClick, activeElem
         var name = parentKey + ".ctas." + String(index);
         return mode === "edit" ? (_jsxs(MbmcButton, __assign({ name: name }, props, { className: className, handleClick: function () {
                 handleElementClick(mode, name, handleClick);
-            }, activeElement: activeElement }, { children: [lIcon, " ", text, " ", rIcon] }), index)) : (_jsx(Link, __assign({ href: url, target: (url === null || url === void 0 ? void 0 : url.startsWith("/")) ? "_self" : "_blank", rel: "noreferrer noopener" }, { children: _jsxs(MbmcButton, __assign({ name: name }, props, { className: className, activeElement: activeElement }, { children: [lIcon, " ", text, " ", rIcon] }), index) }), void 0));
+            }, activeElement: activeElement }, { children: [lIcon, " ", text, " ", rIcon] }), index)) : (_jsx(Link, __assign({ href: url, target: (url === null || url === void 0 ? void 0 : url.startsWith("/")) ? "_self" : "_blank", rel: "noreferrer noopener" }, { children: _jsxs(MbmcButton, __assign({ name: name }, props, { className: className, activeElement: activeElement }, { children: [lIcon, " ", text, " ", rIcon] }), index) })));
     });
 };

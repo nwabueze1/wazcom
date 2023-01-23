@@ -54,7 +54,7 @@ export var SampleInputDisplay = function (_a) {
             setJSX(__spreadArray([], __read(Array(count)), false).map(function (_, idx) { return (_jsx("div", { children: _jsx(DisplayInput, { handleRemove: function () { return handleRemove(idx); }, onFocus: function () { return handleFocus(idx); }, handleOptionMedia: function () { return handleOptionMedia(idx); }, index: idx, value: questionOptions[idx], handleChange: function (value) { return handleChange(value, idx); }, type: type }, idx) }, idx)); }));
         }
         else {
-            setJSX(questionOptions.map(function (option, idx) { return (_jsxs("div", { children: [_jsx(DisplayInput, { handleRemove: function () { return handleRemove(idx); }, onFocus: function () { return handleFocus(idx); }, handleOptionMedia: function () { return handleOptionMedia(idx); }, index: idx, value: option, handleChange: function (value) { return handleChange(value, idx); }, type: type }, void 0), option.media && (_jsxs("div", __assign({ className: classes.mediaContainer }, { children: [_jsx(MdOutlineCancel, { className: classes.mediaCancelIcon, onClick: function () { return handleRemoveOptionMedia(idx); } }, void 0), _jsx("img", { src: option.media.value.url, className: classes.media }, void 0)] }), void 0))] }, idx)); }));
+            setJSX(questionOptions.map(function (option, idx) { return (_jsxs("div", { children: [_jsx(DisplayInput, { handleRemove: function () { return handleRemove(idx); }, onFocus: function () { return handleFocus(idx); }, handleOptionMedia: function () { return handleOptionMedia(idx); }, index: idx, value: option, handleChange: function (value) { return handleChange(value, idx); }, type: type }), option.media && (_jsxs("div", __assign({ className: classes.mediaContainer }, { children: [_jsx(MdOutlineCancel, { className: classes.mediaCancelIcon, onClick: function () { return handleRemoveOptionMedia(idx); } }), _jsx("img", { src: option.media.value.url, className: classes.media })] })))] }, idx)); }));
         }
     }, [count, questionOptions, type]);
     var handleFocus = function (idx) {
@@ -78,5 +78,5 @@ export var SampleInputDisplay = function (_a) {
             return questionOptions;
         });
     };
-    return _jsx(_Fragment, { children: jsx }, void 0);
+    return _jsx(_Fragment, { children: jsx });
 };

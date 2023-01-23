@@ -1,5 +1,5 @@
 import { CommonProps } from "../../types";
-export declare type CarouselProps = CommonProps & {
+export type CarouselProps = CommonProps & {
     items: {
         label: string;
         image: {

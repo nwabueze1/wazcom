@@ -1,11 +1,28 @@
 import { FC, useCallback, useEffect, useMemo, useState } from 'react';
-import { useTabStyles } from './styles';
-import { TabProps } from './types';
 import clx from 'classnames';
 import { useLocation, useHistory } from 'react-router-dom';
 
-export const Tab: FC<TabProps> = ({ controls }) => {
-    const classes = useTabStyles();
+import { useTabStyles } from './styles';
+import { TabProps } from './types';
+
+
+export const Tab: FC<TabProps> = ({
+    controls,
+    variant,
+    backgroundColor,
+    borderWidth,
+    borderColor,
+    borderStyle,
+    borderRadius,
+}) => {
+    const classes = useTabStyles({
+        variant,
+        backgroundColor,
+        borderWidth,
+        borderColor,
+        borderStyle,
+        borderRadius,
+    });
     const [activeTab, setActiveTab] = useState<string>();
     const { pathname, search } = useLocation();
     const history = useHistory();

@@ -53,25 +53,25 @@ export var MbmcBlock9 = function (_a) {
     return (_jsx("div", __assign({ className: classes.root }, { children: _jsxs("div", __assign({ className: classes.headerContainer }, { children: [_jsxs("div", __assign({ className: classes.textContainer }, { children: [_jsxs("div", __assign({ className: classes.headerContent }, { children: [_jsx("h3", __assign({ className: clx(classes.headerTitle, activeElement === "".concat(String(index), ".heading") &&
                                         classes.block9ActiveElement), onClick: function () {
                                         handleElementClick(mode, "".concat(String(index), ".heading"), handleClick);
-                                    } }, { children: heading }), void 0), _jsx("p", __assign({ className: clx(classes.headerDescription, activeElement === "".concat(String(index), ".description") &&
+                                    } }, { children: heading })), _jsx("p", __assign({ className: clx(classes.headerDescription, activeElement === "".concat(String(index), ".description") &&
                                         classes.block9ActiveElement), onClick: function () {
                                         handleElementClick(mode, "".concat(String(index), ".description"), handleClick);
-                                    } }, { children: description }), void 0)] }), void 0), isMobile && (_jsx("div", __assign({ className: classes.directionContainerMobile }, { children: _jsx(LazyImage, { className: classes.imageStep, src: steps[active].image, alt: steps[active].heading, mode: mode }, void 0) }), void 0)), _jsx("div", __assign({ className: classes.headerCardContainer }, { children: steps.map(function (step, idx) {
+                                    } }, { children: description }))] })), isMobile && (_jsx("div", __assign({ className: classes.directionContainerMobile }, { children: _jsx(LazyImage, { className: classes.imageStep, src: steps[active].image, alt: steps[active].heading, mode: mode }) }))), _jsx("div", __assign({ className: classes.headerCardContainer }, { children: steps.map(function (step, idx) {
                                 var key = String(index) + ".steps." + String(idx);
                                 return mode === "edit" ? (_jsxs("div", __assign({ onClick: function () {
                                         mode === "edit" && setActive(idx);
-                                    }, className: classes.pointContainer }, { children: [_jsx("div", __assign({ className: clx(classes.point, active == idx && classes.activePoint) }, { children: idx + 1 }), void 0), _jsxs("div", __assign({ className: classes.pointTextContainer }, { children: [_jsx("p", __assign({ className: clx(classes.pointTitle, active === idx && classes.activeTitle, activeElement === key + ".heading" &&
+                                    }, className: classes.pointContainer }, { children: [_jsx("div", __assign({ className: clx(classes.point, active == idx && classes.activePoint) }, { children: idx + 1 })), _jsxs("div", __assign({ className: classes.pointTextContainer }, { children: [_jsx("p", __assign({ className: clx(classes.pointTitle, active === idx && classes.activeTitle, activeElement === key + ".heading" &&
                                                         classes.block9ActiveElement), onClick: function () {
                                                         handleElementClick(mode, key + ".heading", handleClick);
-                                                    } }, { children: step.heading }), void 0), _jsx("p", __assign({ className: clx(classes.pointDescription, activeElement === key + ".description" &&
+                                                    } }, { children: step.heading })), _jsx("p", __assign({ className: clx(classes.pointDescription, activeElement === key + ".description" &&
                                                         classes.block9ActiveElement), onClick: function () {
                                                         handleElementClick(mode, key + ".description", handleClick);
-                                                    } }, { children: step.description }), void 0)] }), void 0)] }), idx)) : (_jsxs(Link, __assign({ className: classes.pointContainer, href: step.url }, { children: [_jsx("div", __assign({ className: clx(classes.point, active == idx && classes.activePoint) }, { children: idx + 1 }), void 0), _jsxs("div", __assign({ className: classes.pointTextContainer }, { children: [_jsx("p", __assign({ className: clx(classes.pointTitle, active === idx && classes.activeTitle, activeElement === key + ".heading" &&
-                                                        classes.block9ActiveElement) }, { children: step.heading }), void 0), _jsx("p", __assign({ className: clx(classes.pointDescription, activeElement === key + ".description" &&
-                                                        classes.block9ActiveElement) }, { children: step.description }), void 0)] }), void 0)] }), idx));
-                            }) }), void 0)] }), void 0), isDesktop && (_jsx("div", __assign({ className: classes.directionContainer }, { children: _jsx(LazyImage, { src: steps[active].image, alt: steps[active].heading, className: clx(classes.imageStep, activeElement ===
+                                                    } }, { children: step.description }))] }))] }), idx)) : (_jsxs(Link, __assign({ className: classes.pointContainer, href: step.url }, { children: [_jsx("div", __assign({ className: clx(classes.point, active == idx && classes.activePoint) }, { children: idx + 1 })), _jsxs("div", __assign({ className: classes.pointTextContainer }, { children: [_jsx("p", __assign({ className: clx(classes.pointTitle, active === idx && classes.activeTitle, activeElement === key + ".heading" &&
+                                                        classes.block9ActiveElement) }, { children: step.heading })), _jsx("p", __assign({ className: clx(classes.pointDescription, activeElement === key + ".description" &&
+                                                        classes.block9ActiveElement) }, { children: step.description }))] }))] }), idx));
+                            }) }))] })), isDesktop && (_jsx("div", __assign({ className: classes.directionContainer }, { children: _jsx(LazyImage, { src: steps[active].image, alt: steps[active].heading, className: clx(classes.imageStep, activeElement ===
                             "".concat(String(index), ".steps.").concat(String(active), ".image") &&
                             classes.block9ActiveElement), mode: mode, onClick: function () {
                             handleElementClick(mode, "".concat(String(index), ".steps.").concat(String(active), ".image"), handleClick);
-                        } }, void 0) }), void 0))] }), void 0) }), void 0));
+                        } }) })))] })) })));
 };

@@ -28,16 +28,16 @@ import { useButtonStyles } from "./styles";
 export var Button = function (_a) {
     var className = _a.className, _b = _a.variant, variant = _b === void 0 ? "contained" : _b, children = _a.children, isDisabled = _a.isDisabled, isLoading = _a.isLoading, isActive = _a.isActive, leftIcon = _a.leftIcon, rightIcon = _a.rightIcon, iconSpacing = _a.iconSpacing, props = __rest(_a, ["className", "variant", "children", "isDisabled", "isLoading", "isActive", "leftIcon", "rightIcon", "iconSpacing"]);
     var classes = useButtonStyles();
-    return (_jsx("button", __assign({ className: clx(classes.root, classes.button) }, props, { children: _jsx(ButtonContent, __assign({}, { rightIcon: rightIcon, leftIcon: leftIcon, className: className, children: children, iconSpacing: iconSpacing }), void 0) }), void 0));
+    return (_jsx("button", __assign({ className: clx(classes.root, classes.button) }, props, { children: _jsx(ButtonContent, __assign({}, { rightIcon: rightIcon, leftIcon: leftIcon, className: className, children: children, iconSpacing: iconSpacing })) })));
 };
 function ButtonContent(_a) {
     var leftIcon = _a.leftIcon, rightIcon = _a.rightIcon, children = _a.children, iconSpacing = _a.iconSpacing;
-    return (_jsxs(_Fragment, { children: [leftIcon && (_jsx(ButtonIcon, __assign({ marginRight: iconSpacing }, { children: leftIcon }), void 0)), children, rightIcon && (_jsx(ButtonIcon, __assign({ marginLeft: iconSpacing }, { children: rightIcon }), void 0))] }, void 0));
+    return (_jsxs(_Fragment, { children: [leftIcon && (_jsx(ButtonIcon, __assign({ marginRight: iconSpacing }, { children: leftIcon }))), children, rightIcon && (_jsx(ButtonIcon, __assign({ marginLeft: iconSpacing }, { children: rightIcon })))] }));
 }
 function ButtonIcon(_a) {
     var children = _a.children, marginLeft = _a.marginLeft, marginRight = _a.marginRight, rest = __rest(_a, ["children", "marginLeft", "marginRight"]);
     var classes = useButtonIconStyles({ marginLeft: marginLeft, marginRight: marginRight });
     var _className = clx(classes.root, classes.iconSpacing);
     var _children = isValidElement(children) ? cloneElement(children, {}) : children;
-    return (_jsx("span", __assign({}, rest, { className: _className }, { children: _children }), void 0));
+    return (_jsx("span", __assign({}, rest, { className: _className }, { children: _children })));
 }

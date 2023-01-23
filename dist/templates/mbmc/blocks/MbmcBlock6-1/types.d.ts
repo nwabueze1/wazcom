@@ -1,5 +1,5 @@
 import { BlockLayout, MbmcCommonProps, HivedeckService } from "templates/mbmc/types";
-export declare type MbmcBlock61Props = MbmcCommonProps & {
+export type MbmcBlock61Props = MbmcCommonProps & {
     layout?: BlockLayout;
     heading: string;
     integratedService: HivedeckService;
@@ -7,7 +7,7 @@ export declare type MbmcBlock61Props = MbmcCommonProps & {
     menu_uuid: string;
     site_uuid: string;
 };
-export declare type TMenuCategory = {
+export type TMenuCategory = {
     title: string;
     id: number;
 };

@@ -30,5 +30,5 @@ export var MbmcButton = function (_a) {
     return (_jsx(MainButton, __assign({ onClick: function (e) {
             e.stopPropagation();
             handleClick === null || handleClick === void 0 ? void 0 : handleClick();
-        }, type: type, className: clx(className, classes.button, variant === "PRIMARY" && classes.buttonPrimary, variant === "SECONDARY" && classes.buttonSecondary, variant === "NEUTRAL" && classes.buttonNeutral, size === "sm" && classes.buttonSmall, (name === null || name === void 0 ? void 0 : name.toLowerCase()) === (activeElement === null || activeElement === void 0 ? void 0 : activeElement.toLowerCase()) && classes.buttonActive) }, props, { children: children }), void 0));
+        }, type: type, className: clx(className, classes.button, variant === "PRIMARY" && classes.buttonPrimary, variant === "SECONDARY" && classes.buttonSecondary, variant === "NEUTRAL" && classes.buttonNeutral, size === "sm" && classes.buttonSmall, (name === null || name === void 0 ? void 0 : name.toLowerCase()) === (activeElement === null || activeElement === void 0 ? void 0 : activeElement.toLowerCase()) && classes.buttonActive) }, props, { children: children })));
 };

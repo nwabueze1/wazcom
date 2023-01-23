@@ -14,5 +14,5 @@ import { useDateStyles } from "./styles";
 import { BsCalendarDate } from "react-icons/bs";
 export var Date = function () {
     var classes = useDateStyles();
-    return (_jsxs("div", __assign({ className: classes.root }, { children: [_jsx("p", __assign({ className: classes.dateText }, { children: "Month, day, year" }), void 0), _jsx(BsCalendarDate, { className: classes.dateIcon }, void 0)] }), void 0));
+    return (_jsxs("div", __assign({ className: classes.root }, { children: [_jsx("p", __assign({ className: classes.dateText }, { children: "Month, day, year" })), _jsx(BsCalendarDate, { className: classes.dateIcon })] })));
 };

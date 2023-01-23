@@ -21,10 +21,10 @@ export var MbmcBlock10 = function (_a) {
                                 "".concat(String(index), ".tags.").concat(String(tagIndex), ".image") &&
                                 classes.block10ActiveElement), onClick: function () {
                                 return handleElementClick(mode, "".concat(String(index), ".tags.").concat(String(tagIndex), ".image"), handleClick);
-                            } }, void 0), " ", _jsx("p", __assign({ className: clx(classes.tagText, activeElement ===
+                            } }), " ", _jsx("p", __assign({ className: clx(classes.tagText, activeElement ===
                                 "".concat(String(index), ".tags.").concat(String(tagIndex), ".text") &&
                                 classes.block10ActiveElement), onClick: function () {
                                 return handleElementClick(mode, "".concat(String(index), ".tags.").concat(String(tagIndex), ".text"), handleClick);
-                            } }, { children: tag.text }), void 0)] }), tagIndex));
-            }) }), void 0) }), void 0));
+                            } }, { children: tag.text }))] }), tagIndex));
+            }) })) })));
 };

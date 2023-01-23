@@ -51,8 +51,8 @@ export var Tab = function (_a) {
     return (_jsxs("div", __assign({ className: classes.root }, { children: [_jsx("div", __assign({ className: classes.tabs }, { children: controls.map(function (_a, index) {
                     var name = _a.name, title = _a.title;
                     return (_jsx("div", __assign({ onClick: function () { return handleTabClick(name); }, className: clx(classes.tab, (name == activeTab) && classes.tabIsActive) }, { children: title }), index));
-                }) }), void 0), _jsx("div", __assign({ className: classes.contentWrapper }, { children: controls.map(function (_a, index) {
+                }) })), _jsx("div", __assign({ className: classes.contentWrapper }, { children: controls.map(function (_a, index) {
                     var name = _a.name, component = _a.component;
                     return (_jsx("div", __assign({ className: clx(classes.content, (name == activeTab) && classes.contentIsActive) }, { children: component }), index));
-                }) }), void 0)] }), void 0));
+                }) }))] })));
 };

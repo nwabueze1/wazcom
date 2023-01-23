@@ -1,7 +1,7 @@
 /// <reference types="react" />
 import { ApolloClient, NormalizedCacheObject } from "@apollo/client";
 import { CoreCartFields, CoreMenuFields } from "../models";
-export declare type RestaurantContextProps = {
+export type RestaurantContextProps = {
     menu?: CoreMenuFields;
     cart?: CoreCartFields;
     clients?: {

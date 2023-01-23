@@ -14,5 +14,5 @@ import { useTimeStyles } from "./styles";
 import { BiTime } from "react-icons/bi";
 export var Time = function () {
     var classes = useTimeStyles();
-    return (_jsxs("div", __assign({ className: classes.root }, { children: [_jsx("p", __assign({ className: classes.timeText }, { children: "Time" }), void 0), _jsx(BiTime, { className: classes.timeIcon }, void 0)] }), void 0));
+    return (_jsxs("div", __assign({ className: classes.root }, { children: [_jsx("p", __assign({ className: classes.timeText }, { children: "Time" })), _jsx(BiTime, { className: classes.timeIcon })] })));
 };

@@ -1,6 +1,6 @@
 /// <reference types="react" />
 import { Filter, TableDataProps } from "../../types";
-export declare type TableFilterProps = {
+export type TableFilterProps = {
     showFilter: boolean;
     setShowFilter: React.Dispatch<React.SetStateAction<boolean>>;
     fields: {

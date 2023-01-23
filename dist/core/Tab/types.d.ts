@@ -1,5 +1,5 @@
 import React from "react";
-export declare type TabProps = {
+export type TabProps = {
     children?: React.ReactNode;
     controls: {
         name: string;

@@ -1,5 +1,5 @@
 import { FormControls } from "./FormControl/types";
-export declare type FormProps = {
+export type FormProps = {
     className?: string;
     controls: FormControls[];
     onSubmit: () => void;
