@@ -3,6 +3,8 @@ export var useSelectStyles = makeStyles(function (theme) { return ({
     root: {
         display: "flex",
         flexDirection: "column",
+        justifyContent: 'start',
+        alignItems: 'start',
         position: "relative",
         marginBottom: theme.spacing(2)
     },
@@ -60,6 +62,6 @@ export var useSelectStyles = makeStyles(function (theme) { return ({
         },
     },
     option: {
-        backgroundColor: "".concat(theme.design.colors.primary600, " !important")
+        backgroundColor: "".concat(theme.design.colors.primary900, " !important")
     }
 }); });

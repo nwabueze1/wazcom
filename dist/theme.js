@@ -89,6 +89,8 @@ export var theme = {
         colors: {
             grey: "#333333",
             error: "#c32611",
+            info: "#4961E3",
+            warning: "#E0BC24",
             primary100: "#0A7227",
             primary200: "#23803D",
             primary300: "#3B8E52",
@@ -97,6 +99,7 @@ export var theme = {
             primary600: "#CEE3D4",
             primary700: "#E7F1E9",
             primary800: "#85B993",
+            primary900: "#F7FCF8",
             secondary100: "#F4CDB4",
             info100: "#2F80ED",
             success100: "#0BCE5A",

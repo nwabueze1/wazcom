@@ -41,6 +41,28 @@ export var useTextStyles = makeStyles(function (theme) { return ({
             },
         });
     },
+    baseTextArea: function (props) {
+        var _a, _b, _c, _d, _e, _f;
+        return ({
+            display: 'flex',
+            padding: 10,
+            outline: 0,
+            background: "".concat((_a = props.background) !== null && _a !== void 0 ? _a : theme.design.colors.white100, " 0% 0% no-repeat padding-box"),
+            color: (_b = props.color) !== null && _b !== void 0 ? _b : theme.design.colors.waz_primaryBlack,
+            borderWidth: (_c = props === null || props === void 0 ? void 0 : props.borderWidth) !== null && _c !== void 0 ? _c : 1,
+            borderStyle: (_d = props === null || props === void 0 ? void 0 : props.borderStyle) !== null && _d !== void 0 ? _d : 'solid',
+            borderRadius: (_e = props === null || props === void 0 ? void 0 : props.borderRadius) !== null && _e !== void 0 ? _e : 4,
+            fontWeight: 400,
+            fontSize: theme.typography.fontSize,
+            borderColor: (_f = props === null || props === void 0 ? void 0 : props.borderColor) !== null && _f !== void 0 ? _f : theme.design.colors.primary700,
+            '&:hover': {
+                borderColor: theme.design.colors.primary500,
+            },
+            '&:focus, &:hover:focus, &:active': {
+                borderColor: theme.design.colors.primary400,
+            },
+        });
+    },
     defaultInput: function (props) {
         var _a;
         return ({
@@ -84,8 +106,16 @@ export var useTextStyles = makeStyles(function (theme) { return ({
         fontWeight: 400,
         fontSize: theme.typography.fontSize,
     },
+    textAreaContainer: {
+        padding: 0,
+        margin: 0,
+        border: 0,
+        width: '100%'
+    },
     textAreaInput: {
-        height: "auto"
+        padding: 0,
+        margin: 0,
+        border: 0
     },
     wordCount: {},
     labelWrapper: {
@@ -108,7 +138,7 @@ export var useTextStyles = makeStyles(function (theme) { return ({
         color: theme.design.colors.error,
     }
 }); });
-export var useTextInputIconStyles = makeStyles(function (theme) { return ({
+export var useTextInputIconStyles = makeStyles(function () { return ({
     root: {
         position: 'relative',
         backgroundColor: 'transparent',

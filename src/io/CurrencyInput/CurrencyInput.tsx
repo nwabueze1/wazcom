@@ -22,7 +22,6 @@ export const CurrencyInputField: FC<CurrencyInputProps> = ({
     hideLabel = false,
     name,
     required = false,
-    iconSpacing,
     width,
     height,
     color,
@@ -35,7 +34,6 @@ export const CurrencyInputField: FC<CurrencyInputProps> = ({
     onFocus,
     onEnter,
     onBlur,
-    ...props
 }) => {
     const [isFocused, setIsFocused] = React.useState<boolean>(false);
     const [selectedCurrency, setSelectedCurrency] = React.useState<any>({});
@@ -100,9 +98,7 @@ export const CurrencyInputField: FC<CurrencyInputProps> = ({
             {(variant !== 'basic') && (
                 <div className={classes.selectContainer}>
                     <SelectInput
-                        className={classes.selectInput}
                         backgroundColor={'#FAFAFA'}
-
                         onChange={($v) => setSelectedCurrency($v)}
                         options={currencies?.map(v => ({
                             ...v, label: v.code, value: v.code

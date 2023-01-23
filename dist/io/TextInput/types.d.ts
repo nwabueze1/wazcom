@@ -17,6 +17,7 @@ export type TextBaseProps = CommonProps & {
     errors?: {
         message: string;
     }[];
+    rows?: string | number;
     value?: any;
     leftIcon?: React.ReactElement;
     rightIcon?: React.ReactElement;

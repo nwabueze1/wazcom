@@ -30,7 +30,7 @@ import { Box, ListItemIcon, MenuItem } from "@mui/material";
 import { useState } from "react";
 import { useTableControlsStyles } from "./styles";
 import { Logout, Print, SendToMobileOutlined, Settings } from "@mui/icons-material";
-import { Button } from "../../../Button";
+import { Button } from "../../../Button_old";
 import { exportToCSV, exportToXlsx } from "../../helpers";
 import Menu from "@mui/material/Menu";
 import { TableFilter } from "../TableFilter";

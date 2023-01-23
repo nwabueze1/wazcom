@@ -1,7 +1,7 @@
 import React from 'react';
 import { CommonProps } from "../../types";
 
-export type TextBaseProps = CommonProps & {
+export type CurrencyBaseProps = CommonProps & {
     helperText?: string;
     variant?: string;
     hideLabel?: boolean;
@@ -40,7 +40,7 @@ export type TextBaseProps = CommonProps & {
     onChange?: (...args: any[]) => void;
 }
 
-export type CurrencyInputProps = TextBaseProps & InputProps & {
+export type CurrencyInputProps = CurrencyBaseProps & InputProps & {
     variant: 'basic'|'vertical'|'horizontal';
     currency?: string | string[];
     placeholder?: string;
@@ -78,7 +78,7 @@ export type CurrencyIconProps = {
     marginRight?: string | number;
 };
 
-export type TextInputIconStyleProps = {
+export type CurrencyIconStyleProps = {
     props?: object | string;
     marginLeft?: string | number;
     marginRight?: string | number;

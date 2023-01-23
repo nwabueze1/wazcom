@@ -27,12 +27,19 @@ var __read = (this && this.__read) || function (o, n) {
 };
 import { jsx as _jsx, jsxs as _jsxs } from "react/jsx-runtime";
 import { useCallback, useEffect, useMemo, useState } from 'react';
-import { useTabStyles } from './styles';
 import clx from 'classnames';
 import { useLocation, useHistory } from 'react-router-dom';
+import { useTabStyles } from './styles';
 export var Tab = function (_a) {
-    var controls = _a.controls;
-    var classes = useTabStyles();
+    var controls = _a.controls, variant = _a.variant, backgroundColor = _a.backgroundColor, borderWidth = _a.borderWidth, borderColor = _a.borderColor, borderStyle = _a.borderStyle, borderRadius = _a.borderRadius;
+    var classes = useTabStyles({
+        variant: variant,
+        backgroundColor: backgroundColor,
+        borderWidth: borderWidth,
+        borderColor: borderColor,
+        borderStyle: borderStyle,
+        borderRadius: borderRadius,
+    });
     var _b = __read(useState(), 2), activeTab = _b[0], setActiveTab = _b[1];
     var _c = useLocation(), pathname = _c.pathname, search = _c.search;
     var history = useHistory();

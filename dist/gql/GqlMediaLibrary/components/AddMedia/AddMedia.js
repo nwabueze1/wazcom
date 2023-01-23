@@ -11,7 +11,7 @@ var __assign = (this && this.__assign) || function () {
 };
 import { jsx as _jsx, jsxs as _jsxs } from "react/jsx-runtime";
 import { useAddMediaStyles } from "./styles";
-import { Button } from "../../../../core/Button";
+import { Button } from "../../../../core/Button_old";
 import { Modal } from "@mui/material";
 import { UploadDialogue } from "./UploadDialogue";
 export var AddMedia = function (_a) {

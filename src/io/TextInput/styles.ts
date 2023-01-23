@@ -130,7 +130,7 @@ export const useTextStyles = makeStyles((theme: Theme) => ({
     }
 }));
 
-export const useTextInputIconStyles = makeStyles((theme: Theme) => ({
+export const useTextInputIconStyles = makeStyles(() => ({
     root: {
         position: 'relative',
         backgroundColor: 'transparent',

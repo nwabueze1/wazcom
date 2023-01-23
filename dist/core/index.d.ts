@@ -15,5 +15,5 @@ export * from "./EmptyState";
 export * from "./Scheduler";
 export * from "./DateTimePicker";
 export * from "./LazyImage";
-export * from "./BaseComponents/General/Button";
+export * from "./Button";
 export * from "./Tab";

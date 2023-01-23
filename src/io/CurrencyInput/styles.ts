@@ -1,9 +1,9 @@
 import { Theme } from "@mui/material";
 import { makeStyles } from "@mui/styles";
-import { TextInputIconStyleProps, TextBaseProps } from "./types";
+import { CurrencyIconStyleProps, CurrencyBaseProps } from "./types";
 
 export const useCurrencyInputStyles = makeStyles((theme: Theme) => ({
-    root: (props: TextBaseProps) => ({
+    root: (props: CurrencyBaseProps) => ({
         position: 'relative',
         display: "flex",
         flexDirection: props.variant === 'vertical' ? 'column' : 'row',
@@ -40,12 +40,11 @@ export const useCurrencyInputStyles = makeStyles((theme: Theme) => ({
         alignItems: 'center',
         gap: 2
     },
-    selectInput: (props: TextBaseProps) => ({}),
     required: {
         color: theme.design.colors.waz_dangerColor100,
         margin: theme.spacing(-.5, .5, 0, .5),
     },
-    baseInput: (props: TextBaseProps) => ({
+    baseInput: (props: CurrencyBaseProps) => ({
         display: 'flex',
         padding: !props.isSelectCurrency ? '8px 12px' : 0,
         height: props.height ?? 34,
@@ -65,7 +64,7 @@ export const useCurrencyInputStyles = makeStyles((theme: Theme) => ({
             borderColor: theme.design.colors.primary400,
         },
     }),
-    baseTextArea: (props: TextBaseProps) => ({
+    baseTextArea: (props: CurrencyBaseProps) => ({
         display: 'flex',
         padding: 10,
         outline: 0,
@@ -84,7 +83,7 @@ export const useCurrencyInputStyles = makeStyles((theme: Theme) => ({
             borderColor: theme.design.colors.primary400,
         },
     }),
-    defaultInput: (props: TextBaseProps) => ({
+    defaultInput: (props: CurrencyBaseProps) => ({
         borderColor: props?.borderColor ?? theme.design.colors.primary700,
         '&:hover': {
             borderColor: theme.design.colors.primary500,
@@ -93,7 +92,7 @@ export const useCurrencyInputStyles = makeStyles((theme: Theme) => ({
             borderColor: theme.design.colors.primary400,
         },
     }),
-    focusedInput: (props: TextBaseProps) => ({
+    focusedInput: (props: CurrencyBaseProps) => ({
         borderColor: props?.borderColor ?? theme.design.colors.primary400,
         '&:hover, &:focus, &:hover:focus, &:active': {
             borderColor: theme.design.colors.primary400,
@@ -198,7 +197,7 @@ export const useCurrencyInputStyles = makeStyles((theme: Theme) => ({
     }
 }));
 
-export const useTextInputIconStyles = makeStyles((theme: Theme) => ({
+export const useCurrencyIconStyles = makeStyles((theme: Theme) => ({
     root: {
         position: 'relative',
         backgroundColor: 'transparent',
@@ -206,7 +205,7 @@ export const useTextInputIconStyles = makeStyles((theme: Theme) => ({
         alignSelf: 'center',
         flexShrink: 0
     },
-    iconSpacing: (props: TextInputIconStyleProps) => ({
+    iconSpacing: (props: CurrencyIconStyleProps) => ({
         marginRight: `${props.marginRight}px`,
         marginLeft: `${props.marginLeft}px`,
     }),
@@ -241,7 +240,7 @@ export const useTextInputIconStyles = makeStyles((theme: Theme) => ({
     }
 }));
 
-export const useSelectInputStyles = makeStyles((theme: Theme) => ({
+export const useSelectInputStyles = makeStyles(() => ({
     root: {
         boxSizing: 'border-box',
         '&:before, &:after': {

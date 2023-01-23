@@ -41,7 +41,7 @@ import { Checkbox, ClickAwayListener, MenuItem } from "@mui/material";
 import { Accordion } from "../../../Accordion";
 import { useFilterStyles } from "./styles";
 import { FilterAlt } from "@mui/icons-material";
-import { Button } from "../../../Button";
+import { Button } from "../../../Button_old";
 import { useTableControlsStyles } from "../TableControls/styles";
 import { getJsxContent } from "../../helpers";
 export var TableFilter = function (_a) {
