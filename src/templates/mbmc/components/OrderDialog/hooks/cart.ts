@@ -7,7 +7,7 @@ import { TAddToCartVariables } from "./types";
 import { notify } from "../../../utilities";
 
 export const useCreateCart = () => {
-    const { menu, clients } = useContext(RestaurantContext);
+    const { menu, client } = useContext(RestaurantContext);
     const cookies = new Cookies();
 
     return async () => {
@@ -15,9 +15,7 @@ export const useCreateCart = () => {
         const cartItemCountCookie: { [key: string]: number } = cookies.get("cartItemCount") ?? {};
         const siteUuid = menu?.restaurant?.site_uuid as string;
         const currency = menu?.restaurant?.bank_info?.currency as string;
-        const { data, errors } = await (
-            clients?.AMBROSIA as ApolloClient<NormalizedCacheObject>
-        ).mutate({
+        const { data, errors } = await (client as ApolloClient<NormalizedCacheObject>).mutate({
             mutation: CREATE_CART,
             variables: { site_uuid: siteUuid, currency },
         });
@@ -42,7 +40,7 @@ export const useCreateCart = () => {
 };
 
 export const useAddToCart = () => {
-    const { menu, clients, setContext } = useContext(RestaurantContext);
+    const { menu, client, setContext } = useContext(RestaurantContext);
     const cookies = new Cookies();
     const createCart = useCreateCart();
     const updateCartCount = useUpdateCartCount();
@@ -61,9 +59,7 @@ export const useAddToCart = () => {
             if (!cartCookie || !cartCookie[siteUuid]) cartUuid = await createCart();
             else cartUuid = cartCookie[siteUuid];
 
-            const { data, errors } = await (
-                clients?.AMBROSIA as ApolloClient<NormalizedCacheObject>
-            ).mutate({
+            const { data, errors } = await (client as ApolloClient<NormalizedCacheObject>).mutate({
                 mutation: CREATE_CART_ITEM,
                 variables: { ...variables, cart_uuid: cartUuid },
             });

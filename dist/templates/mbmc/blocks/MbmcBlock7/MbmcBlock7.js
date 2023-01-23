@@ -35,9 +35,9 @@ import { createApolloClient } from "../../../../helpers/graphQL";
 import { useQuery } from "@apollo/client";
 import { handleElementClick } from "../../utilities";
 export var MbmcBlock7 = function (_a) {
-    var _b = _a.mode, mode = _b === void 0 ? "view" : _b, _c = _a.activeElement, activeElement = _c === void 0 ? "" : _c, handleClick = _a.handleClick, index = _a.index, heading = _a.heading, description = _a.description, _d = _a.images, images = _d === void 0 ? [] : _d, services = _a.services, integratedService = _a.integratedService, site_uuid = _a.site_uuid;
+    var _b = _a.mode, mode = _b === void 0 ? "view" : _b, _c = _a.activeElement, activeElement = _c === void 0 ? "" : _c, handleClick = _a.handleClick, index = _a.index, heading = _a.heading, description = _a.description, _d = _a.images, images = _d === void 0 ? [] : _d, gatewayUrl = _a.gatewayUrl, site_uuid = _a.site_uuid;
     var classes = useMbmcBlock7Styles();
-    var client = useMemo(function () { return createApolloClient(services ? services[integratedService] : ""); }, []);
+    var client = useMemo(function () { return createApolloClient(gatewayUrl !== null && gatewayUrl !== void 0 ? gatewayUrl : ""); }, []);
     var _e = useQuery(GET_INSTAGRAM_IMAGES, {
         client: client,
         variables: {

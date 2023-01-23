@@ -10,10 +10,10 @@ import { RestaurantContext } from "../../../../contexts";
 import { useCreateOrder } from "./hooks";
 
 export const Payment = () => {
-    const { clients, cart, loading: ctxtLoading, networkOperation } = useContext(RestaurantContext);
+    const { client, cart, loading: ctxtLoading, networkOperation } = useContext(RestaurantContext);
     const classes = usePaymentStyles();
     const { data, error, loading } = useQuery(GET_PAYMENT_METHODS, {
-        client: clients?.NICODEMUS,
+        client: client,
         variables: { service_uuid: cart?.restaurant?.uuid },
     });
     const [paymentMethods, setPaymentMethods] = useState<PaymentMethod[]>([]);
@@ -23,7 +23,6 @@ export const Payment = () => {
     useEffect(() => {
         if (data) {
             const { getPaymentMethods: paymentMethods } = data;
-            console.log(paymentMethods);
             setPaymentMethods(paymentMethods);
         }
 

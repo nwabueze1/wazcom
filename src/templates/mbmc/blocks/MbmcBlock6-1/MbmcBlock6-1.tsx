@@ -12,19 +12,15 @@ import { createApolloClient } from "../../../../helpers/graphQL";
 export const MbmcBlock61: FC<MbmcBlock61Props> = ({
     heading,
     description,
-    services,
-    integratedService,
+    gatewayUrl,
     menu_uuid,
-    setContextProps
+    setContextProps,
 }) => {
     const classes = useMbmcBlock61Styles();
     const [contextData, setContextData] = useState<Omit<RestaurantContextProps, "setContext">>({});
     const [activeCategory, setActiveCategory] = useState<TMenuCategory>();
     const [itemUuid, setItemUuid] = useState<string>();
-    const client = useMemo(
-        () => createApolloClient(services ? services[integratedService] : ""),
-        [],
-    );
+    const client = useMemo(() => createApolloClient(gatewayUrl ?? ""), []);
 
     const { data, error } = useQuery(GET_MENU_BY_UUID, { client, variables: { uuid: menu_uuid } });
     const { menu } = contextData;
@@ -40,10 +36,20 @@ export const MbmcBlock61: FC<MbmcBlock61Props> = ({
     useEffect(() => {
         if (data) {
             const {
-                menu: { activeMenuCategories: menuCategories, activeMenuItems: menuItems, ...rest },
+                getMenu: {
+                    activeMenuCategories: menuCategories,
+                    activeMenuItems: menuItems,
+                    restaurant,
+                    ...rest
+                },
             } = data;
-            const menu = { menuCategories, menuItems, ...rest };
-            setContextData({ menu, clients: { [integratedService]: client } });
+            const menu = {
+                menuCategories,
+                menuItems,
+                restaurant: { ...restaurant, site_uuid: restaurant?.site?.uuid },
+                ...rest,
+            };
+            setContextData({ menu, client });
 
             const queryParams = new URLSearchParams(window.location.search);
             let activeMenuCategory = menuCategories.length > 0 ? menuCategories[0] : undefined;
@@ -113,7 +119,7 @@ export const MbmcBlock61: FC<MbmcBlock61Props> = ({
 
     return (
         <RestaurantContext.Provider value={{ ...contextData, setContext: updateContext }}>
-            <div className={classes.root} id='menu'>
+            <div className={classes.root} id="menu">
                 <div className={classes.block61Container}>
                     <h3 className={classes.block61Title}>{heading}</h3>
                     <p className={classes.block61Description}>{description}</p>
