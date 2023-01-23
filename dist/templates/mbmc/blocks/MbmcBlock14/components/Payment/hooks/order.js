@@ -53,7 +53,7 @@ import { calculateCartSubTotal } from "../../../helpers";
 import { notify } from "../../../../../utilities";
 import { usePaypalPayment } from "./payment";
 export var useCreateOrder = function () {
-    var _a = useContext(RestaurantContext), cart = _a.cart, clients = _a.clients, setContext = _a.setContext;
+    var _a = useContext(RestaurantContext), cart = _a.cart, client = _a.client, setContext = _a.setContext;
     var cookies = new Cookies();
     var makePaypalPayment = usePaypalPayment();
     return function (paymentMethod) { return __awaiter(void 0, void 0, void 0, function () {
@@ -68,7 +68,7 @@ export var useCreateOrder = function () {
                     _o.label = 1;
                 case 1:
                     _o.trys.push([1, 3, , 4]);
-                    return [4 /*yield*/, (clients === null || clients === void 0 ? void 0 : clients.AMBROSIA).mutate({
+                    return [4 /*yield*/, client.mutate({
                             mutation: CREATE_ORDER,
                             variables: {
                                 payment_type: String(paymentMethod).toLowerCase() === "paypal"

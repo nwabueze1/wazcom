@@ -51,7 +51,7 @@ import { RestaurantContext } from "../../../contexts";
 import { CREATE_CART, CREATE_CART_ITEM } from "../graphql";
 import { notify } from "../../../utilities";
 export var useCreateCart = function () {
-    var _a = useContext(RestaurantContext), menu = _a.menu, clients = _a.clients;
+    var _a = useContext(RestaurantContext), menu = _a.menu, client = _a.client;
     var cookies = new Cookies();
     return function () { return __awaiter(void 0, void 0, void 0, function () {
         var cartCookie, cartItemCountCookie, siteUuid, currency, _a, data, errors, error, _b, uuid, expires;
@@ -63,7 +63,7 @@ export var useCreateCart = function () {
                     cartItemCountCookie = (_d = cookies.get("cartItemCount")) !== null && _d !== void 0 ? _d : {};
                     siteUuid = (_e = menu === null || menu === void 0 ? void 0 : menu.restaurant) === null || _e === void 0 ? void 0 : _e.site_uuid;
                     currency = (_g = (_f = menu === null || menu === void 0 ? void 0 : menu.restaurant) === null || _f === void 0 ? void 0 : _f.bank_info) === null || _g === void 0 ? void 0 : _g.currency;
-                    return [4 /*yield*/, (clients === null || clients === void 0 ? void 0 : clients.AMBROSIA).mutate({
+                    return [4 /*yield*/, client.mutate({
                             mutation: CREATE_CART,
                             variables: { site_uuid: siteUuid, currency: currency },
                         })];
@@ -87,7 +87,7 @@ export var useCreateCart = function () {
     }); };
 };
 export var useAddToCart = function () {
-    var _a = useContext(RestaurantContext), menu = _a.menu, clients = _a.clients, setContext = _a.setContext;
+    var _a = useContext(RestaurantContext), menu = _a.menu, client = _a.client, setContext = _a.setContext;
     var cookies = new Cookies();
     var createCart = useCreateCart();
     var updateCartCount = useUpdateCartCount();
@@ -111,7 +111,7 @@ export var useAddToCart = function () {
                 case 3:
                     cartUuid = cartCookie[siteUuid];
                     _c.label = 4;
-                case 4: return [4 /*yield*/, (clients === null || clients === void 0 ? void 0 : clients.AMBROSIA).mutate({
+                case 4: return [4 /*yield*/, client.mutate({
                         mutation: CREATE_CART_ITEM,
                         variables: __assign(__assign({}, variables), { cart_uuid: cartUuid }),
                     })];

@@ -4,9 +4,7 @@ import { CoreCartFields, CoreMenuFields } from "../models";
 export declare type RestaurantContextProps = {
     menu?: CoreMenuFields;
     cart?: CoreCartFields;
-    clients?: {
-        [key: string]: ApolloClient<NormalizedCacheObject>;
-    };
+    client?: ApolloClient<NormalizedCacheObject>;
     loading?: boolean;
     networkOperation?: string;
     notification?: {

@@ -51,7 +51,7 @@ import { UPDATE_GUEST } from "../graphql";
 import { notify } from "../../../../../utilities";
 import Cookies from "universal-cookie";
 export var useUpdateGuest = function () {
-    var _a = useContext(RestaurantContext), cart = _a.cart, clients = _a.clients, setContext = _a.setContext;
+    var _a = useContext(RestaurantContext), cart = _a.cart, client = _a.client, setContext = _a.setContext;
     var cookies = new Cookies();
     var cartCookie = cookies.get("cart");
     return function (variables, onSuccess, isPickup) { return __awaiter(void 0, void 0, void 0, function () {
@@ -61,6 +61,8 @@ export var useUpdateGuest = function () {
             switch (_c.label) {
                 case 0:
                     siteUuid = (_b = cart === null || cart === void 0 ? void 0 : cart.restaurant) === null || _b === void 0 ? void 0 : _b.site_uuid;
+                    console.log(siteUuid);
+                    console.log(cart);
                     cartUuid = cartCookie[siteUuid];
                     setContext === null || setContext === void 0 ? void 0 : setContext({
                         loading: true,
@@ -69,7 +71,10 @@ export var useUpdateGuest = function () {
                     _c.label = 1;
                 case 1:
                     _c.trys.push([1, 3, , 4]);
-                    return [4 /*yield*/, (clients === null || clients === void 0 ? void 0 : clients.AMBROSIA).mutate({ mutation: UPDATE_GUEST, variables: __assign(__assign({}, variables), { cart_uuid: cartUuid }) })];
+                    return [4 /*yield*/, client.mutate({
+                            mutation: UPDATE_GUEST,
+                            variables: __assign(__assign({}, variables), { cart_uuid: cartUuid }),
+                        })];
                 case 2:
                     _a = _c.sent(), data = _a.data, errors = _a.errors;
                     if (!data || errors) {
