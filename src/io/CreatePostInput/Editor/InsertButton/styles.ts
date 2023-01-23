@@ -45,15 +45,16 @@ export const useInsertButtonStyles = makeStyles((theme: Theme) => ({
         justifyContent: 'flext-start',
         height: '46px',
         '&:hover' : {
-            background: theme.design.colors.primary700
-        }
+            background: theme.design.colors.primary700,
+            cursor: 'pointer'
+        },
     },
     optionItemIcon: {
         display: 'flex',
         flexDirection: 'column',
         justifyContent: 'center',
-        width: '13.33',
-        height: '10.67',
+        width: '14',
+        height: '12.67',
         marginLeft: theme.spacing(1),
     },
     optionItemRight: {

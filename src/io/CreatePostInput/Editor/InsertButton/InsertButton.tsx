@@ -4,6 +4,9 @@ import { InsertButtonProps, OptionItemProps, ImageProperties } from './types';
 import clx from "classnames";
 import { InsertDialog } from "../InsertDialog/InsertDialog";
 import { EditorMediaLibrary } from "../EditorMediaLibrary/EditorMediaLibrary";
+import VideoIcon from "./VideoIcon";
+import PictureIcon from "./PictureIcon";
+import SocialIcon from "./SocialIcon";
 
 
 export const InsertButton: React.FC<InsertButtonProps> = ({
@@ -110,17 +113,17 @@ export const InsertButton: React.FC<InsertButtonProps> = ({
                 <span className={classes.optionTitleSpan}>EMBEDS</span>
                 <div className={classes.options}>
                     <OptionItem 
-                    icon={"icon"} 
+                    icon={<PictureIcon />} 
                     title={"Picture"} 
                     itemInfo={"jpeg, png"} 
                     handleOptionClick={()=>handleOptionClick(event, "picture")} />
                     <OptionItem 
-                    icon={"icon"} 
+                    icon={<VideoIcon />} 
                     title={"Video"} 
                     itemInfo={"Embed a Youtube video"} 
                     handleOptionClick={()=>handleOptionClick(event, "video")} />
                     <OptionItem 
-                    icon={"icon"} 
+                    icon={<SocialIcon />} 
                     title={"Social"} 
                     itemInfo={"Embed a Facebook Link"} 
                     handleOptionClick={()=>handleOptionClick(event, "social")} />

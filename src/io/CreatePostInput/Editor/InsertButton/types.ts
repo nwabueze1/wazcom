@@ -15,7 +15,7 @@ export type ImageProperties = {
 export type SizeFields = { [key in "desktop" | "tablet" | "mobile"]: string };
 
 export type OptionItemProps = {
-    icon: string,
+    icon: any,
     title: string,
     itemInfo: string,
     handleOptionClick: (event: React.MouseEvent<HTMLDivElement, MouseEvent>, option: string) => void
