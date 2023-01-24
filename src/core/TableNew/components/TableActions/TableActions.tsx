@@ -2,20 +2,24 @@ import React, { FC } from "react";
 import { TableActionsProps } from "./types";
 import { TextInput, SelectInput } from "../../../../io";
 import { useTableActionStyles } from "./styles";
-import { TableConditionFilter } from "build";
+import { TableColumn, TableConditionFilter } from "build";
 import { ColumnSelector } from "../ColumnSelector";
 
 export const TableActions: FC<TableActionsProps> = ({
     currentActions,
     setCurrentActions,
     conditionFilters,
-    columns
+    columns,
 }) => {
     const classes = useTableActionStyles();
 
     const handleConditionChange = ({ value: name }: { name: string; value: string }) => {
         const newConditionFilter = conditionFilters?.find((filter) => filter.name === name);
         setCurrentActions({ ...currentActions, conditionFilter: newConditionFilter });
+    };
+
+    const handleColumnsChange = (columnFilters: TableColumn[]) => {
+        setCurrentActions({ ...currentActions, columnFilters });
     };
 
     return (
@@ -34,7 +38,11 @@ export const TableActions: FC<TableActionsProps> = ({
                     onChange={handleConditionChange}
                 />
             )}
-            <ColumnSelector columns={columns} />
+            <ColumnSelector
+                columns={columns}
+                columnFilters={currentActions.columnFilters as TableColumn[]}
+                handleColumnChange={handleColumnsChange}
+            />
         </div>
     );
 };

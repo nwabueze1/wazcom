@@ -19,11 +19,11 @@ export const TableNew: FC<TableNewProps> = ({
         [key in "search" | "conditionFilter" | "columnFilters"]:
             | string
             | (TableConditionFilter | undefined)
-            | (TableColumn[] | undefined);
+            | TableColumn[];
     }>({
         search: "",
         conditionFilter: conditionFilters ? conditionFilters[0] : undefined,
-        columnFilters: undefined,
+        columnFilters: columns,
     });
 
     const classes = useTableStyles();
@@ -46,7 +46,7 @@ export const TableNew: FC<TableNewProps> = ({
     };
 
     const displayColumns = () =>
-        columns.map(({ name }, index) => (
+        ((actions?.columnFilters as TableColumn[]) ?? columns).map(({ name }, index) => (
             <td className={classes.tHeadData} key={index}>
                 {name}
             </td>
@@ -60,7 +60,7 @@ export const TableNew: FC<TableNewProps> = ({
             externalClasses,
         ).map((row: { [key: string]: JSX.Element | string }, index: number) => (
             <tr className={classes.tRow} key={index}>
-                {columns
+                {((actions?.columnFilters as TableColumn[]) ?? columns)
                     .map(({ key }) => key)
                     .map((key, index) => (
                         <td className={classes.tRowData} key={index}>
