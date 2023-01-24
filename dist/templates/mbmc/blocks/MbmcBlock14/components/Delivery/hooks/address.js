@@ -50,14 +50,14 @@ import { RestaurantContext } from "../../../../../contexts";
 import { CREATE_ADDRESS } from "../graphql";
 import { notify } from "../../../../../utilities";
 export var useCreateAddress = function () {
-    var _a = useContext(RestaurantContext), cart = _a.cart, clients = _a.clients, setContext = _a.setContext;
+    var _a = useContext(RestaurantContext), cart = _a.cart, client = _a.client, setContext = _a.setContext;
     return function (variables, guest, onSuccess) { return __awaiter(void 0, void 0, void 0, function () {
         var _a, data, errors, address, updatedCart, error_1;
         return __generator(this, function (_b) {
             switch (_b.label) {
                 case 0:
                     _b.trys.push([0, 2, , 3]);
-                    return [4 /*yield*/, (clients === null || clients === void 0 ? void 0 : clients.AMBROSIA).mutate({
+                    return [4 /*yield*/, client.mutate({
                             mutation: CREATE_ADDRESS,
                             variables: __assign(__assign({}, variables), { guest_uuid: guest.uuid }),
                         })];

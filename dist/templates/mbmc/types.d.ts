@@ -37,9 +37,7 @@ export type MbmcCommonProps = {
     classNames?: {
         [key: string]: string;
     };
-    services?: {
-        [key in HivedeckService]: string;
-    };
+    gatewayUrl?: string;
     contextProps?: {
         [key: string]: any;
     };
@@ -47,8 +45,7 @@ export type MbmcCommonProps = {
         [key: string]: any;
     }) => void;
 };
-export type HivedeckService = "NICODEMUS" | "AMBROSIA" | "MUSE";
-export type MbmcTemplatePropType = {
+export declare type MbmcTemplatePropType = {
     component: any;
     name: string;
 } & Mmbc1Block;

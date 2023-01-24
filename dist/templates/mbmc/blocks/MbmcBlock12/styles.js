@@ -4,6 +4,7 @@ export var useMbmcBlock12Styles = makeStyles(function (theme) {
     return ({
         root: {
             padding: theme.spacing(7, 0),
+            background: theme.design.colors.waz_greyColor50,
             "& .css-1t8l2tu-MuiInputBase-input-MuiOutlinedInput-input": {
                 background: "".concat(theme.design.colors.waz_white, " !important"),
                 padding: "14px 16px !important",

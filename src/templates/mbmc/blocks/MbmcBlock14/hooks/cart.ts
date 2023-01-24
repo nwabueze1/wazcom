@@ -8,7 +8,7 @@ import { notify } from "../../../utilities";
 import Cookies from "universal-cookie";
 
 export const useUpdateCartItemQuantity = () => {
-    const { cart, clients, setContext } = useContext(RestaurantContext);
+    const { cart, client, setContext } = useContext(RestaurantContext);
     const updateCartCount = useUpdateCartCount();
 
     return async (
@@ -17,9 +17,7 @@ export const useUpdateCartItemQuantity = () => {
     ) => {
         try {
             setContext?.({ loading: true, networkOperation: `update.cart-item.${variables.uuid}` });
-            const { data, errors } = await (
-                clients?.AMBROSIA as ApolloClient<NormalizedCacheObject>
-            ).mutate({
+            const { data, errors } = await (client as ApolloClient<NormalizedCacheObject>).mutate({
                 mutation: UPDATE_CART_ITEM,
                 variables,
             });

@@ -45,6 +45,17 @@ var __generator = (this && this.__generator) || function (thisArg, body) {
         if (op[0] & 5) throw op[1]; return { value: op[0] ? op[1] : void 0, done: true };
     }
 };
+var __rest = (this && this.__rest) || function (s, e) {
+    var t = {};
+    for (var p in s) if (Object.prototype.hasOwnProperty.call(s, p) && e.indexOf(p) < 0)
+        t[p] = s[p];
+    if (s != null && typeof Object.getOwnPropertySymbols === "function")
+        for (var i = 0, p = Object.getOwnPropertySymbols(s); i < p.length; i++) {
+            if (e.indexOf(p[i]) < 0 && Object.prototype.propertyIsEnumerable.call(s, p[i]))
+                t[p[i]] = s[p[i]];
+        }
+    return t;
+};
 var __read = (this && this.__read) || function (o, n) {
     var m = typeof Symbol === "function" && o[Symbol.iterator];
     if (!m) return o;
@@ -74,24 +85,18 @@ import { MbmcButton } from "../../components";
 import { useUpdateOrder } from "./hooks";
 export var MbmcBlock14 = function (_a) {
     var _b, _c, _d, _e, _f, _g, _h, _j, _k;
-    var services = _a.services, integratedServices = _a.integratedServices, site_uuid = _a.site_uuid, setContextProps = _a.setContextProps;
+    var gatewayUrl = _a.gatewayUrl, site_uuid = _a.site_uuid, setContextProps = _a.setContextProps;
     var classes = useMbmcBlock14Styles();
     var _l = __read(useState({}), 2), contextData = _l[0], setContextData = _l[1];
     var _m = __read(useState(true), 2), loading = _m[0], setLoading = _m[1];
     var _o = __read(useState(false), 2), isDomLoaded = _o[0], setIsDomLoaded = _o[1];
     var cookies = new Cookies();
     var cartCookie = useMemo(function () { return cookies.get("cart"); }, []);
-    var clients = useMemo(function () {
-        var clients = {};
-        integratedServices.forEach(function (service) {
-            clients[service] = createApolloClient(services ? services[service] : "");
-        });
-        return clients;
-    }, []);
+    var client = useMemo(function () { return createApolloClient(gatewayUrl !== null && gatewayUrl !== void 0 ? gatewayUrl : ""); }, []);
     var updateOrder = useUpdateOrder();
     var _p = __read(useState(false), 2), displayCheckout = _p[0], setDisplayCheckout = _p[1];
     var _q = __read(useLazyQuery(GET_CART_BY_UUID, {
-        client: clients === null || clients === void 0 ? void 0 : clients.AMBROSIA,
+        client: client,
     }), 2), getCart = _q[0], _r = _q[1], data = _r.data, error = _r.error;
     useEffect(function () {
         setIsDomLoaded(true);
@@ -108,11 +113,13 @@ export var MbmcBlock14 = function (_a) {
         }
     }, [isDomLoaded]);
     useEffect(function () {
+        var _a;
         if (data) {
-            var cart = data.cart;
+            var _b = data.getCart, restaurant = _b.restaurant, rest = __rest(_b, ["restaurant"]);
+            var cart = __assign(__assign({}, rest), { restaurant: __assign(__assign({}, restaurant), { site_uuid: (_a = restaurant === null || restaurant === void 0 ? void 0 : restaurant.site) === null || _a === void 0 ? void 0 : _a.uuid }) });
             var contextData_1 = {
                 cart: JSON.parse(JSON.stringify(cart)),
-                clients: clients,
+                client: client,
             };
             handleOrderConfirmation(contextData_1);
         }
@@ -127,7 +134,7 @@ export var MbmcBlock14 = function (_a) {
                 case 0:
                     queryParams = new URLSearchParams(window.location.search);
                     if (!(queryParams.get("partner") && queryParams.get("reference"))) return [3 /*break*/, 2];
-                    return [4 /*yield*/, updateOrder(clients === null || clients === void 0 ? void 0 : clients.AMBROSIA, (_b = (_a = contextData === null || contextData === void 0 ? void 0 : contextData.cart) === null || _a === void 0 ? void 0 : _a.restaurant) === null || _b === void 0 ? void 0 : _b.site_uuid)];
+                    return [4 /*yield*/, updateOrder(client, (_b = (_a = contextData === null || contextData === void 0 ? void 0 : contextData.cart) === null || _a === void 0 ? void 0 : _a.restaurant) === null || _b === void 0 ? void 0 : _b.site_uuid)];
                 case 1:
                     order = _c.sent();
                     contextData = __assign(__assign({}, contextData), { cart: __assign(__assign({}, contextData === null || contextData === void 0 ? void 0 : contextData.cart), { order: order }) });

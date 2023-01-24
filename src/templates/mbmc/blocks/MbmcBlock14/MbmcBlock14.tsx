@@ -1,5 +1,5 @@
 import React, { useMemo, useState, useEffect } from "react";
-import { ApolloClient, NormalizedCacheObject, useLazyQuery } from "@apollo/client";
+import { useLazyQuery } from "@apollo/client";
 import Cookies from "universal-cookie";
 import { useMbmcBlock14Styles } from "./styles";
 import { CartItems, Checkout, EmptyCart, Loader, OrderDetails } from "./components";
@@ -12,8 +12,7 @@ import { useUpdateOrder } from "./hooks";
 import { CoreCartFields } from "templates/mbmc/models";
 
 export const MbmcBlock14: React.FC<MbmcBlock14Props> = ({
-    services,
-    integratedServices,
+    gatewayUrl,
     site_uuid,
     setContextProps,
 }) => {
@@ -23,20 +22,12 @@ export const MbmcBlock14: React.FC<MbmcBlock14Props> = ({
     const [isDomLoaded, setIsDomLoaded] = useState(false);
     const cookies = new Cookies();
     const cartCookie = useMemo(() => cookies.get("cart"), []);
-    const clients = useMemo(() => {
-        const clients: { [key: string]: ApolloClient<NormalizedCacheObject> } = {};
-        integratedServices.forEach((service) => {
-            clients[service] = createApolloClient(services ? services[service] : "");
-        });
-        return clients;
-    }, []);
+    const client = useMemo(() => createApolloClient(gatewayUrl ?? ""), []);
     const updateOrder = useUpdateOrder();
-    const [displayCheckout, setDisplayCheckout] = useState(
-        false
-    );
+    const [displayCheckout, setDisplayCheckout] = useState(false);
 
     const [getCart, { data, error }] = useLazyQuery(GET_CART_BY_UUID, {
-        client: clients?.AMBROSIA,
+        client,
     });
 
     useEffect(() => {
@@ -53,16 +44,22 @@ export const MbmcBlock14: React.FC<MbmcBlock14Props> = ({
     useEffect(() => {
         if (isDomLoaded) {
             const queryParams = new URLSearchParams(window.location.search);
-            setDisplayCheckout(Boolean(queryParams.get("partner") && queryParams.get("reference")))
+            setDisplayCheckout(Boolean(queryParams.get("partner") && queryParams.get("reference")));
         }
-    }, [isDomLoaded])
+    }, [isDomLoaded]);
 
     useEffect(() => {
         if (data) {
-            const { cart } = data;
+            const {
+                getCart: { restaurant, ...rest },
+            } = data;
+            const cart = {
+                ...rest,
+                restaurant: { ...restaurant, site_uuid: restaurant?.site?.uuid },
+            };
             const contextData: Omit<RestaurantContextProps, "setContext"> = {
                 cart: JSON.parse(JSON.stringify(cart)),
-                clients,
+                client,
             };
             handleOrderConfirmation(contextData);
         }
@@ -76,7 +73,7 @@ export const MbmcBlock14: React.FC<MbmcBlock14Props> = ({
         const queryParams = new URLSearchParams(window.location.search);
         if (queryParams.get("partner") && queryParams.get("reference")) {
             const order = await updateOrder(
-                clients?.AMBROSIA as ApolloClient<NormalizedCacheObject>,
+                client,
                 contextData?.cart?.restaurant?.site_uuid as string,
             );
             contextData = {

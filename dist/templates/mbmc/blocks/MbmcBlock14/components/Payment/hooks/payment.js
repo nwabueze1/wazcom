@@ -39,7 +39,7 @@ import { RestaurantContext } from "../../../../../contexts";
 import { notify } from "../../../../../utilities";
 import { MAKE_PAYPAL_PAYMENT } from "../graphql";
 export var usePaypalPayment = function () {
-    var clients = useContext(RestaurantContext).clients;
+    var client = useContext(RestaurantContext).client;
     return function (order_uuid) { return __awaiter(void 0, void 0, void 0, function () {
         var _a, data, errors, redirect_url, error_1;
         var _b;
@@ -47,7 +47,7 @@ export var usePaypalPayment = function () {
             switch (_c.label) {
                 case 0:
                     _c.trys.push([0, 2, , 3]);
-                    return [4 /*yield*/, (clients === null || clients === void 0 ? void 0 : clients.NICODEMUS).mutate({
+                    return [4 /*yield*/, client.mutate({
                             mutation: MAKE_PAYPAL_PAYMENT,
                             variables: { order_uuid: order_uuid, pageRedirect: window.location.pathname },
                         })];

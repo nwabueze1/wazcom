@@ -6,7 +6,9 @@ export const GET_INSTAGRAM_IMAGES = gql`
         $sociable_type: SociableType!
         $uuid: String!
     ) {
-        getInstagramImages(platform: $platform, sociable_type: $sociable_type, uuid: $uuid) {
+        getInstagramImages(
+            input: { platform: $platform, sociable_type: $sociable_type, uuid: $uuid }
+        ) {
             images
         }
     }

@@ -65,7 +65,7 @@ import { UPDATE_CART_ITEM } from "../graphql";
 import { notify } from "../../../utilities";
 import Cookies from "universal-cookie";
 export var useUpdateCartItemQuantity = function () {
-    var _a = useContext(RestaurantContext), cart = _a.cart, clients = _a.clients, setContext = _a.setContext;
+    var _a = useContext(RestaurantContext), cart = _a.cart, client = _a.client, setContext = _a.setContext;
     var updateCartCount = useUpdateCartCount();
     return function (variables, setContextProps) { return __awaiter(void 0, void 0, void 0, function () {
         var _a, data, errors, error, updatedCart, error_1;
@@ -74,7 +74,7 @@ export var useUpdateCartItemQuantity = function () {
                 case 0:
                     _b.trys.push([0, 2, , 3]);
                     setContext === null || setContext === void 0 ? void 0 : setContext({ loading: true, networkOperation: "update.cart-item.".concat(variables.uuid) });
-                    return [4 /*yield*/, (clients === null || clients === void 0 ? void 0 : clients.AMBROSIA).mutate({
+                    return [4 /*yield*/, client.mutate({
                             mutation: UPDATE_CART_ITEM,
                             variables: variables,
                         })];
