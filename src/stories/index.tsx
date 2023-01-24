@@ -7,6 +7,7 @@ import {
     Gallery,
     ImageSelector,
     Table,
+    TableNew,
     MenuCard,
     DisplayCard,
     Notification,
@@ -43,14 +44,15 @@ import {
     UPLOAD_IMAGE,
     DELETE_IMAGE,
     UPDATE_IMAGE,
+    GET_BLOG_POSTS,
 } from "../helpers/graphQL";
 import { Valour, Taurant, Nour } from "templates/Navs";
 
 import { ComponentPropType, TemplatePropType } from "./types";
-import { data } from "./data";
 import { EditableTextInput } from "io/EditableTextInput";
 import { DynamicInput } from "io/DynamicInput";
 import { SectionEditor } from "io/SectionEditor";
+import { getTableRows } from "./table";
 
 export const stories: ComponentPropType[] = [
     {
@@ -119,21 +121,20 @@ export const stories: ComponentPropType[] = [
     },
     {
         name: "TableWithPagination",
-        component: Table,
+        component: TableNew,
         props: {
-            headers: [],
-            value: data,
-            pagination: true,
-            hasCheckBox: false      ,
-            paginatorInfo: {
-                currentPage: 1,
-                perPage: 10,
-                total: 10,
-            },
-            controls: {
-                filter: ["id", "name"],
-                canPrint: true,
-                canExport: {},
+            columns: [
+                { name: "Title", key: "title", type: "string" },
+                { name: "Author", key: "author.name", type: "string" },
+                { name: "Category", key: "category.name", type: "string" },
+                { name: "Last Modified", key: "updated_at", type: "date" },
+            ],
+            getRows: getTableRows,
+            query: {
+                name: GET_BLOG_POSTS,
+                client: createApolloClient("https://ofambegbe-ploutonion.wazobia.uk/graphql"),
+                variables: { blog_uuid: "a5ad9bed-679c-4190-a1a8-8b2d14bbb3c9" },
+                dataKey: "postsByBlogUuid",
             },
         },
     },
@@ -229,7 +230,7 @@ export const stories: ComponentPropType[] = [
         component: Button,
         props: {
             children: "Testing",
-            loading: true
+            loading: true,
         },
     },
     {
