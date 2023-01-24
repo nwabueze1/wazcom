@@ -3,11 +3,13 @@ import { TableActionsProps } from "./types";
 import { TextInput, SelectInput } from "../../../../io";
 import { useTableActionStyles } from "./styles";
 import { TableConditionFilter } from "build";
+import { ColumnSelector } from "../ColumnSelector";
 
 export const TableActions: FC<TableActionsProps> = ({
     currentActions,
     setCurrentActions,
     conditionFilters,
+    columns
 }) => {
     const classes = useTableActionStyles();
 
@@ -32,6 +34,7 @@ export const TableActions: FC<TableActionsProps> = ({
                     onChange={handleConditionChange}
                 />
             )}
+            <ColumnSelector columns={columns} />
         </div>
     );
 };

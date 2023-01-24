@@ -14,7 +14,7 @@ export const useTableActionStyles = makeStyles((theme: Theme) => ({
         background: theme.design.colors.waz_white,
     },
     selectInputElement: {
-        width: '17%',
+        width: '17% !important',
     },
     selectInput: {
         padding: theme.spacing(0, 5, 0, 0),
