@@ -6,8 +6,10 @@ import { useEditorToolbarStyles } from './styles';
 import { InsertButton } from "./InsertButton/InsertButton";
 
 export const Editor = () => {
-  const [content, setContent] = useState('');
+  const [content, setContent] = useState<string>('');
   const [wordCount, setWordCount] = useState(0);
+  const [embedUrl, setEmbedUrl] = useState<string>('')
+
   const classes = useEditorToolbarStyles()
   const handleChange = text => {
     setContent(text);

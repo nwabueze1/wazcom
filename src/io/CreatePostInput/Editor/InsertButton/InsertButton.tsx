@@ -15,6 +15,8 @@ export const InsertButton: React.FC<InsertButtonProps> = ({
     label,
     value,
     onChange,
+    embedUrl,
+    setEmbedUrl,
     ...props
 }) => {
     const classes = useInsertButtonStyles();
@@ -75,6 +77,7 @@ export const InsertButton: React.FC<InsertButtonProps> = ({
     };
 
     const handleSelectImage = (value: ImageProperties) => {
+        console.log(value)
         setMediaOpen(false);
         setImage({ ...image, url: value?.url, title: value?.title });
     };
@@ -87,7 +90,7 @@ export const InsertButton: React.FC<InsertButtonProps> = ({
                 setOpenMediaLibrary(!openMediaLibrary)
                 setOpenDialog(false)
             }else{
-                setOpenDialog(!openDialog)
+                setOpenDialog(true)
             }
         }
     }
@@ -102,7 +105,11 @@ export const InsertButton: React.FC<InsertButtonProps> = ({
             className={classes.insertButton}
             onClick = {handleInsertOptions}
             >+</button>
-                { openDialog && <InsertDialog dialogType={selectedOption} handleDialogClose={handleDialogClose} /> }
+                { openDialog && 
+                <InsertDialog 
+                dialogType={selectedOption} 
+                handleDialogClose={handleDialogClose}
+                 /> }
                 { openMediaLibrary && 
                 <EditorMediaLibrary 
                 mediaOpen={openMediaLibrary}

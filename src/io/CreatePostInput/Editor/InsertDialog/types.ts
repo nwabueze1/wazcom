@@ -2,6 +2,8 @@ import { CommonProps } from "../../../../types";
 
 export type InsertDialogProps = CommonProps & {
     dialogType?: string;
+    embedUrl: string;
+    setEmbedUrl: (value: string) => void;
     handleDialogClose: (event: React.MouseEvent<HTMLDivElement, MouseEvent>) => void
 };
 

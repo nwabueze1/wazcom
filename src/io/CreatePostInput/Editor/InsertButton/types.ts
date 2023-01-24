@@ -3,6 +3,8 @@ import { CommonProps } from "../../../../types";
 export type InsertButtonProps = CommonProps & {
     label?: string;
     value: string;
+    embedUrl: string;
+    setEmbedUrl: (value: string) => void;
 };
 
 export type ImageProperties = {
