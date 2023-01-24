@@ -9,7 +9,7 @@ export interface TableControlsProps {
     tableValues: { [key: string]: any }[];
     controlsFormData: { [key: string]: any };
     showFilter: boolean;
-    fields: { name: string; label: string }[];
+    fields: { name: string; label: string | JSX.Element }[];
     values: TableDataProps;
     filters: Filter[];
     setFilters: React.Dispatch<React.SetStateAction<Filter[]>>;

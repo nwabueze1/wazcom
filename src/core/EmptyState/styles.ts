@@ -23,7 +23,7 @@ export const useEmptyStateStyles = makeStyles((theme: Theme) => ({
         objectFit: "cover",
     },
     text: {
-        padding: theme.spacing(5, 0, 4, 0),
+        padding: theme.spacing(1.5, 0, 4, 0),
         fontSize: theme.typography.fontSize + 4,
         color: theme.design.colors.waz_black,
         whiteSpace: "nowrap",
@@ -36,5 +36,12 @@ export const useEmptyStateStyles = makeStyles((theme: Theme) => ({
         "&:hover": {
             backgroundColor: theme.design.colors.primary100,
         },
+    },
+    header: {
+        fontSize: theme.typography.fontSize * 2,
+        whiteSpace: "nowrap",
+        fontWeight:theme.typography.fontWeightBold,
+        lineHeight: "36px",
+        paddingTop:theme.spacing(2)
     },
 }));
