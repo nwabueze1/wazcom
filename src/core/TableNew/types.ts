@@ -10,20 +10,20 @@ export type TableNewProps = CommonProps & {
     rowsPerPage?: number;
 };
 
-type TableColumn = {
+export type TableColumn = {
     name: string | JSX.Element;
     key: string;
     type: 'string' | 'number' | 'date';
 }
 
-type TableQuery = {
+export type TableQuery = {
     name: DocumentNode;
     client: ApolloClient<NormalizedCacheObject>;
     variables?: { [key: string]: any };
     dataKey: string;
 }
 
-type TableConditionFilter = {
+export type TableConditionFilter = {
     name: string;
     condition: (element: any) => boolean;
 } 

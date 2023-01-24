@@ -136,6 +136,17 @@ export const stories: ComponentPropType[] = [
                 variables: { blog_uuid: "a5ad9bed-679c-4190-a1a8-8b2d14bbb3c9" },
                 dataKey: "postsByBlogUuid",
             },
+            conditionFilters: [
+                { name: "All Posts", condition: (posts: any) => posts },
+                {
+                    name: "Published",
+                    condition: (posts: any) => posts.filter((post: any) => post.status),
+                },
+                {
+                    name: "Drafted",
+                    condition: (posts: any) => posts.filter((post: any) => !post.status),
+                },
+            ],
         },
     },
     {

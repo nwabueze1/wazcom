@@ -1,5 +1,6 @@
 import { FC, useEffect, useState } from "react";
-import { TableNewProps } from "./types";
+import { TableConditionFilter, TableNewProps } from "./types";
+import { TableActions } from "./components";
 import { useTableStyles } from "./styles";
 import { useTableStyles as useExternalTableStyles } from "../../stories/table-styles";
 
@@ -7,11 +8,17 @@ export const TableNew: FC<TableNewProps> = ({
     columns,
     query: { client, name: QUERY, variables, dataKey },
     getRows,
+    conditionFilters,
 }) => {
     const [table, setTable] = useState<{
         data: any;
         pagination?: { currentPage: number; lastPage: number };
     }>({ data: null });
+
+    const [actions, setActions] = useState<{
+        [key in "search" | "conditionFilter"]: string | (TableConditionFilter | undefined);
+    }>({ search: "", conditionFilter: conditionFilters ? conditionFilters[0] : undefined });
+
     const classes = useTableStyles();
     const externalClasses = useExternalTableStyles();
 
@@ -31,29 +38,46 @@ export const TableNew: FC<TableNewProps> = ({
         }
     };
 
-    const displayColumns = () => columns.map(({ name }, index) => <td className={classes.tHeadData} key={index}>{name}</td>);
+    const displayColumns = () =>
+        columns.map(({ name }, index) => (
+            <td className={classes.tHeadData} key={index}>
+                {name}
+            </td>
+        ));
 
     const displayRows = () =>
-        getRows(table.data, externalClasses).map(
-            (row: { [key: string]: JSX.Element | string }, index: number) => (
-                <tr className={classes.tRow} key={index}>
-                    {columns
-                        .map(({ key }) => key)
-                        .map((key, index) => (
-                            <td className={classes.tRowData} key={index}>{row[key]}</td>
-                        ))}
-                </tr>
-            ),
-        );
+        getRows(
+            actions?.conditionFilter
+                ? (actions.conditionFilter as TableConditionFilter).condition(table.data)
+                : table.data,
+            externalClasses,
+        ).map((row: { [key: string]: JSX.Element | string }, index: number) => (
+            <tr className={classes.tRow} key={index}>
+                {columns
+                    .map(({ key }) => key)
+                    .map((key, index) => (
+                        <td className={classes.tRowData} key={index}>
+                            {row[key]}
+                        </td>
+                    ))}
+            </tr>
+        ));
 
     if (!table.data) return <p>Loading</p>;
 
     return (
-        <table className={classes.root}>
-            <thead className={classes.tHead}>
-                <tr className={classes.tRow}>{displayColumns()}</tr>
-            </thead>
-            <tbody>{displayRows()}</tbody>
-        </table>
+        <>
+            <TableActions
+                currentActions={actions}
+                setCurrentActions={setActions}
+                conditionFilters={conditionFilters}
+            />
+            <table className={classes.root}>
+                <thead className={classes.tHead}>
+                    <tr className={classes.tRow}>{displayColumns()}</tr>
+                </thead>
+                <tbody>{displayRows()}</tbody>
+            </table>
+        </>
     );
 };
