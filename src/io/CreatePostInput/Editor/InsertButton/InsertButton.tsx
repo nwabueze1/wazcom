@@ -109,6 +109,8 @@ export const InsertButton: React.FC<InsertButtonProps> = ({
                 <InsertDialog 
                 dialogType={selectedOption} 
                 handleDialogClose={handleDialogClose}
+                emedUrl={embedUrl}
+                setEmbedUrl={setEmbedUrl}
                  /> }
                 { openMediaLibrary && 
                 <EditorMediaLibrary 

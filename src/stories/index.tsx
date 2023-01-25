@@ -582,6 +582,7 @@ export const stories: ComponentPropType[] = [
             error: false,
             feedback: { text: "feeback section", status: "error" },
         },
+        client: createApolloClient('https://ofambegbe-ambrosia.wazobia.uk/graphql'),
     },
     {
         name: "GqlComboBox",

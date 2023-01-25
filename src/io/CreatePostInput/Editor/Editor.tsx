@@ -1,5 +1,6 @@
 import React, {useState, useEffect} from "react";
 import ReactQuill from "react-quill";
+import { Quill } from "react-quill";
 import { EditorToolbar, modules, formats } from "./EditorToolbar";
 import "react-quill/dist/quill.snow.css";
 import { useEditorToolbarStyles } from './styles';
@@ -11,9 +12,9 @@ export const Editor = () => {
   const [embedUrl, setEmbedUrl] = useState<string>('')
 
   const classes = useEditorToolbarStyles()
+
   const handleChange = text => {
     setContent(text);
-    setwordCount(content && content.split(" ").length)
   };
 
   useEffect(() => {
@@ -26,15 +27,34 @@ export const Editor = () => {
         wordCount++;
       }
     })
-
     setWordCount(wordCount)
   }, [content])
+
+  useEffect(() => {
+    let newContent = content + embedUrl
+   setContent(newContent)  
+  }, [embedUrl])
+  
+
+  // const handleEmbedInsert = (embedUrl: string) => {
+  //   var range = this.quill.getSelection();
+  //   if (range) {
+  //     if (range.length == 0) {
+  //       console.log('User cursor is at index', range.index);
+  //     } else {
+  //       var text = this.quill.getText(range.index, range.length);
+  //       console.log('User has highlighted: ', text);
+  //     }
+  //   } else {
+  //     console.log('User cursor is not in editor');
+  //   }
+  // }
   
   return (
     <div className={classes.root}>
       <EditorToolbar />
       <div className={classes.editor}>
-        <ReactQuill style={{ outline: 'none'}}
+        <ReactQuill
           theme="snow"
           value={content}
           onChange={handleChange}
@@ -43,7 +63,7 @@ export const Editor = () => {
           formats={formats}
         />
         <div>
-          <InsertButton />
+          <InsertButton embedUrl={embedUrl} setEmbedUrl={setEmbedUrl}/>
         </div>
       </div>
        
