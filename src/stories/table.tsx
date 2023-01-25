@@ -7,7 +7,7 @@ export const getTableRows = (data: any[], classes?: any) => {
         const parsedRow: { [key: string]: JSX.Element | string } = {};
         parsedRow["title"] = row["title"];
         parsedRow["author.name"] = row["author"]["name"];
-        parsedRow["category.name"] = row["category"]["name"];
+        parsedRow["category.name"] = row?.category?.name ?? 'None';
         parsedRow["updated_at"] = row["updated_at"];
         parsedRows.push(parsedRow);
     }

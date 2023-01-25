@@ -1,6 +1,6 @@
 import { FC, useEffect, useState } from "react";
-import { TableColumn, TableConditionFilter, TableNewProps } from "./types";
-import { TableActions } from "./components";
+import { TableColumn, TableConditionFilter, TableFilter, TableNewProps } from "./types";
+import { TableActions, TableFilters } from "./components";
 import { useTableStyles } from "./styles";
 import { useTableStyles as useExternalTableStyles } from "../../stories/table-styles";
 
@@ -25,6 +25,8 @@ export const TableNew: FC<TableNewProps> = ({
         conditionFilter: conditionFilters ? conditionFilters[0] : undefined,
         columnFilters: columns,
     });
+
+    const [filters, setFilters] = useState<TableFilter[]>([]);
 
     const classes = useTableStyles();
     const externalClasses = useExternalTableStyles();
@@ -79,6 +81,11 @@ export const TableNew: FC<TableNewProps> = ({
                 setCurrentActions={setActions}
                 conditionFilters={conditionFilters}
                 columns={columns}
+            />
+            <TableFilters
+                columns={(actions.columnFilters as TableColumn[]) ?? []}
+                filters={filters}
+                setFilters={setFilters}
             />
             <table className={classes.root}>
                 <thead className={classes.tHead}>

@@ -23,6 +23,12 @@ export type TableQuery = {
     dataKey: string;
 }
 
+export type TableFilter = {
+    column: string;
+    operator: string;
+    value: string;
+}
+
 export type TableConditionFilter = {
     name: string;
     condition: (element: any) => boolean;

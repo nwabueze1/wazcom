@@ -131,7 +131,7 @@ export const DELETE_IMAGE = gql`
 
 export const GET_BLOG_POSTS = gql`
     query GqlGetBlogPosts($blog_uuid: ID, $first: Int, $page: Int) {
-        postsByBlogUuid(input: { blog_uuid: $blog_uuid, first: $first, page: $page }) {
+        postsByBlogUuid(input: { blog_uuid: $blog_uuid, first: $first, page: $page, all: true }) {
             data {
                 uuid
                 title
