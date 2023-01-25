@@ -1,4 +1,3 @@
-import React from 'react';
 import { MdFormatBold, MdOutlineFormatItalic } from "react-icons/md";
 import { CgFormatHeading } from "react-icons/cg";
 import { BsLink } from "react-icons/bs";
