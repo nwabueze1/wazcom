@@ -28,7 +28,7 @@ var __read = (this && this.__read) || function (o, n) {
 import { jsx as _jsx, jsxs as _jsxs } from "react/jsx-runtime";
 import { useCallback, useEffect, useMemo, useState } from 'react';
 import clx from 'classnames';
-import { useLocation, useHistory } from 'react-router-dom';
+import { useLocation, useNavigate } from 'react-router-dom';
 import { useTabStyles } from './styles';
 export var Tab = function (_a) {
     var controls = _a.controls, variant = _a.variant, backgroundColor = _a.backgroundColor, borderWidth = _a.borderWidth, borderColor = _a.borderColor, borderStyle = _a.borderStyle, borderRadius = _a.borderRadius;
@@ -42,7 +42,7 @@ export var Tab = function (_a) {
     });
     var _b = __read(useState(), 2), activeTab = _b[0], setActiveTab = _b[1];
     var _c = useLocation(), pathname = _c.pathname, search = _c.search;
-    var history = useHistory();
+    var navigate = useNavigate();
     var query = useMemo(function () { return new URLSearchParams(search); }, [search]);
     useEffect(function () {
         var defaultControl = controls === null || controls === void 0 ? void 0 : controls.find(function (control) { return control.name == (query === null || query === void 0 ? void 0 : query.get('tab')); });
@@ -53,7 +53,7 @@ export var Tab = function (_a) {
     var handleTabClick = useCallback(function (name) {
         setActiveTab(name);
         query.set('tab', name !== null && name !== void 0 ? name : '');
-        history.replace({ pathname: pathname, search: query.toString() });
+        navigate({ pathname: pathname, search: query.toString() });
     }, [activeTab, query]);
     return (_jsxs("div", __assign({ className: classes.root }, { children: [_jsx("div", __assign({ className: classes.tabs }, { children: controls.map(function (_a, index) {
                     var name = _a.name, title = _a.title;

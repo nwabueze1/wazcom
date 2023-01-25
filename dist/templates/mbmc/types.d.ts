@@ -45,7 +45,7 @@ export type MbmcCommonProps = {
         [key: string]: any;
     }) => void;
 };
-export declare type MbmcTemplatePropType = {
+export type MbmcTemplatePropType = {
     component: any;
     name: string;
 } & Mmbc1Block;

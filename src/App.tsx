@@ -1,6 +1,6 @@
 import { StyledEngineProvider, Theme, ThemeProvider } from "@mui/material";
 import * as React from "react";
-import { BrowserRouter, Switch, Route } from "react-router-dom";
+import { BrowserRouter, Routes, Route } from "react-router-dom";
 import { Blaise } from "templates";
 import { useGetMbmcBlocks } from "templates/mbmc/mbmc";
 import { Valour } from "templates/Navs";
@@ -86,47 +86,20 @@ const App: React.FC = () => {
             <ThemeProvider theme={theme}>
                 <BrowserRouter>
                     <Layout>
-                        <Switch>
-                            {routes.map(({ key, path, exact, component}) => (
-                                <Route key={key} path={path} exact={exact} component={component} />
+                        <Routes>
+                            {routes.map(({ key, path, component: Component }) => (
+                                <Route key={key} path={path} element={<Component />} />
                             ))}
-                            {getMbmcBlocks()
-                                .sort(({ name: aName }, { name: bName }) =>
-                                    aName.toLowerCase() < bName.toLowerCase()
-                                        ? -1
-                                        : aName.toLowerCase() > bName.toLowerCase()
-                                            ? 1
-                                            : 0,
-                                )
-                                .map(({ name, component: Comp, props }, index) => (
-                                    <Route
-                                        key={index}
-                                        exact
-                                        path={`/templates/:uuid/${name.split("").join("")}`}
-                                    >
-                                        {React.cloneElement(<Comp />, props)}
-                                    </Route>
-                                ))}
-                            <Route exact path="/nour">
-                                <Valour
-                                    {...navProps}
-                                    mode="edit"
-                                    socials={[
-                                        { type: "FACEBOOK", url: "wwww" },
-                                        { type: "TWITTER", url: "wwww" },
-                                    ]}
-                                />
-                            </Route>
-                            <Route path="/sevyn">
-                                <Blaise mode="edit" {...navProps} />
-                            </Route>
-                            <Route exact path="/asta">
-                                <Asta />
-                            </Route>
-                            <Route exact path="/mbmc">
-                                <Mbmc />
-                            </Route>
-                        </Switch>
+                            {getMbmcBlocks().sort(({ name: aName }, { name: bName }) => (
+                                aName.toLowerCase() < bName.toLowerCase() ? -1 : aName.toLowerCase() > bName.toLowerCase() ? 1 : 0
+                            )).map(({ name, component: Comp, props }, index) => (
+                                <Route key={index} path={`/templates/:uuid/${name.split("").join("")}`} element={React.cloneElement(<Comp />, props)} />
+                            ))}
+                            <Route path="/nour" element={<Valour {...navProps} mode="edit" socials={[{ type: "FACEBOOK", url: "wwww" }, { type: "TWITTER", url: "wwww" }]} />} />
+                            <Route path="/sevyn" element={<Blaise mode="edit" {...navProps} />} />
+                            <Route path="/asta" element={<Asta />} />
+                            <Route path="/mbmc" element={<Mbmc />} />
+                        </Routes>
                     </Layout>
                 </BrowserRouter>
             </ThemeProvider>

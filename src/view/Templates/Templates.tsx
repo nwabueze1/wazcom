@@ -1,5 +1,4 @@
 import WidgetsRoundedIcon from "@mui/icons-material/WidgetsRounded";
-import { Typography } from "@mui/material";
 import AppBar from "@mui/material/AppBar";
 import Box from "@mui/material/Box";
 import CssBaseline from "@mui/material/CssBaseline";
@@ -7,9 +6,8 @@ import Drawer from "@mui/material/Drawer";
 import List from "@mui/material/List";
 import Toolbar from "@mui/material/Toolbar";
 import { startCase } from "lodash";
-import * as React from "react";
 import { FC, useState } from "react";
-import { useHistory } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 import { useGetMbmcBlocks } from "../../templates/mbmc/mbmc";
 import { TextInput } from "../../io";
 import { SidebarListItem } from "./SidebarListItem/SidebarListItem";
@@ -19,7 +17,7 @@ import { BrowserProps } from "./types";
 export const Templates: FC<BrowserProps> = () => {
     const classes = useTemplateStyles();
     const [search, setSearch] = useState("");
-    const history = useHistory();
+    const navigate = useNavigate();
     const getMbmcBlocks = useGetMbmcBlocks();
 
     const sections = [
@@ -42,7 +40,7 @@ export const Templates: FC<BrowserProps> = () => {
     ];
 
     const viewElement = (name: string) => {
-        history.push(`/templates/template_id/${name}`);
+        navigate(`/templates/template_id/${name}`);
     };
 
     return (
@@ -57,7 +55,7 @@ export const Templates: FC<BrowserProps> = () => {
                         name="search"
                         color="secondary"
                         placeholder="Search..."
-                        variant="outlined"
+                        // variant="outlined"
                         onChange={({ value }: { name: string; value: any }) => {
                             setSearch(value);
                         }}

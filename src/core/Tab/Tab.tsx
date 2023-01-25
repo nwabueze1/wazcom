@@ -1,6 +1,6 @@
 import { FC, useCallback, useEffect, useMemo, useState } from 'react';
 import clx from 'classnames';
-import { useLocation, useHistory } from 'react-router-dom';
+import { useLocation, useNavigate } from 'react-router-dom';
 
 import { useTabStyles } from './styles';
 import { TabProps } from './types';
@@ -25,7 +25,7 @@ export const Tab: FC<TabProps> = ({
     });
     const [activeTab, setActiveTab] = useState<string>();
     const { pathname, search } = useLocation();
-    const history = useHistory();
+    const navigate = useNavigate();
 
     const query = useMemo(() => new URLSearchParams(search), [search]);
 
@@ -41,7 +41,7 @@ export const Tab: FC<TabProps> = ({
         setActiveTab(name);
         query.set('tab', name ?? '');
 
-        history.replace({ pathname, search: query.toString() });
+        navigate({ pathname, search: query.toString() });
     }, [activeTab, query]);
 
     return (
