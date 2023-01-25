@@ -42,5 +42,11 @@ export const useTableFiltersStyles = makeStyles((theme: Theme) => ({
         padding: theme.spacing(0.5, 0),
         marginBottom: theme.spacing(1),
         cursor: 'pointer', 
+        position: 'relative',
+    },
+    filterSelector: {
+        position: 'absolute',
+        top: 0,
+        left: 'calc(100% + 21px)',
     }
 }));
