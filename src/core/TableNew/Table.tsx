@@ -60,7 +60,7 @@ export const TableNew: FC<TableNewProps> = ({
                 ? (actions.conditionFilter as TableConditionFilter).condition(table.data)
                 : table.data,
             externalClasses,
-        ).map((row: { [key: string]: JSX.Element | string }, index: number) => (
+        ).map((row: { [key: string]: JSX.Element | string | number }, index: number) => (
             <tr className={classes.tRow} key={index}>
                 {((actions?.columnFilters as TableColumn[]) ?? columns)
                     .map(({ key }) => key)

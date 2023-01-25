@@ -5,7 +5,7 @@ import { CommonProps } from "../../types";
 export type TableNewProps = CommonProps & {
     columns: TableColumn[];
     conditionFilters?: TableConditionFilter[];
-    getRows: (data: any, classes?: any) => { [key: string]: JSX.Element | string }[];
+    getRows: (data: any, classes?: any) => { [key: string]: JSX.Element | string | number }[];
     query: TableQuery;
     rowsPerPage?: number;
 };

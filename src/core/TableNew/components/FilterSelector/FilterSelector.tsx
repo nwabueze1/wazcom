@@ -1,6 +1,7 @@
 import React, { FC, useState, useEffect } from "react";
 import { Filter, FilterSelectorProps } from "./types";
 import { RadioButtonInput, TextInput, SelectInput } from "../../../../io";
+import { Button } from "../../../../core";
 import { useFilterSelectorStyles } from "./styles";
 import { filters, getInitialFilter, getSelectOptions } from "./helpers";
 import clx from "classnames";
@@ -15,8 +16,23 @@ export const FilterSelector: FC<FilterSelectorProps> = ({
         getInitialFilter(column),
     );
 
-    const renderInput = (type: "text" | "number" | "select") => {
+    const handleChange = ({ value }: { name: string; value: any }) => {
+        if (column.type !== "date") {
+            setActiveFilter({ ...activeFilter, value });
+            return;
+        }
+
         const valueSplits = activeFilter.value.toString().split(" ");
+        let newValue: string;
+
+        if (isNaN(value)) newValue = valueSplits[0] + " " + value;
+        else newValue = value + " " + valueSplits[1];
+
+        setActiveFilter({ ...activeFilter, value: newValue });
+    };
+
+    const renderInput = (type: "text" | "number" | "select") => {
+        const valueSplits = (activeFilter.value ?? "").toString().split(" ");
         switch (type) {
             case "text":
                 return (
@@ -24,6 +40,7 @@ export const FilterSelector: FC<FilterSelectorProps> = ({
                         className={classes.filterInput}
                         InputProps={{ classes: { input: classes.filterTextInput } }}
                         value={activeFilter.value}
+                        onChange={handleChange}
                     />
                 );
             case "number":
@@ -35,16 +52,23 @@ export const FilterSelector: FC<FilterSelectorProps> = ({
                         value={
                             column.type === "number" ? activeFilter.value : Number(valueSplits[0])
                         }
+                        onChange={handleChange}
                     />
                 );
             default:
                 return (
                     <SelectInput
                         className={clx(classes.filterInput, classes.filterSelectInputElement)}
-                        classNames={{ classes: { select: classes.filterSelectInput } }}
+                        classNames={{
+                            classes: {
+                                select: classes.filterSelectInput,
+                            },
+                            optionLabel: classes.filterSelectInputLabel,
+                        }}
                         placeholder="Select Period"
                         options={getSelectOptions()}
                         value={valueSplits[1]}
+                        onChange={handleChange}
                     />
                 );
         }
@@ -52,10 +76,9 @@ export const FilterSelector: FC<FilterSelectorProps> = ({
 
     const renderFilter = () => {
         const filter = filters.find((filter) => filter.type === column.type) as Filter;
-        console.log(activeFilter);
         return filter.operators.map(({ name, symbol }, index) => {
             const isActive = activeFilter.symbol === symbol;
-            console.log(isActive);
+
             return (
                 <div key={index} className={classes.filterOperator}>
                     <div className={classes.filterOperatorHeading}>
@@ -82,6 +105,7 @@ export const FilterSelector: FC<FilterSelectorProps> = ({
     return (
         <div className={clx(classes.root, className)} onClick={(e) => e.stopPropagation()}>
             {renderFilter()}
+            <Button className={classes.filterButton}>Apply filter</Button>
         </div>
     );
 };

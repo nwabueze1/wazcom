@@ -126,6 +126,7 @@ export const stories: ComponentPropType[] = [
             columns: [
                 { name: "Title", key: "title", type: "string" },
                 { name: "Author", key: "author.name", type: "string" },
+                { name: "Likes", key: "likes", type: "number" },
                 { name: "Category", key: "category.name", type: "string" },
                 { name: "Last Modified", key: "updated_at", type: "date" },
             ],
