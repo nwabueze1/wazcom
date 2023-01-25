@@ -83,7 +83,7 @@ export const TableNew: FC<TableNewProps> = ({
                 columns={columns}
             />
             <TableFilters
-                columns={(actions.columnFilters as TableColumn[]) ?? []}
+                columns={columns}
                 filters={filters}
                 setFilters={setFilters}
             />

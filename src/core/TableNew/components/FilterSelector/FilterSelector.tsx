@@ -102,10 +102,20 @@ export const FilterSelector: FC<FilterSelectorProps> = ({
         });
     };
 
+    const applyFilter = () => {
+        handleSelectFilter({
+            column: column.key,
+            operator: activeFilter.symbol,
+            value: activeFilter.value,
+        });
+    };
+
     return (
         <div className={clx(classes.root, className)} onClick={(e) => e.stopPropagation()}>
             {renderFilter()}
-            <Button className={classes.filterButton}>Apply filter</Button>
+            <Button className={classes.filterButton} onClick={applyFilter}>
+                Apply filter
+            </Button>
         </div>
     );
 };

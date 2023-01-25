@@ -4,6 +4,8 @@ import makeStyles from "@mui/styles/makeStyles";
 export const useTableFiltersStyles = makeStyles((theme: Theme) => ({
     root: {
         display: 'flex',
+        alignItems: 'center',
+        gap: theme.spacing(1),
         marginBottom: theme.spacing(2),
     },
     filterAddIconParent: {
