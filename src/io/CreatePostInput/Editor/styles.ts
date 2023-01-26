@@ -6,13 +6,14 @@ export const useEditorToolbarStyles = makeStyles((theme: Theme) => ({
         display: 'flex',
         flexDirection: 'column',
         height: "100vh",
-        position: 'relative',
     },
     toolbar: {
-        zIndex: 1,
         width: '80%',
         background: theme.design.colors.waz_white,
-        flexWrap: 'wrap'
+        flexWrap: 'wrap',
+        border: `1px solid ${theme.design.colors.primary700}`,
+        margin: theme.spacing(0,2,0,2),
+        borderRadius: theme.spacing(0.625),
     },
     toolbarItem: {
         borderRight: `1px solid ${theme.design.colors.primary700}`
@@ -24,9 +25,8 @@ export const useEditorToolbarStyles = makeStyles((theme: Theme) => ({
         fontSize: theme.typography.fontSize * 0.83,
         background: theme.design.colors.waz_white,
         border: `1px solid ${theme.design.colors.primary700}`,
-        paddingRight: theme.spacing(2),
-        paddingBottom: theme.spacing(0.75),
-        paddingTop: theme.spacing(0.75),
+        padding: theme.spacing(0.75, 2, 0.75, 0),
+        // marginBottom: theme.spacing(3),
         height: theme.spacing(3.375),
         position: 'absolute',
         bottom: '0',
@@ -36,12 +36,9 @@ export const useEditorToolbarStyles = makeStyles((theme: Theme) => ({
     editor: {
         // border: `8px solid #FAFAFA`,
         color: theme.design.colors.waz_grey1,
-        position: 'relative'
+        overflow: 'auto',
+        height: '100vh',
+        position: 'relative',
     },
-    qlContainer: {
-        border: 'none !important'
-    },
-    qlSnow: {
-        border: 'none !important'
-    }
+    
 }));

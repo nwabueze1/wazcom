@@ -1,22 +1,9 @@
-import React, { useRef, useState } from "react";
+import React, { useRef, useState, useEffect } from "react";
 import { useCreatePostInputStyles } from "./styles";
 import { CreatePostInputProps } from "./types";
 import clx from "classnames";
 import { PosTitleInput } from "./PostTitleInput/PostTitleInput";
 import { Editor } from "./Editor";
-
-const plugins = [
-    "advlist autolink lists link code",
-    "charmap print preview anchor help",
-    "searchreplace visualblocks code",
-    "insertdatetime media table paste wordcount",
-];
-
-const toolbar = [
-    "undo redo | formatselect | link image | bold italic | \
-    alignleft aligncenter alignright | \
-    bullist numlist outdent indent | help | imageSelector",
-];
 
 export const CreatePostInput: React.FC<CreatePostInputProps> = ({
     name,
@@ -34,19 +21,53 @@ export const CreatePostInput: React.FC<CreatePostInputProps> = ({
 }) => {
     const classes = useCreatePostInputStyles();
 
+    const [editorContent, setEditorContent] = useState('')
+    const [postTitle, setPostTitle] = useState('')
+
+    const handleContent = (content: string) => {
+        setEditorContent(content)
+    }
+
+    const handlePostTitle = (title: string) => {
+        setPostTitle(title)
+    }
+
+    useEffect(() => {
+     console.log(editorContent)
+    }, [editorContent])
+    
+
+    const handleChange = (e: React.MouseEvent<HTMLElement>) => {
+        if (onChange) {
+            onChange?.({ name: name ?? "", value: {title: postTitle, content: editorContent} });
+        }
+    };
+
+    useEffect(() => {
+      console.log(value)
+    }, [value])
+
     return (
-        <div className={clx(className, classes.root)}>
-            <div className={classes.header}></div>
-            <PosTitleInput name={"postTitle"} placeHolder={"This is the title"} />
-            <div
-                className={clx(
-                    classNames?.createPostInput,
-                    classes.editor,
-                    error && classes.editorError,
-                )}
-            >
-                <Editor />
+        <>
+            <div className={clx(className, classes.root)}>
+                <div className={classes.header}></div>
+                <PosTitleInput handlePostTitle={handlePostTitle} placeHolder={"This is the title"} />
+                <div
+                    className={clx(
+                        classNames?.createPostInput,
+                        error && classes.editorError,
+                    )}
+                >
+                    <Editor handleContent={handleContent} />
+                </div>
             </div>
-        </div>
+            <div className={classes.postButtonContainer}>
+                <button 
+                onClick={()=>handleChange()}
+                className={classes.postButton}>
+                    Post
+                </button>
+            </div>
+        </>
     );
 };

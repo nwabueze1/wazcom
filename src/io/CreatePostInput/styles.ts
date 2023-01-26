@@ -17,15 +17,25 @@ export const useCreatePostInputStyles = makeStyles((theme: Theme) => ({
         color: theme.design.colors.waz_dangerColor100,
         margin: theme.spacing(0.5, 0, 0, 0.5),
     },
-    editor: {
-        zIndex: 1,
-    },
     editorError: {
         border: "1px solid red",
         zIndex: 1,
     },
     createPostInput: {
         marginTop: theme.spacing(2)
-    }
-    
+    },
+    postButtonContainer: {
+        display: 'flex',
+        flexDirection: 'row',
+        justifyContent: 'flex-end',
+    },
+    postButton: {
+        margin: theme.spacing(0, 0, 0, 0),
+        border: 'none',
+        borderRadius: theme.spacing(0.5),
+        background: theme.design.colors.waz_primaryColor100,
+        padding: theme.spacing(1,2,1,2),
+        color: theme.design.colors.waz_white,
+        fontSize: theme.typography.fontSize + 2
+    },
 }));

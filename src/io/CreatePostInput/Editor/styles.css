@@ -1,0 +1,15 @@
+.ql-container {
+    @apply border-red-200;
+    border: 0px !important;
+}
+.ql-editor {
+    /* padding: 0 !important; */
+}
+.ql-editor .ql-video{
+    width: 80%;
+    height: 300px;
+    justify-content: center;
+}
+.ql-toolbar{
+    border: 1px solid #E7F1E9 !important;
+}

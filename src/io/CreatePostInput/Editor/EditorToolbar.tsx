@@ -57,6 +57,7 @@ export const formats = [
     "indent",
     "link",
     "image",
+    "video"
 ];
 
 // Custom Undo button icon component for Quill editor. You can import it directly
@@ -119,7 +120,7 @@ export const EditorToolbar = () => {
         <span className={clx("ql-formats", classes.toolbarItem)}>
             <button className="ql-link" />
             <button className="ql-image" />
-            {/* <button className="ql-video" /> */}
+            <button className="ql-video" />
         </span>
         <span className={clx("ql-formats", classes.toolbarItem)}>
             <button className="ql-undo">
