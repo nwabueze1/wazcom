@@ -29,13 +29,21 @@ export var theme = {
             fontSize: "3rem",
             fontWeight: 500,
         },
-        h3: {},
-        h4: {},
+        h3: {
+            fontSize: "1.25rem",
+            fontWeight: 700,
+        },
+        h4: {
+            fontSize: '1rem'
+        },
         h5: {
             fontSize: ".8rem",
             fontWeight: 500,
         },
-        h6: {},
+        h6: {
+            fontSize: ".5rem",
+            fontWeight: 400,
+        },
     },
     styles: {
         maxWidth: 1294,

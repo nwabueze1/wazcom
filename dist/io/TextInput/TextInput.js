@@ -198,7 +198,7 @@ export var EmailInput = function (_a) {
     }
     return (_jsx(TextInput, __assign({ type: "email", name: name, isSuccess: isValidEmail || isSuccess, isError: !!sErrors || isError, errors: sErrors, onChange: handleChange, onFocus: onFocus, onEnter: onEnter, onBlur: onBlur }, props)));
 };
-function validateURL(str) {
+var validateURL = function (str) {
     var pattern = new RegExp('^(https?:\\/\\/)?' + // protocol
         '((([a-z\\d]([a-z\\d-]*[a-z\\d])*)\\.)+[a-z]{2,}|' + // domain name
         '((\\d{1,3}\\.){3}\\d{1,3}))' + // OR ip (v4) address
@@ -206,7 +206,7 @@ function validateURL(str) {
         '(\\?[;&a-z\\d%_.~+=-]*)?' + // query string
         '(\\#[-a-z\\d_]*)?$', 'i'); // fragment locator
     return !!pattern.test(str);
-}
+};
 export var URLInput = function (_a) {
     var name = _a.name, errors = _a.errors, isSuccess = _a.isSuccess, isError = _a.isError, onChange = _a.onChange, onBlur = _a.onBlur, onFocus = _a.onFocus, onEnter = _a.onEnter, props = __rest(_a, ["name", "errors", "isSuccess", "isError", "onChange", "onBlur", "onFocus", "onEnter"]);
     var sErrors;
@@ -250,10 +250,10 @@ export var NumberInput = function (_a) {
     }
     return (_jsx(TextInput, __assign({ type: "number", name: name, errors: sErrors, showCC: showCC, isSuccess: isValidNumber, isError: !!sErrors || isError, onChange: handleChange, onFocus: onFocus, onEnter: onEnter, onBlur: onBlur }, props)));
 };
-function InputIcon(_a) {
+var InputIcon = function (_a) {
     var children = _a.children, marginLeft = _a.marginLeft, marginRight = _a.marginRight, rest = __rest(_a, ["children", "marginLeft", "marginRight"]);
     var classes = useTextInputIconStyles({ marginLeft: marginLeft, marginRight: marginRight });
     var _className = clx(classes.root, classes.iconSpacing);
     var _children = isValidElement(children) ? cloneElement(children, {}) : children;
     return (_jsx("span", __assign({}, rest, { className: _className }, { children: _children })));
-}
+};

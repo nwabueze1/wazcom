@@ -1,5 +1,6 @@
 import { ReactElement, ReactNode } from 'react';
 export type ButtonProps = {
+    type?: any;
     isLoading?: boolean;
     isActive?: boolean;
     isDisabled?: boolean;
@@ -13,9 +14,9 @@ export type ButtonProps = {
     width?: string | number;
     height?: string | number;
     borderRadius?: string | number;
-    onClick?: () => void;
-    onFocus?: () => void;
-    onBur?: () => void;
+    onClick?: (e: any) => any;
+    onFocus?: (e: any) => any;
+    onBur?: (e: any) => any;
 };
 export type ButtonContentProps = {
     leftIcon?: ReactElement;

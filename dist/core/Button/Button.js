@@ -46,21 +46,21 @@ export var Button = function (_a) {
             isLoading: isLoading,
         })) })));
 };
-function ButtonContent(_a) {
+var ButtonContent = function (_a) {
     var leftIcon = _a.leftIcon, rightIcon = _a.rightIcon, children = _a.children, iconSpacing = _a.iconSpacing, variant = _a.variant, isLoading = _a.isLoading;
     return (_jsxs(_Fragment, { children: [leftIcon && (_jsx(ButtonIcon, __assign({ marginRight: iconSpacing }, { children: leftIcon }))), children, (rightIcon || isLoading) && (_jsx(ButtonIcon, __assign({ marginLeft: iconSpacing }, { children: isLoading ? _jsx(ButtonSpinner, { variant: variant }) : rightIcon })))] }));
-}
-function ButtonIcon(_a) {
+};
+var ButtonIcon = function (_a) {
     var children = _a.children, marginLeft = _a.marginLeft, marginRight = _a.marginRight, rest = __rest(_a, ["children", "marginLeft", "marginRight"]);
     var classes = useButtonIconStyles({ marginLeft: marginLeft, marginRight: marginRight });
     var _className = clx(classes.root, classes.iconSpacing);
     var _children = isValidElement(children) ? cloneElement(children, {}) : children;
     return (_jsx("span", __assign({}, rest, { className: _className }, { children: _children })));
-}
-function ButtonSpinner(_a) {
+};
+var ButtonSpinner = function (_a) {
     var variant = _a.variant;
     var classes = useButtonSpinnerStyles({ variant: variant });
     var _className = clx(variant === 'contained' ? classes.contained :
         variant === 'outlined' ? classes.outlined : classes.default);
     return (_jsx("div", __assign({ className: classes.root }, { children: _jsx(RiLoader4Line, { className: _className }) })));
-}
+};
