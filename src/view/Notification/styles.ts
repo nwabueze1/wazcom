@@ -34,7 +34,7 @@ export const useNotificationStyles = makeStyles((theme: BaseTheme) => ({
         width: 24,
         height: 24,
         borderRadius: '100%',
-        backgroundColor: '#E7F1E9',
+        backgroundColor: theme.design.colors.primary700,
     },
     main: {
         width: '100%',
@@ -229,8 +229,8 @@ export const useNotifyStyles = makeStyles((theme: BaseTheme) => ({
         }
     },
     notificationTitle: {
-        fontWeight: 700,
-        fontSize: 16,
+        fontWeight: theme.typography.h3.fontWeight,
+        fontSize: theme.typography.h3.fontSize,
         textAlign: 'left',
         marginTop: 0,
         marginBottom: 6,
@@ -258,7 +258,7 @@ export const useNotifyStyles = makeStyles((theme: BaseTheme) => ({
     toast: {
         height: 50,
         width: 365,
-        color: '#FFFFFF',
+        color: theme.design.colors.waz_white,
         padding: '20px 15px 10px 10px'
     },
     "@keyframes toastInRight": {

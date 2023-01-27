@@ -1,7 +1,7 @@
 import React from "react";
 import { useAddMediaStyles } from "./styles";
 import { CloseSharp } from "@mui/icons-material";
-import { Button } from "../../../../core/Button_old";
+import { Button } from "core/Button";
 import { Box } from "@mui/material";
 import { DialogueProps } from "./types";
 import clx from "classnames";
@@ -38,7 +38,7 @@ export const UploadDialogue: React.FC<DialogueProps> = ({
                 <p className={classes.text}>Drop file to add to media library</p>
                 <p className={classes.or}>or</p>
                 <div className={classes.btn}>
-                    <Button color="primary" onClick={handleFilesSelection}>
+                    <Button onClick={handleFilesSelection}>
                         choose file
                     </Button>
                 </div>

@@ -40,15 +40,17 @@ export const useTextInputStyles = makeStyles((theme: Theme) => ({
     },
     inputContainer: {
         background: theme.design.background.waz_primaryWhite,
-        border: '1px solid #E8E8E8',
+        borderColor: theme.design.colors.grey900,
+        borderStyle: 'solid',
+        borderWidth: 1,
         borderRadius: 3,
-        padding: '24px',
-        paddingBottom: '50px',
+        padding: 24,
+        paddingBottom: 50,
         display: 'flex',
         flexDirection: 'column',
         justifyContent: 'center',
         alignItems: 'center',
-        gap: '70px',
+        gap: 70,
     },
     sections: {
         width: '100%',
@@ -68,8 +70,8 @@ export const useTextInputStyles = makeStyles((theme: Theme) => ({
         padding: 0,
     },
     inputsHeader:{
-        fontWeight: 700,
-        fontSize: 16,
+        fontWeight: theme.typography.h3.fontWeight,
+        fontSize: theme.typography.h3.fontSize,
         letterSpacing: 0,
         lineSpacing: 24,
         color: theme.design.colors.waz_black

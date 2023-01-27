@@ -324,7 +324,7 @@ export const EmailInput: FC<Omit<TextFieldProps, "type">> = ({
     )
 }
 
-function validateURL(str: string) {
+const validateURL = (str: string): boolean => {
     var pattern = new RegExp('^(https?:\\/\\/)?'+ // protocol
         '((([a-z\\d]([a-z\\d-]*[a-z\\d])*)\\.)+[a-z]{2,}|'+ // domain name
         '((\\d{1,3}\\.){3}\\d{1,3}))'+ // OR ip (v4) address
@@ -430,7 +430,7 @@ export const NumberInput: FC<Omit<TextFieldProps, "type">> = ({
     )
 }
 
-function InputIcon({ children, marginLeft, marginRight, ...rest }: InputIconProps) {
+const InputIcon = ({ children, marginLeft, marginRight, ...rest }: InputIconProps) => {
     const classes = useTextInputIconStyles({ marginLeft, marginRight });
     const _className = clx(classes.root, classes.iconSpacing);
     const _children = isValidElement(children) ? cloneElement(children, {}) : children;

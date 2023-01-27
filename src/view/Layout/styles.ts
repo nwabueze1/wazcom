@@ -25,7 +25,6 @@ export const useLayoutStyles = makeStyles((theme: Theme) => ({
         margin: `${theme.spacing(1)}`,
         boxSizing: "border-box",
         textTransform: "uppercase",
-        "&:hover": {},
     },
     sidebarItemIsActive: {
         "&:hover": {
@@ -45,9 +44,6 @@ export const useLayoutStyles = makeStyles((theme: Theme) => ({
         marginBottom: theme.spacing(5),
     },
     well: {
-        // padding: theme.spacing(2),
-        // backgroundColor: theme.design.colors.waz_greyColor100,
-        // borderRadius: theme.spacing(1),
         marginTop: theme.spacing(2),
     },
     logo: {
@@ -55,10 +51,10 @@ export const useLayoutStyles = makeStyles((theme: Theme) => ({
         justifyContent: "left",
         alignItems: "left",
         color: theme.design.colors.waz_black,
-        fontWeight: 700,
-        fontSize: '20px',
-        width: '91px',
-        height: '27px',
+        fontWeight: theme.typography.fontWeightBold,
+        fontSize: theme.typography.h3.fontSize,
+        width: 91,
+        height: 27,
         textTransform: 'uppercase',
     },
     title: {
@@ -79,13 +75,12 @@ export const useLayoutStyles = makeStyles((theme: Theme) => ({
         display: 'flex',
         alignItems: 'center',
         width: `calc(100% - ${drawerWidth}px)`,
-        height: '60px',
+        height: 60,
         marginLeft: `${drawerWidth}px`,
         boxShadow: '0px 1px 25px rgba(0, 0, 0, 0.05)',
         opacity: 1,
-        background: '#FFFFFF',
+        background: theme.design.colors.waz_white,
         padding: '10px 40px',
-        zIndex: 9999
     },
     appBarComponents: {
         display: 'flex',
@@ -94,29 +89,28 @@ export const useLayoutStyles = makeStyles((theme: Theme) => ({
         width: '100%'
     },
     notificationWrapper: {
-        width: '24px',
-        height: '24px'
+        width: 24,
+        height: 24
     },
     notoficationIcon: {
-        width: '18px',
-        height: '21px'
+        width: 18,
+        height: 21
     },
 
     drawer: {
         width: `${drawerWidth}px`,
         padding: '22px 19px',
         position: 'fixed',
-        background: '#FFFFFF 0% 0% no-repeat padding-box',
+        background: theme.design.colors.waz_white,
         boxShadow: '0px 1px 25px rgba(0, 0, 0, 0.05)',
         display: 'flex',
         flexDirection: 'column',
-        gap: '0',
-        marginBottom: '50px'
+        gap: 0,
+        marginBottom: 50
     },
     searchBox: {
         display: 'flex',
         justifyContent: 'center',
         alignItems: 'center',
-        // width: '100%'
     }
 }));

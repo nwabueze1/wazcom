@@ -1,6 +1,6 @@
 import { FC } from "react";
 import { useAddMediaStyles } from "./styles";
-import { Button } from "../../../../core/Button_old";
+import { Button } from "core/Button";
 import { Modal } from "@mui/material";
 import { AddMediaProps } from "./types";
 import { UploadDialogue } from "./UploadDialogue";
@@ -18,7 +18,7 @@ export const AddMedia: FC<AddMediaProps> = ({
     return (
         <div>
             {!viewOnly && (
-                <Button color="primary" onClick={handleOpen}>
+                <Button onClick={handleOpen}>
                     Add New
                 </Button>
             )}

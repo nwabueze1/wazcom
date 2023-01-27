@@ -55,14 +55,14 @@ export const Button = ({
     );
 };
 
-function ButtonContent({
+const ButtonContent = ({
     leftIcon,
     rightIcon,
     children,
     iconSpacing,
     variant,
     isLoading,
-}: ButtonContentProps) {
+}: ButtonContentProps) => {
 
     return (
         <>
@@ -77,7 +77,7 @@ function ButtonContent({
     )
 }
 
-function ButtonIcon({ children, marginLeft, marginRight, ...rest }: ButtonIconProps) {
+const ButtonIcon = ({ children, marginLeft, marginRight, ...rest }: ButtonIconProps) => {
     const classes = useButtonIconStyles({ marginLeft, marginRight });
     const _className = clx(classes.root, classes.iconSpacing);
     const _children = isValidElement(children) ? cloneElement(children, {}) : children
@@ -89,7 +89,7 @@ function ButtonIcon({ children, marginLeft, marginRight, ...rest }: ButtonIconPr
     )
 }
 
-function ButtonSpinner({ variant }: ButtonContentProps) {
+const ButtonSpinner = ({ variant }: ButtonContentProps) => {
     const classes = useButtonSpinnerStyles({ variant });
     const _className = clx(
         variant === 'contained' ? classes.contained :

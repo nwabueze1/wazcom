@@ -10,7 +10,6 @@ export const useButtonStyles = makeStyles((theme: BaseTheme) => ({
         display: 'flex',
         justifyContent: 'center',
         alignItems: 'center',
-        // gap: '10px',
         width: props.width ?? 132,
         height: props.height ?? 35,
         borderRadius: props.borderRadius ?? 5
@@ -35,7 +34,7 @@ export const useButtonStyles = makeStyles((theme: BaseTheme) => ({
         WebkitAppearance: 'none',
         textDecoration: 'none',
         color: 'inherit',
-        fontSize: 14
+        fontSize: theme.typography.h5.fontSize
     },
     disabled: (props: ButtonStyleProps) => ({
         background: props.variant === 'contained' ? theme.design.colors.primary100 : '',
@@ -48,7 +47,7 @@ export const useButtonStyles = makeStyles((theme: BaseTheme) => ({
     }),
     contained: {
         background: theme.design.colors.primary100,
-        color: '#FFFFFF',
+        color: theme.design.colors.waz_white,
         textAlign: 'center',
         letterSpacing: 0,
         fontWeight: 600,
@@ -64,14 +63,14 @@ export const useButtonStyles = makeStyles((theme: BaseTheme) => ({
 
     },
     outlined: {
-        background: '#FFFFFF',
+        background: theme.design.colors.waz_white,
         color: theme.design.colors.grey100,
         borderColor: theme.design.colors.primary600,
+        fontWeight: theme.typography.fontWeightMedium,
         borderWidth: 1,
         borderStyle: 'solid',
         textAlign: 'center',
-        letterSpacing: 0,
-        fontWeight: 600,
+
         '&:hover': {
             color: theme.design.colors.primary600,
             borderColor: theme.design.colors.primary600,

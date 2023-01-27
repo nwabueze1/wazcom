@@ -38,15 +38,17 @@ export const useCurrencyInputStyles = makeStyles((theme: Theme) => ({
     },
     inputContainer: {
         background: theme.design.background.waz_primaryWhite,
-        border: '1px solid #E8E8E8',
+        borderWidth: 1,
+        borderStyle: 'solid',
+        borderColor: theme.design.colors.waz_grey300,
         borderRadius: 3,
-        padding: '24px',
-        paddingBottom: '50px',
+        padding: 24,
+        paddingBottom: 50,
         display: 'flex',
         flexDirection: 'column',
         justifyContent: 'center',
         alignItems: 'center',
-        gap: '70px'
+        gap: 70
     },
     inputs: {
         width: '100%',
@@ -59,10 +61,7 @@ export const useCurrencyInputStyles = makeStyles((theme: Theme) => ({
     },
     input: {
         width: '100%',
-        // height: '34px',
         display: 'flex',
-        // justifyContent: 'space-between',
-        // alignItems: 'center',
         padding: '0 10px'
     },
 }));
