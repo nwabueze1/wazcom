@@ -191,7 +191,7 @@ export const MbmcBlock12: FC<MbmcBlock12Props> = ({
                             size="sm"
                             variant="SECONDARY"
                             type="submit"
-                            loading={loading}
+                            isLoading={loading}
                         >
                             Send
                         </MbmcButton>
