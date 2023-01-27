@@ -14,4 +14,3 @@ export type createPostValue = {
 }
 
 export type SizeFields = { [key in "desktop" | "tablet" | "mobile"]: string };
-

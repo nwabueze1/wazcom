@@ -1,9 +1,9 @@
 .ql-container {
-    @apply border-red-200;
     border: 0px !important;
 }
 .ql-editor {
     /* padding: 0 !important; */
+    padding-left: 16px;
 }
 .ql-editor .ql-video{
     width: 80%;

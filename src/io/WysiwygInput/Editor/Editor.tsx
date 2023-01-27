@@ -34,9 +34,7 @@ export const Editor: React.FC<EditorProps> = ({ handleContent }) => {
 
   useEffect(() => {
     const words = content.split(" ");
-  
     let wordCount = 0;
-
     words.forEach((word) => {
       if (word.trim() !== ''){
         wordCount++;

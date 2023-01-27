@@ -26,7 +26,6 @@ export const useEditorToolbarStyles = makeStyles((theme: Theme) => ({
         background: theme.design.colors.waz_white,
         border: `1px solid ${theme.design.colors.primary700}`,
         padding: theme.spacing(0.75, 2, 0.75, 0),
-        // marginBottom: theme.spacing(3),
         height: theme.spacing(3.375),
         position: 'absolute',
         bottom: '0',
@@ -34,7 +33,6 @@ export const useEditorToolbarStyles = makeStyles((theme: Theme) => ({
         width: '100%',
     },
     editor: {
-        // border: `8px solid #FAFAFA`,
         color: theme.design.colors.waz_grey1,
         overflow: 'auto',
         height: '100vh',
