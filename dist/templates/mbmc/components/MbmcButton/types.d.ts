@@ -5,5 +5,7 @@ export type MbmcButtonProps = Omit<ButtonProps, "variant" | "size"> & {
     size?: "sm" | "md" | "lg";
     handleClick?: () => void;
     url?: string;
+    name?: string;
+    className?: any;
     activeElement?: string;
 };

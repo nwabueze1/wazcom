@@ -70,5 +70,5 @@ export var Form = function (_a) {
             }
         });
     }); };
-    return (_jsxs("form", __assign({ onSubmit: handleSubmit, className: className }, { children: [displayControls(), _jsx(MbmcButton, __assign({ variant: "SECONDARY", size: "sm", type: "submit", className: classes.formButton, loading: loading && networkOperationCtxt === networkOperation }, { children: submitButtonText }))] })));
+    return (_jsxs("form", __assign({ onSubmit: handleSubmit, className: className }, { children: [displayControls(), _jsx(MbmcButton, __assign({ variant: "SECONDARY", size: "sm", type: "submit", className: classes.formButton, isLoading: loading && networkOperationCtxt === networkOperation }, { children: submitButtonText }))] })));
 };

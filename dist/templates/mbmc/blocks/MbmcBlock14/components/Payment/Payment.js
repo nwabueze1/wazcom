@@ -111,5 +111,5 @@ export var Payment = function () {
     };
     if (loading)
         return (_jsx("div", { children: _jsx(CircularProgress, { color: "success", size: "20px" }) }));
-    return (_jsxs("div", __assign({ className: classes.root }, { children: [displayPaymentMethods(), _jsx(MbmcButton, __assign({ variant: "SECONDARY", size: "sm", className: classes.paymentButton, loading: ctxtLoading && networkOperation === "create.order", handleClick: handleCreateOrder }, { children: "Pay now" }))] })));
+    return (_jsxs("div", __assign({ className: classes.root }, { children: [displayPaymentMethods(), _jsx(MbmcButton, __assign({ variant: "SECONDARY", size: "sm", className: classes.paymentButton, isLoading: ctxtLoading && networkOperation === "create.order", handleClick: handleCreateOrder }, { children: "Pay now" }))] })));
 };
