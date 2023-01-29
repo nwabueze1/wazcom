@@ -6,7 +6,7 @@ export type ButtonProps = {
     isDisabled?: boolean;
     leftIcon?: ReactElement;
     rightIcon?: ReactElement;
-    className?: object | string;
+    className?: any;
     children: ReactNode;
     variant?: string;
     iconSpacing?: string | number;

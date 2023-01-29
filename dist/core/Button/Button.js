@@ -35,12 +35,12 @@ export var Button = function (_a) {
         isLoading: isLoading,
     });
     var _className = clx(classes.root, classes.button, variant === 'contained' ? classes.contained :
-        variant === 'outlined' ? classes.outlined : classes.default, (isDisabled && !isLoading) && classes.disabled, isLoading && classes.loading);
+        variant === 'outlined' ? classes.outlined : classes.default, (isDisabled && !isLoading) && classes.disabled, isLoading && classes.loading, className);
     return (_jsx("button", __assign({ disabled: isDisabled || isLoading, className: _className }, props, { children: _jsx(ButtonContent, __assign({}, {
             rightIcon: rightIcon,
             leftIcon: leftIcon,
-            className: className,
             children: children,
+            className: className,
             iconSpacing: iconSpacing,
             variant: variant,
             isLoading: isLoading,

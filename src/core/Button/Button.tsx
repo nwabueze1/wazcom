@@ -31,7 +31,9 @@ export const Button = ({
         variant === 'contained' ? classes.contained :
             variant === 'outlined' ? classes.outlined : classes.default,
         (isDisabled && !isLoading) && classes.disabled,
-        isLoading && classes.loading
+        isLoading && classes.loading,
+        className,
+        
     );
 
     return (
@@ -43,8 +45,8 @@ export const Button = ({
                 <ButtonContent {...{
                     rightIcon,
                     leftIcon,
-                    className,
                     children,
+                    className,
                     iconSpacing,
                     variant,
                     isLoading,
