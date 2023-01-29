@@ -7,6 +7,7 @@ import { TabProps } from './types';
 
 
 export const Tab: FC<TabProps> = ({
+    className,
     controls,
     variant,
     backgroundColor,
@@ -45,7 +46,7 @@ export const Tab: FC<TabProps> = ({
     }, [activeTab, query]);
 
     return (
-        <div className={classes.root}>
+        <div className={clx(classes.root, className)}>
             <div className={classes.tabs}>
                 {
                     controls.map(({ name, title }, index) => (

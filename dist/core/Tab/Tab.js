@@ -31,7 +31,7 @@ import clx from 'classnames';
 import { useLocation, useNavigate } from 'react-router-dom';
 import { useTabStyles } from './styles';
 export var Tab = function (_a) {
-    var controls = _a.controls, variant = _a.variant, backgroundColor = _a.backgroundColor, borderWidth = _a.borderWidth, borderColor = _a.borderColor, borderStyle = _a.borderStyle, borderRadius = _a.borderRadius;
+    var className = _a.className, controls = _a.controls, variant = _a.variant, backgroundColor = _a.backgroundColor, borderWidth = _a.borderWidth, borderColor = _a.borderColor, borderStyle = _a.borderStyle, borderRadius = _a.borderRadius;
     var classes = useTabStyles({
         variant: variant,
         backgroundColor: backgroundColor,
@@ -55,7 +55,7 @@ export var Tab = function (_a) {
         query.set('tab', name !== null && name !== void 0 ? name : '');
         navigate({ pathname: pathname, search: query.toString() });
     }, [activeTab, query]);
-    return (_jsxs("div", __assign({ className: classes.root }, { children: [_jsx("div", __assign({ className: classes.tabs }, { children: controls.map(function (_a, index) {
+    return (_jsxs("div", __assign({ className: clx(classes.root, className) }, { children: [_jsx("div", __assign({ className: classes.tabs }, { children: controls.map(function (_a, index) {
                     var name = _a.name, title = _a.title;
                     return (_jsx("div", __assign({ onClick: function () { return handleTabClick(name); }, className: clx(classes.tab, (name == activeTab) && classes.tabIsActive) }, { children: title }), index));
                 }) })), _jsx("div", __assign({ className: classes.contentWrapper }, { children: controls.map(function (_a, index) {
