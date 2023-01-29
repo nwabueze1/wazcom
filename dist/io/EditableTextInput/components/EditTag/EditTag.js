@@ -11,11 +11,11 @@ var __assign = (this && this.__assign) || function () {
 };
 import { jsx as _jsx } from "react/jsx-runtime";
 import { useEditableTextStyles } from "../../styles";
-export var EditTag = function (props) {
+export var EditTag = function (_a) {
+    var name = _a.name, cmd = _a.cmd, arg = _a.arg, Icon = _a.Icon;
     var classes = useEditableTextStyles();
     return (_jsx("div", __assign({ onMouseDown: function (evt) {
-            var _a;
             evt.preventDefault();
-            document.execCommand((_a = props === null || props === void 0 ? void 0 : props.cmd) !== null && _a !== void 0 ? _a : "", false, props.arg);
-        }, className: classes.controlIcon }, { children: props.icon || props.name }), props.cmd));
+            document.execCommand(cmd !== null && cmd !== void 0 ? cmd : "", false, arg);
+        }, className: classes.controlIcon }, { children: Icon ? _jsx(Icon, {}) : name }), cmd));
 };

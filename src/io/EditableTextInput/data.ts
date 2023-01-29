@@ -1,5 +1,3 @@
-// @ts-ignore:next-line
-import React from "react";
 import { MdFormatBold, MdOutlineFormatItalic } from "react-icons/md";
 import { CgFormatHeading } from "react-icons/cg";
 import { BsLink } from "react-icons/bs";
@@ -8,16 +6,16 @@ export const contols = [
     {
         name: "italic",
         cmd: "italic",
-        icon: <MdOutlineFormatItalic />,
+        Icon: MdOutlineFormatItalic,
     },
     {
         name: "bold",
         cmd: "bold",
-        icon: <MdFormatBold />,
+        Icon: MdFormatBold,
     },
     {
         name: "heading",
-        icon: <CgFormatHeading />,
+        Icon: CgFormatHeading,
         cmd: "formatBlock",
         arg: "h1",
     },
@@ -25,6 +23,6 @@ export const contols = [
         cmd: "createLink",
         arg: "https://github.com/lovasoa/react-contenteditable",
         name: "hyperlink",
-        icon: <BsLink />,
+        Icon: BsLink,
     },
 ];

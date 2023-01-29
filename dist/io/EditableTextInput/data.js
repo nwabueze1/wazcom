@@ -1,4 +1,3 @@
-import { jsx as _jsx } from "react/jsx-runtime";
 import { MdFormatBold, MdOutlineFormatItalic } from "react-icons/md";
 import { CgFormatHeading } from "react-icons/cg";
 import { BsLink } from "react-icons/bs";
@@ -6,16 +5,16 @@ export var contols = [
     {
         name: "italic",
         cmd: "italic",
-        icon: _jsx(MdOutlineFormatItalic, {}),
+        Icon: MdOutlineFormatItalic,
     },
     {
         name: "bold",
         cmd: "bold",
-        icon: _jsx(MdFormatBold, {}),
+        Icon: MdFormatBold,
     },
     {
         name: "heading",
-        icon: _jsx(CgFormatHeading, {}),
+        Icon: CgFormatHeading,
         cmd: "formatBlock",
         arg: "h1",
     },
@@ -23,6 +22,6 @@ export var contols = [
         cmd: "createLink",
         arg: "https://github.com/lovasoa/react-contenteditable",
         name: "hyperlink",
-        icon: _jsx(BsLink, {}),
+        Icon: BsLink,
     },
 ];

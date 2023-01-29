@@ -2,19 +2,19 @@ import { FC } from "react";
 import { useEditableTextStyles } from "../../styles";
 import { EditTagProps } from "./types";
 
-export const EditTag: FC<EditTagProps> = (props) => {
+export const EditTag: FC<EditTagProps> = ({ name, cmd, arg, Icon }) => {
     const classes = useEditableTextStyles();
 
     return (
         <div
-            key={props.cmd}
+            key={cmd}
             onMouseDown={(evt) => {
                 evt.preventDefault();
-                document.execCommand(props?.cmd ?? "", false, props.arg);
+                document.execCommand(cmd ?? "", false, arg);
             }}
             className={classes.controlIcon}
         >
-            {props.icon || props.name}
+            {Icon ? <Icon /> : name}
         </div>
     );
 };
