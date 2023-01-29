@@ -48,7 +48,7 @@ export const useTabStyles = makeStyles((theme: BaseTheme) => ({
     tabIsActive: (props: TabStyleProps) => ({
         background: props.variant === 'vertical' ? (props.backgroundColor ?? theme.design.colors.primary100) : '',
         color: props.variant === 'vertical' ? (props.color ?? theme.design.colors.waz_white) : '',
-        borderColor: props.variant === 'vertical' ? (props.borderColor ?? theme.design.colors.primary100) : theme.design.colors.primary700,
+        borderColor: props.variant === 'vertical' ? (props.borderColor ?? theme.design.colors.primary100) : theme.design.colors.primary100,
         '&:hover': {
             color: props.variant === 'vertical' ? (props.color ?? theme.design.colors.waz_white) : theme.design.colors.primary200,
             borderColor: props.variant === 'vertical' ? (props.borderColor ?? theme.design.colors.primary100) : theme.design.colors.primary500,

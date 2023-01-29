@@ -52,7 +52,7 @@ export var useTabStyles = makeStyles(function (theme) { return ({
         return ({
             background: props.variant === 'vertical' ? ((_a = props.backgroundColor) !== null && _a !== void 0 ? _a : theme.design.colors.primary100) : '',
             color: props.variant === 'vertical' ? ((_b = props.color) !== null && _b !== void 0 ? _b : theme.design.colors.waz_white) : '',
-            borderColor: props.variant === 'vertical' ? ((_c = props.borderColor) !== null && _c !== void 0 ? _c : theme.design.colors.primary100) : theme.design.colors.primary700,
+            borderColor: props.variant === 'vertical' ? ((_c = props.borderColor) !== null && _c !== void 0 ? _c : theme.design.colors.primary100) : theme.design.colors.primary100,
             '&:hover': {
                 color: props.variant === 'vertical' ? ((_d = props.color) !== null && _d !== void 0 ? _d : theme.design.colors.waz_white) : theme.design.colors.primary200,
                 borderColor: props.variant === 'vertical' ? ((_e = props.borderColor) !== null && _e !== void 0 ? _e : theme.design.colors.primary100) : theme.design.colors.primary500,

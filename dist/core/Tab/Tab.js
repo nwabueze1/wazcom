@@ -27,11 +27,12 @@ var __read = (this && this.__read) || function (o, n) {
 };
 import { jsx as _jsx, jsxs as _jsxs } from "react/jsx-runtime";
 import { useCallback, useEffect, useMemo, useState } from 'react';
-import clx from 'classnames';
 import { useLocation, useNavigate } from 'react-router-dom';
+import clx from 'classnames';
+import { snakeCase } from "lodash";
 import { useTabStyles } from './styles';
 export var Tab = function (_a) {
-    var className = _a.className, controls = _a.controls, variant = _a.variant, backgroundColor = _a.backgroundColor, borderWidth = _a.borderWidth, borderColor = _a.borderColor, borderStyle = _a.borderStyle, borderRadius = _a.borderRadius;
+    var className = _a.className, controls = _a.controls, variant = _a.variant, backgroundColor = _a.backgroundColor, borderWidth = _a.borderWidth, borderColor = _a.borderColor, borderStyle = _a.borderStyle, borderRadius = _a.borderRadius, containerClassName = _a.containerClassName;
     var classes = useTabStyles({
         variant: variant,
         backgroundColor: backgroundColor,
@@ -55,10 +56,10 @@ export var Tab = function (_a) {
         query.set('tab', name !== null && name !== void 0 ? name : '');
         navigate({ pathname: pathname, search: query.toString() });
     }, [activeTab, query]);
-    return (_jsxs("div", __assign({ className: clx(classes.root, className) }, { children: [_jsx("div", __assign({ className: classes.tabs }, { children: controls.map(function (_a, index) {
+    return (_jsxs("div", __assign({ className: clx(classes.root, className) }, { children: [_jsx("div", __assign({ className: clx(classes.tabs, containerClassName) }, { children: controls.map(function (_a, index) {
                     var name = _a.name, title = _a.title;
-                    return (_jsx("div", __assign({ onClick: function () { return handleTabClick(name); }, className: clx(classes.tab, (name == activeTab) && classes.tabIsActive) }, { children: title }), index));
-                }) })), _jsx("div", __assign({ className: classes.contentWrapper }, { children: controls.map(function (_a, index) {
+                    return (_jsx("div", __assign({ onClick: function () { return handleTabClick(name); }, className: clx(classes.tab, (name == activeTab) && classes.tabIsActive, snakeCase(title), snakeCase(name)) }, { children: title }), index));
+                }) })), _jsx("div", __assign({ className: clx(classes.contentWrapper, snakeCase(activeTab + 'content')) }, { children: controls.map(function (_a, index) {
                     var name = _a.name, component = _a.component;
                     return (_jsx("div", __assign({ className: clx(classes.content, (name == activeTab) && classes.contentIsActive) }, { children: component }), index));
                 }) }))] })));

@@ -1,6 +1,7 @@
 import { FC, useCallback, useEffect, useMemo, useState } from 'react';
-import clx from 'classnames';
 import { useLocation, useNavigate } from 'react-router-dom';
+import clx from 'classnames';
+import { snakeCase } from "lodash";
 
 import { useTabStyles } from './styles';
 import { TabProps } from './types';
@@ -15,6 +16,7 @@ export const Tab: FC<TabProps> = ({
     borderColor,
     borderStyle,
     borderRadius,
+    containerClassName,
 }) => {
     const classes = useTabStyles({
         variant,
@@ -47,21 +49,29 @@ export const Tab: FC<TabProps> = ({
 
     return (
         <div className={clx(classes.root, className)}>
-            <div className={classes.tabs}>
+            <div className={clx(classes.tabs, containerClassName)}>
                 {
                     controls.map(({ name, title }, index) => (
                         <div
                             key={index}
                             onClick={() => handleTabClick(name)}
-                            className={clx(classes.tab, (name == activeTab) && classes.tabIsActive)}
-                        >{title}</div>
+                            className={clx(
+                                classes.tab,
+                                (name == activeTab) && classes.tabIsActive,
+                                snakeCase(title), snakeCase(name)
+                            )}
+                        >
+                            {title}
+                        </div>
                     ))
                 }
             </div>
-            <div className={classes.contentWrapper}>
+            <div className={clx(classes.contentWrapper, snakeCase(activeTab + 'content'))}>
                 {
                     controls.map(({ name, component }, index) => (
-                        <div className={clx(classes.content, (name == activeTab) && classes.contentIsActive)} key={index}>{component}</div>
+                        <div key={index} className={clx(classes.content, (name == activeTab) && classes.contentIsActive)}>
+                            {component}
+                        </div>
                     ))
                 }
             </div>
