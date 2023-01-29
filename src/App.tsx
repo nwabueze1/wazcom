@@ -1,5 +1,5 @@
+import React from "react";
 import { StyledEngineProvider, Theme, ThemeProvider } from "@mui/material";
-import * as React from "react";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import { Blaise } from "templates";
 import { useGetMbmcBlocks } from "templates/mbmc/mbmc";

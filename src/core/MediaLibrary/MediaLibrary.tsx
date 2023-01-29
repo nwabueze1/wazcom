@@ -1,7 +1,7 @@
 import { useLazyQuery } from "@apollo/client";
 import { Grow } from "@mui/material";
 import clx from "classnames";
-import { Button } from "../Button_old";
+import { Button } from "../Button";
 import { last } from "lodash";
 import { FC, useCallback, useEffect, useRef, useState } from "react";
 import { IoCloudUploadOutline } from "react-icons/io5";
@@ -75,8 +75,7 @@ export const MediaLibrary: FC<MediaLibraryProps> = ({ className }) => {
                 <Uploader ref={fileRef} />
                 <div className={classes.actions}>
                     <Button
-                        color="primary"
-                        startIcon={<IoCloudUploadOutline />}
+                        leftIcon={<IoCloudUploadOutline />}
                         onClick={handleFileSelect}
                     >
                         Upload Image
