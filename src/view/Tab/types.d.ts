@@ -3,6 +3,7 @@ import { CommonProps } from "../../types";
 
 export type TabsProps = CommonProps & {
     variant?: string;
+    className?: any;
     backgroundColor?: string;
     borderWidth?: string | number;
     borderColor?: string;

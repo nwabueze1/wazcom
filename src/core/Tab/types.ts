@@ -13,6 +13,7 @@ export type TabProps = {
     borderStyle?: string;
     borderRadius?: string | number;
     controls: {
+        className?: any;
         name: string;
         title: string;
         component: React.ReactNode;
@@ -21,6 +22,7 @@ export type TabProps = {
 
 export type TabStyleProps = {
     variant?: string;
+    className?: any;
     backgroundColor?: string;
     color?: string;
     borderWidth?: string | number;

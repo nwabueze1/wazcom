@@ -8,7 +8,6 @@ import { TabProps } from './types';
 
 
 export const Tab: FC<TabProps> = ({
-    className,
     controls,
     variant,
     backgroundColor,
@@ -16,6 +15,7 @@ export const Tab: FC<TabProps> = ({
     borderColor,
     borderStyle,
     borderRadius,
+    className,
     containerClassName,
 }) => {
     const classes = useTabStyles({

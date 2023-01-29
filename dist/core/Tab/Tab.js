@@ -32,7 +32,7 @@ import clx from 'classnames';
 import { snakeCase } from "lodash";
 import { useTabStyles } from './styles';
 export var Tab = function (_a) {
-    var className = _a.className, controls = _a.controls, variant = _a.variant, backgroundColor = _a.backgroundColor, borderWidth = _a.borderWidth, borderColor = _a.borderColor, borderStyle = _a.borderStyle, borderRadius = _a.borderRadius, containerClassName = _a.containerClassName;
+    var controls = _a.controls, variant = _a.variant, backgroundColor = _a.backgroundColor, borderWidth = _a.borderWidth, borderColor = _a.borderColor, borderStyle = _a.borderStyle, borderRadius = _a.borderRadius, className = _a.className, containerClassName = _a.containerClassName;
     var classes = useTabStyles({
         variant: variant,
         backgroundColor: backgroundColor,
