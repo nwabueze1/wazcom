@@ -66,7 +66,7 @@ export const SelectInput: FC<SelectInputProps> = ({
                         ...baseStyles,
                         minHeight: 34,
                         height: height || 34,
-                        width: width || 187,
+                        width: width || '100%',
                         backgroundColor: backgroundColor || '',
                         borderWidth: borderWidth ?? 1,
                         borderStyle: borderStyle ?? 'solid',

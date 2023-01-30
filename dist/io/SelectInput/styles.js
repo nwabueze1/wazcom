@@ -6,7 +6,6 @@ export var useSelectStyles = makeStyles(function (theme) { return ({
         justifyContent: 'start',
         alignItems: 'start',
         position: "relative",
-        marginBottom: theme.spacing(2)
     },
     label: {
         fontSize: theme.typography.fontSize - 2,
