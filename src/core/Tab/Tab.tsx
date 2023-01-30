@@ -66,7 +66,7 @@ export const Tab: FC<TabProps> = ({
                     ))
                 }
             </div>
-            <div className={clx(classes.contentWrapper, snakeCase(activeTab + 'content'))}>
+            <div className={clx(classes.contentWrapper, snakeCase(`${activeTab} content`))}>
                 {
                     controls.map(({ name, component }, index) => (
                         <div key={index} className={clx(classes.content, (name == activeTab) && classes.contentIsActive)}>
