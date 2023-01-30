@@ -53,6 +53,7 @@ export var SelectInput = function (_a) {
                         } })); },
                     indicatorsContainer: function (baseStyles) { return (__assign(__assign({}, baseStyles), { "> div": {
                             padding: 6,
+                            width: '100%',
                         } })); },
                     option: function (baseStyles, _a) {
                         var isFocused = _a.isFocused, data = _a.data;

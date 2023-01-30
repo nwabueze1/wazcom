@@ -88,6 +88,7 @@ export const SelectInput: FC<SelectInputProps> = ({
                         ...baseStyles,
                         "> div": {
                             padding: 6,
+                            width: '100%',
                         }
                     }),
                     option: (baseStyles, { isFocused, data }) => {
