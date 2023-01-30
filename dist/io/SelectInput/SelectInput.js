@@ -67,7 +67,7 @@ export var SelectInput = function (_a) {
                         return __assign(__assign({}, baseStyles), { padding: 0, boxShadow: '0px 3px 6px #00000014', borderRadius: 4 });
                     },
                 }, classNames: {
-                    container: function () { return (clx(classes.container)); },
+                    container: function () { return classes.container; },
                     control: function (_a) {
                         var isDisabled = _a.isDisabled, isFocused = _a.isFocused;
                         return (clx(!isDisabled && isFocused && classes.control));
