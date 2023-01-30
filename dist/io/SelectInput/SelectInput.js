@@ -38,7 +38,7 @@ export var SelectInput = function (_a) {
     var selectValue = useMemo(function () { return options === null || options === void 0 ? void 0 : options.find(function (option) { return option.value == value; }); }, [value]);
     var labelElement = isValidElement(label) ? cloneElement(label, {}) : label;
     var DropdownIndicator = function (props) { return (_jsx(components.DropdownIndicator, __assign({}, props, { children: _jsx(AiFillCaretDown, {}) }))); };
-    return (_jsxs("div", __assign({ className: clx(classes.root, className) }, { children: [_jsx("div", __assign({ className: classes.labelWrapper }, { children: !hideLabel &&
+    return (_jsxs("div", __assign({ className: clx(classes.root, className) }, { children: [_jsx("span", __assign({ className: classes.labelWrapper }, { children: !hideLabel &&
                     labelElement &&
                     _jsxs("label", __assign({ htmlFor: name, className: classes.label }, { children: [labelElement, required && _jsx("span", __assign({ className: classes.required }, { children: "*" }))] })) })), _jsx(Select, __assign({ menuIsOpen: menuIsOpen, components: {
                     DropdownIndicator: DropdownIndicator,

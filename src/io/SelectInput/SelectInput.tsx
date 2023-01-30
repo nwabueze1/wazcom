@@ -46,7 +46,7 @@ export const SelectInput: FC<SelectInputProps> = ({
 
     return (
         <div className={clx(classes.root, className)}>
-            <div className={classes.labelWrapper}>
+            <span className={classes.labelWrapper}>
                 {
                     !hideLabel &&
                     labelElement &&
@@ -55,7 +55,7 @@ export const SelectInput: FC<SelectInputProps> = ({
                         {required && <span className={classes.required}>*</span>}
                     </label>
                 }
-            </div>
+            </span>
             <Select
                 menuIsOpen={menuIsOpen}
                 components={{
