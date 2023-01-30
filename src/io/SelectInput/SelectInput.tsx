@@ -119,7 +119,7 @@ export const SelectInput: FC<SelectInputProps> = ({
                     },
                 }}
                 classNames={{
-                    container: () => classes.container,
+                    container: () => (classes.container),
                     control: ({ isDisabled, isFocused }) => (clx(
                         !isDisabled && isFocused && classes.control
                     )),
