@@ -28,7 +28,7 @@ import { AiFillCaretDown } from "react-icons/ai";
 import theme from "../../theme";
 import { useSelectStyles } from "./styles";
 export var SelectInput = function (_a) {
-    var onChange = _a.onChange, options = _a.options, name = _a.name, className = _a.className, label = _a.label, value = _a.value, errors = _a.errors, _b = _a.hideLabel, hideLabel = _b === void 0 ? false : _b, info = _a.info, _c = _a.required, required = _c === void 0 ? false : _c, width = _a.width, height = _a.height, backgroundColor = _a.backgroundColor, borderWidth = _a.borderWidth, borderColor = _a.borderColor, borderStyle = _a.borderStyle, menuIsOpen = _a.menuIsOpen, props = __rest(_a, ["onChange", "options", "name", "className", "label", "value", "errors", "hideLabel", "info", "required", "width", "height", "backgroundColor", "borderWidth", "borderColor", "borderStyle", "menuIsOpen"]);
+    var onChange = _a.onChange, options = _a.options, name = _a.name, className = _a.className, containerClass = _a.containerClass, label = _a.label, value = _a.value, errors = _a.errors, _b = _a.hideLabel, hideLabel = _b === void 0 ? false : _b, info = _a.info, _c = _a.required, required = _c === void 0 ? false : _c, width = _a.width, height = _a.height, backgroundColor = _a.backgroundColor, borderWidth = _a.borderWidth, borderColor = _a.borderColor, borderStyle = _a.borderStyle, menuIsOpen = _a.menuIsOpen, props = __rest(_a, ["onChange", "options", "name", "className", "containerClass", "label", "value", "errors", "hideLabel", "info", "required", "width", "height", "backgroundColor", "borderWidth", "borderColor", "borderStyle", "menuIsOpen"]);
     var classes = useSelectStyles();
     var handleChange = function (e) {
         if (onChange) {
@@ -53,7 +53,6 @@ export var SelectInput = function (_a) {
                         } })); },
                     indicatorsContainer: function (baseStyles) { return (__assign(__assign({}, baseStyles), { "> div": {
                             padding: 6,
-                            width: '100%',
                         } })); },
                     option: function (baseStyles, _a) {
                         var isFocused = _a.isFocused, data = _a.data;
@@ -68,13 +67,14 @@ export var SelectInput = function (_a) {
                         return __assign(__assign({}, baseStyles), { padding: 0, boxShadow: '0px 3px 6px #00000014', borderRadius: 4 });
                     },
                 }, classNames: {
+                    container: function () { return (clx(classes.container)); },
                     control: function (_a) {
                         var isDisabled = _a.isDisabled, isFocused = _a.isFocused;
-                        return clx(!isDisabled && isFocused && classes.control);
+                        return (clx(!isDisabled && isFocused && classes.control));
                     },
                     option: function (_a) {
                         var isDisabled = _a.isDisabled, isFocused = _a.isFocused;
-                        return clx(!isDisabled && isFocused && classes.option);
+                        return (clx(!isDisabled && isFocused && classes.option));
                     }
                 }, value: selectValue, options: options, onChange: handleChange }, props))] })));
 };

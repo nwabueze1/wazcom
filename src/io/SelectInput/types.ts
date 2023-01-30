@@ -29,6 +29,7 @@ type SelectProps = CommonProps & {
     }[];
     value?: any;
     options?: SelectInputOptionsProps[];
+    containerClass?: string;
 }
 
 export type SelectInputProps = Omit<StateManagedSelect, "onChange"> & SelectProps;

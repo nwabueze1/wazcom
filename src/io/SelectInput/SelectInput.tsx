@@ -11,6 +11,7 @@ export const SelectInput: FC<SelectInputProps> = ({
     options,
     name,
     className,
+    containerClass,
     label,
     value,
     errors,
@@ -88,7 +89,6 @@ export const SelectInput: FC<SelectInputProps> = ({
                         ...baseStyles,
                         "> div": {
                             padding: 6,
-                            width: '100%',
                         }
                     }),
                     option: (baseStyles, { isFocused, data }) => {
@@ -119,15 +119,13 @@ export const SelectInput: FC<SelectInputProps> = ({
                     },
                 }}
                 classNames={{
-                    control: ({ isDisabled, isFocused }) => {
-                        return clx(
-                            !isDisabled && isFocused && classes.control
-                        )
-                    },
-                    option: ({ isDisabled, isFocused }) =>
-                        clx(
-                            !isDisabled && isFocused && classes.option
-                        )
+                    container: () => (clx(classes.container)),
+                    control: ({ isDisabled, isFocused }) => (clx(
+                        !isDisabled && isFocused && classes.control
+                    )),
+                    option: ({ isDisabled, isFocused }) => (clx(
+                        !isDisabled && isFocused && classes.option
+                    ))
                 }}
                 value={selectValue}
                 options={options}
