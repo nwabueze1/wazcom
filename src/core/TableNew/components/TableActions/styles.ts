@@ -10,15 +10,27 @@ export const useTableActionStyles = makeStyles((theme: Theme) => ({
         width: '50%',
     },
     searchInput: {
-        padding: theme.spacing(1, 2),
+        padding: theme.spacing(1.3, 2, 1.3, 0),
         background: theme.design.colors.waz_white,
+        fontSize: theme.typography.fontSize + 1,
+    },
+    searchInputAdornment: {
+        background: theme.design.colors.waz_white,
+        paddingLeft: theme.spacing(1.25),
     },
     selectInputElement: {
         width: '17% !important',
     },
     selectInput: {
-        padding: theme.spacing(0, 5, 0, 0),
+        padding: '5px 0 0 0 ',
         background: theme.design.colors.waz_white,
-        height: '36px !important',
+        height: '35px !important',
+    },
+    selectInputIcon: {
+        fill: theme.design.colors.waz_grey1,
+        fontSize: theme.typography.fontSize + 14,
+    },
+    selectInputLabel: {
+        fontSize: theme.typography.fontSize + 1,
     }
 }));

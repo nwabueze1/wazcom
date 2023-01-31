@@ -9,11 +9,16 @@ export const useColumnSelectorStyles = makeStyles((theme: Theme) => ({
         display: 'flex',
         justifyContent: 'space-between',
         alignItems:'center',
-        height: 36,
+        height: 40,
         boxSizing: 'border-box',
         borderRadius: 4,
         position: 'relative',
         fontSize: theme.typography.fontSize,
+
+        "&:active": {
+            borderColor: theme.design.colors.waz_primaryColor100,
+            outline: theme.design.colors.waz_primaryColor100,
+        },
     },
     columnList: {
         position: 'absolute',
@@ -45,9 +50,20 @@ export const useColumnSelectorStyles = makeStyles((theme: Theme) => ({
         alignItems: 'center',
         padding: theme.spacing(1, 2),
         fontSize: theme.typography.fontSize,
+
+        "&.css-3vdarj-MuiButtonBase-root-MuiCheckbox-root.Mui-checked": {
+            color: `${theme.design.colors.waz_primaryColor100} !important`,
+        }
     },
     columnBoxText: {
         cursor: 'pointer',
         width: '100%',
+    },
+    columnBoxIcon: {
+        fill: theme.design.colors.waz_grey1,
+        fontSize: theme.typography.fontSize + 3,
+    },
+    columnBoxIconActive: {
+        transform: "rotate(180deg)",
     }
 }));

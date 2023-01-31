@@ -33,3 +33,8 @@ export type TableConditionFilter = {
     name: string;
     condition: (element: any) => boolean;
 } 
+
+export type TableSort = {
+    column: string;
+    order: 'asc' | 'desc';
+}

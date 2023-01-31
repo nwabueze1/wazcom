@@ -8,6 +8,7 @@ export const useTableStyles = makeStyles((theme: Theme) => ({
         borderSpacing: "0px 2px",
         borderColor: "transparent",
         fontFamily: theme.design.font.openSans,
+        position: "relative",
     },
     tHead: {
         background: theme.design.colors.waz_white,
@@ -22,6 +23,10 @@ export const useTableStyles = makeStyles((theme: Theme) => ({
     },
     tRowData: {
         padding: theme.spacing(2),
+    },
+    tableLoader: {
+        position: 'absolute',
+        top: "calc((100% - 15px)/2)",
     }
 }));
 
