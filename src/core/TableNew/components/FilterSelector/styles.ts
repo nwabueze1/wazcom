@@ -38,9 +38,28 @@ export const useFilterSelectorStyles = makeStyles((theme: Theme) => ({
     },
     filterOperatorCheck: {
         padding: 0,
+        color: `${theme.design.colors.waz_primaryColor100} !important`,
     },
-    filterButton: {
+    filterButtons: {
+        display: "flex",
+        gap: theme.spacing(1),
+    },
+    filterButtonSecondary: {
         fontWeight: theme.typography.fontWeightRegular,
-        textTransform: 'unset',
-    }
+        background: theme.design.colors.waz_white,
+        color: theme.design.colors.waz_black,
+        border: `1px solid #CEE3D4`,
+        fontSize: theme.typography.fontSize - 1,
+        padding: theme.spacing(0.5, 1),
+
+        "&:hover": {
+            background: theme.design.colors.waz_white,
+        }
+    },
+    filterButtonPrimary: {
+        fontWeight: theme.typography.fontWeightRegular,
+        fontSize: theme.typography.fontSize - 1,
+        padding: theme.spacing(0.5, 1),
+        textTransform: "unset",
+    },
 }));

@@ -14,16 +14,12 @@ export const useColumnSelectorStyles = makeStyles((theme: Theme) => ({
         borderRadius: 4,
         position: 'relative',
         fontSize: theme.typography.fontSize,
-
-        "&:active": {
-            borderColor: theme.design.colors.waz_primaryColor100,
-            outline: theme.design.colors.waz_primaryColor100,
-        },
+        color: theme.design.colors.waz_grey1,
     },
     columnList: {
         position: 'absolute',
         left: 0,
-        top: '100%',
+        top: 'calc(100% + 1px)',
         width: '100%',
         background: theme.design.colors.waz_white,
         borderRadius: 3,
@@ -39,6 +35,7 @@ export const useColumnSelectorStyles = makeStyles((theme: Theme) => ({
     },
     columnCheckBoxRoot: {
         padding: 0,
+        color: `${theme.design.colors.waz_primaryColor100} !important`,
     },
     columnCheckBox: {
         position: 'relative',
@@ -50,10 +47,6 @@ export const useColumnSelectorStyles = makeStyles((theme: Theme) => ({
         alignItems: 'center',
         padding: theme.spacing(1, 2),
         fontSize: theme.typography.fontSize,
-
-        "&.css-3vdarj-MuiButtonBase-root-MuiCheckbox-root.Mui-checked": {
-            color: `${theme.design.colors.waz_primaryColor100} !important`,
-        }
     },
     columnBoxText: {
         cursor: 'pointer',

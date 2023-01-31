@@ -1,3 +1,4 @@
+import React from 'react';
 import { ApolloClient, NormalizedCacheObject } from "@apollo/client";
 import { DocumentNode } from "graphql";
 import { CommonProps } from "../../types";
@@ -7,7 +8,8 @@ export type TableNewProps = CommonProps & {
     conditionFilters?: TableConditionFilter[];
     getRows: (data: any, classes?: any) => { [key: string]: JSX.Element | string | number }[];
     query: TableQuery;
-    rowsPerPage?: number;
+    EmptyState?: React.ReactElement;
+    showFilters?: boolean;
 };
 
 export type TableColumn = {

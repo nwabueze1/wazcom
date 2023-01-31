@@ -11,6 +11,7 @@ export const useSortSelectorStyles = makeStyles((theme: Theme) => ({
         display: 'flex',
         justifyContent: 'space-between',
         alignItems: 'center',
+        color: theme.design.colors.waz_grey1,
     },
     sortDetails: {
         display: 'flex',
@@ -48,6 +49,10 @@ export const useSortSelectorStyles = makeStyles((theme: Theme) => ({
         padding: theme.spacing(1, 0, 1, 2),
         cursor: 'pointer',
         position: 'relative',
+
+        "&:hover": {
+            background: theme.design.colors.waz_lightGreen,
+        }
     },
     sortHeading: {
         fontSize: theme.typography.fontSize - 4,

@@ -17,9 +17,15 @@ export const useSortOptionsStyles = makeStyles((theme: Theme) => ({
         gap: theme.spacing(1),
         padding: theme.spacing(1, 1.25),
         marginBottom: theme.spacing(0.5),
+        background: 'transparent',
+        transition: 'all 0.3s ease-in',
+    },
+    sortOptionActive: {
+        background: theme.design.colors.waz_lightGreen,
     },
     sortOptionRadio: {
         padding: 0,
+        color: `${theme.design.colors.waz_primaryColor100} !important`,
     },
     sortOptionText: {
         fontSize: theme.typography.fontSize,
@@ -34,12 +40,16 @@ export const useSortOptionsStyles = makeStyles((theme: Theme) => ({
         background: theme.design.colors.waz_white,
         color: theme.design.colors.waz_black,
         border: `1px solid #CEE3D4`,
-        fontSize: theme.typography.fontSize,
-        padding: theme.spacing(0.75, 1.25),
+        fontSize: theme.typography.fontSize - 1,
+        padding: theme.spacing(0.5, 1),
+
+        "&:hover": {
+            background: theme.design.colors.waz_white,
+        }
     },
     sortOptionButtonPrimary: {
         fontWeight: theme.typography.fontWeightRegular,
-        fontSize: theme.typography.fontSize,
-        padding: theme.spacing(0.75, 1.25),
+        fontSize: theme.typography.fontSize - 1,
+        padding: theme.spacing(0.5, 1),
     },
 }));

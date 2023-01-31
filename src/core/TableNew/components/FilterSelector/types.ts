@@ -3,6 +3,7 @@ import { TableColumn, TableFilter } from "../../types";
 export type FilterSelectorProps = {
     className?: string;
     column: TableColumn;
+    handleClose?: () => void;
     handleSelectFilter: (filter: TableFilter) => void;
 };
 

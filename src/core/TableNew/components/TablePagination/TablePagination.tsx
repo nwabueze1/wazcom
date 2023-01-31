@@ -14,32 +14,45 @@ export const TablePagination: FC<TablePaginationProps> = ({
     const classes = useTablePaginationStyles();
 
     const renderPages = () => {
-        if (lastPage < 9)
-            return new Array(lastPage).fill("").map((_, index) => {
-                const isActive = currentPage === index + 1;
-                return (
-                    <p
-                        key={index}
-                        className={clx(
-                            classes.paginationPage,
-                            isActive && classes.paginationPageActive,
-                        )}
-                        onClick={() => {
-                            if (isActive) return;
-                            setTablePagination({ count, lastPage, currentPage: index + 1 });
-                        }}
-                    >
-                        {index + 1}
-                    </p>
-                );
-            });
-
-        return <div>sksk</div>;
+        return new Array(lastPage).fill("").map((_, index) => {
+            const isActive = currentPage === index + 1;
+            return (
+                <p
+                    key={index}
+                    className={clx(
+                        classes.paginationPage,
+                        isActive && classes.paginationPageActive,
+                    )}
+                    onClick={() => {
+                        if (isActive) return;
+                        setTablePagination({ count, lastPage, currentPage: index + 1 });
+                    }}
+                >
+                    {index + 1}
+                </p>
+            );
+        });
     };
+
+    const handlePreviousClick = () => {
+        if (currentPage === 1) return;
+        setTablePagination({ count, lastPage, currentPage: currentPage - 1 });
+    }
+
+    const handleNextClick = () => {
+        if (currentPage === lastPage) return;
+        setTablePagination({ count, lastPage, currentPage: currentPage + 1 });
+    }
 
     return (
         <div className={classes.root}>
-            <div className={classes.paginationDirection}>
+            <div
+                className={clx(
+                    classes.paginationDirection,
+                    currentPage > 1 && classes.paginationDirectionActive,
+                )}
+                onClick={handlePreviousClick}
+            >
                 <BsFillCaretLeftFill className={classes.paginationDirectionIcon} />
                 <p>Previous</p>
             </div>
@@ -67,7 +80,13 @@ export const TablePagination: FC<TablePaginationProps> = ({
                 />
             </div>
             <div className={classes.paginationPages}>{renderPages()}</div>
-            <div className={classes.paginationDirection}>
+            <div
+                className={clx(
+                    classes.paginationDirection,
+                    currentPage < lastPage && classes.paginationDirectionActive,
+                )}
+                onClick={handleNextClick}
+            >
                 <p>Next</p>
                 <BsFillCaretRightFill className={classes.paginationDirectionIcon} />
             </div>

@@ -9,6 +9,7 @@ import clx from "classnames";
 export const FilterSelector: FC<FilterSelectorProps> = ({
     className,
     column,
+    handleClose,
     handleSelectFilter,
 }) => {
     const classes = useFilterSelectorStyles();
@@ -113,9 +114,14 @@ export const FilterSelector: FC<FilterSelectorProps> = ({
     return (
         <div className={clx(classes.root, className)} onClick={(e) => e.stopPropagation()}>
             {renderFilter()}
-            <Button className={classes.filterButton} onClick={applyFilter}>
-                Apply filter
-            </Button>
+            <div className={classes.filterButtons}>
+                <Button className={classes.filterButtonSecondary} onClick={() => { handleClose?.() }}>
+                    Cancel
+                </Button>
+                <Button className={classes.filterButtonPrimary} onClick={applyFilter}>
+                    Apply filter
+                </Button>
+            </div>
         </div>
     );
 };

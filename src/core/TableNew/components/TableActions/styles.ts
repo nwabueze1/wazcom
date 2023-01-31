@@ -5,6 +5,7 @@ export const useTableActionStyles = makeStyles((theme: Theme) => ({
     root: {
         display: "flex",
         gap: theme.spacing(1.5),
+        color: theme.design.colors.waz_grey1,
     },
     searchInputElement: {
         width: '50%',
@@ -32,5 +33,6 @@ export const useTableActionStyles = makeStyles((theme: Theme) => ({
     },
     selectInputLabel: {
         fontSize: theme.typography.fontSize + 1,
+        color: theme.design.colors.waz_grey1,
     }
 }));

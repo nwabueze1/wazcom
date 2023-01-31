@@ -3,6 +3,7 @@ import { RadioButtonInput } from "../../../../io";
 import { useSortOptionsStyles } from "./styles";
 import { SortOptionsProps } from "./types";
 import { Button } from "../../../../core";
+import clx from "classnames";
 
 export const SortOptions: FC<SortOptionsProps> = ({ handleSort, handleClose }) => {
     const [order, setOrder] = useState<"asc" | "desc">("asc");
@@ -19,7 +20,7 @@ export const SortOptions: FC<SortOptionsProps> = ({ handleSort, handleClose }) =
 
     return (
         <div className={classes.root}>
-            <div className={classes.sortOption}>
+            <div className={clx(classes.sortOption, order === "asc" && classes.sortOptionActive)}>
                 <RadioButtonInput
                     value={order === "asc"}
                     classNames={{ classes: { root: classes.sortOptionRadio } }}
@@ -29,7 +30,7 @@ export const SortOptions: FC<SortOptionsProps> = ({ handleSort, handleClose }) =
                 />
                 <p className={classes.sortOptionText}>Ascending</p>
             </div>
-            <div className={classes.sortOption}>
+            <div className={clx(classes.sortOption, order === "desc" && classes.sortOptionActive)}>
                 <RadioButtonInput
                     value={order === "desc"}
                     classNames={{ classes: { root: classes.sortOptionRadio } }}

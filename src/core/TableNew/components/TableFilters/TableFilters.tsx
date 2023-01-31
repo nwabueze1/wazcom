@@ -34,13 +34,16 @@ export const TableFilters: FC<TableFiltersProps> = ({ columns, filters, setFilte
                                 ) as TableColumn
                             }
                             handleSelectFilter={handleSelectFilter}
+                            handleClose={() => {
+                                setActiveColumnKey(undefined);
+                            }}
                         />
                     )}
                 </div>
             );
         });
     };
-    
+
     const handleSelectFilter = (filter: TableFilter) => {
         setFilters([...filters, filter]);
     };
@@ -49,7 +52,7 @@ export const TableFilters: FC<TableFiltersProps> = ({ columns, filters, setFilte
         const newFilters = [...filters];
         newFilters.splice(index, 1);
         setFilters(newFilters);
-    }
+    };
 
     const renderFilters = () => {
         return filters.map((filter, index) => {
@@ -59,7 +62,9 @@ export const TableFilters: FC<TableFiltersProps> = ({ columns, filters, setFilte
                     {...filter}
                     name={column?.name ?? ""}
                     type={column?.type ?? "string"}
-                    handleDelete={() => { handleDeleteFilter(index) }}
+                    handleDelete={() => {
+                        handleDeleteFilter(index);
+                    }}
                     key={index}
                 />
             );

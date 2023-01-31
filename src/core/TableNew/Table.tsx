@@ -18,6 +18,8 @@ export const TableNew: FC<TableNewProps> = ({
     query: { client, name: QUERY, variables, dataKey },
     getRows,
     conditionFilters,
+    showFilters,
+    EmptyState,
 }) => {
     const [table, setTable] = useState<{
         data: any;
@@ -96,13 +98,15 @@ export const TableNew: FC<TableNewProps> = ({
             </td>
         ));
 
-    const displayRows = () =>
-        getRows(
-            actions?.conditionFilter
-                ? (actions.conditionFilter as TableConditionFilter).condition(table.data)
-                : table.data,
-            externalClasses,
-        ).map((row: { [key: string]: JSX.Element | string | number }, index: number) => (
+    const rows = getRows(
+        actions?.conditionFilter
+            ? (actions.conditionFilter as TableConditionFilter).condition(table?.data ?? [])
+            : table?.data ?? [],
+        externalClasses,
+    );
+
+    const displayRows = () => {
+        return rows.map((row: { [key: string]: JSX.Element | string | number }, index: number) => (
             <tr className={classes.tRow} key={index}>
                 {((actions?.columnFilters as TableColumn[]) ?? columns)
                     .map(({ key }) => key)
@@ -113,6 +117,7 @@ export const TableNew: FC<TableNewProps> = ({
                     ))}
             </tr>
         ));
+    };
 
     if (!table.data) return <Loader />;
 
@@ -124,12 +129,18 @@ export const TableNew: FC<TableNewProps> = ({
                 conditionFilters={conditionFilters}
                 columns={columns}
             />
-            <TableFilters columns={columns} filters={filters} setFilters={setFilters} />
+            {showFilters && (
+                <TableFilters columns={columns} filters={filters} setFilters={setFilters} />
+            )}
             <table className={classes.root}>
                 <thead className={classes.tHead}>
                     <tr className={classes.tRow}>{displayColumns()}</tr>
                 </thead>
-                <tbody>{displayRows()}</tbody>
+                {rows.length > 0 ? (
+                    <tbody>{displayRows()}</tbody>
+                ) : (
+                    EmptyState ?? <p>There is no content to display</p>
+                )}
             </table>
             <div className={classes.tableSeparator} />
             <TablePagination
