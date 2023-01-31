@@ -4,3 +4,4 @@ export * from './Filter';
 export * from './SortSelector';
 export * from './TableActions';
 export * from './TableFilters';
+export * from './TablePagination';

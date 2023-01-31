@@ -1,6 +1,13 @@
 import { FC, useEffect, useState } from "react";
-import { TableColumn, TableConditionFilter, TableFilter, TableNewProps, TableSort } from "./types";
-import { TableActions, TableFilters } from "./components";
+import {
+    TableColumn,
+    TableConditionFilter,
+    TableFilter,
+    TableNewProps,
+    TablePagination as TPagination,
+    TableSort,
+} from "./types";
+import { TableActions, TableFilters, TablePagination } from "./components";
 import { useTableStyles } from "./styles";
 import { Loader } from "../../core";
 import { useTableStyles as useExternalTableStyles } from "../../stories/table-styles";
@@ -14,8 +21,8 @@ export const TableNew: FC<TableNewProps> = ({
 }) => {
     const [table, setTable] = useState<{
         data: any;
-        pagination?: { currentPage: number; lastPage: number };
-    }>({ data: null });
+        pagination: TPagination;
+    }>({ data: null, pagination: { currentPage: 1, lastPage: 1, count: variables?.first ?? 5 } });
 
     const [actions, setActions] = useState<{
         [key in "search" | "sort" | "conditionFilter" | "columnFilters"]:
@@ -38,9 +45,24 @@ export const TableNew: FC<TableNewProps> = ({
 
     useEffect(() => {
         queryApi(
-            parseQueryVariables(actions.search as string, (actions?.sort as TableSort[]) ?? []),
+            parseQueryVariables(
+                actions.search as string,
+                (actions?.sort as TableSort[]) ?? [],
+                table?.pagination,
+            ),
         );
     }, [actions.search, JSON.stringify(actions.sort)]);
+
+    useEffect(() => {
+        if (!table?.data) return;
+        queryApi(
+            parseQueryVariables(
+                actions.search as string,
+                (actions?.sort as TableSort[]) ?? [],
+                table?.pagination,
+            ),
+        );
+    }, [table?.pagination?.count, table?.pagination?.currentPage]);
 
     const queryApi = async (queryVariables?: any) => {
         setLoading(true);
@@ -50,17 +72,20 @@ export const TableNew: FC<TableNewProps> = ({
             variables: {
                 ...(variables ?? {}),
                 ...(queryVariables ?? {}),
-                page: 1,
+                page: table?.data ? queryVariables?.page : variables?.page ?? 1,
+                first: table?.data ? queryVariables?.first : variables?.first ?? 5,
             },
-            fetchPolicy: "network-only"
+            fetchPolicy: "network-only",
         });
-        console.log(data);
-        console.log(error);
+
         setLoading(false);
 
         if (data && !error) {
             const { data: tableData, paginatorInfo: pagination } = data[dataKey];
-            setTable({ data: tableData, pagination });
+            setTable({
+                data: tableData,
+                pagination: { ...(table?.pagination ?? {}), ...pagination },
+            });
         }
     };
 
@@ -92,7 +117,7 @@ export const TableNew: FC<TableNewProps> = ({
     if (!table.data) return <Loader />;
 
     return (
-        <>
+        <div style={{ position: "relative" }}>
             <TableActions
                 currentActions={actions}
                 setCurrentActions={setActions}
@@ -105,8 +130,15 @@ export const TableNew: FC<TableNewProps> = ({
                     <tr className={classes.tRow}>{displayColumns()}</tr>
                 </thead>
                 <tbody>{displayRows()}</tbody>
-                {loading && <Loader className={classes.tableLoader} />}
             </table>
-        </>
+            <div className={classes.tableSeparator} />
+            <TablePagination
+                {...(table.pagination ?? { currentPage: 1, lastPage: 1, count: 10 })}
+                setTablePagination={(pagination: TPagination) => {
+                    setTable({ ...table, pagination });
+                }}
+            />
+            {loading && <Loader className={classes.tableLoader} />}
+        </div>
     );
 };

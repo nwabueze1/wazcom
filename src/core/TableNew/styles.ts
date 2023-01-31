@@ -5,7 +5,7 @@ import makeStyles from "@mui/styles/makeStyles";
 export const useTableStyles = makeStyles((theme: Theme) => ({
     root: {
         width: '100%',
-        borderSpacing: "0px 2px",
+        borderSpacing: theme.spacing(0, 0.5),
         borderColor: "transparent",
         fontFamily: theme.design.font.openSans,
         position: "relative",
@@ -27,6 +27,11 @@ export const useTableStyles = makeStyles((theme: Theme) => ({
     tableLoader: {
         position: 'absolute',
         top: "calc((100% - 15px)/2)",
+    },
+    tableSeparator: {
+        margin: theme.spacing(0, 0, 0.5, 0),
+        background: theme.design.colors.waz_white,
+        height: 15,
     }
 }));
 

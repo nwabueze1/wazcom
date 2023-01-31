@@ -38,3 +38,9 @@ export type TableSort = {
     column: string;
     order: 'asc' | 'desc';
 }
+
+export type TablePagination = {
+    currentPage: number;
+    lastPage: number;
+    count: number;
+}
