@@ -6,9 +6,10 @@ export const useEditorToolbarStyles = makeStyles((theme: Theme) => ({
         display: 'flex',
         flexDirection: 'column',
         height: "100vh",
+        position: 'relative'
     },
     toolbar: {
-        width: '80%',
+        // width: '80%',
         background: theme.design.colors.waz_white,
         flexWrap: 'wrap',
         border: `1px solid ${theme.design.colors.primary700}`,
@@ -37,6 +38,10 @@ export const useEditorToolbarStyles = makeStyles((theme: Theme) => ({
         overflow: 'auto',
         height: '100vh',
         position: 'relative',
+        paddingTop: '35px',
     },
-    
+    floatingBar: {
+        position: 'absolute',
+        zIndex: 8,
+    }
 }));

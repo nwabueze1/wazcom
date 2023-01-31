@@ -3,13 +3,13 @@ import { Theme } from "@mui/material/styles";
 
 export const useModalStyles = makeStyles((theme: Theme) => ({
     root: {
-        display: 'none',
+        display: 'flex',
         justifyContent: 'center',
         alignItems: 'center',
-        position: 'fixed',
-        zIndex: 10,
-        left: '0',
-        top: '0',
+        // position: 'fixed',
+        // zIndex: 10,
+        // left: '0',
+        // top: '0',
         width: '100%',
         height: '100%',
         overFow: 'auto',

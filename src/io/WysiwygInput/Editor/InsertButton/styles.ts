@@ -13,6 +13,9 @@ export const useInsertButtonStyles = makeStyles((theme: Theme) => ({
         fontSize: theme.typography.fontSize * 1.5,
         border: '0px',
         margin: theme.spacing(3, 0, 0.5, 2),
+        '&:hover' : {
+            cursor: 'pointer'
+        }
     },
     selectOption: {
         display: "flex",
