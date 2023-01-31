@@ -17,3 +17,4 @@ export * from "./DateTimePicker";
 export * from "./LazyImage";
 export * from "./Button";
 export * from "./Tab";
+export * from "./Spinner";
