@@ -1,4 +1,4 @@
-import React, { FC, useState } from "react";
+import { FC, useState } from "react";
 import { useSortSelectorStyles } from "./styles";
 import { ClickAwayListener } from "@mui/base";
 import { CgSortAz } from "react-icons/cg";

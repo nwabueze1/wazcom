@@ -1,4 +1,4 @@
-import React, { FC } from "react";
+import { FC } from "react";
 import { useTablePaginationStyles } from "./styles";
 import { SelectInput } from "../../../../io";
 import { BsFillCaretLeftFill, BsFillCaretRightFill } from "react-icons/bs";

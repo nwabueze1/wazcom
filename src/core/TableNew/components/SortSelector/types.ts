@@ -1,4 +1,4 @@
-import { TableColumn, TableSort } from "../../types";
+import { TableColumn } from "../../types";
 
 export type SortSelectorProps = {
     columns: TableColumn[];

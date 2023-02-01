@@ -5,6 +5,7 @@ export declare type EmptyStateProps = CommonProps & {
         alt?: string;
     };
     text?: string;
+    header?: string;
     button?: {
         display?: boolean;
         text?: string;

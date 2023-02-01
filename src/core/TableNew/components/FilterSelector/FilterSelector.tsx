@@ -1,4 +1,4 @@
-import React, { FC, useState, useEffect } from "react";
+import { FC, useState } from "react";
 import { Filter, FilterSelectorProps } from "./types";
 import { RadioButtonInput, TextInput, SelectInput } from "../../../../io";
 import { Button } from "../../../../core";

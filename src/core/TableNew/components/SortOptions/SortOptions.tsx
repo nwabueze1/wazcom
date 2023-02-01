@@ -1,4 +1,4 @@
-import React, { FC, useState } from "react";
+import { FC, useState } from "react";
 import { RadioButtonInput } from "../../../../io";
 import { useSortOptionsStyles } from "./styles";
 import { SortOptionsProps } from "./types";

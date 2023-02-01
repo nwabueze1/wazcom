@@ -1,4 +1,4 @@
-import React, { FC, useState } from "react";
+import { FC, useState } from "react";
 import { useTableFiltersStyles } from "./styles";
 import { TableFiltersProps } from "./types";
 import { ClickAwayListener } from "@mui/base";

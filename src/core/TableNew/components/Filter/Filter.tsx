@@ -1,4 +1,4 @@
-import React, { FC } from "react";
+import { FC } from "react";
 import { TableFilter } from "../../types";
 import { useFilterStyles } from "./styles";
 import { AiOutlineClose } from "react-icons/ai";

@@ -1,9 +1,9 @@
-import React, { FC, useRef } from "react";
+import { FC, useRef } from "react";
 import { BiSearch } from "react-icons/bi";
 import { TableActionsProps } from "./types";
 import { TextInput, SelectInput } from "../../../../io";
 import { useTableActionStyles } from "./styles";
-import { TableColumn, TableConditionFilter, TableSort } from "../../types";
+import { TableColumn, TableConditionFilter } from "../../types";
 import { ColumnSelector } from "../ColumnSelector";
 import { SortSelector } from "../SortSelector";
 import { InputAdornment } from "@mui/material";
