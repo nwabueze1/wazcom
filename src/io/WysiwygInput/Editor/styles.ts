@@ -9,7 +9,6 @@ export const useEditorToolbarStyles = makeStyles((theme: Theme) => ({
         position: 'relative'
     },
     toolbar: {
-        // width: '80%',
         background: theme.design.colors.waz_white,
         flexWrap: 'wrap',
         border: `1px solid ${theme.design.colors.primary700} !important`,
