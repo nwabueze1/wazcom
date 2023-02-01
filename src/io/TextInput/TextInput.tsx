@@ -126,6 +126,7 @@ export const TextInput: FC<TextFieldProps> = ({
                 )}
                 <input
                     type={type}
+                    name={name}
                     className={classes.input}
                     onFocus={handleFocus}
                     onBlur={handleBlur}
@@ -251,6 +252,7 @@ export const TextArea: FC<Omit<TextAreaProps, "type">> = ({
                         (isError || errors) && classes.errorInput,
                         isFocused && classes.focusedInput
                     )}
+                    name={name}
                     onChange={handleChange}
                     onFocus={handleFocus}
                     onBlur={handleBlur}
