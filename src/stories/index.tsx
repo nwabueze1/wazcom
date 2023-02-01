@@ -33,7 +33,7 @@ import {
     TextArea,
     EmailInput,
     WysiwygInput,
-    Modal
+    FormBuilderModal
 } from "../io";
 
 import { GqlComboBox, GqlMediaLibrary, GqlMediaLibrarySelector } from "../gql";
@@ -587,7 +587,7 @@ export const stories: ComponentPropType[] = [
     },
     {
         name: "Modal",
-        component: Modal,
+        component: FormBuilderModal,
         props: {
             error: false,
             // feedback: { text: "feeback section", status: "error" },

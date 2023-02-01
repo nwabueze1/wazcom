@@ -2,7 +2,7 @@ export * from "./CheckBoxInput";
 export * from "./ComboBoxInput";
 export * from "./RichTextInput";
 export * from "./WysiwygInput";
-export * from "./Modal";
+export * from "./FormBuilderModal";
 export * from "./SelectInput";
 export * from "./SectionEditor";
 export * from "./InputGroup";

@@ -1,0 +1,1 @@
+export declare const useInsertDialogStyles: (props?: any) => import("@mui/styles").ClassNameMap<"root" | "modalContent" | "modalHeader" | "modalHeaderText" | "closeModal" | "sourceProvider" | "sourceTitle" | "sourceContent" | "sourceInput" | "modalButtons" | "embedButton" | "cancelButton">;

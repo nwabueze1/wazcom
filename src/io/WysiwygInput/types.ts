@@ -1,16 +1,14 @@
 import { CommonProps } from "../../types";
 import { ApolloClient, NormalizedCacheObject } from "@apollo/client";
 
-export type CreatePostInputProps = CommonProps & {
+export type WysiwygInputProps = CommonProps & {
     label?: string;
-    value: createPostValue;
+    value: wyswygInputValue;
     client?: ApolloClient<NormalizedCacheObject>;
     error?: boolean;
 };
 
-export type createPostValue = {
+export type wyswygInputValue = {
     title: string,
     content: string,
 }
-
-export type SizeFields = { [key in "desktop" | "tablet" | "mobile"]: string };

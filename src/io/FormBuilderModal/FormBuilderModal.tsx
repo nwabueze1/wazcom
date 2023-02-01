@@ -5,7 +5,7 @@ import clx from "classnames";
 import CloseIcon from "./CloseIcon";
 
 
-export const Modal: React.FC<ModalProps> = ({
+export const FormBuilderModal: React.FC<ModalProps> = ({
     dialogType,
     embedUrl,
     setEmbedUrl,

@@ -1,6 +1,6 @@
 import React, { useRef, useState, useEffect } from "react";
 import { useCreatePostInputStyles } from "./styles";
-import { CreatePostInputProps as WysiwygInputProps } from "./types";
+import { WysiwygInputProps } from "./types";
 import clx from "classnames";
 import { PosTitleInput } from "./PostTitleInput/PostTitleInput";
 import { Editor } from "./Editor";
