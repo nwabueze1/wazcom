@@ -7,7 +7,7 @@ import {
     TablePagination as TPagination,
     TableSort,
 } from "./types";
-import { TableActions, TableFilters, TablePagination } from "./components";
+import { TableActions, TableColumnActions, TableFilters, TablePagination } from "./components";
 import { useTableStyles } from "./styles";
 import { Loader } from "../../core";
 import { useTableStyles as useExternalTableStyles } from "../../stories/table-styles";
@@ -20,7 +20,6 @@ export const TableNew: FC<TableNewProps> = ({
     conditionFilters,
     showFilters,
     EmptyState,
-    columnAction
 }) => {
     const [table, setTable] = useState<{
         data: any;
@@ -110,10 +109,10 @@ export const TableNew: FC<TableNewProps> = ({
         return rows.map((row: { [key: string]: JSX.Element | string | number }, index: number) => (
             <tr className={classes.tRow} key={index}>
                 {((actions?.columnFilters as TableColumn[]) ?? columns)
-                    .map(({ key }) => key)
-                    .map((key, index) => (
-                        <td className={classes.tRowData} key={index}>
+                    .map(({ key, actions }, index) => (
+                        <td className={classes.tRowData} key={index} valign="top">
                             {row[key]}
+                            {actions && <TableColumnActions actions={actions} />}
                         </td>
                     ))}
             </tr>

@@ -10,13 +10,13 @@ export type TableNewProps = CommonProps & {
     query: TableQuery;
     EmptyState?: React.ReactElement;
     showFilters?: boolean;
-    columnAction?: { key: string, actions: TableColumnAction[] },
 };
 
 export type TableColumn = {
     name: string | JSX.Element;
     key: string;
     type: 'string' | 'number' | 'date';
+    actions?: TableColumnAction[];
 }
 
 export type TableQuery = {
@@ -50,5 +50,5 @@ export type TablePagination = {
 
 export type TableColumnAction = {
     name: string;
-    action: (data?: any) => void;
+    func: (data?: any) => void;
 }

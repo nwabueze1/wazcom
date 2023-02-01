@@ -12,9 +12,9 @@ export const useTableActionStyles = makeStyles((theme: Theme) => ({
         width: "50%",
     },
     searchInput: {
-        background: theme.design.colors.waz_white,
-        fontSize: theme.typography.fontSize + 1,
-        height: 40,
+        background: `${theme.design.colors.waz_white} !important`,
+        fontSize: `${theme.typography.fontSize + 1} !important`,
+        height: '40px !important',
 
         "&:hover": {
             borderColor: theme.design.colors.primary700,
