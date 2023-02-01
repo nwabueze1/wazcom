@@ -10,7 +10,7 @@ export var useEditorToolbarStyles = makeStyles(function (theme) { return ({
         // width: '80%',
         background: theme.design.colors.waz_white,
         flexWrap: 'wrap',
-        border: "1px solid ".concat(theme.design.colors.primary700),
+        border: "1px solid ".concat(theme.design.colors.primary700, " !important"),
         margin: theme.spacing(0, 2, 0, 2),
         borderRadius: theme.spacing(0.625),
     },
@@ -41,5 +41,17 @@ export var useEditorToolbarStyles = makeStyles(function (theme) { return ({
     floatingBar: {
         position: 'absolute',
         zIndex: 8,
+    },
+    quillEditor: {
+        '& .ql-container': {
+            border: "0px solid ".concat(theme.design.colors.primary700, " !important")
+        },
+        '& .ql-editor .ql-video': {
+            width: '80%',
+            height: '300px'
+        },
+        '& .ql-editor': {
+            paddingLeft: '16px'
+        },
     }
 }); });

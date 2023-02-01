@@ -68,7 +68,6 @@ import { EditorToolbar, modules, formats } from "./EditorToolbar";
 import "react-quill/dist/quill.snow.css";
 import { useEditorToolbarStyles } from './styles';
 import { InsertButton } from "./InsertButton/InsertButton";
-import "./styles.css";
 export var Editor = function (_a) {
     var handleContent = _a.handleContent;
     var _b = __read(useState(''), 2), content = _b[0], setContent = _b[1];
@@ -134,11 +133,7 @@ export var Editor = function (_a) {
     var handleToolbarPosition = function () { return __awaiter(void 0, void 0, void 0, function () {
         var rect, contentDiv, offset, editorFieldHeight, diff;
         return __generator(this, function (_a) {
-            // const editorRef = quillRef.current.getEditor();
-            // const range = await editorRef.getSelection();
-            console.log(document.getSelection().baseNode.parentNode.getBoundingClientRect());
             rect = document.getSelection().baseNode.parentNode.getBoundingClientRect();
-            // setOffSet(rect.y)
             setScreenOffset(rect.y);
             contentDiv = document.querySelector('#editor');
             offset = contentDiv.getBoundingClientRect().y;
@@ -150,6 +145,6 @@ export var Editor = function (_a) {
             return [2 /*return*/];
         });
     }); };
-    return (_jsxs("div", __assign({ className: classes.root }, { children: [_jsxs("div", __assign({ className: classes.editor }, { children: [_jsx("div", __assign({ className: classes.floatingBar, style: { top: toolbarPosition < 0 ? 0 : toolbarPosition - 15, left: 0 } }, { children: _jsx(EditorToolbar, {}, void 0) }), void 0), _jsx(ReactQuill, { id: "editor", ref: quillRef, theme: "snow", value: content, onChange: handleChange, placeholder: "", modules: modules, formats: formats }, void 0), _jsx("div", { children: _jsx(InsertButton, { embedUrl: embedUrl, setEmbedUrl: setEmbedUrl }, void 0) }, void 0)] }), void 0), _jsxs("div", __assign({ className: classes.wordCount }, { children: [wordCount, "/1000 words"] }), void 0)] }), void 0));
+    return (_jsxs("div", __assign({ className: classes.root }, { children: [_jsxs("div", __assign({ className: classes.editor }, { children: [_jsx("div", __assign({ className: classes.floatingBar, style: { top: toolbarPosition < 0 ? 0 : toolbarPosition - 15, left: 0 } }, { children: _jsx(EditorToolbar, {}, void 0) }), void 0), _jsx(ReactQuill, { id: "editor", ref: quillRef, theme: "snow", value: content, onChange: handleChange, placeholder: "type something amazing", modules: modules, formats: formats, className: classes.quillEditor }, void 0), _jsx("div", { children: _jsx(InsertButton, { embedUrl: embedUrl, setEmbedUrl: setEmbedUrl }, void 0) }, void 0)] }), void 0), _jsxs("div", __assign({ className: classes.wordCount }, { children: [wordCount, "/1000 words"] }), void 0)] }), void 0));
 };
 export default Editor;

@@ -1,11 +1,9 @@
 import React, {useState, useEffect, useRef, useCallback} from "react";
 import ReactQuill from "react-quill";
-import { Quill } from "react-quill";
 import { EditorToolbar, modules, formats } from "./EditorToolbar";
 import "react-quill/dist/quill.snow.css";
 import { useEditorToolbarStyles } from './styles';
 import { InsertButton } from "./InsertButton/InsertButton";
-import "./styles.css";
 import { EditorProps } from './types';
 
 
@@ -39,7 +37,6 @@ export const Editor: React.FC<EditorProps> = ({ handleContent }) => {
    setToolbarPosition(editorHeight + offSet - screenOffset - 31.5)
   }, [editorHeight])
   
-
   useEffect(() => {
     const words = content.split(" ");
     let wordCount = 0;
@@ -73,13 +70,7 @@ export const Editor: React.FC<EditorProps> = ({ handleContent }) => {
   };
 
   const handleToolbarPosition = async () => {
-    // const editorRef = quillRef.current.getEditor();
-    // const range = await editorRef.getSelection();
-
-    console.log(document.getSelection().baseNode.parentNode.getBoundingClientRect())
-
-    let rect = document.getSelection().baseNode.parentNode.getBoundingClientRect()
-    // setOffSet(rect.y)
+    const rect = document.getSelection().baseNode.parentNode.getBoundingClientRect()
     setScreenOffset(rect.y)
 
     var contentDiv = document.querySelector('#editor')
@@ -97,18 +88,19 @@ export const Editor: React.FC<EditorProps> = ({ handleContent }) => {
     <div className={classes.root}>
         {/* {console.log(toolbarPosition.x)} */}
         <div className={classes.editor}>
-        <div className={classes.floatingBar} style={{top: toolbarPosition < 0 ? 0: toolbarPosition-15, left: 0}}>
-        <EditorToolbar />
-        </div>
+          <div className={classes.floatingBar} style={{top: toolbarPosition < 0 ? 0: toolbarPosition-15, left: 0}}>
+          <EditorToolbar />
+          </div>
           <ReactQuill
             id="editor"
             ref={quillRef}
-            theme="snow"
+            theme= "snow"
             value={content}
             onChange={handleChange}
-            placeholder={""}
+            placeholder={"type something amazing"}
             modules={modules}
             formats={formats}
+            className={classes.quillEditor}
           />
           <div>
             <InsertButton embedUrl={embedUrl} setEmbedUrl={setEmbedUrl}/>
