@@ -213,6 +213,7 @@ export const theme: any = {
             waz_brown: "#A54227",
             waz_red: "#C23434",
             waz_peach: "#FAF8F7",
+            waz_lightGreen: "#F7FCF8",
         },
         background: {
             waz_primaryWhite: '#FFFFFF',

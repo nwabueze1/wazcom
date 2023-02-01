@@ -21,11 +21,11 @@ export const filters: Filter[] = [
         inputs: ["number"],
         operators: [
             {
-                name: "Is Greater Than or Equals",
+                name: "Greater Than or Equals",
                 symbol: ">=",
             },
             {
-                name: "Is Greater Than",
+                name: "Greater Than",
                 symbol: ">",
             },
             {
@@ -33,11 +33,11 @@ export const filters: Filter[] = [
                 symbol: "=",
             },
             {
-                name: "Is Less Than",
+                name: "Less Than",
                 symbol: "<",
             },
             {
-                name: "Is Less Than or Equals",
+                name: "Less Than or Equals",
                 symbol: "=<",
             },
         ],

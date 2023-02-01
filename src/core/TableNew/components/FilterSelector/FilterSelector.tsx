@@ -1,4 +1,4 @@
-import React, { FC, useState, useEffect } from "react";
+import { FC, useState } from "react";
 import { Filter, FilterSelectorProps } from "./types";
 import { RadioButtonInput, TextInput, SelectInput } from "../../../../io";
 import { Button } from "../../../../core";
@@ -9,6 +9,7 @@ import clx from "classnames";
 export const FilterSelector: FC<FilterSelectorProps> = ({
     className,
     column,
+    handleClose,
     handleSelectFilter,
 }) => {
     const classes = useFilterSelectorStyles();
@@ -37,8 +38,7 @@ export const FilterSelector: FC<FilterSelectorProps> = ({
             case "text":
                 return (
                     <TextInput
-                        className={classes.filterInput}
-                        InputProps={{ classes: { input: classes.filterTextInput } }}
+                        classNames={{ input: classes.filterInput}}
                         value={activeFilter.value}
                         onChange={handleChange}
                     />
@@ -46,8 +46,7 @@ export const FilterSelector: FC<FilterSelectorProps> = ({
             case "number":
                 return (
                     <TextInput
-                        className={classes.filterInput}
-                        InputProps={{ classes: { input: classes.filterTextInput } }}
+                        classNames={{ input: classes.filterInput}}
                         type="number"
                         value={
                             column.type === "number" ? activeFilter.value : Number(valueSplits[0])
@@ -80,8 +79,8 @@ export const FilterSelector: FC<FilterSelectorProps> = ({
             const isActive = activeFilter.symbol === symbol;
 
             return (
-                <div key={index} className={classes.filterOperator}>
-                    <div className={classes.filterOperatorHeading}>
+                <div key={index} className={clx(classes.filterOperator)}>
+                    <div className={clx(classes.filterOperatorHeading, isActive && classes.filterOperatorActive)}>
                         <RadioButtonInput
                             value={isActive}
                             classNames={{ classes: { root: classes.filterOperatorCheck } }}
@@ -93,7 +92,7 @@ export const FilterSelector: FC<FilterSelectorProps> = ({
                         {name}
                     </div>
                     {isActive && (
-                        <div style={{ display: "flex", gap: "8px" }}>
+                        <div style={{ display: "flex", gap: "8px", padding: '0 12px', marginTop: '8px' }}>
                             {filter.inputs.map((input) => renderInput(input))}
                         </div>
                     )}
@@ -113,9 +112,14 @@ export const FilterSelector: FC<FilterSelectorProps> = ({
     return (
         <div className={clx(classes.root, className)} onClick={(e) => e.stopPropagation()}>
             {renderFilter()}
-            <Button className={classes.filterButton} onClick={applyFilter}>
-                Apply filter
-            </Button>
+            <div className={classes.filterButtons}>
+                <Button className={classes.filterButtonSecondary} onClick={() => { handleClose?.() }}>
+                    Cancel
+                </Button>
+                <Button className={classes.filterButtonPrimary} onClick={applyFilter}>
+                    Apply filter
+                </Button>
+            </div>
         </div>
     );
 };

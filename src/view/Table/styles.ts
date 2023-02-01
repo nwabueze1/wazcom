@@ -6,6 +6,7 @@ export const useTableStyles = makeStyles((theme: Theme) => ({
         minHeight: 'calc(100vh - 60px)',
         padding: theme.spacing(0, 2),
         fontFamily: theme.design.font.openSans,
+        paddingBottom: theme.spacing(10),
     },
     viewHeader: {
         marginBottom: theme.spacing(4),
