@@ -5,7 +5,7 @@ export const getTableRows = (data: any[], classes?: any) => {
 
     for (const row of data) {
         const parsedRow: { [key: string]: JSX.Element | string | number } = {};
-        parsedRow["title"] = row["title"];
+        parsedRow["title"] = <p style={{ fontWeight: 'bold' }}>{row["title"]}kskk</p>;
         parsedRow["author.name"] = row["author"]["name"];
         parsedRow["likes"] = Number((Math.random() * 1000).toFixed(0));
         parsedRow["category.name"] = row?.category?.name ?? "None";
@@ -13,7 +13,6 @@ export const getTableRows = (data: any[], classes?: any) => {
         parsedRows.push(parsedRow);
     }
 
-    console.log(parsedRows);
     return parsedRows;
 };
 

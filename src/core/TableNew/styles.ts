@@ -5,9 +5,10 @@ import makeStyles from "@mui/styles/makeStyles";
 export const useTableStyles = makeStyles((theme: Theme) => ({
     root: {
         width: '100%',
-        borderSpacing: "0px 2px",
+        borderSpacing: theme.spacing(0, 0.5),
         borderColor: "transparent",
-        fontFamily: theme.design.font.openSans,
+        fontFamily: `${theme.design.font.openSans} !important`,
+        position: "relative",
     },
     tHead: {
         background: theme.design.colors.waz_white,
@@ -19,9 +20,20 @@ export const useTableStyles = makeStyles((theme: Theme) => ({
     tHeadData: {
         padding: theme.spacing(2),
         fontWeight: theme.typography.fontWeightBold,
+        fontSize: theme.typography.fontSize,
     },
     tRowData: {
         padding: theme.spacing(2),
+        fontSize: theme.typography.fontSize,
+    },
+    tableLoader: {
+        position: 'absolute',
+        top: "calc((100% - 15px)/2)",
+    },
+    tableSeparator: {
+        margin: theme.spacing(0, 0, 0.5, 0),
+        background: theme.design.colors.waz_white,
+        height: 15,
     }
 }));
 

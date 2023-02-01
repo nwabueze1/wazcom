@@ -36,6 +36,7 @@ export const TableView = () => {
                     dataKey: "postsByBlogUuid",
                 }}
                 conditionFilters={tableConditionFilters}
+                showFilters={true}
             />
         </div>
     );

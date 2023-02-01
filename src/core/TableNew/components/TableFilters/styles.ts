@@ -7,6 +7,7 @@ export const useTableFiltersStyles = makeStyles((theme: Theme) => ({
         alignItems: 'center',
         gap: theme.spacing(1),
         marginBottom: theme.spacing(2),
+        color: theme.design.colors.waz_grey1,
     },
     filterAddIconParent: {
         position: 'relative',
@@ -25,7 +26,7 @@ export const useTableFiltersStyles = makeStyles((theme: Theme) => ({
         position: 'absolute',
         top: 'calc(100% + 5px)',
         left: 2,
-        padding: theme.spacing(1),
+        padding: theme.spacing(1, 0),
         width: 150,
         borderRadius: 3,
         background: theme.design.colors.waz_white,
@@ -41,14 +42,17 @@ export const useTableFiltersStyles = makeStyles((theme: Theme) => ({
     filterColumn: {
         fontSize: theme.typography.fontSize,
         color: theme.design.colors.waz_grey1,
-        padding: theme.spacing(0.5, 0),
-        marginBottom: theme.spacing(1),
+        padding: theme.spacing(1),
         cursor: 'pointer', 
         position: 'relative',
+
+        "&:hover": {
+            background: theme.design.colors.waz_lightGreen,
+        }
     },
     filterSelector: {
         position: 'absolute',
         top: 0,
-        left: 'calc(100% + 21px)',
+        left: 'calc(100% + 5px)',
     }
 }));

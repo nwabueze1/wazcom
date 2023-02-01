@@ -1,15 +1,17 @@
-import { TableColumn, TableConditionFilter } from "../../types";
+import { TableColumn, TableConditionFilter, TableSort } from "../../types";
 
 export type TableActionsProps = {
     currentActions: {
-        [key in "search" | "conditionFilter" | "columnFilters"]:
+        [key in "search" | "sort" | "conditionFilter" | "columnFilters"]:
             | string
+            | (TableSort[] | undefined)
             | (TableConditionFilter | undefined)
             | (TableColumn[] | undefined);
     };
     setCurrentActions: (actions: {
-        [key in "search" | "conditionFilter" | "columnFilters"]:
+        [key in "search" | "sort" |  "conditionFilter" | "columnFilters"]:
             | string
+            | (TableSort[] | undefined)
             | (TableConditionFilter | undefined)
             | (TableColumn[] | undefined);
     }) => void;

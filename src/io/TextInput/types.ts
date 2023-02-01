@@ -6,6 +6,8 @@ export type TextInputProps = TextFieldProps;
 export type BaseInputProps = React.InputHTMLAttributes<HTMLInputElement>;
 
 export type TextBaseProps = CommonProps & {
+    classNames?: { [key: string]: string };
+
     helperText?: string;
     hideLabel?: boolean;
     info?: string;

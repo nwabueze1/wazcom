@@ -1,4 +1,5 @@
-import React, { FC, useState } from "react";
+import { FC, useState } from "react";
+import { AiOutlineCaretDown } from "react-icons/ai";
 import { useColumnSelectorStyles } from "./styles";
 import { ColumnSelectorProps } from "./types";
 import { ClickAwayListener } from "@mui/base";
@@ -47,6 +48,7 @@ export const ColumnSelector: FC<ColumnSelectorProps> = ({
                             ? true
                             : columnFilters.map(({ name }) => name).includes(column.name)
                     }
+                    color="success"
                     className={classes.columnCheckBox}
                     classNames={{ classes: { root: classes.columnCheckBoxRoot } }}
                     onChange={({ value: checked }: { name: string; value: boolean }) => {
@@ -72,6 +74,9 @@ export const ColumnSelector: FC<ColumnSelectorProps> = ({
                 >
                     Table Columns
                 </p>
+                <AiOutlineCaretDown
+                    className={clx(classes.columnBoxIcon, showColumns && classes.columnBoxIconActive)}
+                />
                 <div className={clx(classes.columnList, showColumns && classes.columnListActive)}>
                     <div className={classes.column}>
                         <CheckBoxInput

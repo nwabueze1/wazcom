@@ -1,49 +1,94 @@
 import { FC, useEffect, useState } from "react";
-import { TableColumn, TableConditionFilter, TableFilter, TableNewProps } from "./types";
-import { TableActions, TableFilters } from "./components";
+import {
+    TableColumn,
+    TableConditionFilter,
+    TableFilter,
+    TableNewProps,
+    TablePagination as TPagination,
+    TableSort,
+} from "./types";
+import { TableActions, TableFilters, TablePagination } from "./components";
 import { useTableStyles } from "./styles";
+import { Loader } from "../../core";
 import { useTableStyles as useExternalTableStyles } from "../../stories/table-styles";
+import { parseQueryVariables } from "./helpers";
 
 export const TableNew: FC<TableNewProps> = ({
     columns,
     query: { client, name: QUERY, variables, dataKey },
     getRows,
     conditionFilters,
+    showFilters,
+    EmptyState,
+    columnAction
 }) => {
     const [table, setTable] = useState<{
         data: any;
-        pagination?: { currentPage: number; lastPage: number };
-    }>({ data: null });
+        pagination: TPagination;
+    }>({ data: null, pagination: { currentPage: 1, lastPage: 1, count: variables?.first ?? 5 } });
 
     const [actions, setActions] = useState<{
-        [key in "search" | "conditionFilter" | "columnFilters"]:
+        [key in "search" | "sort" | "conditionFilter" | "columnFilters"]:
             | string
+            | (TableSort[] | undefined)
             | (TableConditionFilter | undefined)
             | TableColumn[];
     }>({
         search: "",
+        sort: [],
         conditionFilter: conditionFilters ? conditionFilters[0] : undefined,
         columnFilters: columns,
     });
 
     const [filters, setFilters] = useState<TableFilter[]>([]);
+    const [loading, setLoading] = useState(false);
 
     const classes = useTableStyles();
-    const externalClasses = useExternalTableStyles();
+    const externalClasses: any = useExternalTableStyles();
 
     useEffect(() => {
-        queryApi();
-    }, []);
+        queryApi(
+            parseQueryVariables(
+                actions.search as string,
+                (actions?.sort as TableSort[]) ?? [],
+                table?.pagination,
+            ),
+        );
+    }, [actions.search, JSON.stringify(actions.sort)]);
 
-    const queryApi = async () => {
+    useEffect(() => {
+        if (!table?.data) return;
+        queryApi(
+            parseQueryVariables(
+                actions.search as string,
+                (actions?.sort as TableSort[]) ?? [],
+                table?.pagination,
+            ),
+        );
+    }, [table?.pagination?.count, table?.pagination?.currentPage]);
+
+    const queryApi = async (queryVariables?: any) => {
+        setLoading(true);
+
         const { data, error } = await client.query({
             query: QUERY,
-            variables: variables ?? {},
+            variables: {
+                ...(variables ?? {}),
+                ...(queryVariables ?? {}),
+                page: table?.data ? queryVariables?.page : variables?.page ?? 1,
+                first: table?.data ? queryVariables?.first : variables?.first ?? 5,
+            },
+            fetchPolicy: "network-only",
         });
+
+        setLoading(false);
 
         if (data && !error) {
             const { data: tableData, paginatorInfo: pagination } = data[dataKey];
-            setTable({ data: tableData, pagination });
+            setTable({
+                data: tableData,
+                pagination: { ...(table?.pagination ?? {}), ...pagination },
+            });
         }
     };
 
@@ -54,13 +99,15 @@ export const TableNew: FC<TableNewProps> = ({
             </td>
         ));
 
-    const displayRows = () =>
-        getRows(
-            actions?.conditionFilter
-                ? (actions.conditionFilter as TableConditionFilter).condition(table.data)
-                : table.data,
-            externalClasses,
-        ).map((row: { [key: string]: JSX.Element | string | number }, index: number) => (
+    const rows = getRows(
+        actions?.conditionFilter
+            ? (actions.conditionFilter as TableConditionFilter).condition(table?.data ?? [])
+            : table?.data ?? [],
+        externalClasses,
+    );
+
+    const displayRows = () => {
+        return rows.map((row: { [key: string]: JSX.Element | string | number }, index: number) => (
             <tr className={classes.tRow} key={index}>
                 {((actions?.columnFilters as TableColumn[]) ?? columns)
                     .map(({ key }) => key)
@@ -71,28 +118,39 @@ export const TableNew: FC<TableNewProps> = ({
                     ))}
             </tr>
         ));
+    };
 
-    if (!table.data) return <p>Loading</p>;
+    if (!table.data) return <Loader />;
 
     return (
-        <>
+        <div style={{ position: "relative" }}>
             <TableActions
                 currentActions={actions}
                 setCurrentActions={setActions}
                 conditionFilters={conditionFilters}
                 columns={columns}
             />
-            <TableFilters
-                columns={columns}
-                filters={filters}
-                setFilters={setFilters}
-            />
+            {showFilters && (
+                <TableFilters columns={columns} filters={filters} setFilters={setFilters} />
+            )}
             <table className={classes.root}>
                 <thead className={classes.tHead}>
                     <tr className={classes.tRow}>{displayColumns()}</tr>
                 </thead>
-                <tbody>{displayRows()}</tbody>
+                {rows.length > 0 ? (
+                    <tbody>{displayRows()}</tbody>
+                ) : (
+                    EmptyState ?? <p>There is no content to display</p>
+                )}
             </table>
-        </>
+            <div className={classes.tableSeparator} />
+            <TablePagination
+                {...(table.pagination ?? { currentPage: 1, lastPage: 1, count: 10 })}
+                setTablePagination={(pagination: TPagination) => {
+                    setTable({ ...table, pagination });
+                }}
+            />
+            {loading && <Loader className={classes.tableLoader} />}
+        </div>
     );
 };

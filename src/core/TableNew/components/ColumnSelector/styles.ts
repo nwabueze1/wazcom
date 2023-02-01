@@ -9,16 +9,18 @@ export const useColumnSelectorStyles = makeStyles((theme: Theme) => ({
         display: 'flex',
         justifyContent: 'space-between',
         alignItems:'center',
-        height: 36,
+        height: 40,
         boxSizing: 'border-box',
         borderRadius: 4,
         position: 'relative',
         fontSize: theme.typography.fontSize,
+        color: theme.design.colors.waz_grey1,
+        border: `1px solid ${theme.design.colors.primary700}`,
     },
     columnList: {
         position: 'absolute',
         left: 0,
-        top: '100%',
+        top: 'calc(100% + 1px)',
         width: '100%',
         background: theme.design.colors.waz_white,
         borderRadius: 3,
@@ -34,6 +36,7 @@ export const useColumnSelectorStyles = makeStyles((theme: Theme) => ({
     },
     columnCheckBoxRoot: {
         padding: 0,
+        color: `${theme.design.colors.waz_primaryColor100} !important`,
     },
     columnCheckBox: {
         position: 'relative',
@@ -49,5 +52,12 @@ export const useColumnSelectorStyles = makeStyles((theme: Theme) => ({
     columnBoxText: {
         cursor: 'pointer',
         width: '100%',
+    },
+    columnBoxIcon: {
+        fill: theme.design.colors.waz_grey1,
+        fontSize: theme.typography.fontSize + 3,
+    },
+    columnBoxIconActive: {
+        transform: "rotate(180deg)",
     }
 }));
