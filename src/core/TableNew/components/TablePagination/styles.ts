@@ -17,6 +17,11 @@ export const useTablePaginationStyles = makeStyles((theme: Theme) => ({
         transition: 'all 0.3s ease-in',
         opacity: 0.5,
         cursor: 'pointer',
+
+        "& p": {
+            margin: 0,
+            fontSize: theme.typography.fontSize,
+        }
     },
     paginationDirectionActive: {
         color: theme.design.colors.waz_black,
