@@ -45,7 +45,7 @@ export const useBrowserStyles = makeStyles((theme: Theme) => ({
     },
     well: {
         padding: theme.spacing(2),
-        backgroundColor: theme.design.colors.waz_greyColor100,
+        backgroundColor: theme.design.colors.waz_greyColor200,
         borderRadius: theme.spacing(1),
         marginTop: theme.spacing(2),
     },

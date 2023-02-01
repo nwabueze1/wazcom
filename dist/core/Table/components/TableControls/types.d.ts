@@ -15,7 +15,7 @@ export interface TableControlsProps {
     showFilter: boolean;
     fields: {
         name: string;
-        label: string;
+        label: string | JSX.Element;
     }[];
     values: TableDataProps;
     filters: Filter[];

@@ -128,3 +128,29 @@ export const DELETE_IMAGE = gql`
         }
     }
 `;
+
+export const GET_BLOG_POSTS = gql`
+    query GqlGetBlogPosts($blog_uuid: ID, $first: Int, $page: Int, $search: String, $sort: [SortInput]) {
+        postsByBlogUuid(input: { blog_uuid: $blog_uuid, first: $first, page: $page, all: true, search: $search, sort: $sort }) {
+            data {
+                uuid
+                title
+                slug
+                status
+                category {
+                    name
+                    uuid
+                }
+                author {
+                    name
+                }
+                published_at
+                updated_at
+            }
+            paginatorInfo {
+                currentPage
+                lastPage
+            }
+        }
+    }
+`;

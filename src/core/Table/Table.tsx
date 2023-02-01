@@ -45,7 +45,8 @@ export const Table = ({
     const classes = useTableStyles();
     const tableRef = useRef(null);
     const [tableValue, setTableValue] = useState(initialTableValue);
-    const [tableHeaders, setTableHeaders] = useState<{ name: string; label: string }[]>(headers);
+    const [tableHeaders, setTableHeaders] =
+        useState<{ name: string; label: string | JSX.Element }[]>(headers);
     const [controlsFormData, setControlsFormData] = useState<{
         [key: string]: any;
     }>({});

@@ -1,0 +1,1 @@
+export declare const useColumnSelectorStyles: (props?: any) => import("@mui/styles").ClassNameMap<"root" | "column" | "columnList" | "columnListActive" | "columnCheckBoxRoot" | "columnCheckBox" | "columnBoxText" | "columnBoxIcon" | "columnBoxIconActive">;
