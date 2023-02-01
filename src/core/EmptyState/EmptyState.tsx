@@ -7,6 +7,7 @@ import clx from "classnames";
 export const EmptyState: React.FC<EmptyStateProps> = ({
     classNames,
     text,
+    header,
     image,
     button,
     className,
@@ -19,6 +20,7 @@ export const EmptyState: React.FC<EmptyStateProps> = ({
                 className={clx(classes.image, classNames?.image)}
                 alt={image?.alt ?? ""}
             />
+            <p className={clx(classes.header, classNames?.header)}>{header}</p>
             <p className={clx(classes.text, classNames?.text)}>{text}</p>
 
             {button?.display && (

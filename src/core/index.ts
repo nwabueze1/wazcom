@@ -9,6 +9,7 @@ export * from "./ImageSelector";
 export * from "./Loader";
 export * from "./MenuCard";
 export * from "./Table";
+export * from "./TableNew";
 export * from "./Notification";
 export * from "./Upload";
 export * from "./Modal";

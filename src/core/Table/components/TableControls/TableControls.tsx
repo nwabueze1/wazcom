@@ -33,7 +33,15 @@ export const TableControls: React.FC<TableControlsProps> = ({
 
     return (
         <Box className={classes.controls}>
-            {controls?.filter && (
+            <SearchInput
+                name="search"
+                type="text"
+                placeholder="Search"
+                value={controlsFormData.search}
+                onChange={(e: any) => handleControlsChange(e)}
+                className={classes.controlsInput}
+            />
+            {/* {controls?.filter && (
                 <Box className={classes.filterControls}>
                     <TableFilter
                         showFilter={showFilter}
@@ -44,16 +52,8 @@ export const TableControls: React.FC<TableControlsProps> = ({
                         setFilters={setFilters}
                     />
                 </Box>
-            )}
-            <SearchInput
-                name="search"
-                type="text"
-                placeholder="Search"
-                value={controlsFormData.search}
-                onChange={(e: any) => handleControlsChange(e)}
-                className={classes.controlsInput}
-            />
-            <Box className={classes.rightControls}>
+            )} */}
+            {/* <Box className={classes.rightControls}>
                 {controls?.canPrint && (
                     <Button
                         className={classes.printButton}
@@ -127,7 +127,7 @@ export const TableControls: React.FC<TableControlsProps> = ({
                         </Menu>
                     </>
                 )}
-            </Box>
+            </Box> */}
         </Box>
     );
 };
