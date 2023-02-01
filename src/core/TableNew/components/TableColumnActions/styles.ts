@@ -10,6 +10,7 @@ export const useTableColumnActionsStyles = makeStyles((theme: Theme) => ({
        opacity: 0,
        zIndex: -1,
        position: 'relative',
+       color: theme.design.colors.waz_black,
     },
     action: {
         cursor: 'pointer',
