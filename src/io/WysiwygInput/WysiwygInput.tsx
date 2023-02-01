@@ -1,4 +1,4 @@
-import React, { useRef, useState, useEffect } from "react";
+import React, { useState, useEffect } from "react";
 import { useCreatePostInputStyles } from "./styles";
 import { WysiwygInputProps } from "./types";
 import clx from "classnames";
