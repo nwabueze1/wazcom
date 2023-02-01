@@ -49,6 +49,7 @@ export const TextInput: FC<TextFieldProps> = ({
     ...props
 }) => {
     const [isFocused, setIsFocused] = React.useState<boolean>(false);
+    const [inputValue, setInputValue] = React.useState<string>('');
     const classes = useTextStyles({
         width,
         height,
@@ -61,6 +62,7 @@ export const TextInput: FC<TextFieldProps> = ({
     });
 
     const handleChange = (e: ChangeEvent<HTMLInputElement>) => {
+        setInputValue(e.target.value);
         if (onChange) {
             onChange?.({
                 name: (e.target as HTMLInputElement).name ?? '',
@@ -126,6 +128,7 @@ export const TextInput: FC<TextFieldProps> = ({
                 )}
                 <input
                     type={type}
+                    value={inputValue}
                     className={classes.input}
                     onFocus={handleFocus}
                     onBlur={handleBlur}
@@ -177,7 +180,8 @@ export const TextArea: FC<Omit<TextAreaProps, "type">> = ({
     showCC,
     ...props
 }) => {
-    const [isFocused, setIsFocused] = React.useState<boolean>(false)
+    const [isFocused, setIsFocused] = React.useState<boolean>(false);
+    const [inputValue, setInputValue] = React.useState<string>('');
     const classes = useTextStyles({
         rows,
         width,
@@ -191,6 +195,7 @@ export const TextArea: FC<Omit<TextAreaProps, "type">> = ({
     });
 
     const handleChange = (e: ChangeEvent<HTMLTextAreaElement>) => {
+        setInputValue(e.target.value);
         if (onChange) {
             onChange?.({
                 name: (e.target as HTMLTextAreaElement).name ?? '',
@@ -255,6 +260,7 @@ export const TextArea: FC<Omit<TextAreaProps, "type">> = ({
                     onFocus={handleFocus}
                     onBlur={handleBlur}
                     onKeyDown={handleOnKeyDown}
+                    value={inputValue}
                     rows={rows || 5}
                     {...props}
                 />
@@ -293,8 +299,10 @@ export const EmailInput: FC<Omit<TextFieldProps, "type">> = ({
     let sErrors;
     const [emailErrors, setEmailErrors] = useState<{ message: string }[]>();
     const [isValidEmail, setIsValidEmail] = useState<boolean>(false);
+    const [inputValue, setInputValue] = React.useState<string>('');
 
     const handleChange = useCallback(({ name, value }: { name: string, value: any }) => {
+        setInputValue(value);
         setIsValidEmail(() => validateEmail(value));
         (validateEmail(value) || value == "") ? setEmailErrors(undefined) : setEmailErrors([{ message: 'Invalid email !!' }]);
 
@@ -312,6 +320,7 @@ export const EmailInput: FC<Omit<TextFieldProps, "type">> = ({
         <TextInput
             type="email"
             name={name}
+            value={inputValue}
             isSuccess={isValidEmail || isSuccess}
             isError={!!sErrors || isError}
             errors={sErrors}
@@ -347,8 +356,10 @@ export const URLInput: FC<Omit<TextFieldProps, "type">> = ({
     let sErrors;
     const [urlErrors, setURLErrors] = useState<{ message: string }[]>();
     const [isValidURL, setIsValidURL] = useState<boolean>(false);
+    const [inputValue, setInputValue] = React.useState<string>('');
 
     const handleChange = useCallback(({ name, value }: { name: string, value: any }) => {
+        setInputValue(value);
         setIsValidURL(() => validateURL(value));
         (validateURL(value) || value == "") ? setURLErrors(undefined) : setURLErrors([{ message: 'Invalid email !!' }]);
 
@@ -366,6 +377,7 @@ export const URLInput: FC<Omit<TextFieldProps, "type">> = ({
         <TextInput
             type="url"
             name={name}
+            value={inputValue}
             isSuccess={isValidURL || isSuccess}
             isError={!!sErrors || isError}
             errors={sErrors}
@@ -393,8 +405,10 @@ export const NumberInput: FC<Omit<TextFieldProps, "type">> = ({
     let sErrors;
     const [isValidNumber, setIsValidNumber] = useState<boolean>(false);
     const [numberErrors, setNumberErrors] = useState<{ message: string }[]>();
+    const [inputValue, setInputValue] = React.useState<string>('');
 
     const handleChange = useCallback(({ name, value }: { name: string, value: any }) => {
+        setInputValue(value);
         (isNumber(parseFloat(value)) || value == "") ? setNumberErrors(undefined) : setNumberErrors([{ message: 'Invalid number !!' }]);
 
         if (onChange) {
@@ -417,6 +431,7 @@ export const NumberInput: FC<Omit<TextFieldProps, "type">> = ({
         <TextInput
             type="number"
             name={name}
+            value={inputValue}
             errors={sErrors}
             showCC={showCC}
             isSuccess={isValidNumber}
