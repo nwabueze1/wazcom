@@ -11,6 +11,7 @@ import { NotificationView } from "view/Notification";
 import { URLInputView } from "view/URLInput";
 import { CurrencyInputView } from "view/CurrencyInput";
 import { SelectInputView } from "view/SelectInput";
+import { TableView } from "../view/Table";
 
 export default [
     {
@@ -85,12 +86,10 @@ export default [
         exact: true,
         component: SelectInputView
     },
-
-
-    // {
-    //     key: 'TestView',
-    //     path: "/test-notify",
-    //     exact: true,
-    //     component: TestNotify
-    // },
+    {
+        key: 'TableView',
+        path: "/table",
+        exact: true,
+        component: TableView
+    },
 ];

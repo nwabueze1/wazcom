@@ -46,6 +46,7 @@ export const TextInput: FC<TextFieldProps> = ({
     borderColor,
     borderStyle,
     borderRadius,
+    classNames,
     ...props
 }) => {
     const [isFocused, setIsFocused] = React.useState<boolean>(false);
@@ -115,6 +116,7 @@ export const TextInput: FC<TextFieldProps> = ({
             <div className={clx(
                 classes.baseInput,
                 classes.defaultInput,
+                classNames?.input,
                 isSuccess && classes.successInput,
                 (isError || errors) && classes.errorInput,
                 isFocused && classes.focusedInput

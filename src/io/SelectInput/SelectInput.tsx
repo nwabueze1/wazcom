@@ -25,6 +25,7 @@ export const SelectInput: React.FC<SelectInputProps> = ({
     borderColor,
     borderStyle,
     menuIsOpen,
+    classNames,
     ...props
 }) => {
     const classes = useSelectStyles();
@@ -75,6 +76,8 @@ export const SelectInput: React.FC<SelectInputProps> = ({
                         fontFamily: theme.typography.fontFamily,
                         fontWeight: 400,
                         fontSize: theme.typography.fontSize,
+                        boxShadow: 'none',
+
                         '&:hover': {
                             borderColor: theme.design.colors.primary600,
                         },
@@ -119,8 +122,8 @@ export const SelectInput: React.FC<SelectInputProps> = ({
                     },
                 }}
                 classNames={{
-                    container: () => (clx(classes.container, containerClass)),
-                    control: ({ isDisabled, isFocused }) => (clx(!isDisabled && isFocused && classes.control)),
+                    container: () => (clx(classes.container, containerClass, classNames?.container)),
+                    control: ({ isDisabled, isFocused }) => (clx(!isDisabled && isFocused && classes.control, classNames?.control)),
                     option: ({ isDisabled, isFocused }) => (clx(!isDisabled && isFocused && classes.option))
                 }}
                 value={selectValue}

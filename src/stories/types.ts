@@ -8,6 +8,7 @@ import {
     GalleryProps,
     ImageSelectorProps,
     TableProps,
+    TableNewProps,
     MenuCardProps,
     DisplayCardProps,
     NotificationProps,
@@ -48,6 +49,7 @@ export type ComponentPropType = {
     | ImageSelectorStory
     | ToggleStory
     | TableStory
+    | TableNewStory
     | MenuCardStory
     | DisplayCardStory
     | NotificationStory
@@ -120,6 +122,10 @@ type ToggleStory = {
 type TableStory = {
     props: TableProps;
 };
+
+type TableNewStory = {
+    props: TableNewProps;
+}
 
 type MenuCardStory = {
     props: MenuCardProps;
