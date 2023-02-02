@@ -7,7 +7,6 @@ export var useEditorToolbarStyles = makeStyles(function (theme) { return ({
         position: 'relative'
     },
     toolbar: {
-        // width: '80%',
         background: theme.design.colors.waz_white,
         flexWrap: 'wrap',
         border: "1px solid ".concat(theme.design.colors.primary700, " !important"),
