@@ -1,2 +1,0 @@
-/** !!-- Remember to update the function name !! */
-export declare const useNotificationStyles: (props?: any) => import("@mui/styles").ClassNameMap<"root" | "icon" | "error" | "success" | "header" | "main" | "title" | "info" | "warning" | "container" | "closeContainer" | "message" | "notificationContainer" | "topRight" | "bottomRight" | "topLeft" | "bottomLeft" | "notification" | "@keyframes toastInRight" | "@keyframes toastInLeft">;
