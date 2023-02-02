@@ -1,12 +1,12 @@
 import clx from "classnames";
-import { FC, useMemo, cloneElement, isValidElement } from "react";
+import React, { useMemo, cloneElement, isValidElement } from "react";
 import Select, { SingleValue, components } from 'react-select';
 import { AiFillCaretDown } from "react-icons/ai";
 import theme from "../../theme";
 import { useSelectStyles } from "./styles";
 import { SelectInputOptionsProps, SelectInputProps } from "./types";
 
-export const SelectInput: FC<SelectInputProps> = ({
+export const SelectInput: React.FC<SelectInputProps> = ({
     onChange,
     options,
     name,
