@@ -126,7 +126,7 @@ export const OrderDialog: FC<OrderDialogProps> = ({ itemUuid, handleClose, setCo
                                 variant="SECONDARY"
                                 size="sm"
                                 handleClick={handleAddToCart}
-                                loading={loading}
+                                isLoading={loading}
                             >
                                 Add to cart ({price})
                             </MbmcButton>

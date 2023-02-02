@@ -7,6 +7,7 @@ import {
     Gallery,
     ImageSelector,
     Table,
+    TableNew,
     MenuCard,
     DisplayCard,
     Notification,
@@ -18,6 +19,7 @@ import {
 } from "../core";
 import { BiLink } from "react-icons/bi";
 import { FaEdit } from "react-icons/fa";
+import { AiOutlineEye } from "react-icons/ai";
 
 import {
     CheckBoxInput,
@@ -46,14 +48,15 @@ import {
     UPLOAD_IMAGE,
     DELETE_IMAGE,
     UPDATE_IMAGE,
+    GET_BLOG_POSTS,
 } from "../helpers/graphQL";
 import { Valour, Taurant, Nour } from "templates/Navs";
 
 import { ComponentPropType, TemplatePropType } from "./types";
-import { data } from "./data";
 import { EditableTextInput } from "io/EditableTextInput";
 import { DynamicInput } from "io/DynamicInput";
 import { SectionEditor } from "io/SectionEditor";
+import { getTableRows } from "./table";
 
 export const stories: ComponentPropType[] = [
     {
@@ -92,7 +95,7 @@ export const stories: ComponentPropType[] = [
         name: "TextArea",
         component: TextArea,
         props: {
-            label: "Description",
+            label: <p style={{ color: "red" }}>Description</p>,
             name: "description",
             onChange: ({ name, value }: { name: string; value: string }) => {
                 {
@@ -154,22 +157,33 @@ export const stories: ComponentPropType[] = [
     },
     {
         name: "TableWithPagination",
-        component: Table,
+        component: TableNew,
         props: {
-            headers: [],
-            value: data,
-            pagination: true,
-            hasCheckBox: true,
-            paginatorInfo: {
-                currentPage: 1,
-                perPage: 10,
-                total: 10,
+            columns: [
+                { name: "Title", key: "title", type: "string" },
+                { name: "Author", key: "author.name", type: "string" },
+                { name: "Likes", key: "likes", type: "number" },
+                { name: "Category", key: "category.name", type: "string" },
+                { name: "Last Modified", key: "updated_at", type: "date" },
+            ],
+            getRows: getTableRows,
+            query: {
+                name: GET_BLOG_POSTS,
+                client: createApolloClient("https://ofambegbe-ploutonion.wazobia.uk/graphql"),
+                variables: { blog_uuid: "a5ad9bed-679c-4190-a1a8-8b2d14bbb3c9" },
+                dataKey: "postsByBlogUuid",
             },
-            controls: {
-                filter: ["id", "name"],
-                canPrint: true,
-                canExport: {},
-            },
+            conditionFilters: [
+                { name: "All Posts", condition: (posts: any) => posts },
+                {
+                    name: "Published",
+                    condition: (posts: any) => posts.filter((post: any) => post.status),
+                },
+                {
+                    name: "Drafted",
+                    condition: (posts: any) => posts.filter((post: any) => !post.status),
+                },
+            ],
         },
     },
     {
@@ -287,6 +301,7 @@ export const stories: ComponentPropType[] = [
         component: Button,
         props: {
             children: "Testing",
+            loading: true,
         },
     },
     {
@@ -464,6 +479,10 @@ export const stories: ComponentPropType[] = [
                     name: "email",
                     label: "email",
                 },
+                {
+                    name: "impression",
+                    label: <AiOutlineEye fontSize="20px" />,
+                },
             ],
             value: [],
             emptyTableState: {
@@ -471,6 +490,7 @@ export const stories: ComponentPropType[] = [
                     src: "https://sytbuildr.s3.eu-west-2.amazonaws.com/images/Posts/emptypostimg.svg",
                 },
                 text: "You have not created any blog post yet. Click below to create post.",
+                header: "Welcome to Post",
                 button: {
                     display: true,
                     text: "Create New Menu",
@@ -573,7 +593,7 @@ export const stories: ComponentPropType[] = [
             apiKey: "",
             error: true,
             feedback: { text: "Tariq is a weirdo", status: "error" },
-            client: createApolloClient('https://ofambegbe-ambrosia.wazobia.uk/graphql'),
+            client: createApolloClient("https://ofambegbe-ambrosia.wazobia.uk/graphql"),
         },
     },
     {

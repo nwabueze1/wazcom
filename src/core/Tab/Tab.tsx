@@ -1,14 +1,34 @@
 import { FC, useCallback, useEffect, useMemo, useState } from 'react';
+import { useLocation, useNavigate } from 'react-router-dom';
+import clx from 'classnames';
+import { snakeCase } from "lodash";
+
 import { useTabStyles } from './styles';
 import { TabProps } from './types';
-import clx from 'classnames';
-import { useLocation, useHistory } from 'react-router-dom';
 
-export const Tab: FC<TabProps> = ({ controls }) => {
-    const classes = useTabStyles();
+
+export const Tab: FC<TabProps> = ({
+    controls,
+    variant,
+    backgroundColor,
+    borderWidth,
+    borderColor,
+    borderStyle,
+    borderRadius,
+    className,
+    containerClassName,
+}) => {
+    const classes = useTabStyles({
+        variant,
+        backgroundColor,
+        borderWidth,
+        borderColor,
+        borderStyle,
+        borderRadius,
+    });
     const [activeTab, setActiveTab] = useState<string>();
     const { pathname, search } = useLocation();
-    const history = useHistory();
+    const navigate = useNavigate();
 
     const query = useMemo(() => new URLSearchParams(search), [search]);
 
@@ -24,26 +44,34 @@ export const Tab: FC<TabProps> = ({ controls }) => {
         setActiveTab(name);
         query.set('tab', name ?? '');
 
-        history.replace({ pathname, search: query.toString() });
+        navigate({ pathname, search: query.toString() });
     }, [activeTab, query]);
 
     return (
-        <div className={classes.root}>
-            <div className={classes.tabs}>
+        <div className={clx(classes.root, className)}>
+            <div className={clx(classes.tabs, containerClassName)}>
                 {
                     controls.map(({ name, title }, index) => (
                         <div
                             key={index}
                             onClick={() => handleTabClick(name)}
-                            className={clx(classes.tab, (name == activeTab) && classes.tabIsActive)}
-                        >{title}</div>
+                            className={clx(
+                                classes.tab,
+                                (name == activeTab) && classes.tabIsActive,
+                                snakeCase(title), snakeCase(name)
+                            )}
+                        >
+                            {title}
+                        </div>
                     ))
                 }
             </div>
-            <div className={classes.contentWrapper}>
+            <div className={clx(classes.contentWrapper, snakeCase(`${activeTab} content`))}>
                 {
                     controls.map(({ name, component }, index) => (
-                        <div className={clx(classes.content, (name == activeTab) && classes.contentIsActive)} key={index}>{component}</div>
+                        <div key={index} className={clx(classes.content, (name == activeTab) && classes.contentIsActive)}>
+                            {component}
+                        </div>
                     ))
                 }
             </div>

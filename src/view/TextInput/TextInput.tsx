@@ -1,0 +1,77 @@
+import { FC } from "react";
+import { BsEye } from "react-icons/bs"
+
+import { TextInput } from "../../io";
+import { useTextInputStyles } from "./styles";
+import { TextInputViewProps, InputDataProps } from "./types";
+
+export const TextInputView: FC<TextInputViewProps> = () => {
+
+    const handleEnter = (payload: any) => {
+        console.log('onEnter', payload)
+    }
+    const handleFocus = (payload: any) => {
+        console.log('onFocus', payload)
+    }
+    const handleBlur = (payload: any) => {
+        console.log('onBlur', payload)
+    }
+
+    const classes = useTextInputStyles();
+
+    const inputData: InputDataProps[]  = [
+        { name: 'TextInput', label: 'Default', placeholder: 'Placeholder', helperText: '' },
+        { name: 'TextInput', label: 'Hover', placeholder: 'Placeholder', helperText: '' },
+        { name: 'TextInput',  label: 'Active', placeholder: 'Placeholder', helperText: '', isSuccess: true },
+        { name: 'TextInput',  label: 'Error', placeholder: 'Placeholder', helperText: 'Error Message', isError: true },
+        { name: 'TextInput', label: 'Success', placeholder: 'Placeholder', helperText: 'Success Message', isSuccess: true },
+    ];
+
+    return (
+        <div className={classes.root}>
+            <div className={classes.container}>
+                <div className={classes.header}>
+                    <h1 className={classes.title}>Text Input</h1>
+                    <div className={classes.description}>
+                        <p className={classes.descriptionText}>Text inputs enable users to enter free-form text data. The type of text field used should reflect the length of the content you expect the user to enter. The default text input is for short, one-line content, whereas text area is for longer, multi-line entries.</p>
+                    </div>
+                </div>
+                <div className={classes.inputContainer}>
+                    <div className={classes.inputs}>
+                        {inputData.map((item: InputDataProps, index) => (
+                            <TextInput
+                                id={`${item.label}-${index + Math.random()}`}
+                                className={classes.input}
+                                label={item.label}
+                                placeholder={item.placeholder}
+                                isError={item.isError}
+                                isSuccess={item.isSuccess}
+                                helperText={item.helperText}
+                                onEnter={handleEnter}
+                                onFocus={handleFocus}
+                                onBlur={handleBlur}
+                            />
+                        ))}
+                    </div>
+                    <div className={classes.inputs}>
+                        {inputData.map((item: InputDataProps, index) => (
+                            <TextInput
+                                id={`${item.label}-${index + Math.random()}`}
+                                className={classes.input}
+                                label={item.label}
+                                placeholder={item.placeholder}
+                                helperText={item.helperText}
+                                isError={item.isError}
+                                isSuccess={item.isSuccess}
+                                onEnter={handleEnter}
+                                onFocus={handleFocus}
+                                onBlur={handleBlur}
+                                rightIcon={<BsEye width={16} />}
+                            />
+                        ))}
+                    </div>
+                </div>
+            </div>
+        </div >
+    );
+};

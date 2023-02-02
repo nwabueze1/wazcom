@@ -10,18 +10,26 @@ export type SelectInputOptionsProps = {
 };
 
 type SelectProps = CommonProps & {
+    width?: string | number;
+    height?: string | number;
+    borderWidth?: string | number;
+    borderColor?: string;
+    borderStyle?: string;
+    backgroundColor?: string;
     helperText?: string;
     hideLabel?: boolean;
     info?: string;
-    label?: string;
+    label?: string | React.ReactNode;
     name?: string;
     required?: boolean;
     showCC?: boolean;
+    menuIsOpen?: boolean;
     errors?: {
         message: string;
     }[];
     value?: any;
     options?: SelectInputOptionsProps[];
+    containerClass?: string;
 }
 
 export type SelectInputProps = Omit<StateManagedSelect, "onChange"> & SelectProps;

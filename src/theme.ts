@@ -5,16 +5,18 @@ type ExtendedThemeOptions = {
     design: {
         font: { [key: string]: any };
         colors: { [key: string]: string };
+        background: { [key: string]: string };
+        border: { [key: string]: string };
     };
 };
 
 declare module "@mui/material/styles" {
     // eslint-disable-next-line @typescript-eslint/no-empty-interface
-    interface Theme extends ExtendedThemeOptions {}
+    interface Theme extends ExtendedThemeOptions { }
 
     // allow configuration using `createMuiTheme`
     // eslint-disable-next-line @typescript-eslint/no-empty-interface
-    interface ThemeOptions extends ExtendedThemeOptions {}
+    interface ThemeOptions extends ExtendedThemeOptions { }
 }
 
 export type BaseTheme = MuiTheme & ExtendedThemeOptions;
@@ -34,7 +36,7 @@ export const theme: any = {
             lg: 1025,
             xl: 1440,
             xxl: 1728,
-            xxxl: 1920, 
+            xxxl: 1920,
         },
     },
     typography: {
@@ -42,17 +44,29 @@ export const theme: any = {
         fontFamily: ["'Open Sans', sans-serif"].join(","),
         fontSize: 12,
         fontWeightBold: "bold",
+        h1: {
+            fontSize: '2.25rem',
+            fontWeight: 700,
+        },
         h2: {
             fontSize: "3rem",
             fontWeight: 500,
         },
-        h3: {},
-        h4: {},
+        h3: {
+            fontSize: "1.25rem",
+            fontWeight: 700,
+        },
+        h4: {
+            fontSize: '1rem'
+        },
         h5: {
             fontSize: ".8rem",
             fontWeight: 500,
         },
-        h6: {},
+        h6: {
+            fontSize: ".5rem",
+            fontWeight: 400,
+        },
     },
     styles: {
         maxWidth: 1294,
@@ -106,6 +120,8 @@ export const theme: any = {
         colors: {
             grey: "#333333",
             error: "#c32611",
+            info: "#4961E3",
+            warning: "#E0BC24",
 
             primary100: "#0A7227",
             primary200: "#23803D",
@@ -115,6 +131,7 @@ export const theme: any = {
             primary600: "#CEE3D4",
             primary700: "#E7F1E9",
             primary800: "#85B993",
+            primary900: "#F7FCF8",
             secondary100: "#F4CDB4",
             info100: "#2F80ED",
             success100: "#0BCE5A",
@@ -167,7 +184,7 @@ export const theme: any = {
             waz_white: "#FFFFFF",
             waz_whiteAlpha: "#f9f9f9",
             waz_whiteAlpha100: "#F0F0F0",
-            waz_black: "#010E05",
+            waz_black: "#000000",
             waz_black100: "#00000014",
             waz_Grey: "#414141",
             waz_gray: "#BEBEBE",
@@ -196,7 +213,15 @@ export const theme: any = {
             waz_brown: "#A54227",
             waz_red: "#C23434",
             waz_peach: "#FAF8F7",
+            waz_lightGreen: "#F7FCF8",
         },
+        background: {
+            waz_primaryWhite: '#FFFFFF',
+            waz_primaryBlack: "#010E05",
+        },
+        border: {
+            waz_grey200: "1px solid #999F9B",
+        }
     },
     overrides: {
         MuiTypography: {

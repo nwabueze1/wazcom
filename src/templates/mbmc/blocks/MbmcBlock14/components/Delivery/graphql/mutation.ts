@@ -12,12 +12,14 @@ export const CREATE_ADDRESS = gql`
         $country: String
     ) {
         createAddress(
-            guest_uuid: $guest_uuid
-            addressline1: $addressline1
-            city: $city
-            state: $state
-            postcode: $postcode
-            country: $country
+            input: {
+                guest_uuid: $guest_uuid
+                addressline1: $addressline1
+                city: $city
+                state: $state
+                postcode: $postcode
+                country: $country
+            }
         ) {
             ...CoreAddressFields
         }
@@ -34,11 +36,13 @@ export const UPDATE_GUEST = gql`
         $phone: String!
     ) {
         updateGuest(
-            cart_uuid: $cart_uuid
-            email: $email
-            firstname: $firstname
-            lastname: $lastname
-            phone: $phone
+            input: {
+                cart_uuid: $cart_uuid
+                email: $email
+                firstname: $firstname
+                lastname: $lastname
+                phone: $phone
+            }
         ) {
             ...CoreGuestFields
         }

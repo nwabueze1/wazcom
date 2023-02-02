@@ -1,8 +1,9 @@
 import clx from 'classnames';
-import { isNumber } from 'lodash';
-import React, { ChangeEvent, FC, useCallback, useState } from "react";
-import { useTextStyles } from "./styles";
-import { TextAreaProps, TextFieldProps } from "./types";
+import { isNumber, isBoolean } from 'lodash';
+import { FC, cloneElement, isValidElement } from "react";
+import React, { ChangeEvent, KeyboardEvent, useCallback, useState } from "react";
+import { useTextStyles, useTextInputIconStyles } from "./styles";
+import { TextAreaProps, TextFieldProps, InputIconProps } from "./types";
 
 /**
  * Text Input IO Component
@@ -14,25 +15,86 @@ import { TextAreaProps, TextFieldProps } from "./types";
  * -- helperText
  * -- info
  */
+
+/** TODO --  fix components success and error state */
+
 export const TextInput: FC<TextFieldProps> = ({
     className,
     label,
     errors,
+    isError,
+    isSuccess,
     helperText,
     hideLabel = false,
     info,
     name,
     onChange,
+    onFocus,
+    onEnter,
+    onBlur,
     required = false,
     showCC,
     type = "text",
+    leftIcon,
+    rightIcon,
+    iconSpacing,
+    width,
+    height,
+    color,
+    background,
+    borderWidth,
+    borderColor,
+    borderStyle,
+    borderRadius,
+    classNames,
     ...props
 }) => {
-    const classes = useTextStyles();
+    const [isFocused, setIsFocused] = React.useState<boolean>(false);
+    const classes = useTextStyles({
+        width,
+        height,
+        background,
+        color,
+        borderWidth,
+        borderColor,
+        borderStyle,
+        borderRadius,
+    });
 
     const handleChange = (e: ChangeEvent<HTMLInputElement>) => {
         if (onChange) {
-            onChange?.({ name: name ?? "", value: e.target.value });
+            onChange?.({
+                name: (e.target as HTMLInputElement).name ?? '',
+                value: (e.target as HTMLInputElement).value ?? ''
+            });
+        }
+    };
+    const handleOnKeyDown = (e: KeyboardEvent<HTMLInputElement>) => {
+        if (onEnter && (e.key === 'Enter')) {
+            onEnter?.({
+                name: (e.target as HTMLInputElement).name ?? '',
+                value: (e.target as HTMLInputElement).value ?? ''
+            });
+        }
+    };
+
+    const handleFocus = (e: ChangeEvent<HTMLInputElement>) => {
+        setIsFocused(() => true);
+        if (onFocus) {
+            onFocus?.({
+                name: (e.target as HTMLInputElement).name ?? '',
+                value: (e.target as HTMLInputElement).value ?? ''
+            });
+        }
+    };
+
+    const handleBlur = (e: ChangeEvent<HTMLInputElement>) => {
+        setIsFocused(() => false);
+        if (onBlur) {
+            onBlur?.({
+                name: (e.target as HTMLInputElement).name ?? '',
+                value: (e.target as HTMLInputElement).value ?? ''
+            });
         }
     };
 
@@ -47,9 +109,46 @@ export const TextInput: FC<TextFieldProps> = ({
                         {required && <span className={classes.required}>*</span>}
                     </label>
                 }
-                {showCC && <span className={clx(classes.wordCount, classes.label)}>{props?.value && props?.value.length > 0 && props?.value.length}</span>}
+                {showCC && (<span className={clx(classes.wordCount, classes.label)}>
+                    {props?.value && props?.value.length > 0 && props?.value.length}
+                </span>)}
             </div>
-            <input type={type} className={clx(classes.input, errors && classes.error)} onChange={handleChange} {...props} />
+            <div className={clx(
+                classes.baseInput,
+                classes.defaultInput,
+                classNames?.input,
+                isSuccess && classes.successInput,
+                (isError || errors) && classes.errorInput,
+                isFocused && classes.focusedInput
+            )}>
+                {leftIcon && (
+                    <InputIcon marginRight={iconSpacing}>
+                        {leftIcon}
+                    </InputIcon>
+                )}
+                <input
+                    type={type}
+                    name={name}
+                    className={classes.input}
+                    onFocus={handleFocus}
+                    onBlur={handleBlur}
+                    onChange={handleChange}
+                    onKeyDown={handleOnKeyDown}
+                    {...props}
+                />
+                {rightIcon && (
+                    <InputIcon marginLeft={iconSpacing}>
+                        {rightIcon}
+                    </InputIcon>
+                )}
+            </div>
+            {helperText && (<span className={clx(
+                classes.helperTextDefault,
+                isSuccess && classes.helperTextSuccess,
+                isError && classes.helperTextError
+            )}>
+                {helperText}
+            </span>)}
         </div>
     )
 };
@@ -57,21 +156,79 @@ export const TextInput: FC<TextFieldProps> = ({
 export const TextArea: FC<Omit<TextAreaProps, "type">> = ({
     className,
     label,
+    rows,
     helperText,
     hideLabel = false,
+    isSuccess,
+    isError,
+    errors,
     info,
     name,
+    width,
+    height,
+    background,
+    color,
+    borderWidth,
+    borderColor,
+    borderStyle,
+    borderRadius,
     onChange,
+    onFocus,
+    onEnter,
+    onBlur,
     required = false,
     showCC,
     ...props
 }) => {
-    const classes = useTextStyles();
+    const [isFocused, setIsFocused] = React.useState<boolean>(false)
+    const classes = useTextStyles({
+        rows,
+        width,
+        height,
+        background,
+        color,
+        borderWidth,
+        borderColor,
+        borderStyle,
+        borderRadius,
+    });
 
-    const handleChange = useCallback((e: React.ChangeEvent<HTMLTextAreaElement>) => {
-        console.log(name, e.target.value);
-        onChange?.({ name: name ?? "", value: e.target.value });
-    }, []);
+    const handleChange = (e: ChangeEvent<HTMLTextAreaElement>) => {
+        if (onChange) {
+            onChange?.({
+                name: (e.target as HTMLTextAreaElement).name ?? '',
+                value: (e.target as HTMLTextAreaElement).value ?? ''
+            });
+        }
+    };
+    const handleOnKeyDown = (e: KeyboardEvent<HTMLTextAreaElement>) => {
+        if (onEnter && (e.key === 'Enter')) {
+            onEnter?.({
+                name: (e.target as HTMLTextAreaElement).name ?? '',
+                value: (e.target as HTMLTextAreaElement).value ?? ''
+            });
+        }
+    };
+
+    const handleFocus = (e: ChangeEvent<HTMLTextAreaElement>) => {
+        setIsFocused(() => true);
+        if (onFocus) {
+            onFocus?.({
+                name: (e.target as HTMLTextAreaElement).name ?? '',
+                value: (e.target as HTMLTextAreaElement).value ?? ''
+            });
+        }
+    };
+
+    const handleBlur = (e: ChangeEvent<HTMLTextAreaElement>) => {
+        setIsFocused(() => false);
+        if (onBlur) {
+            onBlur?.({
+                name: (e.target as HTMLTextAreaElement).name ?? '',
+                value: (e.target as HTMLTextAreaElement).value ?? ''
+            });
+        }
+    };
 
     return (
         <div className={clx(classes.root, className)}>
@@ -84,9 +241,35 @@ export const TextArea: FC<Omit<TextAreaProps, "type">> = ({
                         {required && <span className={classes.required}>*</span>}
                     </label>
                 }
-                {showCC && <span className={clx(classes.wordCount, classes.label)}>{props?.value && props?.value?.length && props?.value.length > 0 && props?.value.length}</span>}
+                {showCC && (<span className={clx(classes.wordCount, classes.label)}>
+                    {props?.value && props?.value.length > 0 && props?.value.length}
+                </span>)}
             </div>
-            <textarea className={clx(classes.input, classes.textAreaInput)} onChange={handleChange} rows={5} {...props} />
+            <div className={classes.textAreaContainer}>
+                <textarea
+                    className={clx(
+                        classes.baseTextArea,
+                        classes.defaultInput,
+                        isSuccess && classes.successInput,
+                        (isError || errors) && classes.errorInput,
+                        isFocused && classes.focusedInput
+                    )}
+                    name={name}
+                    onChange={handleChange}
+                    onFocus={handleFocus}
+                    onBlur={handleBlur}
+                    onKeyDown={handleOnKeyDown}
+                    rows={rows || 5}
+                    {...props}
+                />
+            </div>
+            {helperText && (<span className={clx(
+                classes.helperTextDefault,
+                isSuccess && classes.helperTextSuccess,
+                isError && classes.helperTextError
+            )}>
+                {helperText}
+            </span>)}
         </div>
     )
 };
@@ -103,13 +286,20 @@ const validateEmail = (email: string): boolean => {
 export const EmailInput: FC<Omit<TextFieldProps, "type">> = ({
     name,
     errors,
+    isSuccess,
+    isError,
     onChange,
+    onBlur,
+    onFocus,
+    onEnter,
     ...props
 }) => {
     let sErrors;
     const [emailErrors, setEmailErrors] = useState<{ message: string }[]>();
+    const [isValidEmail, setIsValidEmail] = useState<boolean>(false);
 
     const handleChange = useCallback(({ name, value }: { name: string, value: any }) => {
+        setIsValidEmail(() => validateEmail(value));
         (validateEmail(value) || value == "") ? setEmailErrors(undefined) : setEmailErrors([{ message: 'Invalid email !!' }]);
 
         if (onChange) {
@@ -122,31 +312,136 @@ export const EmailInput: FC<Omit<TextFieldProps, "type">> = ({
         sErrors = emailErrors ? (errors) ? [...errors, ...emailErrors] : emailErrors : undefined;
     }
 
-    return <TextInput type="email" name={name} errors={sErrors} onChange={handleChange} {...props} />
+    return (
+        <TextInput
+            type="email"
+            name={name}
+            isSuccess={isValidEmail || isSuccess}
+            isError={!!sErrors || isError}
+            errors={sErrors}
+            onChange={handleChange}
+            onFocus={onFocus}
+            onEnter={onEnter}
+            onBlur={onBlur}
+            {...props}
+        />
+    )
+}
+
+const validateURL = (str: string): boolean => {
+    var pattern = new RegExp('^(https?:\\/\\/)?'+ // protocol
+        '((([a-z\\d]([a-z\\d-]*[a-z\\d])*)\\.)+[a-z]{2,}|'+ // domain name
+        '((\\d{1,3}\\.){3}\\d{1,3}))'+ // OR ip (v4) address
+        '(\\:\\d+)?(\\/[-a-z\\d%_.~+]*)*'+ // port and path
+        '(\\?[;&a-z\\d%_.~+=-]*)?'+ // query string
+        '(\\#[-a-z\\d_]*)?$','i'); // fragment locator
+    return !!pattern.test(str);
+}
+export const URLInput: FC<Omit<TextFieldProps, "type">> = ({
+    name,
+    errors,
+    isSuccess,
+    isError,
+    onChange,
+    onBlur,
+    onFocus,
+    onEnter,
+    ...props
+}) => {
+    let sErrors;
+    const [urlErrors, setURLErrors] = useState<{ message: string }[]>();
+    const [isValidURL, setIsValidURL] = useState<boolean>(false);
+
+    const handleChange = useCallback(({ name, value }: { name: string, value: any }) => {
+        setIsValidURL(() => validateURL(value));
+        (validateURL(value) || value == "") ? setURLErrors(undefined) : setURLErrors([{ message: 'Invalid email !!' }]);
+
+        if (onChange) {
+            onChange?.({ name, value });
+        }
+    }, [errors, setURLErrors]);
+
+    if (errors || urlErrors) {
+        sErrors = errors ? errors : undefined;
+        sErrors = urlErrors ? (errors) ? [...errors, ...urlErrors] : urlErrors : undefined;
+    }
+
+    return (
+        <TextInput
+            type="url"
+            name={name}
+            isSuccess={isValidURL || isSuccess}
+            isError={!!sErrors || isError}
+            errors={sErrors}
+            onChange={handleChange}
+            onFocus={onFocus}
+            onEnter={onEnter}
+            onBlur={onBlur}
+            {...props}
+        />
+    )
 }
 
 export const NumberInput: FC<Omit<TextFieldProps, "type">> = ({
     name,
     errors,
+    isValidated,
+    isError,
     onChange,
+    onBlur,
+    onFocus,
+    onEnter,
     showCC,
     ...props
 }) => {
     let sErrors;
+    const [isValidNumber, setIsValidNumber] = useState<boolean>(false);
     const [numberErrors, setNumberErrors] = useState<{ message: string }[]>();
 
     const handleChange = useCallback(({ name, value }: { name: string, value: any }) => {
-        (isNumber(value) || value == "") ? setNumberErrors(undefined) : setNumberErrors([{ message: 'Invalid number !!' }]);
+        (isNumber(parseFloat(value)) || value == "") ? setNumberErrors(undefined) : setNumberErrors([{ message: 'Invalid number !!' }]);
 
         if (onChange) {
             onChange?.({ name, value });
         }
-    }, [errors, setNumberErrors]);
+
+        if (isBoolean(isValidated)) {
+            (isValidated && isNumber(parseFloat(value))) ? setIsValidNumber(true) : setIsValidNumber(false);
+        } else {
+            isNumber(parseFloat(value)) ? setIsValidNumber(true) : setIsValidNumber(false);
+        }
+    }, [errors, setNumberErrors, isValidated]);
 
     if (errors || numberErrors) {
         sErrors = errors ? errors : undefined;
         sErrors = numberErrors ? (errors) ? [...errors, ...numberErrors] : numberErrors : undefined;
     }
 
-    return <TextInput type="number" name={name} errors={sErrors} showCC={false} onChange={handleChange} {...props} />
+    return (
+        <TextInput
+            type="number"
+            name={name}
+            errors={sErrors}
+            showCC={showCC}
+            isSuccess={isValidNumber}
+            isError={!!sErrors || isError}
+            onChange={handleChange}
+            onFocus={onFocus}
+            onEnter={onEnter}
+            onBlur={onBlur}
+            {...props}
+        />
+    )
+}
+
+const InputIcon = ({ children, marginLeft, marginRight, ...rest }: InputIconProps) => {
+    const classes = useTextInputIconStyles({ marginLeft, marginRight });
+    const _className = clx(classes.root, classes.iconSpacing);
+    const _children = isValidElement(children) ? cloneElement(children, {}) : children;
+
+    return (
+        <span {...rest} className={_className}>
+            {_children}
+        </span>
+    )
 }

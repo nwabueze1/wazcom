@@ -9,6 +9,7 @@ export * from "./ImageSelector";
 export * from "./Loader";
 export * from "./MenuCard";
 export * from "./Table";
+export * from "./TableNew";
 export * from "./Notification";
 export * from "./Upload";
 export * from "./Modal";
@@ -17,5 +18,6 @@ export * from "./Scheduler";
 export * from "./DateTimePicker";
 export * from "./LazyImage";
 
-export * from "./BaseComponents/General/Button";
+export * from "./Button";
 export * from "./Tab";
+export * from "./Spinner";
