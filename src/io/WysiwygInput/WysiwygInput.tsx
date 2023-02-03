@@ -44,7 +44,7 @@ export const WysiwygInput: React.FC<WysiwygInputProps> = ({
     };
 
     return (
-        <>
+        <div>
             <div className={clx(className, classes.root)}>
                 <div className={classes.header}></div>
                 <PosTitleInput 
@@ -67,6 +67,6 @@ export const WysiwygInput: React.FC<WysiwygInputProps> = ({
                     Post
                 </button>
             </div>
-        </>
+        </div>
     );
 };

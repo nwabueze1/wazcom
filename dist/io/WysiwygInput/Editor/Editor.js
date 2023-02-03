@@ -145,6 +145,6 @@ export var Editor = function (_a) {
             return [2 /*return*/];
         });
     }); };
-    return (_jsxs("div", __assign({ className: classes.root }, { children: [_jsxs("div", __assign({ className: classes.editor }, { children: [_jsx("div", __assign({ className: classes.floatingBar, style: { top: toolbarPosition < 0 ? 0 : toolbarPosition - 15, left: 0 } }, { children: _jsx(EditorToolbar, {}) })), _jsx(ReactQuill, { id: "editor", ref: quillRef, theme: "snow", value: content, onChange: handleChange, placeholder: "type something amazing", modules: modules, formats: formats, className: classes.quillEditor }), _jsx("div", { children: _jsx(InsertButton, { embedUrl: embedUrl, setEmbedUrl: setEmbedUrl }) })] })), _jsxs("div", __assign({ className: classes.wordCount }, { children: [wordCount, "/1000 words"] }))] })));
+    return (_jsxs("div", __assign({ className: classes.root }, { children: [_jsxs("div", __assign({ className: classes.editor }, { children: [_jsx("div", __assign({ className: classes.floatingBar, style: { top: toolbarPosition < 0 ? 0 : toolbarPosition - 15, left: 0 } }, { children: _jsx(EditorToolbar, {}) })), _jsx(ReactQuill, { id: "editor", ref: quillRef, theme: "snow", value: content, onChange: handleChange, placeholder: "", modules: modules, formats: formats, className: classes.quillEditor }), _jsx("div", { children: _jsx(InsertButton, { embedUrl: embedUrl, setEmbedUrl: setEmbedUrl }) })] })), _jsxs("div", __assign({ className: classes.wordCount }, { children: [wordCount, "/1000 words"] }))] })));
 };
 export default Editor;

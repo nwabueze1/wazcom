@@ -97,7 +97,7 @@ export const Editor: React.FC<EditorProps> = ({ handleContent }) => {
             theme= "snow"
             value={content}
             onChange={handleChange}
-            placeholder={"type something amazing"}
+            placeholder={""}
             modules={modules}
             formats={formats}
             className={classes.quillEditor}
