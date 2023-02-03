@@ -21,14 +21,14 @@ export var usePostTitleStyles = makeStyles(function (theme) { return ({
     },
     input: {
         height: theme.spacing(4.125),
-        padding: '8px 12px',
+        padding: theme.spacing(0, 0, 0, 2),
         background: "".concat(theme.design.colors.white100, " 0% 0% no-repeat padding-box"),
         border: "0px solid ".concat(theme.design.colors.primary700),
         borderRadius: 4,
         outline: "none",
         color: theme.design.colors.grey100,
         fontFamily: theme.typography.fontFamily,
-        fontWeight: 400,
+        fontWeight: 800,
         fontSize: theme.typography.fontSize * 2,
         '&:hover': {
             borderColor: theme.design.colors.primary600,
