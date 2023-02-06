@@ -159,7 +159,7 @@ export var theme = {
             waz_white: "#FFFFFF",
             waz_whiteAlpha: "#f9f9f9",
             waz_whiteAlpha100: "#F0F0F0",
-            waz_black: "#010E05",
+            waz_black: "#000000",
             waz_black100: "#00000014",
             waz_Grey: "#414141",
             waz_gray: "#BEBEBE",
@@ -188,6 +188,7 @@ export var theme = {
             waz_brown: "#A54227",
             waz_red: "#C23434",
             waz_peach: "#FAF8F7",
+            waz_lightGreen: "#F7FCF8",
         },
         background: {
             waz_primaryWhite: '#FFFFFF',

@@ -64,7 +64,6 @@ export const FilterSelector: FC<FilterSelectorProps> = ({
                             },
                             optionLabel: classes.filterSelectInputLabel,
                         }}
-                        placeholder="Select Period"
                         options={getSelectOptions()}
                         value={valueSplits[1]}
                         onChange={handleChange}

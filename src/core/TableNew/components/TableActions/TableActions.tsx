@@ -6,7 +6,6 @@ import { useTableActionStyles } from "./styles";
 import { TableColumn, TableConditionFilter } from "../../types";
 import { ColumnSelector } from "../ColumnSelector";
 import { SortSelector } from "../SortSelector";
-import { InputAdornment } from "@mui/material";
 import { debounce } from "lodash";
 
 export const TableActions: FC<TableActionsProps> = ({
