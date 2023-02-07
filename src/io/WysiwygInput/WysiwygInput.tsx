@@ -34,16 +34,15 @@ export const WysiwygInput: React.FC<WysiwygInputProps> = ({
         setPostTitle(title)
     }
 
-    useEffect(() => {
-     handleChange()
-    }, [editorContent])
-    
-
-    const handleChange = (e: React.MouseEvent<HTMLElement>) => {
+    const handleChange = () => {
         if (onChange) {
             onChange?.({ name: name ?? "", value: {title: postTitle, content: editorContent} });
         }
     };
+
+    useEffect(() => {
+     handleChange()
+    }, [editorContent])
 
     return (
         <div>
@@ -61,13 +60,7 @@ export const WysiwygInput: React.FC<WysiwygInputProps> = ({
                     <Editor embedUrl={embedUrl} handleContent={handleContent} handleImageModalState={handleImageModalState} />
                 </div>
             </div>
-            <div className={classes.postButtonContainer}>
-                <button 
-                onClick={(e)=>handleChange(e)}
-                className={classes.postButton}>
-                    Post
-                </button>
-            </div>
+            
         </div>
     );
 };
