@@ -55,13 +55,13 @@ export const Editor: React.FC<EditorProps> = ({
 
   useEffect(() => {
     handleEmbed() 
-  }, [embedUrl])
+  }, [embedUrl?.url])
 
   const handleEmbed = () => {
     const editorRef = quillRef.current.getEditor();
     embedUrl?.type === 'image' ? 
-    embedUrl?.url.length > 0 && editorRef.clipboard.insertEmbed(textIndex, 'image', embedUrl.url):
-    embedUrl?.url.length > 0 && editorRef.clipboard.dangerouslyPasteHTML(textIndex, embedUrl.url);
+    embedUrl?.url.length > 0 && editorRef.insertEmbed(textIndex, 'image', embedUrl?.url):
+    embedUrl?.url.length > 0 && editorRef.clipboard.dangerouslyPasteHTML(textIndex, embedUrl?.url);
     editorRef.setSelection(textIndex + 1);
   };
 
@@ -77,7 +77,7 @@ export const Editor: React.FC<EditorProps> = ({
   //   editorRef.setSelection(textIndex + 1);
   // };
 
-  const handleToolbarPosition = async () => {
+  const handleToolbarPosition = () => {
     const rect = document.getSelection().baseNode.parentNode.getBoundingClientRect()
     setScreenOffset(rect.y)
 

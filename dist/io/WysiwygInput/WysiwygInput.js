@@ -60,5 +60,6 @@ export var WysiwygInput = function (_a) {
     };
     // useEffect(() => {
     // }, [editorContent])
+    console.log(embedUrl);
     return (_jsxs("div", { children: [_jsxs("div", __assign({ className: clx(className, classes.root) }, { children: [_jsx(PosTitleInput, { handlePostTitle: handlePostTitle, placeHolder: "This is the title" }), _jsx("div", __assign({ className: clx(classNames === null || classNames === void 0 ? void 0 : classNames.createPostInput, error && classes.editorError) }, { children: _jsx(Editor, { embedUrl: embedUrl, handleContent: handleContent, handleImageModalState: handleImageModalState }) }))] })), _jsx("div", __assign({ className: classes.postButtonContainer }, { children: _jsx("button", __assign({ onClick: function () { return handleChange; }, className: classes.postButton }, { children: "Post" })) }))] }));
 };

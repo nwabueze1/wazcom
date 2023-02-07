@@ -43,7 +43,7 @@ export const WysiwygInput: React.FC<WysiwygInputProps> = ({
     // useEffect(() => {
 
     // }, [editorContent])
-
+console.log(embedUrl)
     return (
         <div>
             <div className={clx(className, classes.root)}>

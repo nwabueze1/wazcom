@@ -116,12 +116,12 @@ export var Editor = function (_a) {
     }, [content]);
     useEffect(function () {
         handleEmbed();
-    }, [embedUrl]);
+    }, [embedUrl === null || embedUrl === void 0 ? void 0 : embedUrl.url]);
     var handleEmbed = function () {
         var editorRef = quillRef.current.getEditor();
         (embedUrl === null || embedUrl === void 0 ? void 0 : embedUrl.type) === 'image' ?
-            (embedUrl === null || embedUrl === void 0 ? void 0 : embedUrl.url.length) > 0 && editorRef.clipboard.insertEmbed(textIndex, 'image', embedUrl.url) :
-            (embedUrl === null || embedUrl === void 0 ? void 0 : embedUrl.url.length) > 0 && editorRef.clipboard.dangerouslyPasteHTML(textIndex, embedUrl.url);
+            (embedUrl === null || embedUrl === void 0 ? void 0 : embedUrl.url.length) > 0 && editorRef.insertEmbed(textIndex, 'image', embedUrl === null || embedUrl === void 0 ? void 0 : embedUrl.url) :
+            (embedUrl === null || embedUrl === void 0 ? void 0 : embedUrl.url.length) > 0 && editorRef.clipboard.dangerouslyPasteHTML(textIndex, embedUrl === null || embedUrl === void 0 ? void 0 : embedUrl.url);
         editorRef.setSelection(textIndex + 1);
     };
     // const handleVideoEmbed = () => {
@@ -134,21 +134,17 @@ export var Editor = function (_a) {
     //   socialEmbed.length > 0 && editorRef.clipboard.dangerouslyPasteHTML(textIndex, socialEmbed)
     //   editorRef.setSelection(textIndex + 1);
     // };
-    var handleToolbarPosition = function () { return __awaiter(void 0, void 0, void 0, function () {
-        var rect, contentDiv, offset, editorFieldHeight, diff;
-        return __generator(this, function (_a) {
-            rect = document.getSelection().baseNode.parentNode.getBoundingClientRect();
-            setScreenOffset(rect.y);
-            contentDiv = document.querySelector('#editor');
-            offset = contentDiv.getBoundingClientRect().y;
-            setOffSet(offset);
-            editorFieldHeight = contentDiv.clientHeight;
-            setEditorHeight(editorFieldHeight);
-            diff = rect.y - offset;
-            setToolbarPosition(diff);
-            return [2 /*return*/];
-        });
-    }); };
+    var handleToolbarPosition = function () {
+        var rect = document.getSelection().baseNode.parentNode.getBoundingClientRect();
+        setScreenOffset(rect.y);
+        var contentDiv = document.querySelector('#editor');
+        var offset = contentDiv.getBoundingClientRect().y;
+        setOffSet(offset);
+        var editorFieldHeight = contentDiv.clientHeight;
+        setEditorHeight(editorFieldHeight);
+        var diff = rect.y - offset;
+        setToolbarPosition(diff);
+    };
     return (_jsxs("div", __assign({ className: classes.root }, { children: [_jsxs("div", __assign({ className: classes.editor }, { children: [_jsx("div", __assign({ className: classes.floatingBar, style: { top: toolbarPosition < 0 ? 0 : toolbarPosition - 15, left: 0 } }, { children: _jsx(EditorToolbar, {}) })), _jsx(ReactQuill, { id: "editor", ref: quillRef, theme: "snow", value: content, onChange: handleChange, placeholder: "", modules: modules, formats: formats, className: classes.quillEditor }), _jsx("div", { children: _jsx(InsertButton, { handleImageModalState: handleImageModalState }) })] })), _jsxs("div", __assign({ className: classes.wordCount }, { children: [wordCount, "/1000 words"] }))] })));
 };
 export default Editor;

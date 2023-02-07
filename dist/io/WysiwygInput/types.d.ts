@@ -5,7 +5,10 @@ export type WysiwygInputProps = CommonProps & {
     value: wyswygInputValue;
     client?: ApolloClient<NormalizedCacheObject>;
     error?: boolean;
-    embedUrl: any;
+    embedUrl?: {
+        url: string;
+        type: string;
+    };
     Loader: any;
     handleImageModalState: () => void;
 };
