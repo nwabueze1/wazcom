@@ -39,8 +39,8 @@ export const WysiwygInput: React.FC<WysiwygInputProps> = ({
             onChange?.({ name: name ?? "", value: {title: postTitle, content: editorContent} });
         }
     };
-    
-console.log(embedUrl)
+
+console.log(embedUrl?.url)
     return (
         <div>
             <div className={clx(className, classes.root)}>
