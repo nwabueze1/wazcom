@@ -108,13 +108,19 @@ export const TableNew: FC<TableNewProps> = ({
     const displayRows = () => {
         return rows.map((row: { [key: string]: JSX.Element | string | number }, index: number) => (
             <tr className={classes.tRow} key={index}>
-                {((actions?.columnFilters as TableColumn[]) ?? columns)
-                    .map(({ key, actions }, index) => (
+                {((actions?.columnFilters as TableColumn[]) ?? columns).map(
+                    ({ key, actions }, index) => (
                         <td className={classes.tRowData} key={index} valign="top">
                             {row[key]}
-                            {actions && <TableColumnActions actions={actions} />}
+                            {actions && (
+                                <TableColumnActions
+                                    actions={actions}
+                                    identifier={(row["identifier"] as string) ?? ""}
+                                />
+                            )}
                         </td>
-                    ))}
+                    ),
+                )}
             </tr>
         ));
     };

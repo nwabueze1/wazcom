@@ -131,10 +131,10 @@ export var TableNew = function (_a) {
     var displayRows = function () {
         return rows.map(function (row, index) {
             var _a;
-            return (_jsx("tr", __assign({ className: classes.tRow }, { children: ((_a = actions === null || actions === void 0 ? void 0 : actions.columnFilters) !== null && _a !== void 0 ? _a : columns)
-                    .map(function (_a, index) {
+            return (_jsx("tr", __assign({ className: classes.tRow }, { children: ((_a = actions === null || actions === void 0 ? void 0 : actions.columnFilters) !== null && _a !== void 0 ? _a : columns).map(function (_a, index) {
+                    var _b;
                     var key = _a.key, actions = _a.actions;
-                    return (_jsxs("td", __assign({ className: classes.tRowData, valign: "top" }, { children: [row[key], actions && _jsx(TableColumnActions, { actions: actions })] }), index));
+                    return (_jsxs("td", __assign({ className: classes.tRowData, valign: "top" }, { children: [row[key], actions && (_jsx(TableColumnActions, { actions: actions, identifier: (_b = row["identifier"]) !== null && _b !== void 0 ? _b : "" }))] }), index));
                 }) }), index));
         });
     };

@@ -23,7 +23,7 @@ export const useSortSelectorStyles = makeStyles((theme: Theme) => ({
         width: '100%',
     },
     sortText: {
-        fontSize: theme.typography.fontSize + 1,
+        fontSize: theme.typography.fontSize,
     },
     sortIcon: {
         fontSize: theme.typography.fontSize + 12,
