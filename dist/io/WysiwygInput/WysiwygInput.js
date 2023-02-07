@@ -54,12 +54,12 @@ export var WysiwygInput = function (_a) {
         setPostTitle(title);
     };
     useEffect(function () {
-        console.log(editorContent);
+        handleChange();
     }, [editorContent]);
     var handleChange = function (e) {
         if (onChange) {
             onChange === null || onChange === void 0 ? void 0 : onChange({ name: name !== null && name !== void 0 ? name : "", value: { title: postTitle, content: editorContent } });
         }
     };
-    return (_jsxs("div", { children: [_jsxs("div", __assign({ className: clx(className, classes.root) }, { children: [_jsx(PosTitleInput, { handlePostTitle: handlePostTitle, placeHolder: "This is the title" }), _jsx("div", __assign({ className: clx(classNames === null || classNames === void 0 ? void 0 : classNames.createPostInput, error && classes.editorError) }, { children: _jsx(Editor, { handleContent: handleContent, handleImageModalState: handleImageModalState }) }))] })), _jsx("div", __assign({ className: classes.postButtonContainer }, { children: _jsx("button", __assign({ onClick: function (e) { return handleChange(e); }, className: classes.postButton }, { children: "Post" })) }))] }));
+    return (_jsxs("div", { children: [_jsxs("div", __assign({ className: clx(className, classes.root) }, { children: [_jsx(PosTitleInput, { handlePostTitle: handlePostTitle, placeHolder: "This is the title" }), _jsx("div", __assign({ className: clx(classNames === null || classNames === void 0 ? void 0 : classNames.createPostInput, error && classes.editorError) }, { children: _jsx(Editor, { embedUrl: embedUrl, handleContent: handleContent, handleImageModalState: handleImageModalState }) }))] })), _jsx("div", __assign({ className: classes.postButtonContainer }, { children: _jsx("button", __assign({ onClick: function (e) { return handleChange(e); }, className: classes.postButton }, { children: "Post" })) }))] }));
 };
