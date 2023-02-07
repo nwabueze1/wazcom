@@ -11,15 +11,17 @@ var __assign = (this && this.__assign) || function () {
 };
 import { jsx as _jsx, jsxs as _jsxs } from "react/jsx-runtime";
 import { useTableColumnActionsStyles } from "./styles";
-import clx from 'classnames';
+import clx from "classnames";
 export var TableColumnActions = function (_a) {
-    var actions = _a.actions;
+    var actions = _a.actions, identifier = _a.identifier;
     var classes = useTableColumnActionsStyles();
     var renderActions = function () {
         return actions.map(function (_a, index) {
-            var name = _a.name, func = _a.func;
-            return (_jsxs("p", __assign({ className: classes.action, onClick: func }, { children: [name, index !== actions.length - 1 && _jsx("span", __assign({ className: classes.actionSeparator }, { children: "|" }))] })));
+            var name = _a.name, func = _a.func, verify = _a.verify;
+            return verify && !verify(identifier) ? (_jsx("i", {})) : (_jsxs("p", __assign({ className: classes.action, onClick: function () {
+                    func(identifier);
+                } }, { children: [name, index !== actions.length - 1 && (_jsx("span", __assign({ className: classes.actionSeparator }, { children: "|" })))] })));
         });
     };
-    return _jsx("div", __assign({ className: clx(classes.root, 'column-actions') }, { children: renderActions() }));
+    return _jsx("div", __assign({ className: clx(classes.root, "column-actions") }, { children: renderActions() }));
 };

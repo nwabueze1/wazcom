@@ -10,6 +10,7 @@ export const getTableRows = (data: any[], classes?: any) => {
         parsedRow["likes"] = Number((Math.random() * 1000).toFixed(0));
         parsedRow["category.name"] = row?.category?.name ?? "None";
         parsedRow["updated_at"] = row["updated_at"];
+        parsedRow["identifier"] = row["uuid"];
         parsedRows.push(parsedRow);
     }
 

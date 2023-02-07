@@ -33,7 +33,7 @@ export type TableFilter = {
 };
 export type TableConditionFilter = {
     name: string;
-    condition: (element: any) => boolean;
+    condition: (element: any) => any[];
 };
 export type TableSort = {
     column: string;
@@ -47,4 +47,5 @@ export type TablePagination = {
 export type TableColumnAction = {
     name: string;
     func: (data?: any) => void;
+    verify?: (data?: any) => boolean;
 };

@@ -10,6 +10,7 @@ export const getTableRows = (data: any[], classes?: any) => {
         parsedRow["likes"] = Number((Math.random() * 1000).toFixed(0));
         parsedRow["category.name"] = row?.category?.name ?? "None";
         parsedRow["updated_at"] = row["updated_at"];
+        parsedRow["uuid"] = row["uuid"];
         parsedRows.push(parsedRow);
     }
 
@@ -22,8 +23,8 @@ export const tableColumns: TableColumn[] = [
         key: "title",
         type: "string",
         actions: [
-            { name: "Edit", func: () => { alert('edit') } },
-            { name: "View", func: () => { alert('view') } },
+            { name: "Edit", func: (value) => { alert(value); console.log(value); }, verify: () => false },
+            { name: "View", func: (value) => { alert(value); console.log(value); } },
             { name: "Copy", func: () => { alert('copy')} },
             { name: "Delete", func: () => { alert('delete') } },
         ],
