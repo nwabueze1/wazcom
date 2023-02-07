@@ -73,12 +73,8 @@ export var Editor = function (_a) {
     var _b = __read(useState(''), 2), content = _b[0], setContent = _b[1];
     var _c = __read(useState(0), 2), textIndex = _c[0], setTextIndex = _c[1];
     var _d = __read(useState(0), 2), wordCount = _d[0], setWordCount = _d[1];
-    // const [embedUrl, setEmbedUrl] = useState<string>('')
-    var _e = __read(useState(''), 2), socialEmbed = _e[0], setSocialEmbed = _e[1];
-    var _f = __read(useState(0), 2), editorHeight = _f[0], setEditorHeight = _f[1];
-    var _g = __read(useState(0), 2), offSet = _g[0], setOffSet = _g[1];
-    var _h = __read(useState(0), 2), screenOffset = _h[0], setScreenOffset = _h[1];
-    var _j = __read(useState(0), 2), toolbarPosition = _j[0], setToolbarPosition = _j[1];
+    var _e = __read(useState(0), 2), editorHeight = _e[0], setEditorHeight = _e[1];
+    var _f = __read(useState(0), 2), toolbarPosition = _f[0], setToolbarPosition = _f[1];
     var quillRef = useRef();
     var classes = useEditorToolbarStyles();
     var handleChange = function (text) { return __awaiter(void 0, void 0, void 0, function () {
@@ -101,7 +97,7 @@ export var Editor = function (_a) {
         handleContent(content);
     }, [content]);
     useEffect(function () {
-        setToolbarPosition(editorHeight + offSet - screenOffset - 31.5);
+        setToolbarPosition(editorHeight - 40);
     }, [editorHeight]);
     useEffect(function () {
         var words = content.split(" ");
@@ -111,11 +107,14 @@ export var Editor = function (_a) {
                 wordCount++;
             }
         });
+        var contentDiv = document.querySelector('#editor');
+        var editorFieldHeight = contentDiv.clientHeight;
+        setEditorHeight(editorFieldHeight);
         setWordCount(wordCount);
-        handleToolbarPosition();
+        setToolbarPosition(editorHeight - 40);
     }, [content]);
     useEffect(function () {
-        handleEmbed();
+        handleEmbed;
     }, [embedUrl === null || embedUrl === void 0 ? void 0 : embedUrl.url]);
     var handleEmbed = function () {
         var editorRef = quillRef.current.getEditor();
@@ -124,27 +123,6 @@ export var Editor = function (_a) {
             (embedUrl === null || embedUrl === void 0 ? void 0 : embedUrl.url.length) > 0 && editorRef.clipboard.dangerouslyPasteHTML(textIndex, embedUrl === null || embedUrl === void 0 ? void 0 : embedUrl.url);
         editorRef.setSelection(textIndex + 1);
     };
-    // const handleVideoEmbed = () => {
-    //   const editorRef = quillRef.current.getEditor();
-    //   embedUrl?.url.length > 0 && editorRef.clipboard.dangerouslyPasteHTML(textIndex, embedUrl);
-    //   editorRef.setSelection(textIndex + 1);
-    // };
-    // const handleSocialEmbed = () => {
-    //   const editorRef = quillRef.current.getEditor();
-    //   socialEmbed.length > 0 && editorRef.clipboard.dangerouslyPasteHTML(textIndex, socialEmbed)
-    //   editorRef.setSelection(textIndex + 1);
-    // };
-    var handleToolbarPosition = function () {
-        var rect = document.getSelection().baseNode.parentNode.getBoundingClientRect();
-        setScreenOffset(rect.y);
-        var contentDiv = document.querySelector('#editor');
-        var offset = contentDiv.getBoundingClientRect().y;
-        setOffSet(offset);
-        var editorFieldHeight = contentDiv.clientHeight;
-        setEditorHeight(editorFieldHeight);
-        var diff = rect.y - offset;
-        setToolbarPosition(diff);
-    };
-    return (_jsxs("div", __assign({ className: classes.root }, { children: [_jsxs("div", __assign({ className: classes.editor }, { children: [_jsx("div", __assign({ className: classes.floatingBar, style: { top: toolbarPosition < 0 ? 0 : toolbarPosition - 15, left: 0 } }, { children: _jsx(EditorToolbar, {}) })), _jsx(ReactQuill, { id: "editor", ref: quillRef, theme: "snow", value: content, onChange: handleChange, placeholder: "", modules: modules, formats: formats, className: classes.quillEditor }), _jsx("div", { children: _jsx(InsertButton, { handleImageModalState: handleImageModalState }) })] })), _jsxs("div", __assign({ className: classes.wordCount }, { children: [wordCount, "/1000 words"] }))] })));
+    return (_jsxs("div", __assign({ className: classes.root }, { children: [_jsxs("div", __assign({ className: classes.editor }, { children: [_jsx("div", __assign({ className: classes.floatingBar, style: { top: toolbarPosition, left: 0 } }, { children: _jsx(EditorToolbar, {}) })), _jsx(ReactQuill, { id: "editor", ref: quillRef, theme: "snow", value: content, onChange: handleChange, placeholder: "", modules: modules, formats: formats, className: classes.quillEditor }), _jsx("div", { children: _jsx(InsertButton, { handleImageModalState: handleImageModalState }) })] })), _jsxs("div", __assign({ className: classes.wordCount }, { children: [wordCount, "/1000 words"] }))] })));
 };
 export default Editor;

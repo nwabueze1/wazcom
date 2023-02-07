@@ -4,5 +4,5 @@ export type EditorProps = {
     embedUrl?: {
         url: string;
         type: string;
-    };
+    } | undefined;
 };

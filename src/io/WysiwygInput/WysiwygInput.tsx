@@ -49,7 +49,7 @@ console.log(embedUrl)
             <div className={clx(className, classes.root)}>
                 <PosTitleInput 
                 handlePostTitle={handlePostTitle} 
-                placeHolder={"This is the title"}
+                placeholder={"This is the title"}
                 />
                 <div
                     className={clx(

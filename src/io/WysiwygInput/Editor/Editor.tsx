@@ -15,11 +15,7 @@ export const Editor: React.FC<EditorProps> = ({
   const [content, setContent] = useState<string>('');
   const [textIndex, setTextIndex] = useState(0);
   const [wordCount, setWordCount] = useState(0);
-  // const [embedUrl, setEmbedUrl] = useState<string>('')
-  const [socialEmbed, setSocialEmbed] = useState('')
   const [editorHeight, setEditorHeight] = useState(0)
-  const [offSet, setOffSet] = useState(0)
-  const [screenOffset, setScreenOffset] = useState(0)
   const [toolbarPosition, setToolbarPosition] = useState(0)
   const quillRef = useRef();
 
@@ -38,7 +34,7 @@ export const Editor: React.FC<EditorProps> = ({
   }, [content])
   
   useEffect(() => {
-   setToolbarPosition(editorHeight + offSet - screenOffset - 31.5)
+   setToolbarPosition(editorHeight -40)
   }, [editorHeight])
   
   useEffect(() => {
@@ -49,12 +45,17 @@ export const Editor: React.FC<EditorProps> = ({
         wordCount++;
       }
     })
+    const contentDiv = document.querySelector('#editor')
+    const editorFieldHeight = contentDiv.clientHeight;
+    setEditorHeight(editorFieldHeight)
+    
     setWordCount(wordCount)
-    handleToolbarPosition()
+
+    setToolbarPosition(editorHeight - 40)
   }, [content])
 
   useEffect(() => {
-    handleEmbed() 
+    handleEmbed
   }, [embedUrl?.url])
 
   const handleEmbed = () => {
@@ -65,38 +66,10 @@ export const Editor: React.FC<EditorProps> = ({
     editorRef.setSelection(textIndex + 1);
   };
 
-  // const handleVideoEmbed = () => {
-  //   const editorRef = quillRef.current.getEditor();
-  //   embedUrl?.url.length > 0 && editorRef.clipboard.dangerouslyPasteHTML(textIndex, embedUrl);
-  //   editorRef.setSelection(textIndex + 1);
-  // };
-  
-  // const handleSocialEmbed = () => {
-  //   const editorRef = quillRef.current.getEditor();
-  //   socialEmbed.length > 0 && editorRef.clipboard.dangerouslyPasteHTML(textIndex, socialEmbed)
-  //   editorRef.setSelection(textIndex + 1);
-  // };
-
-  const handleToolbarPosition = () => {
-    const rect = document.getSelection().baseNode.parentNode.getBoundingClientRect()
-    setScreenOffset(rect.y)
-
-    var contentDiv = document.querySelector('#editor')
-    const offset = contentDiv.getBoundingClientRect().y;
-    setOffSet(offset)
-
-    const editorFieldHeight = contentDiv.clientHeight;
-    setEditorHeight(editorFieldHeight)
-
-    const diff = rect.y - offset;
-    setToolbarPosition(diff)
-  }
-
   return (
     <div className={classes.root}>
-        {/* {console.log(toolbarPosition.x)} */}
         <div className={classes.editor}>
-          <div className={classes.floatingBar} style={{top: toolbarPosition < 0 ? 0: toolbarPosition-15, left: 0}}>
+          <div className={classes.floatingBar} style={{top: toolbarPosition, left: 0}}>
           <EditorToolbar />
           </div>
           <ReactQuill
