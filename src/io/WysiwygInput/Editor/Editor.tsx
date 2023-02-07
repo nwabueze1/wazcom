@@ -12,6 +12,9 @@ export const Editor: React.FC<EditorProps> = ({
   handleImageModalState,
   embedUrl, 
 }) => {
+
+  console.log("from editor: "+embedUrl.url)
+
   const [content, setContent] = useState<string>('');
   const [textIndex, setTextIndex] = useState(0);
   const [wordCount, setWordCount] = useState(0);
@@ -58,10 +61,11 @@ export const Editor: React.FC<EditorProps> = ({
     handleEmbed
   }, [embedUrl?.url])
 
+
   const handleEmbed = () => {
     const editorRef = quillRef.current.getEditor();
     embedUrl?.type === 'image' ? 
-    embedUrl?.url.length > 0 && editorRef.insertEmbed(textIndex, 'image', embedUrl?.url):
+    embedUrl?.url.length > 0 && editorRef.insertEmbed(textIndex, 'image', `${embedUrl?.url}`):
     embedUrl?.url.length > 0 && editorRef.clipboard.dangerouslyPasteHTML(textIndex, embedUrl?.url);
     editorRef.setSelection(textIndex + 1);
   };

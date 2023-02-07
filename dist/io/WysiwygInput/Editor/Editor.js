@@ -70,6 +70,7 @@ import { useEditorToolbarStyles } from './styles';
 import { InsertButton } from "./InsertButton/InsertButton";
 export var Editor = function (_a) {
     var handleContent = _a.handleContent, handleImageModalState = _a.handleImageModalState, embedUrl = _a.embedUrl;
+    console.log("from editor: " + embedUrl.url);
     var _b = __read(useState(''), 2), content = _b[0], setContent = _b[1];
     var _c = __read(useState(0), 2), textIndex = _c[0], setTextIndex = _c[1];
     var _d = __read(useState(0), 2), wordCount = _d[0], setWordCount = _d[1];
@@ -119,7 +120,7 @@ export var Editor = function (_a) {
     var handleEmbed = function () {
         var editorRef = quillRef.current.getEditor();
         (embedUrl === null || embedUrl === void 0 ? void 0 : embedUrl.type) === 'image' ?
-            (embedUrl === null || embedUrl === void 0 ? void 0 : embedUrl.url.length) > 0 && editorRef.insertEmbed(textIndex, 'image', embedUrl === null || embedUrl === void 0 ? void 0 : embedUrl.url) :
+            (embedUrl === null || embedUrl === void 0 ? void 0 : embedUrl.url.length) > 0 && editorRef.insertEmbed(textIndex, 'image', "".concat(embedUrl === null || embedUrl === void 0 ? void 0 : embedUrl.url)) :
             (embedUrl === null || embedUrl === void 0 ? void 0 : embedUrl.url.length) > 0 && editorRef.clipboard.dangerouslyPasteHTML(textIndex, embedUrl === null || embedUrl === void 0 ? void 0 : embedUrl.url);
         editorRef.setSelection(textIndex + 1);
     };
