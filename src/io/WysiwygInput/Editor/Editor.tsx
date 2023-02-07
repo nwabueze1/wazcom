@@ -7,11 +7,15 @@ import { InsertButton } from "./InsertButton/InsertButton";
 import { EditorProps } from './types';
 
 
-export const Editor: React.FC<EditorProps> = ({ handleContent }) => {
+export const Editor: React.FC<EditorProps> = ({ 
+  handleContent,
+  handleImageModalState,
+  embedUrl, 
+}) => {
   const [content, setContent] = useState<string>('');
   const [textIndex, setTextIndex] = useState(0);
   const [wordCount, setWordCount] = useState(0);
-  const [embedUrl, setEmbedUrl] = useState<string>('')
+  // const [embedUrl, setEmbedUrl] = useState<string>('')
   const [socialEmbed, setSocialEmbed] = useState('')
   const [editorHeight, setEditorHeight] = useState(0)
   const [offSet, setOffSet] = useState(0)
@@ -50,24 +54,28 @@ export const Editor: React.FC<EditorProps> = ({ handleContent }) => {
   }, [content])
 
   useEffect(() => {
-    handleVideoEmbed() 
+    handleEmbed() 
   }, [embedUrl])
 
-  useEffect(() => {
-    handleSocialEmbed() 
-  }, [socialEmbed])
+  const handleEmbed = () => {
+    const editorRef = quillRef.current.getEditor();
+    embedUrl?.type === 'image' ? 
+    embedUrl?.url.length > 0 && editorRef.clipboard.insertEmbed(textIndex, 'image', embedUrl.url):
+    embedUrl?.url.length > 0 && editorRef.clipboard.dangerouslyPasteHTML(textIndex, embedUrl.url);
+    editorRef.setSelection(textIndex + 1);
+  };
 
-  const handleVideoEmbed = () => {
-    const editorRef = quillRef.current.getEditor();
-    embedUrl.length > 0 && editorRef.clipboard.dangerouslyPasteHTML(textIndex, embedUrl);
-    editorRef.setSelection(textIndex + 1);
-  };
+  // const handleVideoEmbed = () => {
+  //   const editorRef = quillRef.current.getEditor();
+  //   embedUrl?.url.length > 0 && editorRef.clipboard.dangerouslyPasteHTML(textIndex, embedUrl);
+  //   editorRef.setSelection(textIndex + 1);
+  // };
   
-  const handleSocialEmbed = () => {
-    const editorRef = quillRef.current.getEditor();
-    socialEmbed.length > 0 && editorRef.clipboard.dangerouslyPasteHTML(textIndex, socialEmbed)
-    editorRef.setSelection(textIndex + 1);
-  };
+  // const handleSocialEmbed = () => {
+  //   const editorRef = quillRef.current.getEditor();
+  //   socialEmbed.length > 0 && editorRef.clipboard.dangerouslyPasteHTML(textIndex, socialEmbed)
+  //   editorRef.setSelection(textIndex + 1);
+  // };
 
   const handleToolbarPosition = async () => {
     const rect = document.getSelection().baseNode.parentNode.getBoundingClientRect()
@@ -103,7 +111,7 @@ export const Editor: React.FC<EditorProps> = ({ handleContent }) => {
             className={classes.quillEditor}
           />
           <div>
-            <InsertButton embedUrl={embedUrl} setEmbedUrl={setEmbedUrl}/>
+            <InsertButton handleImageModalState={handleImageModalState} />
           </div>
         </div>
           <div className={classes.wordCount}>

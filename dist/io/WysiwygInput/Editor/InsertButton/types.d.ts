@@ -1,10 +1,7 @@
 /// <reference types="react" />
 import { CommonProps } from "../../../../types";
 export type InsertButtonProps = CommonProps & {
-    label?: string;
-    value: string;
-    embedUrl: string;
-    setEmbedUrl: (value: string) => void;
+    handleImageModalState: () => void;
 };
 export type ImageProperties = {
     url: string;

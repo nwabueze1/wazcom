@@ -12,11 +12,13 @@ export const WysiwygInput: React.FC<WysiwygInputProps> = ({
     helperText,
     label,
     value,
+    embedUrl,
     onChange,
     error,
     feedback,
     Loader,
     client,
+    handleImageModalState,
     ...props
 }) => {
     const classes = useCreatePostInputStyles();
@@ -56,12 +58,12 @@ export const WysiwygInput: React.FC<WysiwygInputProps> = ({
                         error && classes.editorError,
                     )}
                 >
-                    <Editor handleContent={handleContent} />
+                    <Editor handleContent={handleContent} handleImageModalState={handleImageModalState} />
                 </div>
             </div>
             <div className={classes.postButtonContainer}>
                 <button 
-                onClick={()=>handleChange()}
+                onClick={(e)=>handleChange(e)}
                 className={classes.postButton}>
                     Post
                 </button>
