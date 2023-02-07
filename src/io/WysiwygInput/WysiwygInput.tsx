@@ -35,7 +35,7 @@ export const WysiwygInput: React.FC<WysiwygInputProps> = ({
     }
 
     useEffect(() => {
-     console.log(editorContent)
+     handleChange()
     }, [editorContent])
     
 
@@ -58,7 +58,7 @@ export const WysiwygInput: React.FC<WysiwygInputProps> = ({
                         error && classes.editorError,
                     )}
                 >
-                    <Editor handleContent={handleContent} handleImageModalState={handleImageModalState} />
+                    <Editor embedUrl={embedUrl} handleContent={handleContent} handleImageModalState={handleImageModalState} />
                 </div>
             </div>
             <div className={classes.postButtonContainer}>
