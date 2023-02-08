@@ -11,7 +11,7 @@ export type WysiwygInputProps = CommonProps & {
     } | undefined;
     Loader: any;
     handleImageModalState: () => void;
-    handleEmbedUrl: (handleEmbed: () => void) => void;
+    handleEmbedUrl: (handleEmbed: any) => void;
 };
 export type wyswygInputValue = {
     title: string;
