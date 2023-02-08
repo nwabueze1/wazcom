@@ -37,7 +37,7 @@ var __read = (this && this.__read) || function (o, n) {
     return ar;
 };
 import { jsx as _jsx, jsxs as _jsxs } from "react/jsx-runtime";
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { useCreatePostInputStyles } from "./styles";
 import clx from "classnames";
 import { PosTitleInput } from "./PostTitleInput/PostTitleInput";
@@ -58,6 +58,11 @@ export var WysiwygInput = function (_a) {
             onChange === null || onChange === void 0 ? void 0 : onChange({ name: name !== null && name !== void 0 ? name : "", value: { title: postTitle, content: editorContent } });
         }
     };
+    useEffect(function () {
+        if (onChange) {
+            onChange === null || onChange === void 0 ? void 0 : onChange({ name: name !== null && name !== void 0 ? name : "", value: { title: postTitle, content: editorContent } });
+        }
+    }, [editorContent]);
     console.log(embedUrl === null || embedUrl === void 0 ? void 0 : embedUrl.url);
     return (_jsxs("div", { children: [_jsxs("div", __assign({ className: clx(className, classes.root) }, { children: [_jsx(PosTitleInput, { handlePostTitle: handlePostTitle, placeholder: "This is the title" }), _jsx("div", __assign({ className: clx(classNames === null || classNames === void 0 ? void 0 : classNames.createPostInput, error && classes.editorError) }, { children: _jsx(Editor, { embedUrl: embedUrl, handleContent: handleContent, handleImageModalState: handleImageModalState }) }))] })), _jsx("div", __assign({ className: classes.postButtonContainer }, { children: _jsx("button", __assign({ onClick: function () { return handleChange; }, className: classes.postButton }, { children: "Post" })) }))] }));
 };

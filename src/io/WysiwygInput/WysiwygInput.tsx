@@ -40,6 +40,12 @@ export const WysiwygInput: React.FC<WysiwygInputProps> = ({
         }
     };
 
+    useEffect( ()=> {
+        if (onChange) {
+            onChange?.({ name: name ?? "", value: {title: postTitle, content: editorContent} });
+        }
+    }, [editorContent])
+
 console.log(embedUrl?.url)
     return (
         <div>

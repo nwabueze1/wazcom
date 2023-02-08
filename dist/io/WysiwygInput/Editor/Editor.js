@@ -70,7 +70,7 @@ import { useEditorToolbarStyles } from './styles';
 import { InsertButton } from "./InsertButton/InsertButton";
 export var Editor = function (_a) {
     var handleContent = _a.handleContent, handleImageModalState = _a.handleImageModalState, embedUrl = _a.embedUrl;
-    console.log("from editor: " + embedUrl.url);
+    console.log("from editor: " + (embedUrl === null || embedUrl === void 0 ? void 0 : embedUrl.url));
     var _b = __read(useState(''), 2), content = _b[0], setContent = _b[1];
     var _c = __read(useState(0), 2), textIndex = _c[0], setTextIndex = _c[1];
     var _d = __read(useState(0), 2), wordCount = _d[0], setWordCount = _d[1];
