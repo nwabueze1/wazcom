@@ -121,7 +121,10 @@ export var Editor = function (_a) {
         editorRef.insertEmbed(textIndex, 'image', 'https://imagekit.io');
         editorRef.setSelection(textIndex + 1);
     };
-    (function () { return handleEmbedUrl(handleEmbed); });
+    useEffect(function () {
+        (function () { return handleEmbedUrl(handleEmbed); });
+        console.log("embedding function attached");
+    }, []);
     return (_jsxs("div", __assign({ className: classes.root }, { children: [_jsxs("div", __assign({ className: classes.editor }, { children: [_jsx("div", __assign({ className: classes.floatingBar, style: { top: toolbarPosition, left: 0 } }, { children: _jsx(EditorToolbar, {}) })), _jsx(ReactQuill, { id: "editor", ref: quillRef, theme: "snow", value: content, onChange: handleChange, placeholder: "", modules: modules, formats: formats, className: classes.quillEditor }), _jsx("div", { children: _jsx(InsertButton, { handleImageModalState: handleImageModalState }) })] })), _jsxs("div", __assign({ className: classes.wordCount }, { children: [wordCount, "/1000 words"] }))] })));
 };
 export default Editor;

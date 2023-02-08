@@ -65,7 +65,10 @@ export const Editor: React.FC<EditorProps> = ({
     editorRef.setSelection(textIndex + 1);
   };
 
+  useEffect( () => {
     () => handleEmbedUrl(handleEmbed)
+    console.log("embedding function attached")
+  },[])
 
   return (
     <div className={classes.root}>
