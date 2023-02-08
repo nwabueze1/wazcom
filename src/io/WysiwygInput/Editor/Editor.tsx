@@ -65,7 +65,7 @@ export const Editor: React.FC<EditorProps> = ({
     editorRef.setSelection(textIndex + 1);
   };
 
-  handleEmbedUrl = handleEmbed
+    () => handleEmbedUrl(handleEmbed)
 
   return (
     <div className={classes.root}>
