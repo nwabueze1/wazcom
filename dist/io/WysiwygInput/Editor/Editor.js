@@ -69,8 +69,7 @@ import "react-quill/dist/quill.snow.css";
 import { useEditorToolbarStyles } from './styles';
 import { InsertButton } from "./InsertButton/InsertButton";
 export var Editor = function (_a) {
-    var handleContent = _a.handleContent, handleImageModalState = _a.handleImageModalState, embedUrl = _a.embedUrl;
-    console.log("from editor: " + (embedUrl === null || embedUrl === void 0 ? void 0 : embedUrl.url));
+    var handleContent = _a.handleContent, handleImageModalState = _a.handleImageModalState, embedUrl = _a.embedUrl, handleEmbedUrl = _a.handleEmbedUrl;
     var _b = __read(useState(''), 2), content = _b[0], setContent = _b[1];
     var _c = __read(useState(0), 2), textIndex = _c[0], setTextIndex = _c[1];
     var _d = __read(useState(0), 2), wordCount = _d[0], setWordCount = _d[1];
@@ -114,16 +113,15 @@ export var Editor = function (_a) {
         setWordCount(wordCount);
         setToolbarPosition(editorHeight - 40);
     }, [content]);
-    useEffect(function () {
-        handleEmbed;
-    }, [embedUrl === null || embedUrl === void 0 ? void 0 : embedUrl.url]);
     var handleEmbed = function () {
         var editorRef = quillRef.current.getEditor();
-        (embedUrl === null || embedUrl === void 0 ? void 0 : embedUrl.type) === 'image' ?
-            (embedUrl === null || embedUrl === void 0 ? void 0 : embedUrl.url.length) > 0 && editorRef.insertEmbed(textIndex, 'image', "".concat(embedUrl === null || embedUrl === void 0 ? void 0 : embedUrl.url)) :
-            (embedUrl === null || embedUrl === void 0 ? void 0 : embedUrl.url.length) > 0 && editorRef.clipboard.dangerouslyPasteHTML(textIndex, embedUrl === null || embedUrl === void 0 ? void 0 : embedUrl.url);
+        // embedUrl?.type === 'image' ? 
+        // embedUrl?.url.length > 0 && editorRef.insertEmbed(textIndex, 'image', `${embedUrl?.url}`) :
+        // embedUrl?.url.length > 0 && editorRef.clipboard.dangerouslyPasteHTML(textIndex, embedUrl?.url);
+        editorRef.insertEmbed(textIndex, 'image', 'https://imagekit.io');
         editorRef.setSelection(textIndex + 1);
     };
+    handleEmbedUrl = handleEmbed;
     return (_jsxs("div", __assign({ className: classes.root }, { children: [_jsxs("div", __assign({ className: classes.editor }, { children: [_jsx("div", __assign({ className: classes.floatingBar, style: { top: toolbarPosition, left: 0 } }, { children: _jsx(EditorToolbar, {}) })), _jsx(ReactQuill, { id: "editor", ref: quillRef, theme: "snow", value: content, onChange: handleChange, placeholder: "", modules: modules, formats: formats, className: classes.quillEditor }), _jsx("div", { children: _jsx(InsertButton, { handleImageModalState: handleImageModalState }) })] })), _jsxs("div", __assign({ className: classes.wordCount }, { children: [wordCount, "/1000 words"] }))] })));
 };
 export default Editor;

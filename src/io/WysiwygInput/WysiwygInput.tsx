@@ -18,6 +18,7 @@ export const WysiwygInput: React.FC<WysiwygInputProps> = ({
     feedback,
     Loader,
     client,
+    handleEmbedUrl,
     handleImageModalState,
     ...props
 }) => {
@@ -60,7 +61,11 @@ console.log(embedUrl?.url)
                         error && classes.editorError,
                     )}
                 >
-                    <Editor embedUrl={embedUrl} handleContent={handleContent} handleImageModalState={handleImageModalState} />
+                    <Editor 
+                    embedUrl={embedUrl} 
+                    handleEmbedUrl = {handleEmbedUrl}
+                    handleContent={handleContent} 
+                    handleImageModalState={handleImageModalState} />
                 </div>
             </div>
             <div className={classes.postButtonContainer}>
