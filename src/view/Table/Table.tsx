@@ -37,6 +37,9 @@ export const TableView = () => {
                 }}
                 conditionFilters={tableConditionFilters}
                 showFilters={true}
+                emptyState={{
+                    message: "You currently do not have any posts created yet",
+                }}
             />
         </div>
     );

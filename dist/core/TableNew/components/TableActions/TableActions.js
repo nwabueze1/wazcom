@@ -36,15 +36,7 @@ export var TableActions = function (_a) {
     var handleSortChange = function (order, columnKey) {
         setCurrentActions(__assign(__assign({}, currentActions), { sort: [{ order: order, column: columnKey }] }));
     };
-    var getSearchPlaceholder = function () {
-        var textColumns = columns.filter(function (column) { return typeof column.name === "string"; });
-        var columnNames = textColumns.map(function (_a) {
-            var name = _a.name;
-            return name.toString().toLowerCase();
-        });
-        return "Search by ".concat(columnNames.join(", "));
-    };
-    return (_jsxs("div", __assign({ className: classes.root }, { children: [_jsx(TextInput, { className: classes.searchInputElement, classNames: { input: classes.searchInput }, leftIcon: _jsx(BiSearch, {}), onChange: handleSearchChange, placeholder: getSearchPlaceholder() }), _jsx(SortSelector, { columns: columns, handleSelectSort: handleSortChange }), conditionFilters && (_jsx(SelectInput, { className: classes.selectInputElement, classNames: { container: classes.selectContainer, control: classes.selectControl }, options: conditionFilters.map(function (_a) {
+    return (_jsxs("div", __assign({ className: classes.root }, { children: [_jsx(TextInput, { className: classes.searchInputElement, classNames: { input: classes.searchInput }, leftIcon: _jsx(BiSearch, {}), onChange: handleSearchChange, placeholder: "Search table" }), _jsx(SortSelector, { columns: columns, handleSelectSort: handleSortChange }), conditionFilters && (_jsx(SelectInput, { className: classes.selectInputElement, classNames: { container: classes.selectContainer, control: classes.selectControl }, options: conditionFilters.map(function (_a) {
                     var name = _a.name;
                     return ({ label: name, value: name });
                 }), value: currentActions.conditionFilter.name, onChange: handleConditionChange })), _jsx(ColumnSelector, { columns: columns, columnFilters: currentActions.columnFilters, handleColumnChange: handleColumnsChange })] })));
