@@ -16,7 +16,7 @@ export var useFilterSelectorStyles = makeStyles(function (theme) { return ({
     filterInput: {
         fontSize: theme.typography.fontSize,
         background: theme.design.colors.waz_white,
-        height: 30,
+        height: '30px !important',
     },
     filterTextInput: {
         padding: theme.spacing(0.75, 1),

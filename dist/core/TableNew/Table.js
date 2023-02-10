@@ -61,16 +61,16 @@ var __read = (this && this.__read) || function (o, n) {
     }
     return ar;
 };
-import { jsx as _jsx, jsxs as _jsxs } from "react/jsx-runtime";
+import { jsx as _jsx, jsxs as _jsxs, Fragment as _Fragment } from "react/jsx-runtime";
 import { useEffect, useState } from "react";
-import { TableActions, TableColumnActions, TableFilters, TablePagination } from "./components";
+import { TableActions, TableColumnActions, TableFilters, TablePagination, EmptyState, } from "./components";
 import { useTableStyles } from "./styles";
 import { Loader } from "../../core";
 import { useTableStyles as useExternalTableStyles } from "../../stories/table-styles";
 import { parseQueryVariables } from "./helpers";
 export var TableNew = function (_a) {
     var _b, _c, _d, _e, _f, _g;
-    var columns = _a.columns, _h = _a.query, client = _h.client, QUERY = _h.name, variables = _h.variables, dataKey = _h.dataKey, getRows = _a.getRows, conditionFilters = _a.conditionFilters, showFilters = _a.showFilters, EmptyState = _a.EmptyState;
+    var columns = _a.columns, _h = _a.query, client = _h.client, QUERY = _h.name, variables = _h.variables, dataKey = _h.dataKey, getRows = _a.getRows, conditionFilters = _a.conditionFilters, showFilters = _a.showFilters, emptyState = _a.emptyState;
     var _j = __read(useState({ data: null, pagination: { currentPage: 1, lastPage: 1, count: (_b = variables === null || variables === void 0 ? void 0 : variables.first) !== null && _b !== void 0 ? _b : 5 } }), 2), table = _j[0], setTable = _j[1];
     var _k = __read(useState({
         search: "",
@@ -140,7 +140,7 @@ export var TableNew = function (_a) {
     };
     if (!table.data)
         return _jsx(Loader, {});
-    return (_jsxs("div", __assign({ style: { position: "relative" } }, { children: [_jsx(TableActions, { currentActions: actions, setCurrentActions: setActions, conditionFilters: conditionFilters, columns: columns }), showFilters && (_jsx(TableFilters, { columns: columns, filters: filters, setFilters: setFilters })), _jsxs("table", __assign({ className: classes.root }, { children: [_jsx("thead", __assign({ className: classes.tHead }, { children: _jsx("tr", __assign({ className: classes.tRow }, { children: displayColumns() })) })), rows.length > 0 ? (_jsx("tbody", { children: displayRows() })) : (EmptyState !== null && EmptyState !== void 0 ? EmptyState : _jsx("p", { children: "There is no content to display" }))] })), _jsx("div", { className: classes.tableSeparator }), _jsx(TablePagination, __assign({}, ((_g = table.pagination) !== null && _g !== void 0 ? _g : { currentPage: 1, lastPage: 1, count: 10 }), { setTablePagination: function (pagination) {
-                    setTable(__assign(__assign({}, table), { pagination: pagination }));
-                } })), loading && _jsx(Loader, { className: classes.tableLoader })] })));
+    return (_jsxs("div", __assign({ style: { position: "relative" } }, { children: [_jsx(TableActions, { currentActions: actions, setCurrentActions: setActions, conditionFilters: conditionFilters, columns: columns }), showFilters && (_jsx(TableFilters, { columns: columns, filters: filters, setFilters: setFilters })), _jsxs("table", __assign({ className: classes.root }, { children: [_jsx("thead", __assign({ className: classes.tHead }, { children: _jsx("tr", __assign({ className: classes.tRow }, { children: displayColumns() })) })), rows.length > 0 && _jsx("tbody", { children: displayRows() })] })), rows.length === 0 && _jsx(EmptyState, __assign({}, emptyState)), rows.length > 0 && (_jsxs(_Fragment, { children: [_jsx("div", { className: classes.tableSeparator }), _jsx(TablePagination, __assign({}, ((_g = table.pagination) !== null && _g !== void 0 ? _g : { currentPage: 1, lastPage: 1, count: 10 }), { setTablePagination: function (pagination) {
+                            setTable(__assign(__assign({}, table), { pagination: pagination }));
+                        } }))] })), loading && _jsx(Loader, { className: classes.tableLoader })] })));
 };
