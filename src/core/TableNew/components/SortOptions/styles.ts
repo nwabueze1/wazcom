@@ -58,7 +58,7 @@ export const useSortOptionsStyles = makeStyles((theme: Theme) => ({
     },
     sortOptionButtonPrimary: {
         fontWeight: `${theme.typography.fontWeightRegular} !important`,
-        fontSize: `${theme.typography.fontSize - 1} !important`,
+        fontSize: `${theme.typography.fontSize - 1}px !important`,
         padding: `${theme.spacing(0.75, 1.5)} !important`,
         fontFamily: `${theme.design.font.openSans} !important`,
         width: "unset !important",

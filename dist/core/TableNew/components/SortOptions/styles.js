@@ -54,7 +54,7 @@ export var useSortOptionsStyles = makeStyles(function (theme) { return ({
     },
     sortOptionButtonPrimary: {
         fontWeight: "".concat(theme.typography.fontWeightRegular, " !important"),
-        fontSize: "".concat(theme.typography.fontSize - 1, " !important"),
+        fontSize: "".concat(theme.typography.fontSize - 1, "px !important"),
         padding: "".concat(theme.spacing(0.75, 1.5), " !important"),
         fontFamily: "".concat(theme.design.font.openSans, " !important"),
         width: "unset !important",
