@@ -43,10 +43,10 @@ import clx from "classnames";
 import { PosTitleInput } from "./PostTitleInput/PostTitleInput";
 import { Editor } from "./Editor";
 export var WysiwygInput = function (_a) {
-    var name = _a.name, className = _a.className, classNames = _a.classNames, helperText = _a.helperText, label = _a.label, value = _a.value, embedUrl = _a.embedUrl, onChange = _a.onChange, error = _a.error, feedback = _a.feedback, Loader = _a.Loader, client = _a.client, handleEmbedUrl = _a.handleEmbedUrl, handleImageModalState = _a.handleImageModalState, props = __rest(_a, ["name", "className", "classNames", "helperText", "label", "value", "embedUrl", "onChange", "error", "feedback", "Loader", "client", "handleEmbedUrl", "handleImageModalState"]);
+    var name = _a.name, className = _a.className, classNames = _a.classNames, helperText = _a.helperText, label = _a.label, value = _a.value, embedUrl = _a.embedUrl, onChange = _a.onChange, error = _a.error, feedback = _a.feedback, Loader = _a.Loader, client = _a.client, _b = _a.handleEmbedUrl, handleEmbedUrl = _b === void 0 ? "https://" : _b, handleImageModalState = _a.handleImageModalState, props = __rest(_a, ["name", "className", "classNames", "helperText", "label", "value", "embedUrl", "onChange", "error", "feedback", "Loader", "client", "handleEmbedUrl", "handleImageModalState"]);
     var classes = useCreatePostInputStyles();
-    var _b = __read(useState(''), 2), editorContent = _b[0], setEditorContent = _b[1];
-    var _c = __read(useState(''), 2), postTitle = _c[0], setPostTitle = _c[1];
+    var _c = __read(useState(''), 2), editorContent = _c[0], setEditorContent = _c[1];
+    var _d = __read(useState(''), 2), postTitle = _d[0], setPostTitle = _d[1];
     var handleContent = function (content) {
         setEditorContent(content);
     };
@@ -63,6 +63,5 @@ export var WysiwygInput = function (_a) {
             onChange === null || onChange === void 0 ? void 0 : onChange({ name: name !== null && name !== void 0 ? name : "", value: { title: postTitle, content: editorContent } });
         }
     }, [editorContent]);
-    console.log(embedUrl === null || embedUrl === void 0 ? void 0 : embedUrl.url);
     return (_jsxs("div", { children: [_jsxs("div", __assign({ className: clx(className, classes.root) }, { children: [_jsx(PosTitleInput, { handlePostTitle: handlePostTitle, placeholder: "This is the title" }), _jsx("div", __assign({ className: clx(classNames === null || classNames === void 0 ? void 0 : classNames.createPostInput, error && classes.editorError) }, { children: _jsx(Editor, { embedUrl: embedUrl, handleEmbedUrl: handleEmbedUrl, handleContent: handleContent, handleImageModalState: handleImageModalState }) }))] })), _jsx("div", __assign({ className: classes.postButtonContainer }, { children: _jsx("button", __assign({ onClick: function () { return handleChange; }, className: classes.postButton }, { children: "Post" })) }))] }));
 };

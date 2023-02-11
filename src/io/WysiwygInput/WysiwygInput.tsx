@@ -18,7 +18,7 @@ export const WysiwygInput: React.FC<WysiwygInputProps> = ({
     feedback,
     Loader,
     client,
-    handleEmbedUrl,
+    handleEmbedUrl = "https://",
     handleImageModalState,
     ...props
 }) => {
@@ -47,7 +47,6 @@ export const WysiwygInput: React.FC<WysiwygInputProps> = ({
         }
     }, [editorContent])
 
-console.log(embedUrl?.url)
     return (
         <div>
             <div className={clx(className, classes.root)}>

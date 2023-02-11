@@ -56,9 +56,9 @@ export const Editor: React.FC<EditorProps> = ({
     setToolbarPosition(editorHeight - 40)
   }, [content])
 
-  const embedImgUrl = handleEmbedUrl()
+  // const embedImgUrl = handleEmbedUrl(data)
 
-  const handleEmbed = (url: string) => {
+  const handleEmbed = (url: string | undefined) => {
     const editorRef = quillRef.current.getEditor();
     // embedUrl?.type === 'image' ? 
     // embedUrl?.url.length > 0 && editorRef.insertEmbed(textIndex, 'image', `${embedUrl?.url}`) :
@@ -68,9 +68,9 @@ export const Editor: React.FC<EditorProps> = ({
   };
 
   useEffect( () => {
-    handleEmbed(embedImgUrl)
+    handleEmbed(embedUrl)
     console.log("embedding function attached")
-  },[embedImgUrl])
+  },[embedUrl])
 
   return (
     <div className={classes.root}>

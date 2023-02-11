@@ -113,7 +113,7 @@ export var Editor = function (_a) {
         setWordCount(wordCount);
         setToolbarPosition(editorHeight - 40);
     }, [content]);
-    var embedImgUrl = handleEmbedUrl();
+    // const embedImgUrl = handleEmbedUrl(data)
     var handleEmbed = function (url) {
         var editorRef = quillRef.current.getEditor();
         // embedUrl?.type === 'image' ? 
@@ -123,9 +123,9 @@ export var Editor = function (_a) {
         editorRef.setSelection(textIndex + 1);
     };
     useEffect(function () {
-        handleEmbed(embedImgUrl);
+        handleEmbed(embedUrl);
         console.log("embedding function attached");
-    }, [embedImgUrl]);
+    }, [embedUrl]);
     return (_jsxs("div", __assign({ className: classes.root }, { children: [_jsxs("div", __assign({ className: classes.editor }, { children: [_jsx("div", __assign({ className: classes.floatingBar, style: { top: toolbarPosition, left: 0 } }, { children: _jsx(EditorToolbar, {}) })), _jsx(ReactQuill, { id: "editor", ref: quillRef, theme: "snow", value: content, onChange: handleChange, placeholder: "", modules: modules, formats: formats, className: classes.quillEditor }), _jsx("div", { children: _jsx(InsertButton, { handleImageModalState: handleImageModalState }) })] })), _jsxs("div", __assign({ className: classes.wordCount }, { children: [wordCount, "/1000 words"] }))] })));
 };
 export default Editor;
