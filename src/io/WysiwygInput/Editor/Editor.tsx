@@ -56,19 +56,21 @@ export const Editor: React.FC<EditorProps> = ({
     setToolbarPosition(editorHeight - 40)
   }, [content])
 
-  const handleEmbed = () => {
+  const embedImgUrl = handleEmbedUrl()
+
+  const handleEmbed = (url: string) => {
     const editorRef = quillRef.current.getEditor();
     // embedUrl?.type === 'image' ? 
     // embedUrl?.url.length > 0 && editorRef.insertEmbed(textIndex, 'image', `${embedUrl?.url}`) :
     // embedUrl?.url.length > 0 && editorRef.clipboard.dangerouslyPasteHTML(textIndex, embedUrl?.url);
-    editorRef.insertEmbed(textIndex, 'image', 'https://imagekit.io') 
+    editorRef.insertEmbed(textIndex, 'image', url) 
     editorRef.setSelection(textIndex + 1);
   };
 
   useEffect( () => {
-    () => handleEmbedUrl(handleEmbed)
+    handleEmbed(embedImgUrl)
     console.log("embedding function attached")
-  },[])
+  },[embedImgUrl])
 
   return (
     <div className={classes.root}>
