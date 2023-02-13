@@ -28,12 +28,11 @@ export const Button = ({
 
     const _className = clx(
         classes.root, classes.button,
+        className,
         variant === 'contained' ? classes.contained :
             variant === 'outlined' ? classes.outlined : classes.default,
         (isDisabled && !isLoading) && classes.disabled,
         isLoading && classes.loading,
-        className,
-        
     );
 
     return (
