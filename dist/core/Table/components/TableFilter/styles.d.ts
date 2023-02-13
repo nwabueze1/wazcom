@@ -1,0 +1,1 @@
+export declare const useFilterStyles: (props?: any) => import("@mui/styles").ClassNameMap<"show" | "container" | "filterItems" | "filterItemContainer" | "filterItemsHeader" | "showOverlay" | "filterItem" | "filterActionButtons" | "filterActionButton" | "filterActionButtonOutline">;
