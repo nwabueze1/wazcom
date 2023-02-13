@@ -41,7 +41,7 @@ export const TableControls: React.FC<TableControlsProps> = ({
                 onChange={(e: any) => handleControlsChange(e)}
                 className={classes.controlsInput}
             />
-            {/* {controls?.filter && (
+            {controls?.filter && (
                 <Box className={classes.filterControls}>
                     <TableFilter
                         showFilter={showFilter}
@@ -52,8 +52,8 @@ export const TableControls: React.FC<TableControlsProps> = ({
                         setFilters={setFilters}
                     />
                 </Box>
-            )} */}
-            {/* <Box className={classes.rightControls}>
+            )}
+            <Box className={classes.rightControls}>
                 {controls?.canPrint && (
                     <Button
                         className={classes.printButton}
@@ -127,7 +127,7 @@ export const TableControls: React.FC<TableControlsProps> = ({
                         </Menu>
                     </>
                 )}
-            </Box> */}
+            </Box>
         </Box>
     );
 };

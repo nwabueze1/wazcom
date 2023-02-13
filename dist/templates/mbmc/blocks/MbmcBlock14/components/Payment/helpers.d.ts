@@ -1,0 +1,27 @@
+export declare const paymentMethodConfig: {
+    Cash_On_Delivery: {
+        img: string;
+        title: string;
+        name: string;
+    };
+    Bank_Transfer: {
+        img: string;
+        title: string;
+        name: string;
+    };
+    PAYPAL: {
+        img: string;
+        title: string;
+        name: string;
+    };
+    Paystack: {
+        img: string;
+        title: string;
+        name: string;
+    };
+    Stripe: {
+        img: string;
+        title: string;
+        name: string;
+    };
+};

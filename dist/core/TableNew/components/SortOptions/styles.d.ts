@@ -1,0 +1,1 @@
+export declare const useSortOptionsStyles: (props?: any) => import("@mui/styles").ClassNameMap<"root" | "sortOption" | "sortOptionActive" | "sortOptionRadio" | "sortOptionText" | "sortOptionsButtons" | "sortOptionButtonSecondary" | "sortOptionButtonPrimary">;

@@ -6,7 +6,6 @@ import { useTableActionStyles } from "./styles";
 import { TableColumn, TableConditionFilter } from "../../types";
 import { ColumnSelector } from "../ColumnSelector";
 import { SortSelector } from "../SortSelector";
-import { InputAdornment } from "@mui/material";
 import { debounce } from "lodash";
 
 export const TableActions: FC<TableActionsProps> = ({
@@ -35,12 +34,6 @@ export const TableActions: FC<TableActionsProps> = ({
         setCurrentActions({ ...currentActions, sort: [{ order, column: columnKey }] });
     };
 
-    const getSearchPlaceholder = () => {
-        const textColumns = columns.filter((column) => typeof column.name === "string");
-        const columnNames = textColumns.map(({ name }) => name.toString().toLowerCase());
-        return `Search by ${columnNames.join(", ")}`;
-    };
-
     return (
         <div className={classes.root}>
             <TextInput
@@ -48,7 +41,7 @@ export const TableActions: FC<TableActionsProps> = ({
                 classNames={{ input: classes.searchInput }}
                 leftIcon={<BiSearch />}
                 onChange={handleSearchChange}
-                placeholder={getSearchPlaceholder()}
+                placeholder={"Search table"}
             />
             <SortSelector
                 columns={columns}
