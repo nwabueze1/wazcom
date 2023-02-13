@@ -1,1 +1,0 @@
-export declare const useTableActionStyles: (props?: any) => import("@mui/styles").ClassNameMap<"root" | "selectContainer" | "searchInputElement" | "searchInput" | "searchInputAdornment" | "selectInputElement" | "selectInput" | "selectControl">;
