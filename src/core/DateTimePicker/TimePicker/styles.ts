@@ -10,7 +10,7 @@ export const useTimePickerStyles = makeStyles((theme: Theme) => ({
     textField: {
         color: "transparent",
         textAlign: "center",
-        width: "200px",
+        width: "100%",
         height: "40px",
         border: `1px solid ${theme.design.colors.waz_grey300}`,
         borderRadius: "5px",

@@ -14,7 +14,7 @@ export const menuItemTableStyles = makeStyles((theme: Theme) =>
         },
         textInput: {
             height: "43px",
-            width: "240px",
+            width: "100%",
             border: `1px solid ${theme.design.colors.waz_grey300}`,
             borderRadius: "5px",
             paddingInline: theme.spacing(2),
