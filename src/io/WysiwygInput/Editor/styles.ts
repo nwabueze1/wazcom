@@ -43,7 +43,7 @@ export const useEditorToolbarStyles = makeStyles((theme: Theme) => ({
         width: "100%",
     },
     editor: {
-        color: theme.design.colors.waz_grey1,
+        color: theme.design.colors.waz_grey100,
         overflow: "auto",
         height: "100vh",
         position: "relative",
@@ -51,11 +51,11 @@ export const useEditorToolbarStyles = makeStyles((theme: Theme) => ({
     },
     floatingBar: {
         position: "absolute",
-        zIndex: 8,
+        zIndex: 2,
     },
     quillEditor: {
         "& .ql-container": {
-            border: `0px solid ${theme.design.colors.primary700} !important`,
+            border: `0px solid ${theme.design.colors.waz_primary700} !important`,
         },
         "& .ql-editor .ql-video": {
             width: "80%",
