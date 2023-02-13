@@ -42,7 +42,7 @@ export const useTablePaginationStyles = makeStyles((theme: Theme) => ({
         }
     },
     paginationSelect: {
-        width: `75px !important`,
+        width: `60px !important`,
         marginBottom: '0 !important',
     },
     paginationSelectInput: {

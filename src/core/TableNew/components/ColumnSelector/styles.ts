@@ -15,7 +15,7 @@ export const useColumnSelectorStyles = makeStyles((theme: Theme) => ({
         position: 'relative',
         fontSize: theme.typography.fontSize,
         color: theme.design.colors.waz_grey1,
-        border: `1px solid ${theme.design.colors.primary700}`,
+        border: `1px solid ${theme.design.colors.waz_primary700}`,
     },
     columnList: {
         position: 'absolute',
