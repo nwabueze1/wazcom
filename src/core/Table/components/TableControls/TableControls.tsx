@@ -2,7 +2,7 @@ import { Box, ListItemIcon, MenuItem } from "@mui/material";
 import React, { useState } from "react";
 import { useTableControlsStyles } from "./styles";
 import { Logout, Print, SendToMobileOutlined, Settings } from "@mui/icons-material";
-import { Button } from "../../../Button";
+import { Button } from "core/Button";
 import { exportToCSV, exportToXlsx } from "../../helpers";
 import { TableControlsProps } from "./types";
 import Menu from "@mui/material/Menu";
@@ -33,6 +33,14 @@ export const TableControls: React.FC<TableControlsProps> = ({
 
     return (
         <Box className={classes.controls}>
+            <SearchInput
+                name="search"
+                type="text"
+                placeholder="Search"
+                value={controlsFormData.search}
+                onChange={(e: any) => handleControlsChange(e)}
+                className={classes.controlsInput}
+            />
             {controls?.filter && (
                 <Box className={classes.filterControls}>
                     <TableFilter
@@ -45,14 +53,6 @@ export const TableControls: React.FC<TableControlsProps> = ({
                     />
                 </Box>
             )}
-            <SearchInput
-                name="search"
-                type="text"
-                placeholder="Search"
-                value={controlsFormData.search}
-                onChange={(e: any) => handleControlsChange(e)}
-                className={classes.controlsInput}
-            />
             <Box className={classes.rightControls}>
                 {controls?.canPrint && (
                     <Button

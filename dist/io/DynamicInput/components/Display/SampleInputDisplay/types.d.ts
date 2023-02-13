@@ -1,6 +1,6 @@
 /// <reference types="react" />
 import { QuestionOption } from "../../../types";
-export declare type SampleInputDisplayProps = {
+export type SampleInputDisplayProps = {
     defaultCount: number;
     setQuestionOptions?: React.Dispatch<React.SetStateAction<QuestionOption[]>>;
     value: string;

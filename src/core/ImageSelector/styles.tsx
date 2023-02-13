@@ -3,21 +3,60 @@ import { BaseTheme } from "theme";
 
 export const useImageSelectorStyles = makeStyles((theme: BaseTheme) => ({
     root: {
-        minHeight: "150px",
-        minWidth: "150px",
+        width: "100%",
+        paddingTop: "21.9%", /* 1:1 Aspect Ratio */
         position: "relative",
+        background: theme.design.colors.primary700,
+        border: `1px dashed ${theme.design.colors.primary500}`,
+        borderRadius: 4,
+        fontFamily: theme.typography.fontFamily,
+    },
+    container: {
+        position: "absolute",
+        top: 0,
+        left: 0,
+        bottom: 0,
+        right: 0,
         display: "flex",
         justifyContent: "center",
         alignItems: "center",
-        cursor: "pointer",
-        width: "320px",
-        height: "320px",
-        background: "transparent",
-        transition: "background 0.5s ease-in",
-
+        flexDirection: "column"
+    },
+    selector: {
+        border: `1px solid ${theme.design.colors.primary100}`,
+        padding: theme.spacing(1, 1.5),
+        borderRadius: 4,
+        color: theme.design.colors.primary100,
+        fontSize: theme.typography.fontSize,
+        fontWeight: theme.typography.fontWeightMedium,
+        background: `linear-gradient(${theme.design.colors.primary100} 0 0) var(--p, 0) / var(--p, 0) no-repeat`,
+        transition: "0.4s, background-position 0s",
+        zIndex: 2,
+        fontFamily: "inherit",
         "&:hover": {
-            background: "linear-gradient(180deg, rgba(0, 0, 0, 0) -9.73%, rgba(0, 0, 0, 0.8) 100%)",
-        },
+            "--p": "100%",
+            cursor: "pointer",
+            color: theme.design.colors.white,
+        }
+    },
+    error: {
+        color: theme.design.colors.waz_dangerColor,
+        zIndex: 2,
+        fontSize: 12,
+        marginTop: theme.spacing(2)
+    },
+    imgWrapper: {
+        backgroundColor: "rgba(0, 0, 0, 0.4)",
+        position: "absolute",
+        top: 0,
+        left: 0,
+        right: 0,
+        bottom: 0,
+        zIndex: 1,
+        borderRadius: 4
+    },
+    selectedRoot: {
+        border: "none"
     },
     sizeSm: {
         width: "100px",
@@ -66,6 +105,7 @@ export const useImageSelectorStyles = makeStyles((theme: BaseTheme) => ({
         width: "100%",
         height: "100%",
         objectFit: "cover",
+        borderRadius: theme.spacing(1)
     },
     circle: {
         borderRadius: "50%",

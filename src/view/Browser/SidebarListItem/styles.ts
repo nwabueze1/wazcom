@@ -1,31 +1,42 @@
-import makeStyles from "@mui/styles/makeStyles";
-import { Theme } from "@mui/material/styles";
+import { createUseStyles } from 'react-jss'
 
-export const useSidebarListItemStyles = makeStyles((theme: Theme) => ({
+export const useSidebarListItemStyles = createUseStyles({
     root: {
-        marginBottom: theme.spacing(1),
+        width: '100%',
+        height: '100vh',
+        overflowY: 'scroll',
+        boxSizing: 'content-box',
     },
     list: {
         listStyle: "none",
         overflow: "hidden",
-        marginTop: theme.spacing(2),
-        paddingLeft: theme.spacing(2),
-        transition: theme.transitions.create(["max-height"], {
-            duration: theme.transitions.duration.standard,
-        }),
+        padding: 0
     },
     listItem: {
-        margin: `${theme.spacing(1)} 0`,
+        margin: 0,
+        padding: 0,
         "& h5": {
             textTransform: "uppercase",
         },
+        borderBottom: '1px solid #E8E8E8',
+        marginRight: '10px',
     },
     label: {},
     chevronIcon: {
         transition: "transform 0.1s ease-in",
+        width: '24px',
+        height: '24px'
     },
     button: {
-        width: "100%",
+        width: '200px',
+        backgroundColor: 'white',
+        color: '#343E37',
+        fontSize: '14px',
+        fontWeight: 700,
+        display: 'flex',
+        justifyContent: 'space-between',
+        textAlign: 'left',
+        opacity: 1
     },
     isVisible: {
         minHeight: 200,
@@ -36,22 +47,49 @@ export const useSidebarListItemStyles = makeStyles((theme: Theme) => ({
     },
     innerList: {
         listStyle: "none",
-        marginTop: theme.spacing(1),
-        paddingLeft: theme.spacing(2),
+        display: 'flex',
+        flexDirection: 'column',
+        justifyContent: 'center',
+        alignItems: 'left',
+        gap: '10px',
+        padding: 0,
     },
-    innerListItem: {},
+    innerListItem: {
+        background: '#FFFFFF 0% 0% no-repeat padding-box',
+        borderRadius: '1px',
+        width: '200px',
+        height: '33px',
+        color: '#010E05',
+        display: 'flex',
+        justifyContent: 'start',
+        alignItems: 'center'
+    },
     link: {
-        display: "flex",
-        cursor: "pointer",
-        borderRadius: theme.spacing(1),
-        padding: `${theme.spacing(1)} ${theme.spacing(2)} ${theme.spacing(1)} ${theme.spacing(
-            1.5,
-        )}`,
-        transition: theme.transitions.create(["background-color"]),
-        textDecoration: "none",
-        color: "inherit",
+        width: '100%',
+        fontSize: '12px',
+        textAlign: 'left',
+        padding: '0 20px',
+        textDecoration: 'none',
+        color: '#010E05',
+        display: 'flex',
+        justifyContent: 'start',
+        alignItems: 'center'
+
+
     },
     linkActive: {
-        backgroundColor: theme.design.colors.waz_gray,
+        background: '#010E05 0% 0% no-repeat padding-box',
+        color: '#FAFAFA',
+        fontWeight: 600,
+        fontSize: '12px',
+        borderRadius: '1px',
+        padding: '0 20px',
+        height: '33px',
     },
-}));
+
+    sectionLabel: {
+        color: '#343E37',
+        fontWeight: 'normal',
+        fontSize: '8px',
+    }
+});

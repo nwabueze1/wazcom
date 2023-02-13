@@ -81,14 +81,14 @@ export var ColumnSelector = function (_a) {
                         }).includes(column.name), color: "success", className: classes.columnCheckBox, classNames: { classes: { root: classes.columnCheckBoxRoot } }, onChange: function (_a) {
                         var checked = _a.value;
                         handleCheckChange(column.key, checked);
-                    } }, void 0), typeof column.name === "string" ? column.name : column.key] }), index)); });
+                    } }), typeof column.name === "string" ? column.name : column.key] }), index)); });
     };
     return (_jsx(ClickAwayListener, __assign({ onClickAway: function () {
             setShowColumns(false);
         } }, { children: _jsxs("div", __assign({ className: classes.root }, { children: [_jsx("p", __assign({ onClick: function () {
                         setShowColumns(!showColumns);
-                    }, className: classes.columnBoxText }, { children: "Table Columns" }), void 0), _jsx(AiOutlineCaretDown, { className: clx(classes.columnBoxIcon, showColumns && classes.columnBoxIconActive) }, void 0), _jsxs("div", __assign({ className: clx(classes.columnList, showColumns && classes.columnListActive) }, { children: [_jsxs("div", __assign({ className: classes.column }, { children: [_jsx(CheckBoxInput, { value: !columnFilters ? true : columns.length === columnFilters.length, className: classes.columnCheckBox, classNames: { classes: { root: classes.columnCheckBoxRoot } }, onChange: function (_a) {
+                    }, className: classes.columnBoxText }, { children: "Table Columns" })), _jsx(AiOutlineCaretDown, { className: clx(classes.columnBoxIcon, showColumns && classes.columnBoxIconActive) }), _jsxs("div", __assign({ className: clx(classes.columnList, showColumns && classes.columnListActive) }, { children: [_jsxs("div", __assign({ className: classes.column }, { children: [_jsx(CheckBoxInput, { value: !columnFilters ? true : columns.length === columnFilters.length, className: classes.columnCheckBox, classNames: { classes: { root: classes.columnCheckBoxRoot } }, onChange: function (_a) {
                                         var checked = _a.value;
                                         handleCheckChange("", checked, true);
-                                    } }, void 0), "All Columns"] }), void 0), renderColumns()] }), void 0)] }), void 0) }), void 0));
+                                    } }), "All Columns"] })), renderColumns()] }))] })) })));
 };

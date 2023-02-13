@@ -1,4 +1,4 @@
-export declare type CartItemsProps = {
+export type CartItemsProps = {
     setContextProps?: (contextProps: {
         [key: string]: any;
     }) => void;

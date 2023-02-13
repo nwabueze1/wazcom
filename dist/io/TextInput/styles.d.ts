@@ -1,1 +1,3 @@
-export declare const useTextStyles: (props?: any) => import("@mui/styles").ClassNameMap<"root" | "label" | "required">;
+import { TextInputIconStyleProps, TextBaseProps } from "./types";
+export declare const useTextStyles: (props: TextBaseProps) => import("@mui/styles").ClassNameMap<"root" | "input" | "label" | "required" | "labelWrapper" | "baseInput" | "baseTextArea" | "defaultInput" | "focusedInput" | "errorInput" | "successInput" | "textAreaContainer" | "textAreaInput" | "wordCount" | "helperTextDefault" | "helperTextSuccess" | "helperTextError">;
+export declare const useTextInputIconStyles: (props: TextInputIconStyleProps) => import("@mui/styles").ClassNameMap<"root" | "iconSpacing">;

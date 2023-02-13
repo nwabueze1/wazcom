@@ -12,6 +12,7 @@ export const useSortSelectorStyles = makeStyles((theme: Theme) => ({
         justifyContent: 'space-between',
         alignItems: 'center',
         color: theme.design.colors.waz_grey1,
+        border: `1px solid ${theme.design.colors.primary700}`,
     },
     sortDetails: {
         display: 'flex',
@@ -22,7 +23,7 @@ export const useSortSelectorStyles = makeStyles((theme: Theme) => ({
         width: '100%',
     },
     sortText: {
-        fontSize: theme.typography.fontSize + 1,
+        fontSize: theme.typography.fontSize,
     },
     sortIcon: {
         fontSize: theme.typography.fontSize + 12,

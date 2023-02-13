@@ -1,5 +1,5 @@
 import { FormControls } from "../FormControl";
-export declare type GroupedInputProps = {
+export type GroupedInputProps = {
     name: string;
     controls: FormControls[];
 };

@@ -8,8 +8,8 @@ export const Layout: React.FC<LayoutProps> = ({ className, count, onclick }) => 
     const classes = useLayoutStyles();
     return (
         <div className={clx(classes.root, className)} onClick={onclick}>
-            {_.times(count, () => (
-                <div className={classes.innerBox}></div>
+            {_.times(count, (index) => (
+                <div key={index} className={classes.innerBox}></div>
             ))}
         </div>
     );

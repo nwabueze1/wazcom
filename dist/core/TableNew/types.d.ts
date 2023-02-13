@@ -1,23 +1,26 @@
-import React from 'react';
 import { ApolloClient, NormalizedCacheObject } from "@apollo/client";
 import { DocumentNode } from "graphql";
 import { CommonProps } from "../../types";
-export declare type TableNewProps = CommonProps & {
+export type TableNewProps = CommonProps & {
     columns: TableColumn[];
     conditionFilters?: TableConditionFilter[];
     getRows: (data: any, classes?: any) => {
         [key: string]: JSX.Element | string | number;
     }[];
     query: TableQuery;
-    EmptyState?: React.ReactElement;
     showFilters?: boolean;
+    emptyState?: {
+        heading?: string;
+        message?: string;
+    };
 };
-export declare type TableColumn = {
+export type TableColumn = {
     name: string | JSX.Element;
     key: string;
-    type: 'string' | 'number' | 'date';
+    type: "string" | "number" | "date";
+    actions?: TableColumnAction[];
 };
-export declare type TableQuery = {
+export type TableQuery = {
     name: DocumentNode;
     client: ApolloClient<NormalizedCacheObject>;
     variables?: {
@@ -25,21 +28,26 @@ export declare type TableQuery = {
     };
     dataKey: string;
 };
-export declare type TableFilter = {
+export type TableFilter = {
     column: string;
     operator: string;
     value: string;
 };
-export declare type TableConditionFilter = {
+export type TableConditionFilter = {
     name: string;
-    condition: (element: any) => boolean;
+    condition: (element: any) => any[];
 };
-export declare type TableSort = {
+export type TableSort = {
     column: string;
-    order: 'asc' | 'desc';
+    order: "asc" | "desc";
 };
-export declare type TablePagination = {
+export type TablePagination = {
     currentPage: number;
     lastPage: number;
     count: number;
+};
+export type TableColumnAction = {
+    name: string;
+    func: (data?: any) => void;
+    verify?: (data?: any) => boolean;
 };

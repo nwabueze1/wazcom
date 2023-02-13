@@ -37,7 +37,7 @@ export var TablePagination = function (_a) {
             return;
         setTablePagination({ count: count, lastPage: lastPage, currentPage: currentPage + 1 });
     };
-    return (_jsxs("div", __assign({ className: classes.root }, { children: [_jsxs("div", __assign({ className: clx(classes.paginationDirection, currentPage > 1 && classes.paginationDirectionActive), onClick: handlePreviousClick }, { children: [_jsx(BsFillCaretLeftFill, { className: classes.paginationDirectionIcon }, void 0), _jsx("p", { children: "Previous" }, void 0)] }), void 0), _jsxs("div", __assign({ className: classes.paginationRows }, { children: [_jsx("p", { children: "Rows per page" }, void 0), _jsx(SelectInput, { className: classes.paginationSelect, classNames: {
+    return (_jsxs("div", __assign({ className: classes.root }, { children: [_jsxs("div", __assign({ className: clx(classes.paginationDirection, currentPage > 1 && classes.paginationDirectionActive), onClick: handlePreviousClick }, { children: [_jsx(BsFillCaretLeftFill, { className: classes.paginationDirectionIcon }), _jsx("p", { children: "Previous" })] })), _jsxs("div", __assign({ className: classes.paginationRows }, { children: [_jsx("p", { children: "Rows per page" }), _jsx(SelectInput, { className: classes.paginationSelect, classNames: {
                             classes: {
                                 select: classes.paginationSelectInput,
                                 icon: classes.paginationSelectInputIcon,
@@ -51,5 +51,5 @@ export var TablePagination = function (_a) {
                         ], onChange: function (_a) {
                             var count = _a.value;
                             setTablePagination({ currentPage: currentPage, lastPage: lastPage, count: Number(count) });
-                        }, value: String(count) }, void 0)] }), void 0), _jsx("div", __assign({ className: classes.paginationPages }, { children: renderPages() }), void 0), _jsxs("div", __assign({ className: clx(classes.paginationDirection, currentPage < lastPage && classes.paginationDirectionActive), onClick: handleNextClick }, { children: [_jsx("p", { children: "Next" }, void 0), _jsx(BsFillCaretRightFill, { className: classes.paginationDirectionIcon }, void 0)] }), void 0)] }), void 0));
+                        }, value: String(count) })] })), _jsx("div", __assign({ className: classes.paginationPages }, { children: renderPages() })), _jsxs("div", __assign({ className: clx(classes.paginationDirection, currentPage < lastPage && classes.paginationDirectionActive), onClick: handleNextClick }, { children: [_jsx("p", { children: "Next" }), _jsx(BsFillCaretRightFill, { className: classes.paginationDirectionIcon })] }))] })));
 };

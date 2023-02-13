@@ -1,6 +1,6 @@
 import { ApolloClient, NormalizedCacheObject } from "@apollo/client";
 import { CommonProps } from "types";
-export declare type GqlComboBoxProps = CommonProps & {
+export type GqlComboBoxProps = CommonProps & {
     config: {
         client: ApolloClient<NormalizedCacheObject>;
         type: "query";

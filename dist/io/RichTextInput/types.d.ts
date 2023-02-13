@@ -1,7 +1,6 @@
-/// <reference types="react" />
 import { CommonProps } from "../../types";
 import { ApolloClient, NormalizedCacheObject } from "@apollo/client";
-export declare type RichTextInputProps = CommonProps & {
+export type RichTextInputProps = CommonProps & {
     label?: string;
     apiKey: string;
     value: string;
@@ -12,10 +11,10 @@ export declare type RichTextInputProps = CommonProps & {
     Loader?: JSX.Element;
     error?: boolean;
 };
-export declare type SizeFields = {
+export type SizeFields = {
     [key in "desktop" | "tablet" | "mobile"]: string;
 };
-export declare type ImageProperties = {
+export type ImageProperties = {
     url: string;
     width: SizeFields;
     height: SizeFields;

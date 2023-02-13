@@ -46,7 +46,7 @@ export var SortSelector = function (_a) {
                             setActiveColumnKey(undefined);
                         }, handleSort: function (order) {
                             handleSelectSort(order, key);
-                        } }, void 0))] }), index));
+                        } }))] }), index));
         });
     };
     return (_jsx(ClickAwayListener, __assign({ onClickAway: function () {
@@ -55,5 +55,5 @@ export var SortSelector = function (_a) {
         } }, { children: _jsxs("div", __assign({ className: classes.root }, { children: [_jsxs("div", __assign({ className: classes.sortDetails, onClick: function () {
                         setShowColumns(!showColumns);
                         setActiveColumnKey(undefined);
-                    } }, { children: [_jsx("p", __assign({ className: classes.sortText }, { children: "Sort" }), void 0), _jsx(CgSortAz, { className: classes.sortIcon }, void 0)] }), void 0), _jsxs("div", __assign({ className: clx(classes.sortColumns, showColumns && classes.sortColumnsActive) }, { children: [_jsx("p", __assign({ className: classes.sortHeading }, { children: "Sort by" }), void 0), renderColumns()] }), void 0)] }), void 0) }), void 0));
+                    } }, { children: [_jsx("p", __assign({ className: classes.sortText }, { children: "Sort" })), _jsx(CgSortAz, { className: classes.sortIcon })] })), _jsxs("div", __assign({ className: clx(classes.sortColumns, showColumns && classes.sortColumnsActive) }, { children: [_jsx("p", __assign({ className: classes.sortHeading }, { children: "Sort by" })), renderColumns()] }))] })) })));
 };

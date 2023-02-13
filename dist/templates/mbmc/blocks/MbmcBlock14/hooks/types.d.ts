@@ -1,4 +1,4 @@
-export declare type TUpdateCartItemQuantityVariables = {
+export type TUpdateCartItemQuantityVariables = {
     uuid: string;
     quantity: number;
 };

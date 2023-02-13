@@ -53,6 +53,7 @@ interface LogoWrapperProps {
     handleClick: (route: string) => void;
     className?: string;
     parentKey?: string;
+    children?: React.ReactNode;
 }
 
 const LogoWrapper: FC<LogoWrapperProps> = ({

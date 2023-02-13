@@ -1,5 +1,5 @@
 import { BlockLayout, BlockCta, MbmcCommonProps } from "templates/mbmc/types";
-export declare type MbmcBlock1Props = MbmcCommonProps & {
+export type MbmcBlock1Props = MbmcCommonProps & {
     layout?: BlockLayout;
     heading: string;
     description?: string;
@@ -7,4 +7,4 @@ export declare type MbmcBlock1Props = MbmcCommonProps & {
     ctas?: BlockCta[];
     fullHeight?: boolean;
 };
-export declare type MbmcBlock1StyleProps = Pick<MbmcBlock1Props, 'fullHeight'>;
+export type MbmcBlock1StyleProps = Pick<MbmcBlock1Props, 'fullHeight'>;

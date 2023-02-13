@@ -25,5 +25,5 @@ export var Filter = function (_a) {
                 return operator === ">" ? ": in the last " : ": before ";
         }
     };
-    return (_jsxs("div", __assign({ className: classes.root }, { children: [_jsx("span", __assign({ className: classes.filterColumn }, { children: typeof name === "string" ? name : column.replace(/./g, " ") }), void 0), getRelation(), value, _jsx(AiOutlineClose, { className: classes.filterCloseIcon, onClick: handleDelete }, void 0)] }), void 0));
+    return (_jsxs("div", __assign({ className: classes.root }, { children: [_jsx("span", __assign({ className: classes.filterColumn }, { children: typeof name === "string" ? name : column.replace(/./g, " ") })), getRelation(), value, _jsx(AiOutlineClose, { className: classes.filterCloseIcon, onClick: handleDelete })] })));
 };

@@ -23,10 +23,10 @@ export var MbmcBlock8 = function (_a) {
     return (_jsx("div", __assign({ className: classes.root }, { children: _jsxs("div", __assign({ className: classes.headerContainer }, { children: [_jsxs("div", __assign({ className: classes.headerContent }, { children: [_jsx("h3", __assign({ className: clx(classes.headerTitle, activeElement === "".concat(String(index), ".heading") &&
                                 classes.block8ActiveElement), onClick: function () {
                                 handleElementClick(mode, "".concat(String(index), ".heading"), handleClick);
-                            } }, { children: heading }), void 0), _jsx("p", __assign({ className: clx(classes.headerDescription, activeElement === "".concat(String(index), ".description") &&
+                            } }, { children: heading })), _jsx("p", __assign({ className: clx(classes.headerDescription, activeElement === "".concat(String(index), ".description") &&
                                 classes.block8ActiveElement), onClick: function () {
                                 handleElementClick(mode, "".concat(String(index), ".description"), handleClick);
-                            } }, { children: description }), void 0)] }), void 0), _jsx("div", __assign({ className: classes.headerCardContainer }, { children: _jsx(Carousel2, { classNames: { button: classes.navigationButton }, items: splitData.map(function (data, splitIndex) {
+                            } }, { children: description }))] })), _jsx("div", __assign({ className: classes.headerCardContainer }, { children: _jsx(Carousel2, { classNames: { button: classes.navigationButton }, items: splitData.map(function (data, splitIndex) {
                             return {
                                 component: (_jsx("div", __assign({ className: classes.carouselComponent }, { children: data.map(function (item, cardIndex) {
                                         var parentKey = String(index) +
@@ -35,11 +35,11 @@ export var MbmcBlock8 = function (_a) {
                                         return (_jsx(TestimonialCard, { text: item.content.length > 135
                                                 ? item.content.slice(0, 133) + "..."
                                                 : item.content, name: item.name, type: item.role, parentKey: parentKey, mode: mode, handleClick: handleClick, activeElement: activeElement }, cardIndex));
-                                    }) }), void 0)),
+                                    }) }))),
                             };
-                        }), className: classes.carousel }, void 0) }), void 0), _jsx("div", __assign({ className: classes.headerCardContainerMobile }, { children: _jsx(Carousel2, { items: cards.map(function (item, idx) { return ({
+                        }), className: classes.carousel }) })), _jsx("div", __assign({ className: classes.headerCardContainerMobile }, { children: _jsx(Carousel2, { items: cards.map(function (item, idx) { return ({
                             component: (_jsx("div", __assign({ className: classes.carouselComponent }, { children: _jsx(TestimonialCard, { text: item.content.length > 135
                                         ? item.content.slice(0, 133) + "..."
-                                        : item.content, name: item.name, type: item.role }, idx) }), void 0)),
-                        }); }), className: classes.carousel, classNames: { button: classes.navigationButton, arrow: classes.arrow } }, void 0) }), void 0)] }), void 0) }), void 0));
+                                        : item.content, name: item.name, type: item.role }, idx) }))),
+                        }); }), className: classes.carousel, classNames: { button: classes.navigationButton, arrow: classes.arrow } }) }))] })) })));
 };

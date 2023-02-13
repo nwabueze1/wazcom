@@ -1,5 +1,5 @@
 import { TableColumn, TableConditionFilter, TableSort } from "../../types";
-export declare type TableActionsProps = {
+export type TableActionsProps = {
     currentActions: {
         [key in "search" | "sort" | "conditionFilter" | "columnFilters"]: string | (TableSort[] | undefined) | (TableConditionFilter | undefined) | (TableColumn[] | undefined);
     };

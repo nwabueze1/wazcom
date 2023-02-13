@@ -17,39 +17,51 @@ export const useSortOptionsStyles = makeStyles((theme: Theme) => ({
         gap: theme.spacing(1),
         padding: theme.spacing(1, 1.25),
         marginBottom: theme.spacing(0.5),
-        background: 'transparent',
-        transition: 'all 0.3s ease-in',
+        background: "transparent",
+        transition: "all 0.3s ease-in",
     },
     sortOptionActive: {
         background: theme.design.colors.waz_lightGreen,
     },
     sortOptionRadio: {
         padding: 0,
-        color: `${theme.design.colors.waz_primaryColor100} !important`,
+        color: "rgba(0,0,0,0.06)",
+
+        "&.Mui-checked": {
+            color: `${theme.design.colors.waz_primaryColor100} !important`,
+        },
     },
     sortOptionText: {
         fontSize: theme.typography.fontSize,
+        margin: 0,
+        color: theme.design.colors.waz_grey1,
     },
     sortOptionsButtons: {
         display: "flex",
-        padding: theme.spacing(0, 2),
+        padding: theme.spacing(0, 1.5),
         gap: theme.spacing(1),
     },
     sortOptionButtonSecondary: {
-        fontWeight: theme.typography.fontWeightRegular,
-        background: theme.design.colors.waz_white,
-        color: theme.design.colors.waz_black,
-        border: `1px solid #CEE3D4`,
-        fontSize: theme.typography.fontSize - 1,
-        padding: theme.spacing(0.5, 1),
+        fontWeight: `${theme.typography.fontWeightRegular} !important`,
+        background: `${theme.design.colors.waz_white} !important`,
+        color: `${theme.design.colors.waz_black} !important`,
+        border: `1px solid #CEE3D4 !important`,
+        fontSize: `${theme.typography.fontSize - 1}px !important`,
+        padding: `${theme.spacing(0.75, 1.25)} !important`,
+        fontFamily: `${theme.design.font.openSans} !important`,
+        width: "unset !important",
+        height: "unset !important",
 
         "&:hover": {
-            background: theme.design.colors.waz_white,
-        }
+            background: `${theme.design.colors.waz_white} !important`,
+        },
     },
     sortOptionButtonPrimary: {
-        fontWeight: theme.typography.fontWeightRegular,
-        fontSize: theme.typography.fontSize - 1,
-        padding: theme.spacing(0.5, 1),
+        fontWeight: `${theme.typography.fontWeightRegular} !important`,
+        fontSize: `${theme.typography.fontSize - 1}px !important`,
+        padding: `${theme.spacing(0.75, 1.5)} !important`,
+        fontFamily: `${theme.design.font.openSans} !important`,
+        width: "unset !important",
+        height: "unset !important",
     },
 }));

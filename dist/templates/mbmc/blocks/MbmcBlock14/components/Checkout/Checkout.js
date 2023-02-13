@@ -43,7 +43,7 @@ export var Checkout = function (_a) {
             name: "Summary",
             StepComponent: (_jsx(Summary, { handleCheckout: function () {
                     setActiveStep(1);
-                } }, void 0)),
+                } })),
             handleEdit: function () {
                 setActiveStep(0);
             },
@@ -52,14 +52,14 @@ export var Checkout = function (_a) {
             name: "Delivery Details",
             StepComponent: (_jsx(Delivery, { onSubmission: function () {
                     setActiveStep(2);
-                } }, void 0)),
+                } })),
             handleEdit: function () {
                 setActiveStep(1);
             },
         },
         {
             name: "Make Payment",
-            StepComponent: _jsx(Payment, {}, void 0),
+            StepComponent: _jsx(Payment, {}),
             handleEdit: function () {
                 setActiveStep(2);
             },
@@ -68,5 +68,5 @@ export var Checkout = function (_a) {
     var displaySteps = useCallback(function () {
         return steps.map(function (step, index) { return (_jsx(CheckoutStep, __assign({}, step, { isActive: activeStep === index }), index)); });
     }, [activeStep]);
-    return (_jsxs("div", __assign({ className: classes.root }, { children: [_jsxs("div", __assign({ className: classes.checkoutTitle, onClick: function () { setDisplay(false); } }, { children: [_jsx(BsArrowLeft, {}, void 0), _jsxs("p", { children: ["Items (", (_c = (_b = cart === null || cart === void 0 ? void 0 : cart.cartItems) === null || _b === void 0 ? void 0 : _b.length) !== null && _c !== void 0 ? _c : 0, ")"] }, void 0)] }), void 0), displaySteps()] }), void 0));
+    return (_jsxs("div", __assign({ className: classes.root }, { children: [_jsxs("div", __assign({ className: classes.checkoutTitle, onClick: function () { setDisplay(false); } }, { children: [_jsx(BsArrowLeft, {}), _jsxs("p", { children: ["Items (", (_c = (_b = cart === null || cart === void 0 ? void 0 : cart.cartItems) === null || _b === void 0 ? void 0 : _b.length) !== null && _c !== void 0 ? _c : 0, ")"] })] })), displaySteps()] })));
 };

@@ -90,14 +90,14 @@ export var Option = function (_a) {
             var amount = (type === "deselection" ? "-" : "+") + currency + (config === null || config === void 0 ? void 0 : config.amount);
             var name = config === null || config === void 0 ? void 0 : config.name;
             var isChecked = Boolean(selectedChoices.find(function (choice) { return choice.name === name && choice.amount === amount.slice(2); }));
-            var picker = type === "selection" ? (_jsx(RadioButtonInput, { value: isChecked, classNames: { radioButtonInput: classes.optionPicker } }, void 0)) : (_jsx(CheckBoxInput, { value: isChecked, classNames: { checkBoxInput: classes.optionPicker } }, void 0));
+            var picker = type === "selection" ? (_jsx(RadioButtonInput, { value: isChecked, classNames: { radioButtonInput: classes.optionPicker } })) : (_jsx(CheckBoxInput, { value: isChecked, classNames: { checkBoxInput: classes.optionPicker } }));
             return (_jsxs("div", __assign({ onClick: function () {
                     updateSelectedOptions(!isChecked, {
                         name: name,
                         amount: amount.slice(2),
                     });
-                }, className: classes.option }, { children: [_jsxs("div", __assign({ className: classes.optionPickerParent }, { children: [picker, _jsx("p", __assign({ className: classes.optionText }, { children: name }), void 0)] }), void 0), _jsxs("p", __assign({ className: classes.optionAmount }, { children: [(type === "deselection" ? "-" : (config === null || config === void 0 ? void 0 : config.amount) == 0 ? "" : "+") +
-                                ((config === null || config === void 0 ? void 0 : config.amount) !== 0 ? currency : ""), config === null || config === void 0 ? void 0 : config.amount] }), void 0)] }), index));
+                }, className: classes.option }, { children: [_jsxs("div", __assign({ className: classes.optionPickerParent }, { children: [picker, _jsx("p", __assign({ className: classes.optionText }, { children: name }))] })), _jsxs("p", __assign({ className: classes.optionAmount }, { children: [(type === "deselection" ? "-" : (config === null || config === void 0 ? void 0 : config.amount) == 0 ? "" : "+") +
+                                ((config === null || config === void 0 ? void 0 : config.amount) !== 0 ? currency : ""), config === null || config === void 0 ? void 0 : config.amount] }))] }), index));
         });
     }, [selectedChoices, handleUpdateSelectedOptions]);
     var displayOption = function () {
@@ -108,5 +108,5 @@ export var Option = function (_a) {
                 return "You can pick multiple options";
         }
     };
-    return (_jsxs("div", __assign({ className: classes.root }, { children: [_jsxs("div", __assign({ className: classes.optionDescription }, { children: [_jsxs("div", { children: [_jsx("p", __assign({ className: classes.optionName }, { children: name }), void 0), _jsx("p", __assign({ className: classes.optionHelperText }, { children: displayOption() }), void 0)] }, void 0), type === 'selection' && _jsx("span", __assign({ className: classes.optionRequired }, { children: "REQUIRED" }), void 0)] }), void 0), displayConfig()] }), void 0));
+    return (_jsxs("div", __assign({ className: classes.root }, { children: [_jsxs("div", __assign({ className: classes.optionDescription }, { children: [_jsxs("div", { children: [_jsx("p", __assign({ className: classes.optionName }, { children: name })), _jsx("p", __assign({ className: classes.optionHelperText }, { children: displayOption() }))] }), type === 'selection' && _jsx("span", __assign({ className: classes.optionRequired }, { children: "REQUIRED" }))] })), displayConfig()] })));
 };

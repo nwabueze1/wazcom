@@ -56,7 +56,7 @@ export var TableFilters = function (_a) {
                     setActiveColumnKey(key);
                 } }, { children: [columnName, activeColumnKey === key && (_jsx(FilterSelector, { className: classes.filterSelector, column: columns.find(function (column) { return column.key === activeColumnKey; }), handleSelectFilter: handleSelectFilter, handleClose: function () {
                             setActiveColumnKey(undefined);
-                        } }, void 0))] }), index));
+                        } }))] }), index));
         });
     };
     var handleSelectFilter = function (filter) {
@@ -85,5 +85,5 @@ export var TableFilters = function (_a) {
                 } }, { children: _jsxs("div", __assign({ className: classes.filterAddIconParent }, { children: [_jsx("span", __assign({ className: classes.filterAddIcon, onClick: function () {
                                 showFilters && setActiveColumnKey(undefined);
                                 setShowFilters(!showFilters);
-                            } }, { children: _jsx(AiOutlinePlus, {}, void 0) }), void 0), _jsx("div", __assign({ className: clx(classes.filterColumns, showFilters && classes.filterColumnsActive) }, { children: renderColumns() }), void 0)] }), void 0) }), void 0)] }), void 0));
+                            } }, { children: _jsx(AiOutlinePlus, {}) })), _jsx("div", __assign({ className: clx(classes.filterColumns, showFilters && classes.filterColumnsActive) }, { children: renderColumns() }))] })) }))] })));
 };

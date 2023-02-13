@@ -75,8 +75,7 @@ export const MediaLibrary: FC<MediaLibraryProps> = ({ className }) => {
                 <Uploader ref={fileRef} />
                 <div className={classes.actions}>
                     <Button
-                        color="primary"
-                        startIcon={<IoCloudUploadOutline />}
+                        leftIcon={<IoCloudUploadOutline />}
                         onClick={handleFileSelect}
                     >
                         Upload Image

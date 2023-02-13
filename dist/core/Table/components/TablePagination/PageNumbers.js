@@ -57,14 +57,14 @@ export var PageNumbers = function (_a) {
         if (pages.length < 5) {
             return pages.map(function (page, index) { return (_jsx(PageNumber, { page: page, onPageChange: onPageChange, currentPage: currentPage }, index)); });
         }
-        var leftPages = leftPageNumbers.map(function (page, index) { return (_jsx(PageNumber, { page: page, onPageChange: onPageChange, currentPage: currentPage }, index)); });
-        var rightPages = initialRightPageNumbers.map(function (page, index) { return (_jsx(PageNumber, { page: page, onPageChange: onPageChange, currentPage: currentPage }, index)); });
+        var leftPages = leftPageNumbers.map(function (page, leftIndex) { return (_jsx(PageNumber, { page: page, onPageChange: onPageChange, currentPage: currentPage }, leftIndex)); });
+        var rightPages = initialRightPageNumbers.map(function (page, rightIndex) { return (_jsx(PageNumber, { page: page, onPageChange: onPageChange, currentPage: currentPage }, rightIndex)); });
         var dots = initialRemainingNumbers[n * pageRangeDisplayed] ? (_jsx("span", __assign({ className: clx(classes.pageNumber), onClick: function () {
                 var newArr = __spreadArray(__spreadArray([], __read(leftPageNumbers), false), __read(initialRemainingNumbers.slice(n * pageRangeDisplayed, (n + 1) * pageRangeDisplayed)), false);
                 setN(function (n) { return n + 1; });
                 setLeftPages(newArr.slice(-pageRangeDisplayed));
-            } }, { children: "..." }), void 0)) : (_jsx(_Fragment, {}, void 0));
+            } }, { children: "..." }))) : (_jsx(_Fragment, {}));
         return [leftPages, dots, rightPages];
     };
-    return _jsx("div", __assign({ className: clx(classes.text) }, { children: renderNumbers() }), void 0);
+    return _jsx("div", __assign({ className: clx(classes.text) }, { children: renderNumbers() }));
 };

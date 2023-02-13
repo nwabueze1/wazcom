@@ -1,4 +1,4 @@
-export declare type StepHeaderProps = {
+export type StepHeaderProps = {
     name: string;
     handleEdit?: () => void;
 };

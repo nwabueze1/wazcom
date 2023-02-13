@@ -1,5 +1,5 @@
 import { CommonProps } from "../../types";
-export declare type ImageSelectorProps = CommonProps & {
+export type ImageSelectorProps = CommonProps & {
     variant: "circle" | "square";
     src?: string;
     size?: "sm" | "md" | "lg" | "xl" | "full";

@@ -30,7 +30,7 @@ export const Form: React.FC<FormProps> = ({
                 size="sm"
                 type="submit"
                 className={classes.formButton}
-                loading={loading && networkOperationCtxt === networkOperation}
+                isLoading={loading && networkOperationCtxt === networkOperation}
             >
                 {submitButtonText}
             </MbmcButton>

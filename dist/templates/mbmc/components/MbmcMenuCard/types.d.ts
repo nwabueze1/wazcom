@@ -1,4 +1,4 @@
-export declare type MbmcMenuCardProps = {
+export type MbmcMenuCardProps = {
     onClick?: () => void;
     name?: string;
     description?: string;
@@ -6,6 +6,6 @@ export declare type MbmcMenuCardProps = {
     price?: string | number;
     startPrice?: string | number;
 };
-export declare type StyleProps = {
+export type StyleProps = {
     isOpen?: boolean;
 };

@@ -1,11 +1,10 @@
-/// <reference types="react" />
 import { NavProps } from "./types";
 export declare const renderNavLink: ({ url, text }: {
     url: string;
     text: string;
-}, mode: "view" | "edit", index: number, classes: any, activeElement: string, handleClick: (element: string) => void, parentKey?: string | undefined) => JSX.Element;
+}, mode: "view" | "edit", index: number, classes: any, activeElement: string, handleClick: (element: string) => void, parentKey?: string) => JSX.Element;
 export declare const renderNavLogo: (mode: "view" | "edit", classes: any, activeElement: string, handleClick: (element: string) => void, logo?: {
-    src?: string | undefined;
+    src?: string;
     url: string;
-} | undefined, identifier?: string | undefined) => JSX.Element;
+}, identifier?: string) => JSX.Element;
 export declare const displaySocials: (socials: NavProps["socials"], mode: "view" | "edit", classes: any, activeElement: string, handleClick: (element: string) => void) => JSX.Element[] | undefined;

@@ -1,12 +1,11 @@
-/// <reference types="react" />
 export declare const contols: ({
     name: string;
     cmd: string;
-    icon: JSX.Element;
+    Icon: import("react-icons/lib").IconType;
     arg?: undefined;
 } | {
     name: string;
-    icon: JSX.Element;
+    Icon: import("react-icons/lib").IconType;
     cmd: string;
     arg: string;
 })[];

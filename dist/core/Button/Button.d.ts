@@ -1,3 +1,2 @@
-/// <reference types="react" />
 import { ButtonProps } from "./types";
-export declare const Button: ({ className, variant, loading, children, ...props }: ButtonProps) => JSX.Element;
+export declare const Button: ({ width, height, className, variant, children, isDisabled, isLoading, isActive, leftIcon, rightIcon, iconSpacing, ...props }: ButtonProps) => JSX.Element;

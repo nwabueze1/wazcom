@@ -16,12 +16,12 @@ import { clickAction, isNotRenderAnchor } from "./anchor";
 export var displayLogo = function (mode, classes, activeElement, handleClick, logo, parentKey) {
     var _a;
     var url = (_a = logo === null || logo === void 0 ? void 0 : logo.url) !== null && _a !== void 0 ? _a : "#";
-    return (_jsx(LogoWrapper, __assign({ mode: mode, url: url, handleClick: handleClick, className: activeElement === (parentKey !== null && parentKey !== void 0 ? parentKey : "footer_logo") ? classes.activeElement : undefined, parentKey: parentKey }, { children: _jsx(Logo, __assign({ mode: mode, classes: classes }, logo), void 0) }), void 0));
+    return (_jsx(LogoWrapper, __assign({ mode: mode, url: url, handleClick: handleClick, className: activeElement === (parentKey !== null && parentKey !== void 0 ? parentKey : "footer_logo") ? classes.activeElement : undefined, parentKey: parentKey }, { children: _jsx(Logo, __assign({ mode: mode, classes: classes }, logo)) })));
 };
 var hivedeckLogo = "https://sytbuildr.s3.eu-west-2.amazonaws.com/images/logo/hivedeck_logo.svg";
 var Logo = function (_a) {
     var mode = _a.mode, src = _a.src, text = _a.text, classes = _a.classes;
-    return (_jsxs("div", __assign({ className: classes.footerLogoParent }, { children: [mode === "edit" && !src ? (_jsx(AiOutlinePicture, { className: classes.footerLogo }, void 0)) : (_jsx("img", { src: src !== null && src !== void 0 ? src : hivedeckLogo, alt: "", className: classes.footerLogo }, void 0)), text && _jsx("p", __assign({ className: classes.footerLogoText }, { children: text }), void 0)] }), void 0));
+    return (_jsxs("div", __assign({ className: classes.footerLogoParent }, { children: [mode === "edit" && !src ? (_jsx(AiOutlinePicture, { className: classes.footerLogo })) : (_jsx("img", { src: src !== null && src !== void 0 ? src : hivedeckLogo, alt: "", className: classes.footerLogo })), text && _jsx("p", __assign({ className: classes.footerLogoText }, { children: text }))] })));
 };
 var LogoWrapper = function (_a) {
     var mode = _a.mode, url = _a.url, children = _a.children, handleClick = _a.handleClick, parentKey = _a.parentKey, className = _a.className;
@@ -31,6 +31,6 @@ var LogoWrapper = function (_a) {
                 clickAction(url, mode, function () {
                     handleClick(mode === "view" ? url : parentKey !== null && parentKey !== void 0 ? parentKey : "footer_logo");
                 });
-            }, className: className }, { children: children }), void 0));
-    return _jsx(Link, __assign({ href: url }, { children: children }), void 0);
+            }, className: className }, { children: children })));
+    return _jsx(Link, __assign({ href: url }, { children: children }));
 };

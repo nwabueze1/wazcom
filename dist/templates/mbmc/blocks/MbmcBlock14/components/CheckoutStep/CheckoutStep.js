@@ -16,5 +16,5 @@ import { StepHeader } from "./StepHeader";
 export var CheckoutStep = function (_a) {
     var name = _a.name, StepComponent = _a.StepComponent, _b = _a.isActive, isActive = _b === void 0 ? false : _b, handleEdit = _a.handleEdit;
     var classes = useCheckoutStepStyles();
-    return (_jsxs("div", __assign({ className: classes.root }, { children: [_jsx("div", __assign({ className: classes.stepHeading }, { children: isActive ? (_jsx("p", __assign({ className: clx(classes.stepTitle, isActive && classes.stepTitleActive) }, { children: name }), void 0)) : (_jsx(StepHeader, { name: name, handleEdit: handleEdit }, void 0)) }), void 0), isActive && StepComponent] }), void 0));
+    return (_jsxs("div", __assign({ className: classes.root }, { children: [_jsx("div", __assign({ className: classes.stepHeading }, { children: isActive ? (_jsx("p", __assign({ className: clx(classes.stepTitle, isActive && classes.stepTitleActive) }, { children: name }))) : (_jsx(StepHeader, { name: name, handleEdit: handleEdit })) })), isActive && StepComponent] })));
 };

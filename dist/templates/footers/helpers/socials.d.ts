@@ -1,4 +1,3 @@
-/// <reference types="react" />
 import { SocialType } from "../types";
 export declare const displaySocials: (mode: "view" | "edit", socialIcons: {
     FACEBOOK: JSX.Element;

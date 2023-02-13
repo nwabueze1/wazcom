@@ -1,10 +1,10 @@
 import { CommonProps } from "../../types";
 /** !!-- Remember to update the interface name !! */
-export declare type BreadCrumbProps = CommonProps & {
+export type BreadCrumbProps = CommonProps & {
     crumbs: Crumb[];
     handleClick: (path: string) => void;
 };
-declare type Crumb = {
+type Crumb = {
     label: string;
     path: string;
 };

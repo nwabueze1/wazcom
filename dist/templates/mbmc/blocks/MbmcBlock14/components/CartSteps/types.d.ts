@@ -1,3 +1,3 @@
-export declare type CartStepsProps = {
+export type CartStepsProps = {
     steps: string[];
 };

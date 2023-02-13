@@ -16,7 +16,6 @@ import { TextInput, SelectInput } from "../../../../io";
 import { useTableActionStyles } from "./styles";
 import { ColumnSelector } from "../ColumnSelector";
 import { SortSelector } from "../SortSelector";
-import { InputAdornment } from "@mui/material";
 import { debounce } from "lodash";
 export var TableActions = function (_a) {
     var currentActions = _a.currentActions, setCurrentActions = _a.setCurrentActions, conditionFilters = _a.conditionFilters, columns = _a.columns;
@@ -37,26 +36,8 @@ export var TableActions = function (_a) {
     var handleSortChange = function (order, columnKey) {
         setCurrentActions(__assign(__assign({}, currentActions), { sort: [{ order: order, column: columnKey }] }));
     };
-    var getSearchPlaceholder = function () {
-        var textColumns = columns.filter(function (column) { return typeof column.name === "string"; });
-        var columnNames = textColumns.map(function (_a) {
-            var name = _a.name;
-            return name.toString().toLowerCase();
-        });
-        return "Search by ".concat(columnNames.join(", "));
-    };
-    return (_jsxs("div", __assign({ className: classes.root }, { children: [_jsx(TextInput, { className: classes.searchInputElement, InputProps: {
-                    classes: {
-                        input: classes.searchInput,
-                        adornedStart: classes.searchInputAdornment,
-                    },
-                    startAdornment: (_jsx(InputAdornment, __assign({ position: "start" }, { children: _jsx(BiSearch, {}, void 0) }), void 0)),
-                    endAdornment: _jsx(InputAdornment, { position: "end" }, void 0),
-                }, onChange: handleSearchChange, placeholder: getSearchPlaceholder() }, void 0), _jsx(SortSelector, { columns: columns, handleSelectSort: handleSortChange }, void 0), conditionFilters && (_jsx(SelectInput, { className: classes.selectInputElement, classNames: {
-                    classes: { select: classes.selectInput, icon: classes.selectInputIcon },
-                    optionLabel: classes.selectInputLabel,
-                }, options: conditionFilters.map(function (_a) {
+    return (_jsxs("div", __assign({ className: classes.root }, { children: [_jsx(TextInput, { className: classes.searchInputElement, classNames: { input: classes.searchInput }, leftIcon: _jsx(BiSearch, {}), onChange: handleSearchChange, placeholder: "Search table" }), _jsx(SortSelector, { columns: columns, handleSelectSort: handleSortChange }), conditionFilters && (_jsx(SelectInput, { className: classes.selectInputElement, classNames: { container: classes.selectContainer, control: classes.selectControl }, options: conditionFilters.map(function (_a) {
                     var name = _a.name;
                     return ({ label: name, value: name });
-                }), value: currentActions.conditionFilter.name, onChange: handleConditionChange }, void 0)), _jsx(ColumnSelector, { columns: columns, columnFilters: currentActions.columnFilters, handleColumnChange: handleColumnsChange }, void 0)] }), void 0));
+                }), value: currentActions.conditionFilter.name, onChange: handleConditionChange })), _jsx(ColumnSelector, { columns: columns, columnFilters: currentActions.columnFilters, handleColumnChange: handleColumnsChange })] })));
 };

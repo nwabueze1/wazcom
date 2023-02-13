@@ -15,6 +15,10 @@ export var useTablePaginationStyles = makeStyles(function (theme) { return ({
         transition: 'all 0.3s ease-in',
         opacity: 0.5,
         cursor: 'pointer',
+        "& p": {
+            margin: 0,
+            fontSize: theme.typography.fontSize,
+        }
     },
     paginationDirectionActive: {
         color: theme.design.colors.waz_black,
@@ -27,9 +31,14 @@ export var useTablePaginationStyles = makeStyles(function (theme) { return ({
         display: "flex",
         alignItems: "center",
         gap: theme.spacing(1),
+        "& p": {
+            fontSize: theme.typography.fontSize,
+            color: theme.design.colors.waz_black,
+            fontWeight: theme.typography.fontWeightBold,
+        }
     },
     paginationSelect: {
-        width: "60px !important",
+        width: "75px !important",
         marginBottom: '0 !important',
     },
     paginationSelectInput: {

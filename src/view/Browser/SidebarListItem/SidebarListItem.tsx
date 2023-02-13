@@ -1,92 +1,54 @@
 import React, { FC, useState, useCallback } from "react";
-import { useSidebarListItemStyles } from "./styles";
-import { SidebarListItemProps } from "./types";
-import { Button } from "../../../core";
-import { FiChevronRight } from "react-icons/fi";
 import clx from "classnames";
-import { Typography } from "@mui/material";
 
-export const SidebarListItem: FC<SidebarListItemProps> = ({ title, sections }) => {
-    const [isVisible, setVisibility] = useState(true);
-    const [activeLink, setActiveLink] = useState<{
-        index: number;
-        rowIndex: number;
-    }>();
+import { useSidebarListItemStyles } from "./styles";
+import { SidebarListItemProps, SidebarLinksProps } from "./types";
+
+
+export const SidebarListItem: FC<SidebarListItemProps> = ({ sections }) => {
+    const [activeLink, setActiveLink] = useState<SidebarLinksProps>();
 
     const classes = useSidebarListItemStyles();
 
-    const showSelection = () => {
-        //
-    };
     const handleMouseEnter = useCallback(
         (rowIndex: number, index: number) => {
             setActiveLink({ rowIndex, index });
         },
         [activeLink],
     );
-    const handleMouseLeave = useCallback((rowIndex: number, index: number) => {
-        rowIndex;
-        index;
+    const handleMouseLeave = useCallback(
+        (rowIndex: number, index: number) => {
+            setActiveLink({ rowIndex, index });
     }, []);
-
-    const toggleSelection = useCallback(() => {
-        setVisibility(!isVisible);
-    }, [isVisible]);
 
     return (
         <div className={classes.root}>
-            <Button
-                className={classes.button}
-                endIcon={
-                    <FiChevronRight
-                        className={classes.chevronIcon}
-                        style={{ transform: isVisible ? "rotate(90deg)" : "" }}
-                    />
-                }
-                onClick={toggleSelection}
-            >
-                {title}
-            </Button>
-            <ul className={clx(classes.list, isVisible ? classes.isVisible : classes.isNotVisible)}>
-                {sections.map(({ label: sectionLabel, components }, sectionIndex) => {
-                    return (
-                        <li
-                            key={sectionIndex}
-                            className={classes.listItem}
-                            onClick={() => showSelection()}
-                        >
-                            <Typography variant="h5">{sectionLabel}</Typography>
-                            <ul className={classes.innerList}>
-                                {components.map(({ id, label }, index) => (
-                                    <li
-                                        key={index}
-                                        className={classes.innerListItem}
-                                        onClick={() => showSelection()}
+            <ul className={classes.list}>
+                {sections.map((section, sectionIndex) => (
+                    <li key={sectionIndex} className={classes.listItem}>
+                        <h5 className={classes.sectionLabel}>{section.label}</h5>
+                        <ul className={classes.innerList}>
+                            {section.components.map((component, index) => (
+                                <li key={index} className={classes.innerListItem}>
+                                    <a
+                                        className={clx(
+                                            classes.link,
+                                            activeLink &&
+                                            sectionIndex == activeLink?.rowIndex &&
+                                            index == activeLink?.index &&
+                                            classes.linkActive
+                                        )}
+                                        onMouseEnter={() => handleMouseEnter(sectionIndex, index)}
+                                        onMouseLeave={() => handleMouseLeave(sectionIndex, index)}
+                                        href={`/#${component.slug}`}
                                     >
-                                        <a
-                                            className={clx(
-                                                classes.link,
-                                                activeLink &&
-                                                    sectionIndex == activeLink?.rowIndex &&
-                                                    index == activeLink?.index &&
-                                                    classes.linkActive,
-                                            )}
-                                            onMouseEnter={() =>
-                                                handleMouseEnter(sectionIndex, index)
-                                            }
-                                            onMouseLeave={() =>
-                                                handleMouseLeave(sectionIndex, index)
-                                            }
-                                            href={`/#${id}`}
-                                        >
-                                            {label}
-                                        </a>
-                                    </li>
-                                ))}
-                            </ul>
-                        </li>
-                    );
-                })}
+                                        {component.name}
+                                    </a>
+                                </li>
+                            ))}
+                        </ul>
+                    </li>
+                ))}
             </ul>
         </div>
     );

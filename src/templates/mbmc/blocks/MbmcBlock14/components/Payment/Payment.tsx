@@ -62,7 +62,7 @@ export const Payment = () => {
                 variant="SECONDARY"
                 size="sm"
                 className={classes.paymentButton}
-                loading={ctxtLoading && networkOperation === "create.order"}
+                isLoading={ctxtLoading && networkOperation === "create.order"}
                 handleClick={handleCreateOrder}
             >
                 Pay now

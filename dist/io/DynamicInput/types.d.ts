@@ -1,7 +1,7 @@
 import { CommonProps } from "../../types";
 import { SelectProps as MuiSelectProps } from "@mui/material";
 import React from "react";
-export declare type DynamicInputProps = CommonProps & Omit<MuiSelectProps, "onChange"> & {
+export type DynamicInputProps = CommonProps & Omit<MuiSelectProps, "onChange"> & {
     labelClassName?: string;
     options?: {
         label: string;
@@ -19,20 +19,20 @@ export declare type DynamicInputProps = CommonProps & Omit<MuiSelectProps, "onCh
     handleRemoveOptionMedia: (id: number) => void;
     active: boolean;
 };
-export declare type InputComponentProps = {
+export type InputComponentProps = {
     name: string;
     component: JSX.Element;
 };
-export declare type Any = string | number | boolean;
-export declare type MediaProps = {
+export type Any = string | number | boolean;
+export type MediaProps = {
     name: string;
     value: any;
 };
-export declare type QuestionOption = {
+export type QuestionOption = {
     text: string;
     media?: MediaProps | null;
 };
-export declare type QuestionProps = {
+export type QuestionProps = {
     text: string | JSX.Element;
     type: string;
     supportImage?: MediaProps | null;

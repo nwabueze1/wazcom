@@ -1,5 +1,5 @@
 import { BlockCta, BlockLayout, MbmcCommonProps } from "templates/mbmc/types";
-export declare type MbmcBlock12Props = MbmcCommonProps & {
+export type MbmcBlock12Props = MbmcCommonProps & {
     layout?: BlockLayout;
     heading: string;
     description?: string;
@@ -11,7 +11,7 @@ export declare type MbmcBlock12Props = MbmcCommonProps & {
         };
     };
 };
-export declare type HandleSend = (data: {
+export type HandleSend = (data: {
     name: string;
     email: string;
     phoneNo: string;

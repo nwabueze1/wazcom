@@ -15,5 +15,5 @@ import { useShortAnswerStyles } from "./styles";
 export var ShortAnswer = function (_a) {
     var placeholderText = _a.placeholderText;
     var classes = useShortAnswerStyles();
-    return (_jsx("div", __assign({ className: classes.root }, { children: _jsx(TextField, { className: classes.shortAnswerInput, inputMode: "text", sx: { border: 0 }, id: "standard-basic", variant: "standard", value: placeholderText, disabled: true }, void 0) }), void 0));
+    return (_jsx("div", __assign({ className: classes.root }, { children: _jsx(TextField, { className: classes.shortAnswerInput, inputMode: "text", sx: { border: 0 }, id: "standard-basic", variant: "standard", value: placeholderText, disabled: true }) })));
 };

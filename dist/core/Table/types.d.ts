@@ -2,7 +2,7 @@ import { TableProps as MuiTableProps } from "@mui/material";
 import { EmptyStateProps } from "../../core";
 import { CommonProps } from "../../types";
 /** !!-- Remember to update the interface name !! */
-export declare type TableProps = CommonProps & MuiTableProps & {
+export type TableProps = CommonProps & MuiTableProps & {
     headers: TableHeaderContentProps;
     value: TableDataProps;
     hasCheckBox?: boolean;
@@ -18,30 +18,30 @@ export declare type TableProps = CommonProps & MuiTableProps & {
     classNames?: TableClassnamesProps;
     emptyTableState?: EmptyStateProps;
 };
-export declare type TableDataProps = ({
+export type TableDataProps = ({
     [key: string]: any;
 } & {
     actions?: {
         [key: string]: () => void;
     };
 })[];
-declare type TableHeaderContentProps = {
+type TableHeaderContentProps = {
     name: string;
     label: string;
 }[];
-declare type ControlsDataProp = {
+type ControlsDataProp = {
     filter?: string[];
     canExport?: {
         [key: string]: string;
     };
     canPrint?: boolean;
 };
-declare type TableClassnamesProps = {
+type TableClassnamesProps = {
     tableHead: string;
     tableFooter: string;
     tableBody: string;
 };
-export declare type Filter = {
+export type Filter = {
     field: string;
     values: string[];
 };

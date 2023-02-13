@@ -18,20 +18,32 @@ export var theme = {
     },
     typography: {
         fontWeightMedium: 600,
-        fontFamily: ["Poppins, sans-serif"].join(","),
+        fontFamily: ["'Open Sans', sans-serif"].join(","),
         fontSize: 12,
         fontWeightBold: "bold",
+        h1: {
+            fontSize: '2.25rem',
+            fontWeight: 700,
+        },
         h2: {
             fontSize: "3rem",
             fontWeight: 500,
         },
-        h3: {},
-        h4: {},
+        h3: {
+            fontSize: "1.25rem",
+            fontWeight: 700,
+        },
+        h4: {
+            fontSize: '1rem'
+        },
         h5: {
             fontSize: ".8rem",
             fontWeight: 500,
         },
-        h6: {},
+        h6: {
+            fontSize: ".5rem",
+            fontWeight: 400,
+        },
     },
     styles: {
         maxWidth: 1294,
@@ -40,7 +52,7 @@ export var theme = {
     palette: {
         primary: {
             light: "#59598E",
-            main: "#38385F",
+            main: "#FFFFFF",
             dark: "#2E2E48",
             contrastText: "#fff",
         },
@@ -83,6 +95,42 @@ export var theme = {
             montserrat: "Montserrat",
         },
         colors: {
+            grey: "#333333",
+            error: "#c32611",
+            info: "#4961E3",
+            warning: "#E0BC24",
+            waz_primary100: "#0A7227",
+            waz_primary200: "#23803D",
+            waz_primary300: "#3B8E52",
+            waz_primary400: "#6CAA7D",
+            waz_primary500: "#9DC7A9",
+            waz_primary600: "#CEE3D4",
+            waz_primary700: "#E7F1E9",
+            waz_primary800: "#85B993",
+            waz_primary900: "#F7FCF8",
+            secondary100: "#F4CDB4",
+            info100: "#2F80ED",
+            success100: "#0BCE5A",
+            success200: "#F3F8F4",
+            warning100: "#E2B93B",
+            warning200: "#FBF6E7",
+            error100: "#F34141",
+            black: "#000000",
+            black200: "#010E05",
+            white: "#FFFFFF",
+            waz_white100: "#FAFAFA",
+            grey100: "#343E37",
+            grey200: "#4D5650",
+            grey300: "#999F9B",
+            grey400: "#CCCFCD",
+            grey500: "#E6E7E6",
+            grey600: "#FBFBFB",
+            grey900: "#E8E8E8",
+            grey700: "#676E69",
+            grey800: "#1A261E",
+            black300: "rgba(0, 0, 0, 0.5)",
+            black400: "rgba(0,0,0,0.06)",
+            white200: "rgba(255, 255, 255, 0.3)",
             waz_primaryColor100: "#0A7227",
             waz_primaryColor200: "#014029",
             waz_primaryColor300: "#025939",
@@ -112,7 +160,7 @@ export var theme = {
             waz_white: "#FFFFFF",
             waz_whiteAlpha: "#f9f9f9",
             waz_whiteAlpha100: "#F0F0F0",
-            waz_black: "#010E05",
+            waz_black: "#000000",
             waz_black100: "#00000014",
             waz_Grey: "#414141",
             waz_gray: "#BEBEBE",
@@ -142,6 +190,13 @@ export var theme = {
             waz_red: "#C23434",
             waz_peach: "#FAF8F7",
         },
+        background: {
+            waz_primaryWhite: '#FFFFFF',
+            waz_primaryBlack: "#010E05",
+        },
+        border: {
+            waz_grey200: "1px solid #999F9B",
+        }
     },
     overrides: {
         MuiTypography: {

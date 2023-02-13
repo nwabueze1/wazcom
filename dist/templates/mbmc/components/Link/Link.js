@@ -27,5 +27,5 @@ export var Link = function (_a) {
     var _b;
     var children = _a.children, className = _a.className, props = __rest(_a, ["children", "className"]);
     var classes = useLinkStyles();
-    return (_jsx("a", __assign({}, props, { className: clx(classes.linkRoot, className), target: ((_b = props.href) === null || _b === void 0 ? void 0 : _b.startsWith("/")) ? "_self" : "_blank", rel: "noreferrer noopener" }, { children: children }), void 0));
+    return (_jsx("a", __assign({}, props, { className: clx(classes.linkRoot, className), target: ((_b = props.href) === null || _b === void 0 ? void 0 : _b.startsWith("/")) ? "_self" : "_blank", rel: "noreferrer noopener" }, { children: children })));
 };

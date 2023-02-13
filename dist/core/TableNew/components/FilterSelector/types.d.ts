@@ -1,16 +1,16 @@
 import { TableColumn, TableFilter } from "../../types";
-export declare type FilterSelectorProps = {
+export type FilterSelectorProps = {
     className?: string;
     column: TableColumn;
     handleClose?: () => void;
     handleSelectFilter: (filter: TableFilter) => void;
 };
-export declare type Filter = {
+export type Filter = {
     type: "string" | "number" | "date";
     operators: FilterOperator[];
     inputs: ("text" | "number" | "select")[];
 };
-export declare type FilterOperator = {
+export type FilterOperator = {
     name: string;
     symbol: string;
 };

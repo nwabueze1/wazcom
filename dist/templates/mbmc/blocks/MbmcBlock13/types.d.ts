@@ -1,5 +1,5 @@
 import { BlockCta, BlockLayout, MbmcCommonProps } from "templates/mbmc/types";
-export declare type MbmcBlock13Props = MbmcCommonProps & {
+export type MbmcBlock13Props = MbmcCommonProps & {
     layout?: BlockLayout;
     handleClick?: (route: string) => void;
     logo?: {

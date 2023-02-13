@@ -1,4 +1,4 @@
-FROM node:14.17.6 as builder
+FROM node:16.18.1
 
 WORKDIR /app
 
@@ -9,8 +9,6 @@ COPY ./package.json ./yarn.lock ./
 RUN yarn install
 
 COPY . .
-
-FROM builder
 
 EXPOSE 3000
 

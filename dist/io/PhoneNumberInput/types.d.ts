@@ -1,4 +1,4 @@
-export declare type PhoneNumberInputProps = {
+export type PhoneNumberInputProps = {
     [key: string]: any;
     country: string;
 };

@@ -22,14 +22,14 @@ export var Input = function (_a) {
     var DisplayLabel = function () {
         switch (type) {
             case "dropdown":
-                return _jsxs("p", { children: [index + 1, "."] }, void 0);
+                return _jsxs("p", { children: [index + 1, "."] });
             case "checkboxes":
-                return _jsx(CheckBoxOutlineBlank, {}, void 0);
+                return _jsx(CheckBoxOutlineBlank, {});
             case "multiple":
-                return _jsx(RadioButtonUncheckedOutlined, {}, void 0);
+                return _jsx(RadioButtonUncheckedOutlined, {});
             default:
-                return _jsxs("p", { children: [index + 1, "."] }, void 0);
+                return _jsxs("p", { children: [index + 1, "."] });
         }
     };
-    return (_jsxs("div", __assign({ className: classes.root, onClick: handleClick }, { children: [_jsxs("div", __assign({ className: classes.inputControl }, { children: [DisplayLabel(), _jsx("p", __assign({ className: classes.inputText }, { children: value }), void 0)] }), void 0), checked && _jsx(BiCheck, { className: classes.inputIcon }, void 0)] }), void 0));
+    return (_jsxs("div", __assign({ className: classes.root, onClick: handleClick }, { children: [_jsxs("div", __assign({ className: classes.inputControl }, { children: [DisplayLabel(), _jsx("p", __assign({ className: classes.inputText }, { children: value }))] })), checked && _jsx(BiCheck, { className: classes.inputIcon })] })));
 };

@@ -29,7 +29,7 @@ export const EditMedia: React.FC<EditMediaProps> = ({
     }, [image]);
 
     const handleChange = useCallback(
-        ({ name, value }) => {
+        ({ name, value }: { name: string; value: any }) => {
             setFormData({ ...formData, [name]: value });
         },
         [formData],
@@ -75,7 +75,7 @@ export const EditMedia: React.FC<EditMediaProps> = ({
                 <p className={classes.tab}>Image Properties</p>
                 {displayFields()}
                 <div className={classes.formButtons}>
-                    <Button onClick={handleSubmit} loading={loading}>
+                    <Button onClick={handleSubmit} isLoading={loading}>
                         Save
                     </Button>
                     <Button onClick={handleClose}>Cancel</Button>

@@ -82,5 +82,5 @@ export var LazyImage = function (_a) {
     }, []);
     return placeholder === "blur" ? (_jsx("img", __assign({}, props, { src: isVisible ? src : generatePlaceholderSrcUrl(blurDataurl, src), ref: imageRef, className: clx((_b = {},
             _b[classes.blur] = !isVisible,
-            _b), className, !isVisible && (classNames === null || classNames === void 0 ? void 0 : classNames.loadingPlaceholder)) }), void 0)) : (_jsx("img", __assign({}, props, { src: mode === "edit" || isVisible ? src : undefined, ref: imageRef, className: className }), void 0));
+            _b), className, !isVisible && (classNames === null || classNames === void 0 ? void 0 : classNames.loadingPlaceholder)) }))) : (_jsx("img", __assign({}, props, { src: mode === "edit" || isVisible ? src : undefined, ref: imageRef, className: className })));
 };

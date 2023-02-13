@@ -1,16 +1,16 @@
 import { TextInputProps as WazTextInputProps } from "../../../../../io";
 import { GroupedInputProps as WazGroupedInputProps } from "../GroupedInput";
-export declare type CommonControlProps = {
+export type CommonControlProps = {
     label?: string;
 };
-declare type TextInputProps = {
+type TextInputProps = {
     type: "text";
     properties: WazTextInputProps & CommonControlProps;
 };
-declare type GroupedInputProps = {
+type GroupedInputProps = {
     type: "groupedInput";
     properties: WazGroupedInputProps & CommonControlProps;
 };
-export declare type FormControls = TextInputProps | GroupedInputProps;
-export declare type FormControlProps = FormControls;
+export type FormControls = TextInputProps | GroupedInputProps;
+export type FormControlProps = FormControls;
 export {};

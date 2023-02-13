@@ -1,5 +1,5 @@
 import { Any, QuestionProps } from "io/DynamicInput/types";
-export declare type OutputProps = {
+export type OutputProps = {
     question: QuestionProps;
     setAnswers: (answers: Any[]) => void;
     setPoint: (point: number) => void;

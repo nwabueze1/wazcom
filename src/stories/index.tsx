@@ -15,6 +15,7 @@ import {
     EmptyState,
     DateTimePicker,
     Scheduler,
+    Tab
 } from "../core";
 import { BiLink } from "react-icons/bi";
 import { FaEdit } from "react-icons/fa";
@@ -32,6 +33,7 @@ import {
     PhoneNumberInput,
     RadioButtonInput,
     TextArea,
+    EmailInput,
 } from "../io";
 
 import { GqlComboBox, GqlMediaLibrary, GqlMediaLibrarySelector } from "../gql";
@@ -101,22 +103,54 @@ export const stories: ComponentPropType[] = [
                     value;
                 }
             },
-            multiline: true,
-            minRows: 5,
-            feedback: {
-                text: (
-                    <div style={{ display: "flex", flexDirection: "column" }}>
-                        <p key={1} style={{ color: "blue" }}>
-                            Olamileke is a boy
-                        </p>
-                        <p key={2} style={{ color: "blue" }}>
-                            Olamileke is a boy
-                        </p>
-                    </div>
-                ),
-                status: "error",
+            // multiline: true,
+            // minRows: 5,
+            // feedback: {
+            //     text: (
+            //         <div style={{ display: "flex", flexDirection: "column" }}>
+            //             <p key={1} style={{ color: "blue" }}>
+            //                 Olamileke is a boy
+            //             </p>
+            //             <p key={2} style={{ color: "blue" }}>
+            //                 Olamileke is a boy
+            //             </p>
+            //         </div>
+            //     ),
+            //     status: "error",
+            // },
+            // error: true,
+        },
+    },
+    {
+        name: "Email",
+        component: EmailInput,
+        props: {
+            label: "Email Address",
+            name: "email",
+            onChange: ({ name, value }: { name: string; value: string }) => {
+                {
+                    name;
+                }
+                {
+                    value;
+                }
             },
-            error: true,
+            // multiline: true,
+            // minRows: 5,
+            // feedback: {
+            //     text: (
+            //         <div style={{ display: "flex", flexDirection: "column" }}>
+            //             <p key={1} style={{ color: "blue" }}>
+            //                 Olamileke is a boy
+            //             </p>
+            //             <p key={2} style={{ color: "blue" }}>
+            //                 Olamileke is a boy
+            //             </p>
+            //         </div>
+            //     ),
+            //     status: "error",
+            // },
+            // error: true,
         },
     },
     {
@@ -217,6 +251,29 @@ export const stories: ComponentPropType[] = [
         },
     },
     {
+        name: "tab",
+        component: Tab,
+        props: {
+            controls: [
+                {
+                    name: 'general',
+                    title: 'General',
+                    component: <div>General Tab</div>
+                },
+                {
+                    name: 'templates',
+                    title: 'Templates',
+                    component: <div>Templates Tab</div>
+                },
+                {
+                    name: 'seo',
+                    title: 'SEO',
+                    component: <div>SEO Tab</div>
+                }
+            ]
+        },
+    },
+    {
         name: "breadcrumb",
         component: BreadCrumb,
         props: {
@@ -296,7 +353,7 @@ export const stories: ComponentPropType[] = [
                 text: "Rebuilt successfully",
                 status: "success",
             },
-            required: true,
+            // required: true,
             type: "text",
             onChange: ({ value }: { name: string; value: any }) => {
                 value;
@@ -517,9 +574,15 @@ export const stories: ComponentPropType[] = [
             options: [
                 { label: "Basit", value: "basit" },
                 { label: "Chinazom", value: "chinazom" },
+                { label: "Michael", value: "michael" },
+                { label: "Rose", value: "rose" },
+                { label: "Tami", value: "tami" },
+                { label: "Dara", value: "dara" },
+                { label: "Tiara", value: "tiara" },
             ],
-            error: true,
-            required: true,
+            // error: true,
+            // required: true,
+            value: "basit",
             feedback: { text: "Tariq is a weirdo", status: "error" },
         },
     },

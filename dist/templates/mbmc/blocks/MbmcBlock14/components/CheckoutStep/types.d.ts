@@ -1,5 +1,5 @@
 import React from 'react';
-export declare type CheckoutStepProps = {
+export type CheckoutStepProps = {
     name: string;
     isActive?: boolean;
     isCompleted?: boolean;
