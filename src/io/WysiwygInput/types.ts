@@ -9,7 +9,7 @@ export type WysiwygInputProps = CommonProps & {
     embedUrl?: string;
     Loader: boolean;
     handleImageModalState: () => void;
-    handleEmbedUrl: (data?: string) => string;
+    handleEmbedUrl?: (data?: string) => string;
 };
 
 export type wyswygInputValue = {
