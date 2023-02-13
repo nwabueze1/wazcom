@@ -182,6 +182,8 @@ export const stories: ComponentPropType[] = [
                     condition: (posts: any) => posts.filter((post: any) => !post.status),
                 },
             ],
+            EmptyState: <p>Hahaha, no content</p>,
+            showFilters: true,
         },
     },
     {

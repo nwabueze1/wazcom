@@ -160,6 +160,7 @@ export const theme: any = {
             waz_primaryColor200: "#014029",
             waz_primaryColor300: "#025939",
             waz_primaryColor700: "#549C68",
+            waz_lightGreen: "#F7FCF8",
             waz_dangerColor: baseColors.dangerColor,
             waz_dangerColor100: "#990000",
             waz_dangerColor200: "#ff3333",
@@ -213,7 +214,6 @@ export const theme: any = {
             waz_brown: "#A54227",
             waz_red: "#C23434",
             waz_peach: "#FAF8F7",
-            waz_lightGreen: "#F7FCF8",
         },
         background: {
             waz_primaryWhite: '#FFFFFF',
