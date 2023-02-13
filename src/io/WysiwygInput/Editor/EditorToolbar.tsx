@@ -11,24 +11,6 @@ function redoChange() {
   this.quill.history.redo();
 }
 
-// Add sizes to whitelist and register them
-// const Size = Quill.import("formats/size");
-// Size.whitelist = ["extra-small", "small", "medium", "large"];
-// Quill.register(Size, true);
-
-// Add fonts to whitelist and register them
-// const Font = Quill.import("formats/font");
-// Font.whitelist = [
-//   "arial",
-//   "comic-sans",
-//   "courier-new",
-//   "georgia",
-//   "helvetica",
-//   "lucida"
-// ];
-// Quill.register(Font, true);
-
-// Modules object for setting up the Quill editor
 export const modules = {
   toolbar: {
     container: "#toolbar",

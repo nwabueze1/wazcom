@@ -68,13 +68,6 @@ export const WysiwygInput: React.FC<WysiwygInputProps> = ({
                     handleImageModalState={handleImageModalState} />
                 </div>
             </div>
-            <div className={classes.postButtonContainer}>
-                <button 
-                onClick={()=>handleChange}
-                className={classes.postButton}>
-                    Post
-                </button>
-            </div>
         </div>
     );
 };

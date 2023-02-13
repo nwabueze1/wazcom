@@ -34,8 +34,7 @@ import {
     RadioButtonInput,
     TextArea,
     EmailInput,
-    WysiwygInput,
-    FormBuilderModal
+    WysiwygInput
 } from "../io";
 
 import { GqlComboBox, GqlMediaLibrary, GqlMediaLibrarySelector } from "../gql";
@@ -604,14 +603,6 @@ export const stories: ComponentPropType[] = [
             feedback: { text: "feeback section", status: "error" },
         },
         client: createApolloClient('https://ofambegbe-ambrosia.wazobia.uk/graphql'),
-    },
-    {
-        name: "Modal",
-        component: FormBuilderModal,
-        props: {
-            error: false,
-            // feedback: { text: "feeback section", status: "error" },
-        },
     },
     {
         name: "GqlComboBox",

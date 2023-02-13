@@ -48,7 +48,7 @@ export const Editor: React.FC<EditorProps> = ({
       }
     })
     const contentDiv = document.querySelector('#editor')
-    const editorFieldHeight = contentDiv.clientHeight;
+    const editorFieldHeight = contentDiv?.clientHeight;
     setEditorHeight(editorFieldHeight)
     
     setWordCount(wordCount)
@@ -68,7 +68,7 @@ export const Editor: React.FC<EditorProps> = ({
   };
 
   useEffect( () => {
-    handleEmbed(embedUrl)
+    // handleEmbed(embedUrl)
     console.log("embedding function attached: " + embedUrl)
   },[embedUrl])
 

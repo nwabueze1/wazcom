@@ -13,7 +13,6 @@ import { CurrencyInputView } from "view/CurrencyInput";
 import { SelectInputView } from "view/SelectInput";
 import { TableView } from "../view/Table";
 import { WysiwygInput } from "../io";
-// import { WysiwygInput } from '../io/WysiwygInput/WysiwygInput';
 
 export default [
     {
