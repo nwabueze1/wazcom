@@ -15,7 +15,7 @@ import clx from "classnames";
 import { capitalize } from "./helpers";
 import { FaTimes } from "react-icons/fa";
 export var Tag = function (_a) {
-    var name = _a.name, status = _a.status, handleRemove = _a.handleRemove, className = _a.className;
+    var name = _a.name, status = _a.status, handleRemove = _a.handleRemove, classname = _a.classname;
     var classes = useTagStyles();
-    return (_jsxs("div", __assign({ className: clx(classes.root, className, status ? classes.tagActive : classes.tagInactive, handleRemove && classes.taggable) }, { children: [_jsx("p", { children: capitalize(name) }), handleRemove && (_jsx("p", __assign({ className: classes.tagIconParent, onClick: handleRemove }, { children: _jsx(FaTimes, {}) })))] })));
+    return (_jsxs("div", __assign({ className: clx(classes.root, classname, status ? classes.tagActive : classes.tagInactive, handleRemove && classes.taggable) }, { children: [_jsx("p", { children: capitalize(name !== null && name !== void 0 ? name : "") }), handleRemove && (_jsx("p", __assign({ className: classes.tagIconParent, onClick: handleRemove }, { children: _jsx(FaTimes, {}) })))] })));
 };

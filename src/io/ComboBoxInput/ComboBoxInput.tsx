@@ -113,7 +113,7 @@ export const ComboBoxInput: FC<ComboBoxInputProps> = ({
             <div className={classes.tagsParent}>
                 <Tag
                     name={value?.label}
-                    className={classes.tag}
+                    classname={classes.tag}
                     status={true}
                     handleRemove={() => {}}
                 />
