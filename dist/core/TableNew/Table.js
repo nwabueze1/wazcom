@@ -85,7 +85,7 @@ export var TableNew = function (_a) {
     useEffect(function () {
         var _a;
         queryApi(parseQueryVariables(actions.search, (_a = actions === null || actions === void 0 ? void 0 : actions.sort) !== null && _a !== void 0 ? _a : [], table === null || table === void 0 ? void 0 : table.pagination));
-    }, [actions.search, JSON.stringify(actions.sort)]);
+    }, [actions.search, JSON.stringify(actions.sort), variables]);
     useEffect(function () {
         var _a;
         if (!(table === null || table === void 0 ? void 0 : table.data))
