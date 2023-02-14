@@ -52,12 +52,7 @@ export var InsertButton = function (_a) {
     };
     var handleOptionClick = function (event, option) {
         if (option) {
-            if (option === 'picture') {
-                handleImageModalState(option);
-            }
-            else {
-                // setOpenDialog(true)
-            }
+            handleImageModalState(option);
         }
     };
     return (_jsxs("div", __assign({ className: clx(className, classes.root) }, { children: [_jsx("button", __assign({ className: classes.insertButton, onClick: handleInsertOptions }, { children: "+" })), _jsxs("div", __assign({ className: clx(classes.selectOption, mediaOpen ? classes.showOptions : classes.hideOptions) }, { children: [_jsx("span", __assign({ className: classes.optionTitleSpan }, { children: "EMBEDS" })), _jsxs("div", __assign({ className: classes.options }, { children: [_jsx(OptionItem, { icon: _jsx(PictureIcon, {}), title: "Picture", itemInfo: "jpeg, png", handleOptionClick: function () { return handleOptionClick(event, "picture"); } }), _jsx(OptionItem, { icon: _jsx(VideoIcon, {}), title: "Video", itemInfo: "Embed a Youtube video", handleOptionClick: function () { return handleOptionClick(event, "video"); } }), _jsx(OptionItem, { icon: _jsx(SocialIcon, {}), title: "Social", itemInfo: "Embed a Facebook Link", handleOptionClick: function () { return handleOptionClick(event, "social"); } })] }))] }))] })));

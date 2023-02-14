@@ -26,11 +26,7 @@ export const InsertButton: React.FC<InsertButtonProps> = ({
     const handleOptionClick = (event: React.MouseEvent<HTMLElement>, option: string) => {
         if (option) {
             
-            if(option === 'picture') {
-                handleImageModalState(option)
-            }else{
-                // setOpenDialog(true)
-            }
+            handleImageModalState(option)
         }
     }
     
