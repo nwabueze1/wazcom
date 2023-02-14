@@ -15,7 +15,7 @@ import {
     EmptyState,
     DateTimePicker,
     Scheduler,
-    Tab
+    Tab,
 } from "../core";
 import { BiLink } from "react-icons/bi";
 import { FaEdit } from "react-icons/fa";
@@ -256,21 +256,21 @@ export const stories: ComponentPropType[] = [
         props: {
             controls: [
                 {
-                    name: 'general',
-                    title: 'General',
-                    component: <div>General Tab</div>
+                    name: "general",
+                    title: "General",
+                    component: <div>General Tab</div>,
                 },
                 {
-                    name: 'templates',
-                    title: 'Templates',
-                    component: <div>Templates Tab</div>
+                    name: "templates",
+                    title: "Templates",
+                    component: <div>Templates Tab</div>,
                 },
                 {
-                    name: 'seo',
-                    title: 'SEO',
-                    component: <div>SEO Tab</div>
-                }
-            ]
+                    name: "seo",
+                    title: "SEO",
+                    component: <div>SEO Tab</div>,
+                },
+            ],
         },
     },
     {
@@ -336,10 +336,28 @@ export const stories: ComponentPropType[] = [
         component: ComboBoxInput,
         props: {
             options: [
-                { label: "Bread", value: "23" },
-                { label: "Love", value: "45" },
+                {
+                    label: "Bread",
+                    value: {
+                        category: "food",
+                        subCategory: ["dodo", "spaghetti", "beef", "beans"],
+                    },
+                },
+                {
+                    label: "Love",
+                    value: {
+                        category: "food",
+                        subCategory: ["dodo", "spaghetti", "beef", "beans"],
+                    },
+                },
             ],
-            value: { label: "Love", value: "45" },
+            value: {
+                label: "Love",
+                value: {
+                    category: "food",
+                    subCategory: ["dodo", "spaghetti", "beef", "beans"],
+                },
+            },
             placeholder: "Select Wazobia Member",
             isAdd: false,
         },

@@ -5,10 +5,10 @@ export type ComboBoxInputProps = CommonProps & Omit<AutocompleteProps<any, undef
     error?: boolean;
     label?: string;
     options: ComboBoxInputOptionProps[];
-    value?: string;
+    value: any;
 };
 export type ComboBoxInputOptionProps = {
     label: string;
-    value: string;
+    value: any;
     subText?: string;
 };

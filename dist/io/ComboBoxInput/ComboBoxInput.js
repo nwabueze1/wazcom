@@ -36,6 +36,15 @@ var __read = (this && this.__read) || function (o, n) {
     }
     return ar;
 };
+var __spreadArray = (this && this.__spreadArray) || function (to, from, pack) {
+    if (pack || arguments.length === 2) for (var i = 0, l = from.length, ar; i < l; i++) {
+        if (ar || !(i in from)) {
+            if (!ar) ar = Array.prototype.slice.call(from, 0, i);
+            ar[i] = from[i];
+        }
+    }
+    return to.concat(ar || Array.prototype.slice.call(from));
+};
 import { jsx as _jsx, jsxs as _jsxs } from "react/jsx-runtime";
 import { useCallback, useEffect, useState } from "react";
 import Autocomplete, { createFilterOptions } from "@mui/material/Autocomplete";
@@ -43,12 +52,15 @@ import { Box, InputLabel, TextField } from "@mui/material";
 import { useComboBoxStyles } from "./styles";
 import clx from "classnames";
 import { displayFeedback } from "../../helpers/io";
+import { Tag } from "../../core/Tag";
+import { CheckBoxInput } from "../CheckBoxInput/index";
 var filter = createFilterOptions();
 export var ComboBoxInput = function (_a) {
-    var _b;
-    var name = _a.name, _c = _a.isAdd, isAdd = _c === void 0 ? true : _c, onChange = _a.onChange, initialOptions = _a.options, label = _a.label, classNames = _a.classNames, helperText = _a.helperText, value = _a.value, error = _a.error, placeholder = _a.placeholder, feedback = _a.feedback, className = _a.className, props = __rest(_a, ["name", "isAdd", "onChange", "options", "label", "classNames", "helperText", "value", "error", "placeholder", "feedback", "className"]);
+    var _b, _c, _d, _e;
+    var name = _a.name, _f = _a.isAdd, isAdd = _f === void 0 ? true : _f, onChange = _a.onChange, initialOptions = _a.options, label = _a.label, classNames = _a.classNames, helperText = _a.helperText, value = _a.value, error = _a.error, placeholder = _a.placeholder, feedback = _a.feedback, className = _a.className, props = __rest(_a, ["name", "isAdd", "onChange", "options", "label", "classNames", "helperText", "value", "error", "placeholder", "feedback", "className"]);
     var classes = useComboBoxStyles();
-    var _d = __read(useState(initialOptions), 2), options = _d[0], setOptions = _d[1];
+    var _g = __read(useState(initialOptions), 2), options = _g[0], setOptions = _g[1];
+    var _h = __read(useState([]), 2), selectedSubCat = _h[0], setSelectedSubCat = _h[1];
     useEffect(function () {
         setOptions(initialOptions);
     }, [initialOptions]);
@@ -72,10 +84,10 @@ export var ComboBoxInput = function (_a) {
     };
     var getValue = useCallback(function () {
         var _a;
-        var label = (_a = options === null || options === void 0 ? void 0 : options.find(function (option) { return option.value.toLowerCase() === value.toString().toLowerCase(); })) === null || _a === void 0 ? void 0 : _a.label;
+        var label = (_a = options === null || options === void 0 ? void 0 : options.find(function (option) { var _a; return ((_a = option.value) === null || _a === void 0 ? void 0 : _a.category.toLowerCase()) === value.toString().toLowerCase(); })) === null || _a === void 0 ? void 0 : _a.label;
         if (label)
             return { label: label, value: value };
-        return { label: "", value: "" };
+        return { label: "", value: { category: "" } };
     }, [options, value]);
     return (_jsxs("div", __assign({ className: clx(className, classes.root) }, { children: [label && (_jsx(InputLabel, __assign({ className: (_b = classNames === null || classNames === void 0 ? void 0 : classNames.label) !== null && _b !== void 0 ? _b : "", htmlFor: name }, { children: label }))), _jsx(Autocomplete, __assign({}, props, { freeSolo: true, options: options !== null && options !== void 0 ? options : [], getOptionLabel: function (option) {
                     var _a;
@@ -84,5 +96,14 @@ export var ComboBoxInput = function (_a) {
                     handleChange(selectedOption);
                 }, filterOptions: handleFilterOptions, renderOption: function (props, option) {
                     return (_jsx(Box, __assign({ component: "li" }, props, { children: _jsxs("div", __assign({ className: classNames === null || classNames === void 0 ? void 0 : classNames.optionContainer }, { children: [_jsx("p", __assign({ className: classNames === null || classNames === void 0 ? void 0 : classNames.optionLabel }, { children: option === null || option === void 0 ? void 0 : option.label })), option.subText && (_jsx("p", __assign({ className: classNames === null || classNames === void 0 ? void 0 : classNames.optionSubText }, { children: option.subText })))] })) })));
-                }, renderInput: function (params) { return (_jsx(TextField, __assign({}, params, { placeholder: placeholder, variant: "outlined", error: error, className: classes.renderInput }))); }, className: (classNames === null || classNames === void 0 ? void 0 : classNames.comboBoxInput) ? classNames.comboBoxInput : "", classes: (classNames === null || classNames === void 0 ? void 0 : classNames.classes) ? classNames.classes : {} })), helperText, feedback && displayFeedback(feedback)] })));
+                }, renderInput: function (params) { return (_jsx(TextField, __assign({}, params, { placeholder: placeholder, variant: "outlined", error: error, className: classes.renderInput }))); }, className: (classNames === null || classNames === void 0 ? void 0 : classNames.comboBoxInput) ? classNames.comboBoxInput : "", classes: (classNames === null || classNames === void 0 ? void 0 : classNames.classes) ? classNames.classes : {} })), _jsxs("div", __assign({ className: classes.tagsParent }, { children: [_jsx(Tag, { name: value === null || value === void 0 ? void 0 : value.label, className: classes.tag, status: true, handleRemove: function () { } }), _jsxs("div", __assign({ className: classes.subCategoryBox }, { children: [_jsxs("div", __assign({ className: classes.subCategoryTagsParent }, { children: [_jsx("div", { className: classes.boxMargin }), _jsx("div", __assign({ className: classes.subCategoryTags }, { children: selectedSubCat.length > 0 &&
+                                            selectedSubCat.map(function (tag, id) { return (_jsx(Tag, { name: tag }, id)); }) }))] })), _jsxs("div", { children: [((_c = value === null || value === void 0 ? void 0 : value.value) === null || _c === void 0 ? void 0 : _c.subCategory) && (_jsx("p", __assign({ className: classes.label }, { children: "PICK SUB CATEGORIES" }))), _jsx("div", __assign({ className: classes.inputContainer }, { children: ((_d = value === null || value === void 0 ? void 0 : value.value) === null || _d === void 0 ? void 0 : _d.subCategory) &&
+                                            ((_e = value === null || value === void 0 ? void 0 : value.value) === null || _e === void 0 ? void 0 : _e.subCategory.map(function (name, id) { return (_jsxs("div", __assign({ className: classes.subCategoryInput }, { children: [_jsx(CheckBoxInput, { className: classes.checkbox, name: name, onChange: function (data) {
+                                                            if (data.value) {
+                                                                setSelectedSubCat(__spreadArray(__spreadArray([], __read(selectedSubCat), false), [name], false));
+                                                            }
+                                                            else {
+                                                                setSelectedSubCat(selectedSubCat.filter(function (item) { return item !== name; }));
+                                                            }
+                                                        } }), _jsx("p", __assign({ className: classes.item }, { children: name }))] }), id)); })) }))] })] }))] })), helperText, feedback && displayFeedback(feedback)] })));
 };

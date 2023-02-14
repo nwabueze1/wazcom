@@ -5,13 +5,14 @@ import clx from "classnames";
 import { capitalize } from "./helpers";
 import { FaTimes } from "react-icons/fa";
 
-export const Tag: FC<TagProps> = ({ name, status, handleRemove }) => {
+export const Tag: FC<TagProps> = ({ name, status, handleRemove, className }) => {
     const classes = useTagStyles();
 
     return (
         <div
             className={clx(
                 classes.root,
+                className,
                 status ? classes.tagActive : classes.tagInactive,
                 handleRemove && classes.taggable,
             )}
