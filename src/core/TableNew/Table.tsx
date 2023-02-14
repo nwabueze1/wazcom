@@ -59,7 +59,7 @@ export const TableNew: FC<TableNewProps> = ({
                 table?.pagination,
             ),
         );
-    }, [actions.search, JSON.stringify(actions.sort), variables]);
+    }, [actions.search, JSON.stringify(actions.sort), JSON.stringify(variables)]);
 
     useEffect(() => {
         if (!table?.data) return;
