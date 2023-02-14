@@ -11,7 +11,6 @@ export const Editor: React.FC<EditorProps> = ({
   handleContent,
   handleImageModalState,
   embedUrl, 
-  handleEmbedUrl,
 }) => {
 
   const [content, setContent] = useState<string>('');
@@ -24,7 +23,7 @@ export const Editor: React.FC<EditorProps> = ({
   const classes = useEditorToolbarStyles()
 
   const handleChange =async (text: string) => {
-    const editorRef = quillRef.current.getEditor();
+    const editorRef = quillRef?.current.getEditor();
     const range = await editorRef.getSelection();
     const position = range ? range.index : 0;
     setContent(text);
@@ -56,20 +55,16 @@ export const Editor: React.FC<EditorProps> = ({
     setToolbarPosition(editorHeight - 40)
   }, [content])
 
-  // const embedImgUrl = handleEmbedUrl(data)
-
-  const handleEmbed = (url: string) => {
-    const editorRef = quillRef.current.getEditor();
-    // embedUrl?.type === 'image' ? 
-    // embedUrl?.url.length > 0 && editorRef.insertEmbed(textIndex, 'image', `${embedUrl?.url}`) :
-    // embedUrl?.url.length > 0 && editorRef.clipboard.dangerouslyPasteHTML(textIndex, embedUrl?.url);
-    editorRef.insertEmbed(textIndex, 'image', url) 
+  const handleEmbed = (embedUrl:{url?:string | undefined; type?:string | undefined}) => {
+    const editorRef = quillRef?.current.getEditor();
+    embedUrl?.type === 'image' ? 
+    embedUrl?.url?.length > 0 && editorRef.insertEmbed(textIndex, 'image', `${embedUrl?.url}`) :
+    embedUrl?.url?.length > 0 && editorRef.clipboard.dangerouslyPasteHTML(textIndex, embedUrl?.url);
     editorRef.setSelection(textIndex + 1);
   };
 
   useEffect( () => {
     handleEmbed(embedUrl)
-    console.log("embedding function attached: " + embedUrl)
   },[embedUrl])
 
   return (

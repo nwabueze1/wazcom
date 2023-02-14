@@ -63,7 +63,6 @@ export const WysiwygInput: React.FC<WysiwygInputProps> = ({
                 >
                     <Editor 
                     embedUrl={embedUrl} 
-                    // handleEmbedUrl = {handleEmbedUrl}
                     handleContent={handleContent} 
                     handleImageModalState={handleImageModalState} />
                 </div>

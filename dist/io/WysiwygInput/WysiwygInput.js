@@ -64,7 +64,5 @@ export var WysiwygInput = function (_a) {
         }
     }, [editorContent]);
     console.log(embedUrl);
-    return (_jsx("div", { children: _jsxs("div", __assign({ className: clx(className, classes.root) }, { children: [_jsx(PosTitleInput, { handlePostTitle: handlePostTitle, placeholder: "This is the title" }), _jsx("div", __assign({ className: clx(classNames === null || classNames === void 0 ? void 0 : classNames.createPostInput, error && classes.editorError) }, { children: _jsx(Editor, { embedUrl: embedUrl, 
-                        // handleEmbedUrl = {handleEmbedUrl}
-                        handleContent: handleContent, handleImageModalState: handleImageModalState }) }))] })) }));
+    return (_jsx("div", { children: _jsxs("div", __assign({ className: clx(className, classes.root) }, { children: [_jsx(PosTitleInput, { handlePostTitle: handlePostTitle, placeholder: "This is the title" }), _jsx("div", __assign({ className: clx(classNames === null || classNames === void 0 ? void 0 : classNames.createPostInput, error && classes.editorError) }, { children: _jsx(Editor, { embedUrl: embedUrl, handleContent: handleContent, handleImageModalState: handleImageModalState }) }))] })) }));
 };

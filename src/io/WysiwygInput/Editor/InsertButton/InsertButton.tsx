@@ -27,7 +27,7 @@ export const InsertButton: React.FC<InsertButtonProps> = ({
         if (option) {
             
             if(option === 'picture') {
-                handleImageModalState()
+                handleImageModalState(option)
             }else{
                 // setOpenDialog(true)
             }

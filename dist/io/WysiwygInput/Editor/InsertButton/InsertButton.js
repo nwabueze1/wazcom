@@ -53,7 +53,7 @@ export var InsertButton = function (_a) {
     var handleOptionClick = function (event, option) {
         if (option) {
             if (option === 'picture') {
-                handleImageModalState();
+                handleImageModalState(option);
             }
             else {
                 // setOpenDialog(true)

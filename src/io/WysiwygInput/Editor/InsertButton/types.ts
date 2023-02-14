@@ -1,7 +1,7 @@
 import { CommonProps } from "../../../../types";
 
 export type InsertButtonProps = CommonProps & {
-    handleImageModalState: () => void;
+    handleImageModalState: (data?: string) => void;
 };
 
 export type ImageProperties = {
