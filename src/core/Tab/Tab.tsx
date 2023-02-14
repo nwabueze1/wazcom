@@ -1,4 +1,4 @@
-import { FC, useCallback, useEffect, useMemo, useState } from 'react';
+import React, { useCallback, useEffect, useMemo, useState } from 'react';
 import { useLocation, useNavigate } from 'react-router-dom';
 import clx from 'classnames';
 import { snakeCase } from "lodash";
@@ -7,7 +7,7 @@ import { useTabStyles } from './styles';
 import { TabProps } from './types';
 
 
-export const Tab: FC<TabProps> = ({
+export const Tab: React.FC<TabProps> = ({
     controls,
     variant,
     backgroundColor,
@@ -16,6 +16,7 @@ export const Tab: FC<TabProps> = ({
     borderStyle,
     borderRadius,
     className,
+    headerStyle,
     containerClassName,
 }) => {
     const classes = useTabStyles({
@@ -49,22 +50,24 @@ export const Tab: FC<TabProps> = ({
 
     return (
         <div className={clx(classes.root, className)}>
-            <div className={clx(classes.tabs, containerClassName)}>
-                {
-                    controls.map(({ name, title }, index) => (
-                        <div
-                            key={index}
-                            onClick={() => handleTabClick(name)}
-                            className={clx(
-                                classes.tab,
-                                (name == activeTab) && classes.tabIsActive,
-                                snakeCase(title), snakeCase(name)
-                            )}
-                        >
-                            {title}
-                        </div>
-                    ))
-                }
+            <div className={headerStyle}>
+                <div className={clx(classes.tabs, containerClassName)}>
+                    {
+                        controls.map(({ name, title }, index) => (
+                            <div
+                                key={index}
+                                onClick={() => handleTabClick(name)}
+                                className={clx(
+                                    classes.tab,
+                                    (name == activeTab) && classes.tabIsActive,
+                                    snakeCase(title), snakeCase(name)
+                                )}
+                            >
+                                {title}
+                            </div>
+                        ))
+                    }
+                </div>
             </div>
             <div className={clx(classes.contentWrapper, snakeCase(`${activeTab} content`))}>
                 {

@@ -2,8 +2,9 @@ import React from "react"
 
 export type TabProps = {
     children?: React.ReactNode;
-    className?: any;
-    containerClassName?: any;
+    className?: string;
+    containerClassName?: string;
+    headerStyle?: string;
     variant?: string;
     backgroundColor?: string;
     width?: string | number;
