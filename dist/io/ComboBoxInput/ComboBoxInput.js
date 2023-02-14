@@ -84,7 +84,7 @@ export var ComboBoxInput = function (_a) {
     };
     var getValue = useCallback(function () {
         var _a;
-        var label = (_a = options === null || options === void 0 ? void 0 : options.find(function (option) { var _a; return ((_a = option.value) === null || _a === void 0 ? void 0 : _a.category.toLowerCase()) === value.toString().toLowerCase(); })) === null || _a === void 0 ? void 0 : _a.label;
+        var label = (_a = options === null || options === void 0 ? void 0 : options.find(function (option) { var _a, _b, _c; return ((_b = (_a = option.value) === null || _a === void 0 ? void 0 : _a.category) === null || _b === void 0 ? void 0 : _b.toLowerCase()) === ((_c = value === null || value === void 0 ? void 0 : value.toString()) === null || _c === void 0 ? void 0 : _c.toLowerCase()); })) === null || _a === void 0 ? void 0 : _a.label;
         if (label)
             return { label: label, value: value };
         return { label: "", value: { category: "" } };
