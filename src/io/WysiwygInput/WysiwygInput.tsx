@@ -18,7 +18,7 @@ export const WysiwygInput: React.FC<WysiwygInputProps> = ({
     feedback,
     Loader,
     client,
-    handleEmbedUrl = "https://",
+    handlePostData,
     handleImageModalState,
     ...props
 }) => {
@@ -35,19 +35,13 @@ export const WysiwygInput: React.FC<WysiwygInputProps> = ({
         setPostTitle(title)
     }
 
-    const handleChange = (e: React.MouseEvent<HTMLElement>) => {
-        if (onChange) {
-            onChange?.({ name: name ?? "", value: {title: postTitle, content: editorContent} });
-        }
-    };
-
     useEffect( ()=> {
         if (onChange) {
             onChange?.({ name: name ?? "", value: {title: postTitle, content: editorContent} });
         }
+        
+        handlePostData({title: postTitle, content: editorContent})
     }, [editorContent])
-
-    console.log(embedUrl)
     return (
         <div>
             <div className={clx(className, classes.root)}>
