@@ -4,7 +4,7 @@ import { BsCheckCircle } from "react-icons/bs";
 import { GrFormClose } from "react-icons/gr";
 import { RiErrorWarningLine } from "react-icons/ri";
 import { AiOutlineInfoCircle } from "react-icons/ai";
-import { Notification } from "core";
+import { Notification } from "../../core";
 
 import { useNotificationStyles } from "./styles";
 import { NotificationProps } from "./types";
@@ -12,7 +12,7 @@ import { NotificationProps } from "./types";
 
 export const NotificationView: FC<NotificationProps> = () => {
     const classes = useNotificationStyles();
-    const [list, setList] = useState([]);
+    const [list, setList] = useState<any[]>([]);
 
     const showToast = () => {
         setList([...list, {
