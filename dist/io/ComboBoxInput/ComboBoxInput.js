@@ -66,7 +66,7 @@ export var ComboBoxInput = function (_a) {
     }, [initialOptions]);
     var handleChange = function (selectedOption) {
         var _a;
-        var value = (_a = options.find(function (option) { return (option === null || option === void 0 ? void 0 : option.label.toLowerCase()) === (selectedOption === null || selectedOption === void 0 ? void 0 : selectedOption.label.toLowerCase()); })) === null || _a === void 0 ? void 0 : _a.value;
+        var value = (_a = options.find(function (option) { var _a, _b; return ((_a = option === null || option === void 0 ? void 0 : option.label) === null || _a === void 0 ? void 0 : _a.toLowerCase()) === ((_b = selectedOption === null || selectedOption === void 0 ? void 0 : selectedOption.label) === null || _b === void 0 ? void 0 : _b.toLowerCase()); })) === null || _a === void 0 ? void 0 : _a.value;
         onChange === null || onChange === void 0 ? void 0 : onChange({ name: String(name), value: value !== null && value !== void 0 ? value : selectedOption.label });
     };
     var handleFilterOptions = function (options, params) {
