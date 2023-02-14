@@ -13,7 +13,7 @@ export var useColumnSelectorStyles = makeStyles(function (theme) { return ({
         position: 'relative',
         fontSize: theme.typography.fontSize,
         color: theme.design.colors.waz_grey1,
-        border: "1px solid ".concat(theme.design.colors.primary700),
+        border: "1px solid ".concat(theme.design.colors.waz_primary700),
     },
     columnList: {
         position: 'absolute',

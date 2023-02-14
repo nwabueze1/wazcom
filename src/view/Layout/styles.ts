@@ -37,8 +37,8 @@ export const useLayoutStyles = makeStyles((theme: Theme) => ({
         overflow: "hidden",
         padding: '7px 24px',
         marginLeft: `${drawerWidth}px`,
-        background: theme.design.colors.white100,
-        borderRadius: theme.spacing(.5)
+        background: theme.design.colors.waz_white100,
+        borderRadius: theme.spacing(.5),
     },
     componentWrapper: {
         marginBottom: theme.spacing(5),

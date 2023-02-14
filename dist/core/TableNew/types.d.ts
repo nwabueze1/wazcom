@@ -1,4 +1,3 @@
-import React from 'react';
 import { ApolloClient, NormalizedCacheObject } from "@apollo/client";
 import { DocumentNode } from "graphql";
 import { CommonProps } from "../../types";
@@ -9,13 +8,16 @@ export type TableNewProps = CommonProps & {
         [key: string]: JSX.Element | string | number;
     }[];
     query: TableQuery;
-    EmptyState?: React.ReactElement;
     showFilters?: boolean;
+    emptyState?: {
+        heading?: string;
+        message?: string;
+    };
 };
 export type TableColumn = {
     name: string | JSX.Element;
     key: string;
-    type: 'string' | 'number' | 'date';
+    type: "string" | "number" | "date";
     actions?: TableColumnAction[];
 };
 export type TableQuery = {
@@ -37,7 +39,7 @@ export type TableConditionFilter = {
 };
 export type TableSort = {
     column: string;
-    order: 'asc' | 'desc';
+    order: "asc" | "desc";
 };
 export type TablePagination = {
     currentPage: number;

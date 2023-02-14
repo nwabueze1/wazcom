@@ -7,7 +7,13 @@ import {
     TablePagination as TPagination,
     TableSort,
 } from "./types";
-import { TableActions, TableColumnActions, TableFilters, TablePagination } from "./components";
+import {
+    TableActions,
+    TableColumnActions,
+    TableFilters,
+    TablePagination,
+    EmptyState,
+} from "./components";
 import { useTableStyles } from "./styles";
 import { Loader } from "../../core";
 import { useTableStyles as useExternalTableStyles } from "../../stories/table-styles";
@@ -19,7 +25,7 @@ export const TableNew: FC<TableNewProps> = ({
     getRows,
     conditionFilters,
     showFilters,
-    EmptyState,
+    emptyState,
 }) => {
     const [table, setTable] = useState<{
         data: any;
@@ -142,19 +148,20 @@ export const TableNew: FC<TableNewProps> = ({
                 <thead className={classes.tHead}>
                     <tr className={classes.tRow}>{displayColumns()}</tr>
                 </thead>
-                {rows.length > 0 ? (
-                    <tbody>{displayRows()}</tbody>
-                ) : (
-                    EmptyState ?? <p>There is no content to display</p>
-                )}
+                {rows.length > 0 && <tbody>{displayRows()}</tbody>}
             </table>
-            <div className={classes.tableSeparator} />
-            <TablePagination
-                {...(table.pagination ?? { currentPage: 1, lastPage: 1, count: 10 })}
-                setTablePagination={(pagination: TPagination) => {
-                    setTable({ ...table, pagination });
-                }}
-            />
+            {rows.length === 0 && <EmptyState {...emptyState} />}
+            {rows.length > 0 && (
+                <>
+                    <div className={classes.tableSeparator} />
+                    <TablePagination
+                        {...(table.pagination ?? { currentPage: 1, lastPage: 1, count: 10 })}
+                        setTablePagination={(pagination: TPagination) => {
+                            setTable({ ...table, pagination });
+                        }}
+                    />
+                </>
+            )}
             {loading && <Loader className={classes.tableLoader} />}
         </div>
     );
