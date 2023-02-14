@@ -68,7 +68,7 @@ export const Editor: React.FC<EditorProps> = ({
   };
 
   useEffect( () => {
-    // handleEmbed(embedUrl)
+    handleEmbed(embedUrl)
     console.log("embedding function attached: " + embedUrl)
   },[embedUrl])
 
