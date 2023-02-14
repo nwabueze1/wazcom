@@ -4,7 +4,8 @@ export type TabProps = {
     children?: React.ReactNode;
     className?: string;
     containerClassName?: string;
-    headerStyle?: string;
+    activeTabClassName?: string;
+    tabHeaderClassName?: string;
     variant?: string;
     backgroundColor?: string;
     width?: string | number;

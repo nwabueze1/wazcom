@@ -16,7 +16,8 @@ export const Tab: React.FC<TabProps> = ({
     borderStyle,
     borderRadius,
     className,
-    headerStyle,
+    tabHeaderClassName,
+    activeTabClassName,
     containerClassName,
 }) => {
     const classes = useTabStyles({
@@ -50,7 +51,7 @@ export const Tab: React.FC<TabProps> = ({
 
     return (
         <div className={clx(classes.root, className)}>
-            <div className={headerStyle}>
+            <div className={tabHeaderClassName}>
                 <div className={clx(classes.tabs, containerClassName)}>
                     {
                         controls.map(({ name, title }, index) => (
@@ -60,6 +61,7 @@ export const Tab: React.FC<TabProps> = ({
                                 className={clx(
                                     classes.tab,
                                     (name == activeTab) && classes.tabIsActive,
+                                    (name == activeTab) && activeTabClassName,
                                     snakeCase(title), snakeCase(name)
                                 )}
                             >
