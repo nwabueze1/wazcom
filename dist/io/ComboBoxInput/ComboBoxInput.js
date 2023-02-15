@@ -100,7 +100,9 @@ export var ComboBoxInput = function (_a) {
                                             selectedSubCategories.map(function (tag, id) { return (_jsx(Tag, { name: tag }, id)); }) }))] })), _jsxs("div", { children: [((_c = value === null || value === void 0 ? void 0 : value.value) === null || _c === void 0 ? void 0 : _c.subCategory) && (_jsx("p", __assign({ className: classes.label }, { children: "PICK SUB CATEGORIES" }))), _jsx("div", __assign({ className: classes.inputContainer }, { children: ((_d = value === null || value === void 0 ? void 0 : value.value) === null || _d === void 0 ? void 0 : _d.subCategory) &&
                                             ((_e = value === null || value === void 0 ? void 0 : value.value) === null || _e === void 0 ? void 0 : _e.subCategory.map(function (name, id) { return (_jsxs("div", __assign({ className: classes.subCategoryInput }, { children: [_jsx(CheckBoxInput, { className: classes.checkbox, name: name, onChange: function (data) {
                                                             if (data.value) {
-                                                                setSelectedSubCategories(__spreadArray(__spreadArray([], __read(selectedSubCategories), false), [name], false));
+                                                                setSelectedSubCategories(__spreadArray(__spreadArray([], __read(selectedSubCategories), false), [
+                                                                    name,
+                                                                ], false));
                                                             }
                                                             else {
                                                                 setSelectedSubCategories(selectedSubCategories.filter(function (item) { return item !== name; }));

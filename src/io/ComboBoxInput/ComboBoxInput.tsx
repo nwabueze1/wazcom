@@ -140,7 +140,10 @@ export const ComboBoxInput: FC<ComboBoxInputProps> = ({
                                             name={name}
                                             onChange={(data: { name: string; value: any }) => {
                                                 if (data.value) {
-                                                    setSelectedSubCategories([...selectedSubCategories, name]);
+                                                    setSelectedSubCategories([
+                                                        ...selectedSubCategories,
+                                                        name,
+                                                    ]);
                                                 } else {
                                                     setSelectedSubCategories(
                                                         selectedSubCategories.filter(
