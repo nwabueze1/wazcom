@@ -6,10 +6,10 @@ export const useCreatePostInputStyles = makeStyles((theme: Theme) => ({
         marginBottom: theme.spacing(2),
         position: "relative",
         width: "100%",
-        border: `1px solid ${theme.design.colors.primary700}`,
+        border: `1px solid ${theme.design.colors.waz_primary700}`,
     },
     header: {
-        borderBottom: `1px solid ${theme.design.colors.primary700}`,
+        borderBottom: `1px solid ${theme.design.colors.waz_primary700}`,
         height: theme.spacing(5.75),
         marginBottom: theme.spacing(2.75)
     },
@@ -18,7 +18,7 @@ export const useCreatePostInputStyles = makeStyles((theme: Theme) => ({
         margin: theme.spacing(0.5, 0, 0, 0.5),
     },
     editorError: {
-        border: "1px solid red",
+        border: `1px solid ${theme.design.colors.waz_red}`,
         zIndex: 1,
     },
     createPostInput: {

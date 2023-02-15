@@ -12,7 +12,7 @@ export const useSortSelectorStyles = makeStyles((theme: Theme) => ({
         justifyContent: 'space-between',
         alignItems: 'center',
         color: theme.design.colors.waz_grey1,
-        border: `1px solid ${theme.design.colors.primary700}`,
+        border: `1px solid ${theme.design.colors.waz_primary700}`,
     },
     sortDetails: {
         display: 'flex',

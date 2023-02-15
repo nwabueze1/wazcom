@@ -4,7 +4,7 @@ import { FC } from "react";
 import React, { ChangeEvent, KeyboardEvent } from "react";
 import { NumericFormat } from 'react-number-format';
 import { AiFillCaretDown, AiOutlineInfoCircle } from "react-icons/ai";
-import { SelectInput } from "io";
+import { SelectInput } from "../";
 
 
 import { useCurrencyInputStyles } from "./styles";

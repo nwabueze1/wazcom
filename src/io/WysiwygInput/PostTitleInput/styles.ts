@@ -24,8 +24,8 @@ export const usePostTitleStyles = makeStyles((theme: Theme) => ({
     input: {
         height: theme.spacing(4.125),
         padding: theme.spacing(0,0,0,2),
-        background: `${theme.design.colors.white100} 0% 0% no-repeat padding-box`,
-        border: `0px solid ${theme.design.colors.primary700}`,
+        background: `${theme.design.colors.waz_white100} 0% 0% no-repeat padding-box`,
+        border: `0px solid ${theme.design.colors.waz_primary700}`,
         borderRadius: 4,
         outline: "none",
         color: theme.design.colors.grey100,
@@ -33,13 +33,13 @@ export const usePostTitleStyles = makeStyles((theme: Theme) => ({
         fontWeight: 800,
         fontSize: theme.typography.fontSize * 2,
         '&:hover': {
-            borderColor: theme.design.colors.primary600,
+            borderColor: theme.design.colors.waz_primary600,
         },
         '&:focus': {
-            borderColor: theme.design.colors.primary500,
+            borderColor: theme.design.colors.waz_primary500,
         },
         '&:hover:focus': {
-            borderColor: theme.design.colors.primary500,
+            borderColor: theme.design.colors.waz_primary500,
         },
         '&::placeHolder': {
             fontWeight: 800,

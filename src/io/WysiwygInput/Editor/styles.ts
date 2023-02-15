@@ -12,7 +12,7 @@ export const useEditorToolbarStyles = makeStyles((theme: Theme) => ({
         background: theme.design.colors.waz_white,
         flexWrap: "wrap",
         // width: '464px',
-        border: `1px solid ${theme.design.colors.primary700} !important`,
+        border: `1px solid ${theme.design.colors.waz_primary700} !important`,
         margin: theme.spacing(0, 2, 0, 2),
         borderRadius: theme.spacing(0.625),
         '& .ql-picker.ql-size' : {
@@ -26,7 +26,7 @@ export const useEditorToolbarStyles = makeStyles((theme: Theme) => ({
         }
     },
     toolbarItem: {
-        borderRight: `1px solid ${theme.design.colors.primary700}`,
+        borderRight: `1px solid ${theme.design.colors.waz_primary700}`,
     },
     wordCount: {
         display: "flex",
@@ -43,7 +43,7 @@ export const useEditorToolbarStyles = makeStyles((theme: Theme) => ({
         width: "100%",
     },
     editor: {
-        color: theme.design.colors.waz_grey1,
+        color: theme.design.colors.waz_grey100,
         overflow: "auto",
         height: "100vh",
         position: "relative",
@@ -51,11 +51,11 @@ export const useEditorToolbarStyles = makeStyles((theme: Theme) => ({
     },
     floatingBar: {
         position: "absolute",
-        zIndex: 8,
+        zIndex: 2,
     },
     quillEditor: {
         "& .ql-container": {
-            border: `0px solid ${theme.design.colors.primary700} !important`,
+            border: `0px solid ${theme.design.colors.waz_primary700} !important`,
         },
         "& .ql-editor .ql-video": {
             width: "80%",

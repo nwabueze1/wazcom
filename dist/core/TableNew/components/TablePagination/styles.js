@@ -38,7 +38,7 @@ export var useTablePaginationStyles = makeStyles(function (theme) { return ({
         }
     },
     paginationSelect: {
-        width: "75px !important",
+        width: "60px !important",
         marginBottom: '0 !important',
     },
     paginationSelectInput: {

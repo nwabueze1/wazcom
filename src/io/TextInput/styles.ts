@@ -32,12 +32,13 @@ export const useTextStyles = makeStyles((theme: Theme) => ({
         borderRadius: props?.borderRadius ?? 4,
         fontWeight: theme.typography.fontWeightRegular,
         fontSize: theme.typography.fontSize,
-        borderColor: props?.borderColor ?? theme.design.colors.primary700,
+        borderColor: props?.borderColor ?? theme.design.colors.waz_primary700,
+        
         '&:hover': {
-            borderColor: theme.design.colors.primary500,
+            borderColor: theme.design.colors.waz_primary500,
         },
         '&:focus, &:hover:focus, &:active': {
-            borderColor: theme.design.colors.primary400,
+            borderColor: theme.design.colors.waz_primary400,
         },
     }),
     baseTextArea: (props: TextBaseProps) => ({
@@ -53,25 +54,25 @@ export const useTextStyles = makeStyles((theme: Theme) => ({
         fontSize: theme.typography.fontSize,
         borderColor: props?.borderColor ?? theme.design.colors.primary700,
         '&:hover': {
-            borderColor: theme.design.colors.primary500,
+            borderColor: theme.design.colors.waz_primary500,
         },
         '&:focus, &:hover:focus, &:active': {
-            borderColor: theme.design.colors.primary400,
+            borderColor: theme.design.colors.waz_primary400,
         },
     }),
     defaultInput: (props: TextBaseProps) => ({
-        borderColor: props?.borderColor ?? theme.design.colors.primary700,
+        borderColor: props?.borderColor ?? theme.design.colors.waz_primary700,
         '&:hover': {
-            borderColor: theme.design.colors.primary500,
+            borderColor: theme.design.colors.waz_primary500,
         },
         '&:focus, &:hover:focus, &:active': {
-            borderColor: theme.design.colors.primary400,
+            borderColor: theme.design.colors.waz_primary400,
         },
     }),
     focusedInput: (props: TextBaseProps) => ({
-        borderColor: props?.borderColor ?? theme.design.colors.primary400,
+        borderColor: props?.borderColor ?? theme.design.colors.waz_primary400,
         '&:hover, &:focus, &:hover:focus, &:active': {
-            borderColor: theme.design.colors.primary400,
+            borderColor: theme.design.colors.waz_primary400,
         },
     }),
     errorInput: () => ({

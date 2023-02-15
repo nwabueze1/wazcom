@@ -1,5 +1,5 @@
 import { FC, useState, useCallback } from "react";
-import { SelectInput } from "io";
+import { SelectInput } from "../../io";
 
 import { useSelectInputStyles } from "./styles";
 import { SelectInputViewProps, InputDataProps } from "./types";
@@ -53,6 +53,8 @@ export const SelectInputView: FC<SelectInputViewProps> = () => {
                                 key={index}
                                 label={item.label}
                                 options={item.options}
+                                value={value}
+                                onChange={handleValueChange}
                             />
                         ))}
                     </div>

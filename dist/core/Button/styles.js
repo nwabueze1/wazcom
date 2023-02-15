@@ -19,7 +19,7 @@ export var useButtonStyles = makeStyles(function (theme) { return ({
         position: 'relative',
         boxSizing: 'border-box',
         WebkitTapHighlightColor: 'transparent',
-        backgroundColor: 'transparent',
+        backgroundColor: theme.design.colors.waz_primary100,
         outline: 0,
         border: 0,
         margin: 0,

@@ -1,6 +1,6 @@
 import { FC } from "react";
 import { FiLink } from "react-icons/fi"
-import { URLInput } from "io";
+import { URLInput } from "../../io";
 
 import { useURLInputStyles } from "./styles";
 import { URLInputViewProps, InputDataProps } from "./types";

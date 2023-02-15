@@ -10,7 +10,7 @@ export var useSortSelectorStyles = makeStyles(function (theme) { return ({
         justifyContent: 'space-between',
         alignItems: 'center',
         color: theme.design.colors.waz_grey1,
-        border: "1px solid ".concat(theme.design.colors.primary700),
+        border: "1px solid ".concat(theme.design.colors.waz_primary700),
     },
     sortDetails: {
         display: 'flex',

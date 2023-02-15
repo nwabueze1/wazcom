@@ -1,3 +1,3 @@
-import { FC } from 'react';
+import React from 'react';
 import { TabProps } from './types';
-export declare const Tab: FC<TabProps>;
+export declare const Tab: React.FC<TabProps>;

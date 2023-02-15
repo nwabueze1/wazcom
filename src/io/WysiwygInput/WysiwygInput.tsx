@@ -2,25 +2,18 @@ import React, { useState, useEffect } from "react";
 import { useCreatePostInputStyles } from "./styles";
 import { WysiwygInputProps } from "./types";
 import clx from "classnames";
-import { PosTitleInput } from "./PostTitleInput/PostTitleInput";
+import { PostTitleInput } from "./PostTitleInput";
 import { Editor } from "./Editor";
 
 export const WysiwygInput: React.FC<WysiwygInputProps> = ({
     name,
     className,
     classNames,
-    helperText,
-    label,
-    value,
     embedUrl,
     onChange,
     error,
-    feedback,
-    Loader,
-    client,
-    handleEmbedUrl = "https://",
+    handlePostData,
     handleImageModalState,
-    ...props
 }) => {
     const classes = useCreatePostInputStyles();
 
@@ -35,26 +28,24 @@ export const WysiwygInput: React.FC<WysiwygInputProps> = ({
         setPostTitle(title)
     }
 
-    const handleChange = (e: React.MouseEvent<HTMLElement>) => {
-        if (onChange) {
-            onChange?.({ name: name ?? "", value: {title: postTitle, content: editorContent} });
-        }
-    };
-
     useEffect( ()=> {
         if (onChange) {
             onChange?.({ name: name ?? "", value: {title: postTitle, content: editorContent} });
         }
+        
+        ()=>handlePostData({title: postTitle, content: editorContent})
     }, [editorContent])
-
-    console.log(embedUrl)
     return (
         <div>
             <div className={clx(className, classes.root)}>
-                <PosTitleInput 
-                handlePostTitle={handlePostTitle} 
-                placeholder={"This is the title"}
-                />
+                <PostTitleInput
+                    handlePostTitle={handlePostTitle}
+                    placeholder="This is the title" 
+                    type={"text"} 
+                    info={""} 
+                    hideLabel={false} 
+                    label={""} 
+                    errors={[]}                />
                 <div
                     className={clx(
                         classNames?.createPostInput,
@@ -63,7 +54,6 @@ export const WysiwygInput: React.FC<WysiwygInputProps> = ({
                 >
                     <Editor 
                     embedUrl={embedUrl} 
-                    handleEmbedUrl = {handleEmbedUrl}
                     handleContent={handleContent} 
                     handleImageModalState={handleImageModalState} />
                 </div>

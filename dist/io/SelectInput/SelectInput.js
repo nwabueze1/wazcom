@@ -44,7 +44,7 @@ export var SelectInput = function (_a) {
                     DropdownIndicator: DropdownIndicator,
                     IndicatorSeparator: function () { return null; }
                 }, styles: {
-                    control: function (baseStyles) { return (__assign(__assign({}, baseStyles), { minHeight: 34, height: height || 34, width: width || '100%', backgroundColor: backgroundColor || '', borderWidth: borderWidth !== null && borderWidth !== void 0 ? borderWidth : 1, borderStyle: borderStyle !== null && borderStyle !== void 0 ? borderStyle : 'solid', borderColor: borderColor !== null && borderColor !== void 0 ? borderColor : theme.design.colors.primary700, fontFamily: theme.typography.fontFamily, fontWeight: 400, fontSize: theme.typography.fontSize, boxShadow: 'none', '&:hover': {
+                    control: function (baseStyles) { return (__assign(__assign({}, baseStyles), { minHeight: 34, height: height || 34, width: width || '100%', backgroundColor: backgroundColor || '', borderWidth: borderWidth !== null && borderWidth !== void 0 ? borderWidth : 1, borderStyle: borderStyle !== null && borderStyle !== void 0 ? borderStyle : 'solid', borderColor: borderColor !== null && borderColor !== void 0 ? borderColor : theme.design.colors.waz_primary700, fontFamily: theme.typography.fontFamily, fontWeight: 400, fontSize: theme.typography.fontSize, boxShadow: 'none', '&:hover': {
                             borderColor: theme.design.colors.primary600,
                         }, '&:focus': {
                             borderColor: theme.design.colors.primary500,

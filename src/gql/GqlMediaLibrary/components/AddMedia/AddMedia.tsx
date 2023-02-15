@@ -1,6 +1,6 @@
 import { FC } from "react";
 import { useAddMediaStyles } from "./styles";
-import { Button } from "core/Button";
+import { Button } from "../../../../core";
 import { Modal } from "@mui/material";
 import { AddMediaProps } from "./types";
 import { UploadDialogue } from "./UploadDialogue";
