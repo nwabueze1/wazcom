@@ -45,6 +45,7 @@ export const useSchedulerStyles = makeStyles((theme: Theme) => ({
         display: "flex",
         justifyContent: "space-between",
         alignItems: "center",
+        width: "48%"
     },
     timeDivider: {
         margin: theme.spacing(0, 1),
@@ -57,7 +58,9 @@ export const useSchedulerStyles = makeStyles((theme: Theme) => ({
     hidden: {
         display: "none",
     },
-    dayContainer: {},
+    dayContainer: {
+        width: "48%"
+    },
     timeSection: {
         height: "40px",
     },
