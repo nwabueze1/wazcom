@@ -33,7 +33,7 @@ export const WysiwygInput: React.FC<WysiwygInputProps> = ({
             onChange?.({ name: name ?? "", value: {title: postTitle, content: editorContent} });
         }
         
-        ()=>handlePostData({title: postTitle, content: editorContent})
+        handlePostData({title: postTitle, content: editorContent})
     }, [editorContent])
     return (
         <div>
