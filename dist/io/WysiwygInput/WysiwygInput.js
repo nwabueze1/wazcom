@@ -26,7 +26,7 @@ var __read = (this && this.__read) || function (o, n) {
     return ar;
 };
 import { jsx as _jsx, jsxs as _jsxs } from "react/jsx-runtime";
-import { useState, useEffect } from "react";
+import { useState } from "react";
 import { useCreatePostInputStyles } from "./styles";
 import clx from "classnames";
 import { PostTitleInput } from "./PostTitleInput";
@@ -45,8 +45,5 @@ export var WysiwygInput = function (_a) {
     if (onChange) {
         onChange === null || onChange === void 0 ? void 0 : onChange({ name: name !== null && name !== void 0 ? name : "", value: { title: postTitle, content: editorContent } });
     }
-    useEffect(function () {
-        // ()=>handlePostData({title: postTitle, content: editorContent})
-    }, [editorContent]);
     return (_jsx("div", { children: _jsxs("div", __assign({ className: clx(className, classes.root) }, { children: [_jsx(PostTitleInput, { handlePostTitle: handlePostTitle, placeholder: "This is the title", type: "text", info: "", hideLabel: false, label: "", errors: [] }), _jsx("div", __assign({ className: clx(classNames === null || classNames === void 0 ? void 0 : classNames.createPostInput, error && classes.editorError) }, { children: _jsx(Editor, { embedUrl: embedUrl, handleContent: handleContent, handleImageModalState: handleImageModalState }) }))] })) }));
 };

@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import React, { useState } from "react";
 import { useCreatePostInputStyles } from "./styles";
 import { WysiwygInputProps } from "./types";
 import clx from "classnames";
@@ -30,10 +30,7 @@ export const WysiwygInput: React.FC<WysiwygInputProps> = ({
     if (onChange) {
         onChange?.({ name: name ?? "", value: {title: postTitle, content: editorContent} });
     }
-    useEffect( ()=> {
-        
-        // ()=>handlePostData({title: postTitle, content: editorContent})
-    }, [editorContent])
+    
     return (
         <div>
             <div className={clx(className, classes.root)}>

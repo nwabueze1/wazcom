@@ -12,7 +12,7 @@ import { URLInputView } from "view/URLInput";
 import { CurrencyInputView } from "view/CurrencyInput";
 import { SelectInputView } from "view/SelectInput";
 import { TableView } from "../view/Table";
-import { WysiwygInput } from "../io";
+import { WysiwygInputView } from "view/WysiwygInput";
 
 export default [
     {
@@ -97,6 +97,6 @@ export default [
         key: 'WhysiwygInput',
         path: "/wysiwyg-input",
         exact: true,
-        component: WysiwygInput
+        component: WysiwygInputView
     },
 ];
