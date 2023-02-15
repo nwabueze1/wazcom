@@ -3,7 +3,7 @@ export var useSortSelectorStyles = makeStyles(function (theme) { return ({
     root: {
         background: theme.design.colors.waz_white,
         borderRadius: 3,
-        width: 90,
+        width: '7%',
         height: 40,
         position: 'relative',
         display: 'flex',

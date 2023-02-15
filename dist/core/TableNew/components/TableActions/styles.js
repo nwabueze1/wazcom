@@ -7,7 +7,7 @@ export var useTableActionStyles = makeStyles(function (theme) { return ({
         marginBottom: theme.spacing(1),
     },
     searchInputElement: {
-        width: "50%",
+        width: "59%",
     },
     searchInput: {
         background: "".concat(theme.design.colors.waz_white, " !important"),
