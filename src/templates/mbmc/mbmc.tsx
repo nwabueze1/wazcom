@@ -440,7 +440,6 @@ export const useGetMbmcBlocks = () => {
                     },
                 ],
                 site_uuid: "896466aa-bacc-4817-b577-436a52540eff",
-                mode: "edit",
                 index: 0,
                 activeElement: "0.ctas.0",
                 handleClick: (route: string) => alert(route),

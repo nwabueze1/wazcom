@@ -28,6 +28,6 @@ export const useSummaryStyles = makeStyles((theme: Theme) => ({
         fontWeight: theme.typography.fontWeightBold,
     },
     summaryButton: {
-        width: "100%",
+        width: "100% !important",
     },
 }));

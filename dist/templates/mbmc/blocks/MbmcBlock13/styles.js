@@ -1,6 +1,6 @@
 import { makeStyles } from "@mui/styles";
 export var useMbmcBlock13Styles = makeStyles(function (theme) {
-    var _a, _b, _c, _d, _e, _f, _g, _h, _j, _k, _l, _m, _o, _p, _q;
+    var _a, _b, _c, _d, _e, _f, _g, _h, _j, _k, _l, _m, _o, _p, _q, _r;
     return ({
         root: {
             position: "absolute",
@@ -148,26 +148,41 @@ export var useMbmcBlock13Styles = makeStyles(function (theme) {
                 backgroundColor: theme.design.colors.waz_orangeColor100,
             },
             _h),
-        ctaDesktop: {
-            fontWeight: theme.typography.fontWeightMedium,
-        },
-        ctaMobile: {
-            color: theme.design.colors.waz_orangeColor100,
-            fontWeight: theme.typography.fontWeightMedium,
-        },
-        menuOptionMobile: (_j = {
-                display: "none"
+        ctaButton: (_j = {
+                background: theme.design.colors.waz_white,
+                padding: theme.spacing(1, 3),
+                borderRadius: 100,
+                transition: "opacity 0.3s ease-in",
+                fontSize: "".concat(theme.typography.fontSize, "px !important"),
+                '&:hover': {
+                    opacity: 0.75,
+                },
+                '&:active': {
+                    opacity: 0.75,
+                },
+                '&:hover:active': {
+                    opacity: 0.75,
+                }
             },
             _j[theme.breakpoints.down("lg")] = {
+                color: "".concat(theme.design.colors.waz_orangeColor100, " !important"),
+                fontFamily: "".concat(theme.design.font.openSans, " !important"),
+                fontWeight: theme.typography.fontWeightMedium,
+            },
+            _j),
+        menuOptionMobile: (_k = {
+                display: "none"
+            },
+            _k[theme.breakpoints.down("lg")] = {
                 display: "flex",
                 alignItems: "center",
                 color: theme.design.colors.waz_lightOrange,
             },
-            _j),
-        openNav: (_k = {
+            _k),
+        openNav: (_l = {
                 display: "none"
             },
-            _k[theme.breakpoints.down("lg")] = {
+            _l[theme.breakpoints.down("lg")] = {
                 display: "block",
                 position: "fixed",
                 zIndex: 12,
@@ -176,18 +191,18 @@ export var useMbmcBlock13Styles = makeStyles(function (theme) {
                 right: "-100%",
                 transition: "all 0.5s",
             },
-            _k[theme.breakpoints.down("md")] = {
+            _l[theme.breakpoints.down("md")] = {
                 height: "100vh",
                 zIndex: 12,
             },
-            _k),
-        showMenu: (_l = {
+            _l),
+        showMenu: (_m = {
                 right: theme.spacing(10)
             },
-            _l[theme.breakpoints.down("md")] = {
+            _m[theme.breakpoints.down("md")] = {
                 right: theme.spacing(2),
             },
-            _l),
+            _m),
         overlay: {
             backgroundColor: "rgba(0,0,0,0.3)",
             opacity: 0,
@@ -202,7 +217,7 @@ export var useMbmcBlock13Styles = makeStyles(function (theme) {
             opacity: 1,
             visibility: "visible",
         },
-        expandedNav: (_m = {
+        expandedNav: (_o = {
                 overflow: "hidden",
                 padding: theme.spacing(0, 0, 0, 10),
                 width: "100%",
@@ -213,18 +228,18 @@ export var useMbmcBlock13Styles = makeStyles(function (theme) {
                 justifyContent: "space-between",
                 minHeight: "100vh"
             },
-            _m[theme.breakpoints.down("md")] = {
+            _o[theme.breakpoints.down("md")] = {
                 padding: theme.spacing(0, 0, 0, 2),
                 height: "100%",
             },
-            _m),
+            _o),
         mobilelogoContainer: {
             width: "30%",
             display: "flex",
             alignItems: "center",
             paddingTop: theme.spacing(2),
         },
-        expandedMenuOptionMobile: (_o = {
+        expandedMenuOptionMobile: (_p = {
                 display: "flex",
                 flexDirection: "column",
                 alignItems: "flex-end",
@@ -236,26 +251,26 @@ export var useMbmcBlock13Styles = makeStyles(function (theme) {
                 backgroundColor: theme.design.colors.waz_orangeColor100,
                 minHeight: "100vh"
             },
-            _o[theme.breakpoints.down("md")] = {
+            _p[theme.breakpoints.down("md")] = {
                 paddingRight: theme.spacing(2),
                 justifyContent: "flex-start",
             },
-            _o),
+            _p),
         expandedNavContent: {
             width: "100%",
             height: "100%",
             display: "flex",
         },
-        expandedNavContentLeftSide: (_p = {
+        expandedNavContentLeftSide: (_q = {
                 width: "30%",
                 backgroundColor: "rgba(0,0,0,0.4)",
                 padding: theme.spacing(0, 0, 0, 10)
             },
-            _p[theme.breakpoints.down("md")] = {
+            _q[theme.breakpoints.down("md")] = {
                 padding: theme.spacing(0, 0, 0, 2),
             },
-            _p),
-        expandedNavContentRightSide: (_q = {
+            _q),
+        expandedNavContentRightSide: (_r = {
                 width: "70%",
                 backgroundColor: theme.design.colors.waz_orangeColor100,
                 textAlign: "right",
@@ -264,7 +279,7 @@ export var useMbmcBlock13Styles = makeStyles(function (theme) {
                 flexDirection: "column",
                 alignItems: "flex-end",
                 padding: theme.spacing(4, 10, 10, 0),
-                "& a, p": {
+                "& p, a": {
                     textDecoration: "none",
                     letterSpacing: "0px",
                     color: theme.design.colors.waz_white,
@@ -274,10 +289,10 @@ export var useMbmcBlock13Styles = makeStyles(function (theme) {
                     fontFamily: theme.design.font.lostaMasta,
                 }
             },
-            _q[theme.breakpoints.down("lg")] = {
+            _r[theme.breakpoints.down("lg")] = {
                 paddingRight: theme.spacing(2),
             },
-            _q),
+            _r),
         NavLinks: {
             letterSpacing: "0px",
             color: theme.design.colors.waz_white,
