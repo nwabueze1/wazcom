@@ -12,7 +12,7 @@ export const useEditorToolbarStyles = makeStyles((theme: Theme) => ({
         background: theme.design.colors.waz_white,
         flexWrap: "wrap",
         // width: '464px',
-        border: `1px solid ${theme.design.colors.primary700} !important`,
+        border: `1px solid ${theme.design.colors.waz_primary700} !important`,
         margin: theme.spacing(0, 2, 0, 2),
         borderRadius: theme.spacing(0.625),
         '& .ql-picker.ql-size' : {
@@ -26,7 +26,7 @@ export const useEditorToolbarStyles = makeStyles((theme: Theme) => ({
         }
     },
     toolbarItem: {
-        borderRight: `1px solid ${theme.design.colors.primary700}`,
+        borderRight: `1px solid ${theme.design.colors.waz_primary700}`,
     },
     wordCount: {
         display: "flex",
