@@ -1,4 +1,4 @@
-import React from "react";
+import React, {useState} from "react";
 import { StyledEngineProvider, Theme, ThemeProvider } from "@mui/material";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import { Blaise } from "templates";
@@ -9,6 +9,7 @@ import { Mbmc } from "templates/restaurant/Mbmc/Mbmc";
 import { Layout } from "view/Layout";
 import theme from "./theme";
 import routes from "./routes";
+import { WysiwygInput } from "./io/WysiwygInput";
 
 declare module "@mui/styles/defaultTheme" {
     // eslint-disable-next-line @typescript-eslint/no-empty-interface
@@ -80,7 +81,11 @@ const navProps: any = {
 
 const App: React.FC = () => {
     const getMbmcBlocks = useGetMbmcBlocks();
-
+const [data, setData] = useState<{ [key: string]: string }>({})
+    const handlePostData = () => {
+        setData(data)
+    }
+    console.log(data)
     return (
         <StyledEngineProvider injectFirst>
             <ThemeProvider theme={theme}>
@@ -99,6 +104,12 @@ const App: React.FC = () => {
                             <Route path="/sevyn" element={<Blaise mode="edit" {...navProps} />} />
                             <Route path="/asta" element={<Asta />} />
                             <Route path="/mbmc" element={<Mbmc />} />
+                            <Route path="/wysiwyg" element={
+                            <WysiwygInput
+                                name = "postData"
+                                value = {data}
+                                handlePostData = {handlePostData}
+                                />} />
                         </Routes>
                     </Layout>
                 </BrowserRouter>

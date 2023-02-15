@@ -12,7 +12,6 @@ export const WysiwygInput: React.FC<WysiwygInputProps> = ({
     embedUrl,
     onChange,
     error,
-    handlePostData,
     handleImageModalState,
 }) => {
     const classes = useCreatePostInputStyles();
@@ -28,12 +27,12 @@ export const WysiwygInput: React.FC<WysiwygInputProps> = ({
         setPostTitle(title)
     }
 
+    if (onChange) {
+        onChange?.({ name: name ?? "", value: {title: postTitle, content: editorContent} });
+    }
     useEffect( ()=> {
-        if (onChange) {
-            onChange?.({ name: name ?? "", value: {title: postTitle, content: editorContent} });
-        }
         
-        handlePostData({title: postTitle, content: editorContent})
+        // ()=>handlePostData({title: postTitle, content: editorContent})
     }, [editorContent])
     return (
         <div>
