@@ -1,19 +1,15 @@
-import React, { useRef, useState } from "react";
+import React, { useState } from "react";
 import { useInsertButtonStyles } from "./styles";
-import { InsertButtonProps, OptionItemProps, ImageProperties } from './types';
+import { InsertButtonProps, OptionItemProps } from './types';
 import clx from "classnames";
-import { InsertDialog } from "../InsertDialog/InsertDialog";
-import { EditorMediaLibrary } from "../EditorMediaLibrary/EditorMediaLibrary";
 import VideoIcon from "./VideoIcon";
 import PictureIcon from "./PictureIcon";
 import SocialIcon from "./SocialIcon";
 
 
 export const InsertButton: React.FC<InsertButtonProps> = ({
-    name,
     className,
     handleImageModalState,
-    ...props
 }) => {
     const classes = useInsertButtonStyles();
 
@@ -23,9 +19,8 @@ export const InsertButton: React.FC<InsertButtonProps> = ({
         setMediaOpen(!mediaOpen)
      }
 
-    const handleOptionClick = (event: React.MouseEvent<HTMLElement>, option: string) => {
+    const handleOptionClick = (option: string) => {
         if (option) {
-            
             handleImageModalState(option)
         }
     }
@@ -43,17 +38,17 @@ export const InsertButton: React.FC<InsertButtonProps> = ({
                     icon={<PictureIcon />} 
                     title={"Picture"} 
                     itemInfo={"jpeg, png"} 
-                    handleOptionClick={()=>handleOptionClick(event, "picture")} />
+                    handleOptionClick={()=>handleOptionClick("picture")} />
                     <OptionItem 
                     icon={<VideoIcon />} 
                     title={"Video"} 
                     itemInfo={"Embed a Youtube video"} 
-                    handleOptionClick={()=>handleOptionClick(event, "video")} />
+                    handleOptionClick={()=>handleOptionClick("video")} />
                     <OptionItem 
                     icon={<SocialIcon />} 
                     title={"Social"} 
                     itemInfo={"Embed a Facebook Link"} 
-                    handleOptionClick={()=>handleOptionClick(event, "social")} />
+                    handleOptionClick={()=>handleOptionClick("social")} />
                 </div>
             </div>
         </div>
@@ -63,7 +58,7 @@ export const InsertButton: React.FC<InsertButtonProps> = ({
 export const OptionItem: React.FC<OptionItemProps> = ({icon, title, itemInfo, handleOptionClick}) => {
     const classes = useInsertButtonStyles();
     return (
-        <div className={classes.option} onClick={handleOptionClick}>
+        <div className={classes.option} onClick={()=>handleOptionClick}>
             <div className={classes.optionItemIcon}>
                 {icon}
             </div>

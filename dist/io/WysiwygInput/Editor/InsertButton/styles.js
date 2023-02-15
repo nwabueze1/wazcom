@@ -34,7 +34,7 @@ export var useInsertButtonStyles = makeStyles(function (theme) { return ({
         fontWeight: 800,
         color: theme.design.colors.grey,
     },
-    Options: {
+    options: {
         display: 'flex',
         flexDirection: 'column',
         justifyContent: 'flex-start'

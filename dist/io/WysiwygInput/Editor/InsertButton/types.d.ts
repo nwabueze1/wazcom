@@ -1,4 +1,3 @@
-/// <reference types="react" />
 import { CommonProps } from "../../../../types";
 export type InsertButtonProps = CommonProps & {
     handleImageModalState: (data?: string) => void;
@@ -16,5 +15,5 @@ export type OptionItemProps = {
     icon: any;
     title: string;
     itemInfo: string;
-    handleOptionClick: (event: React.MouseEvent<HTMLDivElement, MouseEvent>, option: string) => void;
+    handleOptionClick: (option: string) => void;
 };

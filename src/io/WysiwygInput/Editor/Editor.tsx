@@ -1,4 +1,4 @@
-import React, {useState, useEffect, useRef, useCallback} from "react";
+import React, {useState, useEffect, useRef} from "react";
 import ReactQuill from "react-quill";
 import { EditorToolbar, modules, formats } from "./EditorToolbar";
 import "react-quill/dist/quill.snow.css";
@@ -14,16 +14,16 @@ export const Editor: React.FC<EditorProps> = ({
 }) => {
 
   const [content, setContent] = useState<string>('');
-  const [textIndex, setTextIndex] = useState(0);
-  const [wordCount, setWordCount] = useState(0);
-  const [editorHeight, setEditorHeight] = useState(0)
+  const [textIndex, setTextIndex] = useState<number>(0);
+  const [wordCount, setWordCount] = useState<number>(0);
+  const [editorHeight, setEditorHeight] = useState<number|undefined>(0)
   const [toolbarPosition, setToolbarPosition] = useState(0)
-  const quillRef = useRef();
+  const quillRef = useRef<any>(null);
 
   const classes = useEditorToolbarStyles()
 
   const handleChange =async (text: string) => {
-    const editorRef = quillRef?.current.getEditor();
+    const editorRef = quillRef?.current?.getEditor();
     const range = await editorRef.getSelection();
     const position = range ? range.index : 0;
     setContent(text);
@@ -35,7 +35,7 @@ export const Editor: React.FC<EditorProps> = ({
   }, [content])
   
   useEffect(() => {
-   setToolbarPosition(editorHeight -40)
+    editorHeight && setToolbarPosition(editorHeight -40)
   }, [editorHeight])
   
   useEffect(() => {
@@ -52,14 +52,15 @@ export const Editor: React.FC<EditorProps> = ({
     
     setWordCount(wordCount)
 
-    setToolbarPosition(editorHeight - 40)
+    editorHeight && setToolbarPosition(editorHeight - 40)
+    
   }, [content])
 
-  const handleEmbed = (embedUrl:{url?:string | undefined; type?:string | undefined}) => {
-    const editorRef = quillRef?.current.getEditor();
+  const handleEmbed = (embedUrl?:{url?:string | undefined; type?:string | undefined}) => {
+    const editorRef = quillRef?.current?.getEditor();
     embedUrl?.type === 'image' ? 
-    embedUrl?.url?.length > 0 && editorRef.insertEmbed(textIndex, 'image', `${embedUrl?.url}`) :
-    embedUrl?.url?.length > 0 && editorRef.clipboard.dangerouslyPasteHTML(textIndex, embedUrl?.url);
+    embedUrl?.url && embedUrl?.url?.length > 0 && editorRef.insertEmbed(textIndex, 'image', `${embedUrl?.url}`) :
+    embedUrl?.url && embedUrl?.url?.length > 0 && editorRef.clipboard.dangerouslyPasteHTML(textIndex, embedUrl?.url);
     editorRef.setSelection(textIndex + 1);
   };
 
