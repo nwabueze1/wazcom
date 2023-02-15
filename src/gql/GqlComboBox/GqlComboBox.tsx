@@ -25,6 +25,8 @@ export const GqlComboBox: FC<GqlComboBoxProps> = memo(
             setValue(initialValue);
         }, [initialValue]);
 
+        console.log("========",value)
+
         const fetchData = async () => {
             return await client.query({
                 query,
