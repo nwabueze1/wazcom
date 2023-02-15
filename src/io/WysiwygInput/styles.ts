@@ -18,7 +18,7 @@ export const useCreatePostInputStyles = makeStyles((theme: Theme) => ({
         margin: theme.spacing(0.5, 0, 0, 0.5),
     },
     editorError: {
-        border: "1px solid red",
+        border: `1px solid ${theme.design.colors.waz_red}`,
         zIndex: 1,
     },
     createPostInput: {
