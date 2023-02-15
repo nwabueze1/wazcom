@@ -53,6 +53,8 @@ export const SelectInputView: FC<SelectInputViewProps> = () => {
                                 key={index}
                                 label={item.label}
                                 options={item.options}
+                                value={value}
+                                onChange={handleValueChange}
                             />
                         ))}
                     </div>
