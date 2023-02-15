@@ -1,6 +1,6 @@
 import { FC } from "react";
 
-import { Tab } from "core";
+import { Tab } from "../../core";
 
 import { useTabsStyles } from "./styles";
 import { TabsProps } from "./types";

@@ -15,7 +15,7 @@ import {
     EmptyState,
     DateTimePicker,
     Scheduler,
-    Tab
+    Tab,
 } from "../core";
 import { BiLink } from "react-icons/bi";
 import { FaEdit } from "react-icons/fa";
@@ -52,9 +52,7 @@ import {
 import { Valour, Taurant, Nour } from "templates/Navs";
 
 import { ComponentPropType, TemplatePropType } from "./types";
-import { EditableTextInput } from "io/EditableTextInput";
-import { DynamicInput } from "io/DynamicInput";
-import { SectionEditor } from "io/SectionEditor";
+import { DynamicInput, EditableTextInput, SectionEditor } from "../io";
 import { getTableRows } from "./table";
 
 export const stories: ComponentPropType[] = [
@@ -183,6 +181,8 @@ export const stories: ComponentPropType[] = [
                     condition: (posts: any) => posts.filter((post: any) => !post.status),
                 },
             ],
+            EmptyState: <p>Hahaha, no content</p>,
+            showFilters: true,
         },
     },
     {
@@ -255,21 +255,21 @@ export const stories: ComponentPropType[] = [
         props: {
             controls: [
                 {
-                    name: 'general',
-                    title: 'General',
-                    component: <div>General Tab</div>
+                    name: "general",
+                    title: "General",
+                    component: <div>General Tab</div>,
                 },
                 {
-                    name: 'templates',
-                    title: 'Templates',
-                    component: <div>Templates Tab</div>
+                    name: "templates",
+                    title: "Templates",
+                    component: <div>Templates Tab</div>,
                 },
                 {
-                    name: 'seo',
-                    title: 'SEO',
-                    component: <div>SEO Tab</div>
-                }
-            ]
+                    name: "seo",
+                    title: "SEO",
+                    component: <div>SEO Tab</div>,
+                },
+            ],
         },
     },
     {
@@ -335,10 +335,28 @@ export const stories: ComponentPropType[] = [
         component: ComboBoxInput,
         props: {
             options: [
-                { label: "Bread", value: "23" },
-                { label: "Love", value: "45" },
+                {
+                    label: "Bread",
+                    value: {
+                        category: "food",
+                        subCategory: ["dodo", "spaghetti", "beef", "beans"],
+                    },
+                },
+                {
+                    label: "Love",
+                    value: {
+                        category: "food",
+                        subCategory: ["dodo", "spaghetti", "beef", "beans"],
+                    },
+                },
             ],
-            value: { label: "Love", value: "45" },
+            value: {
+                label: "Love",
+                value: {
+                    category: "food",
+                    subCategory: ["dodo", "spaghetti", "beef", "beans"],
+                },
+            },
             placeholder: "Select Wazobia Member",
             isAdd: false,
         },

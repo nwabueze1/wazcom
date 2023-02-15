@@ -31,12 +31,12 @@ export var useTextStyles = makeStyles(function (theme) { return ({
             borderRadius: (_g = props === null || props === void 0 ? void 0 : props.borderRadius) !== null && _g !== void 0 ? _g : 4,
             fontWeight: theme.typography.fontWeightRegular,
             fontSize: theme.typography.fontSize,
-            borderColor: (_h = props === null || props === void 0 ? void 0 : props.borderColor) !== null && _h !== void 0 ? _h : theme.design.colors.primary700,
+            borderColor: (_h = props === null || props === void 0 ? void 0 : props.borderColor) !== null && _h !== void 0 ? _h : theme.design.colors.waz_primary700,
             '&:hover': {
-                borderColor: theme.design.colors.primary500,
+                borderColor: theme.design.colors.waz_primary500,
             },
             '&:focus, &:hover:focus, &:active': {
-                borderColor: theme.design.colors.primary400,
+                borderColor: theme.design.colors.waz_primary400,
             },
         });
     },
@@ -55,31 +55,31 @@ export var useTextStyles = makeStyles(function (theme) { return ({
             fontSize: theme.typography.fontSize,
             borderColor: (_f = props === null || props === void 0 ? void 0 : props.borderColor) !== null && _f !== void 0 ? _f : theme.design.colors.primary700,
             '&:hover': {
-                borderColor: theme.design.colors.primary500,
+                borderColor: theme.design.colors.waz_primary500,
             },
             '&:focus, &:hover:focus, &:active': {
-                borderColor: theme.design.colors.primary400,
+                borderColor: theme.design.colors.waz_primary400,
             },
         });
     },
     defaultInput: function (props) {
         var _a;
         return ({
-            borderColor: (_a = props === null || props === void 0 ? void 0 : props.borderColor) !== null && _a !== void 0 ? _a : theme.design.colors.primary700,
+            borderColor: (_a = props === null || props === void 0 ? void 0 : props.borderColor) !== null && _a !== void 0 ? _a : theme.design.colors.waz_primary700,
             '&:hover': {
-                borderColor: theme.design.colors.primary500,
+                borderColor: theme.design.colors.waz_primary500,
             },
             '&:focus, &:hover:focus, &:active': {
-                borderColor: theme.design.colors.primary400,
+                borderColor: theme.design.colors.waz_primary400,
             },
         });
     },
     focusedInput: function (props) {
         var _a;
         return ({
-            borderColor: (_a = props === null || props === void 0 ? void 0 : props.borderColor) !== null && _a !== void 0 ? _a : theme.design.colors.primary400,
+            borderColor: (_a = props === null || props === void 0 ? void 0 : props.borderColor) !== null && _a !== void 0 ? _a : theme.design.colors.waz_primary400,
             '&:hover, &:focus, &:hover:focus, &:active': {
-                borderColor: theme.design.colors.primary400,
+                borderColor: theme.design.colors.waz_primary400,
             },
         });
     },

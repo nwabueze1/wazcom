@@ -5,7 +5,7 @@ import { Accordion } from "../../../Accordion";
 import { useFilterStyles } from "./styles";
 import { TableFilterProps } from "./types";
 import { FilterAlt } from "@mui/icons-material";
-import { Button } from "core/Button";
+import { Button } from "../../../Button";
 import { useTableControlsStyles } from "../TableControls/styles";
 import { getJsxContent } from "../../helpers";
 

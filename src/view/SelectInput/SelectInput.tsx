@@ -1,5 +1,5 @@
 import { FC, useState, useCallback } from "react";
-import { SelectInput } from "io";
+import { SelectInput } from "../../io";
 
 import { useSelectInputStyles } from "./styles";
 import { SelectInputViewProps, InputDataProps } from "./types";
