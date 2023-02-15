@@ -7,7 +7,7 @@ export type ComboBoxInputProps = CommonProps &
         error?: boolean;
         label?: string;
         options: ComboBoxInputOptionProps[];
-        value: any
+        value: {} | string
     };
 
 export type ComboBoxInputOptionProps = {

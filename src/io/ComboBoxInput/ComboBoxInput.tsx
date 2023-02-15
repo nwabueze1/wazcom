@@ -27,7 +27,7 @@ export const ComboBoxInput: FC<ComboBoxInputProps> = ({
 }) => {
     const classes = useComboBoxStyles();
     const [options, setOptions] = useState(initialOptions);
-    const [selectedSubCat, setSelectedSubCat] = useState<string[]>([]);
+    const [selectedSubCategories, setSelectedSubCategories] = useState<string[]>([]);
 
     useEffect(() => {
         setOptions(initialOptions);
@@ -121,8 +121,8 @@ export const ComboBoxInput: FC<ComboBoxInputProps> = ({
                     <div className={classes.subCategoryTagsParent}>
                         <div className={classes.boxMargin} />
                         <div className={classes.subCategoryTags}>
-                            {selectedSubCat.length > 0 &&
-                                selectedSubCat.map((tag: string, id: number) => (
+                            {selectedSubCategories.length > 0 &&
+                                selectedSubCategories.map((tag: string, id: number) => (
                                     <Tag key={id} name={tag} />
                                 ))}
                         </div>
@@ -140,10 +140,10 @@ export const ComboBoxInput: FC<ComboBoxInputProps> = ({
                                             name={name}
                                             onChange={(data: { name: string; value: any }) => {
                                                 if (data.value) {
-                                                    setSelectedSubCat([...selectedSubCat, name]);
+                                                    setSelectedSubCategories([...selectedSubCategories, name]);
                                                 } else {
-                                                    setSelectedSubCat(
-                                                        selectedSubCat.filter(
+                                                    setSelectedSubCategories(
+                                                        selectedSubCategories.filter(
                                                             (item) => item !== name,
                                                         ),
                                                     );
