@@ -14,18 +14,21 @@ import { useTablePaginationStyles } from "./styles";
 import { SelectInput } from "../../../../io";
 import { BsFillCaretLeftFill, BsFillCaretRightFill } from "react-icons/bs";
 import clx from "classnames";
+import { Pagination } from "./Pagination";
 export var TablePagination = function (_a) {
     var currentPage = _a.currentPage, lastPage = _a.lastPage, count = _a.count, setTablePagination = _a.setTablePagination;
     var classes = useTablePaginationStyles();
     var renderPages = function () {
-        return new Array(lastPage).fill("").map(function (_, index) {
+        return lastPage < 10 ? (new Array(lastPage).fill("").map(function (_, index) {
             var isActive = currentPage === index + 1;
             return (_jsx("p", __assign({ className: clx(classes.paginationPage, isActive && classes.paginationPageActive), onClick: function () {
                     if (isActive)
                         return;
                     setTablePagination({ count: count, lastPage: lastPage, currentPage: index + 1 });
                 } }, { children: index + 1 }), index));
-        });
+        })) : (_jsx(Pagination, { currentPage: currentPage, pages: lastPage, setPage: function (page) {
+                setTablePagination({ count: count, lastPage: lastPage, currentPage: page });
+            } }));
     };
     var handlePreviousClick = function () {
         if (currentPage === 1)
@@ -44,12 +47,12 @@ export var TablePagination = function (_a) {
                             },
                             optionLabel: classes.paginationSelectInputLabel,
                         }, options: [
-                            { label: "2", value: "2" },
+                            { label: "1", value: "1" },
                             { label: "5", value: "5" },
                             { label: "10", value: "10" },
                             { label: "20", value: "20" },
                         ], onChange: function (_a) {
                             var count = _a.value;
-                            setTablePagination({ currentPage: currentPage, lastPage: lastPage, count: Number(count) });
+                            setTablePagination({ currentPage: 1, lastPage: lastPage, count: Number(count) });
                         }, value: String(count) })] })), _jsx("div", __assign({ className: classes.paginationPages }, { children: renderPages() })), _jsxs("div", __assign({ className: clx(classes.paginationDirection, currentPage < lastPage && classes.paginationDirectionActive), onClick: handleNextClick }, { children: [_jsx("p", { children: "Next" }), _jsx(BsFillCaretRightFill, { className: classes.paginationDirectionIcon })] }))] })));
 };
