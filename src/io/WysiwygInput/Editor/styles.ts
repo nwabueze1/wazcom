@@ -11,18 +11,17 @@ export const useEditorToolbarStyles = makeStyles((theme: Theme) => ({
     toolbar: {
         background: theme.design.colors.waz_white,
         flexWrap: "wrap",
-        // width: '464px',
         border: `1px solid ${theme.design.colors.waz_primary700} !important`,
         margin: theme.spacing(0, 2, 0, 2),
         borderRadius: theme.spacing(0.625),
         '& .ql-picker.ql-size' : {
-            width: '30px',
+            width: theme.spacing(3.75),
         },
         '& .ql-picker.ql-header' : {
-            width: '54px'
+            width: theme.spacing(6.75)
         },
         '& .ql-formats' : {
-            fontSize: '8px'
+            fontSize: theme.typography.fontSize - 4
         }
     },
     toolbarItem: {
@@ -47,7 +46,7 @@ export const useEditorToolbarStyles = makeStyles((theme: Theme) => ({
         overflow: "auto",
         height: "100vh",
         position: "relative",
-        paddingTop: "35px",
+        paddingTop: theme.spacing(4.375),
     },
     floatingBar: {
         position: "absolute",
@@ -59,10 +58,10 @@ export const useEditorToolbarStyles = makeStyles((theme: Theme) => ({
         },
         "& .ql-editor .ql-video": {
             width: "80%",
-            height: "300px",
+            height: theme.spacing(37.5),
         },
         "& .ql-editor": {
-            paddingLeft: "16px",
+            paddingLeft: theme.spacing(2),
         },
     },
 }));
