@@ -22,7 +22,7 @@ var __rest = (this && this.__rest) || function (s, e) {
 };
 import { jsx as _jsx } from "react/jsx-runtime";
 import { useButtonStyles } from "./styles";
-import { Button as MainButton } from "core/Button";
+import { Button as MainButton } from "../../../../core";
 import clx from "classnames";
 export var MbmcButton = function (_a) {
     var children = _a.children, name = _a.name, _b = _a.variant, variant = _b === void 0 ? "PRIMARY" : _b, _c = _a.size, size = _c === void 0 ? "md" : _c, className = _a.className, _d = _a.type, type = _d === void 0 ? "button" : _d, handleClick = _a.handleClick, _e = _a.activeElement, activeElement = _e === void 0 ? "" : _e, props = __rest(_a, ["children", "name", "variant", "size", "className", "type", "handleClick", "activeElement"]);

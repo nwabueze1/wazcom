@@ -2,6 +2,7 @@ import { FC } from "react";
 import { BsEye } from "react-icons/bs"
 
 import { Button } from "../../core";
+import { SchedulerInput } from "core"
 import { useButtonStyles } from "./styles";
 import { ButtonViewProps } from "./types";
 
@@ -33,6 +34,7 @@ export const ButtonView: FC<ButtonViewProps> = () => {
                         <Button>Button</Button>
                     </div>
                 </div>
+                <SchedulerInput name="NAME" value={[{ day: "0", start_time: "00:00", end_time: "12:00" }]} onChange={(x) => console.log('CHANEfe', x)} />
             </div>
         </div >
     );
