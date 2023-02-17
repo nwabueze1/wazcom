@@ -6,7 +6,6 @@ import { ComboBoxInputProps, ComboBoxInputOptionProps } from "./types";
 import clx from "classnames";
 import { displayFeedback } from "../../helpers/io";
 import { Tag } from "../../core/Tag";
-import { CheckBoxInput } from "../CheckBoxInput/index";
 
 const filter = createFilterOptions<ComboBoxInputOptionProps>();
 
@@ -27,7 +26,6 @@ export const ComboBoxInput: FC<ComboBoxInputProps> = ({
 }) => {
     const classes = useComboBoxStyles();
     const [options, setOptions] = useState(initialOptions);
-    const [selectedSubCategories, setSelectedSubCategories] = useState<string[]>([]);
 
     useEffect(() => {
         setOptions(initialOptions);
@@ -57,10 +55,10 @@ export const ComboBoxInput: FC<ComboBoxInputProps> = ({
 
     const getValue = useCallback(() => {
         const label = (options as ComboBoxInputOptionProps[])?.find(
-            (option) => option.value?.category?.toLowerCase() === value?.toString()?.toLowerCase(),
+            (option) => option.value.toLowerCase() === value?.toString()?.toLowerCase(),
         )?.label;
         if (label) return { label, value };
-        return { label: "", value: { category: "" } };
+        return { label: "", value: "" };
     }, [options, value]);
 
     return (
@@ -111,54 +109,7 @@ export const ComboBoxInput: FC<ComboBoxInputProps> = ({
                 }
             />
             <div className={classes.tagsParent}>
-                <Tag
-                    name={value?.label}
-                    classname={classes.tag}
-                    status={true}
-                    handleRemove={() => {}}
-                />
-                <div className={classes.subCategoryBox}>
-                    <div className={classes.subCategoryTagsParent}>
-                        <div className={classes.boxMargin} />
-                        <div className={classes.subCategoryTags}>
-                            {selectedSubCategories.length > 0 &&
-                                selectedSubCategories.map((tag: string, id: number) => (
-                                    <Tag key={id} name={tag} />
-                                ))}
-                        </div>
-                    </div>
-                    <div>
-                        {value?.value?.subCategory && (
-                            <p className={classes.label}>PICK SUB CATEGORIES</p>
-                        )}
-                        <div className={classes.inputContainer}>
-                            {value?.value?.subCategory &&
-                                value?.value?.subCategory.map((name: string, id: number) => (
-                                    <div className={classes.subCategoryInput} key={id}>
-                                        <CheckBoxInput
-                                            className={classes.checkbox}
-                                            name={name}
-                                            onChange={(data: { name: string; value: any }) => {
-                                                if (data.value) {
-                                                    setSelectedSubCategories([
-                                                        ...selectedSubCategories,
-                                                        name,
-                                                    ]);
-                                                } else {
-                                                    setSelectedSubCategories(
-                                                        selectedSubCategories.filter(
-                                                            (item) => item !== name,
-                                                        ),
-                                                    );
-                                                }
-                                            }}
-                                        />
-                                        <p className={classes.item}>{name}</p>
-                                    </div>
-                                ))}
-                        </div>
-                    </div>
-                </div>
+                <Tag name={value} classname={classes.tag} />
             </div>
             {helperText}
             {feedback && displayFeedback(feedback)}
