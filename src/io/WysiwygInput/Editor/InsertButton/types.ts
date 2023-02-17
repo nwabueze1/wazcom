@@ -17,5 +17,5 @@ export type OptionItemProps = {
     icon: any,
     title: string,
     itemInfo: string,
-    handleOptionClick: (option: string) => void
+    handleOptionClick: (option?: string) => void
 }

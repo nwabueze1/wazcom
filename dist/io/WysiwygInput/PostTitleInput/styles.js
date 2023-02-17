@@ -10,7 +10,7 @@ export var usePostTitleStyles = makeStyles(function (theme) { return ({
         fontSize: theme.typography.fontSize - 2,
         display: "flex",
         marginBottom: 8,
-        color: "#333333",
+        color: theme.design.colors.waz_greyColor400,
         alignItems: "center",
         letterSpacing: "0.13px",
         textTransform: "uppercase",

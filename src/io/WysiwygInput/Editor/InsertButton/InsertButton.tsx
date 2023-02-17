@@ -19,7 +19,8 @@ export const InsertButton: React.FC<InsertButtonProps> = ({
         setMediaOpen(!mediaOpen)
      }
 
-    const handleOptionClick = (option: string) => {
+    const handleOptionClick = (e:any, option:string) => {
+        console.log(e.target.textContent)
         if (option) {
             handleImageModalState(option)
         }
@@ -38,17 +39,17 @@ export const InsertButton: React.FC<InsertButtonProps> = ({
                     icon={<PictureIcon />} 
                     title={"Picture"} 
                     itemInfo={"jpeg, png"} 
-                    handleOptionClick={()=>handleOptionClick("picture")} />
+                    handleOptionClick={()=>handleOptionClick(event, "picture")} />
                     <OptionItem 
                     icon={<VideoIcon />} 
                     title={"Video"} 
                     itemInfo={"Embed a Youtube video"} 
-                    handleOptionClick={()=>handleOptionClick("video")} />
+                    handleOptionClick={()=>handleOptionClick(event, "video")} />
                     <OptionItem 
                     icon={<SocialIcon />} 
                     title={"Social"} 
                     itemInfo={"Embed a Facebook Link"} 
-                    handleOptionClick={()=>handleOptionClick("social")} />
+                    handleOptionClick={()=>handleOptionClick(event, "social")} />
                 </div>
             </div>
         </div>
@@ -58,7 +59,7 @@ export const InsertButton: React.FC<InsertButtonProps> = ({
 export const OptionItem: React.FC<OptionItemProps> = ({icon, title, itemInfo, handleOptionClick}) => {
     const classes = useInsertButtonStyles();
     return (
-        <div className={classes.option} onClick={()=>handleOptionClick}>
+        <div className={classes.option} onClick={()=>handleOptionClick()}>
             <div className={classes.optionItemIcon}>
                 {icon}
             </div>
