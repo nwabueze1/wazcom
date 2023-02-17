@@ -19,10 +19,10 @@ export var useInsertButtonStyles = makeStyles(function (theme) { return ({
         display: "flex",
         justifyContent: "flex-start",
         flexDirection: "column",
-        width: "277px",
-        height: "181px",
+        width: theme.spacing(34.625),
+        height: theme.spacing(23.5),
         border: '0px',
-        borderRadius: "3px",
+        borderRadius: theme.spacing(0.5),
         margin: theme.spacing(0, 0, 0, 2),
         boxShadow: '0px 1px 4px #00000014',
         background: theme.design.colors.waz_white,
@@ -43,7 +43,7 @@ export var useInsertButtonStyles = makeStyles(function (theme) { return ({
         display: 'flex',
         flexDirection: 'row',
         justifyContent: 'flext-start',
-        height: '46px',
+        height: theme.spacing(5.75),
         '&:hover': {
             background: theme.design.colors.primary700,
             cursor: 'pointer'
