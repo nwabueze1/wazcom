@@ -3,7 +3,6 @@ import { TimeSelector } from "./TimePicker/TimePicker";
 import { Schedule } from "./types";
 import CloseIcon from "@mui/icons-material/Close";
 import clx from "classnames";
-import { SelectInput } from "../../io/SelectInput";
 
 export const useScheduleData = () => {
     return (
