@@ -1,1 +1,1 @@
-export declare const useComboBoxStyles: (props?: any) => import("@mui/styles").ClassNameMap<"root" | "checkbox" | "label" | "helperText" | "item" | "renderInput" | "tagsParent" | "subCategoryBox" | "subCategoryTagsParent" | "subCategoryInput" | "subCategoryTags" | "tag" | "boxMargin" | "inputContainer">;
+export declare const useComboBoxStyles: (props?: any) => import("@mui/styles").ClassNameMap<"root" | "label" | "helperText" | "item" | "renderInput" | "boxMargin" | "inputContainer">;

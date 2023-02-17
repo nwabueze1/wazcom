@@ -22,26 +22,6 @@ export var useComboBoxStyles = makeStyles(function (theme) { return ({
             padding: theme.spacing(0),
         },
     },
-    tagsParent: {
-        marginTop: theme.spacing(2),
-    },
-    subCategoryBox: {
-    // display: "flex",
-    },
-    subCategoryTagsParent: {
-        display: "flex",
-    },
-    subCategoryInput: {
-        display: "flex",
-        alignItems: "center",
-    },
-    subCategoryTags: {
-        display: "flex",
-        gap: theme.spacing(1),
-    },
-    tag: {
-        marginBottom: theme.spacing(1),
-    },
     boxMargin: {
         height: "30px",
         width: "41px",
@@ -57,13 +37,5 @@ export var useComboBoxStyles = makeStyles(function (theme) { return ({
     },
     item: {
         fontSize: theme.typography.fontSize
-    },
-    checkbox: {
-        "& span": {
-            fontSize: theme.typography.fontSize + 4,
-            "&.Mui-checked": {
-                color: theme.design.colors.waz_primary100,
-            },
-        },
     },
 }); });

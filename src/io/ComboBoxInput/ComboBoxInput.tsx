@@ -5,7 +5,6 @@ import { useComboBoxStyles } from "./styles";
 import { ComboBoxInputProps, ComboBoxInputOptionProps } from "./types";
 import clx from "classnames";
 import { displayFeedback } from "../../helpers/io";
-import { Tag } from "../../core/Tag";
 
 const filter = createFilterOptions<ComboBoxInputOptionProps>();
 
@@ -108,9 +107,6 @@ export const ComboBoxInput: FC<ComboBoxInputProps> = ({
                     classNames?.classes ? (classNames.classes as { [key: string]: string }) : {}
                 }
             />
-            <div className={classes.tagsParent}>
-                <Tag name={value} classname={classes.tag} />
-            </div>
             {helperText}
             {feedback && displayFeedback(feedback)}
         </div>
