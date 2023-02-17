@@ -1,7 +1,6 @@
 export * from "./CheckBoxInput";
 export * from "./ComboBoxInput";
 export * from "./RichTextInput";
-export * from "./WysiwygInput";
 export * from "./SelectInput";
 export * from "./SectionEditor";
 export * from "./InputGroup";
@@ -12,3 +11,4 @@ export * from "./RadioButtonInput";
 export * from "./CurrencyInput";
 export * from "./DynamicInput";
 export * from "./EditableTextInput";
+export * from "./TimeInput";

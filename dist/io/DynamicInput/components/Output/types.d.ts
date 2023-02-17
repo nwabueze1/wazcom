@@ -1,4 +1,4 @@
-import { Any, QuestionProps } from "../../types";
+import { Any, QuestionProps } from "io/DynamicInput/types";
 export type OutputProps = {
     question: QuestionProps;
     setAnswers: (answers: Any[]) => void;

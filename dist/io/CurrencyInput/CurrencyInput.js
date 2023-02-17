@@ -31,7 +31,7 @@ import { isArray } from 'lodash';
 import React from "react";
 import { NumericFormat } from 'react-number-format';
 import { AiFillCaretDown, AiOutlineInfoCircle } from "react-icons/ai";
-import { SelectInput } from "../";
+import { SelectInput } from "io";
 import { useCurrencyInputStyles } from "./styles";
 import currencies from "./currencies.json";
 export var CurrencyInputField = function (_a) {

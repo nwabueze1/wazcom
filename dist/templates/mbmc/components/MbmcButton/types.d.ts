@@ -1,4 +1,4 @@
-import { ButtonProps } from "../../../../core";
+import { ButtonProps } from "core/Button";
 export type MbmcButtonProps = Omit<ButtonProps, "variant" | "size"> & {
     bgColor?: string;
     variant?: "PRIMARY" | "SECONDARY" | "NEUTRAL";
