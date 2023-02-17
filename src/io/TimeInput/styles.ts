@@ -52,6 +52,7 @@ export const useTimeInputStyles = makeStyles((theme: Theme) => ({
         background: theme.design.colors.grey600,
         border: 0,
         boxShadow: 'none',
+        zIndex: 100000,
 
         '& .rc-time-picker-panel-inner': {
             background: theme.design.colors.grey600,
