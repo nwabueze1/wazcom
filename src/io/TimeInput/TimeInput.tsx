@@ -23,7 +23,7 @@ export const TimeInput: React.FC<TimeInputProps> = ({
     const classes = useTimeInputStyles();
 
     const handleChange = (event: any) => {
-        if (onChange) onChange?.({ name: event.name, value: event.value.format() });
+        if (onChange) onChange?.({ name: event?.name ?? '', value: event?.value?.format() ?? '' });
     };
 
     return (
