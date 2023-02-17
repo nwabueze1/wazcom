@@ -76,7 +76,7 @@ export var ComboBoxInput = function (_a) {
         var label = (_a = options === null || options === void 0 ? void 0 : options.find(function (option) { var _a; return option.value.toLowerCase() === ((_a = value === null || value === void 0 ? void 0 : value.toString()) === null || _a === void 0 ? void 0 : _a.toLowerCase()); })) === null || _a === void 0 ? void 0 : _a.label;
         if (label)
             return { label: label, value: value };
-        return { label: "", value: { category: "" } };
+        return { label: "", value: "" };
     }, [options, value]);
     return (_jsxs("div", __assign({ className: clx(className, classes.root) }, { children: [label && (_jsx(InputLabel, __assign({ className: (_b = classNames === null || classNames === void 0 ? void 0 : classNames.label) !== null && _b !== void 0 ? _b : "", htmlFor: name }, { children: label }))), _jsx(Autocomplete, __assign({}, props, { freeSolo: true, options: options !== null && options !== void 0 ? options : [], getOptionLabel: function (option) {
                     var _a;
@@ -85,5 +85,5 @@ export var ComboBoxInput = function (_a) {
                     handleChange(selectedOption);
                 }, filterOptions: handleFilterOptions, renderOption: function (props, option) {
                     return (_jsx(Box, __assign({ component: "li" }, props, { children: _jsxs("div", __assign({ className: classNames === null || classNames === void 0 ? void 0 : classNames.optionContainer }, { children: [_jsx("p", __assign({ className: classNames === null || classNames === void 0 ? void 0 : classNames.optionLabel }, { children: option === null || option === void 0 ? void 0 : option.label })), option.subText && (_jsx("p", __assign({ className: classNames === null || classNames === void 0 ? void 0 : classNames.optionSubText }, { children: option.subText })))] })) })));
-                }, renderInput: function (params) { return (_jsx(TextField, __assign({}, params, { placeholder: placeholder, variant: "outlined", error: error, className: classes.renderInput }))); }, className: (classNames === null || classNames === void 0 ? void 0 : classNames.comboBoxInput) ? classNames.comboBoxInput : "", classes: (classNames === null || classNames === void 0 ? void 0 : classNames.classes) ? classNames.classes : {} })), _jsx("div", __assign({ className: classes.tagsParent }, { children: _jsx(Tag, { name: value === null || value === void 0 ? void 0 : value.label, classname: classes.tag }) })), helperText, feedback && displayFeedback(feedback)] })));
+                }, renderInput: function (params) { return (_jsx(TextField, __assign({}, params, { placeholder: placeholder, variant: "outlined", error: error, className: classes.renderInput }))); }, className: (classNames === null || classNames === void 0 ? void 0 : classNames.comboBoxInput) ? classNames.comboBoxInput : "", classes: (classNames === null || classNames === void 0 ? void 0 : classNames.classes) ? classNames.classes : {} })), _jsx("div", __assign({ className: classes.tagsParent }, { children: _jsx(Tag, { name: value, classname: classes.tag }) })), helperText, feedback && displayFeedback(feedback)] })));
 };

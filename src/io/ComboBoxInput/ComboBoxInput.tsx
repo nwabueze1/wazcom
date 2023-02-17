@@ -58,7 +58,7 @@ export const ComboBoxInput: FC<ComboBoxInputProps> = ({
             (option) => option.value.toLowerCase() === value?.toString()?.toLowerCase(),
         )?.label;
         if (label) return { label, value };
-        return { label: "", value: { category: "" } };
+        return { label: "", value: "" };
     }, [options, value]);
 
     return (
@@ -109,7 +109,7 @@ export const ComboBoxInput: FC<ComboBoxInputProps> = ({
                 }
             />
             <div className={classes.tagsParent}>
-                <Tag name={value?.label} classname={classes.tag} />
+                <Tag name={value} classname={classes.tag} />
             </div>
             {helperText}
             {feedback && displayFeedback(feedback)}
