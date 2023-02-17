@@ -93,15 +93,17 @@ export var TableNew = function (_a) {
         queryApi(parseQueryVariables(actions.search, (_a = actions === null || actions === void 0 ? void 0 : actions.sort) !== null && _a !== void 0 ? _a : [], table === null || table === void 0 ? void 0 : table.pagination));
     }, [(_c = table === null || table === void 0 ? void 0 : table.pagination) === null || _c === void 0 ? void 0 : _c.count, (_d = table === null || table === void 0 ? void 0 : table.pagination) === null || _d === void 0 ? void 0 : _d.currentPage]);
     var queryApi = function (queryVariables) { return __awaiter(void 0, void 0, void 0, function () {
-        var _a, data, error, _b, tableData, pagination;
+        var propVariables, _a, data, error, _b, tableData, pagination;
         var _c, _d, _e;
         return __generator(this, function (_f) {
             switch (_f.label) {
                 case 0:
                     setLoading(true);
+                    propVariables = __assign({}, variables);
+                    propVariables === null || propVariables === void 0 ? true : delete propVariables.refreshToken;
                     return [4 /*yield*/, client.query({
                             query: QUERY,
-                            variables: __assign(__assign(__assign({}, (variables !== null && variables !== void 0 ? variables : {})), (queryVariables !== null && queryVariables !== void 0 ? queryVariables : {})), { page: (table === null || table === void 0 ? void 0 : table.data) ? queryVariables === null || queryVariables === void 0 ? void 0 : queryVariables.page : (_c = variables === null || variables === void 0 ? void 0 : variables.page) !== null && _c !== void 0 ? _c : 1, first: (table === null || table === void 0 ? void 0 : table.data) ? queryVariables === null || queryVariables === void 0 ? void 0 : queryVariables.first : (_d = variables === null || variables === void 0 ? void 0 : variables.first) !== null && _d !== void 0 ? _d : 5 }),
+                            variables: __assign(__assign(__assign({}, (propVariables !== null && propVariables !== void 0 ? propVariables : {})), (queryVariables !== null && queryVariables !== void 0 ? queryVariables : {})), { page: (table === null || table === void 0 ? void 0 : table.data) ? queryVariables === null || queryVariables === void 0 ? void 0 : queryVariables.page : (_c = variables === null || variables === void 0 ? void 0 : variables.page) !== null && _c !== void 0 ? _c : 1, first: (table === null || table === void 0 ? void 0 : table.data) ? queryVariables === null || queryVariables === void 0 ? void 0 : queryVariables.first : (_d = variables === null || variables === void 0 ? void 0 : variables.first) !== null && _d !== void 0 ? _d : 5 }),
                             fetchPolicy: "network-only",
                         })];
                 case 1:

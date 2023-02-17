@@ -90,14 +90,13 @@ export var usePickupControls = function () {
                                     handleInputBlur(formik, "email");
                                 },
                                 classNames: {
-                                    textInput: classes.deliveryInput,
-                                    feedback: classes.deliveryFeedback,
+                                    input: classes.deliveryInput,
                                 },
                                 className: classes.deliveryInputParent,
                                 value: formik.values.email,
-                                errors: [{ message: ((_a = formik === null || formik === void 0 ? void 0 : formik.touched) === null || _a === void 0 ? void 0 : _a.email) && Boolean((_b = formik === null || formik === void 0 ? void 0 : formik.errors) === null || _b === void 0 ? void 0 : _b.email) }],
-                                feedback: ((_c = formik === null || formik === void 0 ? void 0 : formik.touched) === null || _c === void 0 ? void 0 : _c.email) && ((_d = formik === null || formik === void 0 ? void 0 : formik.errors) === null || _d === void 0 ? void 0 : _d.email)
-                                    ? { status: "error", text: formik.errors.email }
+                                isError: ((_a = formik === null || formik === void 0 ? void 0 : formik.touched) === null || _a === void 0 ? void 0 : _a.email) && Boolean((_b = formik === null || formik === void 0 ? void 0 : formik.errors) === null || _b === void 0 ? void 0 : _b.email),
+                                helperText: ((_c = formik === null || formik === void 0 ? void 0 : formik.touched) === null || _c === void 0 ? void 0 : _c.email) && ((_d = formik === null || formik === void 0 ? void 0 : formik.errors) === null || _d === void 0 ? void 0 : _d.email)
+                                    ? formik.errors.email
                                     : undefined,
                             },
                         },
@@ -115,14 +114,13 @@ export var usePickupControls = function () {
                                     handleInputBlur(formik, "firstname");
                                 },
                                 classNames: {
-                                    textInput: classes.deliveryInput,
-                                    feedback: classes.deliveryFeedback,
+                                    input: classes.deliveryInput,
                                 },
                                 className: classes.deliveryInputParent,
                                 value: formik.values.firstname,
-                                errors: [{ message: ((_e = formik === null || formik === void 0 ? void 0 : formik.touched) === null || _e === void 0 ? void 0 : _e.firstname) && Boolean((_f = formik === null || formik === void 0 ? void 0 : formik.errors) === null || _f === void 0 ? void 0 : _f.firstname) }],
-                                feedback: ((_g = formik === null || formik === void 0 ? void 0 : formik.touched) === null || _g === void 0 ? void 0 : _g.firstname) && ((_h = formik === null || formik === void 0 ? void 0 : formik.errors) === null || _h === void 0 ? void 0 : _h.firstname)
-                                    ? { status: "error", text: formik.errors.firstname }
+                                isError: ((_e = formik === null || formik === void 0 ? void 0 : formik.touched) === null || _e === void 0 ? void 0 : _e.firstname) && Boolean((_f = formik === null || formik === void 0 ? void 0 : formik.errors) === null || _f === void 0 ? void 0 : _f.firstname),
+                                helperText: ((_g = formik === null || formik === void 0 ? void 0 : formik.touched) === null || _g === void 0 ? void 0 : _g.firstname) && ((_h = formik === null || formik === void 0 ? void 0 : formik.errors) === null || _h === void 0 ? void 0 : _h.firstname)
+                                    ? formik.errors.firstname
                                     : undefined,
                             },
                         },
@@ -140,14 +138,13 @@ export var usePickupControls = function () {
                                     handleInputBlur(formik, "lastname");
                                 },
                                 classNames: {
-                                    textInput: classes.deliveryInput,
-                                    feedback: classes.deliveryFeedback,
+                                    input: classes.deliveryInput,
                                 },
                                 className: classes.deliveryInputParent,
                                 value: formik.values.lastname,
-                                errors: [{ message: ((_j = formik === null || formik === void 0 ? void 0 : formik.touched) === null || _j === void 0 ? void 0 : _j.lastname) && Boolean((_k = formik === null || formik === void 0 ? void 0 : formik.errors) === null || _k === void 0 ? void 0 : _k.lastname) }],
-                                feedback: ((_l = formik === null || formik === void 0 ? void 0 : formik.touched) === null || _l === void 0 ? void 0 : _l.lastname) && ((_m = formik === null || formik === void 0 ? void 0 : formik.errors) === null || _m === void 0 ? void 0 : _m.lastname)
-                                    ? { status: "error", text: formik.errors.lastname }
+                                isError: ((_j = formik === null || formik === void 0 ? void 0 : formik.touched) === null || _j === void 0 ? void 0 : _j.lastname) && Boolean((_k = formik === null || formik === void 0 ? void 0 : formik.errors) === null || _k === void 0 ? void 0 : _k.lastname),
+                                helperText: ((_l = formik === null || formik === void 0 ? void 0 : formik.touched) === null || _l === void 0 ? void 0 : _l.lastname) && ((_m = formik === null || formik === void 0 ? void 0 : formik.errors) === null || _m === void 0 ? void 0 : _m.lastname)
+                                    ? formik.errors.lastname
                                     : undefined,
                             },
                         },
@@ -165,14 +162,13 @@ export var usePickupControls = function () {
                                     handleInputBlur(formik, "phone");
                                 },
                                 classNames: {
-                                    textInput: classes.deliveryInput,
-                                    feedback: classes.deliveryFeedback,
+                                    input: classes.deliveryInput,
                                 },
                                 className: classes.deliveryInputParent,
                                 value: formik.values.phone,
-                                errors: [{ message: ((_o = formik === null || formik === void 0 ? void 0 : formik.touched) === null || _o === void 0 ? void 0 : _o.phone) && Boolean((_p = formik === null || formik === void 0 ? void 0 : formik.errors) === null || _p === void 0 ? void 0 : _p.phone) }],
-                                feedback: ((_q = formik === null || formik === void 0 ? void 0 : formik.touched) === null || _q === void 0 ? void 0 : _q.phone) && ((_r = formik === null || formik === void 0 ? void 0 : formik.errors) === null || _r === void 0 ? void 0 : _r.phone)
-                                    ? { status: "error", text: formik.errors.phone }
+                                isError: ((_o = formik === null || formik === void 0 ? void 0 : formik.touched) === null || _o === void 0 ? void 0 : _o.phone) && Boolean((_p = formik === null || formik === void 0 ? void 0 : formik.errors) === null || _p === void 0 ? void 0 : _p.phone),
+                                helperText: ((_q = formik === null || formik === void 0 ? void 0 : formik.touched) === null || _q === void 0 ? void 0 : _q.phone) && ((_r = formik === null || formik === void 0 ? void 0 : formik.errors) === null || _r === void 0 ? void 0 : _r.phone)
+                                    ? formik.errors.phone
                                     : undefined,
                             },
                         },

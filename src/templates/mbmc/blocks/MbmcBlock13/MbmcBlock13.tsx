@@ -7,7 +7,6 @@ import { renderNavLink, renderNavLogo } from "../../../../templates/Navs/helpers
 import clx from "classnames";
 import { FiShoppingCart } from "react-icons/fi";
 import { Link } from "../../components";
-import { renderCtas } from "../../utilities";
 import Cookies from "universal-cookie";
 
 export const MbmcBlock13: FC<MbmcBlock13Props> = ({
@@ -17,7 +16,6 @@ export const MbmcBlock13: FC<MbmcBlock13Props> = ({
     logo,
     links,
     handleClick,
-    ctas,
     contextProps,
     site_uuid,
 }) => {
@@ -78,14 +76,9 @@ export const MbmcBlock13: FC<MbmcBlock13Props> = ({
                     <div className={classes.menuList}>
                         {displayLinks()}
                         <CartLink />
-                        {renderCtas(
-                            ctas ?? [],
-                            mode,
-                            !index && index !== 0 ? "nav" : `${String(index)}`,
-                            handleClick,
-                            activeElement,
-                            classes.ctaDesktop,
-                        )}
+                        <Link href="/menus" className={classes.ctaButton}>
+                            Order now
+                        </Link>
                     </div>
 
                     <div className={classes.menuOptionMobile}>
@@ -100,14 +93,9 @@ export const MbmcBlock13: FC<MbmcBlock13Props> = ({
 
                     <div className={classes.expandedNavContentRightSide}>
                         {displayLinks()}
-                        {renderCtas(
-                            ctas ?? [],
-                            mode,
-                            !index && index !== 0 ? "nav" : `${String(index)}`,
-                            handleClick,
-                            activeElement,
-                            classes.ctaMobile,
-                        )}
+                        <Link href="/menus" className={classes.ctaButton}>
+                            Order Now
+                        </Link>
                     </div>
                 </div>
             </div>

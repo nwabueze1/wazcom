@@ -9,7 +9,7 @@ export const useTableActionStyles = makeStyles((theme: Theme) => ({
         marginBottom: theme.spacing(1),
     },
     searchInputElement: {
-        width: "50%",
+        width: "59%",
     },
     searchInput: {
         background: `${theme.design.colors.waz_white} !important`,

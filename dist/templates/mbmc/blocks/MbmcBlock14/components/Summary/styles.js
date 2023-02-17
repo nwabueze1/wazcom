@@ -26,6 +26,6 @@ export var useSummaryStyles = makeStyles(function (theme) { return ({
         fontWeight: theme.typography.fontWeightBold,
     },
     summaryButton: {
-        width: "100%",
+        width: "100% !important",
     },
 }); });

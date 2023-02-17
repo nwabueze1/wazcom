@@ -11,6 +11,7 @@ export const useButtonStyles = makeStyles((theme: Theme) => ({
         fontWeight: theme.typography.fontWeightRegular,
         border: '1px solid transparent',
         transition: 'all 0.3s ease-in',
+        fontFamily: theme.design.font.openSans,
 
         [theme.breakpoints.down("md")]: {
             padding: theme.spacing(1, 2),
