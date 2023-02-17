@@ -10,7 +10,8 @@ export var useButtonStyles = makeStyles(function (theme) {
                 textTransform: "unset",
                 fontWeight: theme.typography.fontWeightRegular,
                 border: '1px solid transparent',
-                transition: 'all 0.3s ease-in'
+                transition: 'all 0.3s ease-in',
+                fontFamily: theme.design.font.openSans
             },
             _a[theme.breakpoints.down("md")] = {
                 padding: theme.spacing(1, 2),

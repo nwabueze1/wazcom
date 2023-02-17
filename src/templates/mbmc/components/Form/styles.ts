@@ -6,7 +6,7 @@ export const useFormStyles = makeStyles((theme: Theme) => ({
         fontFamily: theme.design.font.montserrat,
     },
     formButton: {
-        width: "100%",
+        width: "100% !important",
         marginTop: theme.spacing(1),
     },
 }));

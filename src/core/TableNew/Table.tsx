@@ -74,11 +74,13 @@ export const TableNew: FC<TableNewProps> = ({
 
     const queryApi = async (queryVariables?: any) => {
         setLoading(true);
+        const propVariables = { ...variables };
+        delete propVariables?.refreshToken;
 
         const { data, error } = await client.query({
             query: QUERY,
             variables: {
-                ...(variables ?? {}),
+                ...(propVariables ?? {}),
                 ...(queryVariables ?? {}),
                 page: table?.data ? queryVariables?.page : variables?.page ?? 1,
                 first: table?.data ? queryVariables?.first : variables?.first ?? 5,

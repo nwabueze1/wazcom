@@ -9,6 +9,7 @@ import { Mbmc } from "templates/restaurant/Mbmc/Mbmc";
 import { Layout } from "view/Layout";
 import theme from "./theme";
 import routes from "./routes";
+import "./index.css";
 
 declare module "@mui/styles/defaultTheme" {
     // eslint-disable-next-line @typescript-eslint/no-empty-interface

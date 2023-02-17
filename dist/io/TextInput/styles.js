@@ -126,7 +126,7 @@ export var useTextStyles = makeStyles(function (theme) { return ({
         display: 'flex',
         width: '100%',
         letterSpacing: 0,
-        fontSize: theme.typography.h6.fontSize,
+        fontSize: theme.typography.fontSize - 1,
         textAlign: 'left',
         marginTop: 4
     },

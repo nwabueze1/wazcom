@@ -14,13 +14,9 @@ export const useDeliveryStyles = makeStyles((theme: Theme) => ({
         marginBottom: theme.spacing(3),
     },
     deliveryInput: {
-        "& > div": {
-            borderRadius: 100,
-        },
-
-        "& .css-1t8l2tu-MuiInputBase-input-MuiOutlinedInput-input": {
-            padding: theme.spacing(1.5, 3),
-        }
+        borderRadius: 100,
+        padding: theme.spacing(1.5, 3),
+        height: 52,
     },
     deliveryFeedback: {
         marginTop: theme.spacing(1),
