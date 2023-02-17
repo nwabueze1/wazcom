@@ -51,9 +51,7 @@ import {
 import { Valour, Taurant, Nour } from "templates/Navs";
 
 import { ComponentPropType, TemplatePropType } from "./types";
-import { EditableTextInput } from "io/EditableTextInput";
-import { DynamicInput } from "io/DynamicInput";
-import { SectionEditor } from "io/SectionEditor";
+import { DynamicInput, EditableTextInput, SectionEditor } from "../io";
 import { getTableRows } from "./table";
 
 export const stories: ComponentPropType[] = [

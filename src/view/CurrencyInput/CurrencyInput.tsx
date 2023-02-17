@@ -1,6 +1,6 @@
 import { FC, useState, useCallback } from "react";
 import { FiLink } from "react-icons/fi"
-import { CurrencyInputField } from "io";
+import { CurrencyInputField } from "../../io";
 
 import { useCurrencyInputStyles } from "./styles";
 import { CurrencyInputViewProps, InputDataProps } from "./types";

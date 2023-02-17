@@ -24,11 +24,11 @@ import {
     TextInputProps,
     ToggleInputProps,
     RadioButtonInputProps,
-    CurrencyInputFieldProps,
+    CurrencyInputProps,
+    PhoneNumberInputProps
 } from "../io";
 
 import { GqlComboBoxProps, GqlMediaLibraryProps, GqlMediaLibrarySelectorProps } from "../gql";
-import { PhoneNumberInputProps } from "io/PhoneNumberInput/types";
 
 import { NavProps } from "templates/Navs/types";
 
@@ -152,7 +152,7 @@ type RichTextStory = {
 };
 
 type CurrencyInputStory = {
-    props: CurrencyInputFieldProps;
+    props: CurrencyInputProps;
 };
 
 type GqlComboBoxStory = {
