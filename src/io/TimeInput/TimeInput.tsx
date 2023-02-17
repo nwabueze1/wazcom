@@ -27,7 +27,7 @@ export const TimeInput: React.FC<TimeInputProps> = ({
     };
 
     return (
-        <div className={clx(classes.root, className)}>
+        <div className={classes.root}>
             <div className={classes.labelWrapper}>
                 {!hideLabel && label && (
                     <label htmlFor={name} className={classes.label}>
@@ -52,15 +52,15 @@ const TimePickerComponent = (props: TimeInputProps) => {
     const classes = useTimeInputStyles();
 
     return (
-        <div className={clx(classes.baseInput)}>
+        <div className={classes.baseInput}>
             <BiTimeFive width={16} height={16} />
             <TimePicker
                 showSecond={false}
                 use12Hours={true}
                 format={'h:mm a'}
                 name={props.name}
-                className={classes.input}
-                popupClassName={classes.containerDiv}
+                className={clx(classes.input, props.className)}
+                popupClassName={clx(classes.containerDiv, props.popupClassName)}
                 defaultValue={moment().hour(0).minute(0)}
                 {...props}
             />

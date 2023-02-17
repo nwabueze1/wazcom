@@ -4,6 +4,7 @@ import { BsEye } from "react-icons/bs"
 import { Button } from "../../core";
 import { useButtonStyles } from "./styles";
 import { ButtonViewProps } from "./types";
+import { TimeInput } from "io";
 
 export const ButtonView: FC<ButtonViewProps> = () => {
 
@@ -33,6 +34,7 @@ export const ButtonView: FC<ButtonViewProps> = () => {
                         <Button>Button</Button>
                     </div>
                 </div>
+                <TimeInput />
             </div>
         </div >
     );
