@@ -24,6 +24,7 @@ import {
     TextInputProps,
     ToggleInputProps,
     RadioButtonInputProps,
+    WysiwygInputProps,
     CurrencyInputProps,
     PhoneNumberInputProps
 } from "../io";
@@ -64,6 +65,7 @@ export type ComponentPropType = {
     | GqlMediaLibrarySelectorStory
     | CurrencyInputStory
     | PhoneNumberInputStroy
+    | WysiwygStory
 );
 
 export type TemplatePropType = {
@@ -149,6 +151,9 @@ type SelectStory = {
 
 type RichTextStory = {
     props: RichTextInputProps;
+};
+type WysiwygStory = {
+    props: WysiwygInputProps;
 };
 
 type CurrencyInputStory = {

@@ -66,17 +66,17 @@ export const useDispatchControls = () => {
                                     handleInputBlur(formik, "addressline1");
                                 },
                                 classNames: {
-                                    textInput: classes.deliveryInput,
-                                    feedback: classes.deliveryFeedback,
+                                    input: classes.deliveryInput,
                                 },
                                 className: classes.deliveryInputParent,
                                 value: formik.values.addressline1,
-                                errors:
-                                    [{ message: formik?.touched?.guest?.addressline1 &&
-                                    Boolean(formik?.errors?.guest?.addressline1) }],
-                                feedback:
-                                    formik?.touched?.guest?.addressline1 && formik?.errors?.guest?.addressline1
-                                        ? { status: "error", text: formik.errors.addressline1 }
+                                isError:
+                                    formik?.touched?.addressline1 &&
+                                    Boolean(formik?.errors?.addressline1),
+                                helperText:
+                                    formik?.touched?.addressline1 &&
+                                    formik?.errors?.addressline1
+                                        ? formik?.errors?.addressline1
                                         : undefined,
                             },
                         },
@@ -92,15 +92,14 @@ export const useDispatchControls = () => {
                                     handleInputBlur(formik, "city");
                                 },
                                 classNames: {
-                                    textInput: classes.deliveryInput,
-                                    feedback: classes.deliveryFeedback,
+                                    input: classes.deliveryInput,
                                 },
                                 className: classes.deliveryInputParent,
                                 value: formik.values.city,
-                                errors: [{ message: formik?.touched?.city && Boolean(formik?.errors?.city) }],
-                                feedback:
+                                isError: formik?.touched?.city && Boolean(formik?.errors?.city),
+                                helperText:
                                     formik?.touched?.city && formik?.errors?.city
-                                        ? { status: "error", text: formik.errors.city }
+                                        ? formik?.errors?.city
                                         : undefined,
                             },
                         },
@@ -116,15 +115,14 @@ export const useDispatchControls = () => {
                                     handleInputBlur(formik, "state");
                                 },
                                 classNames: {
-                                    textInput: classes.deliveryInput,
-                                    feedback: classes.deliveryFeedback,
+                                    input: classes.deliveryInput,
                                 },
                                 className: classes.deliveryInputParent,
                                 value: formik.values.state,
-                                errors: [{ message: formik?.touched?.state && Boolean(formik?.errors?.state) }],
-                                feedback:
+                                isError: formik?.touched?.state && Boolean(formik?.errors?.state),
+                                helperText:
                                     formik?.touched?.state && formik?.errors?.state
-                                        ? { status: "error", text: formik.errors.state }
+                                        ? formik?.errors?.state
                                         : undefined,
                             },
                         },
@@ -140,15 +138,15 @@ export const useDispatchControls = () => {
                                     handleInputBlur(formik, "country");
                                 },
                                 classNames: {
-                                    textInput: classes.deliveryInput,
-                                    feedback: classes.deliveryFeedback,
+                                    input: classes.deliveryInput,
                                 },
                                 className: classes.deliveryInputParent,
                                 value: formik.values.error,
-                                errors: [{ message: formik?.touched?.country && Boolean(formik?.errors?.country)}],
-                                feedback:
+                                isError:
+                                    formik?.touched?.country && Boolean(formik?.errors?.country),
+                                helperText:
                                     formik?.touched?.country && formik?.errors?.country
-                                        ? { status: "error", text: formik.errors.country }
+                                        ? formik?.errors?.country
                                         : undefined,
                             },
                         },
@@ -164,16 +162,15 @@ export const useDispatchControls = () => {
                                     handleInputBlur(formik, "postcode");
                                 },
                                 classNames: {
-                                    textInput: classes.deliveryInput,
-                                    feedback: classes.deliveryFeedback,
+                                    input: classes.deliveryInput,
                                 },
                                 className: classes.deliveryInputParent,
                                 value: formik.values.postcode,
-                                errors:
-                                    [{ message: formik?.touched?.postcode && Boolean(formik?.errors?.postcode) }],
-                                feedback:
+                                isError:
+                                    formik?.touched?.postcode && Boolean(formik?.errors?.postcode),
+                                helperText:
                                     formik?.touched?.postcode && formik?.errors?.postcode
-                                        ? { status: "error", text: formik.errors.postcode }
+                                        ? formik?.errors?.postcode
                                         : undefined,
                             },
                         },

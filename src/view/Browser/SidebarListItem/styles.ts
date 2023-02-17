@@ -1,6 +1,7 @@
-import { createUseStyles } from 'react-jss'
+import { BaseTheme } from "@mui/material";
+import { makeStyles } from "@mui/styles";
 
-export const useSidebarListItemStyles = createUseStyles({
+export const useSidebarListItemStyles = makeStyles((theme: BaseTheme) => ({
     root: {
         width: '100%',
         height: '100vh',
@@ -92,4 +93,4 @@ export const useSidebarListItemStyles = createUseStyles({
         fontWeight: 'normal',
         fontSize: '8px',
     }
-});
+}));

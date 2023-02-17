@@ -46,15 +46,14 @@ export const usePickupControls = () => {
                                 handleInputBlur(formik, "email");
                             },
                             classNames: {
-                                textInput: classes.deliveryInput,
-                                feedback: classes.deliveryFeedback,
+                                input: classes.deliveryInput,
                             },
                             className: classes.deliveryInputParent,
                             value: formik.values.email,
-                            errors: [{ message: formik?.touched?.email && Boolean(formik?.errors?.email) }],
-                            feedback:
+                            isError: formik?.touched?.email && Boolean(formik?.errors?.email),
+                            helperText:
                                 formik?.touched?.email && formik?.errors?.email
-                                    ? { status: "error", text: formik.errors.email }
+                                    ? formik.errors.email
                                     : undefined,
                         },
                     },
@@ -70,15 +69,15 @@ export const usePickupControls = () => {
                                 handleInputBlur(formik, "firstname");
                             },
                             classNames: {
-                                textInput: classes.deliveryInput,
-                                feedback: classes.deliveryFeedback,
+                                input: classes.deliveryInput,
                             },
                             className: classes.deliveryInputParent,
                             value: formik.values.firstname,
-                            errors: [{ message: formik?.touched?.firstname && Boolean(formik?.errors?.firstname) }],
-                            feedback:
+                            isError:
+                                formik?.touched?.firstname && Boolean(formik?.errors?.firstname),
+                            helperText:
                                 formik?.touched?.firstname && formik?.errors?.firstname
-                                    ? { status: "error", text: formik.errors.firstname }
+                                    ? formik.errors.firstname
                                     : undefined,
                         },
                     },
@@ -94,15 +93,14 @@ export const usePickupControls = () => {
                                 handleInputBlur(formik, "lastname");
                             },
                             classNames: {
-                                textInput: classes.deliveryInput,
-                                feedback: classes.deliveryFeedback,
+                                input: classes.deliveryInput,
                             },
                             className: classes.deliveryInputParent,
                             value: formik.values.lastname,
-                            errors: [{ message: formik?.touched?.lastname && Boolean(formik?.errors?.lastname) }],
-                            feedback:
+                            isError: formik?.touched?.lastname && Boolean(formik?.errors?.lastname),
+                            helperText:
                                 formik?.touched?.lastname && formik?.errors?.lastname
-                                    ? { status: "error", text: formik.errors.lastname }
+                                    ? formik.errors.lastname
                                     : undefined,
                         },
                     },
@@ -118,15 +116,14 @@ export const usePickupControls = () => {
                                 handleInputBlur(formik, "phone");
                             },
                             classNames: {
-                                textInput: classes.deliveryInput,
-                                feedback: classes.deliveryFeedback,
+                                input: classes.deliveryInput,
                             },
                             className: classes.deliveryInputParent,
                             value: formik.values.phone,
-                            errors: [{ message: formik?.touched?.phone && Boolean(formik?.errors?.phone) }],
-                            feedback:
+                            isError: formik?.touched?.phone && Boolean(formik?.errors?.phone),
+                            helperText:
                                 formik?.touched?.phone && formik?.errors?.phone
-                                    ? { status: "error", text: formik.errors.phone }
+                                    ? formik.errors.phone
                                     : undefined,
                         },
                     },
