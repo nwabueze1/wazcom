@@ -334,28 +334,10 @@ export const stories: ComponentPropType[] = [
         component: ComboBoxInput,
         props: {
             options: [
-                {
-                    label: "Bread",
-                    value: {
-                        category: "food",
-                        subCategory: ["dodo", "spaghetti", "beef", "beans"],
-                    },
-                },
-                {
-                    label: "Love",
-                    value: {
-                        category: "food",
-                        subCategory: ["dodo", "spaghetti", "beef", "beans"],
-                    },
-                },
+                { label: "Bread", value: "23" },
+                { label: "Love", value: "45" },
             ],
-            value: {
-                label: "Love",
-                value: {
-                    category: "food",
-                    subCategory: ["dodo", "spaghetti", "beef", "beans"],
-                },
-            },
+            value: { label: "Love", value: "45" },
             placeholder: "Select Wazobia Member",
             isAdd: false,
         },
