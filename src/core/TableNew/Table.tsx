@@ -51,6 +51,8 @@ export const TableNew: FC<TableNewProps> = ({
     const classes = useTableStyles();
     const externalClasses: any = useExternalTableStyles();
 
+    console.log(variables);
+
     useEffect(() => {
         queryApi(
             parseQueryVariables(
