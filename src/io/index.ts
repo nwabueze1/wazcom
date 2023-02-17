@@ -12,3 +12,4 @@ export * from "./RadioButtonInput";
 export * from "./CurrencyInput";
 export * from "./DynamicInput";
 export * from "./EditableTextInput";
+export * from "./TimeInput";

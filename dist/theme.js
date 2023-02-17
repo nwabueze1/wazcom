@@ -99,6 +99,8 @@ export var theme = {
             error: "#c32611",
             info: "#4961E3",
             warning: "#E0BC24",
+            waz_primary20: "#212121",
+            waz_primary50: "#216430",
             waz_primary100: "#0A7227",
             waz_primary200: "#23803D",
             waz_primary300: "#3B8E52",
