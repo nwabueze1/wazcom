@@ -43,7 +43,6 @@ import { Box, InputLabel, TextField } from "@mui/material";
 import { useComboBoxStyles } from "./styles";
 import clx from "classnames";
 import { displayFeedback } from "../../helpers/io";
-import { Tag } from "../../core/Tag";
 var filter = createFilterOptions();
 export var ComboBoxInput = function (_a) {
     var _b;
@@ -85,5 +84,5 @@ export var ComboBoxInput = function (_a) {
                     handleChange(selectedOption);
                 }, filterOptions: handleFilterOptions, renderOption: function (props, option) {
                     return (_jsx(Box, __assign({ component: "li" }, props, { children: _jsxs("div", __assign({ className: classNames === null || classNames === void 0 ? void 0 : classNames.optionContainer }, { children: [_jsx("p", __assign({ className: classNames === null || classNames === void 0 ? void 0 : classNames.optionLabel }, { children: option === null || option === void 0 ? void 0 : option.label })), option.subText && (_jsx("p", __assign({ className: classNames === null || classNames === void 0 ? void 0 : classNames.optionSubText }, { children: option.subText })))] })) })));
-                }, renderInput: function (params) { return (_jsx(TextField, __assign({}, params, { placeholder: placeholder, variant: "outlined", error: error, className: classes.renderInput }))); }, className: (classNames === null || classNames === void 0 ? void 0 : classNames.comboBoxInput) ? classNames.comboBoxInput : "", classes: (classNames === null || classNames === void 0 ? void 0 : classNames.classes) ? classNames.classes : {} })), _jsx("div", __assign({ className: classes.tagsParent }, { children: _jsx(Tag, { name: value, classname: classes.tag }) })), helperText, feedback && displayFeedback(feedback)] })));
+                }, renderInput: function (params) { return (_jsx(TextField, __assign({}, params, { placeholder: placeholder, variant: "outlined", error: error, className: classes.renderInput }))); }, className: (classNames === null || classNames === void 0 ? void 0 : classNames.comboBoxInput) ? classNames.comboBoxInput : "", classes: (classNames === null || classNames === void 0 ? void 0 : classNames.classes) ? classNames.classes : {} })), helperText, feedback && displayFeedback(feedback)] })));
 };
