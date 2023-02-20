@@ -6,10 +6,11 @@ export type TimeInputProps = CommonProps & {
     hideLabel?: boolean;
     label?: string;
     name?: string;
-    startTimeName?: string;
-    endTimeName?: string;
     required?: boolean;
-    variant?: string;
+    showSecond?:boolean;
+    use12Hours?:boolean;
+    format?:string;
+
 
     onChange?: (...args: any) => void;
 }

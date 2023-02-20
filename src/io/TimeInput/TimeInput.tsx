@@ -1,6 +1,5 @@
 import React from "react";
 import clx from 'classnames';
-// import moment from 'moment';
 import TimePicker from 'rc-time-picker';
 import 'rc-time-picker/assets/index.css';
 import { BiTimeFive } from "react-icons/bi";
@@ -9,14 +8,14 @@ import { useTimeInputStyles } from "./styles";
 import { TimeInputProps } from "./types";
 
 export const TimeInput: React.FC<TimeInputProps> = ({
-    variant = 'time_picker',
     className,
     popupClassName,
     label,
     hideLabel = false,
     name,
-    startTimeName,
-    endTimeName,
+    showSecond = false,
+    use12Hours = true,
+    format = 'h:mm a',
     onChange,
     required = false,
     ...props
@@ -40,13 +39,12 @@ export const TimeInput: React.FC<TimeInputProps> = ({
             <div className={classes.baseInput}>
                 <BiTimeFive width={16} height={16} />
                 <TimePicker
-                    showSecond={false}
-                    use12Hours={true}
-                    format={'h:mm a'}
+                    showSecond={showSecond}
+                    use12Hours={use12Hours}
+                    format={format}
                     onChange={(value) => handleChange({ name, value })}
                     className={classes.input}
                     popupClassName={clx(classes.containerDiv, popupClassName)}
-                    // defaultValue={moment().hour(0).minute(0)}
                     {...props}
                 />
             </div>
