@@ -11,6 +11,7 @@ import { TimeInputProps } from "./types";
 export const TimeInput: React.FC<TimeInputProps> = ({
     variant = 'time_picker',
     className,
+    popupClassName,
     label,
     hideLabel = false,
     name,
@@ -27,7 +28,7 @@ export const TimeInput: React.FC<TimeInputProps> = ({
     };
 
     return (
-        <div className={classes.root}>
+        <div className={clx(classes.root, className)}>
             <div className={classes.labelWrapper}>
                 {!hideLabel && label && (
                     <label htmlFor={name} className={classes.label}>
@@ -36,34 +37,19 @@ export const TimeInput: React.FC<TimeInputProps> = ({
                 </label>
             )}
             </div>
-            {variant === 'time_picker' && (<TimePickerComponent name={name} onChange={(value) => handleChange({ name, value })} {...props} />)}
-            {variant === 'time_range_picker' && (
-                <div className={classes.timeRangeDiv}>
-                    <TimePickerComponent name={startTimeName} onChange={(value) => handleChange({ name: startTimeName, value })} {...props} />
-                    <span className={classes.timeRangeSeperator}>To</span>
-                    <TimePickerComponent name={endTimeName} onChange={(value) => handleChange({ name: endTimeName, value })} {...props} />
-                </div>
-            )}
+            <div className={classes.baseInput}>
+                <BiTimeFive width={16} height={16} />
+                <TimePicker
+                    showSecond={false}
+                    use12Hours={true}
+                    format={'h:mm a'}
+                    onChange={(value) => handleChange({ name, value })}
+                    className={classes.input}
+                    popupClassName={clx(classes.containerDiv, popupClassName)}
+                    defaultValue={moment().hour(0).minute(0)}
+                    {...props}
+                />
+            </div>
         </div>
     )
 };
-
-const TimePickerComponent = (props: TimeInputProps) => {
-    const classes = useTimeInputStyles();
-
-    return (
-        <div className={classes.baseInput}>
-            <BiTimeFive width={16} height={16} />
-            <TimePicker
-                showSecond={false}
-                use12Hours={true}
-                format={'h:mm a'}
-                name={props.name}
-                className={clx(classes.input, props.className)}
-                popupClassName={clx(classes.containerDiv, props.popupClassName)}
-                defaultValue={moment().hour(0).minute(0)}
-                {...props}
-            />
-    </div>
-    )
-}

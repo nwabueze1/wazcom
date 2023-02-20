@@ -45,17 +45,19 @@ export var useTimeInputStyles = makeStyles(function (theme) { return ({
         },
     },
     containerDiv: {
-        background: theme.design.colors.grey600,
+        background: 'transparent',
         border: 0,
-        boxShadow: 'none',
+        borderRadius: 4,
         zIndex: 100000,
         '& .rc-time-picker-panel-inner': {
             background: theme.design.colors.grey600,
             border: 0,
-            boxShadow: 'none',
+            borderRadius: 4,
             '& .rc-time-picker-panel-combobox': {
                 display: 'flex',
-                gap: theme.spacing(0)
+                gap: theme.spacing(0),
+                margin: 15,
+                marginRight: 0,
             },
             '& .rc-time-picker-panel-input-wrap': {
                 background: theme.design.colors.grey600,
