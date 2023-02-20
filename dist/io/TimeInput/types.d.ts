@@ -9,5 +9,6 @@ export type TimeInputProps = CommonProps & {
     showSecond?: boolean;
     use12Hours?: boolean;
     format?: string;
+    defaultValue?: any;
     onChange?: (...args: any) => void;
 };

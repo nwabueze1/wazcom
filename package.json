@@ -25,6 +25,7 @@
         "formik": "^2.2.9",
         "graphql": "^15.6.0",
         "lodash.startcase": "^4.4.0",
+        "moment": "^2.29.4",
         "rc-time-picker": "^3.7.3",
         "react": "^17.0.2",
         "react-chartjs-2": "^3.0.4",
