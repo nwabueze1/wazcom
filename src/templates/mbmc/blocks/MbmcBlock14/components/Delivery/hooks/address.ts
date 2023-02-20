@@ -7,7 +7,7 @@ import { notify } from "../../../../../utilities";
 import { CoreCartFields, CoreGuestFields } from "../../../../../models";
 
 export const useCreateAddress = () => {
-    const { cart, client, setContext } = useContext(RestaurantContext);
+    const { cart, clients, setContext } = useContext(RestaurantContext);
 
     return async (
         variables: TCreateAddressVariables,
@@ -15,7 +15,9 @@ export const useCreateAddress = () => {
         onSuccess?: () => void,
     ) => {
         try {
-            const { data, errors } = await (client as ApolloClient<NormalizedCacheObject>).mutate({
+            const { data, errors } = await (
+                clients?.AMBROSIA as ApolloClient<NormalizedCacheObject>
+            ).mutate({
                 mutation: CREATE_ADDRESS,
                 variables: { ...variables, guest_uuid: guest.uuid },
             });

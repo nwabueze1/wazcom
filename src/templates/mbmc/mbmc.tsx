@@ -14,6 +14,7 @@ import { MbmcBlock12 } from "./blocks/MbmcBlock12/MbmcBlock12";
 import { MbmcBlock13 } from "./blocks/MbmcBlock13/MbmcBlock13";
 import { useMbmbcStyles } from "./styles";
 import { MbmcBlock14 } from "./blocks/MbmcBlock14/MbmcBlock14";
+import { createApolloClient } from "helpers/graphQL";
 import { MbmcBlock61 } from "./blocks/MbmcBlock6-1";
 
 export const useGetMbmcBlocks = () => {
@@ -187,8 +188,13 @@ export const useGetMbmcBlocks = () => {
                 heading: "Explore Our Menu",
                 description: `Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed 
                 diam nonumy eirmod tempor invidunt ut labore et dolore a….`,
-                menu_uuid: "8b63de49-6087-4a66-b1e4-90e8d9ef1629",
-                gatewayUrl: "https://ofambegbe-ploutonion.wazobia.uk/graphql",
+                menu_uuid: "bb1bbf5f-311e-48b4-8c06-f8df6d5b242a",
+                integratedService: "AMBROSIA",
+                services: {
+                    AMBROSIA: "https://ofambegbe-ambrosia.wazobia.uk/graphql",
+                    NICODEMUS: "",
+                    MUSE: "",
+                },
                 mode: "edit",
                 index: 0,
                 activeElement: "0.menu_uuid",
@@ -202,7 +208,12 @@ export const useGetMbmcBlocks = () => {
                 heading: "Explore Our Best Menu",
                 description: `Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed 
                 diam nonumy eirmod tempor invidunt ut labore et dolore a….`,
-                gatewayUrl: "https://ofambegbe-ploutonion.wazobia.uk/graphql",
+                services: {
+                    AMBROSIA: "https://ofambegbe-ambrosia.wazobia.uk/graphql",
+                    NICODEMUS: "",
+                    MUSE: "",
+                },
+                integratedService: "AMBROSIA",
                 menu_uuid: "8b63de49-6087-4a66-b1e4-90e8d9ef1629",
                 site_uuid: "",
             },
@@ -225,7 +236,12 @@ export const useGetMbmcBlocks = () => {
                     "https://sytbuildr.s3.eu-west-2.amazonaws.com/images/mbmc/home/img.webp",
                     "https://sytbuildr.s3.eu-west-2.amazonaws.com/images/mbmc/home/img.webp",
                 ],
-                gatewayUrl: "https://ofambegbe-ploutonion.wazobia.uk/graphql",
+                services: {
+                    AMBROSIA: "https://ambrosia.hogfort.com/graphql",
+                    NICODEMUS: "https://nicodemus.sytbuilder.com/graphql",
+                    MUSE: "",
+                },
+                integratedService: "NICODEMUS",
                 site_uuid: "ca2291e7-7789-43c5-8ab3-5bbb01228b07",
                 mode: "edit",
                 index: 0,
@@ -440,6 +456,7 @@ export const useGetMbmcBlocks = () => {
                     },
                 ],
                 site_uuid: "896466aa-bacc-4817-b577-436a52540eff",
+                mode: "edit",
                 index: 0,
                 activeElement: "0.ctas.0",
                 handleClick: (route: string) => alert(route),
@@ -449,7 +466,12 @@ export const useGetMbmcBlocks = () => {
             name: "mbmc-block-14",
             component: MbmcBlock14,
             props: {
-                gatewayUrl: "https://ofambegbe-ploutonion.wazobia.uk/graphql",
+                services: {
+                    AMBROSIA: "https://ofambegbe-ambrosia.wazobia.uk/graphql",
+                    NICODEMUS: "https://ofambegbe-nicodemus.wazobia.uk/graphql",
+                    MUSE: "",
+                },
+                integratedServices: ["AMBROSIA", "NICODEMUS"],
                 site_uuid: "ae043bd3-6250-47e3-8717-e08a55937088",
             },
         },

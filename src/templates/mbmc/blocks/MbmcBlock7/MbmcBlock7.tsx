@@ -16,12 +16,13 @@ export const MbmcBlock7: FC<MbmcBlock7Props> = ({
     heading,
     description,
     images = [],
-    gatewayUrl,
+    services,
+    integratedService,
     site_uuid,
 }) => {
     const classes = useMbmcBlock7Styles();
     const client = useMemo(
-        () => createApolloClient(gatewayUrl ?? ""),
+        () => createApolloClient(services ? services[integratedService] : ""),
         [],
     );
     const { data, loading } = useQuery(GET_INSTAGRAM_IMAGES, {
