@@ -34,7 +34,7 @@ export const ButtonView: FC<ButtonViewProps> = () => {
                         <Button>Button</Button>
                     </div>
                 </div>
-                <TimeInput onChange={(e) => console.log('TIME_CHANGE', e)} />
+                <TimeInput name="timepocker" onChange={(e) => console.log('TIME_CHANGE', e)} />
             </div>
         </div >
     );
