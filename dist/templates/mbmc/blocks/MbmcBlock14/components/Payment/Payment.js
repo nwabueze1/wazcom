@@ -73,10 +73,10 @@ import { RestaurantContext } from "../../../../contexts";
 import { useCreateOrder } from "./hooks";
 export var Payment = function () {
     var _a;
-    var _b = useContext(RestaurantContext), client = _b.client, cart = _b.cart, ctxtLoading = _b.loading, networkOperation = _b.networkOperation;
+    var _b = useContext(RestaurantContext), clients = _b.clients, cart = _b.cart, ctxtLoading = _b.loading, networkOperation = _b.networkOperation;
     var classes = usePaymentStyles();
     var _c = useQuery(GET_PAYMENT_METHODS, {
-        client: client,
+        client: clients === null || clients === void 0 ? void 0 : clients.NICODEMUS,
         variables: { service_uuid: (_a = cart === null || cart === void 0 ? void 0 : cart.restaurant) === null || _a === void 0 ? void 0 : _a.uuid },
     }), data = _c.data, error = _c.error, loading = _c.loading;
     var _d = __read(useState([]), 2), paymentMethods = _d[0], setPaymentMethods = _d[1];
@@ -85,6 +85,7 @@ export var Payment = function () {
     useEffect(function () {
         if (data) {
             var paymentMethods_1 = data.getPaymentMethods;
+            console.log(paymentMethods_1);
             setPaymentMethods(paymentMethods_1);
         }
         if (error) {

@@ -12,7 +12,8 @@ export const MbmcBlock6: FC<MbmcBlock6Props> = ({
     mode = "view",
     activeElement,
     handleClick,
-    gatewayUrl,
+    services,
+    integratedService,
     index,
     heading,
     description,
@@ -21,7 +22,7 @@ export const MbmcBlock6: FC<MbmcBlock6Props> = ({
     const classes = useMbmcBlock6Styles();
     const [categories, setCategories] = useState<MbmcCardProps[]>([]);
     const client = useMemo(
-        () => createApolloClient(gatewayUrl ?? ""),
+        () => createApolloClient(services ? services[integratedService] : ""),
         [],
     );
     const { data, error } = useQuery(GET_MENU_BY_UUID, {
@@ -32,7 +33,7 @@ export const MbmcBlock6: FC<MbmcBlock6Props> = ({
     useEffect(() => {
         if (data) {
             const {
-                getMenu: { activeMenuCategories },
+                menu: { activeMenuCategories },
             } = data;
             const parsedCategories = [];
 

@@ -8,14 +8,12 @@ import { CoreCartFields } from "../../../../../models";
 import Cookies from "universal-cookie";
 
 export const useUpdateGuest = () => {
-    const { cart, client, setContext } = useContext(RestaurantContext);
+    const { cart, clients, setContext } = useContext(RestaurantContext);
     const cookies = new Cookies();
     const cartCookie = cookies.get("cart");
 
     return async (variables: TUpdateGuestVariables, onSuccess?: () => void, isPickup?: boolean) => {
         const siteUuid = cart?.restaurant?.site_uuid as string;
-        console.log(siteUuid);
-        console.log(cart);
         const cartUuid = cartCookie[siteUuid];
         setContext?.({
             loading: true,
@@ -23,10 +21,9 @@ export const useUpdateGuest = () => {
         });
 
         try {
-            const { data, errors } = await (client as ApolloClient<NormalizedCacheObject>).mutate({
-                mutation: UPDATE_GUEST,
-                variables: { ...variables, cart_uuid: cartUuid },
-            });
+            const { data, errors } = await (
+                clients?.AMBROSIA as ApolloClient<NormalizedCacheObject>
+            ).mutate({ mutation: UPDATE_GUEST, variables: { ...variables, cart_uuid: cartUuid } });
 
             if (!data || errors) {
                 throw new Error("We could not complete that operation");

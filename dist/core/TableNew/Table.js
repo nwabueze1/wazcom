@@ -82,7 +82,6 @@ export var TableNew = function (_a) {
     var _m = __read(useState(false), 2), loading = _m[0], setLoading = _m[1];
     var classes = useTableStyles();
     var externalClasses = useExternalTableStyles();
-    console.log(variables);
     useEffect(function () {
         var _a;
         queryApi(parseQueryVariables(actions.search, (_a = actions === null || actions === void 0 ? void 0 : actions.sort) !== null && _a !== void 0 ? _a : [], table === null || table === void 0 ? void 0 : table.pagination));
