@@ -14,19 +14,19 @@ export const TimeInput: React.FC<TimeInputProps> = ({
     label,
     hideLabel = false,
     name,
+    value,
     showSecond = false,
     use12Hours = true,
-    format = 'h:mm a',
+    format = 'HH:mm',
     onChange,
     required = false,
     defaultValue,
     ...props
 }) => {
     const classes = useTimeInputStyles();
-    
 
     const handleChange = ({ name, value }: any) => {
-        if (onChange) onChange?.({ name, value });
+        if (onChange) onChange?.({ name, value: value.format() });
     };
 
     return (
@@ -45,9 +45,10 @@ export const TimeInput: React.FC<TimeInputProps> = ({
                     showSecond={showSecond}
                     use12Hours={use12Hours}
                     format={format}
+                    value={moment(value)}
                     onChange={(value) => handleChange({ name, value })}
                     className={classes.input}
-                    defaultValue={defaultValue ? defaultValue : moment().hour(0).minute(0)}
+                    defaultValue={moment().hour(0).minute(0)}
                     popupClassName={clx(classes.containerDiv, popupClassName)}
                     {...props}
                 />

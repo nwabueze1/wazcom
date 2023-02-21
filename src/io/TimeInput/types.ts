@@ -1,3 +1,4 @@
+import { Moment } from "moment";
 import { CommonProps } from "../../types";
 
 export type TimeInputProps = CommonProps & {
@@ -10,7 +11,8 @@ export type TimeInputProps = CommonProps & {
     showSecond?:boolean;
     use12Hours?:boolean;
     format?:string;
-    defaultValue?: any;
+    value?: string;
+    defaultValue?: Moment;
 
 
     onChange?: (...args: any) => void;
