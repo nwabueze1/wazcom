@@ -131,15 +131,19 @@ export const useMbmcBlock12Styles = makeStyles((theme: Theme) => ({
     },
     formTextInput: {
         fontFamily: theme.design.font.montserrat,
-        "& > div": {
-            borderRadius: theme.spacing(6),
-        },
-        marginBottom: theme.spacing(2),
+        borderRadius: theme.spacing(6),
+        padding: theme.spacing(1.5, 3),
+        height: 52,
+        boxSizing: "border-box",
     },
     formTextArea: {
         borderRadius: theme.spacing(3),
         marginBottom: theme.spacing(2),
         fontFamily: theme.design.font.montserrat,
+        background: "transparent",
+        padding: theme.spacing(1.5, 3),
+        boxSizing: "border-box",
+        height: 216,
     },
     formButton: {
         position: "relative",

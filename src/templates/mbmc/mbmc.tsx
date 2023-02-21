@@ -14,7 +14,6 @@ import { MbmcBlock12 } from "./blocks/MbmcBlock12/MbmcBlock12";
 import { MbmcBlock13 } from "./blocks/MbmcBlock13/MbmcBlock13";
 import { useMbmbcStyles } from "./styles";
 import { MbmcBlock14 } from "./blocks/MbmcBlock14/MbmcBlock14";
-import { createApolloClient } from "helpers/graphQL";
 import { MbmcBlock61 } from "./blocks/MbmcBlock6-1";
 
 export const useGetMbmcBlocks = () => {
@@ -33,10 +32,12 @@ export const useGetMbmcBlocks = () => {
                     {
                         text: "Order now",
                         rIcon: <BsArrowRight className={classes.mbmc1CtaIcon} />,
+                        url: "/menus",
                     },
                     {
                         text: "Contact us",
                         variant: "SECONDARY",
+                        url: "/contact-us"
                     },
                 ],
                 mode: "edit",
@@ -195,7 +196,7 @@ export const useGetMbmcBlocks = () => {
                     NICODEMUS: "",
                     MUSE: "",
                 },
-                mode: "edit",
+                // mode: "edit",
                 index: 0,
                 activeElement: "0.menu_uuid",
                 handleClick: (route: string) => alert(route),
@@ -453,6 +454,7 @@ export const useGetMbmcBlocks = () => {
                     {
                         text: "Order now",
                         variant: "NEUTRAL",
+                        url: "/sksksk"
                     },
                 ],
                 site_uuid: "896466aa-bacc-4817-b577-436a52540eff",
