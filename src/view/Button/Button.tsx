@@ -12,9 +12,6 @@ export const ButtonView: FC<ButtonViewProps> = () => {
 
     const classes = useButtonStyles();
 
-    console.log('STATE', value)
-    console.log('<MOMENT>', moment(value).format('HH:mm'))
-
     return (
         <div className={classes.root}>
             <div className={classes.container}>
