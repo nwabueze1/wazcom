@@ -10,20 +10,20 @@ export const useTimeInputStyles = makeStyles((theme: Theme) => ({
     label: {
         fontSize: theme.typography.fontSize - 2,
         display: "flex",
-        marginBottom: 8,
+        marginBottom: theme.spacing(1),
         color: theme.design.colors.waz_grey,
         alignItems: "center",
         textTransform: "uppercase",
     },
     required: {
         color: theme.design.colors.waz_dangerColor100,
-        margin: '-4px 4px 0 4px',
+        margin: theme.spacing(-.5, .5, 0, .5),
     },
     baseInput: {
         display: 'flex',
         alignItems: 'center',
-        gap: 8,
-        padding: '4px 12px',
+        gap: theme.spacing(1),
+        padding: theme.spacing(0.5, 1.5),
         height: 36,
         width: '100%',
         background: theme.design.colors.white100,
@@ -61,8 +61,8 @@ export const useTimeInputStyles = makeStyles((theme: Theme) => ({
 
             '& .rc-time-picker-panel-combobox': {
                 display: 'flex',
-                gap: 0,
-                margin: '15px 15px 15px 0',
+                gap: theme.spacing(0),
+                margin: theme.spacing(2, 2, 2, 0),
             },
             '& .rc-time-picker-panel-input-wrap': {
                 background: theme.design.colors.grey600,
@@ -131,6 +131,6 @@ export const useTimeInputStyles = makeStyles((theme: Theme) => ({
         display: 'flex',
         justifyContent: 'start',
         alignItems: 'center',
-        gap: 8
+        gap: theme.spacing(1)
     }
 }));
