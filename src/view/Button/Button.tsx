@@ -1,12 +1,14 @@
-import { FC } from "react";
+import { FC, useState } from "react";
 import { BsEye } from "react-icons/bs"
 
 import { Button } from "../../core";
 import { useButtonStyles } from "./styles";
 import { ButtonViewProps } from "./types";
 import { TimeInput } from "io";
+import moment from 'moment';
 
 export const ButtonView: FC<ButtonViewProps> = () => {
+    const [value, setValue] = useState();
 
     const classes = useButtonStyles();
 
@@ -34,7 +36,7 @@ export const ButtonView: FC<ButtonViewProps> = () => {
                         <Button>Button</Button>
                     </div>
                 </div>
-                <TimeInput onChange={(e) => console.log('TIME_CHANGE', e)} />
+                <TimeInput value={value} name="timepocker" onChange={(e) => setValue(e.value)} />
             </div>
         </div >
     );

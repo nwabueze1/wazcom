@@ -1,3 +1,4 @@
+import { Moment } from "moment";
 import { CommonProps } from "../../types";
 
 export type TimeInputProps = CommonProps & {
@@ -6,10 +7,13 @@ export type TimeInputProps = CommonProps & {
     hideLabel?: boolean;
     label?: string;
     name?: string;
-    startTimeName?: string;
-    endTimeName?: string;
     required?: boolean;
-    variant?: string;
+    showSecond?:boolean;
+    use12Hours?:boolean;
+    format?:string;
+    value?: string;
+    defaultValue?: Moment;
+
 
     onChange?: (...args: any) => void;
 }
