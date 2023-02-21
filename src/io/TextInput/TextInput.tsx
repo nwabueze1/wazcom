@@ -155,6 +155,7 @@ export const TextInput: FC<TextFieldProps> = ({
 
 export const TextArea: FC<Omit<TextAreaProps, "type">> = ({
     className,
+    classNames,
     label,
     rows,
     helperText,
@@ -250,6 +251,7 @@ export const TextArea: FC<Omit<TextAreaProps, "type">> = ({
                     className={clx(
                         classes.baseTextArea,
                         classes.defaultInput,
+                        classNames?.input,
                         isSuccess && classes.successInput,
                         (isError || errors) && classes.errorInput,
                         isFocused && classes.focusedInput

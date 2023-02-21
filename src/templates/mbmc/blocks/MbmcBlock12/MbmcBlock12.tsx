@@ -158,7 +158,7 @@ export const MbmcBlock12: FC<MbmcBlock12Props> = ({
                             value={formData.name}
                             onChange={handleChange}
                             className={classes.formInput}
-                            classNames={{ textInput: classes.formTextInput }}
+                            classNames={{ input: classes.formTextInput }}
                         />
                         <TextInput
                             placeholder="Email address"
@@ -167,7 +167,7 @@ export const MbmcBlock12: FC<MbmcBlock12Props> = ({
                             value={formData.email}
                             onChange={handleChange}
                             className={classes.formInput}
-                            classNames={{ textInput: classes.formTextInput }}
+                            classNames={{ input: classes.formTextInput }}
                         />
                         <TextInput
                             placeholder="Phone number"
@@ -176,7 +176,7 @@ export const MbmcBlock12: FC<MbmcBlock12Props> = ({
                             value={formData.phoneNo}
                             onChange={handleChange}
                             className={classes.formInput}
-                            classNames={{ textInput: classes.formTextInput }}
+                            classNames={{ input: classes.formTextInput }}
                         />
                         <TextArea
                             placeholder="Send a message"
@@ -184,9 +184,9 @@ export const MbmcBlock12: FC<MbmcBlock12Props> = ({
                             value={formData.message}
                             onChange={handleChange}
                             className={classes.formInput}
-                            classNames={{ textArea: classes.formTextArea }}
+                            classNames={{ input: classes.formTextArea }}
                             minRows={12}
-                        />
+                        /> 
                         <MbmcButton
                             className={classes.formButton}
                             size="sm"
