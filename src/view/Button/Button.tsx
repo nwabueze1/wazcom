@@ -5,7 +5,6 @@ import { Button } from "../../core";
 import { useButtonStyles } from "./styles";
 import { ButtonViewProps } from "./types";
 import { TimeInput } from "io";
-import { Scheduler } from "../../core";
 
 export const ButtonView: FC<ButtonViewProps> = () => {
     const [value, setValue] = useState();
@@ -37,7 +36,6 @@ export const ButtonView: FC<ButtonViewProps> = () => {
                     </div>
                 </div>
                 <TimeInput value={value} name="timepocker" onChange={(e) => setValue(e.value)} />
-                <Scheduler value={[{ day: "0", start_time: "00:00", end_time: "23:59" }]} onChange={(e) => console.log('SCHEDULER', e)} />
             </div>
         </div >
     );
