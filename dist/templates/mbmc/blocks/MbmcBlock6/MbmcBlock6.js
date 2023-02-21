@@ -46,10 +46,10 @@ import clx from "classnames";
 import { handleElementClick } from "../../utilities";
 import { createApolloClient } from "../../../../helpers/graphQL";
 export var MbmcBlock6 = function (_a) {
-    var _b = _a.mode, mode = _b === void 0 ? "view" : _b, activeElement = _a.activeElement, handleClick = _a.handleClick, gatewayUrl = _a.gatewayUrl, index = _a.index, heading = _a.heading, description = _a.description, menu_uuid = _a.menu_uuid;
+    var _b = _a.mode, mode = _b === void 0 ? "view" : _b, activeElement = _a.activeElement, handleClick = _a.handleClick, services = _a.services, integratedService = _a.integratedService, index = _a.index, heading = _a.heading, description = _a.description, menu_uuid = _a.menu_uuid;
     var classes = useMbmcBlock6Styles();
     var _c = __read(useState([]), 2), categories = _c[0], setCategories = _c[1];
-    var client = useMemo(function () { return createApolloClient(gatewayUrl !== null && gatewayUrl !== void 0 ? gatewayUrl : ""); }, []);
+    var client = useMemo(function () { return createApolloClient(services ? services[integratedService] : ""); }, []);
     var _d = useQuery(GET_MENU_BY_UUID, {
         client: client,
         variables: { uuid: menu_uuid },
@@ -57,7 +57,7 @@ export var MbmcBlock6 = function (_a) {
     useEffect(function () {
         var e_1, _a;
         if (data) {
-            var activeMenuCategories = data.getMenu.activeMenuCategories;
+            var activeMenuCategories = data.menu.activeMenuCategories;
             var parsedCategories = [];
             try {
                 for (var activeMenuCategories_1 = __values(activeMenuCategories), activeMenuCategories_1_1 = activeMenuCategories_1.next(); !activeMenuCategories_1_1.done; activeMenuCategories_1_1 = activeMenuCategories_1.next()) {

@@ -47,12 +47,12 @@ import { getCurrency } from "../../../../utilities";
 import { RestaurantContext } from "../../contexts";
 import { createApolloClient } from "../../../../helpers/graphQL";
 export var MbmcBlock61 = function (_a) {
-    var heading = _a.heading, description = _a.description, gatewayUrl = _a.gatewayUrl, menu_uuid = _a.menu_uuid, setContextProps = _a.setContextProps;
+    var heading = _a.heading, description = _a.description, services = _a.services, integratedService = _a.integratedService, menu_uuid = _a.menu_uuid, setContextProps = _a.setContextProps;
     var classes = useMbmcBlock61Styles();
     var _b = __read(useState({}), 2), contextData = _b[0], setContextData = _b[1];
     var _c = __read(useState(), 2), activeCategory = _c[0], setActiveCategory = _c[1];
     var _d = __read(useState(), 2), itemUuid = _d[0], setItemUuid = _d[1];
-    var client = useMemo(function () { return createApolloClient(gatewayUrl !== null && gatewayUrl !== void 0 ? gatewayUrl : ""); }, []);
+    var client = useMemo(function () { return createApolloClient(services ? services[integratedService] : ""); }, []);
     var _e = useQuery(GET_MENU_BY_UUID, { client: client, variables: { uuid: menu_uuid } }), data = _e.data, error = _e.error;
     var menu = contextData.menu;
     var categoryItems = useMemo(function () {
@@ -62,9 +62,9 @@ export var MbmcBlock61 = function (_a) {
     useEffect(function () {
         var _a;
         if (data) {
-            var _b = data.getMenu, menuCategories = _b.activeMenuCategories, menuItems = _b.activeMenuItems, restaurant = _b.restaurant, rest = __rest(_b, ["activeMenuCategories", "activeMenuItems", "restaurant"]);
-            var menu_1 = __assign({ menuCategories: menuCategories, menuItems: menuItems, restaurant: __assign(__assign({}, restaurant), { site_uuid: (_a = restaurant === null || restaurant === void 0 ? void 0 : restaurant.site) === null || _a === void 0 ? void 0 : _a.uuid }) }, rest);
-            setContextData({ menu: menu_1, client: client });
+            var _b = data.menu, menuCategories = _b.activeMenuCategories, menuItems = _b.activeMenuItems, rest = __rest(_b, ["activeMenuCategories", "activeMenuItems"]);
+            var menu_1 = __assign({ menuCategories: menuCategories, menuItems: menuItems }, rest);
+            setContextData({ menu: menu_1, clients: (_a = {}, _a[integratedService] = client, _a) });
             var queryParams_1 = new URLSearchParams(window.location.search);
             var activeMenuCategory = menuCategories.length > 0 ? menuCategories[0] : undefined;
             if (queryParams_1.get("category_uuid")) {
@@ -103,7 +103,7 @@ export var MbmcBlock61 = function (_a) {
     var updateContext = function (variables) {
         setContextData(__assign(__assign({}, contextData), variables));
     };
-    return (_jsx(RestaurantContext.Provider, __assign({ value: __assign(__assign({}, contextData), { setContext: updateContext }) }, { children: _jsx("div", __assign({ className: classes.root, id: "menu" }, { children: _jsxs("div", __assign({ className: classes.block61Container }, { children: [_jsx("h3", __assign({ className: classes.block61Title }, { children: heading })), _jsx("p", __assign({ className: classes.block61Description }, { children: description })), categoryItems && (categoryItems === null || categoryItems === void 0 ? void 0 : categoryItems.length) > 0 && (_jsxs(_Fragment, { children: [_jsx("div", __assign({ className: classes.block61Categories }, { children: displayCategories() })), _jsx("div", __assign({ className: classes.block61Items }, { children: displayItems() }))] })), _jsx(OrderDialog, { itemUuid: itemUuid, handleClose: function () {
+    return (_jsx(RestaurantContext.Provider, __assign({ value: __assign(__assign({}, contextData), { setContext: updateContext }) }, { children: _jsx("div", __assign({ className: classes.root, id: 'menu' }, { children: _jsxs("div", __assign({ className: classes.block61Container }, { children: [_jsx("h3", __assign({ className: classes.block61Title }, { children: heading })), _jsx("p", __assign({ className: classes.block61Description }, { children: description })), categoryItems && (categoryItems === null || categoryItems === void 0 ? void 0 : categoryItems.length) > 0 && (_jsxs(_Fragment, { children: [_jsx("div", __assign({ className: classes.block61Categories }, { children: displayCategories() })), _jsx("div", __assign({ className: classes.block61Items }, { children: displayItems() }))] })), _jsx(OrderDialog, { itemUuid: itemUuid, handleClose: function () {
                             setItemUuid(undefined);
                         }, setContextProps: setContextProps })] })) })) })));
 };
