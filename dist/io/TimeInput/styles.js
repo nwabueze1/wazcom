@@ -56,7 +56,7 @@ export var useTimeInputStyles = makeStyles(function (theme) { return ({
             '& .rc-time-picker-panel-combobox': {
                 display: 'flex',
                 gap: theme.spacing(0),
-                margin: theme.spacing(2, 2, 2, 0),
+                margin: theme.spacing(2, 0, 2, 2),
             },
             '& .rc-time-picker-panel-input-wrap': {
                 background: theme.design.colors.grey600,
