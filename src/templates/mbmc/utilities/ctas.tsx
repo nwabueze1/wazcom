@@ -1,4 +1,4 @@
-import { MbmcButton, Link } from "../components";
+import { MbmcButton, MbmcLink } from "../components";
 import { BlockCta } from "../types";
 import { handleElementClick } from "./element";
 
@@ -26,21 +26,16 @@ export const renderCtas = (
                 {lIcon} {text} {rIcon}
             </MbmcButton>
         ) : (
-            <Link
-                href={url}
-                target={url?.startsWith("/") ? "_self" : "_blank"}
-                rel={"noreferrer noopener"}
+            <MbmcLink
+                key={index}
+                name={name}
+                url={url}
+                {...props}
+                className={className}
+                activeElement={activeElement}
             >
-                <MbmcButton
-                    key={index}
-                    name={name}
-                    {...props}
-                    className={className}
-                    activeElement={activeElement}
-                >
-                    {lIcon} {text} {rIcon}
-                </MbmcButton>
-            </Link>
+                {lIcon} {text} {rIcon}
+            </MbmcLink>
         );
     });
 };

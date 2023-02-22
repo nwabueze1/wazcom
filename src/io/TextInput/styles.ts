@@ -45,6 +45,8 @@ export const useTextStyles = makeStyles((theme: Theme) => ({
         display: 'flex',
         padding: 10,
         outline: 0,
+        width: "100%",
+        fontFamily: theme.design.font.openSans,
         background: props.background ?? theme.design.colors.white100,
         color: props.color ?? theme.design.colors.waz_primaryBlack,
         borderWidth: props?.borderWidth ?? 1,

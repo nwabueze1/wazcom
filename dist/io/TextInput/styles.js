@@ -46,6 +46,8 @@ export var useTextStyles = makeStyles(function (theme) { return ({
             display: 'flex',
             padding: 10,
             outline: 0,
+            width: "100%",
+            fontFamily: theme.design.font.openSans,
             background: (_a = props.background) !== null && _a !== void 0 ? _a : theme.design.colors.white100,
             color: (_b = props.color) !== null && _b !== void 0 ? _b : theme.design.colors.waz_primaryBlack,
             borderWidth: (_c = props === null || props === void 0 ? void 0 : props.borderWidth) !== null && _c !== void 0 ? _c : 1,
