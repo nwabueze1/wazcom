@@ -5,7 +5,6 @@ import { Button } from "../../core";
 import { useButtonStyles } from "./styles";
 import { ButtonViewProps } from "./types";
 import { TimeInput } from "io";
-import moment from 'moment';
 
 export const ButtonView: FC<ButtonViewProps> = () => {
     const [value, setValue] = useState();
