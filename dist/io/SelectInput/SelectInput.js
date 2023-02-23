@@ -28,7 +28,7 @@ import { AiFillCaretDown } from "react-icons/ai";
 import theme from "../../theme";
 import { useSelectStyles } from "./styles";
 export var SelectInput = function (_a) {
-    var onChange = _a.onChange, options = _a.options, name = _a.name, className = _a.className, containerClass = _a.containerClass, label = _a.label, value = _a.value, errors = _a.errors, _b = _a.hideLabel, hideLabel = _b === void 0 ? false : _b, info = _a.info, _c = _a.required, required = _c === void 0 ? false : _c, width = _a.width, height = _a.height, backgroundColor = _a.backgroundColor, borderWidth = _a.borderWidth, borderColor = _a.borderColor, borderStyle = _a.borderStyle, menuIsOpen = _a.menuIsOpen, classNames = _a.classNames, props = __rest(_a, ["onChange", "options", "name", "className", "containerClass", "label", "value", "errors", "hideLabel", "info", "required", "width", "height", "backgroundColor", "borderWidth", "borderColor", "borderStyle", "menuIsOpen", "classNames"]);
+    var onChange = _a.onChange, options = _a.options, name = _a.name, className = _a.className, containerClass = _a.containerClass, label = _a.label, value = _a.value, errors = _a.errors, isSuccess = _a.isSuccess, isError = _a.isError, _b = _a.hideLabel, hideLabel = _b === void 0 ? false : _b, info = _a.info, _c = _a.required, required = _c === void 0 ? false : _c, width = _a.width, height = _a.height, helperText = _a.helperText, backgroundColor = _a.backgroundColor, borderWidth = _a.borderWidth, borderColor = _a.borderColor, borderStyle = _a.borderStyle, menuIsOpen = _a.menuIsOpen, classNames = _a.classNames, props = __rest(_a, ["onChange", "options", "name", "className", "containerClass", "label", "value", "errors", "isSuccess", "isError", "hideLabel", "info", "required", "width", "height", "helperText", "backgroundColor", "borderWidth", "borderColor", "borderStyle", "menuIsOpen", "classNames"]);
     var classes = useSelectStyles();
     var handleChange = function (e) {
         if (onChange) {
@@ -44,7 +44,8 @@ export var SelectInput = function (_a) {
                     DropdownIndicator: DropdownIndicator,
                     IndicatorSeparator: function () { return null; }
                 }, styles: {
-                    control: function (baseStyles) { return (__assign(__assign({}, baseStyles), { minHeight: 34, height: height || 34, width: width || '100%', backgroundColor: backgroundColor || '', borderWidth: borderWidth !== null && borderWidth !== void 0 ? borderWidth : 1, borderStyle: borderStyle !== null && borderStyle !== void 0 ? borderStyle : 'solid', borderColor: borderColor !== null && borderColor !== void 0 ? borderColor : theme.design.colors.waz_primary700, fontFamily: theme.typography.fontFamily, fontWeight: 400, fontSize: theme.typography.fontSize, boxShadow: 'none', '&:hover': {
+                    control: function (baseStyles) { return (__assign(__assign({}, baseStyles), { minHeight: 34, height: height || 34, width: width || '100%', backgroundColor: backgroundColor || '', borderWidth: borderWidth !== null && borderWidth !== void 0 ? borderWidth : 1, borderStyle: borderStyle !== null && borderStyle !== void 0 ? borderStyle : 'solid', borderColor: borderColor !== null && borderColor !== void 0 ? borderColor : (isSuccess ? theme.design.colors.waz_primary100 :
+                            isError ? theme.design.colors.error : theme.design.colors.waz_primary700), fontFamily: theme.typography.fontFamily, fontWeight: 400, fontSize: theme.typography.fontSize, boxShadow: 'none', '&:hover': {
                             borderColor: theme.design.colors.primary600,
                         }, '&:focus': {
                             borderColor: theme.design.colors.primary500,
@@ -76,5 +77,5 @@ export var SelectInput = function (_a) {
                         var isDisabled = _a.isDisabled, isFocused = _a.isFocused;
                         return (clx(!isDisabled && isFocused && classes.option));
                     }
-                }, value: selectValue, options: options, onChange: handleChange }, props))] })));
+                }, value: selectValue, options: options, onChange: handleChange }, props)), helperText && (_jsx("span", __assign({ className: clx(classes.helperTextDefault, isSuccess && classes.helperTextSuccess, isError && classes.helperTextError) }, { children: helperText })))] })));
 };

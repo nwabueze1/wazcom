@@ -15,11 +15,14 @@ export const SelectInput: React.FC<SelectInputProps> = ({
     label,
     value,
     errors,
+    isSuccess,
+    isError,
     hideLabel = false,
     info,
     required = false,
     width,
     height,
+    helperText,
     backgroundColor,
     borderWidth,
     borderColor,
@@ -72,7 +75,10 @@ export const SelectInput: React.FC<SelectInputProps> = ({
                         backgroundColor: backgroundColor || '',
                         borderWidth: borderWidth ?? 1,
                         borderStyle: borderStyle ?? 'solid',
-                        borderColor: borderColor ?? theme.design.colors.waz_primary700,
+                        borderColor: borderColor ?? (
+                            isSuccess ? theme.design.colors.waz_primary100 :
+                            isError ? theme.design.colors.error : theme.design.colors.waz_primary700
+                        ),
                         fontFamily: theme.typography.fontFamily,
                         fontWeight: 400,
                         fontSize: theme.typography.fontSize,
@@ -131,6 +137,13 @@ export const SelectInput: React.FC<SelectInputProps> = ({
                 onChange={handleChange}
                 {...props}
             />
+            {helperText && (<span className={clx(
+                classes.helperTextDefault,
+                isSuccess && classes.helperTextSuccess,
+                isError && classes.helperTextError
+            )}>
+                {helperText}
+            </span>)}
         </div>
     )
 };

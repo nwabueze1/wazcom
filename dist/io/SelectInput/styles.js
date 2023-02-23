@@ -67,5 +67,37 @@ export var useSelectStyles = makeStyles(function (theme) { return ({
     },
     option: {
         backgroundColor: "".concat(theme.design.colors.waz_primary900, " !important")
+    },
+    defaultInput: {
+        borderColor: theme.design.colors.waz_primary700,
+        '&:hover, &:focus, &:hover:focus, &:active': {
+            borderColor: theme.design.colors.waz_primary700,
+        },
+    },
+    errorInput: {
+        borderColor: theme.design.colors.red500,
+        '&:hover, &:focus, &:hover:focus, &:active': {
+            borderColor: theme.design.colors.red500,
+        },
+    },
+    successInput: {
+        borderColor: theme.design.colors.waz_primaryColor100,
+        '&:hover, &:focus, &:hover:focus, &:active': {
+            borderColor: theme.design.colors.waz_primaryColor100,
+        },
+    },
+    helperTextDefault: {
+        display: 'flex',
+        width: '100%',
+        letterSpacing: 0,
+        fontSize: theme.typography.fontSize - 1,
+        textAlign: 'left',
+        marginTop: 4
+    },
+    helperTextSuccess: {
+        color: theme.design.colors.waz_primaryColor100,
+    },
+    helperTextError: {
+        color: theme.design.colors.error,
     }
 }); });

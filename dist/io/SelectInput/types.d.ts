@@ -22,6 +22,8 @@ type SelectProps = CommonProps & {
     label?: string | React.ReactNode;
     name?: string;
     required?: boolean;
+    isSuccess?: boolean;
+    isError?: boolean;
     showCC?: boolean;
     menuIsOpen?: boolean;
     errors?: {
