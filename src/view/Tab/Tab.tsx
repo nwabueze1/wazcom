@@ -17,7 +17,7 @@ export const TabsView: FC<TabsProps> = () => {
         <div className={classes.container}>
             <Tab
                 controls={controls}
-                variant="horizontal"
+                variant="vertical"
                 borderRadius={14}
                 height={20}
             />

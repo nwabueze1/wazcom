@@ -132,5 +132,20 @@ export const useTimeInputStyles = makeStyles((theme: Theme) => ({
         justifyContent: 'start',
         alignItems: 'center',
         gap: theme.spacing(1)
+    },
+
+    helperTextDefault: {
+        display: 'flex',
+        width: '100%',
+        letterSpacing: 0,
+        fontSize: theme.typography.fontSize - 1,
+        textAlign: 'left',
+        marginTop: 4
+    },
+    helperTextSuccess: {
+        color: theme.design.colors.waz_primaryColor100,
+    },
+    helperTextError: {
+        color: theme.design.colors.error,
     }
 }));

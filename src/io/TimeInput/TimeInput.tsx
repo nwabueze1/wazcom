@@ -15,6 +15,10 @@ export const TimeInput: React.FC<TimeInputProps> = ({
     hideLabel = false,
     name,
     value,
+    helperText,
+    errors,
+    isError,
+    isSuccess,
     showSecond = false,
     use12Hours = true,
     format = 'HH:mm',
@@ -53,6 +57,13 @@ export const TimeInput: React.FC<TimeInputProps> = ({
                     {...props}
                 />
             </div>
+            {helperText && (<span className={clx(
+                classes.helperTextDefault,
+                isSuccess && classes.helperTextSuccess,
+                isError && classes.helperTextError
+            )}>
+                {helperText}
+            </span>)}
         </div>
     )
 };
