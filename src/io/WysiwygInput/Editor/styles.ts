@@ -46,11 +46,7 @@ export const useEditorToolbarStyles = makeStyles((theme: Theme) => ({
         overflow: "auto",
         height: "100vh",
         position: "relative",
-<<<<<<< HEAD
         paddingTop: theme.spacing(4.375),
-=======
-        paddingTop: "35px",
->>>>>>> develop
     },
     floatingBar: {
         position: "absolute",
@@ -62,17 +58,10 @@ export const useEditorToolbarStyles = makeStyles((theme: Theme) => ({
         },
         "& .ql-editor .ql-video": {
             width: "80%",
-<<<<<<< HEAD
             height: theme.spacing(37.5),
         },
         "& .ql-editor": {
             paddingLeft: theme.spacing(2),
-=======
-            height: "300px",
-        },
-        "& .ql-editor": {
-            paddingLeft: "16px",
->>>>>>> develop
         },
     },
 }));
