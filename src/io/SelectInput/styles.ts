@@ -12,7 +12,8 @@ export const useSelectStyles = makeStyles((theme: Theme) => ({
     },
     container: {
         width: '100%',
-        height: '100%'
+        height: '100%',
+        background: theme.design.colors.waz_white
     },
     label: {
         fontSize: theme.typography.fontSize - 2,
@@ -61,6 +62,7 @@ export const useSelectStyles = makeStyles((theme: Theme) => ({
         justifyContent: "space-between"
     },
     control: {
+        background: theme.design.colors.waz_white100,
         borderColor: `${theme.design.colors.waz_primary500} !important`,
         boxShadow: 'none !important',
         '&:hover': {

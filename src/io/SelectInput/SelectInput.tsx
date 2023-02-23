@@ -72,7 +72,7 @@ export const SelectInput: React.FC<SelectInputProps> = ({
                         minHeight: 34,
                         height: height || 34,
                         width: width || '100%',
-                        backgroundColor: backgroundColor || '',
+                        backgroundColor: backgroundColor || theme.design.colors.waz_white100,
                         borderWidth: borderWidth ?? 1,
                         borderStyle: borderStyle ?? 'solid',
                         borderColor: borderColor ?? (

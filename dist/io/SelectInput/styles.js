@@ -10,7 +10,8 @@ export var useSelectStyles = makeStyles(function (theme) { return ({
     },
     container: {
         width: '100%',
-        height: '100%'
+        height: '100%',
+        background: theme.design.colors.waz_white
     },
     label: {
         fontSize: theme.typography.fontSize - 2,
@@ -59,6 +60,7 @@ export var useSelectStyles = makeStyles(function (theme) { return ({
         justifyContent: "space-between"
     },
     control: {
+        background: theme.design.colors.waz_white100,
         borderColor: "".concat(theme.design.colors.waz_primary500, " !important"),
         boxShadow: 'none !important',
         '&:hover': {
