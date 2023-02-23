@@ -9,6 +9,7 @@ import { FiPlus } from "react-icons/fi";
 import { days, filterDaysOptions } from "./DayPicker/helper";
 import { Schedule } from ".";
 
+
 export const Scheduler: React.FC<SchedulerProps> = ({
     className,
     classNames,
@@ -26,14 +27,12 @@ export const Scheduler: React.FC<SchedulerProps> = ({
 
     const handleChange = useCallback(
         (event: any, index: number, remove = false) => {
-            const {
-                target: { name, value },
-            } = event;
-            const newValue = [...(initialScheduleValue as Schedule[])];
+            const {target: { name, value }} = event;
+            const newValue = [...(initialScheduleValue as Schedule[] | any)];
             if (remove && newValue.length > 1) {
                 newValue.splice(index, 1);
             } else {
-                newValue[index] = { day: name, start_time: value, end_time: value };
+                newValue[index][name] = value;
             }
             onChange?.({ name: componentName as string, value: newValue });
         },

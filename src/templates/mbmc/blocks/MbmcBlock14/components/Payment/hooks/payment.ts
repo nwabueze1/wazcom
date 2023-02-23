@@ -5,12 +5,12 @@ import { notify } from "../../../../../utilities";
 import { MAKE_PAYPAL_PAYMENT } from "../graphql";
 
 export const usePaypalPayment = () => {
-    const { client } = useContext(RestaurantContext);
+    const { clients } = useContext(RestaurantContext);
 
     return async (order_uuid: string) => {
         try {
             const { data, errors } = await (
-                client as ApolloClient<NormalizedCacheObject>
+                clients?.NICODEMUS as ApolloClient<NormalizedCacheObject>
             ).mutate({
                 mutation: MAKE_PAYPAL_PAYMENT,
                 variables: { order_uuid, pageRedirect: window.location.pathname },

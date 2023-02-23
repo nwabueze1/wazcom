@@ -10,4 +10,5 @@ export type Schedule = {
     day: string;
     start_time: string;
     end_time: string;
+    name?: string;
 };

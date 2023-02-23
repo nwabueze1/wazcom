@@ -10,12 +10,10 @@ export const CREATE_ORDER = gql`
         $cart_uuid: ID
     ) {
         createOrder(
-            input: {
-                grand_total: $grand_total
-                address_uuid: $address_uuid
-                payment_type: $payment_type
-                cart_uuid: $cart_uuid
-            }
+            grand_total: $grand_total
+            address_uuid: $address_uuid
+            payment_type: $payment_type
+            cart_uuid: $cart_uuid
         ) {
             ...CoreOrderFields
         }
@@ -25,7 +23,9 @@ export const CREATE_ORDER = gql`
 export const MAKE_PAYPAL_PAYMENT = gql`
     mutation GqlMakePaypalPayment($order_uuid: ID, $pageRedirect: String) {
         makePaypalDirectPayment(
-            input: { type: FOOD_ORDER, order_uuid: $order_uuid, pageRedirect: $pageRedirect }
+            type: FOOD_ORDER
+            order_uuid: $order_uuid
+            pageRedirect: $pageRedirect
         ) {
             status
             redirect_url

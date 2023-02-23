@@ -2,6 +2,7 @@ export * from "./Form";
 export * from "./MbmcCard";
 export * from "../blocks/MbmcBlock14/components/CartItemCard";
 export * from "./MbmcButton";
+export * from "./MbmcLink";
 export * from "./MbmcMenuCard";
 export * from "./OrderDialog";
 export * from "./PaymentOption";
