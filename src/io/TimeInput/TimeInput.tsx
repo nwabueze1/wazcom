@@ -42,7 +42,11 @@ export const TimeInput: React.FC<TimeInputProps> = ({
                 </label>
             )}
             </div>
-            <div className={classes.baseInput}>
+            <div className={clx(
+                classes.baseInput,
+                isSuccess && classes.successInput,
+                isError && classes.errorInput,
+            )}>
                 <BiTimeFive width={16} height={16} />
                 <TimePicker
                     showSecond={showSecond}

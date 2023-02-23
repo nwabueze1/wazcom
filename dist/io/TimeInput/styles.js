@@ -44,6 +44,18 @@ export var useTimeInputStyles = makeStyles(function (theme) { return ({
             outline: 0
         },
     },
+    errorInput: {
+        borderColor: theme.design.colors.error,
+        '&:hover, &:focus, &:hover:focus, &:active': {
+            borderColor: theme.design.colors.error,
+        },
+    },
+    successInput: {
+        borderColor: theme.design.colors.waz_primaryColor100,
+        '&:hover, &:focus, &:hover:focus, &:active': {
+            borderColor: theme.design.colors.waz_primaryColor100,
+        },
+    },
     containerDiv: {
         background: 'transparent',
         border: 0,

@@ -35,7 +35,7 @@ export const ButtonView: FC<ButtonViewProps> = () => {
                         <Button>Button</Button>
                     </div>
                 </div>
-                <TimeInput value={value} name="timepocker" onChange={(e) => setValue(e.value)} />
+                <TimeInput isError={true} value={value} name="timepocker" onChange={(e) => setValue(e.value)} />
             </div>
         </div >
     );
