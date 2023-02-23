@@ -20,8 +20,8 @@ var __rest = (this && this.__rest) || function (s, e) {
         }
     return t;
 };
-import { jsxs as _jsxs, jsx as _jsx } from "react/jsx-runtime";
-import { MbmcButton, Link } from "../components";
+import { jsxs as _jsxs } from "react/jsx-runtime";
+import { MbmcButton, MbmcLink } from "../components";
 import { handleElementClick } from "./element";
 export var renderCtas = function (ctas, mode, parentKey, handleClick, activeElement, className) {
     return (ctas !== null && ctas !== void 0 ? ctas : []).map(function (_a, index) {
@@ -29,6 +29,6 @@ export var renderCtas = function (ctas, mode, parentKey, handleClick, activeElem
         var name = parentKey + ".ctas." + String(index);
         return mode === "edit" ? (_jsxs(MbmcButton, __assign({ name: name }, props, { className: className, handleClick: function () {
                 handleElementClick(mode, name, handleClick);
-            }, activeElement: activeElement }, { children: [lIcon, " ", text, " ", rIcon] }), index)) : (_jsx(Link, __assign({ href: url, target: (url === null || url === void 0 ? void 0 : url.startsWith("/")) ? "_self" : "_blank", rel: "noreferrer noopener" }, { children: _jsxs(MbmcButton, __assign({ name: name }, props, { className: className, activeElement: activeElement }, { children: [lIcon, " ", text, " ", rIcon] }), index) })));
+            }, activeElement: activeElement }, { children: [lIcon, " ", text, " ", rIcon] }), index)) : (_jsxs(MbmcLink, __assign({ name: name, url: url }, props, { className: className, activeElement: activeElement }, { children: [lIcon, " ", text, " ", rIcon] }), index));
     });
 };

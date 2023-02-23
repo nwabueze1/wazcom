@@ -15,6 +15,7 @@ export var useDeliveryStyles = makeStyles(function (theme) { return ({
         borderRadius: 100,
         padding: theme.spacing(1.5, 3),
         height: 52,
+        boxSizing: "border-box",
     },
     deliveryFeedback: {
         marginTop: theme.spacing(1),

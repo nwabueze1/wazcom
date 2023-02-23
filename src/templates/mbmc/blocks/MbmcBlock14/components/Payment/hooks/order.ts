@@ -10,7 +10,7 @@ import { CoreCartFields } from "../../../../../models";
 import { usePaypalPayment } from "./payment";
 
 export const useCreateOrder = () => {
-    const { cart, client, setContext } = useContext(RestaurantContext);
+    const { cart, clients, setContext } = useContext(RestaurantContext);
     const cookies = new Cookies();
     const makePaypalPayment = usePaypalPayment();
 
@@ -19,7 +19,9 @@ export const useCreateOrder = () => {
         const cartItemCountCookie = cookies.get("cartItemCount");
         setContext?.({ loading: true, networkOperation: "create.order" });
         try {
-            const { data, errors } = await (client as ApolloClient<NormalizedCacheObject>).mutate({
+            const { data, errors } = await (
+                clients?.AMBROSIA as ApolloClient<NormalizedCacheObject>
+            ).mutate({
                 mutation: CREATE_ORDER,
                 variables: {
                     payment_type:

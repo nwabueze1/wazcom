@@ -4,7 +4,7 @@ import { CORE_CART_FIELDS, CORE_ORDER_FIELDS } from "../../../models";
 export const GET_CART_BY_UUID = gql`
     ${CORE_CART_FIELDS}
     query GqlGetCartByUuid($uuid: ID) {
-        getCart(uuid: $uuid) {
+        cart(uuid: $uuid) {
             ...CoreCartFields
         }
     }
@@ -12,13 +12,11 @@ export const GET_CART_BY_UUID = gql`
 
 export const UPDATE_ORDER = gql`
     ${CORE_ORDER_FIELDS}
-    mutation GqlUpdateOrder($uuid: ID!, $payment_type: PaymentType, $payment_reference: String) {
+    mutation GqlUpdateOrder($uuid: ID, $payment_type: PaymentType, $payment_reference: String) {
         updateOrder(
-            input: {
-                uuid: $uuid
-                payment_type: $payment_type
-                payment_reference: $payment_reference
-            }
+            uuid: $uuid
+            payment_type: $payment_type
+            payment_reference: $payment_reference
         ) {
             ...CoreOrderFields
         }

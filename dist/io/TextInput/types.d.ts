@@ -9,7 +9,7 @@ export type TextBaseProps = CommonProps & {
     helperText?: string;
     hideLabel?: boolean;
     info?: string;
-    label?: string;
+    label?: string | JSX.Element;
     name?: string;
     required?: boolean;
     showCC?: boolean;

@@ -148,30 +148,14 @@ export const useMbmcBlock13Styles = makeStyles((theme: Theme) => ({
             backgroundColor: theme.design.colors.waz_orangeColor100,
         },
     },
-    ctaButton: {
-        background: theme.design.colors.waz_white,
-        padding: theme.spacing(1, 3),
-        borderRadius: 100,
-        transition: "opacity 0.3s ease-in",
-        fontSize: `${theme.typography.fontSize}px !important`,
-
-        '&:hover': {
-            opacity: 0.75,
-        },
-
-        '&:active': {
-            opacity: 0.75,
-        },
-
-        '&:hover:active': {
-            opacity: 0.75,
-        },
-
-        [theme.breakpoints.down("lg")]: {
-            color:  `${theme.design.colors.waz_orangeColor100} !important`,
-            fontFamily: `${theme.design.font.openSans} !important`,
-            fontWeight: theme.typography.fontWeightMedium,
-        },
+    ctaDesktop: {
+        fontWeight: theme.typography.fontWeightMedium,
+    },
+    ctaMobile: {
+        color: `${theme.design.colors.waz_orangeColor100} !important`,
+        fontWeight: `${theme.typography.fontWeightMedium} !important`,
+        fontSize: `${theme.typography.fontSize + 2}px !important`,
+        fontFamily: `${theme.design.font.openSans} !important`,
     },
     menuOptionMobile: {
         display: "none",
@@ -279,7 +263,7 @@ export const useMbmcBlock13Styles = makeStyles((theme: Theme) => ({
         flexDirection: "column",
         alignItems: "flex-end",
         padding: theme.spacing(4, 10, 10, 0),
-        "& p, a": {
+        "& a, p": {
             textDecoration: "none",
             letterSpacing: "0px",
             color: theme.design.colors.waz_white,
