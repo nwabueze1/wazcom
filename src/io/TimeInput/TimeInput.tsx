@@ -16,7 +16,6 @@ export const TimeInput: React.FC<TimeInputProps> = ({
     name,
     value,
     helperText,
-    errors,
     isError,
     isSuccess,
     showSecond = false,

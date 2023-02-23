@@ -15,10 +15,6 @@ export type TimeInputProps = CommonProps & {
     format?:string;
     value?: string;
     defaultValue?: Moment;
-    errors?: {
-        message: string;
-    }[];
-
 
     onChange?: (...args: any) => void;
 }

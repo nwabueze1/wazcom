@@ -127,10 +127,9 @@ export var useTimeInputStyles = makeStyles(function (theme) { return ({
     helperTextDefault: {
         display: 'flex',
         width: '100%',
-        letterSpacing: 0,
-        fontSize: theme.typography.fontSize - 1,
+        fontSize: theme.typography.fontSize - 2,
         textAlign: 'left',
-        marginTop: 4
+        marginTop: theme.spacing(0.5)
     },
     helperTextSuccess: {
         color: theme.design.colors.waz_primaryColor100,
