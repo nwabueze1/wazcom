@@ -3,14 +3,14 @@ export var useSelectStyles = makeStyles(function (theme) { return ({
     root: {
         display: "flex",
         flexDirection: "column",
-        justifyContent: 'start',
-        alignItems: 'start',
+        justifyContent: "start",
+        alignItems: "start",
         position: "relative",
-        width: '100%'
+        width: "100%",
     },
     container: {
-        width: '100%',
-        height: '100%'
+        width: "100%",
+        height: "100%",
     },
     label: {
         fontSize: theme.typography.fontSize - 2,
@@ -23,7 +23,7 @@ export var useSelectStyles = makeStyles(function (theme) { return ({
     },
     required: {
         color: theme.design.colors.waz_dangerColor100,
-        margin: theme.spacing(-.5, .5, 0, .5),
+        margin: theme.spacing(-0.5, 0.5, 0, 0.5),
     },
     select: {
         height: 34,
@@ -32,40 +32,54 @@ export var useSelectStyles = makeStyles(function (theme) { return ({
         fontFamily: theme.typography.fontFamily,
         fontWeight: 400,
         fontSize: theme.typography.fontSize,
-        '&:hover': {
+        "&:hover": {
             borderColor: "".concat(theme.design.colors.waz_primary600, " !important"),
         },
-        '&:focus': {
+        "&:focus": {
             borderColor: theme.design.colors.waz_primary500,
         },
-        '&:hover:focus': {
+        "&:hover:focus": {
             borderColor: theme.design.colors.waz_primary500,
         },
     },
     error: {
         border: "1px solid ".concat(theme.design.colors.error),
-        '&:hover': {
+        "&:hover": {
             borderColor: theme.design.colors.error,
         },
-        '&:focus': {
+        "&:focus": {
             borderColor: theme.design.colors.error,
         },
-        '&:hover:focus': {
+        "&:hover:focus": {
             borderColor: theme.design.colors.error,
         },
     },
     labelWrapper: {
-        display: 'flex',
-        justifyContent: "space-between"
+        display: "flex",
+        justifyContent: "space-between",
     },
     control: {
         borderColor: "".concat(theme.design.colors.waz_primary500, " !important"),
-        boxShadow: 'none !important',
-        '&:hover': {
+        boxShadow: "none !important",
+        "&:hover": {
             borderColor: theme.design.colors.waz_primary600,
         },
     },
     option: {
-        backgroundColor: "".concat(theme.design.colors.waz_primary900, " !important")
-    }
+        backgroundColor: "".concat(theme.design.colors.waz_primary900, " !important"),
+    },
+    helperTextDefault: {
+        display: "flex",
+        width: "100%",
+        letterSpacing: 0,
+        fontSize: theme.typography.fontSize - 1,
+        textAlign: "left",
+        marginTop: 4,
+    },
+    helperTextSuccess: {
+        color: theme.design.colors.waz_primaryColor100,
+    },
+    helperTextError: {
+        color: theme.design.colors.error,
+    },
 }); });

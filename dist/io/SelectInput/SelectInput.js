@@ -28,7 +28,7 @@ import { AiFillCaretDown } from "react-icons/ai";
 import theme from "../../theme";
 import { useSelectStyles } from "./styles";
 export var SelectInput = function (_a) {
-    var onChange = _a.onChange, options = _a.options, name = _a.name, className = _a.className, containerClass = _a.containerClass, label = _a.label, value = _a.value, errors = _a.errors, _b = _a.hideLabel, hideLabel = _b === void 0 ? false : _b, info = _a.info, _c = _a.required, required = _c === void 0 ? false : _c, width = _a.width, height = _a.height, backgroundColor = _a.backgroundColor, borderWidth = _a.borderWidth, borderColor = _a.borderColor, borderStyle = _a.borderStyle, menuIsOpen = _a.menuIsOpen, classNames = _a.classNames, props = __rest(_a, ["onChange", "options", "name", "className", "containerClass", "label", "value", "errors", "hideLabel", "info", "required", "width", "height", "backgroundColor", "borderWidth", "borderColor", "borderStyle", "menuIsOpen", "classNames"]);
+    var onChange = _a.onChange, options = _a.options, name = _a.name, className = _a.className, containerClass = _a.containerClass, label = _a.label, value = _a.value, errors = _a.errors, _b = _a.hideLabel, hideLabel = _b === void 0 ? false : _b, info = _a.info, _c = _a.required, required = _c === void 0 ? false : _c, width = _a.width, height = _a.height, backgroundColor = _a.backgroundColor, borderWidth = _a.borderWidth, borderColor = _a.borderColor, borderStyle = _a.borderStyle, menuIsOpen = _a.menuIsOpen, isError = _a.isError, isSuccess = _a.isSuccess, helperText = _a.helperText, classNames = _a.classNames, props = __rest(_a, ["onChange", "options", "name", "className", "containerClass", "label", "value", "errors", "hideLabel", "info", "required", "width", "height", "backgroundColor", "borderWidth", "borderColor", "borderStyle", "menuIsOpen", "isError", "isSuccess", "helperText", "classNames"]);
     var classes = useSelectStyles();
     var handleChange = function (e) {
         if (onChange) {
@@ -67,7 +67,7 @@ export var SelectInput = function (_a) {
                         return __assign(__assign({}, baseStyles), { padding: 0, boxShadow: '0px 3px 6px #00000014', borderRadius: 4 });
                     },
                 }, classNames: {
-                    container: function () { return (clx(classes.container, containerClass, classNames === null || classNames === void 0 ? void 0 : classNames.container)); },
+                    container: function () { return (clx(classes.container, containerClass, classNames === null || classNames === void 0 ? void 0 : classNames.container, isError && classes.error)); },
                     control: function (_a) {
                         var isDisabled = _a.isDisabled, isFocused = _a.isFocused;
                         return (clx(!isDisabled && isFocused && classes.control, classNames === null || classNames === void 0 ? void 0 : classNames.control));
@@ -76,5 +76,5 @@ export var SelectInput = function (_a) {
                         var isDisabled = _a.isDisabled, isFocused = _a.isFocused;
                         return (clx(!isDisabled && isFocused && classes.option));
                     }
-                }, value: selectValue, options: options, onChange: handleChange }, props))] })));
+                }, value: selectValue, options: options, onChange: handleChange }, props)), helperText && (_jsx("span", __assign({ className: clx(classes.helperTextDefault, isSuccess && classes.helperTextSuccess, isError && classes.helperTextError) }, { children: helperText })))] })));
 };
