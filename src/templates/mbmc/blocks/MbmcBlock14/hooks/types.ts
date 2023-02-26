@@ -1,5 +1,4 @@
-
 export type TUpdateCartItemQuantityVariables = {
-    uuid: string;
-    quantity: number;
-}
+  uuid: string;
+  quantity: number;
+};

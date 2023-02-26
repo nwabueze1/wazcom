@@ -9,58 +9,57 @@ import { SortSelector } from "../SortSelector";
 import { debounce } from "lodash";
 
 export const TableActions: FC<TableActionsProps> = ({
-    currentActions,
-    setCurrentActions,
-    conditionFilters,
-    columns,
+  currentActions,
+  setCurrentActions,
+  conditionFilters,
+  columns,
 }) => {
-    const classes = useTableActionStyles();
-    const updateSearchValue = useRef(debounce((search: string) => setCurrentActions({ ...currentActions, search }), 500))
+  const classes = useTableActionStyles();
+  const updateSearchValue = useRef(
+    debounce((search: string) => setCurrentActions({ ...currentActions, search }), 500),
+  );
 
-    const handleConditionChange = ({ value: name }: { name: string; value: string }) => {
-        const newConditionFilter = conditionFilters?.find((filter) => filter.name === name);
-        setCurrentActions({ ...currentActions, conditionFilter: newConditionFilter });
-    };
+  const handleConditionChange = ({ value: name }: { name: string; value: string }) => {
+    const newConditionFilter = conditionFilters?.find((filter) => filter.name === name);
+    setCurrentActions({ ...currentActions, conditionFilter: newConditionFilter });
+  };
 
-    const handleColumnsChange = (columnFilters: TableColumn[]) => {
-        setCurrentActions({ ...currentActions, columnFilters });
-    };
+  const handleColumnsChange = (columnFilters: TableColumn[]) => {
+    setCurrentActions({ ...currentActions, columnFilters });
+  };
 
-    const handleSearchChange = ({ value: search }: { name: string; value: string }) => {
-        updateSearchValue.current(search);
-    };
+  const handleSearchChange = ({ value: search }: { name: string; value: string }) => {
+    updateSearchValue.current(search);
+  };
 
-    const handleSortChange = (order: "asc" | "desc", columnKey: string) => {
-        setCurrentActions({ ...currentActions, sort: [{ order, column: columnKey }] });
-    };
+  const handleSortChange = (order: "asc" | "desc", columnKey: string) => {
+    setCurrentActions({ ...currentActions, sort: [{ order, column: columnKey }] });
+  };
 
-    return (
-        <div className={classes.root}>
-            <TextInput
-                className={classes.searchInputElement}
-                classNames={{ input: classes.searchInput }}
-                leftIcon={<BiSearch />}
-                onChange={handleSearchChange}
-                placeholder={"Search table"}
-            />
-            <SortSelector
-                columns={columns}
-                handleSelectSort={handleSortChange}
-            />
-            {conditionFilters && (
-                <SelectInput
-                    className={classes.selectInputElement}
-                    classNames={{ container: classes.selectContainer, control: classes.selectControl }}
-                    options={conditionFilters.map(({ name }) => ({ label: name, value: name }))}
-                    value={(currentActions.conditionFilter as TableConditionFilter).name}
-                    onChange={handleConditionChange}
-                />
-            )}
-            <ColumnSelector
-                columns={columns}
-                columnFilters={currentActions.columnFilters as TableColumn[]}
-                handleColumnChange={handleColumnsChange}
-            />
-        </div>
-    );
+  return (
+    <div className={classes.root}>
+      <TextInput
+        className={classes.searchInputElement}
+        classNames={{ input: classes.searchInput }}
+        leftIcon={<BiSearch />}
+        onChange={handleSearchChange}
+        placeholder={"Search table"}
+      />
+      <SortSelector columns={columns} handleSelectSort={handleSortChange} />
+      {conditionFilters && (
+        <SelectInput
+          className={classes.selectInputElement}
+          classNames={{ container: classes.selectContainer, control: classes.selectControl }}
+          options={conditionFilters.map(({ name }) => ({ label: name, value: name }))}
+          value={(currentActions.conditionFilter as TableConditionFilter).name}
+          onChange={handleConditionChange}
+        />
+      )}
+      <ColumnSelector
+        columns={columns}
+        columnFilters={currentActions.columnFilters as TableColumn[]}
+        handleColumnChange={handleColumnsChange}
+      />
+    </div>
+  );
 };
