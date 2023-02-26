@@ -46,8 +46,8 @@ var __spreadArray = (this && this.__spreadArray) || function (to, from, pack) {
     return to.concat(ar || Array.prototype.slice.call(from));
 };
 import { jsx as _jsx, jsxs as _jsxs } from "react/jsx-runtime";
-import clx from 'classnames';
-import { isNumber, isBoolean } from 'lodash';
+import clx from "classnames";
+import { isNumber, isBoolean } from "lodash";
 import { cloneElement, isValidElement } from "react";
 import React, { useCallback, useState } from "react";
 import { useTextStyles, useTextInputIconStyles } from "./styles";
@@ -79,17 +79,17 @@ export var TextInput = function (_a) {
         var _a, _b;
         if (onChange) {
             onChange === null || onChange === void 0 ? void 0 : onChange({
-                name: (_a = e.target.name) !== null && _a !== void 0 ? _a : '',
-                value: (_b = e.target.value) !== null && _b !== void 0 ? _b : ''
+                name: (_a = e.target.name) !== null && _a !== void 0 ? _a : "",
+                value: (_b = e.target.value) !== null && _b !== void 0 ? _b : "",
             });
         }
     };
     var handleOnKeyDown = function (e) {
         var _a, _b;
-        if (onEnter && (e.key === 'Enter')) {
+        if (onEnter && e.key === "Enter") {
             onEnter === null || onEnter === void 0 ? void 0 : onEnter({
-                name: (_a = e.target.name) !== null && _a !== void 0 ? _a : '',
-                value: (_b = e.target.value) !== null && _b !== void 0 ? _b : ''
+                name: (_a = e.target.name) !== null && _a !== void 0 ? _a : "",
+                value: (_b = e.target.value) !== null && _b !== void 0 ? _b : "",
             });
         }
     };
@@ -98,8 +98,8 @@ export var TextInput = function (_a) {
         setIsFocused(function () { return true; });
         if (onFocus) {
             onFocus === null || onFocus === void 0 ? void 0 : onFocus({
-                name: (_a = e.target.name) !== null && _a !== void 0 ? _a : '',
-                value: (_b = e.target.value) !== null && _b !== void 0 ? _b : ''
+                name: (_a = e.target.name) !== null && _a !== void 0 ? _a : "",
+                value: (_b = e.target.value) !== null && _b !== void 0 ? _b : "",
             });
         }
     };
@@ -108,14 +108,12 @@ export var TextInput = function (_a) {
         setIsFocused(function () { return false; });
         if (onBlur) {
             onBlur === null || onBlur === void 0 ? void 0 : onBlur({
-                name: (_a = e.target.name) !== null && _a !== void 0 ? _a : '',
-                value: (_b = e.target.value) !== null && _b !== void 0 ? _b : ''
+                name: (_a = e.target.name) !== null && _a !== void 0 ? _a : "",
+                value: (_b = e.target.value) !== null && _b !== void 0 ? _b : "",
             });
         }
     };
-    return (_jsxs("div", __assign({ className: clx(classes.root, className) }, { children: [_jsxs("div", __assign({ className: classes.labelWrapper }, { children: [!hideLabel &&
-                        label &&
-                        _jsxs("label", __assign({ htmlFor: name, className: classes.label }, { children: [label, required && _jsx("span", __assign({ className: classes.required }, { children: "*" }))] })), showCC && (_jsx("span", __assign({ className: clx(classes.wordCount, classes.label) }, { children: (props === null || props === void 0 ? void 0 : props.value) && (props === null || props === void 0 ? void 0 : props.value.length) > 0 && (props === null || props === void 0 ? void 0 : props.value.length) })))] })), _jsxs("div", __assign({ className: clx(classes.baseInput, classes.defaultInput, classNames === null || classNames === void 0 ? void 0 : classNames.input, isSuccess && classes.successInput, (isError || errors) && classes.errorInput, isFocused && classes.focusedInput) }, { children: [leftIcon && (_jsx(InputIcon, __assign({ marginRight: iconSpacing }, { children: leftIcon }))), _jsx("input", __assign({ type: type, name: name, className: classes.input, onFocus: handleFocus, onBlur: handleBlur, onChange: handleChange, onKeyDown: handleOnKeyDown }, props)), rightIcon && (_jsx(InputIcon, __assign({ marginLeft: iconSpacing }, { children: rightIcon })))] })), helperText && (_jsx("span", __assign({ className: clx(classes.helperTextDefault, isSuccess && classes.helperTextSuccess, isError && classes.helperTextError) }, { children: helperText })))] })));
+    return (_jsxs("div", __assign({ className: clx(classes.root, className) }, { children: [_jsxs("div", __assign({ className: classes.labelWrapper }, { children: [!hideLabel && label && (_jsxs("label", __assign({ htmlFor: name, className: classes.label }, { children: [label, required && _jsx("span", __assign({ className: classes.required }, { children: "*" }))] }))), showCC && (_jsx("span", __assign({ className: clx(classes.wordCount, classes.label) }, { children: (props === null || props === void 0 ? void 0 : props.value) && (props === null || props === void 0 ? void 0 : props.value.length) > 0 && (props === null || props === void 0 ? void 0 : props.value.length) })))] })), _jsxs("div", __assign({ className: clx(classes.baseInput, classes.defaultInput, classNames === null || classNames === void 0 ? void 0 : classNames.input, isSuccess && classes.successInput, (isError || errors) && classes.errorInput, isFocused && classes.focusedInput) }, { children: [leftIcon && _jsx(InputIcon, __assign({ marginRight: iconSpacing }, { children: leftIcon })), _jsx("input", __assign({ type: type, name: name, className: classes.input, onFocus: handleFocus, onBlur: handleBlur, onChange: handleChange, onKeyDown: handleOnKeyDown }, props)), rightIcon && _jsx(InputIcon, __assign({ marginLeft: iconSpacing }, { children: rightIcon }))] })), helperText && (_jsx("span", __assign({ className: clx(classes.helperTextDefault, isSuccess && classes.helperTextSuccess, isError && classes.helperTextError) }, { children: helperText })))] })));
 };
 export var TextArea = function (_a) {
     var className = _a.className, classNames = _a.classNames, label = _a.label, rows = _a.rows, helperText = _a.helperText, _b = _a.hideLabel, hideLabel = _b === void 0 ? false : _b, isSuccess = _a.isSuccess, isError = _a.isError, errors = _a.errors, info = _a.info, name = _a.name, width = _a.width, height = _a.height, background = _a.background, color = _a.color, borderWidth = _a.borderWidth, borderColor = _a.borderColor, borderStyle = _a.borderStyle, borderRadius = _a.borderRadius, onChange = _a.onChange, onFocus = _a.onFocus, onEnter = _a.onEnter, onBlur = _a.onBlur, _c = _a.required, required = _c === void 0 ? false : _c, showCC = _a.showCC, props = __rest(_a, ["className", "classNames", "label", "rows", "helperText", "hideLabel", "isSuccess", "isError", "errors", "info", "name", "width", "height", "background", "color", "borderWidth", "borderColor", "borderStyle", "borderRadius", "onChange", "onFocus", "onEnter", "onBlur", "required", "showCC"]);
@@ -135,17 +133,17 @@ export var TextArea = function (_a) {
         var _a, _b;
         if (onChange) {
             onChange === null || onChange === void 0 ? void 0 : onChange({
-                name: (_a = e.target.name) !== null && _a !== void 0 ? _a : '',
-                value: (_b = e.target.value) !== null && _b !== void 0 ? _b : ''
+                name: (_a = e.target.name) !== null && _a !== void 0 ? _a : "",
+                value: (_b = e.target.value) !== null && _b !== void 0 ? _b : "",
             });
         }
     };
     var handleOnKeyDown = function (e) {
         var _a, _b;
-        if (onEnter && (e.key === 'Enter')) {
+        if (onEnter && e.key === "Enter") {
             onEnter === null || onEnter === void 0 ? void 0 : onEnter({
-                name: (_a = e.target.name) !== null && _a !== void 0 ? _a : '',
-                value: (_b = e.target.value) !== null && _b !== void 0 ? _b : ''
+                name: (_a = e.target.name) !== null && _a !== void 0 ? _a : "",
+                value: (_b = e.target.value) !== null && _b !== void 0 ? _b : "",
             });
         }
     };
@@ -154,8 +152,8 @@ export var TextArea = function (_a) {
         setIsFocused(function () { return true; });
         if (onFocus) {
             onFocus === null || onFocus === void 0 ? void 0 : onFocus({
-                name: (_a = e.target.name) !== null && _a !== void 0 ? _a : '',
-                value: (_b = e.target.value) !== null && _b !== void 0 ? _b : ''
+                name: (_a = e.target.name) !== null && _a !== void 0 ? _a : "",
+                value: (_b = e.target.value) !== null && _b !== void 0 ? _b : "",
             });
         }
     };
@@ -164,14 +162,12 @@ export var TextArea = function (_a) {
         setIsFocused(function () { return false; });
         if (onBlur) {
             onBlur === null || onBlur === void 0 ? void 0 : onBlur({
-                name: (_a = e.target.name) !== null && _a !== void 0 ? _a : '',
-                value: (_b = e.target.value) !== null && _b !== void 0 ? _b : ''
+                name: (_a = e.target.name) !== null && _a !== void 0 ? _a : "",
+                value: (_b = e.target.value) !== null && _b !== void 0 ? _b : "",
             });
         }
     };
-    return (_jsxs("div", __assign({ className: clx(classes.root, className) }, { children: [_jsxs("div", __assign({ className: classes.labelWrapper }, { children: [!hideLabel &&
-                        label &&
-                        _jsxs("label", __assign({ htmlFor: name, className: classes.label }, { children: [label, required && _jsx("span", __assign({ className: classes.required }, { children: "*" }))] })), showCC && (_jsx("span", __assign({ className: clx(classes.wordCount, classes.label) }, { children: (props === null || props === void 0 ? void 0 : props.value) && (props === null || props === void 0 ? void 0 : props.value.length) > 0 && (props === null || props === void 0 ? void 0 : props.value.length) })))] })), _jsx("div", __assign({ className: classes.textAreaContainer }, { children: _jsx("textarea", __assign({ className: clx(classes.baseTextArea, classes.defaultInput, classNames === null || classNames === void 0 ? void 0 : classNames.input, isSuccess && classes.successInput, (isError || errors) && classes.errorInput, isFocused && classes.focusedInput), name: name, onChange: handleChange, onFocus: handleFocus, onBlur: handleBlur, onKeyDown: handleOnKeyDown, rows: rows || 5 }, props)) })), helperText && (_jsx("span", __assign({ className: clx(classes.helperTextDefault, isSuccess && classes.helperTextSuccess, isError && classes.helperTextError) }, { children: helperText })))] })));
+    return (_jsxs("div", __assign({ className: clx(classes.root, className) }, { children: [_jsxs("div", __assign({ className: classes.labelWrapper }, { children: [!hideLabel && label && (_jsxs("label", __assign({ htmlFor: name, className: classes.label }, { children: [label, required && _jsx("span", __assign({ className: classes.required }, { children: "*" }))] }))), showCC && (_jsx("span", __assign({ className: clx(classes.wordCount, classes.label) }, { children: (props === null || props === void 0 ? void 0 : props.value) && (props === null || props === void 0 ? void 0 : props.value.length) > 0 && (props === null || props === void 0 ? void 0 : props.value.length) })))] })), _jsx("div", __assign({ className: classes.textAreaContainer }, { children: _jsx("textarea", __assign({ className: clx(classes.baseTextArea, classes.defaultInput, classNames === null || classNames === void 0 ? void 0 : classNames.input, isSuccess && classes.successInput, (isError || errors) && classes.errorInput, isFocused && classes.focusedInput), name: name, onChange: handleChange, onFocus: handleFocus, onBlur: handleBlur, onKeyDown: handleOnKeyDown, rows: rows || 5 }, props)) })), helperText && (_jsx("span", __assign({ className: clx(classes.helperTextDefault, isSuccess && classes.helperTextSuccess, isError && classes.helperTextError) }, { children: helperText })))] })));
 };
 var validateEmail = function (email) {
     var validator = String(email)
@@ -187,24 +183,26 @@ export var EmailInput = function (_a) {
     var handleChange = useCallback(function (_a) {
         var name = _a.name, value = _a.value;
         setIsValidEmail(function () { return validateEmail(value); });
-        (validateEmail(value) || value == "") ? setEmailErrors(undefined) : setEmailErrors([{ message: 'Invalid email !!' }]);
+        validateEmail(value) || value == ""
+            ? setEmailErrors(undefined)
+            : setEmailErrors([{ message: "Invalid email !!" }]);
         if (onChange) {
             onChange === null || onChange === void 0 ? void 0 : onChange({ name: name, value: value });
         }
     }, [errors, setEmailErrors]);
     if (errors || emailErrors) {
         sErrors = errors ? errors : undefined;
-        sErrors = emailErrors ? (errors) ? __spreadArray(__spreadArray([], __read(errors), false), __read(emailErrors), false) : emailErrors : undefined;
+        sErrors = emailErrors ? (errors ? __spreadArray(__spreadArray([], __read(errors), false), __read(emailErrors), false) : emailErrors) : undefined;
     }
     return (_jsx(TextInput, __assign({ type: "email", name: name, isSuccess: isValidEmail || isSuccess, isError: !!sErrors || isError, errors: sErrors, onChange: handleChange, onFocus: onFocus, onEnter: onEnter, onBlur: onBlur }, props)));
 };
 var validateURL = function (str) {
-    var pattern = new RegExp('^(https?:\\/\\/)?' + // protocol
-        '((([a-z\\d]([a-z\\d-]*[a-z\\d])*)\\.)+[a-z]{2,}|' + // domain name
-        '((\\d{1,3}\\.){3}\\d{1,3}))' + // OR ip (v4) address
-        '(\\:\\d+)?(\\/[-a-z\\d%_.~+]*)*' + // port and path
-        '(\\?[;&a-z\\d%_.~+=-]*)?' + // query string
-        '(\\#[-a-z\\d_]*)?$', 'i'); // fragment locator
+    var pattern = new RegExp("^(https?:\\/\\/)?" + // protocol
+        "((([a-z\\d]([a-z\\d-]*[a-z\\d])*)\\.)+[a-z]{2,}|" + // domain name
+        "((\\d{1,3}\\.){3}\\d{1,3}))" + // OR ip (v4) address
+        "(\\:\\d+)?(\\/[-a-z\\d%_.~+]*)*" + // port and path
+        "(\\?[;&a-z\\d%_.~+=-]*)?" + // query string
+        "(\\#[-a-z\\d_]*)?$", "i"); // fragment locator
     return !!pattern.test(str);
 };
 export var URLInput = function (_a) {
@@ -215,14 +213,16 @@ export var URLInput = function (_a) {
     var handleChange = useCallback(function (_a) {
         var name = _a.name, value = _a.value;
         setIsValidURL(function () { return validateURL(value); });
-        (validateURL(value) || value == "") ? setURLErrors(undefined) : setURLErrors([{ message: 'Invalid email !!' }]);
+        validateURL(value) || value == ""
+            ? setURLErrors(undefined)
+            : setURLErrors([{ message: "Invalid email !!" }]);
         if (onChange) {
             onChange === null || onChange === void 0 ? void 0 : onChange({ name: name, value: value });
         }
     }, [errors, setURLErrors]);
     if (errors || urlErrors) {
         sErrors = errors ? errors : undefined;
-        sErrors = urlErrors ? (errors) ? __spreadArray(__spreadArray([], __read(errors), false), __read(urlErrors), false) : urlErrors : undefined;
+        sErrors = urlErrors ? (errors ? __spreadArray(__spreadArray([], __read(errors), false), __read(urlErrors), false) : urlErrors) : undefined;
     }
     return (_jsx(TextInput, __assign({ type: "url", name: name, isSuccess: isValidURL || isSuccess, isError: !!sErrors || isError, errors: sErrors, onChange: handleChange, onFocus: onFocus, onEnter: onEnter, onBlur: onBlur }, props)));
 };
@@ -233,12 +233,16 @@ export var NumberInput = function (_a) {
     var _c = __read(useState(), 2), numberErrors = _c[0], setNumberErrors = _c[1];
     var handleChange = useCallback(function (_a) {
         var name = _a.name, value = _a.value;
-        (isNumber(parseFloat(value)) || value == "") ? setNumberErrors(undefined) : setNumberErrors([{ message: 'Invalid number !!' }]);
+        isNumber(parseFloat(value)) || value == ""
+            ? setNumberErrors(undefined)
+            : setNumberErrors([{ message: "Invalid number !!" }]);
         if (onChange) {
             onChange === null || onChange === void 0 ? void 0 : onChange({ name: name, value: value });
         }
         if (isBoolean(isValidated)) {
-            (isValidated && isNumber(parseFloat(value))) ? setIsValidNumber(true) : setIsValidNumber(false);
+            isValidated && isNumber(parseFloat(value))
+                ? setIsValidNumber(true)
+                : setIsValidNumber(false);
         }
         else {
             isNumber(parseFloat(value)) ? setIsValidNumber(true) : setIsValidNumber(false);
@@ -246,7 +250,7 @@ export var NumberInput = function (_a) {
     }, [errors, setNumberErrors, isValidated]);
     if (errors || numberErrors) {
         sErrors = errors ? errors : undefined;
-        sErrors = numberErrors ? (errors) ? __spreadArray(__spreadArray([], __read(errors), false), __read(numberErrors), false) : numberErrors : undefined;
+        sErrors = numberErrors ? (errors ? __spreadArray(__spreadArray([], __read(errors), false), __read(numberErrors), false) : numberErrors) : undefined;
     }
     return (_jsx(TextInput, __assign({ type: "number", name: name, errors: sErrors, showCC: showCC, isSuccess: isValidNumber, isError: !!sErrors || isError, onChange: handleChange, onFocus: onFocus, onEnter: onEnter, onBlur: onBlur }, props)));
 };

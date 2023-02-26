@@ -1,1 +1,1 @@
-export * from './TableFilters';
+export * from "./TableFilters";

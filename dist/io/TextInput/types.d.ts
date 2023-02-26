@@ -1,4 +1,4 @@
-import React from 'react';
+import React from "react";
 import { CommonProps } from "../../types";
 export type TextInputProps = TextFieldProps;
 export type BaseInputProps = React.InputHTMLAttributes<HTMLInputElement>;
@@ -43,7 +43,7 @@ export type TextFieldProps = Omit<BaseInputProps, "onChange" | "onFocus" | "onEn
 export type EmailInputProps = Omit<BaseInputProps, "onChange" | "onFocus" | "onEnter"> & TextBaseProps;
 export type NumberInputProps = Omit<BaseInputProps, "onChange" | "onFocus" | "onEnter"> & TextBaseProps;
 export type TextAreaProps = Omit<React.HTMLProps<HTMLTextAreaElement>, "onChange" | "onFocus" | "onEnter"> & TextBaseProps & {
-    type?: 'textarea';
+    type?: "textarea";
     minRows?: number;
 };
 export type InputIconProps = {

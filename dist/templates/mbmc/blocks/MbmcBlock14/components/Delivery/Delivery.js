@@ -57,9 +57,7 @@ export var Delivery = function (_a) {
         return deliveryOptions.map(function (option, index) {
             var formik = selectedOption === "pickup" ? pickupFormik : dispatchFormik;
             var controls = selectedOption === "pickup" ? pickupControls : dispatchControls;
-            return (_jsxs("div", { children: [_jsx(DeliveryOption, __assign({}, option, { value: selectedOption, handleChange: setSelectedOption })), option.name === selectedOption && (_jsx(Form, { controls: controls, onSubmit: formik.handleSubmit, submitButtonText: "Proceed to payment", className: classes.deliveryForm, networkOperation: selectedOption === "pickup"
-                            ? "set.delivery.pickup"
-                            : "set.delivery.dispatch" }))] }, index));
+            return (_jsxs("div", { children: [_jsx(DeliveryOption, __assign({}, option, { value: selectedOption, handleChange: setSelectedOption })), option.name === selectedOption && (_jsx(Form, { controls: controls, onSubmit: formik.handleSubmit, submitButtonText: "Proceed to payment", className: classes.deliveryForm, networkOperation: selectedOption === "pickup" ? "set.delivery.pickup" : "set.delivery.dispatch" }))] }, index));
         });
     };
     return _jsx("div", __assign({ className: classes.root }, { children: displayOptions() }));

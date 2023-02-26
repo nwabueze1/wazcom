@@ -84,9 +84,7 @@ export var useUpdateTableValue = function (setTableValue, initialTableValue, con
                 var _a, _b;
                 if (typeof value == "object") {
                     var stringFromJsx = getJsxContent(value);
-                    if ("".concat(stringFromJsx)
-                        .toLowerCase()
-                        .includes((_a = controlsFormData.search) === null || _a === void 0 ? void 0 : _a.toLowerCase())) {
+                    if ("".concat(stringFromJsx).toLowerCase().includes((_a = controlsFormData.search) === null || _a === void 0 ? void 0 : _a.toLowerCase())) {
                         status = true;
                     }
                     return null;

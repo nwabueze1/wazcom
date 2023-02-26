@@ -24,7 +24,7 @@ export var useMbmcBlock10Styles = makeStyles(function (theme) {
                 justifyContent: "center"
             },
             _b[theme.breakpoints.down("sm")] = {
-                flexDirection: 'column',
+                flexDirection: "column",
                 gap: theme.spacing(1),
             },
             _b),
@@ -55,7 +55,7 @@ export var useMbmcBlock10Styles = makeStyles(function (theme) {
                 borderRight: "1px solid hsla(12, 73%, 56%, 1)"
             },
             _d[theme.breakpoints.down("sm")] = {
-                borderRight: 'none',
+                borderRight: "none",
             },
             _d),
         block10ActiveElement: {

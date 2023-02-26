@@ -26,11 +26,11 @@ var __read = (this && this.__read) || function (o, n) {
     return ar;
 };
 import { jsx as _jsx, jsxs as _jsxs } from "react/jsx-runtime";
-import { useCallback, useEffect, useMemo, useState } from 'react';
-import { useLocation, useNavigate } from 'react-router-dom';
-import clx from 'classnames';
+import { useCallback, useEffect, useMemo, useState } from "react";
+import { useLocation, useNavigate } from "react-router-dom";
+import clx from "classnames";
 import { snakeCase } from "lodash";
-import { useTabStyles } from './styles';
+import { useTabStyles } from "./styles";
 export var Tab = function (_a) {
     var controls = _a.controls, variant = _a.variant, backgroundColor = _a.backgroundColor, borderWidth = _a.borderWidth, borderColor = _a.borderColor, borderStyle = _a.borderStyle, borderRadius = _a.borderRadius, className = _a.className, tabHeaderClassName = _a.tabHeaderClassName, activeTabClassName = _a.activeTabClassName, containerClassName = _a.containerClassName;
     var classes = useTabStyles({
@@ -46,21 +46,21 @@ export var Tab = function (_a) {
     var navigate = useNavigate();
     var query = useMemo(function () { return new URLSearchParams(search); }, [search]);
     useEffect(function () {
-        var defaultControl = controls === null || controls === void 0 ? void 0 : controls.find(function (control) { return control.name == (query === null || query === void 0 ? void 0 : query.get('tab')); });
+        var defaultControl = controls === null || controls === void 0 ? void 0 : controls.find(function (control) { return control.name == (query === null || query === void 0 ? void 0 : query.get("tab")); });
         if (defaultControl) {
             setActiveTab(defaultControl.name);
         }
     }, [controls, query, setActiveTab]);
     var handleTabClick = useCallback(function (name) {
         setActiveTab(name);
-        query.set('tab', name !== null && name !== void 0 ? name : '');
+        query.set("tab", name !== null && name !== void 0 ? name : "");
         navigate({ pathname: pathname, search: query.toString() });
     }, [activeTab, query]);
     return (_jsxs("div", __assign({ className: clx(classes.root, className) }, { children: [_jsx("div", __assign({ className: tabHeaderClassName }, { children: _jsx("div", __assign({ className: clx(classes.tabs, containerClassName) }, { children: controls.map(function (_a, index) {
                         var name = _a.name, title = _a.title;
-                        return (_jsx("div", __assign({ onClick: function () { return handleTabClick(name); }, className: clx(classes.tab, (name == activeTab) && classes.tabIsActive, (name == activeTab) && activeTabClassName, snakeCase(title), snakeCase(name)) }, { children: title }), index));
+                        return (_jsx("div", __assign({ onClick: function () { return handleTabClick(name); }, className: clx(classes.tab, name == activeTab && classes.tabIsActive, name == activeTab && activeTabClassName, snakeCase(title), snakeCase(name)) }, { children: title }), index));
                     }) })) })), _jsx("div", __assign({ className: clx(classes.contentWrapper, snakeCase("".concat(activeTab, " content"))) }, { children: controls.map(function (_a, index) {
                     var name = _a.name, component = _a.component;
-                    return (_jsx("div", __assign({ className: clx(classes.content, (name == activeTab) && classes.contentIsActive) }, { children: component }), index));
+                    return (_jsx("div", __assign({ className: clx(classes.content, name == activeTab && classes.contentIsActive) }, { children: component }), index));
                 }) }))] })));
 };

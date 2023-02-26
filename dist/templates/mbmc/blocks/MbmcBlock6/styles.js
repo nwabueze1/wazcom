@@ -54,12 +54,12 @@ export var useMbmcBlock6Styles = makeStyles(function (theme) {
             _c[theme.breakpoints.down("md")] = {
                 marginBottom: theme.spacing(1),
                 fontSize: theme.typography.fontSize + 4,
-                width: '90%',
+                width: "90%",
             },
             _c[theme.breakpoints.down("sm")] = {
                 marginBottom: theme.spacing(1),
                 fontSize: theme.typography.fontSize + 4,
-                width: '100%',
+                width: "100%",
             },
             _c),
         block6ScrollContainer: {

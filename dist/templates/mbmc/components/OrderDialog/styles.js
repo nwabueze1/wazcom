@@ -3,15 +3,15 @@ export var useMbmcBlock16Styles = makeStyles(function (theme) {
     var _a, _b, _c;
     return ({
         root: {
-            display: 'flex',
-            justifyContent: 'center',
-            alignItems: 'center',
-            height: '100vh',
+            display: "flex",
+            justifyContent: "center",
+            alignItems: "center",
+            height: "100vh",
         },
         dialogContainer: (_a = {
-                width: '39%',
+                width: "39%",
                 zIndex: 10,
-                background: 'rgba(255, 255, 255, 0.9)',
+                background: "rgba(255, 255, 255, 0.9)",
                 padding: theme.spacing(2),
                 borderRadius: 5
             },
@@ -29,13 +29,13 @@ export var useMbmcBlock16Styles = makeStyles(function (theme) {
             display: "flex",
             gap: "8px",
             marginBottom: theme.spacing(2),
-            alignItems: 'center',
+            alignItems: "center",
         },
         dialogImage: {
             width: "31%",
             height: "172px",
             borderRadius: "5px",
-            objectFit: 'cover',
+            objectFit: "cover",
         },
         content: {
             width: "60%",
@@ -111,27 +111,27 @@ export var useMbmcBlock16Styles = makeStyles(function (theme) {
             background: theme.design.colors.waz_white,
             padding: theme.spacing(3),
             borderRadius: 5,
-            maxHeight: '50vh',
-            overflowY: 'auto',
+            maxHeight: "50vh",
+            overflowY: "auto",
             "&::-webkit-scrollbar": {
                 width: 4,
-                background: 'rgba(0,0,0,0.05)',
+                background: "rgba(0,0,0,0.05)",
             },
             "&::-webkit-scrollbar-thumb": {
-                background: 'rgba(0,0,0,0.25)',
+                background: "rgba(0,0,0,0.25)",
             },
             "&::-webkit-scrollbar-track": {
-                background: 'rgba(0,0,0,0.01)',
-            }
+                background: "rgba(0,0,0,0.01)",
+            },
         },
         dialogButtonContainer: {
-            position: 'sticky',
+            position: "sticky",
             bottom: 0,
         },
         dialogButton: {
-            width: '100%',
+            width: "100%",
             padding: theme.spacing(1, 0),
             fontSize: theme.typography.fontSize + 2,
-        }
+        },
     });
 });

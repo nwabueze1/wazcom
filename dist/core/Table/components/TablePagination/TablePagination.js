@@ -50,9 +50,7 @@ export var TablePagination = function (_a) {
                                         onPageChange(null, page);
                                     } }, { children: _jsx("input", { onChange: handleChange, value: page, className: clx(classes.tablePaginationNavigatorInput), type: "number", onBlur: function () { return onPageChange(null, page); } }) }))] })), _jsxs("div", __assign({ className: classes.pageNavigation }, { children: [_jsx(KeyboardArrowLeft, { fontSize: "large", onClick: function () { return currentPage > 1 && onPageChange(null, currentPage - 1); }, className: clx(classes.pageNavigationIcon, (_b = {},
                                         _b[classes.deactivatePageNavigationIcon] = currentPage < 2,
-                                        _b)) }), _jsx(PageNumbers, { onPageChange: onPageChange, count: count, currentPage: currentPage }), _jsx(KeyboardArrowRight, { fontSize: "large", onClick: function () {
-                                        return currentPage < count && onPageChange(null, currentPage + 1);
-                                    }, className: clx(classes.pageNavigationIcon, (_c = {},
+                                        _b)) }), _jsx(PageNumbers, { onPageChange: onPageChange, count: count, currentPage: currentPage }), _jsx(KeyboardArrowRight, { fontSize: "large", onClick: function () { return currentPage < count && onPageChange(null, currentPage + 1); }, className: clx(classes.pageNavigationIcon, (_c = {},
                                         _c[classes.deactivatePageNavigationIcon] = currentPage >= count,
                                         _c)) })] }))] })) }))] }));
 };

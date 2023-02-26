@@ -7,4 +7,4 @@ export type MbmcBlock1Props = MbmcCommonProps & {
     ctas?: BlockCta[];
     fullHeight?: boolean;
 };
-export type MbmcBlock1StyleProps = Pick<MbmcBlock1Props, 'fullHeight'>;
+export type MbmcBlock1StyleProps = Pick<MbmcBlock1Props, "fullHeight">;

@@ -119,8 +119,7 @@ export var OrderDialog = function (_a) {
     var calculateDishTotal = useCallback(function () {
         if (!menuItem)
             return 0;
-        return (quantity * (menuItem === null || menuItem === void 0 ? void 0 : menuItem.price) +
-            calculateOptionsTotal(selectedOptions, quantity));
+        return (quantity * (menuItem === null || menuItem === void 0 ? void 0 : menuItem.price) + calculateOptionsTotal(selectedOptions, quantity));
     }, [quantity, selectedOptions, menuItem === null || menuItem === void 0 ? void 0 : menuItem.price]);
     var price = "".concat(getCurrency((_d = (_c = (_b = menu === null || menu === void 0 ? void 0 : menu.restaurant) === null || _b === void 0 ? void 0 : _b.bank_info) === null || _c === void 0 ? void 0 : _c.currency) !== null && _d !== void 0 ? _d : "")).concat(calculateDishTotal());
     var handleAddToCart = function () { return __awaiter(void 0, void 0, void 0, function () {

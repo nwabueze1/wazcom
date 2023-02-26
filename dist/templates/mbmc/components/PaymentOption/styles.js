@@ -17,7 +17,7 @@ export var usePaymentOptionStyles = makeStyles(function (theme) { return ({
     paymentImage: {
         width: "32px",
         height: "32px",
-        objectFit: 'cover',
+        objectFit: "cover",
     },
     paymentOptionDetail: {
         fontFamily: theme.design.font.montserrat,
@@ -47,7 +47,7 @@ export var usePaymentOptionStyles = makeStyles(function (theme) { return ({
         alignItems: "center",
     },
     paymentConfig: {
-        position: 'relative',
+        position: "relative",
         top: -8,
         padding: theme.spacing(0, 2),
         fontFamily: theme.design.font.montserrat,
@@ -55,5 +55,5 @@ export var usePaymentOptionStyles = makeStyles(function (theme) { return ({
     },
     paymentConfigOption: {
         marginBottom: theme.spacing(1),
-    }
+    },
 }); });

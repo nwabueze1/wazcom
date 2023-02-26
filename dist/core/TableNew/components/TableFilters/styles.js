@@ -1,28 +1,28 @@
 import makeStyles from "@mui/styles/makeStyles";
 export var useTableFiltersStyles = makeStyles(function (theme) { return ({
     root: {
-        display: 'flex',
-        alignItems: 'center',
+        display: "flex",
+        alignItems: "center",
         gap: theme.spacing(1),
         marginBottom: theme.spacing(2),
         color: theme.design.colors.waz_grey1,
     },
     filterAddIconParent: {
-        position: 'relative',
+        position: "relative",
     },
     filterAddIcon: {
         height: 32,
         width: 32,
-        display: 'flex',
-        alignItems: 'center',
-        justifyContent: 'center',
-        background: '#E7F1E9',
-        borderRadius: '50%',
-        cursor: 'pointer',
+        display: "flex",
+        alignItems: "center",
+        justifyContent: "center",
+        background: "#E7F1E9",
+        borderRadius: "50%",
+        cursor: "pointer",
     },
     filterColumns: {
-        position: 'absolute',
-        top: 'calc(100% + 5px)',
+        position: "absolute",
+        top: "calc(100% + 5px)",
         left: 2,
         padding: theme.spacing(1, 0),
         width: 150,
@@ -31,7 +31,7 @@ export var useTableFiltersStyles = makeStyles(function (theme) { return ({
         boxShadow: "0px 1px 4px #00000014",
         opacity: 0,
         zIndex: -1,
-        transition: 'opacity 0.3s ease-in',
+        transition: "opacity 0.3s ease-in",
     },
     filterColumnsActive: {
         opacity: 1,
@@ -41,15 +41,15 @@ export var useTableFiltersStyles = makeStyles(function (theme) { return ({
         fontSize: theme.typography.fontSize,
         color: theme.design.colors.waz_grey1,
         padding: theme.spacing(1),
-        cursor: 'pointer',
-        position: 'relative',
+        cursor: "pointer",
+        position: "relative",
         "&:hover": {
             background: theme.design.colors.waz_lightGreen,
-        }
+        },
     },
     filterSelector: {
-        position: 'absolute',
+        position: "absolute",
         top: 0,
-        left: 'calc(100% + 5px)',
-    }
+        left: "calc(100% + 5px)",
+    },
 }); });

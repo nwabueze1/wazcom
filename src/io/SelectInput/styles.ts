@@ -70,4 +70,18 @@ export const useSelectStyles = makeStyles((theme: Theme) => ({
   option: {
     backgroundColor: `${theme.design.colors.waz_primary900} !important`,
   },
+  helperTextDefault: {
+    display: "flex",
+    width: "100%",
+    letterSpacing: 0,
+    fontSize: theme.typography.fontSize - 1,
+    textAlign: "left",
+    marginTop: 4,
+  },
+  helperTextSuccess: {
+    color: theme.design.colors.waz_primaryColor100,
+  },
+  helperTextError: {
+    color: theme.design.colors.error,
+  },
 }));

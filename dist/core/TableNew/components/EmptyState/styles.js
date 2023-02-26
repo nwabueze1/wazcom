@@ -29,5 +29,5 @@ export var useEmptyStateStyles = makeStyles(function (theme) { return ({
     },
     emptyMessagePadded: {
         margin: theme.spacing(2, 0, 0, 0),
-    }
+    },
 }); });

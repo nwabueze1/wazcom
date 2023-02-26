@@ -25,6 +25,9 @@ export const SelectInput: React.FC<SelectInputProps> = ({
   borderColor,
   borderStyle,
   menuIsOpen,
+  isError,
+  isSuccess,
+  helperText,
   classNames,
   ...props
 }) => {
@@ -123,7 +126,8 @@ export const SelectInput: React.FC<SelectInputProps> = ({
           },
         }}
         classNames={{
-          container: () => clx(classes.container, containerClass, classNames?.container),
+          container: () =>
+            clx(classes.container, containerClass, classNames?.container, isError && classes.error),
           control: ({ isDisabled, isFocused }) =>
             clx(!isDisabled && isFocused && classes.control, classNames?.control),
           option: ({ isDisabled, isFocused }) => clx(!isDisabled && isFocused && classes.option),
@@ -133,6 +137,17 @@ export const SelectInput: React.FC<SelectInputProps> = ({
         onChange={handleChange}
         {...props}
       />
+      {helperText && (
+        <span
+          className={clx(
+            classes.helperTextDefault,
+            isSuccess && classes.helperTextSuccess,
+            isError && classes.helperTextError,
+          )}
+        >
+          {helperText}
+        </span>
+      )}
     </div>
   );
 };

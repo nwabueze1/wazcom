@@ -21,14 +21,14 @@ var __rest = (this && this.__rest) || function (s, e) {
     return t;
 };
 import { jsx as _jsx, jsxs as _jsxs } from "react/jsx-runtime";
-import clx from 'classnames';
+import clx from "classnames";
 import moment from "moment";
-import TimePicker from 'rc-time-picker';
-import 'rc-time-picker/assets/index.css';
+import TimePicker from "rc-time-picker";
+import "rc-time-picker/assets/index.css";
 import { BiTimeFive } from "react-icons/bi";
 import { useTimeInputStyles } from "./styles";
 export var TimeInput = function (_a) {
-    var className = _a.className, popupClassName = _a.popupClassName, label = _a.label, _b = _a.hideLabel, hideLabel = _b === void 0 ? false : _b, name = _a.name, value = _a.value, _c = _a.showSecond, showSecond = _c === void 0 ? false : _c, _d = _a.use12Hours, use12Hours = _d === void 0 ? true : _d, _e = _a.format, format = _e === void 0 ? 'HH:mm' : _e, onChange = _a.onChange, _f = _a.required, required = _f === void 0 ? false : _f, defaultValue = _a.defaultValue, props = __rest(_a, ["className", "popupClassName", "label", "hideLabel", "name", "value", "showSecond", "use12Hours", "format", "onChange", "required", "defaultValue"]);
+    var className = _a.className, popupClassName = _a.popupClassName, label = _a.label, _b = _a.hideLabel, hideLabel = _b === void 0 ? false : _b, name = _a.name, value = _a.value, _c = _a.showSecond, showSecond = _c === void 0 ? false : _c, _d = _a.use12Hours, use12Hours = _d === void 0 ? true : _d, _e = _a.format, format = _e === void 0 ? "HH:mm" : _e, onChange = _a.onChange, _f = _a.required, required = _f === void 0 ? false : _f, defaultValue = _a.defaultValue, props = __rest(_a, ["className", "popupClassName", "label", "hideLabel", "name", "value", "showSecond", "use12Hours", "format", "onChange", "required", "defaultValue"]);
     var classes = useTimeInputStyles();
     var handleChange = function (_a) {
         var name = _a.name, value = _a.value;

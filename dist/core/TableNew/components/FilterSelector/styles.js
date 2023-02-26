@@ -8,26 +8,26 @@ export var useFilterSelectorStyles = makeStyles(function (theme) { return ({
         padding: theme.spacing(1, 0, 2, 0),
     },
     filterOperatorHeading: {
-        display: 'flex',
-        alignItems: 'center',
+        display: "flex",
+        alignItems: "center",
         gap: theme.spacing(1),
         padding: theme.spacing(1),
     },
     filterInput: {
         fontSize: theme.typography.fontSize,
         background: theme.design.colors.waz_white,
-        height: '30px !important',
+        height: "30px !important",
     },
     filterTextInput: {
         padding: theme.spacing(0.75, 1),
         fontSize: theme.typography.fontSize,
     },
     filterSelectInputElement: {
-        width: '200% !important',
+        width: "200% !important",
     },
     filterSelectInput: {
         padding: theme.spacing(0, 5, 0, 0),
-        height: '30px !important',
+        height: "30px !important",
         fontSize: theme.typography.fontSize,
     },
     filterSelectInputLabel: {
@@ -41,10 +41,10 @@ export var useFilterSelectorStyles = makeStyles(function (theme) { return ({
     },
     filterOperatorCheck: {
         padding: 0,
-        color: 'rgba(0,0,0,0.06)',
+        color: "rgba(0,0,0,0.06)",
         "&.Mui-checked": {
             color: "".concat(theme.design.colors.waz_primaryColor100, " !important"),
-        }
+        },
     },
     filterButtons: {
         display: "flex",
@@ -60,11 +60,11 @@ export var useFilterSelectorStyles = makeStyles(function (theme) { return ({
         fontSize: theme.typography.fontSize - 1,
         padding: theme.spacing(0.75, 1.5),
         fontFamily: theme.design.font.openSans,
-        width: 'unset',
-        height: 'unset',
+        width: "unset",
+        height: "unset",
         "&:hover": {
             background: theme.design.colors.waz_white,
-        }
+        },
     },
     filterButtonPrimary: {
         fontWeight: theme.typography.fontWeightRegular,
@@ -72,7 +72,7 @@ export var useFilterSelectorStyles = makeStyles(function (theme) { return ({
         padding: theme.spacing(0.75, 1.5),
         textTransform: "unset",
         fontFamily: theme.design.font.openSans,
-        width: 'unset',
-        height: 'unset',
+        width: "unset",
+        height: "unset",
     },
 }); });

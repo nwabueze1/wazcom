@@ -95,9 +95,7 @@ export var usePickupControls = function () {
                                 className: classes.deliveryInputParent,
                                 value: formik.values.email,
                                 isError: ((_a = formik === null || formik === void 0 ? void 0 : formik.touched) === null || _a === void 0 ? void 0 : _a.email) && Boolean((_b = formik === null || formik === void 0 ? void 0 : formik.errors) === null || _b === void 0 ? void 0 : _b.email),
-                                helperText: ((_c = formik === null || formik === void 0 ? void 0 : formik.touched) === null || _c === void 0 ? void 0 : _c.email) && ((_d = formik === null || formik === void 0 ? void 0 : formik.errors) === null || _d === void 0 ? void 0 : _d.email)
-                                    ? formik.errors.email
-                                    : undefined,
+                                helperText: ((_c = formik === null || formik === void 0 ? void 0 : formik.touched) === null || _c === void 0 ? void 0 : _c.email) && ((_d = formik === null || formik === void 0 ? void 0 : formik.errors) === null || _d === void 0 ? void 0 : _d.email) ? formik.errors.email : undefined,
                             },
                         },
                         {
@@ -167,9 +165,7 @@ export var usePickupControls = function () {
                                 className: classes.deliveryInputParent,
                                 value: formik.values.phone,
                                 isError: ((_o = formik === null || formik === void 0 ? void 0 : formik.touched) === null || _o === void 0 ? void 0 : _o.phone) && Boolean((_p = formik === null || formik === void 0 ? void 0 : formik.errors) === null || _p === void 0 ? void 0 : _p.phone),
-                                helperText: ((_q = formik === null || formik === void 0 ? void 0 : formik.touched) === null || _q === void 0 ? void 0 : _q.phone) && ((_r = formik === null || formik === void 0 ? void 0 : formik.errors) === null || _r === void 0 ? void 0 : _r.phone)
-                                    ? formik.errors.phone
-                                    : undefined,
+                                helperText: ((_q = formik === null || formik === void 0 ? void 0 : formik.touched) === null || _q === void 0 ? void 0 : _q.phone) && ((_r = formik === null || formik === void 0 ? void 0 : formik.errors) === null || _r === void 0 ? void 0 : _r.phone) ? formik.errors.phone : undefined,
                             },
                         },
                     ],
