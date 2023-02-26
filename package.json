@@ -56,7 +56,8 @@
     "lint": "eslint 'src/**/*.{ts,js,tsx}' -c .eslintrc.json",
     "lint-fix": "eslint --fix 'src/**/*.{ts,js,tsx}' -c .eslintrc.json",
     "config-check": "eslint --print-config 'src/**/*.{ts,js,tsx}' -c .eslintrc.json | eslint-config-prettier-check",
-    "format": "prettier --write 'src/**/*.{js,ts,tsx}'",
+    "format": "prettier --check 'src/**/*.{js,ts,tsx}'",
+    "format-fix": "prettier --write 'src/**/*.{js,ts,tsx}'",
     "prepare": "husky install"
   },
   "eslintConfig": {
