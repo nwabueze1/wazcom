@@ -7,34 +7,34 @@ import clx from "classnames";
 // the MBMC Buttons. Different from the other Link
 // component which basically renders its children.
 export const MbmcLink: FC<MbmcLinkProps> = ({
-    children,
-    url,
-    className,
-    name,
-    variant = "PRIMARY",
-    size = "md",
-    activeElement = "",
-    ...props
+  children,
+  url,
+  className,
+  name,
+  variant = "PRIMARY",
+  size = "md",
+  activeElement = "",
+  ...props
 }) => {
-    const classes = useMbmcLinkStyles();
+  const classes = useMbmcLinkStyles();
 
-    return (
-        <a
-            {...props}
-            className={clx(
-                className,
-                classes.link,
-                variant === "PRIMARY" && classes.linkPrimary,
-                variant === "SECONDARY" && classes.linkSecondary,
-                variant === "NEUTRAL" && classes.linkNeutral,
-                size === "sm" && classes.linkSmall,
-                name?.toLowerCase() === activeElement?.toLowerCase() && classes.linkActive,
-            )}
-            href={url ?? ""}
-            target="_blank"
-            rel="noreferrer noopener"
-        >
-            {children}
-        </a>
-    );
+  return (
+    <a
+      {...props}
+      className={clx(
+        className,
+        classes.link,
+        variant === "PRIMARY" && classes.linkPrimary,
+        variant === "SECONDARY" && classes.linkSecondary,
+        variant === "NEUTRAL" && classes.linkNeutral,
+        size === "sm" && classes.linkSmall,
+        name?.toLowerCase() === activeElement?.toLowerCase() && classes.linkActive,
+      )}
+      href={url ?? ""}
+      target="_blank"
+      rel="noreferrer noopener"
+    >
+      {children}
+    </a>
+  );
 };

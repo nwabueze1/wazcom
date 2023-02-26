@@ -1,5 +1,4 @@
-
 export type OrderDetailsProps = {
-    display: boolean;
-    setDisplay: (display: boolean) => void;
-}
+  display: boolean;
+  setDisplay: (display: boolean) => void;
+};

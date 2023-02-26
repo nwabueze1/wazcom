@@ -19,51 +19,51 @@ export type BlockStyle = "mbmc";
 export type BlockLayout = "column" | "row" | "column-reverse" | "row-reverse";
 
 export type BlockCta = {
-    text: string;
-    handleClick?: () => void;
-    variant?: "PRIMARY" | "SECONDARY" | "NEUTRAL";
-    styleProps?: { [key: string]: string | number };
-    rIcon?: JSX.Element;
-    lIcon?: JSX.Element;
-    className?: string;
-    size?: "sm" | "md" | "lg";
-    url?: string;
+  text: string;
+  handleClick?: () => void;
+  variant?: "PRIMARY" | "SECONDARY" | "NEUTRAL";
+  styleProps?: { [key: string]: string | number };
+  rIcon?: JSX.Element;
+  lIcon?: JSX.Element;
+  className?: string;
+  size?: "sm" | "md" | "lg";
+  url?: string;
 };
 
 export type MbmcCommonProps = {
-    index?: number;
-    mode?: "view" | "edit";
-    activeElement?: string;
-    handleClick?: (route: string) => void;
-    className?: string;
-    classNames?: { [key: string]: string };
-    services?: { [key in HivedeckService]: string };
-    contextProps?: { [key: string]: any };
-    setContextProps?: (contextProps: { [key: string]: any }) => void;
+  index?: number;
+  mode?: "view" | "edit";
+  activeElement?: string;
+  handleClick?: (route: string) => void;
+  className?: string;
+  classNames?: { [key: string]: string };
+  services?: { [key in HivedeckService]: string };
+  contextProps?: { [key: string]: any };
+  setContextProps?: (contextProps: { [key: string]: any }) => void;
 };
 
 export type HivedeckService = "NICODEMUS" | "AMBROSIA" | "MUSE";
 
 export type MbmcTemplatePropType = {
-    component: any;
-    name: string;
+  component: any;
+  name: string;
 } & Mmbc1Block;
 
 type Mmbc1Block = {
-    props:
-        | MbmcBlock1Props
-        | MbmcBlock2Props
-        | MbmcBlock3Props
-        | MbmcBlock4Props
-        | MbmcBlock5Props
-        | MbmcBlock6Props
-        | MbmcBlock61Props
-        | MbmcBlock7Props
-        | MbmcBlock8Props
-        | MbmcBlock9Props
-        | MbmcBlock10Props
-        | MbmcBlock11Props
-        | MbmcBlock12Props
-        | MbmcBlock14Props
-        | MbmcBlock13Props;
+  props:
+    | MbmcBlock1Props
+    | MbmcBlock2Props
+    | MbmcBlock3Props
+    | MbmcBlock4Props
+    | MbmcBlock5Props
+    | MbmcBlock6Props
+    | MbmcBlock61Props
+    | MbmcBlock7Props
+    | MbmcBlock8Props
+    | MbmcBlock9Props
+    | MbmcBlock10Props
+    | MbmcBlock11Props
+    | MbmcBlock12Props
+    | MbmcBlock14Props
+    | MbmcBlock13Props;
 };

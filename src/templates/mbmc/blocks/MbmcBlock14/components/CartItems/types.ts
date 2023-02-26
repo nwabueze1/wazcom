@@ -1,4 +1,3 @@
-
 export type CartItemsProps = {
-    setContextProps?: (contextProps: { [key: string]: any }) => void;
-}
+  setContextProps?: (contextProps: { [key: string]: any }) => void;
+};

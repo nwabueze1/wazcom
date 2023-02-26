@@ -1,4 +1,3 @@
-
 export type SpinnerProps = {
-    variant?: string;
-}
+  variant?: string;
+};

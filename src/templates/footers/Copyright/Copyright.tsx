@@ -1,9 +1,11 @@
-import { useCopyrightStyles } from "./styles"
+import { useCopyrightStyles } from "./styles";
 
 export const Copyright = () => {
-    const classes = useCopyrightStyles();
+  const classes = useCopyrightStyles();
 
-    return <div className={classes.root}>
-        <p>{(new Date()).getFullYear()} &copy; All rights reserved</p>
+  return (
+    <div className={classes.root}>
+      <p>{new Date().getFullYear()} &copy; All rights reserved</p>
     </div>
-}
+  );
+};

@@ -1,4 +1,3 @@
-
 export type DeliveryProps = {
-    onSubmission: () => void;
-}
+  onSubmission: () => void;
+};
