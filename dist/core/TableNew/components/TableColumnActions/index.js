@@ -1,1 +1,1 @@
-export * from './TableColumnActions';
+export * from "./TableColumnActions";

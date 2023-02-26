@@ -1,8 +1,8 @@
 import { makeStyles } from "@mui/styles";
 export var useDeliveryStyles = makeStyles(function (theme) { return ({
     root: {
-        display: 'flex',
-        flexDirection: 'column',
+        display: "flex",
+        flexDirection: "column",
         gap: theme.spacing(3),
     },
     deliveryForm: {
@@ -19,5 +19,5 @@ export var useDeliveryStyles = makeStyles(function (theme) { return ({
     },
     deliveryFeedback: {
         marginTop: theme.spacing(1),
-    }
+    },
 }); });

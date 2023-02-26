@@ -60,11 +60,7 @@ export var MbmcBlock7 = function (_a) {
             });
         }
     }, [data]);
-    return (_jsxs("div", __assign({ className: classes.root }, { children: [_jsxs("div", __assign({ className: classes.headerContent }, { children: [_jsx("h3", __assign({ className: clx(classes.headerTitle, activeElement === "".concat(String(index), ".heading") && classes.block7ActiveElement), onClick: function () {
-                            return handleElementClick(mode, "".concat(String(index), ".heading"), handleClick);
-                        } }, { children: heading })), _jsx("p", __assign({ className: clx(classes.headerDescription, activeElement === "".concat(String(index), ".description") && classes.block7ActiveElement), onClick: function () {
-                            return handleElementClick(mode, "".concat(String(index), ".description"), handleClick);
-                        } }, { children: description }))] })), _jsx("div", __assign({ className: classes.mobileCardContainer }, { children: !loading ? (instagramImages.length > 0 ? (instagramImages
+    return (_jsxs("div", __assign({ className: classes.root }, { children: [_jsxs("div", __assign({ className: classes.headerContent }, { children: [_jsx("h3", __assign({ className: clx(classes.headerTitle, activeElement === "".concat(String(index), ".heading") && classes.block7ActiveElement), onClick: function () { return handleElementClick(mode, "".concat(String(index), ".heading"), handleClick); } }, { children: heading })), _jsx("p", __assign({ className: clx(classes.headerDescription, activeElement === "".concat(String(index), ".description") && classes.block7ActiveElement), onClick: function () { return handleElementClick(mode, "".concat(String(index), ".description"), handleClick); } }, { children: description }))] })), _jsx("div", __assign({ className: classes.mobileCardContainer }, { children: !loading ? (instagramImages.length > 0 ? (instagramImages
                     .slice(0, 9)
                     .map(function (image, idx) { return (_jsx(LazyImage, { src: image, mode: mode, className: clx(classes.imageContainer) }, idx)); })) : (images.map(function (image, idx) { return (_jsx(LazyImage, { src: image, className: clx(classes.imageContainer) }, idx)); }))) : (_jsx(_Fragment, {})) }))] })));
 };

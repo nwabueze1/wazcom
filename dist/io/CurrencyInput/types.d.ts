@@ -1,4 +1,4 @@
-import React from 'react';
+import React from "react";
 import { CommonProps } from "../../types";
 export type CurrencyBaseProps = CommonProps & {
     helperText?: string;
@@ -37,7 +37,7 @@ export type CurrencyBaseProps = CommonProps & {
     onChange?: (...args: any[]) => void;
 };
 export type CurrencyInputProps = CurrencyBaseProps & InputProps & {
-    variant: 'basic' | 'vertical' | 'horizontal';
+    variant: "basic" | "vertical" | "horizontal";
     currency?: string | string[];
     placeholder?: string;
     label?: string;

@@ -25,7 +25,7 @@ export var useServiceCardStyles = makeStyles(function (theme) {
                 "&:hover": {
                     boxShadow: function (_a) {
                         var isOpen = _a.isOpen;
-                        return isOpen ? "0px 5px 18px -2px rgba(68, 68, 68, 0.12)" : "none";
+                        return (isOpen ? "0px 5px 18px -2px rgba(68, 68, 68, 0.12)" : "none");
                     },
                 }
             },

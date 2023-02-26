@@ -85,9 +85,7 @@ export var useUpdateCartItemQuantity = function () {
                         throw error;
                     }
                     updatedCart = getUpdatedCart(JSON.parse(JSON.stringify(cart)), variables.uuid, variables.quantity);
-                    notify("success", variables.quantity === 0
-                        ? "Item deleted successfully"
-                        : "Item updated successfully");
+                    notify("success", variables.quantity === 0 ? "Item deleted successfully" : "Item updated successfully");
                     setContext === null || setContext === void 0 ? void 0 : setContext({ cart: updatedCart, loading: false, networkOperation: "" });
                     variables.quantity === 0 && updateCartCount(setContextProps);
                     return [3 /*break*/, 3];

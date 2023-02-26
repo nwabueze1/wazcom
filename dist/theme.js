@@ -22,7 +22,7 @@ export var theme = {
         fontSize: 12,
         fontWeightBold: "bold",
         h1: {
-            fontSize: '2.25rem',
+            fontSize: "2.25rem",
             fontWeight: 700,
         },
         h2: {
@@ -34,7 +34,7 @@ export var theme = {
             fontWeight: 700,
         },
         h4: {
-            fontSize: '1rem'
+            fontSize: "1rem",
         },
         h5: {
             fontSize: ".8rem",
@@ -192,12 +192,12 @@ export var theme = {
             waz_peach: "#FAF8F7",
         },
         background: {
-            waz_primaryWhite: '#FFFFFF',
+            waz_primaryWhite: "#FFFFFF",
             waz_primaryBlack: "#010E05",
         },
         border: {
             waz_grey200: "1px solid #999F9B",
-        }
+        },
     },
     overrides: {
         MuiTypography: {

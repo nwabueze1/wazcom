@@ -5,8 +5,8 @@ export var useCheckoutStepStyles = makeStyles(function (theme) { return ({
         padding: theme.spacing(4.5),
     },
     stepHeading: {
-        display: 'flex',
-        justifyContent: 'space-between',
+        display: "flex",
+        justifyContent: "space-between",
     },
     stepTitle: {
         fontFamily: theme.design.font.lostaMasta,
@@ -14,10 +14,10 @@ export var useCheckoutStepStyles = makeStyles(function (theme) { return ({
         fontSize: theme.typography.fontSize + 6,
         color: theme.design.colors.waz_black,
         opacity: 0.6,
-        transition: 'opacity 0.3s ease-in',
+        transition: "opacity 0.3s ease-in",
     },
     stepTitleActive: {
         opacity: 1,
         marginBottom: theme.spacing(3),
-    }
+    },
 }); });

@@ -20,7 +20,7 @@ export var useMbmcBlock12Styles = makeStyles(function (theme) {
             },
             _a[theme.breakpoints.down("lg")] = {
                 flexDirection: "column",
-                width: '90%',
+                width: "90%",
             },
             _a[theme.breakpoints.down("sm")] = {
                 width: "100%",
@@ -84,7 +84,7 @@ export var useMbmcBlock12Styles = makeStyles(function (theme) {
             },
             _d),
         button: {
-            width: '100%',
+            width: "100%",
             fontWeight: theme.typography.fontWeightMedium,
         },
         formContainer: (_e = {

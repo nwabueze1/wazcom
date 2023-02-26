@@ -3,7 +3,7 @@ export var useTablePaginationStyles = makeStyles(function (theme) { return ({
     root: {
         display: "flex",
         justifyContent: "space-between",
-        alignItems: 'center',
+        alignItems: "center",
         background: theme.design.colors.waz_white,
         padding: theme.spacing(2),
     },
@@ -12,13 +12,13 @@ export var useTablePaginationStyles = makeStyles(function (theme) { return ({
         alignItems: "center",
         gap: theme.spacing(0.5),
         color: theme.design.colors.waz_grey1,
-        transition: 'all 0.3s ease-in',
+        transition: "all 0.3s ease-in",
         opacity: 0.5,
-        cursor: 'pointer',
+        cursor: "pointer",
         "& p": {
             margin: 0,
             fontSize: theme.typography.fontSize,
-        }
+        },
     },
     paginationDirectionActive: {
         color: theme.design.colors.waz_black,
@@ -35,11 +35,11 @@ export var useTablePaginationStyles = makeStyles(function (theme) { return ({
             fontSize: theme.typography.fontSize,
             color: theme.design.colors.waz_black,
             fontWeight: theme.typography.fontWeightBold,
-        }
+        },
     },
     paginationSelect: {
         width: "60px !important",
-        marginBottom: '0 !important',
+        marginBottom: "0 !important",
     },
     paginationSelectInput: {
         padding: "0px 0 0 0",
@@ -54,23 +54,23 @@ export var useTablePaginationStyles = makeStyles(function (theme) { return ({
         fontSize: theme.typography.fontSize + 1,
     },
     paginationPages: {
-        display: 'flex',
-        alignItems: 'flex-end',
+        display: "flex",
+        alignItems: "flex-end",
         gap: theme.spacing(0.5),
     },
     paginationPage: {
         width: 20,
         height: 20,
-        display: 'flex',
-        justifyContent: 'center',
-        alignItems: 'center',
+        display: "flex",
+        justifyContent: "center",
+        alignItems: "center",
         fontSize: theme.typography.fontSize,
-        transition: 'all 0.3s ease-in',
+        transition: "all 0.3s ease-in",
         borderRadius: 4,
-        cursor: 'pointer',
+        cursor: "pointer",
     },
     paginationPageActive: {
         background: theme.design.colors.waz_primaryColor100,
         color: theme.design.colors.waz_white,
-    }
+    },
 }); });
