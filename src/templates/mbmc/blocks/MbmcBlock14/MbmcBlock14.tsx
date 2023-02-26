@@ -12,137 +12,129 @@ import { useUpdateOrder } from "./hooks";
 import { CoreCartFields } from "templates/mbmc/models";
 
 export const MbmcBlock14: React.FC<MbmcBlock14Props> = ({
-    services,
-    integratedServices,
-    site_uuid,
-    setContextProps,
+  services,
+  integratedServices,
+  site_uuid,
+  setContextProps,
 }) => {
-    const classes = useMbmcBlock14Styles();
-    const [contextData, setContextData] = useState<Omit<RestaurantContextProps, "setContext">>({});
-    const [loading, setLoading] = useState(true);
-    const [isDomLoaded, setIsDomLoaded] = useState(false);
-    const cookies = new Cookies();
-    const cartCookie = useMemo(() => cookies.get("cart"), []);
-    const clients = useMemo(() => {
-        const clients: { [key: string]: ApolloClient<NormalizedCacheObject> } = {};
-        integratedServices.forEach((service) => {
-            clients[service] = createApolloClient(services ? services[service] : "");
-        });
-        return clients;
-    }, []);
-    const updateOrder = useUpdateOrder();
-    const [displayCheckout, setDisplayCheckout] = useState(
-        false
-    );
-
-    const [getCart, { data, error }] = useLazyQuery(GET_CART_BY_UUID, {
-        client: clients?.AMBROSIA,
+  const classes = useMbmcBlock14Styles();
+  const [contextData, setContextData] = useState<Omit<RestaurantContextProps, "setContext">>({});
+  const [loading, setLoading] = useState(true);
+  const [isDomLoaded, setIsDomLoaded] = useState(false);
+  const cookies = new Cookies();
+  const cartCookie = useMemo(() => cookies.get("cart"), []);
+  const clients = useMemo(() => {
+    const clients: { [key: string]: ApolloClient<NormalizedCacheObject> } = {};
+    integratedServices.forEach((service) => {
+      clients[service] = createApolloClient(services ? services[service] : "");
     });
+    return clients;
+  }, []);
+  const updateOrder = useUpdateOrder();
+  const [displayCheckout, setDisplayCheckout] = useState(false);
 
-    useEffect(() => {
-        setIsDomLoaded(true);
+  const [getCart, { data, error }] = useLazyQuery(GET_CART_BY_UUID, {
+    client: clients?.AMBROSIA,
+  });
 
-        if (!cartCookie || !cartCookie[site_uuid]) {
-            setLoading(false);
-            return;
-        }
+  useEffect(() => {
+    setIsDomLoaded(true);
 
-        getCart({ variables: { uuid: cartCookie[site_uuid] } });
-    }, []);
+    if (!cartCookie || !cartCookie[site_uuid]) {
+      setLoading(false);
+      return;
+    }
 
-    useEffect(() => {
-        if (isDomLoaded) {
-            const queryParams = new URLSearchParams(window.location.search);
-            setDisplayCheckout(Boolean(queryParams.get("partner") && queryParams.get("reference")))
-        }
-    }, [isDomLoaded])
+    getCart({ variables: { uuid: cartCookie[site_uuid] } });
+  }, []);
 
-    useEffect(() => {
-        if (data) {
-            const { cart } = data;
-            const contextData: Omit<RestaurantContextProps, "setContext"> = {
-                cart: JSON.parse(JSON.stringify(cart)),
-                clients,
-            };
-            handleOrderConfirmation(contextData);
-        }
+  useEffect(() => {
+    if (isDomLoaded) {
+      const queryParams = new URLSearchParams(window.location.search);
+      setDisplayCheckout(Boolean(queryParams.get("partner") && queryParams.get("reference")));
+    }
+  }, [isDomLoaded]);
 
-        if (error) setLoading(false);
-    }, [data, error]);
+  useEffect(() => {
+    if (data) {
+      const { cart } = data;
+      const contextData: Omit<RestaurantContextProps, "setContext"> = {
+        cart: JSON.parse(JSON.stringify(cart)),
+        clients,
+      };
+      handleOrderConfirmation(contextData);
+    }
 
-    const handleOrderConfirmation = async (
-        contextData: Omit<RestaurantContextProps, "setContext">,
-    ) => {
-        const queryParams = new URLSearchParams(window.location.search);
-        if (queryParams.get("partner") && queryParams.get("reference")) {
-            const order = await updateOrder(
-                clients?.AMBROSIA as ApolloClient<NormalizedCacheObject>,
-                contextData?.cart?.restaurant?.site_uuid as string,
-            );
-            contextData = {
-                ...contextData,
-                cart: { ...(contextData?.cart as CoreCartFields), order },
-            };
-        }
+    if (error) setLoading(false);
+  }, [data, error]);
 
-        setContextData(contextData);
-        setLoading(false);
-    };
+  const handleOrderConfirmation = async (
+    contextData: Omit<RestaurantContextProps, "setContext">,
+  ) => {
+    const queryParams = new URLSearchParams(window.location.search);
+    if (queryParams.get("partner") && queryParams.get("reference")) {
+      const order = await updateOrder(
+        clients?.AMBROSIA as ApolloClient<NormalizedCacheObject>,
+        contextData?.cart?.restaurant?.site_uuid as string,
+      );
+      contextData = {
+        ...contextData,
+        cart: { ...(contextData?.cart as CoreCartFields), order },
+      };
+    }
 
-    const updateContext = (variables: Omit<RestaurantContextProps, "setContext">) => {
-        setContextData({ ...contextData, ...variables });
-    };
+    setContextData(contextData);
+    setLoading(false);
+  };
 
-    if (loading) return <Loader />;
+  const updateContext = (variables: Omit<RestaurantContextProps, "setContext">) => {
+    setContextData({ ...contextData, ...variables });
+  };
 
-    const isCartEmpty =
-        contextData?.cart?.cartItems?.length === 0 ||
-        !cartCookie ||
-        (cartCookie && !cartCookie[site_uuid]);
+  if (loading) return <Loader />;
 
-    return (
-        <RestaurantContext.Provider value={{ ...contextData, setContext: updateContext }}>
-            <div className={classes.root}>
-                <div className={classes.block14Container}>
-                    <p className={classes.block14Title}>
-                        Items(
-                        {contextData?.cart?.cartItems ? contextData?.cart?.cartItems?.length : 0})
-                    </p>
-                    <div className={classes.block14CartContent}>
-                        {isCartEmpty ? (
-                            <EmptyCart />
-                        ) : (
-                            <>
-                                <CartItems setContextProps={setContextProps} />
-                                <span className={classes.block14Divider} />
-                                {contextData?.cart?.order ? (
-                                    <OrderDetails
-                                        display={displayCheckout}
-                                        setDisplay={setDisplayCheckout}
-                                    />
-                                ) : (
-                                    <Checkout
-                                        display={displayCheckout}
-                                        setDisplay={setDisplayCheckout}
-                                    />
-                                )}
-                            </>
-                        )}
-                    </div>
-                </div>
-                {contextData?.cart?.cartItems && contextData?.cart?.cartItems?.length > 0 && (
-                    <div className={classes.block14Action}>
-                        <MbmcButton
-                            variant="SECONDARY"
-                            onClick={() => {
-                                setDisplayCheckout(true);
-                            }}
-                        >
-                            Proceed to summary
-                        </MbmcButton>
-                    </div>
+  const isCartEmpty =
+    contextData?.cart?.cartItems?.length === 0 ||
+    !cartCookie ||
+    (cartCookie && !cartCookie[site_uuid]);
+
+  return (
+    <RestaurantContext.Provider value={{ ...contextData, setContext: updateContext }}>
+      <div className={classes.root}>
+        <div className={classes.block14Container}>
+          <p className={classes.block14Title}>
+            Items(
+            {contextData?.cart?.cartItems ? contextData?.cart?.cartItems?.length : 0})
+          </p>
+          <div className={classes.block14CartContent}>
+            {isCartEmpty ? (
+              <EmptyCart />
+            ) : (
+              <>
+                <CartItems setContextProps={setContextProps} />
+                <span className={classes.block14Divider} />
+                {contextData?.cart?.order ? (
+                  <OrderDetails display={displayCheckout} setDisplay={setDisplayCheckout} />
+                ) : (
+                  <Checkout display={displayCheckout} setDisplay={setDisplayCheckout} />
                 )}
-            </div>
-        </RestaurantContext.Provider>
-    );
+              </>
+            )}
+          </div>
+        </div>
+        {contextData?.cart?.cartItems && contextData?.cart?.cartItems?.length > 0 && (
+          <div className={classes.block14Action}>
+            <MbmcButton
+              variant="SECONDARY"
+              onClick={() => {
+                setDisplayCheckout(true);
+              }}
+            >
+              Proceed to summary
+            </MbmcButton>
+          </div>
+        )}
+      </div>
+    </RestaurantContext.Provider>
+  );
 };

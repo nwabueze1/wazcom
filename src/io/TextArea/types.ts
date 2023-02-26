@@ -2,7 +2,7 @@ import { TextareaAutosizeProps } from "@mui/base";
 import { CommonProps } from "../../types";
 
 export type TextAreaProps = CommonProps &
-    Omit<TextareaAutosizeProps, "onChange"> & {
-        label?: string | JSX.Element;
-        error?: boolean;
-    };
+  Omit<TextareaAutosizeProps, "onChange"> & {
+    label?: string | JSX.Element;
+    error?: boolean;
+  };

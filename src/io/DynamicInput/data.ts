@@ -7,12 +7,12 @@ import { RiRadioButtonLine } from "react-icons/ri";
 import { IoMdCloudUpload } from "react-icons/io";
 
 export const defaultInputs = [
-    { label: "Paragraph", value: "paragraph", icon: BsTextParagraph },
-    { label: "Short Answer", value: "short_answer", icon: MdShortText },
-    { label: "Dropdown", value: "dropdown", icon: MdArrowDropDownCircle },
-    { label: "Checkboxes", value: "checkboxes", icon: AiFillCheckSquare },
-    { label: "Multiple Choice", value: "multiple", icon: RiRadioButtonLine },
-    { label: "File upload", value: "file", icon: IoMdCloudUpload },
-    { label: "Date", value: "date", icon: BsCalendarDate },
-    { label: "Time", value: "time", icon: BiTime },
+  { label: "Paragraph", value: "paragraph", icon: BsTextParagraph },
+  { label: "Short Answer", value: "short_answer", icon: MdShortText },
+  { label: "Dropdown", value: "dropdown", icon: MdArrowDropDownCircle },
+  { label: "Checkboxes", value: "checkboxes", icon: AiFillCheckSquare },
+  { label: "Multiple Choice", value: "multiple", icon: RiRadioButtonLine },
+  { label: "File upload", value: "file", icon: IoMdCloudUpload },
+  { label: "Date", value: "date", icon: BsCalendarDate },
+  { label: "Time", value: "time", icon: BiTime },
 ];

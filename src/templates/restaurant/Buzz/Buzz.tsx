@@ -7,38 +7,38 @@ import { restaurantdata } from "../data";
 import { CartDialog } from "./CartDialog";
 
 export const Buzz = () => {
-    const classes = useBuzzStyles();
-    const [displayDialog, setDisplayDialog] = useState<boolean>(false);
-    const [cartChanged, setCartChanged] = useState<number>(0);
-    const [selectedItemId, setSelectedItemId] = useState<number>(0);
+  const classes = useBuzzStyles();
+  const [displayDialog, setDisplayDialog] = useState<boolean>(false);
+  const [cartChanged, setCartChanged] = useState<number>(0);
+  const [selectedItemId, setSelectedItemId] = useState<number>(0);
 
-    return (
-        <div className={classes.root}>
-            <div className={classes.restaurant}>
-                <BuzzNav className={classes.nav} />
-                <BuzzHero />
-            </div>
-            <div className={classes.body}>
-                <Menus
-                    restaurant={restaurantdata}
-                    setSelectedItemId={setSelectedItemId}
-                    setDisplayDialog={setDisplayDialog}
-                    cartChanged={cartChanged}
-                    cart={undefined}
-                />
-            </div>
-            <CartDialog
-                display={displayDialog}
-                close={() => {
-                    setDisplayDialog(false);
-                }}
-                reloadCart={() => {
-                    setCartChanged(cartChanged + 1);
-                }}
-                itemId={selectedItemId}
-                restaurant={restaurantdata}
-                siteId={0}
-            />
-        </div>
-    );
+  return (
+    <div className={classes.root}>
+      <div className={classes.restaurant}>
+        <BuzzNav className={classes.nav} />
+        <BuzzHero />
+      </div>
+      <div className={classes.body}>
+        <Menus
+          restaurant={restaurantdata}
+          setSelectedItemId={setSelectedItemId}
+          setDisplayDialog={setDisplayDialog}
+          cartChanged={cartChanged}
+          cart={undefined}
+        />
+      </div>
+      <CartDialog
+        display={displayDialog}
+        close={() => {
+          setDisplayDialog(false);
+        }}
+        reloadCart={() => {
+          setCartChanged(cartChanged + 1);
+        }}
+        itemId={selectedItemId}
+        restaurant={restaurantdata}
+        siteId={0}
+      />
+    </div>
+  );
 };
