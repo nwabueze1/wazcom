@@ -334,13 +334,14 @@ export const stories: ComponentPropType[] = [
         name: "combobox",
         component: ComboBoxInput,
         props: {
+            label: 'ASSIGN TAGS TO THE CATEGORY',
             options: [
                 { label: "Bread", value: "23" },
                 { label: "Love", value: "45" },
             ],
             value: { label: "Love", value: "45" },
             placeholder: "Select Wazobia Member",
-            isAdd: false,
+            required: true,
         },
     },
     {
@@ -610,18 +611,16 @@ export const stories: ComponentPropType[] = [
         props: {
             name: "gqlcomboboxinput",
             config: {
-                client: createApolloClient("https://muse.sytbuilder.com/graphql"),
+                client: createApolloClient("https://ofambegbe-muse.wazobia.uk/graphql"),
                 name: GETBLOGCATEGORIES,
                 type: "query",
                 labelKey: "name",
                 valueKey: "id",
-                key: ["categoriesByBlogID"],
+                key: ["categoriesByBlogUuid", "data"],
             },
-            variables: { blog_id: 34 },
+            variables: { blog_uuid: "a5ad9bed-679c-4190-a1a8-8b2d14bbb3c9" },
             value: { label: "entertainment", value: 5 },
             addOption: createNewCategory,
-            error: true,
-            feedback: { text: "Tariq is a weirdo", status: "error" },
         },
     },
     {

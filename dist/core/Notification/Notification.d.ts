@@ -1,2 +1,2 @@
 import { ToastProps } from './types';
-export declare function Notification({ list, position, autoDelete, duration }: ToastProps): JSX.Element;
+export declare function Notification({ list, position }: ToastProps): JSX.Element;

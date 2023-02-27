@@ -40,8 +40,7 @@ export var InsertButton = function (_a) {
         setMediaOpen(!mediaOpen);
     };
     var handleOptionClick = function (e, option) {
-        console.log(e.target.textContent);
-        if (option) {
+        if (option && e) {
             handleImageModalState(option);
         }
     };

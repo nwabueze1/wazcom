@@ -1,4 +1,4 @@
-import { FC, useState, useEffect } from 'react';
+import { FC, useState } from 'react';
 import clx from "classnames";
 import { BsCheckCircle } from "react-icons/bs";
 import { GrFormClose } from "react-icons/gr";
@@ -8,7 +8,7 @@ import { AiOutlineInfoCircle } from "react-icons/ai";
 import { ToastProps, ToastListProps, NotificationIconProps } from './types';
 import { useNotificationStyles } from "./style";
 
-export function Notification({ list = [], position, autoDelete, duration }: ToastProps) {
+export function Notification({ list = [], position }: ToastProps) {
     const [toasts, setToasts] = useState(list);
     const classes = useNotificationStyles();
 
@@ -17,22 +17,22 @@ export function Notification({ list = [], position, autoDelete, duration }: Toas
             position === 'top-left' ? classes.topLeft :
                 position === 'bottom-left' ? classes.bottomLeft : ''
 
-    useEffect(() => {
-        setToasts([...list]);
-    }, [list]);
+    // useEffect(() => {
+    //     setToasts([...list]);
+    // }, [list]);
 
-    useEffect(() => {
-        const interval = setInterval(() => {
-            if (autoDelete && list.length && toasts.length) {
-                onDeleteToast(list[0].id);
-            }
-        }, duration);
+    // useEffect(() => {
+    //     const interval = setInterval(() => {
+    //         if (autoDelete && list.length && toasts.length) {
+    //             onDeleteToast(list[0].id);
+    //         }
+    //     }, duration);
 
-        return () => {
-            clearInterval(interval);
-        }
+    //     return () => {
+    //         clearInterval(interval);
+    //     }
 
-    }, [list, autoDelete, duration, toasts]);
+    // }, [list, autoDelete, duration, toasts]);
 
     const onDeleteToast = (id: string) => {
         const listItemIndex = toasts.findIndex((e: any) => e.id === id);
