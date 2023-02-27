@@ -32,8 +32,11 @@ export const useComboBoxStyles = makeStyles((theme: Theme) => ({
         },
 
         "& .label": {
-            marginBottom: theme.spacing(0.5),
             fontSize: theme.typography.fontSize,
+        },
+
+        "& .subText": {
+            marginTop: theme.spacing(0.5),
         }
     }
 }));

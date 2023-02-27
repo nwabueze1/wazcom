@@ -15,6 +15,7 @@ export const ComboBoxInput: FC<ComboBoxInputProps> = ({
     isSuccess,
     helperText,
     required,
+    placeholder,
     className,
 }) => {
     const classes = useComboBoxStyles();
@@ -53,7 +54,7 @@ export const ComboBoxInput: FC<ComboBoxInputProps> = ({
                 }}
             >
                 <p className="label">{label}</p>
-                {subText && <p>{subText}</p>}
+                {subText && <p className="subText">{subText}</p>}
             </div>
         ));
     };
@@ -77,6 +78,7 @@ export const ComboBoxInput: FC<ComboBoxInputProps> = ({
                     onFocus={() => {
                         setShowOptions(true);
                     }}
+                    placeholder={placeholder}
                     isError={isError}
                     isSuccess={isSuccess}
                     helperText={helperText}

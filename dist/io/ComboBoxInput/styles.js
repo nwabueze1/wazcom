@@ -26,8 +26,10 @@ export var useComboBoxStyles = makeStyles(function (theme) { return ({
             background: theme.design.colors.waz_primary900,
         },
         "& .label": {
-            marginBottom: theme.spacing(0.5),
             fontSize: theme.typography.fontSize,
+        },
+        "& .subText": {
+            marginTop: theme.spacing(0.5),
         }
     }
 }); });
