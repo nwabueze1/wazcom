@@ -12,6 +12,7 @@ export const GqlComboBox: FC<GqlComboBoxProps> = memo(
         postFetchHook,
         addOption,
         onChange,
+        label,
         variables,
         classNames,
         ...props
@@ -102,11 +103,13 @@ export const GqlComboBox: FC<GqlComboBoxProps> = memo(
 
         return (
             <ComboBoxInput
+                label={label}
                 options={options}
                 value={value ?? ""}
                 onChange={({ value }) => {
                     handleChange(value);
                 }}
+                {...props}
             />
         );
     },

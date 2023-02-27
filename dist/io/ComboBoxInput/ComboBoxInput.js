@@ -32,7 +32,7 @@ import { ClickAwayListener } from "@mui/base";
 import { TextInput } from "../TextInput";
 import clx from "classnames";
 export var ComboBoxInput = function (_a) {
-    var name = _a.name, _b = _a.isAdd, isAdd = _b === void 0 ? true : _b, onChange = _a.onChange, initialOptions = _a.options, label = _a.label, isError = _a.isError, isSuccess = _a.isSuccess, helperText = _a.helperText, required = _a.required, className = _a.className;
+    var name = _a.name, _b = _a.isAdd, isAdd = _b === void 0 ? true : _b, onChange = _a.onChange, initialOptions = _a.options, label = _a.label, isError = _a.isError, isSuccess = _a.isSuccess, helperText = _a.helperText, required = _a.required, placeholder = _a.placeholder, className = _a.className;
     var classes = useComboBoxStyles();
     var _c = __read(useState(""), 2), filter = _c[0], setFilter = _c[1];
     var _d = __read(useState(initialOptions), 2), options = _d[0], setOptions = _d[1];
@@ -58,12 +58,12 @@ export var ComboBoxInput = function (_a) {
             var label = _a.label, value = _a.value, subText = _a.subText;
             return (_jsxs("div", __assign({ className: classes.comboBoxOption, onClick: function () {
                     handleSelect({ label: label, value: value, subText: subText });
-                } }, { children: [_jsx("p", __assign({ className: "label" }, { children: label })), subText && _jsx("p", { children: subText })] }), index));
+                } }, { children: [_jsx("p", __assign({ className: "label" }, { children: label })), subText && _jsx("p", __assign({ className: "subText" }, { children: subText }))] }), index));
         });
     };
     return (_jsx(ClickAwayListener, __assign({ onClickAway: function () {
             setShowOptions(false);
         } }, { children: _jsxs("div", __assign({ className: clx(classes.root, className) }, { children: [label && (_jsxs("label", __assign({ htmlFor: name, className: classes.comboBoxLabel }, { children: [label, required && _jsx("span", __assign({ className: classes.comboBoxRequired }, { children: "*" }))] }))), _jsx(TextInput, { value: filter, onChange: handleFilterChange, onFocus: function () {
                         setShowOptions(true);
-                    }, isError: isError, isSuccess: isSuccess, helperText: helperText }), showOptions && _jsx("div", __assign({ className: classes.comboBoxOptions }, { children: renderOptions() }))] })) })));
+                    }, placeholder: placeholder, isError: isError, isSuccess: isSuccess, helperText: helperText }), showOptions && _jsx("div", __assign({ className: classes.comboBoxOptions }, { children: renderOptions() }))] })) })));
 };

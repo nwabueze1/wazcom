@@ -14,5 +14,9 @@ export type GqlComboBoxProps = CommonProps & {
     value?: string;
     postFetchHook?: (values: { [key: string]: string }[]) => void;
     addOption?: (value: string) => Promise<{ label?: string; value?: string; status: boolean }>;
+    isError?: boolean;
+    isSuccess?: boolean;
+    helperText?: string;
+    placeholder?: string;
     variables?: { [key: string]: any };
 };
