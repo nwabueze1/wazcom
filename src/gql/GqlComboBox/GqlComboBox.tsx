@@ -95,7 +95,7 @@ export const GqlComboBox: FC<GqlComboBoxProps> = memo(
         if (fetching) {
             return (
                 <div className={classes.loader}>
-                    <CircularProgress size={14} color="inherit" />
+                    <CircularProgress size={14} color="success" />
                 </div>
             );
         }
@@ -107,8 +107,6 @@ export const GqlComboBox: FC<GqlComboBoxProps> = memo(
                 onChange={({ value }) => {
                     handleChange(value);
                 }}
-                classNames={{ ...classNames, comboBoxInput: classNames?.gqlComboBox }}
-                {...props}
             />
         );
     },

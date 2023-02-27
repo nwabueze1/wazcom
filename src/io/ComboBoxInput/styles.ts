@@ -3,41 +3,37 @@ import { Theme } from "@mui/material";
 
 export const useComboBoxStyles = makeStyles((theme: Theme) => ({
     root: {
-        display: "flex",
-        flexDirection: "column",
-        marginBottom: theme.spacing(2),
-        "& .MuiAutocomplete-root .Mui-focused fieldset.MuiOutlinedInput-notchedOutline": {
-            borderColor: theme.design.colors.waz_primaryColor100,
-            outline: theme.design.colors.waz_primaryColor100,
-            "&:hover": {
-                borderColor: theme.design.colors.waz_primaryColor100,
-                outline: theme.design.colors.waz_primaryColor100,
-            },
+
+    },
+    comboBoxLabel: {
+        display: "block",
+        marginBottom: theme.spacing(1.5),
+        fontSize: theme.typography.fontSize - 2,
+    },
+    comboBoxRequired: {
+        color: theme.design.colors.waz_dangerColor100,
+        margin: theme.spacing(-.5, .5, 0, .5),
+    },
+    comboBoxOptions: {
+        margin: theme.spacing(0.5, 0, 0, 0),
+        padding: theme.spacing(1, 0),
+        background: theme.design.colors.waz_white,
+        borderRadius: 3,
+        boxShadow: "0px 1px 4px #00000014",
+    },
+    comboBoxOption: {
+        padding: theme.spacing(1, 1.25),
+        background: "transparent",
+        transition: "all 0.3s ease-in",
+        cursor: "pointer",
+
+        "&:hover": {
+            background: theme.design.colors.waz_primary900,
         },
-    },
-    helperText: {
-        marginTop: theme.spacing(2),
-        fontSize: theme.typography.fontSize,
-    },
-    renderInput: {
-        "& input.MuiOutlinedInput-input.MuiInputBase-input": {
-            padding: theme.spacing(0),
-        },
-    },
-    boxMargin: {
-        height: "30px",
-        width: "41px",
-        borderLeft: `1px solid ${theme.design.colors.waz_primary700}`,
-        borderBottom: `1px solid ${theme.design.colors.waz_primary700}`,
-    },
-    inputContainer: {
-        display: "flex"
-    },
-    label: {
-        fontSize:theme.typography.fontSize -2,
-        marginBottom: 0
-    },
-    item: {
-        fontSize:theme.typography.fontSize
-    },
+
+        "& .label": {
+            marginBottom: theme.spacing(0.5),
+            fontSize: theme.typography.fontSize,
+        }
+    }
 }));

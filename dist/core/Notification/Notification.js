@@ -35,7 +35,7 @@ var __spreadArray = (this && this.__spreadArray) || function (to, from, pack) {
     return to.concat(ar || Array.prototype.slice.call(from));
 };
 import { jsx as _jsx, jsxs as _jsxs, Fragment as _Fragment } from "react/jsx-runtime";
-import { useState, useEffect } from 'react';
+import { useState } from 'react';
 import clx from "classnames";
 import { BsCheckCircle } from "react-icons/bs";
 import { GrFormClose } from "react-icons/gr";
@@ -43,26 +43,26 @@ import { RiErrorWarningLine } from "react-icons/ri";
 import { AiOutlineInfoCircle } from "react-icons/ai";
 import { useNotificationStyles } from "./style";
 export function Notification(_a) {
-    var _b = _a.list, list = _b === void 0 ? [] : _b, position = _a.position, autoDelete = _a.autoDelete, duration = _a.duration;
+    var _b = _a.list, list = _b === void 0 ? [] : _b, position = _a.position;
     var _c = __read(useState(list), 2), toasts = _c[0], setToasts = _c[1];
     var classes = useNotificationStyles();
     var _position = position === 'top-right' ? classes.topRight :
         position === 'bottom-right' ? classes.bottomRight :
             position === 'top-left' ? classes.topLeft :
                 position === 'bottom-left' ? classes.bottomLeft : '';
-    useEffect(function () {
-        setToasts(__spreadArray([], __read(list), false));
-    }, [list]);
-    useEffect(function () {
-        var interval = setInterval(function () {
-            if (autoDelete && list.length && toasts.length) {
-                onDeleteToast(list[0].id);
-            }
-        }, duration);
-        return function () {
-            clearInterval(interval);
-        };
-    }, [list, autoDelete, duration, toasts]);
+    // useEffect(() => {
+    //     setToasts([...list]);
+    // }, [list]);
+    // useEffect(() => {
+    //     const interval = setInterval(() => {
+    //         if (autoDelete && list.length && toasts.length) {
+    //             onDeleteToast(list[0].id);
+    //         }
+    //     }, duration);
+    //     return () => {
+    //         clearInterval(interval);
+    //     }
+    // }, [list, autoDelete, duration, toasts]);
     var onDeleteToast = function (id) {
         var listItemIndex = toasts.findIndex(function (e) { return e.id === id; });
         var toastListItem = list.findIndex(function (e) { return e.id === id; });

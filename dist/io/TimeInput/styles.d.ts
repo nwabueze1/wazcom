@@ -1,1 +1,1 @@
-export declare const useTimeInputStyles: (props?: any) => import("@mui/styles").ClassNameMap<"root" | "input" | "label" | "required" | "labelWrapper" | "baseInput" | "containerDiv" | "timeRangeSeperator" | "timeRangeDiv">;
+export declare const useTimeInputStyles: (props?: any) => import("@mui/styles").ClassNameMap<"root" | "input" | "label" | "required" | "baseInput" | "labelWrapper" | "containerDiv" | "timeRangeSeperator" | "timeRangeDiv">;

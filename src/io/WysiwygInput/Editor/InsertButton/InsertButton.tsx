@@ -20,7 +20,7 @@ export const InsertButton: React.FC<InsertButtonProps> = ({
      }
 
     const handleOptionClick = (e:any, option:string) => {
-        if (option) {
+        if (option && e) {
             handleImageModalState(option)
         }
     }
