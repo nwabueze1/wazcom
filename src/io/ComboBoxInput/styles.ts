@@ -3,7 +3,7 @@ import { Theme } from "@mui/material";
 
 export const useComboBoxStyles = makeStyles((theme: Theme) => ({
     root: {
-
+        position: "relative",
     },
     comboBoxLabel: {
         display: "block",
@@ -15,7 +15,10 @@ export const useComboBoxStyles = makeStyles((theme: Theme) => ({
         margin: theme.spacing(-.5, .5, 0, .5),
     },
     comboBoxOptions: {
-        margin: theme.spacing(0.5, 0, 0, 0),
+        position: "absolute",
+        top: "calc(100% + 4px)",
+        left: 0,
+        width: "100%",
         padding: theme.spacing(1, 0),
         background: theme.design.colors.waz_white,
         borderRadius: 3,

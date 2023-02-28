@@ -22,6 +22,7 @@ export const ComboBoxInput: FC<ComboBoxInputProps> = ({
     const [filter, setFilter] = useState("");
     const [options, setOptions] = useState(initialOptions);
     const [showOptions, setShowOptions] = useState(false);
+    const [isFocused, setIsFocused] = useState(false);
 
     useEffect(() => {
         setOptions(initialOptions);
@@ -35,10 +36,11 @@ export const ComboBoxInput: FC<ComboBoxInputProps> = ({
 
     const handleFilterChange = ({ value: filter }: { name: string; value: string }) => {
         setFilter(filter);
+        setIsFocused(false);
     };
 
     const renderOptions = () => {
-        const displayedOptions = options.filter((option) =>
+        const displayedOptions = isFocused ? options : options.filter((option) =>
             option?.label?.toLowerCase()?.includes(filter.toLowerCase()),
         );
         displayedOptions.length === 0 &&
@@ -63,6 +65,7 @@ export const ComboBoxInput: FC<ComboBoxInputProps> = ({
         <ClickAwayListener
             onClickAway={() => {
                 setShowOptions(false);
+                setIsFocused(false);
             }}
         >
             <div className={clx(classes.root, className)}>
@@ -76,6 +79,8 @@ export const ComboBoxInput: FC<ComboBoxInputProps> = ({
                     value={filter}
                     onChange={handleFilterChange}
                     onFocus={() => {
+                        const optionLabels = options?.map(({ label }) => label?.toLowerCase());
+                        optionLabels?.includes(filter?.toLowerCase()) && setIsFocused(true);
                         setShowOptions(true);
                     }}
                     placeholder={placeholder}
