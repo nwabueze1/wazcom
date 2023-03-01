@@ -46,7 +46,7 @@ export var useTestimonialCardPropsStyles = makeStyles(function (theme) {
             fontWeight: theme.typography.fontWeightBold,
             border: "1px solid transparent",
             transition: "all 0.3s ease-in",
-            width: 'fit-content',
+            width: "fit-content",
         },
         type: {
             textOverflow: "ellipsis",
@@ -55,7 +55,7 @@ export var useTestimonialCardPropsStyles = makeStyles(function (theme) {
             opacity: 0.9,
             border: "1px solid transparent",
             transition: "all 0.3s ease-in",
-            width: 'fit-content',
+            width: "fit-content",
         },
         menuHeaderContainer: {
             display: "flex",

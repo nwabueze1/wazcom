@@ -14,85 +14,79 @@ import { Badge } from "@mui/material";
 import { ShoppingCartOutlined } from "@mui/icons-material";
 
 export const Menus: FC<MenuProps> = ({ restaurant, setDisplayDialog, setSelectedItemId, cart }) => {
-    const classes = useMenusStyles();
-    const displayMenuItemsHook = useDisplayMenuItems();
-    const handleMenuChange = useHandleMenuChange();
-    const [activeMenu, setActiveMenu] = useState<CoreMenuFields | null>(null);
-    const [cartOpen, setCartOpen] = useState<boolean>(false);
-    const menus = [...(restaurant.restaurant.activeMenus as CoreMenuFields[])];
-    const [menuName, setMenuName] = useState<string>(menus.length > 0 ? menus[0].name : "");
+  const classes = useMenusStyles();
+  const displayMenuItemsHook = useDisplayMenuItems();
+  const handleMenuChange = useHandleMenuChange();
+  const [activeMenu, setActiveMenu] = useState<CoreMenuFields | null>(null);
+  const [cartOpen, setCartOpen] = useState<boolean>(false);
+  const menus = [...(restaurant.restaurant.activeMenus as CoreMenuFields[])];
+  const [menuName, setMenuName] = useState<string>(menus.length > 0 ? menus[0].name : "");
 
-    const displayEmptyRestaurant = () => {
-        return (
-            <div className={classes.restaurantEmpty}>
-                <img
-                    src={emptyRestaurantPlaceholder}
-                    alt={restaurant.restaurant.name as string}
-                    className={classes.emptyRestaurant}
-                />
-                <p>There&apos;s nothing to show here. Please check back in a bit.</p>
-            </div>
-        );
-    };
-
-    const displayMenuItems = useCallback(
-        () =>
-            displayMenuItemsHook(activeMenu as CoreMenuFields, setDisplayDialog, setSelectedItemId),
-        [activeMenu],
-    );
-
-    useEffect(() => {
-        if (menus && menus.length > 0) setActiveMenu(menus[0]);
-    }, []);
-
+  const displayEmptyRestaurant = () => {
     return (
-        <div className={classes.root}>
-            <div className={classes.container}>
-                <div className={classes.menuContainer}>
-                    <RestaurantDetails restaurant={restaurant} />
-                    {(restaurant.restaurant?.activeMenus as CoreRestaurantFields_activeMenus[])
-                        ?.length < 1 ? (
-                        displayEmptyRestaurant()
-                    ) : (
-                        <>
-                            <MenuSelector
-                                menus={menus}
-                                value={menuName}
-                                handleChange={(e) => {
-                                    handleMenuChange(e, setMenuName, setActiveMenu, restaurant);
-                                }}
-                            />
-                            <MenuCategories restaurant={restaurant.restaurant} />
-                            <div className={classes.restaurantMenuItems}>
-                                {displayMenuItems()}
-                                <div
-                                    className={clx(classes.restaurantFooter)}
-                                    onClick={() => {
-                                        setCartOpen(!cartOpen);
-                                    }}
-                                >
-                                    <Badge
-                                        badgeContent={cart?.cartItems?.length}
-                                        classes={{
-                                            badge: classes.badge,
-                                        }}
-                                    >
-                                        <ShoppingCartOutlined className={classes.shopCart} />
-                                    </Badge>
-                                </div>
-                            </div>
-                        </>
-                    )}
-                </div>
-                <div
-                    className={clx(
-                        classes.cartContainer,
-                        cartOpen && classes.restaurantVisibleCart,
-                    )}
-                >
-                    <Cart />
-                </div>
-            </div>
-        </div>
+      <div className={classes.restaurantEmpty}>
+        <img
+          src={emptyRestaurantPlaceholder}
+          alt={restaurant.restaurant.name as string}
+          className={classes.emptyRestaurant}
+        />
+        <p>There&apos;s nothing to show here. Please check back in a bit.</p>
+      </div>
     );
+  };
+
+  const displayMenuItems = useCallback(
+    () => displayMenuItemsHook(activeMenu as CoreMenuFields, setDisplayDialog, setSelectedItemId),
+    [activeMenu],
+  );
+
+  useEffect(() => {
+    if (menus && menus.length > 0) setActiveMenu(menus[0]);
+  }, []);
+
+  return (
+    <div className={classes.root}>
+      <div className={classes.container}>
+        <div className={classes.menuContainer}>
+          <RestaurantDetails restaurant={restaurant} />
+          {(restaurant.restaurant?.activeMenus as CoreRestaurantFields_activeMenus[])?.length <
+          1 ? (
+            displayEmptyRestaurant()
+          ) : (
+            <>
+              <MenuSelector
+                menus={menus}
+                value={menuName}
+                handleChange={(e) => {
+                  handleMenuChange(e, setMenuName, setActiveMenu, restaurant);
+                }}
+              />
+              <MenuCategories restaurant={restaurant.restaurant} />
+              <div className={classes.restaurantMenuItems}>
+                {displayMenuItems()}
+                <div
+                  className={clx(classes.restaurantFooter)}
+                  onClick={() => {
+                    setCartOpen(!cartOpen);
+                  }}
+                >
+                  <Badge
+                    badgeContent={cart?.cartItems?.length}
+                    classes={{
+                      badge: classes.badge,
+                    }}
+                  >
+                    <ShoppingCartOutlined className={classes.shopCart} />
+                  </Badge>
+                </div>
+              </div>
+            </>
+          )}
+        </div>
+        <div className={clx(classes.cartContainer, cartOpen && classes.restaurantVisibleCart)}>
+          <Cart />
+        </div>
+      </div>
+    </div>
+  );
 };

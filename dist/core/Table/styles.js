@@ -8,17 +8,19 @@ export var useTableStyles = makeStyles(function (theme) { return ({
         overflow: "hidden",
     },
     tableHead: {
-        background: theme.design.colors.waz_whiteAlpha,
+        background: theme.design.colors.waz_white,
     },
     tableHeadCell: {
-        fontWeight: theme.typography.fontWeightBold,
+        fontWeight: theme.typography.fontWeightMedium,
         padding: theme.spacing(1.5, 2),
-        fontSize: theme.typography.fontSize + 2,
+        fontSize: theme.typography.fontSize,
         color: theme.design.colors.waz_grey1,
+        border: "none",
     },
     tableCell: {
         padding: theme.spacing(1.5, 2),
-        fontSize: theme.typography.fontSize + 2,
+        fontSize: theme.typography.fontSize,
+        border: "none",
     },
     controls: {
         display: "flex",

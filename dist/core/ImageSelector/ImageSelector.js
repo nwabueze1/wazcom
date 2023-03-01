@@ -47,12 +47,10 @@ export var ImageSelector = function (_a) {
             setError("Invalid file format.");
             return false;
         }
-        ;
         if (file.size > maxImageSize) {
             setError("File exceed max file limit of 2GB");
             return false;
         }
-        ;
         return true;
     }, [error, setError]);
     var handleSelect = function (e) {

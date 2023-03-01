@@ -1,1 +1,2 @@
-export declare const useTabStyles: (props?: any) => import("@mui/styles").ClassNameMap<"root" | "content" | "tab" | "tabs" | "tabIsActive" | "contentWrapper" | "contentIsActive">;
+import { TabStyleProps } from "./types";
+export declare const useTabStyles: (props: TabStyleProps) => import("@mui/styles").ClassNameMap<"root" | "content" | "tab" | "tabs" | "tabIsActive" | "contentWrapper" | "contentIsActive">;

@@ -4,6 +4,7 @@ export var useMbmcBlock12Styles = makeStyles(function (theme) {
     return ({
         root: {
             padding: theme.spacing(7, 0),
+            background: theme.design.colors.waz_greyColor50,
             "& .css-1t8l2tu-MuiInputBase-input-MuiOutlinedInput-input": {
                 background: "".concat(theme.design.colors.waz_white, " !important"),
                 padding: "14px 16px !important",
@@ -19,7 +20,7 @@ export var useMbmcBlock12Styles = makeStyles(function (theme) {
             },
             _a[theme.breakpoints.down("lg")] = {
                 flexDirection: "column",
-                width: '90%',
+                width: "90%",
             },
             _a[theme.breakpoints.down("sm")] = {
                 width: "100%",
@@ -83,7 +84,7 @@ export var useMbmcBlock12Styles = makeStyles(function (theme) {
             },
             _d),
         button: {
-            width: '100%',
+            width: "100%",
             fontWeight: theme.typography.fontWeightMedium,
         },
         formContainer: (_e = {
@@ -125,15 +126,19 @@ export var useMbmcBlock12Styles = makeStyles(function (theme) {
         },
         formTextInput: {
             fontFamily: theme.design.font.montserrat,
-            "& > div": {
-                borderRadius: theme.spacing(6),
-            },
-            marginBottom: theme.spacing(2),
+            borderRadius: theme.spacing(6),
+            padding: theme.spacing(1.5, 3),
+            height: 52,
+            boxSizing: "border-box",
         },
         formTextArea: {
             borderRadius: theme.spacing(3),
             marginBottom: theme.spacing(2),
             fontFamily: theme.design.font.montserrat,
+            background: "transparent",
+            padding: theme.spacing(1.5, 3),
+            boxSizing: "border-box",
+            height: 216,
         },
         formButton: {
             position: "relative",

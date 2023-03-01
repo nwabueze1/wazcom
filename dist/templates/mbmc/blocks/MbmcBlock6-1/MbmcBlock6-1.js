@@ -81,8 +81,7 @@ export var MbmcBlock61 = function (_a) {
         return (_a = menu === null || menu === void 0 ? void 0 : menu.menuCategories) === null || _a === void 0 ? void 0 : _a.map(function (_a, index) {
             var _b;
             var title = _a.title, id = _a.id;
-            return (_jsx("div", __assign({ className: clx(classes.block61Category, id.toString() === ((_b = activeCategory === null || activeCategory === void 0 ? void 0 : activeCategory.id) === null || _b === void 0 ? void 0 : _b.toString()) &&
-                    classes.block61CategoryActive), onClick: function () {
+            return (_jsx("div", __assign({ className: clx(classes.block61Category, id.toString() === ((_b = activeCategory === null || activeCategory === void 0 ? void 0 : activeCategory.id) === null || _b === void 0 ? void 0 : _b.toString()) && classes.block61CategoryActive), onClick: function () {
                     handleCategoryChange({ title: title, id: Number(id) });
                 } }, { children: title }), index));
         });
@@ -103,7 +102,7 @@ export var MbmcBlock61 = function (_a) {
     var updateContext = function (variables) {
         setContextData(__assign(__assign({}, contextData), variables));
     };
-    return (_jsx(RestaurantContext.Provider, __assign({ value: __assign(__assign({}, contextData), { setContext: updateContext }) }, { children: _jsx("div", __assign({ className: classes.root, id: 'menu' }, { children: _jsxs("div", __assign({ className: classes.block61Container }, { children: [_jsx("h3", __assign({ className: classes.block61Title }, { children: heading })), _jsx("p", __assign({ className: classes.block61Description }, { children: description })), categoryItems && (categoryItems === null || categoryItems === void 0 ? void 0 : categoryItems.length) > 0 && (_jsxs(_Fragment, { children: [_jsx("div", __assign({ className: classes.block61Categories }, { children: displayCategories() })), _jsx("div", __assign({ className: classes.block61Items }, { children: displayItems() }))] })), _jsx(OrderDialog, { itemUuid: itemUuid, handleClose: function () {
+    return (_jsx(RestaurantContext.Provider, __assign({ value: __assign(__assign({}, contextData), { setContext: updateContext }) }, { children: _jsx("div", __assign({ className: classes.root, id: "menu" }, { children: _jsxs("div", __assign({ className: classes.block61Container }, { children: [_jsx("h3", __assign({ className: classes.block61Title }, { children: heading })), _jsx("p", __assign({ className: classes.block61Description }, { children: description })), categoryItems && (categoryItems === null || categoryItems === void 0 ? void 0 : categoryItems.length) > 0 && (_jsxs(_Fragment, { children: [_jsx("div", __assign({ className: classes.block61Categories }, { children: displayCategories() })), _jsx("div", __assign({ className: classes.block61Items }, { children: displayItems() }))] })), _jsx(OrderDialog, { itemUuid: itemUuid, handleClose: function () {
                             setItemUuid(undefined);
                         }, setContextProps: setContextProps })] })) })) })));
 };

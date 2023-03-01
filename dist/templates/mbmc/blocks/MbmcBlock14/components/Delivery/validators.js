@@ -12,6 +12,9 @@ export var dispatchSchema = Yup.object().shape({
     firstname: Yup.string().required("First name is required").min(1, "First name is required"),
     lastname: Yup.string().required("Last name is required").min(1, "Last name is required"),
     email: Yup.string().required("Email is required").email("Invalid email address"),
+    phone: Yup.string()
+        .required("Phone number is required")
+        .matches(phoneRegExp, "Invalid phone number"),
     addressline1: Yup.string().required("Address is required").min(1, "Address is required"),
     country: Yup.string().required("Country is required").min(1, "Country is required"),
     state: Yup.string().required("State is required").min(1, "Country is required"),

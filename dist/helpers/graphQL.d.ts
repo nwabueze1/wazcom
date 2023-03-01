@@ -12,3 +12,4 @@ export declare const GET_S3_IMAGES: import("@apollo/client").DocumentNode;
 export declare const UPLOAD_IMAGE: import("@apollo/client").DocumentNode;
 export declare const UPDATE_IMAGE: import("@apollo/client").DocumentNode;
 export declare const DELETE_IMAGE: import("@apollo/client").DocumentNode;
+export declare const GET_BLOG_POSTS: import("@apollo/client").DocumentNode;

@@ -1,3 +1,3 @@
 import { FC } from "react";
-import { CurrencyInputFieldProps } from "./types";
-export declare const CurrencyInputField: FC<CurrencyInputFieldProps>;
+import { CurrencyInputProps } from "./types";
+export declare const CurrencyInputField: FC<CurrencyInputProps>;

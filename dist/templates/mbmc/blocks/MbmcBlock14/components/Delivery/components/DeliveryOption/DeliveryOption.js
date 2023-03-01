@@ -12,7 +12,7 @@ var __assign = (this && this.__assign) || function () {
 import { jsx as _jsx, jsxs as _jsxs } from "react/jsx-runtime";
 import { RadioButtonInput } from "../../../../../../../../io";
 import { useDeliveryOptionStyles } from "./styles";
-import clx from 'classnames';
+import clx from "classnames";
 export var DeliveryOption = function (_a) {
     var className = _a.className, image = _a.image, value = _a.value, name = _a.name, handleChange = _a.handleChange, title = _a.title, description = _a.description;
     var classes = useDeliveryOptionStyles();

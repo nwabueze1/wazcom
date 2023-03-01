@@ -2,7 +2,7 @@ import { makeStyles } from "@mui/styles";
 export var useImageSelectorStyles = makeStyles(function (theme) { return ({
     root: {
         width: "100%",
-        paddingTop: "21.9%",
+        paddingTop: "21.9%" /* 1:1 Aspect Ratio */,
         position: "relative",
         background: theme.design.colors.primary700,
         border: "1px dashed ".concat(theme.design.colors.primary500),
@@ -18,7 +18,7 @@ export var useImageSelectorStyles = makeStyles(function (theme) { return ({
         display: "flex",
         justifyContent: "center",
         alignItems: "center",
-        flexDirection: "column"
+        flexDirection: "column",
     },
     selector: {
         border: "1px solid ".concat(theme.design.colors.primary100),
@@ -35,13 +35,13 @@ export var useImageSelectorStyles = makeStyles(function (theme) { return ({
             "--p": "100%",
             cursor: "pointer",
             color: theme.design.colors.white,
-        }
+        },
     },
     error: {
         color: theme.design.colors.waz_dangerColor,
         zIndex: 2,
         fontSize: 12,
-        marginTop: theme.spacing(2)
+        marginTop: theme.spacing(2),
     },
     imgWrapper: {
         backgroundColor: "rgba(0, 0, 0, 0.4)",
@@ -51,10 +51,10 @@ export var useImageSelectorStyles = makeStyles(function (theme) { return ({
         right: 0,
         bottom: 0,
         zIndex: 1,
-        borderRadius: 4
+        borderRadius: 4,
     },
     selectedRoot: {
-        border: "none"
+        border: "none",
     },
     sizeSm: {
         width: "100px",
@@ -103,7 +103,7 @@ export var useImageSelectorStyles = makeStyles(function (theme) { return ({
         width: "100%",
         height: "100%",
         objectFit: "cover",
-        borderRadius: theme.spacing(1)
+        borderRadius: theme.spacing(1),
     },
     circle: {
         borderRadius: "50%",

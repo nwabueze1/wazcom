@@ -1,4 +1,3 @@
-
 export type CartStepsProps = {
-    steps: string[];
-}
+  steps: string[];
+};

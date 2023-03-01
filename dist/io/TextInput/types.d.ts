@@ -1,12 +1,15 @@
-import React from 'react';
+import React from "react";
 import { CommonProps } from "../../types";
 export type TextInputProps = TextFieldProps;
 export type BaseInputProps = React.InputHTMLAttributes<HTMLInputElement>;
 export type TextBaseProps = CommonProps & {
+    classNames?: {
+        [key: string]: string;
+    };
     helperText?: string;
     hideLabel?: boolean;
     info?: string;
-    label?: string;
+    label?: string | JSX.Element;
     name?: string;
     required?: boolean;
     showCC?: boolean;
@@ -17,6 +20,7 @@ export type TextBaseProps = CommonProps & {
     errors?: {
         message: string;
     }[];
+    rows?: string | number;
     value?: any;
     leftIcon?: React.ReactElement;
     rightIcon?: React.ReactElement;
@@ -39,7 +43,7 @@ export type TextFieldProps = Omit<BaseInputProps, "onChange" | "onFocus" | "onEn
 export type EmailInputProps = Omit<BaseInputProps, "onChange" | "onFocus" | "onEnter"> & TextBaseProps;
 export type NumberInputProps = Omit<BaseInputProps, "onChange" | "onFocus" | "onEnter"> & TextBaseProps;
 export type TextAreaProps = Omit<React.HTMLProps<HTMLTextAreaElement>, "onChange" | "onFocus" | "onEnter"> & TextBaseProps & {
-    type?: 'textarea';
+    type?: "textarea";
     minRows?: number;
 };
 export type InputIconProps = {

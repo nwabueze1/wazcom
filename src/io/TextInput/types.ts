@@ -1,4 +1,4 @@
-import React from 'react'
+import React from "react";
 import { CommonProps } from "../../types";
 
 export type TextInputProps = TextFieldProps;
@@ -6,61 +6,70 @@ export type TextInputProps = TextFieldProps;
 export type BaseInputProps = React.InputHTMLAttributes<HTMLInputElement>;
 
 export type TextBaseProps = CommonProps & {
-    helperText?: string;
-    hideLabel?: boolean;
-    info?: string;
-    label?: string;
-    name?: string;
-    required?: boolean;
-    showCC?: boolean;
-    isFocused?: boolean;
-    isError?: boolean;
-    isSuccess?: boolean;
-    isValidated?: boolean;
-    errors?: {
-        message: string;
-    }[];
-    rows?: string | number;
-    value?: any;
-    leftIcon?: React.ReactElement;
-    rightIcon?: React.ReactElement;
-    iconSpacing?: string | number;
-    children?: React.ReactNode;
+  classNames?: { [key: string]: string };
 
-    width?: string | number;
-    height?: string | number;
-    background?: string;
-    color?: string;
-    borderWidth?: string | number;
-    borderStyle?: string;
-    borderColor?: string;
-    borderRadius?: string | number;
+  helperText?: string;
+  hideLabel?: boolean;
+  info?: string;
+  label?: string | JSX.Element;
+  name?: string;
+  required?: boolean;
+  showCC?: boolean;
+  isFocused?: boolean;
+  isError?: boolean;
+  isSuccess?: boolean;
+  isValidated?: boolean;
+  errors?: {
+    message: string;
+  }[];
+  rows?: string | number;
+  value?: any;
+  leftIcon?: React.ReactElement;
+  rightIcon?: React.ReactElement;
+  iconSpacing?: string | number;
+  children?: React.ReactNode;
 
-    onFocus?: (...args: any[]) => void;
-    onEnter?: (...args: any[]) => void;
-    onBlur?: (...args: any[]) => void;
-    onChange?: (...args: any[]) => void;
-}
+  width?: string | number;
+  height?: string | number;
+  background?: string;
+  color?: string;
+  borderWidth?: string | number;
+  borderStyle?: string;
+  borderColor?: string;
+  borderRadius?: string | number;
 
-export type TextFieldProps = Omit<BaseInputProps, "onChange" | "onFocus" | "onEnter"> & TextBaseProps;
-export type EmailInputProps = Omit<BaseInputProps, "onChange" | "onFocus" | "onEnter"> & TextBaseProps;
-export type NumberInputProps = Omit<BaseInputProps, "onChange" | "onFocus" | "onEnter"> & TextBaseProps;
+  onFocus?: (...args: any[]) => void;
+  onEnter?: (...args: any[]) => void;
+  onBlur?: (...args: any[]) => void;
+  onChange?: (...args: any[]) => void;
+};
 
-export type TextAreaProps = Omit<React.HTMLProps<HTMLTextAreaElement>, "onChange"|"onFocus"|"onEnter"> & TextBaseProps & {
-    type?: 'textarea';
+export type TextFieldProps = Omit<BaseInputProps, "onChange" | "onFocus" | "onEnter"> &
+  TextBaseProps;
+export type EmailInputProps = Omit<BaseInputProps, "onChange" | "onFocus" | "onEnter"> &
+  TextBaseProps;
+export type NumberInputProps = Omit<BaseInputProps, "onChange" | "onFocus" | "onEnter"> &
+  TextBaseProps;
+
+export type TextAreaProps = Omit<
+  React.HTMLProps<HTMLTextAreaElement>,
+  "onChange" | "onFocus" | "onEnter"
+> &
+  TextBaseProps & {
+    type?: "textarea";
     minRows?: number;
-}
+  };
 
 export type InputIconProps = {
-    className?: object;
-    children?: React.ReactNode | React.ReactElement | string;
-    iconSpacing?: string | number;
-    marginLeft?: string | number;
-    marginRight?: string | number;
+  className?: object;
+  children?: React.ReactNode | React.ReactElement | string;
+  iconSpacing?: string | number;
+  marginLeft?: string | number;
+  marginRight?: string | number;
 };
 
 export type TextInputIconStyleProps = {
-    props?: object | string;
-    marginLeft?: string | number;
-    marginRight?: string | number;
-}
+  props?: object | string;
+  marginLeft?: string | number;
+  marginRight?: string | number;
+};

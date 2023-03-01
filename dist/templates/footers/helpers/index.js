@@ -1,3 +1,3 @@
-export * from './links';
-export * from './logo';
-export * from './socials';
+export * from "./links";
+export * from "./logo";
+export * from "./socials";

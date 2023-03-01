@@ -1,3 +1,3 @@
 export type HeroProps = {
-    className?: string;
+  className?: string;
 };

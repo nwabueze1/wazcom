@@ -92,14 +92,5 @@ export var MbmcBlock6 = function (_a) {
     var displayCategories = function () {
         return categories.map(function (category, index) { return (_jsx(MbmcCard, __assign({}, category, { mode: mode, handleClick: handleClick }), index)); });
     };
-    return (_jsx("div", __assign({ className: classes.root }, { children: _jsxs("div", __assign({ className: classes.block6Container }, { children: [_jsxs("div", __assign({ className: classes.block6Content }, { children: [_jsx("h3", __assign({ className: clx(classes.block6Heading, activeElement === "".concat(String(index), ".heading") &&
-                                classes.block6ActiveElement), onClick: function () {
-                                return handleElementClick(mode, "".concat(String(index), ".heading"), handleClick);
-                            } }, { children: heading })), _jsx("p", __assign({ className: clx(classes.block6Description, activeElement === "".concat(String(index), ".description") &&
-                                classes.block6ActiveElement), onClick: function () {
-                                return handleElementClick(mode, "".concat(String(index), ".description"), handleClick);
-                            } }, { children: description }))] })), _jsx("div", __assign({ className: clx(classes.block6ScrollContainer, activeElement === "".concat(String(index), ".menu_uuid") &&
-                        classes.block6ActiveElement), onClick: function () {
-                        return handleElementClick(mode, "".concat(String(index), ".menu_uuid"), handleClick);
-                    } }, { children: displayCategories() }))] })) })));
+    return (_jsx("div", __assign({ className: classes.root }, { children: _jsxs("div", __assign({ className: classes.block6Container }, { children: [_jsxs("div", __assign({ className: classes.block6Content }, { children: [_jsx("h3", __assign({ className: clx(classes.block6Heading, activeElement === "".concat(String(index), ".heading") && classes.block6ActiveElement), onClick: function () { return handleElementClick(mode, "".concat(String(index), ".heading"), handleClick); } }, { children: heading })), _jsx("p", __assign({ className: clx(classes.block6Description, activeElement === "".concat(String(index), ".description") && classes.block6ActiveElement), onClick: function () { return handleElementClick(mode, "".concat(String(index), ".description"), handleClick); } }, { children: description }))] })), _jsx("div", __assign({ className: clx(classes.block6ScrollContainer, activeElement === "".concat(String(index), ".menu_uuid") && classes.block6ActiveElement), onClick: function () { return handleElementClick(mode, "".concat(String(index), ".menu_uuid"), handleClick); } }, { children: displayCategories() }))] })) })));
 };

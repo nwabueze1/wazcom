@@ -1,2 +1,4 @@
-/** !!-- Remember to update the function name !! */
-export declare const useCurrencyInputStyles: (props?: any) => import("@mui/styles").ClassNameMap<"root" | "input" | "required">;
+import { CurrencyIconStyleProps, CurrencyBaseProps } from "./types";
+export declare const useCurrencyInputStyles: (props: CurrencyBaseProps) => import("@mui/styles").ClassNameMap<"root" | "input" | "label" | "required" | "labelWrapper" | "helperTextDefault" | "helperTextSuccess" | "helperTextError" | "baseInput" | "baseTextArea" | "defaultInput" | "focusedInput" | "errorInput" | "successInput" | "textAreaContainer" | "textAreaInput" | "wordCount" | "currencyContainer" | "selectContainer" | "selectLabel" | "currencySelectRoot" | "currencySingle" | "currencyMultiple" | "selectInputClass">;
+export declare const useCurrencyIconStyles: (props: CurrencyIconStyleProps) => import("@mui/styles").ClassNameMap<"root" | "iconSpacing" | "currencySingle" | "currencyMultiple">;
+export declare const useSelectInputStyles: (props?: any) => import("@mui/styles").ClassNameMap<"root">;

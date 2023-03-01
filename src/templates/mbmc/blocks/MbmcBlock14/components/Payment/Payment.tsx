@@ -10,64 +10,64 @@ import { RestaurantContext } from "../../../../contexts";
 import { useCreateOrder } from "./hooks";
 
 export const Payment = () => {
-    const { clients, cart, loading: ctxtLoading, networkOperation } = useContext(RestaurantContext);
-    const classes = usePaymentStyles();
-    const { data, error, loading } = useQuery(GET_PAYMENT_METHODS, {
-        client: clients?.NICODEMUS,
-        variables: { service_uuid: cart?.restaurant?.uuid },
-    });
-    const [paymentMethods, setPaymentMethods] = useState<PaymentMethod[]>([]);
-    const [selectedMethod, setSelectedMethod] = useState<PaymentMethod>();
-    const createOrder = useCreateOrder();
+  const { clients, cart, loading: ctxtLoading, networkOperation } = useContext(RestaurantContext);
+  const classes = usePaymentStyles();
+  const { data, error, loading } = useQuery(GET_PAYMENT_METHODS, {
+    client: clients?.NICODEMUS,
+    variables: { service_uuid: cart?.restaurant?.uuid },
+  });
+  const [paymentMethods, setPaymentMethods] = useState<PaymentMethod[]>([]);
+  const [selectedMethod, setSelectedMethod] = useState<PaymentMethod>();
+  const createOrder = useCreateOrder();
 
-    useEffect(() => {
-        if (data) {
-            const { getPaymentMethods: paymentMethods } = data;
-            console.log(paymentMethods);
-            setPaymentMethods(paymentMethods);
-        }
+  useEffect(() => {
+    if (data) {
+      const { getPaymentMethods: paymentMethods } = data;
+      console.log(paymentMethods);
+      setPaymentMethods(paymentMethods);
+    }
 
-        if (error) {
-            console.log(error);
-        }
-    }, [data, error]);
+    if (error) {
+      console.log(error);
+    }
+  }, [data, error]);
 
-    const handleCreateOrder = async () => {
-        await createOrder(selectedMethod as PaymentMethod);
-    };
+  const handleCreateOrder = async () => {
+    await createOrder(selectedMethod as PaymentMethod);
+  };
 
-    const displayPaymentMethods = () =>
-        paymentMethods.map((paymentMethod, index) => (
-            <PaymentOption
-                key={index}
-                {...paymentMethodConfig[paymentMethod.type]}
-                config={JSON.parse(paymentMethod?.config ?? "{}")}
-                value={String(selectedMethod) ?? ""}
-                handleChange={(method: any) => {
-                    setSelectedMethod(method);
-                }}
-            />
-        ));
+  const displayPaymentMethods = () =>
+    paymentMethods.map((paymentMethod, index) => (
+      <PaymentOption
+        key={index}
+        {...paymentMethodConfig[paymentMethod.type]}
+        config={JSON.parse(paymentMethod?.config ?? "{}")}
+        value={String(selectedMethod) ?? ""}
+        handleChange={(method: any) => {
+          setSelectedMethod(method);
+        }}
+      />
+    ));
 
-    if (loading)
-        return (
-            <div>
-                <CircularProgress color="success" size="20px" />
-            </div>
-        );
-
+  if (loading)
     return (
-        <div className={classes.root}>
-            {displayPaymentMethods()}
-            <MbmcButton
-                variant="SECONDARY"
-                size="sm"
-                className={classes.paymentButton}
-                loading={ctxtLoading && networkOperation === "create.order"}
-                handleClick={handleCreateOrder}
-            >
-                Pay now
-            </MbmcButton>
-        </div>
+      <div>
+        <CircularProgress color="success" size="20px" />
+      </div>
     );
+
+  return (
+    <div className={classes.root}>
+      {displayPaymentMethods()}
+      <MbmcButton
+        variant="SECONDARY"
+        size="sm"
+        className={classes.paymentButton}
+        isLoading={ctxtLoading && networkOperation === "create.order"}
+        handleClick={handleCreateOrder}
+      >
+        Pay now
+      </MbmcButton>
+    </div>
+  );
 };

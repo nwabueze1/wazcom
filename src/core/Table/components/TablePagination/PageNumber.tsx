@@ -3,16 +3,16 @@ import { useTablePaginationStyles } from "./styles";
 import { PageNumberProps } from "./types";
 
 export const PageNumber: React.FC<PageNumberProps> = ({ onPageChange, page, currentPage }) => {
-    const classes = useTablePaginationStyles();
+  const classes = useTablePaginationStyles();
 
-    return (
-        <span
-            className={clx(classes.pageNumber, {
-                [classes.activePage]: page == currentPage,
-            })}
-            onClick={() => onPageChange(null, page)}
-        >
-            {page}
-        </span>
-    );
+  return (
+    <span
+      className={clx(classes.pageNumber, {
+        [classes.activePage]: page == currentPage,
+      })}
+      onClick={() => onPageChange(null, page)}
+    >
+      {page}
+    </span>
+  );
 };

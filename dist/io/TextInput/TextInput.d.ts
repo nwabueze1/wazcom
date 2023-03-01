@@ -14,4 +14,5 @@ import { TextAreaProps, TextFieldProps } from "./types";
 export declare const TextInput: FC<TextFieldProps>;
 export declare const TextArea: FC<Omit<TextAreaProps, "type">>;
 export declare const EmailInput: FC<Omit<TextFieldProps, "type">>;
+export declare const URLInput: FC<Omit<TextFieldProps, "type">>;
 export declare const NumberInput: FC<Omit<TextFieldProps, "type">>;

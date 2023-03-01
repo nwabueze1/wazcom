@@ -142,9 +142,7 @@ export var GqlComboBox = memo(function (_a) {
                     value = selectedValue;
                     if (!!label) return [3 /*break*/, 2];
                     setFetching(true);
-                    return [4 /*yield*/, handleAdd(selectedValue.startsWith("Add ")
-                            ? selectedValue.split("Add ")[1]
-                            : selectedValue)];
+                    return [4 /*yield*/, handleAdd(selectedValue.startsWith("Add ") ? selectedValue.split("Add ")[1] : selectedValue)];
                 case 1:
                     response = _b.sent();
                     label = response === null || response === void 0 ? void 0 : response.label;

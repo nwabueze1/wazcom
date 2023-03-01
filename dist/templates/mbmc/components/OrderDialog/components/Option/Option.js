@@ -61,8 +61,7 @@ export var Option = function (_a) {
         }
         else {
             var idx = newSelectedChoices.findIndex(function (selectedChoice) {
-                return selectedChoice.amount === choice.amount &&
-                    selectedChoice.name === choice.name;
+                return selectedChoice.amount === choice.amount && selectedChoice.name === choice.name;
             });
             newSelectedChoices.splice(idx, 1);
         }
@@ -108,5 +107,5 @@ export var Option = function (_a) {
                 return "You can pick multiple options";
         }
     };
-    return (_jsxs("div", __assign({ className: classes.root }, { children: [_jsxs("div", __assign({ className: classes.optionDescription }, { children: [_jsxs("div", { children: [_jsx("p", __assign({ className: classes.optionName }, { children: name })), _jsx("p", __assign({ className: classes.optionHelperText }, { children: displayOption() }))] }), type === 'selection' && _jsx("span", __assign({ className: classes.optionRequired }, { children: "REQUIRED" }))] })), displayConfig()] })));
+    return (_jsxs("div", __assign({ className: classes.root }, { children: [_jsxs("div", __assign({ className: classes.optionDescription }, { children: [_jsxs("div", { children: [_jsx("p", __assign({ className: classes.optionName }, { children: name })), _jsx("p", __assign({ className: classes.optionHelperText }, { children: displayOption() }))] }), type === "selection" && _jsx("span", __assign({ className: classes.optionRequired }, { children: "REQUIRED" }))] })), displayConfig()] })));
 };

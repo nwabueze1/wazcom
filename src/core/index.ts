@@ -9,6 +9,7 @@ export * from "./ImageSelector";
 export * from "./Loader";
 export * from "./MenuCard";
 export * from "./Table";
+export * from "./TableNew";
 export * from "./Notification";
 export * from "./Upload";
 export * from "./Modal";
@@ -16,6 +17,9 @@ export * from "./EmptyState";
 export * from "./Scheduler";
 export * from "./DateTimePicker";
 export * from "./LazyImage";
+export * from "./Selector";
+export * from "./Tag";
 
 export * from "./Button";
 export * from "./Tab";
+export * from "./Spinner";

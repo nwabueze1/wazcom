@@ -68,5 +68,7 @@ export var Checkout = function (_a) {
     var displaySteps = useCallback(function () {
         return steps.map(function (step, index) { return (_jsx(CheckoutStep, __assign({}, step, { isActive: activeStep === index }), index)); });
     }, [activeStep]);
-    return (_jsxs("div", __assign({ className: classes.root }, { children: [_jsxs("div", __assign({ className: classes.checkoutTitle, onClick: function () { setDisplay(false); } }, { children: [_jsx(BsArrowLeft, {}), _jsxs("p", { children: ["Items (", (_c = (_b = cart === null || cart === void 0 ? void 0 : cart.cartItems) === null || _b === void 0 ? void 0 : _b.length) !== null && _c !== void 0 ? _c : 0, ")"] })] })), displaySteps()] })));
+    return (_jsxs("div", __assign({ className: classes.root }, { children: [_jsxs("div", __assign({ className: classes.checkoutTitle, onClick: function () {
+                    setDisplay(false);
+                } }, { children: [_jsx(BsArrowLeft, {}), _jsxs("p", { children: ["Items (", (_c = (_b = cart === null || cart === void 0 ? void 0 : cart.cartItems) === null || _b === void 0 ? void 0 : _b.length) !== null && _c !== void 0 ? _c : 0, ")"] })] })), displaySteps()] })));
 };

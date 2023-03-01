@@ -1,3 +1,2 @@
-import { FC } from "react";
-import { NotificationProps } from "./types";
-export declare const Notification: FC<NotificationProps>;
+import { ToastProps } from "./types";
+export declare function Notification({ list, position, autoDelete, duration }: ToastProps): JSX.Element;

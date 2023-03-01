@@ -58,14 +58,13 @@ export var Scheduler = function (_a) {
             newValue.splice(index, 1);
         }
         else {
-            newValue[index] = { day: name, start_time: value, end_time: value };
+            newValue[index][name] = value;
         }
         onChange === null || onChange === void 0 ? void 0 : onChange({ name: componentName, value: newValue });
     }, [initialScheduleValue]);
     var addNewRow = useCallback(function () {
         var nextFieldId = days.filter(function (item) {
-            return item.id != 0 &&
-                !initialScheduleValue.some(function (option) { return Number(option.day) == item.id; });
+            return item.id != 0 && !initialScheduleValue.some(function (option) { return Number(option.day) == item.id; });
         })[0].id;
         onChange === null || onChange === void 0 ? void 0 : onChange({
             name: componentName,

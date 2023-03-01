@@ -11,7 +11,7 @@ var __assign = (this && this.__assign) || function () {
 };
 import { jsx as _jsx, jsxs as _jsxs } from "react/jsx-runtime";
 import { useAddMediaStyles } from "./styles";
-import { Button } from "../../../../core/Button";
+import { Button } from "../../../../core";
 import { Modal } from "@mui/material";
 import { UploadDialogue } from "./UploadDialogue";
 export var AddMedia = function (_a) {
@@ -19,5 +19,5 @@ export var AddMedia = function (_a) {
     var classes = useAddMediaStyles();
     var handleOpen = function () { return handleCloseMedia(true); };
     var handleClose = function () { return handleCloseMedia(false); };
-    return (_jsxs("div", { children: [!viewOnly && (_jsx(Button, __assign({ color: "primary", onClick: handleOpen }, { children: "Add New" }))), _jsx(Modal, __assign({ className: classes.modalBox, open: handleOpenMedia, onClose: handleClose }, { children: _jsx(UploadDialogue, { handleCloseMedia: handleCloseMedia, handleFilesSelection: handleFilesSelection }) }))] }));
+    return (_jsxs("div", { children: [!viewOnly && _jsx(Button, __assign({ onClick: handleOpen }, { children: "Add New" })), _jsx(Modal, __assign({ className: classes.modalBox, open: handleOpenMedia, onClose: handleClose }, { children: _jsx(UploadDialogue, { handleCloseMedia: handleCloseMedia, handleFilesSelection: handleFilesSelection }) }))] }));
 };

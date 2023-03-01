@@ -7,8 +7,8 @@ export var useNourStyles = makeStyles(function (theme) {
             display: "flex",
             justifyContent: "center",
             fontFamily: theme.design.font.openSans,
-            border: '1px solid transparent',
-            transition: 'all 0.3s ease-in',
+            border: "1px solid transparent",
+            transition: "all 0.3s ease-in",
         },
         paper: (_a = {
                 backgroundColor: theme.design.colors.waz_white,
@@ -19,17 +19,17 @@ export var useNourStyles = makeStyles(function (theme) {
                 padding: theme.spacing(3, 4),
                 alignItems: "center",
                 maxHeight: "72px",
-                boxShadow: 'none'
+                boxShadow: "none"
             },
             _a[theme.breakpoints.down("sm")] = {
-                padding: theme.spacing(3, 2)
+                padding: theme.spacing(3, 2),
             },
             _a),
         logo: {
             height: "40px",
             width: "50px",
-            border: '1px solid transparent',
-            transition: 'all 0.3s ease-in',
+            border: "1px solid transparent",
+            transition: "all 0.3s ease-in",
         },
         linksContainer: (_b = {
                 display: "flex",
@@ -41,7 +41,7 @@ export var useNourStyles = makeStyles(function (theme) {
             _b[theme.breakpoints.down("sm")] = {
                 gap: theme.spacing(1),
                 marginRight: theme.spacing(2),
-                marginBottom: theme.spacing(0.5)
+                marginBottom: theme.spacing(0.5),
             },
             _b),
         link: {
@@ -49,8 +49,8 @@ export var useNourStyles = makeStyles(function (theme) {
             textDecoration: "none",
             fontSize: theme.typography.fontSize,
             cursor: "pointer",
-            border: '1px solid transparent',
-            transition: 'all 0.3s ease-in',
+            border: "1px solid transparent",
+            transition: "all 0.3s ease-in",
         },
         socialsContainer: (_c = {
                 display: "flex",
@@ -59,23 +59,23 @@ export var useNourStyles = makeStyles(function (theme) {
             },
             _c[theme.breakpoints.down("sm")] = {
                 gap: theme.spacing(1.5),
-                marginBottom: theme.spacing(0.5)
+                marginBottom: theme.spacing(0.5),
             },
             _c),
         socialIntegration: {
             color: theme.design.colors.waz_black,
-            border: '1px solid transparent',
-            transition: 'all 0.3s ease-in',
+            border: "1px solid transparent",
+            transition: "all 0.3s ease-in",
         },
         hivedeckLogo: {
             width: "90px",
             height: "30px",
-            border: '1px solid transparent',
-            transition: 'all 0.3s ease-in',
+            border: "1px solid transparent",
+            transition: "all 0.3s ease-in",
         },
         activeElement: {
-            border: '1px dashed',
+            border: "1px dashed",
             borderColor: theme.design.colors.waz_primaryColor100,
-        }
+        },
     });
 });

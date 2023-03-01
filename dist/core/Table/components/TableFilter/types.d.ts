@@ -5,7 +5,7 @@ export type TableFilterProps = {
     setShowFilter: React.Dispatch<React.SetStateAction<boolean>>;
     fields: {
         name: string;
-        label: string;
+        label: string | JSX.Element;
     }[];
     values: TableDataProps;
     filters: Filter[];

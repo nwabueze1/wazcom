@@ -70,7 +70,7 @@ export var useMbmcBlock13Styles = makeStyles(function (theme) {
         link: {
             cursor: "pointer",
             textDecoration: "none",
-            color: '#000000',
+            color: "#000000",
             fontWeight: theme.typography.fontWeightMedium,
         },
         mrBarkers: {
@@ -152,8 +152,10 @@ export var useMbmcBlock13Styles = makeStyles(function (theme) {
             fontWeight: theme.typography.fontWeightMedium,
         },
         ctaMobile: {
-            color: theme.design.colors.waz_orangeColor100,
-            fontWeight: theme.typography.fontWeightMedium,
+            color: "".concat(theme.design.colors.waz_orangeColor100, " !important"),
+            fontWeight: "".concat(theme.typography.fontWeightMedium, " !important"),
+            fontSize: "".concat(theme.typography.fontSize + 2, "px !important"),
+            fontFamily: "".concat(theme.design.font.openSans, " !important"),
         },
         menuOptionMobile: (_j = {
                 display: "none"
