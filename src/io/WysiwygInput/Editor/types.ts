@@ -1,6 +1,6 @@
 
 export type EditorProps = {
-    handleContent: (content: string) => void;
-    handleImageModalState: (data?: string) => void;
-    embedUrl?: {url?: string, type?: string};
+   content: string;
+   handleChange: (content: string) => void;
+   embed?: { type: string, value: string };
 }

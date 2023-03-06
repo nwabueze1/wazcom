@@ -17,6 +17,10 @@ body > iframe {
     display: none;
 }
 
+.ql-container {
+    font-size: 14px;
+}
+
 .notify--type-1 .notify__text {
     font-family: 'Montserrat', sans-serif;
 }

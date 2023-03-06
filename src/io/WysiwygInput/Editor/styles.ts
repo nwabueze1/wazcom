@@ -1,31 +1,12 @@
 import makeStyles from "@mui/styles/makeStyles";
 import { Theme } from "@mui/material/styles";
 
-export const useEditorToolbarStyles = makeStyles((theme: Theme) => ({
+export const useEditorStyles = makeStyles((theme: Theme) => ({
     root: {
         display: "flex",
         flexDirection: "column",
         height: "100vh",
         position: "relative",
-    },
-    toolbar: {
-        background: theme.design.colors.waz_white,
-        flexWrap: "wrap",
-        border: `1px solid ${theme.design.colors.waz_primary700} !important`,
-        margin: theme.spacing(0, 2, 0, 2),
-        borderRadius: theme.spacing(0.625),
-        '& .ql-picker.ql-size' : {
-            width: theme.spacing(3.75),
-        },
-        '& .ql-picker.ql-header' : {
-            width: theme.spacing(6.75)
-        },
-        '& .ql-formats' : {
-            fontSize: theme.typography.fontSize - 4
-        }
-    },
-    toolbarItem: {
-        borderRight: `1px solid ${theme.design.colors.waz_primary700}`,
     },
     wordCount: {
         display: "flex",
@@ -42,23 +23,28 @@ export const useEditorToolbarStyles = makeStyles((theme: Theme) => ({
         width: "100%",
     },
     editor: {
-        color: theme.design.colors.waz_grey100,
+        color: theme.design.colors.waz_grey1,
+        fontSize: theme.typography.fontSize + 2,
         overflow: "auto",
         height: "100vh",
         position: "relative",
-        paddingTop: theme.spacing(4.375),
-    },
-    floatingBar: {
-        position: "absolute",
-        zIndex: 2,
     },
     quillEditor: {
+        "& img": {
+            position: "relative",
+            left: "20%",
+            width: "60%",
+            height: 400,
+        },
+
         "& .ql-container": {
             border: `0px solid ${theme.design.colors.waz_primary700} !important`,
         },
         "& .ql-editor .ql-video": {
-            width: "80%",
-            height: theme.spacing(37.5),
+            position: "relative",
+            left: "20%",
+            width: "60%",
+            height: 400,
         },
         "& .ql-editor": {
             paddingLeft: theme.spacing(2),

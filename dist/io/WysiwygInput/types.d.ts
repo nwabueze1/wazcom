@@ -1,14 +1,13 @@
 import { CommonProps } from "../../types";
-import { ApolloClient, NormalizedCacheObject } from "@apollo/client";
 export type WysiwygInputProps = CommonProps & {
-    label?: string;
-    value?: any;
-    client?: ApolloClient<NormalizedCacheObject>;
-    error?: boolean;
-    embedUrl?: {
-        url?: string;
-        type?: string;
+    value?: {
+        title: string;
+        content: string;
     };
-    Loader?: boolean;
-    handleImageModalState: (data?: string) => void;
+    embed?: {
+        type: string;
+        value: string;
+    };
+    initiateEmbed?: (type: string) => void;
+    error?: boolean;
 };
