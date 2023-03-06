@@ -17,7 +17,7 @@ import { EmbedButton } from "./EmbedButton";
 import clx from "classnames";
 export var WysiwygInput = function (_a) {
     var _b, _c;
-    var className = _a.className, onChange = _a.onChange, value = _a.value, embed = _a.embed;
+    var className = _a.className, onChange = _a.onChange, value = _a.value, embed = _a.embed, initiateEmbed = _a.initiateEmbed;
     var classes = useCreatePostInputStyles();
     var insertButtonTop = useMemo(function () {
         var _a;
@@ -30,5 +30,5 @@ export var WysiwygInput = function (_a) {
     var handleContentChange = function (content) {
         onChange === null || onChange === void 0 ? void 0 : onChange({ name: "content", value: content });
     };
-    return (_jsxs("div", __assign({ className: clx(className, classes.root) }, { children: [_jsx("div", __assign({ className: classes.postTitleInputParent }, { children: _jsx("input", { placeholder: "Add post title", className: classes.postTitleInput, value: (_b = value === null || value === void 0 ? void 0 : value.title) !== null && _b !== void 0 ? _b : "", onChange: handleTitleChange }) })), _jsx(Editor, { content: (_c = value === null || value === void 0 ? void 0 : value.content) !== null && _c !== void 0 ? _c : "", handleChange: handleContentChange, embed: embed }), _jsx("div", __assign({ style: { position: "absolute", top: insertButtonTop } }, { children: _jsx(EmbedButton, {}) }))] })));
+    return (_jsxs("div", __assign({ className: clx(className, classes.root) }, { children: [_jsx("div", __assign({ className: classes.postTitleInputParent }, { children: _jsx("input", { placeholder: "Add post title", className: classes.postTitleInput, value: (_b = value === null || value === void 0 ? void 0 : value.title) !== null && _b !== void 0 ? _b : "", onChange: handleTitleChange }) })), _jsx(Editor, { content: (_c = value === null || value === void 0 ? void 0 : value.content) !== null && _c !== void 0 ? _c : "", handleChange: handleContentChange, embed: embed }), _jsx("div", __assign({ style: { position: "absolute", top: insertButtonTop } }, { children: _jsx(EmbedButton, { initiateEmbed: initiateEmbed }) }))] })));
 };
