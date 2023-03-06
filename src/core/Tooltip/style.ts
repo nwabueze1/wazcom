@@ -1,0 +1,214 @@
+import makeStyles from "@mui/styles/makeStyles";
+import { BaseTheme } from "theme";
+
+/** !!-- Remember to update the function name !! */
+export const useTootipStyles = makeStyles((theme: BaseTheme) => ({
+  root: {
+    width: "fit-content",
+  },
+  container: {
+    width: "fit-content",
+  },
+
+  tooltipContainer: {
+    transitionDuration: "0.3s",
+    transitionProperty: "all",
+    transitionTimingFunction: "ease-in-out",
+    position: "relative",
+    width: "fit-content",
+    maxWidth: "200px",
+    display: "flex"
+  },
+
+
+  tooltip: {
+    border: `${theme.design.colors.waz_primary500} 1px solid`,
+    borderRadius: 4,
+    backgroundColor: theme.design.colors.waz_white,
+    background: "red",
+    width: "100%",
+    padding: theme.spacing(1),
+    color: theme.design.colors.waz_grey1,
+    fontSize: 10,
+    lineHeight: "18px"
+  },
+  tooltipIcon: {
+    color: theme.design.colors.waz_primary500,
+    margin: "auto 0"
+  },
+
+  tooltipArrow: {
+    position: "absolute",
+    backgroundColor: theme.design.colors.waz_white,
+    borderColor: theme.design.colors.waz_primary500,
+    borderWidth: "1px 0 0 1px",
+    borderStyle: "solid",
+    width: "10px",
+    height: "10px",
+    borderRadius: "0px 0px 3px 0px",
+    zIndex: ""
+  },
+
+  tooltipArrowBottom: {
+    left: 0,
+    right: 0,
+    margin: `${theme.spacing(-0.625)} auto 0`,
+    transform: "rotate(45deg)"
+  },
+
+  tooltipArrowTop: {
+    left: 0,
+    right: 0,
+    bottom: 0,
+    margin: `0 auto ${theme.spacing(-0.625)}`,
+    transform: "rotate(-135deg)",
+
+  },
+  tooltipArrowLeft: {
+    right: theme.spacing(-0.625),
+    bottom: 0,
+    top: 0,
+    transform: "rotate(135deg)",
+    margin: `auto 0`,
+  },
+
+  tooltipArrowRight: {
+    left: theme.spacing(-0.625),
+    bottom: 0,
+    top: 0,
+    transform: "rotate(-45deg)",
+    margin: `auto 0`,
+  },
+
+
+  icon: {
+    width: 20,
+    height: 20,
+    opacity: 1,
+  },
+  closeContainer: {
+    display: "flex",
+    justifyContent: "center",
+    alignItems: "center",
+    width: 24,
+    height: 24,
+    borderRadius: "100%",
+    backgroundColor: "#E7F1E9",
+  },
+  main: {
+    width: "100%",
+    display: "flex",
+    justifyContent: "space-between",
+    alignItems: "center",
+  },
+  message: {
+    color: theme.design.colors.grey100,
+    letterSpacing: 0,
+    fontSize: 10,
+    fontWeight: "normal",
+    padding: "8px 30px",
+    textAlign: "left",
+    width: "100%",
+  },
+  header: {
+    display: "flex",
+    justifyContent: "start",
+    alignItems: "center",
+    gap: 10,
+  },
+  title: {
+    fontSize: 14,
+    fontWeight: "normal",
+    color: theme.design.colors.grey100,
+    margin: 0,
+  },
+  success: {
+    color: theme.design.colors.waz_primary100,
+    borderLeftColor: theme.design.colors.waz_primary100,
+  },
+  error: {
+    color: theme.design.colors.error,
+    borderLeftColor: theme.design.colors.error,
+  },
+  info: {
+    color: theme.design.colors.info,
+    borderLeftColor: theme.design.colors.info,
+  },
+  warning: {
+    color: theme.design.colors.warning,
+    borderLeftColor: theme.design.colors.warning,
+  },
+  notificationContainer: {
+    fontSize: 14,
+    boxSizing: "border-box",
+    position: "fixed",
+    zIndex: 999999,
+    display: "flex",
+    flexDirection: "column",
+    gap: 5,
+  },
+  topRight: {
+    top: 12,
+    right: 12,
+    transition: "transform .6s ease-in-out",
+    animation: "$toastInRight .7s",
+  },
+  bottomRight: {
+    bottom: 12,
+    right: 12,
+    transition: "transform .6s ease-in-out",
+    animation: "$toastInRight .7s",
+  },
+  topLeft: {
+    top: 12,
+    left: 12,
+    transition: "transform .6s ease-in",
+    animation: "$toastInLeft .7s",
+  },
+  bottomLeft: {
+    bottom: 12,
+    left: 12,
+    transition: "transform .6s ease-in",
+    animation: "$toastInLeft .7s",
+  },
+  notification: {
+    background: "#FFFFFF",
+    transition: ".3s ease",
+    position: "relative",
+    pointerEvents: "auto",
+    overflow: "hidden",
+    margin: "0 0 6px",
+    padding: 30,
+    marginBottom: 15,
+    width: 300,
+    maxHeight: 100,
+    borderRadius: 3,
+    boxShadow: "0 0 10px #999999",
+    color: "#000000",
+    opacity: 0.9,
+    backgroundPosition: 15,
+    backgroundRepeat: "no-repeat",
+
+    "&:hover": {
+      boxShadow: " 0 0 12px #FFFFFF",
+      opacity: 1,
+      cursor: "pointer",
+    },
+  },
+  "@keyframes toastInRight": {
+    from: {
+      transform: "translateX(100%)",
+    },
+    to: {
+      transform: "translateX(0)",
+    },
+  },
+  "@keyframes toastInLeft": {
+    from: {
+      transform: "translateX(-100%)",
+    },
+    to: {
+      transform: "translateX(0)",
+    },
+  },
+}));

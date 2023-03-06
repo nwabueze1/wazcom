@@ -12,7 +12,7 @@ export const useNotificationStyles = makeStyles((theme: BaseTheme) => ({
     borderRadius: 4,
     borderLeftWidth: 5,
     borderLeftStyle: "solid",
-    padding: 15,
+    padding: theme.spacing(1.75),
   },
   container: {
     width: "100%",

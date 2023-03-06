@@ -1,10 +1,5 @@
 import { FC, useState } from "react";
-import clx from "classnames";
-import { BsCheckCircle } from "react-icons/bs";
-import { GrFormClose } from "react-icons/gr";
-import { RiErrorWarningLine } from "react-icons/ri";
-import { AiOutlineInfoCircle } from "react-icons/ai";
-import { Notification } from "../../core";
+import { Notification, Tag, Tootip } from "../../core";
 
 import { useNotificationStyles } from "./styles";
 import { NotificationProps } from "./types";
@@ -20,46 +15,67 @@ export const NotificationView: FC<NotificationProps> = () => {
         id: Math.floor(Math.random() * 101 + 1),
         title: "Success",
         description: "This is a success toast component",
+        message: "This is a success toast component",
         status: "success",
       },
     ]);
   };
 
+  const handleRemove = () => { }
+
   return (
-    <>
-      <div className={clx(classes.root, classes.success)}>
-        <div className={classes.container}>
-          <div className={classes.main}>
-            <div className={classes.header}>
-              {status === "success" && (
-                <BsCheckCircle className={clx(classes.icon, classes.success)} />
-              )}
-              {status === "warning" && (
-                <RiErrorWarningLine className={clx(classes.icon, classes.warning)} />
-              )}
-              {status === "info" && (
-                <AiOutlineInfoCircle className={clx(classes.icon, classes.info)} />
-              )}
-              {status === "error" && (
-                <AiOutlineInfoCircle className={clx(classes.icon, classes.error)} />
-              )}
-              <h3 className={classes.title}>{"Success"}</h3>
-            </div>
-            <div className={classes.closeContainer}>
-              <GrFormClose width={24} height={24} />
-            </div>
-          </div>
-          <div className={classes.message}>{"message"}</div>
-        </div>
+    <div className={classes.root}>
+
+
+      <button onClick={() => showToast()} className={classes.button}>Click to see notification</button>
+
+      <div className={classes.tooltipContainer} >
+        <Tootip content="You can either grant permission to a user by role or permissions. Switch the button below to make a choice" position="top" >
+          <button>
+            Tooltip top
+          </button>
+        </Tootip>
+
+        <Tootip content="You can either grant permission to a user by role or permissions. Switch the button below to make a choicetip You can either grant permission to a user by role or permissions. Switch the button below to make a choicetip" position="bottom">
+          <button>
+            Tooltip bottom
+          </button>
+        </Tootip>
+
+        <Tootip
+          content="You can either grant permission to a user by role or permissions. Switch the button below to make a choicetip You can either grant permission to a user by role or permissions. Switch the button below to make a choicetip"
+          position="right">
+          <button>
+            Tooltip right
+          </button></Tootip>
+        <Tootip content="You can either grant permission to a user by role or permissions. Switch the button below to make a choicetip" position="left">
+          <button>
+            Tooltip left
+          </button></Tootip>
       </div>
-      <button onClick={() => showToast()}>CLICK</button>
+
+      <div className={classes.tooltipContainer} >
+        <Tootip content="You can either grant permission to a user by role or permissions. Switch the button below to make a choice" position="top" />
+        <Tootip content="You can either grant permission to a user by role or permissions. Switch the button below to make a choice" position="bottom" />
+        <Tootip content="You can either grant permission to a user by role or permissions. Switch the button below to make a choice" position="left" />
+        <Tootip content="You can either grant permission to a user by role or permissions. Switch the button below to make a choice" position="right" />
+
+      </div>
+
+      <div className={classes.tooltipContainer} >
+        <Tag name="Website" />
+        <Tag name="Website" handleRemove={handleRemove} />
+
+
+      </div>
+
       <Notification
         status={"success"}
         list={list}
         position={"top-right"}
         autoDelete={true}
-        duration={1000}
+        duration={100000}
       />
-    </>
+    </div>
   );
 };
