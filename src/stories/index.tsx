@@ -600,10 +600,7 @@ export const stories: ComponentPropType[] = [
         name: "Wysiwyg Input",
         component: WysiwygInput,
         props: {
-            error: false,
-            feedback: { text: "feeback section", status: "error" },
         },
-        client: createApolloClient('https://ofambegbe-ambrosia.wazobia.uk/graphql'),
     },
     {
         name: "GqlComboBox",

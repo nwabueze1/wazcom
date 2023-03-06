@@ -10,6 +10,7 @@ export const WysiwygInput: React.FC<WysiwygInputProps> = ({
     onChange,
     value,
     embed,
+    initiateEmbed
 }) => {
     const classes = useCreatePostInputStyles();
     const insertButtonTop = useMemo(() => {
@@ -41,7 +42,7 @@ export const WysiwygInput: React.FC<WysiwygInputProps> = ({
                 embed={embed}
             />
             <div style={{ position: "absolute", top: insertButtonTop }}>
-                <EmbedButton />
+                <EmbedButton initiateEmbed={initiateEmbed} />
             </div>
         </div>
     );
