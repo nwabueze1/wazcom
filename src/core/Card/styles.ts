@@ -33,10 +33,12 @@ export const useCardStyles = makeStyles((theme: BaseTheme) => ({
     boxShadow: "0px 3px 15px ".concat(theme.design.colors.waz_black200),
     width: "291px",
     padding: theme.spacing(2),
+
   },
   serviceRoot: {
     boxShadow: "0px 3px 5px ".concat(theme.design.colors.waz_black300),
     padding: theme.spacing(2.25, 2),
+    width: "365px",
   },
   overviewRoot: {
     boxShadow: "0px 3px 15px ".concat(theme.design.colors.waz_black200),
