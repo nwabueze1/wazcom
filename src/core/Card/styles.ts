@@ -2,7 +2,15 @@ import makeStyles from "@mui/styles/makeStyles";
 import { BaseTheme } from "theme";
 
 export const useCardStyles = makeStyles((theme: BaseTheme) => ({
+
+
   root: {
+    display: "flex",
+    justifyContent: "space-between",
+    alignItems: "flex-start",
+    gap: theme.spacing(1),
+  },
+  column: {
     display: "flex",
     flexDirection: "column",
     gap: theme.spacing(2),
@@ -28,23 +36,77 @@ export const useCardStyles = makeStyles((theme: BaseTheme) => ({
   },
   serviceRoot: {
     boxShadow: "0px 3px 5px ".concat(theme.design.colors.waz_black300),
-    padding: theme.spacing(2),
+    padding: theme.spacing(2.25, 2),
   },
   overviewRoot: {
     boxShadow: "0px 3px 15px ".concat(theme.design.colors.waz_black200),
     padding: theme.spacing(1.5),
   },
+  titleContainer: {
+    gap: theme.spacing(2),
+  },
   cardTitle: {
-    color: theme.design.colors.waz_black,
     fontWeight: theme.typography.fontWeightBold,
+  },
+  cardLabel: {
+    color: theme.design.colors.waz_grey200,
+    fontSize: theme.typography.fontSize,
+    fontWeight: theme.typography.fontWeightBold,
+  },
+  templateCardTitle: {
+    color: theme.design.colors.waz_black,
     fontSize: theme.typography.fontSize,
   },
+  serviceTemplateCardTitle: {
+    color: theme.design.colors.waz_black,
+    fontSize: theme.typography.fontSize,
+  },
+  serviceCardTitle: {
+    color: theme.design.colors.waz_primaryBlack,
+    fontSize: theme.typography.fontSize + 4,
+    paddingBottom: theme.spacing(1),
+  },
+  overviewCardTitle: {
+    color: theme.design.colors.waz_primaryBlack,
+    fontSize: theme.typography.fontSize * 2,
+  },
+
   cardContent: {
     color: theme.design.colors.waz_grey1,
-    fontSize: "10px",
     textAlign: "left"
   },
 
+
+  templateContent: {
+    fontSize: theme.typography.fontSize - 2,
+  },
+  serviceTemplateContent: {
+    fontSize: theme.typography.fontSize - 2,
+
+  },
+  serviceContent: {
+    fontSize: theme.typography.fontSize + 2,
+    paddingBottom: theme.spacing(1),
+  },
+  overviewContent: {
+    fontSize: theme.typography.fontSize - 4,
+  },
+  rateContainer: {
+    gap: theme.spacing(.5),
+  },
+  rateContent: {
+    display: "flex",
+    justifyContent: "flex-start",
+    alignItems: "center",
+    fontSize: theme.typography.fontSize,
+    fontWeight: theme.typography.fontWeightBold,
+  },
+  ascendingRate: {
+    color: theme.design.colors.waz_primary100,
+  },
+  descendingRate: {
+    color: theme.design.colors.waz_dangerColor300,
+  },
   contentContainer: {
     display: "flex",
     flexDirection: "column",

@@ -1,5 +1,8 @@
-import { FC, useState, useCallback } from "react";
-import { Card, CardProps } from "../../core";
+import { FC, useState, } from "react";
+import { RiTodoLine } from "react-icons/ri";
+import { AiFillCheckCircle } from "react-icons/ai";
+
+import { Card, CardProps } from "core";
 
 import { useCardStyles } from "./styles";
 import { CardViewProps } from "./types";
@@ -31,7 +34,7 @@ export const CardView: FC<CardViewProps> = () => {
       status: {
         name: "Inactive",
       },
-      align: "center",
+
       primaryButtonProps: {},
       secondaryButtonProps: { variant: "outlined" },
       secondaryButtonText: "Set active",
@@ -53,7 +56,7 @@ export const CardView: FC<CardViewProps> = () => {
       status: {
         name: "Inactive",
       },
-      align: "center",
+
       primaryButtonProps: {},
       secondaryButtonProps: { variant: "outlined" },
       secondaryButtonText: "Set active",
@@ -61,47 +64,32 @@ export const CardView: FC<CardViewProps> = () => {
     },
     {
       variant: "service",
-      title: "MBMC",
+      title: "Blog service",
       content: "A Five pages restaurant templated with fully designed Home, About, Contact, Menu and Cart Pages",
       image: {
         src: "https://images.unsplash.com/photo-1504674900247-0877df9cc836?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=2070&q=80",
         alt: "MBMC",
       },
-      tags: [{
-        name: "Restaurant",
-      }, {
-        name: "Website",
-      }],
-      status: {
-        name: "Inactive",
-      },
-      align: "center",
+
+
       primaryButtonProps: {},
       secondaryButtonProps: { variant: "outlined" },
       secondaryButtonText: "Set active",
       primaryButtonText: "Preview",
+      icon: <RiTodoLine size={25} fill="#23803D" />,
+      footer: {
+        text: "Activated",
+        icon: <AiFillCheckCircle size={22} fill="#23803D" />,
+      }
     },
     {
       variant: "overview",
-      title: "MBMC",
-      content: "A Five pages restaurant templated with fully designed Home, About, Contact, Menu and Cart Pages",
-      image: {
-        src: "https://images.unsplash.com/photo-1504674900247-0877df9cc836?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=2070&q=80",
-        alt: "MBMC",
-      },
-      tags: [{
-        name: "Restaurant",
-      }, {
-        name: "Website",
-      }],
-      status: {
-        name: "Inactive",
-      },
-      align: "center",
-      primaryButtonProps: {},
-      secondaryButtonProps: { variant: "outlined" },
-      secondaryButtonText: "Set active",
-      primaryButtonText: "Preview",
+      title: "$175k",
+      content: "vs last month",
+      rate: { trend: "ascending", value: "25%" },
+      icon: <RiTodoLine fill="#23803D" />,
+      label: "Revenue"
+
     },
   ]
 
@@ -118,10 +106,10 @@ export const CardView: FC<CardViewProps> = () => {
         </div>
         <div className={classes.inputContainer}>
           <div className={classes.inputs}>
-            {cards.map(({ title, content, image, tags, align, variant, primaryButtonProps,
+            {cards.map(({ title, content, image, tags, variant, primaryButtonProps,
               primaryButtonText,
               secondaryButtonProps,
-              secondaryButtonText, status }, i) =>
+              secondaryButtonText, status, icon, rate, label, footer }, i) =>
               <>
                 <h1 className={classes.title}>{variant} Card</h1>
                 <Card
@@ -130,13 +118,16 @@ export const CardView: FC<CardViewProps> = () => {
                   content={content}
                   image={image}
                   tags={tags}
-                  align={align}
                   variant={variant}
                   status={status}
                   primaryButtonProps={primaryButtonProps}
                   primaryButtonText={primaryButtonText}
                   secondaryButtonProps={secondaryButtonProps}
                   secondaryButtonText={secondaryButtonText}
+                  icon={icon}
+                  rate={rate}
+                  label={label}
+                  footer={footer}
                 />
               </>
 
