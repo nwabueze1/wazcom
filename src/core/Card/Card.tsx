@@ -1,32 +1,53 @@
 import { FC, useCallback } from "react";
-import { Card as MuiCard, CardActions, CardMedia } from "@mui/material";
-import CardContent from "@mui/material/CardContent";
-import Typography from "@mui/material/Typography";
+import clx from "classnames";
+
+import { Tag } from "core";
 import { CardProps } from "./types";
 import { Button } from "..";
 import { useCardStyles } from "./styles";
-import clx from "classnames";
+
 
 export const Card: FC<CardProps> = ({
   className,
   title,
   content,
   image: { src, alt },
-  buttons,
+  tags,
   align = "left",
+  variant,
+  imageClassname,
+  primaryButtonProps,
+  secondaryButtonProps,
+  secondaryButtonText,
+  primaryButtonText,
+  status,
+  icon,
 }) => {
   const classes = useCardStyles();
-  const displayButtons = useCallback(() => {
-    return buttons?.values?.map((value, index) => (
-      <Button key={index} size={buttons?.size ?? "small"}>
-        {value}
-      </Button>
-    ));
-  }, [buttons]);
 
+  const getRootVariant = useCallback(() => {
+    let variantClass;
+    switch (variant) {
+      case "template":
+        variantClass = classes.templateRoot;
+        break;
+      case "service-template":
+        variantClass = classes.serviceTemplateRoot;
+        break;
+      case "service":
+        variantClass = classes.serviceRoot;
+        break;
+      case "overview":
+        variantClass = classes.overviewRoot;
+        break;
+      default:
+        variantClass = classes.templateRoot;
+    }
+
+    return variantClass;
+  }, [align]);
   const getAlignVariant = useCallback(() => {
     let variantClass;
-
     switch (align) {
       case "left":
         variantClass = classes.leftAlign;
@@ -44,16 +65,30 @@ export const Card: FC<CardProps> = ({
     return variantClass;
   }, [align]);
 
+
   return (
-    <MuiCard className={clx(classes.root, className, getAlignVariant())}>
-      <CardMedia component="img" height="140" image={src} alt={alt} />
-      <CardContent>
-        <Typography gutterBottom variant="h5" component="div">
-          {title}
-        </Typography>
-        <Typography variant="body2">{content}</Typography>
-      </CardContent>
-      <CardActions>{displayButtons()}</CardActions>
-    </MuiCard>
+    <div className={clx(classes.root, getRootVariant(), className, getAlignVariant())}>
+      {src && variant.includes("template") && <img src={src} alt={alt} className={imageClassname} />}
+      <div className={classes.contentContainer}>
+        <div className={clx(classes.justifyBetween)}>
+          <span className={classes.cardTitle} >
+            {title}
+          </span>
+          {status?.name && <Tag {...status} />}
+        </div>
+        <p className={classes.cardContent}>{content}</p>
+      </div>
+      <div className={clx(classes.justifyStart, classes.tagsContainer)}>
+        {tags?.map((tag) => <Tag {...tag} />)}
+      </div>
+      <div className={clx(classes.justifyStart, classes.buttonsContainer)}>
+        <Button {...primaryButtonProps}>
+          {primaryButtonText}
+        </Button>
+        <Button {...secondaryButtonProps}>
+          {secondaryButtonText}
+        </Button>
+      </div>
+    </div>
   );
 };
