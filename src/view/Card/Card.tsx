@@ -1,0 +1,151 @@
+import { FC, useState, useCallback } from "react";
+import { Card, CardProps } from "../../core";
+
+import { useCardStyles } from "./styles";
+import { CardViewProps } from "./types";
+
+export const CardView: FC<CardViewProps> = () => {
+  const [value, setValue] = useState(0);
+
+
+
+
+  const classes = useCardStyles();
+
+
+
+  const cards: CardProps[] = [
+    {
+      variant: "template",
+      title: "MBMC",
+      content: "A Five pages restaurant templated with fully designed Home, About, Contact, Menu and Cart Pages",
+      image: {
+        src: "https://images.unsplash.com/photo-1504674900247-0877df9cc836?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=2070&q=80",
+        alt: "MBMC",
+      },
+      tags: [{
+        name: "Restaurant",
+      }, {
+        name: "Website",
+      }],
+      status: {
+        name: "Inactive",
+      },
+      align: "center",
+      primaryButtonProps: {},
+      secondaryButtonProps: { variant: "outlined" },
+      secondaryButtonText: "Set active",
+      primaryButtonText: "Preview",
+    },
+    {
+      variant: "service-template",
+      title: "MBMC",
+      content: "A Five pages restaurant templated with fully designed Home, About, Contact, Menu and Cart Pages",
+      image: {
+        src: "https://images.unsplash.com/photo-1504674900247-0877df9cc836?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=2070&q=80",
+        alt: "MBMC",
+      },
+      tags: [{
+        name: "Restaurant",
+      }, {
+        name: "Website",
+      }],
+      status: {
+        name: "Inactive",
+      },
+      align: "center",
+      primaryButtonProps: {},
+      secondaryButtonProps: { variant: "outlined" },
+      secondaryButtonText: "Set active",
+      primaryButtonText: "Preview",
+    },
+    {
+      variant: "service",
+      title: "MBMC",
+      content: "A Five pages restaurant templated with fully designed Home, About, Contact, Menu and Cart Pages",
+      image: {
+        src: "https://images.unsplash.com/photo-1504674900247-0877df9cc836?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=2070&q=80",
+        alt: "MBMC",
+      },
+      tags: [{
+        name: "Restaurant",
+      }, {
+        name: "Website",
+      }],
+      status: {
+        name: "Inactive",
+      },
+      align: "center",
+      primaryButtonProps: {},
+      secondaryButtonProps: { variant: "outlined" },
+      secondaryButtonText: "Set active",
+      primaryButtonText: "Preview",
+    },
+    {
+      variant: "overview",
+      title: "MBMC",
+      content: "A Five pages restaurant templated with fully designed Home, About, Contact, Menu and Cart Pages",
+      image: {
+        src: "https://images.unsplash.com/photo-1504674900247-0877df9cc836?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=2070&q=80",
+        alt: "MBMC",
+      },
+      tags: [{
+        name: "Restaurant",
+      }, {
+        name: "Website",
+      }],
+      status: {
+        name: "Inactive",
+      },
+      align: "center",
+      primaryButtonProps: {},
+      secondaryButtonProps: { variant: "outlined" },
+      secondaryButtonText: "Set active",
+      primaryButtonText: "Preview",
+    },
+  ]
+
+  return (
+    <div className={classes.root}>
+      <div className={classes.container}>
+        <div className={classes.header}>
+          <h1 className={classes.title}>Card</h1>
+          <div className={classes.description}>
+            <p className={classes.descriptionText}>
+              A card is a container for carrying information. There is not too much limit to the types of content that can be carried. It makes a type of information centralised, enhances the sense of block and is easier to operate.
+            </p>
+          </div>
+        </div>
+        <div className={classes.inputContainer}>
+          <div className={classes.inputs}>
+            {cards.map(({ title, content, image, tags, align, variant, primaryButtonProps,
+              primaryButtonText,
+              secondaryButtonProps,
+              secondaryButtonText, status }, i) =>
+              <>
+                <h1 className={classes.title}>{variant} Card</h1>
+                <Card
+                  key={i}
+                  title={title}
+                  content={content}
+                  image={image}
+                  tags={tags}
+                  align={align}
+                  variant={variant}
+                  status={status}
+                  primaryButtonProps={primaryButtonProps}
+                  primaryButtonText={primaryButtonText}
+                  secondaryButtonProps={secondaryButtonProps}
+                  secondaryButtonText={secondaryButtonText}
+                />
+              </>
+
+
+            )}
+
+          </div>
+        </div>
+      </div>
+    </div>
+  );
+};

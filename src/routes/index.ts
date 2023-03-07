@@ -11,6 +11,7 @@ import { URLInputView } from "view/URLInput";
 import { CurrencyInputView } from "view/CurrencyInput";
 import { SelectInputView } from "view/SelectInput";
 import { TableView } from "../view/Table";
+import { CardView } from "view/Card";
 
 export default [
   {
@@ -24,6 +25,12 @@ export default [
     path: "/templates",
     exact: true,
     component: Templates,
+  },
+  {
+    key: "Card",
+    path: "/cards",
+    exact: true,
+    component: CardView,
   },
   {
     key: "TextInputView",

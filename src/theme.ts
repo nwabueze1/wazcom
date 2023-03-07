@@ -12,11 +12,11 @@ type ExtendedThemeOptions = {
 
 declare module "@mui/material/styles" {
   // eslint-disable-next-line @typescript-eslint/no-empty-interface
-  interface Theme extends ExtendedThemeOptions {}
+  interface Theme extends ExtendedThemeOptions { }
 
   // allow configuration using `createMuiTheme`
   // eslint-disable-next-line @typescript-eslint/no-empty-interface
-  interface ThemeOptions extends ExtendedThemeOptions {}
+  interface ThemeOptions extends ExtendedThemeOptions { }
 }
 
 export type BaseTheme = MuiTheme & ExtendedThemeOptions;
@@ -43,6 +43,8 @@ export const theme: any = {
     fontWeightMedium: 600,
     fontFamily: ["'Open Sans', sans-serif"].join(","),
     fontSize: 12,
+    fontSm: 10,
+    14: 10,
     fontWeightBold: "bold",
     h1: {
       fontSize: "2.25rem",
@@ -187,6 +189,8 @@ export const theme: any = {
       waz_whiteAlpha100: "#F0F0F0",
       waz_black: "#000000",
       waz_black100: "#00000014",
+      waz_black200: "#0000000D",
+      waz_black300: "#0000001A",
       waz_Grey: "#414141",
       waz_gray: "#BEBEBE",
       waz_blue: "#0889F7",

@@ -1,5 +1,10 @@
+import { ReactElement } from "react";
+import { ButtonProps, TagProps } from "core";
+
 import { CommonProps } from "../../types";
 
+
+export type CardVariantProps = "template" | "service-template" | "service" | "overview";
 export type CardProps = CommonProps & {
   image: {
     src: string;
@@ -8,9 +13,14 @@ export type CardProps = CommonProps & {
   title: string;
   content: string;
   align: "left" | "center" | "right";
-  buttons?: {
-    values: string[];
-    handleClick?: (path?: string) => void;
-    size?: "small" | "large";
-  };
+  variant: CardVariantProps;
+  imageClassname?: string;
+  primaryButtonText?: string;
+  secondaryButtonText?: string;
+  primaryButtonProps?: Omit<ButtonProps, "children">;
+  secondaryButtonProps?: Omit<ButtonProps, "children">;
+  tags?: TagProps[];
+  status?: TagProps;
+  icon: ReactElement;
+  footer: ReactElement;
 };
