@@ -52,11 +52,6 @@ export const ComboBoxInput: FC<ComboBoxInputProps> = ({
         setShowOptions(true);
     };
 
-    const handleBlur = () => {
-        // setShowOptions(false);
-        // setFilter("");
-    };
-
     const renderOptions = () => {
         const displayedOptions = isFocused
             ? options
@@ -99,7 +94,6 @@ export const ComboBoxInput: FC<ComboBoxInputProps> = ({
                     value={filter}
                     onChange={handleFilterChange}
                     onFocus={handleFocus}
-                    onBlur={handleBlur}
                     placeholder={placeholder}
                     isError={isError}
                     isSuccess={isSuccess}

@@ -66,10 +66,6 @@ export var ComboBoxInput = function (_a) {
         (optionLabels === null || optionLabels === void 0 ? void 0 : optionLabels.includes(filter === null || filter === void 0 ? void 0 : filter.toLowerCase())) && setIsFocused(true);
         setShowOptions(true);
     };
-    var handleBlur = function () {
-        // setShowOptions(false);
-        // setFilter("");
-    };
     var renderOptions = function () {
         var displayedOptions = isFocused
             ? options
@@ -87,5 +83,5 @@ export var ComboBoxInput = function (_a) {
     return (_jsx(ClickAwayListener, __assign({ onClickAway: function () {
             setShowOptions(false);
             setIsFocused(false);
-        } }, { children: _jsxs("div", __assign({ className: clx(classes.root, className) }, { children: [label && (_jsxs("label", __assign({ htmlFor: name, className: classes.comboBoxLabel }, { children: [label, required && _jsx("span", __assign({ className: classes.comboBoxRequired }, { children: "*" }))] }))), _jsx(TextInput, { value: filter, onChange: handleFilterChange, onFocus: handleFocus, onBlur: handleBlur, placeholder: placeholder, isError: isError, isSuccess: isSuccess, helperText: helperText }), showOptions && _jsx("div", __assign({ className: classes.comboBoxOptions }, { children: renderOptions() }))] })) })));
+        } }, { children: _jsxs("div", __assign({ className: clx(classes.root, className) }, { children: [label && (_jsxs("label", __assign({ htmlFor: name, className: classes.comboBoxLabel }, { children: [label, required && _jsx("span", __assign({ className: classes.comboBoxRequired }, { children: "*" }))] }))), _jsx(TextInput, { value: filter, onChange: handleFilterChange, onFocus: handleFocus, placeholder: placeholder, isError: isError, isSuccess: isSuccess, helperText: helperText }), showOptions && _jsx("div", __assign({ className: classes.comboBoxOptions }, { children: renderOptions() }))] })) })));
 };
