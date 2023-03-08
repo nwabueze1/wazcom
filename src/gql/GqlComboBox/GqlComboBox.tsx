@@ -26,8 +26,6 @@ export const GqlComboBox: FC<GqlComboBoxProps> = memo(
             setValue(initialValue);
         }, [initialValue]);
 
-        console.log("========",value)
-
         const fetchData = async () => {
             return await client.query({
                 query,
@@ -51,7 +49,7 @@ export const GqlComboBox: FC<GqlComboBoxProps> = memo(
                 setFetching(false);
             };
             getData();
-        }, []);
+        }, [query]);
 
         const handleChange = useCallback(
             async (selectedValue: string) => {

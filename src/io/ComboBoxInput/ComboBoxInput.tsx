@@ -39,6 +39,16 @@ export const ComboBoxInput: FC<ComboBoxInputProps> = ({
         setIsFocused(false);
     };
 
+    const handleFocus = () => {
+        const optionLabels = options?.map(({ label }) => label?.toLowerCase());
+        optionLabels?.includes(filter?.toLowerCase()) && setIsFocused(true);
+        setShowOptions(true);
+    }
+
+    const handleBlur = () => {
+        setFilter("");
+    }
+
     const renderOptions = () => {
         const displayedOptions = isFocused ? options : options.filter((option) =>
             option?.label?.toLowerCase()?.includes(filter.toLowerCase()),
@@ -78,11 +88,8 @@ export const ComboBoxInput: FC<ComboBoxInputProps> = ({
                 <TextInput
                     value={filter}
                     onChange={handleFilterChange}
-                    onFocus={() => {
-                        const optionLabels = options?.map(({ label }) => label?.toLowerCase());
-                        optionLabels?.includes(filter?.toLowerCase()) && setIsFocused(true);
-                        setShowOptions(true);
-                    }}
+                    onFocus={handleFocus}
+                    onBlur={handleBlur}
                     placeholder={placeholder}
                     isError={isError}
                     isSuccess={isSuccess}
