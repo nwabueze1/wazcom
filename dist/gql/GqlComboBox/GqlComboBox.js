@@ -96,7 +96,6 @@ export var GqlComboBox = memo(function (_a) {
     useEffect(function () {
         setValue(initialValue);
     }, [initialValue]);
-    console.log("========", value);
     var fetchData = function () { return __awaiter(void 0, void 0, void 0, function () {
         return __generator(this, function (_a) {
             switch (_a.label) {
@@ -132,7 +131,7 @@ export var GqlComboBox = memo(function (_a) {
             });
         }); };
         getData();
-    }, []);
+    }, [query]);
     var handleChange = useCallback(function (selectedValue) { return __awaiter(void 0, void 0, void 0, function () {
         var label, value, response;
         var _a;
