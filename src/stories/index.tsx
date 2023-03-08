@@ -616,8 +616,11 @@ export const stories: ComponentPropType[] = [
                 key: ["categoriesByBlogUuid", "data"],
             },
             variables: { blog_uuid: "a5ad9bed-679c-4190-a1a8-8b2d14bbb3c9" },
-            value: { label: "entertainment", value: 5 },
-            addOption: createNewCategory,
+            value: "26",
+            addOption: (tag: string) =>
+                    new Promise((resolve) =>
+                        resolve({ label: tag, value: String(Math.random() * 1000), status: true }),
+                    ),
         },
     },
     {

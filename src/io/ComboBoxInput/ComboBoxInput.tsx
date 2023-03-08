@@ -16,6 +16,7 @@ export const ComboBoxInput: FC<ComboBoxInputProps> = ({
     helperText,
     required,
     placeholder,
+    value,
     className,
 }) => {
     const classes = useComboBoxStyles();
@@ -27,6 +28,12 @@ export const ComboBoxInput: FC<ComboBoxInputProps> = ({
     useEffect(() => {
         setOptions(initialOptions);
     }, [initialOptions]);
+
+    useEffect(() => {
+        if (!value) return;
+        const filter = options?.find((option) => option.value === value)?.label ?? "";
+        setFilter(filter);
+    }, [value]);
 
     const handleSelect = (option: ComboBoxInputOptionProps) => {
         setFilter(option?.label);
@@ -43,16 +50,19 @@ export const ComboBoxInput: FC<ComboBoxInputProps> = ({
         const optionLabels = options?.map(({ label }) => label?.toLowerCase());
         optionLabels?.includes(filter?.toLowerCase()) && setIsFocused(true);
         setShowOptions(true);
-    }
+    };
 
     const handleBlur = () => {
-        setFilter("");
-    }
+        // setShowOptions(false);
+        // setFilter("");
+    };
 
     const renderOptions = () => {
-        const displayedOptions = isFocused ? options : options.filter((option) =>
-            option?.label?.toLowerCase()?.includes(filter.toLowerCase()),
-        );
+        const displayedOptions = isFocused
+            ? options
+            : options.filter((option) =>
+                  option?.label?.toLowerCase()?.includes(filter.toLowerCase()),
+              );
         displayedOptions.length === 0 &&
             isAdd &&
             displayedOptions.push({ label: "Add " + filter, value: filter });
