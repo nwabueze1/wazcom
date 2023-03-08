@@ -32,7 +32,7 @@ import { ClickAwayListener } from "@mui/base";
 import { TextInput } from "../TextInput";
 import clx from "classnames";
 export var ComboBoxInput = function (_a) {
-    var name = _a.name, _b = _a.isAdd, isAdd = _b === void 0 ? true : _b, onChange = _a.onChange, initialOptions = _a.options, label = _a.label, isError = _a.isError, isSuccess = _a.isSuccess, helperText = _a.helperText, required = _a.required, placeholder = _a.placeholder, className = _a.className;
+    var name = _a.name, _b = _a.isAdd, isAdd = _b === void 0 ? true : _b, onChange = _a.onChange, initialOptions = _a.options, label = _a.label, isError = _a.isError, isSuccess = _a.isSuccess, helperText = _a.helperText, required = _a.required, placeholder = _a.placeholder, value = _a.value, className = _a.className;
     var classes = useComboBoxStyles();
     var _c = __read(useState(""), 2), filter = _c[0], setFilter = _c[1];
     var _d = __read(useState(initialOptions), 2), options = _d[0], setOptions = _d[1];
@@ -41,6 +41,13 @@ export var ComboBoxInput = function (_a) {
     useEffect(function () {
         setOptions(initialOptions);
     }, [initialOptions]);
+    useEffect(function () {
+        var _a, _b;
+        if (!value)
+            return;
+        var filter = (_b = (_a = options === null || options === void 0 ? void 0 : options.find(function (option) { return option.value === value; })) === null || _a === void 0 ? void 0 : _a.label) !== null && _b !== void 0 ? _b : "";
+        setFilter(filter);
+    }, [value]);
     var handleSelect = function (option) {
         setFilter(option === null || option === void 0 ? void 0 : option.label);
         onChange === null || onChange === void 0 ? void 0 : onChange({ name: String(name), value: option === null || option === void 0 ? void 0 : option.value });
@@ -59,11 +66,10 @@ export var ComboBoxInput = function (_a) {
         (optionLabels === null || optionLabels === void 0 ? void 0 : optionLabels.includes(filter === null || filter === void 0 ? void 0 : filter.toLowerCase())) && setIsFocused(true);
         setShowOptions(true);
     };
-    var handleBlur = function () {
-        setFilter("");
-    };
     var renderOptions = function () {
-        var displayedOptions = isFocused ? options : options.filter(function (option) { var _a, _b; return (_b = (_a = option === null || option === void 0 ? void 0 : option.label) === null || _a === void 0 ? void 0 : _a.toLowerCase()) === null || _b === void 0 ? void 0 : _b.includes(filter.toLowerCase()); });
+        var displayedOptions = isFocused
+            ? options
+            : options.filter(function (option) { var _a, _b; return (_b = (_a = option === null || option === void 0 ? void 0 : option.label) === null || _a === void 0 ? void 0 : _a.toLowerCase()) === null || _b === void 0 ? void 0 : _b.includes(filter.toLowerCase()); });
         displayedOptions.length === 0 &&
             isAdd &&
             displayedOptions.push({ label: "Add " + filter, value: filter });
@@ -77,5 +83,5 @@ export var ComboBoxInput = function (_a) {
     return (_jsx(ClickAwayListener, __assign({ onClickAway: function () {
             setShowOptions(false);
             setIsFocused(false);
-        } }, { children: _jsxs("div", __assign({ className: clx(classes.root, className) }, { children: [label && (_jsxs("label", __assign({ htmlFor: name, className: classes.comboBoxLabel }, { children: [label, required && _jsx("span", __assign({ className: classes.comboBoxRequired }, { children: "*" }))] }))), _jsx(TextInput, { value: filter, onChange: handleFilterChange, onFocus: handleFocus, onBlur: handleBlur, placeholder: placeholder, isError: isError, isSuccess: isSuccess, helperText: helperText }), showOptions && _jsx("div", __assign({ className: classes.comboBoxOptions }, { children: renderOptions() }))] })) })));
+        } }, { children: _jsxs("div", __assign({ className: clx(classes.root, className) }, { children: [label && (_jsxs("label", __assign({ htmlFor: name, className: classes.comboBoxLabel }, { children: [label, required && _jsx("span", __assign({ className: classes.comboBoxRequired }, { children: "*" }))] }))), _jsx(TextInput, { value: filter, onChange: handleFilterChange, onFocus: handleFocus, placeholder: placeholder, isError: isError, isSuccess: isSuccess, helperText: helperText }), showOptions && _jsx("div", __assign({ className: classes.comboBoxOptions }, { children: renderOptions() }))] })) })));
 };
