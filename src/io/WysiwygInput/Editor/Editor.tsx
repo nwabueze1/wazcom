@@ -22,8 +22,8 @@ export const Editor: React.FC<EditorProps> = ({ content, handleChange, embed }) 
         const { type, value } = embed;
         if (type === "link") {
             const [text, url] = value.split("||>>");
-            quillObj.insertText(0, text, "user");
-            quillObj.setSelection(0, text.length);
+            quillObj.insertText(range.index, text, "user");
+            quillObj.setSelection(range.index, text.length);
             quillObj.theme.tooltip.edit("link", url);
             quillObj.theme.tooltip.save();
         } else quillObj.editor.insertEmbed(range.index, type, value);

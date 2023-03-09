@@ -39,7 +39,7 @@ export var useInsertButtonStyles = makeStyles(function (theme) { return ({
         justifyContent: 'flex-start'
     },
     linkIcon: {
-        fontSize: theme.typography.fontSize,
+        fontSize: theme.typography.fontSize + 4,
     },
     showOptions: {
         display: 'flex'
