@@ -9,6 +9,7 @@ export * from "./Loader";
 export * from "./MenuCard";
 export * from "./Table";
 export * from "./TableNew";
+export * from "./Tooltip";
 export * from "./Notification";
 export * from "./Upload";
 export * from "./Modal";

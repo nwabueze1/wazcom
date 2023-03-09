@@ -25,7 +25,7 @@ var __read = (this && this.__read) || function (o, n) {
     }
     return ar;
 };
-import { jsx as _jsx, jsxs as _jsxs } from "react/jsx-runtime";
+import { jsxs as _jsxs, jsx as _jsx } from "react/jsx-runtime";
 import { useCallback, useEffect, useMemo, useState } from "react";
 import { useLocation, useNavigate } from "react-router-dom";
 import clx from "classnames";
@@ -57,8 +57,8 @@ export var Tab = function (_a) {
         navigate({ pathname: pathname, search: query.toString() });
     }, [activeTab, query]);
     return (_jsxs("div", __assign({ className: clx(classes.root, className) }, { children: [_jsx("div", __assign({ className: tabHeaderClassName }, { children: _jsx("div", __assign({ className: clx(classes.tabs, containerClassName) }, { children: controls.map(function (_a, index) {
-                        var name = _a.name, title = _a.title;
-                        return (_jsx("div", __assign({ onClick: function () { return handleTabClick(name); }, className: clx(classes.tab, name == activeTab && classes.tabIsActive, name == activeTab && activeTabClassName, snakeCase(title), snakeCase(name)) }, { children: title }), index));
+                        var name = _a.name, title = _a.title, icon = _a.icon;
+                        return (_jsxs("div", __assign({ onClick: function () { return handleTabClick(name); }, className: clx(classes.tab, name == activeTab && classes.tabIsActive, name == activeTab && activeTabClassName, snakeCase(title), snakeCase(name)) }, { children: [icon && icon, "   ", title] }), index));
                     }) })) })), _jsx("div", __assign({ className: clx(classes.contentWrapper, snakeCase("".concat(activeTab, " content"))) }, { children: controls.map(function (_a, index) {
                     var name = _a.name, component = _a.component;
                     return (_jsx("div", __assign({ className: clx(classes.content, name == activeTab && classes.contentIsActive) }, { children: component }), index));

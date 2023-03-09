@@ -16,16 +16,17 @@ import {
 } from "../core";
 
 import {
-  CheckBoxInputProps,
-  ComboBoxInputProps,
-  RichTextInputProps,
-  SelectInputProps,
-  InputGroupProps,
-  TextInputProps,
-  ToggleInputProps,
-  RadioButtonInputProps,
-  CurrencyInputProps,
-  PhoneNumberInputProps,
+    CheckBoxInputProps,
+    ComboBoxInputProps,
+    RichTextInputProps,
+    SelectInputProps,
+    InputGroupProps,
+    TextInputProps,
+    ToggleInputProps,
+    RadioButtonInputProps,
+    WysiwygInputProps,
+    CurrencyInputProps,
+    PhoneNumberInputProps
 } from "../io";
 
 import { GqlComboBoxProps, GqlMediaLibraryProps, GqlMediaLibrarySelectorProps } from "../gql";
@@ -36,34 +37,35 @@ export type ComponentPropType = {
   component: any;
   name: string;
 } & (
-  | AccordionStory
-  | BreadCrumbStory
-  | ButtonStory
-  | CardStory
-  | CheckBoxStory
-  | LoaderStory
-  | CarouselStory
-  | ComboBoxStory
-  | TextStory
-  | GalleryStory
-  | ImageSelectorStory
-  | ToggleStory
-  | TableStory
-  | TableNewStory
-  | MenuCardStory
-  | DisplayCardStory
-  | NotificationStory
-  | RadioButtonStory
-  | SelectStory
-  | RichTextStory
-  | GqlComboBoxStory
-  | EmptyStateStory
-  | SchedulerStory
-  | InputGroupStory
-  | GqlMediaLibraryStory
-  | GqlMediaLibrarySelectorStory
-  | CurrencyInputStory
-  | PhoneNumberInputStroy
+    | AccordionStory
+    | BreadCrumbStory
+    | ButtonStory
+    | CardStory
+    | CheckBoxStory
+    | LoaderStory
+    | CarouselStory
+    | ComboBoxStory
+    | TextStory
+    | GalleryStory
+    | ImageSelectorStory
+    | ToggleStory
+    | TableStory
+    | TableNewStory
+    | MenuCardStory
+    | DisplayCardStory
+    | NotificationStory
+    | RadioButtonStory
+    | SelectStory
+    | RichTextStory
+    | GqlComboBoxStory
+    | EmptyStateStory
+    | SchedulerStory
+    | InputGroupStory
+    | GqlMediaLibraryStory
+    | GqlMediaLibrarySelectorStory
+    | CurrencyInputStory
+    | PhoneNumberInputStroy
+    | WysiwygStory
 );
 
 export type TemplatePropType = {
@@ -149,6 +151,9 @@ type SelectStory = {
 
 type RichTextStory = {
   props: RichTextInputProps;
+};
+type WysiwygStory = {
+    props: WysiwygInputProps;
 };
 
 type CurrencyInputStory = {
