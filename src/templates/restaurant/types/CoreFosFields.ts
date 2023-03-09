@@ -5,9 +5,9 @@ import { CoreOrderFields } from "./CoreOrderFields";
 import { CoreRestaurantFields } from "./CoreRestaurantFields";
 
 export type CoreFosFields = {
-    restaurant: CoreRestaurantFields & { isOpen?: boolean };
-    cart?: CoreCartFields;
-    customer?: CoreCustomerFields;
-    address?: CoreAddressFields;
-    order?: CoreOrderFields;
+  restaurant: CoreRestaurantFields & { isOpen?: boolean };
+  cart?: CoreCartFields;
+  customer?: CoreCustomerFields;
+  address?: CoreAddressFields;
+  order?: CoreOrderFields;
 };

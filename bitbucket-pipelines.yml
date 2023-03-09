@@ -1,4 +1,4 @@
-image: node:14.6.0
+image: node:16.18.1
 
 pipelines:
   default:
@@ -6,4 +6,5 @@ pipelines:
         name: "Building Wazcom..."
         script:
           - yarn install
-          - yarn lint-check
+          - yarn format
+          - yarn lint

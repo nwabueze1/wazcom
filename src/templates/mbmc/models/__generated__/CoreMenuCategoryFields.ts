@@ -8,7 +8,7 @@
 // ====================================================
 
 export interface CoreMenuCategoryFields {
-    id: string;
-    uuid: string;
-    title: string;
+  id: string;
+  uuid: string;
+  title: string;
 }

@@ -9,38 +9,38 @@ import MoreVertIcon from "@mui/icons-material/MoreVert";
 import { ToggleInput } from "../../io/ToggleInput/ToggleInput";
 
 export const MenuCard: FC<MenuCardProps> = ({
-    className,
-    amount,
-    description,
-    title,
-    status,
-    image: { src },
+  className,
+  amount,
+  description,
+  title,
+  status,
+  image: { src },
 }) => {
-    const classes = useMenuCardStyles();
+  const classes = useMenuCardStyles();
 
-    return (
-        <Card className={clx(classes.root, className, classes.disableState)} variant="outlined">
-            <CardContent className={classes.cardContents}>
-                <div className={classes.outerBar}>
-                    <div
-                        className={classes.imgField}
-                        style={{
-                            backgroundImage: `url(${src})`,
-                        }}
-                    ></div>
-                </div>
-                <div className={classes.mealDetail}>
-                    <Typography className={classes.mealName} variant="h5">
-                        {title}
-                    </Typography>
-                    <Typography className={classes.details}>{description}</Typography>
-                    <Typography className={classes.price}>{amount}</Typography>
-                </div>
-                <div className={classes.icons}>
-                    <MoreVertIcon className={classes.vert} />
-                    <ToggleInput name="" checked={status} />
-                </div>
-            </CardContent>
-        </Card>
-    );
+  return (
+    <Card className={clx(classes.root, className, classes.disableState)} variant="outlined">
+      <CardContent className={classes.cardContents}>
+        <div className={classes.outerBar}>
+          <div
+            className={classes.imgField}
+            style={{
+              backgroundImage: `url(${src})`,
+            }}
+          ></div>
+        </div>
+        <div className={classes.mealDetail}>
+          <Typography className={classes.mealName} variant="h5">
+            {title}
+          </Typography>
+          <Typography className={classes.details}>{description}</Typography>
+          <Typography className={classes.price}>{amount}</Typography>
+        </div>
+        <div className={classes.icons}>
+          <MoreVertIcon className={classes.vert} />
+          <ToggleInput name="" checked={status} />
+        </div>
+      </CardContent>
+    </Card>
+  );
 };

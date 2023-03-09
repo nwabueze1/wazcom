@@ -2,190 +2,190 @@ import makeStyles from "@mui/styles/makeStyles";
 import { Theme } from "@mui/material/styles";
 
 export const useNovalStyles = makeStyles<Theme>((theme: Theme) => ({
-    root: {
-        fontFamily: theme.design.font.dmSans,
+  root: {
+    fontFamily: theme.design.font.dmSans,
+  },
+  container: {
+    width: "95%",
+    maxWidth: theme.include.styles.templates.maxWidth,
+    fontFamily: theme.design.font.dmSans,
+    padding: theme.spacing(5.5, 0),
+    height: "100%",
+    margin: "auto",
+    [theme.breakpoints.down("md")]: {
+      width: "90%",
+      margin: "auto",
     },
-    container: {
-        width: "95%",
-        maxWidth: theme.include.styles.templates.maxWidth,
-        fontFamily: theme.design.font.dmSans,
-        padding: theme.spacing(5.5, 0),
-        height: "100%",
-        margin: "auto",
-        [theme.breakpoints.down("md")]: {
-            width: "90%",
-            margin: "auto",
-        },
+  },
+  featuredImageContainer: {
+    width: "47%",
+    height: 360,
+    position: "relative",
+    [theme.breakpoints.down("md")]: {
+      width: "100%",
+      height: 432,
     },
-    featuredImageContainer: {
-        width: "47%",
-        height: 360,
-        position: "relative",
-        [theme.breakpoints.down("md")]: {
-            width: "100%",
-            height: 432,
-        },
-        [theme.breakpoints.down("sm")]: {
-            height: 220,
-        },
+    [theme.breakpoints.down("sm")]: {
+      height: 220,
     },
-    featuredImage: {
-        position: "absolute",
-        top: 0,
-        height: "100%",
-        width: "100%",
-        objectFit: "cover",
+  },
+  featuredImage: {
+    position: "absolute",
+    top: 0,
+    height: "100%",
+    width: "100%",
+    objectFit: "cover",
+  },
+  header: {
+    display: "flex",
+    justifyContent: "space-between",
+    [theme.breakpoints.down("md")]: {
+      flexDirection: "column",
     },
-    header: {
-        display: "flex",
-        justifyContent: "space-between",
-        [theme.breakpoints.down("md")]: {
-            flexDirection: "column",
-        },
+  },
+  tag: {
+    padding: theme.spacing(0.5),
+    fontSize: theme.typography.fontSize,
+    textTransform: "capitalize",
+    borderRadius: 4,
+    background: theme.design.colors.waz_grey300,
+    color: theme.design.colors.waz_grey400,
+  },
+  tags: {
+    display: "flex",
+    gap: theme.spacing(1),
+  },
+  blogInfoContainer: {
+    width: "49%",
+    [theme.breakpoints.down("md")]: {
+      width: "100%",
+      margin: theme.spacing(6, 0, 1, 0),
     },
-    tag: {
-        padding: theme.spacing(0.5),
-        fontSize: theme.typography.fontSize,
-        textTransform: "capitalize",
-        borderRadius: 4,
-        background: theme.design.colors.waz_grey300,
-        color: theme.design.colors.waz_grey400,
+  },
+  title: {
+    fontSize: theme.typography.fontSize * 3,
+    fontWeight: theme.typography.fontWeightBold,
+    lineHeight: "48px",
+    marginTop: theme.spacing(1),
+    [theme.breakpoints.down("sm")]: {
+      fontSize: theme.typography.fontSize * 2,
+      lineHeight: "28px",
     },
-    tags: {
-        display: "flex",
-        gap: theme.spacing(1),
+  },
+  avatar: {
+    position: "relative",
+    height: 32,
+    width: 32,
+    borderRadius: "50%",
+  },
+  avatarImage: {
+    borderRadius: "50%",
+  },
+  writtenBy: {
+    fontStyle: "italic",
+    color: theme.design.colors.waz_grey100,
+    fontSize: theme.typography.fontSize + 2,
+    textTransform: "capitalize",
+  },
+  author: {
+    fontStyle: "normal",
+    color: theme.design.colors.waz_black,
+  },
+  blogInfo: {
+    display: "flex",
+    alignItems: "center",
+    gap: theme.spacing(1.5),
+    marginTop: theme.spacing(3),
+  },
+  postedTime: {
+    [theme.breakpoints.down("sm")]: {
+      fontSize: theme.typography.fontSize,
     },
-    blogInfoContainer: {
-        width: "49%",
-        [theme.breakpoints.down("md")]: {
-            width: "100%",
-            margin: theme.spacing(6, 0, 1, 0),
-        },
+  },
+  contentContainer: {
+    display: "flex",
+    justifyContent: "space-between",
+    marginTop: theme.spacing(6),
+    [theme.breakpoints.down("md")]: {
+      flexDirection: "column",
     },
-    title: {
-        fontSize: theme.typography.fontSize * 3,
-        fontWeight: theme.typography.fontWeightBold,
-        lineHeight: "48px",
-        marginTop: theme.spacing(1),
-        [theme.breakpoints.down("sm")]: {
-            fontSize: theme.typography.fontSize * 2,
-            lineHeight: "28px",
-        },
+    [theme.breakpoints.down("sm")]: {
+      marginTop: theme.spacing(3),
     },
-    avatar: {
-        position: "relative",
-        height: 32,
-        width: 32,
-        borderRadius: "50%",
+  },
+  content: {
+    color: theme.design.colors.waz_primaryBlack,
+    fontSize: theme.typography.fontSize + 6,
+    fontFamily: theme.design.font.dmSans,
+    width: "60%",
+    lineHeight: "28px",
+    "& p": {
+      margin: theme.spacing(1.5, 0),
     },
-    avatarImage: {
-        borderRadius: "50%",
+    "& h1, h2, h3, h4, h5, h6": {
+      margin: theme.spacing(2.5, 0),
     },
-    writtenBy: {
-        fontStyle: "italic",
-        color: theme.design.colors.waz_grey100,
-        fontSize: theme.typography.fontSize + 2,
-        textTransform: "capitalize",
+    "& img": {
+      margin: theme.spacing(4, "auto"),
+      maxWidth: "100%",
+      height: "100%",
+      display: "flex",
     },
-    author: {
-        fontStyle: "normal",
-        color: theme.design.colors.waz_black,
+    [theme.breakpoints.down("md")]: {
+      width: "100%",
     },
-    blogInfo: {
-        display: "flex",
-        alignItems: "center",
-        gap: theme.spacing(1.5),
-        marginTop: theme.spacing(3),
+  },
+  fullContentWidth: {
+    width: "100%",
+  },
+  relatedArticles: {
+    width: "34%",
+    justifyContent: "space-between",
+    [theme.breakpoints.down("md")]: {
+      width: "100%",
+      margin: theme.spacing(7, 0, 7, 0),
     },
-    postedTime: {
-        [theme.breakpoints.down("sm")]: {
-            fontSize: theme.typography.fontSize,
-        },
+  },
+  relatedPost: {
+    fontSize: theme.typography.fontSize + 8,
+    fontWeight: theme.typography.fontWeightMedium,
+    marginBottom: theme.spacing(3),
+  },
+  sharePost: {
+    fontSize: theme.typography.fontSize,
+    padding: theme.spacing(2, 0, 1, 0),
+  },
+  posts: {
+    [theme.breakpoints.down("md")]: {
+      display: "flex",
+      flexWrap: "wrap",
+      gap: theme.spacing(3),
     },
-    contentContainer: {
-        display: "flex",
-        justifyContent: "space-between",
-        marginTop: theme.spacing(6),
-        [theme.breakpoints.down("md")]: {
-            flexDirection: "column",
-        },
-        [theme.breakpoints.down("sm")]: {
-            marginTop: theme.spacing(3),
-        },
-    },
-    content: {
-        color: theme.design.colors.waz_primaryBlack,
-        fontSize: theme.typography.fontSize + 6,
-        fontFamily: theme.design.font.dmSans,
-        width: "60%",
-        lineHeight: "28px",
-        "& p": {
-            margin: theme.spacing(1.5, 0),
-        },
-        "& h1, h2, h3, h4, h5, h6": {
-            margin: theme.spacing(2.5, 0),
-        },
-        "& img": {
-            margin: theme.spacing(4, "auto"),
-            maxWidth: "100%",
-            height: "100%",
-            display: "flex",
-        },
-        [theme.breakpoints.down("md")]: {
-            width: "100%",
-        },
-    },
-    fullContentWidth: {
-        width: "100%",
-    },
-    relatedArticles: {
-        width: "34%",
-        justifyContent: "space-between",
-        [theme.breakpoints.down("md")]: {
-            width: "100%",
-            margin: theme.spacing(7, 0, 7, 0),
-        },
-    },
-    relatedPost: {
-        fontSize: theme.typography.fontSize + 8,
-        fontWeight: theme.typography.fontWeightMedium,
-        marginBottom: theme.spacing(3),
-    },
-    sharePost: {
-        fontSize: theme.typography.fontSize,
-        padding: theme.spacing(2, 0, 1, 0),
-    },
-    posts: {
-        [theme.breakpoints.down("md")]: {
-            display: "flex",
-            flexWrap: "wrap",
-            gap: theme.spacing(3),
-        },
-    },
-    shareContainer: {
-        marginTop: theme.spacing(2),
-    },
-    socialIcons: {
-        display: "flex",
-        gap: theme.spacing(2),
-    },
-    shareText: {
-        fontSize: theme.typography.fontSize,
-        color: theme.design.colors.waz_grey200,
-        marginBottom: theme.spacing(1),
-    },
-    defaultAvatar: {
-        height: 32,
-        width: 32,
-        borderRadius: "50%",
-        display: "flex",
-        justifyContent: "center",
-        alignItems: "center",
-        fontSize: theme.typography.fontSize + 4,
-        color: theme.design.colors.waz_white,
-        background: theme.design.colors.waz_orange,
-    },
-    footer: {
-        marginTop: theme.spacing(10),
-    },
+  },
+  shareContainer: {
+    marginTop: theme.spacing(2),
+  },
+  socialIcons: {
+    display: "flex",
+    gap: theme.spacing(2),
+  },
+  shareText: {
+    fontSize: theme.typography.fontSize,
+    color: theme.design.colors.waz_grey200,
+    marginBottom: theme.spacing(1),
+  },
+  defaultAvatar: {
+    height: 32,
+    width: 32,
+    borderRadius: "50%",
+    display: "flex",
+    justifyContent: "center",
+    alignItems: "center",
+    fontSize: theme.typography.fontSize + 4,
+    color: theme.design.colors.waz_white,
+    background: theme.design.colors.waz_orange,
+  },
+  footer: {
+    marginTop: theme.spacing(10),
+  },
 }));

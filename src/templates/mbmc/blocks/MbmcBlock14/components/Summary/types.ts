@@ -1,4 +1,3 @@
-
 export type SummaryProps = {
-    handleCheckout: () => void;
-}
+  handleCheckout: () => void;
+};

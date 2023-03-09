@@ -6,6 +6,7 @@ import { EmbedButton } from "./EmbedButton";
 import clx from "classnames";
 
 export const WysiwygInput: React.FC<WysiwygInputProps> = ({
+<<<<<<< HEAD
     className,
     onChange,
     value,
@@ -45,6 +46,53 @@ export const WysiwygInput: React.FC<WysiwygInputProps> = ({
             <div style={{ position: "absolute", top: insertButtonTop }}>
                 <EmbedButton initiateEmbed={initiateEmbed} />
             </div>
+=======
+  name,
+  className,
+  classNames,
+  embedUrl,
+  onChange,
+  error,
+  handleImageModalState,
+}) => {
+  const classes = useCreatePostInputStyles();
+
+  const [editorContent, setEditorContent] = useState("");
+  const [postTitle, setPostTitle] = useState("");
+
+  const handleContent = (content: string) => {
+    setEditorContent(content);
+  };
+
+  const handlePostTitle = (title: string) => {
+    setPostTitle(title);
+  };
+
+  if (onChange) {
+    onChange?.({ name: name ?? "", value: { title: postTitle, content: editorContent } });
+  }
+
+  return (
+    <div>
+      <div className={clx(className, classes.root)}>
+        <PostTitleInput
+          handlePostTitle={handlePostTitle}
+          placeholder="This is the title"
+          type={"text"}
+          info={""}
+          hideLabel={false}
+          label={""}
+          errors={[]}
+        />
+        <div className={clx(classNames?.createPostInput, error && classes.editorError)}>
+          <Editor
+            embedUrl={embedUrl}
+            handleContent={handleContent}
+            handleImageModalState={handleImageModalState}
+          />
+>>>>>>> develop
         </div>
-    );
+      </div>
+    </div>
+  );
 };

@@ -15,7 +15,7 @@ export type ComboBoxInputProps = {
 }
 
 export type ComboBoxInputOptionProps = {
-    label: string;
-    value: string;
-    subText?: string;
+  label: string;
+  value: string;
+  subText?: string;
 };

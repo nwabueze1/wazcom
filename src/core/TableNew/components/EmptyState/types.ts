@@ -1,5 +1,4 @@
-
 export type EmptyStateProps = {
-    heading?: string;
-    message?: string;
-}
+  heading?: string;
+  message?: string;
+};

@@ -15,38 +15,38 @@ import { CarouselProps } from "./types";
 // const AutoPlaySwipeableViews = autoPlay<typeof SwipeableViews>(SwipeableViews);
 
 export const Carousel: FC<CarouselProps> = ({ className, items }) => {
-    const theme = useTheme();
-    const [activeStep, setActiveStep] = React.useState(0);
-    const maxSteps = items.length;
+  const theme = useTheme();
+  const [activeStep, setActiveStep] = React.useState(0);
+  const maxSteps = items.length;
 
-    const handleNext = React.useCallback(() => {
-        setActiveStep(activeStep + 1);
-    }, [activeStep]);
+  const handleNext = React.useCallback(() => {
+    setActiveStep(activeStep + 1);
+  }, [activeStep]);
 
-    const handleBack = React.useCallback(() => {
-        setActiveStep(activeStep - 1);
-    }, [activeStep]);
+  const handleBack = React.useCallback(() => {
+    setActiveStep(activeStep - 1);
+  }, [activeStep]);
 
-    // const handleStepChange = (step: number) => {
-    //     setActiveStep(step);
-    // };
+  // const handleStepChange = (step: number) => {
+  //     setActiveStep(step);
+  // };
 
-    return (
-        <Box sx={{ maxWidth: 400, flexGrow: 1 }} className={className}>
-            <Paper
-                square
-                elevation={0}
-                sx={{
-                    display: "flex",
-                    alignItems: "center",
-                    height: 50,
-                    pl: 2,
-                    bgcolor: "background.default",
-                }}
-            >
-                <Typography>{items[activeStep].label}</Typography>
-            </Paper>
-            {/* <AutoPlaySwipeableViews
+  return (
+    <Box sx={{ maxWidth: 400, flexGrow: 1 }} className={className}>
+      <Paper
+        square
+        elevation={0}
+        sx={{
+          display: "flex",
+          alignItems: "center",
+          height: 50,
+          pl: 2,
+          bgcolor: "background.default",
+        }}
+      >
+        <Typography>{items[activeStep].label}</Typography>
+      </Paper>
+      {/* <AutoPlaySwipeableViews
                 axis={theme.direction === "rtl" ? "x-reverse" : "x"}
                 index={activeStep}
                 onChangeIndex={handleStepChange}
@@ -71,27 +71,23 @@ export const Carousel: FC<CarouselProps> = ({ className, items }) => {
                     </div>
                 ))}
             </AutoPlaySwipeableViews> */}
-            <MobileStepper
-                steps={maxSteps}
-                position="static"
-                activeStep={activeStep}
-                nextButton={
-                    <Button
-                        size="small"
-                        onClick={handleNext}
-                        disabled={activeStep === maxSteps - 1}
-                    >
-                        Next
-                        {theme.direction === "rtl" ? <KeyboardArrowLeft /> : <KeyboardArrowRight />}
-                    </Button>
-                }
-                backButton={
-                    <Button size="small" onClick={handleBack} disabled={activeStep === 0}>
-                        {theme.direction === "rtl" ? <KeyboardArrowRight /> : <KeyboardArrowLeft />}
-                        Back
-                    </Button>
-                }
-            />
-        </Box>
-    );
+      <MobileStepper
+        steps={maxSteps}
+        position="static"
+        activeStep={activeStep}
+        nextButton={
+          <Button size="small" onClick={handleNext} disabled={activeStep === maxSteps - 1}>
+            Next
+            {theme.direction === "rtl" ? <KeyboardArrowLeft /> : <KeyboardArrowRight />}
+          </Button>
+        }
+        backButton={
+          <Button size="small" onClick={handleBack} disabled={activeStep === 0}>
+            {theme.direction === "rtl" ? <KeyboardArrowRight /> : <KeyboardArrowLeft />}
+            Back
+          </Button>
+        }
+      />
+    </Box>
+  );
 };
