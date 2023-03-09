@@ -41,7 +41,7 @@ export const useInsertButtonStyles = makeStyles((theme: Theme) => ({
         justifyContent: 'flex-start'
     },
     linkIcon: {
-        fontSize: theme.typography.fontSize,
+        fontSize: theme.typography.fontSize + 4,
     },
     showOptions: {
         display: 'flex'
