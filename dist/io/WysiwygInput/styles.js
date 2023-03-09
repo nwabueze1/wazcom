@@ -51,7 +51,7 @@ export var useCreatePostInputStyles = makeStyles(function (theme) { return ({
         outline: "none",
         color: theme.design.colors.grey100,
         fontFamily: theme.typography.fontFamily,
-        fontWeight: 800,
+        fontWeight: theme.typography.fontWeightBold,
         fontSize: theme.typography.fontSize * 2,
         "&:hover": {
             borderColor: theme.design.colors.waz_primary600,
@@ -63,7 +63,7 @@ export var useCreatePostInputStyles = makeStyles(function (theme) { return ({
             borderColor: theme.design.colors.waz_primary500,
         },
         "&::placeHolder": {
-            fontWeight: 800,
+            fontWeight: theme.typography.fontWeightBold,
             fontSize: theme.typography.fontSize * 2,
             color: theme.design.colors.grey100,
             opacity: "100%",

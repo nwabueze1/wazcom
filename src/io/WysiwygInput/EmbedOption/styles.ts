@@ -30,7 +30,8 @@ export const useEmbedOptionStyles = makeStyles((theme: Theme) => ({
     },
     optionItemTitle: {
         fontSize: theme.typography.fontSize,
-        fontWeight: 800,
+        fontWeight: theme.typography.fontWeightBold,
+    
     },
     optionItemSpan: {
         fontSize: theme.typography.fontSize * 0.67,
