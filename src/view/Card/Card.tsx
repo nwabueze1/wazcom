@@ -1,9 +1,7 @@
 import { FC } from "react";
 import { RiTodoLine } from "react-icons/ri";
 import { AiFillCheckCircle } from "react-icons/ai";
-
-import { Card, CardProps } from "core";
-
+import { Card, CardProps } from "../../core";
 import { useCardStyles } from "./styles";
 import { CardViewProps } from "./types";
 
