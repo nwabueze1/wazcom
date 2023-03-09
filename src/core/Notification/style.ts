@@ -12,7 +12,7 @@ export const useNotificationStyles = makeStyles((theme: BaseTheme) => ({
     borderRadius: 4,
     borderLeftWidth: 5,
     borderLeftStyle: "solid",
-    padding: 15,
+    padding: theme.spacing(1.75),
   },
   container: {
     width: "100%",
@@ -63,8 +63,8 @@ export const useNotificationStyles = makeStyles((theme: BaseTheme) => ({
     margin: 0,
   },
   success: {
-    color: theme.design.colors.primary100,
-    borderLeftColor: theme.design.colors.primary100,
+    color: theme.design.colors.waz_primary100,
+    borderLeftColor: theme.design.colors.waz_primary100,
   },
   error: {
     color: theme.design.colors.error,
