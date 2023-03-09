@@ -10,12 +10,13 @@ export const WysiwygInput: React.FC<WysiwygInputProps> = ({
     onChange,
     value,
     embed,
-    initiateEmbed
+    initiateEmbed,
 }) => {
     const classes = useCreatePostInputStyles();
     const insertButtonTop = useMemo(() => {
         const editor = document.getElementById("editor");
-        return 98 + (editor?.clientHeight ?? 42);
+        const scrollOffset = ((editor?.offsetHeight as number) / window.innerHeight) * 100;
+        return scrollOffset > 70 ? 400 : 98 + (editor?.clientHeight ?? 42);
     }, [value?.content]);
 
     const handleTitleChange = (event: React.ChangeEvent<HTMLInputElement>) => {

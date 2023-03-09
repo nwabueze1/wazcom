@@ -33,6 +33,7 @@ export var useEditorStyles = makeStyles(function (theme) { return ({
             left: "20%",
             width: "60%",
             height: 400,
+            objectFit: "cover",
         },
         "& .ql-container": {
             border: "0px solid ".concat(theme.design.colors.waz_primary700, " !important"),

@@ -46,7 +46,7 @@ export var Editor = function (_a) {
         var range = (_b = quillObj === null || quillObj === void 0 ? void 0 : quillObj.selection) === null || _b === void 0 ? void 0 : _b.savedRange;
         var type = embed.type, value = embed.value;
         if (type === "link") {
-            var _c = __read(value.split("."), 2), text = _c[0], url = _c[1];
+            var _c = __read(value.split("||>>"), 2), text = _c[0], url = _c[1];
             quillObj.insertText(0, text, "user");
             quillObj.setSelection(0, text.length);
             quillObj.theme.tooltip.edit("link", url);

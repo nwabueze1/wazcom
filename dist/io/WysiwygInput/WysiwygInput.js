@@ -22,7 +22,8 @@ export var WysiwygInput = function (_a) {
     var insertButtonTop = useMemo(function () {
         var _a;
         var editor = document.getElementById("editor");
-        return 98 + ((_a = editor === null || editor === void 0 ? void 0 : editor.clientHeight) !== null && _a !== void 0 ? _a : 42);
+        var scrollOffset = ((editor === null || editor === void 0 ? void 0 : editor.offsetHeight) / window.innerHeight) * 100;
+        return scrollOffset > 70 ? 400 : 98 + ((_a = editor === null || editor === void 0 ? void 0 : editor.clientHeight) !== null && _a !== void 0 ? _a : 42);
     }, [value === null || value === void 0 ? void 0 : value.content]);
     var handleTitleChange = function (event) {
         onChange === null || onChange === void 0 ? void 0 : onChange({ name: "title", value: event.target.value });

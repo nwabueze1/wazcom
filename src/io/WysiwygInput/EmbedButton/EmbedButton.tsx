@@ -4,8 +4,8 @@ import { EmbedButtonProps } from "./types";
 import clx from "classnames";
 import VideoIcon from "./VideoIcon";
 import PictureIcon from "./PictureIcon";
-import SocialIcon from "./SocialIcon";
 import { EmbedOption } from "../EmbedOption";
+import { AiOutlineLink } from "react-icons/ai";
 
 export const EmbedButton: React.FC<EmbedButtonProps> = ({ initiateEmbed }) => {
     const classes = useInsertButtonStyles();
@@ -46,9 +46,9 @@ export const EmbedButton: React.FC<EmbedButtonProps> = ({ initiateEmbed }) => {
                         handleClick={() => handleClick("video")}
                     />
                     <EmbedOption
-                        icon={<SocialIcon />}
-                        title={"Social"}
-                        description={"Embed a Facebook Link"}
+                        icon={<AiOutlineLink className={classes.linkIcon} />}
+                        title={"Link"}
+                        description={"Embed a Link"}
                         handleClick={() => handleClick("link")}
                     />
                 </div>
