@@ -57,7 +57,7 @@ export const Card: FC<CardProps> = ({
     <div className={clx(classes.root, getCardVariant("root"), className)}>
       {icon && variant === "overview" && icon}
       <div className={clx(classes.column)}>
-        {image?.src && variant.includes("template") && <img src={image?.src} alt={image?.alt} className={imageClassname} />}
+        {image?.src && variant?.includes("template") && <img src={image?.src} alt={image?.alt} className={imageClassname} />}
         {icon && variant === "service" && icon}
 
         <div className={classes.contentContainer}>
@@ -108,7 +108,7 @@ export const Card: FC<CardProps> = ({
             </span>}
             {footer?.icon && footer?.icon}
           </div>}
-        {variant.includes("template") &&
+        {variant?.includes("template") &&
           <div className={clx(classes.justifyStart, classes.buttonsContainer)}>
             {primaryButtonText && <Button {...primaryButtonProps}>
               {primaryButtonText}

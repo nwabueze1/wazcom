@@ -74,7 +74,6 @@ export const NumberInputView: FC<NumberInputViewProps> = () => {
                 onEnter={handleEnter}
                 onFocus={handleFocus}
                 onBlur={handleBlur}
-                isValidated={false}
               />
             ))}
           </div>
@@ -92,7 +91,6 @@ export const NumberInputView: FC<NumberInputViewProps> = () => {
                 onFocus={handleFocus}
                 onBlur={handleBlur}
                 rightIcon={<BsEye width={16} />}
-                isValidated={true}
               />
             ))}
           </div>
