@@ -41,45 +41,13 @@ export const useInsertButtonStyles = makeStyles((theme: Theme) => ({
     flexDirection: "column",
     justifyContent: "flex-start",
   },
-  option: {
+  linkIcon: {
+    fontSize: theme.typography.fontSize + 4,
+  },
+  showOptions: {
     display: "flex",
-    flexDirection: "row",
-    justifyContent: "flext-start",
-    height: "46px",
-    "&:hover": {
-      background: theme.design.colors.primary700,
-      cursor: "pointer",
-    },
-    selectOption: {
-        display: "flex",
-        justifyContent: "flex-start",
-        flexDirection: "column",
-        width: theme.spacing(34.625),
-        border: '0px',
-        borderRadius: theme.spacing(0.5),
-        margin: theme.spacing(0, 0, 0, 2),
-        boxShadow: '0px 1px 4px #00000014',
-        background: theme.design.colors.waz_white,
-        zIndex: "9"
-    },
-    optionTitleSpan: {
-        fontSize: theme.typography.fontSize,
-        padding: theme.spacing(1, 1, 1, 1),
-        fontWeight: 800,
-        color: theme.design.colors.grey,
-    },
-    options: {
-        display: 'flex',
-        flexDirection: 'column',
-        justifyContent: 'flex-start'
-    },
-    linkIcon: {
-        fontSize: theme.typography.fontSize + 4,
-    },
-    showOptions: {
-        display: 'flex'
-    },
-    hideOptions: {
-        display: 'none'
-    }
+  },
+  hideOptions: {
+    display: "none",
+  },
 }));

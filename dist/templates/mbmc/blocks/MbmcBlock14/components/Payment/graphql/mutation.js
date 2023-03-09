@@ -1,0 +1,9 @@
+var __makeTemplateObject = (this && this.__makeTemplateObject) || function (cooked, raw) {
+    if (Object.defineProperty) { Object.defineProperty(cooked, "raw", { value: raw }); } else { cooked.raw = raw; }
+    return cooked;
+};
+import { gql } from "@apollo/client";
+import { CORE_ORDER_FIELDS } from "../../../../../models";
+export var CREATE_ORDER = gql(templateObject_1 || (templateObject_1 = __makeTemplateObject(["\n  ", "\n  mutation GqlCreateOrder(\n    $grand_total: Float\n    $address_uuid: ID\n    $payment_type: PaymentType\n    $cart_uuid: ID\n  ) {\n    createOrder(\n      grand_total: $grand_total\n      address_uuid: $address_uuid\n      payment_type: $payment_type\n      cart_uuid: $cart_uuid\n    ) {\n      ...CoreOrderFields\n    }\n  }\n"], ["\n  ", "\n  mutation GqlCreateOrder(\n    $grand_total: Float\n    $address_uuid: ID\n    $payment_type: PaymentType\n    $cart_uuid: ID\n  ) {\n    createOrder(\n      grand_total: $grand_total\n      address_uuid: $address_uuid\n      payment_type: $payment_type\n      cart_uuid: $cart_uuid\n    ) {\n      ...CoreOrderFields\n    }\n  }\n"])), CORE_ORDER_FIELDS);
+export var MAKE_PAYPAL_PAYMENT = gql(templateObject_2 || (templateObject_2 = __makeTemplateObject(["\n  mutation GqlMakePaypalPayment($order_uuid: ID, $pageRedirect: String) {\n    makePaypalDirectPayment(\n      type: FOOD_ORDER\n      order_uuid: $order_uuid\n      pageRedirect: $pageRedirect\n    ) {\n      status\n      redirect_url\n      error_message\n    }\n  }\n"], ["\n  mutation GqlMakePaypalPayment($order_uuid: ID, $pageRedirect: String) {\n    makePaypalDirectPayment(\n      type: FOOD_ORDER\n      order_uuid: $order_uuid\n      pageRedirect: $pageRedirect\n    ) {\n      status\n      redirect_url\n      error_message\n    }\n  }\n"])));
+var templateObject_1, templateObject_2;

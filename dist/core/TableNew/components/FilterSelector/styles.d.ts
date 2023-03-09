@@ -1,0 +1,1 @@
+export declare const useFilterSelectorStyles: (props?: any) => import("@mui/styles").ClassNameMap<"root" | "filterOperatorHeading" | "filterInput" | "filterTextInput" | "filterSelectInputElement" | "filterSelectInput" | "filterSelectInputLabel" | "filterOperator" | "filterOperatorActive" | "filterOperatorCheck" | "filterButtons" | "filterButtonSecondary" | "filterButtonPrimary">;
