@@ -15,7 +15,6 @@ export type ButtonProps = {
   width?: string | number;
   height?: string | number;
   borderRadius?: string | number;
-
   onClick?: (e: any) => any;
   onFocus?: (e: any) => any;
   onBur?: (e: any) => any;

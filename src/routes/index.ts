@@ -1,16 +1,17 @@
-import { Browser } from "view/Browser";
-import { Templates } from "view/Templates";
-import { TextInputView } from "view/TextInput";
-import { EmailInputView } from "view/EmailInput";
-import { TextAreaView } from "view/TextArea";
-import { NumberInputView } from "view/NumberInput";
-import { ButtonView } from "view/Button";
-import { TabsView } from "view/Tab";
-import { NotificationView } from "view/Notification";
-import { URLInputView } from "view/URLInput";
-import { CurrencyInputView } from "view/CurrencyInput";
-import { SelectInputView } from "view/SelectInput";
+import { Browser } from "../view/Browser";
+import { Templates } from "../view/Templates";
+import { TextInputView } from "../view/TextInput";
+import { EmailInputView } from "../view/EmailInput";
+import { TextAreaView } from "../view/TextArea";
+import { NumberInputView } from "../view/NumberInput";
+import { ButtonView } from "../view/Button";
+import { TabsView } from "../view/Tab";
+import { NotificationView } from "../view/Notification";
+import { URLInputView } from "../view/URLInput";
+import { CurrencyInputView } from "../view/CurrencyInput";
+import { SelectInputView } from "../view/SelectInput";
 import { TableView } from "../view/Table";
+import { CardView } from "../view/Card";
 
 export default [
   {
@@ -24,6 +25,12 @@ export default [
     path: "/templates",
     exact: true,
     component: Templates,
+  },
+  {
+    key: "Card",
+    path: "/cards",
+    exact: true,
+    component: CardView,
   },
   {
     key: "TextInputView",
