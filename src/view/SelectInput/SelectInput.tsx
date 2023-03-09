@@ -8,7 +8,6 @@ export const SelectInputView: FC<SelectInputViewProps> = () => {
   const [value, setValue] = useState(0);
   const handleValueChange = useCallback((val: any) => {
     // eslint-disable-next-line
-    console.log(val);
     setValue(val);
   }, []);
 

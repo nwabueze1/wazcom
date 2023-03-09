@@ -88,7 +88,7 @@ import { useGqlComboBoxStyles } from "./styles";
 import { ComboBoxInput } from "../../io";
 import { get } from "lodash";
 export var GqlComboBox = memo(function (_a) {
-    var initialValue = _a.value, _b = _a.config, client = _b.client, key = _b.key, labelKey = _b.labelKey, valueKey = _b.valueKey, query = _b.name, postFetchHook = _a.postFetchHook, addOption = _a.addOption, onChange = _a.onChange, variables = _a.variables, classNames = _a.classNames, props = __rest(_a, ["value", "config", "postFetchHook", "addOption", "onChange", "variables", "classNames"]);
+    var initialValue = _a.value, _b = _a.config, client = _b.client, key = _b.key, labelKey = _b.labelKey, valueKey = _b.valueKey, query = _b.name, postFetchHook = _a.postFetchHook, addOption = _a.addOption, onChange = _a.onChange, label = _a.label, variables = _a.variables, classNames = _a.classNames, props = __rest(_a, ["value", "config", "postFetchHook", "addOption", "onChange", "label", "variables", "classNames"]);
     var classes = useGqlComboBoxStyles();
     var _c = __read(useState([]), 2), options = _c[0], setOptions = _c[1];
     var _d = __read(useState(true), 2), fetching = _d[0], setFetching = _d[1];
@@ -131,7 +131,7 @@ export var GqlComboBox = memo(function (_a) {
             });
         }); };
         getData();
-    }, []);
+    }, [query]);
     var handleChange = useCallback(function (selectedValue) { return __awaiter(void 0, void 0, void 0, function () {
         var label, value, response;
         var _a;
@@ -142,7 +142,9 @@ export var GqlComboBox = memo(function (_a) {
                     value = selectedValue;
                     if (!!label) return [3 /*break*/, 2];
                     setFetching(true);
-                    return [4 /*yield*/, handleAdd(selectedValue.startsWith("Add ") ? selectedValue.split("Add ")[1] : selectedValue)];
+                    return [4 /*yield*/, handleAdd(selectedValue.startsWith("Add ")
+                            ? selectedValue.split("Add ")[1]
+                            : selectedValue)];
                 case 1:
                     response = _b.sent();
                     label = response === null || response === void 0 ? void 0 : response.label;
@@ -157,7 +159,7 @@ export var GqlComboBox = memo(function (_a) {
         });
     }); }, [options]);
     var handleAdd = useCallback(function (value) { return __awaiter(void 0, void 0, void 0, function () {
-        var response, value_1, label, newOptions;
+        var response, value_1, label_1, newOptions;
         return __generator(this, function (_a) {
             switch (_a.label) {
                 case 0: return [4 /*yield*/, (addOption === null || addOption === void 0 ? void 0 : addOption(value))];
@@ -165,22 +167,22 @@ export var GqlComboBox = memo(function (_a) {
                     response = _a.sent();
                     if (response === null || response === void 0 ? void 0 : response.status) {
                         value_1 = response.value;
-                        label = response.label;
+                        label_1 = response.label;
                         newOptions = __spreadArray([], __read(options), false);
-                        newOptions.push({ label: label, value: value_1 });
+                        newOptions.push({ label: label_1, value: value_1 });
                         setOptions(newOptions);
                         postFetchHook === null || postFetchHook === void 0 ? void 0 : postFetchHook(newOptions);
-                        return [2 /*return*/, { label: label, value: value_1 }];
+                        return [2 /*return*/, { label: label_1, value: value_1 }];
                     }
                     return [2 /*return*/];
             }
         });
     }); }, [options]);
     if (fetching) {
-        return (_jsx("div", __assign({ className: classes.loader }, { children: _jsx(CircularProgress, { size: 14, color: "inherit" }) })));
+        return (_jsx("div", __assign({ className: classes.loader }, { children: _jsx(CircularProgress, { size: 14, color: "success" }) })));
     }
-    return (_jsx(ComboBoxInput, __assign({ options: options, value: value !== null && value !== void 0 ? value : "", onChange: function (_a) {
+    return (_jsx(ComboBoxInput, __assign({ label: label, options: options, value: value !== null && value !== void 0 ? value : "", onChange: function (_a) {
             var value = _a.value;
             handleChange(value);
-        }, classNames: __assign(__assign({}, classNames), { comboBoxInput: classNames === null || classNames === void 0 ? void 0 : classNames.gqlComboBox }) }, props)));
+        } }, props)));
 });
