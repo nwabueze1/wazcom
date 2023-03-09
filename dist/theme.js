@@ -20,9 +20,11 @@ export var theme = {
         fontWeightMedium: 600,
         fontFamily: ["'Open Sans', sans-serif"].join(","),
         fontSize: 12,
+        fontSm: 10,
+        14: 10,
         fontWeightBold: "bold",
         h1: {
-            fontSize: '2.25rem',
+            fontSize: "2.25rem",
             fontWeight: 700,
         },
         h2: {
@@ -34,7 +36,7 @@ export var theme = {
             fontWeight: 700,
         },
         h4: {
-            fontSize: '1rem'
+            fontSize: "1rem",
         },
         h5: {
             fontSize: ".8rem",
@@ -163,6 +165,8 @@ export var theme = {
             waz_whiteAlpha100: "#F0F0F0",
             waz_black: "#000000",
             waz_black100: "#00000014",
+            waz_black200: "#0000000D",
+            waz_black300: "#0000001A",
             waz_Grey: "#414141",
             waz_gray: "#BEBEBE",
             waz_blue: "#0889F7",
@@ -192,12 +196,12 @@ export var theme = {
             waz_peach: "#FAF8F7",
         },
         background: {
-            waz_primaryWhite: '#FFFFFF',
+            waz_primaryWhite: "#FFFFFF",
             waz_primaryBlack: "#010E05",
         },
         border: {
             waz_grey200: "1px solid #999F9B",
-        }
+        },
     },
     overrides: {
         MuiTypography: {

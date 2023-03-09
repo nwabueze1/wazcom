@@ -55,7 +55,5 @@ export var Noir = function (_a) {
         setActiveElement(element);
         handleClick === null || handleClick === void 0 ? void 0 : handleClick(element);
     };
-    return (_jsxs("div", __assign({ className: clx(classes.root, activeElement.toLowerCase() === "footer" &&
-            mode === "edit" &&
-            classes.activeElement), onClick: handleFooterClick }, { children: [_jsxs("div", __assign({ className: classes.footerContent }, { children: [_jsxs("div", __assign({ className: classes.footerLogoSocials }, { children: [displayLogo(mode, classes, activeElement, handleElementClick, logo), _jsx("div", __assign({ className: classes.footerSocials }, { children: displaySocials(mode, socialIcons, socials !== null && socials !== void 0 ? socials : [], classes, activeElement, handleElementClick) }))] })), displaySections(mode, classes, links, activeElement, handleElementClick)] })), _jsx(Copyright, {})] })));
+    return (_jsxs("div", __assign({ className: clx(classes.root, activeElement.toLowerCase() === "footer" && mode === "edit" && classes.activeElement), onClick: handleFooterClick }, { children: [_jsxs("div", __assign({ className: classes.footerContent }, { children: [_jsxs("div", __assign({ className: classes.footerLogoSocials }, { children: [displayLogo(mode, classes, activeElement, handleElementClick, logo), _jsx("div", __assign({ className: classes.footerSocials }, { children: displaySocials(mode, socialIcons, socials !== null && socials !== void 0 ? socials : [], classes, activeElement, handleElementClick) }))] })), displaySections(mode, classes, links, activeElement, handleElementClick)] })), _jsx(Copyright, {})] })));
 };

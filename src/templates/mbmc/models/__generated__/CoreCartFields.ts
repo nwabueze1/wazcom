@@ -13,20 +13,20 @@ import { CoreRestaurantFields } from "./CoreRestaurantFields";
 // ====================================================
 
 export interface CoreCartFields_cartItems {
-    uuid: string | null;
-    quantity: string;
-    detail: string;
-    options: any | null;
-    menuItem: CoreMenuItemFields;
+  uuid: string | null;
+  quantity: string;
+  detail: string;
+  options: any | null;
+  menuItem: CoreMenuItemFields;
 }
 
 export interface CoreCartFields {
-    uuid: string;
-    currency: string;
-    expires: any;
-    currentStep?: number;
-    guest?: CoreGuestFields;
-    order?: CoreOrderFields;
-    cartItems: CoreCartFields_cartItems[] | null;
-    restaurant: CoreRestaurantFields;
+  uuid: string;
+  currency: string;
+  expires: any;
+  currentStep?: number;
+  guest?: CoreGuestFields;
+  order?: CoreOrderFields;
+  cartItems: CoreCartFields_cartItems[] | null;
+  restaurant: CoreRestaurantFields;
 }

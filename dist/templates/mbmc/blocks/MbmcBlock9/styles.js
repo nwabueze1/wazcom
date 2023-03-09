@@ -62,7 +62,7 @@ export var useMbmcBlock9Styles = makeStyles(function (theme) {
                 color: theme.design.colors.waz_greyColor600,
                 textAlign: "left",
                 fontSize: theme.typography.fontSize + 4,
-                width: '80%',
+                width: "80%",
                 border: "1px solid transparent",
                 transition: "all 0.3s ease-in",
                 fontFamily: theme.design.font.montserrat,
@@ -87,7 +87,7 @@ export var useMbmcBlock9Styles = makeStyles(function (theme) {
             marginTop: theme.spacing(4),
         },
         pointContainer: (_f = {
-                width: '80%',
+                width: "80%",
                 display: "flex",
                 alignItems: "flex-start",
                 justifyContent: "flex-start",

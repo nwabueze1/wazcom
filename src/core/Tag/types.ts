@@ -1,7 +1,6 @@
-
 export type TagProps = {
-    name: string;
-    status?: boolean;
-    handleRemove?: () => void;
-    classname?: string
-}
+  name: string;
+  status?: boolean;
+  handleRemove?: () => void;
+  classname?: string;
+};

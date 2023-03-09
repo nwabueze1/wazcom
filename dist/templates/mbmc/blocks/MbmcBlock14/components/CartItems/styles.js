@@ -11,8 +11,8 @@ export var useCartItemsStyles = makeStyles(function (theme) {
                 }
             },
             _a[theme.breakpoints.down("md")] = {
-                width: '100%',
+                width: "100%",
             },
-            _a)
+            _a),
     });
 });

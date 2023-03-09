@@ -15,12 +15,12 @@ export var useTableStyles = makeStyles(function (theme) { return ({
         padding: theme.spacing(1.5, 2),
         fontSize: theme.typography.fontSize,
         color: theme.design.colors.waz_grey1,
-        border: "none"
+        border: "none",
     },
     tableCell: {
         padding: theme.spacing(1.5, 2),
         fontSize: theme.typography.fontSize,
-        border: "none"
+        border: "none",
     },
     controls: {
         display: "flex",

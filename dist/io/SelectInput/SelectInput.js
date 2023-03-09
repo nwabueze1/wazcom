@@ -23,12 +23,12 @@ var __rest = (this && this.__rest) || function (s, e) {
 import { jsx as _jsx, jsxs as _jsxs } from "react/jsx-runtime";
 import clx from "classnames";
 import { useMemo, cloneElement, isValidElement } from "react";
-import Select, { components } from 'react-select';
+import Select, { components } from "react-select";
 import { AiFillCaretDown } from "react-icons/ai";
 import theme from "../../theme";
 import { useSelectStyles } from "./styles";
 export var SelectInput = function (_a) {
-    var onChange = _a.onChange, options = _a.options, name = _a.name, className = _a.className, containerClass = _a.containerClass, label = _a.label, value = _a.value, errors = _a.errors, _b = _a.hideLabel, hideLabel = _b === void 0 ? false : _b, info = _a.info, _c = _a.required, required = _c === void 0 ? false : _c, width = _a.width, height = _a.height, backgroundColor = _a.backgroundColor, borderWidth = _a.borderWidth, borderColor = _a.borderColor, borderStyle = _a.borderStyle, menuIsOpen = _a.menuIsOpen, classNames = _a.classNames, props = __rest(_a, ["onChange", "options", "name", "className", "containerClass", "label", "value", "errors", "hideLabel", "info", "required", "width", "height", "backgroundColor", "borderWidth", "borderColor", "borderStyle", "menuIsOpen", "classNames"]);
+    var onChange = _a.onChange, options = _a.options, name = _a.name, className = _a.className, containerClass = _a.containerClass, label = _a.label, value = _a.value, errors = _a.errors, _b = _a.hideLabel, hideLabel = _b === void 0 ? false : _b, info = _a.info, _c = _a.required, required = _c === void 0 ? false : _c, width = _a.width, height = _a.height, backgroundColor = _a.backgroundColor, borderWidth = _a.borderWidth, borderColor = _a.borderColor, borderStyle = _a.borderStyle, menuIsOpen = _a.menuIsOpen, isError = _a.isError, isSuccess = _a.isSuccess, helperText = _a.helperText, classNames = _a.classNames, props = __rest(_a, ["onChange", "options", "name", "className", "containerClass", "label", "value", "errors", "hideLabel", "info", "required", "width", "height", "backgroundColor", "borderWidth", "borderColor", "borderStyle", "menuIsOpen", "isError", "isSuccess", "helperText", "classNames"]);
     var classes = useSelectStyles();
     var handleChange = function (e) {
         if (onChange) {
@@ -38,17 +38,15 @@ export var SelectInput = function (_a) {
     var selectValue = useMemo(function () { return options === null || options === void 0 ? void 0 : options.find(function (option) { return option.value == value; }); }, [value]);
     var labelElement = isValidElement(label) ? cloneElement(label, {}) : label;
     var DropdownIndicator = function (props) { return (_jsx(components.DropdownIndicator, __assign({}, props, { children: _jsx(AiFillCaretDown, {}) }))); };
-    return (_jsxs("div", __assign({ className: clx(classes.root, className) }, { children: [_jsx("span", __assign({ className: classes.labelWrapper }, { children: !hideLabel &&
-                    labelElement &&
-                    _jsxs("label", __assign({ htmlFor: name, className: classes.label }, { children: [labelElement, required && _jsx("span", __assign({ className: classes.required }, { children: "*" }))] })) })), _jsx(Select, __assign({ menuIsOpen: menuIsOpen, components: {
+    return (_jsxs("div", __assign({ className: clx(classes.root, className) }, { children: [_jsx("span", __assign({ className: classes.labelWrapper }, { children: !hideLabel && labelElement && (_jsxs("label", __assign({ htmlFor: name, className: classes.label }, { children: [labelElement, required && _jsx("span", __assign({ className: classes.required }, { children: "*" }))] }))) })), _jsx(Select, __assign({ menuIsOpen: menuIsOpen, components: {
                     DropdownIndicator: DropdownIndicator,
-                    IndicatorSeparator: function () { return null; }
+                    IndicatorSeparator: function () { return null; },
                 }, styles: {
-                    control: function (baseStyles) { return (__assign(__assign({}, baseStyles), { minHeight: 34, height: height || 34, width: width || '100%', backgroundColor: backgroundColor || '', borderWidth: borderWidth !== null && borderWidth !== void 0 ? borderWidth : 1, borderStyle: borderStyle !== null && borderStyle !== void 0 ? borderStyle : 'solid', borderColor: borderColor !== null && borderColor !== void 0 ? borderColor : theme.design.colors.waz_primary700, fontFamily: theme.typography.fontFamily, fontWeight: 400, fontSize: theme.typography.fontSize, boxShadow: 'none', '&:hover': {
+                    control: function (baseStyles) { return (__assign(__assign({}, baseStyles), { minHeight: 34, height: height || 34, width: width || "100%", backgroundColor: backgroundColor || "", borderWidth: borderWidth !== null && borderWidth !== void 0 ? borderWidth : 1, borderStyle: borderStyle !== null && borderStyle !== void 0 ? borderStyle : "solid", borderColor: borderColor !== null && borderColor !== void 0 ? borderColor : theme.design.colors.waz_primary700, fontFamily: theme.typography.fontFamily, fontWeight: 400, fontSize: theme.typography.fontSize, boxShadow: "none", "&:hover": {
                             borderColor: theme.design.colors.primary600,
-                        }, '&:focus': {
+                        }, "&:focus": {
                             borderColor: theme.design.colors.primary500,
-                        }, '&:hover:focus': {
+                        }, "&:hover:focus": {
                             borderColor: theme.design.colors.primary500,
                         } })); },
                     indicatorsContainer: function (baseStyles) { return (__assign(__assign({}, baseStyles), { "> div": {
@@ -56,25 +54,29 @@ export var SelectInput = function (_a) {
                         } })); },
                     option: function (baseStyles, _a) {
                         var isFocused = _a.isFocused, data = _a.data;
-                        return __assign(__assign({}, baseStyles), { color: theme.design.colors.grey100, fontSize: theme.typography.fontSize, backgroundColor: (data === null || data === void 0 ? void 0 : data.value) == (value === null || value === void 0 ? void 0 : value.value) && !isFocused ? theme.design.colors.primary500 : theme.design.colors.white });
+                        return __assign(__assign({}, baseStyles), { color: theme.design.colors.grey100, fontSize: theme.typography.fontSize, backgroundColor: (data === null || data === void 0 ? void 0 : data.value) == (value === null || value === void 0 ? void 0 : value.value) && !isFocused
+                                ? theme.design.colors.primary500
+                                : theme.design.colors.white });
                     },
                     menu: function (baseStyles) {
-                        return __assign(__assign({}, baseStyles), { borderColor: theme.design.colors.primary500, boxShadow: 'none', '&:hover': {
+                        return __assign(__assign({}, baseStyles), { borderColor: theme.design.colors.primary500, boxShadow: "none", "&:hover": {
                                 borderColor: theme.design.colors.primary600,
                             } });
                     },
                     menuList: function (baseStyles) {
-                        return __assign(__assign({}, baseStyles), { padding: 0, boxShadow: '0px 3px 6px #00000014', borderRadius: 4 });
+                        return __assign(__assign({}, baseStyles), { padding: 0, boxShadow: "0px 3px 6px #00000014", borderRadius: 4 });
                     },
                 }, classNames: {
-                    container: function () { return (clx(classes.container, containerClass, classNames === null || classNames === void 0 ? void 0 : classNames.container)); },
+                    container: function () {
+                        return clx(classes.container, containerClass, classNames === null || classNames === void 0 ? void 0 : classNames.container, isError && classes.error);
+                    },
                     control: function (_a) {
                         var isDisabled = _a.isDisabled, isFocused = _a.isFocused;
-                        return (clx(!isDisabled && isFocused && classes.control, classNames === null || classNames === void 0 ? void 0 : classNames.control));
+                        return clx(!isDisabled && isFocused && classes.control, classNames === null || classNames === void 0 ? void 0 : classNames.control);
                     },
                     option: function (_a) {
                         var isDisabled = _a.isDisabled, isFocused = _a.isFocused;
-                        return (clx(!isDisabled && isFocused && classes.option));
-                    }
-                }, value: selectValue, options: options, onChange: handleChange }, props))] })));
+                        return clx(!isDisabled && isFocused && classes.option);
+                    },
+                }, value: selectValue, options: options, onChange: handleChange }, props)), helperText && (_jsx("span", __assign({ className: clx(classes.helperTextDefault, isSuccess && classes.helperTextSuccess, isError && classes.helperTextError) }, { children: helperText })))] })));
 };

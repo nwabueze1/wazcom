@@ -29,7 +29,7 @@ export var displaySections = function (mode, classes, sections, activeElement, h
                     } }, { children: name })), _jsx("div", __assign({ className: classes.footerLinks }, { children: links.map(function (_a, index) {
                         var text = _a.text, url = _a.url, icon = _a.icon;
                         var linkId = sectionId + ".links." + String(index);
-                        return (_jsxs("div", __assign({ className: activeElement === linkId && classes.activeElement, style: { display: "flex" } }, { children: [icon && (_jsx("span", __assign({ className: classes.footerSectionLinkIcon }, { children: renderIcon(icon) }))), "\u00A0", isNotRenderAnchor(url, mode) ? (_jsx("p", __assign({ className: classes.footerSectionLink, onClick: function (e) {
+                        return (_jsxs("div", __assign({ className: activeElement === linkId && classes.activeElement, style: { display: "flex" } }, { children: [icon && _jsx("span", __assign({ className: classes.footerSectionLinkIcon }, { children: renderIcon(icon) })), "\u00A0", isNotRenderAnchor(url, mode) ? (_jsx("p", __assign({ className: classes.footerSectionLink, onClick: function (e) {
                                         e.stopPropagation();
                                         clickAction(url, mode, function () {
                                             handleClick(mode === "view" ? url : linkId);

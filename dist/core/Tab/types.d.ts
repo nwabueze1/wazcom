@@ -1,11 +1,12 @@
 import React from "react";
+export type TabVariantProps = "vertical" | "horizontal" | "vertical-pill";
 export type TabProps = {
     children?: React.ReactNode;
     className?: string;
     containerClassName?: string;
     activeTabClassName?: string;
     tabHeaderClassName?: string;
-    variant?: string;
+    variant?: TabVariantProps;
     backgroundColor?: string;
     width?: string | number;
     height?: string | number;
@@ -17,6 +18,7 @@ export type TabProps = {
         className?: any;
         name: string;
         title: string;
+        icon?: React.ReactNode;
         component: React.ReactNode;
     }[];
 };

@@ -11,7 +11,7 @@ export var useCartItemCardStyles = makeStyles(function (theme) {
             boxShadow: "0px 3px 20px #0000001A",
             borderRadius: "5px",
             marginBottom: theme.spacing(3),
-            position: 'relative',
+            position: "relative",
         },
         topContent: {
             display: "flex",
@@ -24,7 +24,7 @@ export var useCartItemCardStyles = makeStyles(function (theme) {
             width: "31%",
             height: "118px",
             flexShrink: 0,
-            objectFit: 'cover',
+            objectFit: "cover",
         },
         title: (_a = {
                 letterSpacing: "0px",
@@ -123,9 +123,9 @@ export var useCartItemCardStyles = makeStyles(function (theme) {
             marginTop: theme.spacing(1.5),
         },
         spinner: {
-            position: 'absolute',
+            position: "absolute",
             bottom: 20,
             right: 20,
-        }
+        },
     });
 });

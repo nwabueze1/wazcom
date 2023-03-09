@@ -1,18 +1,18 @@
 import {
-    AccordionProps,
-    ButtonProps,
-    BreadCrumbProps,
-    CardProps,
-    CarouselProps,
-    LoaderProps,
-    GalleryProps,
-    ImageSelectorProps,
-    TableProps,
-    TableNewProps,
-    MenuCardProps,
-    DisplayCardProps,
-    NotificationProps,
-    EmptyStateProps,
+  AccordionProps,
+  ButtonProps,
+  BreadCrumbProps,
+  CardProps,
+  CarouselProps,
+  LoaderProps,
+  GalleryProps,
+  ImageSelectorProps,
+  TableProps,
+  TableNewProps,
+  MenuCardProps,
+  DisplayCardProps,
+  NotificationProps,
+  EmptyStateProps,
 } from "../core";
 
 import {
@@ -34,8 +34,8 @@ import { GqlComboBoxProps, GqlMediaLibraryProps, GqlMediaLibrarySelectorProps } 
 import { NavProps } from "templates/Navs/types";
 
 export type ComponentPropType = {
-    component: any;
-    name: string;
+  component: any;
+  name: string;
 } & (
     | AccordionStory
     | BreadCrumbStory
@@ -69,124 +69,124 @@ export type ComponentPropType = {
 );
 
 export type TemplatePropType = {
-    component: any;
-    name: string;
+  component: any;
+  name: string;
 } & NavsStory;
 
 type AccordionStory = {
-    props: AccordionProps;
+  props: AccordionProps;
 };
 
 type LoaderStory = {
-    props: LoaderProps;
+  props: LoaderProps;
 };
 
 type BreadCrumbStory = {
-    props: BreadCrumbProps;
+  props: BreadCrumbProps;
 };
 
 type ButtonStory = {
-    props: ButtonProps;
+  props: ButtonProps;
 };
 
 type CardStory = {
-    props: CardProps;
+  props: CardProps;
 };
 
 type CarouselStory = {
-    props: CarouselProps;
+  props: CarouselProps;
 };
 
 type CheckBoxStory = {
-    props: CheckBoxInputProps;
+  props: CheckBoxInputProps;
 };
 
 type ComboBoxStory = {
-    props: ComboBoxInputProps;
+  props: ComboBoxInputProps;
 };
 
 type TextStory = {
-    props: TextInputProps;
+  props: TextInputProps;
 };
 
 type GalleryStory = {
-    props: GalleryProps;
+  props: GalleryProps;
 };
 
 type ImageSelectorStory = {
-    props: ImageSelectorProps;
+  props: ImageSelectorProps;
 };
 
 type ToggleStory = {
-    props: ToggleInputProps;
+  props: ToggleInputProps;
 };
 
 type TableStory = {
-    props: TableProps;
+  props: TableProps;
 };
 
 type TableNewStory = {
-    props: TableNewProps;
-}
+  props: TableNewProps;
+};
 
 type MenuCardStory = {
-    props: MenuCardProps;
+  props: MenuCardProps;
 };
 
 type DisplayCardStory = {
-    props: DisplayCardProps;
+  props: DisplayCardProps;
 };
 
 type NotificationStory = {
-    props: NotificationProps;
+  props: NotificationProps;
 };
 
 type RadioButtonStory = {
-    props: RadioButtonInputProps;
+  props: RadioButtonInputProps;
 };
 
 type SelectStory = {
-    props: SelectInputProps;
+  props: SelectInputProps;
 };
 
 type RichTextStory = {
-    props: RichTextInputProps;
+  props: RichTextInputProps;
 };
 type WysiwygStory = {
     props: WysiwygInputProps;
 };
 
 type CurrencyInputStory = {
-    props: CurrencyInputProps;
+  props: CurrencyInputProps;
 };
 
 type GqlComboBoxStory = {
-    props: GqlComboBoxProps;
+  props: GqlComboBoxProps;
 };
 
 type EmptyStateStory = {
-    props: EmptyStateProps;
+  props: EmptyStateProps;
 };
 
 type SchedulerStory = {
-    props: SchedulerStory;
+  props: SchedulerStory;
 };
 type InputGroupStory = {
-    props: InputGroupProps;
+  props: InputGroupProps;
 };
 
 type GqlMediaLibraryStory = {
-    props: GqlMediaLibraryProps;
+  props: GqlMediaLibraryProps;
 };
 
 type GqlMediaLibrarySelectorStory = {
-    props: GqlMediaLibrarySelectorProps;
+  props: GqlMediaLibrarySelectorProps;
 };
 
 type PhoneNumberInputStroy = {
-    props: PhoneNumberInputProps;
+  props: PhoneNumberInputProps;
 };
 
 type NavsStory = {
-    props: NavProps;
+  props: NavProps;
 };

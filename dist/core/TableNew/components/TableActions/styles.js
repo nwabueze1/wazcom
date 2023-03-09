@@ -12,7 +12,7 @@ export var useTableActionStyles = makeStyles(function (theme) { return ({
     searchInput: {
         background: "".concat(theme.design.colors.waz_white, " !important"),
         fontSize: "".concat(theme.typography.fontSize + 1, " !important"),
-        height: '40px !important',
+        height: "40px !important",
         "&:hover": {
             borderColor: theme.design.colors.primary700,
         },
@@ -37,12 +37,12 @@ export var useTableActionStyles = makeStyles(function (theme) { return ({
         background: "".concat(theme.design.colors.waz_white, " !important"),
     },
     selectControl: {
-        height: '40px !important',
+        height: "40px !important",
         "&:hover": {
             borderColor: theme.design.colors.primary700,
         },
         "&:focus, &:hover:focus, &:active": {
             borderColor: theme.design.colors.primary700,
         },
-    }
+    },
 }); });

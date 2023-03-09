@@ -6,7 +6,7 @@ export var useTagStyles = makeStyles(function (theme) { return ({
         width: "fit-content",
         "& p": {
             margin: 0,
-        }
+        },
     },
     tagInactive: {
         padding: theme.spacing(0.5, 1.5),
@@ -33,13 +33,13 @@ export var useTagStyles = makeStyles(function (theme) { return ({
     tagIconParent: {
         width: 18,
         height: 18,
-        display: 'flex',
-        justifyContent: 'center',
-        alignItems: 'center',
+        display: "flex",
+        justifyContent: "center",
+        alignItems: "center",
         background: theme.design.colors.waz_white,
         borderRadius: "50%",
         marginLeft: "".concat(theme.spacing(1), " !important"),
         cursor: "pointer",
     },
-    tagIcon: {}
+    tagIcon: {},
 }); });

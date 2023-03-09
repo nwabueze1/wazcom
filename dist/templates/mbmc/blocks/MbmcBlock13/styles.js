@@ -70,7 +70,7 @@ export var useMbmcBlock13Styles = makeStyles(function (theme) {
         link: {
             cursor: "pointer",
             textDecoration: "none",
-            color: '#000000',
+            color: "#000000",
             fontWeight: theme.typography.fontWeightMedium,
         },
         mrBarkers: {

@@ -89,7 +89,7 @@ export var useMbmcBlock5Styles = makeStyles(function (theme) {
                 fontFamily: theme.design.font.montserrat,
                 fontSize: theme.typography.fontSize,
                 padding: theme.spacing(2, 0),
-                boxSizing: 'border-box',
+                boxSizing: "border-box",
                 lineHeight: 1.9
             },
             _e[theme.breakpoints.down("md")] = {

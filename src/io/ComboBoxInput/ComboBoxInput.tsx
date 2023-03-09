@@ -25,9 +25,9 @@ export const ComboBoxInput: FC<ComboBoxInputProps> = ({
     const [showOptions, setShowOptions] = useState(false);
     const [isFocused, setIsFocused] = useState(false);
 
-    useEffect(() => {
-        setOptions(initialOptions);
-    }, [initialOptions]);
+  useEffect(() => {
+    setOptions(initialOptions);
+  }, [initialOptions]);
 
     useEffect(() => {
         if (!value) return;

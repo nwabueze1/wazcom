@@ -71,9 +71,7 @@ export var useCreateOrder = function () {
                     return [4 /*yield*/, (clients === null || clients === void 0 ? void 0 : clients.AMBROSIA).mutate({
                             mutation: CREATE_ORDER,
                             variables: {
-                                payment_type: String(paymentMethod).toLowerCase() === "paypal"
-                                    ? undefined
-                                    : paymentMethod,
+                                payment_type: String(paymentMethod).toLowerCase() === "paypal" ? undefined : paymentMethod,
                                 grand_total: calculateCartSubTotal(cart) +
                                     (((_c = (_b = cart === null || cart === void 0 ? void 0 : cart.guest) === null || _b === void 0 ? void 0 : _b.address) === null || _c === void 0 ? void 0 : _c.uuid)
                                         ? (_e = (_d = cart === null || cart === void 0 ? void 0 : cart.restaurant) === null || _d === void 0 ? void 0 : _d.bank_info) === null || _e === void 0 ? void 0 : _e.delivery_fee

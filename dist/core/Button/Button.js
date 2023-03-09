@@ -21,7 +21,7 @@ var __rest = (this && this.__rest) || function (s, e) {
     return t;
 };
 import { jsx as _jsx, Fragment as _Fragment, jsxs as _jsxs } from "react/jsx-runtime";
-import React, { isValidElement } from "react";
+import { cloneElement, isValidElement } from "react";
 import clx from "classnames";
 import { RiLoader4Line } from "react-icons/ri";
 import { useButtonStyles, useButtonSpinnerStyles, useButtonIconStyles } from "./styles";
@@ -34,8 +34,11 @@ export var Button = function (_a) {
         isDisabled: isDisabled,
         isLoading: isLoading,
     });
-    var _className = clx(classes.root, classes.button, className, variant === 'contained' ? classes.contained :
-        variant === 'outlined' ? classes.outlined : classes.default, (isDisabled && !isLoading) && classes.disabled, isLoading && classes.loading);
+    var _className = clx(classes.root, classes.button, className, variant === "contained"
+        ? classes.contained
+        : variant === "outlined"
+            ? classes.outlined
+            : classes.default, isDisabled && !isLoading && classes.disabled, isLoading && classes.loading);
     return (_jsx("button", __assign({ disabled: isDisabled || isLoading, className: _className }, props, { children: _jsx(ButtonContent, __assign({}, {
             rightIcon: rightIcon,
             leftIcon: leftIcon,
@@ -54,7 +57,7 @@ var ButtonIcon = function (_a) {
     var children = _a.children, marginLeft = _a.marginLeft, marginRight = _a.marginRight, rest = __rest(_a, ["children", "marginLeft", "marginRight"]);
     var classes = useButtonIconStyles({ marginLeft: marginLeft, marginRight: marginRight });
     var _className = clx(classes.root, classes.iconSpacing);
-    var _children = isValidElement(children) ? React.cloneElement(children, {}) : children;
+    var _children = isValidElement(children) ? cloneElement(children, {}) : children;
     return (_jsx("span", __assign({}, rest, { className: _className }, { children: _children })));
 };
 var ButtonSpinner = function (_a) {

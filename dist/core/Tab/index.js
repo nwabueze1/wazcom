@@ -1,3 +1,3 @@
-export * from './Tab';
-export * from './styles';
-export * from './types';
+export * from "./Tab";
+export * from "./styles";
+export * from "./types";
