@@ -28,7 +28,7 @@ export const Editor: React.FC<EditorProps> = ({ content, handleChange, embed }) 
             quillObj.theme.tooltip.save();
         } else quillObj.editor.insertEmbed(range.index, type, value);
 
-        handleChange(content + ' ');
+        handleChange(quillObj.root.innerHTML)
     };
 
     return (
