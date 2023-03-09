@@ -18,8 +18,8 @@ export const useSelectStyles = makeStyles((theme: Theme) => ({
     label: {
         fontSize: theme.typography.fontSize - 2,
         display: "flex",
-        marginBottom: 8,
-        color: "#333333",
+        marginBottom: theme.spacing(1),
+        color: theme.design.colors.waz_greyColor400,
         alignItems: "center",
         letterSpacing: "0.13px",
         textTransform: "uppercase",
@@ -33,7 +33,7 @@ export const useSelectStyles = makeStyles((theme: Theme) => ({
         minHeight: 34,
         borderColor: `${theme.design.colors.waz_primary500} !important`,
         fontFamily: theme.typography.fontFamily,
-        fontWeight: 400,
+        fontWeight: theme.typography.fontWeightRegular,
         fontSize: theme.typography.fontSize,
         '&:hover': {
             borderColor: `${theme.design.colors.waz_primary600} !important`,
@@ -96,7 +96,7 @@ export const useSelectStyles = makeStyles((theme: Theme) => ({
         letterSpacing: 0,
         fontSize: theme.typography.fontSize - 1,
         textAlign: 'left',
-        marginTop: 4
+        marginTop: theme.spacing(0.5),
     },
     helperTextSuccess: {
         color: theme.design.colors.waz_primaryColor100,
