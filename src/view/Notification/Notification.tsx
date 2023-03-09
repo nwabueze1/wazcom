@@ -74,7 +74,7 @@ export const NotificationView: FC<NotificationProps> = () => {
         list={list}
         position={"top-right"}
         autoDelete={true}
-        duration={100000}
+        duration={10000}
       />
     </div>
   );

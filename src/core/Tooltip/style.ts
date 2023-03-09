@@ -9,7 +9,6 @@ export const useTootipStyles = makeStyles((theme: BaseTheme) => ({
   container: {
     width: "fit-content",
   },
-
   tooltipContainer: {
     transitionDuration: "0.3s",
     transitionProperty: "all",
@@ -19,13 +18,10 @@ export const useTootipStyles = makeStyles((theme: BaseTheme) => ({
     maxWidth: "200px",
     display: "flex"
   },
-
-
   tooltip: {
     border: `${theme.design.colors.waz_primary500} 1px solid`,
     borderRadius: 4,
-    backgroundColor: theme.design.colors.waz_white,
-    background: "red",
+    backgroundColor: theme.design.colors.error,
     width: "100%",
     padding: theme.spacing(1),
     color: theme.design.colors.waz_grey1,
@@ -36,7 +32,6 @@ export const useTootipStyles = makeStyles((theme: BaseTheme) => ({
     color: theme.design.colors.waz_primary500,
     margin: "auto 0"
   },
-
   tooltipArrow: {
     position: "absolute",
     backgroundColor: theme.design.colors.waz_white,
@@ -46,23 +41,19 @@ export const useTootipStyles = makeStyles((theme: BaseTheme) => ({
     width: "10px",
     height: "10px",
     borderRadius: "0px 0px 3px 0px",
-    zIndex: ""
   },
-
   tooltipArrowBottom: {
     left: 0,
     right: 0,
     margin: `${theme.spacing(-0.625)} auto 0`,
     transform: "rotate(45deg)"
   },
-
   tooltipArrowTop: {
     left: 0,
     right: 0,
     bottom: 0,
     margin: `0 auto ${theme.spacing(-0.625)}`,
     transform: "rotate(-135deg)",
-
   },
   tooltipArrowLeft: {
     right: theme.spacing(-0.625),
@@ -71,7 +62,6 @@ export const useTootipStyles = makeStyles((theme: BaseTheme) => ({
     transform: "rotate(135deg)",
     margin: `auto 0`,
   },
-
   tooltipArrowRight: {
     left: theme.spacing(-0.625),
     bottom: 0,
@@ -79,8 +69,6 @@ export const useTootipStyles = makeStyles((theme: BaseTheme) => ({
     transform: "rotate(-45deg)",
     margin: `auto 0`,
   },
-
-
   icon: {
     width: 20,
     height: 20,

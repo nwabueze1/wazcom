@@ -1,12 +1,11 @@
-import { FC, useState, useRef, useMemo } from "react";
+import { useState, useRef, useMemo, FC } from "react";
 import clx from "classnames";
 import { useFloating, shift, offset, flip, arrow } from "@floating-ui/react-dom";
 import { RiErrorWarningLine } from "react-icons/ri";
-
 import { TootipProps } from "./types";
 import { useTootipStyles } from "./style";
 
-export function Tootip({ children, content, position, ...props }: TootipProps) {
+export const Tootip: FC<TootipProps> = ({ children, content, position }) => {
   const classes = useTootipStyles();
 
   const arrowRef = useRef(null);
