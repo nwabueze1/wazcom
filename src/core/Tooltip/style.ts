@@ -81,7 +81,7 @@ export const useTootipStyles = makeStyles((theme: BaseTheme) => ({
     width: 24,
     height: 24,
     borderRadius: "100%",
-    backgroundColor: "#E7F1E9",
+    backgroundColor: theme.design.colors.waz_primary700,
   },
   main: {
     width: "100%",
@@ -160,7 +160,7 @@ export const useTootipStyles = makeStyles((theme: BaseTheme) => ({
     animation: "$toastInLeft .7s",
   },
   notification: {
-    background: "#FFFFFF",
+    background: theme.design.colors.waz_white,
     transition: ".3s ease",
     position: "relative",
     pointerEvents: "auto",
@@ -171,14 +171,14 @@ export const useTootipStyles = makeStyles((theme: BaseTheme) => ({
     width: 300,
     maxHeight: 100,
     borderRadius: 3,
-    boxShadow: "0 0 10px #999999",
-    color: "#000000",
+    boxShadow: "0 0 10px ".concat(theme.design.colors.waz_black400),
+    color: theme.design.colors.black,
     opacity: 0.9,
     backgroundPosition: 15,
     backgroundRepeat: "no-repeat",
 
     "&:hover": {
-      boxShadow: " 0 0 12px #FFFFFF",
+      boxShadow: " 0 0 12px".concat(theme.design.colors.waz_white),
       opacity: 1,
       cursor: "pointer",
     },
