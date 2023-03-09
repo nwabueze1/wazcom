@@ -55,7 +55,7 @@ export const Tab: React.FC<TabProps> = ({
     <div className={clx(classes.root, className)}>
       <div className={tabHeaderClassName}>
         <div className={clx(classes.tabs, containerClassName)}>
-          {controls.map(({ name, title }, index) => (
+          {controls.map(({ name, title, icon }, index) => (
             <div
               key={index}
               onClick={() => handleTabClick(name)}
@@ -67,7 +67,7 @@ export const Tab: React.FC<TabProps> = ({
                 snakeCase(name),
               )}
             >
-              {title}
+              {icon && icon}   {title}
             </div>
           ))}
         </div>
