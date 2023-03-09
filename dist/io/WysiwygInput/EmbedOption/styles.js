@@ -27,7 +27,7 @@ export var useEmbedOptionStyles = makeStyles(function (theme) { return ({
     },
     optionItemTitle: {
         fontSize: theme.typography.fontSize,
-        fontWeight: 800,
+        fontWeight: theme.typography.fontWeightBold,
     },
     optionItemSpan: {
         fontSize: theme.typography.fontSize * 0.67,
