@@ -35,7 +35,6 @@ export const useCardStyles = makeStyles((theme: Theme) => ({
   },
   descriptionText: {
     fontSize: theme.typography.h5.fontSize,
-    lineSpacing: theme.spacing(22),
   },
   inputContainer: {
     background: theme.design.background.waz_primaryWhite,
@@ -43,13 +42,13 @@ export const useCardStyles = makeStyles((theme: Theme) => ({
     borderStyle: "solid",
     borderWidth: 1,
     borderRadius: 3,
-    padding: 24,
-    paddingBottom: 50,
+    padding: theme.spacing(8),
+    paddingBottom: theme.spacing(6.25),
     display: "flex",
     flexDirection: "column",
     justifyContent: "center",
     alignItems: "center",
-    gap: 70,
+    gap: theme.spacing(8.75),
   },
   inputs: {
     width: "100%",
@@ -60,13 +59,5 @@ export const useCardStyles = makeStyles((theme: Theme) => ({
     gap: theme.spacing(4),
     margin: 0,
     padding: 0,
-  },
-  input: {
-    width: "100%",
-    height: 34,
-    display: "flex",
-    justifyContent: "space-between",
-    alignItems: "center",
-    padding: "0 10px",
   },
 }));

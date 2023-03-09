@@ -2,8 +2,6 @@ import makeStyles from "@mui/styles/makeStyles";
 import { BaseTheme } from "theme";
 
 export const useCardStyles = makeStyles((theme: BaseTheme) => ({
-
-
   root: {
     display: "flex",
     justifyContent: "space-between",
@@ -15,7 +13,6 @@ export const useCardStyles = makeStyles((theme: BaseTheme) => ({
     flexDirection: "column",
     gap: theme.spacing(2),
     borderRadius: theme.spacing(.5),
-
     "& img": {
       height: "110px",
       width: "100%",
@@ -24,24 +21,22 @@ export const useCardStyles = makeStyles((theme: BaseTheme) => ({
     }
   },
   templateRoot: {
-    boxShadow: "0px 3px 15px ".concat(theme.design.colors.waz_black200),
+    boxShadow: `0px 3px 15px ${theme.design.colors.waz_black200}`,
     width: "373px",
     padding: theme.spacing(2),
   },
-
   serviceTemplateRoot: {
-    boxShadow: "0px 3px 15px ".concat(theme.design.colors.waz_black200),
+    boxShadow: `0px 3px 15px ${theme.design.colors.waz_black200}`,
     width: "291px",
     padding: theme.spacing(2),
-
   },
   serviceRoot: {
-    boxShadow: "0px 3px 5px ".concat(theme.design.colors.waz_black300),
+    boxShadow: `0px 3px 5px ${theme.design.colors.waz_black300}`,
     padding: theme.spacing(2.25, 2),
     width: "365px",
   },
   overviewRoot: {
-    boxShadow: "0px 3px 15px ".concat(theme.design.colors.waz_black200),
+    boxShadow: `0px 3px 15px ${theme.design.colors.waz_black200}`,
     padding: theme.spacing(1.5),
   },
   titleContainer: {
@@ -72,19 +67,15 @@ export const useCardStyles = makeStyles((theme: BaseTheme) => ({
     color: theme.design.colors.waz_primaryBlack,
     fontSize: theme.typography.fontSize * 2,
   },
-
   cardContent: {
     color: theme.design.colors.waz_grey1,
     textAlign: "left"
   },
-
-
   templateContent: {
     fontSize: theme.typography.fontSize - 2,
   },
   serviceTemplateContent: {
     fontSize: theme.typography.fontSize - 2,
-
   },
   serviceContent: {
     fontSize: theme.typography.fontSize + 2,

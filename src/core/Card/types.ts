@@ -1,5 +1,5 @@
 import { ReactElement } from "react";
-import { ButtonProps, TagProps } from "core";
+import { ButtonProps, TagProps } from "../../core";
 
 import { CommonProps } from "../../types";
 

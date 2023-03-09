@@ -2,7 +2,7 @@ import { FC, useCallback } from "react";
 import clx from "classnames";
 import { HiOutlineArrowUp, HiOutlineArrowDown } from "react-icons/hi";
 
-import { Tag } from "core";
+import { Tag } from "../../core";
 import { CardProps } from "./types";
 import { Button } from "..";
 import { useCardStyles } from "./styles";
