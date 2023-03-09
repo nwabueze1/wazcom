@@ -19,11 +19,11 @@ type SelectProps = CommonProps & {
     helperText?: string;
     hideLabel?: boolean;
     info?: string;
-    isError?: boolean;
-    isSuccess?: boolean;
     label?: string | React.ReactNode;
     name?: string;
     required?: boolean;
+    isSuccess?: boolean;
+    isError?: boolean;
     showCC?: boolean;
     menuIsOpen?: boolean;
     errors?: {

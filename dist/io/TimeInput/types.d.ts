@@ -4,6 +4,8 @@ export type TimeInputProps = CommonProps & {
     classNames?: string;
     popupClassName?: string;
     hideLabel?: boolean;
+    isError?: boolean;
+    isSuccess?: boolean;
     label?: string;
     name?: string;
     required?: boolean;
