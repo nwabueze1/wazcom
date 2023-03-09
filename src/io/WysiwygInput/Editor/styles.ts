@@ -35,6 +35,7 @@ export const useEditorStyles = makeStyles((theme: Theme) => ({
             left: "20%",
             width: "60%",
             height: 400,
+            objectFit: "cover",
         },
 
         "& .ql-container": {
