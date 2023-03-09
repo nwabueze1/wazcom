@@ -37,8 +37,8 @@ export const useTabStyles = makeStyles((theme: BaseTheme) => ({
     borderWidth: variant === "vertical-pill" ? 0 : (borderWidth ?? 1),
     borderStyle: borderStyle ?? 'solid',
     borderColor: variant === "vertical" ? (borderColor ?? theme.design.colors.primary700) : theme.design.colors.primary700,
-    borderRadius: variant === "vertical" ? theme.spacing(.5) : variant === "vertical-pill" ? `${theme.spacing(4.125)} 0px 0px ${theme.spacing(4.125)}` : (borderRadius ?? 14),
-    padding: variant === "vertical-pill" ? `${theme.spacing(1.4)} ${theme.spacing(5.5)} ${theme.spacing(1.4)} ${theme.spacing(2)}` : `${theme.spacing(1.7)} ${theme.spacing(5.5)} ${theme.spacing(1.7)} ${theme.spacing(2)}`,
+    borderRadius: variant === "vertical" ? theme.spacing(.5) : variant === "vertical-pill" ? `${theme.spacing(4)} 0px 0px ${theme.spacing(4)}` : (borderRadius ?? 14),
+    padding: variant === "vertical-pill" ? `${theme.spacing(1.5)} ${theme.spacing(5.5)} ${theme.spacing(1.5)} ${theme.spacing(2)}` : `${theme.spacing(1.5)} ${theme.spacing(5.5)} ${theme.spacing(1.5)} ${theme.spacing(2)}`,
     fontWeight: variant === "vertical-pill" ? theme.typography.fontWeightRegular : theme.typography.fontWeightMedium,
     cursor: 'pointer',
     transition: 'all .5s ease-out',
@@ -47,7 +47,7 @@ export const useTabStyles = makeStyles((theme: BaseTheme) => ({
       borderColor: variant?.includes("vertical") ? theme.design.colors.primary500 : (borderColor ?? theme.design.colors.primary500),
     },
   }),
-  tabIsActive: ({ variant, backgroundColor, borderColor, color, borderRadius }: TabStyleProps) => ({
+  tabIsActive: ({ variant, backgroundColor, borderColor, color }: TabStyleProps) => ({
     background: variant === "vertical" ? "" : (backgroundColor ?? theme.design.colors.waz_primaryColor100),
     color: variant === "vertical" ? theme.design.colors.waz_primaryColor100 : (color ?? theme.design.colors.waz_white),
     borderColor: variant?.includes("vertical") ? (borderColor ?? theme.design.colors.waz_primaryColor100) : theme.design.colors.primary700,
@@ -57,7 +57,7 @@ export const useTabStyles = makeStyles((theme: BaseTheme) => ({
     }
   }),
   contentWrapper: {
-    padding: theme.spacing(1.7, 2),
+    padding: theme.spacing(1.5, 2),
     background: theme.design.colors.white,
     flex: "100",
     borderRadius: theme.spacing(0.5),
