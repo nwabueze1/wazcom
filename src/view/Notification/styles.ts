@@ -4,6 +4,15 @@ import { BaseTheme } from "theme";
 /** !!-- Remember to update the function name !! */
 export const useNotificationStyles = makeStyles((theme: BaseTheme) => ({
   root: {
+    width: "full",
+    display: "flex",
+    flexDirection: "column",
+    justifyContent: "flex-start",
+    alignItem: "flex-start",
+    gap: theme.spacing(3),
+    padding: `${theme.spacing(2)}`
+  },
+  Notificationroot: {
     display: "flex",
     width: 432,
     minHeight: 52,
@@ -20,6 +29,14 @@ export const useNotificationStyles = makeStyles((theme: BaseTheme) => ({
     flexDirection: "column",
     justifyContent: "space-between",
     alignItems: "center",
+  },
+  tooltipContainer: {
+    width: "100%",
+    display: "flex",
+    flexWrap: "wrap",
+    justifyContent: "flex-start",
+    alignItems: "center",
+    gap: theme.spacing(2)
   },
   icon: {
     width: 20,
@@ -63,8 +80,8 @@ export const useNotificationStyles = makeStyles((theme: BaseTheme) => ({
     margin: 0,
   },
   success: {
-    color: theme.design.colors.primary100,
-    borderLeftColor: theme.design.colors.primary100,
+    color: theme.design.colors.waz_primary100,
+    borderLeftColor: theme.design.colors.waz_primary100,
   },
   error: {
     color: theme.design.colors.error,
@@ -110,6 +127,9 @@ export const useNotificationStyles = makeStyles((theme: BaseTheme) => ({
     left: 12,
     transition: "transform .6s ease-in",
     animation: "$toastInLeft .7s",
+  },
+  button: {
+    width: "fit-content"
   },
   notification: {
     background: "#FFFFFF",
@@ -253,12 +273,14 @@ export const useNotifyStyles = makeStyles((theme: BaseTheme) => ({
       height: 30,
     },
   },
+
   toast: {
     height: 50,
     width: 365,
     color: theme.design.colors.waz_white,
     padding: "20px 15px 10px 10px",
   },
+
   "@keyframes toastInRight": {
     from: {
       transform: "translateX(100%)",

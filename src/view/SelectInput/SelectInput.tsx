@@ -2,7 +2,7 @@ import { FC, useState, useCallback } from "react";
 import { SelectInput } from "../../io";
 
 import { useSelectInputStyles } from "./styles";
-import { SelectInputViewProps, InputDataProps } from "./types";
+import { SelectInputViewProps } from "./types";
 
 export const SelectInputView: FC<SelectInputViewProps> = () => {
   const [value, setValue] = useState(0);
@@ -12,15 +12,6 @@ export const SelectInputView: FC<SelectInputViewProps> = () => {
     setValue(val);
   }, []);
 
-  const handleEnter = (payload: any) => {
-    console.log("onEnter", payload);
-  };
-  const handleFocus = (payload: any) => {
-    console.log("onFocus", payload);
-  };
-  const handleBlur = (payload: any) => {
-    console.log("onBlur", payload);
-  };
 
   const classes = useSelectInputStyles();
 
@@ -50,7 +41,8 @@ export const SelectInputView: FC<SelectInputViewProps> = () => {
         <div className={classes.inputContainer}>
           <div className={classes.inputs}>
             {inputData.map((item: any, index: any) => (
-              <SelectInput key={index} label={item.label} options={item.options} />
+
+              <SelectInput key={index} label={item.label} options={item.options} value={value} onChange={handleValueChange} />
             ))}
           </div>
         </div>
