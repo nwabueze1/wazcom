@@ -119,6 +119,7 @@ export var theme = {
             error100: "#F34141",
             black: "#000000",
             black200: "#010E05",
+            waz_black400: "#999999",
             waz_white: "#FFFFFF",
             waz_white100: "#FAFAFA",
             grey100: "#343E37",
