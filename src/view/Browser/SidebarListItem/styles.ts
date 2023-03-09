@@ -1,14 +1,3 @@
-<<<<<<< HEAD
-import { BaseTheme } from "@mui/material";
-import { makeStyles } from "@mui/styles";
-
-export const useSidebarListItemStyles = makeStyles((theme: BaseTheme) => ({
-    root: {
-        width: '100%',
-        height: '100vh',
-        overflowY: 'scroll',
-        boxSizing: 'content-box',
-=======
 import { createUseStyles } from "react-jss";
 
 export const useSidebarListItemStyles = createUseStyles({
@@ -28,7 +17,6 @@ export const useSidebarListItemStyles = createUseStyles({
     padding: 0,
     "& h5": {
       textTransform: "uppercase",
->>>>>>> develop
     },
     borderBottom: "1px solid #E8E8E8",
     marginRight: "10px",
@@ -97,30 +85,9 @@ export const useSidebarListItemStyles = createUseStyles({
     height: "33px",
   },
 
-<<<<<<< HEAD
-
-    },
-    linkActive: {
-        background: '#010E05 0% 0% no-repeat padding-box',
-        color: '#FAFAFA',
-        fontWeight: 600,
-        fontSize: '12px',
-        borderRadius: '1px',
-        padding: '0 20px',
-        height: '33px',
-    },
-
-    sectionLabel: {
-        color: '#343E37',
-        fontWeight: 'normal',
-        fontSize: '8px',
-    }
-}));
-=======
   sectionLabel: {
     color: "#343E37",
     fontWeight: "normal",
     fontSize: "8px",
   },
 });
->>>>>>> develop
