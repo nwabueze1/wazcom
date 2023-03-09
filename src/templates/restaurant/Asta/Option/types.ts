@@ -4,8 +4,8 @@ import { CoreRestaurantFields_activeMenus_options_config } from "templates/resta
 import { Option } from "../CartDialog/types";
 
 export type OptionProps = CoreRestaurantFields_activeMenus_options_config &
-    Omit<AccordionProps, "children"> & {
-        updateSelectedOptions: (option: Option) => void;
-        selectedOptions: Option[];
-        restaurant: CoreFosFields;
-    };
+  Omit<AccordionProps, "children"> & {
+    updateSelectedOptions: (option: Option) => void;
+    selectedOptions: Option[];
+    restaurant: CoreFosFields;
+  };

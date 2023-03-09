@@ -21,10 +21,10 @@ var __rest = (this && this.__rest) || function (s, e) {
     return t;
 };
 import { jsx as _jsx, jsxs as _jsxs } from "react/jsx-runtime";
-import clx from 'classnames';
+import clx from "classnames";
 import moment from "moment";
-import TimePicker from 'rc-time-picker';
-import 'rc-time-picker/assets/index.css';
+import TimePicker from "rc-time-picker";
+import "rc-time-picker/assets/index.css";
 import { BiTimeFive } from "react-icons/bi";
 import { useTimeInputStyles } from "./styles";
 export var TimeInput = function (_a) {

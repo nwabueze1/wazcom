@@ -22,7 +22,7 @@ export var CartSteps = function (_a) {
                                     ? classes.activeStepNum
                                     : currentStep > idx + 1
                                         ? classes.completedStepNum
-                                        : classes.inactiveStepNum) }, { children: currentStep > idx + 1 ? (_jsx(CheckRoundedIcon, { fontSize: "small" })) : (idx + 1) })), _jsx("p", __assign({ className: "".concat(classes.stepName, " ").concat(currentStep == idx + 1
+                                        : classes.inactiveStepNum) }, { children: currentStep > idx + 1 ? _jsx(CheckRoundedIcon, { fontSize: "small" }) : idx + 1 })), _jsx("p", __assign({ className: "".concat(classes.stepName, " ").concat(currentStep == idx + 1
                                     ? classes.activeStepName
                                     : currentStep > idx + 1
                                         ? classes.completedStepName

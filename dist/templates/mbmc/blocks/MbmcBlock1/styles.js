@@ -39,7 +39,7 @@ export var useMbmcBlock1Styles = makeStyles(function (theme) {
                 width: "45%"
             },
             _c[theme.breakpoints.down("lg")] = {
-                position: 'relative',
+                position: "relative",
                 top: 80,
                 width: "90%",
                 display: "flex",
@@ -162,10 +162,10 @@ export var useMbmcBlock1Styles = makeStyles(function (theme) {
             _k[theme.breakpoints.up("xl")] = {
                 objectFit: function (_a) {
                     var fullHeight = _a.fullHeight;
-                    return fullHeight ? 'cover' : 'contain';
+                    return (fullHeight ? "cover" : "contain");
                 },
                 height: "80%",
-                top: '2vh',
+                top: "2vh",
             },
             _k[theme.breakpoints.down("xl")] = {
                 objectFit: function (_a) {
@@ -180,17 +180,17 @@ export var useMbmcBlock1Styles = makeStyles(function (theme) {
                 position: "absolute",
                 top: function (_a) {
                     var fullHeight = _a.fullHeight;
-                    return fullHeight ? "-3vw" : 'unset';
+                    return (fullHeight ? "-3vw" : "unset");
                 }
             },
             _l[theme.breakpoints.up("xl")] = {
                 right: function (_a) {
                     var fullHeight = _a.fullHeight;
-                    return fullHeight ? 0 : '-5vw';
+                    return (fullHeight ? 0 : "-5vw");
                 },
                 height: function (_a) {
                     var fullHeight = _a.fullHeight;
-                    return fullHeight ? "calc(100% + 3vw)" : 'unset';
+                    return (fullHeight ? "calc(100% + 3vw)" : "unset");
                 },
             },
             _l),

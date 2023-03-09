@@ -26,7 +26,7 @@ export var useOptionStyles = makeStyles(function (theme) {
             _a[theme.breakpoints.down("sm")] = {
                 fontSize: theme.typography.fontSize - 1,
                 lineHeight: 1.6,
-                width: '80%',
+                width: "80%",
             },
             _a),
         optionRequired: {

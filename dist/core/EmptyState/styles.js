@@ -40,6 +40,6 @@ export var useEmptyStateStyles = makeStyles(function (theme) { return ({
         whiteSpace: "nowrap",
         fontWeight: theme.typography.fontWeightBold,
         lineHeight: "36px",
-        paddingTop: theme.spacing(2)
+        paddingTop: theme.spacing(2),
     },
 }); });

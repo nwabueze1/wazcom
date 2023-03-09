@@ -3,10 +3,10 @@ import type StateManagedSelect from "react-select";
 import React from "react";
 
 export type SelectInputOptionsProps = {
-    label: string;
-    value: string;
-    subText?: string;
-    icon?: React.FC<{ [key: string]: any }>;
+  label: string;
+  value: string;
+  subText?: string;
+  icon?: React.FC<{ [key: string]: any }>;
 };
 
 type SelectProps = CommonProps & {

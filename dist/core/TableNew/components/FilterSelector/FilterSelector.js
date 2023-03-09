@@ -77,7 +77,7 @@ export var FilterSelector = function (_a) {
                                     if (!checked)
                                         return;
                                     setActiveFilter(__assign(__assign({}, activeFilter), { symbol: symbol }));
-                                } }), name] })), isActive && (_jsx("div", __assign({ style: { display: "flex", gap: "8px", padding: '0 12px', marginTop: '8px' } }, { children: filter.inputs.map(function (input) { return renderInput(input); }) })))] }), index));
+                                } }), name] })), isActive && (_jsx("div", __assign({ style: { display: "flex", gap: "8px", padding: "0 12px", marginTop: "8px" } }, { children: filter.inputs.map(function (input) { return renderInput(input); }) })))] }), index));
         });
     };
     var applyFilter = function () {
@@ -87,5 +87,7 @@ export var FilterSelector = function (_a) {
             value: activeFilter.value,
         });
     };
-    return (_jsxs("div", __assign({ className: clx(classes.root, className), onClick: function (e) { return e.stopPropagation(); } }, { children: [renderFilter(), _jsxs("div", __assign({ className: classes.filterButtons }, { children: [_jsx(Button, __assign({ className: classes.filterButtonSecondary, onClick: function () { handleClose === null || handleClose === void 0 ? void 0 : handleClose(); } }, { children: "Cancel" })), _jsx(Button, __assign({ className: classes.filterButtonPrimary, onClick: applyFilter }, { children: "Apply filter" }))] }))] })));
+    return (_jsxs("div", __assign({ className: clx(classes.root, className), onClick: function (e) { return e.stopPropagation(); } }, { children: [renderFilter(), _jsxs("div", __assign({ className: classes.filterButtons }, { children: [_jsx(Button, __assign({ className: classes.filterButtonSecondary, onClick: function () {
+                            handleClose === null || handleClose === void 0 ? void 0 : handleClose();
+                        } }, { children: "Cancel" })), _jsx(Button, __assign({ className: classes.filterButtonPrimary, onClick: applyFilter }, { children: "Apply filter" }))] }))] })));
 };

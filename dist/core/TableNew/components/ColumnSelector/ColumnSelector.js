@@ -73,12 +73,10 @@ export var ColumnSelector = function (_a) {
         handleColumnChange(updatedColumnFilters);
     };
     var renderColumns = function () {
-        return columns.map(function (column, index) { return (_jsxs("div", __assign({ className: classes.column }, { children: [_jsx(CheckBoxInput, { value: !columnFilters
-                        ? true
-                        : columnFilters.map(function (_a) {
-                            var name = _a.name;
-                            return name;
-                        }).includes(column.name), color: "success", className: classes.columnCheckBox, classNames: { classes: { root: classes.columnCheckBoxRoot } }, onChange: function (_a) {
+        return columns.map(function (column, index) { return (_jsxs("div", __assign({ className: classes.column }, { children: [_jsx(CheckBoxInput, { value: !columnFilters ? true : columnFilters.map(function (_a) {
+                        var name = _a.name;
+                        return name;
+                    }).includes(column.name), color: "success", className: classes.columnCheckBox, classNames: { classes: { root: classes.columnCheckBoxRoot } }, onChange: function (_a) {
                         var checked = _a.value;
                         handleCheckChange(column.key, checked);
                     } }), typeof column.name === "string" ? column.name : column.key] }), index)); });

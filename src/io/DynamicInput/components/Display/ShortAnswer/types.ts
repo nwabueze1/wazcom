@@ -1,3 +1,3 @@
 export interface ShortAnswerProps {
-    placeholderText: string;
+  placeholderText: string;
 }

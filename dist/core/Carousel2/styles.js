@@ -9,7 +9,7 @@ export var useCarouselStyles = makeStyles(function (theme) { return ({
             fontSize: theme.typography.fontSize * 2,
             "&:hover": {
                 backgroundColor: "".concat(theme.design.colors.waz_white, " !important"),
-            }
+            },
         },
     },
     active: {

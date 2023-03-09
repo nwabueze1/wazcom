@@ -9,51 +9,51 @@ import { calculateCartSubTotal } from "../../helpers";
 import { SummaryProps } from "./types";
 
 export const Summary: FC<SummaryProps> = ({ handleCheckout }) => {
-    const { cart } = useContext(RestaurantContext);
-    const classes = useSummaryStyles();
-    const currency = getCurrency(cart?.currency ?? "");
-    const subTotal = calculateCartSubTotal(cart as CoreCartFields);
-    const deliveryFee = !cart?.guest?.firstname
-        ? Number(cart?.restaurant?.bank_info?.delivery_fee)
-        : cart?.guest?.address?.uuid
-        ? Number(cart?.restaurant?.bank_info?.delivery_fee)
-        : 0;
+  const { cart } = useContext(RestaurantContext);
+  const classes = useSummaryStyles();
+  const currency = getCurrency(cart?.currency ?? "");
+  const subTotal = calculateCartSubTotal(cart as CoreCartFields);
+  const deliveryFee = !cart?.guest?.firstname
+    ? Number(cart?.restaurant?.bank_info?.delivery_fee)
+    : cart?.guest?.address?.uuid
+    ? Number(cart?.restaurant?.bank_info?.delivery_fee)
+    : 0;
 
-    return (
-        <div className={classes.root}>
-            <div className={classes.summaryDetail}>
-                <p className={classes.summaryItem}>Dishes</p>
-                <p className={classes.summaryItemDigit}>{cart?.cartItems?.length}</p>
-            </div>
-            <div className={classes.summaryDetail}>
-                <p className={classes.summaryItem}>Sub total</p>
-                <p className={classes.summaryItemDigit}>
-                    {currency}
-                    {subTotal}
-                </p>
-            </div>
-            <div className={classes.summaryDetail}>
-                <p className={classes.summaryItem}>Delivery fee</p>
-                <p className={classes.summaryItemDigit}>
-                    {currency}
-                    {deliveryFee}
-                </p>
-            </div>
-            <div className={clx(classes.summaryDetail, classes.summaryTotal)}>
-                <p className={clx(classes.summaryItem, classes.summaryTotalItem)}>Total</p>
-                <p className={classes.summaryItemDigit}>
-                    {currency}
-                    {subTotal + deliveryFee}
-                </p>
-            </div>
-            <MbmcButton
-                variant="SECONDARY"
-                size="sm"
-                handleClick={handleCheckout}
-                className={classes.summaryButton}
-            >
-                Checkout
-            </MbmcButton>
-        </div>
-    );
+  return (
+    <div className={classes.root}>
+      <div className={classes.summaryDetail}>
+        <p className={classes.summaryItem}>Dishes</p>
+        <p className={classes.summaryItemDigit}>{cart?.cartItems?.length}</p>
+      </div>
+      <div className={classes.summaryDetail}>
+        <p className={classes.summaryItem}>Sub total</p>
+        <p className={classes.summaryItemDigit}>
+          {currency}
+          {subTotal}
+        </p>
+      </div>
+      <div className={classes.summaryDetail}>
+        <p className={classes.summaryItem}>Delivery fee</p>
+        <p className={classes.summaryItemDigit}>
+          {currency}
+          {deliveryFee}
+        </p>
+      </div>
+      <div className={clx(classes.summaryDetail, classes.summaryTotal)}>
+        <p className={clx(classes.summaryItem, classes.summaryTotalItem)}>Total</p>
+        <p className={classes.summaryItemDigit}>
+          {currency}
+          {subTotal + deliveryFee}
+        </p>
+      </div>
+      <MbmcButton
+        variant="SECONDARY"
+        size="sm"
+        handleClick={handleCheckout}
+        className={classes.summaryButton}
+      >
+        Checkout
+      </MbmcButton>
+    </div>
+  );
 };

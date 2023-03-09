@@ -2,95 +2,95 @@ import makeStyles from "@mui/styles/makeStyles";
 import { Theme } from "@mui/material/styles";
 
 export const useRestaurantDetailsStyles = makeStyles<Theme>((theme: Theme) => ({
-    root: {},
-    detailsContainer: {
-        maxWidth: theme.include.styles.maxWidth,
-        background: theme.design.colors.white,
-        padding: theme.spacing(2, 6),
-        borderBottom: `1px solid ${theme.design.colors.waz_grey300}`,
-        width: `calc(100% - ${theme.spacing(12)})`,
-        [theme.breakpoints.down("md")]: {
-            padding: theme.spacing(4),
-        },
-        [theme.breakpoints.down("sm")]: {
-            padding: theme.spacing(2),
-        },
+  root: {},
+  detailsContainer: {
+    maxWidth: theme.include.styles.maxWidth,
+    background: theme.design.colors.white,
+    padding: theme.spacing(2, 6),
+    borderBottom: `1px solid ${theme.design.colors.waz_grey300}`,
+    width: `calc(100% - ${theme.spacing(12)})`,
+    [theme.breakpoints.down("md")]: {
+      padding: theme.spacing(4),
     },
-    restaurantLocation: {
-        fontWeight: 600,
-        fontSize: theme.typography.fontSize + 12,
-        lineHeight: "33px",
-        display: "flex",
-        color: theme.design.colors.waz_black,
-        marginBottom: theme.spacing(1.5),
+    [theme.breakpoints.down("sm")]: {
+      padding: theme.spacing(2),
+    },
+  },
+  restaurantLocation: {
+    fontWeight: 600,
+    fontSize: theme.typography.fontSize + 12,
+    lineHeight: "33px",
+    display: "flex",
+    color: theme.design.colors.waz_black,
+    marginBottom: theme.spacing(1.5),
 
-        [theme.breakpoints.down("sm")]: {
-            fontSize: theme.typography.fontSize + 4,
-        },
+    [theme.breakpoints.down("sm")]: {
+      fontSize: theme.typography.fontSize + 4,
     },
-    restaurantDetails: {
-        width: "100%",
-        display: "flex",
-        flexWrap: "wrap",
-        boxSizing: "border-box",
-        fontSize: theme.typography.fontSize + 2,
-        color: theme.design.colors.waz_grey1,
-        gap: theme.spacing(3),
+  },
+  restaurantDetails: {
+    width: "100%",
+    display: "flex",
+    flexWrap: "wrap",
+    boxSizing: "border-box",
+    fontSize: theme.typography.fontSize + 2,
+    color: theme.design.colors.waz_grey1,
+    gap: theme.spacing(3),
+  },
+  openingTime: {
+    width: "fit-content",
+    display: "flex",
+    alignItems: "center",
+    gap: 4,
+    fontSize: theme.typography.fontSize + 2,
+    fontWeight: theme.typography.fontWeightRegular,
+  },
+  bullet: {
+    width: 8,
+    height: 8,
+    borderRadius: "50%",
+    border: `1px solid ${theme.design.colors.waz_primaryColor100}`,
+  },
+  openingDetails: {
+    display: "flex",
+    alignItems: "center",
+    gap: 4,
+    fontWeight: theme.typography.fontWeightRegular,
+    color: theme.design.colors.waz_grey1,
+  },
+  detailsIcon: {
+    color: theme.design.colors.waz_primaryColor100,
+    height: theme.spacing(2),
+  },
+  mailLink: {
+    color: theme.design.colors.waz_grey1,
+    textDecoration: "none",
+    cursor: "pointer",
+  },
+  logoContainer: {
+    position: "relative",
+    height: 60,
+    [theme.breakpoints.down("sm")]: {
+      height: 10,
     },
-    openingTime: {
-        width: "fit-content",
-        display: "flex",
-        alignItems: "center",
-        gap: 4,
-        fontSize: theme.typography.fontSize + 2,
-        fontWeight: theme.typography.fontWeightRegular,
+  },
+  logoWrapper: {
+    position: "absolute",
+    height: 100,
+    width: 100,
+    borderRadius: "50%",
+    top: -60,
+    [theme.breakpoints.down("sm")]: {
+      height: 64,
+      width: 64,
     },
-    bullet: {
-        width: 8,
-        height: 8,
-        borderRadius: "50%",
-        border: `1px solid ${theme.design.colors.waz_primaryColor100}`,
-    },
-    openingDetails: {
-        display: "flex",
-        alignItems: "center",
-        gap: 4,
-        fontWeight: theme.typography.fontWeightRegular,
-        color: theme.design.colors.waz_grey1,
-    },
-    detailsIcon: {
-        color: theme.design.colors.waz_primaryColor100,
-        height: theme.spacing(2),
-    },
-    mailLink: {
-        color: theme.design.colors.waz_grey1,
-        textDecoration: "none",
-        cursor: "pointer",
-    },
-    logoContainer: {
-        position: "relative",
-        height: 60,
-        [theme.breakpoints.down("sm")]: {
-            height: 10,
-        },
-    },
-    logoWrapper: {
-        position: "absolute",
-        height: 100,
-        width: 100,
-        borderRadius: "50%",
-        top: -60,
-        [theme.breakpoints.down("sm")]: {
-            height: 64,
-            width: 64,
-        },
-    },
-    logoImg: {
-        position: "absolute",
-        width: "100%",
-        height: "100%",
-        objectFit: "cover",
-        objectPosition: "center",
-        borderRadius: "50%",
-    },
+  },
+  logoImg: {
+    position: "absolute",
+    width: "100%",
+    height: "100%",
+    objectFit: "cover",
+    objectPosition: "center",
+    borderRadius: "50%",
+  },
 }));

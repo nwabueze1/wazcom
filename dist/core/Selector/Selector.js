@@ -23,7 +23,7 @@ export var Selector = function (_a) {
             var isActive = (value === null || value === void 0 ? void 0 : value.toLowerCase()) === (selectorValue !== null && selectorValue !== void 0 ? selectorValue : "").toLowerCase();
             return (_jsxs(Button, __assign({ onClick: function () {
                     handleChange === null || handleChange === void 0 ? void 0 : handleChange(value);
-                }, className: clx(classes.selectorOption, index === 0 && classes.selectorOptionInitial, index === (options.length - 1) && classes.selectorOptionFinal, isActive && classes.selectorOptionActive) }, { children: [name, " ", isActive && _jsx(AiOutlineCheck, { className: classes.selectorIcon })] }), index));
+                }, className: clx(classes.selectorOption, index === 0 && classes.selectorOptionInitial, index === options.length - 1 && classes.selectorOptionFinal, isActive && classes.selectorOptionActive) }, { children: [name, " ", isActive && _jsx(AiOutlineCheck, { className: classes.selectorIcon })] }), index));
         });
     };
     return _jsx("div", __assign({ className: classes.root }, { children: displayOptions() }));

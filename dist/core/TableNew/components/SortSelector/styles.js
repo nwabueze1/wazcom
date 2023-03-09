@@ -3,22 +3,22 @@ export var useSortSelectorStyles = makeStyles(function (theme) { return ({
     root: {
         background: theme.design.colors.waz_white,
         borderRadius: 3,
-        width: '7%',
+        width: "7%",
         height: 40,
-        position: 'relative',
-        display: 'flex',
-        justifyContent: 'space-between',
-        alignItems: 'center',
+        position: "relative",
+        display: "flex",
+        justifyContent: "space-between",
+        alignItems: "center",
         color: theme.design.colors.waz_grey1,
         border: "1px solid ".concat(theme.design.colors.waz_primary700),
     },
     sortDetails: {
-        display: 'flex',
-        justifyContent: 'space-between',
-        alignItems: 'center',
+        display: "flex",
+        justifyContent: "space-between",
+        alignItems: "center",
         padding: theme.spacing(0, 1.5, 0, 2),
-        cursor: 'pointer',
-        width: '100%',
+        cursor: "pointer",
+        width: "100%",
     },
     sortText: {
         fontSize: theme.typography.fontSize,
@@ -27,7 +27,7 @@ export var useSortSelectorStyles = makeStyles(function (theme) { return ({
         fontSize: theme.typography.fontSize + 12,
     },
     sortColumns: {
-        position: 'absolute',
+        position: "absolute",
         top: "calc(100% + 1px)",
         left: 0,
         width: 150,
@@ -37,7 +37,7 @@ export var useSortSelectorStyles = makeStyles(function (theme) { return ({
         borderRadius: 3,
         opacity: 0,
         zIndex: -1,
-        transition: 'all 0.3s ease-in',
+        transition: "all 0.3s ease-in",
     },
     sortColumnsActive: {
         opacity: 1,
@@ -46,14 +46,14 @@ export var useSortSelectorStyles = makeStyles(function (theme) { return ({
     sortColumn: {
         fontSize: theme.typography.fontSize,
         padding: theme.spacing(1, 0, 1, 2),
-        cursor: 'pointer',
-        position: 'relative',
+        cursor: "pointer",
+        position: "relative",
         "&:hover": {
             background: theme.design.colors.waz_lightGreen,
-        }
+        },
     },
     sortHeading: {
         fontSize: theme.typography.fontSize - 4,
         paddingLeft: theme.spacing(2),
-    }
+    },
 }); });
