@@ -1,4 +1,4 @@
-import { FC, useState, } from "react";
+import { FC } from "react";
 import { RiTodoLine } from "react-icons/ri";
 import { AiFillCheckCircle } from "react-icons/ai";
 
@@ -8,14 +8,7 @@ import { useCardStyles } from "./styles";
 import { CardViewProps } from "./types";
 
 export const CardView: FC<CardViewProps> = () => {
-  const [value, setValue] = useState(0);
-
-
-
-
   const classes = useCardStyles();
-
-
 
   const cards: CardProps[] = [
     {
@@ -89,7 +82,6 @@ export const CardView: FC<CardViewProps> = () => {
       rate: { trend: "ascending", value: "25%" },
       icon: <RiTodoLine fill="#23803D" />,
       label: "Revenue"
-
     },
   ]
 
@@ -130,10 +122,7 @@ export const CardView: FC<CardViewProps> = () => {
                   footer={footer}
                 />
               </>
-
-
             )}
-
           </div>
         </div>
       </div>
