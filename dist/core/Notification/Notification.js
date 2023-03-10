@@ -56,9 +56,6 @@ export function Notification(_a) {
                     ? classes.bottomLeft
                     : "";
     useEffect(function () {
-        setToasts(__spreadArray([], __read(list), false));
-    }, [list]);
-    useEffect(function () {
         var interval = setInterval(function () {
             if (autoDelete && list.length && toasts.length) {
                 onDeleteToast(list[0].id);

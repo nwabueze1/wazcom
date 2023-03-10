@@ -29,7 +29,6 @@ export const GETBLOGCATEGORIES = gql`
             }
         }
     }
-  }
 `;
 
 export const CREATENEWCATEGORY = gql`

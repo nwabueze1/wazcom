@@ -24,10 +24,6 @@ export function Notification({ list = [], position, autoDelete, duration }: Toas
       : "";
 
   useEffect(() => {
-    setToasts([...list]);
-  }, [list]);
-
-  useEffect(() => {
     const interval = setInterval(() => {
       if (autoDelete && list.length && toasts.length) {
         onDeleteToast(list[0].id);
