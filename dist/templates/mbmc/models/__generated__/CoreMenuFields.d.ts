@@ -44,7 +44,7 @@ export interface CoreMenuFields {
     uuid: string;
     name: string;
     options_config: (CoreMenuFields_options_config | null)[] | null;
-    menuItems: CoreMenuFields_menuItems[] | null;
-    menuCategories: CoreMenuFields_menuCategories[] | null;
+    menuItems: CoreMenuFields_menuItems[];
+    menuCategories: CoreMenuFields_menuCategories[];
     restaurant: CoreRestaurantFields;
 }
