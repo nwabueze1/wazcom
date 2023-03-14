@@ -71,21 +71,22 @@ var __spreadArray = (this && this.__spreadArray) || function (to, from, pack) {
     return to.concat(ar || Array.prototype.slice.call(from));
 };
 import { jsx as _jsx, jsxs as _jsxs } from "react/jsx-runtime";
-import { useState, useCallback, useContext, useMemo } from "react";
+import { useState, useCallback, useMemo } from "react";
+import { useSelector } from "react-redux";
 import { MbmcButton } from "../MbmcButton/MbmcButton";
 import RemoveRoundedIcon from "@mui/icons-material/RemoveRounded";
 import AddRoundedIcon from "@mui/icons-material/AddRounded";
 import { useMbmcBlock16Styles } from "./styles";
 import { getCurrency } from "../../../../utilities";
-import { RestaurantContext } from "../../contexts";
 import { Modal } from "../../../../core";
 import { Options } from "./components";
 import { calculateOptionsTotal } from "./helpers";
 import { useAddToCart } from "./hooks";
 export var OrderDialog = function (_a) {
     var _b, _c, _d, _e, _f, _g;
-    var itemUuid = _a.itemUuid, handleClose = _a.handleClose, setContextProps = _a.setContextProps;
-    var _h = useContext(RestaurantContext), menu = _h.menu, loading = _h.loading;
+    var itemUuid = _a.itemUuid, handleClose = _a.handleClose;
+    var _h = useSelector(function (state) { return state; }), restaurant = _h.restaurant, loading = _h.loading;
+    var menu = restaurant === null || restaurant === void 0 ? void 0 : restaurant.menu;
     var classes = useMbmcBlock16Styles();
     var _j = __read(useState(1), 2), quantity = _j[0], setQuantity = _j[1];
     var _k = __read(useState([]), 2), selectedOptions = _k[0], setSelectedOptions = _k[1];
@@ -130,7 +131,7 @@ export var OrderDialog = function (_a) {
                         quantity: quantity,
                         detail: menuItem === null || menuItem === void 0 ? void 0 : menuItem.description,
                         options: selectedOptions.length > 0 ? JSON.stringify(selectedOptions) : undefined,
-                    }, handleClose, setContextProps)];
+                    }, handleClose)];
                 case 1:
                     _a.sent();
                     return [2 /*return*/];

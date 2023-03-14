@@ -121,17 +121,17 @@ export var MbmcBlock14 = function (_a) {
     }, [data, error]);
     var handleOrderConfirmation = function (contextData) { return __awaiter(void 0, void 0, void 0, function () {
         var queryParams, order;
-        var _a, _b;
-        return __generator(this, function (_c) {
-            switch (_c.label) {
+        var _a, _b, _c;
+        return __generator(this, function (_d) {
+            switch (_d.label) {
                 case 0:
                     queryParams = new URLSearchParams(window.location.search);
                     if (!(queryParams.get("partner") && queryParams.get("reference"))) return [3 /*break*/, 2];
-                    return [4 /*yield*/, updateOrder(clients === null || clients === void 0 ? void 0 : clients.AMBROSIA, (_b = (_a = contextData === null || contextData === void 0 ? void 0 : contextData.cart) === null || _a === void 0 ? void 0 : _a.restaurant) === null || _b === void 0 ? void 0 : _b.site_uuid)];
+                    return [4 /*yield*/, updateOrder(clients === null || clients === void 0 ? void 0 : clients.AMBROSIA, (_c = (_b = (_a = contextData === null || contextData === void 0 ? void 0 : contextData.cart) === null || _a === void 0 ? void 0 : _a.restaurant) === null || _b === void 0 ? void 0 : _b.site) === null || _c === void 0 ? void 0 : _c.uuid)];
                 case 1:
-                    order = _c.sent();
+                    order = _d.sent();
                     contextData = __assign(__assign({}, contextData), { cart: __assign(__assign({}, contextData === null || contextData === void 0 ? void 0 : contextData.cart), { order: order }) });
-                    _c.label = 2;
+                    _d.label = 2;
                 case 2:
                     setContextData(contextData);
                     setLoading(false);

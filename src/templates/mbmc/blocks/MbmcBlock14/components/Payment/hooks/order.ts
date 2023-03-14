@@ -46,8 +46,8 @@ export const useCreateOrder = () => {
       setContext?.({ loading: false, networkOperation: "", cart: updatedCart });
       notify("success", "Order placed successfully");
 
-      delete cartCookie[cart?.restaurant?.site_uuid ?? ""];
-      delete cartItemCountCookie[cart?.restaurant?.site_uuid ?? ""];
+      delete cartCookie[cart?.restaurant?.site?.uuid ?? ""];
+      delete cartItemCountCookie[cart?.restaurant?.site?.uuid ?? ""];
 
       cookies.set("cart", cartCookie, { path: "/" });
       cookies.set("cartItemCount", cartItemCountCookie, { path: "/" });

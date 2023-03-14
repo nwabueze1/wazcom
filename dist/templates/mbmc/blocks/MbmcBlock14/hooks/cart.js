@@ -103,9 +103,9 @@ var useUpdateCartCount = function () {
     var cart = useContext(RestaurantContext).cart;
     var cookies = new Cookies();
     return function (setContextProps) {
-        var _a;
+        var _a, _b;
         var cartItemCountCookie = cookies.get("cartItemCount");
-        var siteUuid = (_a = cart === null || cart === void 0 ? void 0 : cart.restaurant) === null || _a === void 0 ? void 0 : _a.site_uuid;
+        var siteUuid = (_b = (_a = cart === null || cart === void 0 ? void 0 : cart.restaurant) === null || _a === void 0 ? void 0 : _a.site) === null || _b === void 0 ? void 0 : _b.uuid;
         var updatedCount = cartItemCountCookie[siteUuid] - 1;
         cartItemCountCookie[siteUuid] = updatedCount;
         cookies.set("cartItemCount", cartItemCountCookie, {

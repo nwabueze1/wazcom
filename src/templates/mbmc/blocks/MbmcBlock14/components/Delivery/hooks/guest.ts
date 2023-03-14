@@ -13,7 +13,7 @@ export const useUpdateGuest = () => {
   const cartCookie = cookies.get("cart");
 
   return async (variables: TUpdateGuestVariables, onSuccess?: () => void, isPickup?: boolean) => {
-    const siteUuid = cart?.restaurant?.site_uuid as string;
+    const siteUuid = cart?.restaurant?.site?.uuid as string;
     const cartUuid = cartCookie[siteUuid];
     setContext?.({
       loading: true,

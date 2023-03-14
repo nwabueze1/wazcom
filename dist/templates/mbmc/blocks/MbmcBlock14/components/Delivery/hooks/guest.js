@@ -56,22 +56,22 @@ export var useUpdateGuest = function () {
     var cartCookie = cookies.get("cart");
     return function (variables, onSuccess, isPickup) { return __awaiter(void 0, void 0, void 0, function () {
         var siteUuid, cartUuid, _a, data, errors, guest, updatedCart, error_1;
-        var _b;
-        return __generator(this, function (_c) {
-            switch (_c.label) {
+        var _b, _c;
+        return __generator(this, function (_d) {
+            switch (_d.label) {
                 case 0:
-                    siteUuid = (_b = cart === null || cart === void 0 ? void 0 : cart.restaurant) === null || _b === void 0 ? void 0 : _b.site_uuid;
+                    siteUuid = (_c = (_b = cart === null || cart === void 0 ? void 0 : cart.restaurant) === null || _b === void 0 ? void 0 : _b.site) === null || _c === void 0 ? void 0 : _c.uuid;
                     cartUuid = cartCookie[siteUuid];
                     setContext === null || setContext === void 0 ? void 0 : setContext({
                         loading: true,
                         networkOperation: isPickup ? "set.delivery.pickup" : "set.delivery.dispatch",
                     });
-                    _c.label = 1;
+                    _d.label = 1;
                 case 1:
-                    _c.trys.push([1, 3, , 4]);
+                    _d.trys.push([1, 3, , 4]);
                     return [4 /*yield*/, (clients === null || clients === void 0 ? void 0 : clients.AMBROSIA).mutate({ mutation: UPDATE_GUEST, variables: __assign(__assign({}, variables), { cart_uuid: cartUuid }) })];
                 case 2:
-                    _a = _c.sent(), data = _a.data, errors = _a.errors;
+                    _a = _d.sent(), data = _a.data, errors = _a.errors;
                     if (!data || errors) {
                         throw new Error("We could not complete that operation");
                     }
@@ -84,7 +84,7 @@ export var useUpdateGuest = function () {
                     isPickup && (onSuccess === null || onSuccess === void 0 ? void 0 : onSuccess());
                     return [2 /*return*/, guest];
                 case 3:
-                    error_1 = _c.sent();
+                    error_1 = _d.sent();
                     setContext === null || setContext === void 0 ? void 0 : setContext({ loading: false, networkOperation: "" });
                     notify("error", "We could not complete that operation");
                     return [3 /*break*/, 4];
