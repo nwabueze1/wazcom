@@ -1,4 +1,3 @@
-import { ApolloClient, NormalizedCacheObject } from "@apollo/client";
 import { CoreMenuFields, CoreCartFields } from "../mbmc/models";
 
 export type TRestaurantState = {
@@ -8,7 +7,7 @@ export type TRestaurantState = {
 
 export type TAppState = {
   restaurant?: TRestaurantState;
-  client?: ApolloClient<NormalizedCacheObject>;
   loading?: boolean;
   networkOperation?: string;
+  gatewayUrl?: string;
 };

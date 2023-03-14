@@ -1,24 +1,23 @@
 import { useSelector, useDispatch } from "react-redux";
 import Cookies from "universal-cookie";
-import { ApolloClient, NormalizedCacheObject } from "@apollo/client";
 import { CREATE_CART, CREATE_CART_ITEM } from "../graphql";
 import { TAddToCartVariables } from "./types";
 import { notify } from "../../../utilities";
 import { TAppState } from "../../../../types";
 import { CoreMenuFields } from "../../../models";
+import { createApolloClient } from "../../../../../helpers/graphQL";
 
 export const useCreateCart = () => {
-  const { restaurant, client } = useSelector<TAppState, TAppState>((state) => state);
+  const { restaurant, gatewayUrl } = useSelector<TAppState, TAppState>((state) => state);
   const menu = restaurant?.menu as CoreMenuFields; 
   const cookies = new Cookies();
+  const client = createApolloClient(gatewayUrl ?? "");
 
   return async () => {
     const cartCookie: { [key: string]: string } = cookies.get("cart") ?? {};
     const siteUuid = menu?.restaurant?.site?.uuid as string;
     const currency = menu?.restaurant?.bank_info?.currency as string;
-    const { data, errors } = await (
-      client as ApolloClient<NormalizedCacheObject>
-    ).mutate({
+    const { data, errors } = await client.mutate({
       mutation: CREATE_CART,
       variables: { site_uuid: siteUuid, currency },
     });
@@ -36,11 +35,12 @@ export const useCreateCart = () => {
 };
 
 export const useAddToCart = () => {
-  const { restaurant, client } = useSelector<TAppState, TAppState>((state) => state);
+  const { restaurant, gatewayUrl } = useSelector<TAppState, TAppState>((state) => state);
   const dispatch = useDispatch();
   const menu = restaurant?.menu as CoreMenuFields;
   const cookies = new Cookies();
   const createCart = useCreateCart();
+  const client = createApolloClient(gatewayUrl ?? "");
 
   return async (
     variables: TAddToCartVariables,
@@ -55,9 +55,7 @@ export const useAddToCart = () => {
       if (!cartCookie || !cartCookie[siteUuid]) cartUuid = await createCart();
       else cartUuid = cartCookie[siteUuid];
 
-      const { data, errors } = await (
-        client as ApolloClient<NormalizedCacheObject>
-      ).mutate({
+      const { data, errors } = await client.mutate({
         mutation: CREATE_CART_ITEM,
         variables: { ...variables, cart_uuid: cartUuid },
       });

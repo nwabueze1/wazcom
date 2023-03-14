@@ -49,10 +49,12 @@ import { useSelector, useDispatch } from "react-redux";
 import Cookies from "universal-cookie";
 import { CREATE_CART, CREATE_CART_ITEM } from "../graphql";
 import { notify } from "../../../utilities";
+import { createApolloClient } from "../../../../../helpers/graphQL";
 export var useCreateCart = function () {
-    var _a = useSelector(function (state) { return state; }), restaurant = _a.restaurant, client = _a.client;
+    var _a = useSelector(function (state) { return state; }), restaurant = _a.restaurant, gatewayUrl = _a.gatewayUrl;
     var menu = restaurant === null || restaurant === void 0 ? void 0 : restaurant.menu;
     var cookies = new Cookies();
+    var client = createApolloClient(gatewayUrl !== null && gatewayUrl !== void 0 ? gatewayUrl : "");
     return function () { return __awaiter(void 0, void 0, void 0, function () {
         var cartCookie, siteUuid, currency, _a, data, errors, error, _b, uuid, expires;
         var _c, _d, _e, _f, _g;
@@ -81,11 +83,12 @@ export var useCreateCart = function () {
     }); };
 };
 export var useAddToCart = function () {
-    var _a = useSelector(function (state) { return state; }), restaurant = _a.restaurant, client = _a.client;
+    var _a = useSelector(function (state) { return state; }), restaurant = _a.restaurant, gatewayUrl = _a.gatewayUrl;
     var dispatch = useDispatch();
     var menu = restaurant === null || restaurant === void 0 ? void 0 : restaurant.menu;
     var cookies = new Cookies();
     var createCart = useCreateCart();
+    var client = createApolloClient(gatewayUrl !== null && gatewayUrl !== void 0 ? gatewayUrl : "");
     return function (variables, onClose) { return __awaiter(void 0, void 0, void 0, function () {
         var cartCookie, siteUuid, cartUuid, _a, data, errors, error, error_1;
         var _b, _c;
