@@ -1,7 +1,5 @@
 import { FC, useState } from "react";
-import { BsEye } from "react-icons/bs";
-
-import { Button } from "../../core";
+import { Button, Wrapper } from "../../core";
 import { useButtonStyles } from "./styles";
 import { ButtonViewProps } from "./types";
 import { TimeInput } from "io";
@@ -24,16 +22,12 @@ export const ButtonView: FC<ButtonViewProps> = () => {
             </p>
           </div>
         </div>
-        <div className={classes.inputContainer}>
-          <div className={classes.inputs}>
-            <Button variant={"contained"} isDisabled={false} isLoading={true} rightIcon={<BsEye />}>
-              Button
-            </Button>
-          </div>
-          <div className={classes.inputs}>
-            <Button>Button</Button>
-          </div>
-        </div>
+        <Wrapper>
+          <Button variant={"contained"} isDisabled={false} isLoading={false} rightIcon={undefined}>
+            Default Button
+          </Button>
+        </Wrapper>
+
         <TimeInput value={value} name="timepocker" onChange={(e) => setValue(e.value)} />
       </div>
     </div>
