@@ -10,17 +10,17 @@ var __assign = (this && this.__assign) || function () {
     return __assign.apply(this, arguments);
 };
 import { jsx as _jsx, jsxs as _jsxs } from "react/jsx-runtime";
-import { useContext } from "react";
+import { useSelector } from "react-redux";
 import { AiOutlineCheckCircle } from "react-icons/ai";
 import { BsArrowLeft } from "react-icons/bs";
 import { useOrderDetailsStyles } from "./styles";
-import { RestaurantContext } from "../../../../contexts";
 import { calculateCartSubTotal } from "../../helpers";
 import { getCurrency } from "../../../../../../utilities";
 export var OrderDetails = function (_a) {
     var _b, _c, _d, _e, _f, _g, _h, _j, _k, _l, _m, _o, _p, _q, _r, _s, _t;
     var display = _a.display, setDisplay = _a.setDisplay;
-    var cart = useContext(RestaurantContext).cart;
+    var restaurant = useSelector(function (state) { return state; }).restaurant;
+    var cart = restaurant === null || restaurant === void 0 ? void 0 : restaurant.cart;
     var classes = useOrderDetailsStyles({ display: display });
     var subTotal = calculateCartSubTotal(cart);
     var deliveryFee = ((_b = cart === null || cart === void 0 ? void 0 : cart.order) === null || _b === void 0 ? void 0 : _b.order_type) === "pickup"

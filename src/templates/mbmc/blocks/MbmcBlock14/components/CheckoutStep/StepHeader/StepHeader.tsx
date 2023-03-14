@@ -1,5 +1,5 @@
-import { FC, useContext } from "react";
-import { RestaurantContext } from "../../../../../contexts";
+import { FC } from "react";
+import { useSelector } from "react-redux";
 import { useStepHeaderStyles } from "./styles";
 import { StepHeaderProps } from "./types";
 import { getCurrency } from "../../../../../../../utilities";
@@ -7,9 +7,11 @@ import { calculateCartSubTotal } from "../../../helpers";
 import { CoreCartFields } from "../../../../../models";
 import { DeliveryOption, deliveryOptions } from "../../Delivery";
 import clx from "classnames";
+import { TAppState } from "templates/types";
 
 export const StepHeader: FC<StepHeaderProps> = ({ name, handleEdit }) => {
-  const { cart } = useContext(RestaurantContext);
+  const { restaurant } = useSelector<TAppState, TAppState>((state) => state);
+  const cart = restaurant?.cart as CoreCartFields;
   const parsedName = name.toLowerCase().replace(/ /g, "_");
   const classes = useStepHeaderStyles();
   const currency = getCurrency(cart?.currency ?? "");

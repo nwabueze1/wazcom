@@ -1,15 +1,18 @@
-import { FC, useState, useCallback, useContext } from "react";
+import { FC, useState, useCallback } from "react";
+import { useSelector } from "react-redux";
 import { CheckoutStep } from "../CheckoutStep";
 import { BsArrowLeft } from "react-icons/bs";
 import { Summary, Delivery, Payment } from "../";
 import { useCheckoutStyles } from "./styles";
 import { CheckoutProps } from "./types";
-import { RestaurantContext } from "../../../../contexts";
+import { TAppState } from "templates/types";
+import { CoreCartFields } from "../../../../models";
 
 export const Checkout: FC<CheckoutProps> = ({ display, setDisplay }) => {
   const classes = useCheckoutStyles({ display });
   const [activeStep, setActiveStep] = useState(0);
-  const { cart } = useContext(RestaurantContext);
+  const { restaurant } = useSelector<TAppState, TAppState>((state) => state);
+  const cart = restaurant?.cart as CoreCartFields;
 
   const steps = [
     {

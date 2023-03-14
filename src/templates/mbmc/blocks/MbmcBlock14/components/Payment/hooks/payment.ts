@@ -1,17 +1,16 @@
-import { useContext } from "react";
-import { ApolloClient, NormalizedCacheObject } from "@apollo/client";
-import { RestaurantContext } from "../../../../../contexts";
+import { useSelector } from "react-redux";
 import { notify } from "../../../../../utilities";
 import { MAKE_PAYPAL_PAYMENT } from "../graphql";
+import { TAppState } from "../../../../../../types";
+import { createApolloClient } from "../../../../../../../helpers/graphQL";
 
 export const usePaypalPayment = () => {
-  const { clients } = useContext(RestaurantContext);
+  const { gatewayUrl } = useSelector<TAppState, TAppState>((state) => state);
+  const client = createApolloClient(gatewayUrl ?? "");
 
   return async (order_uuid: string) => {
     try {
-      const { data, errors } = await (
-        clients?.NICODEMUS as ApolloClient<NormalizedCacheObject>
-      ).mutate({
+      const { data, errors } = await client.mutate({
         mutation: MAKE_PAYPAL_PAYMENT,
         variables: { order_uuid, pageRedirect: window.location.pathname },
       });

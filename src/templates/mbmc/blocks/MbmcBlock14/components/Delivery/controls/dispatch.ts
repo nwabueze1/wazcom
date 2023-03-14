@@ -1,4 +1,4 @@
-import { useContext } from "react";
+import { useSelector } from "react-redux";
 import { FormControls, handleInputBlur, handleInputChange } from "../../../../../components/Form";
 import { useDeliveryStyles } from "../styles";
 import { dispatchSchema } from "../validators";
@@ -8,11 +8,13 @@ import {
   TUpdateGuestVariables,
   TCreateAddressVariables,
 } from "../hooks";
-import { RestaurantContext } from "../../../../../contexts";
 import { usePickupConfig, usePickupControls } from "./pickup";
+import { TAppState } from "../../../../../../types";
+import { CoreCartFields } from "../../../../../models";
 
 export const useDispatchConfig = () => {
-  const { cart } = useContext(RestaurantContext);
+  const { restaurant } = useSelector<TAppState, TAppState>((state) => state);
+  const cart = restaurant?.cart as CoreCartFields;
   const getPickupConfig = usePickupConfig();
   const updateGuest = useUpdateGuest();
   const createAddress = useCreateAddress();

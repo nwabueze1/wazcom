@@ -34,20 +34,23 @@ var __generator = (this && this.__generator) || function (thisArg, body) {
         if (op[0] & 5) throw op[1]; return { value: op[0] ? op[1] : void 0, done: true };
     }
 };
+import { useSelector } from "react-redux";
 import { notify } from "../../../utilities";
 import { UPDATE_ORDER } from "../graphql";
 import Cookies from "universal-cookie";
+import { createApolloClient } from "../../../../../helpers/graphQL";
 export var useUpdateOrder = function () {
+    var gatewayUrl = useSelector(function (state) { return state; }).gatewayUrl;
     var cookies = new Cookies();
-    return function (client, site_uuid) { return __awaiter(void 0, void 0, void 0, function () {
-        var queryParams, cartCookie, cartItemCountCookie, _a, data, errors, error_1;
+    var client = createApolloClient(gatewayUrl !== null && gatewayUrl !== void 0 ? gatewayUrl : "");
+    return function (site_uuid) { return __awaiter(void 0, void 0, void 0, function () {
+        var queryParams, cartCookie, _a, data, errors, error_1;
         var _b;
         return __generator(this, function (_c) {
             switch (_c.label) {
                 case 0:
                     queryParams = new URLSearchParams(window.location.search);
                     cartCookie = cookies.get("cart");
-                    cartItemCountCookie = cookies.get("cartItemCount");
                     _c.label = 1;
                 case 1:
                     _c.trys.push([1, 3, , 4]);
@@ -65,9 +68,7 @@ export var useUpdateOrder = function () {
                         throw new Error("We could not complete that operation");
                     notify("success", "Order placed successfully");
                     delete cartCookie[site_uuid];
-                    delete cartItemCountCookie[site_uuid];
                     cookies.set("cart", cartCookie, { path: "/" });
-                    cookies.set("cartItemCount", cartItemCountCookie, { path: "/" });
                     return [2 /*return*/, data.updateOrder];
                 case 3:
                     error_1 = _c.sent();

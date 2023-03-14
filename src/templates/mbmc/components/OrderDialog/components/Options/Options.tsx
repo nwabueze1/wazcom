@@ -1,16 +1,18 @@
-import { FC, useContext } from "react";
+import { FC } from "react";
+import { useSelector } from "react-redux";
 import { useOptionsStyles } from "./styles";
 import { OptionsProps } from "./types";
 import { Option } from "../Option";
-import { RestaurantContext } from "../../../../contexts";
-import { CoreMenuFields_options_config } from "templates/mbmc/models";
+import { TAppState } from "../../../../../types";
+import { CoreMenuFields, CoreMenuFields_options_config } from "../../../../models";
 
 export const Options: FC<OptionsProps> = ({
   itemOptions,
   selectedOptions,
   handleUpdateSelectedOptions,
 }) => {
-  const { menu } = useContext(RestaurantContext);
+  const { restaurant } = useSelector<TAppState, TAppState>((state) => state);
+  const menu = restaurant?.menu as CoreMenuFields;
   const classes = useOptionsStyles();
 
   const displayOptions = () => {

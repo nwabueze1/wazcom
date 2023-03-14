@@ -1,11 +1,13 @@
-import { FC, useState, useContext, useCallback, useEffect } from "react";
+import { FC, useState, useCallback, useEffect } from "react";
+import { useSelector } from "react-redux";
 import { OptionProps } from "./types";
 import { parseSelectedChoices } from "./helpers";
 import { Option as OptionType } from "../../types";
-import { RestaurantContext } from "../../../../contexts";
 import { getCurrency } from "../../../../../../utilities";
 import { RadioButtonInput, CheckBoxInput } from "../../../../../../io";
 import { useOptionStyles } from "./styles";
+import { TAppState } from "../../../../../types";
+import { CoreMenuFields } from "../../../../models";
 
 export const Option: FC<OptionProps> = ({
   name,
@@ -15,7 +17,8 @@ export const Option: FC<OptionProps> = ({
   handleUpdateSelectedOptions,
 }) => {
   const classes = useOptionStyles();
-  const { menu } = useContext(RestaurantContext);
+  const { restaurant } = useSelector<TAppState, TAppState>((state) => state);
+  const menu = restaurant?.menu as CoreMenuFields;
   const [selectedChoices, setSelectedChoices] = useState<OptionType["selectedChoices"]>(
     parseSelectedChoices(selectedOptions, name),
   );
