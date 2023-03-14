@@ -62,7 +62,7 @@ var __read = (this && this.__read) || function (o, n) {
     return ar;
 };
 import { jsx as _jsx, jsxs as _jsxs } from "react/jsx-runtime";
-import { useState, useEffect } from "react";
+import { useState, useEffect, useMemo } from "react";
 import { useSelector } from "react-redux";
 import { useQuery } from "@apollo/client";
 import { GET_PAYMENT_METHODS } from "./graphql";
@@ -73,17 +73,17 @@ import { usePaymentStyles } from "./styles";
 import { useCreateOrder } from "./hooks";
 import { createApolloClient } from "../../../../../../helpers/graphQL";
 export var Payment = function () {
-    var _a;
-    var _b = useSelector(function (state) { return state; }), restaurant = _b.restaurant, gatewayUrl = _b.gatewayUrl, ctxtLoading = _b.loading, networkOperation = _b.networkOperation;
+    var _a = useSelector(function (state) { return state; }), restaurant = _a.restaurant, gatewayUrl = _a.gatewayUrl, ctxtLoading = _a.loading, networkOperation = _a.networkOperation;
     var cart = restaurant === null || restaurant === void 0 ? void 0 : restaurant.cart;
     var client = createApolloClient(gatewayUrl !== null && gatewayUrl !== void 0 ? gatewayUrl : "");
     var classes = usePaymentStyles();
-    var _c = useQuery(GET_PAYMENT_METHODS, {
+    var service_uuid = useMemo(function () { var _a; return (_a = cart === null || cart === void 0 ? void 0 : cart.restaurant) === null || _a === void 0 ? void 0 : _a.uuid; }, []);
+    var _b = useQuery(GET_PAYMENT_METHODS, {
         client: client,
-        variables: { service_uuid: (_a = cart === null || cart === void 0 ? void 0 : cart.restaurant) === null || _a === void 0 ? void 0 : _a.uuid },
-    }), data = _c.data, error = _c.error, loading = _c.loading;
-    var _d = __read(useState([]), 2), paymentMethods = _d[0], setPaymentMethods = _d[1];
-    var _e = __read(useState(), 2), selectedMethod = _e[0], setSelectedMethod = _e[1];
+        variables: { service_uuid: service_uuid },
+    }), data = _b.data, error = _b.error, loading = _b.loading;
+    var _c = __read(useState([]), 2), paymentMethods = _c[0], setPaymentMethods = _c[1];
+    var _d = __read(useState(), 2), selectedMethod = _d[0], setSelectedMethod = _d[1];
     var createOrder = useCreateOrder();
     useEffect(function () {
         if (data) {

@@ -1,4 +1,4 @@
-import { useState, useEffect } from "react";
+import { useState, useEffect, useMemo } from "react";
 import { useSelector } from "react-redux";
 import { useQuery } from "@apollo/client";
 import { GET_PAYMENT_METHODS } from "./graphql";
@@ -22,9 +22,10 @@ export const Payment = () => {
   const cart = restaurant?.cart as CoreCartFields;
   const client = createApolloClient(gatewayUrl ?? "");
   const classes = usePaymentStyles();
+  const service_uuid = useMemo(() => cart?.restaurant?.uuid, []);
   const { data, error, loading } = useQuery(GET_PAYMENT_METHODS, {
     client,
-    variables: { service_uuid: cart?.restaurant?.uuid },
+    variables: { service_uuid },
   });
   const [paymentMethods, setPaymentMethods] = useState<PaymentMethod[]>([]);
   const [selectedMethod, setSelectedMethod] = useState<PaymentMethod>();
