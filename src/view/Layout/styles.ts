@@ -11,6 +11,30 @@ export const useLayoutStyles = makeStyles((theme: Theme) => ({
     boxSizing: "border-box",
   },
   sidebarList: {},
+  collapseButton: {
+    backgroundColor: 'transparent',
+    border: 'none',
+    fontSize: '1.6rem',
+    marginLeft: '10px',
+    marginTop: '5px',
+    cursor: 'pointer',
+
+    "@media (min-width: 1080px)": {
+      display: 'none'
+    }
+  },
+  menuButton: {
+    backgroundColor: 'transparent',
+    border: 'none',
+    fontSize: '1.6rem',
+    marginRight: '15px',
+    cursor: 'pointer',
+    marginTop: '7px',
+
+    "@media (min-width: 1080px)": {
+      display: 'none'
+    }
+  },
   sidebarIcon: {
     marginRight: theme.spacing(1),
   },
@@ -33,12 +57,15 @@ export const useLayoutStyles = makeStyles((theme: Theme) => ({
   },
   main: {
     marginTop: theme.spacing(7),
-    width: "calc(100vw - 244px)",
     overflow: "hidden",
     padding: "7px 24px",
-    marginLeft: `${drawerWidth}px`,
+    width: '100%',
     background: theme.design.colors.waz_white100,
     borderRadius: theme.spacing(0.5),
+
+    "@media (min-width: 1080px)": {
+      marginLeft: `${drawerWidth}px`,
+    }
   },
   componentWrapper: {
     marginBottom: theme.spacing(5),
@@ -48,14 +75,26 @@ export const useLayoutStyles = makeStyles((theme: Theme) => ({
   },
   logo: {
     display: "flex",
-    justifyContent: "left",
-    alignItems: "left",
+    justifyContent: "flex-start",
+    alignItems: "center",
     color: theme.design.colors.waz_black,
     fontWeight: theme.typography.fontWeightBold,
     fontSize: theme.typography.h3.fontSize,
     width: 91,
     height: 27,
     textTransform: "uppercase",
+  },
+  logoTop: {
+    width: `${drawerWidth}px`,
+
+    "@media (max-width: 600px)": {
+      width: '50px'
+    }
+  },
+  logoTitle: {
+    "@media (max-width: 600px)": {
+      display: 'none'
+    }
   },
   title: {
     fontWeight: theme.typography.fontWeightBold,
@@ -71,12 +110,11 @@ export const useLayoutStyles = makeStyles((theme: Theme) => ({
     display: "flex",
   },
   appBarWrapper: {
-    position: "fixed",
+    position: "absolute",
     display: "flex",
     alignItems: "center",
-    width: `calc(100% - ${drawerWidth}px)`,
+    width: '100%',
     height: 60,
-    marginLeft: `${drawerWidth}px`,
     boxShadow: "0px 1px 25px rgba(0, 0, 0, 0.05)",
     opacity: 1,
     background: theme.design.colors.waz_white,
@@ -87,10 +125,15 @@ export const useLayoutStyles = makeStyles((theme: Theme) => ({
     justifyContent: "space-between",
     alignItems: "center",
     width: "100%",
+
+    "@media (min-width: 1080px)": {
+      marginLeft: '60px'
+    }
   },
   notificationWrapper: {
     width: 24,
     height: 24,
+    marginLeft: '20px'
   },
   notoficationIcon: {
     width: 18,
@@ -101,16 +144,32 @@ export const useLayoutStyles = makeStyles((theme: Theme) => ({
     width: `${drawerWidth}px`,
     padding: "22px 19px",
     position: "fixed",
+    height: '100%',
+    minHeight: '100vh',
+    top: 0,
+    left: 0,
+    zIndex: 500,
+    transition: 'transform 450ms ease, width 450ms ease',
+    transform: 'translateX(-100%)',
     background: theme.design.colors.waz_white,
     boxShadow: "0px 1px 25px rgba(0, 0, 0, 0.05)",
     display: "flex",
     flexDirection: "column",
     gap: 0,
     marginBottom: 50,
+
+    "&[data-show='true']": {
+      transform: 'translateX(0)'
+    },
+
+    "@media (min-width: 1080px)": {
+      transform: 'translateX(0)'
+    }
   },
   searchBox: {
     display: "flex",
-    justifyContent: "center",
-    alignItems: "center",
+    alignItems: "space-between",
+    width: '100%',
+    maxWidth: '480px'
   },
 }));
