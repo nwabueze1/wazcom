@@ -53,7 +53,7 @@ const useUpdateCartCount = () => {
 
   return (setContextProps?: (contextProps: { [key: string]: any }) => void) => {
     const cartItemCountCookie = cookies.get("cartItemCount");
-    const siteUuid = cart?.restaurant?.site_uuid as string;
+    const siteUuid = cart?.restaurant?.site?.uuid as string;
     const updatedCount = cartItemCountCookie[siteUuid] - 1;
     cartItemCountCookie[siteUuid] = updatedCount;
 

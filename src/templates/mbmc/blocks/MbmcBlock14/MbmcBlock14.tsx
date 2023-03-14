@@ -75,7 +75,7 @@ export const MbmcBlock14: React.FC<MbmcBlock14Props> = ({
     if (queryParams.get("partner") && queryParams.get("reference")) {
       const order = await updateOrder(
         clients?.AMBROSIA as ApolloClient<NormalizedCacheObject>,
-        contextData?.cart?.restaurant?.site_uuid as string,
+        contextData?.cart?.restaurant?.site?.uuid as string,
       );
       contextData = {
         ...contextData,

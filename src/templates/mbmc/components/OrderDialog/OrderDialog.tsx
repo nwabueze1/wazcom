@@ -1,18 +1,21 @@
-import { FC, useState, useCallback, useContext, useMemo } from "react";
+import { FC, useState, useCallback, useMemo } from "react";
+import { useSelector } from "react-redux";
 import { MbmcButton } from "../MbmcButton/MbmcButton";
 import RemoveRoundedIcon from "@mui/icons-material/RemoveRounded";
 import AddRoundedIcon from "@mui/icons-material/AddRounded";
 import { useMbmcBlock16Styles } from "./styles";
 import { OrderDialogProps, Option } from "./types";
 import { getCurrency } from "../../../../utilities";
-import { RestaurantContext } from "../../contexts";
 import { Modal } from "../../../../core";
 import { Options } from "./components";
 import { calculateOptionsTotal } from "./helpers";
 import { useAddToCart } from "./hooks";
+import { TAppState } from "../../../types";
+import { CoreMenuFields } from "../../models";
 
-export const OrderDialog: FC<OrderDialogProps> = ({ itemUuid, handleClose, setContextProps }) => {
-  const { menu, loading } = useContext(RestaurantContext);
+export const OrderDialog: FC<OrderDialogProps> = ({ itemUuid, handleClose }) => {
+  const { restaurant, loading } = useSelector<TAppState, TAppState>((state) => state);
+  const menu = restaurant?.menu as CoreMenuFields;
   const classes = useMbmcBlock16Styles();
   const [quantity, setQuantity] = useState<number>(1);
   const [selectedOptions, setSelectedOptions] = useState<Option[]>([]);
@@ -72,7 +75,6 @@ export const OrderDialog: FC<OrderDialogProps> = ({ itemUuid, handleClose, setCo
         options: selectedOptions.length > 0 ? JSON.stringify(selectedOptions) : undefined,
       },
       handleClose,
-      setContextProps,
     );
   };
 

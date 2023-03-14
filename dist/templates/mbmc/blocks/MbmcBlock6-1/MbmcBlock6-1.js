@@ -9,17 +9,6 @@ var __assign = (this && this.__assign) || function () {
     };
     return __assign.apply(this, arguments);
 };
-var __rest = (this && this.__rest) || function (s, e) {
-    var t = {};
-    for (var p in s) if (Object.prototype.hasOwnProperty.call(s, p) && e.indexOf(p) < 0)
-        t[p] = s[p];
-    if (s != null && typeof Object.getOwnPropertySymbols === "function")
-        for (var i = 0, p = Object.getOwnPropertySymbols(s); i < p.length; i++) {
-            if (e.indexOf(p[i]) < 0 && Object.prototype.propertyIsEnumerable.call(s, p[i]))
-                t[p[i]] = s[p[i]];
-        }
-    return t;
-};
 var __read = (this && this.__read) || function (o, n) {
     var m = typeof Symbol === "function" && o[Symbol.iterator];
     if (!m) return o;
@@ -38,51 +27,38 @@ var __read = (this && this.__read) || function (o, n) {
 };
 import { jsx as _jsx, jsxs as _jsxs, Fragment as _Fragment } from "react/jsx-runtime";
 import { useState, useEffect, useMemo } from "react";
-import { useQuery } from "@apollo/client";
+import { useSelector } from "react-redux";
 import { useMbmcBlock61Styles } from "./styles";
-import { GET_MENU_BY_UUID } from "./graphql";
 import clx from "classnames";
 import { MbmcCard, OrderDialog } from "../../components";
 import { getCurrency } from "../../../../utilities";
-import { RestaurantContext } from "../../contexts";
-import { createApolloClient } from "../../../../helpers/graphQL";
 export var MbmcBlock61 = function (_a) {
-    var heading = _a.heading, description = _a.description, services = _a.services, integratedService = _a.integratedService, menu_uuid = _a.menu_uuid, setContextProps = _a.setContextProps;
+    var heading = _a.heading, description = _a.description;
+    var restaurant = useSelector(function (state) { return state; }).restaurant;
     var classes = useMbmcBlock61Styles();
-    var _b = __read(useState({}), 2), contextData = _b[0], setContextData = _b[1];
-    var _c = __read(useState(), 2), activeCategory = _c[0], setActiveCategory = _c[1];
-    var _d = __read(useState(), 2), itemUuid = _d[0], setItemUuid = _d[1];
-    var client = useMemo(function () { return createApolloClient(services ? services[integratedService] : ""); }, []);
-    var _e = useQuery(GET_MENU_BY_UUID, { client: client, variables: { uuid: menu_uuid } }), data = _e.data, error = _e.error;
-    var menu = contextData.menu;
+    var _b = __read(useState(), 2), activeCategory = _b[0], setActiveCategory = _b[1];
+    var _c = __read(useState(), 2), itemUuid = _c[0], setItemUuid = _c[1];
+    var menu = restaurant === null || restaurant === void 0 ? void 0 : restaurant.menu;
     var categoryItems = useMemo(function () {
         var _a;
         return (_a = menu === null || menu === void 0 ? void 0 : menu.menuItems) === null || _a === void 0 ? void 0 : _a.filter(function (item) { var _a, _b; return ((_a = item === null || item === void 0 ? void 0 : item.menuCategory) === null || _a === void 0 ? void 0 : _a.id.toString()) === ((_b = activeCategory === null || activeCategory === void 0 ? void 0 : activeCategory.id) === null || _b === void 0 ? void 0 : _b.toString()); });
-    }, [activeCategory === null || activeCategory === void 0 ? void 0 : activeCategory.id, menu === null || menu === void 0 ? void 0 : menu.menuItems]);
+    }, [activeCategory === null || activeCategory === void 0 ? void 0 : activeCategory.id]);
     useEffect(function () {
-        var _a;
-        if (data) {
-            var _b = data.menu, menuCategories = _b.activeMenuCategories, menuItems = _b.activeMenuItems, rest = __rest(_b, ["activeMenuCategories", "activeMenuItems"]);
-            var menu_1 = __assign({ menuCategories: menuCategories, menuItems: menuItems }, rest);
-            setContextData({ menu: menu_1, clients: (_a = {}, _a[integratedService] = client, _a) });
-            var queryParams_1 = new URLSearchParams(window.location.search);
-            var activeMenuCategory = menuCategories.length > 0 ? menuCategories[0] : undefined;
-            if (queryParams_1.get("category_uuid")) {
-                activeMenuCategory = menuCategories.find(function (category) { return category.uuid === queryParams_1.get("category_uuid"); });
-            }
-            menuCategories.length > 0 && setActiveCategory(activeMenuCategory !== null && activeMenuCategory !== void 0 ? activeMenuCategory : menuCategories[0]);
+        var menuCategories = menu.menuCategories;
+        var queryParams = new URLSearchParams(window.location.search);
+        var activeMenuCategory = menuCategories.length > 0 ? menuCategories[0] : undefined;
+        if (queryParams.get("category_uuid")) {
+            activeMenuCategory = menuCategories.find(function (category) { return category.uuid === queryParams.get("category_uuid"); });
         }
-        if (error) {
-            console.log(error);
-        }
-    }, [data, error]);
+        menuCategories.length > 0 && setActiveCategory(activeMenuCategory !== null && activeMenuCategory !== void 0 ? activeMenuCategory : menuCategories[0]);
+    }, []);
     var displayCategories = function () {
         var _a;
         return (_a = menu === null || menu === void 0 ? void 0 : menu.menuCategories) === null || _a === void 0 ? void 0 : _a.map(function (_a, index) {
             var _b;
-            var title = _a.title, id = _a.id;
+            var title = _a.title, id = _a.id, uuid = _a.uuid;
             return (_jsx("div", __assign({ className: clx(classes.block61Category, id.toString() === ((_b = activeCategory === null || activeCategory === void 0 ? void 0 : activeCategory.id) === null || _b === void 0 ? void 0 : _b.toString()) && classes.block61CategoryActive), onClick: function () {
-                    handleCategoryChange({ title: title, id: Number(id) });
+                    handleCategoryChange({ title: title, id: String(id), uuid: uuid });
                 } }, { children: title }), index));
         });
     };
@@ -99,10 +75,7 @@ export var MbmcBlock61 = function (_a) {
     var handleCategoryChange = function (category) {
         setActiveCategory(category);
     };
-    var updateContext = function (variables) {
-        setContextData(__assign(__assign({}, contextData), variables));
-    };
-    return (_jsx(RestaurantContext.Provider, __assign({ value: __assign(__assign({}, contextData), { setContext: updateContext }) }, { children: _jsx("div", __assign({ className: classes.root, id: "menu" }, { children: _jsxs("div", __assign({ className: classes.block61Container }, { children: [_jsx("h3", __assign({ className: classes.block61Title }, { children: heading })), _jsx("p", __assign({ className: classes.block61Description }, { children: description })), categoryItems && (categoryItems === null || categoryItems === void 0 ? void 0 : categoryItems.length) > 0 && (_jsxs(_Fragment, { children: [_jsx("div", __assign({ className: classes.block61Categories }, { children: displayCategories() })), _jsx("div", __assign({ className: classes.block61Items }, { children: displayItems() }))] })), _jsx(OrderDialog, { itemUuid: itemUuid, handleClose: function () {
-                            setItemUuid(undefined);
-                        }, setContextProps: setContextProps })] })) })) })));
+    return (_jsx("div", __assign({ className: classes.root, id: "menu" }, { children: _jsxs("div", __assign({ className: classes.block61Container }, { children: [_jsx("h3", __assign({ className: classes.block61Title }, { children: heading })), _jsx("p", __assign({ className: classes.block61Description }, { children: description })), categoryItems && (categoryItems === null || categoryItems === void 0 ? void 0 : categoryItems.length) > 0 && (_jsxs(_Fragment, { children: [_jsx("div", __assign({ className: classes.block61Categories }, { children: displayCategories() })), _jsx("div", __assign({ className: classes.block61Items }, { children: displayItems() }))] })), _jsx(OrderDialog, { itemUuid: itemUuid, handleClose: function () {
+                        setItemUuid(undefined);
+                    } })] })) })));
 };
