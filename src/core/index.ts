@@ -24,3 +24,4 @@ export * from "./Tag";
 export * from "./Button";
 export * from "./Tab";
 export * from "./Spinner";
+export * from './Wrapper'

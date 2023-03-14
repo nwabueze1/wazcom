@@ -14,30 +14,48 @@ export const useCardStyles = makeStyles((theme: BaseTheme) => ({
     gap: theme.spacing(2),
     borderRadius: theme.spacing(.5),
     "& img": {
+      display: 'block',
       height: "110px",
       width: "100%",
       objectFit: "cover",
-      objectPosition: "top"
+      objectPosition: "top",
     }
   },
   templateRoot: {
     boxShadow: `0px 3px 15px ${theme.design.colors.waz_black200}`,
-    width: "373px",
+    width: '373px',
     padding: theme.spacing(2),
+
+    "@media (max-width: 530px)": {
+      width: '100%'
+    }
   },
   serviceTemplateRoot: {
     boxShadow: `0px 3px 15px ${theme.design.colors.waz_black200}`,
-    width: "291px",
+    width: "300px",
     padding: theme.spacing(2),
+
+    "@media (max-width: 430px)": {
+      width: '100%'
+    }
   },
   serviceRoot: {
     boxShadow: `0px 3px 5px ${theme.design.colors.waz_black300}`,
     padding: theme.spacing(2.25, 2),
     width: "365px",
+
+    "@media (max-width: 530px)": {
+      width: '100%'
+    }
   },
   overviewRoot: {
     boxShadow: `0px 3px 15px ${theme.design.colors.waz_black200}`,
     padding: theme.spacing(1.5),
+    width: "250px",
+
+    "@media (max-width: 430px)": {
+      width: '100%'
+    }
   },
   titleContainer: {
     gap: theme.spacing(2),
@@ -69,7 +87,8 @@ export const useCardStyles = makeStyles((theme: BaseTheme) => ({
   },
   cardContent: {
     color: theme.design.colors.waz_grey1,
-    textAlign: "left"
+    textAlign: "left",
+    whiteSpace: 'break-spaces'
   },
   templateContent: {
     fontSize: theme.typography.fontSize - 2,
@@ -121,10 +140,17 @@ export const useCardStyles = makeStyles((theme: BaseTheme) => ({
     width: "100%",
   },
   tagsContainer: {
-    gap: theme.spacing(.5)
+    gap: theme.spacing(.5),
+    flexWrap: 'wrap'
   },
   buttonsContainer: {
-    gap: theme.spacing(1)
+    display: 'flex',
+    gap: theme.spacing(1),
+
+    "@media (max-width: 460px)": {
+      flexWrap: 'wrap',
+      justifyContent: 'center',
+    }
   },
   leftAlign: {
     textAlign: "left",
