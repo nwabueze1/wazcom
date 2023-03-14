@@ -20,12 +20,11 @@ export const Payment = () => {
     networkOperation,
   } = useSelector<TAppState, TAppState>((state) => state);
   const cart = restaurant?.cart as CoreCartFields;
-  const client = createApolloClient(gatewayUrl ?? "");
+  const client = useMemo(() => createApolloClient(gatewayUrl ?? ""), []);
   const classes = usePaymentStyles();
-  const service_uuid = useMemo(() => cart?.restaurant?.uuid, []);
   const { data, error, loading } = useQuery(GET_PAYMENT_METHODS, {
     client,
-    variables: { service_uuid },
+    variables: { service_uuid: cart?.restaurant?.uuid },
   });
   const [paymentMethods, setPaymentMethods] = useState<PaymentMethod[]>([]);
   const [selectedMethod, setSelectedMethod] = useState<PaymentMethod>();
