@@ -13,7 +13,7 @@ export const useWrapperStyles = makeStyles((theme: Theme) => ({
     display: "flex",
     flexDirection: 'column',
     justifyContent: 'center',
-    gap: 30,
+    gap: theme.spacing(3),
     maxWidth: "1100px",
     ...props?.style
   }),
