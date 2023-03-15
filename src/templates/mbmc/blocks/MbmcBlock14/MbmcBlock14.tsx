@@ -8,9 +8,7 @@ import { MbmcButton } from "../../components";
 import { useUpdateOrder } from "./hooks";
 import { TAppState } from "../../../types";
 
-export const MbmcBlock14: React.FC<MbmcBlock14Props> = ({
-  site_uuid,
-}) => {
+export const MbmcBlock14: React.FC<MbmcBlock14Props> = ({ site_uuid }) => {
   const classes = useMbmcBlock14Styles();
   const { restaurant } = useSelector<TAppState, TAppState>((state) => state);
   const dispatch = useDispatch();
@@ -42,14 +40,11 @@ export const MbmcBlock14: React.FC<MbmcBlock14Props> = ({
     handleOrderConfirmation();
   }, []);
 
-  const handleOrderConfirmation = async (
-  ) => {
+  const handleOrderConfirmation = async () => {
     const queryParams = new URLSearchParams(window.location.search);
-    if (queryParams.get("partner") && queryParams.get("reference")) {
-      const order = await updateOrder(
-        restaurant?.cart?.restaurant?.site?.uuid as string,
-      );
-      dispatch({ type: 'UPDATE_ORDER', payload: order });
+    if (queryParams.get("partner") && queryParams.get("reference") && cartCookie[site_uuid]) {
+      const order = await updateOrder(restaurant?.cart?.restaurant?.site?.uuid as string);
+      dispatch({ type: "UPDATE_ORDER", payload: order });
     }
 
     setLoading(false);

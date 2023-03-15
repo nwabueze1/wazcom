@@ -13,6 +13,7 @@ export const useUpdateOrder = () => {
   return async (site_uuid: string) => {
     const queryParams = new URLSearchParams(window.location.search);
     const cartCookie = cookies.get("cart");
+    const cartItemCountCookie = cookies.get("cartItemCount");
     try {
       const { data, errors } = await client.mutate({
         mutation: UPDATE_ORDER,
@@ -27,8 +28,10 @@ export const useUpdateOrder = () => {
 
       notify("success", "Order placed successfully");
       delete cartCookie[site_uuid];
+      delete cartItemCountCookie[site_uuid];
 
       cookies.set("cart", cartCookie, { path: "/" });
+      cookies.set("cartItemCount", cartItemCountCookie, { path: "/" });
       return data.updateOrder;
     } catch (error) {
       notify("error", "We could not complete that operation");
