@@ -4,6 +4,7 @@ export var useTextStyles = makeStyles(function (theme) { return ({
         display: "flex",
         flexDirection: "column",
         justifyContent: "start",
+        padding: 0,
     },
     label: {
         fontSize: theme.typography.fontSize - 2,

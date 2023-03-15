@@ -61,7 +61,6 @@ import { useTextStyles, useTextInputIconStyles } from "./styles";
  * -- helperText
  * -- info
  */
-/** TODO --  fix components success and error state */
 export var TextInput = function (_a) {
     var className = _a.className, label = _a.label, errors = _a.errors, isError = _a.isError, isSuccess = _a.isSuccess, helperText = _a.helperText, _b = _a.hideLabel, hideLabel = _b === void 0 ? false : _b, info = _a.info, name = _a.name, onChange = _a.onChange, onFocus = _a.onFocus, onEnter = _a.onEnter, onBlur = _a.onBlur, _c = _a.required, required = _c === void 0 ? false : _c, showCC = _a.showCC, _d = _a.type, type = _d === void 0 ? "text" : _d, leftIcon = _a.leftIcon, rightIcon = _a.rightIcon, iconSpacing = _a.iconSpacing, width = _a.width, height = _a.height, color = _a.color, background = _a.background, borderWidth = _a.borderWidth, borderColor = _a.borderColor, borderStyle = _a.borderStyle, borderRadius = _a.borderRadius, classNames = _a.classNames, props = __rest(_a, ["className", "label", "errors", "isError", "isSuccess", "helperText", "hideLabel", "info", "name", "onChange", "onFocus", "onEnter", "onBlur", "required", "showCC", "type", "leftIcon", "rightIcon", "iconSpacing", "width", "height", "color", "background", "borderWidth", "borderColor", "borderStyle", "borderRadius", "classNames"]);
     var _e = __read(React.useState(false), 2), isFocused = _e[0], setIsFocused = _e[1];
