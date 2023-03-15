@@ -27,6 +27,11 @@ export const useTextInputStyles = makeStyles((theme: Theme) => ({
     margin: 0,
     padding: 0,
   },
+  wrapper: { paddingBottom: theme.spacing(2), },
+  cardTitle: {
+    margin: 0,
+    marginBottom: theme.spacing(1),
+  },
   description: {
     margin: 0,
     padding: 0,

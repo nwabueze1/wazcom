@@ -35,7 +35,7 @@ export const useCardStyles = makeStyles((theme: Theme) => ({
     color: theme.design.colors.waz_primaryBlack,
     textTransform: "capitalize",
     margin: 0,
-    marginBottom: '15px',
+    marginBottom: theme.spacing(2.5),
     padding: 0,
   },
   description: {

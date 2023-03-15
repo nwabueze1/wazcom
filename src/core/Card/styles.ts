@@ -26,36 +26,40 @@ export const useCardStyles = makeStyles((theme: BaseTheme) => ({
     width: '373px',
     padding: theme.spacing(2),
 
-    "@media (max-width: 530px)": {
+    [theme.breakpoints.down("md")]: {
       width: '100%'
-    }
+    },
   },
   serviceTemplateRoot: {
     boxShadow: `0px 3px 15px ${theme.design.colors.waz_black200}`,
     width: "300px",
     padding: theme.spacing(2),
 
-    "@media (max-width: 430px)": {
+    [theme.breakpoints.down("md")]: {
       width: '100%'
-    }
+    },
+
+    [theme.breakpoints.down("sm")]: {
+      width: '100%'
+    },
   },
   serviceRoot: {
     boxShadow: `0px 3px 5px ${theme.design.colors.waz_black300}`,
     padding: theme.spacing(2.25, 2),
     width: "365px",
 
-    "@media (max-width: 530px)": {
+    [theme.breakpoints.down("md")]: {
       width: '100%'
-    }
+    },
   },
   overviewRoot: {
     boxShadow: `0px 3px 15px ${theme.design.colors.waz_black200}`,
     padding: theme.spacing(1.5),
     width: "250px",
 
-    "@media (max-width: 430px)": {
+    [theme.breakpoints.down("sm")]: {
       width: '100%'
-    }
+    },
   },
   titleContainer: {
     gap: theme.spacing(2),
@@ -147,10 +151,10 @@ export const useCardStyles = makeStyles((theme: BaseTheme) => ({
     display: 'flex',
     gap: theme.spacing(1),
 
-    "@media (max-width: 460px)": {
+    [theme.breakpoints.down("sm")]: {
       flexWrap: 'wrap',
       justifyContent: 'center',
-    }
+    },
   },
   leftAlign: {
     textAlign: "left",

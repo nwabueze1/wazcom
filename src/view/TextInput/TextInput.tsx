@@ -64,18 +64,9 @@ export const TextInputView: FC<TextInputViewProps> = () => {
             </p>
           </div>
         </div>
-        <Wrapper
-          style={{
-            paddingBottom: "25px",
-
-            "& h4": {
-              margin: 0,
-              marginBottom: "10px",
-            },
-          }}
-        >
+        <Wrapper className={classes.wrapper}>
           <div>
-            <h4> Basic </h4>
+            <h4 className={classes.cardTitle}> Basic </h4>
             <div className={classes.inputs}>
               {inputData.default.map((item: InputDataProps, index) => (
                 <TextInput
@@ -96,18 +87,9 @@ export const TextInputView: FC<TextInputViewProps> = () => {
           </div>
         </Wrapper>
 
-        <Wrapper
-          style={{
-            paddingBottom: "25px",
-
-            "& h4": {
-              margin: 0,
-              marginBottom: "10px",
-            },
-          }}
-        >
+        <Wrapper className={classes.wrapper}>
           <div>
-            <h4> Validation </h4>
+            <h4 className={classes.cardTitle}>Validation </h4>
             <div className={classes.inputs}>
               {inputData.validation.map((item: InputDataProps, index) => (
                 <TextInput

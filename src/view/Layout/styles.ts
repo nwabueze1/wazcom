@@ -15,25 +15,31 @@ export const useLayoutStyles = makeStyles((theme: Theme) => ({
     backgroundColor: 'transparent',
     border: 'none',
     fontSize: '1.6rem',
-    marginLeft: '10px',
-    marginTop: '5px',
+    marginLeft: theme.spacing(2),
+    marginTop: theme.spacing(.7),
     cursor: 'pointer',
 
-    "@media (min-width: 1080px)": {
+    [theme.breakpoints.up("lg")]: {
       display: 'none'
-    }
+    },
+
+    // "@media (min-width: 1080px)": {
+    //   display: 'none'
+    // },
+
   },
   menuButton: {
     backgroundColor: 'transparent',
     border: 'none',
-    fontSize: '1.6rem',
-    marginRight: '15px',
+    fontSize: theme.typography.fontSize * 2,
+    marginRight: theme.spacing(1.8),
+    marginTop: theme.spacing(.8),
     cursor: 'pointer',
-    marginTop: '7px',
 
-    "@media (min-width: 1080px)": {
+    [theme.breakpoints.up("lg")]: {
       display: 'none'
-    }
+    },
+
   },
   sidebarIcon: {
     marginRight: theme.spacing(1),
@@ -58,15 +64,16 @@ export const useLayoutStyles = makeStyles((theme: Theme) => ({
   main: {
     marginTop: theme.spacing(7),
     overflow: "hidden",
-    padding: "7px 24px",
-    paddingBottom: '70px',
+    padding: theme.spacing(1, 3),
+    paddingBottom: theme.spacing(7),
     width: '100%',
     background: theme.design.colors.waz_white100,
     borderRadius: theme.spacing(0.5),
 
-    "@media (min-width: 1080px)": {
+    [theme.breakpoints.up("lg")]: {
       marginLeft: `${drawerWidth}px`,
-    }
+    },
+
   },
   componentWrapper: {
     marginBottom: theme.spacing(5),
@@ -88,14 +95,14 @@ export const useLayoutStyles = makeStyles((theme: Theme) => ({
   logoTop: {
     width: `${drawerWidth}px`,
 
-    "@media (max-width: 600px)": {
+    [theme.breakpoints.down("md")]: {
       width: '50px'
-    }
+    },
   },
   logoTitle: {
-    "@media (max-width: 600px)": {
+    [theme.breakpoints.down("md")]: {
       display: 'none'
-    }
+    },
   },
   title: {
     fontWeight: theme.typography.fontWeightBold,
@@ -119,7 +126,7 @@ export const useLayoutStyles = makeStyles((theme: Theme) => ({
     boxShadow: "0px 1px 25px rgba(0, 0, 0, 0.05)",
     opacity: 1,
     background: theme.design.colors.waz_white,
-    padding: "10px 40px",
+    padding: theme.spacing(1, 5)
   },
   appBarComponents: {
     display: "flex",
@@ -127,14 +134,15 @@ export const useLayoutStyles = makeStyles((theme: Theme) => ({
     alignItems: "center",
     width: "100%",
 
-    "@media (min-width: 1080px)": {
-      marginLeft: '60px'
-    }
+    [theme.breakpoints.up("lg")]: {
+      marginLeft: theme.spacing(6.8)
+    },
+
   },
   notificationWrapper: {
     width: 24,
     height: 24,
-    marginLeft: '20px'
+    marginLeft: theme.spacing(2.2)
   },
   notoficationIcon: {
     width: 18,
@@ -143,7 +151,7 @@ export const useLayoutStyles = makeStyles((theme: Theme) => ({
 
   drawer: {
     width: `${drawerWidth}px`,
-    padding: "22px 19px",
+    padding: theme.spacing(2.8, 2.5),
     position: "fixed",
     height: '100%',
     minHeight: '100vh',
@@ -157,15 +165,16 @@ export const useLayoutStyles = makeStyles((theme: Theme) => ({
     display: "flex",
     flexDirection: "column",
     gap: 0,
-    marginBottom: 50,
+    marginBottom: theme.spacing(6),
 
     "&[data-show='true']": {
       transform: 'translateX(0)'
     },
 
-    "@media (min-width: 1080px)": {
+    [theme.breakpoints.up("lg")]: {
       transform: 'translateX(0)'
-    }
+    },
+
   },
   searchBox: {
     display: "flex",
