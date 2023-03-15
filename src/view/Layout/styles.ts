@@ -14,7 +14,7 @@ export const useLayoutStyles = makeStyles((theme: Theme) => ({
   collapseButton: {
     backgroundColor: 'transparent',
     border: 'none',
-    fontSize: '1.6rem',
+    fontSize: theme.typography.fontSize * 2,
     marginLeft: theme.spacing(2),
     marginTop: theme.spacing(.7),
     cursor: 'pointer',
@@ -22,11 +22,6 @@ export const useLayoutStyles = makeStyles((theme: Theme) => ({
     [theme.breakpoints.up("lg")]: {
       display: 'none'
     },
-
-    // "@media (min-width: 1080px)": {
-    //   display: 'none'
-    // },
-
   },
   menuButton: {
     backgroundColor: 'transparent',
