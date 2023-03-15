@@ -26,18 +26,19 @@ var __read = (this && this.__read) || function (o, n) {
     return ar;
 };
 import { jsx as _jsx, jsxs as _jsxs } from "react/jsx-runtime";
-import { useState, useCallback, useContext } from "react";
+import { useState, useCallback } from "react";
+import { useSelector } from "react-redux";
 import { CheckoutStep } from "../CheckoutStep";
 import { BsArrowLeft } from "react-icons/bs";
 import { Summary, Delivery, Payment } from "../";
 import { useCheckoutStyles } from "./styles";
-import { RestaurantContext } from "../../../../contexts";
 export var Checkout = function (_a) {
     var _b, _c;
     var display = _a.display, setDisplay = _a.setDisplay;
     var classes = useCheckoutStyles({ display: display });
     var _d = __read(useState(0), 2), activeStep = _d[0], setActiveStep = _d[1];
-    var cart = useContext(RestaurantContext).cart;
+    var restaurant = useSelector(function (state) { return state; }).restaurant;
+    var cart = restaurant === null || restaurant === void 0 ? void 0 : restaurant.cart;
     var steps = [
         {
             name: "Summary",

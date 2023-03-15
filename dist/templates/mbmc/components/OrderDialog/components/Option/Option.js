@@ -35,9 +35,9 @@ var __spreadArray = (this && this.__spreadArray) || function (to, from, pack) {
     return to.concat(ar || Array.prototype.slice.call(from));
 };
 import { jsx as _jsx, jsxs as _jsxs } from "react/jsx-runtime";
-import { useState, useContext, useCallback, useEffect } from "react";
+import { useState, useCallback, useEffect } from "react";
+import { useSelector } from "react-redux";
 import { parseSelectedChoices } from "./helpers";
-import { RestaurantContext } from "../../../../contexts";
 import { getCurrency } from "../../../../../../utilities";
 import { RadioButtonInput, CheckBoxInput } from "../../../../../../io";
 import { useOptionStyles } from "./styles";
@@ -45,7 +45,8 @@ export var Option = function (_a) {
     var _b, _c, _d;
     var name = _a.name, type = _a.type, options = _a.options, selectedOptions = _a.selectedOptions, handleUpdateSelectedOptions = _a.handleUpdateSelectedOptions;
     var classes = useOptionStyles();
-    var menu = useContext(RestaurantContext).menu;
+    var restaurant = useSelector(function (state) { return state; }).restaurant;
+    var menu = restaurant === null || restaurant === void 0 ? void 0 : restaurant.menu;
     var _e = __read(useState(parseSelectedChoices(selectedOptions, name)), 2), selectedChoices = _e[0], setSelectedChoices = _e[1];
     var currency = (_d = (_c = (_b = menu === null || menu === void 0 ? void 0 : menu.restaurant) === null || _b === void 0 ? void 0 : _b.bank_info) === null || _c === void 0 ? void 0 : _c.currency) !== null && _d !== void 0 ? _d : "";
     currency = getCurrency(currency);

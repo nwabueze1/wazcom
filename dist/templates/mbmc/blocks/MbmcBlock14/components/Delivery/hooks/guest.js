@@ -45,31 +45,38 @@ var __generator = (this && this.__generator) || function (thisArg, body) {
         if (op[0] & 5) throw op[1]; return { value: op[0] ? op[1] : void 0, done: true };
     }
 };
-import { useContext } from "react";
-import { RestaurantContext } from "../../../../../contexts";
+import { useSelector, useDispatch } from "react-redux";
 import { UPDATE_GUEST } from "../graphql";
 import { notify } from "../../../../../utilities";
 import Cookies from "universal-cookie";
+import { createApolloClient } from "../../../../../../../helpers/graphQL";
 export var useUpdateGuest = function () {
-    var _a = useContext(RestaurantContext), cart = _a.cart, clients = _a.clients, setContext = _a.setContext;
+    var _a = useSelector(function (state) { return state; }), restaurant = _a.restaurant, gatewayUrl = _a.gatewayUrl;
+    var dispatch = useDispatch();
+    var client = createApolloClient(gatewayUrl !== null && gatewayUrl !== void 0 ? gatewayUrl : "");
+    var cart = restaurant === null || restaurant === void 0 ? void 0 : restaurant.cart;
     var cookies = new Cookies();
     var cartCookie = cookies.get("cart");
     return function (variables, onSuccess, isPickup) { return __awaiter(void 0, void 0, void 0, function () {
-        var siteUuid, cartUuid, _a, data, errors, guest, updatedCart, error_1;
+        var siteUuid, cartUuid, _a, data, errors, guest, error_1;
         var _b, _c;
         return __generator(this, function (_d) {
             switch (_d.label) {
                 case 0:
                     siteUuid = (_c = (_b = cart === null || cart === void 0 ? void 0 : cart.restaurant) === null || _b === void 0 ? void 0 : _b.site) === null || _c === void 0 ? void 0 : _c.uuid;
                     cartUuid = cartCookie[siteUuid];
-                    setContext === null || setContext === void 0 ? void 0 : setContext({
-                        loading: true,
-                        networkOperation: isPickup ? "set.delivery.pickup" : "set.delivery.dispatch",
+                    dispatch({ type: "SET_LOADING", payload: true });
+                    dispatch({
+                        type: "SET_NETWORK_OPERATION",
+                        payload: isPickup ? "set.delivery.pickup" : "set.delivery.dispatch",
                     });
                     _d.label = 1;
                 case 1:
                     _d.trys.push([1, 3, , 4]);
-                    return [4 /*yield*/, (clients === null || clients === void 0 ? void 0 : clients.AMBROSIA).mutate({ mutation: UPDATE_GUEST, variables: __assign(__assign({}, variables), { cart_uuid: cartUuid }) })];
+                    return [4 /*yield*/, client.mutate({
+                            mutation: UPDATE_GUEST,
+                            variables: __assign(__assign({}, variables), { cart_uuid: cartUuid }),
+                        })];
                 case 2:
                     _a = _d.sent(), data = _a.data, errors = _a.errors;
                     if (!data || errors) {
@@ -77,15 +84,24 @@ export var useUpdateGuest = function () {
                     }
                     guest = data.updateGuest;
                     guest === null || guest === void 0 ? true : delete guest.address;
-                    updatedCart = __assign(__assign({}, cart), { address: undefined });
-                    updatedCart.guest = guest;
-                    isPickup && (setContext === null || setContext === void 0 ? void 0 : setContext({ loading: false, networkOperation: "", cart: updatedCart }));
-                    isPickup && notify("success", "Delivery option set as pickup");
-                    isPickup && (onSuccess === null || onSuccess === void 0 ? void 0 : onSuccess());
+                    if (isPickup) {
+                        dispatch({ type: "SET_LOADING", payload: false });
+                        dispatch({
+                            type: "SET_NETWORK_OPERATION",
+                            payload: "",
+                        });
+                        dispatch({ type: "UPDATE_GUEST", payload: guest });
+                        notify("success", "Delivery option set as pickup");
+                        onSuccess === null || onSuccess === void 0 ? void 0 : onSuccess();
+                    }
                     return [2 /*return*/, guest];
                 case 3:
                     error_1 = _d.sent();
-                    setContext === null || setContext === void 0 ? void 0 : setContext({ loading: false, networkOperation: "" });
+                    dispatch({ type: "SET_LOADING", payload: false });
+                    dispatch({
+                        type: "SET_NETWORK_OPERATION",
+                        payload: "",
+                    });
                     notify("error", "We could not complete that operation");
                     return [3 /*break*/, 4];
                 case 4: return [2 /*return*/];

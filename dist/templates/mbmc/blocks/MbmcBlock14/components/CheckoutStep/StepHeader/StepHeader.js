@@ -10,8 +10,7 @@ var __assign = (this && this.__assign) || function () {
     return __assign.apply(this, arguments);
 };
 import { jsx as _jsx, jsxs as _jsxs } from "react/jsx-runtime";
-import { useContext } from "react";
-import { RestaurantContext } from "../../../../../contexts";
+import { useSelector } from "react-redux";
 import { useStepHeaderStyles } from "./styles";
 import { getCurrency } from "../../../../../../../utilities";
 import { calculateCartSubTotal } from "../../../helpers";
@@ -20,7 +19,8 @@ import clx from "classnames";
 export var StepHeader = function (_a) {
     var _b, _c, _d, _e, _f, _g, _h, _j, _k, _l, _m, _o;
     var name = _a.name, handleEdit = _a.handleEdit;
-    var cart = useContext(RestaurantContext).cart;
+    var restaurant = useSelector(function (state) { return state; }).restaurant;
+    var cart = restaurant === null || restaurant === void 0 ? void 0 : restaurant.cart;
     var parsedName = name.toLowerCase().replace(/ /g, "_");
     var classes = useStepHeaderStyles();
     var currency = getCurrency((_b = cart === null || cart === void 0 ? void 0 : cart.currency) !== null && _b !== void 0 ? _b : "");

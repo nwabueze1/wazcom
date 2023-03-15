@@ -1,5 +1,6 @@
-import { useMbmcBlock13Styles } from "./styles";
 import { FC, useState } from "react";
+import { useMbmcBlock13Styles } from "./styles";
+import { useSelector } from "react-redux";
 import { MbmcBlock13Props } from "./types";
 import { AiOutlineMenu } from "react-icons/ai";
 import { IoMdClose } from "react-icons/io";
@@ -8,7 +9,7 @@ import clx from "classnames";
 import { FiShoppingCart } from "react-icons/fi";
 import { Link } from "../../components";
 import { renderCtas } from "../../utilities";
-import Cookies from "universal-cookie";
+import { TAppState } from "../../../types";
 
 export const MbmcBlock13: FC<MbmcBlock13Props> = ({
   mode = "view",
@@ -18,13 +19,15 @@ export const MbmcBlock13: FC<MbmcBlock13Props> = ({
   links,
   handleClick,
   ctas,
-  contextProps,
-  site_uuid,
 }) => {
   const classes = useMbmcBlock13Styles();
+  const { restaurant } = useSelector<TAppState, TAppState>((state) => state);
   const [openMenu, setOpenMenu] = useState<boolean>(false);
-  const cartItemCount =
-    contextProps?.cartItemCount ?? (new Cookies().get("cartItemCount") ?? {})[site_uuid] ?? 0;
+  const cartItemCount = restaurant?.cart
+    ? restaurant?.cart?.cartItems?.length as number
+    : restaurant?.cartItemCount !== undefined
+    ? restaurant?.cartItemCount
+    : 0;
 
   const handleOpenMenu = () => {
     setOpenMenu(true);

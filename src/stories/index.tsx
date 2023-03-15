@@ -34,6 +34,7 @@ import {
   RadioButtonInput,
   TextArea,
   EmailInput,
+  WysiwygInput,
 } from "../io";
 
 import { GqlComboBox, GqlMediaLibrary, GqlMediaLibrarySelector } from "../gql";
@@ -686,6 +687,12 @@ export const stories: ComponentPropType[] = [
     component: PhoneNumberInput,
     props: {
       country: "ng",
+    },
+  },
+  {
+    name: "Wysiwyg Input",
+    component: WysiwygInput,
+    props: {
     },
   },
 ];

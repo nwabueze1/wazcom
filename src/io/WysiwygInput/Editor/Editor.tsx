@@ -1,12 +1,22 @@
-import React, { useEffect, useRef } from "react";
-import { EditorToolbar } from "../EditorToolbar";
+import React, { useEffect, useRef, useState } from "react";
+import { EditorToolbar, modules, formats } from "../EditorToolbar";
 import "react-quill/dist/quill.snow.css";
 import { useEditorStyles } from "./styles";
 import { EditorProps } from "./types";
 
 export const Editor: React.FC<EditorProps> = ({ content, handleChange, embed }) => {
   const quillRef = useRef<any>(null);
+  const [reactQuill, setReactQuill] = useState<any>();
+
   const classes = useEditorStyles();
+
+  useEffect(() => {
+    if (typeof window !== "undefined") {
+      import("react-quill").then((mod) => {
+        setReactQuill(mod);
+      });
+    }
+  }, []);
 
   useEffect(() => {
     if (!embed) return;
@@ -33,8 +43,8 @@ export const Editor: React.FC<EditorProps> = ({ content, handleChange, embed }) 
     <div className={classes.root}>
       <div className={classes.editor}>
         <EditorToolbar />
-        {/* {loaded ? (
-          <ReactQuill
+        {reactQuill && (
+          <reactQuill.default
             id="editor"
             ref={quillRef}
             theme="snow"
@@ -45,9 +55,7 @@ export const Editor: React.FC<EditorProps> = ({ content, handleChange, embed }) 
             formats={formats}
             className={classes.quillEditor}
           />
-        ) : (
-          <textarea />
-        )} */}
+        )}
       </div>
       <div className={classes.wordCount}>
         {content.trim().length === 0 ? 0 : content.split(" ").length}/1000 words

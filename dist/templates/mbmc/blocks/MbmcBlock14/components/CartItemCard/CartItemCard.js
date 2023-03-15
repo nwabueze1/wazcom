@@ -46,27 +46,27 @@ var __generator = (this && this.__generator) || function (thisArg, body) {
     }
 };
 import { jsx as _jsx, jsxs as _jsxs } from "react/jsx-runtime";
-import { useContext } from "react";
+import { useSelector } from "react-redux";
 import { useCartItemCardStyles } from "./styles";
 import RemoveRoundedIcon from "@mui/icons-material/RemoveRounded";
 import AddRoundedIcon from "@mui/icons-material/AddRounded";
 import DeleteIcon from "@mui/icons-material/Delete";
 import { getCurrency } from "../../../../../../utilities";
 import { useUpdateCartItemQuantity } from "../../hooks";
-import { RestaurantContext } from "../../../../contexts";
 import { CircularProgress } from "@mui/material";
 import { parseOptionString } from "./helpers";
 export var CartItemCard = function (_a) {
     var _b;
-    var uuid = _a.uuid, amount = _a.amount, quantity = _a.quantity, detail = _a.detail, options = _a.options, menuItem = _a.menuItem, currencyId = _a.currency, setContextProps = _a.setContextProps;
-    var _c = useContext(RestaurantContext), loading = _c.loading, networkOperation = _c.networkOperation, cart = _c.cart;
+    var uuid = _a.uuid, amount = _a.amount, quantity = _a.quantity, detail = _a.detail, options = _a.options, menuItem = _a.menuItem, currencyId = _a.currency;
+    var _c = useSelector(function (state) { return state; }), loading = _c.loading, networkOperation = _c.networkOperation, restaurant = _c.restaurant;
+    var cart = restaurant === null || restaurant === void 0 ? void 0 : restaurant.cart;
     var classes = useCartItemCardStyles();
     var currency = getCurrency(currencyId);
     var updateCartItemQuantity = useUpdateCartItemQuantity();
     var handleQuantityChange = function (quantity) { return __awaiter(void 0, void 0, void 0, function () {
         return __generator(this, function (_a) {
             switch (_a.label) {
-                case 0: return [4 /*yield*/, updateCartItemQuantity({ uuid: uuid, quantity: quantity }, setContextProps)];
+                case 0: return [4 /*yield*/, updateCartItemQuantity({ uuid: uuid, quantity: quantity })];
                 case 1:
                     _a.sent();
                     return [2 /*return*/];

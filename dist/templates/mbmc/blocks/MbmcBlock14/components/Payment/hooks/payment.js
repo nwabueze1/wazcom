@@ -34,12 +34,13 @@ var __generator = (this && this.__generator) || function (thisArg, body) {
         if (op[0] & 5) throw op[1]; return { value: op[0] ? op[1] : void 0, done: true };
     }
 };
-import { useContext } from "react";
-import { RestaurantContext } from "../../../../../contexts";
+import { useSelector } from "react-redux";
 import { notify } from "../../../../../utilities";
 import { MAKE_PAYPAL_PAYMENT } from "../graphql";
+import { createApolloClient } from "../../../../../../../helpers/graphQL";
 export var usePaypalPayment = function () {
-    var clients = useContext(RestaurantContext).clients;
+    var gatewayUrl = useSelector(function (state) { return state; }).gatewayUrl;
+    var client = createApolloClient(gatewayUrl !== null && gatewayUrl !== void 0 ? gatewayUrl : "");
     return function (order_uuid) { return __awaiter(void 0, void 0, void 0, function () {
         var _a, data, errors, redirect_url, error_1;
         var _b;
@@ -47,7 +48,7 @@ export var usePaypalPayment = function () {
             switch (_c.label) {
                 case 0:
                     _c.trys.push([0, 2, , 3]);
-                    return [4 /*yield*/, (clients === null || clients === void 0 ? void 0 : clients.NICODEMUS).mutate({
+                    return [4 /*yield*/, client.mutate({
                             mutation: MAKE_PAYPAL_PAYMENT,
                             variables: { order_uuid: order_uuid, pageRedirect: window.location.pathname },
                         })];

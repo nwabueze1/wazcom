@@ -10,17 +10,17 @@ var __assign = (this && this.__assign) || function () {
     return __assign.apply(this, arguments);
 };
 import { jsx as _jsx, jsxs as _jsxs } from "react/jsx-runtime";
-import { useContext } from "react";
+import { useSelector } from "react-redux";
 import { MbmcButton } from "../../../../components";
 import clx from "classnames";
 import { useSummaryStyles } from "./styles";
-import { RestaurantContext } from "../../../../contexts";
 import { getCurrency } from "../../../../../../utilities";
 import { calculateCartSubTotal } from "../../helpers";
 export var Summary = function (_a) {
     var _b, _c, _d, _e, _f, _g, _h, _j, _k;
     var handleCheckout = _a.handleCheckout;
-    var cart = useContext(RestaurantContext).cart;
+    var restaurant = useSelector(function (state) { return state; }).restaurant;
+    var cart = restaurant === null || restaurant === void 0 ? void 0 : restaurant.cart;
     var classes = useSummaryStyles();
     var currency = getCurrency((_b = cart === null || cart === void 0 ? void 0 : cart.currency) !== null && _b !== void 0 ? _b : "");
     var subTotal = calculateCartSubTotal(cart);

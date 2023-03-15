@@ -131,6 +131,7 @@ export var useTextStyles = makeStyles(function (theme) { return ({
         fontSize: theme.typography.fontSize - 1,
         textAlign: "left",
         marginTop: 4,
+        fontFamily: theme.design.font.openSans,
     },
     helperTextSuccess: {
         color: theme.design.colors.waz_primaryColor100,

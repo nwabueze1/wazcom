@@ -1,2 +1,1 @@
-import { ApolloClient, NormalizedCacheObject } from "@apollo/client";
-export declare const useUpdateOrder: () => (client: ApolloClient<NormalizedCacheObject>, site_uuid: string) => Promise<any>;
+export declare const useUpdateOrder: () => (site_uuid: string) => Promise<any>;

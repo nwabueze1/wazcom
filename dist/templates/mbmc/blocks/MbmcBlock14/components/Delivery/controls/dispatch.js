@@ -81,15 +81,15 @@ var __spreadArray = (this && this.__spreadArray) || function (to, from, pack) {
     }
     return to.concat(ar || Array.prototype.slice.call(from));
 };
-import { useContext } from "react";
+import { useSelector } from "react-redux";
 import { handleInputBlur, handleInputChange } from "../../../../../components/Form";
 import { useDeliveryStyles } from "../styles";
 import { dispatchSchema } from "../validators";
 import { useUpdateGuest, useCreateAddress, } from "../hooks";
-import { RestaurantContext } from "../../../../../contexts";
 import { usePickupConfig, usePickupControls } from "./pickup";
 export var useDispatchConfig = function () {
-    var cart = useContext(RestaurantContext).cart;
+    var restaurant = useSelector(function (state) { return state; }).restaurant;
+    var cart = restaurant === null || restaurant === void 0 ? void 0 : restaurant.cart;
     var getPickupConfig = usePickupConfig();
     var updateGuest = useUpdateGuest();
     var createAddress = useCreateAddress();

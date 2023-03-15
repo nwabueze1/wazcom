@@ -1,12 +1,16 @@
-import { ApolloClient, NormalizedCacheObject } from "@apollo/client";
+import { useSelector } from "react-redux";
 import { notify } from "../../../utilities";
 import { UPDATE_ORDER } from "../graphql";
 import Cookies from "universal-cookie";
+import { createApolloClient } from "../../../../../helpers/graphQL";
+import { TAppState } from "../../../../types";
 
 export const useUpdateOrder = () => {
+  const { gatewayUrl } = useSelector<TAppState, TAppState>((state) => state);
   const cookies = new Cookies();
+  const client = createApolloClient(gatewayUrl ?? "");
 
-  return async (client: ApolloClient<NormalizedCacheObject>, site_uuid: string) => {
+  return async (site_uuid: string) => {
     const queryParams = new URLSearchParams(window.location.search);
     const cartCookie = cookies.get("cart");
     const cartItemCountCookie = cookies.get("cartItemCount");

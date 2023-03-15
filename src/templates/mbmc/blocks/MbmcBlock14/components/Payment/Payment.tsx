@@ -1,4 +1,5 @@
-import { useState, useEffect, useContext } from "react";
+import { useState, useEffect, useMemo } from "react";
+import { useSelector } from "react-redux";
 import { useQuery } from "@apollo/client";
 import { GET_PAYMENT_METHODS } from "./graphql";
 import { PaymentMethod } from "./types";
@@ -6,14 +7,23 @@ import { CircularProgress } from "@mui/material";
 import { PaymentOption, MbmcButton } from "../../../../components";
 import { paymentMethodConfig } from "./helpers";
 import { usePaymentStyles } from "./styles";
-import { RestaurantContext } from "../../../../contexts";
 import { useCreateOrder } from "./hooks";
+import { TAppState } from "../../../../../types";
+import { CoreCartFields } from "../../../../models";
+import { createApolloClient } from "../../../../../../helpers/graphQL";
 
 export const Payment = () => {
-  const { clients, cart, loading: ctxtLoading, networkOperation } = useContext(RestaurantContext);
+  const {
+    restaurant,
+    gatewayUrl,
+    loading: ctxtLoading,
+    networkOperation,
+  } = useSelector<TAppState, TAppState>((state) => state);
+  const cart = restaurant?.cart as CoreCartFields;
+  const client = useMemo(() => createApolloClient(gatewayUrl ?? ""), []);
   const classes = usePaymentStyles();
   const { data, error, loading } = useQuery(GET_PAYMENT_METHODS, {
-    client: clients?.NICODEMUS,
+    client,
     variables: { service_uuid: cart?.restaurant?.uuid },
   });
   const [paymentMethods, setPaymentMethods] = useState<PaymentMethod[]>([]);
@@ -23,7 +33,6 @@ export const Payment = () => {
   useEffect(() => {
     if (data) {
       const { getPaymentMethods: paymentMethods } = data;
-      console.log(paymentMethods);
       setPaymentMethods(paymentMethods);
     }
 

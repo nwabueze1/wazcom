@@ -1,15 +1,17 @@
-import { FC, useContext } from "react";
+import { FC } from "react";
+import { useSelector } from "react-redux";
 import { AiOutlineCheckCircle } from "react-icons/ai";
 import { BsArrowLeft } from "react-icons/bs";
 import { useOrderDetailsStyles } from "./styles";
-import { RestaurantContext } from "../../../../contexts";
 import { calculateCartSubTotal } from "../../helpers";
 import { getCurrency } from "../../../../../../utilities";
 import { CoreCartFields } from "../../../../models";
 import { OrderDetailsProps } from "./types";
+import { TAppState } from "../../../../../types";
 
 export const OrderDetails: FC<OrderDetailsProps> = ({ display, setDisplay }) => {
-  const { cart } = useContext(RestaurantContext);
+  const { restaurant } = useSelector<TAppState, TAppState>((state) => state);
+  const cart = restaurant?.cart as CoreCartFields;
   const classes = useOrderDetailsStyles({ display });
   const subTotal = calculateCartSubTotal(cart as CoreCartFields);
   const deliveryFee =

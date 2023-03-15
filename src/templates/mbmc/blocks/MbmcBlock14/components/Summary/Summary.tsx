@@ -1,15 +1,17 @@
-import { useContext, FC } from "react";
+import { FC } from "react";
+import { useSelector } from "react-redux";
 import { MbmcButton } from "../../../../components";
 import clx from "classnames";
 import { useSummaryStyles } from "./styles";
-import { RestaurantContext } from "../../../../contexts";
 import { getCurrency } from "../../../../../../utilities";
 import { CoreCartFields } from "../../../../models";
 import { calculateCartSubTotal } from "../../helpers";
 import { SummaryProps } from "./types";
+import { TAppState } from "../../../../../types";
 
 export const Summary: FC<SummaryProps> = ({ handleCheckout }) => {
-  const { cart } = useContext(RestaurantContext);
+  const { restaurant } = useSelector<TAppState, TAppState>((state) => state);
+  const cart = restaurant?.cart as CoreCartFields;
   const classes = useSummaryStyles();
   const currency = getCurrency(cart?.currency ?? "");
   const subTotal = calculateCartSubTotal(cart as CoreCartFields);

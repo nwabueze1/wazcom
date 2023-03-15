@@ -56,27 +56,33 @@ export var useCreateCart = function () {
     var cookies = new Cookies();
     var client = createApolloClient(gatewayUrl !== null && gatewayUrl !== void 0 ? gatewayUrl : "");
     return function () { return __awaiter(void 0, void 0, void 0, function () {
-        var cartCookie, siteUuid, currency, _a, data, errors, error, _b, uuid, expires;
-        var _c, _d, _e, _f, _g;
-        return __generator(this, function (_h) {
-            switch (_h.label) {
+        var cartCookie, cartItemCountCookie, siteUuid, currency, _a, data, errors, error, _b, uuid, expires;
+        var _c, _d, _e, _f, _g, _h;
+        return __generator(this, function (_j) {
+            switch (_j.label) {
                 case 0:
                     cartCookie = (_c = cookies.get("cart")) !== null && _c !== void 0 ? _c : {};
-                    siteUuid = (_e = (_d = menu === null || menu === void 0 ? void 0 : menu.restaurant) === null || _d === void 0 ? void 0 : _d.site) === null || _e === void 0 ? void 0 : _e.uuid;
-                    currency = (_g = (_f = menu === null || menu === void 0 ? void 0 : menu.restaurant) === null || _f === void 0 ? void 0 : _f.bank_info) === null || _g === void 0 ? void 0 : _g.currency;
+                    cartItemCountCookie = (_d = cookies.get("cartItemCount")) !== null && _d !== void 0 ? _d : {};
+                    siteUuid = (_f = (_e = menu === null || menu === void 0 ? void 0 : menu.restaurant) === null || _e === void 0 ? void 0 : _e.site) === null || _f === void 0 ? void 0 : _f.uuid;
+                    currency = (_h = (_g = menu === null || menu === void 0 ? void 0 : menu.restaurant) === null || _g === void 0 ? void 0 : _g.bank_info) === null || _h === void 0 ? void 0 : _h.currency;
                     return [4 /*yield*/, client.mutate({
                             mutation: CREATE_CART,
                             variables: { site_uuid: siteUuid, currency: currency },
                         })];
                 case 1:
-                    _a = _h.sent(), data = _a.data, errors = _a.errors;
+                    _a = _j.sent(), data = _a.data, errors = _a.errors;
                     if (!data || errors) {
                         error = new Error("We could not complete that operation");
                         throw error;
                     }
                     _b = data.createCart, uuid = _b.uuid, expires = _b.expires;
                     cartCookie[siteUuid] = uuid;
+                    cartItemCountCookie[siteUuid] = 0;
                     cookies.set("cart", cartCookie, { path: "/", expires: new Date(expires) });
+                    cookies.set("cartItemCount", cartItemCountCookie, {
+                        path: "/",
+                        expires: new Date(expires),
+                    });
                     return [2 /*return*/, uuid];
             }
         });
@@ -89,6 +95,7 @@ export var useAddToCart = function () {
     var cookies = new Cookies();
     var createCart = useCreateCart();
     var client = createApolloClient(gatewayUrl !== null && gatewayUrl !== void 0 ? gatewayUrl : "");
+    var updateCartCount = useUpdateCartCount();
     return function (variables, onClose) { return __awaiter(void 0, void 0, void 0, function () {
         var cartCookie, siteUuid, cartUuid, _a, data, errors, error, error_1;
         var _b, _c;
@@ -121,6 +128,7 @@ export var useAddToCart = function () {
                     }
                     notify("success", "Item added successfully");
                     onClose === null || onClose === void 0 ? void 0 : onClose();
+                    updateCartCount();
                     return [3 /*break*/, 7];
                 case 6:
                     error_1 = _d.sent();
@@ -132,4 +140,22 @@ export var useAddToCart = function () {
             }
         });
     }); };
+};
+var useUpdateCartCount = function () {
+    var restaurant = useSelector(function (state) { return state; }).restaurant;
+    var dispatch = useDispatch();
+    var menu = restaurant === null || restaurant === void 0 ? void 0 : restaurant.menu;
+    var cookies = new Cookies();
+    return function () {
+        var _a, _b;
+        var cartItemCountCookie = cookies.get("cartItemCount");
+        var siteUuid = (_b = (_a = menu === null || menu === void 0 ? void 0 : menu.restaurant) === null || _a === void 0 ? void 0 : _a.site) === null || _b === void 0 ? void 0 : _b.uuid;
+        var updatedCount = cartItemCountCookie[siteUuid] + 1;
+        cartItemCountCookie[siteUuid] = updatedCount;
+        dispatch({ type: "SET_CART_ITEM_COUNT", payload: updatedCount });
+        cookies.set("cartItemCount", cartItemCountCookie, {
+            path: "/",
+            expires: new Date(Date.now() + 86400000),
+        });
+    };
 };
