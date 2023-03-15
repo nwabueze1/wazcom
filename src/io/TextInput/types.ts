@@ -61,7 +61,7 @@ export type TextAreaProps = Omit<
   };
 
 export type InputIconProps = {
-  className?: object;
+  className?: Record<string, unknown>;
   children?: React.ReactNode | React.ReactElement | string;
   iconSpacing?: string | number;
   marginLeft?: string | number;
@@ -69,7 +69,7 @@ export type InputIconProps = {
 };
 
 export type TextInputIconStyleProps = {
-  props?: object | string;
+  props?: Record<string, unknown> | string;
   marginLeft?: string | number;
   marginRight?: string | number;
 };
