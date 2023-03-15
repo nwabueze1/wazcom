@@ -13,7 +13,7 @@ import { jsx as _jsx } from "react/jsx-runtime";
 import clx from "classnames";
 import { useWrapperStyles } from "./styles";
 export var Wrapper = function (_a) {
-    var children = _a.children, style = _a.style;
-    var classes = useWrapperStyles({ style: style });
-    return _jsx("div", __assign({ className: clx(classes.root) }, { children: children }));
+    var children = _a.children, className = _a.className;
+    var classes = useWrapperStyles();
+    return _jsx("div", __assign({ className: clx(classes.root, className) }, { children: children }));
 };
