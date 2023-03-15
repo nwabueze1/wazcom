@@ -35,7 +35,7 @@ export const Editor: React.FC<EditorProps> = ({ content, handleChange, embed }) 
     <div className={classes.root}>
       <div className={classes.editor}>
         <EditorToolbar />
-        {typeof window !== "undefined" && (
+        {window?.document && (
           <ReactQuill
             id="editor"
             ref={quillRef}

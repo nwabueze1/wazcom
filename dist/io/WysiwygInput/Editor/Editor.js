@@ -56,6 +56,6 @@ export var Editor = function (_a) {
             quillObj.editor.insertEmbed(range.index, type, value);
         handleChange(quillObj.root.innerHTML);
     };
-    return (_jsxs("div", __assign({ className: classes.root }, { children: [_jsxs("div", __assign({ className: classes.editor }, { children: [_jsx(EditorToolbar, {}), typeof window !== "undefined" && (_jsx(ReactQuill, { id: "editor", ref: quillRef, theme: "snow", value: content, onChange: handleChange, placeholder: "Add content", modules: modules, formats: formats, className: classes.quillEditor }))] })), _jsxs("div", __assign({ className: classes.wordCount }, { children: [content.trim().length === 0 ? 0 : content.split(" ").length, "/1000 words"] }))] })));
+    return (_jsxs("div", __assign({ className: classes.root }, { children: [_jsxs("div", __assign({ className: classes.editor }, { children: [_jsx(EditorToolbar, {}), (window === null || window === void 0 ? void 0 : window.document) && (_jsx(ReactQuill, { id: "editor", ref: quillRef, theme: "snow", value: content, onChange: handleChange, placeholder: "Add content", modules: modules, formats: formats, className: classes.quillEditor }))] })), _jsxs("div", __assign({ className: classes.wordCount }, { children: [content.trim().length === 0 ? 0 : content.split(" ").length, "/1000 words"] }))] })));
 };
 export default Editor;
