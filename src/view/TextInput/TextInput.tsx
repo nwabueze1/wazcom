@@ -2,6 +2,7 @@ import { FC } from "react";
 import { BsEye } from "react-icons/bs";
 
 import { TextInput } from "../../io";
+import { Wrapper } from "../../core";
 import { useTextInputStyles } from "./styles";
 import { TextInputViewProps, InputDataProps } from "./types";
 
@@ -18,31 +19,36 @@ export const TextInputView: FC<TextInputViewProps> = () => {
 
   const classes = useTextInputStyles();
 
-  const inputData: InputDataProps[] = [
-    { name: "TextInput", label: "Default", placeholder: "Placeholder", helperText: "" },
-    { name: "TextInput", label: "Hover", placeholder: "Placeholder", helperText: "" },
-    {
-      name: "TextInput",
-      label: "Active",
-      placeholder: "Placeholder",
-      helperText: "",
-      isSuccess: true,
-    },
-    {
-      name: "TextInput",
-      label: "Error",
-      placeholder: "Placeholder",
-      helperText: "Error Message",
-      isError: true,
-    },
-    {
-      name: "TextInput",
-      label: "Success",
-      placeholder: "Placeholder",
-      helperText: "Success Message",
-      isSuccess: true,
-    },
-  ];
+  const inputData: { default: InputDataProps[]; validation: InputDataProps[] } = {
+    default: [
+      { name: "TextInput", label: "Default", placeholder: "Placeholder", helperText: "" },
+
+      { name: "TextInput", label: "Hover", placeholder: "Placeholder", helperText: "" },
+      {
+        name: "TextInput",
+        label: "Active",
+        placeholder: "Placeholder",
+        helperText: "",
+        isSuccess: true,
+      },
+    ],
+    validation: [
+      {
+        name: "TextInput",
+        label: "Error",
+        placeholder: "Placeholder",
+        helperText: "Error Message",
+        isError: true,
+      },
+      {
+        name: "TextInput",
+        label: "Success",
+        placeholder: "Placeholder",
+        helperText: "Success Message",
+        isSuccess: true,
+      },
+    ],
+  };
 
   return (
     <div className={classes.root}>
@@ -58,41 +64,70 @@ export const TextInputView: FC<TextInputViewProps> = () => {
             </p>
           </div>
         </div>
-        <div className={classes.inputContainer}>
-          <div className={classes.inputs}>
-            {inputData.map((item: InputDataProps, index) => (
-              <TextInput
-                id={`${item.label}-${index + Math.random()}`}
-                className={classes.input}
-                label={item.label}
-                placeholder={item.placeholder}
-                isError={item.isError}
-                isSuccess={item.isSuccess}
-                helperText={item.helperText}
-                onEnter={handleEnter}
-                onFocus={handleFocus}
-                onBlur={handleBlur}
-              />
-            ))}
+        <Wrapper
+          style={{
+            paddingBottom: "25px",
+
+            "& h4": {
+              margin: 0,
+              marginBottom: "10px",
+            },
+          }}
+        >
+          <div>
+            <h4> Basic </h4>
+            <div className={classes.inputs}>
+              {inputData.default.map((item: InputDataProps, index) => (
+                <TextInput
+                  key={item.name}
+                  id={`${item.label}-${index + Math.random()}`}
+                  className={classes.input}
+                  label={item.label}
+                  placeholder={item.placeholder}
+                  isError={item.isError}
+                  isSuccess={item.isSuccess}
+                  helperText={item.helperText}
+                  onEnter={handleEnter}
+                  onFocus={handleFocus}
+                  onBlur={handleBlur}
+                />
+              ))}
+            </div>
           </div>
-          <div className={classes.inputs}>
-            {inputData.map((item: InputDataProps, index) => (
-              <TextInput
-                id={`${item.label}-${index + Math.random()}`}
-                className={classes.input}
-                label={item.label}
-                placeholder={item.placeholder}
-                helperText={item.helperText}
-                isError={item.isError}
-                isSuccess={item.isSuccess}
-                onEnter={handleEnter}
-                onFocus={handleFocus}
-                onBlur={handleBlur}
-                rightIcon={<BsEye width={16} />}
-              />
-            ))}
+        </Wrapper>
+
+        <Wrapper
+          style={{
+            paddingBottom: "25px",
+
+            "& h4": {
+              margin: 0,
+              marginBottom: "10px",
+            },
+          }}
+        >
+          <div>
+            <h4> Validation </h4>
+            <div className={classes.inputs}>
+              {inputData.validation.map((item: InputDataProps, index) => (
+                <TextInput
+                  key={item.name}
+                  id={`${item.label}-${index + Math.random()}`}
+                  className={classes.input}
+                  label={item.label}
+                  placeholder={item.placeholder}
+                  helperText={item.helperText}
+                  isError={item.isError}
+                  isSuccess={item.isSuccess}
+                  onEnter={handleEnter}
+                  onFocus={handleFocus}
+                  onBlur={handleBlur}
+                  rightIcon={<BsEye width={16} />}
+                />
+              ))}
+            </div>
           </div>
-        </div>
+        </Wrapper>
       </div>
     </div>
   );

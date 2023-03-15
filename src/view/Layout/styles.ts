@@ -59,6 +59,7 @@ export const useLayoutStyles = makeStyles((theme: Theme) => ({
     marginTop: theme.spacing(7),
     overflow: "hidden",
     padding: "7px 24px",
+    paddingBottom: '70px',
     width: '100%',
     background: theme.design.colors.waz_white100,
     borderRadius: theme.spacing(0.5),

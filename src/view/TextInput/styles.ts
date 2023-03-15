@@ -58,13 +58,18 @@ export const useTextInputStyles = makeStyles((theme: Theme) => ({
     gap: theme.spacing(4),
     margin: 0,
     padding: 0,
+    maxWidth: '1000px',
+
+    "@media (max-width: 630px)": {
+      flexDirection: 'column',
+      gap: theme.spacing(3),
+    }
   },
   input: {
     width: "100%",
-    height: 34,
     display: "flex",
     justifyContent: "space-between",
     alignItems: "center",
-    padding: "0 10px",
+    padding: 0
   },
 }));
