@@ -1,4 +1,4 @@
-import React, { useEffect, useRef } from "react";
+import React, { useEffect, useRef, Suspense } from "react";
 import { EditorToolbar, modules, formats } from "../EditorToolbar";
 import "react-quill/dist/quill.snow.css";
 import { useEditorStyles } from "./styles";
@@ -35,6 +35,7 @@ export const Editor: React.FC<EditorProps> = ({ content, handleChange, embed }) 
     <div className={classes.root}>
       <div className={classes.editor}>
         <EditorToolbar />
+        <Suspense fallback={<div />}>
           <ReactQuill
             id="editor"
             ref={quillRef}
@@ -46,6 +47,7 @@ export const Editor: React.FC<EditorProps> = ({ content, handleChange, embed }) 
             formats={formats}
             className={classes.quillEditor}
           />
+        </Suspense>
       </div>
       <div className={classes.wordCount}>
         {content.trim().length === 0 ? 0 : content.split(" ").length}/1000 words
