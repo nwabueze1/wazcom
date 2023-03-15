@@ -2,7 +2,7 @@ import { Theme } from "@mui/material";
 import { makeStyles } from "@mui/styles";
 
 export const useWrapperStyles = makeStyles((theme: Theme) => ({
-  root: {
+  root: (props: any) => ({
     background: theme.design.background.waz_primaryWhite,
     borderWidth: 1,
     borderStyle: "solid",
@@ -16,5 +16,7 @@ export const useWrapperStyles = makeStyles((theme: Theme) => ({
     flexDirection: 'column',
     justifyContent: 'center',
     gap: 30,
-  },
+    maxWidth: "1100px",
+    ...props?.style
+  }),
 }));
