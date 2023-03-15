@@ -49,11 +49,13 @@ import { useSelector, useDispatch } from "react-redux";
 import { UPDATE_CART_ITEM } from "../graphql";
 import { notify } from "../../../utilities";
 import { createApolloClient } from "../../../../../helpers/graphQL";
+import Cookies from "universal-cookie";
 export var useUpdateCartItemQuantity = function () {
     var _a = useSelector(function (state) { return state; }), restaurant = _a.restaurant, gatewayUrl = _a.gatewayUrl;
     var dispatch = useDispatch();
     var cart = restaurant === null || restaurant === void 0 ? void 0 : restaurant.cart;
     var client = createApolloClient(gatewayUrl !== null && gatewayUrl !== void 0 ? gatewayUrl : "");
+    var updateCartCount = useUpdateCartCount();
     return function (variables) { return __awaiter(void 0, void 0, void 0, function () {
         var _a, data, errors, error, cartItem, error_1;
         var _b;
@@ -61,8 +63,8 @@ export var useUpdateCartItemQuantity = function () {
             switch (_c.label) {
                 case 0:
                     _c.trys.push([0, 2, , 3]);
-                    dispatch({ type: 'SET_LOADING', payload: true });
-                    dispatch({ type: 'SET_NETWORK_OPERATION', payload: "update.cart-item.".concat(variables.uuid) });
+                    dispatch({ type: "SET_LOADING", payload: true });
+                    dispatch({ type: "SET_NETWORK_OPERATION", payload: "update.cart-item.".concat(variables.uuid) });
                     return [4 /*yield*/, client.mutate({
                             mutation: UPDATE_CART_ITEM,
                             variables: variables,
@@ -78,18 +80,41 @@ export var useUpdateCartItemQuantity = function () {
                         return uuid === (variables === null || variables === void 0 ? void 0 : variables.uuid);
                     });
                     notify("success", variables.quantity === 0 ? "Item deleted successfully" : "Item updated successfully");
-                    variables.quantity === 0 ? dispatch({ type: 'DELETE_CART_ITEM', payload: cartItem }) :
-                        dispatch({ type: 'UPDATE_CART_ITEM', payload: __assign(__assign({}, cartItem), { quantity: variables.quantity }) });
+                    variables.quantity === 0
+                        ? dispatch({ type: "DELETE_CART_ITEM", payload: cartItem })
+                        : dispatch({
+                            type: "UPDATE_CART_ITEM",
+                            payload: __assign(__assign({}, cartItem), { quantity: variables.quantity }),
+                        });
+                    variables.quantity === 0 && updateCartCount();
                     return [3 /*break*/, 3];
                 case 2:
                     error_1 = _c.sent();
                     notify("error", "We could not complete that operation");
                     return [3 /*break*/, 3];
                 case 3:
-                    dispatch({ type: 'SET_LOADING', payload: false });
-                    dispatch({ type: 'SET_NETWORK_OPERATION', payload: '' });
+                    dispatch({ type: "SET_LOADING", payload: false });
+                    dispatch({ type: "SET_NETWORK_OPERATION", payload: "" });
                     return [2 /*return*/];
             }
         });
     }); };
+};
+var useUpdateCartCount = function () {
+    var restaurant = useSelector(function (state) { return state; }).restaurant;
+    var dispatch = useDispatch();
+    var cart = restaurant === null || restaurant === void 0 ? void 0 : restaurant.cart;
+    var cookies = new Cookies();
+    return function () {
+        var _a, _b;
+        var cartItemCountCookie = cookies.get("cartItemCount");
+        var siteUuid = (_b = (_a = cart === null || cart === void 0 ? void 0 : cart.restaurant) === null || _a === void 0 ? void 0 : _a.site) === null || _b === void 0 ? void 0 : _b.uuid;
+        var updatedCount = cartItemCountCookie[siteUuid] - 1;
+        cartItemCountCookie[siteUuid] = updatedCount;
+        dispatch({ type: "SET_CART_ITEM_COUNT", payload: updatedCount });
+        cookies.set("cartItemCount", cartItemCountCookie, {
+            path: "/",
+            expires: new Date(Date.now() + 86400000),
+        });
+    };
 };

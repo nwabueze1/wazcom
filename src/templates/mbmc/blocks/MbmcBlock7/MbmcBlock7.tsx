@@ -1,4 +1,4 @@
-import { FC, useEffect, useState } from "react";
+import { FC, useEffect, useState, useMemo } from "react";
 import { useSelector } from "react-redux";
 import { useMbmcBlock7Styles } from "./styles";
 import clx from "classnames";
@@ -22,7 +22,7 @@ export const MbmcBlock7: FC<MbmcBlock7Props> = ({
 }) => {
   const { gatewayUrl } = useSelector<TAppState, TAppState>((state) => state);
   const classes = useMbmcBlock7Styles();
-  const client = createApolloClient(gatewayUrl ?? "");
+  const client = useMemo(() => createApolloClient(gatewayUrl ?? ""), []);
   const { data, loading } = useQuery(GET_INSTAGRAM_IMAGES, {
     client,
     variables: {
