@@ -65,10 +65,10 @@ export const useTextInputStyles = makeStyles((theme: Theme) => ({
     padding: 0,
     maxWidth: '1000px',
 
-    "@media (max-width: 630px)": {
+    [theme.breakpoints.down("md")]: {
       flexDirection: 'column',
       gap: theme.spacing(3),
-    }
+    },
   },
   input: {
     width: "100%",
