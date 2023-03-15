@@ -37,12 +37,6 @@ export type MbmcCommonProps = {
     classNames?: {
         [key: string]: string;
     };
-    contextProps?: {
-        [key: string]: any;
-    };
-    setContextProps?: (contextProps: {
-        [key: string]: any;
-    }) => void;
 };
 export type MbmcTemplatePropType = {
     component: any;

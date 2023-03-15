@@ -12,8 +12,8 @@ export const GET_CART_BY_UUID = gql`
 
 export const UPDATE_ORDER = gql`
   ${CORE_ORDER_FIELDS}
-  mutation GqlUpdateOrder($uuid: ID, $payment_type: PaymentType, $payment_reference: String) {
-    updateOrder(uuid: $uuid, payment_type: $payment_type, payment_reference: $payment_reference) {
+  mutation GqlUpdateOrder($uuid: ID!, $payment_type: PaymentType, $payment_reference: String) {
+    updateOrder(input: { uuid: $uuid, payment_type: $payment_type, payment_reference: $payment_reference }) {
       ...CoreOrderFields
     }
   }

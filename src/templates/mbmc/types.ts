@@ -37,8 +37,6 @@ export type MbmcCommonProps = {
   handleClick?: (route: string) => void;
   className?: string;
   classNames?: { [key: string]: string };
-  contextProps?: { [key: string]: any };
-  setContextProps?: (contextProps: { [key: string]: any }) => void;
 };
 
 export type MbmcTemplatePropType = {
