@@ -1,11 +1,13 @@
 import React, { useEffect, useRef } from "react";
-import { EditorToolbar } from "../EditorToolbar";
+import ReactQuill from "react-quill";
+import { EditorToolbar, modules, formats } from "../EditorToolbar";
 import "react-quill/dist/quill.snow.css";
 import { useEditorStyles } from "./styles";
 import { EditorProps } from "./types";
 
 export const Editor: React.FC<EditorProps> = ({ content, handleChange, embed }) => {
   const quillRef = useRef<any>(null);
+
   const classes = useEditorStyles();
 
   useEffect(() => {
@@ -33,7 +35,7 @@ export const Editor: React.FC<EditorProps> = ({ content, handleChange, embed }) 
     <div className={classes.root}>
       <div className={classes.editor}>
         <EditorToolbar />
-        {/* {loaded ? (
+        {typeof window !== "undefined" && (
           <ReactQuill
             id="editor"
             ref={quillRef}
@@ -45,9 +47,7 @@ export const Editor: React.FC<EditorProps> = ({ content, handleChange, embed }) 
             formats={formats}
             className={classes.quillEditor}
           />
-        ) : (
-          <textarea />
-        )} */}
+        )}
       </div>
       <div className={classes.wordCount}>
         {content.trim().length === 0 ? 0 : content.split(" ").length}/1000 words
