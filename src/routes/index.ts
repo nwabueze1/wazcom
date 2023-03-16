@@ -8,6 +8,7 @@ import { ButtonView } from "../view/Button";
 import { TabsView } from "../view/Tab";
 import { NotificationView } from "../view/Notification";
 import { URLInputView } from "../view/URLInput";
+import { PasswordInputView } from "../view/PasswordInput";
 import { CurrencyInputView } from "../view/CurrencyInput";
 import { SelectInputView } from "../view/SelectInput";
 import { TableView } from "../view/Table";
@@ -55,6 +56,12 @@ export default [
     path: "/url-input",
     exact: true,
     component: URLInputView,
+  },
+  {
+    key: "PasswordInputView",
+    path: "/password-input",
+    exact: true,
+    component: PasswordInputView,
   },
   {
     key: "CurrencyInputView",

@@ -14,6 +14,7 @@ export default [
       { name: "Email Input", slug: "email-input" },
       { name: "Number Input", slug: "number-input" },
       { name: "URL Input", slug: "url-input" },
+      { name: "Password Input", slug: "password-input" },
       { name: "Currency Input", slug: "currency-input" },
       { name: "TextArea Input", slug: "textarea-input" },
       { name: "Select Input", slug: "select-input" },

@@ -1,9 +1,20 @@
 import clx from "classnames";
 import { isNumber, isBoolean } from "lodash";
+import { BsEye, BsEyeSlash } from "react-icons/bs";
 import { FC, cloneElement, isValidElement } from "react";
 import React, { ChangeEvent, KeyboardEvent, useCallback, useState } from "react";
 import { useTextStyles, useTextInputIconStyles } from "./styles";
 import { TextAreaProps, TextFieldProps, InputIconProps } from "./types";
+import {
+  MinNumberOfCharacters,
+  MinNumberOfDigit,
+  MinNumberOfSymbols,
+  MinNumberOfUppercase,
+  PasswordDigitValidator,
+  PasswordLengthValidator,
+  PasswordSymbolValidator,
+  PasswordUppercaseValidator,
+} from "./helper";
 
 /**
  * Text Input IO Component
@@ -45,9 +56,29 @@ export const TextInput: FC<TextFieldProps> = ({
   borderStyle,
   borderRadius,
   classNames,
+  passwordRules = {
+    min: {
+      label: `Must contain at least ${MinNumberOfCharacters} characters long`,
+      limit: MinNumberOfCharacters,
+    },
+    uppercase: {
+      label: `Must contain at least ${MinNumberOfUppercase}  uppercase letter(s)`,
+      limit: MinNumberOfUppercase,
+    },
+    digit: {
+      label: `Must contain at least ${MinNumberOfDigit}  digit(s)`,
+      limit: MinNumberOfDigit,
+    },
+    symbol: {
+      label: `Must contain at least ${MinNumberOfSymbols}  symbol(s)`,
+      limit: MinNumberOfSymbols,
+    },
+  },
   ...props
 }) => {
   const [isFocused, setIsFocused] = React.useState<boolean>(false);
+  const [isTouched, setIsTouched] = React.useState<boolean>(false);
+  const [inputType, setInputType] = React.useState<"password" | "text">("password");
   const classes = useTextStyles({
     width,
     height,
@@ -59,7 +90,14 @@ export const TextInput: FC<TextFieldProps> = ({
     borderRadius,
   });
 
+  const handlePasswordVisibility = (value: "password" | "text") => {
+    setInputType(value);
+  };
+
   const handleChange = (e: ChangeEvent<HTMLInputElement>) => {
+    if (!isTouched) {
+      setIsTouched(true);
+    }
     if (onChange) {
       onChange?.({
         name: (e.target as HTMLInputElement).name ?? "",
@@ -123,7 +161,7 @@ export const TextInput: FC<TextFieldProps> = ({
       >
         {leftIcon && <InputIcon marginRight={iconSpacing}>{leftIcon}</InputIcon>}
         <input
-          type={type}
+          type={type === "password" ? inputType : type}
           name={name}
           className={classes.input}
           onFocus={handleFocus}
@@ -132,7 +170,33 @@ export const TextInput: FC<TextFieldProps> = ({
           onKeyDown={handleOnKeyDown}
           {...props}
         />
-        {rightIcon && <InputIcon marginLeft={iconSpacing}>{rightIcon}</InputIcon>}
+        {type !== "password" && rightIcon && (
+          <InputIcon marginLeft={iconSpacing}>{rightIcon}</InputIcon>
+        )}
+        {type === "password" && rightIcon && (
+          <>
+            {inputType === "password" && (
+              <button
+                className={classes.iconButton}
+                onClick={() => handlePasswordVisibility("text")}
+              >
+                <InputIcon marginLeft={iconSpacing}>
+                  <BsEye />
+                </InputIcon>
+              </button>
+            )}
+            {inputType === "text" && (
+              <button
+                className={classes.iconButton}
+                onClick={() => handlePasswordVisibility("password")}
+              >
+                <InputIcon marginLeft={iconSpacing}>
+                  <BsEyeSlash />
+                </InputIcon>
+              </button>
+            )}
+          </>
+        )}
       </div>
       {helperText && (
         <span
@@ -144,6 +208,34 @@ export const TextInput: FC<TextFieldProps> = ({
         >
           {helperText}
         </span>
+      )}
+      {type === "password" && (
+        <div className={classes.passwordValidatorContainer}>
+          <PasswordUppercaseValidator
+            isTouched={isTouched}
+            label={passwordRules?.uppercase?.label}
+            limit={passwordRules?.uppercase?.limit}
+            value={props?.value}
+          />
+          <PasswordLengthValidator
+            isTouched={isTouched}
+            label={passwordRules?.min?.label}
+            limit={passwordRules?.min?.limit}
+            value={props?.value}
+          />
+          <PasswordDigitValidator
+            isTouched={isTouched}
+            label={passwordRules?.digit?.label}
+            limit={passwordRules?.digit?.limit}
+            value={props?.value}
+          />
+          <PasswordSymbolValidator
+            isTouched={isTouched}
+            label={passwordRules?.digit?.label}
+            limit={passwordRules?.digit?.limit}
+            value={props?.value}
+          />
+        </div>
       )}
     </div>
   );

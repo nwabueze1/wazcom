@@ -1,7 +1,7 @@
 import { Theme } from "@mui/material";
 import { makeStyles } from "@mui/styles";
 
-export const useTextInputStyles = makeStyles((theme: Theme) => ({
+export const usePasswordInputStyles = makeStyles((theme: Theme) => ({
   root: {
     padding: theme.spacing(2),
     margin: 0,
@@ -27,6 +27,7 @@ export const useTextInputStyles = makeStyles((theme: Theme) => ({
     margin: 0,
     padding: 0,
   },
+  wrapper: { paddingBottom: theme.spacing(2), },
   description: {
     margin: 0,
     padding: 0,
@@ -42,30 +43,34 @@ export const useTextInputStyles = makeStyles((theme: Theme) => ({
     borderStyle: "solid",
     borderWidth: 1,
     borderRadius: 3,
-    padding: theme.spacing(3),
-    paddingBottom: theme.spacing(6.25),
+    padding: 24,
+    paddingBottom: 50,
     display: "flex",
     flexDirection: "column",
     justifyContent: "center",
     alignItems: "center",
-    gap: theme.spacing(8.75),
+    gap: 70,
   },
   inputs: {
     width: "100%",
-    display: "flex",
-    flexWrap: "wrap",
-    justifyContent: "flex-start",
-    alignItems: "flex-start",
-    gap: theme.spacing(4),
-    margin: 0,
-    padding: 0,
-  },
-  input: {
-    width: "100%",
-    height: 34,
+    maxWidth: '220px',
     display: "flex",
     justifyContent: "space-between",
     alignItems: "center",
-    padding: theme.spacing(0, 1.25)
+    gap: theme.spacing(4),
+    margin: 0,
+    padding: 0,
+
+    [theme.breakpoints.down("md")]: {
+      flexDirection: 'column',
+      gap: theme.spacing(3),
+    },
+  },
+  input: {
+    width: "100%",
+    display: "flex",
+    justifyContent: "space-between",
+    alignItems: "center",
+    padding: 0
   },
 }));

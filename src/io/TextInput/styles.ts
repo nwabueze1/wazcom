@@ -89,6 +89,16 @@ export const useTextStyles = makeStyles((theme: Theme) => ({
       borderColor: theme.design.colors.waz_primaryColor100,
     },
   }),
+  iconButton: {
+    cursor: 'pointer',
+    all: 'unset'
+  },
+  passwordValidatorContainer: {
+    padding: 0,
+    marginTop: theme.spacing(1.6),
+    alignSelf: 'baseline',
+    fontSize: theme.typography.fontSize - 1.5
+  },
   input: {
     display: "flex",
     width: "100%",
@@ -145,3 +155,4 @@ export const useTextInputIconStyles = makeStyles(() => ({
     marginLeft: `${props.marginLeft}px`,
   }),
 }));
+
