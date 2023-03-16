@@ -1,5 +1,17 @@
 import React from "react";
 import { CommonProps } from "../../types";
+export type PasswordValidatorProps = {
+    isTouched?: boolean;
+    label?: string;
+    value?: string | undefined;
+    limit?: number;
+};
+export type PasswordRulesProps = {
+    uppercase?: Omit<PasswordValidatorProps, 'value'> | undefined;
+    min?: Omit<PasswordValidatorProps, 'value'> | undefined;
+    digit?: Omit<PasswordValidatorProps, 'value'> | undefined;
+    symbol?: Omit<PasswordValidatorProps, 'value'> | undefined;
+};
 export type TextInputProps = TextFieldProps;
 export type BaseInputProps = React.InputHTMLAttributes<HTMLInputElement>;
 export type TextBaseProps = CommonProps & {
@@ -20,6 +32,7 @@ export type TextBaseProps = CommonProps & {
     errors?: {
         message: string;
     }[];
+    passwordRules?: PasswordRulesProps;
     rows?: string | number;
     value?: any;
     leftIcon?: React.ReactElement;

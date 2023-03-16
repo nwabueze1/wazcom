@@ -4,7 +4,6 @@ export var useTextStyles = makeStyles(function (theme) { return ({
         display: "flex",
         flexDirection: "column",
         justifyContent: "start",
-        padding: 0,
     },
     label: {
         fontSize: theme.typography.fontSize - 2,
@@ -98,6 +97,16 @@ export var useTextStyles = makeStyles(function (theme) { return ({
             borderColor: theme.design.colors.waz_primaryColor100,
         },
     }); },
+    iconButton: {
+        cursor: 'pointer',
+        all: 'unset'
+    },
+    passwordValidatorContainer: {
+        padding: 0,
+        marginTop: theme.spacing(1.6),
+        alignSelf: 'baseline',
+        fontSize: theme.typography.fontSize - 1.5
+    },
     input: {
         display: "flex",
         width: "100%",
