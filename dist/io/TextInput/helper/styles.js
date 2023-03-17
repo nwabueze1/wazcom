@@ -8,14 +8,14 @@ export var usePasswordValidatorStyles = makeStyles(function (theme) { return ({
         marginBottom: theme.spacing(1.2),
     },
     iconWrapper: {
-        width: '12px',
-        height: '12px',
-        borderRadius: '100%',
+        width: theme.spacing(1.5),
+        height: theme.spacing(1.5),
+        borderRadius: theme.spacing(2),
         display: 'flex',
         alignItems: 'center',
         justifyContent: 'center',
         backgroundColor: theme.design.colors.waz_grey600,
-        color: "white",
+        color: theme.design.colors.waz_white,
         marginRight: theme.spacing(.4)
     },
     iconSuccess: {
