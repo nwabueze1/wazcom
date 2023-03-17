@@ -1,3 +1,4 @@
+/* eslint-disable react/prop-types */
 import { Modal, TextField, Button } from "@mui/material";
 import { useEditImageDialogStyles } from "./styles";
 import { EditImageProps } from "./types";
@@ -25,7 +26,7 @@ export const EditImageDialog = ({
             variant="outlined"
             size="small"
             className={classes.editMediaSizeInput}
-            value={image[label][device as string]}
+            value={(image as any)[label][device as any]}
             type="number"
             placeholder={placeholder}
             onChange={(event) => handleEditImage(label, event.target.value, device)}

@@ -11,12 +11,12 @@ export const SidebarListItem: FC<SidebarListItemProps> = ({ sections }) => {
 
   const handleMouseEnter = useCallback(
     (rowIndex: number, index: number) => {
-      setActiveLink({ rowIndex, index });
+      setActiveLink({ sectionIndex: rowIndex, index });
     },
     [activeLink],
   );
   const handleMouseLeave = useCallback((rowIndex: number, index: number) => {
-    setActiveLink({ rowIndex, index });
+    setActiveLink({ sectionIndex: rowIndex, index });
   }, []);
 
   return (
@@ -26,13 +26,13 @@ export const SidebarListItem: FC<SidebarListItemProps> = ({ sections }) => {
           <li key={sectionIndex} className={classes.listItem}>
             <h5 className={classes.sectionLabel}>{section.label}</h5>
             <ul className={classes.innerList}>
-              {section.components.map((component, index) => (
+              {section.components.map((component: any, index) => (
                 <li key={index} className={classes.innerListItem}>
                   <a
                     className={clx(
                       classes.link,
                       activeLink &&
-                        sectionIndex == activeLink?.rowIndex &&
+                        sectionIndex == activeLink?.sectionIndex &&
                         index == activeLink?.index &&
                         classes.linkActive,
                     )}
