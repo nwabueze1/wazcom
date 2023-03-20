@@ -25,7 +25,7 @@ export const useWrapperStyles = makeStyles((theme: Theme) => ({
     display: "flex",
     flexDirection: "column",
     justifyContent: "start",
-    gap: theme.spacing(5),
+    gap: theme.spacing(2.5),
   },
   header: {
     width: "70vw",

@@ -125,7 +125,7 @@ export const CardView: FC<CardViewProps> = () => {
           ) => (
             <div key={variant}>
               <h4 className={classes.cardTitle}>{variant} Card</h4>
-              <Wrapper>
+              <Wrapper showHeader={false}>
                 <Card
                   key={i}
                   title={title}

@@ -47,7 +47,6 @@ export const useCheckboxInputStyles = makeStyles((theme: Theme) => ({
     marginBottom: theme.spacing(.5),
     color: theme.design.colors.waz_grey,
     alignItems: "center",
-    letterSpacing: "0.13px",
     textTransform: "uppercase",
   },
   input: {

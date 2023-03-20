@@ -17,27 +17,16 @@ export const PasswordInputView: FC<TextInputViewProps> = () => {
 
   const inputData: InputDataProps[] = [
     { name: "TextInput", label: "Password", placeholder: "Enter password", helperText: "" },
-    // {
-    //   name: "TextInput",
-    //   label: "Active",
-    //   placeholder: "Placeholder",
-    //   helperText: "",
-    //   isSuccess: true,
-    // },
   ];
 
   return (
     <div className={classes.root}>
       <div className={classes.container}>
-        <div className={classes.header}>
-          <h1 className={classes.title}>Password Input</h1>
-          <div className={classes.description}>
-            <p className={classes.descriptionText}>
-              Password inputs enable users to enter or create passwords in a form.
-            </p>
-          </div>
-        </div>
-        <Wrapper className={classes.wrapper}>
+        <Wrapper
+          className={classes.wrapper}
+          title="Password Input"
+          description=" Password inputs enable users to enter or create passwords in a form."
+        >
           <div className={classes.inputs}>
             {inputData.map((item: InputDataProps, index) => (
               <TextInput

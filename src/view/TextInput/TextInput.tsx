@@ -52,65 +52,59 @@ export const TextInputView: FC<TextInputViewProps> = () => {
 
   return (
     <div className={classes.root}>
-      <div className={classes.container}>
-        <div className={classes.header}>
-          <h1 className={classes.title}>Text Input</h1>
-          <div className={classes.description}>
-            <p className={classes.descriptionText}>
-              Text inputs enable users to enter free-form text data. The type of text field used
+      <Wrapper
+        title="Text Input"
+        description="Text inputs enable users to enter free-form text data. The type of text field used
               should reflect the length of the content you expect the user to enter. The default
               text input is for short, one-line content, whereas text area is for longer, multi-line
-              entries.
-            </p>
+              entries."
+        className={classes.wrapper}
+      >
+        <div>
+          <h4 className={classes.cardTitle}> Basic </h4>
+          <div className={classes.inputs}>
+            {inputData.default.map((item: InputDataProps, index) => (
+              <TextInput
+                key={item.name}
+                id={`${item.label}-${index + Math.random()}`}
+                className={classes.input}
+                label={item.label}
+                placeholder={item.placeholder}
+                isError={item.isError}
+                isSuccess={item.isSuccess}
+                helperText={item.helperText}
+                onEnter={handleEnter}
+                onFocus={handleFocus}
+                onBlur={handleBlur}
+              />
+            ))}
           </div>
         </div>
-        <Wrapper className={classes.wrapper}>
-          <div>
-            <h4 className={classes.cardTitle}> Basic </h4>
-            <div className={classes.inputs}>
-              {inputData.default.map((item: InputDataProps, index) => (
-                <TextInput
-                  key={item.name}
-                  id={`${item.label}-${index + Math.random()}`}
-                  className={classes.input}
-                  label={item.label}
-                  placeholder={item.placeholder}
-                  isError={item.isError}
-                  isSuccess={item.isSuccess}
-                  helperText={item.helperText}
-                  onEnter={handleEnter}
-                  onFocus={handleFocus}
-                  onBlur={handleBlur}
-                />
-              ))}
-            </div>
-          </div>
-        </Wrapper>
+      </Wrapper>
 
-        <Wrapper className={classes.wrapper}>
-          <div>
-            <h4 className={classes.cardTitle}>Validation </h4>
-            <div className={classes.inputs}>
-              {inputData.validation.map((item: InputDataProps, index) => (
-                <TextInput
-                  key={item.name}
-                  id={`${item.label}-${index + Math.random()}`}
-                  className={classes.input}
-                  label={item.label}
-                  placeholder={item.placeholder}
-                  helperText={item.helperText}
-                  isError={item.isError}
-                  isSuccess={item.isSuccess}
-                  onEnter={handleEnter}
-                  onFocus={handleFocus}
-                  onBlur={handleBlur}
-                  rightIcon={<BsEye width={16} />}
-                />
-              ))}
-            </div>
+      <Wrapper className={classes.wrapper}>
+        <div>
+          <h4 className={classes.cardTitle}>Validation </h4>
+          <div className={classes.inputs}>
+            {inputData.validation.map((item: InputDataProps, index) => (
+              <TextInput
+                key={item.name}
+                id={`${item.label}-${index + Math.random()}`}
+                className={classes.input}
+                label={item.label}
+                placeholder={item.placeholder}
+                helperText={item.helperText}
+                isError={item.isError}
+                isSuccess={item.isSuccess}
+                onEnter={handleEnter}
+                onFocus={handleFocus}
+                onBlur={handleBlur}
+                rightIcon={<BsEye width={16} />}
+              />
+            ))}
           </div>
-        </Wrapper>
-      </div>
+        </div>
+      </Wrapper>
     </div>
   );
 };

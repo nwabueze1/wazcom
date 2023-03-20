@@ -12,20 +12,10 @@ export const RadioButtonInput: FC<RadioButtonInputProps> = ({
   feedback,
   value,
   helperText,
-  checkedBackground,
-  unCheckedBackground,
-  radioSize,
-  disabled = false,
-  position = "vertical",
+  isDisabled = false,
   onChange,
 }) => {
-  const classes = useRadioButtonInputStyles({
-    checkedBackground,
-    unCheckedBackground,
-    disabled,
-    position,
-    radioSize,
-  });
+  const classes = useRadioButtonInputStyles({ isDisabled });
 
   const handleChange = (event: React.ChangeEvent<{ checked: boolean }>) => {
     onChange?.({ name: name as string, value: event.target.checked });
@@ -33,31 +23,29 @@ export const RadioButtonInput: FC<RadioButtonInputProps> = ({
 
   return (
     <div className={clx(classes.root, className)}>
-      <div className={clx(classes.radioWrapper)}>
-        {label && (
-          <label htmlFor={label} className={clx(classes.labelStyle, classNames?.label ?? "")}>
-            {label}
-          </label>
-        )}
-        <label className={classes.innerWrapper}>
-          <input
-            name={name}
-            disabled={disabled}
-            type="radio"
-            id={label}
-            className={clx(classes.input)}
-            onChange={handleChange}
-            checked={value}
-          />
-          <span
-            className={clx(
-              "custom__radio",
-              classes.customRadio,
-              classNames?.radioButtonInput ? (classNames.radioButtonInput as string) : "",
-            )}
-          />
+      {label && (
+        <label htmlFor={label} className={clx(classes.labelStyle, classNames?.label ?? "")}>
+          {label}
         </label>
-      </div>
+      )}
+      <label className={classes.innerWrapper}>
+        <input
+          name={name}
+          disabled={isDisabled}
+          type="radio"
+          id={label}
+          className={clx(classes.input)}
+          onChange={handleChange}
+          checked={value}
+        />
+        <span
+          className={clx(
+            "custom__radio",
+            classes.customRadio,
+            classNames?.radioButtonInput ? (classNames.radioButtonInput as string) : "",
+          )}
+        />
+      </label>
       <div className={classes.helperText}> {helperText}</div>
       {feedback && displayFeedback(feedback)}
     </div>

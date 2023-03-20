@@ -27,8 +27,8 @@ export const useLayoutStyles = makeStyles((theme: Theme) => ({
     backgroundColor: 'transparent',
     border: 'none',
     fontSize: theme.typography.fontSize * 2,
-    marginRight: theme.spacing(1.8),
-    marginTop: theme.spacing(.8),
+    marginRight: theme.spacing(1.5),
+    marginTop: theme.spacing(.5),
     cursor: 'pointer',
 
     [theme.breakpoints.up("lg")]: {
@@ -137,7 +137,7 @@ export const useLayoutStyles = makeStyles((theme: Theme) => ({
   notificationWrapper: {
     width: 24,
     height: 24,
-    marginLeft: theme.spacing(2.2)
+    marginLeft: theme.spacing(2)
   },
   notoficationIcon: {
     width: 18,
@@ -146,7 +146,7 @@ export const useLayoutStyles = makeStyles((theme: Theme) => ({
 
   drawer: {
     width: `${drawerWidth}px`,
-    padding: theme.spacing(2.8, 2.5),
+    padding: theme.spacing(3, 2.5),
     position: "fixed",
     height: '100%',
     minHeight: '100vh',
