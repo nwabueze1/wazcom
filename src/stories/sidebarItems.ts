@@ -18,6 +18,7 @@ export default [
       { name: "Currency Input", slug: "currency-input" },
       { name: "Checkbox Input", slug: "checkbox-input" },
       { name: "TextArea Input", slug: "textarea-input" },
+      { name: "Radio Button", slug: "radio-button" },
       { name: "Select Input", slug: "select-input" },
       { name: "Search Bar", slug: "search-bar" },
       { name: "File Upload", slug: "file-upload" },

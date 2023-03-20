@@ -14,6 +14,7 @@ import { SelectInputView } from "../view/SelectInput";
 import { TableView } from "../view/Table";
 import { CardView } from "../view/Card";
 import { CheckBoxInputView } from "view/CheckBoxInput";
+import { RadioButtonView } from "view/RadioButtonInput";
 
 export default [
   {
@@ -39,6 +40,12 @@ export default [
     path: "/text-input",
     exact: true,
     component: TextInputView,
+  },
+  {
+    key: "RadioButtonView",
+    path: "/radio-button",
+    exact: true,
+    component: RadioButtonView,
   },
   {
     key: "EmailInputView",
