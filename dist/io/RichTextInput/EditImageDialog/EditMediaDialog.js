@@ -10,6 +10,7 @@ var __assign = (this && this.__assign) || function () {
     return __assign.apply(this, arguments);
 };
 import { jsx as _jsx, Fragment as _Fragment, jsxs as _jsxs } from "react/jsx-runtime";
+/* eslint-disable react/prop-types */
 import { Modal, TextField, Button } from "@mui/material";
 import { useEditImageDialogStyles } from "./styles";
 import { desktopFields, tabletFields, mobileFields } from "./data";

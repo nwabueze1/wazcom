@@ -10,16 +10,22 @@ var __assign = (this && this.__assign) || function () {
     return __assign.apply(this, arguments);
 };
 import { jsx as _jsx, jsxs as _jsxs } from "react/jsx-runtime";
-import { InputLabel, Checkbox } from "@mui/material";
 import clx from "classnames";
+import { BsCheck } from "react-icons/bs";
 import { useCheckboxInputStyles } from "./styles";
 import { displayFeedback } from "../../helpers/io";
 export var CheckBoxInput = function (_a) {
     var _b;
-    var name = _a.name, className = _a.className, classNames = _a.classNames, helperText = _a.helperText, label = _a.label, value = _a.value, feedback = _a.feedback, onChange = _a.onChange;
-    var classes = useCheckboxInputStyles();
+    var name = _a.name, className = _a.className, classNames = _a.classNames, helperText = _a.helperText, checkedBackground = _a.checkedBackground, unCheckedBackground = _a.unCheckedBackground, feedback = _a.feedback, onChange = _a.onChange, value = _a.value, width = _a.width, height = _a.height, iconSize = _a.iconSize, _c = _a.labelTitle, labelTitle = _c === void 0 ? "Label" : _c, _d = _a.showLabel, showLabel = _d === void 0 ? false : _d;
+    var classes = useCheckboxInputStyles({
+        checkedBackground: checkedBackground,
+        unCheckedBackground: unCheckedBackground,
+        width: width,
+        height: height,
+        iconSize: iconSize,
+    });
     var handleChange = function (event) {
         onChange === null || onChange === void 0 ? void 0 : onChange({ name: name, value: event.target.checked });
     };
-    return (_jsxs("div", __assign({ className: clx(className, classes.root) }, { children: [label && (_jsx(InputLabel, __assign({ className: (_b = classNames === null || classNames === void 0 ? void 0 : classNames.label) !== null && _b !== void 0 ? _b : "", htmlFor: name }, { children: label }))), _jsx(Checkbox, { checked: value, onChange: handleChange, inputProps: { "aria-label": label }, className: (classNames === null || classNames === void 0 ? void 0 : classNames.checkBoxInput) ? classNames.checkBoxInput : "", classes: (classNames === null || classNames === void 0 ? void 0 : classNames.classes) ? classNames.classes : {} }), helperText, feedback && displayFeedback(feedback)] })));
+    return (_jsxs("div", __assign({ className: clx(className, classes.root) }, { children: [showLabel && (_jsx("p", __assign({ className: clx(classes.labelStyle, (_b = classNames === null || classNames === void 0 ? void 0 : classNames.label) !== null && _b !== void 0 ? _b : "") }, { children: labelTitle }))), _jsxs("label", __assign({ className: classes.innerWrapper }, { children: [_jsx("input", { name: name, type: "checkbox", className: clx(classes.input), onChange: handleChange, checked: value }), _jsx("span", { className: clx("custom__checkbox", classes.customCheckbox, (classNames === null || classNames === void 0 ? void 0 : classNames.checkBoxInput) ? classNames.checkBoxInput : "") }), _jsx("span", __assign({ className: clx("checked__icon", classes.checkedIcon) }, { children: _jsx(BsCheck, {}) }))] })), _jsxs("div", __assign({ className: classes.helperText }, { children: [" ", helperText] })), feedback && displayFeedback(feedback)] })));
 };
