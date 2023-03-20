@@ -10,6 +10,4 @@ export type CheckInputProps = {
 export type CheckBoxInputProps = CommonProps & Omit<CheckboxProps, "onChange"> & CheckInputProps & {
     label?: string;
     value?: boolean;
-    showLabel?: boolean;
-    labelTitle?: string;
 };
