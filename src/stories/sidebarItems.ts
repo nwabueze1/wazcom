@@ -16,6 +16,7 @@ export default [
       { name: "URL Input", slug: "url-input" },
       { name: "Password Input", slug: "password-input" },
       { name: "Currency Input", slug: "currency-input" },
+      { name: "Checkbox Input", slug: "checkbox-input" },
       { name: "TextArea Input", slug: "textarea-input" },
       { name: "Select Input", slug: "select-input" },
       { name: "Search Bar", slug: "search-bar" },

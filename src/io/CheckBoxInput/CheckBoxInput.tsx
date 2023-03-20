@@ -1,7 +1,7 @@
 import { FC } from "react";
 import { CheckBoxInputProps } from "./types";
-import { InputLabel, Checkbox } from "@mui/material";
 import clx from "classnames";
+import { BsCheck } from "react-icons/bs";
 import { useCheckboxInputStyles } from "./styles";
 import { displayFeedback } from "../../helpers/io";
 
@@ -10,12 +10,24 @@ export const CheckBoxInput: FC<CheckBoxInputProps> = ({
   className,
   classNames,
   helperText,
-  label,
-  value,
+  checkedBackground,
+  unCheckedBackground,
   feedback,
   onChange,
+  value,
+  width,
+  height,
+  iconSize,
+  labelTitle = "Label",
+  showLabel = false,
 }) => {
-  const classes = useCheckboxInputStyles();
+  const classes = useCheckboxInputStyles({
+    checkedBackground,
+    unCheckedBackground,
+    width,
+    height,
+    iconSize,
+  });
 
   const handleChange = (event: React.ChangeEvent<{ checked: boolean }>) => {
     onChange?.({ name: name as string, value: event.target.checked });
@@ -23,19 +35,29 @@ export const CheckBoxInput: FC<CheckBoxInputProps> = ({
 
   return (
     <div className={clx(className, classes.root)}>
-      {label && (
-        <InputLabel className={(classNames?.label as string) ?? ""} htmlFor={name}>
-          {label}
-        </InputLabel>
+      {showLabel && (
+        <p className={clx(classes.labelStyle, classNames?.label ?? "")}>{labelTitle}</p>
       )}
-      <Checkbox
-        checked={value}
-        onChange={handleChange}
-        inputProps={{ "aria-label": label }}
-        className={classNames?.checkBoxInput ? (classNames.checkBoxInput as string) : ""}
-        classes={classNames?.classes ? (classNames.classes as { [key: string]: string }) : {}}
-      />
-      {helperText}
+      <label className={classes.innerWrapper}>
+        <input
+          name={name}
+          type="checkbox"
+          className={clx(classes.input)}
+          onChange={handleChange}
+          checked={value}
+        />
+        <span
+          className={clx(
+            "custom__checkbox",
+            classes.customCheckbox,
+            classNames?.checkBoxInput ? (classNames.checkBoxInput as string) : "",
+          )}
+        />
+        <span className={clx("checked__icon", classes.checkedIcon)}>
+          <BsCheck />
+        </span>
+      </label>
+      <div className={classes.helperText}> {helperText}</div>
       {feedback && displayFeedback(feedback)}
     </div>
   );

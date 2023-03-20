@@ -13,6 +13,7 @@ import { CurrencyInputView } from "../view/CurrencyInput";
 import { SelectInputView } from "../view/SelectInput";
 import { TableView } from "../view/Table";
 import { CardView } from "../view/Card";
+import { CheckBoxInputView } from "view/CheckBoxInput";
 
 export default [
   {
@@ -68,6 +69,12 @@ export default [
     path: "/currency-input",
     exact: true,
     component: CurrencyInputView,
+  },
+  {
+    key: "CheckBoxInputView",
+    path: "/checkbox-input",
+    exact: true,
+    component: CheckBoxInputView,
   },
   {
     key: "TextAreaView",
