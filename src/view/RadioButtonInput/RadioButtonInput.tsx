@@ -14,7 +14,7 @@ export const RadioButtonView = () => {
               range of options."
       >
         <div className={classes.inputs}>
-          <RadioButtonInput name="radio" label="LABEL" />
+          <RadioButtonInput name="radio" />
         </div>
       </Wrapper>
     </div>
