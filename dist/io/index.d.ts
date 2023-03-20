@@ -1,6 +1,5 @@
 export * from "./CheckBoxInput";
 export * from "./ComboBoxInput";
-export * from "./RichTextInput";
 export * from "./WysiwygInput";
 export * from "./SelectInput";
 export * from "./SectionEditor";

@@ -1,11 +1,7 @@
 import { RadioProps } from "@mui/material";
 import { CommonProps } from "../../types";
 export type RadioButtonProps = {
-    checkedBackground?: string;
-    unCheckedBackground?: string;
-    radioSize?: number;
-    disabled?: boolean;
-    position?: 'vertical' | 'horizontal';
+    isDisabled?: boolean;
 };
 /** !!-- Remember to update the interface name !! */
 export type RadioButtonInputProps = CommonProps & Omit<RadioProps, "onChange"> & RadioButtonProps & {

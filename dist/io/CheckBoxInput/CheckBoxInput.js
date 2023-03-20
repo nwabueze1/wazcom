@@ -16,14 +16,8 @@ import { useCheckboxInputStyles } from "./styles";
 import { displayFeedback } from "../../helpers/io";
 export var CheckBoxInput = function (_a) {
     var _b;
-    var name = _a.name, className = _a.className, classNames = _a.classNames, helperText = _a.helperText, checkedBackground = _a.checkedBackground, unCheckedBackground = _a.unCheckedBackground, feedback = _a.feedback, onChange = _a.onChange, value = _a.value, label = _a.label, width = _a.width, height = _a.height, iconSize = _a.iconSize;
-    var classes = useCheckboxInputStyles({
-        checkedBackground: checkedBackground,
-        unCheckedBackground: unCheckedBackground,
-        width: width,
-        height: height,
-        iconSize: iconSize,
-    });
+    var name = _a.name, className = _a.className, classNames = _a.classNames, helperText = _a.helperText, feedback = _a.feedback, onChange = _a.onChange, value = _a.value, label = _a.label;
+    var classes = useCheckboxInputStyles();
     var handleChange = function (event) {
         onChange === null || onChange === void 0 ? void 0 : onChange({ name: name, value: event.target.checked });
     };

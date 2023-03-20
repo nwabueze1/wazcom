@@ -9,11 +9,11 @@ var __assign = (this && this.__assign) || function () {
     };
     return __assign.apply(this, arguments);
 };
-import { jsx as _jsx } from "react/jsx-runtime";
+import { jsxs as _jsxs, jsx as _jsx } from "react/jsx-runtime";
 import clx from "classnames";
 import { useWrapperStyles } from "./styles";
 export var Wrapper = function (_a) {
-    var children = _a.children, className = _a.className;
+    var children = _a.children, title = _a.title, description = _a.description, className = _a.className, _b = _a.showHeader, showHeader = _b === void 0 ? true : _b;
     var classes = useWrapperStyles();
-    return _jsx("div", __assign({ className: clx(classes.root, className) }, { children: children }));
+    return (_jsx("div", __assign({ className: clx(classes.root, className) }, { children: _jsxs("div", __assign({ className: classes.container }, { children: [showHeader && (_jsxs("div", __assign({ className: classes.header }, { children: [_jsxs("h1", __assign({ className: classes.title }, { children: [title, " "] })), _jsx("div", __assign({ className: classes.description }, { children: _jsx("p", __assign({ className: classes.descriptionText }, { children: description })) }))] }))), _jsx("div", __assign({ className: classes.containerWrapper }, { children: _jsx("div", __assign({ className: classes.input }, { children: children })) }))] })) })));
 };
