@@ -15,11 +15,10 @@ export const CheckBoxInput: FC<CheckBoxInputProps> = ({
   feedback,
   onChange,
   value,
+  label,
   width,
   height,
   iconSize,
-  labelTitle = "Label",
-  showLabel = false,
 }) => {
   const classes = useCheckboxInputStyles({
     checkedBackground,
@@ -35,9 +34,7 @@ export const CheckBoxInput: FC<CheckBoxInputProps> = ({
 
   return (
     <div className={clx(className, classes.root)}>
-      {showLabel && (
-        <p className={clx(classes.labelStyle, classNames?.label ?? "")}>{labelTitle}</p>
-      )}
+      {label && <p className={clx(classes.labelStyle, classNames?.label ?? "")}>{label}</p>}
       <label className={classes.innerWrapper}>
         <input
           name={name}

@@ -25,12 +25,7 @@ export const CheckBoxInputView = () => {
         </div>
         <Wrapper className={classes.wrapper}>
           <div className={classes.inputs}>
-            <CheckBoxInput
-              showLabel={true}
-              onChange={handleChange}
-              name="checkbox"
-              checked={value}
-            />
+            <CheckBoxInput label="Label" onChange={handleChange} name="checkbox" checked={value} />
           </div>
         </Wrapper>
       </div>
