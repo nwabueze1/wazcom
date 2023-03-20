@@ -73,7 +73,4 @@ export const useCheckBoxInputStyles = makeStyles((theme: Theme) => ({
     alignItems: "center",
     padding: 0
   },
-  checkBoxInput: {
-    textTransform: 'lowercase'
-  }
 }));
