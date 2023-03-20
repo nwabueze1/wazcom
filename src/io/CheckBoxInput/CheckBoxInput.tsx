@@ -10,23 +10,12 @@ export const CheckBoxInput: FC<CheckBoxInputProps> = ({
   className,
   classNames,
   helperText,
-  checkedBackground,
-  unCheckedBackground,
   feedback,
   onChange,
   value,
   label,
-  width,
-  height,
-  iconSize,
 }) => {
-  const classes = useCheckboxInputStyles({
-    checkedBackground,
-    unCheckedBackground,
-    width,
-    height,
-    iconSize,
-  });
+  const classes = useCheckboxInputStyles();
 
   const handleChange = (event: React.ChangeEvent<{ checked: boolean }>) => {
     onChange?.({ name: name as string, value: event.target.checked });

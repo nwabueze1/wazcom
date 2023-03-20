@@ -1,7 +1,5 @@
 import { Theme } from "@mui/material";
 import makeStyles from "@mui/styles/makeStyles";
-import { CheckInputProps } from "./types";
-
 
 export const useCheckboxInputStyles = makeStyles((theme: Theme) => ({
   root: {
@@ -12,7 +10,7 @@ export const useCheckboxInputStyles = makeStyles((theme: Theme) => ({
     },
   },
 
-  innerWrapper: (props: CheckInputProps) => ({
+  innerWrapper: {
     display: "flex",
     flexDirection: "column",
     justifyContent: 'center',
@@ -20,13 +18,11 @@ export const useCheckboxInputStyles = makeStyles((theme: Theme) => ({
     position: 'relative',
     cursor: 'pointer',
     userSelect: 'none',
-    height: props?.height ? `${props.height}px` : theme.spacing(2),
-    width: props?.width ? `${props.width}px` : theme.spacing(2),
-
-
+    height: theme.spacing(2),
+    width: theme.spacing(2),
 
     '& input:checked ~ .custom__checkbox': {
-      backgroundColor: props.checkedBackground ?? theme.design.colors.waz_primary100
+      backgroundColor: theme.design.colors.waz_primary100
     },
 
     '& .checked__icon': {
@@ -35,7 +31,7 @@ export const useCheckboxInputStyles = makeStyles((theme: Theme) => ({
       display: 'flex',
       alignItems: 'center',
       justifyContent: 'center',
-      fontSize: props?.iconSize ? `${props.iconSize}px` : `${theme.typography.fontSize + 5}px`
+      fontSize: `${theme.typography.fontSize + 5}px`
     },
 
     '& input:checked ~ .checked__icon': {
@@ -44,11 +40,11 @@ export const useCheckboxInputStyles = makeStyles((theme: Theme) => ({
       opacity: 1
     },
 
-  }),
+  },
   labelStyle: {
     fontSize: theme.typography.fontSize - 2,
     display: "flex",
-    marginBottom: theme.spacing(.7),
+    marginBottom: theme.spacing(.5),
     color: theme.design.colors.waz_grey,
     alignItems: "center",
     letterSpacing: "0.13px",
@@ -69,18 +65,18 @@ export const useCheckboxInputStyles = makeStyles((theme: Theme) => ({
   },
   helperText: {
     fontSize: theme.typography.fontSize - 2,
-    marginTop: theme.typography.fontSize - 6
+    marginTop: theme.spacing(.5)
   },
-  customCheckbox: (props: CheckInputProps) => ({
+  customCheckbox: {
     position: 'absolute',
     top: 0,
     left: 0,
-    height: props?.height ? `${props.height}px` : theme.spacing(2),
-    width: props?.width ? `${props.width}px` : theme.spacing(2),
-    borderRadius: theme.spacing(.4),
-    border: `${theme.spacing(.2)} solid`,
+    height: theme.spacing(2),
+    width: theme.spacing(2),
+    borderRadius: theme.spacing(.5),
+    border: '1px solid',
     borderColor: theme.design.colors.grey700,
-    backgroundColor: props.unCheckedBackground ?? theme.design.colors.grey500,
+    backgroundColor: theme.design.colors.grey500,
 
     "&:hover": {
       borderColor: theme.design.colors.primary500,
@@ -93,6 +89,6 @@ export const useCheckboxInputStyles = makeStyles((theme: Theme) => ({
       position: 'absolute',
       display: 'none'
     }
-  })
+  }
 
 }));
