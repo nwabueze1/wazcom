@@ -26,7 +26,8 @@ var __read = (this && this.__read) || function (o, n) {
     return ar;
 };
 import { jsx as _jsx, jsxs as _jsxs } from "react/jsx-runtime";
-import { useState, useEffect, useContext } from "react";
+import { useState, useEffect } from "react";
+import { useSelector } from "react-redux";
 import { useFormik } from "formik";
 import { useDeliveryStyles } from "./styles";
 import { deliveryOptions } from "./helpers";
@@ -34,11 +35,11 @@ import { DeliveryOption } from "./components";
 import { Form } from "../../../../components";
 import { usePickupConfig, useDispatchConfig, usePickupControls, useDispatchControls, } from "./controls";
 import { resetFormTouched } from "../../../../components";
-import { RestaurantContext } from "../../../../contexts";
 export var Delivery = function (_a) {
     var _b;
     var onSubmission = _a.onSubmission;
-    var cart = useContext(RestaurantContext).cart;
+    var restaurant = useSelector(function (state) { return state; }).restaurant;
+    var cart = restaurant === null || restaurant === void 0 ? void 0 : restaurant.cart;
     var classes = useDeliveryStyles();
     var _c = __read(useState(((_b = cart === null || cart === void 0 ? void 0 : cart.guest) === null || _b === void 0 ? void 0 : _b.address) ? "dispatch" : "pickup"), 2), selectedOption = _c[0], setSelectedOption = _c[1];
     var getPickupConfig = usePickupConfig();

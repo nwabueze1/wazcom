@@ -1,23 +1,24 @@
-import { useContext } from "react";
+import { useSelector, useDispatch } from "react-redux";
 import Cookies from "universal-cookie";
-import { ApolloClient, NormalizedCacheObject } from "@apollo/client";
-import { RestaurantContext } from "../../../contexts";
 import { CREATE_CART, CREATE_CART_ITEM } from "../graphql";
 import { TAddToCartVariables } from "./types";
 import { notify } from "../../../utilities";
+import { TAppState } from "../../../../types";
+import { CoreMenuFields } from "../../../models";
+import { createApolloClient } from "../../../../../helpers/graphQL";
 
 export const useCreateCart = () => {
-  const { menu, clients } = useContext(RestaurantContext);
+  const { restaurant, gatewayUrl } = useSelector<TAppState, TAppState>((state) => state);
+  const menu = restaurant?.menu as CoreMenuFields; 
   const cookies = new Cookies();
+  const client = createApolloClient(gatewayUrl ?? "");
 
   return async () => {
     const cartCookie: { [key: string]: string } = cookies.get("cart") ?? {};
     const cartItemCountCookie: { [key: string]: number } = cookies.get("cartItemCount") ?? {};
-    const siteUuid = menu?.restaurant?.site_uuid as string;
+    const siteUuid = menu?.restaurant?.site?.uuid as string;
     const currency = menu?.restaurant?.bank_info?.currency as string;
-    const { data, errors } = await (
-      clients?.AMBROSIA as ApolloClient<NormalizedCacheObject>
-    ).mutate({
+    const { data, errors } = await client.mutate({
       mutation: CREATE_CART,
       variables: { site_uuid: siteUuid, currency },
     });
@@ -30,40 +31,38 @@ export const useCreateCart = () => {
     const { uuid, expires } = data.createCart;
     cartCookie[siteUuid] = uuid;
     cartItemCountCookie[siteUuid] = 0;
-
     cookies.set("cart", cartCookie, { path: "/", expires: new Date(expires) });
     cookies.set("cartItemCount", cartItemCountCookie, {
       path: "/",
       expires: new Date(expires),
     });
-
     return uuid;
   };
 };
 
 export const useAddToCart = () => {
-  const { menu, clients, setContext } = useContext(RestaurantContext);
+  const { restaurant, gatewayUrl } = useSelector<TAppState, TAppState>((state) => state);
+  const dispatch = useDispatch();
+  const menu = restaurant?.menu as CoreMenuFields;
   const cookies = new Cookies();
   const createCart = useCreateCart();
+  const client = createApolloClient(gatewayUrl ?? "");
   const updateCartCount = useUpdateCartCount();
 
   return async (
     variables: TAddToCartVariables,
     onClose?: () => void,
-    setContextProps?: (contextProps: { [key: string]: any }) => void,
   ) => {
     const cartCookie = cookies.get("cart");
-    const siteUuid = menu?.restaurant?.site_uuid as string;
+    const siteUuid = menu?.restaurant?.site?.uuid as string;
     let cartUuid: string;
 
     try {
-      setContext?.({ loading: true });
+      dispatch({ type: 'SET_LOADING', payload: true });
       if (!cartCookie || !cartCookie[siteUuid]) cartUuid = await createCart();
       else cartUuid = cartCookie[siteUuid];
 
-      const { data, errors } = await (
-        clients?.AMBROSIA as ApolloClient<NormalizedCacheObject>
-      ).mutate({
+      const { data, errors } = await client.mutate({
         mutation: CREATE_CART_ITEM,
         variables: { ...variables, cart_uuid: cartUuid },
       });
@@ -75,24 +74,27 @@ export const useAddToCart = () => {
 
       notify("success", "Item added successfully");
       onClose?.();
-      setContextProps?.({ cartItemCount: cookies.get("cartItemCount")[siteUuid] + 1 });
       updateCartCount();
     } catch (error) {
       notify("error", "We could not complete that operation");
     }
 
-    setContext?.({ loading: false });
+    dispatch({ type: 'SET_LOADING', payload: false });
   };
 };
 
 const useUpdateCartCount = () => {
-  const { menu } = useContext(RestaurantContext);
+  const { restaurant } = useSelector<TAppState, TAppState>((state) => state);
+  const dispatch = useDispatch();
+  const menu = restaurant?.menu as CoreMenuFields;
   const cookies = new Cookies();
 
   return () => {
     const cartItemCountCookie = cookies.get("cartItemCount");
-    const siteUuid = menu?.restaurant?.site_uuid as string;
-    cartItemCountCookie[siteUuid] = cartItemCountCookie[siteUuid] + 1;
+    const siteUuid = menu?.restaurant?.site?.uuid as string;
+    const updatedCount = cartItemCountCookie[siteUuid] + 1;
+    cartItemCountCookie[siteUuid] = updatedCount;
+    dispatch({ type: "SET_CART_ITEM_COUNT", payload: updatedCount });
 
     cookies.set("cartItemCount", cartItemCountCookie, {
       path: "/",

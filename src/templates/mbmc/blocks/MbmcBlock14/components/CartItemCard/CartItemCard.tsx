@@ -1,20 +1,20 @@
-import React, { useContext } from "react";
+import React from "react";
+import { useSelector } from "react-redux";
 import { useCartItemCardStyles } from "./styles";
 import RemoveRoundedIcon from "@mui/icons-material/RemoveRounded";
 import AddRoundedIcon from "@mui/icons-material/AddRounded";
 import DeleteIcon from "@mui/icons-material/Delete";
-import { CoreCartFields_cartItems } from "../../../../models";
+import { CoreCartFields, CoreCartFields_cartItems } from "../../../../models";
 import { getCurrency } from "../../../../../../utilities";
 import { useUpdateCartItemQuantity } from "../../hooks";
-import { RestaurantContext } from "../../../../contexts";
 import { CircularProgress } from "@mui/material";
 import { parseOptionString } from "./helpers";
+import { TAppState } from "templates/types";
 
 export const CartItemCard: React.FC<
   CoreCartFields_cartItems & {
     currency: string;
     amount: number;
-    setContextProps?: (contextProps: { [key: string]: any }) => void;
   }
 > = ({
   uuid,
@@ -24,15 +24,15 @@ export const CartItemCard: React.FC<
   options,
   menuItem,
   currency: currencyId,
-  setContextProps,
 }) => {
-  const { loading, networkOperation, cart } = useContext(RestaurantContext);
+  const { loading, networkOperation, restaurant } = useSelector<TAppState, TAppState>((state) => state);
+  const cart = restaurant?.cart as CoreCartFields;
   const classes = useCartItemCardStyles();
   const currency = getCurrency(currencyId);
   const updateCartItemQuantity = useUpdateCartItemQuantity();
 
   const handleQuantityChange = async (quantity: number) => {
-    await updateCartItemQuantity({ uuid: uuid as string, quantity }, setContextProps);
+    await updateCartItemQuantity({ uuid: uuid as string, quantity });
   };
 
   return (

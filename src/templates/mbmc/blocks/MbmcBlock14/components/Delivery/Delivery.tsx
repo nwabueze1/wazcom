@@ -1,4 +1,5 @@
-import { useState, FC, useEffect, useContext } from "react";
+import { useState, FC, useEffect } from "react";
+import { useSelector } from "react-redux";
 import { useFormik } from "formik";
 import { useDeliveryStyles } from "./styles";
 import { deliveryOptions } from "./helpers";
@@ -12,10 +13,12 @@ import {
 } from "./controls";
 import { DeliveryProps } from "./types";
 import { resetFormTouched } from "../../../../components";
-import { RestaurantContext } from "../../../../contexts";
+import { TAppState } from "../../../../../types";
+import { CoreCartFields } from "../../../../models";
 
 export const Delivery: FC<DeliveryProps> = ({ onSubmission }) => {
-  const { cart } = useContext(RestaurantContext);
+  const { restaurant } = useSelector<TAppState, TAppState>((state) => state);
+  const cart = restaurant?.cart as CoreCartFields;
   const classes = useDeliveryStyles();
   const [selectedOption, setSelectedOption] = useState<"pickup" | "dispatch">(
     cart?.guest?.address ? "dispatch" : "pickup",

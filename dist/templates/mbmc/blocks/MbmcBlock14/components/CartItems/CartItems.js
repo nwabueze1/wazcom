@@ -10,20 +10,19 @@ var __assign = (this && this.__assign) || function () {
     return __assign.apply(this, arguments);
 };
 import { jsx as _jsx } from "react/jsx-runtime";
-import { useContext } from "react";
+import { useSelector } from "react-redux";
 import { useCartItemsStyles } from "./styles";
 import { CartItemCard } from "../CartItemCard";
-import { RestaurantContext } from "../../../../contexts";
 import { calculateCartSubTotal } from "../../helpers";
-export var CartItems = function (_a) {
-    var setContextProps = _a.setContextProps;
-    var cart = useContext(RestaurantContext).cart;
+export var CartItems = function () {
+    var restaurant = useSelector(function (state) { return state; }).restaurant;
+    var cart = restaurant === null || restaurant === void 0 ? void 0 : restaurant.cart;
     var classes = useCartItemsStyles();
     var displayCartItems = function () {
         var _a;
         return (_a = cart === null || cart === void 0 ? void 0 : cart.cartItems) === null || _a === void 0 ? void 0 : _a.map(function (cartItem, index) {
             var _a;
-            return (_jsx(CartItemCard, __assign({}, cartItem, { currency: (_a = cart === null || cart === void 0 ? void 0 : cart.currency) !== null && _a !== void 0 ? _a : "", amount: calculateCartSubTotal(cart, cartItem.uuid), setContextProps: setContextProps }), index));
+            return (_jsx(CartItemCard, __assign({}, cartItem, { currency: (_a = cart === null || cart === void 0 ? void 0 : cart.currency) !== null && _a !== void 0 ? _a : "", amount: calculateCartSubTotal(cart, cartItem.uuid) }), index));
         });
     };
     return _jsx("div", __assign({ className: classes.root }, { children: displayCartItems() }));

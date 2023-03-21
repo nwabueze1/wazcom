@@ -16,17 +16,17 @@ import {
 } from "../core";
 
 import {
-    CheckBoxInputProps,
-    ComboBoxInputProps,
-    RichTextInputProps,
-    SelectInputProps,
-    InputGroupProps,
-    TextInputProps,
-    ToggleInputProps,
-    RadioButtonInputProps,
-    WysiwygInputProps,
-    CurrencyInputProps,
-    PhoneNumberInputProps
+  CheckBoxInputProps,
+  ComboBoxInputProps,
+  RichTextInputProps,
+  SelectInputProps,
+  InputGroupProps,
+  TextInputProps,
+  ToggleInputProps,
+  RadioButtonInputProps,
+  WysiwygInputProps,
+  CurrencyInputProps,
+  PhoneNumberInputProps
 } from "../io";
 
 import { GqlComboBoxProps, GqlMediaLibraryProps, GqlMediaLibrarySelectorProps } from "../gql";
@@ -66,7 +66,7 @@ export type ComponentPropType = {
     | CurrencyInputStory
     | PhoneNumberInputStroy
     | WysiwygStory
-);
+  );
 
 export type TemplatePropType = {
   component: any;
@@ -153,7 +153,7 @@ type RichTextStory = {
   props: RichTextInputProps;
 };
 type WysiwygStory = {
-    props: WysiwygInputProps;
+  props: WysiwygInputProps;
 };
 
 type CurrencyInputStory = {

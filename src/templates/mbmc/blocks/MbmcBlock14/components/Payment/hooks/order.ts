@@ -1,27 +1,31 @@
-import { useContext } from "react";
+import { useSelector, useDispatch } from "react-redux";
 import Cookies from "universal-cookie";
-import { ApolloClient, NormalizedCacheObject } from "@apollo/client";
-import { RestaurantContext } from "../../../../../contexts";
 import { PaymentMethod } from "../types";
 import { CREATE_ORDER } from "../graphql";
 import { calculateCartSubTotal } from "../../../helpers";
 import { notify } from "../../../../../utilities";
 import { CoreCartFields } from "../../../../../models";
 import { usePaypalPayment } from "./payment";
+import { TAppState } from "../../../../../../types";
+import { createApolloClient } from "../../../../../../../helpers/graphQL";
 
 export const useCreateOrder = () => {
-  const { cart, clients, setContext } = useContext(RestaurantContext);
+  const { restaurant, gatewayUrl } = useSelector<TAppState, TAppState>((state) => state);
+  const dispatch = useDispatch();
+  const cart = restaurant?.cart as CoreCartFields;
+  const client = createApolloClient(gatewayUrl ?? "");
   const cookies = new Cookies();
   const makePaypalPayment = usePaypalPayment();
 
   return async (paymentMethod: PaymentMethod) => {
     const cartCookie = cookies.get("cart");
     const cartItemCountCookie = cookies.get("cartItemCount");
-    setContext?.({ loading: true, networkOperation: "create.order" });
+
+    dispatch({ type: 'SET_LOADING', payload: true });
+    dispatch({ type: 'SET_NETWORK_OPERATION', payload: 'create.order' });
+
     try {
-      const { data, errors } = await (
-        clients?.AMBROSIA as ApolloClient<NormalizedCacheObject>
-      ).mutate({
+      const { data, errors } = await client.mutate({
         mutation: CREATE_ORDER,
         variables: {
           payment_type:
@@ -39,21 +43,22 @@ export const useCreateOrder = () => {
       if (!data || errors) throw new Error("We could not complete that operation");
 
       const order = data.createOrder;
-      const updatedCart = { ...(cart as CoreCartFields), order };
 
       if (String(paymentMethod) === "PAYPAL") return makePaypalPayment(order.uuid);
 
-      setContext?.({ loading: false, networkOperation: "", cart: updatedCart });
+      dispatch({ type: 'UPDATE_ORDER', payload: order });
       notify("success", "Order placed successfully");
 
-      delete cartCookie[cart?.restaurant?.site_uuid ?? ""];
-      delete cartItemCountCookie[cart?.restaurant?.site_uuid ?? ""];
+      delete cartCookie[cart?.restaurant?.site?.uuid ?? ""];
+      delete cartItemCountCookie[cart?.restaurant?.site?.uuid ?? ""];
 
       cookies.set("cart", cartCookie, { path: "/" });
       cookies.set("cartItemCount", cartItemCountCookie, { path: "/" });
     } catch (error) {
-      setContext?.({ loading: false, networkOperation: "" });
       notify("error", "We could not complete that operation");
     }
+
+    dispatch({ type: 'SET_LOADING', payload: false });
+    dispatch({ type: 'SET_NETWORK_OPERATION', payload: '' });
   };
 };

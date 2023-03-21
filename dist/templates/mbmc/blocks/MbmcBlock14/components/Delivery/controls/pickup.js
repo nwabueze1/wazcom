@@ -34,14 +34,14 @@ var __generator = (this && this.__generator) || function (thisArg, body) {
         if (op[0] & 5) throw op[1]; return { value: op[0] ? op[1] : void 0, done: true };
     }
 };
-import { useContext } from "react";
+import { useSelector } from "react-redux";
 import { handleInputBlur, handleInputChange } from "../../../../../components/Form";
 import { useDeliveryStyles } from "../styles";
 import { pickupSchema } from "../validators";
 import { useUpdateGuest } from "../hooks";
-import { RestaurantContext } from "../../../../../contexts";
 export var usePickupConfig = function () {
-    var cart = useContext(RestaurantContext).cart;
+    var restaurant = useSelector(function (state) { return state; }).restaurant;
+    var cart = restaurant === null || restaurant === void 0 ? void 0 : restaurant.cart;
     var updateGuest = useUpdateGuest();
     return function (onSubmission) {
         var _a, _b, _c, _d, _e, _f, _g, _h;

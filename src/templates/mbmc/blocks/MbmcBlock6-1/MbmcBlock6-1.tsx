@@ -1,66 +1,48 @@
 import { FC, useState, useEffect, useMemo } from "react";
-import { useQuery } from "@apollo/client";
-import { MbmcBlock61Props, TMenuCategory } from "./types";
+import { useSelector } from "react-redux";
+import { MbmcBlock61Props } from "./types";
 import { useMbmcBlock61Styles } from "./styles";
-import { GET_MENU_BY_UUID } from "./graphql";
 import clx from "classnames";
 import { MbmcCard, OrderDialog } from "../../components";
 import { getCurrency } from "../../../../utilities";
-import { RestaurantContext, RestaurantContextProps } from "../../contexts";
-import { createApolloClient } from "../../../../helpers/graphQL";
+import { TAppState } from "../../../types";
+import { CoreMenuFields, CoreMenuFields_menuCategories } from "../../models";
 
 export const MbmcBlock61: FC<MbmcBlock61Props> = ({
   heading,
   description,
-  services,
-  integratedService,
-  menu_uuid,
-  setContextProps,
 }) => {
+  const { restaurant } = useSelector<TAppState, TAppState>((state) => state);
   const classes = useMbmcBlock61Styles();
-  const [contextData, setContextData] = useState<Omit<RestaurantContextProps, "setContext">>({});
-  const [activeCategory, setActiveCategory] = useState<TMenuCategory>();
+  const [activeCategory, setActiveCategory] = useState<CoreMenuFields_menuCategories>();
   const [itemUuid, setItemUuid] = useState<string>();
-  const client = useMemo(() => createApolloClient(services ? services[integratedService] : ""), []);
 
-  const { data, error } = useQuery(GET_MENU_BY_UUID, { client, variables: { uuid: menu_uuid } });
-  const { menu } = contextData;
+  const menu = restaurant?.menu as CoreMenuFields;
 
   const categoryItems = useMemo(
     () =>
       menu?.menuItems?.filter(
         (item) => item?.menuCategory?.id.toString() === activeCategory?.id?.toString(),
       ),
-    [activeCategory?.id, menu?.menuItems],
+    [activeCategory?.id],
   );
 
   useEffect(() => {
-    if (data) {
-      const {
-        menu: { activeMenuCategories: menuCategories, activeMenuItems: menuItems, ...rest },
-      } = data;
-      const menu = { menuCategories, menuItems, ...rest };
-      setContextData({ menu, clients: { [integratedService]: client } });
+    const { menuCategories } = menu;
+    const queryParams = new URLSearchParams(window.location.search);
+    let activeMenuCategory = menuCategories.length > 0 ? menuCategories[0] : undefined;
 
-      const queryParams = new URLSearchParams(window.location.search);
-      let activeMenuCategory = menuCategories.length > 0 ? menuCategories[0] : undefined;
-
-      if (queryParams.get("category_uuid")) {
-        activeMenuCategory = menuCategories.find(
-          (category: any) => category.uuid === queryParams.get("category_uuid"),
-        );
-      }
-
-      menuCategories.length > 0 && setActiveCategory(activeMenuCategory ?? menuCategories[0]);
+    if (queryParams.get("category_uuid")) {
+      activeMenuCategory = menuCategories.find(
+        (category: any) => category.uuid === queryParams.get("category_uuid"),
+      );
     }
 
-    if (error) {
-      console.log(error);
-    }
-  }, [data, error]);
+    menuCategories.length > 0 && setActiveCategory(activeMenuCategory ?? menuCategories[0]);
+  }, []);
 
   const displayCategories = () =>
-    menu?.menuCategories?.map(({ title, id }, index) => (
+    menu?.menuCategories?.map(({ title, id, uuid }, index) => (
       <div
         key={index}
         className={clx(
@@ -68,7 +50,7 @@ export const MbmcBlock61: FC<MbmcBlock61Props> = ({
           id.toString() === activeCategory?.id?.toString() && classes.block61CategoryActive,
         )}
         onClick={() => {
-          handleCategoryChange({ title, id: Number(id) });
+          handleCategoryChange({ title, id: String(id), uuid });
         }}
       >
         {title}
@@ -99,36 +81,29 @@ export const MbmcBlock61: FC<MbmcBlock61Props> = ({
       />
     ));
 
-  const handleCategoryChange = (category: TMenuCategory) => {
+  const handleCategoryChange = (category: CoreMenuFields_menuCategories) => {
     setActiveCategory(category);
   };
 
-  const updateContext = (variables: Omit<RestaurantContextProps, "setContext">) => {
-    setContextData({ ...contextData, ...variables });
-  };
-
   return (
-    <RestaurantContext.Provider value={{ ...contextData, setContext: updateContext }}>
-      <div className={classes.root} id="menu">
-        <div className={classes.block61Container}>
-          <h3 className={classes.block61Title}>{heading}</h3>
-          <p className={classes.block61Description}>{description}</p>
+    <div className={classes.root} id="menu">
+      <div className={classes.block61Container}>
+        <h3 className={classes.block61Title}>{heading}</h3>
+        <p className={classes.block61Description}>{description}</p>
 
-          {categoryItems && categoryItems?.length > 0 && (
-            <>
-              <div className={classes.block61Categories}>{displayCategories()}</div>
-              <div className={classes.block61Items}>{displayItems()}</div>
-            </>
-          )}
-          <OrderDialog
-            itemUuid={itemUuid}
-            handleClose={() => {
-              setItemUuid(undefined);
-            }}
-            setContextProps={setContextProps}
-          />
-        </div>
+        {categoryItems && categoryItems?.length > 0 && (
+          <>
+            <div className={classes.block61Categories}>{displayCategories()}</div>
+            <div className={classes.block61Items}>{displayItems()}</div>
+          </>
+        )}
+        <OrderDialog
+          itemUuid={itemUuid}
+          handleClose={() => {
+            setItemUuid(undefined);
+          }}
+        />
       </div>
-    </RestaurantContext.Provider>
+    </div>
   );
 };

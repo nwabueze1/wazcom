@@ -1,61 +1,46 @@
-import { FC, useEffect, useState, useMemo } from "react";
-import { useQuery } from "@apollo/client";
+import { FC, useMemo } from "react";
+import { useSelector } from "react-redux";
 import { useMbmcBlock6Styles } from "./styles";
-import { MbmcBlock6Props } from "./types";
-import { GET_MENU_BY_UUID } from "./graphql";
-import { MbmcCard, MbmcCardProps } from "../../../../templates/mbmc/components/MbmcCard";
+import { MbmcBlock6Props, TCategory } from "./types";
+import { MbmcCard } from "../../../../templates/mbmc/components/MbmcCard";
 import clx from "classnames";
 import { handleElementClick } from "../../utilities";
-import { createApolloClient } from "../../../../helpers/graphQL";
+import { TAppState } from "../../../types";
+import { CoreMenuFields } from "../../models";
 
 export const MbmcBlock6: FC<MbmcBlock6Props> = ({
   mode = "view",
   activeElement,
   handleClick,
-  services,
-  integratedService,
   index,
   heading,
   description,
-  menu_uuid,
 }) => {
   const classes = useMbmcBlock6Styles();
-  const [categories, setCategories] = useState<MbmcCardProps[]>([]);
-  const client = useMemo(() => createApolloClient(services ? services[integratedService] : ""), []);
-  const { data, error } = useQuery(GET_MENU_BY_UUID, {
-    client,
-    variables: { uuid: menu_uuid },
-  });
+  const { restaurant } = useSelector<TAppState, TAppState>((state) => state);
+  const categories = useMemo(() => {
+    const menu = restaurant?.menu as CoreMenuFields;
+    const menuCategories = menu?.menuCategories as unknown as TCategory[];
 
-  useEffect(() => {
-    if (data) {
-      const {
-        menu: { activeMenuCategories },
-      } = data;
-      const parsedCategories = [];
+    const parsedCategories = [];
 
-      for (const category of activeMenuCategories) {
-        const parsedCategory: any = {
-          heading: category["title"],
-          image: category["menuItems"][0]["image_url"],
-          ctas: [
-            {
-              text: "Order now",
-              size: "sm",
-              url: `/menu?category_uuid=${category.uuid}#menu`,
-            },
-          ],
-        };
-        parsedCategories.push(parsedCategory);
-      }
-
-      setCategories(parsedCategories);
+    for (const category of menuCategories) {
+      const parsedCategory: any = {
+        heading: category?.title,
+        image: category["menuItems"][0]["image_url"],
+        ctas: [
+          {
+            text: "Order now",
+            size: "sm",
+            url: `/menu?category_uuid=${category.uuid}#menu`,
+          },
+        ],
+      };
+      parsedCategories.push(parsedCategory);
     }
 
-    if (error) {
-      console.log(error);
-    }
-  }, [data, error]);
+    return parsedCategories;
+  }, []);
 
   const displayCategories = () =>
     categories.map((category, index) => (
