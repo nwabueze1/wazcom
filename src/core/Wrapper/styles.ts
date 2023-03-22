@@ -5,7 +5,6 @@ export const useWrapperStyles = makeStyles((theme: Theme) => ({
   root: {
     margin: 0,
   },
-
   containerWrapper: {
     background: theme.design.background.waz_primaryWhite,
     borderWidth: 1,
@@ -20,7 +19,6 @@ export const useWrapperStyles = makeStyles((theme: Theme) => ({
     gap: theme.spacing(3),
     maxWidth: "1100px",
   },
-
   container: {
     display: "flex",
     flexDirection: "column",

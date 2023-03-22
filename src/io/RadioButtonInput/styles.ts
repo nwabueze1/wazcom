@@ -10,7 +10,6 @@ export const useRadioButtonInputStyles = makeStyles((theme: BaseTheme) => ({
       marginTop: `${theme.spacing(.5)} !important`,
     },
   },
-
   innerWrapper: {
     display: "flex",
     flexDirection: "column",
@@ -25,8 +24,7 @@ export const useRadioButtonInputStyles = makeStyles((theme: BaseTheme) => ({
     '& input:checked ~ .custom__radio': {
       backgroundColor: theme.design.colors.waz_primary100,
       outline: `1px solid ${theme.design.colors.waz_primary100}`,
-    },
-
+    }
   },
   labelStyle: {
     fontSize: theme.typography.fontSize - 2,

@@ -7,7 +7,6 @@ export const useRadioButtonStyles = makeStyles((theme: Theme) => ({
     margin: 0,
     height: "100vh",
   },
-
   wrapper: { paddingBottom: theme.spacing(2), minHeight: '70px', height: '80px' },
   inputs: {
     width: "100%",
@@ -18,7 +17,6 @@ export const useRadioButtonStyles = makeStyles((theme: Theme) => ({
     gap: theme.spacing(4),
     margin: 0,
     padding: 0,
-
     [theme.breakpoints.down("md")]: {
       flexDirection: 'column',
       gap: theme.spacing(3),

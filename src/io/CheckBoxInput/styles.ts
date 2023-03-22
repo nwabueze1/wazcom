@@ -9,7 +9,6 @@ export const useCheckboxInputStyles = makeStyles((theme: Theme) => ({
       marginTop: `${theme.spacing(.5)} !important`,
     },
   },
-
   innerWrapper: {
     display: "flex",
     flexDirection: "column",
@@ -24,7 +23,6 @@ export const useCheckboxInputStyles = makeStyles((theme: Theme) => ({
     '& input:checked ~ .custom__checkbox': {
       backgroundColor: theme.design.colors.waz_primary100
     },
-
     '& .checked__icon': {
       visibility: 'hidden',
       opacity: 0,
@@ -33,7 +31,6 @@ export const useCheckboxInputStyles = makeStyles((theme: Theme) => ({
       justifyContent: 'center',
       fontSize: `${theme.typography.fontSize + 5}px`
     },
-
     '& input:checked ~ .checked__icon': {
       color: theme.design.colors.waz_white,
       visibility: 'visible',

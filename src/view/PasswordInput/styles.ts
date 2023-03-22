@@ -23,7 +23,6 @@ export const usePasswordInputStyles = makeStyles((theme: Theme) => ({
     gap: theme.spacing(4),
     margin: 0,
     padding: 0,
-
     [theme.breakpoints.down("md")]: {
       flexDirection: 'column',
       gap: theme.spacing(3),
