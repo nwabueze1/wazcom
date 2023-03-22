@@ -38,8 +38,7 @@ export const useCheckboxInputStyles = makeStyles((theme: Theme) => ({
       color: theme.design.colors.waz_white,
       visibility: 'visible',
       opacity: 1
-    },
-
+    }
   },
   labelStyle: {
     fontSize: theme.typography.fontSize - 2,

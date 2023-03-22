@@ -18,7 +18,6 @@ export const useLayoutStyles = makeStyles((theme: Theme) => ({
     marginLeft: theme.spacing(2),
     marginTop: theme.spacing(.7),
     cursor: 'pointer',
-
     [theme.breakpoints.up("lg")]: {
       display: 'none'
     },
@@ -30,11 +29,9 @@ export const useLayoutStyles = makeStyles((theme: Theme) => ({
     marginRight: theme.spacing(1.5),
     marginTop: theme.spacing(.5),
     cursor: 'pointer',
-
     [theme.breakpoints.up("lg")]: {
       display: 'none'
-    },
-
+    }
   },
   sidebarIcon: {
     marginRight: theme.spacing(1),
@@ -64,11 +61,9 @@ export const useLayoutStyles = makeStyles((theme: Theme) => ({
     width: '100%',
     background: theme.design.colors.waz_white100,
     borderRadius: theme.spacing(0.5),
-
     [theme.breakpoints.up("lg")]: {
       marginLeft: `${drawerWidth}px`,
-    },
-
+    }
   },
   componentWrapper: {
     marginBottom: theme.spacing(5),
@@ -89,7 +84,6 @@ export const useLayoutStyles = makeStyles((theme: Theme) => ({
   },
   logoTop: {
     width: `${drawerWidth}px`,
-
     [theme.breakpoints.down("md")]: {
       width: '50px'
     },
@@ -128,11 +122,9 @@ export const useLayoutStyles = makeStyles((theme: Theme) => ({
     justifyContent: "space-between",
     alignItems: "center",
     width: "100%",
-
     [theme.breakpoints.up("lg")]: {
       marginLeft: theme.spacing(6.8)
-    },
-
+    }
   },
   notificationWrapper: {
     width: 24,
@@ -161,15 +153,12 @@ export const useLayoutStyles = makeStyles((theme: Theme) => ({
     flexDirection: "column",
     gap: 0,
     marginBottom: theme.spacing(6),
-
     "&[data-show='true']": {
       transform: 'translateX(0)'
     },
-
     [theme.breakpoints.up("lg")]: {
       transform: 'translateX(0)'
-    },
-
+    }
   },
   searchBox: {
     display: "flex",

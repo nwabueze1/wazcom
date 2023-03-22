@@ -5,15 +5,15 @@ import { usePasswordValidatorStyles } from "./styles";
 import PasswordValidator from "password-validator";
 import { PasswordValidatorProps } from "../types";
 
-export const MinNumberOfCharacters = 8;
-export const MinNumberOfUppercase = 1;
-export const MinNumberOfSymbols = 1;
-export const MinNumberOfDigit = 1;
+export const minNumberOfCharacters = 8;
+export const minNumberOfUppercase = 1;
+export const minNumberOfSymbols = 1;
+export const minNumberOfDigit = 1;
 
 export const PasswordLengthValidator: FC<PasswordValidatorProps> = ({
   label,
   value = "",
-  limit = MinNumberOfCharacters,
+  limit = minNumberOfCharacters,
   isTouched = true,
 }) => {
   const classes = usePasswordValidatorStyles();
@@ -51,7 +51,7 @@ export const PasswordLengthValidator: FC<PasswordValidatorProps> = ({
 export const PasswordUppercaseValidator: FC<PasswordValidatorProps> = ({
   label,
   value = "",
-  limit = MinNumberOfUppercase,
+  limit = minNumberOfUppercase,
   isTouched = true,
 }) => {
   const classes = usePasswordValidatorStyles();
@@ -89,7 +89,7 @@ export const PasswordUppercaseValidator: FC<PasswordValidatorProps> = ({
 export const PasswordDigitValidator: FC<PasswordValidatorProps> = ({
   label,
   value = "",
-  limit = MinNumberOfDigit,
+  limit = minNumberOfDigit,
   isTouched = true,
 }) => {
   const classes = usePasswordValidatorStyles();
@@ -127,7 +127,7 @@ export const PasswordDigitValidator: FC<PasswordValidatorProps> = ({
 export const PasswordSymbolValidator: FC<PasswordValidatorProps> = ({
   label,
   value = "",
-  limit = MinNumberOfSymbols,
+  limit = minNumberOfSymbols,
   isTouched = true,
 }) => {
   const classes = usePasswordValidatorStyles();

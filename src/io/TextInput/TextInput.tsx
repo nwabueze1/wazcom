@@ -6,10 +6,10 @@ import React, { ChangeEvent, KeyboardEvent, useCallback, useState } from "react"
 import { useTextStyles, useTextInputIconStyles } from "./styles";
 import { TextAreaProps, TextFieldProps, InputIconProps } from "./types";
 import {
-  MinNumberOfCharacters,
-  MinNumberOfDigit,
-  MinNumberOfSymbols,
-  MinNumberOfUppercase,
+  minNumberOfCharacters,
+  minNumberOfDigit,
+  minNumberOfSymbols,
+  minNumberOfUppercase,
   PasswordDigitValidator,
   PasswordLengthValidator,
   PasswordSymbolValidator,
@@ -58,20 +58,20 @@ export const TextInput: FC<TextFieldProps> = ({
   classNames,
   passwordRules = {
     min: {
-      label: `Must contain at least ${MinNumberOfCharacters} characters long`,
-      limit: MinNumberOfCharacters,
+      label: `Must contain at least ${minNumberOfCharacters} characters long`,
+      limit: minNumberOfCharacters,
     },
     uppercase: {
-      label: `Must contain at least ${MinNumberOfUppercase}  uppercase letter(s)`,
-      limit: MinNumberOfUppercase,
+      label: `Must contain at least ${minNumberOfUppercase}  uppercase letter(s)`,
+      limit: minNumberOfUppercase,
     },
     digit: {
-      label: `Must contain at least ${MinNumberOfDigit}  digit(s)`,
-      limit: MinNumberOfDigit,
+      label: `Must contain at least ${minNumberOfDigit}  digit(s)`,
+      limit: minNumberOfDigit,
     },
     symbol: {
-      label: `Must contain at least ${MinNumberOfSymbols}  symbol(s)`,
-      limit: MinNumberOfSymbols,
+      label: `Must contain at least ${minNumberOfSymbols}  symbol(s)`,
+      limit: minNumberOfSymbols,
     },
   },
   ...props
