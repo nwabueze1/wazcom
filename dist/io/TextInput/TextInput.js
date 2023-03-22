@@ -45,14 +45,12 @@ var __spreadArray = (this && this.__spreadArray) || function (to, from, pack) {
     }
     return to.concat(ar || Array.prototype.slice.call(from));
 };
-import { jsx as _jsx, jsxs as _jsxs, Fragment as _Fragment } from "react/jsx-runtime";
+import { jsx as _jsx, jsxs as _jsxs } from "react/jsx-runtime";
 import clx from "classnames";
 import { isNumber, isBoolean } from "lodash";
-import { BsEye, BsEyeSlash } from "react-icons/bs";
 import { cloneElement, isValidElement } from "react";
 import React, { useCallback, useState } from "react";
 import { useTextStyles, useTextInputIconStyles } from "./styles";
-import { minNumberOfCharacters, minNumberOfDigit, minNumberOfSymbols, minNumberOfUppercase, PasswordDigitValidator, PasswordLengthValidator, PasswordSymbolValidator, PasswordUppercaseValidator, } from "./helper";
 /**
  * Text Input IO Component
  *
@@ -64,28 +62,8 @@ import { minNumberOfCharacters, minNumberOfDigit, minNumberOfSymbols, minNumberO
  * -- info
  */
 export var TextInput = function (_a) {
-    var _b, _c, _d, _e, _f, _g, _h, _j;
-    var className = _a.className, label = _a.label, errors = _a.errors, isError = _a.isError, isSuccess = _a.isSuccess, helperText = _a.helperText, _k = _a.hideLabel, hideLabel = _k === void 0 ? false : _k, info = _a.info, name = _a.name, onChange = _a.onChange, onFocus = _a.onFocus, onEnter = _a.onEnter, onBlur = _a.onBlur, _l = _a.required, required = _l === void 0 ? false : _l, showCC = _a.showCC, _m = _a.type, type = _m === void 0 ? "text" : _m, leftIcon = _a.leftIcon, rightIcon = _a.rightIcon, iconSpacing = _a.iconSpacing, width = _a.width, height = _a.height, color = _a.color, background = _a.background, borderWidth = _a.borderWidth, borderColor = _a.borderColor, borderStyle = _a.borderStyle, borderRadius = _a.borderRadius, classNames = _a.classNames, _o = _a.passwordRules, passwordRules = _o === void 0 ? {
-        min: {
-            label: "Must contain at least ".concat(minNumberOfCharacters, " characters long"),
-            limit: minNumberOfCharacters,
-        },
-        uppercase: {
-            label: "Must contain at least ".concat(minNumberOfUppercase, "  uppercase letter(s)"),
-            limit: minNumberOfUppercase,
-        },
-        digit: {
-            label: "Must contain at least ".concat(minNumberOfDigit, "  digit(s)"),
-            limit: minNumberOfDigit,
-        },
-        symbol: {
-            label: "Must contain at least ".concat(minNumberOfSymbols, "  symbol(s)"),
-            limit: minNumberOfSymbols,
-        },
-    } : _o, props = __rest(_a, ["className", "label", "errors", "isError", "isSuccess", "helperText", "hideLabel", "info", "name", "onChange", "onFocus", "onEnter", "onBlur", "required", "showCC", "type", "leftIcon", "rightIcon", "iconSpacing", "width", "height", "color", "background", "borderWidth", "borderColor", "borderStyle", "borderRadius", "classNames", "passwordRules"]);
-    var _p = __read(React.useState(false), 2), isFocused = _p[0], setIsFocused = _p[1];
-    var _q = __read(React.useState(false), 2), isTouched = _q[0], setIsTouched = _q[1];
-    var _r = __read(React.useState("password"), 2), inputType = _r[0], setInputType = _r[1];
+    var className = _a.className, label = _a.label, errors = _a.errors, isError = _a.isError, isSuccess = _a.isSuccess, helperText = _a.helperText, _b = _a.hideLabel, hideLabel = _b === void 0 ? false : _b, info = _a.info, name = _a.name, onChange = _a.onChange, onFocus = _a.onFocus, onEnter = _a.onEnter, onBlur = _a.onBlur, _c = _a.required, required = _c === void 0 ? false : _c, showCC = _a.showCC, _d = _a.type, type = _d === void 0 ? "text" : _d, leftIcon = _a.leftIcon, rightIcon = _a.rightIcon, iconSpacing = _a.iconSpacing, width = _a.width, height = _a.height, color = _a.color, background = _a.background, borderWidth = _a.borderWidth, borderColor = _a.borderColor, borderStyle = _a.borderStyle, borderRadius = _a.borderRadius, classNames = _a.classNames, props = __rest(_a, ["className", "label", "errors", "isError", "isSuccess", "helperText", "hideLabel", "info", "name", "onChange", "onFocus", "onEnter", "onBlur", "required", "showCC", "type", "leftIcon", "rightIcon", "iconSpacing", "width", "height", "color", "background", "borderWidth", "borderColor", "borderStyle", "borderRadius", "classNames"]);
+    var _e = __read(React.useState(false), 2), isFocused = _e[0], setIsFocused = _e[1];
     var classes = useTextStyles({
         width: width,
         height: height,
@@ -96,14 +74,8 @@ export var TextInput = function (_a) {
         borderStyle: borderStyle,
         borderRadius: borderRadius,
     });
-    var handlePasswordVisibility = function (value) {
-        setInputType(value);
-    };
     var handleChange = function (e) {
         var _a, _b;
-        if (!isTouched) {
-            setIsTouched(true);
-        }
         if (onChange) {
             onChange === null || onChange === void 0 ? void 0 : onChange({
                 name: (_a = e.target.name) !== null && _a !== void 0 ? _a : "",
@@ -140,7 +112,7 @@ export var TextInput = function (_a) {
             });
         }
     };
-    return (_jsxs("div", __assign({ className: clx(classes.root, className) }, { children: [_jsxs("div", __assign({ className: classes.labelWrapper }, { children: [!hideLabel && label && (_jsxs("label", __assign({ htmlFor: name, className: classes.label }, { children: [label, required && _jsx("span", __assign({ className: classes.required }, { children: "*" }))] }))), showCC && (_jsx("span", __assign({ className: clx(classes.wordCount, classes.label) }, { children: (props === null || props === void 0 ? void 0 : props.value) && (props === null || props === void 0 ? void 0 : props.value.length) > 0 && (props === null || props === void 0 ? void 0 : props.value.length) })))] })), _jsxs("div", __assign({ className: clx(classes.baseInput, classes.defaultInput, classNames === null || classNames === void 0 ? void 0 : classNames.input, isSuccess && classes.successInput, (isError || errors) && classes.errorInput, isFocused && classes.focusedInput) }, { children: [leftIcon && _jsx(InputIcon, __assign({ marginRight: iconSpacing }, { children: leftIcon })), _jsx("input", __assign({ type: type === "password" ? inputType : type, name: name, className: classes.input, onFocus: handleFocus, onBlur: handleBlur, onChange: handleChange, onKeyDown: handleOnKeyDown }, props)), type !== "password" && rightIcon && (_jsx(InputIcon, __assign({ marginLeft: iconSpacing }, { children: rightIcon }))), type === "password" && rightIcon && (_jsxs(_Fragment, { children: [inputType === "password" && (_jsx("button", __assign({ className: classes.iconButton, onClick: function () { return handlePasswordVisibility("text"); } }, { children: _jsx(InputIcon, __assign({ marginLeft: iconSpacing }, { children: _jsx(BsEye, {}) })) }))), inputType === "text" && (_jsx("button", __assign({ className: classes.iconButton, onClick: function () { return handlePasswordVisibility("password"); } }, { children: _jsx(InputIcon, __assign({ marginLeft: iconSpacing }, { children: _jsx(BsEyeSlash, {}) })) })))] }))] })), helperText && (_jsx("span", __assign({ className: clx(classes.helperTextDefault, isSuccess && classes.helperTextSuccess, isError && classes.helperTextError) }, { children: helperText }))), type === "password" && (_jsxs("div", __assign({ className: classes.passwordValidatorContainer }, { children: [_jsx(PasswordUppercaseValidator, { isTouched: isTouched, label: (_b = passwordRules === null || passwordRules === void 0 ? void 0 : passwordRules.uppercase) === null || _b === void 0 ? void 0 : _b.label, limit: (_c = passwordRules === null || passwordRules === void 0 ? void 0 : passwordRules.uppercase) === null || _c === void 0 ? void 0 : _c.limit, value: props === null || props === void 0 ? void 0 : props.value }), _jsx(PasswordLengthValidator, { isTouched: isTouched, label: (_d = passwordRules === null || passwordRules === void 0 ? void 0 : passwordRules.min) === null || _d === void 0 ? void 0 : _d.label, limit: (_e = passwordRules === null || passwordRules === void 0 ? void 0 : passwordRules.min) === null || _e === void 0 ? void 0 : _e.limit, value: props === null || props === void 0 ? void 0 : props.value }), _jsx(PasswordDigitValidator, { isTouched: isTouched, label: (_f = passwordRules === null || passwordRules === void 0 ? void 0 : passwordRules.digit) === null || _f === void 0 ? void 0 : _f.label, limit: (_g = passwordRules === null || passwordRules === void 0 ? void 0 : passwordRules.digit) === null || _g === void 0 ? void 0 : _g.limit, value: props === null || props === void 0 ? void 0 : props.value }), _jsx(PasswordSymbolValidator, { isTouched: isTouched, label: (_h = passwordRules === null || passwordRules === void 0 ? void 0 : passwordRules.digit) === null || _h === void 0 ? void 0 : _h.label, limit: (_j = passwordRules === null || passwordRules === void 0 ? void 0 : passwordRules.digit) === null || _j === void 0 ? void 0 : _j.limit, value: props === null || props === void 0 ? void 0 : props.value })] })))] })));
+    return (_jsxs("div", __assign({ className: clx(classes.root, className) }, { children: [_jsxs("div", __assign({ className: classes.labelWrapper }, { children: [!hideLabel && label && (_jsxs("label", __assign({ htmlFor: name, className: classes.label }, { children: [label, required && _jsx("span", __assign({ className: classes.required }, { children: "*" }))] }))), showCC && (_jsx("span", __assign({ className: clx(classes.wordCount, classes.label) }, { children: (props === null || props === void 0 ? void 0 : props.value) && (props === null || props === void 0 ? void 0 : props.value.length) > 0 && (props === null || props === void 0 ? void 0 : props.value.length) })))] })), _jsxs("div", __assign({ className: clx(classes.baseInput, classes.defaultInput, classNames === null || classNames === void 0 ? void 0 : classNames.input, isSuccess && classes.successInput, (isError || errors) && classes.errorInput, isFocused && classes.focusedInput) }, { children: [leftIcon && _jsx(InputIcon, __assign({ marginRight: iconSpacing }, { children: leftIcon })), _jsx("input", __assign({ type: type, name: name, className: classes.input, onFocus: handleFocus, onBlur: handleBlur, onChange: handleChange, onKeyDown: handleOnKeyDown }, props)), rightIcon && _jsx(InputIcon, __assign({ marginLeft: iconSpacing }, { children: rightIcon }))] })), helperText && (_jsx("span", __assign({ className: clx(classes.helperTextDefault, isSuccess && classes.helperTextSuccess, isError && classes.helperTextError) }, { children: helperText })))] })));
 };
 export var TextArea = function (_a) {
     var className = _a.className, classNames = _a.classNames, label = _a.label, rows = _a.rows, helperText = _a.helperText, _b = _a.hideLabel, hideLabel = _b === void 0 ? false : _b, isSuccess = _a.isSuccess, isError = _a.isError, errors = _a.errors, info = _a.info, name = _a.name, width = _a.width, height = _a.height, background = _a.background, color = _a.color, borderWidth = _a.borderWidth, borderColor = _a.borderColor, borderStyle = _a.borderStyle, borderRadius = _a.borderRadius, onChange = _a.onChange, onFocus = _a.onFocus, onEnter = _a.onEnter, onBlur = _a.onBlur, _c = _a.required, required = _c === void 0 ? false : _c, showCC = _a.showCC, props = __rest(_a, ["className", "classNames", "label", "rows", "helperText", "hideLabel", "isSuccess", "isError", "errors", "info", "name", "width", "height", "background", "color", "borderWidth", "borderColor", "borderStyle", "borderRadius", "onChange", "onFocus", "onEnter", "onBlur", "required", "showCC"]);

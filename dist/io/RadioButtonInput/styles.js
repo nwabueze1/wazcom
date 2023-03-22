@@ -20,7 +20,7 @@ export var useRadioButtonInputStyles = makeStyles(function (theme) { return ({
         '& input:checked ~ .custom__radio': {
             backgroundColor: theme.design.colors.waz_primary100,
             outline: "1px solid ".concat(theme.design.colors.waz_primary100),
-        },
+        }
     },
     labelStyle: {
         fontSize: theme.typography.fontSize - 2,
