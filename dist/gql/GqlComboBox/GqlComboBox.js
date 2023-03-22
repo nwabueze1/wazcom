@@ -88,7 +88,7 @@ import { useGqlComboBoxStyles } from "./styles";
 import { ComboBoxInput } from "../../io";
 import { get } from "lodash";
 export var GqlComboBox = memo(function (_a) {
-    var initialValue = _a.value, _b = _a.config, client = _b.client, key = _b.key, labelKey = _b.labelKey, valueKey = _b.valueKey, query = _b.name, postFetchHook = _a.postFetchHook, addOption = _a.addOption, onChange = _a.onChange, label = _a.label, variables = _a.variables, classNames = _a.classNames, props = __rest(_a, ["value", "config", "postFetchHook", "addOption", "onChange", "label", "variables", "classNames"]);
+    var initialValue = _a.value, _b = _a.config, client = _b.client, key = _b.key, labelKey = _b.labelKey, valueKey = _b.valueKey, query = _b.name, postFetchHook = _a.postFetchHook, addOption = _a.addOption, onChange = _a.onChange, label = _a.label, variables = _a.variables, props = __rest(_a, ["value", "config", "postFetchHook", "addOption", "onChange", "label", "variables"]);
     var classes = useGqlComboBoxStyles();
     var _c = __read(useState([]), 2), options = _c[0], setOptions = _c[1];
     var _d = __read(useState(true), 2), fetching = _d[0], setFetching = _d[1];
@@ -142,9 +142,7 @@ export var GqlComboBox = memo(function (_a) {
                     value = selectedValue;
                     if (!!label) return [3 /*break*/, 2];
                     setFetching(true);
-                    return [4 /*yield*/, handleAdd(selectedValue.startsWith("Add ")
-                            ? selectedValue.split("Add ")[1]
-                            : selectedValue)];
+                    return [4 /*yield*/, handleAdd(selectedValue.startsWith("Add ") ? selectedValue.split("Add ")[1] : selectedValue)];
                 case 1:
                     response = _b.sent();
                     label = response === null || response === void 0 ? void 0 : response.label;
@@ -186,3 +184,4 @@ export var GqlComboBox = memo(function (_a) {
             handleChange(value);
         } }, props)));
 });
+GqlComboBox.displayName = "GqlComboBox";

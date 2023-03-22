@@ -45,7 +45,7 @@ import { displayFeedback } from "../../helpers/io";
 import clx from "classnames";
 import { truncate } from "../../utilities/Post";
 export var InputGroup = function (_a) {
-    var className = _a.className, classNames = _a.classNames, text = _a.text, feedback = _a.feedback, label = _a.label, icon = _a.icon, size = _a.size, defaultValue = _a.defaultValue, value = _a.value, props = __rest(_a, ["className", "classNames", "text", "feedback", "label", "icon", "size", "defaultValue", "value"]);
+    var className = _a.className, classNames = _a.classNames, text = _a.text, feedback = _a.feedback, label = _a.label, icon = _a.icon, props = __rest(_a, ["className", "classNames", "text", "feedback", "label", "icon"]);
     var classes = useInputGroupStyles();
     var _b = __read(useState(""), 2), inputText = _b[0], setInputText = _b[1];
     useEffect(function () {

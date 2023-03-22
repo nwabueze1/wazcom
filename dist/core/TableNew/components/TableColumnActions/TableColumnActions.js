@@ -18,9 +18,9 @@ export var TableColumnActions = function (_a) {
     var renderActions = function () {
         return actions.map(function (_a, index) {
             var name = _a.name, func = _a.func, verify = _a.verify;
-            return verify && !verify(identifier) ? (_jsx("i", {})) : (_jsxs("p", __assign({ className: classes.action, onClick: function () {
+            return verify && !verify(identifier) ? (_jsx("i", {}, index)) : (_jsxs("p", __assign({ className: classes.action, onClick: function () {
                     func(identifier);
-                } }, { children: [name, index !== actions.length - 1 && _jsx("span", __assign({ className: classes.actionSeparator }, { children: "|" }))] })));
+                } }, { children: [name, index !== actions.length - 1 && _jsx("span", __assign({ className: classes.actionSeparator }, { children: "|" }))] }), index + name));
         });
     };
     return _jsx("div", __assign({ className: clx(classes.root, "column-actions") }, { children: renderActions() }));
