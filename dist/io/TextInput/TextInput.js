@@ -52,7 +52,7 @@ import { BsEye, BsEyeSlash } from "react-icons/bs";
 import { cloneElement, isValidElement } from "react";
 import React, { useCallback, useState } from "react";
 import { useTextStyles, useTextInputIconStyles } from "./styles";
-import { MinNumberOfCharacters, MinNumberOfDigit, MinNumberOfSymbols, MinNumberOfUppercase, PasswordDigitValidator, PasswordLengthValidator, PasswordSymbolValidator, PasswordUppercaseValidator, } from "./helper";
+import { minNumberOfCharacters, minNumberOfDigit, minNumberOfSymbols, minNumberOfUppercase, PasswordDigitValidator, PasswordLengthValidator, PasswordSymbolValidator, PasswordUppercaseValidator, } from "./helper";
 /**
  * Text Input IO Component
  *
@@ -67,20 +67,20 @@ export var TextInput = function (_a) {
     var _b, _c, _d, _e, _f, _g, _h, _j;
     var className = _a.className, label = _a.label, errors = _a.errors, isError = _a.isError, isSuccess = _a.isSuccess, helperText = _a.helperText, _k = _a.hideLabel, hideLabel = _k === void 0 ? false : _k, info = _a.info, name = _a.name, onChange = _a.onChange, onFocus = _a.onFocus, onEnter = _a.onEnter, onBlur = _a.onBlur, _l = _a.required, required = _l === void 0 ? false : _l, showCC = _a.showCC, _m = _a.type, type = _m === void 0 ? "text" : _m, leftIcon = _a.leftIcon, rightIcon = _a.rightIcon, iconSpacing = _a.iconSpacing, width = _a.width, height = _a.height, color = _a.color, background = _a.background, borderWidth = _a.borderWidth, borderColor = _a.borderColor, borderStyle = _a.borderStyle, borderRadius = _a.borderRadius, classNames = _a.classNames, _o = _a.passwordRules, passwordRules = _o === void 0 ? {
         min: {
-            label: "Must contain at least ".concat(MinNumberOfCharacters, " characters long"),
-            limit: MinNumberOfCharacters,
+            label: "Must contain at least ".concat(minNumberOfCharacters, " characters long"),
+            limit: minNumberOfCharacters,
         },
         uppercase: {
-            label: "Must contain at least ".concat(MinNumberOfUppercase, "  uppercase letter(s)"),
-            limit: MinNumberOfUppercase,
+            label: "Must contain at least ".concat(minNumberOfUppercase, "  uppercase letter(s)"),
+            limit: minNumberOfUppercase,
         },
         digit: {
-            label: "Must contain at least ".concat(MinNumberOfDigit, "  digit(s)"),
-            limit: MinNumberOfDigit,
+            label: "Must contain at least ".concat(minNumberOfDigit, "  digit(s)"),
+            limit: minNumberOfDigit,
         },
         symbol: {
-            label: "Must contain at least ".concat(MinNumberOfSymbols, "  symbol(s)"),
-            limit: MinNumberOfSymbols,
+            label: "Must contain at least ".concat(minNumberOfSymbols, "  symbol(s)"),
+            limit: minNumberOfSymbols,
         },
     } : _o, props = __rest(_a, ["className", "label", "errors", "isError", "isSuccess", "helperText", "hideLabel", "info", "name", "onChange", "onFocus", "onEnter", "onBlur", "required", "showCC", "type", "leftIcon", "rightIcon", "iconSpacing", "width", "height", "color", "background", "borderWidth", "borderColor", "borderStyle", "borderRadius", "classNames", "passwordRules"]);
     var _p = __read(React.useState(false), 2), isFocused = _p[0], setIsFocused = _p[1];

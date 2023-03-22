@@ -14,12 +14,12 @@ import clx from "classnames";
 import { BsCheck } from "react-icons/bs";
 import { usePasswordValidatorStyles } from "./styles";
 import PasswordValidator from "password-validator";
-export var MinNumberOfCharacters = 8;
-export var MinNumberOfUppercase = 1;
-export var MinNumberOfSymbols = 1;
-export var MinNumberOfDigit = 1;
+export var minNumberOfCharacters = 8;
+export var minNumberOfUppercase = 1;
+export var minNumberOfSymbols = 1;
+export var minNumberOfDigit = 1;
 export var PasswordLengthValidator = function (_a) {
-    var label = _a.label, _b = _a.value, value = _b === void 0 ? "" : _b, _c = _a.limit, limit = _c === void 0 ? MinNumberOfCharacters : _c, _d = _a.isTouched, isTouched = _d === void 0 ? true : _d;
+    var label = _a.label, _b = _a.value, value = _b === void 0 ? "" : _b, _c = _a.limit, limit = _c === void 0 ? minNumberOfCharacters : _c, _d = _a.isTouched, isTouched = _d === void 0 ? true : _d;
     var classes = usePasswordValidatorStyles();
     var PasswordSchema = new PasswordValidator();
     var passwordLength = PasswordSchema.is().min(limit);
@@ -30,7 +30,7 @@ export var PasswordLengthValidator = function (_a) {
                     : classes.labelDefault) }, { children: label ? label : "Must contain at least ".concat(limit, " characters long") }))] })));
 };
 export var PasswordUppercaseValidator = function (_a) {
-    var label = _a.label, _b = _a.value, value = _b === void 0 ? "" : _b, _c = _a.limit, limit = _c === void 0 ? MinNumberOfUppercase : _c, _d = _a.isTouched, isTouched = _d === void 0 ? true : _d;
+    var label = _a.label, _b = _a.value, value = _b === void 0 ? "" : _b, _c = _a.limit, limit = _c === void 0 ? minNumberOfUppercase : _c, _d = _a.isTouched, isTouched = _d === void 0 ? true : _d;
     var classes = usePasswordValidatorStyles();
     var PasswordSchema = new PasswordValidator();
     var hasUppercase = PasswordSchema.has().uppercase(limit);
@@ -41,7 +41,7 @@ export var PasswordUppercaseValidator = function (_a) {
                     : classes.labelDefault) }, { children: label ? label : "Must contain at least ".concat(limit, " uppercase letter(s)") }))] })));
 };
 export var PasswordDigitValidator = function (_a) {
-    var label = _a.label, _b = _a.value, value = _b === void 0 ? "" : _b, _c = _a.limit, limit = _c === void 0 ? MinNumberOfDigit : _c, _d = _a.isTouched, isTouched = _d === void 0 ? true : _d;
+    var label = _a.label, _b = _a.value, value = _b === void 0 ? "" : _b, _c = _a.limit, limit = _c === void 0 ? minNumberOfDigit : _c, _d = _a.isTouched, isTouched = _d === void 0 ? true : _d;
     var classes = usePasswordValidatorStyles();
     var PasswordSchema = new PasswordValidator();
     var hasUppercase = PasswordSchema.has().digits(limit);
@@ -52,7 +52,7 @@ export var PasswordDigitValidator = function (_a) {
                     : classes.labelDefault) }, { children: label ? label : "Must contain at least ".concat(limit, " digit(s)") }))] })));
 };
 export var PasswordSymbolValidator = function (_a) {
-    var label = _a.label, _b = _a.value, value = _b === void 0 ? "" : _b, _c = _a.limit, limit = _c === void 0 ? MinNumberOfSymbols : _c, _d = _a.isTouched, isTouched = _d === void 0 ? true : _d;
+    var label = _a.label, _b = _a.value, value = _b === void 0 ? "" : _b, _c = _a.limit, limit = _c === void 0 ? minNumberOfSymbols : _c, _d = _a.isTouched, isTouched = _d === void 0 ? true : _d;
     var classes = usePasswordValidatorStyles();
     var PasswordSchema = new PasswordValidator();
     var hasUppercase = PasswordSchema.is().symbols(limit);

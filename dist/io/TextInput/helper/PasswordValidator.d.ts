@@ -1,9 +1,9 @@
 import { FC } from "react";
 import { PasswordValidatorProps } from "../types";
-export declare const MinNumberOfCharacters = 8;
-export declare const MinNumberOfUppercase = 1;
-export declare const MinNumberOfSymbols = 1;
-export declare const MinNumberOfDigit = 1;
+export declare const minNumberOfCharacters = 8;
+export declare const minNumberOfUppercase = 1;
+export declare const minNumberOfSymbols = 1;
+export declare const minNumberOfDigit = 1;
 export declare const PasswordLengthValidator: FC<PasswordValidatorProps>;
 export declare const PasswordUppercaseValidator: FC<PasswordValidatorProps>;
 export declare const PasswordDigitValidator: FC<PasswordValidatorProps>;
