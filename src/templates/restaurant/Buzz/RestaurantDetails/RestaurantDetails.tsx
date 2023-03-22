@@ -24,7 +24,7 @@ export const RestaurantDetails: FC<RestaurantDetailsProps> = ({ restaurant }) =>
         <div className={classes.restaurantDetails}>
           <div className={classes.openingTime}>
             <span className={classes.bullet} />
-            <p>Open: {restaurant.restaurant.openingTimes}</p>
+            <p>Open: {restaurant.restaurant.openingTimes as any}</p>
           </div>
           <div className={classes.openingDetails}>
             <span className={classes.bullet} />

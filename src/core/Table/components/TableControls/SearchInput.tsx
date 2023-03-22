@@ -2,14 +2,14 @@ import { IoIosSearch } from "react-icons/io";
 import { useTableControlsStyles } from "./styles";
 import { SearchInputProps } from "./types";
 
-export const SearchInput: React.FC<SearchInputProps> = ({
+export const SearchInput = ({
   onChange,
   placeholder,
   className,
   value,
   type,
   name,
-}) => {
+}: SearchInputProps) => {
   const classes = useTableControlsStyles();
   return (
     <div className={classes.controlsInputField}>

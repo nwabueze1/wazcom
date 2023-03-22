@@ -63,6 +63,7 @@ export const EmailInputView: FC<EmailInputViewProps> = () => {
           <div className={classes.inputs}>
             {inputData.map((item: InputDataProps, index) => (
               <EmailInput
+                key={`${item.label}-${index + Math.random()}`}
                 id={`${item.label}-${index + Math.random()}`}
                 className={classes.input}
                 label={item.label}
@@ -76,6 +77,7 @@ export const EmailInputView: FC<EmailInputViewProps> = () => {
           <div className={classes.inputs}>
             {inputData.map((item: InputDataProps, index) => (
               <EmailInput
+                key={`${item.label}-${index + Math.random()}`}
                 id={`${item.label}-${index + Math.random()}`}
                 className={classes.input}
                 label={item.label}

@@ -1,20 +1,10 @@
-import { FC, useState } from "react";
+import { FC } from "react";
 import { Wrapper } from "../../core";
 import { usePasswordInputStyles } from "./styles";
-import { TextInputViewProps, InputDataProps } from "./types";
+import { TextInputViewProps } from "./types";
 
 export const PasswordInputView: FC<TextInputViewProps> = () => {
-  const [value, setValue] = useState("");
-
-  const handleChange = (payload: { name: string; value: string }) => {
-    setValue(payload?.value);
-  };
-
   const classes = usePasswordInputStyles();
-
-  const inputData: InputDataProps[] = [
-    { name: "TextInput", label: "Password", placeholder: "Enter password", helperText: "" },
-  ];
 
   return (
     <div className={classes.root}>

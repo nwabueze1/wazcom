@@ -1,11 +1,11 @@
-import { BsArrowRight } from "react-icons/bs";
+import { BsArrowRight, BsNutFill } from "react-icons/bs";
 import { useMbmbcStyles } from "../../mbmc/styles";
 import { MbmcBlock1 } from "templates/mbmc/blocks/MbmcBlock1/MbmcBlock1";
-import { MbmcBlock3 } from "templates/mbmc/blocks/MbmcBlock3/MbmcBlock3";
-import { MbmcBlock4 } from "templates/mbmc/blocks/MbmcBlock4/MbmcBlock4";
-import { MbmcBlock5 } from "templates/mbmc/blocks/MbmcBlock5/MbmcBlock5";
-import { MbmcBlock6 } from "templates/mbmc/blocks/MbmcBlock6/MbmcBlock6";
-import { MbmcBlock7 } from "templates/mbmc/blocks/MbmcBlock7/MbmcBlock7";
+// import { MbmcBlock3 } from "templates/mbmc/blocks/MbmcBlock3/MbmcBlock3";
+// import { MbmcBlock4 } from "templates/mbmc/blocks/MbmcBlock4/MbmcBlock4";
+// import { MbmcBlock5 } from "templates/mbmc/blocks/MbmcBlock5/MbmcBlock5";
+// import { MbmcBlock6 } from "templates/mbmc/blocks/MbmcBlock6/MbmcBlock6";
+// import { MbmcBlock7 } from "templates/mbmc/blocks/MbmcBlock7/MbmcBlock7";
 import { MbmcBlock13 } from "templates/mbmc/blocks/MbmcBlock13/MbmcBlock13";
 
 export const Mbmc = () => {
@@ -30,7 +30,7 @@ export const Mbmc = () => {
           },
         ]}
         site_uuid={"896466aa-bacc-4817-b577-436a52540eff"}
-        handleClick={(route: string) => {}}
+        handleClick={() => BsNutFill}
       />
       <MbmcBlock1
         heading="From Our <br /> Kitchen <br /> To Your Table"

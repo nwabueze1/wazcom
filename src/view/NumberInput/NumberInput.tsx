@@ -64,6 +64,7 @@ export const NumberInputView: FC<NumberInputViewProps> = () => {
           <div className={classes.inputs}>
             {inputData.map((item: InputDataProps, index) => (
               <NumberInput
+                key={`${item.label}-${index + Math.random()}`}
                 id={`${item.label}-${index + Math.random()}`}
                 className={classes.input}
                 label={item.label}
@@ -80,6 +81,7 @@ export const NumberInputView: FC<NumberInputViewProps> = () => {
           <div className={classes.inputs}>
             {inputData.map((item: InputDataProps, index) => (
               <NumberInput
+                key={`${item.label}-${index + Math.random()}`}
                 id={`${item.label}-${index + Math.random()}`}
                 className={classes.input}
                 label={item.label}

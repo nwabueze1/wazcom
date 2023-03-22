@@ -1,6 +1,6 @@
 import { TableColumn, TableConditionFilter } from "../../core/TableNew";
 
-export const getTableRows = (data: any[], classes?: any) => {
+export const getTableRows = (data: any[]) => {
   const parsedRows: { [key: string]: JSX.Element | string | number }[] = [];
 
   for (const row of data) {

@@ -6,11 +6,11 @@ import { KeyboardArrowLeft, KeyboardArrowRight } from "@mui/icons-material";
 import { useTablePaginationStyles } from "./styles";
 import { PageNumbers } from "./PageNumbers";
 
-export const TablePagination: React.FC<TablePaginationProps> = ({
+export const TablePagination = ({
   page: currentPage,
   count,
   onPageChange,
-}) => {
+}: TablePaginationProps) => {
   const classes = useTablePaginationStyles();
   const [page, setPage] = useState<number>(1);
 

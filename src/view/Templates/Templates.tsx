@@ -7,7 +7,6 @@ import List from "@mui/material/List";
 import Toolbar from "@mui/material/Toolbar";
 import { startCase } from "lodash";
 import { FC, useState } from "react";
-import { useNavigate } from "react-router-dom";
 import { useGetMbmcBlocks } from "../../templates/mbmc/mbmc";
 import { TextInput } from "../../io";
 import { SidebarListItem } from "./SidebarListItem/SidebarListItem";
@@ -17,7 +16,6 @@ import { BrowserProps } from "./types";
 export const Templates: FC<BrowserProps> = () => {
   const classes = useTemplateStyles();
   const [search, setSearch] = useState("");
-  const navigate = useNavigate();
   const getMbmcBlocks = useGetMbmcBlocks();
 
   const sections = [
@@ -38,10 +36,6 @@ export const Templates: FC<BrowserProps> = () => {
         })),
     },
   ];
-
-  const viewElement = (name: string) => {
-    navigate(`/templates/template_id/${name}`);
-  };
 
   return (
     <Box sx={{ display: "flex" }}>

@@ -1,25 +1,13 @@
-import React, { FC, useState, useCallback } from "react";
+import { FC } from "react";
 import { Link, useLocation } from "react-router-dom";
 import clx from "classnames";
 
 import { useSidebarListItemStyles } from "./styles";
-import { SidebarListItemProps, SidebarLinksProps } from "./types";
+import { SidebarListItemProps } from "./types";
 
 export const SidebarListItem: FC<SidebarListItemProps> = ({ sections }) => {
   const location = useLocation();
-  const [activeLink, setActiveLink] = useState<Partial<SidebarLinksProps>>();
   const classes = useSidebarListItemStyles();
-
-  const handleMouseEnter = useCallback(
-    (rowIndex: number, index: number) => {
-      setActiveLink({ rowIndex, index });
-    },
-    [activeLink],
-  );
-  const handleMouseLeave = useCallback((rowIndex: number, index: number) => {
-    setActiveLink({ rowIndex, index });
-  }, []);
-
   return (
     <div className={classes.root}>
       <ul className={classes.list}>

@@ -4,7 +4,7 @@ import Twitter from "@mui/icons-material/Twitter";
 import { CoreArticleTemplateFields } from "..";
 import { useBlogArticle002Styles } from ".";
 
-export const BlogArticle002: FC<CoreArticleTemplateFields> = ({ article, site }) => {
+export const BlogArticle002: FC<CoreArticleTemplateFields> = ({ article }) => {
   const classes = useBlogArticle002Styles();
 
   return (
