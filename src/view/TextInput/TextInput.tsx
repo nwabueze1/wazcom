@@ -2,6 +2,7 @@ import { FC } from "react";
 import { BsEye } from "react-icons/bs";
 
 import { TextInput } from "../../io";
+import { Wrapper } from "../../core";
 import { useTextInputStyles } from "./styles";
 import { TextInputViewProps, InputDataProps } from "./types";
 
@@ -18,50 +19,53 @@ export const TextInputView: FC<TextInputViewProps> = () => {
 
   const classes = useTextInputStyles();
 
-  const inputData: InputDataProps[] = [
-    { name: "TextInput", label: "Default", placeholder: "Placeholder", helperText: "" },
-    { name: "TextInput", label: "Hover", placeholder: "Placeholder", helperText: "" },
-    {
-      name: "TextInput",
-      label: "Active",
-      placeholder: "Placeholder",
-      helperText: "",
-      isSuccess: true,
-    },
-    {
-      name: "TextInput",
-      label: "Error",
-      placeholder: "Placeholder",
-      helperText: "Error Message",
-      isError: true,
-    },
-    {
-      name: "TextInput",
-      label: "Success",
-      placeholder: "Placeholder",
-      helperText: "Success Message",
-      isSuccess: true,
-    },
-  ];
+  const inputData: { default: InputDataProps[]; validation: InputDataProps[] } = {
+    default: [
+      { name: "TextInput", label: "Default", placeholder: "Placeholder", helperText: "" },
+
+      { name: "TextInput", label: "Hover", placeholder: "Placeholder", helperText: "" },
+      {
+        name: "TextInput",
+        label: "Active",
+        placeholder: "Placeholder",
+        helperText: "",
+        isSuccess: true,
+      },
+    ],
+    validation: [
+      {
+        name: "TextInput",
+        label: "Error",
+        placeholder: "Placeholder",
+        helperText: "Error Message",
+        isError: true,
+      },
+      {
+        name: "TextInput",
+        label: "Success",
+        placeholder: "Placeholder",
+        helperText: "Success Message",
+        isSuccess: true,
+      },
+    ],
+  };
 
   return (
     <div className={classes.root}>
-      <div className={classes.container}>
-        <div className={classes.header}>
-          <h1 className={classes.title}>Text Input</h1>
-          <div className={classes.description}>
-            <p className={classes.descriptionText}>
-              Text inputs enable users to enter free-form text data. The type of text field used
+      <Wrapper
+        title="Text Input"
+        description="Text inputs enable users to enter free-form text data. The type of text field used
               should reflect the length of the content you expect the user to enter. The default
               text input is for short, one-line content, whereas text area is for longer, multi-line
-              entries.
-            </p>
-          </div>
-        </div>
-        <div className={classes.inputContainer}>
+              entries."
+        className={classes.wrapper}
+      >
+        <div>
+          <h4 className={classes.cardTitle}> Basic </h4>
           <div className={classes.inputs}>
-            {inputData.map((item: InputDataProps, index) => (
+            {inputData.default.map((item: InputDataProps, index) => (
               <TextInput
+                key={item.name}
                 id={`${item.label}-${index + Math.random()}`}
                 className={classes.input}
                 label={item.label}
@@ -75,9 +79,16 @@ export const TextInputView: FC<TextInputViewProps> = () => {
               />
             ))}
           </div>
+        </div>
+      </Wrapper>
+
+      <Wrapper className={classes.wrapper}>
+        <div>
+          <h4 className={classes.cardTitle}>Validation </h4>
           <div className={classes.inputs}>
-            {inputData.map((item: InputDataProps, index) => (
+            {inputData.validation.map((item: InputDataProps, index) => (
               <TextInput
+                key={item.name}
                 id={`${item.label}-${index + Math.random()}`}
                 className={classes.input}
                 label={item.label}
@@ -93,7 +104,7 @@ export const TextInputView: FC<TextInputViewProps> = () => {
             ))}
           </div>
         </div>
-      </div>
+      </Wrapper>
     </div>
   );
 };

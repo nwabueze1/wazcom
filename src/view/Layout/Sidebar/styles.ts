@@ -98,7 +98,6 @@ export const useSidebarListItemStyles = makeStyles((theme: Theme) => ({
     padding: "0 20px",
     height: 33,
   },
-
   sectionLabel: {
     color: theme.design.colors.waz_grey1,
     fontWeight: theme.typography.fontWeightRegular,

@@ -1,6 +1,8 @@
 import React from "react";
 import { CommonProps } from "../../types";
 
+export type PasswordValidatorProps = { isTouched?: boolean, label?: string, value?: string | undefined, limit?: number }
+
 export type TextInputProps = TextFieldProps;
 
 export type BaseInputProps = React.InputHTMLAttributes<HTMLInputElement>;
@@ -44,6 +46,7 @@ export type TextBaseProps = CommonProps & {
   onChange?: (...args: any[]) => void;
 };
 
+
 export type TextFieldProps = Omit<BaseInputProps, "onChange" | "onFocus" | "onEnter"> &
   TextBaseProps;
 export type EmailInputProps = Omit<BaseInputProps, "onChange" | "onFocus" | "onEnter"> &
@@ -61,7 +64,7 @@ export type TextAreaProps = Omit<
   };
 
 export type InputIconProps = {
-  className?: object;
+  className?: Record<string, unknown>;
   children?: React.ReactNode | React.ReactElement | string;
   iconSpacing?: string | number;
   marginLeft?: string | number;
@@ -69,7 +72,7 @@ export type InputIconProps = {
 };
 
 export type TextInputIconStyleProps = {
-  props?: object | string;
+  props?: Record<string, unknown> | string;
   marginLeft?: string | number;
   marginRight?: string | number;
 };

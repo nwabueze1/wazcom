@@ -26,6 +26,16 @@ export const useCardStyles = makeStyles((theme: Theme) => ({
     color: theme.design.colors.waz_primaryBlack,
     textTransform: "capitalize",
     margin: 0,
+    marginBottom: '15px',
+    padding: 0,
+  },
+  cardTitle: {
+    fontWeight: theme.typography.fontWeightBold,
+    fontSize: theme.typography.h4.fontSize,
+    color: theme.design.colors.waz_primaryBlack,
+    textTransform: "capitalize",
+    margin: 0,
+    marginBottom: theme.spacing(2.5),
     padding: 0,
   },
   description: {

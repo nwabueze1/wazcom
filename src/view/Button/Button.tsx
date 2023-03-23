@@ -1,7 +1,5 @@
 import { FC, useState } from "react";
-import { BsEye } from "react-icons/bs";
-
-import { Button } from "../../core";
+import { Button, Wrapper } from "../../core";
 import { useButtonStyles } from "./styles";
 import { ButtonViewProps } from "./types";
 import { TimeInput } from "io";
@@ -13,27 +11,17 @@ export const ButtonView: FC<ButtonViewProps> = () => {
 
   return (
     <div className={classes.root}>
-      <div className={classes.container}>
-        <div className={classes.header}>
-          <h1 className={classes.title}>Buttons</h1>
-          <div className={classes.description}>
-            <p className={classes.descriptionText}>
-              Buttons are clickable elements that are used to trigger actions. They communicate
+      <Wrapper
+        title="Buttons"
+        description="Buttons are clickable elements that are used to trigger actions. They communicate
               calls to action to the user and allow users to interact with pages in a variety of
-              ways. Button labels express what action will occur when the user interacts with it.
-            </p>
-          </div>
-        </div>
-        <div className={classes.inputContainer}>
-          <div className={classes.inputs}>
-            <Button variant={"contained"} isDisabled={false} isLoading={true} rightIcon={<BsEye />}>
-              Button
-            </Button>
-          </div>
-          <div className={classes.inputs}>
-            <Button>Button</Button>
-          </div>
-        </div>
+              ways. Button labels express what action will occur when the user interacts with it."
+      >
+        <Button variant={"contained"} isDisabled={false} isLoading={false} rightIcon={undefined}>
+          Default Button
+        </Button>
+      </Wrapper>
+      <div className={classes.timeInput}>
         <TimeInput value={value} name="timepocker" onChange={(e) => setValue(e.value)} />
       </div>
     </div>

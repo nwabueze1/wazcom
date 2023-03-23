@@ -25,7 +25,6 @@ import {
   CheckBoxInput,
   CurrencyInputField,
   ComboBoxInput,
-  RichTextInput,
   SelectInput,
   TextInput,
   InputGroup,
@@ -582,16 +581,6 @@ export const stories: ComponentPropType[] = [
       // required: true,
       value: "basit",
       feedback: { text: "Tariq is a weirdo", status: "error" },
-    },
-  },
-  {
-    name: "Rich Text",
-    component: RichTextInput,
-    props: {
-      apiKey: "",
-      error: true,
-      feedback: { text: "Tariq is a weirdo", status: "error" },
-      client: createApolloClient("https://ofambegbe-ambrosia.wazobia.uk/graphql"),
     },
   },
   {

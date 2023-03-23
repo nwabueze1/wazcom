@@ -19,7 +19,7 @@ export const exportToXlsx = (name: string, data: { [key: string]: string }[]) =>
     Object.entries(item).map(([key, value]) => {
       const innerValue =
         value === null ? "" : typeof value == "object" ? getJsxContent(value) : value.toString();
-      obj[key] = innerValue;
+      (obj as any)[key] = innerValue;
     });
     return obj;
   });

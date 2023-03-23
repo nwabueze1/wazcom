@@ -7,7 +7,7 @@ import { SidebarListItemProps, SidebarLinksProps } from "./types";
 
 export const SidebarListItem: FC<SidebarListItemProps> = ({ sections }) => {
   const location = useLocation();
-  const [activeLink, setActiveLink] = useState<SidebarLinksProps>();
+  const [activeLink, setActiveLink] = useState<Partial<SidebarLinksProps>>();
   const classes = useSidebarListItemStyles();
 
   const handleMouseEnter = useCallback(

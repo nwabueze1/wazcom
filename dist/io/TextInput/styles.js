@@ -21,7 +21,7 @@ export var useTextStyles = makeStyles(function (theme) { return ({
         var _a, _b, _c, _d, _e, _f, _g, _h;
         return ({
             display: "flex",
-            padding: "8px 12px",
+            padding: theme.spacing(1.2, 1.4),
             height: (_a = props.height) !== null && _a !== void 0 ? _a : 34,
             width: (_b = props.width) !== null && _b !== void 0 ? _b : "100%",
             background: (_c = props.background) !== null && _c !== void 0 ? _c : theme.design.colors.white100,
@@ -97,6 +97,16 @@ export var useTextStyles = makeStyles(function (theme) { return ({
             borderColor: theme.design.colors.waz_primaryColor100,
         },
     }); },
+    iconButton: {
+        cursor: 'pointer',
+        all: 'unset'
+    },
+    passwordValidatorContainer: {
+        padding: 0,
+        marginTop: theme.spacing(1.6),
+        alignSelf: 'baseline',
+        fontSize: theme.typography.fontSize - 1.5
+    },
     input: {
         display: "flex",
         width: "100%",
@@ -130,7 +140,7 @@ export var useTextStyles = makeStyles(function (theme) { return ({
         letterSpacing: 0,
         fontSize: theme.typography.fontSize - 1,
         textAlign: "left",
-        marginTop: 4,
+        marginTop: theme.spacing(.8),
     },
     helperTextSuccess: {
         color: theme.design.colors.waz_primaryColor100,

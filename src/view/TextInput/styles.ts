@@ -7,48 +7,9 @@ export const useTextInputStyles = makeStyles((theme: Theme) => ({
     margin: 0,
     height: "100vh",
   },
-  container: {
-    display: "flex",
-    flexDirection: "column",
-    justifyContent: "start",
-    gap: theme.spacing(5),
-  },
-  header: {
-    width: "70vw",
-    display: "flex",
-    flexDirection: "column",
-    justifyContent: "start",
-    gap: theme.spacing(1),
-  },
-  title: {
-    fontWeight: theme.typography.fontWeightBold,
-    fontSize: theme.typography.h1.fontSize,
-    color: theme.design.colors.waz_primaryBlack,
-    margin: 0,
-    padding: 0,
-  },
-  description: {
-    margin: 0,
-    padding: 0,
-    width: "60vw",
-  },
-  descriptionText: {
-    fontSize: theme.typography.h5.fontSize,
-    lineSpacing: theme.spacing(22),
-  },
-  inputContainer: {
-    background: theme.design.background.waz_primaryWhite,
-    borderColor: theme.design.colors.grey900,
-    borderStyle: "solid",
-    borderWidth: 1,
-    borderRadius: 3,
-    padding: 24,
-    paddingBottom: 50,
-    display: "flex",
-    flexDirection: "column",
-    justifyContent: "center",
-    alignItems: "center",
-    gap: 70,
+  wrapper: { paddingBottom: theme.spacing(2), },
+  cardTitle: {
+    margin: theme.spacing(0, 0, 1, 0),
   },
   inputs: {
     width: "100%",
@@ -58,13 +19,18 @@ export const useTextInputStyles = makeStyles((theme: Theme) => ({
     gap: theme.spacing(4),
     margin: 0,
     padding: 0,
+    maxWidth: '1000px',
+
+    [theme.breakpoints.down("md")]: {
+      flexDirection: 'column',
+      gap: theme.spacing(3),
+    },
   },
   input: {
     width: "100%",
-    height: 34,
     display: "flex",
     justifyContent: "space-between",
     alignItems: "center",
-    padding: "0 10px",
+    padding: 0
   },
 }));

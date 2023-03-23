@@ -22,7 +22,7 @@ export const useTextStyles = makeStyles((theme: Theme) => ({
   },
   baseInput: (props: TextBaseProps) => ({
     display: "flex",
-    padding: "8px 12px",
+    padding: theme.spacing(1.2, 1.4),
     height: props.height ?? 34,
     width: props.width ?? "100%",
     background: props.background ?? theme.design.colors.white100,
@@ -89,6 +89,16 @@ export const useTextStyles = makeStyles((theme: Theme) => ({
       borderColor: theme.design.colors.waz_primaryColor100,
     },
   }),
+  iconButton: {
+    cursor: 'pointer',
+    all: 'unset'
+  },
+  passwordValidatorContainer: {
+    padding: 0,
+    marginTop: theme.spacing(1.6),
+    alignSelf: 'baseline',
+    fontSize: theme.typography.fontSize - 1.5
+  },
   input: {
     display: "flex",
     width: "100%",
@@ -122,7 +132,7 @@ export const useTextStyles = makeStyles((theme: Theme) => ({
     letterSpacing: 0,
     fontSize: theme.typography.fontSize - 1,
     textAlign: "left",
-    marginTop: 4,
+    marginTop: theme.spacing(.8),
   },
   helperTextSuccess: {
     color: theme.design.colors.waz_primaryColor100,
@@ -145,3 +155,4 @@ export const useTextInputIconStyles = makeStyles(() => ({
     marginLeft: `${props.marginLeft}px`,
   }),
 }));
+

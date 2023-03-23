@@ -8,10 +8,13 @@ import { ButtonView } from "../view/Button";
 import { TabsView } from "../view/Tab";
 import { NotificationView } from "../view/Notification";
 import { URLInputView } from "../view/URLInput";
+import { PasswordInputView } from "../view/PasswordInput";
 import { CurrencyInputView } from "../view/CurrencyInput";
 import { SelectInputView } from "../view/SelectInput";
 import { TableView } from "../view/Table";
 import { CardView } from "../view/Card";
+import { CheckBoxInputView } from "view/CheckBoxInput";
+import { RadioButtonView } from "view/RadioButtonInput";
 
 export default [
   {
@@ -39,6 +42,12 @@ export default [
     component: TextInputView,
   },
   {
+    key: "RadioButtonView",
+    path: "/radio-button",
+    exact: true,
+    component: RadioButtonView,
+  },
+  {
     key: "EmailInputView",
     path: "/email-input",
     exact: true,
@@ -57,10 +66,22 @@ export default [
     component: URLInputView,
   },
   {
+    key: "PasswordInputView",
+    path: "/password-input",
+    exact: true,
+    component: PasswordInputView,
+  },
+  {
     key: "CurrencyInputView",
     path: "/currency-input",
     exact: true,
     component: CurrencyInputView,
+  },
+  {
+    key: "CheckBoxInputView",
+    path: "/checkbox-input",
+    exact: true,
+    component: CheckBoxInputView,
   },
   {
     key: "TextAreaView",

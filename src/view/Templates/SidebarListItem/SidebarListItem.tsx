@@ -34,7 +34,7 @@ export const SidebarListItem: FC<SidebarListItemProps> = ({ title, sections }) =
     <div className={classes.root}>
       <Button
         className={classes.button}
-        endIcon={
+        rightIcon={
           <FiChevronRight
             className={classes.chevronIcon}
             style={{ transform: isVisible ? "rotate(90deg)" : "" }}
