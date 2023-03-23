@@ -3,73 +3,73 @@ import makeStyles from "@mui/styles/makeStyles";
 
 export const useCheckboxInputStyles = makeStyles((theme: Theme) => ({
   root: {
-    position: 'relative',
+    position: "relative",
 
-    '& .feedback': {
-      marginTop: `${theme.spacing(.5)} !important`,
+    "& .feedback": {
+      marginTop: `${theme.spacing(0.5)} !important`,
     },
   },
   innerWrapper: {
     display: "flex",
     flexDirection: "column",
-    justifyContent: 'center',
-    alignItems: 'center',
-    position: 'relative',
-    cursor: 'pointer',
-    userSelect: 'none',
+    justifyContent: "center",
+    alignItems: "center",
+    position: "relative",
+    cursor: "pointer",
+    userSelect: "none",
     height: theme.spacing(2),
     width: theme.spacing(2),
 
-    '& input:checked ~ .custom__checkbox': {
-      backgroundColor: theme.design.colors.waz_primary100
+    "& input:checked ~ .custom__checkbox": {
+      backgroundColor: theme.design.colors.waz_primary100,
     },
-    '& .checked__icon': {
-      visibility: 'hidden',
+    "& .checked__icon": {
+      visibility: "hidden",
       opacity: 0,
-      display: 'flex',
-      alignItems: 'center',
-      justifyContent: 'center',
-      fontSize: `${theme.typography.fontSize + 5}px`
+      display: "flex",
+      alignItems: "center",
+      justifyContent: "center",
+      fontSize: `${theme.typography.fontSize + 5}px`,
     },
-    '& input:checked ~ .checked__icon': {
+    "& input:checked ~ .checked__icon": {
       color: theme.design.colors.waz_white,
-      visibility: 'visible',
-      opacity: 1
-    }
+      visibility: "visible",
+      opacity: 1,
+    },
   },
   labelStyle: {
     fontSize: theme.typography.fontSize - 2,
     display: "flex",
-    marginBottom: theme.spacing(.5),
+    marginBottom: theme.spacing(0.5),
     color: theme.design.colors.waz_grey,
     alignItems: "center",
     textTransform: "uppercase",
   },
   input: {
-    position: 'absolute',
-    opacity: '0',
-    cursor: 'pointer',
-    height: '0',
-    width: '0',
+    position: "absolute",
+    opacity: "0",
+    cursor: "pointer",
+    height: "0",
+    width: "0",
   },
   checkedIcon: {
-    position: 'absolute',
-    top: '50%',
-    left: '50%',
-    transform: 'translate( -50%, -50%)'
+    position: "absolute",
+    top: "50%",
+    left: "50%",
+    transform: "translate( -50%, -50%)",
   },
   helperText: {
     fontSize: theme.typography.fontSize - 2,
-    marginTop: theme.spacing(.5)
+    marginTop: theme.spacing(0.5),
   },
   customCheckbox: {
-    position: 'absolute',
+    position: "absolute",
     top: 0,
     left: 0,
     height: theme.spacing(2),
     width: theme.spacing(2),
-    borderRadius: theme.spacing(.5),
-    border: '1px solid',
+    borderRadius: theme.spacing(0.5),
+    border: "1px solid",
     borderColor: theme.design.colors.grey700,
     backgroundColor: theme.design.colors.grey500,
 
@@ -79,11 +79,10 @@ export const useCheckboxInputStyles = makeStyles((theme: Theme) => ({
     "&:focus, &:hover:focus, &:active": {
       borderColor: theme.design.colors.primary400,
     },
-    '&:after': {
-      content: '',
-      position: 'absolute',
-      display: 'none'
-    }
-  }
-
+    "&:after": {
+      content: "",
+      position: "absolute",
+      display: "none",
+    },
+  },
 }));

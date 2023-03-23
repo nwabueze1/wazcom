@@ -2,8 +2,8 @@ import { ReactNode } from "react";
 
 export type WrapperProps = {
   children: ReactNode;
-  className?: string
+  className?: string;
   title?: string;
-  description?: string
-  showHeader?: boolean
+  description?: string;
+  showHeader?: boolean;
 };

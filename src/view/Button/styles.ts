@@ -8,8 +8,8 @@ export const useButtonStyles = makeStyles((theme: Theme) => ({
     height: "100vh",
   },
   timeInput: {
-    maxWidth: '1100px',
-    width: '100%',
-    marginTop: theme.spacing(1)
-  }
+    maxWidth: "1100px",
+    width: "100%",
+    marginTop: theme.spacing(1),
+  },
 }));

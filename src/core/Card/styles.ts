@@ -12,22 +12,22 @@ export const useCardStyles = makeStyles((theme: BaseTheme) => ({
     display: "flex",
     flexDirection: "column",
     gap: theme.spacing(2),
-    borderRadius: theme.spacing(.5),
+    borderRadius: theme.spacing(0.5),
     "& img": {
-      display: 'block',
+      display: "block",
       height: "110px",
       width: "100%",
       objectFit: "cover",
       objectPosition: "top",
-    }
+    },
   },
   templateRoot: {
     boxShadow: `0px 3px 15px ${theme.design.colors.waz_black200}`,
-    width: '373px',
+    width: "373px",
     padding: theme.spacing(2),
 
     [theme.breakpoints.down("md")]: {
-      width: '100%'
+      width: "100%",
     },
   },
   serviceTemplateRoot: {
@@ -36,11 +36,11 @@ export const useCardStyles = makeStyles((theme: BaseTheme) => ({
     padding: theme.spacing(2),
 
     [theme.breakpoints.down("md")]: {
-      width: '100%'
+      width: "100%",
     },
 
     [theme.breakpoints.down("sm")]: {
-      width: '100%'
+      width: "100%",
     },
   },
   serviceRoot: {
@@ -49,7 +49,7 @@ export const useCardStyles = makeStyles((theme: BaseTheme) => ({
     width: "365px",
 
     [theme.breakpoints.down("md")]: {
-      width: '100%'
+      width: "100%",
     },
   },
   overviewRoot: {
@@ -58,7 +58,7 @@ export const useCardStyles = makeStyles((theme: BaseTheme) => ({
     width: "250px",
 
     [theme.breakpoints.down("sm")]: {
-      width: '100%'
+      width: "100%",
     },
   },
   titleContainer: {
@@ -92,7 +92,7 @@ export const useCardStyles = makeStyles((theme: BaseTheme) => ({
   cardContent: {
     color: theme.design.colors.waz_grey1,
     textAlign: "left",
-    whiteSpace: 'break-spaces'
+    whiteSpace: "break-spaces",
   },
   templateContent: {
     fontSize: theme.typography.fontSize - 2,
@@ -108,7 +108,7 @@ export const useCardStyles = makeStyles((theme: BaseTheme) => ({
     fontSize: theme.typography.fontSize - 4,
   },
   rateContainer: {
-    gap: theme.spacing(.5),
+    gap: theme.spacing(0.5),
   },
   rateContent: {
     display: "flex",
@@ -144,16 +144,16 @@ export const useCardStyles = makeStyles((theme: BaseTheme) => ({
     width: "100%",
   },
   tagsContainer: {
-    gap: theme.spacing(.5),
-    flexWrap: 'wrap'
+    gap: theme.spacing(0.5),
+    flexWrap: "wrap",
   },
   buttonsContainer: {
-    display: 'flex',
+    display: "flex",
     gap: theme.spacing(1),
 
     [theme.breakpoints.down("sm")]: {
-      flexWrap: 'wrap',
-      justifyContent: 'center',
+      flexWrap: "wrap",
+      justifyContent: "center",
     },
   },
   leftAlign: {

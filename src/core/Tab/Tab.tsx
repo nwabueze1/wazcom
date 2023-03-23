@@ -67,7 +67,7 @@ export const Tab: React.FC<TabProps> = ({
                 snakeCase(name),
               )}
             >
-              {icon && icon}   {title}
+              {icon && icon} {title}
             </div>
           ))}
         </div>

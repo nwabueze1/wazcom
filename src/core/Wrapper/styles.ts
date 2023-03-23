@@ -14,8 +14,8 @@ export const useWrapperStyles = makeStyles((theme: Theme) => ({
     padding: theme.spacing(2.5, 3),
     minHeight: 120,
     display: "flex",
-    flexDirection: 'column',
-    justifyContent: 'center',
+    flexDirection: "column",
+    justifyContent: "center",
     gap: theme.spacing(3),
     maxWidth: "1100px",
   },
@@ -39,7 +39,7 @@ export const useWrapperStyles = makeStyles((theme: Theme) => ({
     margin: 0,
     padding: 0,
   },
-  wrapper: { paddingBottom: theme.spacing(2), },
+  wrapper: { paddingBottom: theme.spacing(2) },
   description: {
     margin: 0,
     padding: 0,
@@ -54,6 +54,6 @@ export const useWrapperStyles = makeStyles((theme: Theme) => ({
     display: "flex",
     justifyContent: "space-between",
     alignItems: "center",
-    padding: 0
+    padding: 0,
   },
 }));

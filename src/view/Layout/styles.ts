@@ -12,26 +12,26 @@ export const useLayoutStyles = makeStyles((theme: Theme) => ({
   },
   sidebarList: {},
   collapseButton: {
-    backgroundColor: 'transparent',
-    border: 'none',
+    backgroundColor: "transparent",
+    border: "none",
     fontSize: theme.typography.fontSize * 2,
     marginLeft: theme.spacing(2),
-    marginTop: theme.spacing(.7),
-    cursor: 'pointer',
+    marginTop: theme.spacing(0.7),
+    cursor: "pointer",
     [theme.breakpoints.up("lg")]: {
-      display: 'none'
+      display: "none",
     },
   },
   menuButton: {
-    backgroundColor: 'transparent',
-    border: 'none',
+    backgroundColor: "transparent",
+    border: "none",
     fontSize: theme.typography.fontSize * 2,
     marginRight: theme.spacing(1.5),
-    marginTop: theme.spacing(.5),
-    cursor: 'pointer',
+    marginTop: theme.spacing(0.5),
+    cursor: "pointer",
     [theme.breakpoints.up("lg")]: {
-      display: 'none'
-    }
+      display: "none",
+    },
   },
   sidebarIcon: {
     marginRight: theme.spacing(1),
@@ -58,12 +58,12 @@ export const useLayoutStyles = makeStyles((theme: Theme) => ({
     overflow: "hidden",
     padding: theme.spacing(1, 3),
     paddingBottom: theme.spacing(7),
-    width: '100%',
+    width: "100%",
     background: theme.design.colors.waz_white100,
     borderRadius: theme.spacing(0.5),
     [theme.breakpoints.up("lg")]: {
       marginLeft: `${drawerWidth}px`,
-    }
+    },
   },
   componentWrapper: {
     marginBottom: theme.spacing(5),
@@ -85,12 +85,12 @@ export const useLayoutStyles = makeStyles((theme: Theme) => ({
   logoTop: {
     width: `${drawerWidth}px`,
     [theme.breakpoints.down("md")]: {
-      width: '50px'
+      width: "50px",
     },
   },
   logoTitle: {
     [theme.breakpoints.down("md")]: {
-      display: 'none'
+      display: "none",
     },
   },
   title: {
@@ -110,12 +110,12 @@ export const useLayoutStyles = makeStyles((theme: Theme) => ({
     position: "absolute",
     display: "flex",
     alignItems: "center",
-    width: '100%',
+    width: "100%",
     height: 60,
     boxShadow: "0px 1px 25px rgba(0, 0, 0, 0.05)",
     opacity: 1,
     background: theme.design.colors.waz_white,
-    padding: theme.spacing(1, 5)
+    padding: theme.spacing(1, 5),
   },
   appBarComponents: {
     display: "flex",
@@ -123,13 +123,13 @@ export const useLayoutStyles = makeStyles((theme: Theme) => ({
     alignItems: "center",
     width: "100%",
     [theme.breakpoints.up("lg")]: {
-      marginLeft: theme.spacing(6.8)
-    }
+      marginLeft: theme.spacing(6.8),
+    },
   },
   notificationWrapper: {
     width: 24,
     height: 24,
-    marginLeft: theme.spacing(2)
+    marginLeft: theme.spacing(2),
   },
   notoficationIcon: {
     width: 18,
@@ -140,13 +140,13 @@ export const useLayoutStyles = makeStyles((theme: Theme) => ({
     width: `${drawerWidth}px`,
     padding: theme.spacing(3, 2.5),
     position: "fixed",
-    height: '100%',
-    minHeight: '100vh',
+    height: "100%",
+    minHeight: "100vh",
     top: 0,
     left: 0,
     zIndex: 500,
-    transition: 'transform 450ms ease, width 450ms ease',
-    transform: 'translateX(-100%)',
+    transition: "transform 450ms ease, width 450ms ease",
+    transform: "translateX(-100%)",
     background: theme.design.colors.waz_white,
     boxShadow: "0px 1px 25px rgba(0, 0, 0, 0.05)",
     display: "flex",
@@ -154,16 +154,16 @@ export const useLayoutStyles = makeStyles((theme: Theme) => ({
     gap: 0,
     marginBottom: theme.spacing(6),
     "&[data-show='true']": {
-      transform: 'translateX(0)'
+      transform: "translateX(0)",
     },
     [theme.breakpoints.up("lg")]: {
-      transform: 'translateX(0)'
-    }
+      transform: "translateX(0)",
+    },
   },
   searchBox: {
     display: "flex",
     alignItems: "space-between",
-    width: '100%',
-    maxWidth: '480px'
+    width: "100%",
+    maxWidth: "480px",
   },
 }));

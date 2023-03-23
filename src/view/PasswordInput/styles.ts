@@ -13,10 +13,10 @@ export const usePasswordInputStyles = makeStyles((theme: Theme) => ({
     justifyContent: "start",
     gap: theme.spacing(5),
   },
-  wrapper: { paddingBottom: theme.spacing(2), },
+  wrapper: { paddingBottom: theme.spacing(2) },
   inputs: {
     width: "100%",
-    maxWidth: '220px',
+    maxWidth: "220px",
     display: "flex",
     justifyContent: "space-between",
     alignItems: "center",
@@ -24,7 +24,7 @@ export const usePasswordInputStyles = makeStyles((theme: Theme) => ({
     margin: 0,
     padding: 0,
     [theme.breakpoints.down("md")]: {
-      flexDirection: 'column',
+      flexDirection: "column",
       gap: theme.spacing(3),
     },
   },
@@ -33,6 +33,6 @@ export const usePasswordInputStyles = makeStyles((theme: Theme) => ({
     display: "flex",
     justifyContent: "space-between",
     alignItems: "center",
-    padding: 0
+    padding: 0,
   },
 }));

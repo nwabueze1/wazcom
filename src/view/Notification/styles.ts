@@ -10,7 +10,7 @@ export const useNotificationStyles = makeStyles((theme: BaseTheme) => ({
     justifyContent: "flex-start",
     alignItem: "flex-start",
     gap: theme.spacing(3),
-    padding: `${theme.spacing(2)}`
+    padding: `${theme.spacing(2)}`,
   },
   Notificationroot: {
     display: "flex",
@@ -36,7 +36,7 @@ export const useNotificationStyles = makeStyles((theme: BaseTheme) => ({
     flexWrap: "wrap",
     justifyContent: "flex-start",
     alignItems: "center",
-    gap: theme.spacing(2)
+    gap: theme.spacing(2),
   },
   icon: {
     width: 20,
@@ -129,7 +129,7 @@ export const useNotificationStyles = makeStyles((theme: BaseTheme) => ({
     animation: "$toastInLeft .7s",
   },
   button: {
-    width: "fit-content"
+    width: "fit-content",
   },
   notification: {
     background: "#FFFFFF",
