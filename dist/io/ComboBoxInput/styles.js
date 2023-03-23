@@ -10,7 +10,7 @@ export var useComboBoxStyles = makeStyles(function (theme) { return ({
     },
     comboBoxRequired: {
         color: theme.design.colors.waz_dangerColor100,
-        margin: theme.spacing(-.5, .5, 0, .5),
+        margin: theme.spacing(-0.5, 0.5, 0, 0.5),
     },
     comboBoxOptions: {
         position: "absolute",
@@ -36,6 +36,6 @@ export var useComboBoxStyles = makeStyles(function (theme) { return ({
         },
         "& .subText": {
             marginTop: theme.spacing(0.5),
-        }
-    }
+        },
+    },
 }); });
