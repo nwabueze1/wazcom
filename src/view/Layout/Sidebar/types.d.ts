@@ -1,4 +1,6 @@
 export type SidebarListItemProps = {
+  isOpen?: boolean;
+  onClose?(): void;
   sections: {
     label: string;
     components: {
