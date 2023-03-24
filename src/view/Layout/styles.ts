@@ -113,9 +113,15 @@ export const useLayoutStyles = makeStyles((theme: Theme) => ({
     overlow: 'hidden',
     overflowY: 'auto',
   },
+  appSearchIcon: {
+    fontSize: theme.typography.fontSize + 6
+  },
   appSearchBoxList: {
     listStyle: 'none',
     cursor: 'pointer',
+    display: 'flex',
+    justifyContent: 'space-between',
+    alignItems: 'center',
     background: theme.design.colors.waz_black100,
     padding: theme.spacing(3.5, 3),
     marginBottom: theme.spacing(1.5),

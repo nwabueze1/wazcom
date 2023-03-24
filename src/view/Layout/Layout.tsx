@@ -1,4 +1,4 @@
-import { BsBellFill } from "react-icons/bs";
+import { BsBellFill, BsArrowReturnLeft } from "react-icons/bs";
 import { BiMenu } from "react-icons/bi";
 import { FiSearch } from "react-icons/fi";
 import { FC, useState } from "react";
@@ -81,6 +81,9 @@ export const Layout: FC<LayoutProps> = ({ children }) => {
                       }}
                     >
                       <span className={classes.appSearchBoxItem}>{item.name}</span>
+                      <span className={classes.appSearchIcon}>
+                        <BsArrowReturnLeft />
+                      </span>
                     </li>
                   ))}
                 </ul>
