@@ -6,7 +6,6 @@ export const useRadioButtonStyles = makeStyles((theme: Theme) => ({
     padding: theme.spacing(2),
     margin: 0,
   },
-  wrapper: {},
   inputs: {
     width: "100%",
     maxWidth: "220px",
