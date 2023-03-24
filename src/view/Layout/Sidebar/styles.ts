@@ -4,80 +4,80 @@ import { drawerWidth } from "../styles";
 
 export const useSidebarListItemStyles = makeStyles((theme: Theme) => ({
   root: {
-    position: 'fixed',
-    height: '100%',
-    minHeight: '100vh',
+    position: "fixed",
+    height: "100%",
+    minHeight: "100vh",
     fontFamily: theme.design.font.openSans,
     top: 0,
     left: 0,
-    transform: 'translateX(-100%)',
+    transform: "translateX(-100%)",
     zIndex: 1000,
     width: `${drawerWidth}px`,
-    transition: 'transform 450ms ease, width 450ms ease',
+    transition: "transform 450ms ease, width 450ms ease",
     background: theme.design.colors.waz_white,
-    maxHeight: '100vh',
+    maxHeight: "100vh",
     padding: theme.spacing(1.5, 0),
     boxShadow: `0px 1px 25px ${theme.design.colors.waz_black200}`,
     [theme.breakpoints.up("lg")]: {
-      transform: 'translateX(0)'
+      transform: "translateX(0)",
     },
     "&[data-show=true]": {
-      transform: 'translateX(0)'
+      transform: "translateX(0)",
     },
   },
   header: {
-    display: 'flex',
-    alignItems: 'center',
+    display: "flex",
+    alignItems: "center",
     paddingLeft: theme.spacing(3),
   },
   collapseButton: {
-    position: 'relative',
-    backgroundColor: 'transparent',
-    border: 'none',
+    position: "relative",
+    backgroundColor: "transparent",
+    border: "none",
     fontSize: theme.typography.fontSize * 2,
     marginLeft: theme.spacing(2),
     marginTop: theme.spacing(1),
-    cursor: 'pointer',
+    cursor: "pointer",
     [theme.breakpoints.up("lg")]: {
-      display: 'none'
+      display: "none",
     },
-    '&:hover': {
-      display: 'flex',
-      alignItems: 'center',
-      justifyContent: 'center',
-      borderRadius: '50%',
-      transform: 'scale(1.06)',
-      top: '-2px',
-      transition: 'transform .2s'
-    }
+    "&:hover": {
+      display: "flex",
+      alignItems: "center",
+      justifyContent: "center",
+      borderRadius: "50%",
+      transform: "scale(1.06)",
+      top: "-2px",
+      transition: "transform .2s",
+    },
   },
   sidebarOverlay: {
-    position: 'fixed',
-    height: '100%',
-    minHeight: '100vh',
-    width: '100%',
-    background: 'rgba(16, 25, 36, 0.1)',
+    position: "fixed",
+    height: "100%",
+    minHeight: "100vh",
+    width: "100%",
+    background: "rgba(16, 25, 36, 0.1)",
     top: 0,
     left: 0,
     right: 0,
     bottom: 0,
-    transform: 'translateX(-100%)',
+    transform: "translateX(-100%)",
     zIndex: 900,
-    transition: 'transform 450ms ease, width 450ms ease',
-    maxHeight: '100vh',
+    transition: "transform 450ms ease, width 450ms ease",
+    maxHeight: "100vh",
     "&[data-show=true]": {
-      transform: 'translateX(0)'
+      transform: "translateX(0)",
     },
   },
   headerTitle: {
-    fontSize: theme.typography.fontSize + 4
+    fontSize: theme.typography.fontSize + 4,
   },
   list: {
-    position: 'relative',
+    position: "relative",
     listStyle: "none",
     overflow: "hidden",
-    overflowY: 'auto',
-    height: '100%',
+    overflowY: "auto",
+    height: "100%",
     padding: theme.spacing(0, 1, 0, 3),
   },
   listItem: {
