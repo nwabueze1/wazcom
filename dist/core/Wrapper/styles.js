@@ -2,6 +2,11 @@ import { makeStyles } from "@mui/styles";
 export var useWrapperStyles = makeStyles(function (theme) { return ({
     root: {
         margin: 0,
+        padding: 0,
+        display: "flex",
+        flexDirection: "column",
+        justifyContent: "center",
+        gap: theme.spacing(3),
     },
     containerWrapper: {
         background: theme.design.background.waz_primaryWhite,
@@ -17,11 +22,10 @@ export var useWrapperStyles = makeStyles(function (theme) { return ({
         gap: theme.spacing(3),
         maxWidth: "1100px",
     },
-    container: {
+    headerContainer: {
         display: "flex",
         flexDirection: "column",
         justifyContent: "start",
-        gap: theme.spacing(2.5),
     },
     header: {
         width: "70vw",
@@ -49,9 +53,6 @@ export var useWrapperStyles = makeStyles(function (theme) { return ({
     },
     input: {
         width: "100%",
-        display: "flex",
-        justifyContent: "space-between",
-        alignItems: "center",
         padding: 0,
     },
 }); });
