@@ -5,4 +5,4 @@ export type LayoutProps = CommonProps & {
   children: React.ReactNode;
 };
 
-export type SearchResult = { name: string; slug: string }[]
+export type SearchResult = { name: string; slug: string }[];

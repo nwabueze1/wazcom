@@ -1,5 +1,6 @@
 import { FC } from "react";
 import { FiLink } from "react-icons/fi";
+import CssBaseline from "@mui/material/CssBaseline";
 import { URLInput } from "../../io";
 import { Wrapper } from "../../core";
 
@@ -51,67 +52,60 @@ export const URLInputView: FC<URLInputViewProps> = () => {
 
   return (
     <div className={classes.root}>
-      <div className={classes.container}>
-        <div className={classes.header}>
-          <h1 className={classes.title}>URL Input</h1>
-          <div className={classes.description}>
-            <p className={classes.descriptionText}>
-              URL inputs enable users to enter url addresses with url validation. The url field
-              should reflect the url with a validation.
-            </p>
+      <CssBaseline />
+      <Wrapper
+        title="URL Input"
+        description="URL inputs enable users to enter url addresses with url validation. The url field
+              should reflect the url with a validation."
+      >
+        <div>
+          <h4 className={classes.cardTitle}> Basic </h4>
+          <div className={classes.inputs}>
+            {inputData.basic.map((item: InputDataProps, index) => (
+              <URLInput
+                key={item.label}
+                id={`${item.label}-${index + Math.random()}`}
+                className={classes.input}
+                label={item.label}
+                placeholder={item.placeholder}
+                helperText={item.helperText}
+                isError={item.isError}
+                isSuccess={item.isSuccess}
+                leftIcon={<FiLink width={16} />}
+                iconSpacing={2}
+                onEnter={handleEnter}
+                onFocus={handleFocus}
+                onBlur={handleBlur}
+              />
+            ))}
           </div>
         </div>
+      </Wrapper>
 
-        <Wrapper className={classes.wrapper}>
-          <div>
-            <h4 className={classes.cardTitle}> Basic </h4>
-            <div className={classes.inputs}>
-              {inputData.basic.map((item: InputDataProps, index) => (
-                <URLInput
-                  key={item.label}
-                  id={`${item.label}-${index + Math.random()}`}
-                  className={classes.input}
-                  label={item.label}
-                  placeholder={item.placeholder}
-                  helperText={item.helperText}
-                  isError={item.isError}
-                  isSuccess={item.isSuccess}
-                  leftIcon={<FiLink width={16} />}
-                  iconSpacing={2}
-                  onEnter={handleEnter}
-                  onFocus={handleFocus}
-                  onBlur={handleBlur}
-                />
-              ))}
-            </div>
+      <Wrapper>
+        <div>
+          <h4 className={classes.cardTitle}> Validation </h4>
+          <div className={classes.inputs}>
+            {inputData.validation.map((item: InputDataProps, index) => (
+              <URLInput
+                key={item.label}
+                id={`${item.label}-${index + Math.random()}`}
+                className={classes.input}
+                label={item.label}
+                placeholder={item.placeholder}
+                helperText={item.helperText}
+                isError={item.isError}
+                isSuccess={item.isSuccess}
+                leftIcon={<FiLink width={16} />}
+                iconSpacing={2}
+                onEnter={handleEnter}
+                onFocus={handleFocus}
+                onBlur={handleBlur}
+              />
+            ))}
           </div>
-        </Wrapper>
-
-        <Wrapper className={classes.wrapper}>
-          <div>
-            <h4 className={classes.cardTitle}> Validation </h4>
-            <div className={classes.inputs}>
-              {inputData.validation.map((item: InputDataProps, index) => (
-                <URLInput
-                  key={item.label}
-                  id={`${item.label}-${index + Math.random()}`}
-                  className={classes.input}
-                  label={item.label}
-                  placeholder={item.placeholder}
-                  helperText={item.helperText}
-                  isError={item.isError}
-                  isSuccess={item.isSuccess}
-                  leftIcon={<FiLink width={16} />}
-                  iconSpacing={2}
-                  onEnter={handleEnter}
-                  onFocus={handleFocus}
-                  onBlur={handleBlur}
-                />
-              ))}
-            </div>
-          </div>
-        </Wrapper>
-      </div>
+        </div>
+      </Wrapper>
     </div>
   );
 };

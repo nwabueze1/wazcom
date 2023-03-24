@@ -14,7 +14,7 @@ export const Wrapper: FC<WrapperProps> = ({
 
   return (
     <div className={clx(classes.root, className)}>
-      <div className={classes.container}>
+      <div className={classes.headerContainer}>
         {showHeader && (
           <div className={classes.header}>
             <h1 className={classes.title}>{title} </h1>
@@ -23,9 +23,9 @@ export const Wrapper: FC<WrapperProps> = ({
             </div>
           </div>
         )}
-        <div className={classes.containerWrapper}>
-          <div className={classes.input}>{children}</div>
-        </div>
+      </div>
+      <div className={classes.containerWrapper}>
+        <div className={classes.input}>{children}</div>
       </div>
     </div>
   );

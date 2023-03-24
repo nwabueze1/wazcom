@@ -5,31 +5,31 @@ export const drawerWidth = 224;
 
 export const useLayoutStyles = makeStyles((theme: Theme) => ({
   root: {
-    position: 'relative',
+    position: "relative",
     fontFamily: theme.design.font.openSans,
-    width: '100%',
+    width: "100%",
     background: theme.design.colors.waz_white100,
-    '&::before': {
+    "&::before": {
       content: "''",
-      position: 'fixed',
+      position: "fixed",
       top: 0,
       left: 0,
-      height: '100%',
-      width: '100%',
+      height: "100%",
+      width: "100%",
       zIndex: -1,
       background: theme.design.colors.waz_white100,
     },
     [theme.breakpoints.up("lg")]: {
       marginLeft: `${drawerWidth}px`,
       width: `calc(100% - ${drawerWidth}px)`,
-    }
+    },
   },
   collapseButton: {
     backgroundColor: "transparent",
     border: "none",
     fontSize: theme.typography.fontSize * 2,
-    marginTop: theme.spacing(.7),
-    cursor: 'pointer',
+    marginTop: theme.spacing(0.7),
+    cursor: "pointer",
     [theme.breakpoints.up("lg")]: {
       display: "none",
     },
@@ -59,7 +59,7 @@ export const useLayoutStyles = makeStyles((theme: Theme) => ({
     height: 27,
     textTransform: "uppercase",
     [theme.breakpoints.up("lg")]: {
-      display: 'none'
+      display: "none",
     },
   },
   logoTop: {
@@ -76,7 +76,7 @@ export const useLayoutStyles = makeStyles((theme: Theme) => ({
   },
   main: {
     padding: theme.spacing(2, 3),
-    maxWidth: '100%',
+    maxWidth: "100%",
   },
   appBarWrapper: {
     position: "sticky",
@@ -87,46 +87,45 @@ export const useLayoutStyles = makeStyles((theme: Theme) => ({
     height: 50,
     boxShadow: "0px 1px 25px rgba(0, 0, 0, 0.05)",
     background: theme.design.colors.waz_white,
-    padding: theme.spacing(.5, 5),
+    padding: theme.spacing(0.5, 5),
     zIndex: 500,
   },
   appBarComponents: {
-    position: 'relative',
+    position: "relative",
     display: "flex",
     justifyContent: "space-between",
     alignItems: "center",
     width: "100%",
   },
   appBarSearch: {
-    position: 'relative',
+    position: "relative",
     width: "100%",
-    maxWidth: '450px',
+    maxWidth: "450px",
   },
   appSearchBox: {
-    position: 'absolute',
+    position: "absolute",
     width: "98%",
     background: theme.design.colors.waz_white,
     boxShadow: "0px 1px 25px rgba(0, 0, 0, 0.05)",
     padding: theme.spacing(2.5, 2, 3, 2),
     minHeight: 60,
     maxHeight: 500,
-    overlow: 'hidden',
-    overflowY: 'auto',
+    overlow: "hidden",
+    overflowY: "auto",
   },
   appSearchIcon: {
-    fontSize: theme.typography.fontSize + 6
+    fontSize: theme.typography.fontSize + 6,
   },
   appSearchBoxList: {
-    listStyle: 'none',
-    cursor: 'pointer',
-    display: 'flex',
-    justifyContent: 'space-between',
-    alignItems: 'center',
+    listStyle: "none",
+    cursor: "pointer",
+    display: "flex",
+    justifyContent: "space-between",
+    alignItems: "center",
     background: theme.design.colors.waz_black100,
     padding: theme.spacing(3.5, 3),
     marginBottom: theme.spacing(1.5),
-    borderRadius: theme.spacing(1)
-
+    borderRadius: theme.spacing(1),
   },
   appSearchBoxItem: {
     width: "100%",
@@ -142,17 +141,17 @@ export const useLayoutStyles = makeStyles((theme: Theme) => ({
   notificationButton: {
     width: 24,
     height: 24,
-    display: 'inline-block',
-    background: 'transparent',
-    border: 'none',
-    cursor: 'pointer',
-    marginLeft: theme.spacing(4)
+    display: "inline-block",
+    background: "transparent",
+    border: "none",
+    cursor: "pointer",
+    marginLeft: theme.spacing(4),
   },
   notificationIcon: {
     width: 18,
     height: 21,
   },
   searchBox: {
-    width: '100%',
+    width: "100%",
   },
 }));
