@@ -9,7 +9,7 @@ import { BrowserProps } from "./types";
 
 export const Browser: FC<BrowserProps> = () => {
   const classes = useBrowserStyles();
-  const [search, setSearch] = useState("");
+  const [search] = useState("");
 
   return (
     <div className={classes.container}>

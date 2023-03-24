@@ -1,17 +1,11 @@
-import { FC, useState, useCallback } from "react";
-import { FiLink } from "react-icons/fi";
+import { FC, useState } from "react";
 import { CurrencyInputField } from "../../io";
 
 import { useCurrencyInputStyles } from "./styles";
 import { CurrencyInputViewProps, InputDataProps } from "./types";
 
 export const CurrencyInputView: FC<CurrencyInputViewProps> = () => {
-  const [value, setValue] = useState(0);
-  const handleValueChange = useCallback((val: any) => {
-    // eslint-disable-next-line
-    console.log(val);
-    setValue(val);
-  }, []);
+  const [value] = useState(0);
 
   const handleEnter = (payload: any) => {
     console.log("onEnter", payload);

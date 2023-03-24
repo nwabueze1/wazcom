@@ -27,7 +27,7 @@ export const useURLInputStyles = makeStyles((theme: Theme) => ({
     margin: 0,
     padding: 0,
   },
-  wrapper: { paddingBottom: theme.spacing(2), },
+  wrapper: { paddingBottom: theme.spacing(2) },
   cardTitle: {
     margin: 0,
     marginBottom: theme.spacing(1),
@@ -65,7 +65,7 @@ export const useURLInputStyles = makeStyles((theme: Theme) => ({
     padding: 0,
 
     [theme.breakpoints.down("md")]: {
-      flexDirection: 'column',
+      flexDirection: "column",
       gap: theme.spacing(3),
     },
   },

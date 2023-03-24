@@ -55,7 +55,7 @@ export var displaySocials = function (socials, mode, classes, activeElement, han
             return (_jsx("div", __assign({ className: clx(classes.socialIntegration, activeElement === id && mode === "edit" && classes.activeElement), onClick: function (e) {
                     e.stopPropagation();
                     handleClick(id);
-                }, style: { cursor: "pointer" } }, { children: renderSocialIcon(type) })));
+                }, style: { cursor: "pointer" } }, { children: renderSocialIcon(type) }), index + url));
         }
         return (_jsx("a", __assign({ className: classes.socialIntegration, target: "_blank", rel: "noopener noreferrer", href: url }, { children: renderSocialIcon(type) }), index));
     });

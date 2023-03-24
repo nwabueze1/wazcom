@@ -14,7 +14,7 @@ export var useTootipStyles = makeStyles(function (theme) { return ({
         position: "relative",
         width: "fit-content",
         maxWidth: "200px",
-        display: "flex"
+        display: "flex",
     },
     tooltip: {
         border: "".concat(theme.design.colors.waz_primary500, " 1px solid"),
@@ -24,11 +24,11 @@ export var useTootipStyles = makeStyles(function (theme) { return ({
         padding: theme.spacing(1),
         color: theme.design.colors.waz_grey1,
         fontSize: 10,
-        lineHeight: "18px"
+        lineHeight: "18px",
     },
     tooltipIcon: {
         color: theme.design.colors.waz_primary500,
-        margin: "auto 0"
+        margin: "auto 0",
     },
     tooltipArrow: {
         position: "absolute",
@@ -44,7 +44,7 @@ export var useTootipStyles = makeStyles(function (theme) { return ({
         left: 0,
         right: 0,
         margin: "".concat(theme.spacing(-0.625), " auto 0"),
-        transform: "rotate(45deg)"
+        transform: "rotate(45deg)",
     },
     tooltipArrowTop: {
         left: 0,

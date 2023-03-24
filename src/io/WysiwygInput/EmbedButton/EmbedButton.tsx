@@ -8,51 +8,46 @@ import { EmbedOption } from "../EmbedOption";
 import { AiOutlineLink } from "react-icons/ai";
 
 export const EmbedButton: React.FC<EmbedButtonProps> = ({ initiateEmbed }) => {
-    const classes = useInsertButtonStyles();
+  const classes = useInsertButtonStyles();
 
-    const [open, setOpen] = useState<boolean>(false);
+  const [open, setOpen] = useState<boolean>(false);
 
-    const handleInsertOptions = () => {
-        setOpen(!open);
-    };
+  const handleInsertOptions = () => {
+    setOpen(!open);
+  };
 
-    const handleClick = (type: string) => {
-        initiateEmbed?.(type);
-    };
+  const handleClick = (type: string) => {
+    initiateEmbed?.(type);
+  };
 
-    return (
-        <div className={classes.root}>
-            <button className={classes.insertButton} onClick={handleInsertOptions}>
-                +
-            </button>
-            <div
-                className={clx(
-                    classes.selectOption,
-                    open ? classes.showOptions : classes.hideOptions,
-                )}
-            >
-                <span className={classes.optionTitleSpan}>EMBEDS</span>
-                <div className={classes.options}>
-                    <EmbedOption
-                        icon={<PictureIcon />}
-                        title={"Picture"}
-                        description={"jpeg, png"}
-                        handleClick={() => handleClick("image")}
-                    />
-                    <EmbedOption
-                        icon={<VideoIcon />}
-                        title={"Video"}
-                        description={"Embed a Youtube video"}
-                        handleClick={() => handleClick("video")}
-                    />
-                    <EmbedOption
-                        icon={<AiOutlineLink className={classes.linkIcon} />}
-                        title={"Link"}
-                        description={"Embed a Link"}
-                        handleClick={() => handleClick("link")}
-                    />
-                </div>
-            </div>
+  return (
+    <div className={classes.root}>
+      <button className={classes.insertButton} onClick={handleInsertOptions}>
+        +
+      </button>
+      <div className={clx(classes.selectOption, open ? classes.showOptions : classes.hideOptions)}>
+        <span className={classes.optionTitleSpan}>EMBEDS</span>
+        <div className={classes.options}>
+          <EmbedOption
+            icon={<PictureIcon />}
+            title={"Picture"}
+            description={"jpeg, png"}
+            handleClick={() => handleClick("image")}
+          />
+          <EmbedOption
+            icon={<VideoIcon />}
+            title={"Video"}
+            description={"Embed a Youtube video"}
+            handleClick={() => handleClick("video")}
+          />
+          <EmbedOption
+            icon={<AiOutlineLink className={classes.linkIcon} />}
+            title={"Link"}
+            description={"Embed a Link"}
+            handleClick={() => handleClick("link")}
+          />
         </div>
-    );
+      </div>
+    </div>
+  );
 };

@@ -1,3 +1,4 @@
+/* eslint-disable react/display-name */
 import React, { useState, FC } from "react";
 import { IoIosClose } from "react-icons/io";
 import { CoreCartFields } from "templates/restaurant/types/CoreCartFields";
@@ -68,3 +69,5 @@ const cartSubTotal = (cartItems: CoreCartItemFields[]) => {
 };
 
 export const parseFloat = (quantity: string) => +quantity;
+
+useDisplayCartItems.displayName = "useDisplayCartItems";

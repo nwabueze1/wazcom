@@ -1,5 +1,3 @@
-
 export type EmbedButtonProps = {
-    initiateEmbed?: (type: string) => void;
+  initiateEmbed?: (type: string) => void;
 };
-

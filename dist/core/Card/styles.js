@@ -12,22 +12,22 @@ export var useCardStyles = makeStyles(function (theme) {
             display: "flex",
             flexDirection: "column",
             gap: theme.spacing(2),
-            borderRadius: theme.spacing(.5),
+            borderRadius: theme.spacing(0.5),
             "& img": {
-                display: 'block',
+                display: "block",
                 height: "110px",
                 width: "100%",
                 objectFit: "cover",
                 objectPosition: "top",
-            }
+            },
         },
         templateRoot: (_a = {
                 boxShadow: "0px 3px 15px ".concat(theme.design.colors.waz_black200),
-                width: '373px',
+                width: "373px",
                 padding: theme.spacing(2)
             },
             _a[theme.breakpoints.down("md")] = {
-                width: '100%'
+                width: "100%",
             },
             _a),
         serviceTemplateRoot: (_b = {
@@ -36,10 +36,10 @@ export var useCardStyles = makeStyles(function (theme) {
                 padding: theme.spacing(2)
             },
             _b[theme.breakpoints.down("md")] = {
-                width: '100%'
+                width: "100%",
             },
             _b[theme.breakpoints.down("sm")] = {
-                width: '100%'
+                width: "100%",
             },
             _b),
         serviceRoot: (_c = {
@@ -48,7 +48,7 @@ export var useCardStyles = makeStyles(function (theme) {
                 width: "365px"
             },
             _c[theme.breakpoints.down("md")] = {
-                width: '100%'
+                width: "100%",
             },
             _c),
         overviewRoot: (_d = {
@@ -57,7 +57,7 @@ export var useCardStyles = makeStyles(function (theme) {
                 width: "250px"
             },
             _d[theme.breakpoints.down("sm")] = {
-                width: '100%'
+                width: "100%",
             },
             _d),
         titleContainer: {
@@ -91,7 +91,7 @@ export var useCardStyles = makeStyles(function (theme) {
         cardContent: {
             color: theme.design.colors.waz_grey1,
             textAlign: "left",
-            whiteSpace: 'break-spaces'
+            whiteSpace: "break-spaces",
         },
         templateContent: {
             fontSize: theme.typography.fontSize - 2,
@@ -107,7 +107,7 @@ export var useCardStyles = makeStyles(function (theme) {
             fontSize: theme.typography.fontSize - 4,
         },
         rateContainer: {
-            gap: theme.spacing(.5),
+            gap: theme.spacing(0.5),
         },
         rateContent: {
             display: "flex",
@@ -143,16 +143,16 @@ export var useCardStyles = makeStyles(function (theme) {
             width: "100%",
         },
         tagsContainer: {
-            gap: theme.spacing(.5),
-            flexWrap: 'wrap'
+            gap: theme.spacing(0.5),
+            flexWrap: "wrap",
         },
         buttonsContainer: (_e = {
-                display: 'flex',
+                display: "flex",
                 gap: theme.spacing(1)
             },
             _e[theme.breakpoints.down("sm")] = {
-                flexWrap: 'wrap',
-                justifyContent: 'center',
+                flexWrap: "wrap",
+                justifyContent: "center",
             },
             _e),
         leftAlign: {

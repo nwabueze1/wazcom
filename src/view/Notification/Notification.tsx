@@ -21,52 +21,65 @@ export const NotificationView: FC<NotificationProps> = () => {
     ]);
   };
 
-  const handleRemove = () => { }
+  const handleRemove = () => null;
 
   return (
     <div className={classes.root}>
+      <button onClick={() => showToast()} className={classes.button}>
+        Click to see notification
+      </button>
 
-
-      <button onClick={() => showToast()} className={classes.button}>Click to see notification</button>
-
-      <div className={classes.tooltipContainer} >
-        <Tootip content="You can either grant permission to a user by role or permissions. Switch the button below to make a choice" position="top" >
-          <button>
-            Tooltip top
-          </button>
-        </Tootip>
-
-        <Tootip content="You can either grant permission to a user by role or permissions. Switch the button below to make a choicetip You can either grant permission to a user by role or permissions. Switch the button below to make a choicetip" position="bottom">
-          <button>
-            Tooltip bottom
-          </button>
+      <div className={classes.tooltipContainer}>
+        <Tootip
+          content="You can either grant permission to a user by role or permissions. Switch the button below to make a choice"
+          position="top"
+        >
+          <button>Tooltip top</button>
         </Tootip>
 
         <Tootip
           content="You can either grant permission to a user by role or permissions. Switch the button below to make a choicetip You can either grant permission to a user by role or permissions. Switch the button below to make a choicetip"
-          position="right">
-          <button>
-            Tooltip right
-          </button></Tootip>
-        <Tootip content="You can either grant permission to a user by role or permissions. Switch the button below to make a choicetip" position="left">
-          <button>
-            Tooltip left
-          </button></Tootip>
+          position="bottom"
+        >
+          <button>Tooltip bottom</button>
+        </Tootip>
+
+        <Tootip
+          content="You can either grant permission to a user by role or permissions. Switch the button below to make a choicetip You can either grant permission to a user by role or permissions. Switch the button below to make a choicetip"
+          position="right"
+        >
+          <button>Tooltip right</button>
+        </Tootip>
+        <Tootip
+          content="You can either grant permission to a user by role or permissions. Switch the button below to make a choicetip"
+          position="left"
+        >
+          <button>Tooltip left</button>
+        </Tootip>
       </div>
 
-      <div className={classes.tooltipContainer} >
-        <Tootip content="You can either grant permission to a user by role or permissions. Switch the button below to make a choice" position="top" />
-        <Tootip content="You can either grant permission to a user by role or permissions. Switch the button below to make a choice" position="bottom" />
-        <Tootip content="You can either grant permission to a user by role or permissions. Switch the button below to make a choice" position="left" />
-        <Tootip content="You can either grant permission to a user by role or permissions. Switch the button below to make a choice" position="right" />
-
+      <div className={classes.tooltipContainer}>
+        <Tootip
+          content="You can either grant permission to a user by role or permissions. Switch the button below to make a choice"
+          position="top"
+        />
+        <Tootip
+          content="You can either grant permission to a user by role or permissions. Switch the button below to make a choice"
+          position="bottom"
+        />
+        <Tootip
+          content="You can either grant permission to a user by role or permissions. Switch the button below to make a choice"
+          position="left"
+        />
+        <Tootip
+          content="You can either grant permission to a user by role or permissions. Switch the button below to make a choice"
+          position="right"
+        />
       </div>
 
-      <div className={classes.tooltipContainer} >
+      <div className={classes.tooltipContainer}>
         <Tag name="Website" />
         <Tag name="Website" handleRemove={handleRemove} />
-
-
       </div>
 
       <Notification

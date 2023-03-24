@@ -3,15 +3,15 @@ export var useSelectStyles = makeStyles(function (theme) { return ({
     root: {
         display: "flex",
         flexDirection: "column",
-        justifyContent: 'start',
-        alignItems: 'start',
+        justifyContent: "start",
+        alignItems: "start",
         position: "relative",
-        width: '100%'
+        width: "100%",
     },
     container: {
-        width: '100%',
-        height: '100%',
-        background: theme.design.colors.waz_white
+        width: "100%",
+        height: "100%",
+        background: theme.design.colors.waz_white,
     },
     label: {
         fontSize: theme.typography.fontSize - 2,
@@ -24,7 +24,7 @@ export var useSelectStyles = makeStyles(function (theme) { return ({
     },
     required: {
         color: theme.design.colors.waz_dangerColor100,
-        margin: theme.spacing(-.5, .5, 0, .5),
+        margin: theme.spacing(-0.5, 0.5, 0, 0.5),
     },
     select: {
         height: 34,
@@ -33,67 +33,67 @@ export var useSelectStyles = makeStyles(function (theme) { return ({
         fontFamily: theme.typography.fontFamily,
         fontWeight: theme.typography.fontWeightRegular,
         fontSize: theme.typography.fontSize,
-        '&:hover': {
+        "&:hover": {
             borderColor: "".concat(theme.design.colors.waz_primary600, " !important"),
         },
-        '&:focus': {
+        "&:focus": {
             borderColor: theme.design.colors.waz_primary500,
         },
-        '&:hover:focus': {
+        "&:hover:focus": {
             borderColor: theme.design.colors.waz_primary500,
         },
     },
     error: {
         border: "1px solid ".concat(theme.design.colors.error),
-        '&:hover': {
+        "&:hover": {
             borderColor: theme.design.colors.error,
         },
-        '&:focus': {
+        "&:focus": {
             borderColor: theme.design.colors.error,
         },
-        '&:hover:focus': {
+        "&:hover:focus": {
             borderColor: theme.design.colors.error,
         },
     },
     labelWrapper: {
-        display: 'flex',
-        justifyContent: "space-between"
+        display: "flex",
+        justifyContent: "space-between",
     },
     control: {
         background: theme.design.colors.waz_white100,
         borderColor: "".concat(theme.design.colors.waz_primary500, " !important"),
-        boxShadow: 'none !important',
-        '&:hover': {
+        boxShadow: "none !important",
+        "&:hover": {
             borderColor: theme.design.colors.waz_primary600,
         },
     },
     option: {
-        backgroundColor: "".concat(theme.design.colors.waz_primary900, " !important")
+        backgroundColor: "".concat(theme.design.colors.waz_primary900, " !important"),
     },
     defaultInput: {
         borderColor: theme.design.colors.waz_primary700,
-        '&:hover, &:focus, &:hover:focus, &:active': {
+        "&:hover, &:focus, &:hover:focus, &:active": {
             borderColor: theme.design.colors.waz_primary700,
         },
     },
     errorInput: {
         borderColor: theme.design.colors.red500,
-        '&:hover, &:focus, &:hover:focus, &:active': {
+        "&:hover, &:focus, &:hover:focus, &:active": {
             borderColor: theme.design.colors.red500,
         },
     },
     successInput: {
         borderColor: theme.design.colors.waz_primaryColor100,
-        '&:hover, &:focus, &:hover:focus, &:active': {
+        "&:hover, &:focus, &:hover:focus, &:active": {
             borderColor: theme.design.colors.waz_primaryColor100,
         },
     },
     helperTextDefault: {
-        display: 'flex',
-        width: '100%',
+        display: "flex",
+        width: "100%",
         letterSpacing: 0,
         fontSize: theme.typography.fontSize - 1,
-        textAlign: 'left',
+        textAlign: "left",
         marginTop: theme.spacing(0.5),
     },
     helperTextSuccess: {
@@ -101,5 +101,5 @@ export var useSelectStyles = makeStyles(function (theme) { return ({
     },
     helperTextError: {
         color: theme.design.colors.error,
-    }
+    },
 }); });

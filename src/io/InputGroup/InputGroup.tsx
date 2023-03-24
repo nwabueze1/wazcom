@@ -14,9 +14,6 @@ export const InputGroup: FC<InputGroupProps> = ({
   feedback,
   label,
   icon,
-  size,
-  defaultValue,
-  value,
   ...props
 }) => {
   const classes = useInputGroupStyles();

@@ -98,14 +98,14 @@ export var useTextStyles = makeStyles(function (theme) { return ({
         },
     }); },
     iconButton: {
-        cursor: 'pointer',
-        all: 'unset'
+        cursor: "pointer",
+        all: "unset",
     },
     passwordValidatorContainer: {
         padding: 0,
         marginTop: theme.spacing(1.6),
-        alignSelf: 'baseline',
-        fontSize: theme.typography.fontSize - 1.5
+        alignSelf: "baseline",
+        fontSize: theme.typography.fontSize - 1.5,
     },
     input: {
         display: "flex",
@@ -140,7 +140,7 @@ export var useTextStyles = makeStyles(function (theme) { return ({
         letterSpacing: 0,
         fontSize: theme.typography.fontSize - 1,
         textAlign: "left",
-        marginTop: theme.spacing(.8),
+        marginTop: theme.spacing(0.8),
     },
     helperTextSuccess: {
         color: theme.design.colors.waz_primaryColor100,

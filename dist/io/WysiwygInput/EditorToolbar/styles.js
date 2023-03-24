@@ -13,6 +13,6 @@ export var useEditorToolbarStyles = makeStyles(function (theme) { return ({
         borderRight: "1px solid ".concat(theme.design.colors.waz_primary700),
         "&:last-of-type": {
             borderRightColor: "transparent",
-        }
+        },
     },
 }); });

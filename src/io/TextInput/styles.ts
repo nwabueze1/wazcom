@@ -90,14 +90,14 @@ export const useTextStyles = makeStyles((theme: Theme) => ({
     },
   }),
   iconButton: {
-    cursor: 'pointer',
-    all: 'unset'
+    cursor: "pointer",
+    all: "unset",
   },
   passwordValidatorContainer: {
     padding: 0,
     marginTop: theme.spacing(1.6),
-    alignSelf: 'baseline',
-    fontSize: theme.typography.fontSize - 1.5
+    alignSelf: "baseline",
+    fontSize: theme.typography.fontSize - 1.5,
   },
   input: {
     display: "flex",
@@ -132,7 +132,7 @@ export const useTextStyles = makeStyles((theme: Theme) => ({
     letterSpacing: 0,
     fontSize: theme.typography.fontSize - 1,
     textAlign: "left",
-    marginTop: theme.spacing(.8),
+    marginTop: theme.spacing(0.8),
   },
   helperTextSuccess: {
     color: theme.design.colors.waz_primaryColor100,
@@ -155,4 +155,3 @@ export const useTextInputIconStyles = makeStyles(() => ({
     marginLeft: `${props.marginLeft}px`,
   }),
 }));
-

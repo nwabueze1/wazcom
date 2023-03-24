@@ -29,3 +29,5 @@ export const Uploader = React.forwardRef<UploaderProps>((props, ref) => {
     />
   );
 });
+
+Uploader.displayName = "Uploader";

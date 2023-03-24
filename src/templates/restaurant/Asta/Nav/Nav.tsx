@@ -1,8 +1,6 @@
 import { FC, useState } from "react";
-import { InputAdornment } from "@mui/material";
 import { TextInput } from "../../../../io";
 import { useNavStyles } from "./styles";
-import { Search } from "@mui/icons-material";
 import { NavProps } from "./types";
 import { BsCart3 } from "react-icons/bs";
 import clx from "classnames";
@@ -30,13 +28,6 @@ export const Nav: FC<NavProps> = ({ className }) => {
           className={classes.searchField}
           type="text"
           placeholder="Search menus, dishes etc"
-          InputProps={{
-            startAdornment: (
-              <InputAdornment position="start">
-                <Search />
-              </InputAdornment>
-            ),
-          }}
         />
         <div className={classes.cartBtnContainer}>
           <div className={classes.cartBtn} onClick={() => setDisplayCart((prev) => !prev)}>

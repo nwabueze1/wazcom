@@ -2,12 +2,13 @@ import { RadioProps } from "@mui/material";
 import { CommonProps } from "../../types";
 
 export type RadioButtonProps = {
-  isDisabled?: boolean,
-}
+  isDisabled?: boolean;
+};
 
 /** !!-- Remember to update the interface name !! */
 export type RadioButtonInputProps = CommonProps &
-  Omit<RadioProps, "onChange"> & RadioButtonProps & {
+  Omit<RadioProps, "onChange"> &
+  RadioButtonProps & {
     label?: string;
     value?: boolean;
   };

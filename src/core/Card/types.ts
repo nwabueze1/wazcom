@@ -3,7 +3,6 @@ import { ButtonProps, TagProps } from "../../core";
 
 import { CommonProps } from "../../types";
 
-
 export type CardVariantProps = "template" | "service-template" | "service" | "overview";
 export type CardProps = CommonProps & {
   image?: {
@@ -29,5 +28,5 @@ export type CardProps = CommonProps & {
   rate?: {
     trend: "ascending" | "descending" | "static";
     value: string;
-  }
+  };
 };

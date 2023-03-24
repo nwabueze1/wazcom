@@ -10,15 +10,7 @@ export const Tootip: FC<TootipProps> = ({ children, content, position }) => {
 
   const arrowRef = useRef(null);
   const [isOpen, setIsOpen] = useState<boolean>(false);
-  const {
-    x,
-    y,
-    reference,
-    floating,
-    strategy,
-    placement,
-
-  } = useFloating({
+  const { x, y, reference, floating, strategy, placement } = useFloating({
     placement: position,
     open: true,
 
@@ -32,16 +24,15 @@ export const Tootip: FC<TootipProps> = ({ children, content, position }) => {
     ],
   });
 
-
   const toolTipArrowClass = useMemo(
     () =>
       placement?.includes("top")
         ? classes.tooltipArrowTop
         : placement?.includes("left")
-          ? classes.tooltipArrowLeft
-          : placement?.includes("right")
-            ? classes.tooltipArrowRight
-            : classes.tooltipArrowBottom,
+        ? classes.tooltipArrowLeft
+        : placement?.includes("right")
+        ? classes.tooltipArrowRight
+        : classes.tooltipArrowBottom,
     [placement],
   );
 
@@ -53,9 +44,7 @@ export const Tootip: FC<TootipProps> = ({ children, content, position }) => {
         onMouseLeave={() => setIsOpen(false)}
         className={classes.root}
       >
-
         {children || <RiErrorWarningLine className={classes.tooltipIcon} />}
-
       </div>
       {isOpen && (
         <div
@@ -69,10 +58,8 @@ export const Tootip: FC<TootipProps> = ({ children, content, position }) => {
         >
           <div className={classes.tooltip}>{content}</div>
           <div className={clx(classes.tooltipArrow, toolTipArrowClass)} ref={arrowRef} />
-
         </div>
-
       )}
     </>
   );
-}
+};

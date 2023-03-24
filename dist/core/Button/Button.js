@@ -26,7 +26,7 @@ import clx from "classnames";
 import { RiLoader4Line } from "react-icons/ri";
 import { useButtonStyles, useButtonSpinnerStyles, useButtonIconStyles } from "./styles";
 export var Button = function (_a) {
-    var width = _a.width, height = _a.height, className = _a.className, _b = _a.variant, variant = _b === void 0 ? "contained" : _b, children = _a.children, isDisabled = _a.isDisabled, isLoading = _a.isLoading, isActive = _a.isActive, leftIcon = _a.leftIcon, rightIcon = _a.rightIcon, iconSpacing = _a.iconSpacing, props = __rest(_a, ["width", "height", "className", "variant", "children", "isDisabled", "isLoading", "isActive", "leftIcon", "rightIcon", "iconSpacing"]);
+    var width = _a.width, height = _a.height, className = _a.className, _b = _a.variant, variant = _b === void 0 ? "contained" : _b, children = _a.children, isDisabled = _a.isDisabled, isLoading = _a.isLoading, leftIcon = _a.leftIcon, rightIcon = _a.rightIcon, iconSpacing = _a.iconSpacing, props = __rest(_a, ["width", "height", "className", "variant", "children", "isDisabled", "isLoading", "leftIcon", "rightIcon", "iconSpacing"]);
     var classes = useButtonStyles({
         variant: variant,
         width: width,
