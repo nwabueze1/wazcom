@@ -11,7 +11,7 @@ export const useSidebarListItemStyles = makeStyles((theme: Theme) => ({
     top: 0,
     left: 0,
     transform: "translateX(-100%)",
-    zIndex: 1000,
+    zIndex: 10,
     width: `${drawerWidth}px`,
     transition: "transform 450ms ease, width 450ms ease",
     background: theme.design.colors.waz_white,
@@ -62,7 +62,7 @@ export const useSidebarListItemStyles = makeStyles((theme: Theme) => ({
     right: 0,
     bottom: 0,
     transform: "translateX(-100%)",
-    zIndex: 900,
+    zIndex: 6,
     transition: "transform 450ms ease, width 450ms ease",
     maxHeight: "100vh",
     "&[data-show=true]": {
