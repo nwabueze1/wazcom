@@ -21,7 +21,7 @@ export const useTextInputStyles = makeStyles((theme: Theme) => ({
     [theme.breakpoints.down("md")]: {
       flexDirection: "column",
       gap: theme.spacing(3),
-      alignItems: 'start'
+      alignItems: "start",
     },
   },
   input: {
