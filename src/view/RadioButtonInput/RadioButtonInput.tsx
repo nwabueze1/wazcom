@@ -8,7 +8,6 @@ export const RadioButtonView = () => {
   return (
     <div className={classes.root}>
       <Wrapper
-        className={classes.wrapper}
         title="Radio Input"
         description="A radio button is a form element that allows the user to select one option from a
               range of options."

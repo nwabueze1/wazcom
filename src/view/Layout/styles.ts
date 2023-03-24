@@ -88,7 +88,7 @@ export const useLayoutStyles = makeStyles((theme: Theme) => ({
     boxShadow: "0px 1px 25px rgba(0, 0, 0, 0.05)",
     background: theme.design.colors.waz_white,
     padding: theme.spacing(0.5, 5),
-    zIndex: 500,
+    zIndex: 5,
   },
   appBarComponents: {
     position: "relative",
@@ -131,7 +131,7 @@ export const useLayoutStyles = makeStyles((theme: Theme) => ({
     width: "100%",
     fontSize: theme.typography.fontSize,
     textAlign: "left",
-    padding: "0 20px",
+    padding: theme.spacing(0, 2.5),
     textDecoration: "none",
     color: theme.design.colors.black200,
     display: "flex",
