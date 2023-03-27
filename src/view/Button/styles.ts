@@ -6,5 +6,5 @@ export const useButtonStyles = makeStyles((theme: Theme) => ({
     padding: theme.spacing(2),
     margin: 0,
     height: "100vh",
-  }
+  },
 }));
