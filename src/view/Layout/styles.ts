@@ -35,6 +35,7 @@ export const useLayoutStyles = makeStyles((theme: Theme) => ({
     },
   },
   menuButton: {
+    all: 'unset',
     backgroundColor: "transparent",
     border: "none",
     fontSize: theme.typography.fontSize * 2,
@@ -133,12 +134,13 @@ export const useLayoutStyles = makeStyles((theme: Theme) => ({
     textAlign: "left",
     padding: theme.spacing(0, 2.5),
     textDecoration: "none",
-    color: theme.design.colors.black200,
+    color: theme.design.colors.waz_primaryBlack,
     display: "flex",
     justifyContent: "start",
     alignItems: "center",
   },
   notificationButton: {
+    all: 'unset',
     width: 24,
     height: 24,
     display: "inline-block",

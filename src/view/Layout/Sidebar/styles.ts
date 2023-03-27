@@ -31,6 +31,7 @@ export const useSidebarListItemStyles = makeStyles((theme: Theme) => ({
     paddingLeft: theme.spacing(3),
   },
   collapseButton: {
+    all: 'unset',
     position: "relative",
     backgroundColor: "transparent",
     border: "none",
