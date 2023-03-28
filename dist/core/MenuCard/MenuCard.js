@@ -18,7 +18,7 @@ import { Typography } from "@mui/material";
 import MoreVertIcon from "@mui/icons-material/MoreVert";
 import { ToggleInput } from "../../io/ToggleInput/ToggleInput";
 export var MenuCard = function (_a) {
-    var className = _a.className, amount = _a.amount, description = _a.description, title = _a.title, status = _a.status, src = _a.image.src;
+    var className = _a.className, amount = _a.amount, description = _a.description, title = _a.title, src = _a.image.src;
     var classes = useMenuCardStyles();
     return (_jsx(Card, __assign({ className: clx(classes.root, className, classes.disableState), variant: "outlined" }, { children: _jsxs(CardContent, __assign({ className: classes.cardContents }, { children: [_jsx("div", __assign({ className: classes.outerBar }, { children: _jsx("div", { className: classes.imgField, style: {
                             backgroundImage: "url(".concat(src, ")"),
