@@ -1,7 +1,7 @@
 import { FC } from "react";
 import { Link, useLocation } from "react-router-dom";
 import clx from "classnames";
-
+import { Button } from "../../../core";
 import { useSidebarListItemStyles } from "./styles";
 import { SidebarListItemProps } from "./types";
 import { BsArrowLeftShort } from "react-icons/bs";
@@ -20,9 +20,9 @@ export const SidebarListItem: FC<SidebarListItemProps> = ({
       <div className={classes.root} data-show={isOpen}>
         <header className={classes.header}>
           <h2 className={classes.headerTitle}>WAZCOM</h2>
-          <button type="button" className={classes.collapseButton} onClick={onClose}>
+          <Button className={classes.collapseButton} onClick={onClose}>
             <BsArrowLeftShort />
-          </button>
+          </Button>
         </header>
         <ul className={classes.list}>
           {sections.map((section, sectionIndex) => (

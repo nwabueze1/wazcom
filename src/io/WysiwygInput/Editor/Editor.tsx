@@ -1,5 +1,4 @@
-import React, { useEffect, useRef } from "react";
-import ReactQuill from "react-quill";
+import React, { useEffect, useRef, useState } from "react";
 import { EditorToolbar, modules, formats } from "../EditorToolbar";
 import "react-quill/dist/quill.snow.css";
 import { useEditorStyles } from "./styles";
@@ -7,8 +6,17 @@ import { EditorProps } from "./types";
 
 export const Editor: React.FC<EditorProps> = ({ content, handleChange, embed }) => {
   const quillRef = useRef<any>(null);
+  const [reactQuill, setReactQuill] = useState<any>();
 
   const classes = useEditorStyles();
+
+  useEffect(() => {
+    if (typeof window !== "undefined") {
+      import("react-quill").then((mod) => {
+        setReactQuill(mod);
+      });
+    }
+  }, []);
 
   useEffect(() => {
     if (!embed) return;
@@ -35,17 +43,19 @@ export const Editor: React.FC<EditorProps> = ({ content, handleChange, embed }) 
     <div className={classes.root}>
       <div className={classes.editor}>
         <EditorToolbar />
-        <ReactQuill
-          id="editor"
-          ref={quillRef}
-          theme="snow"
-          value={content}
-          onChange={handleChange}
-          placeholder={"Add content"}
-          modules={modules}
-          formats={formats}
-          className={classes.quillEditor}
-        />
+        {reactQuill && (
+          <reactQuill.default
+            id="editor"
+            ref={quillRef}
+            theme="snow"
+            value={content}
+            onChange={handleChange}
+            placeholder={"Add content"}
+            modules={modules}
+            formats={formats}
+            className={classes.quillEditor}
+          />
+        )}
       </div>
       <div className={classes.wordCount}>
         {content.trim().length === 0 ? 0 : content.split(" ").length}/1000 words

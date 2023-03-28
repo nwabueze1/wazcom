@@ -3,6 +3,7 @@ import { BiMenu } from "react-icons/bi";
 import { FiSearch } from "react-icons/fi";
 import { FC, useState } from "react";
 import { TextInput } from "../../io";
+import { Button } from "../../core";
 import sidebarItems from "../../stories/sidebarItems";
 import { SidebarListItem } from "./Sidebar/SidebarItems";
 import { useLayoutStyles } from "./styles";
@@ -42,14 +43,14 @@ export const Layout: FC<LayoutProps> = ({ children }) => {
       <div className={classes.root}>
         <div className={classes.appBarWrapper}>
           <div className={[classes.logo, classes.logoTop].join(" ")}>
-            <button
+            <Button
               className={classes.menuButton}
               onClick={() => {
                 setToggleSidebar(true);
               }}
             >
               <BiMenu />
-            </button>
+            </Button>
             <h2 className={classes.logoTitle}>WAZCOM</h2>
           </div>
           <div className={classes.appBarComponents}>
@@ -89,9 +90,9 @@ export const Layout: FC<LayoutProps> = ({ children }) => {
                 </ul>
               )}
             </div>
-            <button type="button" className={classes.notificationButton}>
+            <Button className={classes.notificationButton}>
               <BsBellFill className={classes.notificationIcon} />
-            </button>
+            </Button>
           </div>
         </div>
         <main className={classes.main}>{children}</main>
