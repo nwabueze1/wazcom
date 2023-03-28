@@ -1,6 +1,6 @@
 import { FC } from "react";
 import { BsEye } from "react-icons/bs";
-
+import CssBaseline from "@mui/material/CssBaseline";
 import { TextInput } from "../../io";
 import { Wrapper } from "../../core";
 import { useTextInputStyles } from "./styles";
@@ -52,6 +52,7 @@ export const TextInputView: FC<TextInputViewProps> = () => {
 
   return (
     <div className={classes.root}>
+      <CssBaseline />
       <Wrapper
         title="Text Input"
         description="Text inputs enable users to enter free-form text data. The type of text field used

@@ -1,3 +1,4 @@
+import { CssBaseline } from "@mui/material";
 import { FC, useState } from "react";
 import { CurrencyInputField } from "../../io";
 
@@ -29,6 +30,7 @@ export const CurrencyInputView: FC<CurrencyInputViewProps> = () => {
 
   return (
     <div className={classes.root}>
+      <CssBaseline />
       <div className={classes.container}>
         <div className={classes.header}>
           <h1 className={classes.title}>Currency Input</h1>

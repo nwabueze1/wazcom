@@ -5,7 +5,6 @@ export const useTextInputStyles = makeStyles((theme: Theme) => ({
   root: {
     padding: theme.spacing(2),
     margin: 0,
-    height: "100vh",
   },
   wrapper: { paddingBottom: theme.spacing(2) },
   cardTitle: {
@@ -14,23 +13,21 @@ export const useTextInputStyles = makeStyles((theme: Theme) => ({
   inputs: {
     width: "100%",
     display: "flex",
-    justifyContent: "space-between",
     alignItems: "center",
-    gap: theme.spacing(4),
+    gap: theme.spacing(6, 7),
     margin: 0,
     padding: 0,
-    maxWidth: "1000px",
 
     [theme.breakpoints.down("md")]: {
       flexDirection: "column",
       gap: theme.spacing(3),
+      alignItems: "start",
     },
   },
   input: {
     width: "100%",
-    display: "flex",
-    justifyContent: "space-between",
-    alignItems: "center",
+    maxWidth: 180,
     padding: 0,
+    margin: 0,
   },
 }));

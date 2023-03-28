@@ -1,5 +1,6 @@
 import { FC } from "react";
 import { FiLink } from "react-icons/fi";
+import CssBaseline from "@mui/material/CssBaseline";
 import { URLInput } from "../../io";
 import { Wrapper } from "../../core";
 
@@ -51,6 +52,7 @@ export const URLInputView: FC<URLInputViewProps> = () => {
 
   return (
     <div className={classes.root}>
+      <CssBaseline />
       <div className={classes.container}>
         <div className={classes.header}>
           <h1 className={classes.title}>URL Input</h1>
