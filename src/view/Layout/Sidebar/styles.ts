@@ -121,7 +121,7 @@ export const useSidebarListItemStyles = makeStyles((theme: Theme) => ({
     textAlign: "left",
     padding: "0 20px",
     textDecoration: "none",
-    color: theme.design.colors.black200,
+    color: theme.design.colors.waz_primaryBlack,
     display: "flex",
     justifyContent: "start",
     alignItems: "center",
