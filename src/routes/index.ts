@@ -16,6 +16,7 @@ import { CardView } from "../view/Card";
 import { CheckBoxInputView } from "view/CheckBoxInput";
 import { RadioButtonView } from "view/RadioButtonInput";
 import { ToggleInputView } from "view/ToggleInput";
+import { ProgressView } from "view/Progress";
 
 export default [
   {
@@ -95,6 +96,12 @@ export default [
     path: "/textarea-input",
     exact: true,
     component: TextAreaView,
+  },
+  {
+    key: "ProgressView",
+    path: "/progress",
+    exact: true,
+    component: ProgressView,
   },
   {
     key: "ButtonView",
