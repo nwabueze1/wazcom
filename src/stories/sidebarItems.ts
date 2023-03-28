@@ -19,6 +19,7 @@ export default [
       { name: "Checkbox Input", slug: "checkbox-input" },
       { name: "TextArea Input", slug: "textarea-input" },
       { name: "Radio Button", slug: "radio-button" },
+      { name: "Toggle Input", slug: "toggle-input" },
       { name: "Select Input", slug: "select-input" },
       { name: "Search Bar", slug: "search-bar" },
       { name: "File Upload", slug: "file-upload" },

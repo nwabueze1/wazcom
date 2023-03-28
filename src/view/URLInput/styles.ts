@@ -5,7 +5,6 @@ export const useURLInputStyles = makeStyles((theme: Theme) => ({
   root: {
     padding: theme.spacing(2),
     margin: 0,
-    height: "100vh",
   },
   container: {
     display: "flex",
@@ -27,7 +26,6 @@ export const useURLInputStyles = makeStyles((theme: Theme) => ({
     margin: 0,
     padding: 0,
   },
-  wrapper: { paddingBottom: theme.spacing(2) },
   cardTitle: {
     margin: 0,
     marginBottom: theme.spacing(1),

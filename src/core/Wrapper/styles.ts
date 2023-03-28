@@ -17,7 +17,7 @@ export const useWrapperStyles = makeStyles((theme: Theme) => ({
     borderColor: theme.design.colors.waz_grey300,
     borderRadius: 3,
     padding: theme.spacing(2.5, 3),
-    minHeight: 120,
+    minHeight: 80,
     display: "flex",
     flexDirection: "column",
     justifyContent: "center",

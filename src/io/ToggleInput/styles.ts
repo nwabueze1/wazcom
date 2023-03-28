@@ -1,34 +1,74 @@
 import { Theme } from "@mui/material";
-
 import makeStyles from "@mui/styles/makeStyles";
 
 export const useToggleStyles = makeStyles((theme: Theme) => ({
   root: {
+    position: "relative",
     display: "flex",
-    flexDirection: "column",
-    justifyContent: "space-between",
+    alignItems: "center",
+
+    "& .feedback": {
+      marginTop: `${theme.spacing(0.5)} !important`,
+    },
   },
-  addon: {
-    width: "30%",
-    background: "#EFEDED",
-    border: "1px solid #BEBEBE",
+  switch: {
+    position: "relative",
+    display: "inline-block",
+    width: theme.spacing(4),
+    height: theme.spacing(2),
+
+    "& input:checked ~ .slider": {
+      backgroundColor: theme.design.colors.waz_primary100,
+    },
+
+    "& input:disabled ~ .slider": {
+      opacity: 0.4,
+    },
+
+    "& input:checked ~ .slider:before": {
+      transform: `translateX(${theme.spacing(2)})`,
+    },
   },
-  inputControl: {
+  labelStyle: {
+    fontSize: theme.typography.fontSize - 2,
     display: "flex",
+    marginBottom: theme.spacing(0.5),
+    color: theme.design.colors.waz_grey,
+    alignItems: "center",
+    textTransform: "uppercase",
+  },
+  input: {
+    position: "absolute",
+    opacity: "0",
+    cursor: "pointer",
+    height: "0",
+    width: "0",
   },
   helperText: {
-    color: theme.design.colors.waz_black,
+    fontSize: theme.typography.fontSize - 2,
+    marginTop: theme.spacing(0.5),
   },
-  toggle: {
-    color: theme.design.colors.waz_successColor,
-    marginTop: theme.spacing(1),
-    "& 	.Mui-checked": {
-      color: theme.design.colors.waz_white,
-      "& + .MuiSwitch-track": {
-        backgroundColor: theme.design.colors.waz_primaryColor100,
-        opacity: 1,
-        border: 0,
-      },
+  slider: {
+    position: "absolute",
+    cursor: "pointer",
+    top: 0,
+    left: 0,
+    right: 0,
+    bottom: 0,
+    borderRadius: theme.spacing(4),
+    transition: ".4s",
+    backgroundColor: theme.design.colors.grey300,
+
+    "&:before": {
+      content: "''",
+      position: "absolute",
+      height: theme.spacing(2),
+      width: theme.spacing(2),
+      left: 0,
+      bottom: 0,
+      backgroundColor: theme.design.colors.waz_white,
+      transition: ".4s",
+      borderRadius: "50%",
     },
   },
 }));
