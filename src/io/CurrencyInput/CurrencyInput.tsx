@@ -29,6 +29,8 @@ export const CurrencyInputField: FC<CurrencyInputProps> = ({
   borderColor,
   borderStyle,
   borderRadius,
+  isDisabled = false,
+  showDropdownIcon = true,
   onChange,
   onFocus,
   onEnter,
@@ -90,10 +92,17 @@ export const CurrencyInputField: FC<CurrencyInputProps> = ({
   const handleSelectedCurrency = (currency: any) => {
     setSelectedCurrency(currency);
     setIsSelectCurrency(false);
+    console.log(currency);
   };
 
   return (
-    <div className={clx(classes.root, className)}>
+    <div
+      className={clx(
+        variant !== "horizontal" && classes.root,
+        variant === "horizontal" && classes.horizontalRoot,
+        className,
+      )}
+    >
       {variant !== "basic" && (
         <div className={classes.selectContainer}>
           <SelectInput
@@ -129,6 +138,7 @@ export const CurrencyInputField: FC<CurrencyInputProps> = ({
             (isError || errors) && classes.errorInput,
             isFocused && classes.focusedInput,
           )}
+          data-disabled={isDisabled}
         >
           <div className={clx(classes.currencySelectRoot)}>
             {!isArray(currency) && currency !== undefined && currency !== "" ? (
@@ -137,7 +147,7 @@ export const CurrencyInputField: FC<CurrencyInputProps> = ({
               <div onClick={() => setIsSelectCurrency(true)}>
                 <div className={classes.currencyMultiple}>
                   {selectedCurrency.symbol ?? "$"}
-                  <AiFillCaretDown />
+                  {showDropdownIcon && <AiFillCaretDown />}
                 </div>
               </div>
             ) : (
