@@ -1,3 +1,5 @@
+import { CssBaseline } from "@mui/material";
+import { PasswordInput } from "../../io";
 import { FC } from "react";
 import { Wrapper } from "../../core";
 import { usePasswordInputStyles } from "./styles";
@@ -8,13 +10,22 @@ export const PasswordInputView: FC<TextInputViewProps> = () => {
 
   return (
     <div className={classes.root}>
+      <CssBaseline />
       <div className={classes.container}>
         <Wrapper
           className={classes.wrapper}
           title="Password Input"
-          description=" Password inputs enable users to enter or create passwords in a form."
+          description="Password inputs enable users to enter or create passwords in a form."
         >
-          <div className={classes.inputs}></div>
+          <div className={classes.inputs}>
+            <PasswordInput
+              config={{
+                length: {
+                  limit: 12,
+                },
+              }}
+            />
+          </div>
         </Wrapper>
       </div>
     </div>
