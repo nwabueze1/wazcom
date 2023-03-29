@@ -16,6 +16,7 @@ import { CardView } from "../view/Card";
 import { CheckBoxInputView } from "view/CheckBoxInput";
 import { RadioButtonView } from "view/RadioButtonInput";
 import { ToggleInputView } from "view/ToggleInput";
+import { StepsView } from "view/Steps";
 
 export default [
   {
@@ -71,6 +72,12 @@ export default [
     path: "/url-input",
     exact: true,
     component: URLInputView,
+  },
+  {
+    key: "StepsView",
+    path: "/steps",
+    exact: true,
+    component: StepsView,
   },
   {
     key: "PasswordInputView",
