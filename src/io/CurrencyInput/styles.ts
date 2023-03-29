@@ -68,16 +68,16 @@ export const useCurrencyInputStyles = makeStyles((theme: Theme) => ({
   baseInput: (props: CurrencyBaseProps) => ({
     display: "flex",
     padding: !props.isSelectCurrency ? "8px 12px" : 0,
-    height: props.height ?? 34,
-    width: props.width ?? 187,
-    background: `${props.background ?? theme.design.colors.white100} 0% 0% no-repeat padding-box`,
-    color: props.color ?? theme.design.colors.waz_primaryBlack,
-    borderWidth: props?.borderWidth ?? 1,
-    borderStyle: props?.borderStyle ?? "solid",
-    borderRadius: props?.borderRadius ?? theme.spacing(0.5),
-    fontWeight: 400,
+    height: 34,
+    width: 187,
+    background: `${theme.design.colors.waz_white100} 0% 0% no-repeat padding-box`,
+    color: theme.design.colors.waz_primaryBlack,
+    borderWidth: 1,
+    borderStyle: "solid",
+    borderRadius: theme.spacing(0.5),
+    fontWeight: theme.typography.fontWeightRegular,
     fontSize: theme.typography.fontSize,
-    borderColor: props?.borderColor ?? theme.design.colors.waz_primary700,
+    borderColor: theme.design.colors.waz_primary700,
     '&[data-disabled="true"]': {
       cursor: "not-allowed",
       pointerEvents: "none",
@@ -90,21 +90,21 @@ export const useCurrencyInputStyles = makeStyles((theme: Theme) => ({
       borderColor: theme.design.colors.waz_primary500,
     },
   }),
-  defaultInput: (props: CurrencyBaseProps) => ({
-    borderColor: props?.borderColor ?? theme.design.colors.primary700,
+  defaultInput: {
+    borderColor: theme.design.colors.primary700,
     "&:hover": {
       borderColor: theme.design.colors.primary500,
     },
     "&:focus, &:hover:focus, &:active": {
       borderColor: theme.design.colors.primary400,
     },
-  }),
-  focusedInput: (props: CurrencyBaseProps) => ({
-    borderColor: props?.borderColor ?? theme.design.colors.primary400,
+  },
+  focusedInput: {
+    borderColor: theme.design.colors.primary400,
     "&:hover, &:focus, &:hover:focus, &:active": {
       borderColor: theme.design.colors.primary400,
     },
-  }),
+  },
   errorInput: () => ({
     borderColor: theme.design.colors.error,
     "&:hover, &:focus, &:hover:focus, &:active": {
@@ -124,7 +124,7 @@ export const useCurrencyInputStyles = makeStyles((theme: Theme) => ({
     border: 0,
     outline: "none",
     fontFamily: theme.typography.fontFamily,
-    fontWeight: 400,
+    fontWeight: theme.typography.fontWeightRegular,
     fontSize: theme.typography.fontSize,
     paddingLeft: theme.spacing(1),
   },
@@ -156,7 +156,7 @@ export const useCurrencyInputStyles = makeStyles((theme: Theme) => ({
   },
   currencySingle: {
     fontSize: 14,
-    fontWeight: 700,
+    fontWeight: theme.typography.fontWeightBold,
     lineSpacing: 22,
     letterSpacing: 0,
     textAlign: "left",
@@ -168,7 +168,7 @@ export const useCurrencyInputStyles = makeStyles((theme: Theme) => ({
   },
   currencyMultiple: {
     fontSize: theme.typography.fontSize,
-    fontWeight: 500,
+    fontWeight: theme.typography.fontWeightMedium,
     lineSpacing: 22,
     letterSpacing: 0,
     textAlign: "left",
@@ -176,7 +176,7 @@ export const useCurrencyInputStyles = makeStyles((theme: Theme) => ({
     borderRightWidth: 1,
     borderRightColor: theme.design.colors.waz_primary600,
     borderRightStyle: "solid",
-    paddingRight: 10,
+    paddingRight: theme.spacing(1),
     display: "flex",
     justifyContent: "center",
     alignItems: "center",
@@ -204,7 +204,7 @@ export const useCurrencyIconStyles = makeStyles((theme: Theme) => ({
   }),
   currencySingle: {
     fontSize: 14,
-    fontWeight: 700,
+    fontWeight: theme.typography.fontWeightBold,
     lineSpacing: 22,
     letterSpacing: 0,
     textAlign: "left",
@@ -216,7 +216,7 @@ export const useCurrencyIconStyles = makeStyles((theme: Theme) => ({
   },
   currencyMultiple: {
     fontSize: 14,
-    fontWeight: 700,
+    fontWeight: theme.typography.fontWeightBold,
     lineSpacing: 22,
     letterSpacing: 0,
     textAlign: "left",

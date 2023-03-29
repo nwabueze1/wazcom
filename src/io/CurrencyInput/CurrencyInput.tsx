@@ -5,7 +5,6 @@ import React, { ChangeEvent, KeyboardEvent } from "react";
 import { NumericFormat } from "react-number-format";
 import { AiFillCaretDown, AiOutlineInfoCircle } from "react-icons/ai";
 import { SelectInput } from "../";
-
 import { useCurrencyInputStyles } from "./styles";
 import { CurrencyInputProps } from "./types";
 import currencies from "./currencies.json";
@@ -21,14 +20,6 @@ export const CurrencyInputField: FC<CurrencyInputProps> = ({
   hideLabel = false,
   name,
   required = false,
-  width,
-  height,
-  color,
-  background,
-  borderWidth,
-  borderColor,
-  borderStyle,
-  borderRadius,
   isDisabled = false,
   showDropdownIcon = true,
   onChange,
@@ -41,14 +32,6 @@ export const CurrencyInputField: FC<CurrencyInputProps> = ({
   const [isSelectCurrency, setIsSelectCurrency] = React.useState<boolean>(false);
   const classes = useCurrencyInputStyles({
     variant,
-    width,
-    height,
-    background,
-    color,
-    borderWidth,
-    borderColor,
-    borderStyle,
-    borderRadius,
     isSelectCurrency,
   });
 
@@ -92,7 +75,6 @@ export const CurrencyInputField: FC<CurrencyInputProps> = ({
   const handleSelectedCurrency = (currency: any) => {
     setSelectedCurrency(currency);
     setIsSelectCurrency(false);
-    console.log(currency);
   };
 
   return (
@@ -153,7 +135,6 @@ export const CurrencyInputField: FC<CurrencyInputProps> = ({
             ) : (
               <SelectInput
                 className={classes.selectInputClass}
-                borderWidth={0}
                 menuIsOpen={true}
                 onChange={handleSelectedCurrency}
                 options={currencies?.map((v) => ({

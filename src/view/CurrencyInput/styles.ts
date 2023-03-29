@@ -31,8 +31,7 @@ export const useCurrencyInputStyles = makeStyles((theme: Theme) => ({
     fontSize: theme.typography.fontSize + 2,
     color: theme.design.colors.waz_primaryBlack,
     textTransform: "capitalize",
-    margin: 0,
-    marginBottom: "15px",
+    margin: theme.spacing(0, 0, 1.5, 0),
     padding: 0,
   },
   description: {

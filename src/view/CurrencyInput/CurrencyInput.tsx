@@ -66,10 +66,7 @@ export const CurrencyInputView: FC<CurrencyInputViewProps> = () => {
               className={classes.input}
               label={inputData.basic.label}
               placeholder={inputData.basic.placeholder}
-              background="#FAFAFA"
-              width="100%"
               variant="basic"
-              iconSpacing={3}
               onEnter={handleEnter}
               onFocus={handleFocus}
               onBlur={handleBlur}
@@ -85,11 +82,8 @@ export const CurrencyInputView: FC<CurrencyInputViewProps> = () => {
               className={classes.input}
               label={inputData.noDropdown.label}
               placeholder={inputData.noDropdown.placeholder}
-              background="#FAFAFA"
-              width="100%"
               showDropdownIcon={false}
               variant="basic"
-              iconSpacing={3}
               onEnter={handleEnter}
               onFocus={handleFocus}
               onBlur={handleBlur}
@@ -105,10 +99,7 @@ export const CurrencyInputView: FC<CurrencyInputViewProps> = () => {
               className={classes.input}
               label={inputData.vertical.label}
               placeholder={inputData.vertical.placeholder}
-              background="#FAFAFA"
-              width="100%"
               variant="vertical"
-              iconSpacing={3}
               onEnter={handleEnter}
               onFocus={handleFocus}
               onBlur={handleBlur}
@@ -124,10 +115,7 @@ export const CurrencyInputView: FC<CurrencyInputViewProps> = () => {
               className={classes.input}
               label={inputData.horizontal.label}
               placeholder={inputData.horizontal.placeholder}
-              background="#FAFAFA"
-              width="100%"
               variant="horizontal"
-              iconSpacing={3}
               onEnter={handleEnter}
               onFocus={handleFocus}
               onBlur={handleBlur}
