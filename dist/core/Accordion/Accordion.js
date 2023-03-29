@@ -35,7 +35,7 @@ export var Accordion = function (_a) {
     var _d = __read(useState(isExpanded), 2), active = _d[0], setActive = _d[1];
     var classes = useAccordionStyles();
     var toggleVisiblity = function () {
-        setActive(function (v) { return !v; });
+        setActive(function (active) { return !active; });
     };
     return (_jsx("div", __assign({ className: clx(classes.root, className) }, { children: _jsxs("div", __assign({ className: clx(active ? classes.accordionActive : "") }, { children: [_jsxs("div", __assign({ className: classes.accordionHeader, onClick: toggleVisiblity }, { children: [_jsx("h3", __assign({ className: classes.accordionTitle }, { children: title })), showIcon && (_jsx("span", __assign({ className: clx(classes.accordionIcon, "accordion__icon") }, { children: _jsx(IoMdArrowDropdown, {}) })))] })), _jsx("p", __assign({ className: clx(classes.accordionContent, "accordion__content") }, { children: children }))] })) })));
 };
