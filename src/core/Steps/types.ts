@@ -10,5 +10,5 @@ export type StepsProps = Pick<CommonProps, "className"> & {
   icon?: ReactNode;
   current: number;
   isCompleted?: boolean;
-  data: StepProps[];
+  steps: StepProps[];
 };

@@ -4,13 +4,13 @@ import { useStepsStyles } from "./styles";
 import { StepsProps } from "./types";
 import { BsCheck } from "react-icons/bs";
 
-export const Steps: FC<StepsProps> = ({ className, icon, current, data, isCompleted = false }) => {
+export const Steps: FC<StepsProps> = ({ className, icon, current, steps, isCompleted = false }) => {
   const classes = useStepsStyles();
 
   return (
     <div className={clx(classes.root)}>
       <div className={clx(classes.steps, className)}>
-        {data.map((item, index) => {
+        {steps.map((item, index) => {
           return (
             <div
               className={clx(classes.stepItem)}

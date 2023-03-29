@@ -19,10 +19,10 @@ export const StepsView = () => {
         description="A step indicator is a visual representation of a user’s progress through a set of steps, guiding toward the completion of a specified process."
         classNames={{ innerContainer: classes.innerContainer }}
       >
-        <Steps data={StepData} current={current.one} />
-        <Steps data={StepData} current={current.two} />
-        <Steps data={StepData} current={current.three} />
-        <Steps data={StepData} current={current.three} isCompleted={true} />
+        <Steps steps={StepData} current={current.one} />
+        <Steps steps={StepData} current={current.two} />
+        <Steps steps={StepData} current={current.three} />
+        <Steps steps={StepData} current={current.three} isCompleted={true} />
       </Wrapper>
     </div>
   );
