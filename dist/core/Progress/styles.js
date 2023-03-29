@@ -8,7 +8,7 @@ export var useProgressStyles = makeStyles(function (theme) { return ({
         display: "flex",
         justifyContent: "space-between",
         alignItems: "center",
-        marginBottom: "2px",
+        marginBottom: 0,
     },
     label: {
         position: "relative",
@@ -18,14 +18,14 @@ export var useProgressStyles = makeStyles(function (theme) { return ({
     },
     bar: {
         position: "relative",
-        display: "inline-block",
         backgroundColor: theme.design.colors.waz_primary900,
-        border: "1px solid",
-        borderColor: theme.design.colors.waz_primary700,
+        border: "1px solid ".concat(theme.design.colors.waz_primary700),
         height: "12px",
         borderRadius: "20px",
         overflow: "hidden",
         width: "100%",
+        display: "flex",
+        alignItems: "center",
     },
     progress: function (props) {
         var _a;
