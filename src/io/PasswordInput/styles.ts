@@ -1,6 +1,5 @@
 import { Theme } from "@mui/material";
 import makeStyles from "@mui/styles/makeStyles";
-import { TextInputIconStyleProps, TextBaseProps } from "./types";
 
 export const usePasswordInputStyles = makeStyles((theme: Theme) => ({
   root: {
@@ -20,19 +19,19 @@ export const usePasswordInputStyles = makeStyles((theme: Theme) => ({
     color: theme.design.colors.waz_dangerColor100,
     margin: theme.spacing(-0.5, 0.5, 0, 0.5),
   },
-  baseInput: (props: TextBaseProps) => ({
+  baseInput: {
     display: "flex",
     padding: theme.spacing(1.2, 1.4),
-    height: props.height ?? 34,
-    width: props.width ?? "100%",
-    background: props.background ?? theme.design.colors.white100,
-    color: props.color ?? theme.design.colors.waz_primaryBlack,
-    borderWidth: props?.borderWidth ?? 1,
-    borderStyle: props?.borderStyle ?? "solid",
-    borderRadius: props?.borderRadius ?? 4,
+    height: 34,
+    width: "100%",
+    background: theme.design.colors.white100,
+    color: theme.design.colors.waz_primaryBlack,
+    borderWidth: 1,
+    borderStyle: "solid",
+    borderRadius: 4,
     fontWeight: theme.typography.fontWeightRegular,
     fontSize: theme.typography.fontSize,
-    borderColor: props?.borderColor ?? theme.design.colors.waz_primary700,
+    borderColor: theme.design.colors.waz_primary700,
 
     "&:hover": {
       borderColor: theme.design.colors.waz_primary500,
@@ -40,43 +39,43 @@ export const usePasswordInputStyles = makeStyles((theme: Theme) => ({
     "&:focus, &:hover:focus, &:active": {
       borderColor: theme.design.colors.waz_primary400,
     },
-  }),
-  baseTextArea: (props: TextBaseProps) => ({
+  },
+  baseTextArea: {
     display: "flex",
     padding: 10,
     outline: 0,
     width: "100%",
     fontFamily: theme.design.font.openSans,
-    background: props.background ?? theme.design.colors.white100,
-    color: props.color ?? theme.design.colors.waz_primaryBlack,
-    borderWidth: props?.borderWidth ?? 1,
-    borderStyle: props?.borderStyle ?? "solid",
-    borderRadius: props?.borderRadius ?? 4,
+    background: theme.design.colors.white100,
+    color: theme.design.colors.waz_primaryBlack,
+    borderWidth: 1,
+    borderStyle: "solid",
+    borderRadius: 4,
     fontWeight: theme.typography.fontWeightRegular,
     fontSize: theme.typography.fontSize,
-    borderColor: props?.borderColor ?? theme.design.colors.primary700,
+    borderColor: theme.design.colors.primary700,
     "&:hover": {
       borderColor: theme.design.colors.waz_primary500,
     },
     "&:focus, &:hover:focus, &:active": {
       borderColor: theme.design.colors.waz_primary400,
     },
-  }),
-  defaultInput: (props: TextBaseProps) => ({
-    borderColor: props?.borderColor ?? theme.design.colors.waz_primary700,
+  },
+  defaultInput: {
+    borderColor: theme.design.colors.waz_primary700,
     "&:hover": {
       borderColor: theme.design.colors.waz_primary500,
     },
     "&:focus, &:hover:focus, &:active": {
       borderColor: theme.design.colors.waz_primary400,
     },
-  }),
-  focusedInput: (props: TextBaseProps) => ({
-    borderColor: props?.borderColor ?? theme.design.colors.waz_primary400,
+  },
+  focusedInput: {
+    borderColor: theme.design.colors.waz_primary400,
     "&:hover, &:focus, &:hover:focus, &:active": {
       borderColor: theme.design.colors.waz_primary400,
     },
-  }),
+  },
   errorInput: () => ({
     borderColor: theme.design.colors.error,
     "&:hover, &:focus, &:hover:focus, &:active": {
@@ -132,8 +131,4 @@ export const useTextInputIconStyles = makeStyles(() => ({
     alignSelf: "center",
     flexShrink: 0,
   },
-  iconSpacing: (props: TextInputIconStyleProps) => ({
-    marginRight: `${props.marginRight}px`,
-    marginLeft: `${props.marginLeft}px`,
-  }),
 }));

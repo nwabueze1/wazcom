@@ -4,26 +4,7 @@ import { Button } from "../../core";
 import { usePasswordInputStyles, useTextInputIconStyles } from "./styles";
 import { ConfigProps, InputIconProps, TextFieldProps } from "./types";
 import { BsEye, BsEyeSlash } from "react-icons/bs";
-import { PasswordValidation } from "./helper";
-
-export const initialConfig = {
-  uppercase: {
-    limit: 1,
-    required: true,
-  },
-  symbol: {
-    limit: 1,
-    required: true,
-  },
-  length: {
-    limit: 8,
-    required: true,
-  },
-  digit: {
-    limit: 1,
-    required: true,
-  },
-};
+import { initialConfig, PasswordValidation } from "./helper";
 
 export const PasswordInput: FC<TextFieldProps & { config?: Partial<ConfigProps> }> = ({
   className,
@@ -39,15 +20,6 @@ export const PasswordInput: FC<TextFieldProps & { config?: Partial<ConfigProps> 
   onEnter,
   onBlur,
   required = false,
-  iconSpacing,
-  width,
-  height,
-  color,
-  background,
-  borderWidth,
-  borderColor,
-  borderStyle,
-  borderRadius,
   classNames,
   config = initialConfig,
   ...props
@@ -59,16 +31,7 @@ export const PasswordInput: FC<TextFieldProps & { config?: Partial<ConfigProps> 
 
   const PasswordConfig = { ...initialConfig, ...config };
 
-  const classes = usePasswordInputStyles({
-    width,
-    height,
-    background,
-    color,
-    borderWidth,
-    borderColor,
-    borderStyle,
-    borderRadius,
-  });
+  const classes = usePasswordInputStyles();
 
   const handlePasswordVisibility = (value: "password" | "text") => {
     setType(value);
@@ -148,31 +111,33 @@ export const PasswordInput: FC<TextFieldProps & { config?: Partial<ConfigProps> 
           onKeyDown={handleOnKeyDown}
           {...props}
         />
-        <>
-          {type === "password" ? (
-            <>
-              <Button
-                className={classes.iconButton}
-                onClick={() => handlePasswordVisibility("text")}
-              >
-                <InputIcon marginLeft={iconSpacing}>
-                  <BsEye />
-                </InputIcon>
-              </Button>
-            </>
-          ) : (
-            <>
-              <Button
-                className={classes.iconButton}
-                onClick={() => handlePasswordVisibility("password")}
-              >
-                <InputIcon marginLeft={iconSpacing}>
-                  <BsEyeSlash />
-                </InputIcon>
-              </Button>
-            </>
-          )}
-        </>
+        {Boolean(value) && (
+          <>
+            {type === "password" ? (
+              <>
+                <Button
+                  className={classes.iconButton}
+                  onClick={() => handlePasswordVisibility("text")}
+                >
+                  <InputIcon>
+                    <BsEye />
+                  </InputIcon>
+                </Button>
+              </>
+            ) : (
+              <>
+                <Button
+                  className={classes.iconButton}
+                  onClick={() => handlePasswordVisibility("password")}
+                >
+                  <InputIcon>
+                    <BsEyeSlash />
+                  </InputIcon>
+                </Button>
+              </>
+            )}
+          </>
+        )}
       </div>
       {helperText && (
         <span
@@ -192,7 +157,7 @@ export const PasswordInput: FC<TextFieldProps & { config?: Partial<ConfigProps> 
 
 const InputIcon = ({ children, marginLeft, marginRight, ...rest }: InputIconProps) => {
   const classes = useTextInputIconStyles({ marginLeft, marginRight });
-  const _className = clx(classes.root, classes.iconSpacing);
+  const _className = clx(classes.root);
   const _children = isValidElement(children) ? cloneElement(children, {}) : children;
 
   return (
