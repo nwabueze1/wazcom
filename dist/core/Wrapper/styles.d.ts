@@ -1,1 +1,1 @@
-export declare const useWrapperStyles: (props?: any) => import("@mui/styles").ClassNameMap<"root" | "header" | "input" | "title" | "description" | "containerWrapper" | "headerContainer" | "wrapper" | "descriptionText">;
+export declare const useWrapperStyles: (props?: any) => import("@mui/styles").ClassNameMap<"root" | "header" | "title" | "description" | "container" | "containerWrapper" | "wrapper" | "descriptionText" | "containerInner">;
