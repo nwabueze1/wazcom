@@ -15,7 +15,7 @@ export const Accordion: FC<AccordionProps> = ({
   const classes = useAccordionStyles();
 
   const toggleVisiblity = () => {
-    setActive((v) => !v);
+    setActive((active) => !active);
   };
 
   return (
