@@ -49,7 +49,7 @@ export const useWrapperStyles = makeStyles((theme: Theme) => ({
     fontSize: theme.typography.h5.fontSize,
     lineSpacing: theme.spacing(22),
   },
-  containerInner: {
+  innerContainer: {
     width: "100%",
     display: "flex",
     justifyContent: "space-between",

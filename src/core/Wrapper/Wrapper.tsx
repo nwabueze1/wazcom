@@ -25,7 +25,7 @@ export const Wrapper: FC<WrapperProps> = ({
           </div>
         )}
         <div className={classes.containerWrapper}>
-          <div className={clx(classes.containerInner, classNames?.containerInner)}>{children}</div>
+          <div className={clx(classes.innerContainer, classNames?.innerContainer)}>{children}</div>
         </div>
       </div>
     </div>

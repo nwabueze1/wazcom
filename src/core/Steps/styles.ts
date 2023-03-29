@@ -44,8 +44,7 @@ export const useStepsStyles = makeStyles((theme: BaseTheme) => ({
       top: theme.spacing(2),
       left: "-50%",
       zIndex: 3,
-      borderBottom: "1px solid",
-      borderBottomColor: theme.design.colors.waz_primary500,
+      borderBottom: `1px solid theme.design.colors.waz_primary500`,
     },
     "&:first-child::before": {
       content: "none",
@@ -63,7 +62,7 @@ export const useStepsStyles = makeStyles((theme: BaseTheme) => ({
     justifyContent: "center",
     alignItems: "center",
     zIndex: 4,
-    borderRadius: theme.spacing(0.5),
+    borderRadius: 4,
     backgroundColor: theme.design.colors.waz_primary900,
     marginBottom: theme.spacing(0.5),
     "&[data-active=true]": {
