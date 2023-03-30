@@ -1,5 +1,4 @@
 import makeStyles from "@mui/styles/makeStyles";
-/** !!-- Remember to update the function name !! */
 export var useTootipStyles = makeStyles(function (theme) { return ({
     root: {
         width: "fit-content",
@@ -8,27 +7,25 @@ export var useTootipStyles = makeStyles(function (theme) { return ({
         width: "fit-content",
     },
     tooltipContainer: {
-        transitionDuration: "0.3s",
-        transitionProperty: "all",
-        transitionTimingFunction: "ease-in-out",
         position: "relative",
-        width: "fit-content",
-        maxWidth: "200px",
+        minWidth: 160,
+        maxWidth: 200,
         display: "flex",
     },
     tooltip: {
-        border: "".concat(theme.design.colors.waz_primary500, " 1px solid"),
-        borderRadius: 4,
-        backgroundColor: theme.design.colors.error,
+        borderRadius: theme.spacing(0.5),
         width: "100%",
-        padding: theme.spacing(1),
-        color: theme.design.colors.waz_grey1,
-        fontSize: 10,
-        lineHeight: "18px",
+        padding: theme.spacing(1.5, 2),
+        backgroundColor: theme.design.colors.waz_white,
+        fontSize: theme.typography.fontSize,
+        border: "1px solid ".concat(theme.design.colors.waz_primary500),
     },
     tooltipIcon: {
-        color: theme.design.colors.waz_primary500,
-        margin: "auto 0",
+        color: theme.design.colors.waz_mercury,
+        margin: theme.spacing(0),
+        "&:hover": {
+            color: theme.design.colors.waz_primary500,
+        },
     },
     tooltipArrow: {
         position: "absolute",
@@ -38,7 +35,7 @@ export var useTootipStyles = makeStyles(function (theme) { return ({
         borderStyle: "solid",
         width: "10px",
         height: "10px",
-        borderRadius: "0px 0px 3px 0px",
+        borderRadius: theme.spacing(0, 0, 0.5, 0),
     },
     tooltipArrowBottom: {
         left: 0,
@@ -81,119 +78,10 @@ export var useTootipStyles = makeStyles(function (theme) { return ({
         borderRadius: "100%",
         backgroundColor: theme.design.colors.waz_primary700,
     },
-    main: {
-        width: "100%",
-        display: "flex",
-        justifyContent: "space-between",
-        alignItems: "center",
-    },
-    message: {
-        color: theme.design.colors.grey100,
-        letterSpacing: 0,
-        fontSize: 10,
-        fontWeight: "normal",
-        padding: "8px 30px",
-        textAlign: "left",
-        width: "100%",
-    },
-    header: {
-        display: "flex",
-        justifyContent: "start",
-        alignItems: "center",
-        gap: 10,
-    },
     title: {
-        fontSize: 14,
+        fontSize: theme.typography.fontSize + 2,
         fontWeight: "normal",
         color: theme.design.colors.grey100,
         margin: 0,
-    },
-    success: {
-        color: theme.design.colors.waz_primary100,
-        borderLeftColor: theme.design.colors.waz_primary100,
-    },
-    error: {
-        color: theme.design.colors.error,
-        borderLeftColor: theme.design.colors.error,
-    },
-    info: {
-        color: theme.design.colors.info,
-        borderLeftColor: theme.design.colors.info,
-    },
-    warning: {
-        color: theme.design.colors.warning,
-        borderLeftColor: theme.design.colors.warning,
-    },
-    notificationContainer: {
-        fontSize: 14,
-        boxSizing: "border-box",
-        position: "fixed",
-        zIndex: 999999,
-        display: "flex",
-        flexDirection: "column",
-        gap: 5,
-    },
-    topRight: {
-        top: 12,
-        right: 12,
-        transition: "transform .6s ease-in-out",
-        animation: "$toastInRight .7s",
-    },
-    bottomRight: {
-        bottom: 12,
-        right: 12,
-        transition: "transform .6s ease-in-out",
-        animation: "$toastInRight .7s",
-    },
-    topLeft: {
-        top: 12,
-        left: 12,
-        transition: "transform .6s ease-in",
-        animation: "$toastInLeft .7s",
-    },
-    bottomLeft: {
-        bottom: 12,
-        left: 12,
-        transition: "transform .6s ease-in",
-        animation: "$toastInLeft .7s",
-    },
-    notification: {
-        background: theme.design.colors.waz_white,
-        transition: ".3s ease",
-        position: "relative",
-        pointerEvents: "auto",
-        overflow: "hidden",
-        margin: "0 0 6px",
-        padding: 30,
-        marginBottom: 15,
-        width: 300,
-        maxHeight: 100,
-        borderRadius: 3,
-        boxShadow: "0 0 10px ".concat(theme.design.colors.waz_black400),
-        color: theme.design.colors.black,
-        opacity: 0.9,
-        backgroundPosition: 15,
-        backgroundRepeat: "no-repeat",
-        "&:hover": {
-            boxShadow: " 0 0 12px".concat(theme.design.colors.waz_white),
-            opacity: 1,
-            cursor: "pointer",
-        },
-    },
-    "@keyframes toastInRight": {
-        from: {
-            transform: "translateX(100%)",
-        },
-        to: {
-            transform: "translateX(0)",
-        },
-    },
-    "@keyframes toastInLeft": {
-        from: {
-            transform: "translateX(-100%)",
-        },
-        to: {
-            transform: "translateX(0)",
-        },
     },
 }); });
