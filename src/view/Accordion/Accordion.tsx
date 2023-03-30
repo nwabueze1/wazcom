@@ -11,11 +11,13 @@ export const AccordionView = () => {
         title="Accordion"
         description="The accordion component delivers large amounts of content in a small space through progressive disclosure. The header title give the user a high level overview of the content allowing the user to decide which sections to read."
       >
-        {AccordionData.map((item) => (
-          <Accordion title={item.title} key={item.title}>
-            {item.content}
-          </Accordion>
-        ))}
+        <div className={classes.container}>
+          {AccordionData.map((item) => (
+            <Accordion title={item.title} key={item.title}>
+              {item.content}
+            </Accordion>
+          ))}
+        </div>
       </Wrapper>
     </div>
   );

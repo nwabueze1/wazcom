@@ -5,4 +5,7 @@ export const AccordionStyles = makeStyles((theme: Theme) => ({
   root: {
     padding: theme.spacing(2),
   },
+  container: {
+    width: 426,
+  },
 }));
