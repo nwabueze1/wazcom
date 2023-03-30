@@ -59,6 +59,9 @@ export const CurrencyInputView: FC<CurrencyInputViewProps> = () => {
         <Wrapper
           title="Currency Input"
           description="The  Currency Inputs is used to collect currency types and values from users."
+          classNames={{
+            innerContainer: classes.innerContainer,
+          }}
         >
           <h4 className={classes.cardTitle}>{inputData.basic.title}</h4>
           <div className={classes.wrapper}>
@@ -75,7 +78,12 @@ export const CurrencyInputView: FC<CurrencyInputViewProps> = () => {
           </div>
         </Wrapper>
         {/* Without Dropdown */}
-        <Wrapper showHeader={false}>
+        <Wrapper
+          showHeader={false}
+          classNames={{
+            innerContainer: classes.innerContainer,
+          }}
+        >
           <h4 className={classes.cardTitle}>{inputData.noDropdown.title}</h4>
           <div className={classes.wrapper}>
             <CurrencyInputField
@@ -92,7 +100,12 @@ export const CurrencyInputView: FC<CurrencyInputViewProps> = () => {
           </div>
         </Wrapper>
         {/* Vertical */}
-        <Wrapper showHeader={false}>
+        <Wrapper
+          showHeader={false}
+          classNames={{
+            innerContainer: classes.innerContainer,
+          }}
+        >
           <h4 className={classes.cardTitle}>{inputData.vertical.title}</h4>
           <div className={classes.wrapper}>
             <CurrencyInputField
@@ -108,7 +121,12 @@ export const CurrencyInputView: FC<CurrencyInputViewProps> = () => {
           </div>
         </Wrapper>
         {/* Horizontal */}
-        <Wrapper showHeader={false}>
+        <Wrapper
+          showHeader={false}
+          classNames={{
+            innerContainer: classes.innerContainer,
+          }}
+        >
           <h4 className={classes.cardTitle}>{inputData.horizontal.title}</h4>
           <div className={classes.wrapperHorizontal}>
             <CurrencyInputField

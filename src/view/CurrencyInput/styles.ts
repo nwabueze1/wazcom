@@ -12,6 +12,10 @@ export const useCurrencyInputStyles = makeStyles((theme: Theme) => ({
     justifyContent: "start",
     gap: theme.spacing(5),
   },
+  innerContainer: {
+    flexDirection: "column",
+    alignItems: "flex-start",
+  },
   header: {
     width: "70vw",
     display: "flex",
