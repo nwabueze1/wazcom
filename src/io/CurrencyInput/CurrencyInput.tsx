@@ -5,7 +5,6 @@ import React, { ChangeEvent, KeyboardEvent } from "react";
 import { NumericFormat } from "react-number-format";
 import { AiFillCaretDown, AiOutlineInfoCircle } from "react-icons/ai";
 import { SelectInput } from "../";
-
 import { useCurrencyInputStyles } from "./styles";
 import { CurrencyInputProps } from "./types";
 import currencies from "./currencies.json";
@@ -21,14 +20,8 @@ export const CurrencyInputField: FC<CurrencyInputProps> = ({
   hideLabel = false,
   name,
   required = false,
-  width,
-  height,
-  color,
-  background,
-  borderWidth,
-  borderColor,
-  borderStyle,
-  borderRadius,
+  isDisabled = false,
+  showDropdownIcon = true,
   onChange,
   onFocus,
   onEnter,
@@ -39,14 +32,6 @@ export const CurrencyInputField: FC<CurrencyInputProps> = ({
   const [isSelectCurrency, setIsSelectCurrency] = React.useState<boolean>(false);
   const classes = useCurrencyInputStyles({
     variant,
-    width,
-    height,
-    background,
-    color,
-    borderWidth,
-    borderColor,
-    borderStyle,
-    borderRadius,
     isSelectCurrency,
   });
 
@@ -93,7 +78,13 @@ export const CurrencyInputField: FC<CurrencyInputProps> = ({
   };
 
   return (
-    <div className={clx(classes.root, className)}>
+    <div
+      className={clx(
+        variant !== "horizontal" && classes.root,
+        variant === "horizontal" && classes.horizontalRoot,
+        className,
+      )}
+    >
       {variant !== "basic" && (
         <div className={classes.selectContainer}>
           <SelectInput
@@ -129,6 +120,7 @@ export const CurrencyInputField: FC<CurrencyInputProps> = ({
             (isError || errors) && classes.errorInput,
             isFocused && classes.focusedInput,
           )}
+          data-disabled={isDisabled}
         >
           <div className={clx(classes.currencySelectRoot)}>
             {!isArray(currency) && currency !== undefined && currency !== "" ? (
@@ -137,13 +129,12 @@ export const CurrencyInputField: FC<CurrencyInputProps> = ({
               <div onClick={() => setIsSelectCurrency(true)}>
                 <div className={classes.currencyMultiple}>
                   {selectedCurrency.symbol ?? "$"}
-                  <AiFillCaretDown />
+                  {showDropdownIcon && <AiFillCaretDown />}
                 </div>
               </div>
             ) : (
               <SelectInput
                 className={classes.selectInputClass}
-                borderWidth={0}
                 menuIsOpen={true}
                 onChange={handleSelectedCurrency}
                 options={currencies?.map((v) => ({
