@@ -1,12 +1,13 @@
-import { FC, useMemo } from "react";
+import { FC, useMemo, useState, useEffect } from "react";
 import { useSelector } from "react-redux";
 import { useMbmcBlock6Styles } from "./styles";
 import { MbmcBlock6Props, TCategory } from "./types";
-import { MbmcCard } from "../../../../templates/mbmc/components/MbmcCard";
+import { MbmcCard, MbmcCardProps } from "../../../../templates/mbmc/components/MbmcCard";
 import clx from "classnames";
 import { handleElementClick } from "../../utilities";
 import { TAppState } from "../../../types";
 import { CoreMenuFields } from "../../models";
+import { initialClientCategories, useGetClientCategories } from "./helpers";
 
 export const MbmcBlock6: FC<MbmcBlock6Props> = ({
   mode = "view",
@@ -15,10 +16,28 @@ export const MbmcBlock6: FC<MbmcBlock6Props> = ({
   index,
   heading,
   description,
+  menu_uuid,
+  isSsr = true,
 }) => {
   const classes = useMbmcBlock6Styles();
   const { restaurant } = useSelector<TAppState, TAppState>((state) => state);
+  const [clientCategories, setClientCategories] =
+    useState<MbmcCardProps[]>(initialClientCategories);
+  const getClientCategories = useGetClientCategories();
+
+  useEffect(() => {
+    if (isSsr || !menu_uuid) return;
+
+    const fetchClientCategories = async () => {
+      const clientCategories = await getClientCategories({ uuid: menu_uuid });
+      setClientCategories(clientCategories);
+    };
+
+    fetchClientCategories();
+  }, [menu_uuid]);
+
   const categories = useMemo(() => {
+    if (!restaurant?.menu) return undefined;
     const menu = restaurant?.menu as CoreMenuFields;
     const menuCategories = menu?.menuCategories as unknown as TCategory[];
 
@@ -43,7 +62,7 @@ export const MbmcBlock6: FC<MbmcBlock6Props> = ({
   }, []);
 
   const displayCategories = () =>
-    categories.map((category, index) => (
+    (categories ?? clientCategories).map((category, index) => (
       <MbmcCard key={index} {...category} mode={mode} handleClick={handleClick} />
     ));
 

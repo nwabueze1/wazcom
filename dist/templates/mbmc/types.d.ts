@@ -37,6 +37,7 @@ export type MbmcCommonProps = {
     classNames?: {
         [key: string]: string;
     };
+    isSsr?: boolean;
 };
 export type MbmcTemplatePropType = {
     component: any;

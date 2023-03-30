@@ -12,3 +12,4 @@ export type TCategory = {
   title: string;
   menuItems: { image_url: string }[];
 }
+
