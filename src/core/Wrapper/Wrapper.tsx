@@ -10,6 +10,7 @@ export const Wrapper: FC<WrapperProps> = ({
   className,
   classNames,
   showHeader = true,
+  showBody = true,
 }) => {
   const classes = useWrapperStyles();
 
@@ -18,15 +19,19 @@ export const Wrapper: FC<WrapperProps> = ({
       <div className={classes.container}>
         {showHeader && (
           <div className={classes.header}>
-            <h1 className={classes.title}>{title} </h1>
+            <h1 className={clx(classes.title, classNames?.title)}>{title} </h1>
             <div className={classes.description}>
               <p className={classes.descriptionText}>{description}</p>
             </div>
           </div>
         )}
-        <div className={classes.containerWrapper}>
-          <div className={clx(classes.innerContainer, classNames?.innerContainer)}>{children}</div>
-        </div>
+        {showBody && (
+          <div className={classes.containerWrapper}>
+            <div className={clx(classes.innerContainer, classNames?.innerContainer)}>
+              {children}
+            </div>
+          </div>
+        )}
       </div>
     </div>
   );
