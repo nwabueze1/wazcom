@@ -13,7 +13,6 @@ export const MenuCard: FC<MenuCardProps> = ({
   amount,
   description,
   title,
-  status,
   image: { src },
 }) => {
   const classes = useMenuCardStyles();
