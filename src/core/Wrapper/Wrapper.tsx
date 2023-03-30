@@ -8,13 +8,14 @@ export const Wrapper: FC<WrapperProps> = ({
   title,
   description,
   className,
+  classNames,
   showHeader = true,
 }) => {
   const classes = useWrapperStyles();
 
   return (
     <div className={clx(classes.root, className)}>
-      <div className={classes.headerContainer}>
+      <div className={classes.container}>
         {showHeader && (
           <div className={classes.header}>
             <h1 className={classes.title}>{title} </h1>
@@ -23,9 +24,9 @@ export const Wrapper: FC<WrapperProps> = ({
             </div>
           </div>
         )}
-      </div>
-      <div className={classes.containerWrapper}>
-        <div className={classes.input}>{children}</div>
+        <div className={classes.containerWrapper}>
+          <div className={clx(classes.innerContainer, classNames?.innerContainer)}>{children}</div>
+        </div>
       </div>
     </div>
   );

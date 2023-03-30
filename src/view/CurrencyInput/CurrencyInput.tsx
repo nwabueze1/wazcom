@@ -1,9 +1,9 @@
 import { CssBaseline } from "@mui/material";
 import { FC, useState } from "react";
 import { CurrencyInputField } from "../../io";
-
+import { Wrapper } from "../../core";
 import { useCurrencyInputStyles } from "./styles";
-import { CurrencyInputViewProps, InputDataProps } from "./types";
+import { CurrencyInputViewProps } from "./type";
 
 export const CurrencyInputView: FC<CurrencyInputViewProps> = () => {
   const [value] = useState(0);
@@ -20,47 +20,127 @@ export const CurrencyInputView: FC<CurrencyInputViewProps> = () => {
 
   const classes = useCurrencyInputStyles();
 
-  const inputData: InputDataProps[] = [
-    { name: "TextInput", label: "Default", placeholder: "Placeholder", helperText: "" },
-    // { name: 'TextInput', label: 'Hover', placeholder: 'Placeholder', helperText: '' },
-    // { name: 'TextInput',  label: 'Active', placeholder: 'Placeholder', helperText: '', isSuccess: true },
-    // { name: 'TextInput',  label: 'Error', placeholder: 'Placeholder', helperText: 'Error Message', isError: true },
-    // { name: 'TextInput', label: 'Success', placeholder: 'Placeholder', helperText: 'Success Message', isSuccess: true },
-  ];
+  const inputData = {
+    basic: {
+      title: "Basic currency input",
+      name: "basic",
+      label: "Default",
+      placeholder: "Placeholder",
+      helperText: "",
+    },
+    noDropdown: {
+      title: "Basic currency input(Without dropdown)",
+      name: "noDropdown",
+      label: "Default",
+      placeholder: "Placeholder",
+      helperText: "",
+    },
+    vertical: {
+      title: "Vertical arrangement input",
+      name: "vertical",
+      label: "Amount",
+      placeholder: "Placeholder",
+      helperText: "",
+    },
+    horizontal: {
+      title: "Horizontal arrangement input",
+      name: "vertical",
+      label: "Amount",
+      placeholder: "Placeholder",
+      helperText: "",
+    },
+  };
 
   return (
     <div className={classes.root}>
       <CssBaseline />
       <div className={classes.container}>
-        <div className={classes.header}>
-          <h1 className={classes.title}>Currency Input</h1>
-          <div className={classes.description}>
-            <p className={classes.descriptionText}>
-              Currency Inputs is used to collect currency types and values from users.
-            </p>
+        {/* Default */}
+        <Wrapper
+          title="Currency Input"
+          description="The  Currency Inputs is used to collect currency types and values from users."
+          classNames={{
+            innerContainer: classes.innerContainer,
+          }}
+        >
+          <h4 className={classes.cardTitle}>{inputData.basic.title}</h4>
+          <div className={classes.wrapper}>
+            <CurrencyInputField
+              className={classes.input}
+              label={inputData.basic.label}
+              placeholder={inputData.basic.placeholder}
+              variant="basic"
+              onEnter={handleEnter}
+              onFocus={handleFocus}
+              onBlur={handleBlur}
+              value={value}
+            />
           </div>
-        </div>
-        <div className={classes.inputContainer}>
-          <div className={classes.inputs}>
-            {inputData.map((item: InputDataProps, index) => (
-              <CurrencyInputField
-                key={`${item.label}-${index + Math.random()}`}
-                className={classes.input}
-                label={item.label}
-                placeholder={item.placeholder}
-                isError={item.isError}
-                isSuccess={item.isSuccess}
-                // currency={'$'}
-                variant="basic"
-                iconSpacing={3}
-                onEnter={handleEnter}
-                onFocus={handleFocus}
-                onBlur={handleBlur}
-                value={value}
-              />
-            ))}
+        </Wrapper>
+        {/* Without Dropdown */}
+        <Wrapper
+          showHeader={false}
+          classNames={{
+            innerContainer: classes.innerContainer,
+          }}
+        >
+          <h4 className={classes.cardTitle}>{inputData.noDropdown.title}</h4>
+          <div className={classes.wrapper}>
+            <CurrencyInputField
+              className={classes.input}
+              label={inputData.noDropdown.label}
+              placeholder={inputData.noDropdown.placeholder}
+              showDropdownIcon={false}
+              variant="basic"
+              onEnter={handleEnter}
+              onFocus={handleFocus}
+              onBlur={handleBlur}
+              value={value}
+            />
           </div>
-        </div>
+        </Wrapper>
+        {/* Vertical */}
+        <Wrapper
+          showHeader={false}
+          classNames={{
+            innerContainer: classes.innerContainer,
+          }}
+        >
+          <h4 className={classes.cardTitle}>{inputData.vertical.title}</h4>
+          <div className={classes.wrapper}>
+            <CurrencyInputField
+              className={classes.input}
+              label={inputData.vertical.label}
+              placeholder={inputData.vertical.placeholder}
+              variant="vertical"
+              onEnter={handleEnter}
+              onFocus={handleFocus}
+              onBlur={handleBlur}
+              value={value}
+            />
+          </div>
+        </Wrapper>
+        {/* Horizontal */}
+        <Wrapper
+          showHeader={false}
+          classNames={{
+            innerContainer: classes.innerContainer,
+          }}
+        >
+          <h4 className={classes.cardTitle}>{inputData.horizontal.title}</h4>
+          <div className={classes.wrapperHorizontal}>
+            <CurrencyInputField
+              className={classes.input}
+              label={inputData.horizontal.label}
+              placeholder={inputData.horizontal.placeholder}
+              variant="horizontal"
+              onEnter={handleEnter}
+              onFocus={handleFocus}
+              onBlur={handleBlur}
+              value={value}
+            />
+          </div>
+        </Wrapper>
       </div>
     </div>
   );

@@ -7,6 +7,7 @@ export type InputDataProps = {
   placeholder: string;
   helperText: string;
   isError?: boolean;
+  title?: string;
   isSuccess?: boolean;
   errors?: {
     message?: string;

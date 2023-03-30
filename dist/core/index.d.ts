@@ -19,6 +19,8 @@ export * from "./DateTimePicker";
 export * from "./LazyImage";
 export * from "./Selector";
 export * from "./Tag";
+export * from "./Steps";
+export * from "./Progress";
 export * from "./Button";
 export * from "./Tab";
 export * from "./Spinner";
