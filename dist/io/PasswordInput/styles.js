@@ -19,7 +19,7 @@ export var usePasswordInputStyles = makeStyles(function (theme) { return ({
     },
     baseInput: {
         display: "flex",
-        padding: theme.spacing(1.2, 1.4),
+        padding: theme.spacing(1, 1.5),
         height: 34,
         width: "100%",
         background: theme.design.colors.white100,
@@ -39,7 +39,7 @@ export var usePasswordInputStyles = makeStyles(function (theme) { return ({
     },
     baseTextArea: {
         display: "flex",
-        padding: 10,
+        padding: theme.spacing(2),
         outline: 0,
         width: "100%",
         fontFamily: theme.design.font.openSans,
