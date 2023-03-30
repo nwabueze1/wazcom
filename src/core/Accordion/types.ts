@@ -1,9 +1,22 @@
+import { ReactNode } from "react";
 import { CommonProps } from "../../types";
-import { AccordionProps as MuiAccordionProps } from "@mui/material";
 
-export type AccordionProps = Omit<MuiAccordionProps, "title"> &
-  CommonProps & {
-    title: string | JSX.Element;
-    displayExpandIcon?: boolean;
-    handleClick?: () => void;
-  };
+type ClassName = Pick<CommonProps, "className">;
+
+export type AccordionItemProps = {
+  title: string;
+  content: string;
+  active: boolean;
+  allowMultiple?: boolean;
+  onToggle: () => void;
+  showIcon?: boolean;
+};
+
+export type AccordionProps = ClassName & {
+  title: string;
+  children: ReactNode;
+  showIcon?: boolean;
+  allowMultiple?: boolean;
+  displayExpandIcon?: boolean;
+  isExpanded?: boolean;
+};

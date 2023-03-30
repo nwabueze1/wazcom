@@ -16,6 +16,7 @@ import { CardView } from "../view/Card";
 import { CheckBoxInputView } from "view/CheckBoxInput";
 import { RadioButtonView } from "view/RadioButtonInput";
 import { ToggleInputView } from "view/ToggleInput";
+import { AccordionView } from "view/Accordion";
 import { ProgressView } from "view/Progress";
 
 export default [
@@ -108,6 +109,12 @@ export default [
     path: "/buttons",
     exact: true,
     component: ButtonView,
+  },
+  {
+    key: "AccordionView",
+    path: "/accordion",
+    exact: true,
+    component: AccordionView,
   },
   {
     key: "TabsView",

@@ -45,6 +45,8 @@ export type CurrencyInputProps = CurrencyBaseProps &
     variant: "basic" | "vertical" | "horizontal";
     currency?: string | string[];
     placeholder?: string;
+    isDisabled?: boolean;
+    showDropdownIcon?: boolean;
     label?: string;
     className?: string;
     max?: number;
