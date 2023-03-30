@@ -5,7 +5,7 @@ export var useAccordionStyles = makeStyles(function (theme) {
         root: (_a = {
                 position: "relative",
                 cursor: "pointer",
-                width: 426
+                width: "100%"
             },
             _a[theme.breakpoints.down("sm")] = {
                 width: "100%",
