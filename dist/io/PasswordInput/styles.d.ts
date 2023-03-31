@@ -1,0 +1,2 @@
+export declare const usePasswordInputStyles: (props?: any) => import("@mui/styles").ClassNameMap<"root" | "input" | "label" | "required" | "baseInput" | "baseTextArea" | "defaultInput" | "focusedInput" | "errorInput" | "successInput" | "iconButton" | "labelWrapper" | "helperTextDefault" | "helperTextSuccess" | "helperTextError">;
+export declare const useTextInputIconStyles: (props?: any) => import("@mui/styles").ClassNameMap<"root">;

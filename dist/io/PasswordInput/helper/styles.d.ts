@@ -1,0 +1,1 @@
+export declare const usePasswordValidationStyles: (props?: any) => import("@mui/styles").ClassNameMap<"container" | "containerItem" | "iconWrapper" | "iconSuccess" | "iconError" | "labelSuccess" | "labelError" | "labelDefault">;

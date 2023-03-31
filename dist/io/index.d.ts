@@ -8,6 +8,7 @@ export * from "./TextInput";
 export * from "./ToggleInput";
 export * from "./PhoneNumberInput";
 export * from "./RadioButtonInput";
+export * from "./PasswordInput";
 export * from "./CurrencyInput";
 export * from "./DynamicInput";
 export * from "./EditableTextInput";
