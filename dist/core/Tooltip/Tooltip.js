@@ -31,7 +31,7 @@ import clx from "classnames";
 import { useFloating, shift, offset, flip, arrow } from "@floating-ui/react-dom";
 import { RiErrorWarningLine } from "react-icons/ri";
 import { useTootipStyles } from "./style";
-export var Tootip = function (_a) {
+export var Tooltip = function (_a) {
     var children = _a.children, content = _a.content, position = _a.position;
     var classes = useTootipStyles();
     var arrowRef = useRef(null);

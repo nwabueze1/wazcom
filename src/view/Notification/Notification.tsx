@@ -1,94 +1,60 @@
-import { FC, useState } from "react";
-import { Notification, Tag, Tootip } from "../../core";
+import { FC } from "react";
+import { Tooltip, Wrapper } from "../../core";
 
 import { useNotificationStyles } from "./styles";
 import { NotificationProps } from "./types";
 
 export const NotificationView: FC<NotificationProps> = () => {
   const classes = useNotificationStyles();
-  const [list, setList] = useState<any[]>([]);
-
-  const showToast = () => {
-    setList([
-      ...list,
-      {
-        id: Math.floor(Math.random() * 101 + 1),
-        title: "Success",
-        description: "This is a success toast component",
-        message: "This is a success toast component",
-        status: "success",
-      },
-    ]);
-  };
-
-  const handleRemove = () => null;
 
   return (
     <div className={classes.root}>
-      <button onClick={() => showToast()} className={classes.button}>
-        Click to see notification
-      </button>
-
-      <div className={classes.tooltipContainer}>
-        <Tootip
-          content="You can either grant permission to a user by role or permissions. Switch the button below to make a choice"
-          position="top"
-        >
-          <button>Tooltip top</button>
-        </Tootip>
-
-        <Tootip
-          content="You can either grant permission to a user by role or permissions. Switch the button below to make a choicetip You can either grant permission to a user by role or permissions. Switch the button below to make a choicetip"
-          position="bottom"
-        >
-          <button>Tooltip bottom</button>
-        </Tootip>
-
-        <Tootip
-          content="You can either grant permission to a user by role or permissions. Switch the button below to make a choicetip You can either grant permission to a user by role or permissions. Switch the button below to make a choicetip"
-          position="right"
-        >
-          <button>Tooltip right</button>
-        </Tootip>
-        <Tootip
-          content="You can either grant permission to a user by role or permissions. Switch the button below to make a choicetip"
-          position="left"
-        >
-          <button>Tooltip left</button>
-        </Tootip>
-      </div>
-
-      <div className={classes.tooltipContainer}>
-        <Tootip
-          content="You can either grant permission to a user by role or permissions. Switch the button below to make a choice"
-          position="top"
-        />
-        <Tootip
-          content="You can either grant permission to a user by role or permissions. Switch the button below to make a choice"
-          position="bottom"
-        />
-        <Tootip
-          content="You can either grant permission to a user by role or permissions. Switch the button below to make a choice"
-          position="left"
-        />
-        <Tootip
-          content="You can either grant permission to a user by role or permissions. Switch the button below to make a choice"
-          position="right"
-        />
-      </div>
-
-      <div className={classes.tooltipContainer}>
-        <Tag name="Website" />
-        <Tag name="Website" handleRemove={handleRemove} />
-      </div>
-
-      <Notification
-        status={"success"}
-        list={list}
-        position={"top-right"}
-        autoDelete={true}
-        duration={10000}
+      <Wrapper
+        title="Notifications"
+        description="Feedback help users understand what the application is currently doing, and to refer to the user’s next behavior, and to understand the results of the operation, when the user need to interact with the system , use different modes to feedback information or results."
+        showBody={false}
       />
+      <br />
+      <br />
+      {/* Tooltip */}
+      <Wrapper
+        title="Information-Tips"
+        description="Used to accurately describe the pointed object, such as icons, graphics, links, etc. When the mouse is moved in, the prompt is displayed, when the mouse is moved out, the prompt is disappeared. And the complex text and operations are not carried."
+        classNames={{ title: classes.titleWrapper }}
+      >
+        <div className={classes.tooltipContainer}>
+          <div>
+            <h5 className={classes.tooltipTitle}>Right side tip</h5>
+            <Tooltip
+              content="You can either grant permission to a user by role or permissions. Switch the button below to make a choice"
+              position="right"
+            />
+          </div>
+          <div>
+            <h5 className={classes.tooltipTitle}>Up tip</h5>
+            <Tooltip
+              content="You can either grant permission to a user by role or permissions. Switch the button below to make a choice"
+              position="top"
+            />
+          </div>
+          <div>
+            <h5 className={classes.tooltipTitle}>Down tip</h5>
+            <Tooltip
+              content="You can either grant permission to a user by role or permissions. Switch the button below to make a choice"
+              position="bottom"
+            />
+          </div>
+          <div>
+            <h5 className={classes.tooltipTitle}>Left side tip</h5>
+            <Tooltip
+              content="You can either grant permission to a user by role or permissions. Switch the button below to make a choice"
+              position="left"
+            />
+          </div>
+        </div>
+      </Wrapper>
+      <br />
+      <br />
     </div>
   );
 };

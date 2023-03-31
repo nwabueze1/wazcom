@@ -5,7 +5,7 @@ import { RiErrorWarningLine } from "react-icons/ri";
 import { TootipProps } from "./types";
 import { useTootipStyles } from "./style";
 
-export const Tootip: FC<TootipProps> = ({ children, content, position }) => {
+export const Tooltip: FC<TootipProps> = ({ children, content, position }) => {
   const classes = useTootipStyles();
 
   const arrowRef = useRef(null);
