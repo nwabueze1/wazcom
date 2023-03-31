@@ -7,28 +7,45 @@ import { MbmcCard, OrderDialog } from "../../components";
 import { getCurrency } from "../../../../utilities";
 import { TAppState } from "../../../types";
 import { CoreMenuFields, CoreMenuFields_menuCategories } from "../../models";
+import { initialClientMenu, useGetClientMenu } from "./helpers";
 
 export const MbmcBlock61: FC<MbmcBlock61Props> = ({
   heading,
   description,
+  isSsr = true,
+  menu_uuid,
 }) => {
   const { restaurant } = useSelector<TAppState, TAppState>((state) => state);
   const classes = useMbmcBlock61Styles();
+
+  const [clientMenu, setClientMenu] = useState<CoreMenuFields>(initialClientMenu);
   const [activeCategory, setActiveCategory] = useState<CoreMenuFields_menuCategories>();
   const [itemUuid, setItemUuid] = useState<string>();
 
   const menu = restaurant?.menu as CoreMenuFields;
+  const getClientMenu = useGetClientMenu();
 
-  const categoryItems = useMemo(
-    () =>
-      menu?.menuItems?.filter(
-        (item) => item?.menuCategory?.id.toString() === activeCategory?.id?.toString(),
-      ),
-    [activeCategory?.id],
-  );
+  const categoryItems = useMemo(() => {
+    return (menu ?? clientMenu)?.menuItems?.filter(
+      (item: any) => item?.menuCategory?.id.toString() === activeCategory?.id?.toString(),
+    );
+  }, [activeCategory?.id, clientMenu?.uuid]);
 
   useEffect(() => {
-    const { menuCategories } = menu;
+    if (isSsr || !menu_uuid) return;
+
+    const fetchMenu = async () => {
+      const clientMenu = await getClientMenu({ uuid: menu_uuid });
+      setClientMenu(clientMenu);
+    };
+
+    fetchMenu();
+  }, [menu_uuid]);
+
+  useEffect(() => {
+    if (!menu && !clientMenu) return;
+
+    const { menuCategories } = (menu ?? clientMenu) as CoreMenuFields;
     const queryParams = new URLSearchParams(window.location.search);
     let activeMenuCategory = menuCategories.length > 0 ? menuCategories[0] : undefined;
 
@@ -39,10 +56,10 @@ export const MbmcBlock61: FC<MbmcBlock61Props> = ({
     }
 
     menuCategories.length > 0 && setActiveCategory(activeMenuCategory ?? menuCategories[0]);
-  }, []);
+  }, [clientMenu?.uuid]);
 
   const displayCategories = () =>
-    menu?.menuCategories?.map(({ title, id, uuid }, index) => (
+    (menu ?? clientMenu)?.menuCategories?.map(({ title, id, uuid }, index) => (
       <div
         key={index}
         className={clx(

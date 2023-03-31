@@ -37,6 +37,7 @@ export type MbmcCommonProps = {
   handleClick?: (route: string) => void;
   className?: string;
   classNames?: { [key: string]: string };
+  isSsr?: boolean;
 };
 
 export type MbmcTemplatePropType = {
