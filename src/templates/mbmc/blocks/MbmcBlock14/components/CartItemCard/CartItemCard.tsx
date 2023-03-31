@@ -16,16 +16,10 @@ export const CartItemCard: React.FC<
     currency: string;
     amount: number;
   }
-> = ({
-  uuid,
-  amount,
-  quantity,
-  detail,
-  options,
-  menuItem,
-  currency: currencyId,
-}) => {
-  const { loading, networkOperation, restaurant } = useSelector<TAppState, TAppState>((state) => state);
+> = ({ uuid, amount, quantity, detail, options, menuItem, currency: currencyId }) => {
+  const { loading, networkOperation, restaurant } = useSelector<TAppState, TAppState>(
+    (state) => state,
+  );
   const cart = restaurant?.cart as CoreCartFields;
   const classes = useCartItemCardStyles();
   const currency = getCurrency(currencyId);

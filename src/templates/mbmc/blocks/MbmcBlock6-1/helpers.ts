@@ -5,7 +5,7 @@ import { TAppState } from "../../../types";
 import { GET_MENU } from "./graphql";
 
 export const useGetClientMenu = () => {
-    const { gatewayUrl } = useSelector<TAppState, TAppState>((state) => state);
+  const { gatewayUrl } = useSelector<TAppState, TAppState>((state) => state);
   const client = useMemo(() => createApolloClient(gatewayUrl ?? ""), []);
 
   return async (variables: { uuid: string }) => {

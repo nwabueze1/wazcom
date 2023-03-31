@@ -68,7 +68,7 @@ export var useCreateAddress = function () {
                     if (!data || errors)
                         throw new Error("We could not complete that operation");
                     address = data.createAddress;
-                    dispatch({ type: 'UPDATE_GUEST', payload: __assign(__assign({}, guest), { address: address }) });
+                    dispatch({ type: "UPDATE_GUEST", payload: __assign(__assign({}, guest), { address: address }) });
                     notify("success", "Delivery option set as dispatch");
                     onSuccess === null || onSuccess === void 0 ? void 0 : onSuccess();
                     return [3 /*break*/, 3];
@@ -77,8 +77,8 @@ export var useCreateAddress = function () {
                     notify("error", "We could not complete that operation");
                     return [3 /*break*/, 3];
                 case 3:
-                    dispatch({ type: 'SET_LOADING', payload: false });
-                    dispatch({ type: 'SET_NETWORK_OPERATION', payload: "" });
+                    dispatch({ type: "SET_LOADING", payload: false });
+                    dispatch({ type: "SET_NETWORK_OPERATION", payload: "" });
                     return [2 /*return*/];
             }
         });

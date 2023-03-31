@@ -9,7 +9,7 @@ import { createApolloClient } from "../../../../../helpers/graphQL";
 
 export const useCreateCart = () => {
   const { restaurant, gatewayUrl } = useSelector<TAppState, TAppState>((state) => state);
-  const menu = restaurant?.menu as CoreMenuFields; 
+  const menu = restaurant?.menu as CoreMenuFields;
   const cookies = new Cookies();
   const client = createApolloClient(gatewayUrl ?? "");
 
@@ -49,16 +49,13 @@ export const useAddToCart = () => {
   const client = createApolloClient(gatewayUrl ?? "");
   const updateCartCount = useUpdateCartCount();
 
-  return async (
-    variables: TAddToCartVariables,
-    onClose?: () => void,
-  ) => {
+  return async (variables: TAddToCartVariables, onClose?: () => void) => {
     const cartCookie = cookies.get("cart");
     const siteUuid = menu?.restaurant?.site?.uuid as string;
     let cartUuid: string;
 
     try {
-      dispatch({ type: 'SET_LOADING', payload: true });
+      dispatch({ type: "SET_LOADING", payload: true });
       if (!cartCookie || !cartCookie[siteUuid]) cartUuid = await createCart();
       else cartUuid = cartCookie[siteUuid];
 
@@ -79,7 +76,7 @@ export const useAddToCart = () => {
       notify("error", "We could not complete that operation");
     }
 
-    dispatch({ type: 'SET_LOADING', payload: false });
+    dispatch({ type: "SET_LOADING", payload: false });
   };
 };
 

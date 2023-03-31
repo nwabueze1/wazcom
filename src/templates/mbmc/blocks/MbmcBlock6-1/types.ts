@@ -6,4 +6,3 @@ export type MbmcBlock61Props = MbmcCommonProps & {
   description?: string;
   menu_uuid: string;
 };
-
