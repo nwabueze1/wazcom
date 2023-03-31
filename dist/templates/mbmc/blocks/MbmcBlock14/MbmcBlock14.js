@@ -63,43 +63,30 @@ var __read = (this && this.__read) || function (o, n) {
 };
 import { jsx as _jsx, jsxs as _jsxs, Fragment as _Fragment } from "react/jsx-runtime";
 import { useMemo, useState, useEffect } from "react";
-import { useLazyQuery } from "@apollo/client";
+import { useSelector, useDispatch } from "react-redux";
 import Cookies from "universal-cookie";
 import { useMbmcBlock14Styles } from "./styles";
 import { CartItems, Checkout, EmptyCart, Loader, OrderDetails } from "./components";
-import { RestaurantContext } from "../../contexts";
-import { createApolloClient } from "../../../../helpers/graphQL";
-import { GET_CART_BY_UUID } from "./graphql";
 import { MbmcButton } from "../../components";
 import { useUpdateOrder } from "./hooks";
 export var MbmcBlock14 = function (_a) {
     var _b, _c, _d, _e, _f, _g, _h, _j, _k;
-    var services = _a.services, integratedServices = _a.integratedServices, site_uuid = _a.site_uuid, setContextProps = _a.setContextProps;
+    var site_uuid = _a.site_uuid;
     var classes = useMbmcBlock14Styles();
-    var _l = __read(useState({}), 2), contextData = _l[0], setContextData = _l[1];
-    var _m = __read(useState(true), 2), loading = _m[0], setLoading = _m[1];
-    var _o = __read(useState(false), 2), isDomLoaded = _o[0], setIsDomLoaded = _o[1];
+    var restaurant = useSelector(function (state) { return state; }).restaurant;
+    var dispatch = useDispatch();
+    var _l = __read(useState(true), 2), loading = _l[0], setLoading = _l[1];
+    var _m = __read(useState(false), 2), isDomLoaded = _m[0], setIsDomLoaded = _m[1];
     var cookies = new Cookies();
     var cartCookie = useMemo(function () { return cookies.get("cart"); }, []);
-    var clients = useMemo(function () {
-        var clients = {};
-        integratedServices.forEach(function (service) {
-            clients[service] = createApolloClient(services ? services[service] : "");
-        });
-        return clients;
-    }, []);
     var updateOrder = useUpdateOrder();
-    var _p = __read(useState(false), 2), displayCheckout = _p[0], setDisplayCheckout = _p[1];
-    var _q = __read(useLazyQuery(GET_CART_BY_UUID, {
-        client: clients === null || clients === void 0 ? void 0 : clients.AMBROSIA,
-    }), 2), getCart = _q[0], _r = _q[1], data = _r.data, error = _r.error;
+    var _o = __read(useState(false), 2), displayCheckout = _o[0], setDisplayCheckout = _o[1];
     useEffect(function () {
         setIsDomLoaded(true);
         if (!cartCookie || !cartCookie[site_uuid]) {
             setLoading(false);
             return;
         }
-        getCart({ variables: { uuid: cartCookie[site_uuid] } });
     }, []);
     useEffect(function () {
         if (isDomLoaded) {
@@ -108,46 +95,33 @@ export var MbmcBlock14 = function (_a) {
         }
     }, [isDomLoaded]);
     useEffect(function () {
-        if (data) {
-            var cart = data.cart;
-            var contextData_1 = {
-                cart: JSON.parse(JSON.stringify(cart)),
-                clients: clients,
-            };
-            handleOrderConfirmation(contextData_1);
-        }
-        if (error)
-            setLoading(false);
-    }, [data, error]);
-    var handleOrderConfirmation = function (contextData) { return __awaiter(void 0, void 0, void 0, function () {
+        handleOrderConfirmation();
+    }, []);
+    var handleOrderConfirmation = function () { return __awaiter(void 0, void 0, void 0, function () {
         var queryParams, order;
-        var _a, _b;
-        return __generator(this, function (_c) {
-            switch (_c.label) {
+        var _a, _b, _c;
+        return __generator(this, function (_d) {
+            switch (_d.label) {
                 case 0:
                     queryParams = new URLSearchParams(window.location.search);
-                    if (!(queryParams.get("partner") && queryParams.get("reference"))) return [3 /*break*/, 2];
-                    return [4 /*yield*/, updateOrder(clients === null || clients === void 0 ? void 0 : clients.AMBROSIA, (_b = (_a = contextData === null || contextData === void 0 ? void 0 : contextData.cart) === null || _a === void 0 ? void 0 : _a.restaurant) === null || _b === void 0 ? void 0 : _b.site_uuid)];
+                    if (!(queryParams.get("partner") && queryParams.get("reference") && cartCookie[site_uuid])) return [3 /*break*/, 2];
+                    return [4 /*yield*/, updateOrder((_c = (_b = (_a = restaurant === null || restaurant === void 0 ? void 0 : restaurant.cart) === null || _a === void 0 ? void 0 : _a.restaurant) === null || _b === void 0 ? void 0 : _b.site) === null || _c === void 0 ? void 0 : _c.uuid)];
                 case 1:
-                    order = _c.sent();
-                    contextData = __assign(__assign({}, contextData), { cart: __assign(__assign({}, contextData === null || contextData === void 0 ? void 0 : contextData.cart), { order: order }) });
-                    _c.label = 2;
+                    order = _d.sent();
+                    dispatch({ type: "UPDATE_ORDER", payload: order });
+                    _d.label = 2;
                 case 2:
-                    setContextData(contextData);
                     setLoading(false);
                     return [2 /*return*/];
             }
         });
     }); };
-    var updateContext = function (variables) {
-        setContextData(__assign(__assign({}, contextData), variables));
-    };
     if (loading)
         return _jsx(Loader, {});
-    var isCartEmpty = ((_c = (_b = contextData === null || contextData === void 0 ? void 0 : contextData.cart) === null || _b === void 0 ? void 0 : _b.cartItems) === null || _c === void 0 ? void 0 : _c.length) === 0 ||
+    var isCartEmpty = ((_c = (_b = restaurant === null || restaurant === void 0 ? void 0 : restaurant.cart) === null || _b === void 0 ? void 0 : _b.cartItems) === null || _c === void 0 ? void 0 : _c.length) === 0 ||
         !cartCookie ||
         (cartCookie && !cartCookie[site_uuid]);
-    return (_jsx(RestaurantContext.Provider, __assign({ value: __assign(__assign({}, contextData), { setContext: updateContext }) }, { children: _jsxs("div", __assign({ className: classes.root }, { children: [_jsxs("div", __assign({ className: classes.block14Container }, { children: [_jsxs("p", __assign({ className: classes.block14Title }, { children: ["Items(", ((_d = contextData === null || contextData === void 0 ? void 0 : contextData.cart) === null || _d === void 0 ? void 0 : _d.cartItems) ? (_f = (_e = contextData === null || contextData === void 0 ? void 0 : contextData.cart) === null || _e === void 0 ? void 0 : _e.cartItems) === null || _f === void 0 ? void 0 : _f.length : 0, ")"] })), _jsx("div", __assign({ className: classes.block14CartContent }, { children: isCartEmpty ? (_jsx(EmptyCart, {})) : (_jsxs(_Fragment, { children: [_jsx(CartItems, { setContextProps: setContextProps }), _jsx("span", { className: classes.block14Divider }), ((_g = contextData === null || contextData === void 0 ? void 0 : contextData.cart) === null || _g === void 0 ? void 0 : _g.order) ? (_jsx(OrderDetails, { display: displayCheckout, setDisplay: setDisplayCheckout })) : (_jsx(Checkout, { display: displayCheckout, setDisplay: setDisplayCheckout }))] })) }))] })), ((_h = contextData === null || contextData === void 0 ? void 0 : contextData.cart) === null || _h === void 0 ? void 0 : _h.cartItems) && ((_k = (_j = contextData === null || contextData === void 0 ? void 0 : contextData.cart) === null || _j === void 0 ? void 0 : _j.cartItems) === null || _k === void 0 ? void 0 : _k.length) > 0 && (_jsx("div", __assign({ className: classes.block14Action }, { children: _jsx(MbmcButton, __assign({ variant: "SECONDARY", onClick: function () {
-                            setDisplayCheckout(true);
-                        } }, { children: "Proceed to summary" })) })))] })) })));
+    return (_jsxs("div", __assign({ className: classes.root }, { children: [_jsxs("div", __assign({ className: classes.block14Container }, { children: [_jsxs("p", __assign({ className: classes.block14Title }, { children: ["Items(", ((_d = restaurant === null || restaurant === void 0 ? void 0 : restaurant.cart) === null || _d === void 0 ? void 0 : _d.cartItems) ? (_f = (_e = restaurant === null || restaurant === void 0 ? void 0 : restaurant.cart) === null || _e === void 0 ? void 0 : _e.cartItems) === null || _f === void 0 ? void 0 : _f.length : 0, ")"] })), _jsx("div", __assign({ className: classes.block14CartContent }, { children: isCartEmpty ? (_jsx(EmptyCart, {})) : (_jsxs(_Fragment, { children: [_jsx(CartItems, {}), _jsx("span", { className: classes.block14Divider }), ((_g = restaurant === null || restaurant === void 0 ? void 0 : restaurant.cart) === null || _g === void 0 ? void 0 : _g.order) ? (_jsx(OrderDetails, { display: displayCheckout, setDisplay: setDisplayCheckout })) : (_jsx(Checkout, { display: displayCheckout, setDisplay: setDisplayCheckout }))] })) }))] })), ((_h = restaurant === null || restaurant === void 0 ? void 0 : restaurant.cart) === null || _h === void 0 ? void 0 : _h.cartItems) && ((_k = (_j = restaurant === null || restaurant === void 0 ? void 0 : restaurant.cart) === null || _j === void 0 ? void 0 : _j.cartItems) === null || _k === void 0 ? void 0 : _k.length) > 0 && (_jsx("div", __assign({ className: classes.block14Action }, { children: _jsx(MbmcButton, __assign({ variant: "SECONDARY", onClick: function () {
+                        setDisplayCheckout(true);
+                    } }, { children: "Proceed to summary" })) })))] })));
 };

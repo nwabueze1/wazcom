@@ -10,13 +10,13 @@ var __assign = (this && this.__assign) || function () {
     return __assign.apply(this, arguments);
 };
 import { jsx as _jsx } from "react/jsx-runtime";
-import { useContext } from "react";
+import { useSelector } from "react-redux";
 import { useOptionsStyles } from "./styles";
 import { Option } from "../Option";
-import { RestaurantContext } from "../../../../contexts";
 export var Options = function (_a) {
     var itemOptions = _a.itemOptions, selectedOptions = _a.selectedOptions, handleUpdateSelectedOptions = _a.handleUpdateSelectedOptions;
-    var menu = useContext(RestaurantContext).menu;
+    var restaurant = useSelector(function (state) { return state; }).restaurant;
+    var menu = restaurant === null || restaurant === void 0 ? void 0 : restaurant.menu;
     var classes = useOptionsStyles();
     var displayOptions = function () {
         var options = itemOptions.filter(function (option) { var _a; return (_a = menu === null || menu === void 0 ? void 0 : menu.options_config) === null || _a === void 0 ? void 0 : _a.map(function (config) { return config === null || config === void 0 ? void 0 : config.uuid; }).includes(option); });

@@ -1,1 +1,1 @@
-export declare const GET_MENU_BY_UUID: import("@apollo/client").DocumentNode;
+export declare const GET_MENU_CATEGORIES: import("@apollo/client").DocumentNode;

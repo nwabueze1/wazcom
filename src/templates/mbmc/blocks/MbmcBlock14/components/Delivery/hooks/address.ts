@@ -1,13 +1,15 @@
-import { useContext } from "react";
+import { useSelector, useDispatch } from "react-redux";
 import { TCreateAddressVariables } from "./types";
-import { ApolloClient, NormalizedCacheObject } from "@apollo/client";
-import { RestaurantContext } from "../../../../../contexts";
 import { CREATE_ADDRESS } from "../graphql";
 import { notify } from "../../../../../utilities";
-import { CoreCartFields, CoreGuestFields } from "../../../../../models";
+import { CoreGuestFields } from "../../../../../models";
+import { TAppState } from "../../../../../../types";
+import { createApolloClient } from "../../../../../../../helpers/graphQL";
 
 export const useCreateAddress = () => {
-  const { cart, clients, setContext } = useContext(RestaurantContext);
+  const { gatewayUrl } = useSelector<TAppState, TAppState>((state) => state);
+  const dispatch = useDispatch();
+  const client = createApolloClient(gatewayUrl ?? "");
 
   return async (
     variables: TCreateAddressVariables,
@@ -15,9 +17,7 @@ export const useCreateAddress = () => {
     onSuccess?: () => void,
   ) => {
     try {
-      const { data, errors } = await (
-        clients?.AMBROSIA as ApolloClient<NormalizedCacheObject>
-      ).mutate({
+      const { data, errors } = await client.mutate({
         mutation: CREATE_ADDRESS,
         variables: { ...variables, guest_uuid: guest.uuid },
       });
@@ -25,13 +25,14 @@ export const useCreateAddress = () => {
       if (!data || errors) throw new Error("We could not complete that operation");
 
       const address = data.createAddress;
-      const updatedCart = { ...(cart as CoreCartFields), guest: { ...guest, address } };
-      setContext?.({ cart: updatedCart, loading: false, networkOperation: "" });
+      dispatch({ type: 'UPDATE_GUEST', payload: { ...guest, address } });
       notify("success", "Delivery option set as dispatch");
       onSuccess?.();
     } catch (error) {
-      setContext?.({ loading: false, networkOperation: "" });
       notify("error", "We could not complete that operation");
     }
+
+    dispatch({ type: 'SET_LOADING', payload: false });
+    dispatch({ type: 'SET_NETWORK_OPERATION', payload: "" });
   };
 };

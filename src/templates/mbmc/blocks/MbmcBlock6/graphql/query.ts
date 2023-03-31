@@ -1,9 +1,8 @@
 import { gql } from "@apollo/client";
 
-export const GET_MENU_BY_UUID = gql`
+export const GET_MENU_CATEGORIES = gql`
   query GqlGetMenuByUuid($uuid: ID) {
-    menu(uuid: $uuid) {
-      name
+    getMenu(uuid: $uuid) {
       activeMenuCategories {
         uuid
         title

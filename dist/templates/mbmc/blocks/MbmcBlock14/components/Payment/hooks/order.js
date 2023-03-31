@@ -1,14 +1,3 @@
-var __assign = (this && this.__assign) || function () {
-    __assign = Object.assign || function(t) {
-        for (var s, i = 1, n = arguments.length; i < n; i++) {
-            s = arguments[i];
-            for (var p in s) if (Object.prototype.hasOwnProperty.call(s, p))
-                t[p] = s[p];
-        }
-        return t;
-    };
-    return __assign.apply(this, arguments);
-};
 var __awaiter = (this && this.__awaiter) || function (thisArg, _arguments, P, generator) {
     function adopt(value) { return value instanceof P ? value : new P(function (resolve) { resolve(value); }); }
     return new (P || (P = Promise))(function (resolve, reject) {
@@ -45,30 +34,34 @@ var __generator = (this && this.__generator) || function (thisArg, body) {
         if (op[0] & 5) throw op[1]; return { value: op[0] ? op[1] : void 0, done: true };
     }
 };
-import { useContext } from "react";
+import { useSelector, useDispatch } from "react-redux";
 import Cookies from "universal-cookie";
-import { RestaurantContext } from "../../../../../contexts";
 import { CREATE_ORDER } from "../graphql";
 import { calculateCartSubTotal } from "../../../helpers";
 import { notify } from "../../../../../utilities";
 import { usePaypalPayment } from "./payment";
+import { createApolloClient } from "../../../../../../../helpers/graphQL";
 export var useCreateOrder = function () {
-    var _a = useContext(RestaurantContext), cart = _a.cart, clients = _a.clients, setContext = _a.setContext;
+    var _a = useSelector(function (state) { return state; }), restaurant = _a.restaurant, gatewayUrl = _a.gatewayUrl;
+    var dispatch = useDispatch();
+    var cart = restaurant === null || restaurant === void 0 ? void 0 : restaurant.cart;
+    var client = createApolloClient(gatewayUrl !== null && gatewayUrl !== void 0 ? gatewayUrl : "");
     var cookies = new Cookies();
     var makePaypalPayment = usePaypalPayment();
     return function (paymentMethod) { return __awaiter(void 0, void 0, void 0, function () {
-        var cartCookie, cartItemCountCookie, _a, data, errors, order, updatedCart, error_1;
-        var _b, _c, _d, _e, _f, _g, _h, _j, _k, _l, _m;
-        return __generator(this, function (_o) {
-            switch (_o.label) {
+        var cartCookie, cartItemCountCookie, _a, data, errors, order, error_1;
+        var _b, _c, _d, _e, _f, _g, _h, _j, _k, _l, _m, _o, _p;
+        return __generator(this, function (_q) {
+            switch (_q.label) {
                 case 0:
                     cartCookie = cookies.get("cart");
                     cartItemCountCookie = cookies.get("cartItemCount");
-                    setContext === null || setContext === void 0 ? void 0 : setContext({ loading: true, networkOperation: "create.order" });
-                    _o.label = 1;
+                    dispatch({ type: 'SET_LOADING', payload: true });
+                    dispatch({ type: 'SET_NETWORK_OPERATION', payload: 'create.order' });
+                    _q.label = 1;
                 case 1:
-                    _o.trys.push([1, 3, , 4]);
-                    return [4 /*yield*/, (clients === null || clients === void 0 ? void 0 : clients.AMBROSIA).mutate({
+                    _q.trys.push([1, 3, , 4]);
+                    return [4 /*yield*/, client.mutate({
                             mutation: CREATE_ORDER,
                             variables: {
                                 payment_type: String(paymentMethod).toLowerCase() === "paypal" ? undefined : paymentMethod,
@@ -81,26 +74,27 @@ export var useCreateOrder = function () {
                             },
                         })];
                 case 2:
-                    _a = _o.sent(), data = _a.data, errors = _a.errors;
+                    _a = _q.sent(), data = _a.data, errors = _a.errors;
                     if (!data || errors)
                         throw new Error("We could not complete that operation");
                     order = data.createOrder;
-                    updatedCart = __assign(__assign({}, cart), { order: order });
                     if (String(paymentMethod) === "PAYPAL")
                         return [2 /*return*/, makePaypalPayment(order.uuid)];
-                    setContext === null || setContext === void 0 ? void 0 : setContext({ loading: false, networkOperation: "", cart: updatedCart });
+                    dispatch({ type: 'UPDATE_ORDER', payload: order });
                     notify("success", "Order placed successfully");
-                    delete cartCookie[(_k = (_j = cart === null || cart === void 0 ? void 0 : cart.restaurant) === null || _j === void 0 ? void 0 : _j.site_uuid) !== null && _k !== void 0 ? _k : ""];
-                    delete cartItemCountCookie[(_m = (_l = cart === null || cart === void 0 ? void 0 : cart.restaurant) === null || _l === void 0 ? void 0 : _l.site_uuid) !== null && _m !== void 0 ? _m : ""];
+                    delete cartCookie[(_l = (_k = (_j = cart === null || cart === void 0 ? void 0 : cart.restaurant) === null || _j === void 0 ? void 0 : _j.site) === null || _k === void 0 ? void 0 : _k.uuid) !== null && _l !== void 0 ? _l : ""];
+                    delete cartItemCountCookie[(_p = (_o = (_m = cart === null || cart === void 0 ? void 0 : cart.restaurant) === null || _m === void 0 ? void 0 : _m.site) === null || _o === void 0 ? void 0 : _o.uuid) !== null && _p !== void 0 ? _p : ""];
                     cookies.set("cart", cartCookie, { path: "/" });
                     cookies.set("cartItemCount", cartItemCountCookie, { path: "/" });
                     return [3 /*break*/, 4];
                 case 3:
-                    error_1 = _o.sent();
-                    setContext === null || setContext === void 0 ? void 0 : setContext({ loading: false, networkOperation: "" });
+                    error_1 = _q.sent();
                     notify("error", "We could not complete that operation");
                     return [3 /*break*/, 4];
-                case 4: return [2 /*return*/];
+                case 4:
+                    dispatch({ type: 'SET_LOADING', payload: false });
+                    dispatch({ type: 'SET_NETWORK_OPERATION', payload: '' });
+                    return [2 /*return*/];
             }
         });
     }); };

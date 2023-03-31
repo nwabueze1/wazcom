@@ -45,19 +45,21 @@ var __generator = (this && this.__generator) || function (thisArg, body) {
         if (op[0] & 5) throw op[1]; return { value: op[0] ? op[1] : void 0, done: true };
     }
 };
-import { useContext } from "react";
-import { RestaurantContext } from "../../../../../contexts";
+import { useSelector, useDispatch } from "react-redux";
 import { CREATE_ADDRESS } from "../graphql";
 import { notify } from "../../../../../utilities";
+import { createApolloClient } from "../../../../../../../helpers/graphQL";
 export var useCreateAddress = function () {
-    var _a = useContext(RestaurantContext), cart = _a.cart, clients = _a.clients, setContext = _a.setContext;
+    var gatewayUrl = useSelector(function (state) { return state; }).gatewayUrl;
+    var dispatch = useDispatch();
+    var client = createApolloClient(gatewayUrl !== null && gatewayUrl !== void 0 ? gatewayUrl : "");
     return function (variables, guest, onSuccess) { return __awaiter(void 0, void 0, void 0, function () {
-        var _a, data, errors, address, updatedCart, error_1;
+        var _a, data, errors, address, error_1;
         return __generator(this, function (_b) {
             switch (_b.label) {
                 case 0:
                     _b.trys.push([0, 2, , 3]);
-                    return [4 /*yield*/, (clients === null || clients === void 0 ? void 0 : clients.AMBROSIA).mutate({
+                    return [4 /*yield*/, client.mutate({
                             mutation: CREATE_ADDRESS,
                             variables: __assign(__assign({}, variables), { guest_uuid: guest.uuid }),
                         })];
@@ -66,17 +68,18 @@ export var useCreateAddress = function () {
                     if (!data || errors)
                         throw new Error("We could not complete that operation");
                     address = data.createAddress;
-                    updatedCart = __assign(__assign({}, cart), { guest: __assign(__assign({}, guest), { address: address }) });
-                    setContext === null || setContext === void 0 ? void 0 : setContext({ cart: updatedCart, loading: false, networkOperation: "" });
+                    dispatch({ type: 'UPDATE_GUEST', payload: __assign(__assign({}, guest), { address: address }) });
                     notify("success", "Delivery option set as dispatch");
                     onSuccess === null || onSuccess === void 0 ? void 0 : onSuccess();
                     return [3 /*break*/, 3];
                 case 2:
                     error_1 = _b.sent();
-                    setContext === null || setContext === void 0 ? void 0 : setContext({ loading: false, networkOperation: "" });
                     notify("error", "We could not complete that operation");
                     return [3 /*break*/, 3];
-                case 3: return [2 /*return*/];
+                case 3:
+                    dispatch({ type: 'SET_LOADING', payload: false });
+                    dispatch({ type: 'SET_NETWORK_OPERATION', payload: "" });
+                    return [2 /*return*/];
             }
         });
     }); };

@@ -1,12 +1,14 @@
+import { FC, useEffect, useState, useMemo } from "react";
+import { useSelector } from "react-redux";
 import { useMbmcBlock7Styles } from "./styles";
 import clx from "classnames";
-import { FC, useEffect, useMemo, useState } from "react";
 import { MbmcBlock7Props } from "./types";
 import { LazyImage } from "../../../../core";
 import { GET_INSTAGRAM_IMAGES } from "./graphql";
 import { createApolloClient } from "../../../../helpers/graphQL";
 import { useQuery } from "@apollo/client";
 import { handleElementClick } from "../../utilities";
+import { TAppState } from "../../../types";
 
 export const MbmcBlock7: FC<MbmcBlock7Props> = ({
   mode = "view",
@@ -16,12 +18,11 @@ export const MbmcBlock7: FC<MbmcBlock7Props> = ({
   heading,
   description,
   images = [],
-  services,
-  integratedService,
   site_uuid,
 }) => {
+  const { gatewayUrl } = useSelector<TAppState, TAppState>((state) => state);
   const classes = useMbmcBlock7Styles();
-  const client = useMemo(() => createApolloClient(services ? services[integratedService] : ""), []);
+  const client = useMemo(() => createApolloClient(gatewayUrl ?? ""), []);
   const { data, loading } = useQuery(GET_INSTAGRAM_IMAGES, {
     client,
     variables: {

@@ -1,12 +1,13 @@
-import { useContext, FC } from "react";
+import { useSelector } from "react-redux";
 import { useCartItemsStyles } from "./styles";
 import { CartItemCard } from "../CartItemCard";
-import { RestaurantContext } from "../../../../contexts";
 import { calculateCartSubTotal } from "../../helpers";
-import { CartItemsProps } from "./types";
+import { TAppState } from "../../../../../types";
+import { CoreCartFields } from "../../../../models";
 
-export const CartItems: FC<CartItemsProps> = ({ setContextProps }) => {
-  const { cart } = useContext(RestaurantContext);
+export const CartItems = () => {
+  const { restaurant } = useSelector<TAppState, TAppState>((state) => state);
+  const cart = restaurant?.cart as CoreCartFields;
   const classes = useCartItemsStyles();
 
   const displayCartItems = () =>
@@ -16,7 +17,6 @@ export const CartItems: FC<CartItemsProps> = ({ setContextProps }) => {
         {...cartItem}
         currency={cart?.currency ?? ""}
         amount={calculateCartSubTotal(cart, cartItem.uuid as string)}
-        setContextProps={setContextProps}
       />
     ));
 

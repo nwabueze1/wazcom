@@ -1,64 +1,68 @@
-import { FC, useEffect, useState, useMemo } from "react";
-import { useQuery } from "@apollo/client";
+import { FC, useMemo, useState, useEffect } from "react";
+import { useSelector } from "react-redux";
 import { useMbmcBlock6Styles } from "./styles";
-import { MbmcBlock6Props } from "./types";
-import { GET_MENU_BY_UUID } from "./graphql";
+import { MbmcBlock6Props, TCategory } from "./types";
 import { MbmcCard, MbmcCardProps } from "../../../../templates/mbmc/components/MbmcCard";
 import clx from "classnames";
 import { handleElementClick } from "../../utilities";
-import { createApolloClient } from "../../../../helpers/graphQL";
+import { TAppState } from "../../../types";
+import { CoreMenuFields } from "../../models";
+import { initialClientCategories, useGetClientCategories } from "./helpers";
 
 export const MbmcBlock6: FC<MbmcBlock6Props> = ({
   mode = "view",
   activeElement,
   handleClick,
-  services,
-  integratedService,
   index,
   heading,
   description,
   menu_uuid,
+  isSsr = true,
 }) => {
   const classes = useMbmcBlock6Styles();
-  const [categories, setCategories] = useState<MbmcCardProps[]>([]);
-  const client = useMemo(() => createApolloClient(services ? services[integratedService] : ""), []);
-  const { data, error } = useQuery(GET_MENU_BY_UUID, {
-    client,
-    variables: { uuid: menu_uuid },
-  });
+  const { restaurant } = useSelector<TAppState, TAppState>((state) => state);
+  const [clientCategories, setClientCategories] =
+    useState<MbmcCardProps[]>(initialClientCategories);
+  const getClientCategories = useGetClientCategories();
 
   useEffect(() => {
-    if (data) {
-      const {
-        menu: { activeMenuCategories },
-      } = data;
-      const parsedCategories = [];
+    if (isSsr || !menu_uuid) return;
 
-      for (const category of activeMenuCategories) {
-        const parsedCategory: any = {
-          heading: category["title"],
-          image: category["menuItems"][0]["image_url"],
-          ctas: [
-            {
-              text: "Order now",
-              size: "sm",
-              url: `/menu?category_uuid=${category.uuid}#menu`,
-            },
-          ],
-        };
-        parsedCategories.push(parsedCategory);
-      }
+    const fetchClientCategories = async () => {
+      const clientCategories = await getClientCategories({ uuid: menu_uuid });
+      setClientCategories(clientCategories);
+    };
 
-      setCategories(parsedCategories);
+    fetchClientCategories();
+  }, [menu_uuid]);
+
+  const categories = useMemo(() => {
+    if (!restaurant?.menu) return undefined;
+    const menu = restaurant?.menu as CoreMenuFields;
+    const menuCategories = menu?.menuCategories as unknown as TCategory[];
+
+    const parsedCategories = [];
+
+    for (const category of menuCategories) {
+      const parsedCategory: any = {
+        heading: category?.title,
+        image: category["menuItems"][0]["image_url"],
+        ctas: [
+          {
+            text: "Order now",
+            size: "sm",
+            url: `/menu?category_uuid=${category.uuid}#menu`,
+          },
+        ],
+      };
+      parsedCategories.push(parsedCategory);
     }
 
-    if (error) {
-      console.log(error);
-    }
-  }, [data, error]);
+    return parsedCategories;
+  }, []);
 
   const displayCategories = () =>
-    categories.map((category, index) => (
+    (categories ?? clientCategories).map((category, index) => (
       <MbmcCard key={index} {...category} mode={mode} handleClick={handleClick} />
     ));
 

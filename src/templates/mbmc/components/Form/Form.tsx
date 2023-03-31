@@ -1,9 +1,10 @@
-import React, { useContext } from "react";
+import React from "react";
+import { useSelector } from "react-redux";
 import { FormProps } from "./types";
 import { FormControl } from "./FormControl";
 import { MbmcButton } from "../MbmcButton";
 import { useFormStyles } from "./styles";
-import { RestaurantContext } from "../../contexts";
+import { TAppState } from "../../../types";
 
 export const Form: React.FC<FormProps> = ({
   className,
@@ -12,7 +13,7 @@ export const Form: React.FC<FormProps> = ({
   submitButtonText = "Save",
   networkOperation,
 }) => {
-  const { loading, networkOperation: networkOperationCtxt } = useContext(RestaurantContext);
+  const { loading, networkOperation: networkOperationCtxt } = useSelector<TAppState, TAppState>((state) => state);
   const classes = useFormStyles();
   const displayControls = () =>
     controls.map((control, index) => <FormControl key={index} {...control} />);
