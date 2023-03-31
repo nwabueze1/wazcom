@@ -4,7 +4,7 @@ import { CommonProps } from "../../types";
 type ClassName = Pick<CommonProps, "className">;
 
 export type AccordionItemProps = {
-  title: string | JSX.Element
+  title: string | JSX.Element;
   content: string;
   active: boolean;
   allowMultiple?: boolean;
