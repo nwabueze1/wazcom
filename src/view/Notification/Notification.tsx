@@ -1,12 +1,11 @@
 import { FC } from "react";
-import { useAlertContext, Wrapper, Tooltip, Button, Notification as Notify } from "../../core";
+import { Wrapper, Tooltip, Button, useAlertContext, Tag } from "../../core";
 
 import { useNotificationStyles } from "./styles";
-import { NotificationProps } from "./types";
 
-export const NotificationView: FC<NotificationProps> = () => {
+export const NotificationView = () => {
   const classes = useNotificationStyles();
-  const toast = useAlertContext()
+  const toast = useAlertContext();
 
   return (
     <div className={classes.root}>
@@ -23,10 +22,13 @@ export const NotificationView: FC<NotificationProps> = () => {
         description="It is a non-blocking information display. It does not interrupt the user’s current operation. It usually stays at a certain position on the page (top preferentially). Used to indicate a successful information."
         classNames={{ title: classes.titleWrapper }}
       >
-    <Notify title="This is the title" />
-        {/* <Button onClick={() => {
-          toast.success({ title: 'Successfully saved', duration: 0 })
-        }}>Show Alert</Button> */}
+        <Button
+          onClick={() => {
+            toast.success({ title: "Successfully saved" });
+          }}
+        >
+          Show Alert
+        </Button>
       </Wrapper>
       <br />
       <br />
@@ -36,10 +38,78 @@ export const NotificationView: FC<NotificationProps> = () => {
         description="It is a non-blocking information display. It does not interrupt the user’s current operation. It usually stays at a certain position on the page (top preferentially). Used to indicate a warning information."
         classNames={{ title: classes.titleWrapper }}
       >
-
-        {/* <Button onClick={() => {
-          toast.warning({ title: 'Warning saved', position: 'top-left', duration: 0 })
-        }}>Show Alert</Button> */}
+        <Button
+          onClick={() => {
+            toast.warning({ title: "Warning alert" });
+          }}
+        >
+          Show Alert
+        </Button>
+      </Wrapper>
+      <br />
+      <br />
+      {/* Info Alert */}
+      <Wrapper
+        title="Info Alert"
+        description="It is a non-blocking information display. It does not interrupt the user’s current operation. It usually stays at a certain position on the page (top preferentially). Used to indicate a warning information."
+        classNames={{ title: classes.titleWrapper }}
+      >
+        <Button
+          onClick={() => {
+            toast.info({ title: "Information alert" });
+          }}
+        >
+          Show Alert
+        </Button>
+      </Wrapper>
+      <br />
+      <br />
+      {/* Error Alert */}
+      <Wrapper
+        title="Error Alert"
+        description="It is a non-blocking information display. It does not interrupt the user’s current operation. It usually stays at a certain position on the page (top preferentially). Used to indicate a warning information."
+        classNames={{ title: classes.titleWrapper }}
+      >
+        <Button
+          onClick={() => {
+            toast.error({ title: "Error alert" });
+          }}
+        >
+          Show Alert
+        </Button>
+      </Wrapper>
+      <br />
+      <br />
+      {/* General Alert */}
+      <Wrapper
+        title="General Notification (With Helper Text)"
+        description="It is a non-blocking information display. It does not interrupt the user’s current operation. It usually stays at a certain position on the page (top preferentially). Used to indicate a successful information."
+        classNames={{ title: classes.titleWrapper }}
+      >
+        <Button
+          onClick={() => {
+            toast.success({
+              title: "Successfully saved",
+              message:
+                "This is a very important information and requires your immediate attention. Kindly act on it, ASAP.",
+            });
+          }}
+        >
+          Show Alert
+        </Button>
+      </Wrapper>
+      <br />
+      <br />
+      {/* Tags */}
+      <Wrapper
+        title="Tags"
+        description="Tag are used to label, categorize, or organize items using keywords that describe them."
+        classNames={{ title: classes.titleWrapper }}
+      >
+        <div className={classes.tagsContainer}>
+          <Tag name="Website" />
+          <Tag name="Website" isDismissable={true} />
+        </div>
       </Wrapper>
       <br />
       <br />
