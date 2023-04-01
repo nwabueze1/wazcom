@@ -1,11 +1,12 @@
 import { FC } from "react";
-import { Tooltip, Wrapper } from "../../core";
+import { useAlertContext, Wrapper, Tooltip, Button, Notification as Notify } from "../../core";
 
 import { useNotificationStyles } from "./styles";
 import { NotificationProps } from "./types";
 
 export const NotificationView: FC<NotificationProps> = () => {
   const classes = useNotificationStyles();
+  const toast = useAlertContext()
 
   return (
     <div className={classes.root}>
@@ -14,6 +15,32 @@ export const NotificationView: FC<NotificationProps> = () => {
         description="Feedback help users understand what the application is currently doing, and to refer to the user’s next behavior, and to understand the results of the operation, when the user need to interact with the system , use different modes to feedback information or results."
         showBody={false}
       />
+      <br />
+      <br />
+      {/*Success Alert */}
+      <Wrapper
+        title="Success Alert"
+        description="It is a non-blocking information display. It does not interrupt the user’s current operation. It usually stays at a certain position on the page (top preferentially). Used to indicate a successful information."
+        classNames={{ title: classes.titleWrapper }}
+      >
+    <Notify title="This is the title" />
+        {/* <Button onClick={() => {
+          toast.success({ title: 'Successfully saved', duration: 0 })
+        }}>Show Alert</Button> */}
+      </Wrapper>
+      <br />
+      <br />
+      {/* Warning Alert */}
+      <Wrapper
+        title="Warning Alert"
+        description="It is a non-blocking information display. It does not interrupt the user’s current operation. It usually stays at a certain position on the page (top preferentially). Used to indicate a warning information."
+        classNames={{ title: classes.titleWrapper }}
+      >
+
+        {/* <Button onClick={() => {
+          toast.warning({ title: 'Warning saved', position: 'top-left', duration: 0 })
+        }}>Show Alert</Button> */}
+      </Wrapper>
       <br />
       <br />
       {/* Tooltip */}

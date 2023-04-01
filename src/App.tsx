@@ -9,6 +9,7 @@ import { Mbmc } from "templates/restaurant/Mbmc/Mbmc";
 import { Layout } from "view/Layout";
 import theme from "./theme";
 import routes from "./routes";
+import { AlertContextProvider} from "./core";
 import "./index.css";
 
 declare module "@mui/styles/defaultTheme" {
@@ -74,6 +75,7 @@ const App: React.FC = () => {
     <StyledEngineProvider injectFirst>
       <ThemeProvider theme={theme}>
         <BrowserRouter>
+        <AlertContextProvider>
           <Layout>
             <Routes>
               {routes.map(({ key, path, component: Component }) => (
@@ -112,6 +114,7 @@ const App: React.FC = () => {
               <Route path="/mbmc" element={<Mbmc />} />
             </Routes>
           </Layout>
+          </AlertContextProvider>
         </BrowserRouter>
       </ThemeProvider>
     </StyledEngineProvider>
