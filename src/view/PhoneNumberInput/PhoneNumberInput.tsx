@@ -12,13 +12,7 @@ export const PhoneNumberInputView = () => {
         description="Phone number input gives the ability for users to input their phone number and selecting their country flag to show the country code."
       >
         <div className={classes.container}>
-          <PhoneNumberInput
-            label="DEFAULT"
-            name="Phone"
-            onChange={(value) => {
-              console.log(value);
-            }}
-          />
+          <PhoneNumberInput label="DEFAULT" name="Phone" />
         </div>
       </Wrapper>
     </div>
