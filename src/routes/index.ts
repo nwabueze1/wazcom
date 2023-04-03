@@ -19,6 +19,7 @@ import { ToggleInputView } from "view/ToggleInput";
 import { StepsView } from "view/Steps";
 import { AccordionView } from "view/Accordion";
 import { ProgressView } from "view/Progress";
+import { PickersView } from "view/Pickers";
 
 export default [
   {
@@ -44,6 +45,12 @@ export default [
     path: "/text-input",
     exact: true,
     component: TextInputView,
+  },
+  {
+    key: "PickersView",
+    path: "/pickers",
+    exact: true,
+    component: PickersView,
   },
   {
     key: "RadioButtonView",
