@@ -15,14 +15,14 @@ export const usePhoneNumberInputStyles = makeStyles((theme: Theme) =>
         background: "transparent",
         border: "none",
         borderRadius: 0,
-        display: "flex",
-        alignItems: "center",
-        "&:after": {
+        "&::after": {
           position: "absolute",
           content: '""',
           right: 0,
           borderRight: `1px solid ${theme.design.colors.waz_primary700}`,
           height: "50%",
+          top: "50%",
+          transform: "translateY(-50%)",
         },
       },
       "& .selected-flag ": {
