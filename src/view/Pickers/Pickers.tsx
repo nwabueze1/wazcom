@@ -30,11 +30,7 @@ export const PickersView = () => {
       <br />
       <h4 className={classes.title}> Schedule </h4>
       <Wrapper showHeader={false}>
-        <DateTimeScheduler
-          onChange={(value) => {
-            console.log(value);
-          }}
-        />
+        <DateTimeScheduler />
       </Wrapper>
     </div>
   );
