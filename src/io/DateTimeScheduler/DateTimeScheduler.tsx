@@ -1,11 +1,11 @@
-import { TimeInput, ToggleInput } from "../";
+import { TimeInput, ToggleInput } from "..";
 import { MultiSelect } from "core/MultiSelect";
 import { useScheduleStyles } from "./styles";
 import { FC, useState } from "react";
 import { ScheduleProps } from "./types";
 import clx from "classnames";
 
-export const Schedule: FC<ScheduleProps> = ({ className, onChange }) => {
+export const DateTimeScheduler: FC<ScheduleProps> = ({ className, onChange }) => {
   const classes = useScheduleStyles();
   const [scheduleValue, setScheduleValue] = useState({
     multiDays: {},

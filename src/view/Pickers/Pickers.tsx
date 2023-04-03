@@ -1,4 +1,4 @@
-import { DateInput, Schedule, TimeInput } from "io";
+import { DateInput, DateTimeScheduler, TimeInput } from "../../io";
 import { Wrapper } from "../../core";
 import { PickersStyles } from "./style";
 import { CssBaseline } from "@mui/material";
@@ -30,7 +30,7 @@ export const PickersView = () => {
       <br />
       <h4 className={classes.title}> Schedule </h4>
       <Wrapper showHeader={false}>
-        <Schedule
+        <DateTimeScheduler
           onChange={(value) => {
             console.log(value);
           }}
