@@ -61,7 +61,7 @@ var __read = (this && this.__read) || function (o, n) {
     }
     return ar;
 };
-import { jsx as _jsx, jsxs as _jsxs, Fragment as _Fragment } from "react/jsx-runtime";
+import { jsx as _jsx, jsxs as _jsxs } from "react/jsx-runtime";
 import { useState, useEffect, useMemo } from "react";
 import { useSelector } from "react-redux";
 import { useMbmcBlock61Styles } from "./styles";
@@ -69,13 +69,14 @@ import clx from "classnames";
 import { MbmcCard, OrderDialog } from "../../components";
 import { getCurrency } from "../../../../utilities";
 import { initialClientMenu, useGetClientMenu } from "./helpers";
+import { handleElementClick } from "../../utilities";
 export var MbmcBlock61 = function (_a) {
-    var heading = _a.heading, description = _a.description, _b = _a.isSsr, isSsr = _b === void 0 ? true : _b, menu_uuid = _a.menu_uuid;
+    var _b = _a.mode, mode = _b === void 0 ? "view" : _b, heading = _a.heading, description = _a.description, _c = _a.isSsr, isSsr = _c === void 0 ? true : _c, menu_uuid = _a.menu_uuid, index = _a.index, activeElement = _a.activeElement, handleClick = _a.handleClick;
     var restaurant = useSelector(function (state) { return state; }).restaurant;
     var classes = useMbmcBlock61Styles();
-    var _c = __read(useState(initialClientMenu), 2), clientMenu = _c[0], setClientMenu = _c[1];
-    var _d = __read(useState(), 2), activeCategory = _d[0], setActiveCategory = _d[1];
-    var _e = __read(useState(), 2), itemUuid = _e[0], setItemUuid = _e[1];
+    var _d = __read(useState(initialClientMenu), 2), clientMenu = _d[0], setClientMenu = _d[1];
+    var _e = __read(useState(), 2), activeCategory = _e[0], setActiveCategory = _e[1];
+    var _f = __read(useState(), 2), itemUuid = _f[0], setItemUuid = _f[1];
     var menu = restaurant === null || restaurant === void 0 ? void 0 : restaurant.menu;
     var getClientMenu = useGetClientMenu();
     var categoryItems = useMemo(function () {
@@ -133,7 +134,7 @@ export var MbmcBlock61 = function (_a) {
     var handleCategoryChange = function (category) {
         setActiveCategory(category);
     };
-    return (_jsx("div", __assign({ className: classes.root, id: "menu" }, { children: _jsxs("div", __assign({ className: classes.block61Container }, { children: [_jsx("h3", __assign({ className: classes.block61Title }, { children: heading })), _jsx("p", __assign({ className: classes.block61Description }, { children: description })), categoryItems && (categoryItems === null || categoryItems === void 0 ? void 0 : categoryItems.length) > 0 && (_jsxs(_Fragment, { children: [_jsx("div", __assign({ className: classes.block61Categories }, { children: displayCategories() })), _jsx("div", __assign({ className: classes.block61Items }, { children: displayItems() }))] })), _jsx(OrderDialog, { itemUuid: itemUuid, handleClose: function () {
+    return (_jsx("div", __assign({ className: classes.root, id: "menu" }, { children: _jsxs("div", __assign({ className: classes.block61Container }, { children: [_jsx("h3", __assign({ className: clx(classes.block61Title, activeElement === "".concat(String(index), ".heading") && classes.block61ActiveElement), onClick: function () { return handleElementClick(mode, "".concat(String(index), ".heading"), handleClick); } }, { children: heading })), _jsx("p", __assign({ className: clx(classes.block61Description, activeElement === "".concat(String(index), ".description") && classes.block61ActiveElement), onClick: function () { return handleElementClick(mode, "".concat(String(index), ".description"), handleClick); } }, { children: description })), categoryItems && (categoryItems === null || categoryItems === void 0 ? void 0 : categoryItems.length) > 0 && (_jsxs("div", __assign({ className: activeElement === "".concat(String(index), ".menu_uuid") ? classes.block61ActiveElement : "", onClick: function () { return handleElementClick(mode, "".concat(String(index), ".menu_uuid"), handleClick); } }, { children: [_jsx("div", __assign({ className: classes.block61Categories }, { children: displayCategories() })), _jsx("div", __assign({ className: classes.block61Items }, { children: displayItems() }))] }))), _jsx(OrderDialog, { itemUuid: itemUuid, handleClose: function () {
                         setItemUuid(undefined);
                     } })] })) })));
 };
