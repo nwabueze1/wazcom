@@ -20,10 +20,9 @@ export var useTimeInputStyles = makeStyles(function (theme) { return ({
     baseInput: {
         display: "flex",
         alignItems: "center",
-        gap: theme.spacing(1),
+        gap: theme.spacing(0.5),
         padding: theme.spacing(0.5, 1.5),
         height: 36,
-        width: "100%",
         background: theme.design.colors.white100,
         color: theme.design.colors.waz_primaryBlack,
         borderWidth: 1,
@@ -60,7 +59,7 @@ export var useTimeInputStyles = makeStyles(function (theme) { return ({
         background: "transparent",
         border: 0,
         borderRadius: 4,
-        zIndex: 100000,
+        zIndex: 10,
         "& .rc-time-picker-panel-inner": {
             background: theme.design.colors.grey600,
             border: 0,
@@ -71,7 +70,9 @@ export var useTimeInputStyles = makeStyles(function (theme) { return ({
                 margin: theme.spacing(2, 0, 2, 2),
             },
             "& .rc-time-picker-panel-input-wrap": {
-                background: theme.design.colors.grey600,
+                background: "transparent",
+                border: "none",
+                boxShadow: "none",
             },
             "& .rc-time-picker-panel-input": {
                 background: theme.design.colors.grey600,
@@ -80,14 +81,14 @@ export var useTimeInputStyles = makeStyles(function (theme) { return ({
                 border: 0,
             },
             "& .rc-time-picker-panel-select ul li": {
-                fontSize: theme.typography.fontSize + 2,
+                fontSize: theme.typography.fontSize - 1,
                 fontWeight: theme.typography.fontWeightMedium,
                 borderRadius: 4,
                 height: 40,
                 width: 40,
             },
             "& .rc-time-picker-panel-select-active ul li": {
-                fontSize: theme.typography.fontSize + 2,
+                fontSize: theme.typography.fontSize,
                 fontWeight: theme.typography.fontWeightMedium,
                 borderRadius: 4,
                 height: 40,

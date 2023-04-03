@@ -24,4 +24,5 @@ export * from "./Progress";
 export * from "./Button";
 export * from "./Tab";
 export * from "./Spinner";
+export * from "./MultiSelect";
 export * from "./Wrapper";
