@@ -15,6 +15,10 @@ export var useMbmcBlock61Styles = makeStyles(function (theme) {
                 width: "90%",
             },
             _a),
+        block61ActiveElement: {
+            border: "1px dashed",
+            borderColor: theme.design.colors.waz_primaryColor100,
+        },
         block61Title: (_b = {
                 color: theme.design.colors.waz_primaryColor300,
                 fontSize: theme.typography.fontSize * 4,
