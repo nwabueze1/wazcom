@@ -20,14 +20,16 @@ export const TimeInput: React.FC<TimeInputProps> = ({
   isSuccess,
   showSecond = false,
   use12Hours = true,
-  format = "HH:mm",
+  format = "h:mm A",
   onChange,
   required = false,
   ...props
 }) => {
   const classes = useTimeInputStyles();
+  const [selectedTime, setSelectedTime] = React.useState(moment().hour(0).minute(0));
 
-  const handleChange = ({ name, value }: any) => {
+  const handleChange = ({ value }: any) => {
+    setSelectedTime(value);
     if (onChange) onChange?.({ name, value: value.format() });
   };
 
@@ -53,7 +55,7 @@ export const TimeInput: React.FC<TimeInputProps> = ({
           showSecond={showSecond}
           use12Hours={use12Hours}
           format={format}
-          value={moment(value)}
+          value={value ? moment(value) : selectedTime}
           onChange={(value) => handleChange({ name, value })}
           className={classes.input}
           defaultValue={moment().hour(0).minute(0)}
