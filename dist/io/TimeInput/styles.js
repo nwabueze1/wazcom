@@ -60,6 +60,23 @@ export var useTimeInputStyles = makeStyles(function (theme) { return ({
         border: 0,
         borderRadius: 4,
         zIndex: 10,
+        "& .rc-time-picker-panel": {
+            width: '160px !important',
+        },
+        "& .rc-time-picker-panel-select": {
+            width: "unset",
+            padding: theme.spacing(0, 1),
+            "&::-webkit-scrollbar": {
+                width: 4,
+                background: "rgba(0,0,0,0.05)",
+            },
+            "&::-webkit-scrollbar-thumb": {
+                background: "rgba(0,0,0,0.25)",
+            },
+            "&::-webkit-scrollbar-track": {
+                background: "rgba(0,0,0,0.01)",
+            },
+        },
         "& .rc-time-picker-panel-inner": {
             background: theme.design.colors.grey600,
             border: 0,
@@ -67,7 +84,7 @@ export var useTimeInputStyles = makeStyles(function (theme) { return ({
             "& .rc-time-picker-panel-combobox": {
                 display: "flex",
                 gap: theme.spacing(0),
-                margin: theme.spacing(2, 0, 2, 2),
+                margin: theme.spacing(1),
             },
             "& .rc-time-picker-panel-input-wrap": {
                 background: "transparent",
@@ -82,26 +99,26 @@ export var useTimeInputStyles = makeStyles(function (theme) { return ({
             },
             "& .rc-time-picker-panel-select ul li": {
                 fontSize: theme.typography.fontSize - 1,
-                fontWeight: theme.typography.fontWeightMedium,
+                fontWeight: theme.typography.fontWeightRegular,
                 borderRadius: 4,
-                height: 40,
-                width: 40,
+                height: 30,
+                width: 30,
             },
             "& .rc-time-picker-panel-select-active ul li": {
-                fontSize: theme.typography.fontSize,
-                fontWeight: theme.typography.fontWeightMedium,
+                fontSize: theme.typography.fontSize - 1,
+                fontWeight: theme.typography.fontWeightRegular,
                 borderRadius: 4,
-                height: 40,
-                width: 40,
+                height: 30,
+                width: 30,
             },
             "& .rc-time-picker-panel-select-option-selected": {
                 background: theme.design.colors.waz_primary50,
                 color: theme.design.colors.waz_white,
-                fontSize: theme.typography.fontSize + 2,
+                fontSize: theme.typography.fontSize - 1,
                 fontWeight: theme.typography.fontWeightMedium,
                 borderRadius: 4,
-                height: 40,
-                width: 40,
+                height: 30,
+                width: 30,
             },
             "& .rc-time-picker-panel-select li": {
                 padding: 0,
