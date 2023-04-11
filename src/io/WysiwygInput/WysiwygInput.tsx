@@ -1,8 +1,8 @@
-import React, { useMemo } from "react";
+// import React, { useMemo } from "react";
 import { useCreatePostInputStyles } from "./styles";
 import { WysiwygInputProps } from "./types";
 import { Editor } from "./Editor";
-import { EmbedButton } from "./EmbedButton";
+import { EditorToolbar } from "./EditorToolbar";
 import clx from "classnames";
 
 export const WysiwygInput: React.FC<WysiwygInputProps> = ({
@@ -13,11 +13,11 @@ export const WysiwygInput: React.FC<WysiwygInputProps> = ({
   initiateEmbed,
 }) => {
   const classes = useCreatePostInputStyles();
-  const insertButtonTop = useMemo(() => {
-    const editor = document.getElementById("editor");
-    const scrollOffset = ((editor?.offsetHeight as number) / window.innerHeight) * 100;
-    return scrollOffset > 70 ? 400 : 98 + (editor?.clientHeight ?? 42);
-  }, [value?.content]);
+  // const insertButtonTop = useMemo(() => {
+  //   const editor = document.getElementById("editor");
+  //   const scrollOffset = ((editor?.offsetHeight as number) / window.innerHeight) * 100;
+  //   return scrollOffset > 70 ? 400 : 98 + (editor?.clientHeight ?? 42);
+  // }, [value?.content]);
 
   const handleTitleChange = (event: React.ChangeEvent<HTMLInputElement>) => {
     onChange?.({ name: "title", value: event.target.value });
@@ -30,6 +30,7 @@ export const WysiwygInput: React.FC<WysiwygInputProps> = ({
   return (
     <div className={clx(className, classes.root)}>
       <div className={classes.postTitleInputParent}>
+        <EditorToolbar initiateEmbed={initiateEmbed} />
         <input
           placeholder={"Add post title"}
           className={classes.postTitleInput}
@@ -38,9 +39,6 @@ export const WysiwygInput: React.FC<WysiwygInputProps> = ({
         />
       </div>
       <Editor content={value?.content ?? ""} handleChange={handleContentChange} embed={embed} />
-      <div style={{ position: "absolute", top: insertButtonTop }}>
-        <EmbedButton initiateEmbed={initiateEmbed} />
-      </div>
     </div>
   );
 };

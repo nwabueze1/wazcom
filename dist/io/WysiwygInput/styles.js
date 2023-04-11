@@ -39,11 +39,12 @@ export var useCreatePostInputStyles = makeStyles(function (theme) { return ({
     postTitleInputParent: {
         display: "flex",
         flexDirection: "column",
-        position: "relative",
+        position: "sticky",
+        top: 0,
         margin: theme.spacing(2, 0),
     },
     postTitleInput: {
-        height: 34,
+        height: 73,
         padding: theme.spacing(0, 0, 0, 2),
         background: "".concat(theme.design.colors.waz_white100, " 0% 0% no-repeat padding-box"),
         border: "0px solid ".concat(theme.design.colors.waz_primary700),
