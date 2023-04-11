@@ -1,3 +1,5 @@
+import { Paper, Table, TableCell, TableContainer, TableRow, Typography } from "@mui/material";
+import PropsTable from "core/PropsTable/PropsTable";
 import { FC } from "react";
 import { Button, Wrapper } from "../../core";
 import { useButtonStyles } from "./styles";
@@ -18,6 +20,16 @@ export const ButtonView: FC<ButtonViewProps> = () => {
           Default Button
         </Button>
       </Wrapper>
+      <PropsTable
+        tableBody={[
+          {
+            name: "Fidelis Okeke",
+            email: "padrefidelis111@gmail.com",
+            password: <input type={"password"} placeholder="pleaser enter password" />,
+          },
+        ]}
+        tableHeader={["name", "email", "password"]}
+      />
     </div>
   );
 };

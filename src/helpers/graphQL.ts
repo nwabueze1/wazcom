@@ -154,7 +154,7 @@ export const GET_BLOG_POSTS = gql`
         title
         slug
         status
-        category {
+        categories {
           name
           uuid
         }

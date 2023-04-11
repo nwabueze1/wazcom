@@ -38,4 +38,4 @@ export const useProgressStyles = makeStyles((theme: Theme) => ({
     background: theme.design.colors.waz_primary100,
     transition: "width 0.5s ease-in-out",
   }),
-}));
+}))
