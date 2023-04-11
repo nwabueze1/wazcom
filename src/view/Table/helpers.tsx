@@ -29,7 +29,6 @@ export const tableColumns: TableColumn[] = [
           alert(value);
           console.log(value);
         },
-        verify: () => false,
       },
       {
         name: "View",

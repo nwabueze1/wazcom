@@ -30,7 +30,7 @@ export const TableNew: FC<TableNewProps> = ({
   const [table, setTable] = useState<{
     data: any;
     pagination: TPagination;
-  }>({ data: null, pagination: { currentPage: 1, lastPage: 1, count: variables?.first ?? 5 } });
+  }>({ data: null, pagination: { currentPage: 1, lastPage: 1, count: variables?.first ?? 10 } });
 
   const [actions, setActions] = useState<{
     [key in "search" | "sort" | "conditionFilter" | "columnFilters"]:
@@ -83,7 +83,7 @@ export const TableNew: FC<TableNewProps> = ({
         ...(propVariables ?? {}),
         ...(queryVariables ?? {}),
         page: table?.data ? queryVariables?.page : variables?.page ?? 1,
-        first: table?.data ? queryVariables?.first : variables?.first ?? 5,
+        first: table?.data ? queryVariables?.first : variables?.first ?? 10,
       },
       fetchPolicy: "network-only",
     });
