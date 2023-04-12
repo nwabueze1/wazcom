@@ -1,5 +1,5 @@
 import ComponentProps from "core/ComponentProps/ComponentProps";
-import { FC } from "react";
+import { FC, useState } from "react";
 import { FiCheckCircle } from "react-icons/fi";
 import { Button, Wrapper } from "../../core";
 import { useButtonStyles } from "./styles";
@@ -7,9 +7,9 @@ import { ButtonViewProps } from "./types";
 import useButtonProps from "./utils/useButtonTableProps";
 
 export const ButtonView: FC<ButtonViewProps> = () => {
-  const classes = useButtonStyles();
   const { isDisabled, isLoading, variant, data, onReset, value, leftIcon, rightIcon } =
     useButtonProps();
+  const classes = useButtonStyles();
 
   return (
     <div className={classes.root}>
@@ -27,7 +27,7 @@ export const ButtonView: FC<ButtonViewProps> = () => {
           isLoading={isLoading}
           rightIcon={rightIcon && ((<FiCheckCircle />) as any)}
         >
-          {value}
+          Default button
         </Button>
       </Wrapper>
       <ComponentProps onReset={onReset} body={data} />

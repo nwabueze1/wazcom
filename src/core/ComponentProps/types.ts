@@ -6,7 +6,7 @@ export interface IComponentProps {
   name: string;
   description: string;
   default?: string;
-  controls?: string | ReactNode;
+  controls?: string | ReactNode | Function;
 }
 export type PropsTableBodyProps = Array<any>;
 

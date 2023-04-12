@@ -10,7 +10,7 @@ import {
   Typography,
 } from "@mui/material";
 import { Tag } from "../../build";
-import { FC } from "react";
+import { FC, memo } from "react";
 import { BiRefresh } from "react-icons/bi";
 import PropsButton from "./components/PropButton";
 import { usePropsTableStyles } from "./styles";
@@ -68,7 +68,11 @@ const ComponentProps: FC<TablepropsType> = ({ body, onReset, onCopyCode }) => {
                 {data.default && <Tag name={data.default} />}
               </TableCell>
               <TableCell className={classes.tableCell}>
-                {data.controls ? data.controls : "undefined"}
+                {data.controls && typeof data.controls === "function"
+                  ? data.controls()
+                  : data.controls && typeof data.controls !== "function"
+                  ? data.controls
+                  : "undefined"}
               </TableCell>
               <TableCell></TableCell>
             </StyledTableRow>
@@ -79,4 +83,4 @@ const ComponentProps: FC<TablepropsType> = ({ body, onReset, onCopyCode }) => {
   );
 };
 
-export default ComponentProps;
+export default memo(ComponentProps);
