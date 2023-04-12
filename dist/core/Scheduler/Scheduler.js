@@ -75,14 +75,13 @@ export var Scheduler = function (_a) {
     }, [initialScheduleValue]);
     var _f = __read(useState(parseSchedulevalue(initialScheduleValue, handleChange, {
         timeSection: clx(classes.timeContainer, classNames === null || classNames === void 0 ? void 0 : classNames.timeContainer),
-        timeDivider: clx(classes.timeDivider, classNames === null || classNames === void 0 ? void 0 : classNames.timeDivider),
+        timeDivider: classes.timeDivider,
         closeIcon: clx(classes.closeIcon, classNames === null || classNames === void 0 ? void 0 : classNames.closeIcon),
         hiddenCloseIcon: clx(classes.hidden, classNames === null || classNames === void 0 ? void 0 : classNames.hidden),
     })), 2), scheduleValue = _f[0], setScheduleValue = _f[1];
     useEffect(function () {
         var newScheduleValue = parseSchedulevalue(initialScheduleValue, handleChange, {
             timeSection: classes.timeContainer,
-            timeDivider: classes.timeDivider,
             closeIcon: classes.closeIcon,
             hiddenCloseIcon: classes.hidden,
         });
@@ -91,7 +90,7 @@ export var Scheduler = function (_a) {
     return (_jsxs("div", __assign({ className: clx(classes.root, className) }, { children: [label && (_jsx(InputLabel, __assign({ className: (_b = classNames === null || classNames === void 0 ? void 0 : classNames.label) !== null && _b !== void 0 ? _b : "", htmlFor: componentName }, { children: label }))), scheduleValue === null || scheduleValue === void 0 ? void 0 : scheduleValue.map(function (row, index) {
                 return (_jsx("div", __assign({ className: "".concat(classes.schedulerContainer, " ").concat(orientation == "vertical" && classes.verticalContainer) }, { children: fields.map(function (_a) {
                         var name = _a.name;
-                        return _jsx("span", { children: row === null || row === void 0 ? void 0 : row[name] }, Math.random() + index);
+                        return row === null || row === void 0 ? void 0 : row[name];
                     }) }), index));
             }), multiple && !isEverydaySelected && (_jsx("div", __assign({ className: "".concat(classes.button, " ").concat(availableOption.length == 0 && classes.hidden), onClick: addNewRow }, { children: _jsxs("p", __assign({ className: classes.buttonText }, { children: [_jsx(FiPlus, { className: classes.addIcon }), " Add Schedule"] })) })))] })));
 };

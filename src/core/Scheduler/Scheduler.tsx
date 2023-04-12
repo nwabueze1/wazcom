@@ -57,7 +57,7 @@ export const Scheduler: React.FC<SchedulerProps> = ({
   const [scheduleValue, setScheduleValue] = useState<{ [key: string]: any }[]>(
     parseSchedulevalue(initialScheduleValue as Schedule[], handleChange, {
       timeSection: clx(classes.timeContainer, classNames?.timeContainer),
-      timeDivider: clx(classes.timeDivider, classNames?.timeDivider),
+      timeDivider: classes.timeDivider,
       closeIcon: clx(classes.closeIcon, classNames?.closeIcon),
       hiddenCloseIcon: clx(classes.hidden, classNames?.hidden),
     }),
@@ -66,7 +66,6 @@ export const Scheduler: React.FC<SchedulerProps> = ({
   useEffect(() => {
     const newScheduleValue = parseSchedulevalue(initialScheduleValue as Schedule[], handleChange, {
       timeSection: classes.timeContainer,
-      timeDivider: classes.timeDivider,
       closeIcon: classes.closeIcon,
       hiddenCloseIcon: classes.hidden,
     });
@@ -90,7 +89,7 @@ export const Scheduler: React.FC<SchedulerProps> = ({
             key={index}
           >
             {fields.map(({ name }) => {
-              return <span key={Math.random() + index}>{row?.[name]}</span>;
+              return row?.[name];
             })}
           </div>
         );

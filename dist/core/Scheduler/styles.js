@@ -9,12 +9,12 @@ export var useSchedulerStyles = makeStyles(function (theme) { return ({
     button: {
         display: "flex",
         alignItems: "center",
-        margin: theme.spacing(2, 0, 0, 0),
+        margin: theme.spacing(1, 0, 0, 0),
         cursor: "pointer",
     },
     buttonText: {
         margin: "0",
-        fontSize: theme.typography.fontSize + 4,
+        fontSize: theme.typography.fontSize,
         fontWeight: theme.typography.fontWeightMedium,
         color: theme.design.colors.waz_primaryColor100,
         display: "flex",
@@ -34,17 +34,15 @@ export var useSchedulerStyles = makeStyles(function (theme) { return ({
         flexDirection: "column",
         gap: theme.spacing(2),
         marginBottom: theme.spacing(2),
-        "& div": {
-            width: "100%",
-        },
     },
     timeContainer: {
         display: "flex",
         justifyContent: "space-between",
         alignItems: "center",
+        gap: theme.spacing(1),
     },
     timeDivider: {
-        margin: theme.spacing(0, 1),
+        fontSize: theme.typography.fontSize - 2,
     },
     closeIcon: {
         color: theme.design.colors.waz_grey5,

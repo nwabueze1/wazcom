@@ -31,6 +31,7 @@ export var useTimeInputStyles = makeStyles(function (theme) { return ({
         fontWeight: theme.typography.fontWeightRegular,
         fontSize: theme.typography.fontSize,
         borderColor: theme.design.colors.waz_primary700,
+        boxSizing: "border-box",
         "&:hover": {
             borderColor: theme.design.colors.waz_primary500,
         },

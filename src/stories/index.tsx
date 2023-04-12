@@ -626,9 +626,15 @@ export const stories: ComponentPropType[] = [
     component: Scheduler,
     props: {
       label: "Menu Schedule",
+      MenuProps: {
+        style: { top: 50, position: "absolute" },
+        variant: "menu",
+    },
+    orientation: "vertical",
+    multiple: true,
       value: [
         {
-          day: "0",
+          day: "1",
           start_time: "12:00",
           end_time: "18:00",
         },
