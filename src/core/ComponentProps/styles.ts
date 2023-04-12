@@ -25,6 +25,5 @@ export const usePropsTableStyles = makeStyles((theme: Theme) => ({
   },
   tableCell: {
     width: "20%",
-    whiteSpace:"nowrap"
   },
 }));

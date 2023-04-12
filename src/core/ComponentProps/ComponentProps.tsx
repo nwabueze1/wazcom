@@ -9,6 +9,7 @@ import {
   TableRow,
   Typography,
 } from "@mui/material";
+import { Tag } from "../../build";
 import { FC } from "react";
 import { BiRefresh } from "react-icons/bi";
 import PropsButton from "./components/PropButton";
@@ -27,7 +28,7 @@ const ComponentProps: FC<TablepropsType> = ({ body, onReset, onCopyCode }) => {
     "&:last-child td, &:last-child th": {
       border: 0,
     },
-    "&:first-child th": {
+    "&:first-of-type th": {
       border: 0,
     },
   }));
@@ -50,7 +51,7 @@ const ComponentProps: FC<TablepropsType> = ({ body, onReset, onCopyCode }) => {
               </TableCell>
             ))}
 
-            <TableCell rowSpan={2} align="right" className={classes.tableCell}>
+            <TableCell align="right" className={classes.tableCell} sx={{ whiteSpace: "nowrap" }}>
               <PropsButton endIcon={<BiRefresh fontSize={15} />} onClick={onReset}>
                 Reset
               </PropsButton>
@@ -64,10 +65,12 @@ const ComponentProps: FC<TablepropsType> = ({ body, onReset, onCopyCode }) => {
               <TableCell className={classes.tableCell}>{data.name}</TableCell>
               <TableCell className={classes.tableCell}>{data.description}</TableCell>
               <TableCell className={classes.tableCell}>
-              {data.default&& <Chip label={data.default} size="small" variant="outlined" />}
+                {data.default && <Tag name={data.default} />}
               </TableCell>
-              <TableCell className={classes.tableCell}>{data.controls&&data.controls}</TableCell>
-              <TableCell colSpan={2}></TableCell>
+              <TableCell className={classes.tableCell}>
+                {data.controls ? data.controls : "undefined"}
+              </TableCell>
+              <TableCell></TableCell>
             </StyledTableRow>
           ))}
         </TableBody>
