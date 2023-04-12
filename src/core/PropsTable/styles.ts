@@ -7,7 +7,7 @@ export const usePropsTableStyles = makeStyles((theme: Theme) => ({
     borderStyle: "solid",
     borderColor: theme.design.colors.waz_grey300,
     borderRadius: 3,
-    padding: theme.spacing(1.5, 0),
+    padding: theme.spacing(1, 0),
     minHeight: 120,
     display: "flex",
     flexDirection: "column",
@@ -15,5 +15,12 @@ export const usePropsTableStyles = makeStyles((theme: Theme) => ({
     gap: theme.spacing(3),
     maxWidth: "1147px",
     marginTop: theme.spacing(3),
+  },
+  tableHeading: {
+    textTransform: "capitalize",
+  },
+  tableRow: {
+    display: "flex",
+    justifyContent: "space-between",
   },
 }));

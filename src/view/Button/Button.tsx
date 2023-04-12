@@ -1,4 +1,12 @@
-import { Paper, Table, TableCell, TableContainer, TableRow, Typography } from "@mui/material";
+import {
+  Paper,
+  Table,
+  TableCell,
+  TableContainer,
+  TableRow,
+  TextField,
+  Typography,
+} from "@mui/material";
 import PropsTable from "core/PropsTable/PropsTable";
 import { FC } from "react";
 import { Button, Wrapper } from "../../core";
@@ -23,12 +31,13 @@ export const ButtonView: FC<ButtonViewProps> = () => {
       <PropsTable
         tableBody={[
           {
-            name: "Fidelis Okeke",
-            email: "padrefidelis111@gmail.com",
-            password: <input type={"password"} placeholder="pleaser enter password" />,
+            name: "Label",
+            description: "Input label on the top left (String)",
+            default: "Default",
+            controls: <TextField size="small" fullWidth placeholder="control" />,
           },
         ]}
-        tableHeader={["name", "email", "password"]}
+        tableHeader={["name", "description", "default", "controls"]}
       />
     </div>
   );

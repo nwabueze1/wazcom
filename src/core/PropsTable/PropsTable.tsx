@@ -29,6 +29,10 @@ const PropsTable: FC<TablepropsType> = ({ tableBody, tableHeader, onReset, onCop
       border: 0,
     },
   }));
+
+  const tableCellWidth = 100 / (tableHeader.length + 1);
+  const hasData = tableHeader.length !== 0;
+
   return (
     <TableContainer className={classes.tableContainer}>
       <Table sx={{ mt: 0 }}>
@@ -40,12 +44,18 @@ const PropsTable: FC<TablepropsType> = ({ tableBody, tableHeader, onReset, onCop
               </Typography>
             </TableCell>
           </StyledTableRow>
-          <TableRow>
+          <TableRow className={classes.tableHeading}>
             {tableHeader.map((content, index) => (
-              <TableCell key={index}>{content}</TableCell>
+              <TableCell key={index} sx={{ width: hasData ? `${tableCellWidth}%` : "auto",whiteSpace:"nowra" }}>
+                {content}
+              </TableCell>
             ))}
 
-            <TableCell rowSpan={2} align="right">
+            <TableCell
+              rowSpan={2}
+              align="right"
+              sx={{ whiteSpace: "nowrap", width: hasData ? `${tableCellWidth}%` : "auto" }}
+            >
               <PropsButton endIcon={<BiRefresh fontSize={15} />} onClick={onReset}>
                 Reset
               </PropsButton>

@@ -9,9 +9,6 @@ export const usePropButtonStyles = makeStyles((theme: Theme) => ({
     textTransform: "capitalize",
     display: "inline-block",
     marginRight: 5,
-    hover: {
-      border: 2,
-    },
   },
   innerContent: {
     display: "flex",
@@ -20,4 +17,5 @@ export const usePropButtonStyles = makeStyles((theme: Theme) => ({
     color: "#343E37",
     // margin: theme.spacing(0, 2),
   },
+ 
 }));
