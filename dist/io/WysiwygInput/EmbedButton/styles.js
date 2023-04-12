@@ -43,6 +43,8 @@ export var useInsertButtonStyles = makeStyles(function (theme) { return ({
     },
     showOptions: {
         display: "flex",
+        position: "absolute",
+        left: 16,
     },
     hideOptions: {
         display: "none",
