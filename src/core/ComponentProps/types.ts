@@ -3,7 +3,7 @@ import { ReactNode } from "react";
 export type PropsTableHeaderProps = Array<string>;
 
 export interface IComponentProps {
-  name: string;
+  name: string | ReactNode;
   description: string;
   default?: string;
   controls?: string | ReactNode;
