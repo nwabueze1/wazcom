@@ -23,4 +23,8 @@ export const usePropsTableStyles = makeStyles((theme: Theme) => ({
     display: "flex",
     justifyContent: "space-between",
   },
+  tableCell: {
+    width: "20%",
+    whiteSpace:"nowrap"
+  },
 }));

@@ -1,4 +1,5 @@
 import {
+  Chip,
   styled,
   Table,
   TableBody,
@@ -12,10 +13,11 @@ import { FC } from "react";
 import { BiRefresh } from "react-icons/bi";
 import PropsButton from "./components/PropButton";
 import { usePropsTableStyles } from "./styles";
-import { TablepropsType } from "./types";
+import { IComponentProps, TablepropsType } from "./types";
 
-const PropsTable: FC<TablepropsType> = ({ tableBody, tableHeader, onReset, onCopyCode }) => {
+const ComponentProps: FC<TablepropsType> = ({ body, onReset, onCopyCode }) => {
   const classes = usePropsTableStyles();
+  const tableHead: string[] = ["name", "description", "default", "controls"];
 
   const StyledTableRow = styled(TableRow)(({ theme }) => ({
     //   "&:nth-of-type(odd)": {
@@ -30,9 +32,6 @@ const PropsTable: FC<TablepropsType> = ({ tableBody, tableHeader, onReset, onCop
     },
   }));
 
-  const tableCellWidth = 100 / (tableHeader.length + 1);
-  const hasData = tableHeader.length !== 0;
-
   return (
     <TableContainer className={classes.tableContainer}>
       <Table sx={{ mt: 0 }}>
@@ -45,17 +44,13 @@ const PropsTable: FC<TablepropsType> = ({ tableBody, tableHeader, onReset, onCop
             </TableCell>
           </StyledTableRow>
           <TableRow className={classes.tableHeading}>
-            {tableHeader.map((content, index) => (
-              <TableCell key={index} sx={{ width: hasData ? `${tableCellWidth}%` : "auto",whiteSpace:"nowra" }}>
-                {content}
+            {tableHead.map((key, index) => (
+              <TableCell key={index} className={classes.tableCell}>
+                {key}
               </TableCell>
             ))}
 
-            <TableCell
-              rowSpan={2}
-              align="right"
-              sx={{ whiteSpace: "nowrap", width: hasData ? `${tableCellWidth}%` : "auto" }}
-            >
+            <TableCell rowSpan={2} align="right" className={classes.tableCell}>
               <PropsButton endIcon={<BiRefresh fontSize={15} />} onClick={onReset}>
                 Reset
               </PropsButton>
@@ -64,11 +59,14 @@ const PropsTable: FC<TablepropsType> = ({ tableBody, tableHeader, onReset, onCop
           </TableRow>
         </TableHead>
         <TableBody>
-          {tableBody.map((data, i) => (
+          {body.map((data, i) => (
             <StyledTableRow key={i}>
-              {tableHeader.map((content, index) => (
-                <TableCell key={index}>{data[content]}</TableCell>
-              ))}
+              <TableCell className={classes.tableCell}>{data.name}</TableCell>
+              <TableCell className={classes.tableCell}>{data.description}</TableCell>
+              <TableCell className={classes.tableCell}>
+              {data.default&& <Chip label={data.default} size="small" variant="outlined" />}
+              </TableCell>
+              <TableCell className={classes.tableCell}>{data.controls&&data.controls}</TableCell>
               <TableCell colSpan={2}></TableCell>
             </StyledTableRow>
           ))}
@@ -78,4 +76,4 @@ const PropsTable: FC<TablepropsType> = ({ tableBody, tableHeader, onReset, onCop
   );
 };
 
-export default PropsTable;
+export default ComponentProps;

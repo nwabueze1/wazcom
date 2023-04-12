@@ -1,13 +1,5 @@
-import {
-  Paper,
-  Table,
-  TableCell,
-  TableContainer,
-  TableRow,
-  TextField,
-  Typography,
-} from "@mui/material";
-import PropsTable from "core/PropsTable/PropsTable";
+import { TextField } from "@mui/material";
+import ComponentProps from "core/ComponentProps/ComponentProps";
 import { FC } from "react";
 import { Button, Wrapper } from "../../core";
 import { useButtonStyles } from "./styles";
@@ -28,8 +20,8 @@ export const ButtonView: FC<ButtonViewProps> = () => {
           Default Button
         </Button>
       </Wrapper>
-      <PropsTable
-        tableBody={[
+      <ComponentProps
+        body={[
           {
             name: "Label",
             description: "Input label on the top left (String)",
@@ -37,7 +29,6 @@ export const ButtonView: FC<ButtonViewProps> = () => {
             controls: <TextField size="small" fullWidth placeholder="control" />,
           },
         ]}
-        tableHeader={["name", "description", "default", "controls"]}
       />
     </div>
   );

@@ -17,5 +17,10 @@ export const usePropButtonStyles = makeStyles((theme: Theme) => ({
     color: "#343E37",
     // margin: theme.spacing(0, 2),
   },
- 
+}));
+
+export const useTextFieldStyles = makeStyles((theme: Theme) => ({
+  root: {
+    borderColor: theme.design.colors.waz_primary500,
+  },
 }));
