@@ -1,43 +1,48 @@
 import { FC } from "react";
 import { Tag } from "core/Tag";
-import { usePropsTableStyles } from "./styles";
-import { TablepropsType } from "./types";
-import {
-  CompnentPropsTableData,
-  CompnentPropsTableHead,
-  CompnentPropsTableRow,
-  ComponentPropsTableButton,
-} from "./components/ComponentPropsTableComp";
+import { useComponentPropsStyles } from "./styles";
+import { ComponentPropsProp } from "./types";
+import { Button } from "../../core";
+import { BiRefresh } from "react-icons/bi";
 
-const ComponentProps: FC<TablepropsType> = ({ body, onReset, onCopyCode }) => {
-  const classes = usePropsTableStyles();
+const ComponentProps: FC<ComponentPropsProp> = ({ body, onReset }) => {
+  const classes = useComponentPropsStyles();
   const tableHead: string[] = ["name", "description", "default", "controls"];
 
   return (
     <div className={classes.tableContainer}>
+      <h4 className={classes.title}>Props</h4>
       <table className={classes.table}>
         <thead className={classes.thead}>
-          <CompnentPropsTableRow>
+          <tr className={classes.tr}>
             {tableHead.map((value, index) => (
-              <CompnentPropsTableHead key={index}>{value}</CompnentPropsTableHead>
+              <th key={index} className={classes.th}>
+                {value}
+              </th>
             ))}
-            <CompnentPropsTableHead>
-              <ComponentPropsTableButton onCopyCode={onCopyCode} onReset={onReset} />
-            </CompnentPropsTableHead>
-          </CompnentPropsTableRow>
+            <th className={classes.th}>
+              <Button
+                variant="outlined"
+                className={classes.tbutton}
+                rightIcon={<BiRefresh className={classes.buttonIcon} />}
+                iconSpacing={5}
+                onClick={onReset}
+              >
+                Reset
+              </Button>
+            </th>
+          </tr>
         </thead>
         <tbody className={classes.tbody}>
           {body.map((contents, index) => (
-            <CompnentPropsTableRow key={index}>
-              <CompnentPropsTableData>{contents.name}</CompnentPropsTableData>
-              <CompnentPropsTableData>{contents.description}</CompnentPropsTableData>
-              <CompnentPropsTableData>
+            <tr className={classes.tr} key={index}>
+              <td className={classes.td}>{contents.name}</td>
+              <td className={classes.td}>{contents.description}</td>
+              <td className={classes.td}>
                 <Tag name={contents.default as string} />
-              </CompnentPropsTableData>
-              <CompnentPropsTableData>
-                {contents.controls && contents.controls}
-              </CompnentPropsTableData>
-            </CompnentPropsTableRow>
+              </td>
+              <td className={classes.td}>{contents.controls && contents.controls}</td>
+            </tr>
           ))}
         </tbody>
       </table>

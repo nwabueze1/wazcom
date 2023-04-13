@@ -19,6 +19,9 @@ export const useWrapperStyles = makeStyles((theme: Theme) => ({
     gap: theme.spacing(3),
     maxWidth: "1100px",
   },
+  containerWrapperNopadding: {
+    padding: theme.spacing(0),
+  },
   container: {
     display: "flex",
     flexDirection: "column",

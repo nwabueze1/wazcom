@@ -26,7 +26,7 @@ export const Wrapper: FC<WrapperProps> = ({
           </div>
         )}
         {showBody && (
-          <div className={classes.containerWrapper}>
+          <div className={clx(classes.containerWrapper)}>
             <div className={clx(classes.innerContainer, classNames?.innerContainer)}>
               {children}
             </div>
