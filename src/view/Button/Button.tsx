@@ -20,16 +20,18 @@ export const ButtonView: FC<ButtonViewProps> = () => {
           Default Button
         </Button>
       </Wrapper>
-      <ComponentProps
-        body={[
-          {
-            name: "Label",
-            description: "Input label on the top left (String)",
-            default: "Default",
-            controls: <TextField size="small" fullWidth placeholder="control" />,
-          },
-        ]}
-      />
+      <Wrapper defaultPadding={false}>
+        <ComponentProps
+          body={[
+            {
+              name: "Label",
+              description: "Input label on the top left (String)",
+              default: "Default",
+              controls: <TextField size="small" fullWidth placeholder="control" />,
+            },
+          ]}
+        />
+      </Wrapper>
     </div>
   );
 };

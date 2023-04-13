@@ -8,4 +8,5 @@ export type WrapperProps = {
   description?: string;
   showHeader?: boolean;
   showBody?: boolean;
+  defaultPadding?: boolean;
 };
