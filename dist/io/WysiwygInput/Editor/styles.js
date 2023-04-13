@@ -3,7 +3,7 @@ export var useEditorStyles = makeStyles(function (theme) { return ({
     root: {
         display: "flex",
         flexDirection: "column",
-        height: "60vh",
+        height: "50vh",
         position: "relative",
     },
     wordCount: {
