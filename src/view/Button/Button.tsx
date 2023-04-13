@@ -1,5 +1,6 @@
 import { TextField } from "@mui/material";
 import ComponentProps from "core/ComponentProps/ComponentProps";
+import ComponentPropsWraper from "core/ComponentProps/components/Wrapper";
 import { FC } from "react";
 import { Button, Wrapper } from "../../core";
 import { useButtonStyles } from "./styles";
@@ -20,7 +21,7 @@ export const ButtonView: FC<ButtonViewProps> = () => {
           Default Button
         </Button>
       </Wrapper>
-      <Wrapper defaultPadding={false} maxWidth={1150}>
+      <ComponentPropsWraper maxWidth={1149}>
         <ComponentProps
           body={[
             {
@@ -31,7 +32,7 @@ export const ButtonView: FC<ButtonViewProps> = () => {
             },
           ]}
         />
-      </Wrapper>
+      </ComponentPropsWraper>
     </div>
   );
 };
