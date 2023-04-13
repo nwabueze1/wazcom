@@ -19,12 +19,33 @@ export const usePropsTableStyles = makeStyles((theme: Theme) => ({
   tableHeading: {
     textTransform: "capitalize",
   },
-  tableRow: {
-    display: "flex",
-    justifyContent: "space-between",
+  table: {
+    display: "table",
+    width: "100%",
+    borderCollapse: "collapse",
+    borderSpacing: 0,
+    minWidth: "650px",
   },
-  tableCell: {
+  thead: {
+    display: "table-header-group",
+  },
+
+  th: {
+    padding: theme.spacing(3, 2),
+    textAlign: "start",
+    fontSize: 12,
+    color: theme.design.colors.grey,
     width: "20%",
-    whiteSpace:"nowrap"
+    borderBottomWidth: 0.5,
+    borderBottomColor: theme.design.colors.waz_table_border,
+    borderBottomStyle: "inset",
+    fontWeight: "bold",
+    textTransform: "capitalize",
+  },
+  tbody: {
+    verticalAlign: "middle",
+    borderColor: "inherit",
+    display: "table-row-group",
+    outline: 0,
   },
 }));
