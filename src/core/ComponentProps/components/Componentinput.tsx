@@ -1,14 +1,11 @@
 import { TextField } from "@mui/material";
-import { ChangeEvent, FC } from "react";
-import { useTextFieldStyles } from "./styles";
+import { FC } from "react";
+import { useComponentPropsCStyles } from "./styles";
+import { ComponentInputProp } from "./types";
 
-interface IProps {
-  onChange: (e: ChangeEvent<HTMLTextAreaElement | HTMLInputElement>) => void;
-  value: string | number;
-}
-const ComponentInput: FC<IProps> = ({ value, onChange }) => {
-  const classes = useTextFieldStyles();
-  return <TextField onChange={onChange} value={value} className={classes.root}></TextField>;
+export const ComponentInput: FC<ComponentInputProp> = ({ value, onChange }) => {
+  const classes = useComponentPropsCStyles();
+  return (
+    <TextField onChange={onChange} value={value} className={classes.textFieldRoot}></TextField>
+  );
 };
-
-export default ComponentInput;

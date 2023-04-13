@@ -1,21 +1,20 @@
 import { Theme } from "@mui/material";
 import makeStyles from "@mui/styles/makeStyles";
+
 export const useComponentPropsCStyles = makeStyles((theme: Theme) => ({
   root: {
     background: "white",
     padding: theme.spacing(0.5, 3),
-    border: "1px solid #CEE3D4",
-
+    border: `1px solid ${theme.design.colors.waz_primary600}`,
     textTransform: "capitalize",
     display: "inline-block",
-    marginRight: 5,
+    marginRight: theme.spacing(1),
   },
   innerContent: {
     display: "flex",
     alignItems: "center",
-    fontSize: 10,
-    color: "#343E37",
-    // margin: theme.spacing(0, 2),
+    fontSize: theme.typography.fontSize - 2,
+    color: theme.design.colors.waz_grey500,
   },
   tr: {
     color: "inherit",
@@ -44,13 +43,13 @@ export const useComponentPropsCStyles = makeStyles((theme: Theme) => ({
     display: "table-cell",
     borderBottomColor: theme.design.colors.waz_table_border,
     padding: theme.spacing(2.5),
-    fontSize: 11,
+    fontSize: theme.typography.fontSize - 1,
     width: "20%",
     color: theme.design.colors.grey,
   },
   tbutton: {
     borderColor: theme.design.colors.waz_primary600,
-    fontSize: 10,
+    fontSize: theme.typography.fontSize - 2,
     height: 25,
     display: "flex",
     alignItems: "center",
@@ -58,20 +57,17 @@ export const useComponentPropsCStyles = makeStyles((theme: Theme) => ({
       borderColor: theme.design.colors.waz_primary700,
       borderWidth: 2,
     },
-    marginRight: 3,
+    marginRight: theme.spacing(1),
     maxWidth: 75,
   },
   buttonIcon: {
-    fontSize: 13,
+    fontSize: theme.typography.fontSize + 1,
     color: theme.design.colors.grey,
   },
   buttonContainer: {
     display: "flex",
   },
-}));
-
-export const useTextFieldStyles = makeStyles((theme: Theme) => ({
-  root: {
+  textFieldRoot: {
     borderColor: theme.design.colors.waz_primary500,
   },
 }));

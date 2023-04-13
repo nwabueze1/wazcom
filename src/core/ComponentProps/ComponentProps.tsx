@@ -1,7 +1,7 @@
 import { FC } from "react";
 import { Tag } from "core/Tag";
-import { usePropsTableStyles } from "./styles";
-import { TablepropsType } from "./types";
+import { useComponentPropsStyles } from "./styles";
+import { ComponentPropsProp } from "./types";
 import {
   CompnentPropsTableData,
   CompnentPropsTableHead,
@@ -9,8 +9,8 @@ import {
   ComponentPropsTableButton,
 } from "./components/ComponentPropsTableComp";
 
-const ComponentProps: FC<TablepropsType> = ({ body, onReset, onCopyCode }) => {
-  const classes = usePropsTableStyles();
+const ComponentProps: FC<ComponentPropsProp> = ({ body, onReset, onCopyCode }) => {
+  const classes = useComponentPropsStyles();
   const tableHead: string[] = ["name", "description", "default", "controls"];
 
   return (

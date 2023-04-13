@@ -2,22 +2,22 @@ import { Button } from "../../";
 import { FC } from "react";
 import { BiRefresh } from "react-icons/bi";
 import { useComponentPropsCStyles } from "./styles";
-import { ComponentPropsTableButtonType, ComponentPropsTableRowType } from "./types";
+import { ComponentPropsTableButtonProp, ComponentPropsTableRowProp } from "./types";
 
-const CompnentPropsTableRow: FC<ComponentPropsTableRowType> = ({ children }) => {
+const CompnentPropsTableRow: FC<ComponentPropsTableRowProp> = ({ children }) => {
   const classes = useComponentPropsCStyles();
   return <tr className={classes.tr}>{children}</tr>;
 };
-const CompnentPropsTableData: FC<ComponentPropsTableRowType> = ({ children }) => {
+const CompnentPropsTableData: FC<ComponentPropsTableRowProp> = ({ children }) => {
   const classes = useComponentPropsCStyles();
   return <td className={classes.td}>{children}</td>;
 };
-const CompnentPropsTableHead: FC<ComponentPropsTableRowType> = ({ children }) => {
+const CompnentPropsTableHead: FC<ComponentPropsTableRowProp> = ({ children }) => {
   const classes = useComponentPropsCStyles();
   return <th className={classes.th}>{children}</th>;
 };
 
-const ComponentPropsTableButton: FC<ComponentPropsTableButtonType> = ({ onCopyCode, onReset }) => {
+const ComponentPropsTableButton: FC<ComponentPropsTableButtonProp> = ({ onCopyCode, onReset }) => {
   const classes = useComponentPropsCStyles();
 
   return (
@@ -30,9 +30,6 @@ const ComponentPropsTableButton: FC<ComponentPropsTableButtonType> = ({ onCopyCo
         onClick={onReset}
       >
         Reset
-      </Button>
-      <Button variant="outlined" className={classes.tbutton} iconSpacing={5} onClick={onCopyCode}>
-        Copy code
       </Button>
     </aside>
   );

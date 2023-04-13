@@ -1,6 +1,7 @@
 import { Theme } from "@mui/material";
 import makeStyles from "@mui/styles/makeStyles";
-export const usePropsTableStyles = makeStyles((theme: Theme) => ({
+
+export const useComponentPropsStyles = makeStyles((theme: Theme) => ({
   tableContainer: {
     background: theme.design.background.waz_primaryWhite,
     borderWidth: 1,
