@@ -72,9 +72,10 @@ export const useTabStyles = makeStyles((theme: BaseTheme) => ({
       ? theme.design.colors.waz_primaryColor100
       : theme.design.colors.primary700,
     "&:hover": {
-      color: variant === "vertical"
-        ? theme.design.colors.waz_primaryColor100
-        : theme.design.colors.waz_white,
+      color:
+        variant === "vertical"
+          ? theme.design.colors.waz_primaryColor100
+          : theme.design.colors.waz_white,
       borderColor: variant?.includes("vertical")
         ? theme.design.colors.waz_primaryColor100
         : theme.design.colors.primary500,

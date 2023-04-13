@@ -30,8 +30,8 @@ export const Scheduler: React.FC<SchedulerProps> = ({
       let parsedValue = value;
 
       if (name.includes("time")) {
-        parsedValue = (value as string).split(dayDelimiter + 'T')[1];
-        parsedValue = parsedValue.split('+')[0];
+        parsedValue = (value as string).split(dayDelimiter + "T")[1];
+        parsedValue = parsedValue.split("+")[0];
       }
 
       if (remove && newScheduleValue.length > 1) {
@@ -47,7 +47,8 @@ export const Scheduler: React.FC<SchedulerProps> = ({
   const addNewRow = useCallback(() => {
     const nextFieldId = dayOptions.filter(
       (item) =>
-        Number(item.value) != 0 && !initialScheduleValue.some((option) => Number(option.day) == Number(item.value)),
+        Number(item.value) != 0 &&
+        !initialScheduleValue.some((option) => Number(option.day) == Number(item.value)),
     )[0].value;
     onChange?.({
       name: componentName as string,

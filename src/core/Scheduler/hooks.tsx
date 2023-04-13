@@ -15,7 +15,7 @@ export const dayOptions = [
   { value: "7", label: "Saturday" },
   { value: "8", label: "Weekdays" },
   { value: "9", label: "Weekends" },
-]
+];
 
 export const useScheduleData = () => {
   const classes = useSchedulerStyles();
@@ -72,6 +72,5 @@ export const useScheduleData = () => {
     return data;
   };
 };
-
 
 export const dayDelimiter = "2023-04-14";

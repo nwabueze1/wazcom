@@ -55,8 +55,8 @@ export var Scheduler = function (_a) {
         var newScheduleValue = __spreadArray([], __read(initialScheduleValue), false);
         var parsedValue = value;
         if (name.includes("time")) {
-            parsedValue = value.split(dayDelimiter + 'T')[1];
-            parsedValue = parsedValue.split('+')[0];
+            parsedValue = value.split(dayDelimiter + "T")[1];
+            parsedValue = parsedValue.split("+")[0];
         }
         if (remove && newScheduleValue.length > 1) {
             newScheduleValue.splice(index, 1);
@@ -68,7 +68,8 @@ export var Scheduler = function (_a) {
     }, [initialScheduleValue]);
     var addNewRow = useCallback(function () {
         var nextFieldId = dayOptions.filter(function (item) {
-            return Number(item.value) != 0 && !initialScheduleValue.some(function (option) { return Number(option.day) == Number(item.value); });
+            return Number(item.value) != 0 &&
+                !initialScheduleValue.some(function (option) { return Number(option.day) == Number(item.value); });
         })[0].value;
         onChange === null || onChange === void 0 ? void 0 : onChange({
             name: componentName,
