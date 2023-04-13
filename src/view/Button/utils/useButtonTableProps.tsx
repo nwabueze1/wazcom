@@ -1,78 +1,37 @@
 import { Button, CheckBoxInput, TextInput } from "../../../build";
 import { IComponentProps } from "core/ComponentProps/types";
-import { useState } from "react";
+import { useContext } from "react";
+import ButtonPropsContext from "./ButtonComponentContext";
 
-interface IIntitialState {
-  isDisabled: boolean;
-  isLoading: boolean;
-  variant: "contained" | "outlined" | "text";
-  value: string;
-  leftIcon: boolean;
-  rightIcon: boolean;
-  height: number;
-  width: number;
-  title: string;
-}
-
-const initialstate: IIntitialState = {
-  isDisabled: false,
-  isLoading: false,
-  variant: "contained",
-  value: "",
-  leftIcon: false,
-  rightIcon: false,
-  height: 10,
-  width: 10,
-  title: "",
-};
-
-interface IEvent {
-  name: string;
-  value: string | boolean;
-}
-const useButtonProps = () => {
-  const [state, setState] = useState<IIntitialState>(initialstate);
+const useButtonPropsData = () => {
+  const { isDisabled, isLoading, onChange, height, leftIcon, rightIcon } =
+    useContext(ButtonPropsContext);
 
   const data: IComponentProps[] = [
     {
       name: "isDisabled",
       description: "This prop is used to disable or enable the button",
       default: "false",
-      controls: (
-        <CheckBoxInput
-          value={state.isDisabled}
-          onChange={() => setState({ ...state, isDisabled: !state.isDisabled })}
-        />
-      ),
+      controls: <CheckBoxInput onChange={onChange} name="isDisabled" />,
     },
     {
       name: "isLoading",
       description: "This prop is used to control the loading state of the button.",
       default: "false",
-      controls: (
-        <CheckBoxInput
-          value={state.isLoading}
-          onChange={() => setState({ ...state, isLoading: !state.isLoading })}
-        />
-      ),
+      controls: <CheckBoxInput value={isLoading} onChange={onChange} name="isLoading" />,
     },
     {
       name: "children",
       description: "The content of the component.",
       default: "undefined",
-      controls: () => <TextInput type={"text"} onChange={(e) => {}} height={10}></TextInput>,
+      controls: () => <TextInput type={"text"} onChange={() => {}} height={10}></TextInput>,
     },
     {
       name: "height",
       description: "This is useed to set the height of the button",
       default: "auto",
       controls: (
-        <TextInput
-          type={"number"}
-          onChange={(e) => setState({ ...state, height: +e.value > 18 ? e.value : 18 })}
-          height={10}
-          name="height"
-        />
+        <TextInput type={"number"} value={height} onChange={onChange} height={10} name="height" />
       ),
     },
     {
@@ -85,23 +44,13 @@ const useButtonProps = () => {
       name: "leftIcon",
       description: "This prop is used to insert an Element before the children",
       default: "undefined",
-      controls: (
-        <CheckBoxInput
-          value={state.leftIcon}
-          onChange={() => setState({ ...state, leftIcon: !state.leftIcon })}
-        />
-      ),
+      controls: <CheckBoxInput value={leftIcon} onChange={onChange} name="leftIcon" />,
     },
     {
       name: "rightIcon",
       description: "This prop is used to insert an Elemet after the children",
       default: "undefined",
-      controls: (
-        <CheckBoxInput
-          value={state.rightIcon}
-          onChange={() => setState({ ...state, rightIcon: !state.rightIcon })}
-        />
-      ),
+      controls: <CheckBoxInput value={rightIcon} onChange={onChange} name="rightIcon" />,
     },
     {
       name: "variant",
@@ -121,10 +70,8 @@ const useButtonProps = () => {
   ];
 
   return {
-    ...state,
     data,
-    onReset: () => setState(initialstate),
   };
 };
 
-export default useButtonProps;
+export default useButtonPropsData;
