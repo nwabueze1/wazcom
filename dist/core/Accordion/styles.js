@@ -49,15 +49,15 @@ export var useAccordionStyles = makeStyles(function (theme) {
             border: "1px solid transparent",
             borderColor: theme.design.colors.waz_primary700,
             alignItems: "center",
+            justifyContent: "space-between",
             padding: theme.spacing(0, 2),
             userSelect: "none",
+            width: "100%",
             "&:hover": {
                 background: theme.design.colors.waz_white100,
             },
         },
         accordionIcon: {
-            position: "absolute",
-            right: 15,
             transition: "transform .2s",
             display: "flex",
             alignItems: "center",
