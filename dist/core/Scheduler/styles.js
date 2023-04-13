@@ -40,14 +40,19 @@ export var useSchedulerStyles = makeStyles(function (theme) { return ({
         justifyContent: "space-between",
         alignItems: "center",
         gap: theme.spacing(1),
+        width: "100%",
+    },
+    timeInput: {
+        width: "100%",
     },
     timeDivider: {
         fontSize: theme.typography.fontSize - 2,
     },
     closeIcon: {
-        color: theme.design.colors.waz_grey5,
-        marginLeft: theme.spacing(1.5),
+        color: theme.design.colors.waz_primaryBlack,
+        fontSize: theme.typography.fontSize + 4,
         cursor: "pointer",
+        opacity: 0.35,
     },
     hidden: {
         display: "none",
