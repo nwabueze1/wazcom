@@ -4,6 +4,9 @@ export var useTimeInputStyles = makeStyles(function (theme) { return ({
         display: "flex",
         flexDirection: "column",
         justifyContent: "start",
+        "& .rc-time-picker-clear": {
+            right: "-5px !important",
+        },
     },
     label: {
         fontSize: theme.typography.fontSize - 2,

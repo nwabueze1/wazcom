@@ -54,6 +54,15 @@ export var Scheduler = function (_a) {
         if (remove === void 0) { remove = false; }
         var newScheduleValue = __spreadArray([], __read(initialScheduleValue), false);
         var parsedValue = value;
+        console.log(newScheduleValue.find(function (_a) {
+            var day = _a.day;
+            return day == value;
+        }));
+        if (name === "day" && newScheduleValue.find(function (_a) {
+            var day = _a.day;
+            return day == value;
+        }))
+            return;
         if (name.includes("time")) {
             parsedValue = value.split(dayDelimiter + "T")[1];
             parsedValue = parsedValue.split("+")[0];
