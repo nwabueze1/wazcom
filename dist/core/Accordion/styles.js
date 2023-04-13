@@ -14,7 +14,6 @@ export var useAccordionStyles = makeStyles(function (theme) {
         accordionContent: {
             height: "auto",
             maxHeight: 0,
-            overflow: "hidden",
             fontSize: theme.typography.fontSize - 2,
             color: theme.design.colors.grey100,
             opacity: 0,
@@ -24,7 +23,6 @@ export var useAccordionStyles = makeStyles(function (theme) {
             "& .accordion__content": {
                 maxHeight: 1500,
                 opacity: 1,
-                overflowY: "auto",
                 padding: theme.spacing(1.5, 2),
                 transition: "all 150ms ease-in-out 0ms",
                 backgroundColor: theme.design.colors.waz_white,

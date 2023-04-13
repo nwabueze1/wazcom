@@ -244,7 +244,7 @@ export const stories: ComponentPropType[] = [
     component: Accordion,
     props: {
       children: "This is an example Wazcom Accordion",
-      defaultExpanded: true,
+      isExpanded: true,
       title: <p>leke</p>,
     },
   },
