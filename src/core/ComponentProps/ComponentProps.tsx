@@ -15,6 +15,7 @@ const ComponentProps: FC<ComponentPropsProp> = ({ body, onReset, onCopyCode }) =
 
   return (
     <div className={classes.tableContainer}>
+      <h4 className={classes.title}>Props</h4>
       <table className={classes.table}>
         <thead className={classes.thead}>
           <CompnentPropsTableRow>

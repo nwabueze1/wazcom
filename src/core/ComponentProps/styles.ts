@@ -20,7 +20,7 @@ export const useComponentPropsStyles = makeStyles((theme: Theme) => ({
   },
 
   th: {
-    padding: theme.spacing(3, 2),
+    padding: theme.spacing(2.5, 3),
     textAlign: "start",
     fontSize: 12,
     color: theme.design.colors.grey,
@@ -36,5 +36,9 @@ export const useComponentPropsStyles = makeStyles((theme: Theme) => ({
     borderColor: "inherit",
     display: "table-row-group",
     outline: 0,
+  },
+  title: {
+    marginLeft: theme.spacing(3),
+    marginBottom: 0,
   },
 }));

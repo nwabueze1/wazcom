@@ -20,7 +20,7 @@ export const ButtonView: FC<ButtonViewProps> = () => {
           Default Button
         </Button>
       </Wrapper>
-      <Wrapper defaultPadding={false}>
+      <Wrapper defaultPadding={false} maxWidth={1150}>
         <ComponentProps
           body={[
             {

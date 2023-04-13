@@ -28,11 +28,11 @@ export const useComponentPropsCStyles = makeStyles((theme: Theme) => ({
     },
   },
   th: {
-    padding: theme.spacing(2),
+    padding: theme.spacing(2, 3),
     textAlign: "start",
-    fontSize: 12,
+    fontSize: theme.typography.fontSize,
     color: theme.design.colors.grey,
-    width: "20%",
+    width: "25%",
     borderBottomWidth: 0.5,
     borderBottomColor: theme.design.colors.waz_table_border,
     borderBottomStyle: "inset",
@@ -42,7 +42,7 @@ export const useComponentPropsCStyles = makeStyles((theme: Theme) => ({
   td: {
     display: "table-cell",
     borderBottomColor: theme.design.colors.waz_table_border,
-    padding: theme.spacing(2.5),
+    padding: theme.spacing(2.5, 3),
     fontSize: theme.typography.fontSize - 1,
     width: "20%",
     color: theme.design.colors.grey,

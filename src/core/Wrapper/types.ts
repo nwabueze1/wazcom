@@ -9,4 +9,5 @@ export type WrapperProps = {
   showHeader?: boolean;
   showBody?: boolean;
   defaultPadding?: boolean;
+  maxWidth?: number;
 };
