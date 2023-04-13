@@ -4,8 +4,7 @@ import { useContext } from "react";
 import ButtonPropsContext from "./ButtonComponentContext";
 
 const useButtonPropsData = () => {
-  const { isDisabled, isLoading, onChange, height, leftIcon, rightIcon } =
-    useContext(ButtonPropsContext);
+  const { isLoading, onChange, height, leftIcon, rightIcon } = useContext(ButtonPropsContext);
 
   const data: IComponentProps[] = [
     {
@@ -24,7 +23,7 @@ const useButtonPropsData = () => {
       name: "children",
       description: "The content of the component.",
       default: "undefined",
-      controls: () => <TextInput type={"text"} onChange={() => {}} height={10}></TextInput>,
+      controls: <TextInput type={"text"} height={10}></TextInput>,
     },
     {
       name: "height",

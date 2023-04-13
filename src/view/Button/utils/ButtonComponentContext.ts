@@ -26,6 +26,8 @@ export const initialButtonProp: Omit<IIntitialState, "onChange"> = {
 };
 const ButtonPropsContext = createContext<IIntitialState>({
   ...initialButtonProp,
-  onChange: (e) => {},
+  onChange: (e) => {
+    console.log(e);
+  },
 });
 export default ButtonPropsContext;
