@@ -29,7 +29,7 @@ export const useComponentPropsCStyles = makeStyles((theme: Theme) => ({
     },
   },
   th: {
-    padding: theme.spacing(3, 2),
+    padding: theme.spacing(2),
     textAlign: "start",
     fontSize: 12,
     color: theme.design.colors.grey,
