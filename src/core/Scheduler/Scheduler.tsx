@@ -3,10 +3,10 @@ import { useSchedulerStyles } from "./styles";
 import { InputLabel } from "@mui/material";
 import { SchedulerProps } from "./types";
 import { fields } from "../../helpers/data";
-import { useScheduleData } from "./hooks";
+import { useScheduleData, dayDelimiter, dayOptions } from "./hooks";
+import { filterDayOptions } from "./helpers";
 import clx from "classnames";
 import { FiPlus } from "react-icons/fi";
-import { days, filterDaysOptions } from "./DayPicker/helper";
 import { Schedule } from ".";
 
 export const Scheduler: React.FC<SchedulerProps> = ({
@@ -22,29 +22,34 @@ export const Scheduler: React.FC<SchedulerProps> = ({
   const classes = useSchedulerStyles();
   const parseSchedulevalue = useScheduleData();
   const isEverydaySelected = initialScheduleValue?.some((value) => value?.day == "0");
-  const availableOption = filterDaysOptions(days, initialScheduleValue);
+  const availableOption = filterDayOptions(dayOptions, initialScheduleValue);
 
   const handleChange = useCallback(
-    (event: any, index: number, remove = false) => {
-      const {
-        target: { name, value },
-      } = event;
-      const newValue = [...(initialScheduleValue as Schedule[] | any)];
-      if (remove && newValue.length > 1) {
-        newValue.splice(index, 1);
-      } else {
-        newValue[index][name] = value;
+    (name: string, value: any, index: number, remove = false) => {
+      const newScheduleValue = [...(initialScheduleValue as Schedule[] | any)];
+      let parsedValue = value;
+
+      if (name.includes("time")) {
+        parsedValue = (value as string).split(dayDelimiter + "T")[1];
+        parsedValue = parsedValue.split("+")[0];
       }
-      onChange?.({ name: componentName as string, value: newValue });
+
+      if (remove && newScheduleValue.length > 1) {
+        newScheduleValue.splice(index, 1);
+      } else {
+        newScheduleValue[index][name] = parsedValue;
+      }
+      onChange?.({ name: componentName as string, value: newScheduleValue });
     },
     [initialScheduleValue],
   );
 
   const addNewRow = useCallback(() => {
-    const nextFieldId = days.filter(
+    const nextFieldId = dayOptions.filter(
       (item) =>
-        item.id != 0 && !initialScheduleValue.some((option) => Number(option.day) == item.id),
-    )[0].id;
+        Number(item.value) != 0 &&
+        !initialScheduleValue.some((option) => Number(option.day) == Number(item.value)),
+    )[0].value;
     onChange?.({
       name: componentName as string,
       value: [
