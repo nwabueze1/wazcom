@@ -1,4 +1,4 @@
-import { TextInputContextDataType } from "./../types.d";
+import { TextInputContextDataType } from "../types";
 import { createContext } from "react";
 
 export const initialTextInputState: Omit<

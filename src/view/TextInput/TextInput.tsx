@@ -8,6 +8,7 @@ import { TextInputViewProps, InputDataProps, TextInputContextDataType } from "./
 import { initialTextInputState, TextInputContext } from "./utils/TextInputContext";
 import ComponentProps from "core/ComponentProps/ComponentProps";
 import { useTextInputProps } from "./utils/useTextInputTableProps";
+import ComponentPropsWraper from "core/ComponentProps/components/Wrapper";
 
 export const TextInputView: FC<TextInputViewProps> = () => {
   const [state, setState] = useState(initialTextInputState);
@@ -124,9 +125,9 @@ export const TextInputView: FC<TextInputViewProps> = () => {
             </div>
           </div>
         </Wrapper>
-        <Wrapper>
+        <ComponentPropsWraper maxWidth={1106}>
           <ComponentProps body={data} />
-        </Wrapper>
+        </ComponentPropsWraper>
       </div>
     </TextInputContext.Provider>
   );
