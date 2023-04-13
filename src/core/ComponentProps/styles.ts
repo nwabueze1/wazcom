@@ -32,7 +32,7 @@ export const useComponentPropsStyles = makeStyles((theme: Theme) => ({
     color: "inherit",
     display: "table-row",
     verticalAlign: "middle",
-    borderBottomWidth: theme.spacing(0.5),
+    borderBottomWidth: theme.spacing(0.1),
     borderBottomColor: theme.design.colors.waz_table_border,
     borderBottomStyle: "inset",
     "&:last-of-type": {
@@ -40,7 +40,7 @@ export const useComponentPropsStyles = makeStyles((theme: Theme) => ({
     },
   },
   th: {
-    padding: theme.spacing(2, 3),
+    padding: theme.spacing(1, 3),
     textAlign: "start",
     fontSize: theme.typography.fontSize,
     color: theme.design.colors.grey,
@@ -54,7 +54,7 @@ export const useComponentPropsStyles = makeStyles((theme: Theme) => ({
   td: {
     display: "table-cell",
     borderBottomColor: theme.design.colors.waz_table_border,
-    padding: theme.spacing(2.5, 3),
+    padding: theme.spacing(1, 3),
     fontSize: theme.typography.fontSize - 1,
     width: "20%",
     color: theme.design.colors.grey,
