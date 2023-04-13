@@ -1,3 +1,4 @@
+import { TextInput } from "build";
 import ComponentProps from "core/ComponentProps/ComponentProps";
 import { FC, useState } from "react";
 import { FiCheckCircle } from "react-icons/fi";
@@ -29,18 +30,22 @@ export const ButtonView: FC<ButtonViewProps> = () => {
               calls to action to the user and allow users to interact with pages in a variety of
               ways. Button labels express what action will occur when the user interacts with it."
         >
-          <Button
-            iconSpacing={5}
-            leftIcon={state.leftIcon && ((<FiCheckCircle />) as any)}
-            variant={state.variant}
-            isDisabled={state.isDisabled}
-            isLoading={state.isLoading}
-            rightIcon={state.rightIcon && ((<FiCheckCircle />) as any)}
-          >
-            Default button
+          <Button variant={"contained"} isDisabled={false} isLoading={false} rightIcon={undefined}>
+            Default Button
           </Button>
         </Wrapper>
-        <ComponentProps onReset={handleReset} body={data} />
+        <Wrapper defaultPadding={false} maxWidth={1150}>
+          <ComponentProps
+            body={[
+              {
+                name: "Label",
+                description: "Input label on the top left (String)",
+                default: "Default",
+                controls: <TextInput placeholder="control" />,
+              },
+            ]}
+          />
+        </Wrapper>
       </div>
     </ButtonPropsContext.Provider>
   );

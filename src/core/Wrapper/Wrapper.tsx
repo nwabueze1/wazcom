@@ -11,6 +11,8 @@ export const Wrapper: FC<WrapperProps> = ({
   classNames,
   showHeader = true,
   showBody = true,
+  defaultPadding = true,
+  maxWidth,
 }) => {
   const classes = useWrapperStyles();
 
@@ -26,7 +28,13 @@ export const Wrapper: FC<WrapperProps> = ({
           </div>
         )}
         {showBody && (
-          <div className={classes.containerWrapper}>
+          <div
+            className={clx(
+              classes.containerWrapper,
+              !defaultPadding && classes.containerWrapperNopadding,
+            )}
+            style={{ maxWidth }}
+          >
             <div className={clx(classes.innerContainer, classNames?.innerContainer)}>
               {children}
             </div>

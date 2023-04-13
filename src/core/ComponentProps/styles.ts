@@ -1,20 +1,9 @@
 import { Theme } from "@mui/material";
 import makeStyles from "@mui/styles/makeStyles";
-export const usePropsTableStyles = makeStyles((theme: Theme) => ({
+
+export const useComponentPropsStyles = makeStyles((theme: Theme) => ({
   tableContainer: {
-    background: theme.design.background.waz_primaryWhite,
-    borderWidth: 1,
-    borderStyle: "solid",
-    borderColor: theme.design.colors.waz_grey300,
-    borderRadius: 3,
-    padding: theme.spacing(1, 0),
-    minHeight: 120,
-    display: "flex",
-    flexDirection: "column",
-    justifyContent: "center",
-    gap: theme.spacing(3),
-    maxWidth: "1147px",
-    marginTop: theme.spacing(3),
+    width: "100%",
   },
   tableHeading: {
     textTransform: "capitalize",
@@ -31,7 +20,7 @@ export const usePropsTableStyles = makeStyles((theme: Theme) => ({
   },
 
   th: {
-    padding: theme.spacing(3, 2),
+    padding: theme.spacing(2.5, 3),
     textAlign: "start",
     fontSize: 12,
     color: theme.design.colors.grey,
@@ -47,5 +36,9 @@ export const usePropsTableStyles = makeStyles((theme: Theme) => ({
     borderColor: "inherit",
     display: "table-row-group",
     outline: 0,
+  },
+  title: {
+    marginLeft: theme.spacing(3),
+    marginBottom: 0,
   },
 }));
