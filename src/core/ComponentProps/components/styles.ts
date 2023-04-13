@@ -1,6 +1,6 @@
 import { Theme } from "@mui/material";
 import makeStyles from "@mui/styles/makeStyles";
-export const usePropButtonStyles = makeStyles((theme: Theme) => ({
+export const useComponentPropsCStyles = makeStyles((theme: Theme) => ({
   root: {
     background: "white",
     padding: theme.spacing(0.5, 3),
@@ -17,34 +17,56 @@ export const usePropButtonStyles = makeStyles((theme: Theme) => ({
     color: "#343E37",
     // margin: theme.spacing(0, 2),
   },
-  table: {
-    display: "table",
-    width: "100%",
-    borderCollapse: "collapse",
-    borderSpacing: 0,
-    minWidth: "650px",
+  tr: {
+    color: "inherit",
+    display: "table-row",
+    verticalAlign: "middle",
+    borderBottomWidth: 0.5,
+    borderBottomColor: theme.design.colors.waz_table_border,
+    borderBottomStyle: "inset",
+    "&:last-of-type": {
+      borderBottomWidth: 0,
+    },
   },
-  thead: {
-    display: "table-header-group",
-  },
-  tableContent: {
-    padding: theme.spacing(16),
-    textAlign: "left",
-  },
-  tableHeader: {
+  th: {
+    padding: theme.spacing(3, 2),
+    textAlign: "start",
+    fontSize: 12,
+    color: theme.design.colors.grey,
+    width: "20%",
+    borderBottomWidth: 0.5,
+    borderBottomColor: theme.design.colors.waz_table_border,
+    borderBottomStyle: "inset",
     fontWeight: "bold",
-    backgroundColor: theme.design.colors.white200,
+    textTransform: "capitalize",
   },
-  tableData: {
-    borderBottomWidth: 1,
-    borderBottomColor: theme.design.colors.grey,
-    borderStyle: "solid",
+  td: {
+    display: "table-cell",
+    borderBottomColor: theme.design.colors.waz_table_border,
+    padding: theme.spacing(2.5),
+    fontSize: 11,
+    width: "20%",
+    color: theme.design.colors.grey,
   },
-
-  tableRow: {
-    borderBottomWidth: 1,
-    borderBottomColor: theme.design.colors.grey,
-    borderStyle: "solid",
+  tbutton: {
+    borderColor: theme.design.colors.waz_primary600,
+    fontSize: 10,
+    height: 25,
+    display: "flex",
+    alignItems: "center",
+    "&:hover": {
+      borderColor: theme.design.colors.waz_primary700,
+      borderWidth: 2,
+    },
+    marginRight: 3,
+    maxWidth: 75,
+  },
+  buttonIcon: {
+    fontSize: 13,
+    color: theme.design.colors.grey,
+  },
+  buttonContainer: {
+    display: "flex",
   },
 }));
 

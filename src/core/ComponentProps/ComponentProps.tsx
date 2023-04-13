@@ -1,9 +1,13 @@
 import { FC } from "react";
 import { Tag } from "core/Tag";
-import { Button } from "core/Button";
-import { BiRefresh } from "react-icons/bi";
 import { usePropsTableStyles } from "./styles";
 import { TablepropsType } from "./types";
+import {
+  CompnentPropsTableData,
+  CompnentPropsTableHead,
+  CompnentPropsTableRow,
+  ComponentPropsTableButton,
+} from "./components/ComponentPropsTableComp";
 
 const ComponentProps: FC<TablepropsType> = ({ body, onReset, onCopyCode }) => {
   const classes = usePropsTableStyles();
@@ -13,45 +17,27 @@ const ComponentProps: FC<TablepropsType> = ({ body, onReset, onCopyCode }) => {
     <div className={classes.tableContainer}>
       <table className={classes.table}>
         <thead className={classes.thead}>
-          <tr className={classes.tr}>
+          <CompnentPropsTableRow>
             {tableHead.map((value, index) => (
-              <th className={classes.th} key={index}>
-                {value}
-              </th>
+              <CompnentPropsTableHead key={index}>{value}</CompnentPropsTableHead>
             ))}
-            <th className={classes.th}>
-              <aside className={classes.buttonContainer}>
-                <Button
-                  variant="outlined"
-                  className={classes.tbutton}
-                  rightIcon={<BiRefresh className={classes.buttonIcon} />}
-                  iconSpacing={5}
-                  onClick={onReset}
-                >
-                  Reset
-                </Button>
-                <Button
-                  variant="outlined"
-                  className={classes.tbutton}
-                  iconSpacing={5}
-                  onClick={onCopyCode}
-                >
-                  Copy code
-                </Button>
-              </aside>
-            </th>
-          </tr>
+            <CompnentPropsTableHead>
+              <ComponentPropsTableButton onCopyCode={onCopyCode} onReset={onReset} />
+            </CompnentPropsTableHead>
+          </CompnentPropsTableRow>
         </thead>
         <tbody className={classes.tbody}>
           {body.map((contents, index) => (
-            <tr className={classes.tr} key={index}>
-              <td className={classes.td}>{contents.name}</td>
-              <td className={classes.td}>{contents.description}</td>
-              <td className={classes.td}>
+            <CompnentPropsTableRow key={index}>
+              <CompnentPropsTableData>{contents.name}</CompnentPropsTableData>
+              <CompnentPropsTableData>{contents.description}</CompnentPropsTableData>
+              <CompnentPropsTableData>
                 <Tag name={contents.default as string} />
-              </td>
-              <td className={classes.td}>{contents.controls && contents.controls}</td>
-            </tr>
+              </CompnentPropsTableData>
+              <CompnentPropsTableData>
+                {contents.controls && contents.controls}
+              </CompnentPropsTableData>
+            </CompnentPropsTableRow>
           ))}
         </tbody>
       </table>
