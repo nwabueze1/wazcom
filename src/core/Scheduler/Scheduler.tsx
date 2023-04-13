@@ -29,6 +29,9 @@ export const Scheduler: React.FC<SchedulerProps> = ({
       const newScheduleValue = [...(initialScheduleValue as Schedule[] | any)];
       let parsedValue = value;
 
+      console.log(newScheduleValue.find(({ day }) => day == value));
+      if (name === "day" && newScheduleValue.find(({ day }) => day == value)) return;
+
       if (name.includes("time")) {
         parsedValue = (value as string).split(dayDelimiter + "T")[1];
         parsedValue = parsedValue.split("+")[0];
