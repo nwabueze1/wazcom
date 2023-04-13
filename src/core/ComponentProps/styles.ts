@@ -40,7 +40,7 @@ export const useComponentPropsStyles = makeStyles((theme: Theme) => ({
     },
   },
   th: {
-    padding: theme.spacing(1, 3),
+    padding: theme.spacing(2, 3),
     textAlign: "start",
     fontSize: theme.typography.fontSize,
     color: theme.design.colors.grey,
@@ -54,7 +54,7 @@ export const useComponentPropsStyles = makeStyles((theme: Theme) => ({
   td: {
     display: "table-cell",
     borderBottomColor: theme.design.colors.waz_table_border,
-    padding: theme.spacing(1, 3),
+    padding: theme.spacing(2, 3),
     fontSize: theme.typography.fontSize - 1,
     width: "20%",
     color: theme.design.colors.grey,
