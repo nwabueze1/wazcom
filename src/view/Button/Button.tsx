@@ -30,6 +30,24 @@ export const ButtonView: FC<ButtonViewProps> = () => {
               default: "Default",
               controls: <TextField size="small" fullWidth placeholder="control" />,
             },
+            {
+              name: "Label",
+              description: "Input label on the top left (String)",
+              default: "Default",
+              controls: <TextField size="small" fullWidth placeholder="control" />,
+            },
+            {
+              name: "Label",
+              description: "Input label on the top left (String)",
+              default: "Default",
+              controls: <TextField size="small" fullWidth placeholder="control" />,
+            },
+            {
+              name: "Label",
+              description: "Input label on the top left (String)",
+              default: "Default",
+              controls: <TextField size="small" fullWidth placeholder="control" />,
+            },
           ]}
         />
       </ComponentPropsWraper>
