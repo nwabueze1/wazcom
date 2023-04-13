@@ -6,9 +6,12 @@ import { Wrapper } from "../../core";
 import { useTextInputStyles } from "./styles";
 import { TextInputViewProps, InputDataProps, TextInputContextDataType } from "./types";
 import { initialTextInputState, TextInputContext } from "./utils/TextInputContext";
+import ComponentProps from "core/ComponentProps/ComponentProps";
+import { useTextInputProps } from "./utils/useTextInputTableProps";
 
 export const TextInputView: FC<TextInputViewProps> = () => {
   const [state, setState] = useState(initialTextInputState);
+  const { data } = useTextInputProps();
 
   const handleEnter = (payload: any) => {
     console.log("onEnter", payload);
@@ -120,6 +123,9 @@ export const TextInputView: FC<TextInputViewProps> = () => {
               ))}
             </div>
           </div>
+        </Wrapper>
+        <Wrapper>
+          <ComponentProps body={data} />
         </Wrapper>
       </div>
     </TextInputContext.Provider>
