@@ -1,7 +1,5 @@
-import { TextInput } from "build";
 import ComponentProps from "core/ComponentProps/ComponentProps";
 import { FC, useState } from "react";
-import { FiCheckCircle } from "react-icons/fi";
 import { Button, Wrapper } from "../../core";
 import { useButtonStyles } from "./styles";
 import { ButtonViewProps } from "./types";
@@ -35,16 +33,7 @@ export const ButtonView: FC<ButtonViewProps> = () => {
           </Button>
         </Wrapper>
         <Wrapper defaultPadding={false} maxWidth={1150}>
-          <ComponentProps
-            body={[
-              {
-                name: "Label",
-                description: "Input label on the top left (String)",
-                default: "Default",
-                controls: <TextInput placeholder="control" />,
-              },
-            ]}
-          />
+          <ComponentProps body={data} />
         </Wrapper>
       </div>
     </ButtonPropsContext.Provider>
