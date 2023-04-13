@@ -17,6 +17,35 @@ export const usePropButtonStyles = makeStyles((theme: Theme) => ({
     color: "#343E37",
     // margin: theme.spacing(0, 2),
   },
+  table: {
+    display: "table",
+    width: "100%",
+    borderCollapse: "collapse",
+    borderSpacing: 0,
+    minWidth: "650px",
+  },
+  thead: {
+    display: "table-header-group",
+  },
+  tableContent: {
+    padding: theme.spacing(16),
+    textAlign: "left",
+  },
+  tableHeader: {
+    fontWeight: "bold",
+    backgroundColor: theme.design.colors.white200,
+  },
+  tableData: {
+    borderBottomWidth: 1,
+    borderBottomColor: theme.design.colors.grey,
+    borderStyle: "solid",
+  },
+
+  tableRow: {
+    borderBottomWidth: 1,
+    borderBottomColor: theme.design.colors.grey,
+    borderStyle: "solid",
+  },
 }));
 
 export const useTextFieldStyles = makeStyles((theme: Theme) => ({
