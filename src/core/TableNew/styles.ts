@@ -26,13 +26,13 @@ export const useTableStyles = makeStyles((theme: Theme) => ({
     padding: theme.spacing(2),
     fontSize: theme.typography.fontSize,
     height: "auto",
-    transition:" height 1s ease-out",
+    transition: " height 1s ease-out",
 
     "&:hover .column-actions": {
       opacity: "1 !important",
       zIndex: "1 !important",
       display: "flex",
-      transition:" height 0.3s ease-out",
+      transition: " height 0.3s ease-out",
     },
   },
   tableLoader: {
