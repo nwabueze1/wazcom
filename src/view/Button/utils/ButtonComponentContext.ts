@@ -1,19 +1,7 @@
 import { createContext } from "react";
+import { InitialStateType } from "./types";
 
-export type IIntitialState = {
-  isDisabled: boolean;
-  isLoading: boolean;
-  variant: "contained" | "outlined" | "text";
-  value: string;
-  leftIcon: boolean;
-  rightIcon: boolean;
-  height: number;
-  width: number | string;
-  title: string;
-  onChange: (e: { name: string; value: string }) => void;
-};
-
-export const initialButtonProp: Omit<IIntitialState, "onChange"> = {
+export const initialButtonProp: Omit<InitialStateType, "onChange"> = {
   isDisabled: false,
   isLoading: false,
   variant: "contained",
@@ -24,10 +12,8 @@ export const initialButtonProp: Omit<IIntitialState, "onChange"> = {
   width: 10,
   title: "",
 };
-const ButtonPropsContext = createContext<IIntitialState>({
+const ButtonPropsContext = createContext<InitialStateType>({
   ...initialButtonProp,
-  onChange: (e) => {
-    console.log(e);
-  },
+  onChange: (e) => {},
 });
 export default ButtonPropsContext;

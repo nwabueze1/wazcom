@@ -2,7 +2,7 @@ import { FC } from "react";
 import { useComponentPropsComponentStyles } from "./styles";
 import { ComponentPropsWrapperProps } from "./types";
 
-const ComponentPropsWraper: FC<ComponentPropsWrapperProps> = ({ children, maxWidth }) => {
+const ComponentPropsWrapper: FC<ComponentPropsWrapperProps> = ({ children, maxWidth }) => {
   const classes = useComponentPropsComponentStyles();
 
   return (
@@ -12,4 +12,4 @@ const ComponentPropsWraper: FC<ComponentPropsWrapperProps> = ({ children, maxWid
   );
 };
 
-export default ComponentPropsWraper;
+export default ComponentPropsWrapper;

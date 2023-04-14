@@ -1,43 +1,39 @@
 import ComponentProps from "core/ComponentProps/ComponentProps";
-import ComponentPropsWraper from "core/ComponentProps/components/Wrapper";
-import { FC, useState } from "react";
+import ComponentPropsWrapper from "core/ComponentProps/components/Wrapper";
+import { FC, useEffect } from "react";
+import { BiReset } from "react-icons/bi";
+import { FaPeopleArrows } from "react-icons/fa";
 import { Button, Wrapper } from "../../core";
 import { useButtonStyles } from "./styles";
 import { ButtonViewProps } from "./types";
-import ButtonPropsContext, {
-  IIntitialState,
-  initialButtonProp,
-} from "./utils/ButtonComponentContext";
 import useButtonPropsData from "./utils/useButtonTableProps";
-import { TextInput } from "../../io";
 
 export const ButtonView: FC<ButtonViewProps> = () => {
-  const [state, setState] = useState<Omit<IIntitialState, "onChange">>(initialButtonProp);
-  const { data } = useButtonPropsData();
+  const { data, state, handleReset } = useButtonPropsData();
   const classes = useButtonStyles();
 
-  const handleChange = (e: { name: string; value: string }) => {
-    console.log(e);
-  };
-  const handleReset = () => setState(initialButtonProp);
-
   return (
-    <ButtonPropsContext.Provider value={{ ...state, onChange: handleChange }}>
-      <div className={classes.root}>
-        <Wrapper
-          title="Buttons"
-          description="Buttons are clickable elements that are used to trigger actions. They communicate
+    <div className={classes.root}>
+      <Wrapper
+        title="Buttons"
+        description="Buttons are clickable elements that are used to trigger actions. They communicate
               calls to action to the user and allow users to interact with pages in a variety of
               ways. Button labels express what action will occur when the user interacts with it."
+      >
+        <Button
+          variant={"contained"}
+          isDisabled={state.isDisabled}
+          isLoading={state.isLoading}
+          rightIcon={state.rightIcon ? <BiReset size={12} /> : undefined}
+          leftIcon={state.leftIcon ? <BiReset size={12} /> : undefined}
+          iconSpacing={5}
         >
-          <Button variant={"contained"} isDisabled={false} isLoading={false} rightIcon={undefined}>
-            Default Button
-          </Button>
-        </Wrapper>
-        <ComponentPropsWraper maxWidth={1149}>
-          <ComponentProps body={data} />
-        </ComponentPropsWraper>
-      </div>
-    </ButtonPropsContext.Provider>
+          {state.children}
+        </Button>
+      </Wrapper>
+      <ComponentPropsWrapper maxWidth={1149}>
+        <ComponentProps body={data} onReset={handleReset} />
+      </ComponentPropsWrapper>
+    </div>
   );
 };
