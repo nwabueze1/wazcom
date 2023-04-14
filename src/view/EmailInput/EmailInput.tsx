@@ -5,8 +5,11 @@ import { EmailInput } from "../../io";
 
 import { useEmailInputStyles } from "./styles";
 import { EmailInputViewProps, InputDataProps } from "./types";
+import { useEmailInputProps } from "./utils/useEmailInputProps";
 
 export const EmailInputView: FC<EmailInputViewProps> = () => {
+  const { data, state, onReset } = useEmailInputProps();
+
   const handleEnter = (payload: any) => {
     console.log("onEnter", payload);
   };

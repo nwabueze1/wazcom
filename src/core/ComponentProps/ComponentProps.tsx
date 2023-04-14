@@ -1,5 +1,5 @@
 import { FC } from "react";
-import { Tag } from "core/Tag";
+import { Tag } from "../Tag";
 import { useComponentPropsStyles } from "./styles";
 import { ComponentPropsProp, PropsControlType } from "./types";
 import { Button } from "../../core";
