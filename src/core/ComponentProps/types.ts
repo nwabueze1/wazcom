@@ -1,13 +1,14 @@
+import { ReactNode } from "react";
 export type PropsTableHeaderProps = Array<string>;
 
 export type PropsControlType = {
   name: string;
-  type: "text" | "email" | "number" | "password" | "checkbox" | "string";
-  onChange: (e: { name: string; value: string | boolean | number }) => void;
+  type?: "text" | "email" | "number" | "password" | "checkbox" | "string";
+  onChange?: (e: { name: string; value: string | boolean | number }) => void;
 };
 
 export type ComponentPropsType = {
-  name: string;
+  name: string | ReactNode;
   description: string;
   default?: string;
   control: PropsControlType;
