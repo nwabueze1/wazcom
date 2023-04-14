@@ -1,4 +1,4 @@
-import ComponentProps from "core/ComponentProps/ComponentProps";
+import Paper from "core/Paper/Paper";
 import { FC } from "react";
 import { Button, Wrapper } from "../../core";
 import { useButtonStyles } from "./styles";
@@ -6,9 +6,6 @@ import { ButtonViewProps } from "./types";
 
 export const ButtonView: FC<ButtonViewProps> = () => {
   const classes = useButtonStyles();
-  const onChange = (e: { name: string; value: number | string | boolean }) => {
-    console.log(e);
-  };
 
   return (
     <div className={classes.root}>
@@ -18,45 +15,11 @@ export const ButtonView: FC<ButtonViewProps> = () => {
               calls to action to the user and allow users to interact with pages in a variety of
               ways. Button labels express what action will occur when the user interacts with it."
       >
-        <div className={classes.bodyWrapper}>
+        <Paper>
           <Button variant={"contained"} isDisabled={false} isLoading={false} rightIcon={undefined}>
             Default Button
           </Button>
-          <ComponentProps
-            body={[
-              {
-                name: "Label",
-                description: "Input label on the top left (String)",
-                default: "Default",
-                control: {
-                  name: "label",
-                  onChange: onChange,
-                  type: "checkbox",
-                },
-              },
-              {
-                name: "Label",
-                description: "Input label on the top left (String)",
-                default: "Default",
-                control: {
-                  name: "label",
-                  onChange: onChange,
-                  type: "string",
-                },
-              },
-              {
-                name: "Label",
-                description: "Input label on the top left (String)",
-                default: "Default",
-                control: {
-                  name: "label",
-                  onChange: onChange,
-                  type: "string",
-                },
-              },
-            ]}
-          />
-        </div>
+        </Paper>
       </Wrapper>
     </div>
   );

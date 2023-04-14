@@ -1,5 +1,5 @@
-import { ReactNode } from 'react';
+import { ReactNode } from "react";
 export type PaperType = {
-    children: ReactNode;
-    padding:number
-}
+  children: ReactNode;
+  padding?: number;
+};

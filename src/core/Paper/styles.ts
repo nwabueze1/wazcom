@@ -14,6 +14,5 @@ export const usePaperStyles = makeStyles((theme: Theme) => ({
     flexDirection: "column",
     justifyContent: "center",
     gap: theme.spacing(3),
-    maxWidth: "1100px",
   },
 }));
