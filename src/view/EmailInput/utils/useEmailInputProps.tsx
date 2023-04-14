@@ -47,6 +47,8 @@ export const useEmailInputProps = () => {
       default: "undefined",
       control: {
         name: "name",
+        type: "email",
+        onChange,
       },
     },
     {

@@ -6,6 +6,7 @@ import { EmailInput } from "../../io";
 import { useEmailInputStyles } from "./styles";
 import { EmailInputViewProps, InputDataProps } from "./types";
 import { useEmailInputProps } from "./utils/useEmailInputProps";
+import ComponentProps from "core/ComponentProps/ComponentProps";
 
 export const EmailInputView: FC<EmailInputViewProps> = () => {
   const { data, state, onReset } = useEmailInputProps();
@@ -74,6 +75,9 @@ export const EmailInputView: FC<EmailInputViewProps> = () => {
                 onEnter={handleEnter}
                 onFocus={handleFocus}
                 onBlur={handleBlur}
+                value={state.name.length > 0 ? state.name : undefined}
+                isSuccess={state.isSuccess}
+                isError={state.isError}
               />
             ))}
           </div>
@@ -97,6 +101,7 @@ export const EmailInputView: FC<EmailInputViewProps> = () => {
             ))}
           </div>
         </div>
+        <ComponentProps body={data} onReset={onReset} />
       </div>
     </div>
   );
