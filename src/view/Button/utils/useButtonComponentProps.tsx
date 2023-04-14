@@ -14,7 +14,7 @@ const initialButtonProp = {
   children: "Default Button",
 };
 
-const useButtonPropsData = () => {
+const useButtonComponentProps = () => {
   const [state, setState] = useState(initialButtonProp);
 
   const onChange = (e: { name: string; value: any }) => setState({ ...state, [e.name]: e.value });
@@ -121,4 +121,4 @@ const useButtonPropsData = () => {
   };
 };
 
-export default useButtonPropsData;
+export default useButtonComponentProps;

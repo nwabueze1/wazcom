@@ -5,10 +5,10 @@ import { BiReset } from "react-icons/bi";
 import { Button, Wrapper } from "../../core";
 import { useButtonStyles } from "./styles";
 import { ButtonViewProps } from "./types";
-import useButtonPropsData from "./utils/useButtonTableProps";
+import useButtonComponentProps from "./utils/useButtonComponentProps";
 
 export const ButtonView: FC<ButtonViewProps> = () => {
-  const { data, state, handleReset } = useButtonPropsData();
+  const { data, state, handleReset } = useButtonComponentProps();
   const classes = useButtonStyles();
 
   const showIcon = (display: boolean) => (display ? <BiReset size={12} /> : undefined);
