@@ -72,6 +72,7 @@ export const TextAreaView: FC<TextAreaViewProps> = () => {
             <div className={classes.inputs}>
               {inputData.map((item: InputDataProps, index) => (
                 <TextArea
+                  key={`${item.label}-${index + Math.random()}`}
                   id={`${item.label}-${index + Math.random()}`}
                   className={classes.input}
                   label={item.label}
@@ -91,6 +92,7 @@ export const TextAreaView: FC<TextAreaViewProps> = () => {
             <div className={classes.inputs}>
               {inputData.map((item: InputDataProps, index) => (
                 <TextArea
+                  key={`${item.label}-${index + Math.random()}`}
                   id={`${item.label}-${index + Math.random()}`}
                   className={classes.input}
                   label={item.label}

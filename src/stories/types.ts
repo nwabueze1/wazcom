@@ -18,7 +18,6 @@ import {
 import {
   CheckBoxInputProps,
   ComboBoxInputProps,
-  RichTextInputProps,
   SelectInputProps,
   InputGroupProps,
   TextInputProps,
@@ -26,7 +25,7 @@ import {
   RadioButtonInputProps,
   WysiwygInputProps,
   CurrencyInputProps,
-  PhoneNumberInputProps
+  PhoneNumberInputProps,
 } from "../io";
 
 import { GqlComboBoxProps, GqlMediaLibraryProps, GqlMediaLibrarySelectorProps } from "../gql";
@@ -37,36 +36,35 @@ export type ComponentPropType = {
   component: any;
   name: string;
 } & (
-    | AccordionStory
-    | BreadCrumbStory
-    | ButtonStory
-    | CardStory
-    | CheckBoxStory
-    | LoaderStory
-    | CarouselStory
-    | ComboBoxStory
-    | TextStory
-    | GalleryStory
-    | ImageSelectorStory
-    | ToggleStory
-    | TableStory
-    | TableNewStory
-    | MenuCardStory
-    | DisplayCardStory
-    | NotificationStory
-    | RadioButtonStory
-    | SelectStory
-    | RichTextStory
-    | GqlComboBoxStory
-    | EmptyStateStory
-    | SchedulerStory
-    | InputGroupStory
-    | GqlMediaLibraryStory
-    | GqlMediaLibrarySelectorStory
-    | CurrencyInputStory
-    | PhoneNumberInputStroy
-    | WysiwygStory
-  );
+  | AccordionStory
+  | BreadCrumbStory
+  | ButtonStory
+  | CardStory
+  | CheckBoxStory
+  | LoaderStory
+  | CarouselStory
+  | ComboBoxStory
+  | TextStory
+  | GalleryStory
+  | ImageSelectorStory
+  | ToggleStory
+  | TableStory
+  | TableNewStory
+  | MenuCardStory
+  | DisplayCardStory
+  | NotificationStory
+  | RadioButtonStory
+  | SelectStory
+  | GqlComboBoxStory
+  | EmptyStateStory
+  | SchedulerStory
+  | InputGroupStory
+  | GqlMediaLibraryStory
+  | GqlMediaLibrarySelectorStory
+  | CurrencyInputStory
+  | PhoneNumberInputStroy
+  | WysiwygStory
+);
 
 export type TemplatePropType = {
   component: any;
@@ -147,10 +145,6 @@ type RadioButtonStory = {
 
 type SelectStory = {
   props: SelectInputProps;
-};
-
-type RichTextStory = {
-  props: RichTextInputProps;
 };
 type WysiwygStory = {
   props: WysiwygInputProps;

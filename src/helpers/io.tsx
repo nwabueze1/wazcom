@@ -34,7 +34,7 @@ const TextFeedback: FC<{
   status: Feedback["status"];
   className?: string;
 }> = ({ text, status, className }) => (
-  <Typography className={clx(getFeedbackVariant(status), className)}>{text}</Typography>
+  <Typography className={clx("feedback", getFeedbackVariant(status), className)}>{text}</Typography>
 );
 
 export const displayFeedback = (feedback: Feedback, className?: string) => {

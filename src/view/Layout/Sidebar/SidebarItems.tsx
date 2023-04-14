@@ -1,49 +1,60 @@
-import React, { FC, useState, useCallback } from "react";
+import { FC } from "react";
 import { Link, useLocation } from "react-router-dom";
 import clx from "classnames";
-
+import { Button } from "../../../core";
 import { useSidebarListItemStyles } from "./styles";
-import { SidebarListItemProps, SidebarLinksProps } from "./types";
+import { SidebarListItemProps } from "./types";
+import { BsArrowLeftShort } from "react-icons/bs";
 
-export const SidebarListItem: FC<SidebarListItemProps> = ({ sections }) => {
+export const SidebarListItem: FC<SidebarListItemProps> = ({
+  sections,
+  isOpen = false,
+  onClose,
+}) => {
   const location = useLocation();
-  const [activeLink, setActiveLink] = useState<SidebarLinksProps>();
   const classes = useSidebarListItemStyles();
 
-  const handleMouseEnter = useCallback(
-    (rowIndex: number, index: number) => {
-      setActiveLink({ rowIndex, index });
-    },
-    [activeLink],
-  );
-  const handleMouseLeave = useCallback((rowIndex: number, index: number) => {
-    setActiveLink({ rowIndex, index });
-  }, []);
-
   return (
-    <div className={classes.root}>
-      <ul className={classes.list}>
-        {sections.map((section, sectionIndex) => (
-          <li key={sectionIndex} className={classes.listItem}>
-            <h5 className={classes.sectionLabel}>{section.label}</h5>
-            <ul className={classes.innerList}>
-              {section.components.map((component, index) => (
-                <li key={`_${index}__sidebar`} className={classes.innerListItem}>
-                  <Link
-                    className={clx(
-                      classes.link,
-                      location.pathname.slice(1) === component.slug && classes.linkActive,
-                    )}
-                    to={component.slug}
+    <>
+      <div className={classes.sidebarOverlay} data-show={isOpen} onClick={onClose} />
+      <div className={classes.root} data-show={isOpen}>
+        <header className={classes.header}>
+          <h2 className={classes.headerTitle}>WAZCOM</h2>
+          <Button className={classes.collapseButton} onClick={onClose}>
+            <BsArrowLeftShort />
+          </Button>
+        </header>
+        <ul className={classes.list}>
+          {sections.map((section, sectionIndex) => (
+            <li key={sectionIndex} className={classes.listItem}>
+              <h5 className={classes.sectionLabel}>{section.label}</h5>
+              <ul className={classes.innerList}>
+                {section.components.map((component, index) => (
+                  <li
+                    key={`_${index}__sidebar`}
+                    className={classes.innerListItem}
+                    onClick={() => {
+                      if (isOpen && onClose) {
+                        onClose();
+                      }
+                    }}
                   >
-                    {component.name}
-                  </Link>
-                </li>
-              ))}
-            </ul>
-          </li>
-        ))}
-      </ul>
-    </div>
+                    <Link
+                      className={clx(
+                        classes.link,
+                        location.pathname.slice(1) === component.slug && classes.linkActive,
+                      )}
+                      to={component.slug}
+                    >
+                      {component.name}
+                    </Link>
+                  </li>
+                ))}
+              </ul>
+            </li>
+          ))}
+        </ul>
+      </div>
+    </>
   );
 };

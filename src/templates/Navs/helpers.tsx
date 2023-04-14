@@ -127,6 +127,7 @@ export const displaySocials = (
     if (mode === "edit") {
       return (
         <div
+          key={index + url}
           className={clx(
             classes.socialIntegration,
             activeElement === id && mode === "edit" && classes.activeElement,

@@ -16,19 +16,6 @@ declare module "@mui/styles/defaultTheme" {
   interface DefaultTheme extends Theme {}
 }
 
-interface Props {
-  className?: string;
-}
-
-const links = [
-  { text: "About us", url: "" },
-  { text: "About us", url: "" },
-  { text: "About us", url: "" },
-  { text: "About us", url: "" },
-  { text: "About us", url: "" },
-  { text: "About us", url: "" },
-];
-
 const navProps: any = {
   linksss: [
     { text: "Gallery", url: "/" },

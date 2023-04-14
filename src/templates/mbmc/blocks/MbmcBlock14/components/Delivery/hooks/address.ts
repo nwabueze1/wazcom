@@ -25,14 +25,14 @@ export const useCreateAddress = () => {
       if (!data || errors) throw new Error("We could not complete that operation");
 
       const address = data.createAddress;
-      dispatch({ type: 'UPDATE_GUEST', payload: { ...guest, address } });
+      dispatch({ type: "UPDATE_GUEST", payload: { ...guest, address } });
       notify("success", "Delivery option set as dispatch");
       onSuccess?.();
     } catch (error) {
       notify("error", "We could not complete that operation");
     }
 
-    dispatch({ type: 'SET_LOADING', payload: false });
-    dispatch({ type: 'SET_NETWORK_OPERATION', payload: "" });
+    dispatch({ type: "SET_LOADING", payload: false });
+    dispatch({ type: "SET_NETWORK_OPERATION", payload: "" });
   };
 };

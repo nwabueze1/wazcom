@@ -21,8 +21,8 @@ export const useCreateOrder = () => {
     const cartCookie = cookies.get("cart");
     const cartItemCountCookie = cookies.get("cartItemCount");
 
-    dispatch({ type: 'SET_LOADING', payload: true });
-    dispatch({ type: 'SET_NETWORK_OPERATION', payload: 'create.order' });
+    dispatch({ type: "SET_LOADING", payload: true });
+    dispatch({ type: "SET_NETWORK_OPERATION", payload: "create.order" });
 
     try {
       const { data, errors } = await client.mutate({
@@ -46,7 +46,7 @@ export const useCreateOrder = () => {
 
       if (String(paymentMethod) === "PAYPAL") return makePaypalPayment(order.uuid);
 
-      dispatch({ type: 'UPDATE_ORDER', payload: order });
+      dispatch({ type: "UPDATE_ORDER", payload: order });
       notify("success", "Order placed successfully");
 
       delete cartCookie[cart?.restaurant?.site?.uuid ?? ""];
@@ -58,7 +58,7 @@ export const useCreateOrder = () => {
       notify("error", "We could not complete that operation");
     }
 
-    dispatch({ type: 'SET_LOADING', payload: false });
-    dispatch({ type: 'SET_NETWORK_OPERATION', payload: '' });
+    dispatch({ type: "SET_LOADING", payload: false });
+    dispatch({ type: "SET_NETWORK_OPERATION", payload: "" });
   };
 };

@@ -1,7 +1,7 @@
 import { FC } from "react";
 import { CheckBoxInputProps } from "./types";
-import { InputLabel, Checkbox } from "@mui/material";
 import clx from "classnames";
+import { BsCheck } from "react-icons/bs";
 import { useCheckboxInputStyles } from "./styles";
 import { displayFeedback } from "../../helpers/io";
 
@@ -10,10 +10,10 @@ export const CheckBoxInput: FC<CheckBoxInputProps> = ({
   className,
   classNames,
   helperText,
-  label,
-  value,
   feedback,
   onChange,
+  value,
+  label,
 }) => {
   const classes = useCheckboxInputStyles();
 
@@ -23,19 +23,27 @@ export const CheckBoxInput: FC<CheckBoxInputProps> = ({
 
   return (
     <div className={clx(className, classes.root)}>
-      {label && (
-        <InputLabel className={(classNames?.label as string) ?? ""} htmlFor={name}>
-          {label}
-        </InputLabel>
-      )}
-      <Checkbox
-        checked={value}
-        onChange={handleChange}
-        inputProps={{ "aria-label": label }}
-        className={classNames?.checkBoxInput ? (classNames.checkBoxInput as string) : ""}
-        classes={classNames?.classes ? (classNames.classes as { [key: string]: string }) : {}}
-      />
-      {helperText}
+      {label && <p className={clx(classes.labelStyle, classNames?.label ?? "")}>{label}</p>}
+      <label className={classes.innerWrapper}>
+        <input
+          name={name}
+          type="checkbox"
+          className={clx(classes.input)}
+          onChange={handleChange}
+          checked={value}
+        />
+        <span
+          className={clx(
+            "custom__checkbox",
+            classes.customCheckbox,
+            classNames?.checkBoxInput ? (classNames.checkBoxInput as string) : "",
+          )}
+        />
+        <span className={clx("checked__icon", classes.checkedIcon)}>
+          <BsCheck />
+        </span>
+      </label>
+      <div className={classes.helperText}> {helperText}</div>
       {feedback && displayFeedback(feedback)}
     </div>
   );

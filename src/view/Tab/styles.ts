@@ -8,7 +8,7 @@ export const useTabsStyles = makeStyles((theme: Theme) => ({
     padding: theme.spacing(2),
     gap: theme.spacing(2),
     margin: 0,
-    height: '100vh',
+    height: "100vh",
     background: theme.design.colors.waz_white,
   },
 }));

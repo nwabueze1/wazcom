@@ -1,19 +1,13 @@
-import { FC, useEffect, useState } from "react";
+import { FC, useState } from "react";
 import { WysiwygInput } from "../../io";
 import { useEditPostStyles } from "./styles";
 
 export const WysiwygInputView: FC<void> = () => {
   const classes = useEditPostStyles();
-  const [embedUrl, setEmbedUrl] = useState<{ url: string; type: string }>({
-    url: "https://",
+  const [embedUrl] = useState<{ value: string; type: string }>({
+    value: "https://",
     type: "image",
   });
-  const [option, setOption] = useState("");
-  const [postDataContent, setPostDataContent] = useState("");
-
-  const handleImageModalState = (option?: string) => {
-    alert("modal open");
-  };
 
   let val: any;
 
@@ -28,12 +22,7 @@ export const WysiwygInputView: FC<void> = () => {
 
   return (
     <div className={classes.root}>
-      <WysiwygInput
-        embedUrl={embedUrl}
-        name="postData"
-        onChange={(value) => handleContent(value)}
-        handleImageModalState={handleImageModalState}
-      />
+      <WysiwygInput embed={embedUrl} name="postData" onChange={(value) => handleContent(value)} />
       <button onClick={handleClick}>click</button>
     </div>
   );

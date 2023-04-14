@@ -4,16 +4,16 @@ import Twitter from "@mui/icons-material/Twitter";
 import { CoreArticleTemplateFields } from "..";
 import { useBlogArticle002Styles } from ".";
 
-export const BlogArticle002: FC<CoreArticleTemplateFields> = ({ article, site }) => {
+export const BlogArticle002: FC<CoreArticleTemplateFields> = ({ article }) => {
   const classes = useBlogArticle002Styles();
 
   return (
     <section className={classes.root}>
       <div className={classes.header}>{article.title}</div>
       <img className={classes.hero} src={article.featured_image} />
-      <div className={classes.content}>dangerouslySetInnerHTML={{ __html: article.content }}</div>
+      <div className={classes.content} dangerouslySetInnerHTML={{ __html: article.content }} />
       <img className={classes.image} src={article.featured_image} />
-      <div className={classes.imageText}>dangerouslySetInnerHTML={{ __html: article.content }}</div>
+      <div className={classes.imageText} dangerouslySetInnerHTML={{ __html: article.content }} />
       <hr className={classes.horizontalLine} />
       <div className={classes.footerSection}>
         <p className={classes.category}>Categories: {article.category?.slug as string}</p>

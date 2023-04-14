@@ -24,7 +24,7 @@ export const MbmcBlock13: FC<MbmcBlock13Props> = ({
   const { restaurant } = useSelector<TAppState, TAppState>((state) => state);
   const [openMenu, setOpenMenu] = useState<boolean>(false);
   const cartItemCount = restaurant?.cart
-    ? restaurant?.cart?.cartItems?.length as number
+    ? (restaurant?.cart?.cartItems?.length as number)
     : restaurant?.cartItemCount !== undefined
     ? restaurant?.cartItemCount
     : 0;

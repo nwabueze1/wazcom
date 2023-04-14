@@ -13,7 +13,9 @@ export const Form: React.FC<FormProps> = ({
   submitButtonText = "Save",
   networkOperation,
 }) => {
-  const { loading, networkOperation: networkOperationCtxt } = useSelector<TAppState, TAppState>((state) => state);
+  const { loading, networkOperation: networkOperationCtxt } = useSelector<TAppState, TAppState>(
+    (state) => state,
+  );
   const classes = useFormStyles();
   const displayControls = () =>
     controls.map((control, index) => <FormControl key={index} {...control} />);

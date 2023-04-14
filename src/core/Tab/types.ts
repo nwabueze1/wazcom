@@ -1,6 +1,6 @@
 import React from "react";
 
-export type TabVariantProps = "vertical" | "horizontal" | "vertical-pill";
+export type TabVariantProps = "horizontal" | "vertical" | "vertical-pill";
 export type TabProps = {
   children?: React.ReactNode;
   className?: string;
@@ -8,13 +8,7 @@ export type TabProps = {
   activeTabClassName?: string;
   tabHeaderClassName?: string;
   variant?: TabVariantProps;
-  backgroundColor?: string;
   width?: string | number;
-  height?: string | number;
-  borderWidth?: string | number;
-  borderColor?: string;
-  borderStyle?: string;
-  borderRadius?: string | number;
   controls: {
     className?: any;
     name: string;
@@ -27,12 +21,5 @@ export type TabProps = {
 export type TabStyleProps = {
   variant?: string;
   className?: any;
-  backgroundColor?: string;
-  color?: string;
-  borderWidth?: string | number;
-  borderColor?: string;
-  borderStyle?: string;
-  borderRadius?: string | number;
   width?: string | number;
-  height?: string | number;
 };

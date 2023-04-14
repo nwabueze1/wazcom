@@ -111,7 +111,7 @@ export const Option: FC<OptionProps> = ({
   }, [selectedChoices, updateSelectedOptions]);
 
   return (
-    <Accordion className={classes.root} defaultExpanded={true}>
+    <Accordion className={classes.root} isExpanded={true}>
       <AccordionSummary
         id={name}
         aria-controls={name}

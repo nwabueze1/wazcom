@@ -1,5 +1,3 @@
-import { Typography } from "@mui/material";
-import CssBaseline from "@mui/material/CssBaseline";
 import { startCase } from "lodash";
 import * as React from "react";
 import { FC, useState } from "react";
@@ -9,11 +7,10 @@ import { BrowserProps } from "./types";
 
 export const Browser: FC<BrowserProps> = () => {
   const classes = useBrowserStyles();
-  const [search, setSearch] = useState("");
+  const [search] = useState("");
 
   return (
     <div className={classes.container}>
-      <CssBaseline />
       <div className={classes.main}>
         {stories
           .sort(({ name: aName }, { name: bName }) =>
@@ -26,7 +23,7 @@ export const Browser: FC<BrowserProps> = () => {
           .filter(({ name }) => name.toLowerCase().includes(search))
           .map(({ name, component: Comp, props }, index) => (
             <div key={index} className={classes.componentWrapper} id={name.toLowerCase()}>
-              <Typography variant="h3">{startCase(name)}</Typography>
+              <h3>{startCase(name)}</h3>
               <div className={classes.well}>{React.cloneElement(<Comp />, props)}</div>
             </div>
           ))}

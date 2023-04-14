@@ -9,14 +9,14 @@ import { Button } from "../../../Button";
 import { useTableControlsStyles } from "../TableControls/styles";
 import { getJsxContent } from "../../helpers";
 
-export const TableFilter: React.FC<TableFilterProps> = ({
+export const TableFilter = ({
   showFilter,
   setShowFilter,
   fields,
   values: tableValues,
   filters,
   setFilters,
-}) => {
+}: TableFilterProps) => {
   const classes = useFilterStyles();
   const controlClasses = useTableControlsStyles();
   const [filterFields, setFilterFields] = useState<{ [key: string]: any }[]>(fields);

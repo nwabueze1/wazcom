@@ -1,0 +1,44 @@
+import { Theme } from "@mui/material";
+import { makeStyles } from "@mui/styles";
+
+export const usePasswordValidationStyles = makeStyles((theme: Theme) => ({
+  containerItem: {
+    position: "relative",
+    display: "flex",
+    alignItems: "center",
+    color: theme.design.colors.waz_grey600,
+    marginBottom: theme.spacing(1),
+  },
+  container: {
+    padding: 0,
+    marginTop: theme.spacing(1.5),
+    alignSelf: "baseline",
+    fontSize: theme.typography.fontSize - 2,
+  },
+  iconWrapper: {
+    width: 12,
+    height: 12,
+    borderRadius: theme.spacing(2),
+    display: "flex",
+    alignItems: "center",
+    justifyContent: "center",
+    backgroundColor: theme.design.colors.waz_grey600,
+    color: theme.design.colors.waz_white,
+    marginRight: theme.spacing(0.5),
+  },
+  iconSuccess: {
+    backgroundColor: theme.design.colors.waz_primaryColor100,
+  },
+  iconError: {
+    backgroundColor: theme.design.colors.error,
+  },
+  labelSuccess: {
+    color: theme.design.colors.waz_primaryColor100,
+  },
+  labelError: {
+    color: theme.design.colors.error,
+  },
+  labelDefault: {
+    color: "inherit",
+  },
+}));
