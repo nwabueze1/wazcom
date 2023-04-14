@@ -1,8 +1,7 @@
 import ComponentProps from "core/ComponentProps/ComponentProps";
 import ComponentPropsWrapper from "core/ComponentProps/components/Wrapper";
-import { FC, useEffect } from "react";
+import { FC } from "react";
 import { BiReset } from "react-icons/bi";
-import { FaPeopleArrows } from "react-icons/fa";
 import { Button, Wrapper } from "../../core";
 import { useButtonStyles } from "./styles";
 import { ButtonViewProps } from "./types";

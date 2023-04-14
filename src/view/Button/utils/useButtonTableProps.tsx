@@ -87,7 +87,7 @@ const useButtonPropsData = () => {
       description: "This prop is used to insert an Elemet after the children",
       default: "undefined",
       controls: {
-        name: "leftIcon",
+        name: "rightIcon",
         controlType: "checkbox",
         onChange,
       },
