@@ -1,7 +1,7 @@
 import { FC } from "react";
 import { Tag } from "core/Tag";
 import { useComponentPropsStyles } from "./styles";
-import { ComponentPropsProp } from "./types";
+import { ComponentPropsProp, PropsControlType } from "./types";
 import { Button } from "../../core";
 import { BiRefresh } from "react-icons/bi";
 import { TextInput, CheckBoxInput, EmailInput } from "../../io";
@@ -24,7 +24,7 @@ const ComponentProps: FC<ComponentPropsProp> = ({ body, onReset }) => {
             <th className={classes.th}>
               <Button
                 variant="outlined"
-                className={classes.tbutton}
+                className={classes.tableButton}
                 rightIcon={<BiRefresh className={classes.buttonIcon} />}
                 iconSpacing={5}
                 onClick={onReset}
@@ -35,33 +35,15 @@ const ComponentProps: FC<ComponentPropsProp> = ({ body, onReset }) => {
           </tr>
         </thead>
         <tbody className={classes.tbody}>
-          {body.map((contents, index) => (
+          {body.map((content, index) => (
             <tr className={classes.tr} key={index}>
-              <td className={classes.td}>{contents.name}</td>
-              <td className={classes.td}>{contents.description}</td>
+              <td className={classes.td}>{content.name}</td>
+              <td className={classes.td}>{content.description}</td>
               <td className={classes.td}>
-                <Tag name={contents.default as string} />
+                <Tag name={content.default as string} />
               </td>
               <td className={classes.td}>
-                {contents.controls.controlType === "text" ||
-                contents.controls.controlType === "string" ? (
-                  <TextInput
-                    name={contents.controls.name}
-                    onChange={contents.controls.onChange}
-                    height={12}
-                  />
-                ) : contents.controls.controlType === "email" ? (
-                  <EmailInput
-                    name={contents.controls.name}
-                    onChange={contents.controls.onChange}
-                    height={12}
-                  />
-                ) : contents.controls.controlType === "checkbox" ? (
-                  <CheckBoxInput
-                    name={contents.controls.name}
-                    onChange={contents.controls.onChange}
-                  />
-                ) : null}
+                {getComponentPropsControlElementInput(content.control)}
               </td>
             </tr>
           ))}
@@ -72,3 +54,16 @@ const ComponentProps: FC<ComponentPropsProp> = ({ body, onReset }) => {
 };
 
 export default ComponentProps;
+
+const getComponentPropsControlElementInput = (content: PropsControlType) => {
+  switch (content.type) {
+    case "text":
+      return <TextInput name={content.name} onChange={content.onChange} height={12} />;
+    case "email":
+      return <EmailInput name={content.name} onChange={content.onChange} height={12} />;
+    case "checkbox":
+      return <CheckBoxInput name={content.name} onChange={content.onChange} />;
+    default:
+      return null;
+  }
+};

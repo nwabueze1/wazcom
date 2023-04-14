@@ -1,6 +1,6 @@
 import React from "react";
 
-export type TabVariantProps = "horizontal" | "vertical" | "vertical-pill" ;
+export type TabVariantProps = "horizontal" | "vertical" | "vertical-pill";
 export type TabProps = {
   children?: React.ReactNode;
   className?: string;

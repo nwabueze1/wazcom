@@ -4,6 +4,17 @@ import makeStyles from "@mui/styles/makeStyles";
 export const useComponentPropsStyles = makeStyles((theme: Theme) => ({
   tableContainer: {
     width: "100%",
+    background: theme.design.background.waz_primaryWhite,
+    borderWidth: 1,
+    borderStyle: "solid",
+    borderColor: theme.design.colors.waz_grey300,
+    borderRadius: 3,
+    minHeight: 120,
+    display: "flex",
+    flexDirection: "column",
+    justifyContent: "center",
+    gap: theme.spacing(3),
+    marginTop: theme.spacing(5),
   },
   tableHeading: {
     textTransform: "capitalize",
@@ -33,7 +44,7 @@ export const useComponentPropsStyles = makeStyles((theme: Theme) => ({
     display: "table-row",
     verticalAlign: "middle",
     borderBottomWidth: theme.spacing(0.1),
-    borderBottomColor: theme.design.colors.waz_table_border,
+    borderBottomColor: theme.design.colors.waz_light_grey,
     borderBottomStyle: "inset",
     "&:last-of-type": {
       borderBottomWidth: 0,
@@ -46,20 +57,20 @@ export const useComponentPropsStyles = makeStyles((theme: Theme) => ({
     color: theme.design.colors.grey,
     width: "25%",
     borderBottomWidth: 0.5,
-    borderBottomColor: theme.design.colors.waz_table_border,
+    borderBottomColor: theme.design.colors.waz_light_grey,
     borderBottomStyle: "inset",
     fontWeight: "bold",
     textTransform: "capitalize",
   },
   td: {
     display: "table-cell",
-    borderBottomColor: theme.design.colors.waz_table_border,
+    borderBottomColor: theme.design.colors.waz_light_grey,
     padding: theme.spacing(2, 3),
     fontSize: theme.typography.fontSize - 1,
     width: "20%",
     color: theme.design.colors.grey,
   },
-  tbutton: {
+  tableButton: {
     borderColor: theme.design.colors.waz_primary600,
     fontSize: theme.typography.fontSize - 2,
     height: 25,
