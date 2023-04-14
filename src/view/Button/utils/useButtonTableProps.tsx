@@ -1,10 +1,10 @@
 import { keys } from "lodash";
 import { useState } from "react";
 import Chip from "@mui/material/Chip";
-import { IComponentProps } from "core/ComponentProps/types";
+import { ComponentPropsType } from "core/ComponentProps/types";
 
 const useButtonTbleProps = () => {
-  const data: IComponentProps[] = [
+  const data: ComponentPropsType[] = [
     {
       name: "children",
       description: "The content of the component.",

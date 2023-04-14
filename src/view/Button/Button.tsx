@@ -8,6 +8,9 @@ import { ButtonViewProps } from "./types";
 
 export const ButtonView: FC<ButtonViewProps> = () => {
   const classes = useButtonStyles();
+  const onChange = (e: { name: string; value: number | string | boolean }) => {
+    console.log(e);
+  };
 
   return (
     <div className={classes.root}>
@@ -28,25 +31,31 @@ export const ButtonView: FC<ButtonViewProps> = () => {
               name: "Label",
               description: "Input label on the top left (String)",
               default: "Default",
-              controls: <TextField size="small" fullWidth placeholder="control" />,
+              controls: {
+                name: "label",
+                onChange: onChange,
+                controlType: "checkbox",
+              },
             },
             {
               name: "Label",
               description: "Input label on the top left (String)",
               default: "Default",
-              controls: <TextField size="small" fullWidth placeholder="control" />,
+              controls: {
+                name: "label",
+                onChange: onChange,
+                controlType: "string",
+              },
             },
             {
               name: "Label",
               description: "Input label on the top left (String)",
               default: "Default",
-              controls: <TextField size="small" fullWidth placeholder="control" />,
-            },
-            {
-              name: "Label",
-              description: "Input label on the top left (String)",
-              default: "Default",
-              controls: <TextField size="small" fullWidth placeholder="control" />,
+              controls: {
+                name: "label",
+                onChange: onChange,
+                controlType: "string",
+              },
             },
           ]}
         />

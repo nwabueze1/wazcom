@@ -4,6 +4,7 @@ import { useComponentPropsStyles } from "./styles";
 import { ComponentPropsProp } from "./types";
 import { Button } from "../../core";
 import { BiRefresh } from "react-icons/bi";
+import { TextInput, CheckBoxInput, EmailInput } from "../../io";
 
 const ComponentProps: FC<ComponentPropsProp> = ({ body, onReset }) => {
   const classes = useComponentPropsStyles();
@@ -41,7 +42,27 @@ const ComponentProps: FC<ComponentPropsProp> = ({ body, onReset }) => {
               <td className={classes.td}>
                 <Tag name={contents.default as string} />
               </td>
-              <td className={classes.td}>{contents.controls && contents.controls}</td>
+              <td className={classes.td}>
+                {contents.controls.controlType === "text" ||
+                contents.controls.controlType === "string" ? (
+                  <TextInput
+                    name={contents.controls.name}
+                    onChange={contents.controls.onChange}
+                    height={12}
+                  />
+                ) : contents.controls.controlType === "email" ? (
+                  <EmailInput
+                    name={contents.controls.name}
+                    onChange={contents.controls.onChange}
+                    height={12}
+                  />
+                ) : contents.controls.controlType === "checkbox" ? (
+                  <CheckBoxInput
+                    name={contents.controls.name}
+                    onChange={contents.controls.onChange}
+                  />
+                ) : null}
+              </td>
             </tr>
           ))}
         </tbody>
