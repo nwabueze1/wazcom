@@ -1,4 +1,4 @@
-export interface IInitialState {
+export type IInitialState = {
   isError: boolean;
   isSuccess: boolean;
   helperText: string;
@@ -12,4 +12,4 @@ export interface IInitialState {
   iconSpacing: number | string;
   background: string;
   color: string;
-}
+};
