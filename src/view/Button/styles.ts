@@ -7,7 +7,7 @@ export const useButtonStyles = makeStyles((theme: Theme) => ({
     margin: 0,
     height: "100vh",
   },
-  componentWrapper: {
-    paddingTop: theme.spacing(0),
+  bodyWrapper: {
+    width: "100%",
   },
 }));

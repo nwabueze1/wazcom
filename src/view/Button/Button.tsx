@@ -1,6 +1,4 @@
-import { TextField } from "@mui/material";
-import ComponentProps from "core/ComponentProps/ComponentProps";
-import ComponentPropsWraper from "core/ComponentProps/components/Wrapper";
+import Paper from "core/Paper/Paper";
 import { FC } from "react";
 import { Button, Wrapper } from "../../core";
 import { useButtonStyles } from "./styles";
@@ -17,40 +15,12 @@ export const ButtonView: FC<ButtonViewProps> = () => {
               calls to action to the user and allow users to interact with pages in a variety of
               ways. Button labels express what action will occur when the user interacts with it."
       >
-        <Button variant={"contained"} isDisabled={false} isLoading={false} rightIcon={undefined}>
-          Default Button
-        </Button>
+        <Paper>
+          <Button variant={"contained"} isDisabled={false} isLoading={false} rightIcon={undefined}>
+            Default Button
+          </Button>
+        </Paper>
       </Wrapper>
-      <ComponentPropsWraper maxWidth={1149}>
-        <ComponentProps
-          body={[
-            {
-              name: "Label",
-              description: "Input label on the top left (String)",
-              default: "Default",
-              controls: <TextField size="small" fullWidth placeholder="control" />,
-            },
-            {
-              name: "Label",
-              description: "Input label on the top left (String)",
-              default: "Default",
-              controls: <TextField size="small" fullWidth placeholder="control" />,
-            },
-            {
-              name: "Label",
-              description: "Input label on the top left (String)",
-              default: "Default",
-              controls: <TextField size="small" fullWidth placeholder="control" />,
-            },
-            {
-              name: "Label",
-              description: "Input label on the top left (String)",
-              default: "Default",
-              controls: <TextField size="small" fullWidth placeholder="control" />,
-            },
-          ]}
-        />
-      </ComponentPropsWraper>
     </div>
   );
 };
