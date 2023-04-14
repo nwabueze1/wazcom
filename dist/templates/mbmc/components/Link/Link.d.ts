@@ -1,2 +1,4 @@
 /// <reference types="react" />
-export declare const Link: React.FC<React.DetailedHTMLProps<React.AnchorHTMLAttributes<HTMLAnchorElement>, HTMLAnchorElement>>;
+type LinkProps = React.DetailedHTMLProps<React.AnchorHTMLAttributes<HTMLAnchorElement>, HTMLAnchorElement>;
+export declare const Link: ({ children, className, ...props }: LinkProps) => JSX.Element;
+export {};

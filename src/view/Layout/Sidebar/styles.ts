@@ -1,52 +1,101 @@
 import { Theme } from "@mui/material";
 import { makeStyles } from "@mui/styles";
+import { drawerWidth } from "../styles";
 
 export const useSidebarListItemStyles = makeStyles((theme: Theme) => ({
   root: {
+    position: "fixed",
+    height: "100%",
+    minHeight: "100vh",
+    fontFamily: theme.design.font.openSans,
+    top: 0,
+    left: 0,
+    transform: "translateX(-100%)",
+    zIndex: 10,
+    width: `${drawerWidth}px`,
+    transition: "transform 450ms ease, width 450ms ease",
+    background: theme.design.colors.waz_white,
+    maxHeight: "100vh",
+    padding: theme.spacing(1.5, 0),
+    boxShadow: `0px 1px 25px ${theme.design.colors.waz_black200}`,
+    [theme.breakpoints.up("lg")]: {
+      transform: "translateX(0)",
+    },
+    "&[data-show=true]": {
+      transform: "translateX(0)",
+    },
+  },
+  header: {
+    display: "flex",
+    alignItems: "center",
+    paddingLeft: theme.spacing(3),
+  },
+  collapseButton: {
+    all: "unset",
+    position: "relative",
+    backgroundColor: "transparent",
+    border: "none",
+    fontSize: theme.typography.fontSize * 2,
+    marginLeft: theme.spacing(2),
+    marginTop: theme.spacing(1),
+    cursor: "pointer",
+    [theme.breakpoints.up("lg")]: {
+      display: "none",
+    },
+    "&:hover": {
+      display: "flex",
+      alignItems: "center",
+      justifyContent: "center",
+      borderRadius: "50%",
+      transform: "scale(1.06)",
+      top: "-2px",
+      transition: "transform .2s",
+    },
+  },
+  sidebarOverlay: {
+    position: "fixed",
+    height: "100%",
+    minHeight: "100vh",
     width: "100%",
-    height: "100vh",
-    overflowY: "scroll",
-    boxSizing: "content-box",
+    background: "rgba(16, 25, 36, 0.1)",
+    top: 0,
+    left: 0,
+    right: 0,
+    bottom: 0,
+    transform: "translateX(-100%)",
+    zIndex: 6,
+    transition: "transform 450ms ease, width 450ms ease",
+    maxHeight: "100vh",
+    "&[data-show=true]": {
+      transform: "translateX(0)",
+    },
+  },
+  headerTitle: {
+    fontSize: theme.typography.fontSize + 4,
   },
   list: {
+    position: "relative",
     listStyle: "none",
     overflow: "hidden",
-    padding: 0,
+    overflowY: "auto",
+    height: "100%",
+    padding: theme.spacing(0, 1, 0, 3),
   },
   listItem: {
     margin: 0,
     padding: 0,
-    "& h5": {
-      textTransform: "uppercase",
-    },
     borderBottomWidth: 1,
     borderBottomStyle: "solid",
     borderBottomColor: theme.design.colors.waz_grey300,
     marginRight: 10,
+    "& h5": {
+      textTransform: "uppercase",
+    },
   },
-  label: {},
   chevronIcon: {
     transition: "transform 0.1s ease-in",
     width: 24,
     height: 24,
-  },
-  button: {
-    width: 200,
-    backgroundColor: theme.design.colors.waz_white,
-    color: theme.design.colors.grey100,
-    fontSize: theme.typography.h5.fontSize,
-    fontWeight: theme.typography.h5.fontWeight,
-    display: "flex",
-    justifyContent: "space-between",
-    textAlign: "left",
-    opacity: 1,
-  },
-  isVisible: {
-    minHeight: 200,
-    height: "auto",
-  },
-  isNotVisible: {
-    maxHeight: 0,
   },
   innerList: {
     listStyle: "none",
@@ -60,7 +109,6 @@ export const useSidebarListItemStyles = makeStyles((theme: Theme) => ({
   innerListItem: {
     background: theme.design.colors.waz_white,
     borderRadius: 1,
-    width: 200,
     height: 33,
     color: theme.design.colors.waz_black,
     display: "flex",
@@ -73,7 +121,7 @@ export const useSidebarListItemStyles = makeStyles((theme: Theme) => ({
     textAlign: "left",
     padding: "0 20px",
     textDecoration: "none",
-    color: theme.design.colors.waz_black,
+    color: theme.design.colors.waz_primaryBlack,
     display: "flex",
     justifyContent: "start",
     alignItems: "center",
@@ -98,7 +146,6 @@ export const useSidebarListItemStyles = makeStyles((theme: Theme) => ({
     padding: "0 20px",
     height: 33,
   },
-
   sectionLabel: {
     color: theme.design.colors.waz_grey1,
     fontWeight: theme.typography.fontWeightRegular,

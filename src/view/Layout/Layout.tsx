@@ -1,53 +1,101 @@
-import { BsBellFill } from "react-icons/bs";
+import { BsBellFill, BsArrowReturnLeft } from "react-icons/bs";
+import { BiMenu } from "react-icons/bi";
 import { FiSearch } from "react-icons/fi";
-import CssBaseline from "@mui/material/CssBaseline";
 import { FC, useState } from "react";
 import { TextInput } from "../../io";
+import { Button } from "../../core";
 import sidebarItems from "../../stories/sidebarItems";
 import { SidebarListItem } from "./Sidebar/SidebarItems";
 import { useLayoutStyles } from "./styles";
-import { LayoutProps } from "./types";
+import { LayoutProps, SearchResult } from "./types";
+import { useNavigate } from "react-router-dom";
+
+const extractSidebarNameAndSlug = sidebarItems.reduce((result: SearchResult, { components }) => {
+  const extractNameAndSlug = components.map((item) => ({ name: item.name, slug: item.slug }));
+  return result.concat(extractNameAndSlug);
+}, []);
 
 export const Layout: FC<LayoutProps> = ({ children }) => {
+  const navigate = useNavigate();
   const classes = useLayoutStyles();
-  const [search, setSearch] = useState("");
+  const [toggleSidebar, setToggleSidebar] = useState(false);
+  const [searchResult, setSearchResult] = useState<SearchResult>([]);
+
+  const handleSearchResult = (value: string) => {
+    if (value.length === 0) {
+      setSearchResult([]);
+      return;
+    }
+    const result = extractSidebarNameAndSlug.filter((item) =>
+      item.name.toLowerCase().includes(value.toLocaleLowerCase()),
+    );
+
+    setSearchResult([...result]);
+  };
 
   return (
     <>
-      <CssBaseline />
-      <div className={classes.container}>
-        <div className={classes.drawer}>
-          <div className={classes.logo}>
-            <span className={classes.title}>WAZCOM</span>
-          </div>
-          <div className={classes.sidebarList}>
-            <SidebarListItem sections={sidebarItems} />
-          </div>
-        </div>
+      <SidebarListItem
+        sections={sidebarItems}
+        isOpen={toggleSidebar}
+        onClose={() => setToggleSidebar(false)}
+      />
+      <div className={classes.root}>
         <div className={classes.appBarWrapper}>
-          <div className={classes.appBarComponents}>
-            <TextInput
-              name={"search"}
-              placeholder={"Search..."}
-              type={"search"}
-              width={480}
-              height={40}
-              leftIcon={<FiSearch size={"20px"} />}
-              iconSpacing={5}
-              background={"#F9F9F9"}
-              borderColor={"#F9F9F9"}
-              onChange={({ value }: { name: string; value: any }) => {
-                setSearch(value);
+          <div className={[classes.logo, classes.logoTop].join(" ")}>
+            <Button
+              className={classes.menuButton}
+              onClick={() => {
+                setToggleSidebar(true);
               }}
-              value={search}
-              className={classes.searchBox}
-            />
-            <div className={classes.notificationWrapper}>
-              <BsBellFill className={classes.notoficationIcon} />
+            >
+              <BiMenu />
+            </Button>
+            <h2 className={classes.logoTitle}>WAZCOM</h2>
+          </div>
+          <div className={classes.appBarComponents}>
+            <div className={classes.appBarSearch}>
+              <TextInput
+                name={"search"}
+                placeholder={"Search..."}
+                type={"search"}
+                width="100%"
+                height="100%"
+                leftIcon={<FiSearch size={"20px"} />}
+                iconSpacing={5}
+                background={"#F9F9F9"}
+                borderColor={"#F9F9F9"}
+                onChange={({ value }: { name: string; value: any }) => {
+                  handleSearchResult(value);
+                }}
+                className={classes.searchBox}
+              />
+              {searchResult.length > 0 && (
+                <ul className={classes.appSearchBox}>
+                  {searchResult.map((item) => (
+                    <li
+                      className={classes.appSearchBoxList}
+                      key={item.name}
+                      onClick={() => {
+                        setSearchResult([]);
+                        navigate(item.slug);
+                      }}
+                    >
+                      <span className={classes.appSearchBoxItem}>{item.name}</span>
+                      <span className={classes.appSearchIcon}>
+                        <BsArrowReturnLeft />
+                      </span>
+                    </li>
+                  ))}
+                </ul>
+              )}
             </div>
+            <Button className={classes.notificationButton}>
+              <BsBellFill className={classes.notificationIcon} />
+            </Button>
           </div>
         </div>
-        <div className={classes.main}>{children}</div>
+        <main className={classes.main}>{children}</main>
       </div>
     </>
   );

@@ -107,7 +107,7 @@ export var useAddToCart = function () {
                     _d.label = 1;
                 case 1:
                     _d.trys.push([1, 6, , 7]);
-                    dispatch({ type: 'SET_LOADING', payload: true });
+                    dispatch({ type: "SET_LOADING", payload: true });
                     if (!(!cartCookie || !cartCookie[siteUuid])) return [3 /*break*/, 3];
                     return [4 /*yield*/, createCart()];
                 case 2:
@@ -135,7 +135,7 @@ export var useAddToCart = function () {
                     notify("error", "We could not complete that operation");
                     return [3 /*break*/, 7];
                 case 7:
-                    dispatch({ type: 'SET_LOADING', payload: false });
+                    dispatch({ type: "SET_LOADING", payload: false });
                     return [2 /*return*/];
             }
         });

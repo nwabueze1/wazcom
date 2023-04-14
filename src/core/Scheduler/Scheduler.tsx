@@ -3,10 +3,10 @@ import { useSchedulerStyles } from "./styles";
 import { InputLabel } from "@mui/material";
 import { SchedulerProps } from "./types";
 import { fields } from "../../helpers/data";
-import { useScheduleData } from "./hooks";
+import { useScheduleData, dayDelimiter, dayOptions } from "./hooks";
+import { filterDayOptions } from "./helpers";
 import clx from "classnames";
 import { FiPlus } from "react-icons/fi";
-import { days, filterDaysOptions } from "./DayPicker/helper";
 import { Schedule } from ".";
 
 export const Scheduler: React.FC<SchedulerProps> = ({
@@ -22,29 +22,37 @@ export const Scheduler: React.FC<SchedulerProps> = ({
   const classes = useSchedulerStyles();
   const parseSchedulevalue = useScheduleData();
   const isEverydaySelected = initialScheduleValue?.some((value) => value?.day == "0");
-  const availableOption = filterDaysOptions(days, initialScheduleValue);
+  const availableOption = filterDayOptions(dayOptions, initialScheduleValue);
 
   const handleChange = useCallback(
-    (event: any, index: number, remove = false) => {
-      const {
-        target: { name, value },
-      } = event;
-      const newValue = [...(initialScheduleValue as Schedule[] | any)];
-      if (remove && newValue.length > 1) {
-        newValue.splice(index, 1);
-      } else {
-        newValue[index][name] = value;
+    (name: string, value: any, index: number, remove = false) => {
+      const newScheduleValue = [...(initialScheduleValue as Schedule[] | any)];
+      let parsedValue = value;
+
+      console.log(newScheduleValue.find(({ day }) => day == value));
+      if (name === "day" && newScheduleValue.find(({ day }) => day == value)) return;
+
+      if (name.includes("time")) {
+        parsedValue = (value as string).split(dayDelimiter + "T")[1];
+        parsedValue = parsedValue.split("+")[0];
       }
-      onChange?.({ name: componentName as string, value: newValue });
+
+      if (remove && newScheduleValue.length > 1) {
+        newScheduleValue.splice(index, 1);
+      } else {
+        newScheduleValue[index][name] = parsedValue;
+      }
+      onChange?.({ name: componentName as string, value: newScheduleValue });
     },
     [initialScheduleValue],
   );
 
   const addNewRow = useCallback(() => {
-    const nextFieldId = days.filter(
+    const nextFieldId = dayOptions.filter(
       (item) =>
-        item.id != 0 && !initialScheduleValue.some((option) => Number(option.day) == item.id),
-    )[0].id;
+        Number(item.value) != 0 &&
+        !initialScheduleValue.some((option) => Number(option.day) == Number(item.value)),
+    )[0].value;
     onChange?.({
       name: componentName as string,
       value: [
@@ -57,7 +65,7 @@ export const Scheduler: React.FC<SchedulerProps> = ({
   const [scheduleValue, setScheduleValue] = useState<{ [key: string]: any }[]>(
     parseSchedulevalue(initialScheduleValue as Schedule[], handleChange, {
       timeSection: clx(classes.timeContainer, classNames?.timeContainer),
-      timeDivider: clx(classes.timeDivider, classNames?.timeDivider),
+      timeDivider: classes.timeDivider,
       closeIcon: clx(classes.closeIcon, classNames?.closeIcon),
       hiddenCloseIcon: clx(classes.hidden, classNames?.hidden),
     }),
@@ -66,7 +74,6 @@ export const Scheduler: React.FC<SchedulerProps> = ({
   useEffect(() => {
     const newScheduleValue = parseSchedulevalue(initialScheduleValue as Schedule[], handleChange, {
       timeSection: classes.timeContainer,
-      timeDivider: classes.timeDivider,
       closeIcon: classes.closeIcon,
       hiddenCloseIcon: classes.hidden,
     });
@@ -90,7 +97,7 @@ export const Scheduler: React.FC<SchedulerProps> = ({
             key={index}
           >
             {fields.map(({ name }) => {
-              return <span key={Math.random() + index}>{row?.[name]}</span>;
+              return row?.[name];
             })}
           </div>
         );

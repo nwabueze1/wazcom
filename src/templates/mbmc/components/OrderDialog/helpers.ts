@@ -1,3 +1,4 @@
+/* eslint-disable prefer-spread */
 import { Option } from "./types";
 
 export const calculateOptionsTotal = (options: Option[], quantity: number) => {

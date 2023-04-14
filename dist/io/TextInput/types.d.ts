@@ -1,5 +1,11 @@
 import React from "react";
 import { CommonProps } from "../../types";
+export type PasswordValidatorProps = {
+    isTouched?: boolean;
+    label?: string;
+    value?: string | undefined;
+    limit?: number;
+};
 export type TextInputProps = TextFieldProps;
 export type BaseInputProps = React.InputHTMLAttributes<HTMLInputElement>;
 export type TextBaseProps = CommonProps & {
@@ -47,14 +53,14 @@ export type TextAreaProps = Omit<React.HTMLProps<HTMLTextAreaElement>, "onChange
     minRows?: number;
 };
 export type InputIconProps = {
-    className?: object;
+    className?: Record<string, unknown>;
     children?: React.ReactNode | React.ReactElement | string;
     iconSpacing?: string | number;
     marginLeft?: string | number;
     marginRight?: string | number;
 };
 export type TextInputIconStyleProps = {
-    props?: object | string;
+    props?: Record<string, unknown> | string;
     marginLeft?: string | number;
     marginRight?: string | number;
 };

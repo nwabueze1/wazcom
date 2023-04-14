@@ -1,3 +1,2 @@
-/// <reference types="react" />
 import { SearchInputProps } from "./types";
-export declare const SearchInput: React.FC<SearchInputProps>;
+export declare const SearchInput: ({ onChange, placeholder, className, value, type, name, }: SearchInputProps) => JSX.Element;

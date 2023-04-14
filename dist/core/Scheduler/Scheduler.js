@@ -39,33 +39,47 @@ import { useState, useCallback, useEffect } from "react";
 import { useSchedulerStyles } from "./styles";
 import { InputLabel } from "@mui/material";
 import { fields } from "../../helpers/data";
-import { useScheduleData } from "./hooks";
+import { useScheduleData, dayDelimiter, dayOptions } from "./hooks";
+import { filterDayOptions } from "./helpers";
 import clx from "classnames";
 import { FiPlus } from "react-icons/fi";
-import { days, filterDaysOptions } from "./DayPicker/helper";
 export var Scheduler = function (_a) {
     var _b;
     var className = _a.className, classNames = _a.classNames, componentName = _a.name, label = _a.label, _c = _a.multiple, multiple = _c === void 0 ? false : _c, _d = _a.value, initialScheduleValue = _d === void 0 ? [{ day: "0", start_time: "00:00", end_time: "12:00" }] : _d, onChange = _a.onChange, _e = _a.orientation, orientation = _e === void 0 ? "horizontal" : _e;
     var classes = useSchedulerStyles();
     var parseSchedulevalue = useScheduleData();
     var isEverydaySelected = initialScheduleValue === null || initialScheduleValue === void 0 ? void 0 : initialScheduleValue.some(function (value) { return (value === null || value === void 0 ? void 0 : value.day) == "0"; });
-    var availableOption = filterDaysOptions(days, initialScheduleValue);
-    var handleChange = useCallback(function (event, index, remove) {
+    var availableOption = filterDayOptions(dayOptions, initialScheduleValue);
+    var handleChange = useCallback(function (name, value, index, remove) {
         if (remove === void 0) { remove = false; }
-        var _a = event.target, name = _a.name, value = _a.value;
-        var newValue = __spreadArray([], __read(initialScheduleValue), false);
-        if (remove && newValue.length > 1) {
-            newValue.splice(index, 1);
+        var newScheduleValue = __spreadArray([], __read(initialScheduleValue), false);
+        var parsedValue = value;
+        console.log(newScheduleValue.find(function (_a) {
+            var day = _a.day;
+            return day == value;
+        }));
+        if (name === "day" && newScheduleValue.find(function (_a) {
+            var day = _a.day;
+            return day == value;
+        }))
+            return;
+        if (name.includes("time")) {
+            parsedValue = value.split(dayDelimiter + "T")[1];
+            parsedValue = parsedValue.split("+")[0];
+        }
+        if (remove && newScheduleValue.length > 1) {
+            newScheduleValue.splice(index, 1);
         }
         else {
-            newValue[index][name] = value;
+            newScheduleValue[index][name] = parsedValue;
         }
-        onChange === null || onChange === void 0 ? void 0 : onChange({ name: componentName, value: newValue });
+        onChange === null || onChange === void 0 ? void 0 : onChange({ name: componentName, value: newScheduleValue });
     }, [initialScheduleValue]);
     var addNewRow = useCallback(function () {
-        var nextFieldId = days.filter(function (item) {
-            return item.id != 0 && !initialScheduleValue.some(function (option) { return Number(option.day) == item.id; });
-        })[0].id;
+        var nextFieldId = dayOptions.filter(function (item) {
+            return Number(item.value) != 0 &&
+                !initialScheduleValue.some(function (option) { return Number(option.day) == Number(item.value); });
+        })[0].value;
         onChange === null || onChange === void 0 ? void 0 : onChange({
             name: componentName,
             value: __spreadArray(__spreadArray([], __read(initialScheduleValue), false), [
@@ -75,14 +89,13 @@ export var Scheduler = function (_a) {
     }, [initialScheduleValue]);
     var _f = __read(useState(parseSchedulevalue(initialScheduleValue, handleChange, {
         timeSection: clx(classes.timeContainer, classNames === null || classNames === void 0 ? void 0 : classNames.timeContainer),
-        timeDivider: clx(classes.timeDivider, classNames === null || classNames === void 0 ? void 0 : classNames.timeDivider),
+        timeDivider: classes.timeDivider,
         closeIcon: clx(classes.closeIcon, classNames === null || classNames === void 0 ? void 0 : classNames.closeIcon),
         hiddenCloseIcon: clx(classes.hidden, classNames === null || classNames === void 0 ? void 0 : classNames.hidden),
     })), 2), scheduleValue = _f[0], setScheduleValue = _f[1];
     useEffect(function () {
         var newScheduleValue = parseSchedulevalue(initialScheduleValue, handleChange, {
             timeSection: classes.timeContainer,
-            timeDivider: classes.timeDivider,
             closeIcon: classes.closeIcon,
             hiddenCloseIcon: classes.hidden,
         });
@@ -91,7 +104,7 @@ export var Scheduler = function (_a) {
     return (_jsxs("div", __assign({ className: clx(classes.root, className) }, { children: [label && (_jsx(InputLabel, __assign({ className: (_b = classNames === null || classNames === void 0 ? void 0 : classNames.label) !== null && _b !== void 0 ? _b : "", htmlFor: componentName }, { children: label }))), scheduleValue === null || scheduleValue === void 0 ? void 0 : scheduleValue.map(function (row, index) {
                 return (_jsx("div", __assign({ className: "".concat(classes.schedulerContainer, " ").concat(orientation == "vertical" && classes.verticalContainer) }, { children: fields.map(function (_a) {
                         var name = _a.name;
-                        return _jsx("span", { children: row === null || row === void 0 ? void 0 : row[name] }, Math.random() + index);
+                        return row === null || row === void 0 ? void 0 : row[name];
                     }) }), index));
             }), multiple && !isEverydaySelected && (_jsx("div", __assign({ className: "".concat(classes.button, " ").concat(availableOption.length == 0 && classes.hidden), onClick: addNewRow }, { children: _jsxs("p", __assign({ className: classes.buttonText }, { children: [_jsx(FiPlus, { className: classes.addIcon }), " Add Schedule"] })) })))] })));
 };

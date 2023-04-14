@@ -56,8 +56,8 @@ export var useCreateOrder = function () {
                 case 0:
                     cartCookie = cookies.get("cart");
                     cartItemCountCookie = cookies.get("cartItemCount");
-                    dispatch({ type: 'SET_LOADING', payload: true });
-                    dispatch({ type: 'SET_NETWORK_OPERATION', payload: 'create.order' });
+                    dispatch({ type: "SET_LOADING", payload: true });
+                    dispatch({ type: "SET_NETWORK_OPERATION", payload: "create.order" });
                     _q.label = 1;
                 case 1:
                     _q.trys.push([1, 3, , 4]);
@@ -80,7 +80,7 @@ export var useCreateOrder = function () {
                     order = data.createOrder;
                     if (String(paymentMethod) === "PAYPAL")
                         return [2 /*return*/, makePaypalPayment(order.uuid)];
-                    dispatch({ type: 'UPDATE_ORDER', payload: order });
+                    dispatch({ type: "UPDATE_ORDER", payload: order });
                     notify("success", "Order placed successfully");
                     delete cartCookie[(_l = (_k = (_j = cart === null || cart === void 0 ? void 0 : cart.restaurant) === null || _j === void 0 ? void 0 : _j.site) === null || _k === void 0 ? void 0 : _k.uuid) !== null && _l !== void 0 ? _l : ""];
                     delete cartItemCountCookie[(_p = (_o = (_m = cart === null || cart === void 0 ? void 0 : cart.restaurant) === null || _m === void 0 ? void 0 : _m.site) === null || _o === void 0 ? void 0 : _o.uuid) !== null && _p !== void 0 ? _p : ""];
@@ -92,8 +92,8 @@ export var useCreateOrder = function () {
                     notify("error", "We could not complete that operation");
                     return [3 /*break*/, 4];
                 case 4:
-                    dispatch({ type: 'SET_LOADING', payload: false });
-                    dispatch({ type: 'SET_NETWORK_OPERATION', payload: '' });
+                    dispatch({ type: "SET_LOADING", payload: false });
+                    dispatch({ type: "SET_NETWORK_OPERATION", payload: "" });
                     return [2 /*return*/];
             }
         });

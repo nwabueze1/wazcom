@@ -32,14 +32,10 @@ import clx from "classnames";
 import { snakeCase } from "lodash";
 import { useTabStyles } from "./styles";
 export var Tab = function (_a) {
-    var controls = _a.controls, variant = _a.variant, backgroundColor = _a.backgroundColor, borderWidth = _a.borderWidth, borderColor = _a.borderColor, borderStyle = _a.borderStyle, borderRadius = _a.borderRadius, className = _a.className, tabHeaderClassName = _a.tabHeaderClassName, activeTabClassName = _a.activeTabClassName, containerClassName = _a.containerClassName;
+    var controls = _a.controls, variant = _a.variant, width = _a.width, className = _a.className, tabHeaderClassName = _a.tabHeaderClassName, activeTabClassName = _a.activeTabClassName, containerClassName = _a.containerClassName;
     var classes = useTabStyles({
         variant: variant,
-        backgroundColor: backgroundColor,
-        borderWidth: borderWidth,
-        borderColor: borderColor,
-        borderStyle: borderStyle,
-        borderRadius: borderRadius,
+        width: width,
     });
     var _b = __read(useState(), 2), activeTab = _b[0], setActiveTab = _b[1];
     var _c = useLocation(), pathname = _c.pathname, search = _c.search;
@@ -58,7 +54,7 @@ export var Tab = function (_a) {
     }, [activeTab, query]);
     return (_jsxs("div", __assign({ className: clx(classes.root, className) }, { children: [_jsx("div", __assign({ className: tabHeaderClassName }, { children: _jsx("div", __assign({ className: clx(classes.tabs, containerClassName) }, { children: controls.map(function (_a, index) {
                         var name = _a.name, title = _a.title, icon = _a.icon;
-                        return (_jsxs("div", __assign({ onClick: function () { return handleTabClick(name); }, className: clx(classes.tab, name == activeTab && classes.tabIsActive, name == activeTab && activeTabClassName, snakeCase(title), snakeCase(name)) }, { children: [icon && icon, "   ", title] }), index));
+                        return (_jsxs("div", __assign({ onClick: function () { return handleTabClick(name); }, className: clx(classes.tab, name == activeTab && classes.tabIsActive, name == activeTab && activeTabClassName, snakeCase(title), snakeCase(name)) }, { children: [icon && icon, " ", title] }), index));
                     }) })) })), _jsx("div", __assign({ className: clx(classes.contentWrapper, snakeCase("".concat(activeTab, " content"))) }, { children: controls.map(function (_a, index) {
                     var name = _a.name, component = _a.component;
                     return (_jsx("div", __assign({ className: clx(classes.content, name == activeTab && classes.contentIsActive) }, { children: component }), index));

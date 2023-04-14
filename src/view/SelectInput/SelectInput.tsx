@@ -11,7 +11,6 @@ export const SelectInputView: FC<SelectInputViewProps> = () => {
     setValue(val);
   }, []);
 
-
   const classes = useSelectInputStyles();
 
   const inputData: any = [
@@ -40,8 +39,13 @@ export const SelectInputView: FC<SelectInputViewProps> = () => {
         <div className={classes.inputContainer}>
           <div className={classes.inputs}>
             {inputData.map((item: any, index: any) => (
-
-              <SelectInput key={index} label={item.label} options={item.options} value={value} onChange={handleValueChange} />
+              <SelectInput
+                key={index}
+                label={item.label}
+                options={item.options}
+                value={value}
+                onChange={handleValueChange}
+              />
             ))}
           </div>
         </div>

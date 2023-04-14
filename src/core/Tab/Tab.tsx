@@ -9,11 +9,7 @@ import { TabProps } from "./types";
 export const Tab: React.FC<TabProps> = ({
   controls,
   variant,
-  backgroundColor,
-  borderWidth,
-  borderColor,
-  borderStyle,
-  borderRadius,
+  width,
   className,
   tabHeaderClassName,
   activeTabClassName,
@@ -21,11 +17,7 @@ export const Tab: React.FC<TabProps> = ({
 }) => {
   const classes = useTabStyles({
     variant,
-    backgroundColor,
-    borderWidth,
-    borderColor,
-    borderStyle,
-    borderRadius,
+    width,
   });
   const [activeTab, setActiveTab] = useState<string>();
   const { pathname, search } = useLocation();
@@ -67,7 +59,7 @@ export const Tab: React.FC<TabProps> = ({
                 snakeCase(name),
               )}
             >
-              {icon && icon}   {title}
+              {icon && icon} {title}
             </div>
           ))}
         </div>

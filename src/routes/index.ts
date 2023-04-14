@@ -8,10 +8,18 @@ import { ButtonView } from "../view/Button";
 import { TabsView } from "../view/Tab";
 import { NotificationView } from "../view/Notification";
 import { URLInputView } from "../view/URLInput";
+import { PasswordInputView } from "../view/PasswordInput";
 import { CurrencyInputView } from "../view/CurrencyInput";
 import { SelectInputView } from "../view/SelectInput";
 import { TableView } from "../view/Table";
 import { CardView } from "../view/Card";
+import { CheckBoxInputView } from "view/CheckBoxInput";
+import { RadioButtonView } from "view/RadioButtonInput";
+import { ToggleInputView } from "view/ToggleInput";
+import { StepsView } from "view/Steps";
+import { AccordionView } from "view/Accordion";
+import { ProgressView } from "view/Progress";
+import { PickersView } from "view/Pickers";
 
 export default [
   {
@@ -39,6 +47,24 @@ export default [
     component: TextInputView,
   },
   {
+    key: "PickersView",
+    path: "/pickers",
+    exact: true,
+    component: PickersView,
+  },
+  {
+    key: "RadioButtonView",
+    path: "/radio-button",
+    exact: true,
+    component: RadioButtonView,
+  },
+  {
+    key: "ToggleInputView",
+    path: "/toggle-input",
+    exact: true,
+    component: ToggleInputView,
+  },
+  {
     key: "EmailInputView",
     path: "/email-input",
     exact: true,
@@ -57,10 +83,28 @@ export default [
     component: URLInputView,
   },
   {
+    key: "StepsView",
+    path: "/steps",
+    exact: true,
+    component: StepsView,
+  },
+  {
+    key: "PasswordInputView",
+    path: "/password-input",
+    exact: true,
+    component: PasswordInputView,
+  },
+  {
     key: "CurrencyInputView",
     path: "/currency-input",
     exact: true,
     component: CurrencyInputView,
+  },
+  {
+    key: "CheckBoxInputView",
+    path: "/checkbox-input",
+    exact: true,
+    component: CheckBoxInputView,
   },
   {
     key: "TextAreaView",
@@ -69,10 +113,22 @@ export default [
     component: TextAreaView,
   },
   {
+    key: "ProgressView",
+    path: "/progress",
+    exact: true,
+    component: ProgressView,
+  },
+  {
     key: "ButtonView",
     path: "/buttons",
     exact: true,
     component: ButtonView,
+  },
+  {
+    key: "AccordionView",
+    path: "/accordion",
+    exact: true,
+    component: AccordionView,
   },
   {
     key: "TabsView",

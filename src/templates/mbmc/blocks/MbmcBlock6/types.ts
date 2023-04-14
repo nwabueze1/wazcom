@@ -11,5 +11,4 @@ export type TCategory = {
   uuid: string;
   title: string;
   menuItems: { image_url: string }[];
-}
-
+};

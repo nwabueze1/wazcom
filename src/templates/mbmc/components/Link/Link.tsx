@@ -1,9 +1,12 @@
 import clx from "classnames";
 import { useLinkStyles } from "./styles";
 
-export const Link: React.FC<
-  React.DetailedHTMLProps<React.AnchorHTMLAttributes<HTMLAnchorElement>, HTMLAnchorElement>
-> = ({ children, className, ...props }) => {
+type LinkProps = React.DetailedHTMLProps<
+  React.AnchorHTMLAttributes<HTMLAnchorElement>,
+  HTMLAnchorElement
+>;
+
+export const Link = ({ children, className, ...props }: LinkProps) => {
   const classes = useLinkStyles();
 
   return (

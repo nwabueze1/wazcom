@@ -31,14 +31,14 @@ export type ButtonContentProps = {
     isFocused?: boolean;
 };
 export type ButtonIconProps = {
-    className?: object;
+    className?: Record<string, unknown>;
     children?: ReactNode;
     iconSpacing?: string | number;
     marginLeft?: string | number;
     marginRight?: string | number;
 };
 export type ButtonIconStyleProps = {
-    props?: object | string;
+    props?: Record<string, unknown> | string;
     marginLeft?: string | number;
     marginRight?: string | number;
     width?: string | number;
@@ -46,7 +46,7 @@ export type ButtonIconStyleProps = {
 };
 export type ButtonStyleProps = {
     variant?: string;
-    props?: object | string;
+    props?: Record<string, unknown> | string;
     width?: string | number;
     height?: string | number;
     borderRadius?: string | number;

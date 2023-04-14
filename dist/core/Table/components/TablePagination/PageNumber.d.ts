@@ -1,3 +1,2 @@
-/// <reference types="react" />
 import { PageNumberProps } from "./types";
-export declare const PageNumber: React.FC<PageNumberProps>;
+export declare const PageNumber: ({ onPageChange, page, currentPage }: PageNumberProps) => JSX.Element;

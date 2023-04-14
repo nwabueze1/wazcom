@@ -9,9 +9,10 @@ export const TableColumnActions: FC<TableColumnActionProps> = ({ actions, identi
   const renderActions = () =>
     actions.map(({ name, func, verify }, index) =>
       verify && !verify(identifier) ? (
-        <i />
+        <i key={index} />
       ) : (
         <p
+          key={index + name}
           className={classes.action}
           onClick={() => {
             func(identifier);

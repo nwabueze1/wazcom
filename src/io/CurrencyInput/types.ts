@@ -45,6 +45,8 @@ export type CurrencyInputProps = CurrencyBaseProps &
     variant: "basic" | "vertical" | "horizontal";
     currency?: string | string[];
     placeholder?: string;
+    isDisabled?: boolean;
+    showDropdownIcon?: boolean;
     label?: string;
     className?: string;
     max?: number;
@@ -72,7 +74,7 @@ export type InputProps = {
 };
 
 export type CurrencyIconProps = {
-  className?: object;
+  className?: Record<string, unknown> | string;
   children?: React.ReactNode | React.ReactElement | string;
   iconSpacing?: string | number;
   marginLeft?: string | number;
@@ -80,7 +82,7 @@ export type CurrencyIconProps = {
 };
 
 export type CurrencyIconStyleProps = {
-  props?: object | string;
+  props?: Record<string, unknown> | string;
   marginLeft?: string | number;
   marginRight?: string | number;
 };
