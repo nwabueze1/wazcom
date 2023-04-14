@@ -8,5 +8,5 @@ export type InitialStateType = {
   height: number;
   width: number | string;
   title: string;
-  onChange: (e: { name: string; value: string | number | boolean }) => void;
+  onChange?: (e: { name: string; value: string | number | boolean }) => void;
 };

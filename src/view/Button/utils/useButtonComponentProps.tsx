@@ -17,7 +17,10 @@ const initialButtonProp = {
 const useButtonComponentProps = () => {
   const [state, setState] = useState(initialButtonProp);
 
-  const onChange = (e: { name: string; value: any }) => setState({ ...state, [e.name]: e.value });
+  const onChange = (e?: { name: string; value: any }) => {
+    if (!e) return;
+    setState({ ...state, [e.name]: e.value });
+  };
 
   const handleReset = () => setState(initialButtonProp);
 
@@ -109,7 +112,6 @@ const useButtonComponentProps = () => {
       control: {
         name: "onClick",
         type: "checkbox",
-        onChange: (e) => {},
       },
     },
   ];

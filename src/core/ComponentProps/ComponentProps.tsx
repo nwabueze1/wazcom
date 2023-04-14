@@ -1,4 +1,4 @@
-import { FC, memo } from "react";
+import { FC } from "react";
 import { Tag } from "core/Tag";
 import { useComponentPropsStyles } from "./styles";
 import { ComponentPropsProp, PropsControlType } from "./types";
