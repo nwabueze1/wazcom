@@ -10,8 +10,7 @@ import { useTextInputProps } from "./utils/useTextInputProps";
 import Paper from "core/Paper/Paper";
 
 export const TextInputView: FC<TextInputViewProps> = () => {
-  const { data,onReset } = useTextInputProps();
-
+  const { data, onReset, state } = useTextInputProps();
 
   const handleEnter = (payload: any) => {
     console.log("onEnter", payload);
@@ -100,13 +99,16 @@ export const TextInputView: FC<TextInputViewProps> = () => {
                 className={classes.input}
                 label={item.label}
                 placeholder={item.placeholder}
-                helperText={item.helperText}
-                isError={item.isError}
-                isSuccess={item.isSuccess}
+                helperText={state.helperText}
+                isError={state.isError}
+                isSuccess={state.isSuccess}
                 onEnter={handleEnter}
                 onFocus={handleFocus}
                 onBlur={handleBlur}
-                rightIcon={<BsEye width={16} />}
+                rightIcon={state.rightIcon ? <BsEye width={16} /> : undefined}
+                leftIcon={state.leftIcon ? <BsEye width={16} /> : undefined}
+                value={state.name}
+                required={state.required}
               />
             ))}
           </div>

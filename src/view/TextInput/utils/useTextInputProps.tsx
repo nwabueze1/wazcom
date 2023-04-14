@@ -24,15 +24,12 @@ export const useTextInputProps = () => {
 
   const data: ComponentPropsType[] = [
     {
-      name: "className",
-      description: "This is used to add class for styling the component.",
-      default: "undefined",
-      control: {
-        name: "className",
-        type: "text",
-        onChange,
-      },
+      name: "name",
+      description: "The name of the input tag",
+      default: "empty string",
+      control: { name: "name", type: "text", onChange },
     },
+
     {
       name: "isError",
       description: "This is used to specify if the component is invalid",
@@ -55,12 +52,7 @@ export const useTextInputProps = () => {
       default: "undefined",
       control: { name: "helperText", type: "checkbox", onChange },
     },
-    {
-      name: "name",
-      description: "The name of the input tag",
-      default: "empty string",
-      control: { name: "name", type: "text", onChange },
-    },
+
     {
       name: "onChange",
       description: "for handling the change event of TextInput",
@@ -116,7 +108,7 @@ export const useTextInputProps = () => {
     {
       name: "iconSpacing",
       description: "used to specify the space between the icon and the Input",
-      default: "0",
+      default: "undefined",
       control: { name: "iconSpacing" },
     },
     {
@@ -141,7 +133,7 @@ export const useTextInputProps = () => {
 
   return {
     data,
-    onReset: () => setState( initialTextInputState ),
-    state
+    onReset: () => setState(initialTextInputState),
+    state,
   };
 };
