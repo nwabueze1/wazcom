@@ -10,7 +10,6 @@ var __assign = (this && this.__assign) || function () {
     return __assign.apply(this, arguments);
 };
 import { jsx as _jsx, jsxs as _jsxs } from "react/jsx-runtime";
-// import React, { useMemo } from "react";
 import { useCreatePostInputStyles } from "./styles";
 import { Editor } from "./Editor";
 import { EditorToolbar } from "./EditorToolbar";
@@ -19,11 +18,6 @@ export var WysiwygInput = function (_a) {
     var _b, _c;
     var className = _a.className, onChange = _a.onChange, value = _a.value, embed = _a.embed, initiateEmbed = _a.initiateEmbed;
     var classes = useCreatePostInputStyles();
-    // const insertButtonTop = useMemo(() => {
-    //   const editor = document.getElementById("editor");
-    //   const scrollOffset = ((editor?.offsetHeight as number) / window.innerHeight) * 100;
-    //   return scrollOffset > 70 ? 400 : 98 + (editor?.clientHeight ?? 42);
-    // }, [value?.content]);
     var handleTitleChange = function (event) {
         onChange === null || onChange === void 0 ? void 0 : onChange({ name: "title", value: event.target.value });
     };
