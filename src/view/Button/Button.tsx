@@ -1,5 +1,5 @@
 import ComponentProps from "core/ComponentProps/ComponentProps";
-import ComponentPropsWrapper from "core/ComponentProps/components/Wrapper";
+import Paper from "core/Paper/Paper";
 import { FC } from "react";
 import { BiReset } from "react-icons/bi";
 import { Button, Wrapper } from "../../core";
@@ -11,6 +11,8 @@ export const ButtonView: FC<ButtonViewProps> = () => {
   const { data, state, handleReset } = useButtonPropsData();
   const classes = useButtonStyles();
 
+  const showIcon = (display: boolean) => (display ? <BiReset size={12} /> : undefined);
+
   return (
     <div className={classes.root}>
       <Wrapper
@@ -19,20 +21,20 @@ export const ButtonView: FC<ButtonViewProps> = () => {
               calls to action to the user and allow users to interact with pages in a variety of
               ways. Button labels express what action will occur when the user interacts with it."
       >
-        <Button
-          variant={"contained"}
-          isDisabled={state.isDisabled}
-          isLoading={state.isLoading}
-          rightIcon={state.rightIcon ? <BiReset size={12} /> : undefined}
-          leftIcon={state.leftIcon ? <BiReset size={12} /> : undefined}
-          iconSpacing={5}
-        >
-          {state.children}
-        </Button>
-      </Wrapper>
-      <ComponentPropsWrapper maxWidth={1149}>
+        <Paper>
+          <Button
+            variant={"contained"}
+            isDisabled={state.isDisabled}
+            iconSpacing={2}
+            isLoading={state.isLoading}
+            rightIcon={showIcon(state.rightIcon)}
+            leftIcon={showIcon(state.leftIcon)}
+          >
+            {state.children}
+          </Button>
+        </Paper>
         <ComponentProps body={data} onReset={handleReset} />
-      </ComponentPropsWrapper>
+      </Wrapper>
     </div>
   );
 };

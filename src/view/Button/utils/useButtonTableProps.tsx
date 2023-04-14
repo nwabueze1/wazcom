@@ -26,9 +26,9 @@ const useButtonPropsData = () => {
       name: "isDisabled",
       description: "This prop is used to disable or enable the button",
       default: "false",
-      controls: {
+      control: {
         name: "isDisabled",
-        controlType: "checkbox",
+        type: "checkbox",
         onChange: onChange,
       },
     },
@@ -36,9 +36,9 @@ const useButtonPropsData = () => {
       name: "isLoading",
       description: "This prop is used to control the loading state of the button.",
       default: "false",
-      controls: {
+      control: {
         name: "isLoading",
-        controlType: "checkbox",
+        type: "checkbox",
         onChange,
       },
     },
@@ -46,9 +46,9 @@ const useButtonPropsData = () => {
       name: "children",
       description: "The content of the component.",
       default: "undefined",
-      controls: {
+      control: {
         name: "children",
-        controlType: "text",
+        type: "text",
         onChange,
       },
     },
@@ -56,9 +56,9 @@ const useButtonPropsData = () => {
       name: "height",
       description: "This is useed to set the height of the button",
       default: "auto",
-      controls: {
+      control: {
         name: "height",
-        controlType: "number",
+        type: "number",
         onChange,
       },
     },
@@ -66,9 +66,9 @@ const useButtonPropsData = () => {
       name: "width",
       description: "This is used to set the width of the button",
       default: "auto",
-      controls: {
+      control: {
         name: "height",
-        controlType: "number",
+        type: "number",
         onChange,
       },
     },
@@ -76,9 +76,9 @@ const useButtonPropsData = () => {
       name: "leftIcon",
       description: "This prop is used to insert an Element before the children",
       default: "undefined",
-      controls: {
+      control: {
         name: "leftIcon",
-        controlType: "checkbox",
+        type: "checkbox",
         onChange,
       },
     },
@@ -86,9 +86,9 @@ const useButtonPropsData = () => {
       name: "rightIcon",
       description: "This prop is used to insert an Elemet after the children",
       default: "undefined",
-      controls: {
+      control: {
         name: "rightIcon",
-        controlType: "checkbox",
+        type: "checkbox",
         onChange,
       },
     },
@@ -96,9 +96,9 @@ const useButtonPropsData = () => {
       name: "variant",
       description: "This prop is used to change the variations of the button. ",
       default: "contained",
-      controls: {
+      control: {
         name: "variant",
-        controlType: "checkbox",
+        type: "checkbox",
         onChange,
       },
     },
@@ -106,9 +106,9 @@ const useButtonPropsData = () => {
       name: "onClick",
       description: "This is the function that get's triggered when the button is clicked.",
       default: "()=>void",
-      controls: {
+      control: {
         name: "onClick",
-        controlType: "checkbox",
+        type: "checkbox",
         onChange: (e) => {},
       },
     },
