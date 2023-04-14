@@ -58,9 +58,9 @@ export default ComponentProps;
 const getComponentPropsControlElementInput = (content: PropsControlType) => {
   switch (content.type) {
     case "text":
-      return <TextInput name={content.name} onChange={content.onChange} height={12} />;
+      return <TextInput name={content.name} onChange={content.onChange}  />;
     case "email":
-      return <EmailInput name={content.name} onChange={content.onChange} height={12} />;
+      return <EmailInput name={content.name} onChange={content.onChange}  />;
     case "checkbox":
       return <CheckBoxInput name={content.name} onChange={content.onChange} />;
     default:
