@@ -6,8 +6,8 @@ import { Wrapper } from "../../core";
 
 import { useURLInputStyles } from "./styles";
 import { URLInputViewProps, InputDataProps } from "./types";
-import Paper from "core/Paper/Paper";
-import ComponentProps from "core/ComponentProps/ComponentProps";
+import { Paper } from "../../core/Paper";
+import { ComponentProps } from "../../core/ComponentProps";
 import { useUrlInputData } from "./utils/useUrlInputData";
 
 export const URLInputView: FC<URLInputViewProps> = () => {
