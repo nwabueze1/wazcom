@@ -4,9 +4,13 @@ import { FC } from "react";
 import { Wrapper } from "../../core/Wrapper";
 import { usePhoneNumberInputStyle } from "./styles";
 import { PhoneNumberInput } from "../../io/PhoneNumberInput";
+import { usePhoneNumberInputData } from "./utils/usePhoneNumberInputData";
+import ComponentProps from "core/ComponentProps/ComponentProps";
 
-const PhoneNumberInputView: FC = () => {
+export const PhoneNumberInputView: FC = () => {
   const classes = usePhoneNumberInputStyle();
+  const { data, state, handleReset } = usePhoneNumberInputData();
+
   const countryCodes = ["ng", "gb", "us"];
   return (
     <div className={classes.root}>
@@ -20,16 +24,26 @@ const PhoneNumberInputView: FC = () => {
               <div className={classes.inputContainer}>
                 {countryCodes.map((code, index) => (
                   <aside className={classes.inputBoxContainer}>
-                    <PhoneNumberInput country={code} key={index} />
+                    <PhoneNumberInput
+                      country={
+                        state.country.length > 0 && state.country.length <= 2 ? state.country : code
+                      }
+                      key={index}
+                      value={state.value}
+                      autoFormat={state.autoFormat}
+                      enableAreaCodes={state.enableAreaCodes}
+                      disableDropDown={state.disableDropDown}
+                      defaultErrorMessage={state.defaultErrorMessage}
+                      specialLabel={state.specialLabel}
+                    />
                   </aside>
                 ))}
               </div>
             </Paper>
+            <ComponentProps body={data as any} onReset={handleReset} />
           </Wrapper>
         </div>
       </CssBaseline>
     </div>
   );
 };
-
-export default PhoneNumberInputView;

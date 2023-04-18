@@ -42,9 +42,7 @@ const ComponentProps: FC<ComponentPropsProp> = ({ body, onReset }) => {
               <td className={classes.td}>
                 <Tag name={content.default as string} />
               </td>
-              <td className={classes.td}>
-                {getComponentPropsControlElementInput(content.control)}
-              </td>
+              <td className={classes.td}>{getControlInput(content.control)}</td>
             </tr>
           ))}
         </tbody>
@@ -55,7 +53,8 @@ const ComponentProps: FC<ComponentPropsProp> = ({ body, onReset }) => {
 
 export default ComponentProps;
 
-const getComponentPropsControlElementInput = (content: PropsControlType) => {
+const getControlInput = (content: PropsControlType) => {
+  if (!content || !content.type) return null;
   switch (content.type) {
     case "text":
       return <TextInput name={content.name} onChange={content.onChange} />;

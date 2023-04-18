@@ -20,7 +20,7 @@ import { StepsView } from "view/Steps";
 import { AccordionView } from "view/Accordion";
 import { ProgressView } from "view/Progress";
 import { PickersView } from "view/Pickers";
-import PhoneNumberInputView from "view/PhoneNumberInput/PhoneNumberInputView";
+import { PhoneNumberInputView } from "view/PhoneNumberInput";
 
 export default [
   {
