@@ -1,6 +1,5 @@
-import ComponentProps from "core/ComponentProps/ComponentProps";
-import Paper from "core/Paper/Paper";
-import { FC, useState } from "react";
+import { Paper } from "../../core/Paper";
+import { FC } from "react";
 import { Button, Wrapper } from "../../core";
 import { useButtonStyles } from "./styles";
 import { ButtonViewProps } from "./types";
