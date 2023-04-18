@@ -23,7 +23,7 @@ export const PhoneNumberInputView: FC = () => {
             <Paper padding={10}>
               <div className={classes.inputContainer}>
                 {countryCodes.map((code, index) => (
-                  <aside className={classes.inputBoxContainer}>
+                  <aside className={classes.inputBoxContainer} key={index}>
                     <PhoneNumberInput
                       country={
                         state.country.length > 0 && state.country.length <= 2 ? state.country : code
