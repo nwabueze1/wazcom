@@ -1,11 +1,12 @@
 import { useState } from "react";
 import { ComponentPropsType } from "core/ComponentProps/types";
 
+const initialState = {
+  isSuccess: false,
+  isError: false,
+};
 export const useUrlInputData = () => {
-  const [state, setState] = useState({
-    isSuccess: false,
-    isError: false,
-  });
+  const [state, setState] = useState(initialState);
 
   const handleChange = (e: any) => setState({ ...state, [e.name]: e.value });
 
@@ -70,5 +71,6 @@ export const useUrlInputData = () => {
   return {
     data,
     state,
+    handleReset: () => setState(initialState),
   };
 };

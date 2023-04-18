@@ -11,7 +11,7 @@ import ComponentProps from "core/ComponentProps/ComponentProps";
 import { useUrlInputData } from "./utils/useUrlInputData";
 
 export const URLInputView: FC<URLInputViewProps> = () => {
-  const { data, state } = useUrlInputData();
+  const { data, state, handleReset } = useUrlInputData();
 
   const handleEnter = (payload: any) => {
     console.log("onEnter", payload);
@@ -96,8 +96,8 @@ export const URLInputView: FC<URLInputViewProps> = () => {
                 label={item.label}
                 placeholder={item.placeholder}
                 helperText={item.helperText}
-                isError={item.isError}
-                isSuccess={item.isSuccess}
+                isError={state.isError}
+                isSuccess={state.isSuccess}
                 leftIcon={<FiLink width={16} />}
                 iconSpacing={2}
                 onEnter={handleEnter}
@@ -107,7 +107,7 @@ export const URLInputView: FC<URLInputViewProps> = () => {
             ))}
           </div>
         </Paper>
-        <ComponentProps body={data as any} />
+        <ComponentProps body={data as any} onReset={handleReset} />
       </Wrapper>
     </div>
   );
