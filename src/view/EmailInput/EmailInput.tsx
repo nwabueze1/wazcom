@@ -6,7 +6,7 @@ import { EmailInput } from "../../io";
 import { useEmailInputStyles } from "./styles";
 import { EmailInputViewProps, InputDataProps } from "./types";
 import { useEmailInputProps } from "./utils/useEmailInputProps";
-import ComponentProps from "core/ComponentProps/ComponentProps";
+import { ComponentProps } from "../../core/ComponentProps";
 
 export const EmailInputView: FC<EmailInputViewProps> = () => {
   const { data, state, onReset } = useEmailInputProps();

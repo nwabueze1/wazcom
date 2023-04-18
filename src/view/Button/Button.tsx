@@ -1,4 +1,4 @@
-import Paper from "core/Paper/Paper";
+import { Paper } from "../../core/Paper";
 import { FC } from "react";
 import { Button, Wrapper } from "../../core";
 import { useButtonStyles } from "./styles";
