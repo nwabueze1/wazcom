@@ -4,7 +4,7 @@ import { Wrapper } from "../../core";
 import { useToggleInputStyles } from "./styles";
 
 export const ToggleInputView = () => {
-  const [value, setValue] = useState(false);
+  const [, setValue] = useState(false);
   const classes = useToggleInputStyles();
 
   const handleChange = (payload: { name: string; value: boolean }) => {
