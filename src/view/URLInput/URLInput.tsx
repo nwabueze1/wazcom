@@ -6,8 +6,13 @@ import { Wrapper } from "../../core";
 
 import { useURLInputStyles } from "./styles";
 import { URLInputViewProps, InputDataProps } from "./types";
+import Paper from "core/Paper/Paper";
+import ComponentProps from "core/ComponentProps/ComponentProps";
+import { useUrlInputData } from "./utils/useUrlInputData";
 
 export const URLInputView: FC<URLInputViewProps> = () => {
+  const { data, state } = useUrlInputData();
+
   const handleEnter = (payload: any) => {
     console.log("onEnter", payload);
   };
@@ -58,7 +63,7 @@ export const URLInputView: FC<URLInputViewProps> = () => {
         description="URL inputs enable users to enter url addresses with url validation. The url field
               should reflect the url with a validation."
       >
-        <div>
+        <Paper padding={20}>
           <h4 className={classes.cardTitle}> Basic </h4>
           <div className={classes.inputs}>
             {inputData.basic.map((item: InputDataProps, index) => (
@@ -79,11 +84,8 @@ export const URLInputView: FC<URLInputViewProps> = () => {
               />
             ))}
           </div>
-        </div>
-      </Wrapper>
-
-      <Wrapper>
-        <div>
+        </Paper>
+        <Paper padding={20}>
           <h4 className={classes.cardTitle}> Validation </h4>
           <div className={classes.inputs}>
             {inputData.validation.map((item: InputDataProps, index) => (
@@ -104,7 +106,8 @@ export const URLInputView: FC<URLInputViewProps> = () => {
               />
             ))}
           </div>
-        </div>
+        </Paper>
+        <ComponentProps body={data as any} />
       </Wrapper>
     </div>
   );
