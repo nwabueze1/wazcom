@@ -7,7 +7,6 @@ import { ButtonViewProps } from "./types";
 
 export const ButtonView: FC<ButtonViewProps> = () => {
   const classes = useButtonStyles();
-  const [height, setHeight] = useState(20);
 
   return (
     <div className={classes.root}>
@@ -18,13 +17,7 @@ export const ButtonView: FC<ButtonViewProps> = () => {
               ways. Button labels express what action will occur when the user interacts with it."
       >
         <Paper>
-          <Button
-            variant={"contained"}
-            isDisabled={false}
-            isLoading={false}
-            rightIcon={undefined}
-            height={`${height}px`}
-          >
+          <Button variant={"contained"} isDisabled={false} isLoading={false} rightIcon={undefined}>
             Default Button
           </Button>
         </Paper>
