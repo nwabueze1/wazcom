@@ -1,11 +1,13 @@
+import ComponentProps from "core/ComponentProps/ComponentProps";
 import Paper from "core/Paper/Paper";
-import { FC } from "react";
+import { FC, useState } from "react";
 import { Button, Wrapper } from "../../core";
 import { useButtonStyles } from "./styles";
 import { ButtonViewProps } from "./types";
 
 export const ButtonView: FC<ButtonViewProps> = () => {
   const classes = useButtonStyles();
+  const [height, setHeight] = useState(20);
 
   return (
     <div className={classes.root}>
@@ -16,7 +18,13 @@ export const ButtonView: FC<ButtonViewProps> = () => {
               ways. Button labels express what action will occur when the user interacts with it."
       >
         <Paper>
-          <Button variant={"contained"} isDisabled={false} isLoading={false} rightIcon={undefined}>
+          <Button
+            variant={"contained"}
+            isDisabled={false}
+            isLoading={false}
+            rightIcon={undefined}
+            height={`${height}px`}
+          >
             Default Button
           </Button>
         </Paper>
