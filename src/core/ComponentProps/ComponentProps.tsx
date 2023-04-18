@@ -1,12 +1,12 @@
 import { FC } from "react";
-import { Tag } from "core/Tag";
+import { Tag } from "../Tag";
 import { useComponentPropsStyles } from "./styles";
 import { ComponentPropsProp, PropsControlType } from "./types";
 import { Button } from "../../core";
 import { BiRefresh } from "react-icons/bi";
 import { TextInput, CheckBoxInput, EmailInput, NumberInput, PhoneNumberInput } from "../../io";
 
-const ComponentProps: FC<ComponentPropsProp> = ({ body, onReset }) => {
+export const ComponentProps: FC<ComponentPropsProp> = ({ body, onReset }) => {
   const classes = useComponentPropsStyles();
   const tableHead: string[] = ["name", "description", "default", "controls"];
 
@@ -50,8 +50,6 @@ const ComponentProps: FC<ComponentPropsProp> = ({ body, onReset }) => {
     </div>
   );
 };
-
-export default ComponentProps;
 
 const getControlInput = (content: PropsControlType) => {
   if (!content || !content.type) return null;
