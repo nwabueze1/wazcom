@@ -2,7 +2,7 @@ import { FC } from "react";
 import { usePaperStyles } from "./styles";
 import { PaperType } from "./type";
 
-const Paper: FC<PaperType> = ({ children, padding }) => {
+export const Paper: FC<PaperType> = ({ children, padding }) => {
   const classes = usePaperStyles();
 
   return (
@@ -11,5 +11,3 @@ const Paper: FC<PaperType> = ({ children, padding }) => {
     </div>
   );
 };
-
-export default Paper;

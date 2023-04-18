@@ -1,12 +1,12 @@
 import { FC } from "react";
-import { Tag } from "core/Tag";
+import { Tag } from "../Tag";
 import { useComponentPropsStyles } from "./styles";
 import { ComponentPropsProp, PropsControlType } from "./types";
 import { Button } from "../../core";
 import { BiRefresh } from "react-icons/bi";
-import { TextInput, CheckBoxInput, EmailInput } from "../../io";
+import { TextInput, CheckBoxInput, EmailInput, NumberInput, PhoneNumberInput } from "../../io";
 
-const ComponentProps: FC<ComponentPropsProp> = ({ body, onReset }) => {
+export const ComponentProps: FC<ComponentPropsProp> = ({ body, onReset }) => {
   const classes = useComponentPropsStyles();
   const tableHead: string[] = ["name", "description", "default", "controls"];
 
@@ -42,9 +42,7 @@ const ComponentProps: FC<ComponentPropsProp> = ({ body, onReset }) => {
               <td className={classes.td}>
                 <Tag name={content.default as string} />
               </td>
-              <td className={classes.td}>
-                {getComponentPropsControlElementInput(content.control)}
-              </td>
+              <td className={classes.td}>{getControlInput(content.control)}</td>
             </tr>
           ))}
         </tbody>
@@ -53,9 +51,8 @@ const ComponentProps: FC<ComponentPropsProp> = ({ body, onReset }) => {
   );
 };
 
-export default ComponentProps;
-
-const getComponentPropsControlElementInput = (content: PropsControlType) => {
+const getControlInput = (content: PropsControlType) => {
+  if (!content || !content.type) return null;
   switch (content.type) {
     case "text":
       return <TextInput name={content.name} onChange={content.onChange} />;
@@ -63,6 +60,11 @@ const getComponentPropsControlElementInput = (content: PropsControlType) => {
       return <EmailInput name={content.name} onChange={content.onChange} />;
     case "checkbox":
       return <CheckBoxInput name={content.name} onChange={content.onChange} />;
+    case "number":
+      return <NumberInput name={content.name} onChange={content.onChange} />;
+    case "tel":
+      return <PhoneNumberInput name={content.name} country="ng" onChange={content.onChange} />;
+
     default:
       return null;
   }
