@@ -1,5 +1,5 @@
 import { Paper } from "../../core/Paper";
-import {ComponentProps} from "../../core/ComponentProps"
+import { ComponentProps } from "../../core/ComponentProps";
 import { FC } from "react";
 import { BiReset } from "react-icons/bi";
 import { Button, Wrapper } from "../../core";
