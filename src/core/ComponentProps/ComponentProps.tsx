@@ -4,7 +4,7 @@ import { useComponentPropsStyles } from "./styles";
 import { ComponentPropsProp, PropsControlType } from "./types";
 import { Button } from "../../core";
 import { BiRefresh } from "react-icons/bi";
-import { TextInput, CheckBoxInput, EmailInput, NumberInput } from "../../io";
+import { TextInput, CheckBoxInput, EmailInput, NumberInput, PhoneNumberInput } from "../../io";
 
 const ComponentProps: FC<ComponentPropsProp> = ({ body, onReset }) => {
   const classes = useComponentPropsStyles();
@@ -65,6 +65,8 @@ const getComponentPropsControlElementInput = (content: PropsControlType) => {
       return <CheckBoxInput name={content.name} onChange={content.onChange} />;
     case "number":
       return <NumberInput name={content.name} onChange={content.onChange} />;
+    case "tel":
+      return <PhoneNumberInput name={content.name} country="ng" onChange={content.onChange} />;
 
     default:
       return null;

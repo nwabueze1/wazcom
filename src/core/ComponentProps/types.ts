@@ -2,7 +2,7 @@ export type PropsTableHeaderProps = Array<string>;
 
 export type PropsControlType = {
   name: string;
-  type: "text" | "email" | "number" | "password" | "checkbox" | "number";
+  type: "text" | "email" | "number" | "password" | "checkbox" | "number" | "tel";
   onChange: (e: { name: string; value: string | boolean | number }) => void;
 };
 
