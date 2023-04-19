@@ -66,7 +66,7 @@ export const useTextInputProps = () => {
     {
       name: "onFocus",
       description:
-        "for handling focus event of the TextInputFocus event handler for the component. Triggered when the component is focused.",
+        "TextInputFocus event handler for the component. Triggered when the component is focused.",
       default: "({name,email})=>void",
     },
     {
