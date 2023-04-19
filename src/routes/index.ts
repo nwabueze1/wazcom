@@ -20,7 +20,6 @@ import { StepsView } from "../view/Steps";
 import { AccordionView } from "../view/Accordion";
 import { ProgressView } from "../view/Progress";
 import { PickersView } from "../view/Pickers";
-import { PhoneNumberInputView } from "../view/PhoneNumberInput";
 
 export default [
   {
@@ -76,12 +75,6 @@ export default [
     path: "/number-input",
     exact: true,
     component: NumberInputView,
-  },
-  {
-    key: "PhoneNumberInputView",
-    path: "/phone-number-input",
-    exact: true,
-    component: PhoneNumberInputView,
   },
   {
     key: "URLInputView",
