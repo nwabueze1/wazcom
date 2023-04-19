@@ -1,11 +1,11 @@
 import { CssBaseline } from "@mui/material";
-import Paper from "core/Paper/Paper";
+import {Paper} from "core/Paper";
 import { FC } from "react";
 import { Wrapper } from "../../core/Wrapper";
 import { usePhoneNumberInputStyle } from "./styles";
 import { PhoneNumberInput } from "../../io/PhoneNumberInput";
 import { usePhoneNumberInputData } from "./utils/usePhoneNumberInputData";
-import ComponentProps from "core/ComponentProps/ComponentProps";
+import {ComponentProps} from "core/ComponentProps";
 
 export const PhoneNumberInputView: FC = () => {
   const classes = usePhoneNumberInputStyle();
