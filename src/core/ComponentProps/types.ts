@@ -1,3 +1,4 @@
+import { ReactNode } from "react";
 export type PropsTableHeaderProps = Array<string>;
 
 export type PropsControlType = {
@@ -7,7 +8,7 @@ export type PropsControlType = {
 };
 
 export type ComponentPropsType = {
-  name: string;
+  name: string | ReactNode;
   description: string;
   default?: string;
   control: PropsControlType;
