@@ -13,14 +13,14 @@ import { CurrencyInputView } from "../view/CurrencyInput";
 import { SelectInputView } from "../view/SelectInput";
 import { TableView } from "../view/Table";
 import { CardView } from "../view/Card";
-import { CheckBoxInputView } from "view/CheckBoxInput";
-import { RadioButtonView } from "view/RadioButtonInput";
-import { ToggleInputView } from "view/ToggleInput";
-import { StepsView } from "view/Steps";
-import { AccordionView } from "view/Accordion";
-import { ProgressView } from "view/Progress";
-import { PickersView } from "view/Pickers";
-import { PhoneNumberInputView } from "view/PhoneNumberInput";
+import { CheckBoxInputView } from "../view/CheckBoxInput";
+import { RadioButtonView } from "../view/RadioButtonInput";
+import { ToggleInputView } from "../view/ToggleInput";
+import { StepsView } from "../view/Steps";
+import { AccordionView } from "../view/Accordion";
+import { ProgressView } from "../view/Progress";
+import { PickersView } from "../view/Pickers";
+import { PhoneNumberInputView } from "../view/PhoneNumberInput";
 
 export default [
   {
