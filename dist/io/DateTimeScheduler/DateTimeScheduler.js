@@ -27,7 +27,7 @@ var __read = (this && this.__read) || function (o, n) {
 };
 import { jsx as _jsx, jsxs as _jsxs } from "react/jsx-runtime";
 import { TimeInput, ToggleInput } from "..";
-import { MultiSelect } from "core/MultiSelect";
+import { MultiSelect } from "../../core";
 import { useScheduleStyles } from "./styles";
 import { useState } from "react";
 import clx from "classnames";
