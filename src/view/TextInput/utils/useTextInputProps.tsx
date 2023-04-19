@@ -25,14 +25,18 @@ export const useTextInputProps = () => {
   const data: Partial<ComponentPropsType>[] = [
     {
       name: "name",
-      description: "The name of the input tag",
+      description: "The name of the input component",
       default: "empty string",
       control: { name: "name", type: "text", onChange },
     },
-
+    {
+      name: "value",
+      description: "The value of the input component",
+      default: "undefined",
+    },
     {
       name: "isError",
-      description: "This is used to specify if the component is invalid",
+      description: "This represents the error state of the component",
       default: "false",
       control: {
         name: "isError",
@@ -42,35 +46,33 @@ export const useTextInputProps = () => {
     },
     {
       name: "isSuccess",
-      description: "To check if the validation is successful",
+      description: "This represents the success state of the component",
       default: "false",
       control: { name: "isSuccess", type: "checkbox", onChange },
     },
     {
       name: "helperText",
-      description: "used to specify the error and success text",
+      description: "This provides additional information about the field the component represents",
       default: "undefined",
       control: { name: "helperText", type: "checkbox", onChange },
     },
 
     {
       name: "onChange",
-      description: "for handling the change event of TextInput",
+      description:
+        "Change event handler for the component. Triggered when the user changes the component’s value",
       default: "({name, value})=>void",
     },
     {
       name: "onFocus",
-      description: "for handling focus event of the TextInput",
+      description:
+        "for handling focus event of the TextInputFocus event handler for the component. Triggered when the component is focused.",
       default: "({name,email})=>void",
     },
     {
-      name: "onEnter",
-      description: "for handling the event when the enter key is pressed",
-      default: "({name, value})=>void",
-    },
-    {
       name: "onBlur",
-      description: "for handling blur event of the TextInput",
+      description:
+        "Blur event handler for the component. Triggered when the component is unfocused.",
       default: "({name,email})=>void",
     },
     {
@@ -79,45 +81,30 @@ export const useTextInputProps = () => {
           Required <span style={{ color: "red" }}>*</span>
         </>
       ),
-      description: "if set to true, it makes the TextInput to be required",
+      description: "Marks the component as required in a form",
       default: "false",
       control: { name: "required", type: "checkbox", onChange },
     },
     {
       name: "type",
-      description: "To specify the type of the input type",
+      description: "The type of the Input component e.g text, tel, number",
       default: "text",
     },
     {
       name: "leftIcon",
-      description: "add icon at the start of the TextInput",
+      description: "Left/start icon of the Input component.",
       control: { name: "leftIcon", type: "checkbox", onChange },
       default: "undefined",
     },
     {
       name: "rightIcon",
-      description: "add icon at the end of the TextInput",
+      description: "Right/end icon of the Input component.",
       control: { name: "rightIcon", type: "checkbox", onChange },
       default: "undefined",
     },
     {
       name: "iconSpacing",
-      description: "used to specify the space between the icon and the Input",
-      default: "undefined",
-    },
-    {
-      name: "background",
-      description: "used to change the background of the TextInput",
-      default: "transparent",
-    },
-    {
-      name: "color",
-      description: "used to change the color of the InputText",
-      default: "custom",
-    },
-    {
-      name: "classNames",
-      description: "This is used to add style",
+      description: "This specifies the space between the icon and the Input’s value.",
       default: "undefined",
     },
   ];
