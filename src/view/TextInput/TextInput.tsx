@@ -5,9 +5,9 @@ import { TextInput } from "../../io";
 import { Wrapper } from "../../core";
 import { useTextInputStyles } from "./styles";
 import { TextInputViewProps, InputDataProps } from "./types";
-import { ComponentProps } from "core/ComponentProps";
+import { ComponentProps } from "../../core/ComponentProps";
 import { useTextInputProps } from "./utils/useTextInputProps";
-import { Paper } from "core/Paper";
+import { Paper } from "../../core/Paper";
 
 export const TextInputView: FC<TextInputViewProps> = () => {
   const { data, onReset, state } = useTextInputProps();
@@ -114,7 +114,7 @@ export const TextInputView: FC<TextInputViewProps> = () => {
           </div>
         </Paper>
       </Wrapper>
-      <ComponentProps body={data} onReset={onReset} />
+      <ComponentProps body={data as any} onReset={onReset} />
     </div>
   );
 };
