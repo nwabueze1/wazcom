@@ -1,53 +1,15 @@
 import { FC } from "react";
 import CssBaseline from "@mui/material/CssBaseline";
-import { MdOutlineMail } from "react-icons/md";
 import { EmailInput } from "../../io";
-
 import { useEmailInputStyles } from "./styles";
 import { EmailInputViewProps, InputDataProps } from "./types";
 import { useEmailInputProps } from "./utils/useEmailInputProps";
 import { ComponentProps } from "../../core/ComponentProps";
+import { Paper } from "../../core/Paper";
 
 export const EmailInputView: FC<EmailInputViewProps> = () => {
   const { data, state, onReset } = useEmailInputProps();
-
-  const handleEnter = (payload: any) => {
-    console.log("onEnter", payload);
-  };
-  const handleFocus = (payload: any) => {
-    console.log("onFocus", payload);
-  };
-  const handleBlur = (payload: any) => {
-    console.log("onBlur", payload);
-  };
-
   const classes = useEmailInputStyles();
-
-  const inputData: InputDataProps[] = [
-    { name: "TextInput", label: "Default", placeholder: "Placeholder", helperText: "" },
-    { name: "TextInput", label: "Hover", placeholder: "Placeholder", helperText: "" },
-    {
-      name: "TextInput",
-      label: "Active",
-      placeholder: "Placeholder",
-      helperText: "",
-      isSuccess: true,
-    },
-    {
-      name: "TextInput",
-      label: "Error",
-      placeholder: "Placeholder",
-      helperText: "Error Message",
-      isError: true,
-    },
-    {
-      name: "TextInput",
-      label: "Success",
-      placeholder: "Placeholder",
-      helperText: "Success Message",
-      isSuccess: true,
-    },
-  ];
 
   return (
     <div className={classes.root}>
@@ -63,45 +25,18 @@ export const EmailInputView: FC<EmailInputViewProps> = () => {
             </p>
           </div>
         </div>
-        <div className={classes.inputContainer}>
-          <div className={classes.inputs}>
-            {inputData.map((item: InputDataProps, index) => (
-              <EmailInput
-                key={`${item.label}-${index + Math.random()}`}
-                id={`${item.label}-${index + Math.random()}`}
-                className={classes.input}
-                label={item.label}
-                placeholder={item.placeholder}
-                onEnter={handleEnter}
-                onFocus={handleFocus}
-                onBlur={handleBlur}
-                value={state.name.length > 0 ? state.name : undefined}
-                isSuccess={state.isSuccess}
-                isError={state.isError}
-              />
-            ))}
+        <Paper padding={10}>
+          <div className={classes.inputContainer}>
+            <EmailInput
+              value={state.name}
+              placeholder="enter a valid email address"
+              isError={state.isError}
+              isSuccess={state.isSuccess}
+            />
           </div>
-          <div className={classes.inputs}>
-            {inputData.map((item: InputDataProps, index) => (
-              <EmailInput
-                key={`${item.label}-${index + Math.random()}`}
-                id={`${item.label}-${index + Math.random()}`}
-                className={classes.input}
-                label={item.label}
-                placeholder={item.placeholder}
-                helperText={item.helperText}
-                isError={item.isError}
-                isSuccess={item.isSuccess}
-                rightIcon={<MdOutlineMail width={16} />}
-                iconSpacing={2}
-                onEnter={handleEnter}
-                onFocus={handleFocus}
-                onBlur={handleBlur}
-              />
-            ))}
-          </div>
-        </div>
-        <ComponentProps body={data} onReset={onReset} />
+        </Paper>
+
+        <ComponentProps body={data as any} onReset={onReset} />
       </div>
     </div>
   );

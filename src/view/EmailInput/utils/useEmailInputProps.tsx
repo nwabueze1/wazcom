@@ -17,11 +17,10 @@ export const useEmailInputProps = () => {
 
   const onChange = (e: any) => setState({ ...state, [e.name]: e.value });
 
-  const data: ComponentPropsType[] = [
+  const data: Partial<ComponentPropsType>[] = [
     {
       name: "isSuccess",
-      description:
-        "This is used to check if the input validation is successful, i.e data entered into the email input is correct.",
+      description: "This represents the success state of the component.",
       default: "false",
       control: {
         name: "isSuccess",
@@ -31,7 +30,7 @@ export const useEmailInputProps = () => {
     },
     {
       name: "isError",
-      description: "validation is unsuccessful",
+      description: "This represents the error state of the component",
       default: "false",
       control: {
         name: "isError",
@@ -42,8 +41,7 @@ export const useEmailInputProps = () => {
 
     {
       name: "name",
-      description:
-        "The name of the email input. This is need to bind the form to its respective field",
+      description: "The name of the Input component",
       default: "undefined",
       control: {
         name: "name",
@@ -54,47 +52,26 @@ export const useEmailInputProps = () => {
     {
       name: "errors",
       description:
-        "This is used to specify the error messages that should showed by the input. It must be an array of objects which must have 'message' as it's key",
+        "This represents an array of possible error messages for the Input. For example, if the Input’s value is failing validation.",
       default: "empty array",
-      control: {
-        name: "",
-      },
     },
     {
       name: "onChange",
       description:
-        "This is an event raised when the input value changes i.e when user types in the email input. it raises an event which has an oject containing the name and value of the input, i.e (e:{name:string;value:string})=>{}",
+        "Change event handler for the component. Triggered when the user changes the component’s value",
       default: "(e:{name:string;value:string})=>{}",
-      control: {
-        name: "",
-      },
     },
     {
       name: "onFocus",
       description:
-        "This is an event raised when the user focuses on the email input. it also has the same signature as the onChange event.",
+        "TextInputFocus event handler for the component. Triggered when the component is focused.",
       default: "(e)=>void",
-      control: {
-        name: "onFocus",
-      },
-    },
-    {
-      name: "onEnter",
-      description:
-        "This is used to handle the event raised when the user clicks on the enter button. it has the same signature as the onClick handler.",
-      default: "(e)=>void",
-      control: {
-        name: "onFocus",
-      },
     },
     {
       name: "onBlur",
       description:
-        "This is used to handle event raised when the input looses focus i.e user moves away from the input.",
+        "Blur event handler for the component. Triggered when the component is unfocused.",
       default: "(e)=>void",
-      control: {
-        name: "onFocus",
-      },
     },
   ];
   return {
