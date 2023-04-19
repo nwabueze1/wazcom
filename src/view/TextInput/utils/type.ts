@@ -1,4 +1,4 @@
-export type IInitialState = {
+export type InitialStateType = {
   isError: boolean;
   isSuccess: boolean;
   helperText: string;
