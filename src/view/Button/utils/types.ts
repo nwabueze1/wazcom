@@ -1,4 +1,4 @@
-export type InitialStateType = {
+export type TInitialState = {
   isDisabled: boolean;
   isLoading: boolean;
   variant: "contained" | "outlined" | "text";

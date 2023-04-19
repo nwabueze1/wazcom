@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { ComponentPropsType } from "core/ComponentProps/types";
+import { ComponentPropsType } from "../../../core/ComponentProps/types";
 
 const initialButtonProp = {
   isDisabled: false,
@@ -27,7 +27,7 @@ const useButtonComponentProps = () => {
   const data: Partial<ComponentPropsType>[] = [
     {
       name: "isDisabled",
-      description: "This prop is used to disable or enable the button",
+      description: "This indicates whether the Button is disabled or not",
       default: "false",
       control: {
         name: "isDisabled",
@@ -37,7 +37,7 @@ const useButtonComponentProps = () => {
     },
     {
       name: "isLoading",
-      description: "This prop is used to control the loading state of the button.",
+      description: "This represents the loading state of the component",
       default: "false",
       control: {
         name: "isLoading",
@@ -47,7 +47,7 @@ const useButtonComponentProps = () => {
     },
     {
       name: "children",
-      description: "The content of the component.",
+      description: "The text of the Button.",
       default: "undefined",
       control: {
         name: "children",
@@ -57,7 +57,7 @@ const useButtonComponentProps = () => {
     },
     {
       name: "height",
-      description: "This is used to set the height of the button",
+      description: "This represents the height of the Button",
       default: "auto",
       control: {
         name: "height",
@@ -67,7 +67,7 @@ const useButtonComponentProps = () => {
     },
     {
       name: "width",
-      description: "This is used to set the width of the button",
+      description: "This represents the width of the Button",
       default: "auto",
     },
     {
