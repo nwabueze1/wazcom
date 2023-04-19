@@ -29,11 +29,12 @@ export const ButtonView: FC<ButtonViewProps> = () => {
             isLoading={state.isLoading}
             rightIcon={showIcon(state.rightIcon)}
             leftIcon={showIcon(state.leftIcon)}
+            height={state.height > 10 ? `${state.height}px` : undefined}
           >
             {state.children}
           </Button>
         </Paper>
-        <ComponentProps body={data} onReset={handleReset} />
+        <ComponentProps body={data as any} onReset={handleReset} />
       </Wrapper>
     </div>
   );

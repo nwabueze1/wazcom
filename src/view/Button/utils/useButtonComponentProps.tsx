@@ -24,7 +24,7 @@ const useButtonComponentProps = () => {
 
   const handleReset = () => setState(initialButtonProp);
 
-  const data: ComponentPropsType[] = [
+  const data: Partial<ComponentPropsType>[] = [
     {
       name: "isDisabled",
       description: "This prop is used to disable or enable the button",
@@ -57,7 +57,7 @@ const useButtonComponentProps = () => {
     },
     {
       name: "height",
-      description: "This is useed to set the height of the button",
+      description: "This is used to set the height of the button",
       default: "auto",
       control: {
         name: "height",
@@ -69,11 +69,6 @@ const useButtonComponentProps = () => {
       name: "width",
       description: "This is used to set the width of the button",
       default: "auto",
-      control: {
-        name: "height",
-        type: "number",
-        onChange,
-      },
     },
     {
       name: "leftIcon",
@@ -87,7 +82,7 @@ const useButtonComponentProps = () => {
     },
     {
       name: "rightIcon",
-      description: "This prop is used to insert an Elemet after the children",
+      description: "This prop is used to insert an Element after the children",
       default: "undefined",
       control: {
         name: "rightIcon",
@@ -109,10 +104,6 @@ const useButtonComponentProps = () => {
       name: "onClick",
       description: "This is the function that get's triggered when the button is clicked.",
       default: "()=>void",
-      control: {
-        name: "onClick",
-        type: "checkbox",
-      },
     },
   ];
 
