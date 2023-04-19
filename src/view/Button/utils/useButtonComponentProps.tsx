@@ -1,7 +1,7 @@
 import { useState } from "react";
 import { ComponentPropsType } from "../../../core/ComponentProps/types";
 
-const initialButtonProp = {
+const initialButtonProps = {
   isDisabled: false,
   isLoading: false,
   variant: "contained",
@@ -15,14 +15,14 @@ const initialButtonProp = {
 };
 
 const useButtonComponentProps = () => {
-  const [state, setState] = useState(initialButtonProp);
+  const [state, setState] = useState(initialButtonProps);
 
   const onChange = (e?: { name: string; value: any }) => {
     if (!e) return;
     setState({ ...state, [e.name]: e.value });
   };
 
-  const handleReset = () => setState(initialButtonProp);
+  const handleReset = () => setState(initialButtonProps);
 
   const data: Partial<ComponentPropsType>[] = [
     {
@@ -72,7 +72,7 @@ const useButtonComponentProps = () => {
     },
     {
       name: "leftIcon",
-      description: "This prop is used to insert an Element before the children",
+      description: "Left/start icon of the Button component.",
       default: "undefined",
       control: {
         name: "leftIcon",
@@ -82,7 +82,7 @@ const useButtonComponentProps = () => {
     },
     {
       name: "rightIcon",
-      description: "This prop is used to insert an Element after the children",
+      description: "Right/end icon of the Button component.",
       default: "undefined",
       control: {
         name: "rightIcon",
@@ -91,18 +91,8 @@ const useButtonComponentProps = () => {
       },
     },
     {
-      name: "variant",
-      description: "This prop is used to change the variations of the button. ",
-      default: "contained",
-      control: {
-        name: "variant",
-        type: "checkbox",
-        onChange,
-      },
-    },
-    {
       name: "onClick",
-      description: "This is the function that get's triggered when the button is clicked.",
+      description: "Click event handler for the Button. Triggered when the Button is clicked.",
       default: "()=>void",
     },
   ];
