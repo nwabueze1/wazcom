@@ -11,7 +11,7 @@ export var useSelectStyles = makeStyles(function (theme) { return ({
     container: {
         width: "100%",
         height: "100%",
-        background: theme.design.colors.waz_white,
+        background: theme.design.colors.waz_white100,
     },
     label: {
         fontSize: theme.typography.fontSize - 2,

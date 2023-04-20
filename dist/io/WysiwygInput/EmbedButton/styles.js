@@ -4,13 +4,12 @@ export var useInsertButtonStyles = makeStyles(function (theme) { return ({
         position: "relative",
     },
     insertButton: {
-        background: theme.design.colors.primary700,
+        background: "".concat(theme.design.colors.waz_primary700, " !important"),
         borderRadius: "50%",
-        width: theme.spacing(4),
-        height: theme.spacing(4),
+        width: "".concat(theme.spacing(4), " !important"),
+        height: "".concat(theme.spacing(4), " !important"),
         fontSize: theme.typography.fontSize * 1.5,
         border: "0px",
-        margin: theme.spacing(3, 0, 0.5, 2),
         "&:hover": {
             cursor: "pointer",
         },
@@ -44,6 +43,8 @@ export var useInsertButtonStyles = makeStyles(function (theme) { return ({
     },
     showOptions: {
         display: "flex",
+        position: "absolute",
+        left: 16,
     },
     hideOptions: {
         display: "none",

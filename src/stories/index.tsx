@@ -244,7 +244,7 @@ export const stories: ComponentPropType[] = [
     component: Accordion,
     props: {
       children: "This is an example Wazcom Accordion",
-      defaultExpanded: true,
+      isExpanded: true,
       title: <p>leke</p>,
     },
   },
@@ -625,14 +625,29 @@ export const stories: ComponentPropType[] = [
     name: "Scheduler",
     component: Scheduler,
     props: {
+      name: "schedule",
       label: "Menu Schedule",
+      MenuProps: {
+        style: { top: 50, position: "absolute" },
+        variant: "menu",
+      },
+      orientation: "vertical",
+      multiple: true,
       value: [
         {
-          day: "0",
+          day: "1",
+          start_time: "12:00",
+          end_time: "18:00",
+        },
+        {
+          day: "2",
           start_time: "12:00",
           end_time: "18:00",
         },
       ],
+      onChange: (data: { name: string; value: any }) => {
+        console.log(data);
+      },
     },
   },
   {

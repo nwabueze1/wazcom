@@ -1,5 +1,5 @@
 import React, { useEffect, useRef, useState } from "react";
-import { EditorToolbar, modules, formats } from "../EditorToolbar";
+import { modules, formats } from "../EditorToolbar";
 import "react-quill/dist/quill.snow.css";
 import { useEditorStyles } from "./styles";
 import { EditorProps } from "./types";
@@ -42,7 +42,6 @@ export const Editor: React.FC<EditorProps> = ({ content, handleChange, embed }) 
   return (
     <div className={classes.root}>
       <div className={classes.editor}>
-        <EditorToolbar />
         {reactQuill && (
           <reactQuill.default
             id="editor"

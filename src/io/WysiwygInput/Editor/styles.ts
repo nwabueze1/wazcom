@@ -5,7 +5,7 @@ export const useEditorStyles = makeStyles((theme: Theme) => ({
   root: {
     display: "flex",
     flexDirection: "column",
-    height: "100vh",
+    height: "50vh",
     position: "relative",
   },
   wordCount: {
@@ -18,8 +18,8 @@ export const useEditorStyles = makeStyles((theme: Theme) => ({
     padding: theme.spacing(0.75, 2, 0.75, 0),
     height: theme.spacing(3.375),
     position: "absolute",
-    bottom: "0",
-    right: "0",
+    bottom: 0,
+    right: 0,
     width: "100%",
   },
   editor: {
@@ -28,6 +28,7 @@ export const useEditorStyles = makeStyles((theme: Theme) => ({
     overflow: "auto",
     height: "100vh",
     position: "relative",
+    paddingBottom: theme.spacing(3),
   },
   quillEditor: {
     "& img": {

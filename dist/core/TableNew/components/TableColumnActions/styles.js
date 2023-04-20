@@ -1,9 +1,9 @@
 import makeStyles from "@mui/styles/makeStyles";
 export var useTableColumnActionsStyles = makeStyles(function (theme) { return ({
     root: {
-        display: "flex",
+        display: "none",
         fontSize: theme.typography.fontSize - 2,
-        transition: "all 0.3s ease-in",
+        transition: "all 2s ease-in",
         marginTop: theme.spacing(1),
         opacity: 0,
         zIndex: -1,

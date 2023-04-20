@@ -1,10 +1,15 @@
+import { FC } from "react";
 import { useEditorToolbarStyles } from "./styles";
 import clx from "classnames";
+import { EmbedButton, EmbedButtonProps } from "../EmbedButton";
 
-export const EditorToolbar = () => {
+export const EditorToolbar: FC<EmbedButtonProps> = ({ initiateEmbed }) => {
   const classes = useEditorToolbarStyles();
   return (
     <div id="toolbar" className={classes.toolbar}>
+      <span className={clx("ql-formats", classes.toolbarItem)}>
+        <EmbedButton initiateEmbed={initiateEmbed} />
+      </span>
       <span className={clx("ql-formats", classes.toolbarItem)}>
         <select className="ql-header">
           <option value="1">Heading 1</option>

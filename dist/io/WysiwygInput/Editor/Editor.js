@@ -27,7 +27,7 @@ var __read = (this && this.__read) || function (o, n) {
 };
 import { jsx as _jsx, jsxs as _jsxs } from "react/jsx-runtime";
 import { useEffect, useRef, useState } from "react";
-import { EditorToolbar, modules, formats } from "../EditorToolbar";
+import { modules, formats } from "../EditorToolbar";
 import "react-quill/dist/quill.snow.css";
 import { useEditorStyles } from "./styles";
 export var Editor = function (_a) {
@@ -63,6 +63,6 @@ export var Editor = function (_a) {
             quillObj.editor.insertEmbed(range.index, type, value);
         handleChange(quillObj.root.innerHTML);
     };
-    return (_jsxs("div", __assign({ className: classes.root }, { children: [_jsxs("div", __assign({ className: classes.editor }, { children: [_jsx(EditorToolbar, {}), reactQuill && (_jsx(reactQuill.default, { id: "editor", ref: quillRef, theme: "snow", value: content, onChange: handleChange, placeholder: "Add content", modules: modules, formats: formats, className: classes.quillEditor }))] })), _jsxs("div", __assign({ className: classes.wordCount }, { children: [content.trim().length === 0 ? 0 : content.split(" ").length, "/1000 words"] }))] })));
+    return (_jsxs("div", __assign({ className: classes.root }, { children: [_jsx("div", __assign({ className: classes.editor }, { children: reactQuill && (_jsx(reactQuill.default, { id: "editor", ref: quillRef, theme: "snow", value: content, onChange: handleChange, placeholder: "Add content", modules: modules, formats: formats, className: classes.quillEditor })) })), _jsxs("div", __assign({ className: classes.wordCount }, { children: [content.trim().length === 0 ? 0 : content.split(" ").length, "/1000 words"] }))] })));
 };
 export default Editor;
