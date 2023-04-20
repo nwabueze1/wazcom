@@ -1,5 +1,5 @@
 import { TimeInput, ToggleInput } from "..";
-import { MultiSelect } from "../../core/MultiSelect";
+import { MultiSelect } from "../../core";
 import { useScheduleStyles } from "./styles";
 import { FC, useState } from "react";
 import { ScheduleProps } from "./types";
