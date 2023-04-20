@@ -20,10 +20,7 @@ import { StepsView } from "../view/Steps";
 import { AccordionView } from "../view/Accordion";
 import { ProgressView } from "../view/Progress";
 import { PickersView } from "../view/Pickers";
-<<<<<<< HEAD
-=======
 import { PhoneNumberInputView } from "../view/PhoneNumberInput";
->>>>>>> ZIN-1872-wazcom---implement-url-input-co
 
 export default [
   {
@@ -79,6 +76,12 @@ export default [
     path: "/number-input",
     exact: true,
     component: NumberInputView,
+  },
+  {
+    key: "phoneNumberInputView",
+    path: "/phone-number-input",
+    exact: true,
+    component: PhoneNumberInputView,
   },
   {
     key: "URLInputView",
