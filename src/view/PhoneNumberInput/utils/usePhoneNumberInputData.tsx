@@ -1,4 +1,4 @@
-import { ComponentPropsType } from "core/ComponentProps/types";
+import { ComponentPropsType } from "../../../core/ComponentProps/types";
 import { useState } from "react";
 
 const initialState = {

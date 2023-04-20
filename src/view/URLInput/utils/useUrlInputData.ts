@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { ComponentPropsType } from "core/ComponentProps/types";
+import { ComponentPropsType } from "../../../core/ComponentProps/types";
 
 const initialState = {
   isSuccess: false,

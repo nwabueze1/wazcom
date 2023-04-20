@@ -26,7 +26,7 @@ var __read = (this && this.__read) || function (o, n) {
     return ar;
 };
 import { jsx as _jsx, jsxs as _jsxs } from "react/jsx-runtime";
-import { CheckBoxInput } from "io";
+import { CheckBoxInput } from "../../io";
 import { useMultiSelectStyles } from "./styles";
 import { IoMdArrowDropdown } from "react-icons/io";
 import { useState } from "react";

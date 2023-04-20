@@ -4,8 +4,8 @@ import { FC } from "react";
 import { Wrapper } from "../../core";
 import { usePasswordInputStyles } from "./styles";
 import { TextInputViewProps } from "./types";
-import { Paper } from "core/Paper";
-import { ComponentProps } from "core/ComponentProps";
+import { Paper } from "../../core/Paper";
+import { ComponentProps } from "../../core/ComponentProps";
 import { usePasswordInputData } from "./utils/usePasswordInputData";
 
 export const PasswordInputView: FC<TextInputViewProps> = () => {
