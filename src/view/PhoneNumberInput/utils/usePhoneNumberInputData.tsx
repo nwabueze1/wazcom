@@ -20,7 +20,7 @@ export const usePhoneNumberInputData = () => {
   const data: Partial<ComponentPropsType>[] = [
     {
       name: "value",
-      description: "This is used to set the value of the phone number input.",
+      description: "This represents the value of the Input component.",
       default: "null",
       control: {
         name: "value",
@@ -52,7 +52,7 @@ export const usePhoneNumberInputData = () => {
     },
     {
       name: "enableAreaCodes",
-      description: "This prop is used to enable area codes.",
+      description: "This represents whether area codes are enabled or not.",
       default: "false",
       control: {
         name: "enableAreaCodes",
@@ -62,7 +62,7 @@ export const usePhoneNumberInputData = () => {
     },
     {
       name: "disableDropDown",
-      description: "This prop is used to disable the dropdown that shows the country codes.",
+      description: "This determines if the Country codes dropdown is disabled or not.",
       default: "false",
       control: {
         name: "disableDropDown",
@@ -72,7 +72,7 @@ export const usePhoneNumberInputData = () => {
     },
     {
       name: "defaultErrorMessage",
-      description: "This prop is used to set the default error message of the phone number input",
+      description: "This represents the error message displayed for the Input component.",
       default: "undefined",
       control: {
         type: "text",
@@ -92,8 +92,7 @@ export const usePhoneNumberInputData = () => {
     },
     {
       name: "regions",
-      description:
-        "This is used to list all the regions that can be included in the dropdown. eg: [af,eu] etc.",
+      description: "This represents all regions included in the dropdown e.g [af, eu].",
       default: "[all regions]",
     },
     {
