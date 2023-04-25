@@ -66,7 +66,7 @@ const navProps: any = {
 };
 
 const App: React.FC = () => {
-  const getMbmcBlocks = useGetMbmcBlocks();
+  // const getMbmcBlocks = useGetMbmcBlocks();
 
   return (
     <StyledEngineProvider injectFirst>
@@ -77,7 +77,7 @@ const App: React.FC = () => {
               {routes.map(({ key, path, component: Component }) => (
                 <Route key={key} path={path} element={<Component />} />
               ))}
-              {getMbmcBlocks()
+              {/* {getMbmcBlocks()
                 .sort(({ name: aName }, { name: bName }) =>
                   aName.toLowerCase() < bName.toLowerCase()
                     ? -1
@@ -91,7 +91,7 @@ const App: React.FC = () => {
                     path={`/templates/:uuid/${name.split("").join("")}`}
                     element={React.cloneElement(<Comp />, props)}
                   />
-                ))}
+                ))} */}
               <Route
                 path="/nour"
                 element={
