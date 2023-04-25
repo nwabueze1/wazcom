@@ -25,10 +25,10 @@ export var useTableStyles = makeStyles(function (theme) { return ({
         height: "auto",
         transition: " height 1s ease-out",
         "&:hover .column-actions": {
-            opacity: "1 !important",
-            zIndex: "1 !important",
-            display: "flex",
-            transition: " height 0.3s ease-out",
+            fontSize: theme.typography.fontSize - 2,
+            height: "fit-content",
+            transition: "all 0.2s ease-in",
+            marginTop: theme.spacing(1),
         },
     },
     tableLoader: {
