@@ -2,10 +2,8 @@ import React from "react";
 import { StyledEngineProvider, Theme, ThemeProvider } from "@mui/material";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import { Blaise } from "templates";
-import { useGetMbmcBlocks } from "templates/mbmc/mbmc";
 import { Valour } from "templates/Navs";
 import { Asta } from "templates/restaurant/Asta/Asta";
-import { Mbmc } from "templates/restaurant/Mbmc/Mbmc";
 import { Layout } from "view/Layout";
 import theme from "./theme";
 import routes from "./routes";
@@ -109,7 +107,6 @@ const App: React.FC = () => {
               />
               <Route path="/sevyn" element={<Blaise mode="edit" {...navProps} />} />
               <Route path="/asta" element={<Asta />} />
-              <Route path="/mbmc" element={<Mbmc />} />
             </Routes>
           </Layout>
         </BrowserRouter>

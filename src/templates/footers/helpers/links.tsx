@@ -5,7 +5,7 @@ import { BsTwitter } from "react-icons/bs";
 import { FaInstagram } from "react-icons/fa";
 import { RiLinkedinFill, RiYoutubeFill } from "react-icons/ri";
 import clx from "classnames";
-import { Link } from "../../mbmc/components";
+import { Link } from "../../mbmc/components/Link/Link";
 
 export const displaySections = (
   mode: "view" | "edit",
