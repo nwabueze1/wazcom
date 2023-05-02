@@ -39,7 +39,7 @@ export const useEditorStyles = makeStyles((theme: Theme) => ({
       objectFit: "cover",
     },
 
-    "& .ql-snow.ql-tooltip": {
+    "& .ql-snow .ql-tooltip": {
       left: "0px !important",
     },
 

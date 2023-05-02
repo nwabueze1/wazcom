@@ -36,7 +36,7 @@ export var useEditorStyles = makeStyles(function (theme) { return ({
             height: 400,
             objectFit: "cover",
         },
-        "& .ql-snow.ql-tooltip": {
+        "& .ql-snow .ql-tooltip": {
             left: "0px !important",
         },
         "& .ql-container": {
