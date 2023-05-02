@@ -696,7 +696,9 @@ export const stories: ComponentPropType[] = [
   {
     name: "Wysiwyg Input",
     component: WysiwygInput,
-    props: {},
+    props: {
+      embed: { type: "link", value: "github||>>https://github.com" }
+    },
   },
 ];
 

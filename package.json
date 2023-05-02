@@ -67,7 +67,7 @@
     "format": "prettier --check 'src/**/*.{js,ts,tsx}'",
     "format-fix": "prettier --write 'src/**/*.{js,ts,tsx}'",
     "prepare": "husky install"
-  },
+  }, 
   "eslintConfig": {
     "extends": [
       "react-app",
