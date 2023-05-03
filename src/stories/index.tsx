@@ -696,8 +696,7 @@ export const stories: ComponentPropType[] = [
   {
     name: "Wysiwyg Input",
     component: WysiwygInput,
-    props: {
-    },
+    props: {},
   },
 ];
 
