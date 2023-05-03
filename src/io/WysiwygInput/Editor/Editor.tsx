@@ -57,7 +57,7 @@ export const Editor: React.FC<EditorProps> = ({ content, handleChange, embed }) 
         )}
       </div>
       <div className={classes.wordCount}>
-        {content.trim().length === 0 ? 0 : content.split(" ").length}/1000 words
+        {content.trim().length === 0 ? 0 : content.split(" ").length} words
       </div>
     </div>
   );
