@@ -41,7 +41,7 @@ export const Editor: React.FC<EditorProps> = ({ content, handleChange, embed }) 
 
   return (
     <div className={classes.root}>
-      <div className={classes.editor}>
+      <div className={classes.editor} id="editorParent">
         {reactQuill && (
           <reactQuill.default
             id="editor"
@@ -53,6 +53,7 @@ export const Editor: React.FC<EditorProps> = ({ content, handleChange, embed }) 
             modules={modules}
             formats={formats}
             className={classes.quillEditor}
+            scrollingContainer={"#editorParent"}
           />
         )}
       </div>
