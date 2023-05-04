@@ -62,12 +62,10 @@ export var Editor = function (_a) {
             quillObj.theme.tooltip.save();
             if (editorParent) {
                 editorParent.scrollTop = scrollTop;
-                console.log("inside the editor parent");
-                console.log(scrollTop);
             }
         }
         else
-            quillObj.editor.insertEmbed(range.index, type, value);
+            quillObj.editor.insertEmbed(range.index, type, value, "user");
         handleChange(quillObj.root.innerHTML);
     };
     return (_jsxs("div", __assign({ className: classes.root }, { children: [_jsx("div", __assign({ className: classes.editor, id: "editorParent" }, { children: reactQuill && (_jsx(reactQuill.default, { id: "editor", ref: quillRef, theme: "snow", value: content, onChange: handleChange, placeholder: "Add content", modules: modules, formats: formats, className: classes.quillEditor, scrollingContainer: "#editorParent" })) })), _jsxs("div", __assign({ className: classes.wordCount }, { children: [content.trim().length === 0 ? 0 : content.split(" ").length, " words"] }))] })));

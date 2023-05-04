@@ -38,10 +38,8 @@ export const Editor: React.FC<EditorProps> = ({ content, handleChange, embed }) 
       quillObj.theme.tooltip.save();
       if (editorParent) {
         editorParent.scrollTop = scrollTop as number;
-        console.log("inside the editor parent");
-        console.log(scrollTop);
       }
-    } else quillObj.editor.insertEmbed(range.index, type, value);
+    } else quillObj.editor.insertEmbed(range.index, type, value, "user");
 
     handleChange(quillObj.root.innerHTML);
   };
