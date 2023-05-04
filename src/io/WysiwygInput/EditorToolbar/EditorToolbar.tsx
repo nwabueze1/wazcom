@@ -32,6 +32,7 @@ export const EditorToolbar: FC<EmbedButtonProps> = ({ initiateEmbed }) => {
         <button className="ql-list" value="ordered" />
         <button className="ql-list" value="bullet" />
         <select className="ql-align" />
+        <button className="ql-video" />
       </span>
     </div>
   );
