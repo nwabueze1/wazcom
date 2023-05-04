@@ -58,6 +58,9 @@ export var Editor = function (_a) {
             quillObj.setSelection(range.index, text.length);
             quillObj.theme.tooltip.edit("link", url);
             quillObj.theme.tooltip.save();
+            var editorParent = document.getElementById("editorParent");
+            if (editorParent)
+                editorParent.scrollTop -= 100;
         }
         else
             quillObj.editor.insertEmbed(range.index, type, value);
