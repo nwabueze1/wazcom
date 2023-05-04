@@ -5,6 +5,7 @@ export var useEditorStyles = makeStyles(function (theme) { return ({
         flexDirection: "column",
         height: "50vh",
         position: "relative",
+        overflowY: "auto",
     },
     wordCount: {
         display: "flex",
