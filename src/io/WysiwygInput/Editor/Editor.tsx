@@ -1,22 +1,23 @@
-import React, { useEffect, useRef, useState } from "react";
+import React, { useEffect, useRef } from "react";
 import { modules, formats } from "../EditorToolbar";
 import "react-quill/dist/quill.snow.css";
 import { useEditorStyles } from "./styles";
 import { EditorProps } from "./types";
+import ReactQuill from "react-quill";
 
 export const Editor: React.FC<EditorProps> = ({ content, handleChange, embed }) => {
   const quillRef = useRef<any>(null);
-  const [reactQuill, setReactQuill] = useState<any>();
+  // const [reactQuill, setReactQuill] = useState<any>();
 
   const classes = useEditorStyles();
 
-  useEffect(() => {
-    if (typeof window !== "undefined") {
-      import("react-quill").then((mod) => {
-        setReactQuill(mod);
-      });
-    }
-  }, []);
+  // useEffect(() => {
+  //   if (typeof window !== "undefined") {
+  //     import("react-quill").then((mod) => {
+  //       setReactQuill(mod);
+  //     });
+  //   }
+  // }, []);
 
   useEffect(() => {
     if (!embed) return;
@@ -47,8 +48,7 @@ export const Editor: React.FC<EditorProps> = ({ content, handleChange, embed }) 
   return (
     <div className={classes.root}>
       <div className={classes.editor} id="editorParent">
-        {reactQuill && (
-          <reactQuill.default
+          <ReactQuill
             id="editor"
             ref={quillRef}
             theme="snow"
@@ -60,7 +60,6 @@ export const Editor: React.FC<EditorProps> = ({ content, handleChange, embed }) 
             className={classes.quillEditor}
             scrollingContainer={"#editorParent"}
           />
-        )}
       </div>
       <div className={classes.wordCount}>
         {content.trim().length === 0 ? 0 : content.split(" ").length} words

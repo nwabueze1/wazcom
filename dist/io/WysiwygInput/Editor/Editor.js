@@ -26,22 +26,23 @@ var __read = (this && this.__read) || function (o, n) {
     return ar;
 };
 import { jsx as _jsx, jsxs as _jsxs } from "react/jsx-runtime";
-import { useEffect, useRef, useState } from "react";
+import { useEffect, useRef } from "react";
 import { modules, formats } from "../EditorToolbar";
 import "react-quill/dist/quill.snow.css";
 import { useEditorStyles } from "./styles";
+import ReactQuill from "react-quill";
 export var Editor = function (_a) {
     var content = _a.content, handleChange = _a.handleChange, embed = _a.embed;
     var quillRef = useRef(null);
-    var _b = __read(useState(), 2), reactQuill = _b[0], setReactQuill = _b[1];
+    // const [reactQuill, setReactQuill] = useState<any>();
     var classes = useEditorStyles();
-    useEffect(function () {
-        if (typeof window !== "undefined") {
-            import("react-quill").then(function (mod) {
-                setReactQuill(mod);
-            });
-        }
-    }, []);
+    // useEffect(() => {
+    //   if (typeof window !== "undefined") {
+    //     import("react-quill").then((mod) => {
+    //       setReactQuill(mod);
+    //     });
+    //   }
+    // }, []);
     useEffect(function () {
         if (!embed)
             return;
@@ -68,6 +69,6 @@ export var Editor = function (_a) {
             quillObj.editor.insertEmbed(range.index, type, value, "user");
         handleChange(quillObj.root.innerHTML);
     };
-    return (_jsxs("div", __assign({ className: classes.root }, { children: [_jsx("div", __assign({ className: classes.editor, id: "editorParent" }, { children: reactQuill && (_jsx(reactQuill.default, { id: "editor", ref: quillRef, theme: "snow", value: content, onChange: handleChange, placeholder: "Add content", modules: modules, formats: formats, className: classes.quillEditor, scrollingContainer: "#editorParent" })) })), _jsxs("div", __assign({ className: classes.wordCount }, { children: [content.trim().length === 0 ? 0 : content.split(" ").length, " words"] }))] })));
+    return (_jsxs("div", __assign({ className: classes.root }, { children: [_jsx("div", __assign({ className: classes.editor, id: "editorParent" }, { children: _jsx(ReactQuill, { id: "editor", ref: quillRef, theme: "snow", value: content, onChange: handleChange, placeholder: "Add content", modules: modules, formats: formats, className: classes.quillEditor, scrollingContainer: "#editorParent" }) })), _jsxs("div", __assign({ className: classes.wordCount }, { children: [content.trim().length === 0 ? 0 : content.split(" ").length, " words"] }))] })));
 };
 export default Editor;
