@@ -51,6 +51,8 @@ export var Editor = function (_a) {
         var _a, _b;
         var quillObj = (_a = quillRef === null || quillRef === void 0 ? void 0 : quillRef.current) === null || _a === void 0 ? void 0 : _a.getEditor();
         var range = (_b = quillObj === null || quillObj === void 0 ? void 0 : quillObj.selection) === null || _b === void 0 ? void 0 : _b.savedRange;
+        var editorParent = document.getElementById("editorParent");
+        var scrollTop = editorParent === null || editorParent === void 0 ? void 0 : editorParent.scrollTop;
         var type = embed.type, value = embed.value;
         if (type === "link") {
             var _c = __read(value.split("||>>"), 2), text = _c[0], url = _c[1];
@@ -58,9 +60,11 @@ export var Editor = function (_a) {
             quillObj.setSelection(range.index, text.length);
             quillObj.theme.tooltip.edit("link", url);
             quillObj.theme.tooltip.save();
-            var editorParent = document.getElementById("editorParent");
-            if (editorParent)
-                editorParent.scrollTop -= 100;
+            if (editorParent) {
+                editorParent.scrollTop = scrollTop;
+                console.log("inside the editor parent");
+                console.log(scrollTop);
+            }
         }
         else
             quillObj.editor.insertEmbed(range.index, type, value);

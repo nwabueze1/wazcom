@@ -26,6 +26,8 @@ export const Editor: React.FC<EditorProps> = ({ content, handleChange, embed }) 
   const handleEmbed = (embed: { type: string; value: string }) => {
     const quillObj = quillRef?.current?.getEditor();
     const range = quillObj?.selection?.savedRange;
+    const editorParent = document.getElementById("editorParent");
+    const scrollTop = editorParent?.scrollTop;
 
     const { type, value } = embed;
     if (type === "link") {
@@ -34,9 +36,11 @@ export const Editor: React.FC<EditorProps> = ({ content, handleChange, embed }) 
       quillObj.setSelection(range.index, text.length);
       quillObj.theme.tooltip.edit("link", url);
       quillObj.theme.tooltip.save();
-      const editorParent = document.getElementById("editorParent");
-      if (editorParent)
-        editorParent.scrollTop -= 100;
+      if (editorParent) {
+        editorParent.scrollTop = scrollTop as number;
+        console.log("inside the editor parent");
+        console.log(scrollTop);
+      }
     } else quillObj.editor.insertEmbed(range.index, type, value);
 
     handleChange(quillObj.root.innerHTML);
