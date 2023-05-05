@@ -21,7 +21,7 @@ export var useAccordionStyles = makeStyles(function (theme) {
         },
         accordionActive: {
             "& .accordion__content": {
-                maxHeight: 1500,
+                maxHeight: "fit-content",
                 opacity: 1,
                 padding: theme.spacing(1.5, 2),
                 transition: "all 150ms ease-in-out 0ms",
