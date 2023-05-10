@@ -55,6 +55,9 @@ export var useAccordionStyles = makeStyles(function (theme) {
                 background: theme.design.colors.waz_white100,
             },
         },
+        accordionHeaderActive: {
+            background: theme.design.colors.waz_white100,
+        },
         accordionIcon: {
             transition: "transform .2s",
             display: "flex",

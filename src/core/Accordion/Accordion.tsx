@@ -22,10 +22,14 @@ export const Accordion: FC<AccordionProps> = ({
     <div className={clx(classes.root, className)}>
       <div className={clx(active ? classes.accordionActive : "")}>
         <div
-          className={clx(classes.accordionHeader, "accordion__header")}
+          className={clx(
+            classes.accordionHeader,
+            active && classes.accordionHeaderActive,
+            "accordion__header",
+          )}
           onClick={toggleVisiblity}
         >
-          <h3 className={classes.accordionTitle}>{title}</h3>
+          {typeof title === "string" ? <h3 className={classes.accordionTitle}>{title}</h3> : title}
           {showIcon && (
             <span className={clx(classes.accordionIcon, "accordion__icon")}>
               <IoMdArrowDropdown />

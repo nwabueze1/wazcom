@@ -105,7 +105,7 @@ export const TextInput: FC<TextFieldProps> = ({
           </label>
         )}
         {showCC && (
-          <span className={clx(classes.wordCount, classes.label)}>
+          <span className={clx(classes.wordCount, classes.label, classNames?.label)}>
             {props?.value && props?.value.length > 0 && props?.value.length}
           </span>
         )}
