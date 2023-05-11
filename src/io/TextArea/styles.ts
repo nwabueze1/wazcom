@@ -141,4 +141,3 @@ export const useTextAreaStyles = makeStyles((theme: Theme) => ({
     color: theme.design.colors.error,
   },
 }));
-
