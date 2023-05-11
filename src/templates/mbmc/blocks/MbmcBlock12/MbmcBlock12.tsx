@@ -2,7 +2,7 @@ import { useMbmcBlock12Styles } from "./styles";
 import { MbmcButton } from "../../components/MbmcButton/MbmcButton";
 import { FC, useState } from "react";
 import { HandleSend, MbmcBlock12Props } from "./types";
-import { TextArea } from "../../../../io/TextInput";
+import { TextArea } from "../../../../io";
 import { TextInput } from "../../../../io/TextInput";
 import { notify } from "../../utilities";
 import clx from "classnames";
