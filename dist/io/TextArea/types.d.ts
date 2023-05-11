@@ -1,6 +1,6 @@
-import { TextareaAutosizeProps } from "@mui/base";
-import { CommonProps } from "../../types";
-export type TextAreaProps = CommonProps & Omit<TextareaAutosizeProps, "onChange"> & {
-    label?: string | JSX.Element;
-    error?: boolean;
+/// <reference types="react" />
+import { TextBaseProps } from "../TextInput";
+export type TextAreaProps = Omit<React.HTMLProps<HTMLTextAreaElement>, "onChange" | "onFocus" | "onEnter"> & TextBaseProps & {
+    type?: "textarea";
+    minRows?: number;
 };
