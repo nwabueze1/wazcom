@@ -43,5 +43,5 @@ export var ColorInput = function (_a) {
     var handleChange = function (color) {
         onChange === null || onChange === void 0 ? void 0 : onChange({ name: name, value: color.hex });
     };
-    return (_jsx(ClickAwayListener, __assign({ onClickAway: handleClosePicker }, { children: _jsxs("div", __assign({ className: classes.root }, { children: [_jsx("div", { className: classes.colorInput, style: { background: value }, onClick: togglePicker }), displayPicker && (_jsx(ChromePicker, { onChangeComplete: handleChange, className: classes.colorPicker }))] })) })));
+    return (_jsx(ClickAwayListener, __assign({ onClickAway: handleClosePicker }, { children: _jsxs("div", __assign({ className: classes.root }, { children: [_jsx("div", { className: classes.colorInput, style: { background: value }, onClick: togglePicker }), displayPicker && (_jsx(ChromePicker, { onChangeComplete: handleChange, className: classes.colorPicker, color: value }))] })) })));
 };

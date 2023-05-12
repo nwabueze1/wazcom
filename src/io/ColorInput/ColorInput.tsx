@@ -26,7 +26,11 @@ export const ColorInput: FC<ColorInputProps> = ({ name, value, onChange }) => {
       <div className={classes.root}>
         <div className={classes.colorInput} style={{ background: value }} onClick={togglePicker} />
         {displayPicker && (
-          <ChromePicker onChangeComplete={handleChange} className={classes.colorPicker} />
+          <ChromePicker
+            onChangeComplete={handleChange}
+            className={classes.colorPicker}
+            color={value}
+          />
         )}
       </div>
     </ClickAwayListener>
