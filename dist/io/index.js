@@ -1,4 +1,5 @@
 export * from "./CheckBoxInput";
+export * from "./ColorInput";
 export * from "./ComboBoxInput";
 export * from "./WysiwygInput";
 export * from "./SelectInput";
