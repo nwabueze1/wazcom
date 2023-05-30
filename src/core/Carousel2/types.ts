@@ -5,6 +5,6 @@ export type Carousel2Props = CommonProps & {
 };
 
 export type TCustomStyle = {
-  colors: { [key: string]: { [key: string]:string } };
+  colors: { [key: string]: { [key: string]: string } };
   fonts: { [key: string]: string };
-}
+};
