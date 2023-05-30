@@ -245,7 +245,7 @@ export const stories: ComponentPropType[] = [
     props: {
       children: "This is an example Wazcom Accordion",
       isExpanded: true,
-      title: <p>leke</p>,
+      title: <p style={{ fontSize: "25px", color: "blue" }}>leke</p>,
     },
   },
   {

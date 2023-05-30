@@ -1,5 +1,5 @@
 import { FC } from "react";
-import { TextAreaProps, TextFieldProps } from "./types";
+import { TextFieldProps } from "./types";
 /**
  * Text Input IO Component
  *
@@ -11,7 +11,6 @@ import { TextAreaProps, TextFieldProps } from "./types";
  * -- info
  */
 export declare const TextInput: FC<TextFieldProps>;
-export declare const TextArea: FC<Omit<TextAreaProps, "type">>;
 export declare const EmailInput: FC<Omit<TextFieldProps, "type">>;
 export declare const URLInput: FC<Omit<TextFieldProps, "type">>;
 export declare const NumberInput: FC<Omit<TextFieldProps, "type">>;

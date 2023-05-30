@@ -5,8 +5,13 @@ import { TextInput } from "../../io";
 import { Wrapper } from "../../core";
 import { useTextInputStyles } from "./styles";
 import { TextInputViewProps, InputDataProps } from "./types";
+import { ComponentProps } from "../../core/ComponentProps";
+import { useTextInputProps } from "./utils/useTextInputProps";
+import { Paper } from "../../core/Paper";
 
 export const TextInputView: FC<TextInputViewProps> = () => {
+  const { data, onReset, state } = useTextInputProps();
+
   const handleEnter = (payload: any) => {
     console.log("onEnter", payload);
   };
@@ -61,7 +66,7 @@ export const TextInputView: FC<TextInputViewProps> = () => {
               entries."
         className={classes.wrapper}
       >
-        <div>
+        <Paper>
           <h4 className={classes.cardTitle}> Basic </h4>
           <div className={classes.inputs}>
             {inputData.default.map((item: InputDataProps, index) => (
@@ -80,11 +85,11 @@ export const TextInputView: FC<TextInputViewProps> = () => {
               />
             ))}
           </div>
-        </div>
+        </Paper>
       </Wrapper>
 
       <Wrapper className={classes.wrapper}>
-        <div>
+        <Paper>
           <h4 className={classes.cardTitle}>Validation </h4>
           <div className={classes.inputs}>
             {inputData.validation.map((item: InputDataProps, index) => (
@@ -94,18 +99,22 @@ export const TextInputView: FC<TextInputViewProps> = () => {
                 className={classes.input}
                 label={item.label}
                 placeholder={item.placeholder}
-                helperText={item.helperText}
-                isError={item.isError}
-                isSuccess={item.isSuccess}
+                helperText={state.helperText}
+                isError={state.isError}
+                isSuccess={state.isSuccess}
                 onEnter={handleEnter}
                 onFocus={handleFocus}
                 onBlur={handleBlur}
-                rightIcon={<BsEye width={16} />}
+                rightIcon={state.rightIcon ? <BsEye width={16} /> : undefined}
+                leftIcon={state.leftIcon ? <BsEye width={16} /> : undefined}
+                value={state.name}
+                required={state.required}
               />
             ))}
           </div>
-        </div>
+        </Paper>
       </Wrapper>
+      <ComponentProps body={data as any} onReset={onReset} />
     </div>
   );
 };

@@ -32,8 +32,8 @@ export const WysiwygInput: React.FC<WysiwygInputProps> = ({
           value={value?.title ?? ""}
           onChange={handleTitleChange}
         />
+        <Editor content={value?.content ?? ""} handleChange={handleContentChange} embed={embed} />
       </div>
-      <Editor content={value?.content ?? ""} handleChange={handleContentChange} embed={embed} />
     </div>
   );
 };

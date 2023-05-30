@@ -7,6 +7,7 @@ export const useEditorStyles = makeStyles((theme: Theme) => ({
     flexDirection: "column",
     height: "50vh",
     position: "relative",
+    overflowY: "auto",
   },
   wordCount: {
     display: "flex",
@@ -37,6 +38,10 @@ export const useEditorStyles = makeStyles((theme: Theme) => ({
       width: "60%",
       height: 400,
       objectFit: "cover",
+    },
+
+    "& .ql-snow .ql-tooltip": {
+      left: "0px !important",
     },
 
     "& .ql-container": {

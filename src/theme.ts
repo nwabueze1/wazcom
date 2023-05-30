@@ -158,7 +158,6 @@ export const theme: any = {
       black300: "rgba(0, 0, 0, 0.5)",
       black400: "rgba(0,0,0,0.06)",
       white200: "rgba(255, 255, 255, 0.3)",
-
       waz_primaryColor100: "#0A7227",
       waz_primaryColor200: "#014029",
       waz_primaryColor300: "#025939",
@@ -212,6 +211,7 @@ export const theme: any = {
       waz_grey500: "#1A261E",
       waz_grey600: "#676E69",
       waz_grey700: " #9B9B9B",
+      waz_light_grey: "#E8E8E883",
       waz_orange: "#F4CDB4",
       waz_gold: "#CBA735",
       waz_gold100: " #F2EADF",
