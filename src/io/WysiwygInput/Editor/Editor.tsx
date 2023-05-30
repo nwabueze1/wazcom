@@ -1,5 +1,5 @@
 import React, { useEffect, useRef, useState } from "react";
-import { EditorToolbar, modules, formats } from "../EditorToolbar";
+import { modules, formats } from "../EditorToolbar";
 import "react-quill/dist/quill.snow.css";
 import { useEditorStyles } from "./styles";
 import { EditorProps } from "./types";
@@ -26,6 +26,8 @@ export const Editor: React.FC<EditorProps> = ({ content, handleChange, embed }) 
   const handleEmbed = (embed: { type: string; value: string }) => {
     const quillObj = quillRef?.current?.getEditor();
     const range = quillObj?.selection?.savedRange;
+    const editorParent = document.getElementById("editorParent");
+    const scrollTop = editorParent?.scrollTop;
 
     const { type, value } = embed;
     if (type === "link") {
@@ -34,6 +36,9 @@ export const Editor: React.FC<EditorProps> = ({ content, handleChange, embed }) 
       quillObj.setSelection(range.index, text.length);
       quillObj.theme.tooltip.edit("link", url);
       quillObj.theme.tooltip.save();
+      if (editorParent) {
+        editorParent.scrollTop = scrollTop as number;
+      }
     } else quillObj.editor.insertEmbed(range.index, type, value);
 
     handleChange(quillObj.root.innerHTML);
@@ -41,8 +46,7 @@ export const Editor: React.FC<EditorProps> = ({ content, handleChange, embed }) 
 
   return (
     <div className={classes.root}>
-      <div className={classes.editor}>
-        <EditorToolbar />
+      <div className={classes.editor} id="editorParent">
         {reactQuill && (
           <reactQuill.default
             id="editor"
@@ -54,11 +58,12 @@ export const Editor: React.FC<EditorProps> = ({ content, handleChange, embed }) 
             modules={modules}
             formats={formats}
             className={classes.quillEditor}
+            scrollingContainer={"#editorParent"}
           />
         )}
       </div>
       <div className={classes.wordCount}>
-        {content.trim().length === 0 ? 0 : content.split(" ").length}/1000 words
+        {content.trim().length === 0 ? 0 : content.split(" ").length} words
       </div>
     </div>
   );

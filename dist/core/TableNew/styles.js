@@ -22,9 +22,13 @@ export var useTableStyles = makeStyles(function (theme) { return ({
     tRowData: {
         padding: theme.spacing(2),
         fontSize: theme.typography.fontSize,
+        height: "auto",
+        transition: " height 1s ease-out",
         "&:hover .column-actions": {
-            opacity: "1 !important",
-            zIndex: "1 !important",
+            fontSize: theme.typography.fontSize - 2,
+            height: "fit-content",
+            transition: "all 0.2s ease-in",
+            marginTop: theme.spacing(1),
         },
     },
     tableLoader: {

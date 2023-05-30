@@ -76,7 +76,7 @@ import { jsxs as _jsxs, jsx as _jsx } from "react/jsx-runtime";
 import { useMbmcBlock12Styles } from "./styles";
 import { MbmcButton } from "../../components/MbmcButton/MbmcButton";
 import { useState } from "react";
-import { TextArea } from "../../../../io/TextInput";
+import { TextArea } from "../../../../io";
 import { TextInput } from "../../../../io/TextInput";
 import { notify } from "../../utilities";
 import clx from "classnames";

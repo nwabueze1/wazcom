@@ -4,12 +4,11 @@ import makeStyles from "@mui/styles/makeStyles";
 export const useTableColumnActionsStyles = makeStyles((theme: Theme) => ({
   root: {
     display: "flex",
-    fontSize: theme.typography.fontSize - 2,
-    transition: "all 0.3s ease-in",
-    marginTop: theme.spacing(1),
-    opacity: 0,
-    zIndex: -1,
+    fontSize: 0,
+    transition: "all 2s ease-in",
+    marginTop: theme.spacing(0),
     position: "relative",
+    height: 0,
     color: theme.design.colors.waz_black,
   },
   action: {

@@ -8,12 +8,17 @@ import { getCurrency } from "../../../../utilities";
 import { TAppState } from "../../../types";
 import { CoreMenuFields, CoreMenuFields_menuCategories } from "../../models";
 import { initialClientMenu, useGetClientMenu } from "./helpers";
+import { handleElementClick } from "../../utilities";
 
 export const MbmcBlock61: FC<MbmcBlock61Props> = ({
+  mode = "view",
   heading,
   description,
   isSsr = true,
   menu_uuid,
+  index,
+  activeElement,
+  handleClick,
 }) => {
   const { restaurant } = useSelector<TAppState, TAppState>((state) => state);
   const classes = useMbmcBlock61Styles();
@@ -105,14 +110,35 @@ export const MbmcBlock61: FC<MbmcBlock61Props> = ({
   return (
     <div className={classes.root} id="menu">
       <div className={classes.block61Container}>
-        <h3 className={classes.block61Title}>{heading}</h3>
-        <p className={classes.block61Description}>{description}</p>
+        <h3
+          className={clx(
+            classes.block61Title,
+            activeElement === `${String(index)}.heading` && classes.block61ActiveElement,
+          )}
+          onClick={() => handleElementClick(mode, `${String(index)}.heading`, handleClick)}
+        >
+          {heading}
+        </h3>
+        <p
+          className={clx(
+            classes.block61Description,
+            activeElement === `${String(index)}.description` && classes.block61ActiveElement,
+          )}
+          onClick={() => handleElementClick(mode, `${String(index)}.description`, handleClick)}
+        >
+          {description}
+        </p>
 
         {categoryItems && categoryItems?.length > 0 && (
-          <>
+          <div
+            className={
+              activeElement === `${String(index)}.menu_uuid` ? classes.block61ActiveElement : ""
+            }
+            onClick={() => handleElementClick(mode, `${String(index)}.menu_uuid`, handleClick)}
+          >
             <div className={classes.block61Categories}>{displayCategories()}</div>
             <div className={classes.block61Items}>{displayItems()}</div>
-          </>
+          </div>
         )}
         <OrderDialog
           itemUuid={itemUuid}

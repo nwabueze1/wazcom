@@ -6,13 +6,12 @@ export const useInsertButtonStyles = makeStyles((theme: Theme) => ({
     position: "relative",
   },
   insertButton: {
-    background: theme.design.colors.primary700,
+    background: `${theme.design.colors.waz_primary700} !important`,
     borderRadius: "50%",
-    width: theme.spacing(4),
-    height: theme.spacing(4),
+    width: `${theme.spacing(4)} !important`,
+    height: `${theme.spacing(4)} !important`,
     fontSize: theme.typography.fontSize * 1.5,
     border: "0px",
-    margin: theme.spacing(3, 0, 0.5, 2),
     "&:hover": {
       cursor: "pointer",
     },
@@ -46,6 +45,9 @@ export const useInsertButtonStyles = makeStyles((theme: Theme) => ({
   },
   showOptions: {
     display: "flex",
+    position: "absolute",
+    left: 16,
+    zIndex: 10,
   },
   hideOptions: {
     display: "none",

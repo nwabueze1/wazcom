@@ -1,4 +1,4 @@
-import { CheckBoxInput } from "io";
+import { CheckBoxInput } from "../../io";
 import { useMultiSelectStyles } from "./styles";
 import { IoMdArrowDropdown } from "react-icons/io";
 import { FC, useState } from "react";

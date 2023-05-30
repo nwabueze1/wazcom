@@ -33,6 +33,7 @@ import VideoIcon from "./VideoIcon";
 import PictureIcon from "./PictureIcon";
 import { EmbedOption } from "../EmbedOption";
 import { AiOutlineLink } from "react-icons/ai";
+import { ClickAwayListener } from "@mui/base";
 export var EmbedButton = function (_a) {
     var initiateEmbed = _a.initiateEmbed;
     var classes = useInsertButtonStyles();
@@ -43,5 +44,7 @@ export var EmbedButton = function (_a) {
     var handleClick = function (type) {
         initiateEmbed === null || initiateEmbed === void 0 ? void 0 : initiateEmbed(type);
     };
-    return (_jsxs("div", __assign({ className: classes.root }, { children: [_jsx("button", __assign({ className: classes.insertButton, onClick: handleInsertOptions }, { children: "+" })), _jsxs("div", __assign({ className: clx(classes.selectOption, open ? classes.showOptions : classes.hideOptions) }, { children: [_jsx("span", __assign({ className: classes.optionTitleSpan }, { children: "EMBEDS" })), _jsxs("div", __assign({ className: classes.options }, { children: [_jsx(EmbedOption, { icon: _jsx(PictureIcon, {}), title: "Picture", description: "jpeg, png", handleClick: function () { return handleClick("image"); } }), _jsx(EmbedOption, { icon: _jsx(VideoIcon, {}), title: "Video", description: "Embed a Youtube video", handleClick: function () { return handleClick("video"); } }), _jsx(EmbedOption, { icon: _jsx(AiOutlineLink, { className: classes.linkIcon }), title: "Link", description: "Embed a Link", handleClick: function () { return handleClick("link"); } })] }))] }))] })));
+    return (_jsx(ClickAwayListener, __assign({ onClickAway: function () {
+            setOpen(false);
+        } }, { children: _jsxs("div", __assign({ className: classes.root }, { children: [_jsx("button", __assign({ className: classes.insertButton, onClick: handleInsertOptions }, { children: "+" })), _jsxs("div", __assign({ className: clx(classes.selectOption, open ? classes.showOptions : classes.hideOptions) }, { children: [_jsx("span", __assign({ className: classes.optionTitleSpan }, { children: "EMBEDS" })), _jsxs("div", __assign({ className: classes.options }, { children: [_jsx(EmbedOption, { icon: _jsx(PictureIcon, {}), title: "Picture", description: "jpeg, png", handleClick: function () { return handleClick("image"); } }), _jsx(EmbedOption, { icon: _jsx(VideoIcon, {}), title: "Video", description: "Embed a Youtube video", handleClick: function () { return handleClick("video"); } }), _jsx(EmbedOption, { icon: _jsx(AiOutlineLink, { className: classes.linkIcon }), title: "Link", description: "Embed a Link", handleClick: function () { return handleClick("link"); } })] }))] }))] })) })));
 };

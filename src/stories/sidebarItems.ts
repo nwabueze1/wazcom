@@ -19,6 +19,7 @@ export default [
       { name: "Currency Input", slug: "currency-input" },
       { name: "Checkbox Input", slug: "checkbox-input" },
       { name: "TextArea Input", slug: "textarea-input" },
+      { name: "Phone Number Input", slug: "phone-number-input" },
       { name: "Radio Button", slug: "radio-button" },
       { name: "Toggle Input", slug: "toggle-input" },
       { name: "Select Input", slug: "select-input" },

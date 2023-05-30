@@ -78,6 +78,12 @@ export default [
     component: NumberInputView,
   },
   {
+    key: "phoneNumberInputView",
+    path: "/phone-number-input",
+    exact: true,
+    component: PhoneNumberInputView,
+  },
+  {
     key: "URLInputView",
     path: "/url-input",
     exact: true,

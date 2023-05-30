@@ -48,10 +48,6 @@ export type TextBaseProps = CommonProps & {
 export type TextFieldProps = Omit<BaseInputProps, "onChange" | "onFocus" | "onEnter"> & TextBaseProps;
 export type EmailInputProps = Omit<BaseInputProps, "onChange" | "onFocus" | "onEnter"> & TextBaseProps;
 export type NumberInputProps = Omit<BaseInputProps, "onChange" | "onFocus" | "onEnter"> & TextBaseProps;
-export type TextAreaProps = Omit<React.HTMLProps<HTMLTextAreaElement>, "onChange" | "onFocus" | "onEnter"> & TextBaseProps & {
-    type?: "textarea";
-    minRows?: number;
-};
 export type InputIconProps = {
     className?: Record<string, unknown>;
     children?: React.ReactNode | React.ReactElement | string;

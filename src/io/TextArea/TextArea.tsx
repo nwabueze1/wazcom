@@ -1,47 +1,130 @@
-import React, { FC } from "react";
-import { InputLabel } from "@mui/material";
-import { TextareaAutosize } from "@mui/base";
-import { useTextAreaStyles } from "./styles";
+import { FC, useState, ChangeEvent, KeyboardEvent } from "react";
 import { TextAreaProps } from "./types";
+import { useTextAreaStyles } from "./styles";
 import clx from "classnames";
-import { displayFeedback } from "../../helpers/io";
 
-export const TextArea: FC<TextAreaProps> = ({
-  name,
+export const TextArea: FC<Omit<TextAreaProps, "type">> = ({
   className,
   classNames,
   label,
-  value,
+  rows,
   helperText,
+  hideLabel = false,
+  isSuccess,
+  isError,
+  errors,
+  name,
+  width,
+  height,
+  background,
+  color,
+  borderWidth,
+  borderColor,
+  borderStyle,
+  borderRadius,
   onChange,
-  minRows,
-  feedback,
-  error,
+  onFocus,
+  onEnter,
+  onBlur,
+  required = false,
+  showCC,
   ...props
 }) => {
-  const classes = useTextAreaStyles();
+  const [isFocused, setIsFocused] = useState<boolean>(false);
+  const classes = useTextAreaStyles({
+    rows,
+    width,
+    height,
+    background,
+    color,
+    borderWidth,
+    borderColor,
+    borderStyle,
+    borderRadius,
+  });
 
-  const handleChange = (e: React.ChangeEvent<HTMLTextAreaElement>) => {
-    onChange?.({ name: name ?? "", value: e.target.value });
+  const handleChange = (e: ChangeEvent<HTMLTextAreaElement>) => {
+    if (onChange) {
+      onChange?.({
+        name: (e.target as HTMLTextAreaElement).name ?? "",
+        value: (e.target as HTMLTextAreaElement).value ?? "",
+      });
+    }
+  };
+  const handleOnKeyDown = (e: KeyboardEvent<HTMLTextAreaElement>) => {
+    if (onEnter && e.key === "Enter") {
+      onEnter?.({
+        name: (e.target as HTMLTextAreaElement).name ?? "",
+        value: (e.target as HTMLTextAreaElement).value ?? "",
+      });
+    }
+  };
+
+  const handleFocus = (e: ChangeEvent<HTMLTextAreaElement>) => {
+    setIsFocused(() => true);
+    if (onFocus) {
+      onFocus?.({
+        name: (e.target as HTMLTextAreaElement).name ?? "",
+        value: (e.target as HTMLTextAreaElement).value ?? "",
+      });
+    }
+  };
+
+  const handleBlur = (e: ChangeEvent<HTMLTextAreaElement>) => {
+    setIsFocused(() => false);
+    if (onBlur) {
+      onBlur?.({
+        name: (e.target as HTMLTextAreaElement).name ?? "",
+        value: (e.target as HTMLTextAreaElement).value ?? "",
+      });
+    }
   };
 
   return (
-    <div className={clx(className, classes.root)}>
-      {label && (
-        <InputLabel className={(classNames?.label as string) ?? ""} htmlFor={name ?? ""}>
-          {label} <p className={classes.required}>{props.required ? " *" : ""}</p>
-        </InputLabel>
+    <div className={clx(classes.root, className)}>
+      <div className={classes.labelWrapper}>
+        {!hideLabel && label && (
+          <label htmlFor={name} className={clx(classes.label, classNames?.label)}>
+            {label}
+            {required && <span className={classes.required}>*</span>}
+          </label>
+        )}
+        {showCC && (
+          <span className={clx(classes.wordCount, classes.label)}>
+            {props?.value && props?.value.length > 0 && props?.value.length}
+          </span>
+        )}
+      </div>
+      <div className={classes.textAreaContainer}>
+        <textarea
+          className={clx(
+            classes.baseTextArea,
+            classes.defaultInput,
+            classNames?.input,
+            isSuccess && classes.successInput,
+            (isError || errors) && classes.errorInput,
+            isFocused && classes.focusedInput,
+          )}
+          name={name}
+          onChange={handleChange}
+          onFocus={handleFocus}
+          onBlur={handleBlur}
+          onKeyDown={handleOnKeyDown}
+          rows={rows || 5}
+          {...props}
+        />
+      </div>
+      {helperText && (
+        <span
+          className={clx(
+            classes.helperTextDefault,
+            isSuccess && classes.helperTextSuccess,
+            isError && classes.helperTextError,
+          )}
+        >
+          {helperText}
+        </span>
       )}
-      <TextareaAutosize
-        minRows={minRows ?? 5}
-        name={name}
-        value={value}
-        onChange={handleChange}
-        {...props}
-        className={clx(classNames?.textArea, classes.textarea, error && classes.error)}
-      />
-      {helperText}
-      {feedback && displayFeedback(feedback)}
     </div>
   );
 };
