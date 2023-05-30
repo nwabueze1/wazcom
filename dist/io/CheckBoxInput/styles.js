@@ -67,7 +67,6 @@ export var useCheckboxInputStyles = makeStyles(function (theme) { return ({
         borderRadius: theme.spacing(0.5),
         border: "1px solid",
         borderColor: theme.design.colors.grey700,
-        backgroundColor: theme.design.colors.grey500,
         "&:hover": {
             borderColor: theme.design.colors.primary500,
         },

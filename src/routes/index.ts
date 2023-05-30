@@ -16,9 +16,11 @@ import { CardView } from "../view/Card";
 import { CheckBoxInputView } from "view/CheckBoxInput";
 import { RadioButtonView } from "view/RadioButtonInput";
 import { ToggleInputView } from "view/ToggleInput";
+import { PhoneNumberInputView } from "view/PhoneNumberInput";
 import { StepsView } from "view/Steps";
 import { AccordionView } from "view/Accordion";
 import { ProgressView } from "view/Progress";
+import { PickersView } from "view/Pickers";
 
 export default [
   {
@@ -44,6 +46,12 @@ export default [
     path: "/text-input",
     exact: true,
     component: TextInputView,
+  },
+  {
+    key: "PickersView",
+    path: "/pickers",
+    exact: true,
+    component: PickersView,
   },
   {
     key: "RadioButtonView",
@@ -92,6 +100,12 @@ export default [
     path: "/currency-input",
     exact: true,
     component: CurrencyInputView,
+  },
+  {
+    key: "PhoneInputView",
+    path: "/phone-input",
+    exact: true,
+    component: PhoneNumberInputView,
   },
   {
     key: "CheckBoxInputView",

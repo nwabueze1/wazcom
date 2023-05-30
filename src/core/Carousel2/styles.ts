@@ -1,22 +1,23 @@
 import { Theme } from "@mui/material";
 import makeStyles from "@mui/styles/makeStyles";
+import { TCustomStyle } from "./types";
 
-export const useCarouselStyles = makeStyles((theme: Theme) => ({
+export const useCarouselStyles = makeStyles<Theme, TCustomStyle>((theme: Theme) => ({
   stepper: {
     backgroundColor: "transparent",
     "& > button": {
-      backgroundColor: theme.design.colors.waz_white,
+      backgroundColor: (props) => props?.colors?.background?.[200],
       padding: theme.spacing(1, 3),
-      color: theme.design.colors.waz_orangeColor100,
+      color: (props) => props?.colors?.background?.[100],
       fontSize: theme.typography.fontSize * 2,
 
       "&:hover": {
-        backgroundColor: `${theme.design.colors.waz_white} !important`,
+        backgroundColor: (props) => `${props?.colors?.background?.[200]} !important`,
       },
     },
   },
   active: {
-    backgroundColor: `${theme.design.colors.waz_white} !important`,
+    backgroundColor: (props) => `${props?.colors?.background?.[200]} !important`,
   },
   dot: {
     backgroundColor: theme.design.colors.waz_lightOrange,
