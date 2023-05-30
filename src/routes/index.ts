@@ -13,13 +13,14 @@ import { CurrencyInputView } from "../view/CurrencyInput";
 import { SelectInputView } from "../view/SelectInput";
 import { TableView } from "../view/Table";
 import { CardView } from "../view/Card";
-import { CheckBoxInputView } from "view/CheckBoxInput";
-import { RadioButtonView } from "view/RadioButtonInput";
-import { ToggleInputView } from "view/ToggleInput";
-import { StepsView } from "view/Steps";
-import { AccordionView } from "view/Accordion";
-import { ProgressView } from "view/Progress";
-import { PickersView } from "view/Pickers";
+import { CheckBoxInputView } from "../view/CheckBoxInput";
+import { RadioButtonView } from "../view/RadioButtonInput";
+import { ToggleInputView } from "../view/ToggleInput";
+import { StepsView } from "../view/Steps";
+import { AccordionView } from "../view/Accordion";
+import { ProgressView } from "../view/Progress";
+import { PickersView } from "../view/Pickers";
+import { PhoneNumberInputView } from "../view/PhoneNumberInput";
 
 export default [
   {
@@ -75,6 +76,12 @@ export default [
     path: "/number-input",
     exact: true,
     component: NumberInputView,
+  },
+  {
+    key: "phoneNumberInputView",
+    path: "/phone-number-input",
+    exact: true,
+    component: PhoneNumberInputView,
   },
   {
     key: "URLInputView",
