@@ -15,6 +15,7 @@ export default [
       { name: "Number Input", slug: "number-input" },
       { name: "URL Input", slug: "url-input" },
       { name: "Password Input", slug: "password-input" },
+      { name: "Phone number Input", slug: "phone-input" },
       { name: "Currency Input", slug: "currency-input" },
       { name: "Checkbox Input", slug: "checkbox-input" },
       { name: "TextArea Input", slug: "textarea-input" },
