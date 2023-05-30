@@ -1,6 +1,6 @@
 export type TagProps = {
   name: string;
   status?: boolean;
-  handleRemove?: () => void;
+  isDismissable?: true;
   classname?: string;
 };

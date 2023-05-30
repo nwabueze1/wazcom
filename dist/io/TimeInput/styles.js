@@ -59,10 +59,8 @@ export var useTimeInputStyles = makeStyles(function (theme) { return ({
         background: "transparent",
         border: 0,
         borderRadius: 4,
-        zIndex: 10,
-        "& .rc-time-picker-panel": {
-            width: '160px !important',
-        },
+        zIndex: 1500,
+        width: "160px !important",
         "& .rc-time-picker-panel-select": {
             width: "unset",
             padding: theme.spacing(0, 1),

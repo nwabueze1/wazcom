@@ -10,6 +10,7 @@ import { Layout } from "view/Layout";
 import theme from "./theme";
 import routes from "./routes";
 import "./index.css";
+import { AlertContextProvider } from "core";
 
 declare module "@mui/styles/defaultTheme" {
   // eslint-disable-next-line @typescript-eslint/no-empty-interface
@@ -74,44 +75,46 @@ const App: React.FC = () => {
     <StyledEngineProvider injectFirst>
       <ThemeProvider theme={theme}>
         <BrowserRouter>
-          <Layout>
-            <Routes>
-              {routes.map(({ key, path, component: Component }) => (
-                <Route key={key} path={path} element={<Component />} />
-              ))}
-              {getMbmcBlocks()
-                .sort(({ name: aName }, { name: bName }) =>
-                  aName.toLowerCase() < bName.toLowerCase()
-                    ? -1
-                    : aName.toLowerCase() > bName.toLowerCase()
-                    ? 1
-                    : 0,
-                )
-                .map(({ name, component: Comp, props }, index) => (
-                  <Route
-                    key={index}
-                    path={`/templates/:uuid/${name.split("").join("")}`}
-                    element={React.cloneElement(<Comp />, props)}
-                  />
+          <AlertContextProvider>
+            <Layout>
+              <Routes>
+                {routes.map(({ key, path, component: Component }) => (
+                  <Route key={key} path={path} element={<Component />} />
                 ))}
-              <Route
-                path="/nour"
-                element={
-                  <Valour
-                    {...navProps}
-                    mode="edit"
-                    socials={[
-                      { type: "FACEBOOK", url: "wwww" },
-                      { type: "TWITTER", url: "wwww" },
-                    ]}
-                  />
-                }
-              />
-              <Route path="/sevyn" element={<Blaise mode="edit" {...navProps} />} />
-              <Route path="/asta" element={<Asta />} />
-              <Route path="/mbmc" element={<Mbmc />} />
-            </Routes>
-          </Layout>
+                {getMbmcBlocks()
+                  .sort(({ name: aName }, { name: bName }) =>
+                    aName.toLowerCase() < bName.toLowerCase()
+                      ? -1
+                      : aName.toLowerCase() > bName.toLowerCase()
+                      ? 1
+                      : 0,
+                  )
+                  .map(({ name, component: Comp, props }, index) => (
+                    <Route
+                      key={index}
+                      path={`/templates/:uuid/${name.split("").join("")}`}
+                      element={React.cloneElement(<Comp />, props)}
+                    />
+                  ))}
+                <Route
+                  path="/nour"
+                  element={
+                    <Valour
+                      {...navProps}
+                      mode="edit"
+                      socials={[
+                        { type: "FACEBOOK", url: "wwww" },
+                        { type: "TWITTER", url: "wwww" },
+                      ]}
+                    />
+                  }
+                />
+                <Route path="/sevyn" element={<Blaise mode="edit" {...navProps} />} />
+                <Route path="/asta" element={<Asta />} />
+                <Route path="/mbmc" element={<Mbmc />} />
+              </Routes>
+            </Layout>
+          </AlertContextProvider>
         </BrowserRouter>
       </ThemeProvider>
     </StyledEngineProvider>
