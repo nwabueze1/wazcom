@@ -26,7 +26,7 @@ var __read = (this && this.__read) || function (o, n) {
     return ar;
 };
 import { jsxs as _jsxs, jsx as _jsx } from "react/jsx-runtime";
-import { CheckBoxOutlineBlank, Close as CloseIcon, RadioButtonUncheckedOutlined, } from "@mui/icons-material";
+import { MdCheckBoxOutlineBlank as CheckBoxOutlineBlank, MdClose as CloseIcon, MdOutlineRadioButtonUnchecked as RadioButtonUncheckedOutlined, } from "react-icons/md";
 import { useEffect, useState } from "react";
 import { useDisplayInputStyles } from "./styles";
 import { TextInput } from "../../../../../TextInput/TextInput";

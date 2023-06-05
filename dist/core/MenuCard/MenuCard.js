@@ -15,7 +15,7 @@ import Card from "@mui/material/Card";
 import CardContent from "@mui/material/CardContent";
 import clx from "classnames";
 import { Typography } from "@mui/material";
-import MoreVertIcon from "@mui/icons-material/MoreVert";
+import { MdMoreVert as MoreVertIcon } from "react-icons/md";
 import { ToggleInput } from "../../io/ToggleInput/ToggleInput";
 export var MenuCard = function (_a) {
     var className = _a.className, amount = _a.amount, description = _a.description, title = _a.title, src = _a.image.src;

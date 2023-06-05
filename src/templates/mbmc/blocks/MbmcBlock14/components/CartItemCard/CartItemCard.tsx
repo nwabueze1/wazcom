@@ -1,9 +1,7 @@
 import React from "react";
 import { useSelector } from "react-redux";
 import { useCartItemCardStyles } from "./styles";
-import RemoveRoundedIcon from "@mui/icons-material/RemoveRounded";
-import AddRoundedIcon from "@mui/icons-material/AddRounded";
-import DeleteIcon from "@mui/icons-material/Delete";
+import { MdOutlineRoundedCorner as RemoveRoundedIcon, MdOutlineAdd as AddRoundedIcon, MdDelete as DeleteIcon} from "react-icons/md";
 import { CoreCartFields, CoreCartFields_cartItems } from "../../../../models";
 import { getCurrency } from "../../../../../../utilities";
 import { useUpdateCartItemQuantity } from "../../hooks";

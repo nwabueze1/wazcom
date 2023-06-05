@@ -10,7 +10,7 @@ import clx from "classnames";
 import { CoreRestaurantFields_activeMenus } from "templates/restaurant/types/CoreRestaurantFields";
 import { MenuSelector } from "../MenuSelector";
 import { Badge } from "@mui/material";
-import { ShoppingCartOutlined } from "@mui/icons-material";
+import { MdOutlineShoppingCart as ShoppingCartOutlined } from "react-icons/md";
 
 export const Menus: FC<MenuProps> = ({ restaurant, setDisplayDialog, setSelectedItemId, cart }) => {
   const classes = useMenusStyles();

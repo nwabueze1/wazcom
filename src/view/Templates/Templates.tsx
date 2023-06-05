@@ -1,4 +1,4 @@
-import WidgetsRoundedIcon from "@mui/icons-material/WidgetsRounded";
+import WidgetsRoundedIcon from "react-icons/md/MdWidgetsRounded";
 import AppBar from "@mui/material/AppBar";
 import Box from "@mui/material/Box";
 import CssBaseline from "@mui/material/CssBaseline";

@@ -1,8 +1,7 @@
 import { FC, useState, useCallback, useMemo } from "react";
 import { useSelector } from "react-redux";
 import { MbmcButton } from "../MbmcButton/MbmcButton";
-import RemoveRoundedIcon from "@mui/icons-material/RemoveRounded";
-import AddRoundedIcon from "@mui/icons-material/AddRounded";
+import { MdRemoveCircleOutline as RemoveRoundedIcon, MdOutlineAddCircleOutline as AddRoundedIcon } from "react-icons/md";
 import { useMbmcBlock16Styles } from "./styles";
 import { OrderDialogProps, Option } from "./types";
 import { getCurrency } from "../../../../utilities";

@@ -2,7 +2,7 @@ import { TableCell } from "@mui/material";
 import clx from "classnames";
 import { useState } from "react";
 import { TablePaginationProps } from "./types";
-import { KeyboardArrowLeft, KeyboardArrowRight } from "@mui/icons-material";
+import { MdKeyboardArrowLeft as KeyboardArrowLeft, MdKeyboardArrowRight as KeyboardArrowRight } from "react-icons/md";
 import { useTablePaginationStyles } from "./styles";
 import { PageNumbers } from "./PageNumbers";
 

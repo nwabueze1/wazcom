@@ -10,7 +10,7 @@ var __assign = (this && this.__assign) || function () {
     return __assign.apply(this, arguments);
 };
 import { jsxs as _jsxs, jsx as _jsx } from "react/jsx-runtime";
-import { CheckBoxOutlineBlank, RadioButtonUncheckedOutlined } from "@mui/icons-material";
+import { MdCheckBoxOutlineBlank as CheckBoxOutlineBlank, MdOutlineRadioButtonUnchecked as RadioButtonUncheckedOutlined } from "react-icons/md";
 import { useDisplayInputStyles } from "./styles";
 import { BiCheck } from "react-icons/bi";
 export var Input = function (_a) {

@@ -78,7 +78,7 @@ import { useMediaLibraryStyles } from "./styles";
 import { EditMedia, DeleteMedia } from "./components";
 import { fetchData, mutateMedia, getUniqueImages, useFileSelect, useOnScroll, useDisplayImages, useUpdateMediaLibrary, useMediaUpload, } from "./hooks";
 import { FaTimes } from "react-icons/fa";
-import { Search, Sort } from "@mui/icons-material";
+import { MdSearch as Search, MdSort as Sort } from "react-icons/md";
 import { TextInput, RadioButtonInput } from "../../io";
 import { Button } from "../../core";
 import { AddMedia } from "./components/AddMedia/AddMedia";

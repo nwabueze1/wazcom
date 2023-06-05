@@ -1,6 +1,6 @@
 import { FC } from "react";
 import { useCartStepsStyles } from "./styles";
-import CheckRoundedIcon from "@mui/icons-material/CheckRounded";
+import { MdCheckCircleOutline as CheckRoundedIcon} from "react-icons/md";
 import { CartStepsProps } from "./types";
 
 export const CartSteps: FC<CartStepsProps> = ({ steps }) => {

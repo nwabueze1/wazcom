@@ -29,7 +29,7 @@ import { jsxs as _jsxs, jsx as _jsx, Fragment as _Fragment } from "react/jsx-run
 import { TableCell } from "@mui/material";
 import clx from "classnames";
 import { useState } from "react";
-import { KeyboardArrowLeft, KeyboardArrowRight } from "@mui/icons-material";
+import { MdKeyboardArrowLeft as KeyboardArrowLeft, MdKeyboardArrowRight as KeyboardArrowRight } from "react-icons/md";
 import { useTablePaginationStyles } from "./styles";
 import { PageNumbers } from "./PageNumbers";
 export var TablePagination = function (_a) {

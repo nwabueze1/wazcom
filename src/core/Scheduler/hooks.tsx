@@ -1,5 +1,5 @@
 import { Schedule } from "./types";
-import CloseIcon from "@mui/icons-material/Close";
+import {MdClose as CloseIcon} from "react-icons/md";
 import clx from "classnames";
 import { TimeInput, SelectInput } from "../../io";
 import { useSchedulerStyles } from "./styles";

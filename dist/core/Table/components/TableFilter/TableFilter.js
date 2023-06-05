@@ -40,7 +40,7 @@ import { useCallback, useEffect, useState } from "react";
 import { Checkbox, ClickAwayListener, MenuItem } from "@mui/material";
 import { Accordion } from "../../../Accordion";
 import { useFilterStyles } from "./styles";
-import { FilterAlt } from "@mui/icons-material";
+import { MdFilterAlt as FilterAlt } from "react-icons/md";
 import { Button } from "../../../Button";
 import { useTableControlsStyles } from "../TableControls/styles";
 import { getJsxContent } from "../../helpers";

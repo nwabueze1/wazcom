@@ -11,7 +11,7 @@ var __assign = (this && this.__assign) || function () {
 };
 import { jsx as _jsx, jsxs as _jsxs } from "react/jsx-runtime";
 import { useCartStepsStyles } from "./styles";
-import CheckRoundedIcon from "@mui/icons-material/CheckRounded";
+import { MdCheckCircleOutline as CheckRoundedIcon } from "react-icons/md";
 export var CartSteps = function (_a) {
     var steps = _a.steps;
     var classes = useCartStepsStyles();

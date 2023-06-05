@@ -1,4 +1,4 @@
-import { CheckBoxOutlineBlank, RadioButtonUncheckedOutlined } from "@mui/icons-material";
+import { MdCheckBoxOutlineBlank as CheckBoxOutlineBlank, MdOutlineRadioButtonUnchecked as RadioButtonUncheckedOutlined } from "react-icons/md";
 import { FC } from "react";
 import { useDisplayInputStyles } from "./styles";
 import { InputProps } from "./types";

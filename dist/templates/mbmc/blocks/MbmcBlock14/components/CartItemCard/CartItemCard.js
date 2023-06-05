@@ -48,9 +48,7 @@ var __generator = (this && this.__generator) || function (thisArg, body) {
 import { jsx as _jsx, jsxs as _jsxs } from "react/jsx-runtime";
 import { useSelector } from "react-redux";
 import { useCartItemCardStyles } from "./styles";
-import RemoveRoundedIcon from "@mui/icons-material/RemoveRounded";
-import AddRoundedIcon from "@mui/icons-material/AddRounded";
-import DeleteIcon from "@mui/icons-material/Delete";
+import { MdOutlineRoundedCorner as RemoveRoundedIcon, MdOutlineAdd as AddRoundedIcon, MdDelete as DeleteIcon } from "react-icons/md";
 import { getCurrency } from "../../../../../../utilities";
 import { useUpdateCartItemQuantity } from "../../hooks";
 import { CircularProgress } from "@mui/material";

@@ -2,7 +2,7 @@ import React, { FC, useCallback, useRef, useState } from "react";
 import { useImageSelectorStyles } from "./styles";
 import clx from "classnames";
 import { ImageSelectorProps } from "./types";
-import CameraAltIcon from "@mui/icons-material/CameraAlt";
+import {MdCameraAlt as CameraAltIcon} from "react-icons/md";
 import { getSizeVariants } from "../../helpers/size";
 
 export const ImageSelector: FC<ImageSelectorProps> = ({

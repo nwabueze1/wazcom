@@ -1,6 +1,6 @@
 import React, { FC } from "react";
-import Facebook from "@mui/icons-material/Facebook";
-import Twitter from "@mui/icons-material/Twitter";
+import Facebook from "react-icons/md/MdFacebook";
+import Twitter from "react-icons/md/MdTwitter";
 import { CoreArticleTemplateFields } from "..";
 import { useBlogArticle002Styles } from ".";
 

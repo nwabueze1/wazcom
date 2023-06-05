@@ -45,7 +45,7 @@ import { GqlMediaLibrary } from "../GqlMediaLibrary";
 import { getSizeVariants } from "../../helpers/size";
 import { displayFeedback } from "../../helpers/io";
 import { Button } from "../../core";
-import CameraAlt from "@mui/icons-material/CameraAlt";
+import { MdCameraAlt as CameraAlt } from "react-icons/md";
 export var GqlMediaLibrarySelector = function (_a) {
     var _b;
     var _c = _a.displayLibrary, displayLibrary = _c === void 0 ? false : _c, _d = _a.variant, variant = _d === void 0 ? "square" : _d, _e = _a.size, size = _e === void 0 ? "full" : _e, verbose = _a.verbose, iconType = _a.iconType, width = _a.width, height = _a.height, className = _a.className, classNames = _a.classNames, onChange = _a.onChange, name = _a.name, label = _a.label, value = _a.value, feedback = _a.feedback, error = _a.error, props = __rest(_a, ["displayLibrary", "variant", "size", "verbose", "iconType", "width", "height", "className", "classNames", "onChange", "name", "label", "value", "feedback", "error"]);

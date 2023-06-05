@@ -1,6 +1,6 @@
 import React from "react";
 import { useAddMediaStyles } from "./styles";
-import { CloseSharp } from "@mui/icons-material";
+import { MdClose as CloseSharp } from "react-icons/md";
 import { Button } from "../../../../core";
 import { Box } from "@mui/material";
 import { DialogueProps } from "./types";

@@ -5,7 +5,7 @@ import { RelatedPostPolitico } from "./RelatedPost";
 import { getDay } from "../../../../utilities/getTime";
 import { usePoliticoStyles } from "./styles";
 import clx from "classnames";
-import Circle from "@mui/icons-material/Circle";
+import {MdCircle as Circle} from "react-icons/md";
 
 export const Politico: FC<CoreArticleTemplateFields> = ({ article, domain, handleClick }) => {
   const classes = usePoliticoStyles();
