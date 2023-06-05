@@ -1,5 +1,5 @@
 import { Theme } from "@mui/material/styles";
-import ModalUnstyled from "@mui/base/ModalUnstyled";
+import { Modal } from "@mui/base";
 import { styled } from "@mui/system";
 import makeStyles from "@mui/styles/makeStyles";
 
@@ -313,7 +313,7 @@ export const useMediaLibraryStyles = makeStyles((theme: Theme) => ({
   },
 }));
 
-export const StyledModal = styled(ModalUnstyled)`
+export const StyledModal = styled(Modal)`
   position: fixed;
   z-index: 1300;
   right: 0;
