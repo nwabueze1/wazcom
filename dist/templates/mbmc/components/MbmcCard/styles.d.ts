@@ -1,1 +1,0 @@
-export declare const useMbmcCardStyles: (props?: any) => import("@mui/styles").ClassNameMap<"root" | "content" | "visible" | "option" | "image" | "heading" | "options" | "description" | "noMargin" | "ctas" | "imageWrapper" | "options_parent" | "options_active" | "option_edit" | "option_delete" | "cardActiveElement">;
