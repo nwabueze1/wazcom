@@ -11,8 +11,9 @@ export var useTableActionStyles = makeStyles(function (theme) { return ({
     },
     searchInput: {
         background: "".concat(theme.design.colors.waz_white, " !important"),
-        fontSize: "".concat(theme.typography.fontSize + 1, " !important"),
+        fontSize: "".concat(theme.typography.fontSize + 1, "px !important"),
         height: "40px !important",
+        padding: 0,
         "&:hover": {
             borderColor: theme.design.colors.primary700,
         },
