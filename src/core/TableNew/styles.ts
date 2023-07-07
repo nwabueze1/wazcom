@@ -30,8 +30,8 @@ export const useTableStyles = makeStyles((theme: Theme) => ({
 
     "&:hover .column-actions": {
       fontSize: theme.typography.fontSize - 2,
-      height: "fit-content",
-      transition: "all 0.2s ease-in",
+      // height: "fit-content",
+      // transition: "all 0.2s ease-in",
       marginTop: theme.spacing(1),
     },
   },
@@ -42,6 +42,5 @@ export const useTableStyles = makeStyles((theme: Theme) => ({
   tableSeparator: {
     margin: theme.spacing(0, 0, 0.5, 0),
     background: theme.design.colors.waz_white,
-    height: 15,
   },
 }));
