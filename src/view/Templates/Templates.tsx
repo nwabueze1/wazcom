@@ -1,4 +1,4 @@
-import WidgetsRoundedIcon from "react-icons/md/MdWidgetsRounded";
+// import WidgetsRoundedIcon from "react-icons/md/MdWidgetsRounded";
 import AppBar from "@mui/material/AppBar";
 import Box from "@mui/material/Box";
 import CssBaseline from "@mui/material/CssBaseline";
@@ -47,7 +47,7 @@ export const Templates: FC<BrowserProps> = () => {
       >
         <Toolbar>
           <div className={classes.logo}>
-            <WidgetsRoundedIcon className={classes.sidebarIcon} />
+            {/* <WidgetsRoundedIcon className={classes.sidebarIcon} /> */}
             <span>WAZCOM</span>
           </div>
         </Toolbar>
