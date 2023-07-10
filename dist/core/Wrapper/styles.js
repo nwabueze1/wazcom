@@ -3,20 +3,6 @@ export var useWrapperStyles = makeStyles(function (theme) { return ({
     root: {
         margin: 0,
     },
-    containerWrapper: {
-        background: theme.design.background.waz_primaryWhite,
-        borderWidth: 1,
-        borderStyle: "solid",
-        borderColor: theme.design.colors.waz_grey300,
-        borderRadius: 3,
-        padding: theme.spacing(2.5, 3),
-        minHeight: 120,
-        display: "flex",
-        flexDirection: "column",
-        justifyContent: "center",
-        gap: theme.spacing(3),
-        maxWidth: "1100px",
-    },
     container: {
         display: "flex",
         flexDirection: "column",
@@ -46,12 +32,5 @@ export var useWrapperStyles = makeStyles(function (theme) { return ({
     descriptionText: {
         fontSize: theme.typography.h5.fontSize,
         lineSpacing: theme.spacing(22),
-    },
-    innerContainer: {
-        width: "100%",
-        display: "flex",
-        justifyContent: "space-between",
-        alignItems: "center",
-        padding: 0,
     },
 }); });

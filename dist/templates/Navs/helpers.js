@@ -14,7 +14,7 @@ import { AiOutlinePicture } from "react-icons/ai";
 import { FaFacebookF } from "react-icons/fa";
 import { BsTwitter } from "react-icons/bs";
 import clx from "classnames";
-import { Link } from "../mbmc/components";
+import { Link } from "../../core/Link/Link";
 export var renderNavLink = function (_a, mode, index, classes, activeElement, handleClick, parentKey) {
     var url = _a.url, text = _a.text;
     var id = (parentKey !== null && parentKey !== void 0 ? parentKey : "nav_links.") + String(index);

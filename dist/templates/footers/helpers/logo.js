@@ -11,7 +11,7 @@ var __assign = (this && this.__assign) || function () {
 };
 import { jsx as _jsx, jsxs as _jsxs } from "react/jsx-runtime";
 import { AiOutlinePicture } from "react-icons/ai";
-import { Link } from "../../mbmc/components";
+import { Link } from "../../../core/Link/Link";
 import { clickAction, isNotRenderAnchor } from "./anchor";
 export var displayLogo = function (mode, classes, activeElement, handleClick, logo, parentKey) {
     var _a;

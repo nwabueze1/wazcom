@@ -5,6 +5,4 @@ export type WrapperProps = {
     classNames?: any;
     title?: string;
     description?: string;
-    showHeader?: boolean;
-    showBody?: boolean;
 };

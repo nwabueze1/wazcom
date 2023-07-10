@@ -1,1 +1,1 @@
-export declare const Time: () => JSX.Element;
+export declare const Time: () => import("react/jsx-runtime").JSX.Element;

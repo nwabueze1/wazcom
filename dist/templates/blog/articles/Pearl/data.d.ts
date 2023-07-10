@@ -1,6 +1,6 @@
 export declare const shareDataPearl: {
     href: string;
     className: string;
-    icon: JSX.Element;
+    icon: import("react/jsx-runtime").JSX.Element;
     alt: string;
 }[];

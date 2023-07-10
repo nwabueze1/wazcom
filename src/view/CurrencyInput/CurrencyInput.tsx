@@ -4,19 +4,13 @@ import { CurrencyInputField } from "../../io";
 import { Wrapper } from "../../core";
 import { useCurrencyInputStyles } from "./styles";
 import { CurrencyInputViewProps } from "./type";
+import { Paper } from "../../core/Paper";
+import { ComponentProps } from "../../core/ComponentProps";
+import { useCurrencyInputData } from "./utils/useCurrencyInputData";
 
 export const CurrencyInputView: FC<CurrencyInputViewProps> = () => {
   const [value] = useState(0);
-
-  const handleEnter = (payload: any) => {
-    console.log("onEnter", payload);
-  };
-  const handleFocus = (payload: any) => {
-    console.log("onFocus", payload);
-  };
-  const handleBlur = (payload: any) => {
-    console.log("onBlur", payload);
-  };
+  const { data, state, handleReset } = useCurrencyInputData();
 
   const classes = useCurrencyInputStyles();
 
@@ -63,84 +57,24 @@ export const CurrencyInputView: FC<CurrencyInputViewProps> = () => {
             innerContainer: classes.innerContainer,
           }}
         >
-          <h4 className={classes.cardTitle}>{inputData.basic.title}</h4>
-          <div className={classes.wrapper}>
-            <CurrencyInputField
-              className={classes.input}
-              label={inputData.basic.label}
-              placeholder={inputData.basic.placeholder}
-              variant="basic"
-              onEnter={handleEnter}
-              onFocus={handleFocus}
-              onBlur={handleBlur}
-              value={value}
-            />
-          </div>
+          <Paper padding={10}>
+            <h4 className={classes.cardTitle}>{inputData.basic.title}</h4>
+            <div className={classes.wrapper}>
+              <CurrencyInputField
+                className={classes.input}
+                label={inputData.basic.label}
+                placeholder={inputData.basic.placeholder}
+                variant="basic"
+                value={value}
+                isError={state.isError}
+                isDisabled={state.isDisabled}
+                isSuccess={state.isSuccess}
+                showDropdownIcon={state.showDropdownIcon}
+              />
+            </div>
+          </Paper>
         </Wrapper>
-        {/* Without Dropdown */}
-        <Wrapper
-          showHeader={false}
-          classNames={{
-            innerContainer: classes.innerContainer,
-          }}
-        >
-          <h4 className={classes.cardTitle}>{inputData.noDropdown.title}</h4>
-          <div className={classes.wrapper}>
-            <CurrencyInputField
-              className={classes.input}
-              label={inputData.noDropdown.label}
-              placeholder={inputData.noDropdown.placeholder}
-              showDropdownIcon={false}
-              variant="basic"
-              onEnter={handleEnter}
-              onFocus={handleFocus}
-              onBlur={handleBlur}
-              value={value}
-            />
-          </div>
-        </Wrapper>
-        {/* Vertical */}
-        <Wrapper
-          showHeader={false}
-          classNames={{
-            innerContainer: classes.innerContainer,
-          }}
-        >
-          <h4 className={classes.cardTitle}>{inputData.vertical.title}</h4>
-          <div className={classes.wrapper}>
-            <CurrencyInputField
-              className={classes.input}
-              label={inputData.vertical.label}
-              placeholder={inputData.vertical.placeholder}
-              variant="vertical"
-              onEnter={handleEnter}
-              onFocus={handleFocus}
-              onBlur={handleBlur}
-              value={value}
-            />
-          </div>
-        </Wrapper>
-        {/* Horizontal */}
-        <Wrapper
-          showHeader={false}
-          classNames={{
-            innerContainer: classes.innerContainer,
-          }}
-        >
-          <h4 className={classes.cardTitle}>{inputData.horizontal.title}</h4>
-          <div className={classes.wrapperHorizontal}>
-            <CurrencyInputField
-              className={classes.input}
-              label={inputData.horizontal.label}
-              placeholder={inputData.horizontal.placeholder}
-              variant="horizontal"
-              onEnter={handleEnter}
-              onFocus={handleFocus}
-              onBlur={handleBlur}
-              value={value}
-            />
-          </div>
-        </Wrapper>
+        <ComponentProps body={data as any[]} onReset={handleReset} />
       </div>
     </div>
   );

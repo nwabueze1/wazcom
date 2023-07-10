@@ -2,10 +2,8 @@ import React from "react";
 import { StyledEngineProvider, Theme, ThemeProvider } from "@mui/material";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import { Blaise } from "templates";
-import { useGetMbmcBlocks } from "templates/mbmc/mbmc";
 import { Valour } from "templates/Navs";
 import { Asta } from "templates/restaurant/Asta/Asta";
-import { Mbmc } from "templates/restaurant/Mbmc/Mbmc";
 import { Layout } from "view/Layout";
 import theme from "./theme";
 import routes from "./routes";
@@ -68,7 +66,7 @@ const navProps: any = {
 };
 
 const App: React.FC = () => {
-  const getMbmcBlocks = useGetMbmcBlocks();
+  // const getMbmcBlocks = useGetMbmcBlocks();
 
   return (
     <StyledEngineProvider injectFirst>
@@ -79,7 +77,7 @@ const App: React.FC = () => {
               {routes.map(({ key, path, component: Component }) => (
                 <Route key={key} path={path} element={<Component />} />
               ))}
-              {getMbmcBlocks()
+              {/* {getMbmcBlocks()
                 .sort(({ name: aName }, { name: bName }) =>
                   aName.toLowerCase() < bName.toLowerCase()
                     ? -1
@@ -93,7 +91,7 @@ const App: React.FC = () => {
                     path={`/templates/:uuid/${name.split("").join("")}`}
                     element={React.cloneElement(<Comp />, props)}
                   />
-                ))}
+                ))} */}
               <Route
                 path="/nour"
                 element={
@@ -109,7 +107,6 @@ const App: React.FC = () => {
               />
               <Route path="/sevyn" element={<Blaise mode="edit" {...navProps} />} />
               <Route path="/asta" element={<Asta />} />
-              <Route path="/mbmc" element={<Mbmc />} />
             </Routes>
           </Layout>
         </BrowserRouter>
