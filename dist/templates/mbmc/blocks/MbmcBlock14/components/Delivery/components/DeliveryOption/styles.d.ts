@@ -1,1 +1,0 @@
-export declare const useDeliveryOptionStyles: (props?: any) => import("@mui/styles").ClassNameMap<"radioInput" | "deliveryDetail" | "deliveryOptionItem" | "deliveryImage" | "deliveryOptionDetail" | "deliveryOptionTitle" | "deliveryOptionDescription">;

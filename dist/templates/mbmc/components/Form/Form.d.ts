@@ -1,3 +1,0 @@
-import React from "react";
-import { FormProps } from "./types";
-export declare const Form: React.FC<FormProps>;

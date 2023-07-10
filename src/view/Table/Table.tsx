@@ -30,8 +30,8 @@ export const TableView = () => {
         getRows={getTableRows}
         query={{
           name: GET_BLOG_POSTS,
-          client: createApolloClient("https://ofambegbe-ploutonion.wazobia.uk/graphql"),
-          variables: { blog_uuid: "a5ad9bed-679c-4190-a1a8-8b2d14bbb3c9" },
+          client: createApolloClient("https://ploutonion.hivedeck.com/graphql"),
+          variables: { blog_uuid: "28c2de0d-fb9f-4e80-b106-86d1af53defc" },
           dataKey: "postsByBlogUuid",
         }}
         conditionFilters={tableConditionFilters}

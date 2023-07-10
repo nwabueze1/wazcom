@@ -1,1 +1,0 @@
-export declare const useMbmcBlock8Styles: (props?: any) => import("@mui/styles").ClassNameMap<"root" | "headerContainer" | "headerContent" | "headerTitle" | "headerDescription" | "carousel" | "headerCardContainer" | "headerCardContainerMobile" | "scrollContainer" | "overallContainer" | "carouselComponent" | "headerIcon" | "navigationButton" | "arrow" | "block8ActiveElement">;

@@ -1,1 +1,0 @@
-export declare const useSummaryStyles: (props?: any) => import("@mui/styles").ClassNameMap<"root" | "summaryDetail" | "summaryItem" | "summaryTotal" | "summaryTotalItem" | "summaryItemDigit" | "summaryButton">;
