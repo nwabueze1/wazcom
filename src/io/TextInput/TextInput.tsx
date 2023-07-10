@@ -120,7 +120,11 @@ export const TextInput: FC<TextFieldProps> = ({
           isFocused && classes.focusedInput,
         )}
       >
-        {leftIcon && <InputIcon marginRight={iconSpacing}>{leftIcon}</InputIcon>}
+        {leftIcon && (
+          <InputIcon marginRight={iconSpacing} marginLeft={iconSpacing}>
+            {leftIcon}
+          </InputIcon>
+        )}
         <input
           type={type}
           name={name}

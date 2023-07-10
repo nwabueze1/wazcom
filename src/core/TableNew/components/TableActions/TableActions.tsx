@@ -42,6 +42,7 @@ export const TableActions: FC<TableActionsProps> = ({
         className={classes.searchInputElement}
         classNames={{ input: classes.searchInput }}
         leftIcon={<BiSearch />}
+        iconSpacing={8}
         onChange={handleSearchChange}
         placeholder={"Search table"}
       />
