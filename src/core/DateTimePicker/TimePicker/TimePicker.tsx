@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import { TextField, BaseTextFieldProps, InputAdornment } from "@mui/material";
 import { useTimePickerStyles } from "./styles";
-import { MdSchedule as ScheduleIcon} from "react-icons/md";
+import { MdSchedule as ScheduleIcon } from "react-icons/md";
 
 interface TimeSelectorProps extends BaseTextFieldProps {
   onChange: (event: React.ChangeEvent<{ name?: string; value: unknown }>) => void;

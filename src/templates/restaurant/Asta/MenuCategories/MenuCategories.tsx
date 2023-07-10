@@ -1,5 +1,8 @@
 import { useCallback, useState, useEffect, useRef } from "react";
-import { MdArrowBackIos as ArrowBackIos, MdArrowForwardIos as ArrowForwardIos } from "react-icons/md";
+import {
+  MdArrowBackIos as ArrowBackIos,
+  MdArrowForwardIos as ArrowForwardIos,
+} from "react-icons/md";
 import { useMenuCategoryStyles } from "./styles";
 import { useDisplayCategories } from "./helpers";
 import { scroll } from "./helpers";
