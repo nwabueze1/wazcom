@@ -30,8 +30,6 @@ export const useTableStyles = makeStyles((theme: Theme) => ({
 
     "&:hover .column-actions": {
       fontSize: theme.typography.fontSize - 2,
-      // height: "fit-content",
-      // transition: "all 0.2s ease-in",
       marginTop: theme.spacing(1),
     },
   },
