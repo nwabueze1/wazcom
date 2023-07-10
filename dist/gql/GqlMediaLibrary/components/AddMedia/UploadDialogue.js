@@ -11,7 +11,7 @@ var __assign = (this && this.__assign) || function () {
 };
 import { jsx as _jsx, jsxs as _jsxs, Fragment as _Fragment } from "react/jsx-runtime";
 import { useAddMediaStyles } from "./styles";
-import { CloseSharp } from "@mui/icons-material";
+import { MdClose as CloseSharp } from "react-icons/md";
 import { Button } from "../../../../core";
 import { Box } from "@mui/material";
 import clx from "classnames";

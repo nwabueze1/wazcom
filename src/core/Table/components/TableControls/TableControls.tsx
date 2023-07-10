@@ -1,7 +1,12 @@
 import { Box, ListItemIcon, MenuItem } from "@mui/material";
 import React, { useState } from "react";
 import { useTableControlsStyles } from "./styles";
-import { Logout, Print, SendToMobileOutlined, Settings } from "@mui/icons-material";
+import {
+  MdLogout as Logout,
+  MdPrint as Print,
+  MdOutlineSendToMobile as SendToMobileOutlined,
+  MdSettings as Settings,
+} from "react-icons/md";
 import { Button } from "../../../Button";
 import { exportToCSV, exportToXlsx } from "../../helpers";
 import { TableControlsProps } from "./types";

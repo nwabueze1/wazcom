@@ -34,7 +34,7 @@ import { SelectInput } from "../../io/SelectInput";
 import { defaultInputs as options } from "./data";
 import { useInputComponents } from "./helper";
 import { Button } from "@mui/material";
-import { QuestionAnswer } from "@mui/icons-material";
+import { MdQuestionAnswer as QuestionAnswer } from "react-icons/md";
 import { BsFillImageFill, BsThreeDotsVertical } from "react-icons/bs";
 import { MdOutlineContentCopy } from "react-icons/md";
 import { RiDeleteBin6Line } from "react-icons/ri";

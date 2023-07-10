@@ -3,4 +3,4 @@ export type Feedback = {
     text: string | string[] | JSX.Element;
     status?: "success" | "neutral" | "error";
 };
-export declare const displayFeedback: (feedback: Feedback, className?: string) => JSX.Element | JSX.Element[];
+export declare const displayFeedback: (feedback: Feedback, className?: string) => import("react/jsx-runtime").JSX.Element | import("react/jsx-runtime").JSX.Element[];

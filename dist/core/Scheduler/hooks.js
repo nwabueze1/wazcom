@@ -10,7 +10,7 @@ var __assign = (this && this.__assign) || function () {
     return __assign.apply(this, arguments);
 };
 import { jsx as _jsx, jsxs as _jsxs } from "react/jsx-runtime";
-import CloseIcon from "@mui/icons-material/Close";
+import { MdClose as CloseIcon } from "react-icons/md";
 import clx from "classnames";
 import { TimeInput, SelectInput } from "../../io";
 import { useSchedulerStyles } from "./styles";

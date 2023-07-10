@@ -33,8 +33,8 @@ import MobileStepper from "@mui/material/MobileStepper";
 import Paper from "@mui/material/Paper";
 import Typography from "@mui/material/Typography";
 import Button from "@mui/material/Button";
-import KeyboardArrowLeft from "@mui/icons-material/KeyboardArrowLeft";
-import KeyboardArrowRight from "@mui/icons-material/KeyboardArrowRight";
+import { MdKeyboardArrowLeft as KeyboardArrowLeft } from "react-icons/md";
+import { MdKeyboardArrowRight as KeyboardArrowRight } from "react-icons/md";
 // const AutoPlaySwipeableViews = autoPlay<typeof SwipeableViews>(SwipeableViews);
 export var Carousel = function (_a) {
     var className = _a.className, items = _a.items;

@@ -1,7 +1,7 @@
 import React, { useState, useEffect, useCallback, useRef } from "react";
 import { useStyles } from "./styles";
 import { CartDialogProps, Option } from "./types";
-import { Close } from "@mui/icons-material";
+import { MdClose as Close } from "react-icons/md";
 import { IoAddCircleOutline } from "react-icons/io5";
 import { AiOutlineMinusCircle } from "react-icons/ai";
 import { changeQuantity as changeQuantityHelper, parseCartItem } from "./helpers";

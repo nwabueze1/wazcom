@@ -5,7 +5,7 @@ import CardContent from "@mui/material/CardContent";
 import { MenuCardProps } from "./types";
 import clx from "classnames";
 import { Typography } from "@mui/material";
-import MoreVertIcon from "@mui/icons-material/MoreVert";
+import { MdMoreVert as MoreVertIcon } from "react-icons/md";
 import { ToggleInput } from "../../io/ToggleInput/ToggleInput";
 
 export const MenuCard: FC<MenuCardProps> = ({

@@ -32,7 +32,7 @@ import { RelatedPostPolitico } from "./RelatedPost";
 import { getDay } from "../../../../utilities/getTime";
 import { usePoliticoStyles } from "./styles";
 import clx from "classnames";
-import Circle from "@mui/icons-material/Circle";
+import { MdCircle as Circle } from "react-icons/md";
 export var Politico = function (_a) {
     var _b;
     var article = _a.article, domain = _a.domain, handleClick = _a.handleClick;

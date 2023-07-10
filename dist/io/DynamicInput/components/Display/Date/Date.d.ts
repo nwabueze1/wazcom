@@ -1,1 +1,1 @@
-export declare const Date: () => JSX.Element;
+export declare const Date: () => import("react/jsx-runtime").JSX.Element;

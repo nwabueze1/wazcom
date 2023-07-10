@@ -1,2 +1,2 @@
-declare const VideoIcon: () => JSX.Element;
+declare const VideoIcon: () => import("react/jsx-runtime").JSX.Element;
 export default VideoIcon;
