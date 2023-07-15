@@ -4,6 +4,7 @@ import { FC, cloneElement, isValidElement } from "react";
 import React, { ChangeEvent, KeyboardEvent, useCallback, useState } from "react";
 import { useTextStyles, useTextInputIconStyles } from "./styles";
 import { TextFieldProps, InputIconProps } from "./types";
+import { useCustomStyles } from "./customStyles";
 
 /**
  * Text Input IO Component
@@ -30,6 +31,7 @@ export const TextInput: FC<TextFieldProps> = ({
   onEnter,
   onBlur,
   required = false,
+  isNewInput = false,
   showCC,
   type = "text",
   leftIcon,
@@ -44,9 +46,11 @@ export const TextInput: FC<TextFieldProps> = ({
   borderStyle,
   borderRadius,
   classNames,
+  placeholder,
   ...props
 }) => {
   const [isFocused, setIsFocused] = React.useState<boolean>(false);
+  const [hasValue, setHasValue] = React.useState(false);
   const classes = useTextStyles({
     width,
     height,
@@ -57,6 +61,10 @@ export const TextInput: FC<TextFieldProps> = ({
     borderStyle,
     borderRadius,
   });
+  const customClass = useCustomStyles();
+
+  const changeHasValue = (e: ChangeEvent<HTMLInputElement> | KeyboardEvent<HTMLInputElement>) =>
+    (e.target as HTMLInputElement).value.length > 0 ? setHasValue(true) : setHasValue(false);
 
   const handleChange = (e: ChangeEvent<HTMLInputElement>) => {
     if (onChange) {
@@ -64,6 +72,7 @@ export const TextInput: FC<TextFieldProps> = ({
         name: (e.target as HTMLInputElement).name ?? "",
         value: (e.target as HTMLInputElement).value ?? "",
       });
+      changeHasValue(e);
     }
   };
   const handleOnKeyDown = (e: KeyboardEvent<HTMLInputElement>) => {
@@ -72,6 +81,7 @@ export const TextInput: FC<TextFieldProps> = ({
         name: (e.target as HTMLInputElement).name ?? "",
         value: (e.target as HTMLInputElement).value ?? "",
       });
+      changeHasValue(e);
     }
   };
 
@@ -82,6 +92,7 @@ export const TextInput: FC<TextFieldProps> = ({
         name: (e.target as HTMLInputElement).name ?? "",
         value: (e.target as HTMLInputElement).value ?? "",
       });
+      changeHasValue(e);
     }
   };
 
@@ -92,14 +103,24 @@ export const TextInput: FC<TextFieldProps> = ({
         name: (e.target as HTMLInputElement).name ?? "",
         value: (e.target as HTMLInputElement).value ?? "",
       });
+      changeHasValue(e);
     }
   };
 
   return (
-    <div className={clx(classes.root, className)}>
-      <div className={classes.labelWrapper}>
+    <div className={clx(classes.root, className, isNewInput && customClass.container)}>
+      <div
+        className={clx(
+          classes.labelWrapper,
+          isNewInput && customClass.labelContainer,
+          (isFocused || hasValue) && "active",
+        )}
+      >
         {!hideLabel && label && (
-          <label htmlFor={name} className={classes.label}>
+          <label
+            htmlFor={name}
+            className={clx(classes.label, isNewInput && customClass.inputLabel)}
+          >
             {label}
             {required && <span className={classes.required}>*</span>}
           </label>
@@ -115,6 +136,9 @@ export const TextInput: FC<TextFieldProps> = ({
           classes.baseInput,
           classes.defaultInput,
           classNames?.input,
+          isNewInput && customClass.inputContainer,
+          isNewInput && (isError || errors) && customClass.inputError,
+          isNewInput && isSuccess && customClass.inputSuccess,
           isSuccess && classes.successInput,
           (isError || errors) && classes.errorInput,
           isFocused && classes.focusedInput,
@@ -128,11 +152,12 @@ export const TextInput: FC<TextFieldProps> = ({
         <input
           type={type}
           name={name}
-          className={classes.input}
+          className={clx(classes.input, isNewInput && customClass.input)}
           onFocus={handleFocus}
           onBlur={handleBlur}
           onChange={handleChange}
           onKeyDown={handleOnKeyDown}
+          placeholder={isNewInput ? (isFocused && !props.value ? placeholder : "") : placeholder}
           {...props}
         />
         {rightIcon && <InputIcon marginLeft={iconSpacing}>{rightIcon}</InputIcon>}

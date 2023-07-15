@@ -26,6 +26,7 @@ export type TextBaseProps = CommonProps & {
   isError?: boolean;
   isSuccess?: boolean;
   isValidated?: boolean;
+  isNewLayout?: boolean;
   errors?: {
     message: string;
   }[];
@@ -35,7 +36,7 @@ export type TextBaseProps = CommonProps & {
   rightIcon?: React.ReactElement;
   iconSpacing?: string | number;
   children?: React.ReactNode;
-
+  isNewInput?: boolean;
   width?: string | number;
   height?: string | number;
   background?: string;
