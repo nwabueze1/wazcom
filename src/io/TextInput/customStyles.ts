@@ -14,7 +14,6 @@ export const useCustomStyles = makeStyles((theme: Theme) => ({
     border: `1px solid ${theme.design.colors.blackVariant4}`,
     borderRadius: theme.spacing(0.5),
     padding: theme.spacing(1.7, 1.2),
-    boxSizing: "content-box",
     position: "relative",
     height: "auto",
     display: "flex",
@@ -50,7 +49,7 @@ export const useCustomStyles = makeStyles((theme: Theme) => ({
   },
   labelContainer: {
     position: "absolute",
-    top: "30%",
+    top: 15,
     left: 10,
     transition: "top 0.5s, font-size 0.3s",
     pointerEvents: "none",
