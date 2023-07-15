@@ -1,0 +1,1 @@
+export declare const useInsertButtonStyles: (props?: any) => import("@mui/styles").ClassNameMap<"root" | "options" | "showOptions" | "insertButton" | "selectOption" | "optionTitleSpan" | "linkIcon" | "hideOptions">;
