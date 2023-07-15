@@ -11,8 +11,10 @@ export var useCustomStyles = makeStyles(function (theme) { return ({
         width: "100%",
         border: "1px solid ".concat(theme.design.colors.blackVariant4),
         borderRadius: theme.spacing(0.5),
-        padding: theme.spacing(2, 1.5),
+        padding: theme.spacing(1.7, 1.2),
+        boxSizing: "content-box",
         position: "relative",
+        height: "auto",
         display: "flex",
         alignItems: "center",
         "&:hover": {
@@ -46,7 +48,7 @@ export var useCustomStyles = makeStyles(function (theme) { return ({
     },
     labelContainer: {
         position: "absolute",
-        top: 8,
+        top: "30%",
         left: 10,
         transition: "top 0.5s, font-size 0.3s",
         pointerEvents: "none",
@@ -54,7 +56,7 @@ export var useCustomStyles = makeStyles(function (theme) { return ({
         transform: "translateY(0)",
         "&.active": {
             top: 6,
-            left: 4,
+            left: 0,
             transform: "translateY(-100%)",
             color: theme.design.colors.green,
         },
