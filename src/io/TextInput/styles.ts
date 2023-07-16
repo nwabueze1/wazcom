@@ -133,7 +133,7 @@ export const useTextStyles = makeStyles((theme: Theme) => ({
     fontSize: theme.typography.fontSize - 1,
     textAlign: "left",
     marginTop: theme.spacing(0.8),
-    flexWrap: "nowrap",
+    flexWrap: "wrap",
     columnGap: theme.spacing(1.3),
   },
   helperTextSuccess: {
