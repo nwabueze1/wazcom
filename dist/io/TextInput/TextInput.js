@@ -51,7 +51,7 @@ import { isNumber, isBoolean } from "lodash";
 import { cloneElement, isValidElement } from "react";
 import React, { useCallback, useState } from "react";
 import { useTextStyles, useTextInputIconStyles } from "./styles";
-import { useCustomStyles } from "./customStyles";
+import { useNewInputStyles } from "./newInputStyles";
 /**
  * Text Input IO Component
  *
@@ -76,7 +76,7 @@ export var TextInput = function (_a) {
         borderStyle: borderStyle,
         borderRadius: borderRadius,
     });
-    var customClass = useCustomStyles();
+    var newInputClass = useNewInputStyles();
     var changeHasValue = function (e) {
         return e.target.value.length > 0 ? setHasValue(true) : setHasValue(false);
     };
@@ -122,7 +122,7 @@ export var TextInput = function (_a) {
             changeHasValue(e);
         }
     };
-    return (_jsxs("div", __assign({ className: clx(classes.root, className, isNewInput && customClass.container) }, { children: [_jsxs("div", __assign({ className: clx(classes.labelWrapper, isNewInput && customClass.labelContainer, (isFocused || hasValue) && "active") }, { children: [!hideLabel && label && (_jsxs("label", __assign({ htmlFor: name, className: clx(classes.label, isNewInput && customClass.inputLabel) }, { children: [label, required && _jsx("span", __assign({ className: classes.required }, { children: "*" }))] }))), showCC && (_jsx("span", __assign({ className: clx(classes.wordCount, classes.label, classNames === null || classNames === void 0 ? void 0 : classNames.label) }, { children: (props === null || props === void 0 ? void 0 : props.value) && (props === null || props === void 0 ? void 0 : props.value.length) > 0 && (props === null || props === void 0 ? void 0 : props.value.length) })))] })), _jsxs("div", __assign({ className: clx(classes.baseInput, classes.defaultInput, classNames === null || classNames === void 0 ? void 0 : classNames.input, isNewInput && customClass.inputContainer, isNewInput && (isError || errors) && customClass.inputError, isNewInput && isSuccess && customClass.inputSuccess, isSuccess && classes.successInput, (isError || errors) && classes.errorInput, isFocused && classes.focusedInput) }, { children: [leftIcon && (_jsx(InputIcon, __assign({ marginRight: iconSpacing, marginLeft: iconSpacing }, { children: leftIcon }))), _jsx("input", __assign({ type: type, name: name, className: clx(classes.input, isNewInput && customClass.input), onFocus: handleFocus, onBlur: handleBlur, onChange: handleChange, onKeyDown: handleOnKeyDown, placeholder: isNewInput ? (isFocused && !props.value ? placeholder : "") : placeholder }, props)), rightIcon && _jsx(InputIcon, __assign({ marginLeft: iconSpacing }, { children: rightIcon }))] })), helperText && (_jsx("span", __assign({ className: clx(classes.helperTextDefault, isSuccess && classes.helperTextSuccess, isError && classes.helperTextError) }, { children: helperText })))] })));
+    return (_jsxs("div", __assign({ className: clx(classes.root, className, isNewInput && newInputClass.container) }, { children: [_jsxs("div", __assign({ className: clx(classes.labelWrapper, isNewInput && newInputClass.labelContainer, (isFocused || hasValue) && "active") }, { children: [!hideLabel && label && (_jsxs("label", __assign({ htmlFor: name, className: clx(classes.label, isNewInput && newInputClass.inputLabel) }, { children: [label, required && _jsx("span", __assign({ className: classes.required }, { children: "*" }))] }))), showCC && (_jsx("span", __assign({ className: clx(classes.wordCount, classes.label, classNames === null || classNames === void 0 ? void 0 : classNames.label) }, { children: (props === null || props === void 0 ? void 0 : props.value) && (props === null || props === void 0 ? void 0 : props.value.length) > 0 && (props === null || props === void 0 ? void 0 : props.value.length) })))] })), _jsxs("div", __assign({ className: clx(classes.baseInput, classes.defaultInput, classNames === null || classNames === void 0 ? void 0 : classNames.input, isNewInput && newInputClass.inputContainer, isNewInput && (isError || errors) && newInputClass.inputError, isNewInput && isSuccess && newInputClass.inputSuccess, isSuccess && classes.successInput, (isError || errors) && classes.errorInput, isFocused && classes.focusedInput) }, { children: [leftIcon && (_jsx(InputIcon, __assign({ marginRight: iconSpacing, marginLeft: iconSpacing }, { children: leftIcon }))), _jsx("input", __assign({ type: type, name: name, className: clx(classes.input, isNewInput && newInputClass.input), onFocus: handleFocus, onBlur: handleBlur, onChange: handleChange, onKeyDown: handleOnKeyDown, placeholder: isNewInput ? (isFocused && !props.value ? placeholder : "") : placeholder }, props)), rightIcon && _jsx(InputIcon, __assign({ marginLeft: iconSpacing }, { children: rightIcon }))] })), helperText && (_jsx("span", __assign({ className: clx(classes.helperTextDefault, isSuccess && classes.helperTextSuccess, isError && classes.helperTextError) }, { children: helperText })))] })));
 };
 var validateEmail = function (email) {
     var validator = String(email)

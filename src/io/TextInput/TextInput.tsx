@@ -4,7 +4,7 @@ import { FC, cloneElement, isValidElement } from "react";
 import React, { ChangeEvent, KeyboardEvent, useCallback, useState } from "react";
 import { useTextStyles, useTextInputIconStyles } from "./styles";
 import { TextFieldProps, InputIconProps } from "./types";
-import { useCustomStyles } from "./customStyles";
+import { useNewInputStyles } from "./newInputStyles";
 
 /**
  * Text Input IO Component
@@ -61,7 +61,7 @@ export const TextInput: FC<TextFieldProps> = ({
     borderStyle,
     borderRadius,
   });
-  const customClass = useCustomStyles();
+  const newInputClass = useNewInputStyles();
 
   const changeHasValue = (e: ChangeEvent<HTMLInputElement> | KeyboardEvent<HTMLInputElement>) =>
     (e.target as HTMLInputElement).value.length > 0 ? setHasValue(true) : setHasValue(false);
@@ -108,18 +108,18 @@ export const TextInput: FC<TextFieldProps> = ({
   };
 
   return (
-    <div className={clx(classes.root, className, isNewInput && customClass.container)}>
+    <div className={clx(classes.root, className, isNewInput && newInputClass.container)}>
       <div
         className={clx(
           classes.labelWrapper,
-          isNewInput && customClass.labelContainer,
+          isNewInput && newInputClass.labelContainer,
           (isFocused || hasValue) && "active",
         )}
       >
         {!hideLabel && label && (
           <label
             htmlFor={name}
-            className={clx(classes.label, isNewInput && customClass.inputLabel)}
+            className={clx(classes.label, isNewInput && newInputClass.inputLabel)}
           >
             {label}
             {required && <span className={classes.required}>*</span>}
@@ -136,9 +136,9 @@ export const TextInput: FC<TextFieldProps> = ({
           classes.baseInput,
           classes.defaultInput,
           classNames?.input,
-          isNewInput && customClass.inputContainer,
-          isNewInput && (isError || errors) && customClass.inputError,
-          isNewInput && isSuccess && customClass.inputSuccess,
+          isNewInput && newInputClass.inputContainer,
+          isNewInput && (isError || errors) && newInputClass.inputError,
+          isNewInput && isSuccess && newInputClass.inputSuccess,
           isSuccess && classes.successInput,
           (isError || errors) && classes.errorInput,
           isFocused && classes.focusedInput,
@@ -152,7 +152,7 @@ export const TextInput: FC<TextFieldProps> = ({
         <input
           type={type}
           name={name}
-          className={clx(classes.input, isNewInput && customClass.input)}
+          className={clx(classes.input, isNewInput && newInputClass.input)}
           onFocus={handleFocus}
           onBlur={handleBlur}
           onChange={handleChange}
