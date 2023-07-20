@@ -4,7 +4,7 @@ import { FC, cloneElement, isValidElement } from "react";
 import React, { ChangeEvent, KeyboardEvent, useCallback, useState } from "react";
 import { useTextStyles, useTextInputIconStyles } from "./styles";
 import { TextFieldProps, InputIconProps } from "./types";
-import { useNewInputStyles } from "./newInputStyles";
+import { useInputWithSlideUpLabelStyles } from "./useInputWithSlideUpLabelStyles";
 
 /**
  * Text Input IO Component
@@ -31,7 +31,7 @@ export const TextInput: FC<TextFieldProps> = ({
   onEnter,
   onBlur,
   required = false,
-  isNewInput = false,
+  hasSlideUpLabel = false,
   showCC,
   type = "text",
   leftIcon,
@@ -50,7 +50,6 @@ export const TextInput: FC<TextFieldProps> = ({
   ...props
 }) => {
   const [isFocused, setIsFocused] = React.useState<boolean>(false);
-  const [hasValue, setHasValue] = React.useState(false);
   const classes = useTextStyles({
     width,
     height,
@@ -61,10 +60,7 @@ export const TextInput: FC<TextFieldProps> = ({
     borderStyle,
     borderRadius,
   });
-  const newInputClass = useNewInputStyles();
-
-  const changeHasValue = (e: ChangeEvent<HTMLInputElement> | KeyboardEvent<HTMLInputElement>) =>
-    (e.target as HTMLInputElement).value.length > 0 ? setHasValue(true) : setHasValue(false);
+  const newInputClass = useInputWithSlideUpLabelStyles();
 
   const handleChange = (e: ChangeEvent<HTMLInputElement>) => {
     if (onChange) {
@@ -72,7 +68,6 @@ export const TextInput: FC<TextFieldProps> = ({
         name: (e.target as HTMLInputElement).name ?? "",
         value: (e.target as HTMLInputElement).value ?? "",
       });
-      changeHasValue(e);
     }
   };
   const handleOnKeyDown = (e: KeyboardEvent<HTMLInputElement>) => {
@@ -81,7 +76,6 @@ export const TextInput: FC<TextFieldProps> = ({
         name: (e.target as HTMLInputElement).name ?? "",
         value: (e.target as HTMLInputElement).value ?? "",
       });
-      changeHasValue(e);
     }
   };
 
@@ -92,7 +86,6 @@ export const TextInput: FC<TextFieldProps> = ({
         name: (e.target as HTMLInputElement).name ?? "",
         value: (e.target as HTMLInputElement).value ?? "",
       });
-      changeHasValue(e);
     }
   };
 
@@ -103,23 +96,22 @@ export const TextInput: FC<TextFieldProps> = ({
         name: (e.target as HTMLInputElement).name ?? "",
         value: (e.target as HTMLInputElement).value ?? "",
       });
-      changeHasValue(e);
     }
   };
 
   return (
-    <div className={clx(classes.root, className, isNewInput && newInputClass.container)}>
+    <div className={clx(classes.root, className, hasSlideUpLabel && newInputClass.container)}>
       <div
         className={clx(
           classes.labelWrapper,
-          isNewInput && newInputClass.labelContainer,
-          (isFocused || hasValue) && "active",
+          hasSlideUpLabel && newInputClass.labelContainer,
+          (isFocused || props.value) && "active",
         )}
       >
         {!hideLabel && label && (
           <label
             htmlFor={name}
-            className={clx(classes.label, isNewInput && newInputClass.inputLabel)}
+            className={clx(classes.label, hasSlideUpLabel && newInputClass.inputLabel)}
           >
             {label}
             {required && <span className={classes.required}>*</span>}
@@ -136,9 +128,9 @@ export const TextInput: FC<TextFieldProps> = ({
           classes.baseInput,
           classes.defaultInput,
           classNames?.input,
-          isNewInput && newInputClass.inputContainer,
-          isNewInput && (isError || errors) && newInputClass.inputError,
-          isNewInput && isSuccess && newInputClass.inputSuccess,
+          hasSlideUpLabel && newInputClass.inputContainer,
+          hasSlideUpLabel && (isError || errors) && newInputClass.inputError,
+          hasSlideUpLabel && isSuccess && newInputClass.inputSuccess,
           isSuccess && classes.successInput,
           (isError || errors) && classes.errorInput,
           isFocused && classes.focusedInput,
@@ -152,12 +144,14 @@ export const TextInput: FC<TextFieldProps> = ({
         <input
           type={type}
           name={name}
-          className={clx(classes.input, isNewInput && newInputClass.input)}
+          className={clx(classes.input, hasSlideUpLabel && newInputClass.input)}
           onFocus={handleFocus}
           onBlur={handleBlur}
           onChange={handleChange}
           onKeyDown={handleOnKeyDown}
-          placeholder={isNewInput ? (isFocused && !props.value ? placeholder : "") : placeholder}
+          placeholder={
+            hasSlideUpLabel ? (isFocused && !props.value ? placeholder : "") : placeholder
+          }
           {...props}
         />
         {rightIcon && <InputIcon marginLeft={iconSpacing}>{rightIcon}</InputIcon>}

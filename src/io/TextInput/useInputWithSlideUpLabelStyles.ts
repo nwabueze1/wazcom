@@ -1,7 +1,7 @@
 import { Theme } from "@mui/material";
 import { makeStyles } from "@mui/styles";
 
-export const useNewInputStyles = makeStyles((theme: Theme) => ({
+export const useInputWithSlideUpLabelStyles = makeStyles((theme: Theme) => ({
   container: {
     width: "100%",
     position: "relative",

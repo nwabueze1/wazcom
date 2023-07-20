@@ -14,7 +14,6 @@ export type BaseInputProps = React.InputHTMLAttributes<HTMLInputElement>;
 
 export type TextBaseProps = CommonProps & {
   classNames?: { [key: string]: string };
-
   helperText?: string;
   hideLabel?: boolean;
   info?: string;
@@ -26,7 +25,7 @@ export type TextBaseProps = CommonProps & {
   isError?: boolean;
   isSuccess?: boolean;
   isValidated?: boolean;
-  isNewLayout?: boolean;
+  hasSlideUpLabel?: boolean;
   errors?: {
     message: string;
   }[];
@@ -36,7 +35,6 @@ export type TextBaseProps = CommonProps & {
   rightIcon?: React.ReactElement;
   iconSpacing?: string | number;
   children?: React.ReactNode;
-  isNewInput?: boolean;
   width?: string | number;
   height?: string | number;
   background?: string;
@@ -45,7 +43,6 @@ export type TextBaseProps = CommonProps & {
   borderStyle?: string;
   borderColor?: string;
   borderRadius?: string | number;
-
   onFocus?: (...args: any[]) => void;
   onEnter?: (...args: any[]) => void;
   onBlur?: (...args: any[]) => void;
