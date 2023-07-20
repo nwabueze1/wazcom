@@ -60,7 +60,7 @@ export const TextInput: FC<TextFieldProps> = ({
     borderStyle,
     borderRadius,
   });
-  const newInputClass = useInputWithSlideUpLabelStyles();
+  const slideUpLabelClass = useInputWithSlideUpLabelStyles();
 
   const handleChange = (e: ChangeEvent<HTMLInputElement>) => {
     if (onChange) {
@@ -100,18 +100,18 @@ export const TextInput: FC<TextFieldProps> = ({
   };
 
   return (
-    <div className={clx(classes.root, className, hasSlideUpLabel && newInputClass.container)}>
+    <div className={clx(classes.root, className, hasSlideUpLabel && slideUpLabelClass.container)}>
       <div
         className={clx(
           classes.labelWrapper,
-          hasSlideUpLabel && newInputClass.labelContainer,
+          hasSlideUpLabel && slideUpLabelClass.labelContainer,
           (isFocused || props.value) && "active",
         )}
       >
         {!hideLabel && label && (
           <label
             htmlFor={name}
-            className={clx(classes.label, hasSlideUpLabel && newInputClass.inputLabel)}
+            className={clx(classes.label, hasSlideUpLabel && slideUpLabelClass.inputLabel)}
           >
             {label}
             {required && <span className={classes.required}>*</span>}
@@ -128,9 +128,9 @@ export const TextInput: FC<TextFieldProps> = ({
           classes.baseInput,
           classes.defaultInput,
           classNames?.input,
-          hasSlideUpLabel && newInputClass.inputContainer,
-          hasSlideUpLabel && (isError || errors) && newInputClass.inputError,
-          hasSlideUpLabel && isSuccess && newInputClass.inputSuccess,
+          hasSlideUpLabel && slideUpLabelClass.inputContainer,
+          hasSlideUpLabel && (isError || errors) && slideUpLabelClass.inputError,
+          hasSlideUpLabel && isSuccess && slideUpLabelClass.inputSuccess,
           isSuccess && classes.successInput,
           (isError || errors) && classes.errorInput,
           isFocused && classes.focusedInput,
@@ -144,7 +144,7 @@ export const TextInput: FC<TextFieldProps> = ({
         <input
           type={type}
           name={name}
-          className={clx(classes.input, hasSlideUpLabel && newInputClass.input)}
+          className={clx(classes.input, hasSlideUpLabel && slideUpLabelClass.input)}
           onFocus={handleFocus}
           onBlur={handleBlur}
           onChange={handleChange}
