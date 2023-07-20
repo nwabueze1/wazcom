@@ -1,0 +1,1 @@
+export declare const useInputWithSlideUpLabelStyles: (props?: any) => import("@mui/styles").ClassNameMap<"container" | "input" | "list" | "inputGroup" | "inputContainer" | "inputError" | "inputSuccess" | "labelContainer" | "inputLabel" | "activeLabel" | "requiredStar" | "visibilityIcon">;

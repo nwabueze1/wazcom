@@ -51,7 +51,7 @@ import { isNumber, isBoolean } from "lodash";
 import { cloneElement, isValidElement } from "react";
 import React, { useCallback, useState } from "react";
 import { useTextStyles, useTextInputIconStyles } from "./styles";
-import { useNewInputStyles } from "./newInputStyles";
+import { useInputWithSlideUpLabelStyles } from "./useInputWithSlideUpLabelStyles";
 /**
  * Text Input IO Component
  *
@@ -63,9 +63,8 @@ import { useNewInputStyles } from "./newInputStyles";
  * -- info
  */
 export var TextInput = function (_a) {
-    var className = _a.className, label = _a.label, errors = _a.errors, isError = _a.isError, isSuccess = _a.isSuccess, helperText = _a.helperText, _b = _a.hideLabel, hideLabel = _b === void 0 ? false : _b, name = _a.name, onChange = _a.onChange, onFocus = _a.onFocus, onEnter = _a.onEnter, onBlur = _a.onBlur, _c = _a.required, required = _c === void 0 ? false : _c, _d = _a.isNewInput, isNewInput = _d === void 0 ? false : _d, showCC = _a.showCC, _e = _a.type, type = _e === void 0 ? "text" : _e, leftIcon = _a.leftIcon, rightIcon = _a.rightIcon, iconSpacing = _a.iconSpacing, width = _a.width, height = _a.height, color = _a.color, background = _a.background, borderWidth = _a.borderWidth, borderColor = _a.borderColor, borderStyle = _a.borderStyle, borderRadius = _a.borderRadius, classNames = _a.classNames, placeholder = _a.placeholder, props = __rest(_a, ["className", "label", "errors", "isError", "isSuccess", "helperText", "hideLabel", "name", "onChange", "onFocus", "onEnter", "onBlur", "required", "isNewInput", "showCC", "type", "leftIcon", "rightIcon", "iconSpacing", "width", "height", "color", "background", "borderWidth", "borderColor", "borderStyle", "borderRadius", "classNames", "placeholder"]);
+    var className = _a.className, label = _a.label, errors = _a.errors, isError = _a.isError, isSuccess = _a.isSuccess, helperText = _a.helperText, _b = _a.hideLabel, hideLabel = _b === void 0 ? false : _b, name = _a.name, onChange = _a.onChange, onFocus = _a.onFocus, onEnter = _a.onEnter, onBlur = _a.onBlur, _c = _a.required, required = _c === void 0 ? false : _c, _d = _a.hasSlideUpLabel, hasSlideUpLabel = _d === void 0 ? false : _d, showCC = _a.showCC, _e = _a.type, type = _e === void 0 ? "text" : _e, leftIcon = _a.leftIcon, rightIcon = _a.rightIcon, iconSpacing = _a.iconSpacing, width = _a.width, height = _a.height, color = _a.color, background = _a.background, borderWidth = _a.borderWidth, borderColor = _a.borderColor, borderStyle = _a.borderStyle, borderRadius = _a.borderRadius, classNames = _a.classNames, placeholder = _a.placeholder, props = __rest(_a, ["className", "label", "errors", "isError", "isSuccess", "helperText", "hideLabel", "name", "onChange", "onFocus", "onEnter", "onBlur", "required", "hasSlideUpLabel", "showCC", "type", "leftIcon", "rightIcon", "iconSpacing", "width", "height", "color", "background", "borderWidth", "borderColor", "borderStyle", "borderRadius", "classNames", "placeholder"]);
     var _f = __read(React.useState(false), 2), isFocused = _f[0], setIsFocused = _f[1];
-    var _g = __read(React.useState(false), 2), hasValue = _g[0], setHasValue = _g[1];
     var classes = useTextStyles({
         width: width,
         height: height,
@@ -76,10 +75,7 @@ export var TextInput = function (_a) {
         borderStyle: borderStyle,
         borderRadius: borderRadius,
     });
-    var newInputClass = useNewInputStyles();
-    var changeHasValue = function (e) {
-        return e.target.value.length > 0 ? setHasValue(true) : setHasValue(false);
-    };
+    var newInputClass = useInputWithSlideUpLabelStyles();
     var handleChange = function (e) {
         var _a, _b;
         if (onChange) {
@@ -87,7 +83,6 @@ export var TextInput = function (_a) {
                 name: (_a = e.target.name) !== null && _a !== void 0 ? _a : "",
                 value: (_b = e.target.value) !== null && _b !== void 0 ? _b : "",
             });
-            changeHasValue(e);
         }
     };
     var handleOnKeyDown = function (e) {
@@ -97,7 +92,6 @@ export var TextInput = function (_a) {
                 name: (_a = e.target.name) !== null && _a !== void 0 ? _a : "",
                 value: (_b = e.target.value) !== null && _b !== void 0 ? _b : "",
             });
-            changeHasValue(e);
         }
     };
     var handleFocus = function (e) {
@@ -108,7 +102,6 @@ export var TextInput = function (_a) {
                 name: (_a = e.target.name) !== null && _a !== void 0 ? _a : "",
                 value: (_b = e.target.value) !== null && _b !== void 0 ? _b : "",
             });
-            changeHasValue(e);
         }
     };
     var handleBlur = function (e) {
@@ -119,10 +112,9 @@ export var TextInput = function (_a) {
                 name: (_a = e.target.name) !== null && _a !== void 0 ? _a : "",
                 value: (_b = e.target.value) !== null && _b !== void 0 ? _b : "",
             });
-            changeHasValue(e);
         }
     };
-    return (_jsxs("div", __assign({ className: clx(classes.root, className, isNewInput && newInputClass.container) }, { children: [_jsxs("div", __assign({ className: clx(classes.labelWrapper, isNewInput && newInputClass.labelContainer, (isFocused || hasValue) && "active") }, { children: [!hideLabel && label && (_jsxs("label", __assign({ htmlFor: name, className: clx(classes.label, isNewInput && newInputClass.inputLabel) }, { children: [label, required && _jsx("span", __assign({ className: classes.required }, { children: "*" }))] }))), showCC && (_jsx("span", __assign({ className: clx(classes.wordCount, classes.label, classNames === null || classNames === void 0 ? void 0 : classNames.label) }, { children: (props === null || props === void 0 ? void 0 : props.value) && (props === null || props === void 0 ? void 0 : props.value.length) > 0 && (props === null || props === void 0 ? void 0 : props.value.length) })))] })), _jsxs("div", __assign({ className: clx(classes.baseInput, classes.defaultInput, classNames === null || classNames === void 0 ? void 0 : classNames.input, isNewInput && newInputClass.inputContainer, isNewInput && (isError || errors) && newInputClass.inputError, isNewInput && isSuccess && newInputClass.inputSuccess, isSuccess && classes.successInput, (isError || errors) && classes.errorInput, isFocused && classes.focusedInput) }, { children: [leftIcon && (_jsx(InputIcon, __assign({ marginRight: iconSpacing, marginLeft: iconSpacing }, { children: leftIcon }))), _jsx("input", __assign({ type: type, name: name, className: clx(classes.input, isNewInput && newInputClass.input), onFocus: handleFocus, onBlur: handleBlur, onChange: handleChange, onKeyDown: handleOnKeyDown, placeholder: isNewInput ? (isFocused && !props.value ? placeholder : "") : placeholder }, props)), rightIcon && _jsx(InputIcon, __assign({ marginLeft: iconSpacing }, { children: rightIcon }))] })), helperText && (_jsx("span", __assign({ className: clx(classes.helperTextDefault, isSuccess && classes.helperTextSuccess, isError && classes.helperTextError) }, { children: helperText })))] })));
+    return (_jsxs("div", __assign({ className: clx(classes.root, className, hasSlideUpLabel && newInputClass.container) }, { children: [_jsxs("div", __assign({ className: clx(classes.labelWrapper, hasSlideUpLabel && newInputClass.labelContainer, (isFocused || props.value) && "active") }, { children: [!hideLabel && label && (_jsxs("label", __assign({ htmlFor: name, className: clx(classes.label, hasSlideUpLabel && newInputClass.inputLabel) }, { children: [label, required && _jsx("span", __assign({ className: classes.required }, { children: "*" }))] }))), showCC && (_jsx("span", __assign({ className: clx(classes.wordCount, classes.label, classNames === null || classNames === void 0 ? void 0 : classNames.label) }, { children: (props === null || props === void 0 ? void 0 : props.value) && (props === null || props === void 0 ? void 0 : props.value.length) > 0 && (props === null || props === void 0 ? void 0 : props.value.length) })))] })), _jsxs("div", __assign({ className: clx(classes.baseInput, classes.defaultInput, classNames === null || classNames === void 0 ? void 0 : classNames.input, hasSlideUpLabel && newInputClass.inputContainer, hasSlideUpLabel && (isError || errors) && newInputClass.inputError, hasSlideUpLabel && isSuccess && newInputClass.inputSuccess, isSuccess && classes.successInput, (isError || errors) && classes.errorInput, isFocused && classes.focusedInput) }, { children: [leftIcon && (_jsx(InputIcon, __assign({ marginRight: iconSpacing, marginLeft: iconSpacing }, { children: leftIcon }))), _jsx("input", __assign({ type: type, name: name, className: clx(classes.input, hasSlideUpLabel && newInputClass.input), onFocus: handleFocus, onBlur: handleBlur, onChange: handleChange, onKeyDown: handleOnKeyDown, placeholder: hasSlideUpLabel ? (isFocused && !props.value ? placeholder : "") : placeholder }, props)), rightIcon && _jsx(InputIcon, __assign({ marginLeft: iconSpacing }, { children: rightIcon }))] })), helperText && (_jsx("span", __assign({ className: clx(classes.helperTextDefault, isSuccess && classes.helperTextSuccess, isError && classes.helperTextError) }, { children: helperText })))] })));
 };
 var validateEmail = function (email) {
     var validator = String(email)
