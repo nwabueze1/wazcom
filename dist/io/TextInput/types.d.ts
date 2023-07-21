@@ -23,6 +23,7 @@ export type TextBaseProps = CommonProps & {
     isError?: boolean;
     isSuccess?: boolean;
     isValidated?: boolean;
+    hasSlideUpLabel?: boolean;
     errors?: {
         message: string;
     }[];

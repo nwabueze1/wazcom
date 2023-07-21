@@ -135,12 +135,14 @@ export var useTextStyles = makeStyles(function (theme) { return ({
         width: "100%",
     },
     helperTextDefault: {
-        display: "flex",
+        display: "inline-flex",
         width: "100%",
         letterSpacing: 0,
         fontSize: theme.typography.fontSize - 1,
         textAlign: "left",
         marginTop: theme.spacing(0.8),
+        flexWrap: "wrap",
+        columnGap: theme.spacing(1.3),
     },
     helperTextSuccess: {
         color: theme.design.colors.waz_primaryColor100,
