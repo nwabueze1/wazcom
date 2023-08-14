@@ -545,7 +545,7 @@ export const stories: ComponentPropType[] = [
           value: "Twisted MX",
         },
       ],
-      value: { label: "Love", value: "45" },
+      value: "testing",
       placeholder: "Select Wazobia Member",
       isAdd: false,
     },

@@ -31,13 +31,16 @@ export const ComboBoxInput: FC<ComboBoxInputProps> = ({
   }, [initialOptions]);
 
   useEffect(() => {
-    if (!value) return;
-    const filter = options?.find((option) => option.value === value)?.label ?? "";
-    setFilter(filter);
-  }, [value]);
+    if (!value) {
+      setFilter("");
+    } else {
+      const valueLabel = options?.find((option) => option.value === value)?.label;
+      setFilter(valueLabel || value);
+    }
+  }, [value, options]);
 
   const handleSelect = (option: ComboBoxInputOptionProps) => {
-    setFilter(option?.label);
+    setFilter(option?.value);
     onChange?.({ name: String(name), value: option?.value });
     setShowOptions(false);
   };

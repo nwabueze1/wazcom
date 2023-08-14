@@ -43,14 +43,17 @@ export var ComboBoxInput = function (_a) {
         setOptions(initialOptions);
     }, [initialOptions]);
     useEffect(function () {
-        var _a, _b;
-        if (!value)
-            return;
-        var filter = (_b = (_a = options === null || options === void 0 ? void 0 : options.find(function (option) { return option.value === value; })) === null || _a === void 0 ? void 0 : _a.label) !== null && _b !== void 0 ? _b : "";
-        setFilter(filter);
-    }, [value]);
+        var _a;
+        if (!value) {
+            setFilter("");
+        }
+        else {
+            var valueLabel = (_a = options === null || options === void 0 ? void 0 : options.find(function (option) { return option.value === value; })) === null || _a === void 0 ? void 0 : _a.label;
+            setFilter(valueLabel || value);
+        }
+    }, [value, options]);
     var handleSelect = function (option) {
-        setFilter(option === null || option === void 0 ? void 0 : option.label);
+        setFilter(option === null || option === void 0 ? void 0 : option.value);
         onChange === null || onChange === void 0 ? void 0 : onChange({ name: String(name), value: option === null || option === void 0 ? void 0 : option.value });
         setShowOptions(false);
     };
