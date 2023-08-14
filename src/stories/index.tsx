@@ -336,6 +336,214 @@ export const stories: ComponentPropType[] = [
       options: [
         { label: "Bread", value: "23" },
         { label: "Love", value: "45" },
+        {
+          label: "Craft Factory MX",
+          value: "Craft Factory MX",
+        },
+        {
+          label: "Four Nine Roots",
+          value: "Four Nine Roots",
+        },
+        {
+          label: "Corner Shop Challenge",
+          value: "Corner Shop Challenge",
+        },
+        {
+          label: "Bewährt (Tried and Tested: German)",
+          value: "Bewährt (Tried and Tested: German)",
+        },
+        {
+          label: "Craft Factory",
+          value: "Craft Factory",
+        },
+        {
+          label: "VT Dynamic Edition",
+          value: "VT Dynamic Edition",
+        },
+        {
+          label: "Spread Joy, Not Germs",
+          value: "Spread Joy, Not Germs",
+        },
+        {
+          label: "Craft Factory Germany",
+          value: "Craft Factory Germany",
+        },
+        {
+          label: "Twisted",
+          value: "Twisted",
+        },
+        {
+          label: "Cake Factory",
+          value: "Cake Factory",
+        },
+        {
+          label: "Four Nine Pride",
+          value: "Four Nine Pride",
+        },
+        {
+          label: "Lovimals France",
+          value: "Lovimals France",
+        },
+        {
+          label: "Futurology France",
+          value: "Futurology France",
+        },
+        {
+          label: "Lovimals German",
+          value: "Lovimals German",
+        },
+        {
+          label: "Tried and Tested UK",
+          value: "Tried and Tested UK",
+        },
+        {
+          label: "Craft Factory France",
+          value: "Craft Factory France",
+        },
+        {
+          label: "Take 5 UK",
+          value: "Take 5 UK",
+        },
+        {
+          label: "Beproefd",
+          value: "Beproefd",
+        },
+        {
+          label: "Lovimals Japan",
+          value: "Lovimals Japan",
+        },
+        {
+          label: "Testé et approuvé (Tried and Tested: France)",
+          value: "Testé et approuvé (Tried and Tested: France)",
+        },
+        {
+          label: "Tried and Tested Norway",
+          value: "Tried and Tested Norway",
+        },
+        {
+          label: "VT: The X-MAS Factor",
+          value: "VT: The X-MAS Factor",
+        },
+        {
+          label: "Four Nine Voices",
+          value: "Four Nine Voices",
+        },
+        {
+          label: "Sound Bites",
+          value: "Sound Bites",
+        },
+        {
+          label: "Time For The Truth France",
+          value: "Time For The Truth France",
+        },
+        {
+          label: "Twisted Explore",
+          value: "Twisted Explore",
+        },
+        {
+          label: "Twisted Green",
+          value: "Twisted Green",
+        },
+        {
+          label: "World of Craft",
+          value: "World of Craft",
+        },
+        {
+          label: "After Dark",
+          value: "After Dark",
+        },
+        {
+          label: "Mach Eine Pause (Take 5: German)",
+          value: "Mach Eine Pause (Take 5: German)",
+        },
+        {
+          label: "The ASMR House",
+          value: "The ASMR House",
+        },
+        {
+          label: "Time For The Truth Germany",
+          value: "Time For The Truth Germany",
+        },
+        {
+          label: "Tried and Tested Japan",
+          value: "Tried and Tested Japan",
+        },
+        {
+          label: "Four Nine Salon",
+          value: "Four Nine Salon",
+        },
+        {
+          label: "Love Unfiltered",
+          value: "Love Unfiltered",
+        },
+        {
+          label: "Ta Fem",
+          value: "Ta Fem",
+        },
+        {
+          label: "Four Nine Voices India",
+          value: "Four Nine Voices India",
+        },
+        {
+          label: "Twisted Bakes",
+          value: "Twisted Bakes",
+        },
+        {
+          label: "Four Nine Looks",
+          value: "Four Nine Looks",
+        },
+        {
+          label: "Futurology Germany",
+          value: "Futurology Germany",
+        },
+        {
+          label: "My Radical Life",
+          value: "My Radical Life",
+        },
+        {
+          label: "Beauty My Way",
+          value: "Beauty My Way",
+        },
+        {
+          label: "Futurology",
+          value: "Futurology",
+        },
+        {
+          label: "Lovimals Brazil",
+          value: "Lovimals Brazil",
+        },
+        {
+          label: "Lovimals Italy",
+          value: "Lovimals Italy",
+        },
+        {
+          label: "Stronger",
+          value: "Stronger",
+        },
+        {
+          label: "Take 5 Japan",
+          value: "Take 5 Japan",
+        },
+        {
+          label: "VT Challenges",
+          value: "VT Challenges",
+        },
+        {
+          label: "Family Matters",
+          value: "Family Matters",
+        },
+        {
+          label: "Tome 5",
+          value: "Tome 5",
+        },
+        {
+          label: "FYI",
+          value: "FYI",
+        },
+        {
+          label: "Twisted MX",
+          value: "Twisted MX",
+        },
       ],
       value: { label: "Love", value: "45" },
       placeholder: "Select Wazobia Member",

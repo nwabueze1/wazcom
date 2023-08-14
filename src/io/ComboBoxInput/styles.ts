@@ -23,6 +23,8 @@ export const useComboBoxStyles = makeStyles((theme: Theme) => ({
     background: theme.design.colors.waz_white,
     borderRadius: 3,
     boxShadow: "0px 1px 4px #00000014",
+    maxHeight: 400,
+    overflowY: "scroll",
     zIndex: 5,
   },
   comboBoxOption: {
