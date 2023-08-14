@@ -31,6 +31,7 @@ import { useComboBoxStyles } from "./styles";
 import { ClickAwayListener } from "@mui/base";
 import { TextInput } from "../TextInput";
 import clx from "classnames";
+import { BiSearch } from "react-icons/bi";
 export var ComboBoxInput = function (_a) {
     var name = _a.name, _b = _a.isAdd, isAdd = _b === void 0 ? true : _b, onChange = _a.onChange, initialOptions = _a.options, label = _a.label, isError = _a.isError, isSuccess = _a.isSuccess, helperText = _a.helperText, required = _a.required, placeholder = _a.placeholder, value = _a.value, className = _a.className;
     var classes = useComboBoxStyles();
@@ -90,5 +91,5 @@ export var ComboBoxInput = function (_a) {
     return (_jsx(ClickAwayListener, __assign({ onClickAway: function () {
             setShowOptions(false);
             setIsFocused(false);
-        } }, { children: _jsxs("div", __assign({ className: clx(classes.root, className) }, { children: [label && (_jsxs("label", __assign({ htmlFor: name, className: classes.comboBoxLabel }, { children: [label, required && _jsx("span", __assign({ className: classes.comboBoxRequired }, { children: "*" }))] }))), _jsx(TextInput, { value: filter, onChange: handleFilterChange, onFocus: handleFocus, placeholder: placeholder, isError: isError, height: "auto", width: "auto", isSuccess: isSuccess, helperText: helperText }), showOptions && _jsx("div", __assign({ className: classes.comboBoxOptions }, { children: renderOptions() }))] })) })));
+        } }, { children: _jsxs("div", __assign({ className: clx(classes.root, className) }, { children: [label && (_jsxs("label", __assign({ htmlFor: name, className: classes.comboBoxLabel }, { children: [label, required && _jsx("span", __assign({ className: classes.comboBoxRequired }, { children: "*" }))] }))), _jsx(TextInput, { value: filter, onChange: handleFilterChange, onFocus: handleFocus, placeholder: placeholder, isError: isError, height: "auto", width: "auto", isSuccess: isSuccess, helperText: helperText, rightIcon: _jsx(BiSearch, {}) }), showOptions && _jsx("div", __assign({ className: classes.comboBoxOptions }, { children: renderOptions() }))] })) })));
 };

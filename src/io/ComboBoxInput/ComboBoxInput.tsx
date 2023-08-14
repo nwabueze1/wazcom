@@ -4,6 +4,7 @@ import { ClickAwayListener } from "@mui/base";
 import { ComboBoxInputProps, ComboBoxInputOptionProps } from "./types";
 import { TextInput } from "../TextInput";
 import clx from "classnames";
+import { BiSearch } from "react-icons/bi";
 
 export const ComboBoxInput: FC<ComboBoxInputProps> = ({
   name,
@@ -105,6 +106,7 @@ export const ComboBoxInput: FC<ComboBoxInputProps> = ({
           width={"auto"}
           isSuccess={isSuccess}
           helperText={helperText}
+          rightIcon={<BiSearch />}
         />
         {showOptions && <div className={classes.comboBoxOptions}>{renderOptions()}</div>}
       </div>
