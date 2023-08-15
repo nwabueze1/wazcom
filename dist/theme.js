@@ -204,6 +204,9 @@ export var theme = {
             waz_primaryWhite: "#FFFFFF",
             waz_primaryBlack: "#010E05",
         },
+        shadow: {
+            shadow100: "#00000014",
+        },
         border: {
             waz_grey200: "1px solid #999F9B",
         },

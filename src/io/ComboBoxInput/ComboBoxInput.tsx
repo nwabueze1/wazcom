@@ -4,6 +4,7 @@ import { ClickAwayListener } from "@mui/base";
 import { ComboBoxInputProps, ComboBoxInputOptionProps } from "./types";
 import { TextInput } from "../TextInput";
 import clx from "classnames";
+import { BiSearch } from "react-icons/bi";
 
 export const ComboBoxInput: FC<ComboBoxInputProps> = ({
   name,
@@ -30,13 +31,16 @@ export const ComboBoxInput: FC<ComboBoxInputProps> = ({
   }, [initialOptions]);
 
   useEffect(() => {
-    if (!value) return;
-    const filter = options?.find((option) => option.value === value)?.label ?? "";
-    setFilter(filter);
-  }, [value]);
+    if (!value) {
+      setFilter("");
+    } else {
+      const valueLabel = options?.find((option) => option.value === value)?.label;
+      setFilter(valueLabel || value);
+    }
+  }, [value, options]);
 
   const handleSelect = (option: ComboBoxInputOptionProps) => {
-    setFilter(option?.label);
+    setFilter(option?.value);
     onChange?.({ name: String(name), value: option?.value });
     setShowOptions(false);
   };
@@ -53,19 +57,26 @@ export const ComboBoxInput: FC<ComboBoxInputProps> = ({
   };
 
   const renderOptions = () => {
-    const displayedOptions = isFocused
+    let displayedOptions = isFocused
       ? options
       : options.filter((option) => option?.label?.toLowerCase()?.includes(filter.toLowerCase()));
-    displayedOptions.length === 0 &&
-      isAdd &&
-      displayedOptions.push({ label: "Add " + filter, value: filter });
+
+    if (displayedOptions.length === 0) {
+      if (isAdd) {
+        displayedOptions = [{ label: "Add " + filter, value: filter }];
+      } else {
+        displayedOptions = [{ label: "Nothing Found", value: "nothing_found" }];
+      }
+    }
 
     return displayedOptions.map(({ label, value, subText }, index) => (
       <div
         key={index}
-        className={classes.comboBoxOption}
+        className={`${classes.comboBoxOption} ${value === "nothing_found" ? "unclickable" : ""}`}
         onClick={() => {
-          handleSelect({ label, value, subText });
+          if (value !== "nothing_found") {
+            handleSelect({ label, value, subText });
+          }
         }}
       >
         <p className="label">{label}</p>
@@ -94,8 +105,11 @@ export const ComboBoxInput: FC<ComboBoxInputProps> = ({
           onFocus={handleFocus}
           placeholder={placeholder}
           isError={isError}
+          height={"auto"}
+          width={"auto"}
           isSuccess={isSuccess}
           helperText={helperText}
+          rightIcon={<BiSearch />}
         />
         {showOptions && <div className={classes.comboBoxOptions}>{renderOptions()}</div>}
       </div>

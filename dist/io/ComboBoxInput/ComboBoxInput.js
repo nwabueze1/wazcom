@@ -31,6 +31,7 @@ import { useComboBoxStyles } from "./styles";
 import { ClickAwayListener } from "@mui/base";
 import { TextInput } from "../TextInput";
 import clx from "classnames";
+import { BiSearch } from "react-icons/bi";
 export var ComboBoxInput = function (_a) {
     var name = _a.name, _b = _a.isAdd, isAdd = _b === void 0 ? true : _b, onChange = _a.onChange, initialOptions = _a.options, label = _a.label, isError = _a.isError, isSuccess = _a.isSuccess, helperText = _a.helperText, required = _a.required, placeholder = _a.placeholder, value = _a.value, className = _a.className;
     var classes = useComboBoxStyles();
@@ -42,14 +43,17 @@ export var ComboBoxInput = function (_a) {
         setOptions(initialOptions);
     }, [initialOptions]);
     useEffect(function () {
-        var _a, _b;
-        if (!value)
-            return;
-        var filter = (_b = (_a = options === null || options === void 0 ? void 0 : options.find(function (option) { return option.value === value; })) === null || _a === void 0 ? void 0 : _a.label) !== null && _b !== void 0 ? _b : "";
-        setFilter(filter);
-    }, [value]);
+        var _a;
+        if (!value) {
+            setFilter("");
+        }
+        else {
+            var valueLabel = (_a = options === null || options === void 0 ? void 0 : options.find(function (option) { return option.value === value; })) === null || _a === void 0 ? void 0 : _a.label;
+            setFilter(valueLabel || value);
+        }
+    }, [value, options]);
     var handleSelect = function (option) {
-        setFilter(option === null || option === void 0 ? void 0 : option.label);
+        setFilter(option === null || option === void 0 ? void 0 : option.value);
         onChange === null || onChange === void 0 ? void 0 : onChange({ name: String(name), value: option === null || option === void 0 ? void 0 : option.value });
         setShowOptions(false);
     };
@@ -70,18 +74,25 @@ export var ComboBoxInput = function (_a) {
         var displayedOptions = isFocused
             ? options
             : options.filter(function (option) { var _a, _b; return (_b = (_a = option === null || option === void 0 ? void 0 : option.label) === null || _a === void 0 ? void 0 : _a.toLowerCase()) === null || _b === void 0 ? void 0 : _b.includes(filter.toLowerCase()); });
-        displayedOptions.length === 0 &&
-            isAdd &&
-            displayedOptions.push({ label: "Add " + filter, value: filter });
+        if (displayedOptions.length === 0) {
+            if (isAdd) {
+                displayedOptions = [{ label: "Add " + filter, value: filter }];
+            }
+            else {
+                displayedOptions = [{ label: "Nothing Found", value: "nothing_found" }];
+            }
+        }
         return displayedOptions.map(function (_a, index) {
             var label = _a.label, value = _a.value, subText = _a.subText;
-            return (_jsxs("div", __assign({ className: classes.comboBoxOption, onClick: function () {
-                    handleSelect({ label: label, value: value, subText: subText });
+            return (_jsxs("div", __assign({ className: "".concat(classes.comboBoxOption, " ").concat(value === "nothing_found" ? "unclickable" : ""), onClick: function () {
+                    if (value !== "nothing_found") {
+                        handleSelect({ label: label, value: value, subText: subText });
+                    }
                 } }, { children: [_jsx("p", __assign({ className: "label" }, { children: label })), subText && _jsx("p", __assign({ className: "subText" }, { children: subText }))] }), index));
         });
     };
     return (_jsx(ClickAwayListener, __assign({ onClickAway: function () {
             setShowOptions(false);
             setIsFocused(false);
-        } }, { children: _jsxs("div", __assign({ className: clx(classes.root, className) }, { children: [label && (_jsxs("label", __assign({ htmlFor: name, className: classes.comboBoxLabel }, { children: [label, required && _jsx("span", __assign({ className: classes.comboBoxRequired }, { children: "*" }))] }))), _jsx(TextInput, { value: filter, onChange: handleFilterChange, onFocus: handleFocus, placeholder: placeholder, isError: isError, isSuccess: isSuccess, helperText: helperText }), showOptions && _jsx("div", __assign({ className: classes.comboBoxOptions }, { children: renderOptions() }))] })) })));
+        } }, { children: _jsxs("div", __assign({ className: clx(classes.root, className) }, { children: [label && (_jsxs("label", __assign({ htmlFor: name, className: classes.comboBoxLabel }, { children: [label, required && _jsx("span", __assign({ className: classes.comboBoxRequired }, { children: "*" }))] }))), _jsx(TextInput, { value: filter, onChange: handleFilterChange, onFocus: handleFocus, placeholder: placeholder, isError: isError, height: "auto", width: "auto", isSuccess: isSuccess, helperText: helperText, rightIcon: _jsx(BiSearch, {}) }), showOptions && _jsx("div", __assign({ className: classes.comboBoxOptions }, { children: renderOptions() }))] })) })));
 };
