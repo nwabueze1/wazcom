@@ -5,6 +5,7 @@ type ExtendedThemeOptions = {
   design: {
     font: { [key: string]: any };
     colors: { [key: string]: string };
+    shadow: { [key: string]: string };
     background: { [key: string]: string };
     border: { [key: string]: string };
   };
@@ -226,6 +227,9 @@ export const theme: any = {
     background: {
       waz_primaryWhite: "#FFFFFF",
       waz_primaryBlack: "#010E05",
+    },
+    shadow: {
+      shadow100: "#00000014",
     },
     border: {
       waz_grey200: "1px solid #999F9B",
