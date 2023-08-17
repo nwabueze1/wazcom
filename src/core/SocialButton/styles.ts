@@ -12,7 +12,7 @@ export const useStyles = makeStyles((theme: Theme) => ({
       justifyContent: "center",
       alignItems: "center",
       cursor: "pointer",
-      border: `1px solid ${theme.design.colors.grey400}`,
+      border: `1px solid ${theme.design.colors.waz_mercury}`,
       borderRadius: "50%",
     },
 

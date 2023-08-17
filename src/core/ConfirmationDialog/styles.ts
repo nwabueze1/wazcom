@@ -14,7 +14,7 @@ export const useConfirmationDialogStyles = makeStyles((theme: Theme) => ({
     gap: 20,
     borderRadius: 4,
     padding: theme.spacing(3),
-    background: theme.design.colors.white,
+    background: theme.design.colors.waz_white,
     zIndex: 5,
     [theme.breakpoints.down("md")]: {
       width: "80%",
@@ -25,15 +25,19 @@ export const useConfirmationDialogStyles = makeStyles((theme: Theme) => ({
     justifyContent: "space-between",
     alignItems: "center",
   },
-  body: {},
+  body: {
+    position: "relative",
+  },
   title: {
     fontSize: theme.typography.fontSize + 4,
     fontWeight: theme.typography.fontWeightBold,
-    color: "#010E05",
+    color: theme.design.colors.waz_primaryBlack,
+    fontFamily: "inherit",
   },
   description: {
-    color: " #343E37",
+    color: theme.design.colors.waz_grey1,
     fontSize: theme.typography.fontSize + 2,
+    fontFamily: "inherit",
   },
   icon: {
     fontSize: theme.typography.fontSize + 6,
@@ -45,6 +49,7 @@ export const useConfirmationDialogStyles = makeStyles((theme: Theme) => ({
     justifyContent: "start",
     alignItems: "center",
     gap: 10,
+    fontFamily: "inherit",
   },
   button: {
     width: 86,

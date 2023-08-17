@@ -35,10 +35,10 @@ export const useTaggablesStyles = makeStyles((theme: Theme) => ({
     color: theme.design.colors.black,
   },
   chip: {
-    background: lighten(theme.design.colors.primary100, 0.8),
+    background: lighten(theme.design.colors.waz_primaryColor100, 0.8),
     fontWeight: theme.typography.fontWeightMedium,
   },
   chipIcon: {
-    background: theme.design.colors.primary100,
+    background: theme.design.colors.waz_primaryColor100,
   },
 }));
