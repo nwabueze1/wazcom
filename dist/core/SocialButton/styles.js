@@ -10,7 +10,7 @@ export var useStyles = makeStyles(function (theme) { return ({
             justifyContent: "center",
             alignItems: "center",
             cursor: "pointer",
-            border: "1px solid ".concat(theme.design.colors.grey400),
+            border: "1px solid ".concat(theme.design.colors.waz_mercury),
             borderRadius: "50%",
         },
         "& .MuiAvatar-img": {
