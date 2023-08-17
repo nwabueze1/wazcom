@@ -6,7 +6,7 @@ export type ConfirmationDialogProps = {
   submitText?: string;
   cancelText?: string;
   isOpen: boolean;
-  className?:string;
+  className?: string;
   onClose: () => void;
   onSubmit: () => void;
 };
