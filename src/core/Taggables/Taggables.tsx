@@ -1,4 +1,4 @@
-import React, { FC } from "react";
+import  { FC } from "react";
 import AutoComplete from "@mui/material/Autocomplete";
 import { Chip, TextField, InputLabel, Typography } from "@mui/material";
 import { TaggablesProps } from "./types";
@@ -56,7 +56,7 @@ export const Taggables: FC<TaggablesProps> = ({
                 freeSolo
                 options={options}
                 value={value ?? []}
-                onChange={(e, tags) => {
+                onChange={(_, tags) => {
                     handleChange(tags);
                 }}
                 renderTags={(value: string[], getTagProps) => (

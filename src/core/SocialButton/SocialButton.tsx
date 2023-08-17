@@ -1,5 +1,5 @@
 import Avatar from "@mui/material/Avatar";
-import React, { FC } from "react";
+import { FC } from "react";
 import { useStyles } from "./styles";
 import { SocialButtonProps } from "./types";
 
