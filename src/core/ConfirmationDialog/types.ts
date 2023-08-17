@@ -1,12 +1,11 @@
-
 export type ConfirmationDialogProps = {
-    status?: boolean;
-    statusText?: boolean;
-    title?: string;
-    description?: string;
-    submitText?: string;
-    cancelText?: string;
-    isOpen: boolean;
-    onClose: () => void;
-    onSubmit: () => void;
-}
+  status?: boolean;
+  statusText?: boolean;
+  title?: string;
+  description?: string;
+  submitText?: string;
+  cancelText?: string;
+  isOpen: boolean;
+  onClose: () => void;
+  onSubmit: () => void;
+};

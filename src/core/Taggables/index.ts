@@ -1,1 +1,1 @@
-export * from "./Taggables"
+export * from "./Taggables";

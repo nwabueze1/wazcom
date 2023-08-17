@@ -3,7 +3,7 @@ export * from "./BreadCrumb";
 // export * from "./Button";
 export * from "./Card";
 export * from "./Carousel";
-export * from "./Dialog"
+export * from "./Dialog";
 export * from "./DisplayCard";
 export * from "./Gallery";
 export * from "./ImageSelector";
