@@ -22,7 +22,7 @@ export var useTextStyles = makeStyles(function (theme) { return ({
         return ({
             display: "flex",
             padding: theme.spacing(1.2, 1.4),
-            height: (_a = props.height) !== null && _a !== void 0 ? _a : 34,
+            height: (_a = props.height) !== null && _a !== void 0 ? _a : "auto",
             width: (_b = props.width) !== null && _b !== void 0 ? _b : "100%",
             background: (_c = props.background) !== null && _c !== void 0 ? _c : theme.design.colors.white100,
             color: (_d = props.color) !== null && _d !== void 0 ? _d : theme.design.colors.waz_primaryBlack,

@@ -25,6 +25,11 @@ export var useLoaderStyles = makeStyles(function (theme) { return ({
         opacity: 1,
         justifyContent: "center",
         background: "transparent",
+        "&.full-screen": {
+            top: "50%",
+            position: "absolute",
+            zIndex: 9999,
+        },
     },
     container: {
         height: "15px",
