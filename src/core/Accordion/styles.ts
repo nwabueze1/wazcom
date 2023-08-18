@@ -50,7 +50,6 @@ export const useAccordionStyles = makeStyles((theme: BaseTheme) => ({
     padding: theme.spacing(0, 2),
     userSelect: "none",
     width: "auto",
-
     "&:hover": {
       background: theme.design.colors.waz_white100,
     },
