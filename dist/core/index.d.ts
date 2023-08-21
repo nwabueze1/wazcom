@@ -2,6 +2,7 @@ export * from "./Accordion";
 export * from "./BreadCrumb";
 export * from "./Card";
 export * from "./Carousel";
+export * from "./ConfirmationDialog";
 export * from "./Dialog";
 export * from "./DisplayCard";
 export * from "./Gallery";
