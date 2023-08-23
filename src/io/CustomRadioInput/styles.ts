@@ -1,4 +1,3 @@
-
 import { Theme } from "@mui/material";
 import makeStyles from "@mui/styles/makeStyles";
 
@@ -17,12 +16,12 @@ export const useCustomRadioInputStyles = makeStyles((theme: Theme) => ({
   },
   inputActive: {
     borderColor: theme.design.colors.waz_primary300,
-  },   
+  },
   inputRadio: {
     top: 2.5,
-  }, 
+  },
   inputLabel: {
     fontSize: theme.typography.fontSize + 2,
     color: theme.design.colors.waz_grey1,
-  }
+  },
 }));
