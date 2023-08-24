@@ -1,6 +1,7 @@
 export * from "./CheckBoxInput";
 export * from "./ColorInput";
 export * from "./ComboBoxInput";
+export * from "./CustomRadioInput";
 export * from "./WysiwygInput";
 export * from "./SelectInput";
 export * from "./SectionEditor";
