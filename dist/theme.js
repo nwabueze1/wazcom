@@ -199,13 +199,11 @@ export var theme = {
             waz_brown: "#A54227",
             waz_red: "#C23434",
             waz_peach: "#FAF8F7",
+            shadow100: "#00000014",
         },
         background: {
             waz_primaryWhite: "#FFFFFF",
             waz_primaryBlack: "#010E05",
-        },
-        shadow: {
-            shadow100: "#00000014",
         },
         border: {
             waz_grey200: "1px solid #999F9B",
