@@ -21,5 +21,5 @@ export var useCustomRadioInputStyles = makeStyles(function (theme) { return ({
     inputLabel: {
         fontSize: theme.typography.fontSize + 2,
         color: theme.design.colors.waz_grey1,
-    }
+    },
 }); });

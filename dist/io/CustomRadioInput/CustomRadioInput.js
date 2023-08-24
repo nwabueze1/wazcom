@@ -20,5 +20,8 @@ export var CustomRadioInput = function (_a) {
         var value = _a.value;
         onChange === null || onChange === void 0 ? void 0 : onChange({ name: name !== null && name !== void 0 ? name : "", value: value });
     };
-    return (_jsxs("div", __assign({ className: clx(classes.root, className, value && classes.inputActive) }, { children: [_jsx(RadioButtonInput, { className: classes.inputRadio, value: value, name: name, onChange: handleChange }), _jsx("p", __assign({ className: classes.inputLabel }, { children: label }))] })));
+    var handleComponentClick = function () {
+        onChange === null || onChange === void 0 ? void 0 : onChange({ name: name !== null && name !== void 0 ? name : "", value: true });
+    };
+    return (_jsxs("div", __assign({ className: clx(classes.root, className, value && classes.inputActive), onClick: handleComponentClick }, { children: [_jsx(RadioButtonInput, { className: classes.inputRadio, value: value, name: name, onChange: handleChange }), _jsx("p", __assign({ className: classes.inputLabel }, { children: label }))] })));
 };

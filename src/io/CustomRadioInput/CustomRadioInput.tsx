@@ -17,8 +17,15 @@ export const CustomRadioInput: FC<CustomRadioInputProps> = ({
     onChange?.({ name: name ?? "", value });
   };
 
+  const handleComponentClick = () => {
+    onChange?.({ name: name ?? "", value: true });
+  };
+
   return (
-    <div className={clx(classes.root, className, value && classes.inputActive)}>
+    <div
+      className={clx(classes.root, className, value && classes.inputActive)}
+      onClick={handleComponentClick}
+    >
       <RadioButtonInput
         className={classes.inputRadio}
         value={value}
