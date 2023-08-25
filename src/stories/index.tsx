@@ -337,7 +337,7 @@ export const stories: ComponentPropType[] = [
         { label: "Bread", value: "23" },
         { label: "Love", value: "45" },
       ],
-      value: "testing",
+      value: { label: "Love", value: "45" },
       placeholder: "Select Wazobia Member",
       isAdd: false,
     },
