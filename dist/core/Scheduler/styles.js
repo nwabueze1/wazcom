@@ -17,6 +17,7 @@ export var useSchedulerStyles = makeStyles(function (theme) { return ({
         marginBottom: theme.spacing(2),
         display: "flex",
         justifyContent: "space-between",
+        flexWrap: "wrap",
         gap: theme.spacing(2),
     },
     schedule: {
