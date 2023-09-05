@@ -34,77 +34,79 @@ var __spreadArray = (this && this.__spreadArray) || function (to, from, pack) {
     }
     return to.concat(ar || Array.prototype.slice.call(from));
 };
-import { jsx as _jsx, jsxs as _jsxs } from "react/jsx-runtime";
-import { useState, useCallback, useEffect } from "react";
+import { jsxs as _jsxs, jsx as _jsx } from "react/jsx-runtime";
+import { useState, useCallback } from "react";
 import { useSchedulerStyles } from "./styles";
-import { InputLabel } from "@mui/material";
-import { fields } from "../../helpers/data";
-import { useScheduleData, dayDelimiter, dayOptions } from "./hooks";
-import { filterDayOptions } from "./helpers";
+import { dayOptions } from "./hooks";
+import { TimeInput, SelectInput } from "../../io";
+import { Button } from "../../core";
+import { FaTimes } from "react-icons/fa";
 import clx from "classnames";
-import { FiPlus } from "react-icons/fi";
 export var Scheduler = function (_a) {
-    var _b;
-    var className = _a.className, classNames = _a.classNames, componentName = _a.name, label = _a.label, _c = _a.multiple, multiple = _c === void 0 ? false : _c, _d = _a.value, initialScheduleValue = _d === void 0 ? [{ day: "0", start_time: "00:00", end_time: "12:00" }] : _d, onChange = _a.onChange, _e = _a.orientation, orientation = _e === void 0 ? "horizontal" : _e;
+    var className = _a.className, name = _a.name, label = _a.label, _b = _a.value, value = _b === void 0 ? [{ day: "0", start_time: "00:00", end_time: "12:00" }] : _b, onChange = _a.onChange;
     var classes = useSchedulerStyles();
-    var parseSchedulevalue = useScheduleData();
-    var isEverydaySelected = initialScheduleValue === null || initialScheduleValue === void 0 ? void 0 : initialScheduleValue.some(function (value) { return (value === null || value === void 0 ? void 0 : value.day) == "0"; });
-    var availableOption = filterDayOptions(dayOptions, initialScheduleValue);
-    var handleChange = useCallback(function (name, value, index, remove) {
-        if (remove === void 0) { remove = false; }
-        var newScheduleValue = __spreadArray([], __read(initialScheduleValue), false);
-        var parsedValue = value;
-        console.log(newScheduleValue.find(function (_a) {
-            var day = _a.day;
-            return day == value;
-        }));
-        if (name === "day" && newScheduleValue.find(function (_a) {
-            var day = _a.day;
-            return day == value;
-        }))
+    var _c = __read(useState({
+        day: "0",
+        start_time: "9:00",
+        end_time: "17:00",
+    }), 2), schedule = _c[0], setSchedule = _c[1];
+    var dayDelimiter = "2023-08-23";
+    var handleAdd = useCallback(function () {
+        var parsedValue = value.map(function (scheduleValue) { return JSON.stringify(scheduleValue); });
+        if (parsedValue.includes(JSON.stringify(schedule)))
             return;
-        if (name.includes("time")) {
+        if (convertToMinutes(schedule.end_time) <= convertToMinutes(schedule.start_time))
+            return;
+        onChange === null || onChange === void 0 ? void 0 : onChange({ name: name, value: __spreadArray(__spreadArray([], __read(value), false), [schedule], false) });
+    }, [schedule]);
+    var convertToMinutes = function (time) {
+        var _a = __read(time.split(":"), 2), hour = _a[0], minutes = _a[1];
+        return Number(hour) * 60 + Number(minutes);
+    };
+    var handleRemove = function (index) {
+        var newValue = value === null || value === void 0 ? void 0 : value.filter(function (_, valueIndex) { return valueIndex !== index; });
+        onChange === null || onChange === void 0 ? void 0 : onChange({ name: name, value: newValue });
+    };
+    var handleScheduleChange = function (key, value) {
+        var _a;
+        var parsedValue = value;
+        if (key.includes("time")) {
             parsedValue = value.split(dayDelimiter + "T")[1];
             parsedValue = parsedValue.split("+")[0];
         }
-        if (remove && newScheduleValue.length > 1) {
-            newScheduleValue.splice(index, 1);
-        }
-        else {
-            newScheduleValue[index][name] = parsedValue;
-        }
-        onChange === null || onChange === void 0 ? void 0 : onChange({ name: componentName, value: newScheduleValue });
-    }, [initialScheduleValue]);
-    var addNewRow = useCallback(function () {
-        var nextFieldId = dayOptions.filter(function (item) {
-            return Number(item.value) != 0 &&
-                !initialScheduleValue.some(function (option) { return Number(option.day) == Number(item.value); });
-        })[0].value;
-        onChange === null || onChange === void 0 ? void 0 : onChange({
-            name: componentName,
-            value: __spreadArray(__spreadArray([], __read(initialScheduleValue), false), [
-                { day: String(nextFieldId), start_time: "01:00", end_time: "12:00" },
-            ], false),
+        var updatedSchedule = __assign(__assign({}, schedule), (_a = {}, _a[key] = parsedValue, _a));
+        setSchedule(updatedSchedule);
+    };
+    var parseTime = function (time) {
+        var timeSplits = time.split(":");
+        var hour = Number(timeSplits[0]);
+        return "".concat(hour > 12 ? hour - 12 : hour, ":").concat(timeSplits[1]);
+    };
+    var getTimeExtension = function (time) {
+        var timeSplits = time.split(":");
+        var hour = Number(timeSplits[0]);
+        return hour > 11 ? "pm" : "am";
+    };
+    var renderSchedules = function () {
+        return value.map(function (_a, index) {
+            var _b;
+            var day = _a.day, start_time = _a.start_time, end_time = _a.end_time;
+            return (_jsxs("p", __assign({ className: classes.schedule }, { children: [_jsxs("span", { children: [(_b = dayOptions.find(function (_a) {
+                                var value = _a.value;
+                                return value === day;
+                            })) === null || _b === void 0 ? void 0 : _b.label, " (", parseTime(start_time), " ", getTimeExtension(start_time), " - ", parseTime(end_time), " ", getTimeExtension(end_time), ")", " "] }), _jsx(FaTimes, { className: classes.scheduleIcon, onClick: function () {
+                            handleRemove(index);
+                        } })] }), index));
         });
-    }, [initialScheduleValue]);
-    var _f = __read(useState(parseSchedulevalue(initialScheduleValue, handleChange, {
-        timeSection: clx(classes.timeContainer, classNames === null || classNames === void 0 ? void 0 : classNames.timeContainer),
-        timeDivider: classes.timeDivider,
-        closeIcon: clx(classes.closeIcon, classNames === null || classNames === void 0 ? void 0 : classNames.closeIcon),
-        hiddenCloseIcon: clx(classes.hidden, classNames === null || classNames === void 0 ? void 0 : classNames.hidden),
-    })), 2), scheduleValue = _f[0], setScheduleValue = _f[1];
-    useEffect(function () {
-        var newScheduleValue = parseSchedulevalue(initialScheduleValue, handleChange, {
-            timeSection: classes.timeContainer,
-            closeIcon: classes.closeIcon,
-            hiddenCloseIcon: classes.hidden,
-        });
-        setScheduleValue(newScheduleValue);
-    }, [initialScheduleValue]);
-    return (_jsxs("div", __assign({ className: clx(classes.root, className) }, { children: [label && (_jsx(InputLabel, __assign({ className: (_b = classNames === null || classNames === void 0 ? void 0 : classNames.label) !== null && _b !== void 0 ? _b : "", htmlFor: componentName }, { children: label }))), scheduleValue === null || scheduleValue === void 0 ? void 0 : scheduleValue.map(function (row, index) {
-                return (_jsx("div", __assign({ className: "".concat(classes.schedulerContainer, " ").concat(orientation == "vertical" && classes.verticalContainer) }, { children: fields.map(function (_a) {
-                        var name = _a.name;
-                        return row === null || row === void 0 ? void 0 : row[name];
-                    }) }), index));
-            }), multiple && !isEverydaySelected && (_jsx("div", __assign({ className: "".concat(classes.button, " ").concat(availableOption.length == 0 && classes.hidden), onClick: addNewRow }, { children: _jsxs("p", __assign({ className: classes.buttonText }, { children: [_jsx(FiPlus, { className: classes.addIcon }), " Add Schedule"] })) })))] })));
+    };
+    return (_jsxs("div", __assign({ className: clx(classes.root, className) }, { children: [_jsx(SelectInput, { name: "day", label: label, value: schedule.day, options: dayOptions, className: classes.selectInput, onChange: function (_a) {
+                    var value = _a.value;
+                    return handleScheduleChange("day", value);
+                } }), _jsx("div", __assign({ className: classes.scheduleContainer }, { children: renderSchedules() })), _jsxs("div", __assign({ className: classes.timeContainer }, { children: [_jsx(TimeInput, { name: "start_time", label: "SET TIME", value: dayDelimiter + " " + schedule.start_time, className: classes.timeInput, onChange: function (_a) {
+                            var value = _a.value;
+                            return handleScheduleChange("start_time", value);
+                        } }), _jsx("p", __assign({ className: classes.timeDivider }, { children: "TO" })), _jsx(TimeInput, { name: "end_time", value: dayDelimiter + " " + schedule.end_time, className: classes.timeInput, onChange: function (_a) {
+                            var value = _a.value;
+                            return handleScheduleChange("end_time", value);
+                        } })] })), _jsx(Button, __assign({ className: classes.scheduleButton, onClick: handleAdd }, { children: "Add" }))] })));
 };

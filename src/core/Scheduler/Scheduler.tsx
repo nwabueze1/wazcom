@@ -1,118 +1,122 @@
-import React, { useState, useCallback, useEffect } from "react";
+import React, { useState, useCallback } from "react";
 import { useSchedulerStyles } from "./styles";
-import { InputLabel } from "@mui/material";
 import { SchedulerProps } from "./types";
-import { fields } from "../../helpers/data";
-import { useScheduleData, dayDelimiter, dayOptions } from "./hooks";
-import { filterDayOptions } from "./helpers";
+import { dayOptions } from "./hooks";
+import { TimeInput, SelectInput } from "../../io";
+import { Button } from "../../core";
+import { FaTimes } from "react-icons/fa";
 import clx from "classnames";
-import { FiPlus } from "react-icons/fi";
-import { Schedule } from ".";
 
 export const Scheduler: React.FC<SchedulerProps> = ({
   className,
-  classNames,
-  name: componentName,
+  name,
   label,
-  multiple = false,
-  value: initialScheduleValue = [{ day: "0", start_time: "00:00", end_time: "12:00" }],
+  value = [{ day: "0", start_time: "00:00", end_time: "12:00" }],
   onChange,
-  orientation = "horizontal",
 }) => {
   const classes = useSchedulerStyles();
-  const parseSchedulevalue = useScheduleData();
-  const isEverydaySelected = initialScheduleValue?.some((value) => value?.day == "0");
-  const availableOption = filterDayOptions(dayOptions, initialScheduleValue);
+  const [schedule, setSchedule] = useState<{ [key in "day" | "start_time" | "end_time"]: string }>({
+    day: "0",
+    start_time: "9:00",
+    end_time: "17:00",
+  });
+  const dayDelimiter = "2023-08-23";
 
-  const handleChange = useCallback(
-    (name: string, value: any, index: number, remove = false) => {
-      const newScheduleValue = [...(initialScheduleValue as Schedule[] | any)];
-      let parsedValue = value;
+  const handleAdd = useCallback(() => {
+    const parsedValue = value.map((scheduleValue) => JSON.stringify(scheduleValue));
 
-      console.log(newScheduleValue.find(({ day }) => day == value));
-      if (name === "day" && newScheduleValue.find(({ day }) => day == value)) return;
+    if (parsedValue.includes(JSON.stringify(schedule))) return;
 
-      if (name.includes("time")) {
-        parsedValue = (value as string).split(dayDelimiter + "T")[1];
-        parsedValue = parsedValue.split("+")[0];
-      }
+    if (convertToMinutes(schedule.end_time) <= convertToMinutes(schedule.start_time)) return;
 
-      if (remove && newScheduleValue.length > 1) {
-        newScheduleValue.splice(index, 1);
-      } else {
-        newScheduleValue[index][name] = parsedValue;
-      }
-      onChange?.({ name: componentName as string, value: newScheduleValue });
-    },
-    [initialScheduleValue],
-  );
+    onChange?.({ name: name as string, value: [...value, schedule] });
+  }, [schedule]);
 
-  const addNewRow = useCallback(() => {
-    const nextFieldId = dayOptions.filter(
-      (item) =>
-        Number(item.value) != 0 &&
-        !initialScheduleValue.some((option) => Number(option.day) == Number(item.value)),
-    )[0].value;
-    onChange?.({
-      name: componentName as string,
-      value: [
-        ...initialScheduleValue,
-        { day: String(nextFieldId), start_time: "01:00", end_time: "12:00" },
-      ],
-    });
-  }, [initialScheduleValue]);
+  const convertToMinutes = (time: string) => {
+    const [hour, minutes] = time.split(":");
+    return Number(hour) * 60 + Number(minutes);
+  };
 
-  const [scheduleValue, setScheduleValue] = useState<{ [key: string]: any }[]>(
-    parseSchedulevalue(initialScheduleValue as Schedule[], handleChange, {
-      timeSection: clx(classes.timeContainer, classNames?.timeContainer),
-      timeDivider: classes.timeDivider,
-      closeIcon: clx(classes.closeIcon, classNames?.closeIcon),
-      hiddenCloseIcon: clx(classes.hidden, classNames?.hidden),
-    }),
-  );
+  const handleRemove = (index: number) => {
+    const newValue = value?.filter((_, valueIndex) => valueIndex !== index);
+    onChange?.({ name: name as string, value: newValue });
+  };
 
-  useEffect(() => {
-    const newScheduleValue = parseSchedulevalue(initialScheduleValue as Schedule[], handleChange, {
-      timeSection: classes.timeContainer,
-      closeIcon: classes.closeIcon,
-      hiddenCloseIcon: classes.hidden,
-    });
-    setScheduleValue(newScheduleValue);
-  }, [initialScheduleValue]);
+  const handleScheduleChange = (key: "day" | "start_time" | "end_time", value: string) => {
+    let parsedValue = value;
+    if (key.includes("time")) {
+      parsedValue = value.split(dayDelimiter + "T")[1];
+      parsedValue = parsedValue.split("+")[0];
+    }
+    const updatedSchedule = { ...schedule, [key]: parsedValue };
+    setSchedule(updatedSchedule);
+  };
+
+  const parseTime = (time: string) => {
+    const timeSplits = time.split(":");
+    const hour = Number(timeSplits[0]);
+    return `${hour > 12 ? hour - 12 : hour}:${timeSplits[1]}`;
+  };
+
+  const getTimeExtension = (time: string) => {
+    const timeSplits = time.split(":");
+    const hour = Number(timeSplits[0]);
+    return hour > 11 ? "pm" : "am";
+  };
+
+  const renderSchedules = () =>
+    value.map(({ day, start_time, end_time }, index) => (
+      <p className={classes.schedule} key={index}>
+        <span>
+          {dayOptions.find(({ value }) => value === day)?.label} ({parseTime(start_time)}{" "}
+          {getTimeExtension(start_time)} - {parseTime(end_time)} {getTimeExtension(end_time)}){" "}
+        </span>
+        <FaTimes
+          className={classes.scheduleIcon}
+          onClick={() => {
+            handleRemove(index);
+          }}
+        />
+      </p>
+    ));
 
   return (
     <div className={clx(classes.root, className)}>
-      {label && (
-        <InputLabel className={(classNames?.label as string) ?? ""} htmlFor={componentName}>
-          {label}
-        </InputLabel>
-      )}
+      <SelectInput
+        name={"day"}
+        label={label}
+        value={schedule.day}
+        options={dayOptions}
+        className={classes.selectInput}
+        onChange={({ value }: { name: string; value: string }) =>
+          handleScheduleChange("day", value)
+        }
+      />
+      <div className={classes.scheduleContainer}>{renderSchedules()}</div>
+      <div className={classes.timeContainer}>
+        <TimeInput
+          name={"start_time"}
+          label="SET TIME"
+          value={dayDelimiter + " " + schedule.start_time}
+          className={classes.timeInput}
+          onChange={({ value }: { name: string; value: string }) =>
+            handleScheduleChange("start_time", value)
+          }
+        />
+        <p className={classes.timeDivider}>TO</p>
+        <TimeInput
+          name={"end_time"}
+          value={dayDelimiter + " " + schedule.end_time}
+          className={classes.timeInput}
+          onChange={({ value }: { name: string; value: string }) =>
+            handleScheduleChange("end_time", value)
+          }
+        />
+      </div>
 
-      {scheduleValue?.map((row: any, index: number) => {
-        return (
-          <div
-            className={`${classes.schedulerContainer} ${
-              orientation == "vertical" && classes.verticalContainer
-            }`}
-            key={index}
-          >
-            {fields.map(({ name }) => {
-              return row?.[name];
-            })}
-          </div>
-        );
-      })}
-
-      {multiple && !isEverydaySelected && (
-        <div
-          className={`${classes.button} ${availableOption.length == 0 && classes.hidden}`}
-          onClick={addNewRow}
-        >
-          <p className={classes.buttonText}>
-            <FiPlus className={classes.addIcon} /> Add Schedule
-          </p>
-        </div>
-      )}
+      <Button className={classes.scheduleButton} onClick={handleAdd}>
+        Add
+      </Button>
     </div>
   );
 };
