@@ -1,4 +1,3 @@
-
 export const dayOptions = [
   { value: "0", label: "Everyday" },
   { value: "1", label: "Sunday" },

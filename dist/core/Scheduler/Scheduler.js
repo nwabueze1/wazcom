@@ -43,13 +43,13 @@ import { Button } from "../../core";
 import { FaTimes } from "react-icons/fa";
 import clx from "classnames";
 export var Scheduler = function (_a) {
-    var className = _a.className, name = _a.name, label = _a.label, _b = _a.value, value = _b === void 0 ? [{ day: "0", start_time: "00:00", end_time: "12:00" }] : _b, onChange = _a.onChange;
+    var className = _a.className, name = _a.name, label = _a.label, _b = _a.value, value = _b === void 0 ? [{ day: "0", start_time: "00:00", end_time: "12:00" }] : _b, onChange = _a.onChange, _c = _a.required, required = _c === void 0 ? false : _c;
     var classes = useSchedulerStyles();
-    var _c = __read(useState({
+    var _d = __read(useState({
         day: "0",
         start_time: "9:00",
         end_time: "17:00",
-    }), 2), schedule = _c[0], setSchedule = _c[1];
+    }), 2), schedule = _d[0], setSchedule = _d[1];
     var dayDelimiter = "2023-08-23";
     var handleAdd = useCallback(function () {
         var parsedValue = value.map(function (scheduleValue) { return JSON.stringify(scheduleValue); });
@@ -65,6 +65,8 @@ export var Scheduler = function (_a) {
     };
     var handleRemove = function (index) {
         var newValue = value === null || value === void 0 ? void 0 : value.filter(function (_, valueIndex) { return valueIndex !== index; });
+        if (required && newValue.length === 0)
+            return;
         onChange === null || onChange === void 0 ? void 0 : onChange({ name: name, value: newValue });
     };
     var handleScheduleChange = function (key, value) {
@@ -102,7 +104,7 @@ export var Scheduler = function (_a) {
     return (_jsxs("div", __assign({ className: clx(classes.root, className) }, { children: [_jsx(SelectInput, { name: "day", label: label, value: schedule.day, options: dayOptions, className: classes.selectInput, onChange: function (_a) {
                     var value = _a.value;
                     return handleScheduleChange("day", value);
-                } }), _jsx("div", __assign({ className: classes.scheduleContainer }, { children: renderSchedules() })), _jsxs("div", __assign({ className: classes.timeContainer }, { children: [_jsx(TimeInput, { name: "start_time", label: "SET TIME", value: dayDelimiter + " " + schedule.start_time, className: classes.timeInput, onChange: function (_a) {
+                } }), value.length > 0 && _jsx("div", __assign({ className: classes.scheduleContainer }, { children: renderSchedules() })), _jsxs("div", __assign({ className: classes.timeContainer }, { children: [_jsx(TimeInput, { name: "start_time", label: "SET TIME", value: dayDelimiter + " " + schedule.start_time, className: classes.timeInput, onChange: function (_a) {
                             var value = _a.value;
                             return handleScheduleChange("start_time", value);
                         } }), _jsx("p", __assign({ className: classes.timeDivider }, { children: "TO" })), _jsx(TimeInput, { name: "end_time", value: dayDelimiter + " " + schedule.end_time, className: classes.timeInput, onChange: function (_a) {

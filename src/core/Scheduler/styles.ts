@@ -14,7 +14,7 @@ export const useSchedulerStyles = makeStyles((theme: Theme) => ({
   },
   scheduleContainer: {
     padding: theme.spacing(1.5),
-    border: '1px solid',
+    border: "1px solid",
     borderColor: theme.design.colors.waz_grey300,
     borderRadius: 4,
     marginBottom: theme.spacing(2),
@@ -63,5 +63,5 @@ export const useSchedulerStyles = makeStyles((theme: Theme) => ({
     border: `1px solid`,
     borderColor: `${theme.design.colors.waz_primary600} !important`,
     fontSize: theme.typography.fontSize + 2,
-  }
+  },
 }));

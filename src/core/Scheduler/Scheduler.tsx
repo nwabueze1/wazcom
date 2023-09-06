@@ -13,6 +13,7 @@ export const Scheduler: React.FC<SchedulerProps> = ({
   label,
   value = [{ day: "0", start_time: "00:00", end_time: "12:00" }],
   onChange,
+  required = false,
 }) => {
   const classes = useSchedulerStyles();
   const [schedule, setSchedule] = useState<{ [key in "day" | "start_time" | "end_time"]: string }>({
@@ -39,6 +40,9 @@ export const Scheduler: React.FC<SchedulerProps> = ({
 
   const handleRemove = (index: number) => {
     const newValue = value?.filter((_, valueIndex) => valueIndex !== index);
+
+    if (required && newValue.length === 0) return;
+
     onChange?.({ name: name as string, value: newValue });
   };
 
@@ -92,7 +96,7 @@ export const Scheduler: React.FC<SchedulerProps> = ({
           handleScheduleChange("day", value)
         }
       />
-      <div className={classes.scheduleContainer}>{renderSchedules()}</div>
+      {value.length > 0 && <div className={classes.scheduleContainer}>{renderSchedules()}</div>}
       <div className={classes.timeContainer}>
         <TimeInput
           name={"start_time"}
