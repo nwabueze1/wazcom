@@ -1,7 +1,6 @@
 import { Wrapper } from "../../core";
-import { RatingInput } from "../../io";
+import { OpinionScale, RatingInput } from "../../io";
 import { useState } from "react";
-import { OpinionScale } from "../../io/OpinionScale";
 
 export const Rating = () => {
   const [rating, setRating] = useState<number>(1);
@@ -21,6 +20,16 @@ export const Rating = () => {
         label={"Rating"}
       />
       <OpinionScale variant={"outlined"} name={"rating"} value={rating} onChange={handleChange} />
+      <RatingInput
+        variant={"contained"}
+        name={"rating"}
+        isError={false}
+        helperText={"Welcome"}
+        value={rating}
+        onChange={handleChange}
+        label={"Rating"}
+      />
+      <OpinionScale variant={"contained"} name={"rating"} value={rating} onChange={handleChange} />
     </Wrapper>
   );
 };

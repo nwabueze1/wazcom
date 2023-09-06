@@ -104,7 +104,7 @@ export default [
     component: PasswordInputView,
   },
   {
-    key: "RatingAndRanking",
+    key: "Rating And Ranking",
     path: "/rating-ranking",
     exact: true,
     component: Rating,
