@@ -17,7 +17,7 @@ export const Scheduler: React.FC<SchedulerProps> = ({
 }) => {
   const classes = useSchedulerStyles();
   const [schedule, setSchedule] = useState<{ [key in "day" | "start_time" | "end_time"]: string }>({
-    day: "0",
+    day: "2",
     start_time: "9:00",
     end_time: "17:00",
   });

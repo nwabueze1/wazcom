@@ -46,7 +46,7 @@ export var Scheduler = function (_a) {
     var className = _a.className, name = _a.name, label = _a.label, _b = _a.value, value = _b === void 0 ? [] : _b, onChange = _a.onChange, _c = _a.required, required = _c === void 0 ? false : _c;
     var classes = useSchedulerStyles();
     var _d = __read(useState({
-        day: "0",
+        day: "2",
         start_time: "9:00",
         end_time: "17:00",
     }), 2), schedule = _d[0], setSchedule = _d[1];
