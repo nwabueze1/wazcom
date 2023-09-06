@@ -14,7 +14,7 @@ export const ConfirmationDialog: React.FC<ConfirmationDialogProps> = ({
   onClose,
   onSubmit,
   className,
-  classNames
+  classNames,
 }) => {
   const classes = useConfirmationDialogStyles();
 
@@ -29,10 +29,18 @@ export const ConfirmationDialog: React.FC<ConfirmationDialogProps> = ({
           <p className={classes.description}>{description}</p>
         </div>
         <div className={classes.buttons}>
-          <Button variant="contained" className={clx(classes.button,classNames?.buttonClass)} onClick={onSubmit}>
+          <Button
+            variant="contained"
+            className={clx(classes.button, classNames?.buttonClass)}
+            onClick={onSubmit}
+          >
             {submitText}
           </Button>
-          <Button variant="outlined" className={clx(classes.button, classNames?.buttonClass)} onClick={onClose}>
+          <Button
+            variant="outlined"
+            className={clx(classes.button, classNames?.buttonClass)}
+            onClick={onClose}
+          >
             {cancelText}
           </Button>
         </div>
