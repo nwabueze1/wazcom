@@ -11,7 +11,7 @@ export const Scheduler: React.FC<SchedulerProps> = ({
   className,
   name,
   label,
-  value = [{ day: "0", start_time: "00:00", end_time: "12:00" }],
+  value = [],
   onChange,
   required = false,
 }) => {

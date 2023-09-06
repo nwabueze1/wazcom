@@ -11,7 +11,7 @@ export var useSchedulerStyles = makeStyles(function (theme) { return ({
     },
     scheduleContainer: {
         padding: theme.spacing(1.5),
-        border: '1px solid',
+        border: "1px solid",
         borderColor: theme.design.colors.waz_grey300,
         borderRadius: 4,
         marginBottom: theme.spacing(2),
@@ -60,5 +60,5 @@ export var useSchedulerStyles = makeStyles(function (theme) { return ({
         border: "1px solid",
         borderColor: "".concat(theme.design.colors.waz_primary600, " !important"),
         fontSize: theme.typography.fontSize + 2,
-    }
+    },
 }); });
