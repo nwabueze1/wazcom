@@ -48,7 +48,7 @@ export const useImageSelectorInputStyles = makeStyles((theme: Theme) => ({
     fontFamily: "inherit",
     width: 184,
     height: 25,
-    fontSize: theme.typography.fontSize,
+    fontSize: theme.typography.fontSize - 2,
   },
   errorContainer: {
     borderColor: theme.design.colors.error,

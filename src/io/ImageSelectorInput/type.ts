@@ -7,4 +7,5 @@ export type ImageSelectorInputPropsType = {
   isError?: boolean;
   helperText?: string;
   name: string;
+  accept?: string;
 };

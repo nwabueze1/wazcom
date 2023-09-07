@@ -1,9 +1,9 @@
 import { ChangeEvent, FC, useRef, useState } from "react";
 import { ImageSelectorInputPropsType } from "./type";
 import { useImageSelectorInputStyles } from "./useImageSelectorInputStyles";
-import { convertFromBytesToMb } from "./helper";
 import clx from "classnames";
 import { Button } from "../../core";
+import { validateFileBySize } from "./ValidateFileBySize";
 
 export const ImageSelectorInput: FC<ImageSelectorInputPropsType> = ({
   isError,
@@ -17,6 +17,7 @@ export const ImageSelectorInput: FC<ImageSelectorInputPropsType> = ({
 }) => {
   const classes = useImageSelectorInputStyles();
   const fileInputRef = useRef<HTMLInputElement>(null);
+  const [fileError, setFileError] = useState<string | undefined>(undefined);
   const [fileSource, setFileSource] = useState<string>(() => {
     if (!value) return "";
     return URL.createObjectURL(value);
@@ -30,15 +31,12 @@ export const ImageSelectorInput: FC<ImageSelectorInputPropsType> = ({
     const selectedFile = e.target.files?.[0];
     if (!selectedFile) return;
 
-    let min_size_bytes, max_size_bytes;
-    if (min_size_kb) min_size_bytes = min_size_kb * 1024;
-    if (max_size_mb) max_size_bytes = max_size_mb * 1024 * 1024;
-
-    if (min_size_bytes && selectedFile.size < min_size_bytes)
-      return alert(`image cannot be lower than ${convertFromBytesToMb(min_size_bytes)} mb `);
-
-    if (max_size_bytes && selectedFile.size > max_size_bytes)
-      return alert(`image cannot be greater than ${convertFromBytesToMb(max_size_bytes)}`);
+    const { valid, error } = validateFileBySize({ file: selectedFile, min_size_kb, max_size_mb });
+    if (!valid) {
+      setFileError(error);
+      return;
+    }
+    setFileError(undefined);
 
     onChange?.({ name, value: selectedFile });
 
@@ -53,7 +51,7 @@ export const ImageSelectorInput: FC<ImageSelectorInputPropsType> = ({
         className={clx(
           classes.container,
           hasSelectedImage && classes.selectedImageContainer,
-          isError && classes.errorContainer,
+          (isError || fileError) && classes.errorContainer,
         )}
       >
         {!hasSelectedImage ? (
@@ -74,6 +72,7 @@ export const ImageSelectorInput: FC<ImageSelectorInputPropsType> = ({
         />
       </article>
       {helperText && <span className={clx(isError && classes.helperTextError)}>{helperText}</span>}
+      {fileError && <span className={clx(isError && classes.helperTextError)}>{fileError}</span>}
       {hasSelectedImage && (
         <>
           <p>{value?.name}</p>
