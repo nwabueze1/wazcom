@@ -9,6 +9,7 @@ export const ComboBoxInput: FC<ComboBoxInputProps> = ({
   name,
   isAdd = true,
   onChange,
+  onEnter,
   options: initialOptions,
   label,
   isError,
@@ -40,6 +41,12 @@ export const ComboBoxInput: FC<ComboBoxInputProps> = ({
     onChange?.({ name: String(name), value: option?.value });
     setShowOptions(false);
   };
+
+  const handleOnEnter = ({ name, value }: { name: string, value: string }) => {
+    if (onEnter) {
+      onEnter?.({ name, value });
+    }
+  }
 
   const handleFilterChange = ({ value: filter }: { name: string; value: string }) => {
     setFilter(filter);
@@ -92,6 +99,7 @@ export const ComboBoxInput: FC<ComboBoxInputProps> = ({
           value={filter}
           onChange={handleFilterChange}
           onFocus={handleFocus}
+          onEnter={handleOnEnter}
           placeholder={placeholder}
           isError={isError}
           isSuccess={isSuccess}
