@@ -74,21 +74,8 @@ export const GqlComboBox = memo(
 
     const handleOnEnter = useCallback(
       async (selectedValue: string) => {
-        let label = options?.find(
-          (option) => option.value.toLowerCase() === selectedValue.toLowerCase(),
-        )?.label;
-        let value = selectedValue;
-        if (!label) {
-          setFetching(true);
-          const response = await handleAdd(
-            selectedValue.startsWith("Add ") ? selectedValue.split("Add ")[1] : selectedValue,
-          );
-          label = response?.label as string;
-          value = response?.value as string;
-        }
-        setValue(value);
-        onEnter?.({ name: props.name as string, value });
-        setFetching(false);
+        handleChange(selectedValue);
+        onEnter?.({ name: props.name as string, value: selectedValue });
       },
       [options],
     );
