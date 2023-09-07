@@ -161,7 +161,6 @@ export var GqlComboBox = memo(function (_a) {
             switch (_a.label) {
                 case 0:
                     onEnter === null || onEnter === void 0 ? void 0 : onEnter({ name: props.name, value: selectedValue });
-                    setFetching(true);
                     return [4 /*yield*/, handleAdd(selectedValue.startsWith("Add ") ? selectedValue.split("Add ")[1] : selectedValue)];
                 case 1:
                     _a.sent();
