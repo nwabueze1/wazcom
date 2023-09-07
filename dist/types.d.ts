@@ -5,6 +5,10 @@ export interface CommonProps {
         name: string;
         value: any;
     }) => void;
+    onEnter?: (data: {
+        name: string;
+        value: any;
+    }) => void;
     className?: string;
     classNames?: {
         [key: string]: string | {

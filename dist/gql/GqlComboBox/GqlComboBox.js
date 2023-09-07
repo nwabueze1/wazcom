@@ -88,7 +88,7 @@ import { useGqlComboBoxStyles } from "./styles";
 import { ComboBoxInput } from "../../io";
 import { get } from "lodash";
 export var GqlComboBox = memo(function (_a) {
-    var initialValue = _a.value, _b = _a.config, client = _b.client, key = _b.key, labelKey = _b.labelKey, valueKey = _b.valueKey, query = _b.name, postFetchHook = _a.postFetchHook, addOption = _a.addOption, onChange = _a.onChange, label = _a.label, variables = _a.variables, props = __rest(_a, ["value", "config", "postFetchHook", "addOption", "onChange", "label", "variables"]);
+    var initialValue = _a.value, _b = _a.config, client = _b.client, key = _b.key, labelKey = _b.labelKey, valueKey = _b.valueKey, query = _b.name, postFetchHook = _a.postFetchHook, addOption = _a.addOption, onChange = _a.onChange, onEnter = _a.onEnter, label = _a.label, variables = _a.variables, props = __rest(_a, ["value", "config", "postFetchHook", "addOption", "onChange", "onEnter", "label", "variables"]);
     var classes = useGqlComboBoxStyles();
     var _c = __read(useState([]), 2), options = _c[0], setOptions = _c[1];
     var _d = __read(useState(true), 2), fetching = _d[0], setFetching = _d[1];
@@ -156,6 +156,19 @@ export var GqlComboBox = memo(function (_a) {
             }
         });
     }); }, [options]);
+    var handleOnEnter = useCallback(function (selectedValue) { return __awaiter(void 0, void 0, void 0, function () {
+        return __generator(this, function (_a) {
+            switch (_a.label) {
+                case 0:
+                    onEnter === null || onEnter === void 0 ? void 0 : onEnter({ name: props.name, value: selectedValue });
+                    setFetching(true);
+                    return [4 /*yield*/, handleAdd(selectedValue.startsWith("Add ") ? selectedValue.split("Add ")[1] : selectedValue)];
+                case 1:
+                    _a.sent();
+                    return [2 /*return*/];
+            }
+        });
+    }); }, [options]);
     var handleAdd = useCallback(function (value) { return __awaiter(void 0, void 0, void 0, function () {
         var response, value_1, label_1, newOptions;
         return __generator(this, function (_a) {
@@ -182,6 +195,9 @@ export var GqlComboBox = memo(function (_a) {
     return (_jsx(ComboBoxInput, __assign({ label: label, options: options, value: value !== null && value !== void 0 ? value : "", onChange: function (_a) {
             var value = _a.value;
             handleChange(value);
+        }, onEnter: function (_a) {
+            var value = _a.value;
+            handleOnEnter(value);
         } }, props)));
 });
 GqlComboBox.displayName = "GqlComboBox";

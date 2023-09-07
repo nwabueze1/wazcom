@@ -11,6 +11,7 @@ export type ComboBoxInputProps = {
     helperText?: string;
     placeholder?: string;
     onChange?: (...args: any[]) => void;
+    onEnter?: (...args: any[]) => void;
 };
 export type ComboBoxInputOptionProps = {
     label: string;
