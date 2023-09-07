@@ -158,14 +158,8 @@ export var GqlComboBox = memo(function (_a) {
     }); }, [options]);
     var handleOnEnter = useCallback(function (selectedValue) { return __awaiter(void 0, void 0, void 0, function () {
         return __generator(this, function (_a) {
-            switch (_a.label) {
-                case 0:
-                    onEnter === null || onEnter === void 0 ? void 0 : onEnter({ name: props.name, value: selectedValue });
-                    return [4 /*yield*/, handleAdd(selectedValue.startsWith("Add ") ? selectedValue.split("Add ")[1] : selectedValue)];
-                case 1:
-                    _a.sent();
-                    return [2 /*return*/];
-            }
+            onEnter === null || onEnter === void 0 ? void 0 : onEnter({ name: props.name, value: selectedValue });
+            return [2 /*return*/];
         });
     }); }, [options]);
     var handleAdd = useCallback(function (value) { return __awaiter(void 0, void 0, void 0, function () {
