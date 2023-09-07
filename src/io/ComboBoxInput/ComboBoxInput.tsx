@@ -42,9 +42,11 @@ export const ComboBoxInput: FC<ComboBoxInputProps> = ({
     setShowOptions(false);
   };
 
-  const handleOnEnter = ({ name, value }: { name: string, value: string }) => {
+  const handleOnEnter = (data: { name: string, value: string }) => {
     if (onEnter) {
-      onEnter?.({ name, value });
+      setFilter(data.name);
+      onEnter?.({ name: String(name), value });
+      setShowOptions(false);
     }
   }
 

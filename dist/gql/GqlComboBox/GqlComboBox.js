@@ -157,9 +157,27 @@ export var GqlComboBox = memo(function (_a) {
         });
     }); }, [options]);
     var handleOnEnter = useCallback(function (selectedValue) { return __awaiter(void 0, void 0, void 0, function () {
-        return __generator(this, function (_a) {
-            onEnter === null || onEnter === void 0 ? void 0 : onEnter({ name: props.name, value: selectedValue });
-            return [2 /*return*/];
+        var label, value, response;
+        var _a;
+        return __generator(this, function (_b) {
+            switch (_b.label) {
+                case 0:
+                    label = (_a = options === null || options === void 0 ? void 0 : options.find(function (option) { return option.value.toLowerCase() === selectedValue.toLowerCase(); })) === null || _a === void 0 ? void 0 : _a.label;
+                    value = selectedValue;
+                    if (!!label) return [3 /*break*/, 2];
+                    setFetching(true);
+                    return [4 /*yield*/, handleAdd(selectedValue.startsWith("Add ") ? selectedValue.split("Add ")[1] : selectedValue)];
+                case 1:
+                    response = _b.sent();
+                    label = response === null || response === void 0 ? void 0 : response.label;
+                    value = response === null || response === void 0 ? void 0 : response.value;
+                    _b.label = 2;
+                case 2:
+                    setValue(value);
+                    onEnter === null || onEnter === void 0 ? void 0 : onEnter({ name: props.name, value: value });
+                    setFetching(false);
+                    return [2 /*return*/];
+            }
         });
     }); }, [options]);
     var handleAdd = useCallback(function (value) { return __awaiter(void 0, void 0, void 0, function () {

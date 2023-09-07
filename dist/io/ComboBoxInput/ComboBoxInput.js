@@ -53,10 +53,11 @@ export var ComboBoxInput = function (_a) {
         onChange === null || onChange === void 0 ? void 0 : onChange({ name: String(name), value: option === null || option === void 0 ? void 0 : option.value });
         setShowOptions(false);
     };
-    var handleOnEnter = function (_a) {
-        var name = _a.name, value = _a.value;
+    var handleOnEnter = function (data) {
         if (onEnter) {
-            onEnter === null || onEnter === void 0 ? void 0 : onEnter({ name: name, value: value });
+            setFilter(data.name);
+            onEnter === null || onEnter === void 0 ? void 0 : onEnter({ name: String(name), value: value });
+            setShowOptions(false);
         }
     };
     var handleFilterChange = function (_a) {
