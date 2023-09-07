@@ -48,32 +48,24 @@ export const FileSelectorInput: FC<FileSelectorInputPropsType> = ({
   return (
     <div className={classes.root}>
       {label && <label className={classes.label}>{label}</label>}
-      <article
-        className={clx(
-          classes.container,
-          hasSelectedFile && classes.selectedImageContainer,
-          (isError || fileError) && classes.errorContainer,
-        )}
+      <button
+        className={clx(classes.selectButton, hasSelectedFile && "active")}
+        onClick={!hasSelectedFile ? handlePickFile : undefined}
       >
-        <button
-          className={classes.selectButton}
-          onClick={!hasSelectedFile ? handlePickFile : undefined}
-        >
-          Select a file
-        </button>
-        <input
-          type={"file"}
-          accept={accept}
-          className={classes.selectInput}
-          ref={fileInputRef}
-          onChange={handleSelectImage}
-        />
-      </article>
+        {hasSelectedFile ? value?.name : "Select a file"}
+      </button>
+      <input
+        type={"file"}
+        accept={accept}
+        className={classes.selectInput}
+        ref={fileInputRef}
+        onChange={handleSelectImage}
+      />
       {helperText && <span className={clx(isError && classes.helperTextError)}>{helperText}</span>}
       {fileError && <span className={clx(isError && classes.helperTextError)}>{fileError}</span>}
       {hasSelectedFile && (
         <>
-          <p>{value?.name}</p>
+          <p className={classes.selectedFileName}>{value?.name}</p>
           <Button variant={"contained"} className={classes.button} onClick={handlePickFile}>
             Change file
           </Button>

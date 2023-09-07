@@ -19,3 +19,4 @@ export * from "./TimeInput";
 export * from "./DateInput";
 export * from "./DateTimeScheduler";
 export * from "./ImageSelectorInput";
+export * from "./FileSelectorInput"
