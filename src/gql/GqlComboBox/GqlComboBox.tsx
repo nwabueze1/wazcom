@@ -114,7 +114,7 @@ export const GqlComboBox = memo(
           handleChange(value);
         }}
         onEnter={({ value }) => {
-          handleOnEnter(value);
+          if (onEnter) handleOnEnter(value);
         }}
         {...props}
       />

@@ -191,7 +191,8 @@ export var GqlComboBox = memo(function (_a) {
             handleChange(value);
         }, onEnter: function (_a) {
             var value = _a.value;
-            handleOnEnter(value);
+            if (onEnter)
+                handleOnEnter(value);
         } }, props)));
 });
 GqlComboBox.displayName = "GqlComboBox";
