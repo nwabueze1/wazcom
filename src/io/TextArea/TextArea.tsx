@@ -48,9 +48,10 @@ export const TextArea: FC<Omit<TextAreaProps, "type">> = ({
     if (onChange) {
       onChange?.({
         name: (e.target as HTMLTextAreaElement).name ?? "",
-        value: textLimit && textLimit > 0 && (e.target as HTMLTextAreaElement).value.length > textLimit
-          ? (e.target as HTMLTextAreaElement).value.slice(0, textLimit)
-          : (e.target as HTMLTextAreaElement).value ?? "",
+        value:
+          textLimit && textLimit > 0 && (e.target as HTMLTextAreaElement).value.length > textLimit
+            ? (e.target as HTMLTextAreaElement).value.slice(0, textLimit)
+            : (e.target as HTMLTextAreaElement).value ?? "",
       });
     }
   };
