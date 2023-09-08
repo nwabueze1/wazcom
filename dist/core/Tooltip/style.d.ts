@@ -1,1 +1,0 @@
-export declare const useTootipStyles: (props?: any) => import("@mui/styles").ClassNameMap<"root" | "container" | "icon" | "tooltip" | "title" | "tooltipContainer" | "tooltipIcon" | "tooltipArrow" | "tooltipArrowBottom" | "tooltipArrowTop" | "tooltipArrowLeft" | "tooltipArrowRight" | "closeContainer">;

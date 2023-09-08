@@ -1,1 +1,0 @@
-export declare const useCreatePostInputStyles: (props?: any) => import("@mui/styles").ClassNameMap<"root" | "header" | "required" | "editorError" | "createPostInput" | "postButtonContainer" | "postButton" | "postTitleInputParent" | "postTitleInput">;

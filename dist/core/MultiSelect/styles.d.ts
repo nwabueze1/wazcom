@@ -1,1 +1,0 @@
-export declare const useMultiSelectStyles: (props?: any) => import("@mui/styles").ClassNameMap<"root" | "label" | "required" | "iconButton" | "dropdown" | "dropdownList" | "listItem" | "dropdownCheckbox">;
