@@ -156,13 +156,6 @@ export var GqlComboBox = memo(function (_a) {
             }
         });
     }); }, [options]);
-    var handleOnEnter = useCallback(function (selectedValue) { return __awaiter(void 0, void 0, void 0, function () {
-        return __generator(this, function (_a) {
-            handleChange(selectedValue);
-            onEnter === null || onEnter === void 0 ? void 0 : onEnter({ name: props.name, value: selectedValue });
-            return [2 /*return*/];
-        });
-    }); }, [options]);
     var handleAdd = useCallback(function (value) { return __awaiter(void 0, void 0, void 0, function () {
         var response, value_1, label_1, newOptions;
         return __generator(this, function (_a) {
@@ -189,10 +182,6 @@ export var GqlComboBox = memo(function (_a) {
     return (_jsx(ComboBoxInput, __assign({ label: label, options: options, value: value !== null && value !== void 0 ? value : "", onChange: function (_a) {
             var value = _a.value;
             handleChange(value);
-        }, onEnter: function (_a) {
-            var value = _a.value;
-            if (onEnter)
-                handleOnEnter(value);
         } }, props)));
 });
 GqlComboBox.displayName = "GqlComboBox";
