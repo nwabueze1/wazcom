@@ -68,8 +68,7 @@ export const useCreatePostInputStyles = makeStyles((theme: Theme) => ({
     "&::placeHolder": {
       fontWeight: theme.typography.fontWeightBold,
       fontSize: theme.typography.fontSize * 2,
-      color: theme.design.colors.grey500,
-      // opacity: "100%",
+      color: theme.design.colors.grey300,
     },
   },
 }));
