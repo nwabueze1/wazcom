@@ -1,10 +1,8 @@
 import { CommonProps } from "types";
 export type SchedulerProps = CommonProps & {
     label?: string;
-    gap?: string;
-    multiple?: boolean;
     value?: Schedule[];
-    orientation?: "horizontal" | "vertical";
+    required?: boolean;
 };
 export type Schedule = {
     day: string;
