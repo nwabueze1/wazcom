@@ -4,6 +4,7 @@ import { useFileSelectorInputStyles } from "./useFileSelectorInputStyles";
 import { validateFileBySize } from "../ImageSelectorInput";
 import clx from "classnames";
 import { Button } from "../../core";
+
 export const FileSelectorInput: FC<FileSelectorInputPropsType> = ({
   name,
   value,
@@ -23,10 +24,12 @@ export const FileSelectorInput: FC<FileSelectorInputPropsType> = ({
     return URL.createObjectURL(value);
   });
   const hasSelectedFile = fileSource.length > 0;
+
   const handlePickFile = () => {
     fileInputRef.current?.click();
   };
-  const handleSelectImage = (e: ChangeEvent<HTMLInputElement>) => {
+
+  const handleSelectFile = (e: ChangeEvent<HTMLInputElement>) => {
     const selectedFile = e.target.files?.[0];
     if (!selectedFile) return;
     const { valid, error } = validateFileBySize({ file: selectedFile, min_size_kb, max_size_mb });
@@ -39,6 +42,7 @@ export const FileSelectorInput: FC<FileSelectorInputPropsType> = ({
     const imageUrl = URL.createObjectURL(selectedFile);
     setFileSource(imageUrl);
   };
+
   return (
     <div className={classes.root}>
       {label && <label className={classes.label}>{label}</label>}
@@ -53,7 +57,7 @@ export const FileSelectorInput: FC<FileSelectorInputPropsType> = ({
         accept={accept}
         className={classes.selectInput}
         ref={fileInputRef}
-        onChange={handleSelectImage}
+        onChange={handleSelectFile}
       />
       {helperText && <span className={clx(isError && classes.helperTextError)}>{helperText}</span>}
       {fileError && <span className={clx(isError && classes.helperTextError)}>{fileError}</span>}
