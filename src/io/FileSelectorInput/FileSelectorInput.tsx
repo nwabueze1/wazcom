@@ -56,10 +56,10 @@ export const FileSelectorInput: FC<FileSelectorInputPropsType> = ({
         )}
       >
         <button
-          className={classes.selectButton}
+          className={clx(classes.selectButton, hasSelectedFile && "active")}
           onClick={!hasSelectedFile ? handlePickFile : undefined}
         >
-          Select a file
+          {hasSelectedFile ? value?.name : "Select a file"}
         </button>
         <input
           type={"file"}

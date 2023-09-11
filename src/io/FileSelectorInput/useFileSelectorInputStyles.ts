@@ -25,8 +25,12 @@ export const useFileSelectorInputStyles = makeStyles((theme: Theme) => ({
     fontFamily: "inherit",
     outline: "none",
     borderRadius: 4,
-    "&:hover": {
+    "&:hover, &.active": {
       borderColor: theme.design.colors.waz_primary400,
+      color: theme.design.colors.waz_primary600,
+    },
+    "&.active": {
+      cursor: "auto",
     },
   },
   selectInput: {
