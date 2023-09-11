@@ -21,6 +21,8 @@ import { AccordionView } from "../view/Accordion";
 import { ProgressView } from "../view/Progress";
 import { PickersView } from "../view/Pickers";
 import { PhoneNumberInputView } from "../view/PhoneNumberInput";
+import { Rating } from "../view/Rating";
+// import { RatingInput } from "../io/RatingInput/RatingInput";
 
 export default [
   {
@@ -100,6 +102,12 @@ export default [
     path: "/password-input",
     exact: true,
     component: PasswordInputView,
+  },
+  {
+    key: "Rating And Ranking",
+    path: "/rating-ranking",
+    exact: true,
+    component: Rating,
   },
   {
     key: "CurrencyInputView",
