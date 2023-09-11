@@ -22,6 +22,7 @@ import { ProgressView } from "../view/Progress";
 import { PickersView } from "../view/Pickers";
 import { PhoneNumberInputView } from "../view/PhoneNumberInput";
 import { FileUpload } from "../view/FileUpload";
+import { Rating } from "../view/Rating";
 
 export default [
   {
@@ -101,6 +102,12 @@ export default [
     path: "/password-input",
     exact: true,
     component: PasswordInputView,
+  },
+  {
+    key: "Rating And Ranking",
+    path: "/rating-ranking",
+    exact: true,
+    component: Rating,
   },
   {
     key: "CurrencyInputView",

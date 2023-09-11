@@ -9,4 +9,8 @@ export type ConfirmationDialogProps = {
   className?: string;
   onClose: () => void;
   onSubmit: () => void;
+  classNames?: {
+    buttonClass?: string;
+    titleClass?: string;
+  };
 };
