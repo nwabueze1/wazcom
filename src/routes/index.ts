@@ -21,6 +21,7 @@ import { AccordionView } from "../view/Accordion";
 import { ProgressView } from "../view/Progress";
 import { PickersView } from "../view/Pickers";
 import { PhoneNumberInputView } from "../view/PhoneNumberInput";
+import { FileUpload } from "../view/FileUpload";
 
 export default [
   {
@@ -160,5 +161,11 @@ export default [
     path: "/table",
     exact: true,
     component: TableView,
+  },
+  {
+    key: "FileUpload",
+    path: "/file-upload",
+    exact: true,
+    component: FileUpload,
   },
 ];
