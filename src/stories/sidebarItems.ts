@@ -24,7 +24,7 @@ export default [
       { name: "Select Input", slug: "select-input" },
       { name: "Search Bar", slug: "search-bar" },
       { name: "File Upload", slug: "file-upload" },
-      { name: "Rating & Ranking", slug: "rating-ranking" },
+      { name: "RatingInput & Ranking", slug: "rating-ranking" },
       { name: "Selectors", slug: "selectors" },
       { name: "Pickers", slug: "pickers" },
     ],

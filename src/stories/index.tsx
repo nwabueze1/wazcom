@@ -337,7 +337,7 @@ export const stories: ComponentPropType[] = [
         { label: "Bread", value: "23" },
         { label: "Love", value: "45" },
       ],
-      value: "testing",
+      value: { label: "Love", value: "45" },
       placeholder: "Select Wazobia Member",
       isAdd: false,
     },
@@ -626,23 +626,17 @@ export const stories: ComponentPropType[] = [
     component: Scheduler,
     props: {
       name: "schedule",
-      label: "Menu Schedule",
-      MenuProps: {
-        style: { top: 50, position: "absolute" },
-        variant: "menu",
-      },
-      orientation: "vertical",
-      multiple: true,
+      label: "OPERATIONAL DAYS",
       value: [
         {
           day: "1",
-          start_time: "12:00",
+          start_time: "15:00",
           end_time: "18:00",
         },
         {
           day: "2",
-          start_time: "12:00",
-          end_time: "18:00",
+          start_time: "9:00",
+          end_time: "11:00",
         },
       ],
       onChange: (data: { name: string; value: any }) => {

@@ -10,9 +10,6 @@ type ExtendedThemeOptions = {
         colors: {
             [key: string]: string;
         };
-        shadow: {
-            [key: string]: string;
-        };
         background: {
             [key: string]: string;
         };

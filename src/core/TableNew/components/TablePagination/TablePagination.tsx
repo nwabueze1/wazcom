@@ -4,7 +4,6 @@ import { SelectInput } from "../../../../io";
 import { BsFillCaretLeftFill, BsFillCaretRightFill } from "react-icons/bs";
 import { TablePaginationProps } from "./types";
 import clx from "classnames";
-import { Pagination } from "./Pagination";
 
 export const TablePagination: FC<TablePaginationProps> = ({
   currentPage,
@@ -15,30 +14,55 @@ export const TablePagination: FC<TablePaginationProps> = ({
   const classes = useTablePaginationStyles();
 
   const renderPages = () => {
-    return lastPage < 10 ? (
-      new Array(lastPage).fill("").map((_, index) => {
-        const isActive = currentPage === index + 1;
-        return (
-          <p
-            key={index}
-            className={clx(classes.paginationPage, isActive && classes.paginationPageActive)}
-            onClick={() => {
-              if (isActive) return;
-              setTablePagination({ count, lastPage, currentPage: index + 1 });
-            }}
-          >
-            {index + 1}
-          </p>
-        );
-      })
-    ) : (
-      <Pagination
-        currentPage={currentPage}
-        pages={lastPage}
-        setPage={(page: number) => {
-          setTablePagination({ count, lastPage, currentPage: page });
-        }}
-      />
+    const maxVisiblePages = 25;
+    const pageNumbers = [];
+
+    if (lastPage <= maxVisiblePages) {
+      pageNumbers.push(...Array.from({ length: lastPage }, (_, index) => index + 1));
+    } else {
+      const leftBound = Math.max(currentPage - Math.floor(maxVisiblePages / 2), 1);
+      const rightBound = Math.min(leftBound + maxVisiblePages - 1, lastPage);
+
+      if (leftBound > 1) {
+        pageNumbers.push(1, "ellipsis");
+      }
+
+      for (let i = leftBound; i <= rightBound; i++) {
+        pageNumbers.push(i);
+      }
+
+      if (rightBound < lastPage) {
+        pageNumbers.push("ellipsis", lastPage);
+      }
+    }
+
+    return (
+      <div className={classes.elipsisContainer}>
+        {pageNumbers.map((pageNumber, index) => {
+          if (pageNumber === "ellipsis") {
+            return (
+              <span key={`ellipsis${index}`} className={classes.elipsis}>
+                ...
+              </span>
+            );
+          }
+
+          const isActive = currentPage === pageNumber;
+          return (
+            <p
+              key={pageNumber}
+              className={clx(classes.paginationPage, isActive && classes.paginationPageActive)}
+              onClick={() => {
+                if (!isActive) {
+                  setTablePagination({ count, lastPage, currentPage: pageNumber as number });
+                }
+              }}
+            >
+              {pageNumber}
+            </p>
+          );
+        })}
+      </div>
     );
   };
 
