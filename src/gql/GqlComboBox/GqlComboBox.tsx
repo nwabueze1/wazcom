@@ -12,7 +12,6 @@ export const GqlComboBox = memo(
     postFetchHook,
     addOption,
     onChange,
-    onEnter,
     label,
     variables,
     ...props
@@ -72,16 +71,6 @@ export const GqlComboBox = memo(
       [options],
     );
 
-    const handleOnEnter = useCallback(
-      async (selectedValue: string) => {
-        if (onEnter) {
-          handleChange(selectedValue);
-          onEnter?.({ name: props.name as string, value: selectedValue });
-        }
-      },
-      [options],
-    );
-
     const handleAdd = useCallback(
       async (value: string) => {
         const response = await addOption?.(value);
@@ -115,9 +104,7 @@ export const GqlComboBox = memo(
         onChange={({ value }) => {
           handleChange(value);
         }}
-        onEnter={({ value }) => {
-          handleOnEnter(value);
-        }}
+        handleAdd={handleAdd}
         {...props}
       />
     );
