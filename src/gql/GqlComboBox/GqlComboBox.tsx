@@ -104,7 +104,7 @@ export const GqlComboBox = memo(
         onChange={({ value }) => {
           handleChange(value);
         }}
-        handleAdd={handleAdd}
+        handleAdd={handleChange}
         {...props}
       />
     );

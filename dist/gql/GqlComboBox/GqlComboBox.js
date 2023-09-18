@@ -182,6 +182,6 @@ export var GqlComboBox = memo(function (_a) {
     return (_jsx(ComboBoxInput, __assign({ label: label, options: options, value: value !== null && value !== void 0 ? value : "", onChange: function (_a) {
             var value = _a.value;
             handleChange(value);
-        }, handleAdd: handleAdd }, props)));
+        }, handleAdd: handleChange }, props)));
 });
 GqlComboBox.displayName = "GqlComboBox";
