@@ -9,6 +9,7 @@ export const ComboBoxInput: FC<ComboBoxInputProps> = ({
   name,
   isAdd = true,
   onChange,
+  handleAdd,
   options: initialOptions,
   label,
   isError,
@@ -92,6 +93,9 @@ export const ComboBoxInput: FC<ComboBoxInputProps> = ({
           value={filter}
           onChange={handleFilterChange}
           onFocus={handleFocus}
+          onEnter={({ value }) => {
+            if (handleAdd) handleAdd(value);
+          }}
           placeholder={placeholder}
           isError={isError}
           isSuccess={isSuccess}

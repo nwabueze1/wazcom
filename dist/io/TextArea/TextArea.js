@@ -41,7 +41,7 @@ import { useState } from "react";
 import { useTextAreaStyles } from "./styles";
 import clx from "classnames";
 export var TextArea = function (_a) {
-    var className = _a.className, classNames = _a.classNames, label = _a.label, rows = _a.rows, helperText = _a.helperText, _b = _a.hideLabel, hideLabel = _b === void 0 ? false : _b, isSuccess = _a.isSuccess, isError = _a.isError, errors = _a.errors, name = _a.name, width = _a.width, height = _a.height, background = _a.background, color = _a.color, borderWidth = _a.borderWidth, borderColor = _a.borderColor, borderStyle = _a.borderStyle, borderRadius = _a.borderRadius, onChange = _a.onChange, onFocus = _a.onFocus, onEnter = _a.onEnter, onBlur = _a.onBlur, _c = _a.required, required = _c === void 0 ? false : _c, showCC = _a.showCC, props = __rest(_a, ["className", "classNames", "label", "rows", "helperText", "hideLabel", "isSuccess", "isError", "errors", "name", "width", "height", "background", "color", "borderWidth", "borderColor", "borderStyle", "borderRadius", "onChange", "onFocus", "onEnter", "onBlur", "required", "showCC"]);
+    var className = _a.className, classNames = _a.classNames, label = _a.label, rows = _a.rows, helperText = _a.helperText, _b = _a.hideLabel, hideLabel = _b === void 0 ? false : _b, isSuccess = _a.isSuccess, isError = _a.isError, errors = _a.errors, name = _a.name, width = _a.width, height = _a.height, background = _a.background, textLimit = _a.textLimit, color = _a.color, borderWidth = _a.borderWidth, borderColor = _a.borderColor, borderStyle = _a.borderStyle, borderRadius = _a.borderRadius, onChange = _a.onChange, onFocus = _a.onFocus, onEnter = _a.onEnter, onBlur = _a.onBlur, _c = _a.required, required = _c === void 0 ? false : _c, showCC = _a.showCC, props = __rest(_a, ["className", "classNames", "label", "rows", "helperText", "hideLabel", "isSuccess", "isError", "errors", "name", "width", "height", "background", "textLimit", "color", "borderWidth", "borderColor", "borderStyle", "borderRadius", "onChange", "onFocus", "onEnter", "onBlur", "required", "showCC"]);
     var _d = __read(useState(false), 2), isFocused = _d[0], setIsFocused = _d[1];
     var classes = useTextAreaStyles({
         rows: rows,
@@ -59,7 +59,9 @@ export var TextArea = function (_a) {
         if (onChange) {
             onChange === null || onChange === void 0 ? void 0 : onChange({
                 name: (_a = e.target.name) !== null && _a !== void 0 ? _a : "",
-                value: (_b = e.target.value) !== null && _b !== void 0 ? _b : "",
+                value: textLimit && textLimit > 0 && e.target.value.length > textLimit
+                    ? e.target.value.slice(0, textLimit)
+                    : (_b = e.target.value) !== null && _b !== void 0 ? _b : "",
             });
         }
     };
