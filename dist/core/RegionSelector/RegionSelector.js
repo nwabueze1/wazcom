@@ -80,6 +80,7 @@ export var RegionSelector = function (_a) {
     var country = _a.country, name = _a.name, value = _a.value, onChange = _a.onChange;
     var autoCompleteRef = useRef();
     var inputRef = useRef(null);
+    var valueRef = useRef(value !== null && value !== void 0 ? value : []);
     var options = {
         componentRestrictions: { country: country !== null && country !== void 0 ? country : "ng" },
         fields: ["address_components", "geometry", "icon", "name"],
@@ -93,14 +94,13 @@ export var RegionSelector = function (_a) {
         (_a = autoCompleteRef.current) === null || _a === void 0 ? void 0 : _a.addListener("place_changed", function () {
             var _a;
             return __awaiter(this, void 0, void 0, function () {
-                var place, updatedValue;
+                var place;
                 return __generator(this, function (_b) {
                     switch (_b.label) {
                         case 0: return [4 /*yield*/, ((_a = autoCompleteRef.current) === null || _a === void 0 ? void 0 : _a.getPlace())];
                         case 1:
                             place = _b.sent();
-                            updatedValue = __spreadArray(__spreadArray([], __read((value !== null && value !== void 0 ? value : [])), false), [place === null || place === void 0 ? void 0 : place.name], false);
-                            onChange === null || onChange === void 0 ? void 0 : onChange({ name: name !== null && name !== void 0 ? name : "", value: updatedValue });
+                            handleAdd(place === null || place === void 0 ? void 0 : place.name);
                             if (inputRef.current)
                                 inputRef.current.value = "";
                             return [2 /*return*/];
@@ -114,8 +114,15 @@ export var RegionSelector = function (_a) {
             regionSelector === null || regionSelector === void 0 ? void 0 : regionSelector.append(pacContainer);
         }, 2000);
     }, []);
+    var handleAdd = function (location) {
+        var _a;
+        var updatedValue = __spreadArray(__spreadArray([], __read(((_a = valueRef.current) !== null && _a !== void 0 ? _a : [])), false), [location], false);
+        valueRef.current = updatedValue;
+        onChange === null || onChange === void 0 ? void 0 : onChange({ name: name !== null && name !== void 0 ? name : "", value: updatedValue });
+    };
     var handleDeleteLocation = function (index) {
         var updatedValue = (value !== null && value !== void 0 ? value : []).filter(function (_, valueIndex) { return index !== valueIndex; });
+        valueRef.current = updatedValue;
         onChange === null || onChange === void 0 ? void 0 : onChange({ name: name !== null && name !== void 0 ? name : "", value: updatedValue });
     };
     var renderLocations = function () {

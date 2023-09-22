@@ -13,6 +13,7 @@ declare global {
 export const RegionSelector: FC<RegionSelectorProps> = ({ country, name, value, onChange }) => {
   const autoCompleteRef = useRef<any>();
   const inputRef = useRef<HTMLInputElement | null>(null);
+  const valueRef = useRef<string[]>(value ?? []);
   const options = {
     componentRestrictions: { country: country ?? "ng" },
     fields: ["address_components", "geometry", "icon", "name"],
@@ -27,8 +28,7 @@ export const RegionSelector: FC<RegionSelectorProps> = ({ country, name, value, 
     autoCompleteRef.current?.addListener("place_changed", async function () {
       const place = await autoCompleteRef.current?.getPlace();
 
-      const updatedValue = [...(value ?? []), place?.name];
-      onChange?.({ name: name ?? "", value: updatedValue });
+      handleAdd(place?.name);
 
       if (inputRef.current) inputRef.current.value = "";
     });
@@ -40,8 +40,15 @@ export const RegionSelector: FC<RegionSelectorProps> = ({ country, name, value, 
     }, 2000);
   }, []);
 
+  const handleAdd = (location: string) => {
+    const updatedValue = [...(valueRef.current ?? []), location];
+    valueRef.current = updatedValue;
+    onChange?.({ name: name ?? "", value: updatedValue });
+  }
+
   const handleDeleteLocation = (index: number) => {
     const updatedValue = (value ?? []).filter((_, valueIndex) => index !== valueIndex);
+    valueRef.current = updatedValue;
     onChange?.({ name: name ?? "", value: updatedValue });
   };
 
