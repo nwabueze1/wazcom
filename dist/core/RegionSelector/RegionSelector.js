@@ -84,12 +84,12 @@ export var RegionSelector = function (_a) {
     var options = {
         componentRestrictions: { country: country !== null && country !== void 0 ? country : "ng" },
         fields: ["address_components", "geometry", "icon", "name"],
-        types: ["neighborhood", "locality"],
+        types: ["neighborhood", "sublocality"],
     };
     var classes = useRegionSelectorStyles();
     var id = "region-selector-" + (Math.random() * 1000).toFixed(2);
     useEffect(function () {
-        var _a;
+        var _a, _b;
         autoCompleteRef.current = new window.google.maps.places.Autocomplete(inputRef.current, options);
         (_a = autoCompleteRef.current) === null || _a === void 0 ? void 0 : _a.addListener("place_changed", function () {
             var _a;
@@ -108,11 +108,11 @@ export var RegionSelector = function (_a) {
                 });
             });
         });
-        setTimeout(function () {
+        (_b = inputRef.current) === null || _b === void 0 ? void 0 : _b.addEventListener("focus", function () {
             var regionSelector = document.getElementById(id);
             var pacContainer = document.getElementsByClassName("pac-container")[0];
             regionSelector === null || regionSelector === void 0 ? void 0 : regionSelector.append(pacContainer);
-        }, 2000);
+        });
     }, []);
     var handleAdd = function (location) {
         var _a;
@@ -131,5 +131,5 @@ export var RegionSelector = function (_a) {
                         handleDeleteLocation(index);
                     } })] }), index)); });
     };
-    return (_jsxs("div", __assign({ className: classes.root }, { children: [_jsx("div", __assign({ className: classes.selectorHeader, id: id }, { children: _jsx(TextInput, { name: "location", ref: inputRef, className: classes.selectorInputParent, classNames: { input: classes.selectorInput } }) })), ((_b = (value !== null && value !== void 0 ? value : [])) === null || _b === void 0 ? void 0 : _b.length) > 0 && (_jsx("div", __assign({ className: classes.selectorValues }, { children: renderLocations() })))] })));
+    return (_jsxs("div", __assign({ className: classes.root }, { children: [_jsx("div", __assign({ className: classes.selectorHeader, id: id }, { children: _jsx(TextInput, { name: "location", inputRef: inputRef, className: classes.selectorInputParent, classNames: { input: classes.selectorInput } }) })), ((_b = (value !== null && value !== void 0 ? value : [])) === null || _b === void 0 ? void 0 : _b.length) > 0 && (_jsx("div", __assign({ className: classes.selectorValues }, { children: renderLocations() })))] })));
 };

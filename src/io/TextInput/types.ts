@@ -43,6 +43,7 @@ export type TextBaseProps = CommonProps & {
   borderStyle?: string;
   borderColor?: string;
   borderRadius?: string | number;
+  inputRef?: React.MutableRefObject<HTMLInputElement | null>;
   onFocus?: (...args: any[]) => void;
   onEnter?: (...args: any[]) => void;
   onBlur?: (...args: any[]) => void;

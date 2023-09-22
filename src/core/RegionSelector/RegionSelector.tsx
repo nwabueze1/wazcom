@@ -17,7 +17,7 @@ export const RegionSelector: FC<RegionSelectorProps> = ({ country, name, value, 
   const options = {
     componentRestrictions: { country: country ?? "ng" },
     fields: ["address_components", "geometry", "icon", "name"],
-    types: ["neighborhood", "locality"],
+    types: ["neighborhood", "sublocality"],
   };
   const classes = useRegionSelectorStyles();
   const id = "region-selector-" + (Math.random() * 1000).toFixed(2);
@@ -33,11 +33,11 @@ export const RegionSelector: FC<RegionSelectorProps> = ({ country, name, value, 
       if (inputRef.current) inputRef.current.value = "";
     });
 
-    setTimeout(() => {
+    inputRef.current?.addEventListener("focus", () => {
       const regionSelector = document.getElementById(id);
       const pacContainer = document.getElementsByClassName("pac-container")[0];
       regionSelector?.append(pacContainer);
-    }, 2000);
+    })
   }, []);
 
   const handleAdd = (location: string) => {
@@ -71,7 +71,7 @@ export const RegionSelector: FC<RegionSelectorProps> = ({ country, name, value, 
       <div className={classes.selectorHeader} id={id}>
         <TextInput
           name="location"
-          ref={inputRef}
+          inputRef={inputRef}
           className={classes.selectorInputParent}
           classNames={{ input: classes.selectorInput }}
         />

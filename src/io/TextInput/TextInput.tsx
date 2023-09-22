@@ -17,7 +17,7 @@ import { useInputWithSlideUpLabelStyles } from "./useInputWithSlideUpLabelStyles
  * -- info
  */
 
-export const TextInput = React.forwardRef(({
+export const TextInput: FC<TextFieldProps> = ({
   className,
   label,
   errors,
@@ -47,8 +47,9 @@ export const TextInput = React.forwardRef(({
   borderRadius,
   classNames,
   placeholder,
+  inputRef,
   ...props
-}: TextFieldProps, ref?: React.Ref<HTMLInputElement>) => {
+}: TextFieldProps) => {
   const [isFocused, setIsFocused] = React.useState<boolean>(false);
   const classes = useTextStyles({
     width,
@@ -152,7 +153,7 @@ export const TextInput = React.forwardRef(({
           placeholder={
             hasSlideUpLabel ? (isFocused && !props.value ? placeholder : "") : placeholder
           }
-          ref={ref}
+          ref={inputRef}
           {...props}
         />
         {rightIcon && <InputIcon marginLeft={iconSpacing}>{rightIcon}</InputIcon>}
@@ -170,7 +171,7 @@ export const TextInput = React.forwardRef(({
       )}
     </div>
   );
-});
+};
 
 const validateEmail = (email: string): boolean => {
   const validator = String(email)
