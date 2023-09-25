@@ -1,1 +1,0 @@
-export declare const useSchedulerStyles: (props?: any) => import("@mui/styles").ClassNameMap<"root" | "button" | "hidden" | "timeContainer" | "timeDivider" | "buttonText" | "addIcon" | "schedulerContainer" | "verticalContainer" | "closeIcon" | "dayContainer" | "timeSection">;

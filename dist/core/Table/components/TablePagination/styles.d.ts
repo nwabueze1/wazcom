@@ -1,1 +1,0 @@
-export declare const useTablePaginationStyles: (props?: any) => import("@mui/styles").ClassNameMap<"text" | "pageCount" | "tablePagination" | "tablePaginationNavigator" | "tablePaginationNavigatorText" | "tablePaginationNavigatorInput" | "pageNumber" | "activePage" | "pages" | "pageNavigation" | "pageNavigationIcon" | "deactivatePageNavigationIcon">;

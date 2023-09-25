@@ -1,1 +1,0 @@
-export declare const useSelectorStyles: (props?: any) => import("@mui/styles").ClassNameMap<"root" | "selectorOption" | "selectorOptionActive" | "selectorOptionInitial" | "selectorOptionFinal" | "selectorIcon">;

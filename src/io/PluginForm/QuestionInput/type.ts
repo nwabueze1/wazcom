@@ -12,6 +12,7 @@ export type QuestionInputClassNamesPropsType = {
   radioInputOrCheckbox: Partial<RadioButtonClassNamesPropsType>;
   phoneNumberInput: Partial<PhoneNumberInputClassNamesPropsType>;
   selectInput: Partial<SelectInputClassNamesPropsType>;
+  textArea: Partial<TextInputClassNamesPropsType>;
 };
 
 export type QuestionInputPropsType = {

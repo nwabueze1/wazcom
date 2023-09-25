@@ -31,7 +31,7 @@ export const QuestionsInput: FC<
         return <FormikTextInput {...commonInputProps} />;
 
       case "MULTILINE":
-        return <FormikTextArea {...commonInputProps} />;
+        return <FormikTextArea {...commonInputProps} classNames={classNames?.textArea} />;
       case "YES_OR_NO":
       case "SINGLE_CHOICE":
       case "MULTI_CHOICE":
