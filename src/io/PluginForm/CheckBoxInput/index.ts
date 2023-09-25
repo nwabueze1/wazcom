@@ -1,1 +1,1 @@
-export * from './CheckBoxInput';
+export * from "./CheckBoxInput";

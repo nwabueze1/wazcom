@@ -1,5 +1,5 @@
-import { makeStyles } from '@mui/styles';
-import { Theme } from '@mui/material';
+import { makeStyles } from "@mui/styles";
+import { Theme } from "@mui/material";
 
 export const useCheckBoxInputStyles = makeStyles((theme: Theme) => ({
   requiredStar: {
@@ -8,31 +8,31 @@ export const useCheckBoxInputStyles = makeStyles((theme: Theme) => ({
   multiChoiceFieldSet: {
     border: `1px solid ${theme.kiamoniDesign?.colors?.waz_primary700}`,
     padding: theme.spacing(0, 2.5, 1.5),
-    '&.error': {
+    "&.error": {
       borderColor: theme.kiamoniDesign?.colors?.waz_red,
     },
   },
   radioButton: {
     accentColor: theme.kiamoniDesign?.colors?.waz_grey100,
-    cursor: 'pointer',
+    cursor: "pointer",
     height: 16,
     width: 16,
   },
   radioGroupLabel: {
-    cursor: 'pointer',
+    cursor: "pointer",
     fontSize: theme.typography.fontSize,
     color: theme.kiamoniDesign?.colors?.waz_grey100,
   },
   radioGroup: {
-    display: 'flex',
-    alignItems: 'center',
+    display: "flex",
+    alignItems: "center",
   },
   label: {
     marginBottom: theme.spacing(0.5),
     fontSize: theme.typography.fontSize,
-    display: 'block',
+    display: "block",
     color: theme.kiamoniDesign?.colors?.waz_grey100,
-    '&.error': {
+    "&.error": {
       color: theme.kiamoniDesign?.colors?.waz_red,
     },
   },

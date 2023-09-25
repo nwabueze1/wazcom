@@ -8,14 +8,7 @@ export type CheckBoxInputPropsType = {
   label: string;
   required?: boolean;
   classNames?: Partial<
-    Record<
-      | 'fieldset'
-      | 'legend'
-      | 'checkboxGroup'
-      | 'checkboxInput'
-      | 'checkboxLabel',
-      string
-    >
+    Record<"fieldset" | "legend" | "checkboxGroup" | "checkboxInput" | "checkboxLabel", string>
   >;
   onFocus?: (e: any) => void;
   onBlur?: (e: any) => void;

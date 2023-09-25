@@ -1,7 +1,7 @@
-import { ChangeEventHandler, FocusEventHandler, ReactNode } from 'react';
+import { ChangeEventHandler, FocusEventHandler, ReactNode } from "react";
 
 export type TextInputClassNamesPropsType = Record<
-  'label' | 'placeholder' | 'inputContainer' | 'input' | 'errorMessage',
+  "label" | "placeholder" | "inputContainer" | "input" | "errorMessage",
   string
 >;
 export type TextFieldPropsType = {
@@ -20,17 +20,17 @@ export type TextFieldPropsType = {
   type: string;
 };
 export type RadioButtonInputPropsType = Partial<TextFieldPropsType> & {
-  control?: 'radio' | 'checkbox';
+  control?: "radio" | "checkbox";
   multiple?: boolean;
   children: ReactNode;
 };
 
 export type RadioButtonClassNamesPropsType = TextInputClassNamesPropsType &
-  Record<'radioButtonOrCheckBox', string>;
+  Record<"radioButtonOrCheckBox", string>;
 
 export type RadioButtonFormikPropsType = {
   name: string;
-  control: 'radio' | 'checkbox';
+  control: "radio" | "checkbox";
   onChange?: ChangeEventHandler<HTMLTextAreaElement | HTMLInputElement>;
   onFocus?: FocusEventHandler<HTMLTextAreaElement | HTMLInputElement>;
   onBlur?: FocusEventHandler<HTMLTextAreaElement | HTMLInputElement>;
@@ -41,7 +41,7 @@ export type RadioButtonFormikPropsType = {
 };
 
 export type FormikTextInputPropsType = Partial<
-  Omit<TextFieldPropsType, 'label' | 'errorMessage' | 'isError'>
+  Omit<TextFieldPropsType, "label" | "errorMessage" | "isError">
 > & {
   name: string;
 };
