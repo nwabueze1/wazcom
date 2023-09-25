@@ -46,7 +46,7 @@ export var FileSelectorInput = function (_a) {
         var _a;
         (_a = fileInputRef.current) === null || _a === void 0 ? void 0 : _a.click();
     };
-    var handleSelectImage = function (e) {
+    var handleSelectFile = function (e) {
         var _a;
         var selectedFile = (_a = e.target.files) === null || _a === void 0 ? void 0 : _a[0];
         if (!selectedFile)
@@ -61,5 +61,5 @@ export var FileSelectorInput = function (_a) {
         var imageUrl = URL.createObjectURL(selectedFile);
         setFileSource(imageUrl);
     };
-    return (_jsxs("div", __assign({ className: classes.root }, { children: [label && _jsx("label", __assign({ className: classes.label }, { children: label })), _jsx("button", __assign({ className: clx(classes.selectButton, hasSelectedFile && "active"), onClick: !hasSelectedFile ? handlePickFile : undefined }, { children: hasSelectedFile ? value === null || value === void 0 ? void 0 : value.name : "Select a file" })), _jsx("input", { type: "file", accept: accept, className: classes.selectInput, ref: fileInputRef, onChange: handleSelectImage }), helperText && _jsx("span", __assign({ className: clx(isError && classes.helperTextError) }, { children: helperText })), fileError && _jsx("span", __assign({ className: clx(isError && classes.helperTextError) }, { children: fileError })), hasSelectedFile && (_jsxs(_Fragment, { children: [_jsx("p", __assign({ className: classes.selectedFileName }, { children: value === null || value === void 0 ? void 0 : value.name })), _jsx(Button, __assign({ variant: "contained", className: classes.button, onClick: handlePickFile }, { children: "Change file" }))] }))] })));
+    return (_jsxs("div", __assign({ className: classes.root }, { children: [label && _jsx("label", __assign({ className: classes.label }, { children: label })), _jsx("button", __assign({ className: clx(classes.selectButton, hasSelectedFile && "active"), onClick: !hasSelectedFile ? handlePickFile : undefined }, { children: hasSelectedFile ? value === null || value === void 0 ? void 0 : value.name : "Select a file" })), _jsx("input", { type: "file", accept: accept, className: classes.selectInput, ref: fileInputRef, onChange: handleSelectFile }), helperText && _jsx("span", __assign({ className: clx(isError && classes.helperTextError) }, { children: helperText })), fileError && _jsx("span", __assign({ className: clx(isError && classes.helperTextError) }, { children: fileError })), hasSelectedFile && (_jsxs(_Fragment, { children: [_jsx("p", __assign({ className: classes.selectedFileName }, { children: value === null || value === void 0 ? void 0 : value.name })), _jsx(Button, __assign({ variant: "contained", className: classes.button, onClick: handlePickFile }, { children: "Change file" }))] }))] })));
 };

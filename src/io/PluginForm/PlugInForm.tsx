@@ -70,6 +70,7 @@ export const PlugInForm = forwardRef<PluginFormRef, PluginFormPropsType>((props,
       setLoading?.(false);
       resetErrorMessage();
     }
+    return;
   };
 
   const resetErrorMessage = () => {

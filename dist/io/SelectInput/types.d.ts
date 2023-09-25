@@ -1,6 +1,6 @@
 import { CommonProps } from "../../types";
 import type StateManagedSelect from "react-select";
-import React from "react";
+import React, { FocusEventHandler } from "react";
 export type SelectInputOptionsProps = {
     label: string;
     value: string;
@@ -32,6 +32,8 @@ type SelectProps = CommonProps & {
     value?: any;
     options?: SelectInputOptionsProps[];
     containerClass?: string;
+    onFocus?: FocusEventHandler;
+    onBlur?: FocusEventHandler;
 };
 export type SelectInputProps = Omit<StateManagedSelect, "onChange"> & SelectProps;
 export {};
