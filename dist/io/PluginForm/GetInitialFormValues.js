@@ -2,15 +2,15 @@ export var getInitialFormValues = function (questions) {
     var initialAnswer = {};
     questions.forEach(function (_a) {
         var question = _a.question, type = _a.type, fields = _a.fields;
-        if (type === 'ADDRESS') {
+        if (type === "ADDRESS") {
             var addressFields_1 = {};
             Object.values(fields).forEach(function (value) {
-                addressFields_1[value] = '';
+                addressFields_1[value] = "";
             });
             initialAnswer[question] = addressFields_1;
         }
         else {
-            initialAnswer[question] = type === 'MULTI_CHOICE' ? [] : '';
+            initialAnswer[question] = type === "MULTI_CHOICE" ? [] : "";
         }
     });
     return initialAnswer;

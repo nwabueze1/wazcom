@@ -1,2 +1,2 @@
-export * from './QuestionsInput';
-export * from './type';
+export * from "./QuestionsInput";
+export * from "./type";

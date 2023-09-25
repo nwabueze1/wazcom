@@ -59,7 +59,12 @@ export type PluginFormRef = {
 };
 
 export type PhoneNumberInputClassNamesPropsType = Record<
-  "root" | "phoneNumberInputContainer" | "phoneNumberInput" | "label",
+  | "root"
+  | "phoneNumberInputContainer"
+  | "phoneNumberInput"
+  | "label"
+  | "dropdownClass"
+  | "buttonClass",
   string
 >;
 

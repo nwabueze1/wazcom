@@ -1,2 +1,2 @@
-export * from './PlugInForm';
-export * from './type';
+export * from "./PlugInForm";
+export * from "./type";
