@@ -15,12 +15,13 @@ export type TextFieldPropsType = {
     isRequired: boolean;
     type: string;
 };
-export type RadioButtonInputPropsType = Partial<TextFieldPropsType> & {
+export type RadioButtonInputPropsType = Partial<Omit<TextFieldPropsType, "classNames">> & {
     control?: "radio" | "checkbox";
     multiple?: boolean;
     children: ReactNode;
+    classNames?: RadioButtonClassNamesPropsType | Partial<RadioButtonClassNamesPropsType>;
 };
-export type RadioButtonClassNamesPropsType = TextInputClassNamesPropsType & Record<"radioButtonOrCheckBox", string>;
+export type RadioButtonClassNamesPropsType = Record<"fieldset" | "legend" | "errorMessage" | "radioOrCheckboxLabel" | "radioOrCheckBox", string>;
 export type RadioButtonFormikPropsType = {
     name: string;
     control: "radio" | "checkbox";
@@ -30,7 +31,7 @@ export type RadioButtonFormikPropsType = {
     label: string;
     value: string;
     multiple?: boolean;
-    classNames?: RadioButtonClassNamesPropsType;
+    classNames?: RadioButtonClassNamesPropsType | Partial<RadioButtonClassNamesPropsType>;
 };
 export type FormikTextInputPropsType = Partial<Omit<TextFieldPropsType, "label" | "errorMessage" | "isError">> & {
     name: string;

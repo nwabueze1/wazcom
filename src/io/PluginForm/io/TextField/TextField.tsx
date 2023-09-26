@@ -81,8 +81,8 @@ export const RadioButtonGroup: FC<RadioButtonInputPropsType> = ({
 
   return (
     <div>
-      <fieldset className={clx(classes.fieldSet, isError && "error", classNames?.inputContainer)}>
-        <legend className={clx(classes.legend, classNames?.label)}>
+      <fieldset className={clx(classes.fieldSet, isError && "error", classNames?.fieldset)}>
+        <legend className={clx(classes.legend, classNames?.legend)}>
           {placeholder} {isRequired && <sup>*</sup>}
         </legend>
         {children}

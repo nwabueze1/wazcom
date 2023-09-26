@@ -48,7 +48,7 @@ export var RadioButtonFormik = function (_a) {
     var label = _a.label, control = _a.control, multiple = _a.multiple, classNames = _a.classNames, props = __rest(_a, ["label", "control", "multiple", "classNames"]);
     var _b = __read(useField(__assign(__assign({}, props), { type: control })), 1), field = _b[0];
     var classes = useTextFieldStyles();
-    return (_jsxs("label", __assign({ className: clx(classes.radioLabel), htmlFor: label }, { children: [_jsx("input", __assign({}, field, { type: control, multiple: multiple, id: label, className: classNames === null || classNames === void 0 ? void 0 : classNames.radioButtonOrCheckBox })), " ", _jsx("span", { children: label })] })));
+    return (_jsxs("label", __assign({ className: clx(classes.radioLabel, classNames === null || classNames === void 0 ? void 0 : classNames.radioOrCheckboxLabel), htmlFor: label }, { children: [_jsx("input", __assign({}, field, { type: control, multiple: multiple, id: label, className: classNames === null || classNames === void 0 ? void 0 : classNames.radioOrCheckBox })), " ", _jsx("span", { children: label })] })));
 };
 export var FormikTextInput = function (_a) {
     var className = _a.className, isRequired = _a.isRequired, classNames = _a.classNames, props = __rest(_a, ["className", "isRequired", "classNames"]);
@@ -79,7 +79,7 @@ export var FormikRadio = function (_a) {
         errorMessage: meta.error ? meta.error : "",
         placeholder: props.name,
     };
-    return (_jsx(RadioButtonGroup, __assign({}, inputProps, { children: options.map(function (_a, index) {
+    return (_jsx(RadioButtonGroup, __assign({}, inputProps, { classNames: classNames }, { children: options.map(function (_a, index) {
             var label = _a.label, value = _a.value;
             return (_jsx(RadioButtonFormik, { name: props.name, value: value, label: label, control: control, classNames: classNames }, index));
         }) })));

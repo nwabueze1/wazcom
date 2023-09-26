@@ -61,8 +61,10 @@ export const QuestionsInput: FC<
       case "ADDRESS":
         addressKeys = Object.keys(fields as Record<string, string>);
         return (
-          <fieldset className={classes.fieldSet}>
-            <legend className={classes.legend}>{name}</legend>
+          <fieldset className={clx(classes.fieldSet, classNames?.addressInput?.fieldset)}>
+            <legend className={clx(classes.legend, classNames?.addressInput?.legend)}>
+              {name}
+            </legend>
             {addressKeys.map((key, index) => (
               <FormikTextInput
                 {...commonInputProps}

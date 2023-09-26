@@ -7,6 +7,7 @@ export type QuestionInputClassNamesPropsType = {
     phoneNumberInput: Partial<PhoneNumberInputClassNamesPropsType>;
     selectInput: Partial<SelectInputClassNamesPropsType>;
     textArea: Partial<TextInputClassNamesPropsType>;
+    addressInput: Partial<Record<"legend" | "fieldset", string>>;
 };
 export type QuestionInputPropsType = {
     name: string;

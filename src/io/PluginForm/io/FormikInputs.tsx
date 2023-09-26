@@ -28,13 +28,13 @@ export const RadioButtonFormik: FC<RadioButtonFormikPropsType> = ({
   const classes = useTextFieldStyles();
 
   return (
-    <label className={clx(classes.radioLabel)} htmlFor={label}>
+    <label className={clx(classes.radioLabel, classNames?.radioOrCheckboxLabel)} htmlFor={label}>
       <input
         {...field}
         type={control}
         multiple={multiple}
         id={label}
-        className={classNames?.radioButtonOrCheckBox}
+        className={classNames?.radioOrCheckBox}
       />{" "}
       <span>{label}</span>
     </label>
@@ -141,7 +141,7 @@ export const FormikRadio: FC<
   };
 
   return (
-    <RadioButtonGroup {...inputProps}>
+    <RadioButtonGroup {...inputProps} classNames={classNames}>
       {options.map(({ label, value }, index) => (
         <RadioButtonFormik
           name={props.name}
@@ -149,7 +149,7 @@ export const FormikRadio: FC<
           label={label}
           key={index}
           control={control}
-          classNames={classNames as RadioButtonClassNamesPropsType}
+          classNames={classNames}
         />
       ))}
     </RadioButtonGroup>
