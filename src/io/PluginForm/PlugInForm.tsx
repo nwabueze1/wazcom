@@ -91,7 +91,7 @@ export const PlugInForm = forwardRef<PluginFormRef, PluginFormPropsType>((props,
         onSubmit={handleSubmit}
       >
         {(props) => (
-          <Form>
+          <Form style={{ display: "grid" }}>
             <div className={className}>
               {((questions ?? []) as QuestionType[]).map(
                 ({ question, fields, type, is_required }, index) => (
