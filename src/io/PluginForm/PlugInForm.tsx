@@ -105,8 +105,15 @@ export const PlugInForm = forwardRef<PluginFormRef, PluginFormPropsType>((props,
                 />
               ),
             )}
-            <button className={classes.submitButton} type={"submit"} ref={submitButtonRef}></button>
-            {submitButton && submitButton}
+            {!submitButton ? (
+              <button
+                className={classes.submitButton}
+                type={"submit"}
+                ref={submitButtonRef}
+              ></button>
+            ) : (
+              submitButton
+            )}
           </Form>
         )}
       </Formik>

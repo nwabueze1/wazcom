@@ -51,7 +51,7 @@ export const QuestionsInput: FC<
       case "DATE_FORMAT":
         return (
           <div>
-            <label className={clx(classes.legend, classes.label)}>
+            <label className={clx(classes.legend, classes.label, classNames?.textField?.label)}>
               {capitalizeFirstChar(name)}
             </label>
             <FormikTextInput {...commonInputProps} type={"date"} />

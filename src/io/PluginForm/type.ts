@@ -69,7 +69,9 @@ export type PhoneNumberInputClassNamesPropsType = Record<
   string
 >;
 
-export type SelectInputClassNamesPropsType = Partial<Record<"container" | "control", string>>;
+export type SelectInputClassNamesPropsType = Partial<
+  Record<"container" | "control" | "label", string>
+>;
 export type FormikSelectPropsType = Partial<
   Omit<TextFieldPropsType, "isError" | "isRequired" | "errorMessage">
 > & {

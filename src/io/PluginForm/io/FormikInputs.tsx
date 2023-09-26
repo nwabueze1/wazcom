@@ -6,7 +6,6 @@ import "react-phone-input-2/lib/style.css";
 
 import {
   FormikTextInputPropsType,
-  RadioButtonClassNamesPropsType,
   RadioButtonFormikPropsType,
   RadioButtonGroup,
   RadioButtonInputPropsType,
@@ -120,11 +119,14 @@ type FormikRadioOrCheckBoxPropsType = Omit<
   RadioButtonInputPropsType,
   "isError" | "errorMessage" | "label" | "placeholder"
 > & { name: string; options: { label: string; value: string }[] };
-export const FormikRadio: FC<
-  Omit<FormikRadioOrCheckBoxPropsType, "children" | "classNames"> & {
-    classNames?: Partial<RadioButtonClassNamesPropsType>;
-  }
-> = ({ className, classNames, isRequired, control = "radio", options, ...props }) => {
+export const FormikRadio: FC<Omit<FormikRadioOrCheckBoxPropsType, "children">> = ({
+  className,
+  classNames,
+  isRequired,
+  control = "radio",
+  options,
+  ...props
+}) => {
   const [, meta] = useField({
     ...props,
     type: "radio",
