@@ -18,6 +18,7 @@ export const PlugInForm = forwardRef<PluginFormRef, PluginFormPropsType>((props,
     className,
     submitButton,
     classNames,
+    style = { display: "grid" },
     onNotify,
   } = props;
   const initialFormState = getInitialFormValues((questions ?? []) as QuestionType[]);
@@ -91,7 +92,7 @@ export const PlugInForm = forwardRef<PluginFormRef, PluginFormPropsType>((props,
         onSubmit={handleSubmit}
       >
         {(props) => (
-          <Form style={{ display: "grid" }}>
+          <Form style={style}>
             <div className={className}>
               {((questions ?? []) as QuestionType[]).map(
                 ({ question, fields, type, is_required }, index) => (

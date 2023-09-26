@@ -1,4 +1,4 @@
-import { Dispatch, ReactNode, SetStateAction } from "react";
+import React, { Dispatch, ReactNode, SetStateAction } from "react";
 import { AddressInputKey, QuestionInputClassNamesPropsType } from "./QuestionInput";
 import { TextFieldPropsType } from "./io";
 import { FormikProps } from "formik";
@@ -36,6 +36,7 @@ export type PluginFormPropsType = {
     submitButton?: ReactNode;
     classNames?: PluginFormClassNamesPropsType;
     onNotify?: (type: "error" | "success", message: string) => void;
+    style?: React.CSSProperties;
 };
 export type PluginFormRef = {
     submit?: () => void;
