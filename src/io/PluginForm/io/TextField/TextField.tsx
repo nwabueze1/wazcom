@@ -17,7 +17,7 @@ export const TextField: FC<Partial<TextFieldPropsType> & { name: string }> = ({
   const classes = useTextFieldStyles();
 
   return (
-    <div>
+    <div className={className}>
       <div className={clx(classes.root, classNames?.inputContainer)}>
         <input
           {...inputProps}

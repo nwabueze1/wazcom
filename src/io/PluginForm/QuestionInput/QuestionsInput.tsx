@@ -65,6 +65,7 @@ export const QuestionsInput: FC<
             <legend className={classes.legend}>{name}</legend>
             {addressKeys.map((key, index) => (
               <FormikTextInput
+                {...commonInputProps}
                 name={`${name}.${fields?.[key]}`}
                 key={index}
                 placeholder={index === addressKeys.length - 1 ? "Country" : fields?.[key]}

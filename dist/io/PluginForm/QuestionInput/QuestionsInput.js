@@ -9,6 +9,7 @@ var __assign = (this && this.__assign) || function () {
     };
     return __assign.apply(this, arguments);
 };
+import { createElement as _createElement } from "react";
 import { jsx as _jsx, jsxs as _jsxs } from "react/jsx-runtime";
 import clx from "classnames";
 import { FormikRadio, FormikSelect, FormikTextArea, FormikTextInput } from "../io";
@@ -47,7 +48,7 @@ export var QuestionsInput = function (_a) {
                 return (_jsxs("div", { children: [_jsx("label", __assign({ className: clx(classes.legend, classes.label) }, { children: capitalizeFirstChar(name) })), _jsx(FormikTextInput, __assign({}, commonInputProps, { type: "date" }))] }));
             case "ADDRESS":
                 addressKeys = Object.keys(fields);
-                return (_jsxs("fieldset", __assign({ className: classes.fieldSet }, { children: [_jsx("legend", __assign({ className: classes.legend }, { children: name })), addressKeys.map(function (key, index) { return (_jsx(FormikTextInput, { name: "".concat(name, ".").concat(fields === null || fields === void 0 ? void 0 : fields[key]), placeholder: index === addressKeys.length - 1 ? "Country" : fields === null || fields === void 0 ? void 0 : fields[key] }, index)); })] })));
+                return (_jsxs("fieldset", __assign({ className: classes.fieldSet }, { children: [_jsx("legend", __assign({ className: classes.legend }, { children: name })), addressKeys.map(function (key, index) { return (_createElement(FormikTextInput, __assign({}, commonInputProps, { name: "".concat(name, ".").concat(fields === null || fields === void 0 ? void 0 : fields[key]), key: index, placeholder: index === addressKeys.length - 1 ? "Country" : fields === null || fields === void 0 ? void 0 : fields[key] }))); })] })));
             case "DROP_DOWN":
                 options = (fields === null || fields === void 0 ? void 0 : fields.choices).map(function (choice) { return ({
                     label: choice.toLocaleUpperCase(),
