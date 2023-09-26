@@ -91,20 +91,22 @@ export const PlugInForm = forwardRef<PluginFormRef, PluginFormPropsType>((props,
         onSubmit={handleSubmit}
       >
         {(props) => (
-          <Form className={className}>
-            {((questions ?? []) as QuestionType[]).map(
-              ({ question, fields, type, is_required }, index) => (
-                <QuestionsInput
-                  name={question}
-                  fields={fields}
-                  type={type}
-                  is_required={is_required}
-                  key={index}
-                  classNames={classNames}
-                  formikProps={props}
-                />
-              ),
-            )}
+          <Form>
+            <div className={className}>
+              {((questions ?? []) as QuestionType[]).map(
+                ({ question, fields, type, is_required }, index) => (
+                  <QuestionsInput
+                    name={question}
+                    fields={fields}
+                    type={type}
+                    is_required={is_required}
+                    key={index}
+                    classNames={classNames}
+                    formikProps={props}
+                  />
+                ),
+              )}
+            </div>
             {!submitButton ? (
               <button
                 className={classes.submitButton}
