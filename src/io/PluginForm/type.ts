@@ -52,6 +52,7 @@ export type PluginFormPropsType = {
   className?: string;
   submitButton?: ReactNode;
   classNames?: PluginFormClassNamesPropsType;
+  onNotify?: (type: "error" | "success", message: string) => void;
 };
 
 export type PluginFormRef = {

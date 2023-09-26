@@ -151,6 +151,7 @@ export const FormikRadio: FC<Omit<FormikRadioOrCheckBoxPropsType, "children">> =
           label={label}
           key={index}
           control={control}
+          classNames={classNames}
         />
       ))}
     </RadioButtonGroup>

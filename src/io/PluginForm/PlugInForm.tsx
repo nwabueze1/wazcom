@@ -18,6 +18,7 @@ export const PlugInForm = forwardRef<PluginFormRef, PluginFormPropsType>((props,
     className,
     submitButton,
     classNames,
+    onNotify,
   } = props;
   const initialFormState = getInitialFormValues((questions ?? []) as QuestionType[]);
   const validationSchema = buildValidationSchema((questions ?? []) as QuestionType[]);
@@ -42,7 +43,7 @@ export const PlugInForm = forwardRef<PluginFormRef, PluginFormPropsType>((props,
       const errorMessage = "You need to supply a valid form_uuid to submit this form";
       setMessage?.({ type: "error", message: errorMessage });
       resetErrorMessage();
-
+      onNotify?.("error", errorMessage);
       return toast.error(errorMessage);
     }
 
@@ -55,15 +56,18 @@ export const PlugInForm = forwardRef<PluginFormRef, PluginFormPropsType>((props,
           type: "error",
           message: errorMessage,
         });
-        return toast.error("Failed to create form");
+        onNotify?.("error", errorMessage);
+        return toast.error(errorMessage);
       }
 
       const submission_text = data?.createResponse?.submission_text;
       const successMessage = !submission_text ? "Form submitted successfully" : submission_text;
       setMessage?.({ type: "success", message: successMessage });
+      onNotify?.("success", successMessage);
       toast.success(successMessage);
       formikHelpers.resetForm();
     } catch (ex) {
+      onNotify?.("error", errorMessage);
       toast.error(errorMessage);
       setMessage?.({ type: "error", message: errorMessage });
     } finally {
@@ -80,33 +84,35 @@ export const PlugInForm = forwardRef<PluginFormRef, PluginFormPropsType>((props,
   };
 
   return (
-    <Formik
-      validationSchema={validationSchema}
-      initialValues={initialFormState}
-      onSubmit={handleSubmit}
-    >
-      {(props) => (
-        <Form className={className}>
-          {((questions ?? []) as QuestionType[]).map(
-            ({ question, fields, type, is_required }, index) => (
-              <QuestionsInput
-                name={question}
-                fields={fields}
-                type={type}
-                is_required={is_required}
-                key={index}
-                classNames={classNames}
-                formikProps={props}
-              />
-            ),
-          )}
-          <button className={classes.submitButton} type={"submit"} ref={submitButtonRef}></button>
-          {submitButton && submitButton}
-          {type === "success" && message && <p className={classes.success}>{message}</p>}
-          {type === "error" && message && <p className={classes.error}>{message}</p>}
-        </Form>
-      )}
-    </Formik>
+    <>
+      <Formik
+        validationSchema={validationSchema}
+        initialValues={initialFormState}
+        onSubmit={handleSubmit}
+      >
+        {(props) => (
+          <Form className={className}>
+            {((questions ?? []) as QuestionType[]).map(
+              ({ question, fields, type, is_required }, index) => (
+                <QuestionsInput
+                  name={question}
+                  fields={fields}
+                  type={type}
+                  is_required={is_required}
+                  key={index}
+                  classNames={classNames}
+                  formikProps={props}
+                />
+              ),
+            )}
+            <button className={classes.submitButton} type={"submit"} ref={submitButtonRef}></button>
+            {submitButton && submitButton}
+          </Form>
+        )}
+      </Formik>
+      {type === "success" && message && <p className={classes.success}>{message}</p>}
+      {type === "error" && message && <p className={classes.error}>{message}</p>}
+    </>
   );
 });
 
