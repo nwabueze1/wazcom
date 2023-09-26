@@ -1,6 +1,6 @@
 import { CommonProps } from "../../types";
 
 export type RegionSelectorProps = CommonProps & {
-    country?: string;
-    value?: string[];
+  country?: string;
+  value?: string[];
 };

@@ -9,7 +9,7 @@ export const useRegionSelectorStyles = makeStyles((theme: Theme) => ({
       top: "36px !important",
       left: "0px !important",
       width: "100% !important",
-    }
+    },
   },
   selectorHeader: {
     position: "relative",
@@ -18,7 +18,7 @@ export const useRegionSelectorStyles = makeStyles((theme: Theme) => ({
     width: "calc(50% - 8px)",
   },
   selectorInputParent: {
-      width: "100%",
+    width: "100%",
   },
   selectorInput: {
     background: theme.design.colors.waz_white100,
@@ -50,6 +50,6 @@ export const useRegionSelectorStyles = makeStyles((theme: Theme) => ({
       color: "rgba(0,0,0,0.75)",
       fontSize: theme.typography.fontSize,
       cursor: "pointer",
-    }
-  }
+    },
+  },
 }));

@@ -37,14 +37,14 @@ export const RegionSelector: FC<RegionSelectorProps> = ({ country, name, value, 
       const regionSelector = document.getElementById(id);
       const pacContainer = document.getElementsByClassName("pac-container")[0];
       regionSelector?.append(pacContainer);
-    })
+    });
   }, []);
 
   const handleAdd = (location: string) => {
     const updatedValue = [...(valueRef.current ?? []), location];
     valueRef.current = updatedValue;
     onChange?.({ name: name ?? "", value: updatedValue });
-  }
+  };
 
   const handleDeleteLocation = (index: number) => {
     const updatedValue = (value ?? []).filter((_, valueIndex) => index !== valueIndex);
