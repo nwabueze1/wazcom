@@ -68,12 +68,11 @@ export var FormikTextArea = function (_a) {
     return (_jsx(TextArea, __assign({}, field, { classNames: classNames, className: className, isError: (meta.touched && meta.error), errorMessage: meta.touched ? meta.error : "", placeholder: props.name, isRequired: isRequired })));
 };
 export var FormikRadio = function (_a) {
-    var className = _a.className, isRequired = _a.isRequired, classNames = _a.classNames, _b = _a.control, control = _b === void 0 ? "radio" : _b, options = _a.options, props = __rest(_a, ["className", "isRequired", "classNames", "control", "options"]);
+    var className = _a.className, classNames = _a.classNames, isRequired = _a.isRequired, _b = _a.control, control = _b === void 0 ? "radio" : _b, options = _a.options, props = __rest(_a, ["className", "classNames", "isRequired", "control", "options"]);
     var _c = __read(useField(__assign(__assign({}, props), { type: "radio" })), 2), meta = _c[1];
     var inputProps = {
         options: options,
         control: control,
-        classNames: classNames,
         className: className,
         isRequired: isRequired,
         isError: (meta.touched && meta.error),
@@ -82,7 +81,7 @@ export var FormikRadio = function (_a) {
     };
     return (_jsx(RadioButtonGroup, __assign({}, inputProps, { children: options.map(function (_a, index) {
             var label = _a.label, value = _a.value;
-            return (_jsx(RadioButtonFormik, { name: props.name, value: value, label: label, control: control }, index));
+            return (_jsx(RadioButtonFormik, { name: props.name, value: value, label: label, control: control, classNames: classNames }, index));
         }) })));
 };
 export var FormikSelect = function (_a) {

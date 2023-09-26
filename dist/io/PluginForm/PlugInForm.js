@@ -61,7 +61,7 @@ var __read = (this && this.__read) || function (o, n) {
     }
     return ar;
 };
-import { jsx as _jsx, jsxs as _jsxs } from "react/jsx-runtime";
+import { jsx as _jsx, jsxs as _jsxs, Fragment as _Fragment } from "react/jsx-runtime";
 import { Form, Formik } from "formik";
 import { forwardRef, useImperativeHandle, useRef, useState } from "react";
 import { buildValidationSchema } from "./BuildValidationSchema";
@@ -71,7 +71,7 @@ import { QuestionsInput } from "./QuestionInput";
 import { usePluginFormStyles } from "./usePluginFormStyles";
 import { toast } from "react-toastify";
 export var PlugInForm = forwardRef(function (props, ref) {
-    var questions = props.form.questions, form_uuid = props.form_uuid, setLoading = props.setLoading, className = props.className, submitButton = props.submitButton, classNames = props.classNames;
+    var questions = props.form.questions, form_uuid = props.form_uuid, setLoading = props.setLoading, className = props.className, submitButton = props.submitButton, classNames = props.classNames, onNotify = props.onNotify;
     var initialFormState = getInitialFormValues((questions !== null && questions !== void 0 ? questions : []));
     var validationSchema = buildValidationSchema((questions !== null && questions !== void 0 ? questions : []));
     var classes = usePluginFormStyles();
@@ -92,6 +92,7 @@ export var PlugInForm = forwardRef(function (props, ref) {
                         errorMessage_1 = "You need to supply a valid form_uuid to submit this form";
                         setMessage === null || setMessage === void 0 ? void 0 : setMessage({ type: "error", message: errorMessage_1 });
                         resetErrorMessage();
+                        onNotify === null || onNotify === void 0 ? void 0 : onNotify("error", errorMessage_1);
                         return [2 /*return*/, toast.error(errorMessage_1)];
                     }
                     errorMessage = "Failed to create form";
@@ -107,16 +108,19 @@ export var PlugInForm = forwardRef(function (props, ref) {
                             type: "error",
                             message: errorMessage,
                         });
-                        return [2 /*return*/, toast.error("Failed to create form")];
+                        onNotify === null || onNotify === void 0 ? void 0 : onNotify("error", errorMessage);
+                        return [2 /*return*/, toast.error(errorMessage)];
                     }
                     submission_text = (_b = data === null || data === void 0 ? void 0 : data.createResponse) === null || _b === void 0 ? void 0 : _b.submission_text;
                     successMessage = !submission_text ? "Form submitted successfully" : submission_text;
                     setMessage === null || setMessage === void 0 ? void 0 : setMessage({ type: "success", message: successMessage });
+                    onNotify === null || onNotify === void 0 ? void 0 : onNotify("success", successMessage);
                     toast.success(successMessage);
                     formikHelpers.resetForm();
                     return [3 /*break*/, 5];
                 case 3:
                     ex_1 = _c.sent();
+                    onNotify === null || onNotify === void 0 ? void 0 : onNotify("error", errorMessage);
                     toast.error(errorMessage);
                     setMessage === null || setMessage === void 0 ? void 0 : setMessage({ type: "error", message: errorMessage });
                     return [3 /*break*/, 5];
@@ -133,9 +137,9 @@ export var PlugInForm = forwardRef(function (props, ref) {
             setMessage === null || setMessage === void 0 ? void 0 : setMessage({ type: "success", message: "" });
         }, 5000);
     };
-    return (_jsx(Formik, __assign({ validationSchema: validationSchema, initialValues: initialFormState, onSubmit: handleSubmit }, { children: function (props) { return (_jsxs(Form, __assign({ className: className }, { children: [(questions !== null && questions !== void 0 ? questions : []).map(function (_a, index) {
-                    var question = _a.question, fields = _a.fields, type = _a.type, is_required = _a.is_required;
-                    return (_jsx(QuestionsInput, { name: question, fields: fields, type: type, is_required: is_required, classNames: classNames, formikProps: props }, index));
-                }), _jsx("button", { className: classes.submitButton, type: "submit", ref: submitButtonRef }), submitButton && submitButton, type === "success" && message && _jsx("p", __assign({ className: classes.success }, { children: message })), type === "error" && message && _jsx("p", __assign({ className: classes.error }, { children: message }))] }))); } })));
+    return (_jsxs(_Fragment, { children: [_jsx(Formik, __assign({ validationSchema: validationSchema, initialValues: initialFormState, onSubmit: handleSubmit }, { children: function (props) { return (_jsxs(Form, __assign({ className: className }, { children: [(questions !== null && questions !== void 0 ? questions : []).map(function (_a, index) {
+                            var question = _a.question, fields = _a.fields, type = _a.type, is_required = _a.is_required;
+                            return (_jsx(QuestionsInput, { name: question, fields: fields, type: type, is_required: is_required, classNames: classNames, formikProps: props }, index));
+                        }), _jsx("button", { className: classes.submitButton, type: "submit", ref: submitButtonRef }), submitButton && submitButton] }))); } })), type === "success" && message && _jsx("p", __assign({ className: classes.success }, { children: message })), type === "error" && message && _jsx("p", __assign({ className: classes.error }, { children: message }))] }));
 });
 PlugInForm.displayName = "PluginForm";
