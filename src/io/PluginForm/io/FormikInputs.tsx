@@ -85,6 +85,7 @@ export const FormikPhoneNumber: FC<
           classNames?.phoneNumberInputContainer,
           isInvalid && "error",
         )}
+        value={formikProps?.values?.[name]}
         dropdownClass={classNames?.dropdownClass}
         buttonClass={classNames?.buttonClass}
         inputClass={clx(classes.phoneInput, classNames?.phoneNumberInput)}
