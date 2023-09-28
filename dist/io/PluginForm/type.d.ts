@@ -37,6 +37,7 @@ export type PluginFormPropsType = {
     classNames?: PluginFormClassNamesPropsType;
     onNotify?: (type: "error" | "success", message: string) => void;
     style?: React.CSSProperties;
+    onFormSubmitted?: (uuid: string) => void;
 };
 export type PluginFormRef = {
     submit?: () => void;

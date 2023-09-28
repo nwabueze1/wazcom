@@ -20,6 +20,7 @@ export const PlugInForm = forwardRef<PluginFormRef, PluginFormPropsType>((props,
     classNames,
     style = { display: "grid" },
     onNotify,
+    onFormSubmitted,
   } = props;
   const initialFormState = getInitialFormValues((questions ?? []) as QuestionType[]);
   const validationSchema = buildValidationSchema((questions ?? []) as QuestionType[]);
@@ -67,6 +68,7 @@ export const PlugInForm = forwardRef<PluginFormRef, PluginFormPropsType>((props,
       onNotify?.("success", successMessage);
       toast.success(successMessage);
       formikHelpers.resetForm();
+      onFormSubmitted?.(data?.createResponse?.uuid);
     } catch (ex) {
       onNotify?.("error", errorMessage);
       toast.error(errorMessage);

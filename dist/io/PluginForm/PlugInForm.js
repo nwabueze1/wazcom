@@ -71,7 +71,7 @@ import { QuestionsInput } from "./QuestionInput";
 import { usePluginFormStyles } from "./usePluginFormStyles";
 import { toast } from "react-toastify";
 export var PlugInForm = forwardRef(function (props, ref) {
-    var questions = props.form.questions, form_uuid = props.form_uuid, setLoading = props.setLoading, className = props.className, submitButton = props.submitButton, classNames = props.classNames, _a = props.style, style = _a === void 0 ? { display: "grid" } : _a, onNotify = props.onNotify;
+    var questions = props.form.questions, form_uuid = props.form_uuid, setLoading = props.setLoading, className = props.className, submitButton = props.submitButton, classNames = props.classNames, _a = props.style, style = _a === void 0 ? { display: "grid" } : _a, onNotify = props.onNotify, onFormSubmitted = props.onFormSubmitted;
     var initialFormState = getInitialFormValues((questions !== null && questions !== void 0 ? questions : []));
     var validationSchema = buildValidationSchema((questions !== null && questions !== void 0 ? questions : []));
     var classes = usePluginFormStyles();
@@ -84,9 +84,9 @@ export var PlugInForm = forwardRef(function (props, ref) {
     });
     var handleSubmit = function (values, formikHelpers) { return __awaiter(void 0, void 0, void 0, function () {
         var errorMessage_1, errorMessage, _a, errors, data, submission_text, successMessage, ex_1;
-        var _b;
-        return __generator(this, function (_c) {
-            switch (_c.label) {
+        var _b, _c;
+        return __generator(this, function (_d) {
+            switch (_d.label) {
                 case 0:
                     if (!form_uuid) {
                         errorMessage_1 = "You need to supply a valid form_uuid to submit this form";
@@ -97,12 +97,12 @@ export var PlugInForm = forwardRef(function (props, ref) {
                     }
                     errorMessage = "Failed to create form";
                     setLoading === null || setLoading === void 0 ? void 0 : setLoading(true);
-                    _c.label = 1;
+                    _d.label = 1;
                 case 1:
-                    _c.trys.push([1, 3, 4, 5]);
+                    _d.trys.push([1, 3, 4, 5]);
                     return [4 /*yield*/, createResponse(form_uuid, values)];
                 case 2:
-                    _a = _c.sent(), errors = _a.errors, data = _a.data;
+                    _a = _d.sent(), errors = _a.errors, data = _a.data;
                     if (errors) {
                         setMessage === null || setMessage === void 0 ? void 0 : setMessage({
                             type: "error",
@@ -117,9 +117,10 @@ export var PlugInForm = forwardRef(function (props, ref) {
                     onNotify === null || onNotify === void 0 ? void 0 : onNotify("success", successMessage);
                     toast.success(successMessage);
                     formikHelpers.resetForm();
+                    onFormSubmitted === null || onFormSubmitted === void 0 ? void 0 : onFormSubmitted((_c = data === null || data === void 0 ? void 0 : data.createResponse) === null || _c === void 0 ? void 0 : _c.uuid);
                     return [3 /*break*/, 5];
                 case 3:
-                    ex_1 = _c.sent();
+                    ex_1 = _d.sent();
                     onNotify === null || onNotify === void 0 ? void 0 : onNotify("error", errorMessage);
                     toast.error(errorMessage);
                     setMessage === null || setMessage === void 0 ? void 0 : setMessage({ type: "error", message: errorMessage });
