@@ -4,6 +4,7 @@ export type TextInputClassNamesPropsType = Record<
   "label" | "placeholder" | "inputContainer" | "input" | "errorMessage",
   string
 >;
+
 export type TextFieldPropsType = {
   name: string;
   onChange: ChangeEventHandler<HTMLInputElement | HTMLTextAreaElement>;
@@ -19,6 +20,7 @@ export type TextFieldPropsType = {
   isRequired: boolean;
   type: string;
 };
+
 export type RadioButtonInputPropsType = Partial<Omit<TextFieldPropsType, "classNames">> & {
   control?: "radio" | "checkbox";
   multiple?: boolean;

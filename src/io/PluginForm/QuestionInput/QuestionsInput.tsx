@@ -32,6 +32,7 @@ export const QuestionsInput: FC<
 
       case "MULTILINE":
         return <FormikTextArea {...commonInputProps} classNames={classNames?.textArea} />;
+
       case "YES_OR_NO":
       case "SINGLE_CHOICE":
       case "MULTI_CHOICE":
@@ -48,6 +49,7 @@ export const QuestionsInput: FC<
             classNames={classNames?.radioInputOrCheckbox}
           />
         );
+
       case "DATE_FORMAT":
         return (
           <div>
@@ -99,6 +101,7 @@ export const QuestionsInput: FC<
             classNames={classNames?.phoneNumberInput}
           />
         );
+
       default:
         return null;
     }

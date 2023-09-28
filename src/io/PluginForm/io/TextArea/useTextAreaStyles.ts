@@ -15,7 +15,6 @@ export const useTextAreaStyles = makeStyles((theme: Theme) => ({
     fontWeight: theme.typography.fontWeightRegular,
     fontSize: theme.typography.fontSize,
     borderColor: theme.design.colors.waz_primary700,
-
     "&:hover": {
       borderColor: theme.design.colors.waz_primary500,
     },

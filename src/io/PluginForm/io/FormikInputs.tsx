@@ -8,13 +8,13 @@ import {
   FormikTextInputPropsType,
   RadioButtonFormikPropsType,
   RadioButtonGroup,
-  RadioButtonInputPropsType,
   TextArea,
   TextField,
 } from "./TextField";
 import { SelectInput } from "../../SelectInput";
 import { useTextFieldStyles } from "./TextField/useTextFieldStyles";
 import { FormikSelectPropsType, PhoneNumberInputClassNamesPropsType } from "../type";
+import { FormikRadioOrCheckBoxPropsType } from "./type";
 
 export const RadioButtonFormik: FC<RadioButtonFormikPropsType> = ({
   label,
@@ -39,6 +39,7 @@ export const RadioButtonFormik: FC<RadioButtonFormikPropsType> = ({
     </label>
   );
 };
+
 export const FormikTextInput: FC<FormikTextInputPropsType> = ({
   className,
   isRequired,
@@ -95,6 +96,7 @@ export const FormikPhoneNumber: FC<
     </div>
   );
 };
+
 export const FormikTextArea: FC<FormikTextInputPropsType> = ({
   className,
   isRequired,
@@ -115,10 +117,7 @@ export const FormikTextArea: FC<FormikTextInputPropsType> = ({
     />
   );
 };
-type FormikRadioOrCheckBoxPropsType = Omit<
-  RadioButtonInputPropsType,
-  "isError" | "errorMessage" | "label" | "placeholder"
-> & { name: string; options: { label: string; value: string }[] };
+
 export const FormikRadio: FC<Omit<FormikRadioOrCheckBoxPropsType, "children">> = ({
   className,
   classNames,
