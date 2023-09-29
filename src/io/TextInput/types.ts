@@ -31,8 +31,8 @@ export type TextBaseProps = CommonProps & {
   }[];
   rows?: string | number;
   value?: any;
-  leftIcon?: React.ReactElement;
-  rightIcon?: React.ReactElement;
+  leftIcon?: React.ReactNode;
+  rightIcon?: React.ReactNode;
   iconSpacing?: string | number;
   children?: React.ReactNode;
   width?: string | number;
@@ -59,7 +59,7 @@ export type NumberInputProps = Omit<BaseInputProps, "onChange" | "onFocus" | "on
 
 export type InputIconProps = {
   className?: Record<string, unknown>;
-  children?: React.ReactNode | React.ReactElement | string;
+  children?: React.ReactElement | React.ReactNode | string;
   iconSpacing?: string | number;
   marginLeft?: string | number;
   marginRight?: string | number;
