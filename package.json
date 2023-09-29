@@ -1,5 +1,5 @@
 {
-  "name": "wazcom",
+  "name": "@wazobia-tech/wazcom",
   "description": "Wazobia Technologies Component Library",
   "version": "1.0.0",
   "private": true,
@@ -57,7 +57,7 @@
   },
   "scripts": {
     "start": "vite",
-    "build": "vite build",
+    "build": "tsc --p tsconfig-build.json",
     "compile": "tsc --p tsconfig-build.json",
     "test": "vite test",
     "eject": "vite eject",
@@ -65,7 +65,8 @@
     "lint-fix": "eslint --fix src/**/*.{ts,js,tsx} -c .eslintrc.json",
     "config-check": "eslint --print-config src/**/*.{ts,js,tsx} -c .eslintrc.json | eslint-config-prettier-check",
     "format": "prettier --check src/**/*.{js,ts,tsx}",
-    "format-fix": "prettier --write src/**/*.{js,ts,tsx}"
+    "format-fix": "prettier --write src/**/*.{js,ts,tsx}",
+    "prepare": "relative-deps"
   },
   "eslintConfig": {
     "extends": [
@@ -124,6 +125,7 @@
     "react-router-dom": "^6.7.0",
     "react-select": "^5.7.0",
     "react-test-renderer": "^17.0.2",
+    "relative-deps": "^1.0.7",
     "ts-jest": "^27.0.3",
     "typescript-eslint": "^0.0.1-alpha.0",
     "vite": "^4.0.3"
