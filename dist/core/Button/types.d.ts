@@ -1,11 +1,11 @@
-import { ReactElement, ReactNode } from "react";
+import { ReactNode } from "react";
 export type ButtonProps = {
     type?: any;
     isLoading?: boolean;
     isActive?: boolean;
     isDisabled?: boolean;
-    leftIcon?: ReactElement;
-    rightIcon?: ReactElement;
+    leftIcon?: ReactNode;
+    rightIcon?: ReactNode;
     className?: any;
     children: ReactNode;
     variant?: string;
@@ -19,8 +19,8 @@ export type ButtonProps = {
     onBur?: (e: any) => any;
 };
 export type ButtonContentProps = {
-    leftIcon?: ReactElement;
-    rightIcon?: ReactElement;
+    leftIcon?: ReactNode;
+    rightIcon?: ReactNode;
     iconSpacing?: string | number;
     width?: string | number;
     height?: string | number;
