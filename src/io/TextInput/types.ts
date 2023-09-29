@@ -58,7 +58,7 @@ export type NumberInputProps = Omit<BaseInputProps, "onChange" | "onFocus" | "on
 
 export type InputIconProps = {
   className?: Record<string, unknown>;
-  children?: React.ReactNode | React.ReactNode | string;
+  children?: React.ReactElement | React.ReactNode | string;
   iconSpacing?: string | number;
   marginLeft?: string | number;
   marginRight?: string | number;
