@@ -169,4 +169,7 @@ export var useTimeInputStyles = makeStyles(function (theme) { return ({
     helperTextError: {
         color: theme.design.colors.error,
     },
+    clearTimer: {
+        cursor: "pointer",
+    }
 }); });

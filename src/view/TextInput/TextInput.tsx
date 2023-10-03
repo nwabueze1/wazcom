@@ -2,6 +2,7 @@ import { FC } from "react";
 import { BsEye } from "react-icons/bs";
 import CssBaseline from "@mui/material/CssBaseline";
 import { TextInput } from "../../io";
+import { TimeInput } from "../../io";
 import { Wrapper } from "../../core";
 import { useTextInputStyles } from "./styles";
 import { TextInputViewProps, InputDataProps } from "./types";
@@ -67,6 +68,7 @@ export const TextInputView: FC<TextInputViewProps> = () => {
         className={classes.wrapper}
       >
         <Paper>
+          <TimeInput />
           <h4 className={classes.cardTitle}> Basic </h4>
           <div className={classes.inputs}>
             {inputData.default.map((item: InputDataProps, index) => (

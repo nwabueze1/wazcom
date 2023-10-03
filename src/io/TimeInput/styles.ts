@@ -182,4 +182,7 @@ export const useTimeInputStyles = makeStyles((theme: Theme) => ({
   helperTextError: {
     color: theme.design.colors.error,
   },
+  clearTimer: {
+    cursor: "pointer",
+  }
 }));
