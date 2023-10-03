@@ -21,6 +21,7 @@ export const formats = [
   "bullet",
   "indent",
   "link",
+  "strike",
   "image",
   "video",
 ];
