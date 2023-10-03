@@ -67,7 +67,8 @@ export type PhoneNumberInputClassNamesPropsType = Record<
   | "phoneNumberInput"
   | "label"
   | "dropdownClass"
-  | "buttonClass",
+  | "buttonClass"
+  | "phoneNumberInputRoot",
   string
 >;
 

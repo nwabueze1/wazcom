@@ -27,6 +27,7 @@ export default [
       { name: "RatingInput & Ranking", slug: "rating-ranking" },
       { name: "Selectors", slug: "selectors" },
       { name: "Pickers", slug: "pickers" },
+      { name: "Plugin Form", slug: "plugin-form" },
     ],
   },
   {

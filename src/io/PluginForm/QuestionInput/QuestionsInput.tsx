@@ -18,6 +18,7 @@ export const QuestionsInput: FC<
     isRequired: is_required,
     placeholder: name,
     classNames: classNames?.textField,
+    formikProps,
   };
   const renderFields = () => {
     let addressKeys: string[] = [];
@@ -47,6 +48,7 @@ export const QuestionsInput: FC<
             control={type === "MULTI_CHOICE" ? "checkbox" : "radio"}
             multiple={type === "MULTI_CHOICE"}
             classNames={classNames?.radioInputOrCheckbox}
+            formikProps={formikProps}
           />
         );
 
@@ -69,6 +71,7 @@ export const QuestionsInput: FC<
             </legend>
             {addressKeys.map((key, index) => (
               <FormikTextInput
+                is_address={true}
                 {...commonInputProps}
                 name={`${name}.${fields?.[key]}`}
                 key={index}

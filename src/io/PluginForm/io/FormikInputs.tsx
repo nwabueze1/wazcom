@@ -1,17 +1,12 @@
 import { FormikProps, useField } from "formik";
 import { FC } from "react";
 import clx from "classnames";
-import PhoneNumber from "react-phone-input-2";
-import "react-phone-input-2/lib/style.css";
-
+import { TextInput, TextArea, PhoneNumberInput, SelectInput, CheckBoxInput } from "../../";
 import {
   FormikTextInputPropsType,
   RadioButtonFormikPropsType,
   RadioButtonGroup,
-  TextArea,
-  TextField,
 } from "./TextField";
-import { SelectInput } from "../../SelectInput";
 import { useTextFieldStyles } from "./TextField/useTextFieldStyles";
 import { FormikSelectPropsType, PhoneNumberInputClassNamesPropsType } from "../type";
 import { FormikRadioOrCheckBoxPropsType } from "./type";
@@ -27,37 +22,66 @@ export const RadioButtonFormik: FC<RadioButtonFormikPropsType> = ({
   const classes = useTextFieldStyles();
 
   return (
-    <label className={clx(classes.radioLabel, classNames?.radioOrCheckboxLabel)} htmlFor={label}>
-      <input
-        {...field}
-        type={control}
-        multiple={multiple}
-        id={label}
-        className={classNames?.radioOrCheckBox}
-      />{" "}
-      <span>{label}</span>
-    </label>
+    <>
+      <label className={clx(classes.radioLabel, classNames?.radioOrCheckboxLabel)} htmlFor={label}>
+        <input
+          type={control}
+          multiple={multiple}
+          id={label}
+          className={classNames?.radioOrCheckBox}
+          {...field}
+        />{" "}
+        <span>{label}</span>
+      </label>
+    </>
   );
 };
 
-export const FormikTextInput: FC<FormikTextInputPropsType> = ({
+export const FormikTextInput: FC<FormikTextInputPropsType & { is_address?: boolean }> = ({
   className,
   isRequired,
+  name,
+  type,
+  formikProps,
   classNames,
+  placeholder,
+  is_address = false,
   ...props
 }) => {
-  const [field, meta] = useField(props);
+  const names = name.split(".");
+  const isAddressTouched = (formikProps?.touched?.[names[0]] as Record<string, boolean>)?.[
+    names[1]
+  ];
+
+  const addressError = (formikProps?.errors?.[names[0]] as Record<string, string>)?.[names[1]];
+
+  const isError = is_address
+    ? ((isAddressTouched && addressError) as boolean)
+    : ((formikProps?.touched?.[name] && formikProps?.errors?.[name]) as boolean);
+
+  const errorMessage = is_address
+    ? isAddressTouched && addressError
+    : formikProps?.touched?.[name] && formikProps?.errors?.[name];
 
   return (
-    <TextField
-      {...field}
-      classNames={classNames}
+    <TextInput
+      {...props}
+      name={name}
+      onChange={({ value }) => formikProps?.setFieldValue(name, value)}
+      onBlur={() => formikProps?.setFieldTouched(name, true)}
+      isError={isError}
+      helperText={errorMessage ? (errorMessage as string) : undefined}
+      placeholder={`${placeholder} ${isRequired && "*"}`}
+      value={formikProps?.values?.[name]}
       className={className}
-      isError={(meta.touched && meta.error) as boolean}
-      errorMessage={meta.touched ? meta.error : ""}
-      placeholder={props.placeholder || props.name}
-      isRequired={isRequired}
-      type={props?.type}
+      classNames={{
+        input: classNames?.inputContainer ?? "",
+        inputField: classNames?.input ?? "",
+        label: classNames?.label ?? "",
+        errorMessage: classNames?.errorMessage ?? "",
+      }}
+      type={type}
+      required={isRequired}
     />
   );
 };
@@ -75,20 +99,23 @@ export const FormikPhoneNumber: FC<
   return (
     <div className={classNames?.root}>
       <label className={clx(classes.legend, classNames?.label)}>{name}</label>
-      <PhoneNumber
+
+      <PhoneNumberInput
         country={default_country.toLowerCase()}
-        onChange={(e) => formikProps?.setFieldValue(name, e)}
-        onBlur={formikProps?.handleBlur}
-        onFocus={() => formikProps?.setFieldTouched(name, true)}
-        containerClass={clx(
-          classes.phoneContainerClass,
-          classNames?.phoneNumberInputContainer,
-          isInvalid && "error",
-        )}
+        onChange={(e: { name: string; value: string }) => formikProps?.setFieldValue(name, e.value)}
+        onBlur={() => formikProps?.setFieldTouched(name, true)}
+        classNames={{
+          container: clx(
+            classes.phoneContainerClass,
+            classNames?.phoneNumberInputContainer,
+            isInvalid && "error",
+          ),
+          dropdown: classNames?.dropdownClass,
+          input: clx(classes.phoneInput, classNames?.phoneNumberInput),
+          root: classNames?.phoneNumberInputRoot,
+          button: classNames?.buttonClass,
+        }}
         value={formikProps?.values?.[name]}
-        dropdownClass={classNames?.dropdownClass}
-        buttonClass={classNames?.buttonClass}
-        inputClass={clx(classes.phoneInput, classNames?.phoneNumberInput)}
       />
       {isInvalid && (
         <span className={classes.errorMessage}>{formikProps?.errors?.[name] as string}</span>
@@ -97,23 +124,33 @@ export const FormikPhoneNumber: FC<
   );
 };
 
-export const FormikTextArea: FC<FormikTextInputPropsType> = ({
+export const FormikTextArea: FC<Omit<FormikTextInputPropsType, "type">> = ({
   className,
   isRequired,
   classNames,
-  ...props
+  name,
+  formikProps,
+  rows,
 }) => {
-  const [field, meta] = useField(props);
-
   return (
     <TextArea
-      {...field}
-      classNames={classNames}
+      rows={Number(rows)}
       className={className}
-      isError={(meta.touched && meta.error) as boolean}
-      errorMessage={meta.touched ? meta.error : ""}
-      placeholder={props.name}
-      isRequired={isRequired}
+      placeholder={`${name} ${isRequired && "*"}`}
+      value={formikProps?.values?.[name]}
+      onChange={({ value }) => formikProps?.setFieldValue(name, value)}
+      onBlur={() => formikProps?.setFieldTouched(name, true)}
+      isError={(formikProps?.touched?.[name] && formikProps?.errors?.[name]) as boolean}
+      helperText={
+        (formikProps?.touched?.[name] as boolean)
+          ? (formikProps?.errors?.[name] as string)
+          : undefined
+      }
+      classNames={{
+        textAreaContainer: classNames?.inputContainer ?? "",
+        input: classNames?.input ?? "",
+        helperTextError: classNames?.errorMessage ?? "",
+      }}
     />
   );
 };
@@ -124,6 +161,7 @@ export const FormikRadio: FC<Omit<FormikRadioOrCheckBoxPropsType, "children">> =
   isRequired,
   control = "radio",
   options,
+  formikProps,
   ...props
 }) => {
   const [, meta] = useField({
@@ -151,6 +189,7 @@ export const FormikRadio: FC<Omit<FormikRadioOrCheckBoxPropsType, "children">> =
           key={index}
           control={control}
           classNames={classNames}
+          formikProps={formikProps}
         />
       ))}
     </RadioButtonGroup>

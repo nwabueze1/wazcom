@@ -34,6 +34,7 @@ export const useTextFieldStyles = makeStyles((theme: Theme) => ({
     display: "inline-flex",
     alignItems: "center",
     cursor: "pointer",
+    marginBottom: 0,
   },
   root: { display: "flex", flexDirection: "column" },
   textField: {
@@ -88,5 +89,10 @@ export const useTextFieldStyles = makeStyles((theme: Theme) => ({
   phoneInput: {
     flex: 1,
     border: 0,
+  },
+  checkBoxRoot: {
+    display: "inline-flex",
+    alignItems: "center",
+    gap: 7,
   },
 }));

@@ -110,6 +110,7 @@ export const PlugInForm = forwardRef<PluginFormRef, PluginFormPropsType>((props,
                 ),
               )}
             </div>
+            <button type={"submit"}>submit</button>
             {!submitButton ? (
               <button
                 className={classes.submitButton}
