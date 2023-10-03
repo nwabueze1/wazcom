@@ -6,7 +6,7 @@ export var useRegionSelectorStyles = makeStyles(function (theme) { return ({
             top: "36px !important",
             left: "0px !important",
             width: "100% !important",
-        }
+        },
     },
     selectorHeader: {
         position: "relative",
@@ -46,6 +46,6 @@ export var useRegionSelectorStyles = makeStyles(function (theme) { return ({
             color: "rgba(0,0,0,0.75)",
             fontSize: theme.typography.fontSize,
             cursor: "pointer",
-        }
-    }
+        },
+    },
 }); });
