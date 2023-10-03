@@ -1,7 +1,7 @@
 import { FormikProps, useField } from "formik";
 import { FC } from "react";
 import clx from "classnames";
-import { TextInput, TextArea, PhoneNumberInput, SelectInput, CheckBoxInput } from "../../";
+import { TextInput, TextArea, PhoneNumberInput, SelectInput } from "../../";
 import {
   FormikTextInputPropsType,
   RadioButtonFormikPropsType,

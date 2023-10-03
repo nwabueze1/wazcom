@@ -36,39 +36,69 @@ var __read = (this && this.__read) || function (o, n) {
     }
     return ar;
 };
-import { jsx as _jsx, jsxs as _jsxs } from "react/jsx-runtime";
+import { jsx as _jsx, jsxs as _jsxs, Fragment as _Fragment } from "react/jsx-runtime";
 import { useField } from "formik";
 import clx from "classnames";
-import PhoneNumber from "react-phone-input-2";
-import "react-phone-input-2/lib/style.css";
-import { RadioButtonGroup, TextArea, TextField, } from "./TextField";
-import { SelectInput } from "../../SelectInput";
+import { TextInput, TextArea, PhoneNumberInput, SelectInput } from "../../";
+import { RadioButtonGroup, } from "./TextField";
 import { useTextFieldStyles } from "./TextField/useTextFieldStyles";
 export var RadioButtonFormik = function (_a) {
     var label = _a.label, control = _a.control, multiple = _a.multiple, classNames = _a.classNames, props = __rest(_a, ["label", "control", "multiple", "classNames"]);
     var _b = __read(useField(__assign(__assign({}, props), { type: control })), 1), field = _b[0];
     var classes = useTextFieldStyles();
-    return (_jsxs("label", __assign({ className: clx(classes.radioLabel, classNames === null || classNames === void 0 ? void 0 : classNames.radioOrCheckboxLabel), htmlFor: label }, { children: [_jsx("input", __assign({}, field, { type: control, multiple: multiple, id: label, className: classNames === null || classNames === void 0 ? void 0 : classNames.radioOrCheckBox })), " ", _jsx("span", { children: label })] })));
+    return (_jsx(_Fragment, { children: _jsxs("label", __assign({ className: clx(classes.radioLabel, classNames === null || classNames === void 0 ? void 0 : classNames.radioOrCheckboxLabel), htmlFor: label }, { children: [_jsx("input", __assign({ type: control, multiple: multiple, id: label, className: classNames === null || classNames === void 0 ? void 0 : classNames.radioOrCheckBox }, field)), " ", _jsx("span", { children: label })] })) }));
 };
 export var FormikTextInput = function (_a) {
-    var className = _a.className, isRequired = _a.isRequired, classNames = _a.classNames, props = __rest(_a, ["className", "isRequired", "classNames"]);
-    var _b = __read(useField(props), 2), field = _b[0], meta = _b[1];
-    return (_jsx(TextField, __assign({}, field, { classNames: classNames, className: className, isError: (meta.touched && meta.error), errorMessage: meta.touched ? meta.error : "", placeholder: props.placeholder || props.name, isRequired: isRequired, type: props === null || props === void 0 ? void 0 : props.type })));
+    var _b, _c, _d, _e, _f, _g, _h, _j, _k, _l, _m, _o, _p;
+    var className = _a.className, isRequired = _a.isRequired, name = _a.name, type = _a.type, formikProps = _a.formikProps, classNames = _a.classNames, placeholder = _a.placeholder, _q = _a.is_address, is_address = _q === void 0 ? false : _q, props = __rest(_a, ["className", "isRequired", "name", "type", "formikProps", "classNames", "placeholder", "is_address"]);
+    var names = name.split(".");
+    var isAddressTouched = (_c = (_b = formikProps === null || formikProps === void 0 ? void 0 : formikProps.touched) === null || _b === void 0 ? void 0 : _b[names[0]]) === null || _c === void 0 ? void 0 : _c[names[1]];
+    var addressError = (_e = (_d = formikProps === null || formikProps === void 0 ? void 0 : formikProps.errors) === null || _d === void 0 ? void 0 : _d[names[0]]) === null || _e === void 0 ? void 0 : _e[names[1]];
+    var isError = is_address
+        ? (isAddressTouched && addressError)
+        : (((_f = formikProps === null || formikProps === void 0 ? void 0 : formikProps.touched) === null || _f === void 0 ? void 0 : _f[name]) && ((_g = formikProps === null || formikProps === void 0 ? void 0 : formikProps.errors) === null || _g === void 0 ? void 0 : _g[name]));
+    var errorMessage = is_address
+        ? isAddressTouched && addressError
+        : ((_h = formikProps === null || formikProps === void 0 ? void 0 : formikProps.touched) === null || _h === void 0 ? void 0 : _h[name]) && ((_j = formikProps === null || formikProps === void 0 ? void 0 : formikProps.errors) === null || _j === void 0 ? void 0 : _j[name]);
+    return (_jsx(TextInput, __assign({}, props, { name: name, onChange: function (_a) {
+            var value = _a.value;
+            return formikProps === null || formikProps === void 0 ? void 0 : formikProps.setFieldValue(name, value);
+        }, onBlur: function () { return formikProps === null || formikProps === void 0 ? void 0 : formikProps.setFieldTouched(name, true); }, isError: isError, helperText: errorMessage ? errorMessage : undefined, placeholder: "".concat(placeholder, " ").concat(isRequired && "*"), value: (_k = formikProps === null || formikProps === void 0 ? void 0 : formikProps.values) === null || _k === void 0 ? void 0 : _k[name], className: className, classNames: {
+            input: (_l = classNames === null || classNames === void 0 ? void 0 : classNames.inputContainer) !== null && _l !== void 0 ? _l : "",
+            inputField: (_m = classNames === null || classNames === void 0 ? void 0 : classNames.input) !== null && _m !== void 0 ? _m : "",
+            label: (_o = classNames === null || classNames === void 0 ? void 0 : classNames.label) !== null && _o !== void 0 ? _o : "",
+            errorMessage: (_p = classNames === null || classNames === void 0 ? void 0 : classNames.errorMessage) !== null && _p !== void 0 ? _p : "",
+        }, type: type, required: isRequired })));
 };
 export var FormikPhoneNumber = function (_a) {
     var _b, _c, _d, _e;
     var default_country = _a.default_country, classNames = _a.classNames, formikProps = _a.formikProps, name = _a.name;
     var classes = useTextFieldStyles();
     var isInvalid = ((_b = formikProps === null || formikProps === void 0 ? void 0 : formikProps.touched) === null || _b === void 0 ? void 0 : _b[name]) && ((_c = formikProps === null || formikProps === void 0 ? void 0 : formikProps.errors) === null || _c === void 0 ? void 0 : _c[name]);
-    return (_jsxs("div", __assign({ className: classNames === null || classNames === void 0 ? void 0 : classNames.root }, { children: [_jsx("label", __assign({ className: clx(classes.legend, classNames === null || classNames === void 0 ? void 0 : classNames.label) }, { children: name })), _jsx(PhoneNumber, { country: default_country.toLowerCase(), onChange: function (e) { return formikProps === null || formikProps === void 0 ? void 0 : formikProps.setFieldValue(name, e); }, onBlur: formikProps === null || formikProps === void 0 ? void 0 : formikProps.handleBlur, onFocus: function () { return formikProps === null || formikProps === void 0 ? void 0 : formikProps.setFieldTouched(name, true); }, containerClass: clx(classes.phoneContainerClass, classNames === null || classNames === void 0 ? void 0 : classNames.phoneNumberInputContainer, isInvalid && "error"), value: (_d = formikProps === null || formikProps === void 0 ? void 0 : formikProps.values) === null || _d === void 0 ? void 0 : _d[name], dropdownClass: classNames === null || classNames === void 0 ? void 0 : classNames.dropdownClass, buttonClass: classNames === null || classNames === void 0 ? void 0 : classNames.buttonClass, inputClass: clx(classes.phoneInput, classNames === null || classNames === void 0 ? void 0 : classNames.phoneNumberInput) }), isInvalid && (_jsx("span", __assign({ className: classes.errorMessage }, { children: (_e = formikProps === null || formikProps === void 0 ? void 0 : formikProps.errors) === null || _e === void 0 ? void 0 : _e[name] })))] })));
+    return (_jsxs("div", __assign({ className: classNames === null || classNames === void 0 ? void 0 : classNames.root }, { children: [_jsx("label", __assign({ className: clx(classes.legend, classNames === null || classNames === void 0 ? void 0 : classNames.label) }, { children: name })), _jsx(PhoneNumberInput, { country: default_country.toLowerCase(), onChange: function (e) { return formikProps === null || formikProps === void 0 ? void 0 : formikProps.setFieldValue(name, e.value); }, onBlur: function () { return formikProps === null || formikProps === void 0 ? void 0 : formikProps.setFieldTouched(name, true); }, classNames: {
+                    container: clx(classes.phoneContainerClass, classNames === null || classNames === void 0 ? void 0 : classNames.phoneNumberInputContainer, isInvalid && "error"),
+                    dropdown: classNames === null || classNames === void 0 ? void 0 : classNames.dropdownClass,
+                    input: clx(classes.phoneInput, classNames === null || classNames === void 0 ? void 0 : classNames.phoneNumberInput),
+                    root: classNames === null || classNames === void 0 ? void 0 : classNames.phoneNumberInputRoot,
+                    button: classNames === null || classNames === void 0 ? void 0 : classNames.buttonClass,
+                }, value: (_d = formikProps === null || formikProps === void 0 ? void 0 : formikProps.values) === null || _d === void 0 ? void 0 : _d[name] }), isInvalid && (_jsx("span", __assign({ className: classes.errorMessage }, { children: (_e = formikProps === null || formikProps === void 0 ? void 0 : formikProps.errors) === null || _e === void 0 ? void 0 : _e[name] })))] })));
 };
 export var FormikTextArea = function (_a) {
-    var className = _a.className, isRequired = _a.isRequired, classNames = _a.classNames, props = __rest(_a, ["className", "isRequired", "classNames"]);
-    var _b = __read(useField(props), 2), field = _b[0], meta = _b[1];
-    return (_jsx(TextArea, __assign({}, field, { classNames: classNames, className: className, isError: (meta.touched && meta.error), errorMessage: meta.touched ? meta.error : "", placeholder: props.name, isRequired: isRequired })));
+    var _b, _c, _d, _e, _f, _g, _h, _j;
+    var className = _a.className, isRequired = _a.isRequired, classNames = _a.classNames, name = _a.name, formikProps = _a.formikProps, rows = _a.rows;
+    return (_jsx(TextArea, { rows: Number(rows), className: className, placeholder: "".concat(name, " ").concat(isRequired && "*"), value: (_b = formikProps === null || formikProps === void 0 ? void 0 : formikProps.values) === null || _b === void 0 ? void 0 : _b[name], onChange: function (_a) {
+            var value = _a.value;
+            return formikProps === null || formikProps === void 0 ? void 0 : formikProps.setFieldValue(name, value);
+        }, onBlur: function () { return formikProps === null || formikProps === void 0 ? void 0 : formikProps.setFieldTouched(name, true); }, isError: (((_c = formikProps === null || formikProps === void 0 ? void 0 : formikProps.touched) === null || _c === void 0 ? void 0 : _c[name]) && ((_d = formikProps === null || formikProps === void 0 ? void 0 : formikProps.errors) === null || _d === void 0 ? void 0 : _d[name])), helperText: ((_e = formikProps === null || formikProps === void 0 ? void 0 : formikProps.touched) === null || _e === void 0 ? void 0 : _e[name])
+            ? (_f = formikProps === null || formikProps === void 0 ? void 0 : formikProps.errors) === null || _f === void 0 ? void 0 : _f[name]
+            : undefined, classNames: {
+            textAreaContainer: (_g = classNames === null || classNames === void 0 ? void 0 : classNames.inputContainer) !== null && _g !== void 0 ? _g : "",
+            input: (_h = classNames === null || classNames === void 0 ? void 0 : classNames.input) !== null && _h !== void 0 ? _h : "",
+            helperTextError: (_j = classNames === null || classNames === void 0 ? void 0 : classNames.errorMessage) !== null && _j !== void 0 ? _j : "",
+        } }));
 };
 export var FormikRadio = function (_a) {
-    var className = _a.className, classNames = _a.classNames, isRequired = _a.isRequired, _b = _a.control, control = _b === void 0 ? "radio" : _b, options = _a.options, props = __rest(_a, ["className", "classNames", "isRequired", "control", "options"]);
+    var className = _a.className, classNames = _a.classNames, isRequired = _a.isRequired, _b = _a.control, control = _b === void 0 ? "radio" : _b, options = _a.options, formikProps = _a.formikProps, props = __rest(_a, ["className", "classNames", "isRequired", "control", "options", "formikProps"]);
     var _c = __read(useField(__assign(__assign({}, props), { type: "radio" })), 2), meta = _c[1];
     var inputProps = {
         options: options,
@@ -81,7 +111,7 @@ export var FormikRadio = function (_a) {
     };
     return (_jsx(RadioButtonGroup, __assign({}, inputProps, { classNames: classNames }, { children: options.map(function (_a, index) {
             var label = _a.label, value = _a.value;
-            return (_jsx(RadioButtonFormik, { name: props.name, value: value, label: label, control: control, classNames: classNames }, index));
+            return (_jsx(RadioButtonFormik, { name: props.name, value: value, label: label, control: control, classNames: classNames, formikProps: formikProps }, index));
         }) })));
 };
 export var FormikSelect = function (_a) {

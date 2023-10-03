@@ -42,7 +42,7 @@ export type PluginFormPropsType = {
 export type PluginFormRef = {
     submit?: () => void;
 };
-export type PhoneNumberInputClassNamesPropsType = Record<"root" | "phoneNumberInputContainer" | "phoneNumberInput" | "label" | "dropdownClass" | "buttonClass", string>;
+export type PhoneNumberInputClassNamesPropsType = Record<"root" | "phoneNumberInputContainer" | "phoneNumberInput" | "label" | "dropdownClass" | "buttonClass" | "phoneNumberInputRoot", string>;
 export type SelectInputClassNamesPropsType = Partial<Record<"container" | "control" | "label", string>>;
 export type FormikSelectPropsType = Partial<Omit<TextFieldPropsType, "isError" | "isRequired" | "errorMessage">> & {
     options: {

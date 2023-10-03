@@ -32,6 +32,7 @@ export var useTextFieldStyles = makeStyles(function (theme) { return ({
         display: "inline-flex",
         alignItems: "center",
         cursor: "pointer",
+        marginBottom: 0,
     },
     root: { display: "flex", flexDirection: "column" },
     textField: {
@@ -86,5 +87,10 @@ export var useTextFieldStyles = makeStyles(function (theme) { return ({
     phoneInput: {
         flex: 1,
         border: 0,
+    },
+    checkBoxRoot: {
+        display: "inline-flex",
+        alignItems: "center",
+        gap: 7,
     },
 }); });

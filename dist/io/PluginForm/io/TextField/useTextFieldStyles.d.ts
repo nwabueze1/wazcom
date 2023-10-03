@@ -1,1 +1,1 @@
-export declare const useTextFieldStyles: (props?: any) => import("@mui/styles").ClassNameMap<"root" | "legend" | "errorMessage" | "fieldSet" | "radioButton" | "radioLabel" | "textField" | "textFieldContainer" | "phoneContainerClass" | "phoneInput">;
+export declare const useTextFieldStyles: (props?: any) => import("@mui/styles").ClassNameMap<"root" | "legend" | "errorMessage" | "fieldSet" | "radioButton" | "radioLabel" | "textField" | "textFieldContainer" | "phoneContainerClass" | "phoneInput" | "checkBoxRoot">;

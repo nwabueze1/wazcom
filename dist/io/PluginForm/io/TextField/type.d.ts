@@ -1,10 +1,9 @@
 import { ChangeEventHandler, FocusEventHandler, ReactNode } from "react";
+import { FormikProps } from "formik";
+import { TextInputProps } from "../../../TextInput";
 export type TextInputClassNamesPropsType = Record<"label" | "placeholder" | "inputContainer" | "input" | "errorMessage", string>;
 export type TextFieldPropsType = {
     name: string;
-    onChange: ChangeEventHandler<HTMLInputElement | HTMLTextAreaElement>;
-    onFocus: FocusEventHandler<HTMLInputElement | HTMLTextAreaElement>;
-    onBlur: FocusEventHandler<HTMLInputElement | HTMLTextAreaElement>;
     value: string;
     label: string;
     className: string;
@@ -32,7 +31,11 @@ export type RadioButtonFormikPropsType = {
     value: string;
     multiple?: boolean;
     classNames?: RadioButtonClassNamesPropsType | Partial<RadioButtonClassNamesPropsType>;
+    formikProps?: FormikProps<Record<string, any>>;
 };
-export type FormikTextInputPropsType = Partial<Omit<TextFieldPropsType, "label" | "errorMessage" | "isError">> & {
+export type FormikTextInputPropsType = Partial<Omit<TextInputProps, "label" | "errorMessage" | "isError">> & {
+    formikProps?: FormikProps<Record<string, any>>;
+    isRequired?: boolean;
     name: string;
+    classNames?: Partial<TextInputClassNamesPropsType>;
 };
