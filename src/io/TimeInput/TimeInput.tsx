@@ -34,7 +34,7 @@ export const TimeInput: React.FC<TimeInputProps> = ({
   };
 
   const handleClearClick = () => {
-    setSelectedTime(moment().startOf('minute'));
+    setSelectedTime(moment().startOf("minute"));
   };
 
   return (
@@ -67,10 +67,7 @@ export const TimeInput: React.FC<TimeInputProps> = ({
           {...props}
           clearIcon={<></>}
         />
-        <FaTimes
-          className={classes.clearTimer}
-          onClick={handleClearClick}
-        />
+        <FaTimes className={classes.clearTimer} onClick={handleClearClick} />
       </div>
       {helperText && (
         <span

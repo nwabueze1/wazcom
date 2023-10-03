@@ -184,5 +184,5 @@ export const useTimeInputStyles = makeStyles((theme: Theme) => ({
   },
   clearTimer: {
     cursor: "pointer",
-  }
+  },
 }));
