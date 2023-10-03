@@ -171,5 +171,5 @@ export var useTimeInputStyles = makeStyles(function (theme) { return ({
     },
     clearTimer: {
         cursor: "pointer",
-    }
+    },
 }); });
