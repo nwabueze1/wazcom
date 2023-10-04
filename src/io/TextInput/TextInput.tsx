@@ -47,8 +47,9 @@ export const TextInput: FC<TextFieldProps> = ({
   borderRadius,
   classNames,
   placeholder,
+  inputRef,
   ...props
-}) => {
+}: TextFieldProps) => {
   const [isFocused, setIsFocused] = React.useState<boolean>(false);
   const classes = useTextStyles({
     width,
@@ -160,6 +161,7 @@ export const TextInput: FC<TextFieldProps> = ({
           placeholder={
             hasSlideUpLabel ? (isFocused && !props.value ? placeholder : "") : placeholder
           }
+          ref={inputRef}
           {...props}
         />
         {rightIcon && <InputIcon marginLeft={iconSpacing}>{rightIcon}</InputIcon>}

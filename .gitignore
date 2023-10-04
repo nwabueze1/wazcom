@@ -30,3 +30,5 @@ yarn.lock
 **/*DEADJOE
 
 .idea/
+
+/wazcom-v1*
