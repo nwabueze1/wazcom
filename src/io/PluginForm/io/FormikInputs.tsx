@@ -6,8 +6,8 @@ import {
   FormikTextInputPropsType,
   RadioButtonFormikPropsType,
   RadioButtonGroup,
-} from "./TextField";
-import { useTextFieldStyles } from "./TextField/useTextFieldStyles";
+} from "./InputGroup";
+import { usePluginInputGroup } from "./InputGroup/usePluginInputGroupStyles";
 import { FormikSelectPropsType, PhoneNumberInputClassNamesPropsType } from "../type";
 import { FormikRadioOrCheckBoxPropsType } from "./type";
 
@@ -19,7 +19,7 @@ export const RadioButtonFormik: FC<RadioButtonFormikPropsType> = ({
   ...props
 }) => {
   const [field] = useField({ ...props, type: control });
-  const classes = useTextFieldStyles();
+  const classes = usePluginInputGroup();
 
   return (
     <>
@@ -93,7 +93,7 @@ export const FormikPhoneNumber: FC<
     formikProps?: FormikProps<Record<string, any>>;
   }
 > = ({ default_country, classNames, formikProps, name }) => {
-  const classes = useTextFieldStyles();
+  const classes = usePluginInputGroup();
   const isInvalid = formikProps?.touched?.[name] && formikProps?.errors?.[name];
 
   return (

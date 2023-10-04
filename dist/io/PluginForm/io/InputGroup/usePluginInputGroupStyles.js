@@ -1,5 +1,5 @@
 import { makeStyles } from "@mui/styles";
-export var useTextFieldStyles = makeStyles(function (theme) { return ({
+export var usePluginInputGroup = makeStyles(function (theme) { return ({
     errorMessage: {
         display: "block",
         marginTop: theme.spacing(0.5),

@@ -1,4 +1,4 @@
-export * from "./TextField";
+export * from "./InputGroup";
 export { FormikSelect } from "./FormikInputs";
 export { FormikRadio } from "./FormikInputs";
 export { FormikTextArea } from "./FormikInputs";

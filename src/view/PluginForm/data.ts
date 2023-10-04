@@ -94,14 +94,14 @@ export const pluginFormData = {
       {
         fields: [],
         question: "date of birth",
-        is_required: false,
+        is_required: true,
         type: "DATE_FORMAT",
         description: null,
       },
       {
         fields: [],
         question: "date of graduation",
-        is_required: false,
+        is_required: true,
         type: "DATE_FORMAT",
         description: null,
       },

@@ -1,4 +1,4 @@
-import { RadioButtonInputPropsType } from "./TextField";
+import { RadioButtonInputPropsType } from "./InputGroup";
 import { FormikProps } from "formik";
 export type FormikRadioOrCheckBoxPropsType = Omit<RadioButtonInputPropsType, "isError" | "errorMessage" | "label" | "placeholder"> & {
     name: string;

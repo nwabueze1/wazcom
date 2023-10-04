@@ -1,7 +1,7 @@
 import clx from "classnames";
 import { FC } from "react";
 import { RadioButtonInputPropsType } from "./type";
-import { useTextFieldStyles } from "./useTextFieldStyles";
+import { usePluginInputGroup } from "./usePluginInputGroupStyles";
 
 export const RadioButtonGroup: FC<RadioButtonInputPropsType> = ({
   isError,
@@ -11,7 +11,7 @@ export const RadioButtonGroup: FC<RadioButtonInputPropsType> = ({
   isRequired,
   children,
 }) => {
-  const classes = useTextFieldStyles();
+  const classes = usePluginInputGroup();
 
   return (
     <div>

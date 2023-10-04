@@ -11,9 +11,9 @@ var __assign = (this && this.__assign) || function () {
 };
 import { jsx as _jsx, jsxs as _jsxs } from "react/jsx-runtime";
 import clx from "classnames";
-import { useTextFieldStyles } from "./useTextFieldStyles";
+import { usePluginInputGroup } from "./usePluginInputGroupStyles";
 export var RadioButtonGroup = function (_a) {
     var isError = _a.isError, errorMessage = _a.errorMessage, classNames = _a.classNames, placeholder = _a.placeholder, isRequired = _a.isRequired, children = _a.children;
-    var classes = useTextFieldStyles();
+    var classes = usePluginInputGroup();
     return (_jsxs("div", { children: [_jsxs("fieldset", __assign({ className: clx(classes.fieldSet, isError && "error", classNames === null || classNames === void 0 ? void 0 : classNames.fieldset) }, { children: [_jsxs("legend", __assign({ className: clx(classes.legend, classNames === null || classNames === void 0 ? void 0 : classNames.legend) }, { children: [placeholder, " ", isRequired && _jsx("sup", { children: "*" })] })), children] })), isError && errorMessage && (_jsx("span", __assign({ className: clx(classes.errorMessage, classNames === null || classNames === void 0 ? void 0 : classNames.errorMessage) }, { children: errorMessage })))] }));
 };

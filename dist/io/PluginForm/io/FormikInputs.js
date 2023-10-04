@@ -40,12 +40,12 @@ import { jsx as _jsx, jsxs as _jsxs, Fragment as _Fragment } from "react/jsx-run
 import { useField } from "formik";
 import clx from "classnames";
 import { TextInput, TextArea, PhoneNumberInput, SelectInput } from "../../";
-import { RadioButtonGroup, } from "./TextField";
-import { useTextFieldStyles } from "./TextField/useTextFieldStyles";
+import { RadioButtonGroup, } from "./InputGroup";
+import { usePluginInputGroup } from "./InputGroup/usePluginInputGroupStyles";
 export var RadioButtonFormik = function (_a) {
     var label = _a.label, control = _a.control, multiple = _a.multiple, classNames = _a.classNames, props = __rest(_a, ["label", "control", "multiple", "classNames"]);
     var _b = __read(useField(__assign(__assign({}, props), { type: control })), 1), field = _b[0];
-    var classes = useTextFieldStyles();
+    var classes = usePluginInputGroup();
     return (_jsx(_Fragment, { children: _jsxs("label", __assign({ className: clx(classes.radioLabel, classNames === null || classNames === void 0 ? void 0 : classNames.radioOrCheckboxLabel), htmlFor: label }, { children: [_jsx("input", __assign({ type: control, multiple: multiple, id: label, className: classNames === null || classNames === void 0 ? void 0 : classNames.radioOrCheckBox }, field)), " ", _jsx("span", { children: label })] })) }));
 };
 export var FormikTextInput = function (_a) {
@@ -73,7 +73,7 @@ export var FormikTextInput = function (_a) {
 export var FormikPhoneNumber = function (_a) {
     var _b, _c, _d, _e;
     var default_country = _a.default_country, classNames = _a.classNames, formikProps = _a.formikProps, name = _a.name;
-    var classes = useTextFieldStyles();
+    var classes = usePluginInputGroup();
     var isInvalid = ((_b = formikProps === null || formikProps === void 0 ? void 0 : formikProps.touched) === null || _b === void 0 ? void 0 : _b[name]) && ((_c = formikProps === null || formikProps === void 0 ? void 0 : formikProps.errors) === null || _c === void 0 ? void 0 : _c[name]);
     return (_jsxs("div", __assign({ className: classNames === null || classNames === void 0 ? void 0 : classNames.root }, { children: [_jsx("label", __assign({ className: clx(classes.legend, classNames === null || classNames === void 0 ? void 0 : classNames.label) }, { children: name })), _jsx(PhoneNumberInput, { country: default_country.toLowerCase(), onChange: function (e) { return formikProps === null || formikProps === void 0 ? void 0 : formikProps.setFieldValue(name, e.value); }, onBlur: function () { return formikProps === null || formikProps === void 0 ? void 0 : formikProps.setFieldTouched(name, true); }, classNames: {
                     container: clx(classes.phoneContainerClass, classNames === null || classNames === void 0 ? void 0 : classNames.phoneNumberInputContainer, isInvalid && "error"),

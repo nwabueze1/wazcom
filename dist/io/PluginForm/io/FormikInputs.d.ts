@@ -1,6 +1,6 @@
 import { FormikProps } from "formik";
 import { FC } from "react";
-import { FormikTextInputPropsType, RadioButtonFormikPropsType } from "./TextField";
+import { FormikTextInputPropsType, RadioButtonFormikPropsType } from "./InputGroup";
 import { FormikSelectPropsType, PhoneNumberInputClassNamesPropsType } from "../type";
 import { FormikRadioOrCheckBoxPropsType } from "./type";
 export declare const RadioButtonFormik: FC<RadioButtonFormikPropsType>;

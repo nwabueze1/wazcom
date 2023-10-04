@@ -1,0 +1,1 @@
+export declare const usePluginInputGroup: (props?: any) => import("@mui/styles").ClassNameMap<"root" | "legend" | "errorMessage" | "fieldSet" | "radioButton" | "radioLabel" | "textField" | "textFieldContainer" | "phoneContainerClass" | "phoneInput" | "checkBoxRoot">;
