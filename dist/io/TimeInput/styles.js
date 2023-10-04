@@ -68,6 +68,7 @@ export var useTimeInputStyles = makeStyles(function (theme) { return ({
         "& .rc-time-picker-panel-select": {
             width: "unset",
             padding: theme.spacing(0, 1),
+            "scrollbar-width": "thin",
             "&::-webkit-scrollbar": {
                 width: 4,
                 background: "rgba(0,0,0,0.05)",
