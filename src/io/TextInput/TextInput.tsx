@@ -63,6 +63,11 @@ export const TextInput: FC<TextFieldProps> = ({
   const slideUpLabelClass = useInputWithSlideUpLabelStyles();
 
   const handleChange = (e: ChangeEvent<HTMLInputElement>) => {
+    const inputValue = (e.target as HTMLInputElement).value;
+    if (type === "number" && parseFloat(inputValue) < 0) {
+      (e.target as HTMLInputElement).value = ""; // Set value to 0 if it's negative
+    }
+
     if (onChange) {
       onChange?.({
         name: (e.target as HTMLInputElement).name ?? "",
@@ -149,6 +154,7 @@ export const TextInput: FC<TextFieldProps> = ({
           onBlur={handleBlur}
           onChange={handleChange}
           onKeyDown={handleOnKeyDown}
+          min={type === "number" ? "0" : ""}
           placeholder={
             hasSlideUpLabel ? (isFocused && !props.value ? placeholder : "") : placeholder
           }
