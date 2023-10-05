@@ -52,7 +52,7 @@ export const tableColumns: TableColumn[] = [
     ],
   },
   { name: "Author", key: "author.name", type: "string" },
-  { name: "Slug", key: "slug", type: "string" },
+  { name: "Likes", key: "likes", type: "number" },
   { name: "Category", key: "category.name", type: "string" },
   { name: "Last Modified", key: "updated_at", type: "date" },
 ];

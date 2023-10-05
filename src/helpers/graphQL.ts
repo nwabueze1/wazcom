@@ -134,25 +134,27 @@ export const DELETE_IMAGE = gql`
 export const GET_BLOG_POSTS = gql`
   query GqlGetBlogPosts(
     $blog_uuid: ID
-    $first: Int!
+    $first: Int
     $page: Int
     $search: String
     $sort: [SortInput]
   ) {
     postsByBlogUuid(
-      blog_uuid: $blog_uuid
-      first: $first
-      page: $page
-      include_drafts: false
-      search: $search
-      sort: $sort
+      input: {
+        blog_uuid: $blog_uuid
+        first: $first
+        page: $page
+        all: true
+        search: $search
+        sort: $sort
+      }
     ) {
       data {
         uuid
         title
         slug
         status
-        category {
+        categories {
           name
           uuid
         }
@@ -163,14 +165,8 @@ export const GET_BLOG_POSTS = gql`
         updated_at
       }
       paginatorInfo {
-        count
         currentPage
-        firstItem
-        hasMorePages
-        lastItem
         lastPage
-        perPage
-        total
       }
     }
   }
