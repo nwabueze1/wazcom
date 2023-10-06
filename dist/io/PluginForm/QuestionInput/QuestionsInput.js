@@ -12,10 +12,9 @@ var __assign = (this && this.__assign) || function () {
 import { createElement as _createElement } from "react";
 import { jsx as _jsx, jsxs as _jsxs } from "react/jsx-runtime";
 import clx from "classnames";
-import { FormikRadio, FormikSelect, FormikTextArea, FormikTextInput } from "../io";
-import { capitalizeFirstChar } from "./CapitalizeFirstCharacter";
+import { FormikRadio, FormikSelect, FormikTextArea, FormikTextInput, FormikCheckBox, FormikPhoneNumber, } from "../formik_io";
 import { useQuestionInputStyles } from "./style";
-import { FormikPhoneNumber } from "../io/FormikInputs";
+import { capitalizeFirstChar } from "../helpers";
 export var QuestionsInput = function (_a) {
     var name = _a.name, type = _a.type, fields = _a.fields, is_required = _a.is_required, classNames = _a.classNames, formikProps = _a.formikProps;
     var classes = useQuestionInputStyles();
@@ -40,12 +39,17 @@ export var QuestionsInput = function (_a) {
                 return _jsx(FormikTextArea, __assign({}, commonInputProps, { classNames: classNames === null || classNames === void 0 ? void 0 : classNames.textArea }));
             case "YES_OR_NO":
             case "SINGLE_CHOICE":
+                options = (fields === null || fields === void 0 ? void 0 : fields.choices).map(function (field) { return ({
+                    label: field,
+                    value: field,
+                }); });
+                return (_jsx(FormikRadio, { options: options, name: name, control: "radio", classNames: classNames === null || classNames === void 0 ? void 0 : classNames.radioButtonInput, formikProps: formikProps }));
             case "MULTI_CHOICE":
                 options = (fields === null || fields === void 0 ? void 0 : fields.choices).map(function (field) { return ({
                     label: field,
                     value: field,
                 }); });
-                return (_jsx(FormikRadio, { options: options, name: name, control: type === "MULTI_CHOICE" ? "checkbox" : "radio", multiple: type === "MULTI_CHOICE", classNames: classNames === null || classNames === void 0 ? void 0 : classNames.radioInputOrCheckbox, formikProps: formikProps }));
+                return (_jsx(FormikCheckBox, { options: options, name: name, multiple: options.length > 1, classNames: classNames === null || classNames === void 0 ? void 0 : classNames.checkBoxInput, formikProps: formikProps }));
             case "DATE_FORMAT":
                 return (_jsxs("div", { children: [_jsx("label", __assign({ className: clx(classes.legend, classes.label, (_a = classNames === null || classNames === void 0 ? void 0 : classNames.textField) === null || _a === void 0 ? void 0 : _a.label) }, { children: capitalizeFirstChar(name) })), _jsx(FormikTextInput, __assign({}, commonInputProps, { type: "date" }))] }));
             case "ADDRESS":

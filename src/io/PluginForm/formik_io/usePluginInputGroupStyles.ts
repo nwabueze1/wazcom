@@ -95,4 +95,30 @@ export const usePluginInputGroup = makeStyles((theme: Theme) => ({
     alignItems: "center",
     gap: 7,
   },
+  checkboxInputOptionContainer: {
+    display: "inline-flex",
+    marginRight: theme.spacing(1.5),
+  },
+  checkBoxLabel: {
+    fontFamily: "inherit",
+    fontSize: theme.typography.fontSize,
+    cursor: "pointer",
+    marginLeft: theme.spacing(0.3),
+  },
+  checkBox: {
+    height: 16,
+    width: 16,
+    "& + .checked__icon": {
+      fontSize: 15,
+    },
+  },
+  radioButtonOptionContainer: {
+    display: "inline-flex",
+    alignItems: "center",
+    gap: 4,
+    marginRight: theme.spacing(1.5),
+  },
+  radioButtonLabel: {
+    cursor: "pointer",
+  },
 }));

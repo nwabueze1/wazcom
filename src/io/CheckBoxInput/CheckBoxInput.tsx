@@ -14,11 +14,9 @@ export const CheckBoxInput: FC<CheckBoxInputProps> = ({
   onChange,
   value,
   label,
-  multiple,
   onFocus,
   onBlur,
-  onFormikChange,
-  labelPlacement = "left",
+  id,
 }) => {
   const classes = useCheckboxInputStyles();
 
@@ -26,44 +24,31 @@ export const CheckBoxInput: FC<CheckBoxInputProps> = ({
     onChange?.({ name: name as string, value: event.target.checked });
   };
 
-  const renderCheckBox = () => (
-    <label className={classes.innerWrapper}>
-      <input
-        id={label}
-        name={name}
-        type="checkbox"
-        className={clx(classes.input)}
-        onChange={(e) => {
-          handleChange(e);
-          onFormikChange?.(e);
-        }}
-        checked={value}
-        multiple={multiple}
-        onFocus={onFocus}
-        onBlur={onBlur}
-      />
-      <span
-        className={clx(
-          "custom__checkbox",
-          classes.customCheckbox,
-          classNames?.checkBoxInput ? (classNames.checkBoxInput as string) : "",
-        )}
-      />
-      <span className={clx("checked__icon", classes.checkedIcon, classNames?.checkedIcon)}>
-        <BsCheck />
-      </span>
-    </label>
-  );
-
   return (
-    <div className={clx(className, classes.root, classNames?.root)}>
-      {labelPlacement === "right" && renderCheckBox()}
-      {label && (
-        <label htmlFor={label} className={clx(classes.labelStyle, classNames?.label ?? "")}>
-          {label}
-        </label>
-      )}
-      {labelPlacement === "left" && renderCheckBox()}
+    <div className={clx(className, classes.root)}>
+      {label && <p className={clx(classes.labelStyle, classNames?.label ?? "")}>{label}</p>}
+      <label className={classes.innerWrapper}>
+        <input
+          name={name}
+          type="checkbox"
+          className={clx(classes.input)}
+          onChange={handleChange}
+          checked={value}
+          onFocus={onFocus}
+          onBlur={onBlur}
+          id={id}
+        />
+        <span
+          className={clx(
+            "custom__checkbox",
+            classes.customCheckbox,
+            classNames?.checkBoxInput ? (classNames.checkBoxInput as string) : "",
+          )}
+        />
+        <span className={clx("checked__icon", classes.checkedIcon)}>
+          <BsCheck />
+        </span>
+      </label>
       <div className={classes.helperText}> {helperText}</div>
       {feedback && displayFeedback(feedback)}
     </div>

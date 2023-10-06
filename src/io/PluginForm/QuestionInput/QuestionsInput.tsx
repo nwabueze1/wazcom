@@ -1,12 +1,17 @@
 import { FC } from "react";
 import clx from "classnames";
-
-import { FormikRadio, FormikSelect, FormikTextArea, FormikTextInput } from "../io";
-import { capitalizeFirstChar } from "./CapitalizeFirstCharacter";
+import {
+  FormikRadio,
+  FormikSelect,
+  FormikTextArea,
+  FormikTextInput,
+  FormikCheckBox,
+  FormikPhoneNumber,
+} from "../formik_io";
 import { useQuestionInputStyles } from "./style";
 import { QuestionInputPropsType } from "./type";
 import { FormikProps } from "formik";
-import { FormikPhoneNumber } from "../io/FormikInputs";
+import { capitalizeFirstChar } from "../helpers";
 
 export const QuestionsInput: FC<
   QuestionInputPropsType & { formikProps?: FormikProps<Record<string, any>> }
@@ -36,7 +41,6 @@ export const QuestionsInput: FC<
 
       case "YES_OR_NO":
       case "SINGLE_CHOICE":
-      case "MULTI_CHOICE":
         options = (fields?.choices as string[]).map((field) => ({
           label: field,
           value: field,
@@ -45,9 +49,23 @@ export const QuestionsInput: FC<
           <FormikRadio
             options={options}
             name={name}
-            control={type === "MULTI_CHOICE" ? "checkbox" : "radio"}
-            multiple={type === "MULTI_CHOICE"}
-            classNames={classNames?.radioInputOrCheckbox}
+            control={"radio"}
+            classNames={classNames?.radioButtonInput}
+            formikProps={formikProps}
+          />
+        );
+
+      case "MULTI_CHOICE":
+        options = (fields?.choices as string[]).map((field) => ({
+          label: field,
+          value: field,
+        }));
+        return (
+          <FormikCheckBox
+            options={options}
+            name={name}
+            multiple={options.length > 1}
+            classNames={classNames?.checkBoxInput}
             formikProps={formikProps}
           />
         );

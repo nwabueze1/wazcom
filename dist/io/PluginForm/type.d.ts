@@ -1,7 +1,7 @@
 import React, { Dispatch, ReactNode, SetStateAction } from "react";
 import { AddressInputKey, QuestionInputClassNamesPropsType } from "./QuestionInput";
-import { TextFieldPropsType } from "./io";
 import { FormikProps } from "formik";
+import { TextFieldPropsType } from "./formik_io";
 export type QuestionTypes = "SHORT_TEXT" | "MULTILINE" | "MULTI_CHOICE" | "DATE_FORMAT" | "EMAIL_ADDRESS" | "DROP_DOWN" | "PHONE_NUMBER" | "SINGLE_CHOICE" | "YES_OR_NO" | "WEB_URL" | "ADDRESS" | "OPINION" | "RATING" | "PHOTO" | "VIDEO" | "DOC";
 export type QuestionType = {
     is_required: boolean;

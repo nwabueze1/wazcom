@@ -1,6 +1,6 @@
-import { ChangeEventHandler, FocusEventHandler, ReactNode } from "react";
 import { FormikProps } from "formik";
-import { TextInputProps } from "../../../TextInput";
+import { ReactNode } from "react";
+import { TextInputProps } from "../../TextInput";
 export type TextInputClassNamesPropsType = Record<"label" | "placeholder" | "inputContainer" | "input" | "errorMessage", string>;
 export type TextFieldPropsType = {
     name: string;
@@ -21,21 +21,27 @@ export type RadioButtonInputPropsType = Partial<Omit<TextFieldPropsType, "classN
     classNames?: RadioButtonClassNamesPropsType | Partial<RadioButtonClassNamesPropsType>;
 };
 export type RadioButtonClassNamesPropsType = Record<"fieldset" | "legend" | "errorMessage" | "radioOrCheckboxLabel" | "radioOrCheckBox", string>;
-export type RadioButtonFormikPropsType = {
-    name: string;
-    control: "radio" | "checkbox";
-    onChange?: ChangeEventHandler<HTMLTextAreaElement | HTMLInputElement>;
-    onFocus?: FocusEventHandler<HTMLTextAreaElement | HTMLInputElement>;
-    onBlur?: FocusEventHandler<HTMLTextAreaElement | HTMLInputElement>;
-    label: string;
-    value: string;
-    multiple?: boolean;
-    classNames?: RadioButtonClassNamesPropsType | Partial<RadioButtonClassNamesPropsType>;
-    formikProps?: FormikProps<Record<string, any>>;
-};
 export type FormikTextInputPropsType = Partial<Omit<TextInputProps, "label" | "errorMessage" | "isError">> & {
     formikProps?: FormikProps<Record<string, any>>;
     isRequired?: boolean;
     name: string;
     classNames?: Partial<TextInputClassNamesPropsType>;
+};
+export type FormikRadioOrCheckBoxPropsType = Omit<RadioButtonInputPropsType, "isError" | "errorMessage" | "label" | "placeholder" | "classNames"> & {
+    name: string;
+    options: {
+        label: string;
+        value: string;
+    }[];
+    formikProps?: FormikProps<Record<string, any>>;
+    classNames?: Record<"radioButtonInput" | "optionContainer" | "label" | "errorMessage" | "legend" | "fieldset", string>;
+};
+export type FormikCheckBoxInputPropsType = Omit<RadioButtonInputPropsType, "isError" | "errorMessage" | "optionContainer" | "label" | "placeholder" | "children" | "classNames" | "control"> & {
+    classNames?: Record<"checkboxInput" | "label" | "errorMessage" | "legend" | "fieldset", string>;
+    name: string;
+    options: {
+        label: string;
+        value: string;
+    }[];
+    formikProps?: FormikProps<Record<string, any>>;
 };

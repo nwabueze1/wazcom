@@ -1,9 +1,7 @@
 import { FormikProps } from "formik";
 import { FC } from "react";
-import { FormikTextInputPropsType, RadioButtonFormikPropsType } from "./InputGroup";
 import { FormikSelectPropsType, PhoneNumberInputClassNamesPropsType } from "../type";
-import { FormikRadioOrCheckBoxPropsType } from "./type";
-export declare const RadioButtonFormik: FC<RadioButtonFormikPropsType>;
+import { FormikCheckBoxInputPropsType, FormikRadioOrCheckBoxPropsType, FormikTextInputPropsType } from "./type";
 export declare const FormikTextInput: FC<FormikTextInputPropsType & {
     is_address?: boolean;
 }>;
@@ -15,3 +13,4 @@ export declare const FormikPhoneNumber: FC<Omit<FormikTextInputPropsType, "class
 export declare const FormikTextArea: FC<Omit<FormikTextInputPropsType, "type">>;
 export declare const FormikRadio: FC<Omit<FormikRadioOrCheckBoxPropsType, "children">>;
 export declare const FormikSelect: FC<FormikSelectPropsType>;
+export declare const FormikCheckBox: FC<FormikCheckBoxInputPropsType>;

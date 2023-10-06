@@ -1,5 +1,4 @@
 import * as Yup from "yup";
-
 import { QuestionType } from "./type";
 
 export const buildValidationSchema = (questions: QuestionType[]) => {
@@ -13,19 +12,21 @@ export const buildValidationSchema = (questions: QuestionType[]) => {
       const requiredMessage = "This field is required";
       switch (type) {
         case "SHORT_TEXT":
-        case "SINGLE_CHOICE":
         case "MULTILINE":
         case "DROP_DOWN":
-        case "YES_OR_NO":
           schemaObject[question] = Yup.string()
             .required(requiredMessage)
             .min(3)
             .label("This field");
           break;
+        case "SINGLE_CHOICE":
+        case "YES_OR_NO":
+          schemaObject[question] = Yup.string().required(requiredMessage);
+          break;
         case "PHONE_NUMBER":
           schemaObject[question] = Yup.string()
-            .matches(phoneNumberRegExp, "Invalid phone number")
-            .required();
+            .matches(phoneNumberRegExp, "This field must be a valid phone number")
+            .required(requiredMessage);
           break;
         case "EMAIL_ADDRESS":
           schemaObject[question] = Yup.string()

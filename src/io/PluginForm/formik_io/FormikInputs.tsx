@@ -1,41 +1,21 @@
-import { FormikProps, useField } from "formik";
+import { FormikProps } from "formik";
 import { FC } from "react";
 import clx from "classnames";
-import { TextInput, TextArea, PhoneNumberInput, SelectInput } from "../../";
 import {
-  FormikTextInputPropsType,
-  RadioButtonFormikPropsType,
-  RadioButtonGroup,
-} from "./InputGroup";
-import { usePluginInputGroup } from "./InputGroup/usePluginInputGroupStyles";
+  CheckBoxInput,
+  PhoneNumberInput,
+  SelectInput,
+  TextArea,
+  TextInput,
+  RadioButtonInput,
+} from "../../";
+import { usePluginInputGroup } from "./usePluginInputGroupStyles";
 import { FormikSelectPropsType, PhoneNumberInputClassNamesPropsType } from "../type";
-import { FormikRadioOrCheckBoxPropsType } from "./type";
-
-export const RadioButtonFormik: FC<RadioButtonFormikPropsType> = ({
-  label,
-  control,
-  multiple,
-  classNames,
-  ...props
-}) => {
-  const [field] = useField({ ...props, type: control });
-  const classes = usePluginInputGroup();
-
-  return (
-    <>
-      <label className={clx(classes.radioLabel, classNames?.radioOrCheckboxLabel)} htmlFor={label}>
-        <input
-          type={control}
-          multiple={multiple}
-          id={label}
-          className={classNames?.radioOrCheckBox}
-          {...field}
-        />{" "}
-        <span>{label}</span>
-      </label>
-    </>
-  );
-};
+import {
+  FormikCheckBoxInputPropsType,
+  FormikRadioOrCheckBoxPropsType,
+  FormikTextInputPropsType,
+} from "./type";
 
 export const FormikTextInput: FC<FormikTextInputPropsType & { is_address?: boolean }> = ({
   className,
@@ -159,40 +139,58 @@ export const FormikRadio: FC<Omit<FormikRadioOrCheckBoxPropsType, "children">> =
   className,
   classNames,
   isRequired,
-  control = "radio",
   options,
   formikProps,
   ...props
 }) => {
-  const [, meta] = useField({
-    ...props,
-    type: "radio",
-  });
+  const classes = usePluginInputGroup();
+  const isError = formikProps?.touched?.[props.name] && formikProps?.errors?.[props.name];
+  const errorMessage = formikProps?.errors?.[props.name];
 
-  const inputProps = {
-    options,
-    control,
-    className,
-    isRequired,
-    isError: (meta.touched && meta.error) as boolean,
-    errorMessage: meta.error ? meta.error : "",
-    placeholder: props.name,
-  };
+  const renderOptions = () =>
+    options.map(({ label, value }, index) => {
+      const id = props.name + label;
+
+      const handleChange = (e: { name: string; value: any }) => {
+        formikProps?.setFieldValue(props.name, e.value);
+      };
+
+      return (
+        <article
+          key={index}
+          className={clx(classes.radioButtonOptionContainer, classNames?.optionContainer)}
+        >
+          <RadioButtonInput
+            id={id}
+            onChange={handleChange}
+            name={props.name}
+            hasBooleanValue={false}
+            value={value as any}
+            checked={formikProps?.values?.[props.name] === value}
+            classNames={{ radioButtonInput: classNames?.radioButtonInput }}
+            onBlur={() => formikProps?.setFieldTouched(props?.name, true)}
+          />
+          <label htmlFor={id} className={clx(classes.checkBoxLabel, classNames?.label)}>
+            {label}
+          </label>
+        </article>
+      );
+    });
 
   return (
-    <RadioButtonGroup {...inputProps} classNames={classNames}>
-      {options.map(({ label, value }, index) => (
-        <RadioButtonFormik
-          name={props.name}
-          value={value}
-          label={label}
-          key={index}
-          control={control}
-          classNames={classNames}
-          formikProps={formikProps}
-        />
-      ))}
-    </RadioButtonGroup>
+    <div className={className}>
+      <fieldset className={clx(classes.fieldSet, isError && "error", classNames?.fieldset)}>
+        <legend className={clx(classes.legend, classNames?.legend)}>
+          {props.name} {isRequired && <sup>*</sup>}
+        </legend>
+        {renderOptions()}
+      </fieldset>
+      {isError && errorMessage && (
+        <span className={clx(classes.errorMessage, classNames?.errorMessage)}>
+          {errorMessage as string}
+        </span>
+      )}
+    </div>
   );
 };
 
@@ -217,5 +215,72 @@ export const FormikSelect: FC<FormikSelectPropsType> = ({
       containerClass={className}
       classNames={classNames}
     />
+  );
+};
+
+export const FormikCheckBox: FC<FormikCheckBoxInputPropsType> = ({
+  className,
+  classNames,
+  isRequired,
+  options,
+  formikProps,
+  ...props
+}) => {
+  const classes = usePluginInputGroup();
+  const isError = formikProps?.touched?.[props.name] && formikProps?.errors?.[props.name];
+  const errorMessage = formikProps?.errors?.[props.name];
+
+  const renderOptions = () =>
+    options.map((option, index) => {
+      const id = props.name + option.value;
+      const hasValue: boolean = props.multiple
+        ? formikProps?.values?.[props?.name]?.includes(option.value)
+        : formikProps?.values?.[props?.name];
+
+      const handleChange = (e: { name: string; value: boolean }) => {
+        const isChecked = e.value;
+        if (!props.multiple) {
+          formikProps?.setFieldValue(props.name, isChecked ? option.value : null);
+        } else {
+          const values = isChecked
+            ? [...formikProps?.values?.[props.name], option.value]
+            : formikProps?.values?.[props.name].filter((value: string) => value !== option.value);
+          formikProps?.setFieldValue(props.name, values);
+        }
+      };
+
+      return (
+        <article key={index} className={classes.checkboxInputOptionContainer}>
+          <CheckBoxInput
+            onChange={handleChange}
+            name={props.name}
+            value={hasValue}
+            id={id}
+            onBlur={formikProps?.handleBlur}
+            classNames={{
+              checkBoxInput: clx(classes.checkBox, classNames?.checkboxInput),
+            }}
+          />{" "}
+          <label htmlFor={id} className={clx(classes.checkBoxLabel, classNames?.label)}>
+            {option.label}
+          </label>
+        </article>
+      );
+    });
+
+  return (
+    <div className={className}>
+      <fieldset className={clx(classes.fieldSet, isError && "error", classNames?.fieldset)}>
+        <legend className={clx(classes.legend, classNames?.legend)}>
+          {props.name} {isRequired && <sup>*</sup>}
+        </legend>
+        {renderOptions()}
+      </fieldset>
+      {isError && errorMessage && (
+        <span className={clx(classes.errorMessage, classNames?.errorMessage)}>
+          {errorMessage as string}
+        </span>
+      )}
+    </div>
   );
 };

@@ -1,8 +1,7 @@
 import React, { Dispatch, ReactNode, SetStateAction } from "react";
-
 import { AddressInputKey, QuestionInputClassNamesPropsType } from "./QuestionInput";
-import { TextFieldPropsType } from "./io";
 import { FormikProps } from "formik";
+import { TextFieldPropsType } from "./formik_io";
 
 export type QuestionTypes =
   | "SHORT_TEXT"
