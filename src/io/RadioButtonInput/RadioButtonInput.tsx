@@ -17,7 +17,7 @@ export const RadioButtonInput: FC<RadioButtonInputProps> = ({
   onFocus,
   onBlur,
   id,
-  hasBooleanValue = true,
+  isBooleanValue = true,
   checked,
 }) => {
   const classes = useRadioButtonInputStyles({ isDisabled });
@@ -25,7 +25,7 @@ export const RadioButtonInput: FC<RadioButtonInputProps> = ({
   const handleChange = (event: React.ChangeEvent<HTMLInputElement>) => {
     onChange?.({
       name: name as string,
-      value: hasBooleanValue ? event.target.checked : event.target.value,
+      value: isBooleanValue ? event.target.checked : event.target.value,
     });
   };
 
@@ -44,7 +44,7 @@ export const RadioButtonInput: FC<RadioButtonInputProps> = ({
           id={id || label}
           className={clx(classes.input)}
           onChange={handleChange}
-          checked={hasBooleanValue ? value : checked}
+          checked={isBooleanValue ? value : checked}
           onFocus={onFocus}
           onBlur={onBlur}
           value={value as any}

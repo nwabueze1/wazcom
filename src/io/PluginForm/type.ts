@@ -1,7 +1,9 @@
 import React, { Dispatch, ReactNode, SetStateAction } from "react";
-import { AddressInputKey, QuestionInputClassNamesPropsType } from "./QuestionInput";
+import { QuestionInputClassNamesPropsType } from "./QuestionInput";
 import { FormikProps } from "formik";
 import { TextFieldPropsType } from "./formik_io";
+import { ApolloClient, NormalizedCacheObject } from "@apollo/client";
+import { DocumentNode } from "graphql";
 
 export type QuestionTypes =
   | "SHORT_TEXT"
@@ -28,17 +30,6 @@ export type QuestionType = {
   fields: any;
   type: QuestionTypes;
 };
-
-export type QuestionInputPropsType = QuestionType & {
-  index: number;
-  onChange?: (e: { index: number; name: string; value: any; key?: AddressInputKey }) => void;
-  errors?: Record<string, any>;
-  setErrors?: Dispatch<SetStateAction<Record<string, any>>>;
-  value: string | boolean | Record<any, any>;
-  touched?: Record<string, boolean>;
-  setTouched?: Dispatch<SetStateAction<Record<string, boolean>>>;
-};
-
 export type PluginFormClassNamesPropsType = Partial<QuestionInputClassNamesPropsType>;
 
 export type PluginFormPropsType = {
@@ -54,6 +45,7 @@ export type PluginFormPropsType = {
   onNotify?: (type: "error" | "success", message: string) => void;
   style?: React.CSSProperties;
   onFormSubmitted?: (uuid: string) => void;
+  apolloClient: CreateResponseClientType;
 };
 
 export type PluginFormRef = {
@@ -81,4 +73,8 @@ export type FormikSelectPropsType = Partial<
   name: string;
   formikProps?: FormikProps<Record<string, any>>;
   classNames?: SelectInputClassNamesPropsType;
+};
+export type CreateResponseClientType = {
+  client?: ApolloClient<NormalizedCacheObject>;
+  mutation?: DocumentNode;
 };

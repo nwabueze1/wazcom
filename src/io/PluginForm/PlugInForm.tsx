@@ -20,6 +20,7 @@ export const PlugInForm = forwardRef<PluginFormRef, PluginFormPropsType>((props,
     style = { display: "grid" },
     onNotify,
     onFormSubmitted,
+    apolloClient,
   } = props;
   const initialFormState = getInitialFormValues((questions ?? []) as QuestionType[]);
   const validationSchema = buildValidationSchema((questions ?? []) as QuestionType[]);
@@ -51,7 +52,7 @@ export const PlugInForm = forwardRef<PluginFormRef, PluginFormPropsType>((props,
     const errorMessage = "Failed to create form";
     setLoading?.(true);
     try {
-      const { errors, data } = await createResponse(form_uuid, values);
+      const { errors, data } = await createResponse(apolloClient, form_uuid, values);
       if (errors) {
         setMessage?.({
           type: "error",

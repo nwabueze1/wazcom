@@ -164,7 +164,7 @@ export const FormikRadio: FC<Omit<FormikRadioOrCheckBoxPropsType, "children">> =
             id={id}
             onChange={handleChange}
             name={props.name}
-            hasBooleanValue={false}
+            isBooleanValue={false}
             value={value as any}
             checked={formikProps?.values?.[props.name] === value}
             classNames={{ radioButtonInput: classNames?.radioButtonInput }}

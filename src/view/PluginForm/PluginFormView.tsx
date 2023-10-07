@@ -20,6 +20,7 @@ export const PluginFormView = () => {
           >
             <Paper padding={10}>
               <PlugInForm
+                apolloClient={{}}
                 className={classes.form}
                 form_uuid={pluginFormData.form_uuid}
                 form={pluginFormData.form as { uuid: string; questions: QuestionType[] }}
