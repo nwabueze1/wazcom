@@ -71,7 +71,7 @@ import { QuestionsInput } from "./QuestionInput";
 import { usePluginFormStyles } from "./usePluginFormStyles";
 import { toast } from "react-toastify";
 export var PlugInForm = forwardRef(function (props, ref) {
-    var questions = props.form.questions, form_uuid = props.form_uuid, setLoading = props.setLoading, className = props.className, submitButton = props.submitButton, classNames = props.classNames, _a = props.style, style = _a === void 0 ? { display: "grid" } : _a, onNotify = props.onNotify, onFormSubmitted = props.onFormSubmitted;
+    var questions = props.form.questions, form_uuid = props.form_uuid, setLoading = props.setLoading, className = props.className, submitButton = props.submitButton, classNames = props.classNames, _a = props.style, style = _a === void 0 ? { display: "grid" } : _a, onNotify = props.onNotify, onFormSubmitted = props.onFormSubmitted, apolloClient = props.apolloClient;
     var initialFormState = getInitialFormValues((questions !== null && questions !== void 0 ? questions : []));
     var validationSchema = buildValidationSchema((questions !== null && questions !== void 0 ? questions : []));
     var classes = usePluginFormStyles();
@@ -100,7 +100,7 @@ export var PlugInForm = forwardRef(function (props, ref) {
                     _d.label = 1;
                 case 1:
                     _d.trys.push([1, 3, 4, 5]);
-                    return [4 /*yield*/, createResponse(form_uuid, values)];
+                    return [4 /*yield*/, createResponse(apolloClient, form_uuid, values)];
                 case 2:
                     _a = _d.sent(), errors = _a.errors, data = _a.data;
                     if (errors) {

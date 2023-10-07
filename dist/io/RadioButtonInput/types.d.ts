@@ -11,5 +11,5 @@ export type RadioButtonInputProps = CommonProps & Omit<RadioProps, "onChange"> &
     onBlur?: FocusEventHandler<HTMLInputElement>;
     onFocus?: FocusEventHandler<HTMLInputElement>;
     labelPlacement?: "right" | "left";
-    hasBooleanValue?: boolean;
+    isBooleanValue?: boolean;
 };
