@@ -88,6 +88,8 @@ export const PlugInForm = forwardRef<PluginFormRef, PluginFormPropsType>((props,
 
   return (
     <>
+      {type === "success" && message && <p className={classes.success}>{message}</p>}
+      {type === "error" && message && <p className={classes.error}>{message}</p>}
       <Formik
         validationSchema={validationSchema}
         initialValues={initialFormState}
@@ -122,8 +124,6 @@ export const PlugInForm = forwardRef<PluginFormRef, PluginFormPropsType>((props,
           </Form>
         )}
       </Formik>
-      {type === "success" && message && <p className={classes.success}>{message}</p>}
-      {type === "error" && message && <p className={classes.error}>{message}</p>}
     </>
   );
 });

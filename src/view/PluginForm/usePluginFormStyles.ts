@@ -1,7 +1,6 @@
 import { makeStyles } from "@mui/styles";
-import { Theme } from "@mui/material";
 
-export const usePluginFormStyles = makeStyles((theme: Theme) => ({
+export const usePluginFormStyles = makeStyles(() => ({
   form: {
     display: "grid",
     gap: 10,
