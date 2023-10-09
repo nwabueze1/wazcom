@@ -9,6 +9,8 @@ export const getInitialFormValues = (questions: QuestionType[]) => {
         addressFields[value as string] = "";
       });
       initialAnswer[question] = addressFields;
+    } else if (type === "OPINION" || type === "RATING") {
+      initialAnswer[question] = 0;
     } else {
       initialAnswer[question] = type === "MULTI_CHOICE" ? [] : "";
     }

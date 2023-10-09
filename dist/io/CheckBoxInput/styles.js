@@ -1,5 +1,8 @@
 import makeStyles from "@mui/styles/makeStyles";
 export var useCheckboxInputStyles = makeStyles(function (theme) { return ({
+    base: {
+        position: "relative",
+    },
     root: {
         position: "relative",
         "& .feedback": {

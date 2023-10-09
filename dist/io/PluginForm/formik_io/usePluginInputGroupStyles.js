@@ -96,6 +96,7 @@ export var usePluginInputGroup = makeStyles(function (theme) { return ({
     checkboxInputOptionContainer: {
         display: "inline-flex",
         marginRight: theme.spacing(1.5),
+        flexDirection: "row-reverse",
     },
     checkBoxLabel: {
         fontFamily: "inherit",
@@ -115,8 +116,10 @@ export var usePluginInputGroup = makeStyles(function (theme) { return ({
         alignItems: "center",
         gap: 4,
         marginRight: theme.spacing(1.5),
+        flexDirection: "row-reverse",
     },
     radioButtonLabel: {
         cursor: "pointer",
+        marginBottom: 4,
     },
 }); });

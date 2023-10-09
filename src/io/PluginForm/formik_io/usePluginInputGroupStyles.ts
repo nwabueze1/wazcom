@@ -98,6 +98,7 @@ export const usePluginInputGroup = makeStyles((theme: Theme) => ({
   checkboxInputOptionContainer: {
     display: "inline-flex",
     marginRight: theme.spacing(1.5),
+    flexDirection: "row-reverse",
   },
   checkBoxLabel: {
     fontFamily: "inherit",
@@ -117,8 +118,10 @@ export const usePluginInputGroup = makeStyles((theme: Theme) => ({
     alignItems: "center",
     gap: 4,
     marginRight: theme.spacing(1.5),
+    flexDirection: "row-reverse",
   },
   radioButtonLabel: {
     cursor: "pointer",
+    marginBottom: 4,
   },
 }));

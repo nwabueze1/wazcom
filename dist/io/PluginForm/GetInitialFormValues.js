@@ -9,6 +9,9 @@ export var getInitialFormValues = function (questions) {
             });
             initialAnswer[question] = addressFields_1;
         }
+        else if (type === "OPINION" || type === "RATING") {
+            initialAnswer[question] = 0;
+        }
         else {
             initialAnswer[question] = type === "MULTI_CHOICE" ? [] : "";
         }

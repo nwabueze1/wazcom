@@ -1,6 +1,4 @@
-import { FormikProps } from "formik";
 import { ReactNode } from "react";
-import { TextInputProps } from "../../TextInput";
 
 export type TextInputClassNamesPropsType = Record<
   "label" | "placeholder" | "inputContainer" | "input" | "errorMessage",
@@ -31,42 +29,3 @@ export type RadioButtonClassNamesPropsType = Record<
   "fieldset" | "legend" | "errorMessage" | "radioOrCheckboxLabel" | "radioOrCheckBox",
   string
 >;
-
-export type FormikTextInputPropsType = Partial<
-  Omit<TextInputProps, "label" | "errorMessage" | "isError">
-> & {
-  formikProps?: FormikProps<Record<string, any>>;
-  isRequired?: boolean;
-  name: string;
-  classNames?: Partial<TextInputClassNamesPropsType>;
-};
-
-export type FormikRadioOrCheckBoxPropsType = Omit<
-  RadioButtonInputPropsType,
-  "isError" | "errorMessage" | "label" | "placeholder" | "classNames"
-> & {
-  name: string;
-  options: { label: string; value: string }[];
-  formikProps?: FormikProps<Record<string, any>>;
-  classNames?: Record<
-    "radioButtonInput" | "optionContainer" | "label" | "errorMessage" | "legend" | "fieldset",
-    string
-  >;
-};
-
-export type FormikCheckBoxInputPropsType = Omit<
-  RadioButtonInputPropsType,
-  | "isError"
-  | "errorMessage"
-  | "optionContainer"
-  | "label"
-  | "placeholder"
-  | "children"
-  | "classNames"
-  | "control"
-> & {
-  classNames?: Record<"checkboxInput" | "label" | "errorMessage" | "legend" | "fieldset", string>;
-  name: string;
-  options: { label: string; value: string }[];
-  formikProps?: FormikProps<Record<string, any>>;
-};

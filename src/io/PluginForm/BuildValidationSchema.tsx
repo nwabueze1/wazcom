@@ -34,13 +34,23 @@ export const buildValidationSchema = (questions: QuestionType[]) => {
             .required(requiredMessage);
           break;
         case "WEB_URL":
+        case "DOC":
+        case "VIDEO":
+        case "PHOTO":
           schemaObject[question] = Yup.string()
             .url("This field must be a valid url")
             .required(requiredMessage);
           break;
         case "OPINION":
         case "RATING":
-          schemaObject[question] = Yup.number().required(requiredMessage);
+          schemaObject[question] = Yup.number()
+            .required(requiredMessage)
+            .min(
+              1,
+              fields?.["from"]
+                ? `This field cannot be less than ${fields?.["from"]}`
+                : requiredMessage,
+            );
           break;
         case "DATE_FORMAT":
           schemaObject[question] = Yup.date().required(requiredMessage);

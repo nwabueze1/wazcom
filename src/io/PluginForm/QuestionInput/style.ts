@@ -31,4 +31,7 @@ export const useQuestionInputStyles = makeStyles((theme: Theme) => ({
   label: {
     marginLeft: theme.spacing(1),
   },
+  ratingLabel: {
+    margin: theme.spacing(1.5, 0),
+  },
 }));

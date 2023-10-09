@@ -54,6 +54,26 @@ export const pluginFormData = {
       },
       {
         fields: {
+          from: 1,
+          to: 10,
+        },
+        question: "Please rate our products",
+        is_required: true,
+        type: "RATING",
+        description: null,
+      },
+      {
+        fields: {
+          from: 1,
+          to: 10,
+        },
+        question: "On a Scale of 1-10 please rate us",
+        is_required: true,
+        type: "OPINION",
+        description: null,
+      },
+      {
+        fields: {
           default_country_code: "NG",
         },
         question: "Enter your phone number",

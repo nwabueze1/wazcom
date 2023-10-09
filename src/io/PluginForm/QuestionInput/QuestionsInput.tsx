@@ -7,6 +7,8 @@ import {
   FormikTextInput,
   FormikCheckBox,
   FormikPhoneNumber,
+  FormikOpinionScale,
+  FormikRatingInput,
 } from "../formik_io";
 import { useQuestionInputStyles } from "./style";
 import { QuestionInputPropsType } from "./type";
@@ -15,7 +17,7 @@ import { capitalizeFirstChar } from "../helpers";
 
 export const QuestionsInput: FC<
   QuestionInputPropsType & { formikProps?: FormikProps<Record<string, any>> }
-> = ({ name, type, fields, is_required, classNames, formikProps }) => {
+> = ({ name, type, fields, is_required, classNames, formikProps, mscProperties }) => {
   const classes = useQuestionInputStyles();
 
   const commonInputProps = {
@@ -34,6 +36,8 @@ export const QuestionsInput: FC<
       case "PHOTO":
       case "WEB_URL":
       case "EMAIL_ADDRESS":
+      case "DOC":
+      case "VIDEO":
         return <FormikTextInput {...commonInputProps} />;
 
       case "MULTILINE":
@@ -120,6 +124,33 @@ export const QuestionsInput: FC<
             formikProps={formikProps}
             default_country={"NG"}
             classNames={classNames?.phoneNumberInput}
+          />
+        );
+      case "OPINION":
+        return (
+          <FormikOpinionScale
+            {...commonInputProps}
+            label={commonInputProps.placeholder}
+            classNames={{
+              ...classNames?.opinionScale,
+              label: clx(classes?.ratingLabel, classNames?.opinionScale?.label),
+            }}
+            variant={mscProperties?.opinionScale?.variant ?? "contained"}
+          />
+        );
+
+      case "RATING":
+        return (
+          <FormikRatingInput
+            {...commonInputProps}
+            label={commonInputProps.placeholder}
+            classNames={{
+              ...classNames?.ratingInput,
+              label: clx(classes?.ratingLabel, classNames?.ratingInput?.label),
+            }}
+            variant={mscProperties?.rating?.variant ?? "contained"}
+            min={Number(fields?.["from"]) ?? 1}
+            max={Number(fields?.["to"]) ?? 5}
           />
         );
 
