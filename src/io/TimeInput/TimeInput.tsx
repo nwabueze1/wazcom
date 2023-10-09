@@ -4,7 +4,7 @@ import moment from "moment";
 import TimePicker from "rc-time-picker";
 import "rc-time-picker/assets/index.css";
 import { BiTimeFive } from "react-icons/bi";
-
+import { FaTimes } from "react-icons/fa";
 import { useTimeInputStyles } from "./styles";
 import { TimeInputProps } from "./types";
 
@@ -31,6 +31,10 @@ export const TimeInput: React.FC<TimeInputProps> = ({
   const handleChange = ({ value }: any) => {
     setSelectedTime(value);
     if (onChange) onChange?.({ name, value: value.format() });
+  };
+
+  const handleClearClick = () => {
+    setSelectedTime(moment().startOf("minute"));
   };
 
   return (
@@ -61,7 +65,9 @@ export const TimeInput: React.FC<TimeInputProps> = ({
           defaultValue={moment().hour(0).minute(0)}
           popupClassName={clx(classes.containerDiv, popupClassName)}
           {...props}
+          clearIcon={<></>}
         />
+        <FaTimes className={classes.clearTimer} onClick={handleClearClick} />
       </div>
       {helperText && (
         <span
