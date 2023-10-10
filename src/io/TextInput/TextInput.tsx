@@ -68,7 +68,7 @@ export const TextInput: FC<TextFieldProps> = ({
     if (noNegative) {
       const inputValue = (e.target as HTMLInputElement).value;
       if (type === "number" && parseFloat(inputValue) < 0) {
-        (e.target as HTMLInputElement).value = ""; // Set value to 0 if it's negative
+        (e.target as HTMLInputElement).value = "0"; // Set value to 0 if it's negative
       }
     }
 
@@ -254,11 +254,11 @@ export const EmailInput: FC<Omit<TextFieldProps, "type">> = ({
 const validateURL = (str: string): boolean => {
   const pattern = new RegExp(
     "^(https?:\\/\\/)?" + // protocol
-      "((([a-z\\d]([a-z\\d-]*[a-z\\d])*)\\.)+[a-z]{2,}|" + // domain name
-      "((\\d{1,3}\\.){3}\\d{1,3}))" + // OR ip (v4) address
-      "(\\:\\d+)?(\\/[-a-z\\d%_.~+]*)*" + // port and path
-      "(\\?[;&a-z\\d%_.~+=-]*)?" + // query string
-      "(\\#[-a-z\\d_]*)?$",
+    "((([a-z\\d]([a-z\\d-]*[a-z\\d])*)\\.)+[a-z]{2,}|" + // domain name
+    "((\\d{1,3}\\.){3}\\d{1,3}))" + // OR ip (v4) address
+    "(\\:\\d+)?(\\/[-a-z\\d%_.~+]*)*" + // port and path
+    "(\\?[;&a-z\\d%_.~+=-]*)?" + // query string
+    "(\\#[-a-z\\d_]*)?$",
     "i",
   ); // fragment locator
   return !!pattern.test(str);

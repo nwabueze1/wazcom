@@ -81,7 +81,7 @@ export var TextInput = function (_a) {
         if (noNegative) {
             var inputValue = e.target.value;
             if (type === "number" && parseFloat(inputValue) < 0) {
-                e.target.value = ""; // Set value to 0 if it's negative
+                e.target.value = "0"; // Set value to 0 if it's negative
             }
         }
         if (onChange) {
