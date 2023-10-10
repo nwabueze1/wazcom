@@ -1,11 +1,11 @@
 import { FC } from "react";
 import clx from "classnames";
 import {
-  FormikRadio,
+  FormikSingleChoice,
   FormikSelect,
   FormikTextArea,
   FormikTextInput,
-  FormikCheckBox,
+  FormikMultiChoice,
   FormikPhoneNumber,
   FormikOpinionScale,
   FormikRatingInput,
@@ -50,7 +50,7 @@ export const QuestionsInput: FC<
           value: field,
         }));
         return (
-          <FormikRadio
+          <FormikSingleChoice
             options={options}
             name={name}
             control={"radio"}
@@ -65,7 +65,7 @@ export const QuestionsInput: FC<
           value: field,
         }));
         return (
-          <FormikCheckBox
+          <FormikMultiChoice
             options={options}
             name={name}
             multiple={options.length > 1}

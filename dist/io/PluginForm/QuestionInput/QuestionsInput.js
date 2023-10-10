@@ -12,7 +12,7 @@ var __assign = (this && this.__assign) || function () {
 import { createElement as _createElement } from "react";
 import { jsx as _jsx, jsxs as _jsxs } from "react/jsx-runtime";
 import clx from "classnames";
-import { FormikRadio, FormikSelect, FormikTextArea, FormikTextInput, FormikCheckBox, FormikPhoneNumber, FormikOpinionScale, FormikRatingInput, } from "../formik_io";
+import { FormikSingleChoice, FormikSelect, FormikTextArea, FormikTextInput, FormikMultiChoice, FormikPhoneNumber, FormikOpinionScale, FormikRatingInput, } from "../formik_io";
 import { useQuestionInputStyles } from "./style";
 import { capitalizeFirstChar } from "../helpers";
 export var QuestionsInput = function (_a) {
@@ -45,13 +45,13 @@ export var QuestionsInput = function (_a) {
                     label: field,
                     value: field,
                 }); });
-                return (_jsx(FormikRadio, { options: options, name: name, control: "radio", classNames: classNames === null || classNames === void 0 ? void 0 : classNames.radioButtonInput, formikProps: formikProps }));
+                return (_jsx(FormikSingleChoice, { options: options, name: name, control: "radio", classNames: classNames === null || classNames === void 0 ? void 0 : classNames.radioButtonInput, formikProps: formikProps }));
             case "MULTI_CHOICE":
                 options = (fields === null || fields === void 0 ? void 0 : fields.choices).map(function (field) { return ({
                     label: field,
                     value: field,
                 }); });
-                return (_jsx(FormikCheckBox, { options: options, name: name, multiple: options.length > 1, classNames: classNames === null || classNames === void 0 ? void 0 : classNames.checkBoxInput, formikProps: formikProps }));
+                return (_jsx(FormikMultiChoice, { options: options, name: name, multiple: options.length > 1, classNames: classNames === null || classNames === void 0 ? void 0 : classNames.checkBoxInput, formikProps: formikProps }));
             case "DATE_FORMAT":
                 return (_jsxs("div", { children: [_jsx("label", __assign({ className: clx(classes.legend, classes.label, (_a = classNames === null || classNames === void 0 ? void 0 : classNames.textField) === null || _a === void 0 ? void 0 : _a.label) }, { children: capitalizeFirstChar(name) })), _jsx(FormikTextInput, __assign({}, commonInputProps, { type: "date" }))] }));
             case "ADDRESS":

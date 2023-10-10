@@ -4,7 +4,7 @@ import clx from "classnames";
 import { RadioButtonInput } from "../../../RadioButtonInput";
 import { FormikRadioOrCheckBoxPropsType } from "./type";
 
-export const FormikRadio: FC<Omit<FormikRadioOrCheckBoxPropsType, "children">> = ({
+export const FormikSingleChoice: FC<Omit<FormikRadioOrCheckBoxPropsType, "children">> = ({
   className,
   classNames,
   isRequired,

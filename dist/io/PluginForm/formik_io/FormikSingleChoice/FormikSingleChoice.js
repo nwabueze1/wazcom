@@ -24,7 +24,7 @@ import { jsx as _jsx, jsxs as _jsxs } from "react/jsx-runtime";
 import { usePluginInputGroup } from "../usePluginInputGroupStyles";
 import clx from "classnames";
 import { RadioButtonInput } from "../../../RadioButtonInput";
-export var FormikRadio = function (_a) {
+export var FormikSingleChoice = function (_a) {
     var _b, _c, _d;
     var className = _a.className, classNames = _a.classNames, isRequired = _a.isRequired, options = _a.options, formikProps = _a.formikProps, props = __rest(_a, ["className", "classNames", "isRequired", "options", "formikProps"]);
     var classes = usePluginInputGroup();

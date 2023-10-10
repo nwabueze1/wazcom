@@ -4,7 +4,7 @@ import { CheckBoxInput } from "../../../CheckBoxInput";
 import clx from "classnames";
 import { FormikCheckBoxInputPropsType } from "./types";
 
-export const FormikCheckBox: FC<FormikCheckBoxInputPropsType> = ({
+export const FormikMultiChoice: FC<FormikCheckBoxInputPropsType> = ({
   className,
   classNames,
   isRequired,
