@@ -11,5 +11,5 @@ export const parseQueryVariables = (
     parsedSort.push({ column, order: order.toUpperCase(), type: order.toUpperCase() });
   });
 
-  return { search, sort: parsedSort, page: pagination.currentPage, first: pagination.count };
+  return { search, sort: parsedSort, page: pagination.currentPage, first: pagination.perPage };
 };

@@ -21,8 +21,8 @@ export const createApolloClient = (uri: string) => {
 };
 
 export const GETBLOGCATEGORIES = gql`
-  query GqlGetBlogCategories($blog_uuid: ID) {
-    categoriesByBlogUuid(input: { blog_uuid: $blog_uuid, all: true }) {
+  query GqlGetBlogCategories($blog_uuid: ID! $first: Int!) {
+    categoriesByBlogUuid(input: { blog_uuid: $blog_uuid, first: $first }) {
       data {
         id
         name
@@ -133,21 +133,20 @@ export const DELETE_IMAGE = gql`
 
 export const GET_BLOG_POSTS = gql`
   query GqlGetBlogPosts(
-    $blog_uuid: ID
-    $first: Int
+    $blog_uuid: ID!
+    $first: Int!
     $page: Int
     $search: String
     $sort: [SortInput]
+    $filter: [FilterInput]
   ) {
-    postsByBlogUuid(
-      input: {
-        blog_uuid: $blog_uuid
-        first: $first
-        page: $page
-        all: true
-        search: $search
-        sort: $sort
-      }
+    getPostsByBlogUuid(
+      blog_uuid: $blog_uuid
+      first: $first
+      page: $page
+      search: $search
+      sort: $sort
+      filter: $filter
     ) {
       data {
         uuid
@@ -165,8 +164,14 @@ export const GET_BLOG_POSTS = gql`
         updated_at
       }
       paginatorInfo {
+        count
         currentPage
+        firstItem
+        hasMorePages
+        lastItem
         lastPage
+        perPage
+        total
       }
     }
   }

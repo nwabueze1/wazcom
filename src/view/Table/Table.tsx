@@ -32,7 +32,7 @@ export const TableView = () => {
           name: GET_BLOG_POSTS,
           client: createApolloClient("https://ploutonion.hivedeck.com/graphql"),
           variables: { blog_uuid: "28c2de0d-fb9f-4e80-b106-86d1af53defc" },
-          dataKey: "postsByBlogUuid",
+          dataKey: "getPostsByBlogUuid",
         }}
         conditionFilters={tableConditionFilters}
         showFilters={true}
