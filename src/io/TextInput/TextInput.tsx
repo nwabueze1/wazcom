@@ -112,7 +112,11 @@ export const TextInput: FC<TextFieldProps> = ({
         {!hideLabel && label && (
           <label
             htmlFor={name}
-            className={clx(classes.label, hasSlideUpLabel && slideUpLabelClass.inputLabel)}
+            className={clx(
+              classes.label,
+              hasSlideUpLabel && slideUpLabelClass.inputLabel,
+              classNames?.label,
+            )}
           >
             {label}
             {required && <span className={classes.required}>*</span>}
@@ -145,7 +149,11 @@ export const TextInput: FC<TextFieldProps> = ({
         <input
           type={type}
           name={name}
-          className={clx(classes.input, hasSlideUpLabel && slideUpLabelClass.input)}
+          className={clx(
+            classes.input,
+            hasSlideUpLabel && slideUpLabelClass.input,
+            classNames?.inputField,
+          )}
           onFocus={handleFocus}
           onBlur={handleBlur}
           onChange={handleChange}
@@ -164,6 +172,7 @@ export const TextInput: FC<TextFieldProps> = ({
             classes.helperTextDefault,
             isSuccess && classes.helperTextSuccess,
             isError && classes.helperTextError,
+            isError && classNames?.errorMessage,
           )}
         >
           {helperText}

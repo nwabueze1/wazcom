@@ -1,6 +1,9 @@
 import { makeStyles } from "@mui/styles";
 /** !!-- Remember to update the function name !! */
 export var useRadioButtonInputStyles = makeStyles(function (theme) { return ({
+    base: {
+        position: "relative",
+    },
     root: {
         position: "relative",
         "& .feedback": {

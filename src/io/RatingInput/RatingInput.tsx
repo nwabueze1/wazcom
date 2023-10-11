@@ -13,6 +13,10 @@ export const RatingInput: FC<RatingPropsType> = ({
   value = 0,
   variant = "contained",
   onChange,
+  classNames,
+  isError,
+  label,
+  helperText,
 }) => {
   const ratings: number[] = Array.from({ length: max - min + 1 }, (_, index) => min + index);
   const classes = useRatingStyles();
@@ -60,5 +64,21 @@ export const RatingInput: FC<RatingPropsType> = ({
       );
     });
 
-  return <div className={classes.ratingContainer}>{renderStarRating()}</div>;
+  return (
+    <article className={classNames?.root}>
+      {label && <label className={clx(classes.label, classNames?.label)}>{label}</label>}
+      <div className={clx(classes.ratingContainer, classNames?.rating)}>{renderStarRating()}</div>
+      {helperText && (
+        <span
+          className={clx(
+            classes.helperTextDefault,
+            isError && classes.helperTextError,
+            classNames?.errorMessage,
+          )}
+        >
+          {helperText}
+        </span>
+      )}
+    </article>
+  );
 };

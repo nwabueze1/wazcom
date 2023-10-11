@@ -3,6 +3,9 @@ import { BaseTheme } from "theme";
 
 /** !!-- Remember to update the function name !! */
 export const useRadioButtonInputStyles = makeStyles((theme: BaseTheme) => ({
+  base: {
+    position: "relative",
+  },
   root: {
     position: "relative",
 

@@ -1,3 +1,10 @@
+export type OpinionScaleClassNamesType = Partial<
+  Record<
+    "containedBox" | "outlinedBox" | "boxText" | "root" | "errorMessage" | "boxContainer" | "label",
+    string
+  >
+>;
+
 export type OpinionScalePropsType = {
   variant: "contained" | "outlined";
   name: string;
@@ -8,9 +15,5 @@ export type OpinionScalePropsType = {
   min?: number;
   max?: number;
   onChange: (e: { name: string; value: number }) => void;
-  classNames?: {
-    containedBox?: string;
-    outlinedBox?: string;
-    boxText?: string;
-  };
+  classNames?: OpinionScaleClassNamesType;
 };

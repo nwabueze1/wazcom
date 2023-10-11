@@ -99,7 +99,7 @@ export const TextArea: FC<Omit<TextAreaProps, "type">> = ({
           </span>
         )}
       </div>
-      <div className={classes.textAreaContainer}>
+      <div className={clx(classes.textAreaContainer, classNames?.textAreaContainer)}>
         <textarea
           className={clx(
             classes.baseTextArea,
@@ -124,6 +124,7 @@ export const TextArea: FC<Omit<TextAreaProps, "type">> = ({
             classes.helperTextDefault,
             isSuccess && classes.helperTextSuccess,
             isError && classes.helperTextError,
+            classNames?.helperTextError,
           )}
         >
           {helperText}

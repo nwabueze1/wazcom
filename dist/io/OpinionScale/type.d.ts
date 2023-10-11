@@ -1,3 +1,4 @@
+export type OpinionScaleClassNamesType = Partial<Record<"containedBox" | "outlinedBox" | "boxText" | "root" | "errorMessage" | "boxContainer" | "label", string>>;
 export type OpinionScalePropsType = {
     variant: "contained" | "outlined";
     name: string;
@@ -11,9 +12,5 @@ export type OpinionScalePropsType = {
         name: string;
         value: number;
     }) => void;
-    classNames?: {
-        containedBox?: string;
-        outlinedBox?: string;
-        boxText?: string;
-    };
+    classNames?: OpinionScaleClassNamesType;
 };

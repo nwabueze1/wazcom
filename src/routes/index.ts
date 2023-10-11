@@ -23,6 +23,7 @@ import { PickersView } from "../view/Pickers";
 import { PhoneNumberInputView } from "../view/PhoneNumberInput";
 import { FileUpload } from "../view/FileUpload";
 import { Rating } from "../view/Rating";
+import { PluginFormView } from "../view/PluginForm/PluginFormView";
 
 export default [
   {
@@ -174,5 +175,11 @@ export default [
     path: "/file-upload",
     exact: true,
     component: FileUpload,
+  },
+  {
+    key: "PluginForm",
+    path: "/plugin-form",
+    exact: true,
+    component: PluginFormView,
   },
 ];
