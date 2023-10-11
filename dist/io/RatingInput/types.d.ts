@@ -1,3 +1,4 @@
+export type RatingClassNamesType = Partial<Record<"rating" | "root" | "label" | "errorMessage", string>>;
 export type RatingPropsType = {
     variant: "contained" | "outlined";
     name: string;
@@ -11,4 +12,5 @@ export type RatingPropsType = {
         name: string;
         value: number;
     }) => void;
+    classNames?: RatingClassNamesType;
 };

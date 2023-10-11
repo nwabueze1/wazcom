@@ -21,4 +21,28 @@ export const useRatingStyles = makeStyles((theme: Theme) => ({
       fontSize: theme.typography.fontSize + 4,
     },
   },
+  helperTextDefault: {
+    display: "block",
+    width: "100%",
+    letterSpacing: 0,
+    fontSize: theme.typography.fontSize - 1,
+    textAlign: "left",
+    marginTop: theme.spacing(0.8),
+    flexWrap: "wrap",
+    columnGap: theme.spacing(1.3),
+  },
+  helperTextSuccess: {
+    color: theme.design.colors.waz_primaryColor100,
+  },
+  helperTextError: {
+    color: theme.design.colors.error,
+  },
+  label: {
+    fontSize: theme.typography.fontSize - 2,
+    display: "block",
+    marginBottom: theme.spacing(1),
+    color: theme.design.colors.waz_grey,
+    alignItems: "center",
+    textTransform: "uppercase",
+  },
 }));

@@ -26,7 +26,7 @@ export const EditorToolbar: FC<EmbedButtonProps> = ({ initiateEmbed }) => {
         <button className="ql-bold" />
         <button className="ql-italic" />
         <button className="ql-underline" />
-        <button className="ql-strike" />
+        <button className={"ql-strike"} />
         <button className={"ql-link"} />
       </span>
 

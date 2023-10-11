@@ -9,11 +9,11 @@ var __assign = (this && this.__assign) || function () {
     };
     return __assign.apply(this, arguments);
 };
-import { jsx as _jsx } from "react/jsx-runtime";
+import { jsx as _jsx, jsxs as _jsxs } from "react/jsx-runtime";
 import { useOpinionScaleStyles } from "./useOpinionScaleStyles";
 import clx from "classnames";
 export var OpinionScale = function (_a) {
-    var name = _a.name, _b = _a.variant, variant = _b === void 0 ? "contained" : _b, _c = _a.min, min = _c === void 0 ? 1 : _c, _d = _a.max, max = _d === void 0 ? 10 : _d, onChange = _a.onChange, value = _a.value, classNames = _a.classNames;
+    var name = _a.name, _b = _a.variant, variant = _b === void 0 ? "contained" : _b, _c = _a.min, min = _c === void 0 ? 1 : _c, _d = _a.max, max = _d === void 0 ? 10 : _d, onChange = _a.onChange, value = _a.value, classNames = _a.classNames, isError = _a.isError, label = _a.label, helperText = _a.helperText;
     var ratings = Array.from({ length: max - min + 1 }, function (_, index) { return min + index; });
     var classes = useOpinionScaleStyles();
     var renderOpinionScale = function () {
@@ -27,5 +27,5 @@ export var OpinionScale = function (_a) {
                         (variant === "outlined" ? classes.outlinedActiveText : classes.containedActiveText), classNames === null || classNames === void 0 ? void 0 : classNames.boxText) }, { children: rating })) }), index));
         });
     };
-    return (_jsx("div", __assign({ className: classes.root }, { children: _jsx("article", __assign({ className: classes.boxContainer }, { children: renderOpinionScale() })) })));
+    return (_jsxs("div", __assign({ className: clx(classes.root, classNames === null || classNames === void 0 ? void 0 : classNames.root) }, { children: [label && _jsx("label", __assign({ className: clx(classes.label, classNames === null || classNames === void 0 ? void 0 : classNames.label) }, { children: label })), _jsx("article", __assign({ className: clx(classes.boxContainer, classNames === null || classNames === void 0 ? void 0 : classNames.boxContainer) }, { children: renderOpinionScale() })), helperText && (_jsx("span", __assign({ className: clx(classes.helperTextDefault, isError && classes.helperTextError, classNames === null || classNames === void 0 ? void 0 : classNames.errorMessage) }, { children: helperText })))] })));
 };

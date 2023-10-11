@@ -24,8 +24,9 @@ import { jsx as _jsx } from "react/jsx-runtime";
 import PhoneNumber from "react-phone-input-2";
 import "react-phone-input-2/lib/style.css";
 import { usePhoneNumberInputStyles } from "./styles";
+import clx from "classnames";
 export var PhoneNumberInput = function (_a) {
     var classNames = _a.classNames, props = __rest(_a, ["classNames"]);
     var classes = usePhoneNumberInputStyles();
-    return (_jsx("div", __assign({ className: classes.root }, { children: _jsx(PhoneNumber, __assign({ inputClass: "".concat(classes.textInput, " ").concat(classNames === null || classNames === void 0 ? void 0 : classNames.input), dropdownClass: "".concat(classes.dropDown, " ").concat(classNames === null || classNames === void 0 ? void 0 : classNames.dropdown), containerClass: "".concat(classes.root, " ").concat(classNames === null || classNames === void 0 ? void 0 : classNames.container) }, props)) })));
+    return (_jsx("div", __assign({ className: clx(classes.root, classNames === null || classNames === void 0 ? void 0 : classNames.root) }, { children: _jsx(PhoneNumber, __assign({ inputClass: "".concat(classes.textInput, " ").concat(classNames === null || classNames === void 0 ? void 0 : classNames.input), dropdownClass: "".concat(classes.dropDown, " ").concat(classNames === null || classNames === void 0 ? void 0 : classNames.dropdown), containerClass: "".concat(classes.root, " ").concat(classNames === null || classNames === void 0 ? void 0 : classNames.container), buttonClass: classNames === null || classNames === void 0 ? void 0 : classNames.button }, props)) })));
 };

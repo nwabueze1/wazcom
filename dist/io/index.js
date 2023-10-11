@@ -22,3 +22,4 @@ export * from "./ImageSelectorInput";
 export * from "./FileSelectorInput";
 export * from "./RatingInput";
 export * from "./OpinionScale";
+export * from "./PluginForm";

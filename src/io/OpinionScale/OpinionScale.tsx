@@ -11,6 +11,9 @@ export const OpinionScale: FC<OpinionScalePropsType> = ({
   onChange,
   value,
   classNames,
+  isError,
+  label,
+  helperText,
 }) => {
   const ratings: number[] = Array.from({ length: max - min + 1 }, (_, index) => min + index);
   const classes = useOpinionScaleStyles();
@@ -47,8 +50,22 @@ export const OpinionScale: FC<OpinionScalePropsType> = ({
     });
 
   return (
-    <div className={classes.root}>
-      <article className={classes.boxContainer}>{renderOpinionScale()}</article>
+    <div className={clx(classes.root, classNames?.root)}>
+      {label && <label className={clx(classes.label, classNames?.label)}>{label}</label>}
+      <article className={clx(classes.boxContainer, classNames?.boxContainer)}>
+        {renderOpinionScale()}
+      </article>
+      {helperText && (
+        <span
+          className={clx(
+            classes.helperTextDefault,
+            isError && classes.helperTextError,
+            classNames?.errorMessage,
+          )}
+        >
+          {helperText}
+        </span>
+      )}
     </div>
   );
 };
