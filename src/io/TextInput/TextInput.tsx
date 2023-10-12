@@ -32,7 +32,7 @@ export const TextInput: FC<TextFieldProps> = ({
   onBlur,
   required = false,
   hasSlideUpLabel = false,
-  noNegative = false,
+  noNegativeValue = false,
   showCC,
   type = "text",
   leftIcon,
@@ -65,7 +65,7 @@ export const TextInput: FC<TextFieldProps> = ({
   const slideUpLabelClass = useInputWithSlideUpLabelStyles();
 
   const handleChange = (e: ChangeEvent<HTMLInputElement>) => {
-    if (noNegative) {
+    if (noNegativeValue) {
       const inputValue = (e.target as HTMLInputElement).value;
       if (type === "number" && parseFloat(inputValue) < 0) {
         (e.target as HTMLInputElement).value = "0"; // Set value to 0 if it's negative
@@ -165,7 +165,7 @@ export const TextInput: FC<TextFieldProps> = ({
           onFocus={handleFocus}
           onBlur={handleBlur}
           onChange={handleChange}
-          min={noNegative ? "0" : ""}
+          min={noNegativeValue ? "0" : ""}
           onKeyDown={handleOnKeyDown}
           placeholder={
             hasSlideUpLabel ? (isFocused && !props.value ? placeholder : "") : placeholder

@@ -44,7 +44,7 @@ export type TextBaseProps = CommonProps & {
   borderColor?: string;
   borderRadius?: string | number;
   inputRef?: React.MutableRefObject<HTMLInputElement | null>;
-  noNegative?: boolean;
+  noNegativeValue?: boolean;
   onFocus?: (...args: any[]) => void;
   onEnter?: (...args: any[]) => void;
   onBlur?: (...args: any[]) => void;
