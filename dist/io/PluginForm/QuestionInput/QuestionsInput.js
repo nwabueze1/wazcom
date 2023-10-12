@@ -64,7 +64,7 @@ export var QuestionsInput = function (_a) {
                 }); });
                 return (_jsx(FormikSelect, { classNames: classNames === null || classNames === void 0 ? void 0 : classNames.selectInput, formikProps: formikProps, name: name, options: options }));
             case "PHONE_NUMBER":
-                return (_jsx(FormikPhoneNumber, { name: name, formikProps: formikProps, default_country: "NG", classNames: classNames === null || classNames === void 0 ? void 0 : classNames.phoneNumberInput }));
+                return (_jsx(FormikPhoneNumber, { name: name, formikProps: formikProps, default_country: (fields === null || fields === void 0 ? void 0 : fields.default_country_code).toUpperCase(), classNames: classNames === null || classNames === void 0 ? void 0 : classNames.phoneNumberInput }));
             case "OPINION":
                 return (_jsx(FormikOpinionScale, __assign({}, commonInputProps, { label: commonInputProps.placeholder, classNames: __assign(__assign({}, classNames === null || classNames === void 0 ? void 0 : classNames.opinionScale), { label: clx(classes === null || classes === void 0 ? void 0 : classes.ratingLabel, (_d = classNames === null || classNames === void 0 ? void 0 : classNames.opinionScale) === null || _d === void 0 ? void 0 : _d.label) }), variant: (_f = (_e = mscProperties === null || mscProperties === void 0 ? void 0 : mscProperties.opinionScale) === null || _e === void 0 ? void 0 : _e.variant) !== null && _f !== void 0 ? _f : "contained" })));
             case "RATING":
