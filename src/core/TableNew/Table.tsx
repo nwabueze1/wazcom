@@ -30,14 +30,22 @@ export const TableNew: FC<TableNewProps> = ({
   const [table, setTable] = useState<{
     data: any;
     pagination: TPagination;
-  }>({ data: null, pagination: { currentPage: 1, lastPage: 1, count: variables?.first ?? 10, perPage: variables?.first ?? 10 } });
+  }>({
+    data: null,
+    pagination: {
+      currentPage: 1,
+      lastPage: 1,
+      count: variables?.first ?? 10,
+      perPage: variables?.first ?? 10,
+    },
+  });
 
   const [actions, setActions] = useState<{
     [key in "search" | "sort" | "conditionFilter" | "columnFilters"]:
-    | string
-    | (TableSort[] | undefined)
-    | (TableConditionFilter | undefined)
-    | TableColumn[];
+      | string
+      | (TableSort[] | undefined)
+      | (TableConditionFilter | undefined)
+      | TableColumn[];
   }>({
     search: "",
     sort: [],

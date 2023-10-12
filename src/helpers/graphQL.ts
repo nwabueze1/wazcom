@@ -21,7 +21,7 @@ export const createApolloClient = (uri: string) => {
 };
 
 export const GETBLOGCATEGORIES = gql`
-  query GqlGetBlogCategories($blog_uuid: ID! $first: Int!) {
+  query GqlGetBlogCategories($blog_uuid: ID!, $first: Int!) {
     categoriesByBlogUuid(input: { blog_uuid: $blog_uuid, first: $first }) {
       data {
         id
