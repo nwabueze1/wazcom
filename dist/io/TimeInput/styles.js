@@ -67,7 +67,8 @@ export var useTimeInputStyles = makeStyles(function (theme) { return ({
         width: "160px !important",
         "& .rc-time-picker-panel-select": {
             width: "unset",
-            padding: theme.spacing(0, 1),
+            padding: theme.spacing(0, 2),
+            "scrollbar-width": "thin",
             "&::-webkit-scrollbar": {
                 width: 4,
                 background: "rgba(0,0,0,0.05)",
@@ -168,5 +169,8 @@ export var useTimeInputStyles = makeStyles(function (theme) { return ({
     },
     helperTextError: {
         color: theme.design.colors.error,
+    },
+    clearTimer: {
+        cursor: "pointer",
     },
 }); });

@@ -5,6 +5,7 @@ import { EmbedButton, EmbedButtonProps } from "../EmbedButton";
 
 export const EditorToolbar: FC<EmbedButtonProps> = ({ initiateEmbed }) => {
   const classes = useEditorToolbarStyles();
+
   return (
     <div id="toolbar" className={classes.toolbar}>
       <span className={clx("ql-formats", classes.toolbarItem)}>
