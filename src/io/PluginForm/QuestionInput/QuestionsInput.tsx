@@ -122,7 +122,7 @@ export const QuestionsInput: FC<
           <FormikPhoneNumber
             name={name}
             formikProps={formikProps}
-            default_country={"NG"}
+            default_country={(fields?.default_country_code as string).toUpperCase()}
             classNames={classNames?.phoneNumberInput}
           />
         );

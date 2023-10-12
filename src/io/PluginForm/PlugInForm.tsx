@@ -7,7 +7,6 @@ import { createResponse } from "./gql/actions/createResponse";
 import { QuestionsInput } from "./QuestionInput";
 import { PluginFormPropsType, QuestionType } from "./type";
 import { usePluginFormStyles } from "./usePluginFormStyles";
-import { toast } from "react-toastify";
 
 export const PlugInForm = forwardRef<PluginFormRef, PluginFormPropsType>((props, ref) => {
   const {
@@ -46,32 +45,30 @@ export const PlugInForm = forwardRef<PluginFormRef, PluginFormPropsType>((props,
       setMessage?.({ type: "error", message: errorMessage });
       resetErrorMessage();
       onNotify?.("error", errorMessage);
-      return toast.error(errorMessage);
+      return resetErrorMessage();
     }
 
     const errorMessage = "Failed to create form";
     setLoading?.(true);
     try {
       const { errors, data } = await createResponse(apolloClient, form_uuid, values);
+
       if (errors) {
         setMessage?.({
           type: "error",
           message: errorMessage,
         });
-        onNotify?.("error", errorMessage);
-        return toast.error(errorMessage);
+        return onNotify?.("error", errorMessage);
       }
 
       const submission_text = data?.createResponse?.submission_text;
       const successMessage = !submission_text ? "Form submitted successfully" : submission_text;
       setMessage?.({ type: "success", message: successMessage });
       onNotify?.("success", successMessage);
-      toast.success(successMessage);
       formikHelpers.resetForm();
-      onFormSubmitted?.(data?.createResponse?.uuid);
+      onFormSubmitted?.(data?.createResponse?.data);
     } catch (ex) {
       onNotify?.("error", errorMessage);
-      toast.error(errorMessage);
       setMessage?.({ type: "error", message: errorMessage });
     } finally {
       setLoading?.(false);

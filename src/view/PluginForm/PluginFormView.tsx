@@ -1,12 +1,14 @@
 import CssBaseline from "@mui/material/CssBaseline";
 import { Wrapper } from "../../core";
 import { Paper } from "../../core/Paper";
-import { PlugInForm, QuestionType } from "../../io";
+import { PlugInForm, QuestionType, PluginFormRef } from "../../io";
 import { pluginFormData } from "./data";
 import { usePluginFormStyles } from "./usePluginFormStyles";
+import { useRef } from "react";
 
 export const PluginFormView = () => {
   const classes = usePluginFormStyles();
+  const submitRef = useRef<PluginFormRef>(null);
 
   return (
     <div>
@@ -24,6 +26,7 @@ export const PluginFormView = () => {
                 className={classes.form}
                 form_uuid={pluginFormData.form_uuid}
                 form={pluginFormData.form as { uuid: string; questions: QuestionType[] }}
+                ref={submitRef}
               />
             </Paper>
           </Wrapper>

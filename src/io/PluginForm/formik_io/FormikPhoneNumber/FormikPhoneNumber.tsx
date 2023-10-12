@@ -16,13 +16,17 @@ export const FormikPhoneNumber: FC<
   const classes = usePluginInputGroup();
   const isInvalid = formikProps?.touched?.[name] && formikProps?.errors?.[name];
 
+  const handleChange = (value: string) => {
+    formikProps?.setFieldValue(name, value);
+  };
+
   return (
     <div className={classNames?.root}>
       <label className={clx(classes.legend, classNames?.label)}>{name}</label>
 
       <PhoneNumberInput
         country={default_country.toLowerCase()}
-        onChange={(e: { name: string; value: string }) => formikProps?.setFieldValue(name, e.value)}
+        onChange={handleChange}
         onBlur={() => formikProps?.setFieldTouched(name, true)}
         classNames={{
           container: clx(
