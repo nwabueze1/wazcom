@@ -23,8 +23,8 @@ export var OpinionScale = function (_a) {
                     ? classNames === null || classNames === void 0 ? void 0 : classNames.containedBox
                     : variant === "outlined"
                         ? classNames === null || classNames === void 0 ? void 0 : classNames.outlinedBox
-                        : undefined), onClick: function () { return onChange === null || onChange === void 0 ? void 0 : onChange({ name: name, value: rating }); } }, { children: _jsx("span", __assign({ className: clx(classes.innerText, active &&
-                        (variant === "outlined" ? classes.outlinedActiveText : classes.containedActiveText), classNames === null || classNames === void 0 ? void 0 : classNames.boxText) }, { children: rating })) }), index));
+                        : undefined, active && "active"), onClick: function () { return onChange === null || onChange === void 0 ? void 0 : onChange({ name: name, value: rating }); } }, { children: _jsx("span", __assign({ className: clx(classes.innerText, active &&
+                        (variant === "outlined" ? classes.outlinedActiveText : classes.containedActiveText), classNames === null || classNames === void 0 ? void 0 : classNames.boxText, active && "active") }, { children: rating })) }), index));
         });
     };
     return (_jsxs("div", __assign({ className: clx(classes.root, classNames === null || classNames === void 0 ? void 0 : classNames.root) }, { children: [label && _jsx("label", __assign({ className: clx(classes.label, classNames === null || classNames === void 0 ? void 0 : classNames.label) }, { children: label })), _jsx("article", __assign({ className: clx(classes.boxContainer, classNames === null || classNames === void 0 ? void 0 : classNames.boxContainer) }, { children: renderOpinionScale() })), helperText && (_jsx("span", __assign({ className: clx(classes.helperTextDefault, isError && classes.helperTextError, classNames === null || classNames === void 0 ? void 0 : classNames.errorMessage) }, { children: helperText })))] })));

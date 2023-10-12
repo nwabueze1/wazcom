@@ -31,6 +31,7 @@ export const OpinionScale: FC<OpinionScalePropsType> = ({
               : variant === "outlined"
               ? classNames?.outlinedBox
               : undefined,
+            active && "active",
           )}
           key={index}
           onClick={() => onChange?.({ name, value: rating })}
@@ -41,6 +42,7 @@ export const OpinionScale: FC<OpinionScalePropsType> = ({
               active &&
                 (variant === "outlined" ? classes.outlinedActiveText : classes.containedActiveText),
               classNames?.boxText,
+              active && "active",
             )}
           >
             {rating}
