@@ -7,5 +7,5 @@ export declare const parseQueryVariables: (search: string, sort: TableSort[], pa
         type: string;
     }[];
     page: number;
-    first: number | undefined;
+    first: number;
 };

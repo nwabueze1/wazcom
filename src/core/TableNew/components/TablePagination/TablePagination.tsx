@@ -9,7 +9,6 @@ export const TablePagination: FC<TablePaginationProps> = ({
   currentPage,
   lastPage,
   count,
-  perPage,
   setTablePagination,
 }) => {
   const classes = useTablePaginationStyles();
@@ -58,7 +57,6 @@ export const TablePagination: FC<TablePaginationProps> = ({
                   setTablePagination({
                     count,
                     lastPage,
-                    perPage,
                     currentPage: pageNumber as number,
                   });
                 }
@@ -74,12 +72,12 @@ export const TablePagination: FC<TablePaginationProps> = ({
 
   const handlePreviousClick = () => {
     if (currentPage === 1) return;
-    setTablePagination({ count, lastPage, perPage, currentPage: currentPage - 1 });
+    setTablePagination({ count, lastPage, currentPage: currentPage - 1 });
   };
 
   const handleNextClick = () => {
     if (currentPage === lastPage) return;
-    setTablePagination({ count, lastPage, perPage, currentPage: currentPage + 1 });
+    setTablePagination({ count, lastPage, currentPage: currentPage + 1 });
   };
 
   return (
@@ -115,10 +113,9 @@ export const TablePagination: FC<TablePaginationProps> = ({
               currentPage: 1,
               lastPage,
               count: Number(count),
-              perPage: Number(count),
             });
           }}
-          value={String(perPage)}
+          value={String(count)}
         />
       </div>
       <div className={classes.paginationPages}>{renderPages()}</div>

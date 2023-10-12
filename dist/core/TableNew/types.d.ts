@@ -45,7 +45,6 @@ export type TablePagination = {
     currentPage: number;
     lastPage: number;
     count: number;
-    perPage?: number;
 };
 export type TableColumnAction = {
     name: string;

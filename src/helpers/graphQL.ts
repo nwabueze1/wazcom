@@ -141,12 +141,14 @@ export const GET_BLOG_POSTS = gql`
     $filter: [FilterInput]
   ) {
     getPostsByBlogUuid(
-      blog_uuid: $blog_uuid
-      first: $first
-      page: $page
-      search: $search
-      sort: $sort
-      filter: $filter
+      input: {
+        blog_uuid: $blog_uuid
+        first: $first
+        page: $page
+        search: $search
+        sort: $sort
+        filter: $filter
+      }
     ) {
       data {
         uuid
@@ -164,14 +166,8 @@ export const GET_BLOG_POSTS = gql`
         updated_at
       }
       paginatorInfo {
-        count
         currentPage
-        firstItem
-        hasMorePages
-        lastItem
         lastPage
-        perPage
-        total
       }
     }
   }

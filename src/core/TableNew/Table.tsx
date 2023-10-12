@@ -36,7 +36,6 @@ export const TableNew: FC<TableNewProps> = ({
       currentPage: 1,
       lastPage: 1,
       count: variables?.first ?? 10,
-      perPage: variables?.first ?? 10,
     },
   });
 
@@ -78,7 +77,7 @@ export const TableNew: FC<TableNewProps> = ({
         table?.pagination,
       ),
     );
-  }, [table?.pagination?.perPage, table?.pagination?.currentPage]);
+  }, [table?.pagination?.count, table?.pagination?.currentPage]);
 
   const queryApi = async (queryVariables?: any) => {
     setLoading(true);
@@ -102,7 +101,11 @@ export const TableNew: FC<TableNewProps> = ({
       const { data: tableData, paginatorInfo: pagination } = data[dataKey];
       setTable({
         data: tableData,
-        pagination: { ...(table?.pagination ?? {}), ...pagination },
+        pagination: {
+          ...(table?.pagination ?? {}),
+          currentPage: pagination?.currentPage,
+          lastPage: pagination?.lastPage,
+        },
       });
     }
   };
