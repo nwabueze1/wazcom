@@ -77,6 +77,7 @@ export var FormikMultiChoice = function (_a) {
             return (_jsx(CheckBoxInput, { onChange: handleChange, name: props.name, value: hasValue, id: id, onBlur: formikProps === null || formikProps === void 0 ? void 0 : formikProps.handleBlur, classNames: {
                     checkBoxInput: clx(classes.checkBox, classNames === null || classNames === void 0 ? void 0 : classNames.checkboxInput),
                     label: clx(classes.checkBoxLabel, classNames === null || classNames === void 0 ? void 0 : classNames.label),
+                    input: classNames === null || classNames === void 0 ? void 0 : classNames.input,
                 }, label: option.label, className: clx(classes.checkboxInputOptionContainer, classNames === null || classNames === void 0 ? void 0 : classNames.optionContainer) }, index));
         });
     };

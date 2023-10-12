@@ -13,7 +13,13 @@ export type FormikCheckBoxInputPropsType = Omit<
   | "control"
 > & {
   classNames?: Record<
-    "checkboxInput" | "label" | "errorMessage" | "legend" | "fieldset" | "optionContainer",
+    | "checkboxInput"
+    | "label"
+    | "errorMessage"
+    | "legend"
+    | "fieldset"
+    | "optionContainer"
+    | "input",
     string
   >;
   name: string;

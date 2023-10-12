@@ -8,8 +8,8 @@ export type QuestionInputClassNamesPropsType = {
     selectInput: Partial<SelectInputClassNamesPropsType>;
     textArea: Partial<TextInputClassNamesPropsType>;
     addressInput: Partial<Record<"legend" | "fieldset", string>>;
-    checkBoxInput: Record<"checkboxInput" | "label" | "errorMessage" | "legend" | "fieldset" | "optionContainer", string>;
-    radioButtonInput: Record<"radioButtonInput" | "optionContainer" | "label" | "errorMessage" | "legend" | "fieldset", string>;
+    checkBoxInput: Record<"checkboxInput" | "label" | "errorMessage" | "legend" | "fieldset" | "optionContainer" | "input", string>;
+    radioButtonInput: Record<"radioButtonInput" | "optionContainer" | "label" | "errorMessage" | "legend" | "fieldset" | "input", string>;
     ratingInput: RatingClassNamesType;
     opinionScale: OpinionScaleClassNamesType;
 };

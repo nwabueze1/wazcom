@@ -46,6 +46,7 @@ export const FormikMultiChoice: FC<FormikCheckBoxInputPropsType> = ({
           classNames={{
             checkBoxInput: clx(classes.checkBox, classNames?.checkboxInput),
             label: clx(classes.checkBoxLabel, classNames?.label),
+            input: classNames?.input,
           }}
           label={option.label}
           className={clx(classes.checkboxInputOptionContainer, classNames?.optionContainer)}

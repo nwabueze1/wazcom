@@ -33,6 +33,7 @@ export var FormikSingleChoice = function (_a) {
     var radioInputClass = {
         radioButtonInput: classNames === null || classNames === void 0 ? void 0 : classNames.radioButtonInput,
         label: clx(classes.checkBoxLabel, classNames === null || classNames === void 0 ? void 0 : classNames.label),
+        input: classNames === null || classNames === void 0 ? void 0 : classNames.input,
     };
     var renderOptions = function () {
         return options.map(function (_a, index) {
