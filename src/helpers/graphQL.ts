@@ -22,7 +22,7 @@ export const createApolloClient = (uri: string) => {
 
 export const GETBLOGCATEGORIES = gql`
   query GqlGetBlogCategories($blog_uuid: ID) {
-    categoriesByBlogUuid(input: { blog_uuid: $blog_uuid, all: true }) {
+    GETBLOGCATEGORIES(input: { blog_uuid: $blog_uuid, all: true }) {
       data {
         id
         name
@@ -138,15 +138,16 @@ export const GET_BLOG_POSTS = gql`
     $page: Int
     $search: String
     $sort: [SortInput]
+    $filter: [FilterInput]
   ) {
-    postsByBlogUuid(
+    getPostsByBlogUuid(
       input: {
         blog_uuid: $blog_uuid
         first: $first
         page: $page
-        all: true
         search: $search
         sort: $sort
+        filter: $filter
       }
     ) {
       data {

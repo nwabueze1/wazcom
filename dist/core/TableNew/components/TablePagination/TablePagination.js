@@ -68,7 +68,11 @@ export var TablePagination = function (_a) {
                 var isActive = currentPage === pageNumber;
                 return (_jsx("p", __assign({ className: clx(classes.paginationPage, isActive && classes.paginationPageActive), onClick: function () {
                         if (!isActive) {
-                            setTablePagination({ count: count, lastPage: lastPage, currentPage: pageNumber });
+                            setTablePagination({
+                                count: count,
+                                lastPage: lastPage,
+                                currentPage: pageNumber,
+                            });
                         }
                     } }, { children: pageNumber }), pageNumber));
             }) })));
@@ -95,6 +99,10 @@ export var TablePagination = function (_a) {
                             { label: "20", value: "20" },
                         ], onChange: function (_a) {
                             var count = _a.value;
-                            setTablePagination({ currentPage: 1, lastPage: lastPage, count: Number(count) });
+                            setTablePagination({
+                                currentPage: 1,
+                                lastPage: lastPage,
+                                count: Number(count),
+                            });
                         }, value: String(count) })] })), _jsx("div", __assign({ className: classes.paginationPages }, { children: renderPages() })), _jsxs("div", __assign({ className: clx(classes.paginationDirection, currentPage < lastPage && classes.paginationDirectionActive), onClick: handleNextClick }, { children: [_jsx("p", { children: "Next" }), _jsx(BsFillCaretRightFill, { className: classes.paginationDirectionIcon })] }))] })));
 };
