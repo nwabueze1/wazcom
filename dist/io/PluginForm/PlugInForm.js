@@ -69,7 +69,6 @@ import { getInitialFormValues } from "./getInitialFormValues";
 import { createResponse } from "./gql/actions/createResponse";
 import { QuestionsInput } from "./QuestionInput";
 import { usePluginFormStyles } from "./usePluginFormStyles";
-import { toast } from "react-toastify";
 export var PlugInForm = forwardRef(function (props, ref) {
     var questions = props.form.questions, form_uuid = props.form_uuid, setLoading = props.setLoading, className = props.className, submitButton = props.submitButton, classNames = props.classNames, _a = props.style, style = _a === void 0 ? { display: "grid" } : _a, onNotify = props.onNotify, onFormSubmitted = props.onFormSubmitted, apolloClient = props.apolloClient;
     var initialFormState = getInitialFormValues((questions !== null && questions !== void 0 ? questions : []));
@@ -93,7 +92,7 @@ export var PlugInForm = forwardRef(function (props, ref) {
                         setMessage === null || setMessage === void 0 ? void 0 : setMessage({ type: "error", message: errorMessage_1 });
                         resetErrorMessage();
                         onNotify === null || onNotify === void 0 ? void 0 : onNotify("error", errorMessage_1);
-                        return [2 /*return*/, toast.error(errorMessage_1)];
+                        return [2 /*return*/, resetErrorMessage()];
                     }
                     errorMessage = "Failed to create form";
                     setLoading === null || setLoading === void 0 ? void 0 : setLoading(true);
@@ -108,21 +107,18 @@ export var PlugInForm = forwardRef(function (props, ref) {
                             type: "error",
                             message: errorMessage,
                         });
-                        onNotify === null || onNotify === void 0 ? void 0 : onNotify("error", errorMessage);
-                        return [2 /*return*/, toast.error(errorMessage)];
+                        return [2 /*return*/, onNotify === null || onNotify === void 0 ? void 0 : onNotify("error", errorMessage)];
                     }
                     submission_text = (_b = data === null || data === void 0 ? void 0 : data.createResponse) === null || _b === void 0 ? void 0 : _b.submission_text;
                     successMessage = !submission_text ? "Form submitted successfully" : submission_text;
                     setMessage === null || setMessage === void 0 ? void 0 : setMessage({ type: "success", message: successMessage });
                     onNotify === null || onNotify === void 0 ? void 0 : onNotify("success", successMessage);
-                    toast.success(successMessage);
                     formikHelpers.resetForm();
-                    onFormSubmitted === null || onFormSubmitted === void 0 ? void 0 : onFormSubmitted((_c = data === null || data === void 0 ? void 0 : data.createResponse) === null || _c === void 0 ? void 0 : _c.uuid);
+                    onFormSubmitted === null || onFormSubmitted === void 0 ? void 0 : onFormSubmitted((_c = data === null || data === void 0 ? void 0 : data.createResponse) === null || _c === void 0 ? void 0 : _c.data);
                     return [3 /*break*/, 5];
                 case 3:
                     ex_1 = _d.sent();
                     onNotify === null || onNotify === void 0 ? void 0 : onNotify("error", errorMessage);
-                    toast.error(errorMessage);
                     setMessage === null || setMessage === void 0 ? void 0 : setMessage({ type: "error", message: errorMessage });
                     return [3 /*break*/, 5];
                 case 4:
