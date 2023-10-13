@@ -9,7 +9,13 @@ export type FormikRadioOrCheckBoxPropsType = Omit<
   options: { label: string; value: string }[];
   formikProps?: FormikProps<Record<string, any>>;
   classNames?: Record<
-    "radioButtonInput" | "optionContainer" | "label" | "errorMessage" | "legend" | "fieldset",
+    | "radioButtonInput"
+    | "optionContainer"
+    | "label"
+    | "errorMessage"
+    | "legend"
+    | "fieldset"
+    | "input",
     string
   >;
 };

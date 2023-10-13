@@ -14,11 +14,23 @@ export type QuestionInputClassNamesPropsType = {
   textArea: Partial<TextInputClassNamesPropsType>;
   addressInput: Partial<Record<"legend" | "fieldset", string>>;
   checkBoxInput: Record<
-    "checkboxInput" | "label" | "errorMessage" | "legend" | "fieldset" | "optionContainer",
+    | "checkboxInput"
+    | "label"
+    | "errorMessage"
+    | "legend"
+    | "fieldset"
+    | "optionContainer"
+    | "input",
     string
   >;
   radioButtonInput: Record<
-    "radioButtonInput" | "optionContainer" | "label" | "errorMessage" | "legend" | "fieldset",
+    | "radioButtonInput"
+    | "optionContainer"
+    | "label"
+    | "errorMessage"
+    | "legend"
+    | "fieldset"
+    | "input",
     string
   >;
   ratingInput: RatingClassNamesType;

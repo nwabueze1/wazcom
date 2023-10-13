@@ -36,7 +36,7 @@ export const CheckBoxInput: FC<CheckBoxInputProps> = ({
           <input
             name={name}
             type="checkbox"
-            className={clx(classes.input)}
+            className={clx(classes.input, classNames?.input)}
             onChange={handleChange}
             checked={value}
             onFocus={onFocus}

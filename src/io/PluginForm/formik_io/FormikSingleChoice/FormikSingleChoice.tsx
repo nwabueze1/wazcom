@@ -18,6 +18,7 @@ export const FormikSingleChoice: FC<Omit<FormikRadioOrCheckBoxPropsType, "childr
   const radioInputClass = {
     radioButtonInput: classNames?.radioButtonInput,
     label: clx(classes.checkBoxLabel, classNames?.label),
+    input: classNames?.input,
   };
 
   const renderOptions = () =>

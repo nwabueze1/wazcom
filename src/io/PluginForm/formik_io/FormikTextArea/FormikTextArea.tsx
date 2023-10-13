@@ -1,6 +1,7 @@
 import { FC } from "react";
 import { TextArea } from "../../../TextArea";
 import { FormikTextInputPropsType } from "../FormikTextInput";
+import clx from "classnames";
 
 export const FormikTextArea: FC<Omit<FormikTextInputPropsType, "type">> = ({
   className,
@@ -10,6 +11,8 @@ export const FormikTextArea: FC<Omit<FormikTextInputPropsType, "type">> = ({
   formikProps,
   rows,
 }) => {
+  const isError = formikProps?.touched?.[name] && formikProps?.errors?.[name];
+
   return (
     <TextArea
       rows={Number(rows)}
@@ -18,15 +21,11 @@ export const FormikTextArea: FC<Omit<FormikTextInputPropsType, "type">> = ({
       value={formikProps?.values?.[name]}
       onChange={({ value }) => formikProps?.setFieldValue(name, value)}
       onBlur={() => formikProps?.setFieldTouched(name, true)}
-      isError={(formikProps?.touched?.[name] && formikProps?.errors?.[name]) as boolean}
-      helperText={
-        (formikProps?.touched?.[name] as boolean)
-          ? (formikProps?.errors?.[name] as string)
-          : undefined
-      }
+      isError={isError as boolean}
+      helperText={isError ? (isError as string) : undefined}
       classNames={{
-        textAreaContainer: classNames?.inputContainer ?? "",
-        input: classNames?.input ?? "",
+        textAreaContainer: clx(classNames?.inputContainer, isError && "error") ?? "",
+        input: clx(classNames?.input, isError && "error") ?? "",
         helperTextError: classNames?.errorMessage ?? "",
       }}
     />

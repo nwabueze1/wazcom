@@ -1,6 +1,7 @@
 import { FC } from "react";
 import { TextInput } from "../../../TextInput";
 import { FormikTextInputPropsType } from "./type";
+import clx from "classnames";
 
 export const FormikTextInput: FC<FormikTextInputPropsType & { is_address?: boolean }> = ({
   className,
@@ -40,8 +41,8 @@ export const FormikTextInput: FC<FormikTextInputPropsType & { is_address?: boole
       value={formikProps?.values?.[name]}
       className={className}
       classNames={{
-        input: classNames?.inputContainer ?? "",
-        inputField: classNames?.input ?? "",
+        input: clx(classNames?.inputContainer, isError && "error") ?? "",
+        inputField: clx(classNames?.input, isError && "error") ?? "",
         label: classNames?.label ?? "",
         errorMessage: classNames?.errorMessage ?? "",
       }}
