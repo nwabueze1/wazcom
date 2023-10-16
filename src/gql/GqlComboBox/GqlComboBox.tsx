@@ -48,7 +48,7 @@ export const GqlComboBox = memo(
         setFetching(false);
       };
       getData();
-    }, [query]);
+    }, [query, options]);
 
     const handleChange = useCallback(
       async (selectedValue: string) => {

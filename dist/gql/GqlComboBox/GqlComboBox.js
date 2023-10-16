@@ -131,7 +131,7 @@ export var GqlComboBox = memo(function (_a) {
             });
         }); };
         getData();
-    }, [query]);
+    }, [query, options]);
     var handleChange = useCallback(function (selectedValue) { return __awaiter(void 0, void 0, void 0, function () {
         var label, value, response;
         var _a;
