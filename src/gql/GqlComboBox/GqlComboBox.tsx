@@ -1,5 +1,5 @@
 import { CircularProgress } from "@mui/material";
-import { memo, useCallback, useEffect, useMemo, useState } from "react";
+import { memo, useCallback, useEffect, useState } from "react";
 import { useGqlComboBoxStyles } from "./styles";
 import { GqlComboBoxProps } from "./types";
 import { ComboBoxInput, ComboBoxInputOptionProps } from "../../io";
@@ -20,7 +20,6 @@ export const GqlComboBox = memo(
     const [options, setOptions] = useState<ComboBoxInputOptionProps[]>([]);
     const [fetching, setFetching] = useState<boolean>(true);
     const [value, setValue] = useState(initialValue);
-    const getOptions = useMemo(() => options, [options]);
 
     useEffect(() => {
       setValue(initialValue);
@@ -101,7 +100,7 @@ export const GqlComboBox = memo(
     return (
       <ComboBoxInput
         label={label}
-        options={getOptions}
+        options={options}
         value={value ?? ""}
         onChange={({ value }) => {
           handleChange(value);

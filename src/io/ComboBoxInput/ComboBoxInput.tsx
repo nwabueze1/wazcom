@@ -10,7 +10,7 @@ export const ComboBoxInput: FC<ComboBoxInputProps> = ({
   isAdd = true,
   onChange,
   handleAdd,
-  options: initialOptions,
+  options,
   label,
   isError,
   isSuccess,
@@ -22,13 +22,8 @@ export const ComboBoxInput: FC<ComboBoxInputProps> = ({
 }) => {
   const classes = useComboBoxStyles();
   const [filter, setFilter] = useState("");
-  const [options, setOptions] = useState(initialOptions);
   const [showOptions, setShowOptions] = useState(false);
   const [isFocused, setIsFocused] = useState(false);
-
-  useEffect(() => {
-    setOptions(initialOptions);
-  }, [initialOptions]);
 
   useEffect(() => {
     if (!value) return;
@@ -57,6 +52,7 @@ export const ComboBoxInput: FC<ComboBoxInputProps> = ({
     const displayedOptions = isFocused
       ? options
       : options.filter((option) => option?.label?.toLowerCase()?.includes(filter.toLowerCase()));
+
     displayedOptions.length === 0 &&
       isAdd &&
       displayedOptions.push({ label: "Add " + filter, value: filter });

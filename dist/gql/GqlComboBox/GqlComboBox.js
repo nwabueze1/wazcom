@@ -83,7 +83,7 @@ var __spreadArray = (this && this.__spreadArray) || function (to, from, pack) {
 };
 import { jsx as _jsx } from "react/jsx-runtime";
 import { CircularProgress } from "@mui/material";
-import { memo, useCallback, useEffect, useMemo, useState } from "react";
+import { memo, useCallback, useEffect, useState } from "react";
 import { useGqlComboBoxStyles } from "./styles";
 import { ComboBoxInput } from "../../io";
 import { get } from "lodash";
@@ -93,7 +93,6 @@ export var GqlComboBox = memo(function (_a) {
     var _c = __read(useState([]), 2), options = _c[0], setOptions = _c[1];
     var _d = __read(useState(true), 2), fetching = _d[0], setFetching = _d[1];
     var _e = __read(useState(initialValue), 2), value = _e[0], setValue = _e[1];
-    var getOptions = useMemo(function () { return options; }, [options]);
     useEffect(function () {
         setValue(initialValue);
     }, [initialValue]);
@@ -180,7 +179,7 @@ export var GqlComboBox = memo(function (_a) {
     if (fetching) {
         return (_jsx("div", __assign({ className: classes.loader }, { children: _jsx(CircularProgress, { size: 14, color: "success" }) })));
     }
-    return (_jsx(ComboBoxInput, __assign({ label: label, options: getOptions, value: value !== null && value !== void 0 ? value : "", onChange: function (_a) {
+    return (_jsx(ComboBoxInput, __assign({ label: label, options: options, value: value !== null && value !== void 0 ? value : "", onChange: function (_a) {
             var value = _a.value;
             handleChange(value);
         }, handleAdd: handleChange }, props)));

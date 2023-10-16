@@ -32,15 +32,11 @@ import { ClickAwayListener } from "@mui/base";
 import { TextInput } from "../TextInput";
 import clx from "classnames";
 export var ComboBoxInput = function (_a) {
-    var name = _a.name, _b = _a.isAdd, isAdd = _b === void 0 ? true : _b, onChange = _a.onChange, handleAdd = _a.handleAdd, initialOptions = _a.options, label = _a.label, isError = _a.isError, isSuccess = _a.isSuccess, helperText = _a.helperText, required = _a.required, placeholder = _a.placeholder, value = _a.value, className = _a.className;
+    var name = _a.name, _b = _a.isAdd, isAdd = _b === void 0 ? true : _b, onChange = _a.onChange, handleAdd = _a.handleAdd, options = _a.options, label = _a.label, isError = _a.isError, isSuccess = _a.isSuccess, helperText = _a.helperText, required = _a.required, placeholder = _a.placeholder, value = _a.value, className = _a.className;
     var classes = useComboBoxStyles();
     var _c = __read(useState(""), 2), filter = _c[0], setFilter = _c[1];
-    var _d = __read(useState(initialOptions), 2), options = _d[0], setOptions = _d[1];
-    var _e = __read(useState(false), 2), showOptions = _e[0], setShowOptions = _e[1];
-    var _f = __read(useState(false), 2), isFocused = _f[0], setIsFocused = _f[1];
-    useEffect(function () {
-        setOptions(initialOptions);
-    }, [initialOptions]);
+    var _d = __read(useState(false), 2), showOptions = _d[0], setShowOptions = _d[1];
+    var _e = __read(useState(false), 2), isFocused = _e[0], setIsFocused = _e[1];
     useEffect(function () {
         var _a, _b;
         if (!value)
