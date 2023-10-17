@@ -42,6 +42,7 @@ export const GqlComboBox = memo(
             label: option[labelKey],
             value: option[valueKey],
           }));
+
           postFetchHook?.(formattedOptions);
           setOptions(formattedOptions);
         }
@@ -73,15 +74,21 @@ export const GqlComboBox = memo(
 
     const handleAdd = useCallback(
       async (value: string) => {
-        const response = await addOption?.(value);
-        if (response?.status) {
-          const value = response.value as string;
-          const label = response.label as string;
-          const newOptions = [...options];
-          newOptions.push({ label, value });
-          setOptions(newOptions);
-          postFetchHook?.(newOptions);
-          return { label, value };
+        try {
+          const response = await addOption?.(value);
+
+          if (response?.status) {
+            const value = response.value as string;
+            const label = response.label as string;
+
+            const newOptions = [...options, { label, value }];
+            setOptions(newOptions);
+            postFetchHook?.(newOptions);
+            return { label, value };
+          }
+          return;
+        } catch (error) {
+          setFetching(false);
         }
         return;
       },
