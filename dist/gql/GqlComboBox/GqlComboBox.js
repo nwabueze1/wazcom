@@ -157,7 +157,7 @@ export var GqlComboBox = memo(function (_a) {
         });
     }); }, [options]);
     var handleAdd = useCallback(function (value) { return __awaiter(void 0, void 0, void 0, function () {
-        var response, value_1, label_1, newOptions, ex_1;
+        var response, value_1, label_1, newOptions, error_1;
         return __generator(this, function (_a) {
             switch (_a.label) {
                 case 0:
@@ -175,7 +175,7 @@ export var GqlComboBox = memo(function (_a) {
                     }
                     return [2 /*return*/];
                 case 2:
-                    ex_1 = _a.sent();
+                    error_1 = _a.sent();
                     setFetching(false);
                     return [3 /*break*/, 3];
                 case 3: return [2 /*return*/];

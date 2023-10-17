@@ -87,7 +87,7 @@ export const GqlComboBox = memo(
             return { label, value };
           }
           return;
-        } catch (ex) {
+        } catch (error) {
           setFetching(false);
         }
         return;
