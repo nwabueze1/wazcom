@@ -157,22 +157,28 @@ export var GqlComboBox = memo(function (_a) {
         });
     }); }, [options]);
     var handleAdd = useCallback(function (value) { return __awaiter(void 0, void 0, void 0, function () {
-        var response, value_1, label_1, newOptions;
+        var response, value_1, label_1, newOptions, ex_1;
         return __generator(this, function (_a) {
             switch (_a.label) {
-                case 0: return [4 /*yield*/, (addOption === null || addOption === void 0 ? void 0 : addOption(value))];
+                case 0:
+                    _a.trys.push([0, 2, , 3]);
+                    return [4 /*yield*/, (addOption === null || addOption === void 0 ? void 0 : addOption(value))];
                 case 1:
                     response = _a.sent();
                     if (response === null || response === void 0 ? void 0 : response.status) {
                         value_1 = response.value;
                         label_1 = response.label;
-                        newOptions = __spreadArray([], __read(options), false);
-                        newOptions.push({ label: label_1, value: value_1 });
+                        newOptions = __spreadArray(__spreadArray([], __read(options), false), [{ label: label_1, value: value_1 }], false);
                         setOptions(newOptions);
                         postFetchHook === null || postFetchHook === void 0 ? void 0 : postFetchHook(newOptions);
                         return [2 /*return*/, { label: label_1, value: value_1 }];
                     }
                     return [2 /*return*/];
+                case 2:
+                    ex_1 = _a.sent();
+                    setFetching(false);
+                    return [3 /*break*/, 3];
+                case 3: return [2 /*return*/];
             }
         });
     }); }, [options]);
