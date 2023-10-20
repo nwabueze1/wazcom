@@ -42,9 +42,7 @@ export const PlugInForm = forwardRef<PluginFormRef, PluginFormPropsType>((props,
   ) => {
     if (!form_uuid) {
       const errorMessage = "You need to supply a valid form_uuid to submit this form";
-      setMessage?.({ type: "error", message: errorMessage });
-      resetErrorMessage();
-      onNotify?.("error", errorMessage);
+      handleSetNotificationMessage("error", errorMessage);
       return resetErrorMessage();
     }
 
@@ -54,22 +52,17 @@ export const PlugInForm = forwardRef<PluginFormRef, PluginFormPropsType>((props,
       const { errors, data } = await createResponse(apolloClient, form_uuid, values);
 
       if (errors) {
-        setMessage?.({
-          type: "error",
-          message: errorMessage,
-        });
-        return onNotify?.("error", errorMessage);
+        return handleSetNotificationMessage("error", errorMessage);
       }
 
       const submission_text = data?.createResponse?.submission_text;
       const successMessage = !submission_text ? "Form submitted successfully" : submission_text;
-      setMessage?.({ type: "success", message: successMessage });
-      onNotify?.("success", successMessage);
+      handleSetNotificationMessage("success", successMessage);
+
       formikHelpers.resetForm();
       onFormSubmitted?.(data?.createResponse?.data);
-    } catch (ex) {
-      onNotify?.("error", errorMessage);
-      setMessage?.({ type: "error", message: errorMessage });
+    } catch (exception) {
+      handleSetNotificationMessage("error", errorMessage);
     } finally {
       setLoading?.(false);
       resetErrorMessage();
@@ -77,9 +70,14 @@ export const PlugInForm = forwardRef<PluginFormRef, PluginFormPropsType>((props,
     return;
   };
 
+  const handleSetNotificationMessage = (type: "error" | "success", message: string) => {
+    if (onNotify) onNotify(type, message);
+    else setMessage?.({ type, message });
+  };
+
   const resetErrorMessage = () => {
     setTimeout(() => {
-      setMessage?.({ type: "success", message: "" });
+      handleSetNotificationMessage("success", "");
     }, 5000);
   };
 

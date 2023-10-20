@@ -82,16 +82,14 @@ export var PlugInForm = forwardRef(function (props, ref) {
         };
     });
     var handleSubmit = function (values, formikHelpers) { return __awaiter(void 0, void 0, void 0, function () {
-        var errorMessage_1, errorMessage, _a, errors, data, submission_text, successMessage, ex_1;
+        var errorMessage_1, errorMessage, _a, errors, data, submission_text, successMessage, exception_1;
         var _b, _c;
         return __generator(this, function (_d) {
             switch (_d.label) {
                 case 0:
                     if (!form_uuid) {
                         errorMessage_1 = "You need to supply a valid form_uuid to submit this form";
-                        setMessage === null || setMessage === void 0 ? void 0 : setMessage({ type: "error", message: errorMessage_1 });
-                        resetErrorMessage();
-                        onNotify === null || onNotify === void 0 ? void 0 : onNotify("error", errorMessage_1);
+                        handleSetNotificationMessage("error", errorMessage_1);
                         return [2 /*return*/, resetErrorMessage()];
                     }
                     errorMessage = "Failed to create form";
@@ -103,23 +101,17 @@ export var PlugInForm = forwardRef(function (props, ref) {
                 case 2:
                     _a = _d.sent(), errors = _a.errors, data = _a.data;
                     if (errors) {
-                        setMessage === null || setMessage === void 0 ? void 0 : setMessage({
-                            type: "error",
-                            message: errorMessage,
-                        });
-                        return [2 /*return*/, onNotify === null || onNotify === void 0 ? void 0 : onNotify("error", errorMessage)];
+                        return [2 /*return*/, handleSetNotificationMessage("error", errorMessage)];
                     }
                     submission_text = (_b = data === null || data === void 0 ? void 0 : data.createResponse) === null || _b === void 0 ? void 0 : _b.submission_text;
                     successMessage = !submission_text ? "Form submitted successfully" : submission_text;
-                    setMessage === null || setMessage === void 0 ? void 0 : setMessage({ type: "success", message: successMessage });
-                    onNotify === null || onNotify === void 0 ? void 0 : onNotify("success", successMessage);
+                    handleSetNotificationMessage("success", successMessage);
                     formikHelpers.resetForm();
                     onFormSubmitted === null || onFormSubmitted === void 0 ? void 0 : onFormSubmitted((_c = data === null || data === void 0 ? void 0 : data.createResponse) === null || _c === void 0 ? void 0 : _c.data);
                     return [3 /*break*/, 5];
                 case 3:
-                    ex_1 = _d.sent();
-                    onNotify === null || onNotify === void 0 ? void 0 : onNotify("error", errorMessage);
-                    setMessage === null || setMessage === void 0 ? void 0 : setMessage({ type: "error", message: errorMessage });
+                    exception_1 = _d.sent();
+                    handleSetNotificationMessage("error", errorMessage);
                     return [3 /*break*/, 5];
                 case 4:
                     setLoading === null || setLoading === void 0 ? void 0 : setLoading(false);
@@ -129,9 +121,15 @@ export var PlugInForm = forwardRef(function (props, ref) {
             }
         });
     }); };
+    var handleSetNotificationMessage = function (type, message) {
+        if (onNotify)
+            onNotify(type, message);
+        else
+            setMessage === null || setMessage === void 0 ? void 0 : setMessage({ type: type, message: message });
+    };
     var resetErrorMessage = function () {
         setTimeout(function () {
-            setMessage === null || setMessage === void 0 ? void 0 : setMessage({ type: "success", message: "" });
+            handleSetNotificationMessage("success", "");
         }, 5000);
     };
     return (_jsxs(_Fragment, { children: [type === "success" && message && _jsx("p", __assign({ className: classes.success }, { children: message })), type === "error" && message && _jsx("p", __assign({ className: classes.error }, { children: message })), _jsx(Formik, __assign({ validationSchema: validationSchema, initialValues: initialFormState, onSubmit: handleSubmit }, { children: function (props) { return (_jsxs(Form, __assign({ style: style }, { children: [_jsx("div", __assign({ className: className }, { children: (questions !== null && questions !== void 0 ? questions : []).map(function (_a, index) {
