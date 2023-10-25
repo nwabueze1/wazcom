@@ -4,7 +4,6 @@ export declare const parseQueryVariables: (search: string, sort: TableSort[], pa
     sort: {
         column: string;
         order: string;
-        type: string;
     }[];
     page: number;
     first: number;

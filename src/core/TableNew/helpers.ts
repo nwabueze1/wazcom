@@ -5,10 +5,10 @@ export const parseQueryVariables = (
   sort: TableSort[],
   pagination: TablePagination,
 ) => {
-  const parsedSort: { column: string; order: string; type: string }[] = [];
+  const parsedSort: { column: string; order: string }[] = [];
 
   sort.forEach(({ column, order }) => {
-    parsedSort.push({ column, order: order.toUpperCase(), type: order.toUpperCase() });
+    parsedSort.push({ column, order: order.toUpperCase() });
   });
 
   return { search, sort: parsedSort, page: pagination.currentPage, first: pagination.count };
