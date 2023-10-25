@@ -57,7 +57,7 @@ export var TimeInput = function (_a) {
     };
     var handleClearClick = function () {
         var value = moment().startOf("minute");
-        setSelectedTime(moment().startOf("minute"));
+        setSelectedTime(value);
         if (onChange)
             onChange === null || onChange === void 0 ? void 0 : onChange({ name: name, value: value });
     };
