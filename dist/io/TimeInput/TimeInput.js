@@ -56,7 +56,10 @@ export var TimeInput = function (_a) {
             onChange === null || onChange === void 0 ? void 0 : onChange({ name: name, value: value.format() });
     };
     var handleClearClick = function () {
-        setSelectedTime(moment().startOf("minute"));
+        var value = moment().startOf("minute");
+        setSelectedTime(value);
+        if (onChange)
+            onChange === null || onChange === void 0 ? void 0 : onChange({ name: name, value: value });
     };
     return (_jsxs("div", __assign({ className: clx(classes.root, className) }, { children: [_jsx("div", __assign({ className: classes.labelWrapper }, { children: !hideLabel && label && (_jsxs("label", __assign({ htmlFor: name, className: classes.label }, { children: [label, required && _jsx("span", __assign({ className: classes.required }, { children: "*" }))] }))) })), _jsxs("div", __assign({ className: clx(classes.baseInput, isSuccess && classes.successInput, isError && classes.errorInput) }, { children: [_jsx(BiTimeFive, { width: 16, height: 16 }), _jsx(TimePicker, __assign({ showSecond: showSecond, use12Hours: use12Hours, format: format, value: value ? moment(value) : selectedTime, onChange: function (value) { return handleChange({ name: name, value: value }); }, className: classes.input, defaultValue: moment().hour(0).minute(0), popupClassName: clx(classes.containerDiv, popupClassName) }, props, { clearIcon: _jsx(_Fragment, {}) })), _jsx(FaTimes, { className: classes.clearTimer, onClick: handleClearClick })] })), helperText && (_jsx("span", __assign({ className: clx(classes.helperTextDefault, isSuccess && classes.helperTextSuccess, isError && classes.helperTextError) }, { children: helperText })))] })));
 };
