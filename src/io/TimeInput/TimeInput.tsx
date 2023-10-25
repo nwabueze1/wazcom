@@ -34,7 +34,9 @@ export const TimeInput: React.FC<TimeInputProps> = ({
   };
 
   const handleClearClick = () => {
+    const value = moment().startOf("minute");
     setSelectedTime(moment().startOf("minute"));
+    if (onChange) onChange?.({ name, value });
   };
 
   return (
