@@ -92,7 +92,7 @@ export var PlugInForm = forwardRef(function (props, ref) {
                     return [3 /*break*/, 5];
                 case 3:
                     ex_1 = _d.sent();
-                    onNotify === null || onNotify === void 0 ? void 0 : onNotify("error", errorMessage);
+                    onNotify === null || onNotify === void 0 ? void 0 : onNotify("error", "An error occurred while creating the form.");
                     return [3 /*break*/, 5];
                 case 4:
                     setLoading === null || setLoading === void 0 ? void 0 : setLoading(false);

@@ -57,7 +57,8 @@ export const PlugInForm = forwardRef<PluginFormRef, PluginFormPropsType>((props,
       formikHelpers.resetForm();
       onFormSubmitted?.(data?.createResponse?.data);
     } catch (ex) {
-      onNotify?.("error", errorMessage);
+      onNotify?.("error", "An error occurred while creating the form.");
+      //TODO: LOG THIS SENTRY
     } finally {
       setLoading?.(false);
     }
