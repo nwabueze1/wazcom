@@ -1,5 +1,5 @@
 import { Form, Formik, FormikHelpers } from "formik";
-import { forwardRef, useImperativeHandle, useRef, useState } from "react";
+import { forwardRef, useImperativeHandle, useRef } from "react";
 import { PluginFormRef } from "./";
 import { buildValidationSchema } from "./BuildValidationSchema";
 import { getInitialFormValues } from "./getInitialFormValues";
@@ -25,10 +25,6 @@ export const PlugInForm = forwardRef<PluginFormRef, PluginFormPropsType>((props,
   const validationSchema = buildValidationSchema((questions ?? []) as QuestionType[]);
   const classes = usePluginFormStyles();
   const submitButtonRef = useRef<HTMLButtonElement>(null);
-  const [{ message, type }, setMessage] = useState<{
-    message?: string;
-    type?: "success" | "error";
-  }>({});
 
   useImperativeHandle(ref, () => {
     return {
@@ -40,51 +36,36 @@ export const PlugInForm = forwardRef<PluginFormRef, PluginFormPropsType>((props,
     values: Record<string, any>,
     formikHelpers: FormikHelpers<Record<string, any>>,
   ) => {
+    let errorMessage = "You need to select a valid form";
     if (!form_uuid) {
-      const errorMessage = "You need to supply a valid form_uuid to submit this form";
-      handleSetNotificationMessage("error", errorMessage);
-      return resetErrorMessage();
+      return onNotify?.("error", errorMessage);
     }
 
-    const errorMessage = "Failed to create form";
     setLoading?.(true);
     try {
       const { errors, data } = await createResponse(apolloClient, form_uuid, values);
 
       if (errors) {
-        return handleSetNotificationMessage("error", errorMessage);
+        errorMessage = "Failed to create form";
+
+        return onNotify?.("error", errorMessage);
       }
 
       const submission_text = data?.createResponse?.submission_text;
-      const successMessage = !submission_text ? "Form submitted successfully" : submission_text;
-      handleSetNotificationMessage("success", successMessage);
 
+      onNotify?.("success", submission_text);
       formikHelpers.resetForm();
       onFormSubmitted?.(data?.createResponse?.data);
-    } catch (exception) {
-      handleSetNotificationMessage("error", errorMessage);
+    } catch (ex) {
+      onNotify?.("error", "An error occurred while creating the form.");
+      //TODO: LOG THIS SENTRY
     } finally {
       setLoading?.(false);
-      resetErrorMessage();
     }
-    return;
-  };
-
-  const handleSetNotificationMessage = (type: "error" | "success", message: string) => {
-    if (onNotify) onNotify(type, message);
-    else setMessage?.({ type, message });
-  };
-
-  const resetErrorMessage = () => {
-    setTimeout(() => {
-      handleSetNotificationMessage("success", "");
-    }, 5000);
   };
 
   return (
     <>
-      {type === "success" && message && <p className={classes.success}>{message}</p>}
-      {type === "error" && message && <p className={classes.error}>{message}</p>}
       <Formik
         validationSchema={validationSchema}
         initialValues={initialFormState}
