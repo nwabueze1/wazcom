@@ -6,6 +6,8 @@ export const useInsertButtonStyles = makeStyles((theme: Theme) => ({
     position: "relative",
   },
   insertButton: {
+    display: "flex",
+    justifyContent: "center",
     background: `${theme.design.colors.waz_primary700} !important`,
     borderRadius: "50%",
     width: `${theme.spacing(4)} !important`,
