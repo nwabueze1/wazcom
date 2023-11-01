@@ -39,9 +39,9 @@ export const Editor: React.FC<EditorProps> = ({ content, handleChange, embed }) 
       if (editorParent) {
         editorParent.scrollTop = scrollTop as number;
       }
-    } else quillObj.editor.insertEmbed(range.index, type, value);
+    } else quillObj?.editor?.insertEmbed(range.index, type, value);
 
-    handleChange(quillObj.root.innerHTML);
+    handleChange(quillObj?.root?.innerHTML);
   };
 
   return (
