@@ -43,7 +43,6 @@ export var useCreatePostInputStyles = makeStyles(function (theme) { return ({
         flexDirection: "column",
         position: "sticky",
         top: 0,
-        height: "100%"
     },
     postTitleInput: {
         height: 73,
