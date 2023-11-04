@@ -8,7 +8,7 @@ export const useCreatePostInputStyles = makeStyles((theme: Theme) => ({
     width: "100%",
     border: `1px solid ${theme.design.colors.waz_primary700}`,
     background: theme.design.colors.waz_white,
-    height:"80vh"
+    height: "80vh",
   },
   header: {
     borderBottom: `1px solid ${theme.design.colors.waz_primary700}`,
