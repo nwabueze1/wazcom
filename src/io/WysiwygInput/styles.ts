@@ -45,7 +45,6 @@ export const useCreatePostInputStyles = makeStyles((theme: Theme) => ({
     flexDirection: "column",
     position: "sticky",
     top: 0,
-    height:"100%"
   },
   postTitleInput: {
     height: 73,
