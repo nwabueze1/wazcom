@@ -5,7 +5,7 @@ export const useEditorStyles = makeStyles((theme: Theme) => ({
   root: {
     display: "flex",
     flexDirection: "column",
-    height: "50vh",
+    height: "65vh",
     position: "relative",
     overflowY: "auto",
   },
