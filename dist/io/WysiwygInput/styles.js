@@ -6,6 +6,7 @@ export var useCreatePostInputStyles = makeStyles(function (theme) { return ({
         width: "100%",
         border: "1px solid ".concat(theme.design.colors.waz_primary700),
         background: theme.design.colors.waz_white,
+        height: "80vh"
     },
     header: {
         borderBottom: "1px solid ".concat(theme.design.colors.waz_primary700),

@@ -3,7 +3,7 @@ export var useEditorStyles = makeStyles(function (theme) { return ({
     root: {
         display: "flex",
         flexDirection: "column",
-        height: "50vh",
+        height: "65vh",
         position: "relative",
         overflowY: "auto",
     },

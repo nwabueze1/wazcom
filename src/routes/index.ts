@@ -24,6 +24,7 @@ import { PhoneNumberInputView } from "../view/PhoneNumberInput";
 import { FileUpload } from "../view/FileUpload";
 import { Rating } from "../view/Rating";
 import { PluginFormView } from "../view/PluginForm/PluginFormView";
+import { WysiwygInputView } from "../view/WysiwygInput/WysiwygInputView";
 
 export default [
   {
@@ -91,6 +92,12 @@ export default [
     path: "/url-input",
     exact: true,
     component: URLInputView,
+  },
+  {
+    key: "WysiwygInputView",
+    path: "/wysiwyg-input",
+    exact: true,
+    component: WysiwygInputView,
   },
   {
     key: "StepsView",

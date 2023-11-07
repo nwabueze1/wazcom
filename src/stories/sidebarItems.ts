@@ -28,6 +28,7 @@ export default [
       { name: "Selectors", slug: "selectors" },
       { name: "Pickers", slug: "pickers" },
       { name: "Plugin Form", slug: "plugin-form" },
+      { name: "Wysiwyg Input", slug: "wysiwyg-input" },
     ],
   },
   {
