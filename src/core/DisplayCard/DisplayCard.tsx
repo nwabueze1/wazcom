@@ -7,13 +7,7 @@ import clx from "classnames";
 import { IoIosCloseCircle } from "react-icons/io";
 import { Typography } from "@mui/material";
 
-export const DisplayCard: FC<DisplayCardProps> = ({
-  className,
-  total,
-  title,
-  color,
-  close,
-}) => {
+export const DisplayCard: FC<DisplayCardProps> = ({ className, total, title, color, close }) => {
   const classes = useDisplayCardStyles();
 
   return (

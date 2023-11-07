@@ -1,7 +1,6 @@
-import { SwitchProps as MuiToggleProps } from "@mui/material";
-import { CommonProps } from '../../types';
-export declare type ToggleInputProps = CommonProps & Omit<MuiToggleProps, 'value'> & {
+import { CommonProps } from "../../types";
+export type ToggleInputProps = CommonProps & {
     label?: string;
-    helperText?: string;
     value?: boolean;
+    isDisabled?: boolean;
 };

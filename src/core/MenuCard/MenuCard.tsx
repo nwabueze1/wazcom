@@ -5,7 +5,7 @@ import CardContent from "@mui/material/CardContent";
 import { MenuCardProps } from "./types";
 import clx from "classnames";
 import { Typography } from "@mui/material";
-import MoreVertIcon from "@mui/icons-material/MoreVert";
+import { MdMoreVert as MoreVertIcon } from "react-icons/md";
 import { ToggleInput } from "../../io/ToggleInput/ToggleInput";
 
 export const MenuCard: FC<MenuCardProps> = ({
@@ -13,16 +13,12 @@ export const MenuCard: FC<MenuCardProps> = ({
   amount,
   description,
   title,
-  status,
-  image:{ src },
+  image: { src },
 }) => {
   const classes = useMenuCardStyles();
 
   return (
-    <Card
-      className={clx(className, classes.root, classes.disableState)}
-      variant="outlined"
-    >
+    <Card className={clx(classes.root, className, classes.disableState)} variant="outlined">
       <CardContent className={classes.cardContents}>
         <div className={classes.outerBar}>
           <div
@@ -37,13 +33,11 @@ export const MenuCard: FC<MenuCardProps> = ({
             {title}
           </Typography>
           <Typography className={classes.details}>{description}</Typography>
-          <Typography className={classes.price}>
-            {amount}
-          </Typography>
+          <Typography className={classes.price}>{amount}</Typography>
         </div>
         <div className={classes.icons}>
           <MoreVertIcon className={classes.vert} />
-          <ToggleInput name="" checked={status} />
+          <ToggleInput name="" />
         </div>
       </CardContent>
     </Card>

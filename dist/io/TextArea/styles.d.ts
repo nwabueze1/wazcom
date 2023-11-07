@@ -1,1 +1,2 @@
-export declare const useTextAreaStyles: (props?: any) => import("@mui/styles").ClassNameMap<"root" | "textarea">;
+import { TextBaseProps } from "../TextInput";
+export declare const useTextAreaStyles: (props: TextBaseProps) => import("@mui/styles").ClassNameMap<"root" | "input" | "label" | "required" | "baseInput" | "baseTextArea" | "defaultInput" | "focusedInput" | "errorInput" | "successInput" | "iconButton" | "passwordValidatorContainer" | "textAreaContainer" | "textAreaInput" | "wordCount" | "labelWrapper" | "helperTextDefault" | "helperTextSuccess" | "helperTextError">;

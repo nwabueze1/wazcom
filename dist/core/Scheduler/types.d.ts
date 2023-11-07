@@ -1,10 +1,12 @@
 import { CommonProps } from "types";
-export declare type SchedulerProps = CommonProps & {
+export type SchedulerProps = CommonProps & {
     label?: string;
     value?: Schedule[];
+    required?: boolean;
 };
-export declare type Schedule = {
+export type Schedule = {
     day: string;
     start_time: string;
     end_time: string;
+    name?: string;
 };

@@ -9,6 +9,22 @@ var __assign = (this && this.__assign) || function () {
     };
     return __assign.apply(this, arguments);
 };
+var __read = (this && this.__read) || function (o, n) {
+    var m = typeof Symbol === "function" && o[Symbol.iterator];
+    if (!m) return o;
+    var i = m.call(o), r, ar = [], e;
+    try {
+        while ((n === void 0 || n-- > 0) && !(r = i.next()).done) ar.push(r.value);
+    }
+    catch (error) { e = { error: error }; }
+    finally {
+        try {
+            if (r && !r.done && (m = i["return"])) m.call(i);
+        }
+        finally { if (e) throw e.error; }
+    }
+    return ar;
+};
 import { jsx as _jsx, jsxs as _jsxs } from "react/jsx-runtime";
 import * as React from "react";
 import { useTheme } from "@mui/material/styles";
@@ -17,15 +33,13 @@ import MobileStepper from "@mui/material/MobileStepper";
 import Paper from "@mui/material/Paper";
 import Typography from "@mui/material/Typography";
 import Button from "@mui/material/Button";
-import KeyboardArrowLeft from "@mui/icons-material/KeyboardArrowLeft";
-import KeyboardArrowRight from "@mui/icons-material/KeyboardArrowRight";
-import SwipeableViews from "react-swipeable-views";
-import { autoPlay } from "react-swipeable-views-utils";
-var AutoPlaySwipeableViews = autoPlay(SwipeableViews);
+import { MdKeyboardArrowLeft as KeyboardArrowLeft } from "react-icons/md";
+import { MdKeyboardArrowRight as KeyboardArrowRight } from "react-icons/md";
+// const AutoPlaySwipeableViews = autoPlay<typeof SwipeableViews>(SwipeableViews);
 export var Carousel = function (_a) {
-    var items = _a.items;
+    var className = _a.className, items = _a.items;
     var theme = useTheme();
-    var _b = React.useState(0), activeStep = _b[0], setActiveStep = _b[1];
+    var _b = __read(React.useState(0), 2), activeStep = _b[0], setActiveStep = _b[1];
     var maxSteps = items.length;
     var handleNext = React.useCallback(function () {
         setActiveStep(activeStep + 1);
@@ -33,23 +47,14 @@ export var Carousel = function (_a) {
     var handleBack = React.useCallback(function () {
         setActiveStep(activeStep - 1);
     }, [activeStep]);
-    var handleStepChange = function (step) {
-        setActiveStep(step);
-    };
-    return (_jsxs(Box, __assign({ sx: { maxWidth: 400, flexGrow: 1 } }, { children: [_jsx(Paper, __assign({ square: true, elevation: 0, sx: {
+    // const handleStepChange = (step: number) => {
+    //     setActiveStep(step);
+    // };
+    return (_jsxs(Box, __assign({ sx: { maxWidth: 400, flexGrow: 1 }, className: className }, { children: [_jsx(Paper, __assign({ square: true, elevation: 0, sx: {
                     display: "flex",
                     alignItems: "center",
                     height: 50,
                     pl: 2,
                     bgcolor: "background.default",
-                } }, { children: _jsx(Typography, { children: items[activeStep].label }, void 0) }), void 0), _jsx(AutoPlaySwipeableViews, __assign({ axis: theme.direction === "rtl" ? "x-reverse" : "x", index: activeStep, onChangeIndex: handleStepChange, enableMouseEvents: true }, { children: items.map(function (_a, index) {
-                    var _b = _a.image, src = _b.src, alt = _b.alt, label = _a.label;
-                    return (_jsx("div", { children: Math.abs(activeStep - index) <= 2 ? (_jsx(Box, { component: "img", sx: {
-                                height: 255,
-                                display: "block",
-                                maxWidth: 400,
-                                overflow: "hidden",
-                                width: "100%",
-                            }, src: src, alt: alt !== null && alt !== void 0 ? alt : label }, void 0)) : null }, index));
-                }) }), void 0), _jsx(MobileStepper, { steps: maxSteps, position: "static", activeStep: activeStep, nextButton: _jsxs(Button, __assign({ size: "small", onClick: handleNext, disabled: activeStep === maxSteps - 1 }, { children: ["Next", theme.direction === "rtl" ? (_jsx(KeyboardArrowLeft, {}, void 0)) : (_jsx(KeyboardArrowRight, {}, void 0))] }), void 0), backButton: _jsxs(Button, __assign({ size: "small", onClick: handleBack, disabled: activeStep === 0 }, { children: [theme.direction === "rtl" ? (_jsx(KeyboardArrowRight, {}, void 0)) : (_jsx(KeyboardArrowLeft, {}, void 0)), "Back"] }), void 0) }, void 0)] }), void 0));
+                } }, { children: _jsx(Typography, { children: items[activeStep].label }) })), _jsx(MobileStepper, { steps: maxSteps, position: "static", activeStep: activeStep, nextButton: _jsxs(Button, __assign({ size: "small", onClick: handleNext, disabled: activeStep === maxSteps - 1 }, { children: ["Next", theme.direction === "rtl" ? _jsx(KeyboardArrowLeft, {}) : _jsx(KeyboardArrowRight, {})] })), backButton: _jsxs(Button, __assign({ size: "small", onClick: handleBack, disabled: activeStep === 0 }, { children: [theme.direction === "rtl" ? _jsx(KeyboardArrowRight, {}) : _jsx(KeyboardArrowLeft, {}), "Back"] })) })] })));
 };

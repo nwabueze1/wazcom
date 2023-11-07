@@ -3,7 +3,7 @@ import { CommonProps } from "types";
 
 export type GqlComboBoxProps = CommonProps & {
   config: {
-    client: ApolloClient<NormalizedCacheObject>,
+    client: ApolloClient<NormalizedCacheObject>;
     type: "query";
     key: string[];
     name: any;
@@ -12,8 +12,11 @@ export type GqlComboBoxProps = CommonProps & {
   };
   label?: string;
   value?: string;
-  addOption?: (
-    value: string,
-  ) => Promise<{ label?: string; value?: string; status: boolean }>;
+  postFetchHook?: (values: { [key: string]: string }[]) => void;
+  addOption?: (value: string) => Promise<{ label?: string; value?: string; status: boolean }>;
+  isError?: boolean;
+  isSuccess?: boolean;
+  helperText?: string;
+  placeholder?: string;
   variables?: { [key: string]: any };
-} 
+};

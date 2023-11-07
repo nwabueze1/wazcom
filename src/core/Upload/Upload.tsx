@@ -10,7 +10,7 @@ export const Upload: FC<UploadProps> = ({ className, width }) => {
   const loading = false;
 
   return (
-    <div className={clx(className, classes.root)}>
+    <div className={clx(classes.root, className)}>
       <div>
         <Typography className={classes.upload} variant="h5">
           Upload File
@@ -30,11 +30,7 @@ export const Upload: FC<UploadProps> = ({ className, width }) => {
                 <Typography variant="h6">
                   Drag and drop here
                   <br /> or <br />
-                  <input
-                    type="file"
-                    id="fileInput"
-                    style={{ display: "none" }}
-                  />
+                  <input type="file" id="fileInput" style={{ display: "none" }} />
                   <label htmlFor="fileInput" className={classes.upload}>
                     Browse
                   </label>

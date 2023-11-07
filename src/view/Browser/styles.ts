@@ -5,9 +5,6 @@ export const drawerWidth = 260;
 
 export const useBrowserStyles = makeStyles((theme: Theme) => ({
   root: {},
-  drawer: {
-    padding: `0 ${theme.spacing(2)}`,
-  },
   paper: {
     padding: `0 ${theme.spacing(2)}`,
     width: drawerWidth,
@@ -23,48 +20,101 @@ export const useBrowserStyles = makeStyles((theme: Theme) => ({
   },
   sidebarItem: {
     display: "flex",
-    // justifyContent: "center",
-    // alignItems: "center",
     padding: theme.spacing(0.5),
-    // borderLeft: `${theme.spacing(0.8)} solid transparent`,
-    // transition: theme.transitions.create(["border", "color"]),
     color: theme.design.colors.gray100,
-    // backgroundColor: theme.design.colors.red70,
     margin: `${theme.spacing(1)}`,
     boxSizing: "border-box",
-    // borderRadius: theme.spacing(0.5),
     textTransform: "uppercase",
-    "&:hover": {},
   },
   sidebarItemIsActive: {
-    // borderLeftColor: theme.palette.primary.light,
     "&:hover": {
       borderLeftColor: theme.palette.primary.light,
     },
   },
   main: {
-    marginTop: theme.spacing(8),
+    display: "flex",
+    flexDirection: "column",
+    justifyContent: "start",
+    gap: theme.spacing(5),
   },
   componentWrapper: {
     marginBottom: theme.spacing(5),
   },
   well: {
     padding: theme.spacing(2),
-    backgroundColor: theme.design.colors.paleGrey,
+    backgroundColor: theme.design.colors.waz_greyColor200,
     borderRadius: theme.spacing(1),
     marginTop: theme.spacing(2),
   },
   logo: {
     display: "flex",
-    justifyContent: "center",
-    alignItems: "center",
-    color: theme.design.colors.white,
-    fontWeight: 500,
+    justifyContent: "left",
+    alignItems: "left",
+    color: theme.design.colors.waz_black,
+    fontWeight: theme.typography.h3.fontWeight,
+    fontSize: theme.typography.h3.fontSize,
+    width: 91,
+    height: 27,
+    textTransform: "uppercase",
   },
-  title: {},
+  title: {
+    fontWeight: theme.typography.fontWeightBold,
+    color: theme.design.colors.waz_black,
+  },
   listItem: {},
   listItemButton: {
     width: "100%",
     textAlign: "left",
+  },
+
+  container: {
+    display: "flex",
+  },
+  appBarWrapper: {
+    position: "fixed",
+    display: "flex",
+    alignItems: "center",
+    width: `calc(100% - ${drawerWidth}px)`,
+    height: 60,
+    marginLeft: `${drawerWidth}px`,
+    boxShadow: "0px 1px 25px rgba(0, 0, 0, 0.05)",
+    opacity: 1,
+    background: theme.design.colors.waz_white,
+    padding: "10px 40px",
+  },
+  appBarComponents: {
+    display: "flex",
+    justifyContent: "space-between",
+    alignItems: "center",
+    width: "100%",
+  },
+  appBarSearchTextInput: {
+    marginBottom: 0,
+    width: 480,
+    "& input": {
+      border: "none",
+      background: theme.design.colors.waz_whiteAlpha,
+      borderRadius: 3,
+    },
+  },
+  notificationWrapper: {
+    width: 24,
+    height: 24,
+  },
+  notoficationIcon: {
+    width: 18,
+    height: 21,
+  },
+
+  drawer: {
+    width: `${drawerWidth}px`,
+    padding: "22px 19px",
+    position: "fixed",
+    background: theme.design.colors.waz_white,
+    boxShadow: "0px 1px 25px rgba(0, 0, 0, 0.05)",
+    display: "flex",
+    flexDirection: "column",
+    gap: 0,
+    marginBottom: 50,
   },
 }));

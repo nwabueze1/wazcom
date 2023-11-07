@@ -9,18 +9,34 @@ var __assign = (this && this.__assign) || function () {
     };
     return __assign.apply(this, arguments);
 };
+var __read = (this && this.__read) || function (o, n) {
+    var m = typeof Symbol === "function" && o[Symbol.iterator];
+    if (!m) return o;
+    var i = m.call(o), r, ar = [], e;
+    try {
+        while ((n === void 0 || n-- > 0) && !(r = i.next()).done) ar.push(r.value);
+    }
+    catch (error) { e = { error: error }; }
+    finally {
+        try {
+            if (r && !r.done && (m = i["return"])) m.call(i);
+        }
+        finally { if (e) throw e.error; }
+    }
+    return ar;
+};
 import { jsx as _jsx, jsxs as _jsxs } from "react/jsx-runtime";
 import { useState, useCallback } from "react";
 import { useGalleryStyles } from "./styles";
 import clx from "classnames";
 import { CheckBoxInput } from "../../io";
 export var Gallery = function (_a) {
-    var items = _a.items, text = _a.text, onSelect = _a.onSelect;
+    var className = _a.className, items = _a.items, text = _a.text, onSelect = _a.onSelect;
     var classes = useGalleryStyles();
-    var _b = useState({
+    var _b = __read(useState({
         selected: null,
         hover: null,
-    }), ids = _b[0], setIds = _b[1];
+    }), 2), ids = _b[0], setIds = _b[1];
     var handleMouseEnter = useCallback(function (id) {
         if (ids.selected === id)
             return;
@@ -49,8 +65,8 @@ export var Gallery = function (_a) {
                     handleItemSelect(id);
                 }, onMouseEnter: function () {
                     handleMouseEnter(id);
-                }, onMouseLeave: handleMouseLeave, className: classes.item }, { children: [_jsx("img", { src: src, className: classes.itemImage, alt: alt }, void 0), _jsx("div", __assign({ className: clx(classes.itemHover, ids.hover === id && classes.itemHoverActive) }, { children: _jsx("p", __assign({ className: classes.itemHoverText }, { children: text !== null && text !== void 0 ? text : "Select" }), void 0) }), void 0), _jsx("div", __assign({ className: clx(classes.itemChecked, ids.selected === id && classes.itemCheckedActive) }, { children: _jsx(CheckBoxInput, { checked: true, className: "checkbox" }, void 0) }), void 0)] }), index));
+                }, onMouseLeave: handleMouseLeave, className: classes.item }, { children: [_jsx("img", { src: src, className: classes.itemImage, alt: alt }), _jsx("div", __assign({ className: clx(classes.itemHover, ids.hover === id && classes.itemHoverActive) }, { children: _jsx("p", __assign({ className: classes.itemHoverText }, { children: text !== null && text !== void 0 ? text : "Select" })) })), _jsx("div", __assign({ className: clx(classes.itemChecked, ids.selected === id && classes.itemCheckedActive) }, { children: _jsx(CheckBoxInput, { checked: true, className: "checkbox" }) }))] }), index));
         });
     }, [ids]);
-    return _jsx("div", __assign({ className: classes.root }, { children: displayItems() }), void 0);
+    return _jsx("div", __assign({ className: clx(classes.root, className) }, { children: displayItems() }));
 };

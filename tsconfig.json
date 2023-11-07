@@ -6,6 +6,7 @@
     "skipLibCheck": true,
     "esModuleInterop": true,
     "allowSyntheticDefaultImports": true,
+    "strict": true,
     "forceConsistentCasingInFileNames": true,
     "noFallthroughCasesInSwitch": true,
     "module": "esnext",
@@ -16,10 +17,8 @@
     "jsx": "react-jsx",
     "baseUrl": "src",
     "typeRoots": ["./src/@types", "./node_modules/@types"],
-    "outDir": "lib/esm",
-    "declaration": true,
-    "suppressImplicitAnyIndexErrors": true,
-    "strict": true
+    "downlevelIteration": true,
+    "types": ["vite/client"]
   },
   "include": ["src"],
   "exclude": [

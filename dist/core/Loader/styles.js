@@ -25,6 +25,11 @@ export var useLoaderStyles = makeStyles(function (theme) { return ({
         opacity: 1,
         justifyContent: "center",
         background: "transparent",
+        "&.full-screen": {
+            top: "50%",
+            position: "absolute",
+            zIndex: 9999,
+        },
     },
     container: {
         height: "15px",
@@ -36,7 +41,7 @@ export var useLoaderStyles = makeStyles(function (theme) { return ({
         width: "15px",
         height: "15px",
         borderRadius: "50%",
-        backgroundColor: theme.design.colors.orange,
+        background: theme.design.colors.waz_primaryColor100,
         animation: "$move 500ms linear 0ms infinite",
         marginRight: "30px",
         "&:first-child": {

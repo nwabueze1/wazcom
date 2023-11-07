@@ -9,14 +9,33 @@ var __assign = (this && this.__assign) || function () {
     };
     return __assign.apply(this, arguments);
 };
+var __read = (this && this.__read) || function (o, n) {
+    var m = typeof Symbol === "function" && o[Symbol.iterator];
+    if (!m) return o;
+    var i = m.call(o), r, ar = [], e;
+    try {
+        while ((n === void 0 || n-- > 0) && !(r = i.next()).done) ar.push(r.value);
+    }
+    catch (error) { e = { error: error }; }
+    finally {
+        try {
+            if (r && !r.done && (m = i["return"])) m.call(i);
+        }
+        finally { if (e) throw e.error; }
+    }
+    return ar;
+};
 import { jsx as _jsx, jsxs as _jsxs } from "react/jsx-runtime";
-import { useAccordionStyles } from "./styles";
-import { Accordion as MuiAccordion, AccordionSummary as MuiAccordionSummary, AccordionDetails as MuiAccordionDetails, Typography, } from "@mui/material";
-import ExpandMoreIcon from "@mui/icons-material/ExpandMore";
-import { kebabCase } from "lodash";
 import clx from "classnames";
+import { useState } from "react";
+import { IoMdArrowDropdown } from "react-icons/io";
+import { useAccordionStyles } from "./styles";
 export var Accordion = function (_a) {
-    var title = _a.title, className = _a.className, square = _a.square, defaultExpanded = _a.defaultExpanded, children = _a.children;
+    var title = _a.title, children = _a.children, className = _a.className, _b = _a.showIcon, showIcon = _b === void 0 ? true : _b, _c = _a.isExpanded, isExpanded = _c === void 0 ? false : _c;
+    var _d = __read(useState(isExpanded), 2), active = _d[0], setActive = _d[1];
     var classes = useAccordionStyles();
-    return (_jsxs(MuiAccordion, __assign({ square: square, className: clx(classes.root, className), defaultExpanded: defaultExpanded }, { children: [_jsx(MuiAccordionSummary, __assign({ id: kebabCase(title), "aria-controls": kebabCase(title), className: classes.summary, expandIcon: _jsx(ExpandMoreIcon, { className: classes.icon }, void 0) }, { children: _jsx(Typography, __assign({ variant: "body1" }, { children: title }), void 0) }), void 0), _jsx(MuiAccordionDetails, __assign({ className: classes.details }, { children: children }), void 0)] }), void 0));
+    var toggleVisiblity = function () {
+        setActive(function (active) { return !active; });
+    };
+    return (_jsx("div", __assign({ className: clx(classes.root, className) }, { children: _jsxs("div", __assign({ className: clx(active ? classes.accordionActive : "") }, { children: [_jsxs("div", __assign({ className: clx(classes.accordionHeader, active && classes.accordionHeaderActive, "accordion__header"), onClick: toggleVisiblity }, { children: [typeof title === "string" ? _jsx("h3", __assign({ className: classes.accordionTitle }, { children: title })) : title, showIcon && (_jsx("span", __assign({ className: clx(classes.accordionIcon, "accordion__icon") }, { children: _jsx(IoMdArrowDropdown, {}) })))] })), _jsx("div", __assign({ className: clx(classes.accordionContent, "accordion__content") }, { children: children }))] })) })));
 };

@@ -1,5 +1,5 @@
 import { Theme as MuiTheme } from "@mui/material/styles";
-declare type ExtendedThemeOptions = {
+type ExtendedThemeOptions = {
     include: {
         [key: string]: any;
     };
@@ -10,15 +10,27 @@ declare type ExtendedThemeOptions = {
         colors: {
             [key: string]: string;
         };
+        background: {
+            [key: string]: string;
+        };
+        border: {
+            [key: string]: string;
+        };
     };
 };
-declare module "@mui/material/styles/createTheme" {
+declare module "@mui/material/styles" {
     interface Theme extends ExtendedThemeOptions {
     }
-    interface DeprecatedThemeOptions extends ExtendedThemeOptions {
+    interface ThemeOptions extends ExtendedThemeOptions {
     }
 }
-export declare type BaseTheme = MuiTheme & ExtendedThemeOptions;
+export type BaseTheme = MuiTheme & ExtendedThemeOptions;
+export declare const baseColors: {
+    dangerColor: string;
+    successColor: string;
+    greyColor: string;
+    whiteColor: string;
+};
 export declare const theme: any;
 declare const _default: MuiTheme;
 export default _default;

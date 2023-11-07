@@ -1,6 +1,6 @@
 import { ApolloClient, NormalizedCacheObject } from "@apollo/client";
 import { CommonProps } from "types";
-export declare type GqlComboBoxProps = CommonProps & {
+export type GqlComboBoxProps = CommonProps & {
     config: {
         client: ApolloClient<NormalizedCacheObject>;
         type: "query";
@@ -11,11 +11,18 @@ export declare type GqlComboBoxProps = CommonProps & {
     };
     label?: string;
     value?: string;
+    postFetchHook?: (values: {
+        [key: string]: string;
+    }[]) => void;
     addOption?: (value: string) => Promise<{
         label?: string;
         value?: string;
         status: boolean;
     }>;
+    isError?: boolean;
+    isSuccess?: boolean;
+    helperText?: string;
+    placeholder?: string;
     variables?: {
         [key: string]: any;
     };

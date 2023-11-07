@@ -1,8 +1,9 @@
-import React, { FC, useRef, useState } from "react";
+import React, { FC, useCallback, useRef, useState } from "react";
 import { useImageSelectorStyles } from "./styles";
 import clx from "classnames";
 import { ImageSelectorProps } from "./types";
-import CameraAltIcon from "@mui/icons-material/CameraAlt";
+import { MdCameraAlt as CameraAltIcon } from "react-icons/md";
+import { getSizeVariants } from "../../helpers/size";
 
 export const ImageSelector: FC<ImageSelectorProps> = ({
   variant,
@@ -15,6 +16,7 @@ export const ImageSelector: FC<ImageSelectorProps> = ({
 }) => {
   const classes = useImageSelectorStyles();
   const [selected, setSelected] = useState<boolean>(false);
+  const [error, setError] = useState<string | undefined>();
   const inputRef = useRef<any>();
   const imgRef = useRef<any>();
 
@@ -22,23 +24,32 @@ export const ImageSelector: FC<ImageSelectorProps> = ({
     inputRef?.current.click();
   };
 
-  const validate = (file: File) => {
-    const type = file.type.toLowerCase().split("/")[1];
+  const validate = useCallback(
+    (file: File) => {
+      const type = file.type.toLowerCase().split("/")[1];
 
-    if (!formats.includes(type)) return false;
+      if (!formats.includes(type)) {
+        setError("Invalid file format.");
+        return false;
+      }
 
-    if (file.size > maxImageSize) return false;
+      if (file.size > maxImageSize) {
+        setError("File exceed max file limit of 2GB");
+        return false;
+      }
 
-    return true;
-  };
+      return true;
+    },
+    [error, setError],
+  );
 
   const handleSelect = (e: React.ChangeEvent<HTMLInputElement>) => {
     if (!e.target.files) return;
-    
     const file = e.target.files[0];
-    
+
     if (validate(file)) {
       const reader = new FileReader();
+
       reader.onload = (e: any) => {
         setSelected(true);
         imgRef.current.setAttribute("src", e.target.result);
@@ -49,51 +60,46 @@ export const ImageSelector: FC<ImageSelectorProps> = ({
     }
   };
 
-  const getSizeVariants = () => {
-    let sizeVariants;
+  const variants = getSizeVariants(classes, size);
 
-    switch (size) {
-      case "sm":
-        sizeVariants = [classes.sizeSm, classes.cameraIconSm];
-        break;
-      case "md":
-        sizeVariants = [classes.sizeMd, classes.cameraIconMd];
-        break;
-      case "lg":
-        sizeVariants = [classes.sizeLg, classes.cameraIconLg];
-        break;
-      case "xl":
-        sizeVariants = [classes.sizeXl, classes.cameraIconXl];
-        break;
-      default:
-        sizeVariants = [classes.sizeMd, classes.cameraIconMd];
-        break;
-    }
+  return (
+    <div className={clx(classes.root, selected && classes.selectedRoot)}>
+      <div className={classes.container}>
+        <input type="file" ref={inputRef} onChange={handleSelect} hidden />
 
-    return sizeVariants;
-  };
-
-  const variants = getSizeVariants();
+        {(selected || src) && (
+          <>
+            <div className={classes.imgWrapper}></div>
+            <img
+              ref={imgRef}
+              src={src}
+              className={clx(classes.image, variant === "circle" && classes.circle)}
+            />
+          </>
+        )}
+        <span onClick={fileInputClick} className={classes.selector}>
+          Select Image
+        </span>
+        {error && <span className={classes.error}>{error}</span>}
+      </div>
+    </div>
+  );
 
   return (
     <div
-      className={clx(
-        className,
-        classes.root,
-        variant === "circle" && classes.circle,
-        variants[0],
-      )}
+      className={clx(classes.root, className, variant === "circle" && classes.circle, variants[0])}
       onClick={fileInputClick}
     >
       <CameraAltIcon className={clx(classes.cameraIcon, variants[1])} />
       <input type="file" ref={inputRef} onChange={handleSelect} hidden />
-      {selected || src && (
-        <img
-          ref={imgRef}
-          src={src}
-          className={clx(classes.image, variant === "circle" && classes.circle)}
-        />
-      )}
+      {selected ||
+        (src && (
+          <img
+            ref={imgRef}
+            src={src}
+            className={clx(classes.image, variant === "circle" && classes.circle)}
+          />
+        ))}
     </div>
   );
 };

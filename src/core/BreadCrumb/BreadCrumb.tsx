@@ -1,5 +1,5 @@
 import Breadcrumbs from "@mui/material/Breadcrumbs";
-import NavigateNextIcon from "@mui/icons-material/NavigateNext";
+import { MdNavigateNext as NavigateNextIcon } from "react-icons/md";
 import clx from "classnames";
 import { FC } from "react";
 import { BreadCrumbStyles } from "./styles";
@@ -19,18 +19,14 @@ export const BreadCrumb: FC<BreadCrumbProps> = ({ className, crumbs, handleClick
           >
             <p
               color="inherit"
-              onClick={() => { handleClick(crumb.path) }}
-              className={clx(
-                classes.link,
-                index === crumbs.length - 1 && classes.lastCrumb,
-              )}
+              onClick={() => {
+                handleClick(crumb.path);
+              }}
+              className={clx(classes.link, index === crumbs.length - 1 && classes.lastCrumb)}
             >
               {crumb.label}
               {index !== crumbs.length - 1 && (
-                <NavigateNextIcon
-                  className={classes.navIcon}
-                  fontSize="small"
-                />
+                <NavigateNextIcon className={classes.navIcon} fontSize="small" />
               )}
             </p>
           </Breadcrumbs>

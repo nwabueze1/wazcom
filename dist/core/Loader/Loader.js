@@ -13,7 +13,7 @@ import { jsx as _jsx, jsxs as _jsxs } from "react/jsx-runtime";
 import clx from "classnames";
 import { useLoaderStyles } from "./styles";
 export var Loader = function (_a) {
-    var className = _a.className;
+    var className = _a.className, isFullScreen = _a.isFullScreen;
     var classes = useLoaderStyles();
-    return (_jsx("div", __assign({ className: clx(classes.root, className) }, { children: _jsxs("div", __assign({ className: classes.container }, { children: [_jsx("span", { className: classes.circle }, void 0), _jsx("span", { className: classes.circle }, void 0), _jsx("span", { className: classes.circle }, void 0), _jsx("span", { className: classes.circle }, void 0)] }), void 0) }), void 0));
+    return (_jsx("div", __assign({ className: clx(classes.root, className, isFullScreen && "full-screen") }, { children: _jsxs("div", __assign({ className: classes.container }, { children: [_jsx("span", { className: classes.circle }), _jsx("span", { className: classes.circle }), _jsx("span", { className: classes.circle }), _jsx("span", { className: classes.circle })] })) })));
 };

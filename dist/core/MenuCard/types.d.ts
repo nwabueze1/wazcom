@@ -1,5 +1,5 @@
 import { CommonProps } from "../../types";
-export declare type MenuCardProps = CommonProps & {
+export type MenuCardProps = CommonProps & {
     id: number;
     amount: number;
     title: string;

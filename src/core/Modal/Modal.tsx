@@ -2,12 +2,7 @@ import React from "react";
 import { ModalProps } from "./types";
 import { Fade, Modal as MuiModal, Backdrop } from "@mui/material";
 
-export const Modal: React.FC<ModalProps> = ({
-  className,
-  open,
-  children,
-  handleClose,
-}) => {
+export const Modal: React.FC<ModalProps> = ({ className, open, children, handleClose }) => {
   return (
     <MuiModal
       open={open}

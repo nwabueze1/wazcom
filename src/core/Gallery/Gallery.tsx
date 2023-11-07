@@ -4,7 +4,7 @@ import { GalleryProps } from "./types";
 import clx from "classnames";
 import { CheckBoxInput } from "../../io";
 
-export const Gallery: FC<GalleryProps> = ({ items, text, onSelect }) => {
+export const Gallery: FC<GalleryProps> = ({ className, items, text, onSelect }) => {
   const classes = useGalleryStyles();
   const [ids, setIds] = useState<{ [key: string]: null | number }>({
     selected: null,
@@ -54,25 +54,15 @@ export const Gallery: FC<GalleryProps> = ({ items, text, onSelect }) => {
         className={classes.item}
       >
         <img src={src} className={classes.itemImage} alt={alt} />
-        <div
-          className={clx(
-            classes.itemHover,
-            ids.hover === id && classes.itemHoverActive,
-          )}
-        >
+        <div className={clx(classes.itemHover, ids.hover === id && classes.itemHoverActive)}>
           <p className={classes.itemHoverText}>{text ?? "Select"}</p>
         </div>
-        <div
-          className={clx(
-            classes.itemChecked,
-            ids.selected === id && classes.itemCheckedActive,
-          )}
-        >
+        <div className={clx(classes.itemChecked, ids.selected === id && classes.itemCheckedActive)}>
           <CheckBoxInput checked className="checkbox" />
         </div>
       </div>
     ));
   }, [ids]);
 
-  return <div className={classes.root}>{displayItems()}</div>;
+  return <div className={clx(classes.root, className)}>{displayItems()}</div>;
 };

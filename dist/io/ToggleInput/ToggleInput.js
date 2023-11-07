@@ -21,10 +21,15 @@ var __rest = (this && this.__rest) || function (s, e) {
     return t;
 };
 import { jsx as _jsx, jsxs as _jsxs } from "react/jsx-runtime";
-import { FormLabel, Switch } from "@mui/material";
+import clx from "classnames";
 import { useToggleStyles } from "./styles";
+import { displayFeedback } from "../../helpers/io";
 export var ToggleInput = function (_a) {
-    var name = _a.name, label = _a.label, value = _a.value, helperText = _a.helperText, props = __rest(_a, ["name", "label", "value", "helperText"]);
+    var _b;
+    var name = _a.name, label = _a.label, value = _a.value, feedback = _a.feedback, helperText = _a.helperText, onChange = _a.onChange, className = _a.className, classNames = _a.classNames, isDisabled = _a.isDisabled, props = __rest(_a, ["name", "label", "value", "feedback", "helperText", "onChange", "className", "classNames", "isDisabled"]);
     var classes = useToggleStyles();
-    return (_jsxs("div", __assign({ className: classes.root }, { children: [label && _jsx(FormLabel, __assign({ className: classes.label }, { children: label }), void 0), _jsx(Switch, __assign({ className: classes.toggle, name: name, checked: value }, props), void 0), helperText && _jsx("p", __assign({ className: classes.helperText }, { children: helperText }), void 0)] }), void 0));
+    var handleChange = function (event) {
+        onChange === null || onChange === void 0 ? void 0 : onChange({ name: name, value: event.target.checked });
+    };
+    return (_jsxs("div", __assign({ className: clx(className, classes.root) }, { children: [label && _jsx("p", __assign({ className: clx(classes.labelStyle, (_b = classNames === null || classNames === void 0 ? void 0 : classNames.label) !== null && _b !== void 0 ? _b : "") }, { children: label })), _jsxs("label", __assign({ className: classes.switch }, { children: [_jsx("input", __assign({ name: name, type: "checkbox", disabled: isDisabled, className: clx(classes.input), onChange: handleChange, checked: value }, props)), _jsx("span", { "data-disable": isDisabled, className: clx("slider", classes.slider, (classNames === null || classNames === void 0 ? void 0 : classNames.toggleInput) ? classNames.toggleInput : "") })] })), _jsxs("div", __assign({ className: classes.helperText }, { children: [" ", helperText] })), feedback && displayFeedback(feedback)] })));
 };

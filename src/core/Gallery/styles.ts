@@ -29,13 +29,12 @@ export const useGalleryStyles = makeStyles((theme: BaseTheme) => ({
     height: "100%",
     zIndex: -9999,
     opacity: 0,
-    background:
-      "linear-gradient(180deg, rgba(0, 0, 0, 0) -9.73%, rgba(0, 0, 0, 0.8) 100%)",
+    background: "linear-gradient(180deg, rgba(0, 0, 0, 0) -9.73%, rgba(0, 0, 0, 0.8) 100%)",
     transition: "opacity 0.5s ease-in",
   },
   itemHoverText: {
     marginTop: "75%",
-    color: theme.design.colors.white,
+    color: theme.design.colors.waz_white,
     textAlign: "center",
     fontSize: "24px",
     fontWeight: "bold",
@@ -65,6 +64,6 @@ export const useGalleryStyles = makeStyles((theme: BaseTheme) => ({
   itemCheckedActive: {
     zIndex: 10,
     opacity: 1,
-    border: `4px solid ${theme.design.colors.red}`,
+    border: `4px solid ${theme.design.colors.waz_dangerColor}`,
   },
 }));

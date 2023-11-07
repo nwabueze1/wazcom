@@ -3,7 +3,7 @@ import { Grow } from "@mui/material";
 import clx from "classnames";
 import { Button } from "../Button";
 import { last } from "lodash";
-import  { FC, useCallback, useEffect, useRef, useState } from "react";
+import { FC, useCallback, useEffect, useRef, useState } from "react";
 import { IoCloudUploadOutline } from "react-icons/io5";
 import { Loader } from "../Loader/Loader";
 import { GET_S3_IMAGES } from "./graphQL";
@@ -31,7 +31,7 @@ export const MediaLibrary: FC<MediaLibraryProps> = ({ className }) => {
   const fileRef = useRef<any>();
   const classes = useMediaLibraryStyles();
   const [images, setImages] = useState<Image[]>();
-    const [getS3Images, { data, loading }] = useLazyQuery(GET_S3_IMAGES, {
+  const [getS3Images, { data, loading }] = useLazyQuery(GET_S3_IMAGES, {
     fetchPolicy: "network-only",
   });
 
@@ -74,19 +74,11 @@ export const MediaLibrary: FC<MediaLibraryProps> = ({ className }) => {
       <div className={classes.library}>
         <Uploader ref={fileRef} />
         <div className={classes.actions}>
-          <Button
-            color="primary"
-            startIcon={<IoCloudUploadOutline />}
-            onClick={handleFileSelect}
-          >
+          <Button leftIcon={<IoCloudUploadOutline />} onClick={handleFileSelect}>
             Upload Image
           </Button>
         </div>
-        <div
-          className={classes.collection}
-          onScroll={() => onScroll()}
-          ref={listInnerRef}
-        >
+        <div className={classes.collection} onScroll={() => onScroll()} ref={listInnerRef}>
           {images &&
             split(images, 3).map((_, columnIndex) => {
               return (

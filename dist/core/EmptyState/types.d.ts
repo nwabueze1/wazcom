@@ -1,10 +1,11 @@
 import { CommonProps } from "types";
-export declare type EmptyStateProps = CommonProps & {
-    image: {
-        src: string;
+export type EmptyStateProps = CommonProps & {
+    image?: {
+        src?: string;
         alt?: string;
     };
-    text: string;
+    text?: string;
+    header?: string;
     button?: {
         display?: boolean;
         text?: string;

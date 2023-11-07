@@ -1,12 +1,21 @@
-import { CommonProps } from "../../types";
-import { AutocompleteProps } from "@mui/material";
+export type ComboBoxInputProps = {
+  className?: string;
+  name?: string;
+  label?: string | JSX.Element;
+  options: ComboBoxInputOptionProps[];
+  value?: string;
+  isAdd?: boolean;
+  isError?: boolean;
+  isSuccess?: boolean;
+  required?: boolean;
+  helperText?: string;
+  placeholder?: string;
+  onChange?: (...args: any[]) => void;
+  handleAdd?: (value: string) => void;
+};
 
-export type ComboBoxInputProps = CommonProps &
-  Omit<AutocompleteProps<any, undefined, undefined, undefined>, "onChange" | "renderInput"> & {
-    label?: string;
-    options: ComboBoxInputOptionProps[];
-    value?: string;
-    helperText?: string;
-  };
-
-export type ComboBoxInputOptionProps = { label: string; value: string };
+export type ComboBoxInputOptionProps = {
+  label: string;
+  value: string;
+  subText?: string;
+};

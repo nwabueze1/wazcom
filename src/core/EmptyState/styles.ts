@@ -1,10 +1,12 @@
 import makeStyles from "@mui/styles/makeStyles";
+import { Theme } from "@mui/material/styles";
 
-export const useEmptyStateStyles = makeStyles(() => ({
+export const useEmptyStateStyles = makeStyles((theme: Theme) => ({
   root: {
     width: "100%",
     boxShadow: "0",
     display: "flex",
+    justifyContent: "center",
     flexDirection: "column",
     alignItems: "center",
   },
@@ -17,9 +19,29 @@ export const useEmptyStateStyles = makeStyles(() => ({
     alignItems: "center",
   },
   image: {
-    width: 150,
-    height: 150,
+    width: 239,
     objectFit: "cover",
   },
-  text: {},
+  text: {
+    padding: theme.spacing(1.5, 0, 4, 0),
+    fontSize: theme.typography.fontSize + 4,
+    color: theme.design.colors.waz_black,
+    whiteSpace: "nowrap",
+  },
+  btn: {
+    background: theme.design.colors.primary100,
+    fontSize: theme.typography.fontSize + 4,
+    padding: theme.spacing(1, 2),
+    fontWeight: theme.typography.fontWeightMedium,
+    "&:hover": {
+      backgroundColor: theme.design.colors.primary100,
+    },
+  },
+  header: {
+    fontSize: theme.typography.fontSize * 2,
+    whiteSpace: "nowrap",
+    fontWeight: theme.typography.fontWeightBold,
+    lineHeight: "36px",
+    paddingTop: theme.spacing(2),
+  },
 }));
