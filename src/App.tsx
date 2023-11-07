@@ -23,7 +23,7 @@ const App: React.FC = () => {
             <Layout>
               <Routes>
                 {routes.map(({ key, path, component: Component }) => (
-                  <Route key={key} path={path} element={<Component  />} />
+                  <Route key={key} path={path} element={<Component />} />
                 ))}
               </Routes>
             </Layout>
