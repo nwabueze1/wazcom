@@ -55,6 +55,11 @@ export const useEditorStyles = makeStyles((theme: Theme) => ({
     },
     "& .ql-editor": {
       paddingLeft: theme.spacing(2),
+      "& p": {
+        marginBottom: "15px",
+        lineHeight: 1.7,
+        fontSize: "15px",
+      },
     },
   },
 }));
