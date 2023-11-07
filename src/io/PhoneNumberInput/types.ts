@@ -1,7 +1,5 @@
-import { CommonProps } from "../../types";
-
-export type PhoneNumberInputProps = CommonProps & {
+export type PhoneNumberInputProps = {
   [key: string]: any;
-  name: string;
-  country?: string;
+  country: string;
+  classNames?: Partial<Record<"root" | "input" | "dropdown" | "container" | "button", string>>;
 };

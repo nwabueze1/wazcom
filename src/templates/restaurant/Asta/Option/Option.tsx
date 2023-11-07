@@ -9,7 +9,7 @@ import {
 } from "@mui/material";
 import { useOptionStyles } from "./styles";
 import { OptionProps } from "./types";
-import { ExpandMore } from "@mui/icons-material";
+import { MdExpandMore as ExpandMore } from "react-icons/md";
 import { Option as OptionType } from "../CartDialog/types";
 import { parseSelectedChoices } from "./helper";
 import { getCurrency, getFloatOrIntAmount } from "../../../../utilities";

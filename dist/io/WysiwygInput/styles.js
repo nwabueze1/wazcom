@@ -65,9 +65,8 @@ export var useCreatePostInputStyles = makeStyles(function (theme) { return ({
         },
         "&::placeHolder": {
             fontWeight: theme.typography.fontWeightBold,
-            fontSize: theme.typography.fontSize * 2,
-            color: theme.design.colors.grey100,
-            opacity: "100%",
+            fontSize: theme.typography.fontSize + 6,
+            color: theme.design.colors.grey300,
         },
     },
 }); });

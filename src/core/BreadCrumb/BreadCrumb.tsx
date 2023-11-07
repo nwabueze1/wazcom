@@ -1,5 +1,5 @@
 import Breadcrumbs from "@mui/material/Breadcrumbs";
-import NavigateNextIcon from "@mui/icons-material/NavigateNext";
+import { MdNavigateNext as NavigateNextIcon } from "react-icons/md";
 import clx from "classnames";
 import { FC } from "react";
 import { BreadCrumbStyles } from "./styles";

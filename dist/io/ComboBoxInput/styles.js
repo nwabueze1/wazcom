@@ -21,7 +21,7 @@ export var useComboBoxStyles = makeStyles(function (theme) { return ({
         background: theme.design.colors.waz_white,
         borderRadius: 3,
         boxShadow: "0px 1px 4px #00000014",
-        zIndex: 5,
+        zIndex: 999,
     },
     comboBoxOption: {
         padding: theme.spacing(1, 1.25),

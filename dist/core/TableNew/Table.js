@@ -71,7 +71,14 @@ import { parseQueryVariables } from "./helpers";
 export var TableNew = function (_a) {
     var _b, _c, _d, _e, _f, _g;
     var columns = _a.columns, _h = _a.query, client = _h.client, QUERY = _h.name, variables = _h.variables, dataKey = _h.dataKey, getRows = _a.getRows, conditionFilters = _a.conditionFilters, showFilters = _a.showFilters, emptyState = _a.emptyState;
-    var _j = __read(useState({ data: null, pagination: { currentPage: 1, lastPage: 1, count: (_b = variables === null || variables === void 0 ? void 0 : variables.first) !== null && _b !== void 0 ? _b : 10 } }), 2), table = _j[0], setTable = _j[1];
+    var _j = __read(useState({
+        data: null,
+        pagination: {
+            currentPage: 1,
+            lastPage: 1,
+            count: (_b = variables === null || variables === void 0 ? void 0 : variables.first) !== null && _b !== void 0 ? _b : 10,
+        },
+    }), 2), table = _j[0], setTable = _j[1];
     var _k = __read(useState({
         search: "",
         sort: [],
@@ -113,7 +120,7 @@ export var TableNew = function (_a) {
                         _b = data[dataKey], tableData = _b.data, pagination = _b.paginatorInfo;
                         setTable({
                             data: tableData,
-                            pagination: __assign(__assign({}, ((_e = table === null || table === void 0 ? void 0 : table.pagination) !== null && _e !== void 0 ? _e : {})), pagination),
+                            pagination: __assign(__assign({}, ((_e = table === null || table === void 0 ? void 0 : table.pagination) !== null && _e !== void 0 ? _e : {})), { currentPage: pagination === null || pagination === void 0 ? void 0 : pagination.currentPage, lastPage: pagination === null || pagination === void 0 ? void 0 : pagination.lastPage }),
                         });
                     }
                     return [2 /*return*/];

@@ -28,3 +28,7 @@ yarn.lock
 
 # DEADJOE files
 **/*DEADJOE
+
+.idea/
+
+/wazcom-v1*

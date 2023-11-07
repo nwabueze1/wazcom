@@ -1,5 +1,6 @@
 import { RadioProps } from "@mui/material";
 import { CommonProps } from "../../types";
+import { FocusEventHandler } from "react";
 
 export type RadioButtonProps = {
   isDisabled?: boolean;
@@ -11,4 +12,8 @@ export type RadioButtonInputProps = CommonProps &
   RadioButtonProps & {
     label?: string;
     value?: boolean;
+    onBlur?: FocusEventHandler<HTMLInputElement>;
+    onFocus?: FocusEventHandler<HTMLInputElement>;
+    labelPlacement?: "right" | "left";
+    isBooleanValue?: boolean;
   };

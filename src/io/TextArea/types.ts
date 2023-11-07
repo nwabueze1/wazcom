@@ -7,4 +7,5 @@ export type TextAreaProps = Omit<
   TextBaseProps & {
     type?: "textarea";
     minRows?: number;
+    textLimit?: number;
   };

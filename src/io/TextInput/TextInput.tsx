@@ -4,6 +4,7 @@ import { FC, cloneElement, isValidElement } from "react";
 import React, { ChangeEvent, KeyboardEvent, useCallback, useState } from "react";
 import { useTextStyles, useTextInputIconStyles } from "./styles";
 import { TextFieldProps, InputIconProps } from "./types";
+import { useInputWithSlideUpLabelStyles } from "./useInputWithSlideUpLabelStyles";
 
 /**
  * Text Input IO Component
@@ -30,6 +31,8 @@ export const TextInput: FC<TextFieldProps> = ({
   onEnter,
   onBlur,
   required = false,
+  hasSlideUpLabel = false,
+  noNegativeValue = false,
   showCC,
   type = "text",
   leftIcon,
@@ -44,8 +47,10 @@ export const TextInput: FC<TextFieldProps> = ({
   borderStyle,
   borderRadius,
   classNames,
+  placeholder,
+  inputRef,
   ...props
-}) => {
+}: TextFieldProps) => {
   const [isFocused, setIsFocused] = React.useState<boolean>(false);
   const classes = useTextStyles({
     width,
@@ -57,8 +62,16 @@ export const TextInput: FC<TextFieldProps> = ({
     borderStyle,
     borderRadius,
   });
+  const slideUpLabelClass = useInputWithSlideUpLabelStyles();
 
   const handleChange = (e: ChangeEvent<HTMLInputElement>) => {
+    if (noNegativeValue) {
+      const inputValue = (e.target as HTMLInputElement).value;
+      if (type === "number" && parseFloat(inputValue) < 0) {
+        (e.target as HTMLInputElement).value = "0"; // Set value to 0 if it's negative
+      }
+    }
+
     if (onChange) {
       onChange?.({
         name: (e.target as HTMLInputElement).name ?? "",
@@ -96,10 +109,23 @@ export const TextInput: FC<TextFieldProps> = ({
   };
 
   return (
-    <div className={clx(classes.root, className)}>
-      <div className={classes.labelWrapper}>
+    <div className={clx(classes.root, className, hasSlideUpLabel && slideUpLabelClass.container)}>
+      <div
+        className={clx(
+          classes.labelWrapper,
+          hasSlideUpLabel && slideUpLabelClass.labelContainer,
+          (isFocused || props.value) && "active",
+        )}
+      >
         {!hideLabel && label && (
-          <label htmlFor={name} className={classes.label}>
+          <label
+            htmlFor={name}
+            className={clx(
+              classes.label,
+              hasSlideUpLabel && slideUpLabelClass.inputLabel,
+              classNames?.label,
+            )}
+          >
             {label}
             {required && <span className={classes.required}>*</span>}
           </label>
@@ -115,20 +141,36 @@ export const TextInput: FC<TextFieldProps> = ({
           classes.baseInput,
           classes.defaultInput,
           classNames?.input,
+          hasSlideUpLabel && slideUpLabelClass.inputContainer,
+          hasSlideUpLabel && (isError || errors) && slideUpLabelClass.inputError,
+          hasSlideUpLabel && isSuccess && slideUpLabelClass.inputSuccess,
           isSuccess && classes.successInput,
           (isError || errors) && classes.errorInput,
           isFocused && classes.focusedInput,
         )}
       >
-        {leftIcon && <InputIcon marginRight={iconSpacing}>{leftIcon}</InputIcon>}
+        {leftIcon && (
+          <InputIcon marginRight={iconSpacing} marginLeft={iconSpacing}>
+            {leftIcon}
+          </InputIcon>
+        )}
         <input
           type={type}
           name={name}
-          className={classes.input}
+          className={clx(
+            classes.input,
+            hasSlideUpLabel && slideUpLabelClass.input,
+            classNames?.inputField,
+          )}
           onFocus={handleFocus}
           onBlur={handleBlur}
           onChange={handleChange}
+          min={noNegativeValue ? "0" : ""}
           onKeyDown={handleOnKeyDown}
+          placeholder={
+            hasSlideUpLabel ? (isFocused && !props.value ? placeholder : "") : placeholder
+          }
+          ref={inputRef}
           {...props}
         />
         {rightIcon && <InputIcon marginLeft={iconSpacing}>{rightIcon}</InputIcon>}
@@ -139,6 +181,7 @@ export const TextInput: FC<TextFieldProps> = ({
             classes.helperTextDefault,
             isSuccess && classes.helperTextSuccess,
             isError && classes.helperTextError,
+            isError && classNames?.errorMessage,
           )}
         >
           {helperText}

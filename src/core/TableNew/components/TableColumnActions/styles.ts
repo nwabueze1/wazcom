@@ -5,7 +5,6 @@ export const useTableColumnActionsStyles = makeStyles((theme: Theme) => ({
   root: {
     display: "flex",
     fontSize: 0,
-    transition: "all 2s ease-in",
     marginTop: theme.spacing(0),
     position: "relative",
     height: 0,

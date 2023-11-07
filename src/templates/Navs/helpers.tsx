@@ -4,7 +4,7 @@ import { FaFacebookF } from "react-icons/fa";
 import { BsTwitter } from "react-icons/bs";
 import clx from "classnames";
 import { NavProps, SocialType } from "./types";
-import { Link } from "../mbmc/components";
+import { Link } from "../../core/Link/Link";
 
 export const renderNavLink = (
   { url, text }: { url: string; text: string },

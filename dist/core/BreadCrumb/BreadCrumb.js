@@ -11,7 +11,7 @@ var __assign = (this && this.__assign) || function () {
 };
 import { jsx as _jsx, jsxs as _jsxs } from "react/jsx-runtime";
 import Breadcrumbs from "@mui/material/Breadcrumbs";
-import NavigateNextIcon from "@mui/icons-material/NavigateNext";
+import { MdNavigateNext as NavigateNextIcon } from "react-icons/md";
 import clx from "classnames";
 import { BreadCrumbStyles } from "./styles";
 export var BreadCrumb = function (_a) {

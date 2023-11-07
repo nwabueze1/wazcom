@@ -134,6 +134,10 @@ export var theme = {
             grey800: "#1A261E",
             black300: "rgba(0, 0, 0, 0.5)",
             black400: "rgba(0,0,0,0.06)",
+            blackVariant1: "#2B2C33",
+            blackVariant2: "#5C5D66",
+            blackVariant3: "#909199",
+            blackVariant4: "#C0C2CC",
             white200: "rgba(255, 255, 255, 0.3)",
             waz_primaryColor100: "#0A7227",
             waz_primaryColor200: "#014029",
@@ -195,6 +199,7 @@ export var theme = {
             waz_brown: "#A54227",
             waz_red: "#C23434",
             waz_peach: "#FAF8F7",
+            shadow100: "#00000014",
         },
         background: {
             waz_primaryWhite: "#FFFFFF",

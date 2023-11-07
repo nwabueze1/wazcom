@@ -13,14 +13,18 @@ import { CurrencyInputView } from "../view/CurrencyInput";
 import { SelectInputView } from "../view/SelectInput";
 import { TableView } from "../view/Table";
 import { CardView } from "../view/Card";
-import { CheckBoxInputView } from "view/CheckBoxInput";
-import { RadioButtonView } from "view/RadioButtonInput";
-import { ToggleInputView } from "view/ToggleInput";
-import { PhoneNumberInputView } from "view/PhoneNumberInput";
-import { StepsView } from "view/Steps";
-import { AccordionView } from "view/Accordion";
-import { ProgressView } from "view/Progress";
-import { PickersView } from "view/Pickers";
+import { CheckBoxInputView } from "../view/CheckBoxInput";
+import { RadioButtonView } from "../view/RadioButtonInput";
+import { ToggleInputView } from "../view/ToggleInput";
+import { StepsView } from "../view/Steps";
+import { AccordionView } from "../view/Accordion";
+import { ProgressView } from "../view/Progress";
+import { PickersView } from "../view/Pickers";
+import { PhoneNumberInputView } from "../view/PhoneNumberInput";
+import { FileUpload } from "../view/FileUpload";
+import { Rating } from "../view/Rating";
+import { PluginFormView } from "../view/PluginForm/PluginFormView";
+import { WysiwygInputView } from "../view/WysiwygInput/WysiwygInputView";
 
 export default [
   {
@@ -90,6 +94,12 @@ export default [
     component: URLInputView,
   },
   {
+    key: "WysiwygInputView",
+    path: "/wysiwyg-input",
+    exact: true,
+    component: WysiwygInputView,
+  },
+  {
     key: "StepsView",
     path: "/steps",
     exact: true,
@@ -100,6 +110,12 @@ export default [
     path: "/password-input",
     exact: true,
     component: PasswordInputView,
+  },
+  {
+    key: "Rating And Ranking",
+    path: "/rating-ranking",
+    exact: true,
+    component: Rating,
   },
   {
     key: "CurrencyInputView",
@@ -166,5 +182,17 @@ export default [
     path: "/table",
     exact: true,
     component: TableView,
+  },
+  {
+    key: "FileUpload",
+    path: "/file-upload",
+    exact: true,
+    component: FileUpload,
+  },
+  {
+    key: "PluginForm",
+    path: "/plugin-form",
+    exact: true,
+    component: PluginFormView,
   },
 ];

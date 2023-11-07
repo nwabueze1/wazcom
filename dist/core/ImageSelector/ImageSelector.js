@@ -29,7 +29,7 @@ import { jsx as _jsx, Fragment as _Fragment, jsxs as _jsxs } from "react/jsx-run
 import { useCallback, useRef, useState } from "react";
 import { useImageSelectorStyles } from "./styles";
 import clx from "classnames";
-import CameraAltIcon from "@mui/icons-material/CameraAlt";
+import { MdCameraAlt as CameraAltIcon } from "react-icons/md";
 import { getSizeVariants } from "../../helpers/size";
 export var ImageSelector = function (_a) {
     var variant = _a.variant, src = _a.src, className = _a.className, _b = _a.size, size = _b === void 0 ? "md" : _b, _c = _a.maxImageSize, maxImageSize = _c === void 0 ? 2000000 : _c, _d = _a.formats, formats = _d === void 0 ? ["jpg", "jpeg", "png"] : _d, onSelect = _a.onSelect;

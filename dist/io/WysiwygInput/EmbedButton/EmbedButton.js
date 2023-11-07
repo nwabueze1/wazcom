@@ -32,7 +32,7 @@ import clx from "classnames";
 import VideoIcon from "./VideoIcon";
 import PictureIcon from "./PictureIcon";
 import { EmbedOption } from "../EmbedOption";
-import { AiOutlineLink } from "react-icons/ai";
+import { TbSocial } from "react-icons/tb";
 import { ClickAwayListener } from "@mui/base";
 export var EmbedButton = function (_a) {
     var initiateEmbed = _a.initiateEmbed;
@@ -46,5 +46,5 @@ export var EmbedButton = function (_a) {
     };
     return (_jsx(ClickAwayListener, __assign({ onClickAway: function () {
             setOpen(false);
-        } }, { children: _jsxs("div", __assign({ className: classes.root }, { children: [_jsx("button", __assign({ className: classes.insertButton, onClick: handleInsertOptions }, { children: "+" })), _jsxs("div", __assign({ className: clx(classes.selectOption, open ? classes.showOptions : classes.hideOptions) }, { children: [_jsx("span", __assign({ className: classes.optionTitleSpan }, { children: "EMBEDS" })), _jsxs("div", __assign({ className: classes.options }, { children: [_jsx(EmbedOption, { icon: _jsx(PictureIcon, {}), title: "Picture", description: "jpeg, png", handleClick: function () { return handleClick("image"); } }), _jsx(EmbedOption, { icon: _jsx(VideoIcon, {}), title: "Video", description: "Embed a Youtube video", handleClick: function () { return handleClick("video"); } }), _jsx(EmbedOption, { icon: _jsx(AiOutlineLink, { className: classes.linkIcon }), title: "Link", description: "Embed a Link", handleClick: function () { return handleClick("link"); } })] }))] }))] })) })));
+        } }, { children: _jsxs("div", __assign({ className: classes.root }, { children: [_jsx("button", __assign({ className: classes.insertButton, onClick: handleInsertOptions }, { children: "+" })), _jsxs("div", __assign({ className: clx(classes.selectOption, open ? classes.showOptions : classes.hideOptions) }, { children: [_jsx("span", __assign({ className: classes.optionTitleSpan }, { children: "EMBEDS" })), _jsxs("div", __assign({ className: classes.options }, { children: [_jsx(EmbedOption, { icon: _jsx(PictureIcon, {}), title: "Picture", description: "jpeg, png", handleClick: function () { return handleClick("image"); } }), _jsx(EmbedOption, { icon: _jsx(VideoIcon, {}), title: "Video", description: "JW player, Youtube, Vimeo", handleClick: function () { return handleClick("video"); } }), _jsx(EmbedOption, { icon: _jsx(TbSocial, { className: classes.linkIcon }), title: "Social", description: "Instagram, Twitter, Tiktok, Snapchat, Facebook", handleClick: function () { return handleClick("link"); } })] }))] }))] })) })));
 };

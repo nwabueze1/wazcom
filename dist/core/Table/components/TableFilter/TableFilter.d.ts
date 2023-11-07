@@ -1,2 +1,2 @@
 import { TableFilterProps } from "./types";
-export declare const TableFilter: ({ showFilter, setShowFilter, fields, values: tableValues, filters, setFilters, }: TableFilterProps) => JSX.Element;
+export declare const TableFilter: ({ showFilter, setShowFilter, fields, values: tableValues, filters, setFilters, }: TableFilterProps) => import("react/jsx-runtime").JSX.Element;

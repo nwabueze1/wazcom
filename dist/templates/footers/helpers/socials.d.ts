@@ -8,4 +8,4 @@ export declare const displaySocials: (mode: "view" | "edit", socialIcons: {
 }, socials: {
     type: SocialType;
     url: string;
-}[], classes: any, activeElement: string, handleClick: (element: string) => void) => JSX.Element[];
+}[], classes: any, activeElement: string, handleClick: (element: string) => void) => import("react/jsx-runtime").JSX.Element[];

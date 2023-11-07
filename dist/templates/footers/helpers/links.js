@@ -16,7 +16,7 @@ import { BsTwitter } from "react-icons/bs";
 import { FaInstagram } from "react-icons/fa";
 import { RiLinkedinFill, RiYoutubeFill } from "react-icons/ri";
 import clx from "classnames";
-import { Link } from "../../mbmc/components";
+import { Link } from "../../../core/Link/Link";
 export var displaySections = function (mode, classes, sections, activeElement, handleClick, parentKey) {
     return sections.map(function (_a, index) {
         var name = _a.name, links = _a.links;

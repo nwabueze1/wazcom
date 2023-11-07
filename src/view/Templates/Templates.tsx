@@ -1,41 +1,16 @@
-import WidgetsRoundedIcon from "@mui/icons-material/WidgetsRounded";
 import AppBar from "@mui/material/AppBar";
 import Box from "@mui/material/Box";
 import CssBaseline from "@mui/material/CssBaseline";
 import Drawer from "@mui/material/Drawer";
-import List from "@mui/material/List";
 import Toolbar from "@mui/material/Toolbar";
-import { startCase } from "lodash";
 import { FC, useState } from "react";
-import { useGetMbmcBlocks } from "../../templates/mbmc/mbmc";
 import { TextInput } from "../../io";
-import { SidebarListItem } from "./SidebarListItem/SidebarListItem";
 import { drawerWidth, useTemplateStyles } from "./styles";
 import { BrowserProps } from "./types";
 
 export const Templates: FC<BrowserProps> = () => {
   const classes = useTemplateStyles();
   const [search, setSearch] = useState("");
-  const getMbmcBlocks = useGetMbmcBlocks();
-
-  const sections = [
-    {
-      label: "Mrbakermrscook",
-      components: getMbmcBlocks()
-        .sort(({ name: aName }, { name: bName }) =>
-          aName.split("-")[-1] < bName.split("-")[-1]
-            ? -1
-            : aName.split("-")[-1] > bName.split("-")[-1]
-            ? 1
-            : 0,
-        )
-        .map(({ name }) => ({
-          id: name.toLowerCase(),
-          label: startCase(name),
-          route: `/templates/22/${name.split("").join("")}`,
-        })),
-    },
-  ];
 
   return (
     <Box sx={{ display: "flex" }}>
@@ -49,7 +24,6 @@ export const Templates: FC<BrowserProps> = () => {
             name="search"
             color="secondary"
             placeholder="Search..."
-            // variant="outlined"
             onChange={({ value }: { name: string; value: any }) => {
               setSearch(value);
             }}
@@ -72,13 +46,9 @@ export const Templates: FC<BrowserProps> = () => {
       >
         <Toolbar>
           <div className={classes.logo}>
-            <WidgetsRoundedIcon className={classes.sidebarIcon} />
             <span>WAZCOM</span>
           </div>
         </Toolbar>
-        <List>
-          <SidebarListItem title="Templates" sections={sections} />
-        </List>
       </Drawer>
     </Box>
   );

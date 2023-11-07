@@ -5,7 +5,7 @@ import clx from "classnames";
 import VideoIcon from "./VideoIcon";
 import PictureIcon from "./PictureIcon";
 import { EmbedOption } from "../EmbedOption";
-import { AiOutlineLink } from "react-icons/ai";
+import { TbSocial } from "react-icons/tb";
 import { ClickAwayListener } from "@mui/base";
 
 export const EmbedButton: React.FC<EmbedButtonProps> = ({ initiateEmbed }) => {
@@ -45,13 +45,13 @@ export const EmbedButton: React.FC<EmbedButtonProps> = ({ initiateEmbed }) => {
             <EmbedOption
               icon={<VideoIcon />}
               title={"Video"}
-              description={"Embed a Youtube video"}
+              description={"JW player, Youtube, Vimeo"}
               handleClick={() => handleClick("video")}
             />
             <EmbedOption
-              icon={<AiOutlineLink className={classes.linkIcon} />}
-              title={"Link"}
-              description={"Embed a Link"}
+              icon={<TbSocial className={classes.linkIcon} />}
+              title={"Social"}
+              description={"Instagram, Twitter, Tiktok, Snapchat, Facebook"}
               handleClick={() => handleClick("link")}
             />
           </div>

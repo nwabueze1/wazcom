@@ -73,4 +73,13 @@ export var useTablePaginationStyles = makeStyles(function (theme) { return ({
         background: theme.design.colors.waz_primaryColor100,
         color: theme.design.colors.waz_white,
     },
+    elipsisContainer: {
+        display: "flex",
+    },
+    elipsis: {
+        width: 19,
+        height: 20,
+        display: "flex",
+        alignItems: "center",
+    },
 }); });

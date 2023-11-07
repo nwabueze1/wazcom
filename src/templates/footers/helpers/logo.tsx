@@ -1,6 +1,6 @@
 import { FC } from "react";
 import { AiOutlinePicture } from "react-icons/ai";
-import { Link } from "../../mbmc/components";
+import { Link } from "../../../core/Link/Link";
 import { clickAction, isNotRenderAnchor } from "./anchor";
 
 export const displayLogo = (

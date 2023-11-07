@@ -50,7 +50,7 @@ export var useAccordionStyles = makeStyles(function (theme) {
             justifyContent: "space-between",
             padding: theme.spacing(0, 2),
             userSelect: "none",
-            width: "100%",
+            width: "auto",
             "&:hover": {
                 background: theme.design.colors.waz_white100,
             },

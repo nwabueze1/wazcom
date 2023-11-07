@@ -20,6 +20,7 @@ export var formats = [
     "bullet",
     "indent",
     "link",
+    "strike",
     "image",
     "video",
 ];

@@ -23,13 +23,14 @@ export type TextBaseProps = CommonProps & {
     isError?: boolean;
     isSuccess?: boolean;
     isValidated?: boolean;
+    hasSlideUpLabel?: boolean;
     errors?: {
         message: string;
     }[];
     rows?: string | number;
     value?: any;
-    leftIcon?: React.ReactElement;
-    rightIcon?: React.ReactElement;
+    leftIcon?: React.ReactNode;
+    rightIcon?: React.ReactNode;
     iconSpacing?: string | number;
     children?: React.ReactNode;
     width?: string | number;
@@ -40,6 +41,8 @@ export type TextBaseProps = CommonProps & {
     borderStyle?: string;
     borderColor?: string;
     borderRadius?: string | number;
+    inputRef?: React.MutableRefObject<HTMLInputElement | null>;
+    noNegativeValue?: boolean;
     onFocus?: (...args: any[]) => void;
     onEnter?: (...args: any[]) => void;
     onBlur?: (...args: any[]) => void;
@@ -50,7 +53,7 @@ export type EmailInputProps = Omit<BaseInputProps, "onChange" | "onFocus" | "onE
 export type NumberInputProps = Omit<BaseInputProps, "onChange" | "onFocus" | "onEnter"> & TextBaseProps;
 export type InputIconProps = {
     className?: Record<string, unknown>;
-    children?: React.ReactNode | React.ReactElement | string;
+    children?: React.ReactElement | React.ReactNode | string;
     iconSpacing?: string | number;
     marginLeft?: string | number;
     marginRight?: string | number;

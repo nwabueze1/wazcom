@@ -20,7 +20,7 @@ export default defineConfig({
       { find: "fonts", replacement: resolve(__dirname, "src/fonts") },
       { find: "gql", replacement: resolve(__dirname, "src/gql") },
       { find: "helpers", replacement: resolve(__dirname, "src/helpers") },
-      { find: "io", replacement: resolve(__dirname, "src/io") },
+      { find: "formik_io", replacement: resolve(__dirname, "src/formik_io") },
       { find: "stories", replacement: resolve(__dirname, "src/stories") },
       { find: "templates", replacement: resolve(__dirname, "src/templates") },
       { find: "utilities", replacement: resolve(__dirname, "src/utilities") },

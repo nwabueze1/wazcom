@@ -1,36 +1,21 @@
 import { FC } from "react";
-import clx from "classnames";
 import PhoneNumber from "react-phone-input-2";
 import "react-phone-input-2/lib/style.css";
 import { usePhoneNumberInputStyles } from "./styles";
 import { PhoneNumberInputProps } from "./types";
+import clx from "classnames";
 
-export const PhoneNumberInput: FC<PhoneNumberInputProps> = ({
-  label,
-  name,
-  onChange,
-  country = "gb",
-}) => {
+export const PhoneNumberInput: FC<PhoneNumberInputProps> = ({ classNames, ...props }) => {
   const classes = usePhoneNumberInputStyles();
 
-  const handleChange = (
-    _value: string,
-    _format: any,
-    _event: React.ChangeEvent<HTMLInputElement>,
-    formattedValue: string,
-  ) => {
-    onChange?.({ name, value: formattedValue });
-  };
-
   return (
-    <div className={classes.root}>
-      {label && <label className={clx(classes.labelStyle)}>{label}</label>}
+    <div className={clx(classes.root, classNames?.root)}>
       <PhoneNumber
-        inputClass="phone__input"
-        containerClass="phone__container"
-        country={country}
-        prefix="+"
-        onChange={handleChange}
+        inputClass={`${classes.textInput} ${classNames?.input}`}
+        dropdownClass={`${classes.dropDown} ${classNames?.dropdown}`}
+        containerClass={`${classes.root} ${classNames?.container}`}
+        buttonClass={classNames?.button}
+        {...props}
       />
     </div>
   );

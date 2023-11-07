@@ -23,7 +23,7 @@ export const useTextStyles = makeStyles((theme: Theme) => ({
   baseInput: (props: TextBaseProps) => ({
     display: "flex",
     padding: theme.spacing(1.2, 1.4),
-    height: props.height ?? 34,
+    height: props.height ?? "auto",
     width: props.width ?? "100%",
     background: props.background ?? theme.design.colors.white100,
     color: props.color ?? theme.design.colors.waz_primaryBlack,
@@ -127,12 +127,14 @@ export const useTextStyles = makeStyles((theme: Theme) => ({
     width: "100%",
   },
   helperTextDefault: {
-    display: "flex",
+    display: "inline-flex",
     width: "100%",
     letterSpacing: 0,
     fontSize: theme.typography.fontSize - 1,
     textAlign: "left",
     marginTop: theme.spacing(0.8),
+    flexWrap: "wrap",
+    columnGap: theme.spacing(1.3),
   },
   helperTextSuccess: {
     color: theme.design.colors.waz_primaryColor100,
