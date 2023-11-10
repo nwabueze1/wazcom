@@ -32,9 +32,7 @@ export var useEditorStyles = makeStyles(function (theme) { return ({
     quillEditor: {
         "& img": {
             position: "relative",
-            left: "20%",
-            width: "60%",
-            height: 400,
+            width: "100%",
             objectFit: "cover",
         },
         "& .ql-snow .ql-tooltip": {
@@ -56,11 +54,6 @@ export var useEditorStyles = makeStyles(function (theme) { return ({
                 lineHeight: 1.7,
                 fontSize: "15px",
             },
-            "& img": {
-                left: "unset",
-                height: "unset",
-                width: "100%"
-            }
         },
     },
 }); });
