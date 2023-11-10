@@ -41,7 +41,7 @@ import clx from "classnames";
 import { useAlertStyles } from "./styles";
 import { Button } from "../../core";
 import { AiOutlineCheckCircle } from "react-icons/ai";
-import { generateUniqueId } from "helpers";
+import { generateUniqueId } from "../../helpers";
 import { createPortal } from "react-dom";
 import { RiErrorWarningLine } from "react-icons/ri";
 import { FaRegTimesCircle } from "react-icons/fa";
