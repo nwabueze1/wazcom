@@ -56,6 +56,11 @@ export var useEditorStyles = makeStyles(function (theme) { return ({
                 lineHeight: 1.7,
                 fontSize: "15px",
             },
+            "& img": {
+                left: "unset",
+                height: "unset",
+                width: "100%"
+            }
         },
     },
 }); });

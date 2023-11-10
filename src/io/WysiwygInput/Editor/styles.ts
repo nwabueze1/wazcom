@@ -60,6 +60,11 @@ export const useEditorStyles = makeStyles((theme: Theme) => ({
         lineHeight: 1.7,
         fontSize: "15px",
       },
+      "& img": {
+        left: "unset",
+        height: "unset",
+        width: "100%"
+      }
     },
   },
 }));
