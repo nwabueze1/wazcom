@@ -37,14 +37,21 @@ export const EditorToolbar: FC<EmbedButtonProps> = ({ initiateEmbed }) => {
             );
 
             if (linkTooltip[0]) {
-              const editorScroll = document.getElementsByClassName("ql-editor")[0].scrollTop;
+              const editor = document.getElementsByClassName("ql-editor")[0];
+              const editorScroll = editor.scrollTop;
+
               if (editorScroll > 0) {
                 linkTooltip[0].style.top = `calc(${linkTooltip[0].style.top} - ${editorScroll}px + 80px)`;
               }
+              const maxLeft = editor.clientWidth - linkTooltip[0].clientWidth - 20;
 
-              if (Number(linkTooltip[0].style.left.split("px")[0]) < 0) {
-                linkTooltip[0].style.left = "0px";
-              }
+              let left = Number(linkTooltip[0].style.left.split("px")[0]);
+
+              left = Math.max(20, left);
+
+              left = Math.min(maxLeft, left);
+
+              linkTooltip[0].style.left = `${left}px`;
             }
           }}
         />
