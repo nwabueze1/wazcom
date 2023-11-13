@@ -17,4 +17,5 @@ export type TableActionsProps = {
   }) => void;
   conditionFilters?: TableConditionFilter[];
   columns: TableColumn[];
+  showSort?: boolean;
 };
