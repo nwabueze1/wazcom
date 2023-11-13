@@ -27,7 +27,27 @@ export const EditorToolbar: FC<EmbedButtonProps> = ({ initiateEmbed }) => {
         <button className="ql-italic" />
         <button className="ql-underline" />
         <button className={"ql-strike"} />
-        <button className={"ql-link"} />
+        <button
+          className={"ql-link"}
+          onClick={() => {
+            const linkTooltip = Array.from(
+              document.getElementsByClassName(
+                "ql-tooltip ql-editing",
+              ) as HTMLCollectionOf<HTMLElement>,
+            );
+
+            if (linkTooltip[0]) {
+              const editorScroll = document.getElementsByClassName("ql-editor")[0].scrollTop;
+              if (editorScroll > 0) {
+                linkTooltip[0].style.top = `calc(${linkTooltip[0].style.top} - ${editorScroll}px + 80px)`;
+              }
+
+              if (Number(linkTooltip[0].style.left.split("px")[0]) < 0) {
+                linkTooltip[0].style.left = "0px";
+              }
+            }
+          }}
+        />
       </span>
 
       <span className={clx("ql-formats", classes.toolbarItem)}>
