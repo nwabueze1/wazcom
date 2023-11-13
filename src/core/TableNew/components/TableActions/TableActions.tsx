@@ -13,6 +13,7 @@ export const TableActions: FC<TableActionsProps> = ({
   setCurrentActions,
   conditionFilters,
   columns,
+  showSort,
 }) => {
   const classes = useTableActionStyles();
   const updateSearchValue = useRef(
@@ -46,7 +47,7 @@ export const TableActions: FC<TableActionsProps> = ({
         onChange={handleSearchChange}
         placeholder={"Search table"}
       />
-      <SortSelector columns={columns} handleSelectSort={handleSortChange} />
+      {showSort && <SortSelector columns={columns} handleSelectSort={handleSortChange} />}
       {conditionFilters && (
         <SelectInput
           className={classes.selectInputElement}
