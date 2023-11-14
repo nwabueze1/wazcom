@@ -20,7 +20,7 @@ export const useRadioButtonProps = () => {
     {
       name: "value",
       description:
-        "The value of the radio input defaults to false. This component accepts both a boolean value of a string value",
+        "The value of the radio input. This component accepts both a boolean value and a string value",
       default: "undefined",
       control: {
         type: "checkbox",
@@ -31,7 +31,7 @@ export const useRadioButtonProps = () => {
     {
       name: "label",
       description: "The label of the radio input",
-      default: "null",
+      default: "undefined",
       control: {
         type: "text",
         name: "label",
@@ -41,7 +41,7 @@ export const useRadioButtonProps = () => {
     {
       name: "isBooleanValue",
       description:
-        "This prop is used to specify if radio input should return accept and return only boolean value.",
+        "This prop is used to specify if radio input should  accept and return only boolean value.",
       default: "true",
     },
     {
