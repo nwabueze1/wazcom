@@ -131,7 +131,7 @@ export const TextAreaView: FC<TextAreaViewProps> = () => {
             </p>
           </div>
         </div>
-        {<ViewHeader configChildren={renderConfig()} statesChildren={renderStates()} />}
+        <ViewHeader configChildren={renderConfig()} statesChildren={renderStates()} />
       </div>
     </div>
   );
