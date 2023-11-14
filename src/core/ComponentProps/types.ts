@@ -5,6 +5,7 @@ export type PropsControlType = {
   name: string;
   type: "text" | "email" | "number" | "password" | "checkbox" | "number" | "tel";
   onChange: (e: { name: string; value: string | boolean | number }) => void;
+  placeholder?: string;
 };
 
 export type ComponentPropsType = {
