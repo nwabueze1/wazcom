@@ -14,14 +14,7 @@ export const CheckBoxInputView = () => {
   const renderConfig = () => (
     <>
       <Paper>
-        <CheckBoxInput
-          name="checkbox"
-          value={state.value}
-          onChange={state?.onChange}
-          onBlur={state?.onBlur}
-          onFocus={state?.onFocus}
-          label={state.label}
-        />
+        <CheckBoxInput {...state} />
       </Paper>
       <ComponentProps body={data as ComponentPropsType[]} onReset={onReset} />
     </>

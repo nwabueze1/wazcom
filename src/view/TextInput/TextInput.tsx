@@ -85,27 +85,28 @@ export const TextInputView: FC<TextInputViewProps> = () => {
       <TextInput className={classes.input} key={index} {...validationConfig} errors={[]} />
     ));
 
+  const renderDefaultState = () =>
+    inputData.default.map((item: InputDataProps, index) => (
+      <TextInput
+        key={item.name}
+        id={`${item.label}-${index + Math.random()}`}
+        className={classes.input}
+        label={item.label}
+        placeholder={item.placeholder}
+        isError={item.isError}
+        isSuccess={item.isSuccess}
+        helperText={item.helperText}
+        onEnter={handleEnter}
+        onFocus={handleFocus}
+        onBlur={handleBlur}
+      />
+    ));
+
   const renderStates = () => (
     <>
       <Paper>
         <h4 className={classes.cardTitle}> Basic </h4>
-        <div className={classes.inputs}>
-          {inputData.default.map((item: InputDataProps, index) => (
-            <TextInput
-              key={item.name}
-              id={`${item.label}-${index + Math.random()}`}
-              className={classes.input}
-              label={item.label}
-              placeholder={item.placeholder}
-              isError={item.isError}
-              isSuccess={item.isSuccess}
-              helperText={item.helperText}
-              onEnter={handleEnter}
-              onFocus={handleFocus}
-              onBlur={handleBlur}
-            />
-          ))}
-        </div>
+        <div className={classes.inputs}>{renderDefaultState()}</div>
       </Paper>
       <Wrapper className={classes.wrapper}>
         <Paper>
@@ -127,7 +128,6 @@ export const TextInputView: FC<TextInputViewProps> = () => {
               entries."
         className={classes.wrapper}
       />
-
       <ViewHeader configChildren={renderConfig()} statesChildren={renderStates()} />
     </div>
   );
