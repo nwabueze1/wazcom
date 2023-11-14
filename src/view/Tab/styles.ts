@@ -11,4 +11,29 @@ export const useTabsStyles = makeStyles((theme: Theme) => ({
     height: "100vh",
     background: theme.design.colors.waz_white,
   },
+  selectorContainer: {
+    display: "flex",
+    gap: 32,
+    marginBottom: theme.spacing(2.5),
+  },
+  selector: {
+    fontSize: theme.typography.fontSize,
+    fontFamily: theme.typography.fontFamily,
+    color: theme.design.colors.black200,
+    fontWeight: theme.typography.fontWeightMedium,
+    position: "relative",
+    width: "max-content",
+    cursor: "pointer",
+    "&.active": {
+      "&::after": {
+        content: "''",
+        position: "absolute",
+        left: 0,
+        width: "100%",
+        height: 2,
+        bottom: -2,
+        background: theme.design.colors.black200,
+      },
+    },
+  },
 }));
