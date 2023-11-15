@@ -1,24 +1,41 @@
 import { useState } from "react";
 import { CheckBoxInput } from "../../io";
-import { Wrapper } from "../../core";
+import { ViewHeader, Wrapper } from "../../core";
 import { useCheckBoxInputStyles } from "./styles";
+import { Paper } from "../../core/Paper";
+import { useCheckboxInputProps } from "./data";
+import { ComponentProps } from "../../core/ComponentProps";
+import { ComponentPropsType } from "../../core/ComponentProps/types";
 
 export const CheckBoxInputView = () => {
-  const [value, setValue] = useState(false);
   const classes = useCheckBoxInputStyles();
+  const { data, state, onReset } = useCheckboxInputProps();
 
-  const handleChange = (payload: { name: string; value: boolean }) => {
-    setValue(payload?.value);
-  };
+  const renderConfig = () => (
+    <>
+      <Paper>
+        <CheckBoxInput {...state} />
+      </Paper>
+      <ComponentProps body={data as ComponentPropsType[]} onReset={onReset} />
+    </>
+  );
+
+  const renderValues = () => (
+    <Paper>
+      <div className={classes.row}>
+        <CheckBoxInput value={true} label={"Checked"} />
+        <CheckBoxInput value={false} label={"Unchecked"} />
+      </div>
+    </Paper>
+  );
 
   return (
     <div className={classes.root}>
       <Wrapper
         title="CheckBox Input"
-        description="The currency input is used to collect currency types and amount from users"
-      >
-        <CheckBoxInput label="Label" onChange={handleChange} name="checkbox" checked={value} />
-      </Wrapper>
+        description="The checkbox is used to collect predefined value or set of values from the provided set."
+      ></Wrapper>
+      <ViewHeader configChildren={renderConfig()} statesChildren={renderValues()} />
     </div>
   );
 };

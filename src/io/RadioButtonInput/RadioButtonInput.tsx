@@ -54,6 +54,7 @@ export const RadioButtonInput: FC<RadioButtonInputProps> = ({
             className={clx(
               "custom__radio",
               classes.customRadio,
+              isDisabled && "disabled",
               classNames?.radioButtonInput ? (classNames.radioButtonInput as string) : "",
             )}
           />

@@ -27,6 +27,9 @@ export const useRadioButtonInputStyles = makeStyles((theme: BaseTheme) => ({
     "& input:checked ~ .custom__radio": {
       backgroundColor: theme.design.colors.waz_primary100,
       outline: `1px solid ${theme.design.colors.waz_primary100}`,
+      "&.disabled": {
+        opacity: 0.1,
+      },
     },
   },
   labelStyle: {
@@ -66,7 +69,9 @@ export const useRadioButtonInputStyles = makeStyles((theme: BaseTheme) => ({
     outline: `1px solid ${theme.design.colors.grey700}`,
     outlineOffset: "3px",
     opacity: 0.6,
-
+    "&.disabled": {
+      opacity: 0.1,
+    },
     "&:hover": {
       borderColor: theme.design.colors.primary500,
     },
