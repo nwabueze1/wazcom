@@ -13,7 +13,7 @@ export const useTabsStyles = makeStyles((theme: Theme) => ({
   },
   selectorContainer: {
     display: "flex",
-    gap: 32,
+    gap: theme.spacing(4),
     marginBottom: theme.spacing(2.5),
   },
   selector: {
