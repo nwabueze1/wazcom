@@ -3,8 +3,8 @@ import { Theme } from "@mui/material";
 
 export const useViewHeaderStyles = makeStyles((theme: Theme) => ({
   root: {
-    marginTop: 32,
-    marginBottom: 13,
+    marginTop: theme.spacing(4),
+    marginBottom: theme.spacing(1.4),
   },
   separator: {
     width: "100%",
