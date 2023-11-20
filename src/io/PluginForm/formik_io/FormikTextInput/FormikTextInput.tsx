@@ -37,7 +37,7 @@ export const FormikTextInput: FC<FormikTextInputPropsType & { is_address?: boole
       onBlur={() => formikProps?.setFieldTouched(name, true)}
       isError={isError}
       helperText={errorMessage ? (errorMessage as string) : undefined}
-      placeholder={`${placeholder} ${isRequired && "*"}`}
+      placeholder={`${placeholder} ${isRequired ? "*":""}`}
       value={formikProps?.values?.[name]}
       className={className}
       classNames={{

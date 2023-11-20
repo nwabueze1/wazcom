@@ -21,11 +21,11 @@ export var FormikPhoneNumber = function (_a) {
     var handleChange = function (value) {
         formikProps === null || formikProps === void 0 ? void 0 : formikProps.setFieldValue(name, value);
     };
-    return (_jsxs("div", __assign({ className: classNames === null || classNames === void 0 ? void 0 : classNames.root }, { children: [_jsx("label", __assign({ className: clx(classes.legend, classNames === null || classNames === void 0 ? void 0 : classNames.label) }, { children: name })), _jsx(PhoneNumberInput, { country: default_country.toLowerCase(), onChange: handleChange, onBlur: function () { return formikProps === null || formikProps === void 0 ? void 0 : formikProps.setFieldTouched(name, true); }, classNames: {
+    return (_jsxs("div", __assign({ className: classNames === null || classNames === void 0 ? void 0 : classNames.root }, { children: [_jsx(PhoneNumberInput, { country: default_country.toLowerCase(), onChange: handleChange, onBlur: function () { return formikProps === null || formikProps === void 0 ? void 0 : formikProps.setFieldTouched(name, true); }, classNames: {
                     container: clx(classes.phoneContainerClass, classNames === null || classNames === void 0 ? void 0 : classNames.phoneNumberInputContainer, isInvalid && "error"),
                     dropdown: classNames === null || classNames === void 0 ? void 0 : classNames.dropdownClass,
                     input: clx(classes.phoneInput, classNames === null || classNames === void 0 ? void 0 : classNames.phoneNumberInput),
                     root: classNames === null || classNames === void 0 ? void 0 : classNames.phoneNumberInputRoot,
                     button: classNames === null || classNames === void 0 ? void 0 : classNames.buttonClass,
-                }, value: (_d = formikProps === null || formikProps === void 0 ? void 0 : formikProps.values) === null || _d === void 0 ? void 0 : _d[name] }), isInvalid && (_jsx("span", __assign({ className: classes.errorMessage }, { children: (_e = formikProps === null || formikProps === void 0 ? void 0 : formikProps.errors) === null || _e === void 0 ? void 0 : _e[name] })))] })));
+                }, value: (_d = formikProps === null || formikProps === void 0 ? void 0 : formikProps.values) === null || _d === void 0 ? void 0 : _d[name], placeholder: name }), isInvalid && (_jsx("span", __assign({ className: classes.errorMessage }, { children: (_e = formikProps === null || formikProps === void 0 ? void 0 : formikProps.errors) === null || _e === void 0 ? void 0 : _e[name] })))] })));
 };
