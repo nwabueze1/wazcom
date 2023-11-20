@@ -22,8 +22,6 @@ export const FormikPhoneNumber: FC<
 
   return (
     <div className={classNames?.root}>
-      <label className={clx(classes.legend, classNames?.label)}>{name}</label>
-
       <PhoneNumberInput
         country={default_country.toLowerCase()}
         onChange={handleChange}
@@ -40,6 +38,7 @@ export const FormikPhoneNumber: FC<
           button: classNames?.buttonClass,
         }}
         value={formikProps?.values?.[name]}
+        placeholder={name}
       />
       {isInvalid && (
         <span className={classes.errorMessage}>{formikProps?.errors?.[name] as string}</span>

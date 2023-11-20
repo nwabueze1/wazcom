@@ -23,6 +23,9 @@ export var useRadioButtonInputStyles = makeStyles(function (theme) { return ({
         "& input:checked ~ .custom__radio": {
             backgroundColor: theme.design.colors.waz_primary100,
             outline: "1px solid ".concat(theme.design.colors.waz_primary100),
+            "&.disabled": {
+                opacity: 0.1,
+            },
         },
     },
     labelStyle: {
@@ -62,6 +65,9 @@ export var useRadioButtonInputStyles = makeStyles(function (theme) { return ({
         outline: "1px solid ".concat(theme.design.colors.grey700),
         outlineOffset: "3px",
         opacity: 0.6,
+        "&.disabled": {
+            opacity: 0.1,
+        },
         "&:hover": {
             borderColor: theme.design.colors.primary500,
         },
