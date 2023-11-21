@@ -17,7 +17,7 @@ export const FormikTextArea: FC<Omit<FormikTextInputPropsType, "type">> = ({
     <TextArea
       rows={Number(rows)}
       className={className}
-      placeholder={`${name} ${isRequired && "*"}`}
+      placeholder={`${name} ${isRequired ? "*" : ""}`}
       value={formikProps?.values?.[name]}
       onChange={({ value }) => formikProps?.setFieldValue(name, value)}
       onBlur={() => formikProps?.setFieldTouched(name, true)}

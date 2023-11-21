@@ -124,6 +124,12 @@ export default [
     component: CurrencyInputView,
   },
   {
+    key: "PhoneInputView",
+    path: "/phone-input",
+    exact: true,
+    component: PhoneNumberInputView,
+  },
+  {
     key: "CheckBoxInputView",
     path: "/checkbox-input",
     exact: true,

@@ -3,53 +3,64 @@ import { SelectInput } from "../../io";
 
 import { useSelectInputStyles } from "./styles";
 import { SelectInputViewProps } from "./types";
+import { useSelectInputData } from "./data";
+import { ViewHeader, Wrapper } from "../../core";
+import { Paper } from "../../core/Paper";
+import { ComponentProps } from "../../core/ComponentProps";
 
 export const SelectInputView: FC<SelectInputViewProps> = () => {
-  const [value, setValue] = useState(0);
-  const handleValueChange = useCallback((val: any) => {
-    // eslint-disable-next-line
-    setValue(val);
-  }, []);
-
+  const { data, state, onReset } = useSelectInputData();
   const classes = useSelectInputStyles();
+  const selectOptions = [
+    { label: "Label", value: "Value" },
+    { label: "Label 2", value: "Value 2" },
+  ];
 
-  const inputData: any = [
+  const selectInputStates = [
     {
       label: "Default",
-      options: [
-        { label: "Label", value: "Value" },
-        { label: "Label 2", value: "Value 2" },
-      ],
+      options: selectOptions,
+    },
+    {
+      label: "Success",
+      options: selectOptions,
+      isSuccess: true,
+    },
+    {
+      label: "Error",
+      options: selectOptions,
+      isError: true,
     },
   ];
 
+  const renderConfigurations = () => (
+    <>
+      <Paper>
+        <SelectInput {...state} />
+      </Paper>
+      <ComponentProps body={data} onReset={onReset} />
+    </>
+  );
+
+  const renderStates = () => (
+    <Paper>
+      <div className={classes.selectInputContainer}>
+        {selectInputStates.map((state, index) => (
+          <SelectInput {...state} key={index} />
+        ))}
+      </div>
+    </Paper>
+  );
+
   return (
     <div className={classes.root}>
-      <div className={classes.container}>
-        <div className={classes.header}>
-          <h1 className={classes.title}>Select Input</h1>
-          <div className={classes.description}>
-            <p className={classes.descriptionText}>
-              Select inputs enable users to to create drop-down menus so that users can select the
-              value they want. The select input element is most often used in a form, to collect
-              user input.
-            </p>
-          </div>
-        </div>
-        <div className={classes.inputContainer}>
-          <div className={classes.inputs}>
-            {inputData.map((item: any, index: any) => (
-              <SelectInput
-                key={index}
-                label={item.label}
-                options={item.options}
-                value={value}
-                onChange={handleValueChange}
-              />
-            ))}
-          </div>
-        </div>
-      </div>
+      <Wrapper
+        title={"Select Input"}
+        description={`
+      Select inputs enable users to to create drop-down menus so that users can select the value they want. The select input element is most often used in a form, to collect user input.
+      `}
+      />
+      <ViewHeader configChildren={renderConfigurations()} statesChildren={renderStates()} />
     </div>
   );
 };

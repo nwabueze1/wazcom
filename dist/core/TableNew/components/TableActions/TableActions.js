@@ -18,7 +18,7 @@ import { ColumnSelector } from "../ColumnSelector";
 import { SortSelector } from "../SortSelector";
 import { debounce } from "lodash";
 export var TableActions = function (_a) {
-    var currentActions = _a.currentActions, setCurrentActions = _a.setCurrentActions, conditionFilters = _a.conditionFilters, columns = _a.columns;
+    var currentActions = _a.currentActions, setCurrentActions = _a.setCurrentActions, conditionFilters = _a.conditionFilters, columns = _a.columns, showSort = _a.showSort;
     var classes = useTableActionStyles();
     var updateSearchValue = useRef(debounce(function (search) { return setCurrentActions(__assign(__assign({}, currentActions), { search: search })); }, 500));
     var handleConditionChange = function (_a) {
@@ -36,7 +36,7 @@ export var TableActions = function (_a) {
     var handleSortChange = function (order, columnKey) {
         setCurrentActions(__assign(__assign({}, currentActions), { sort: [{ order: order, column: columnKey }] }));
     };
-    return (_jsxs("div", __assign({ className: classes.root }, { children: [_jsx(TextInput, { className: classes.searchInputElement, classNames: { input: classes.searchInput }, leftIcon: _jsx(BiSearch, {}), iconSpacing: 8, onChange: handleSearchChange, placeholder: "Search table" }), _jsx(SortSelector, { columns: columns, handleSelectSort: handleSortChange }), conditionFilters && (_jsx(SelectInput, { className: classes.selectInputElement, classNames: { container: classes.selectContainer, control: classes.selectControl }, options: conditionFilters.map(function (_a) {
+    return (_jsxs("div", __assign({ className: classes.root }, { children: [_jsx(TextInput, { className: classes.searchInputElement, classNames: { input: classes.searchInput }, leftIcon: _jsx(BiSearch, {}), iconSpacing: 8, onChange: handleSearchChange, placeholder: "Search table" }), showSort && _jsx(SortSelector, { columns: columns, handleSelectSort: handleSortChange }), conditionFilters && (_jsx(SelectInput, { className: classes.selectInputElement, classNames: { container: classes.selectContainer, control: classes.selectControl }, options: conditionFilters.map(function (_a) {
                     var name = _a.name;
                     return ({ label: name, value: name });
                 }), value: currentActions.conditionFilter.name, onChange: handleConditionChange })), _jsx(ColumnSelector, { columns: columns, columnFilters: currentActions.columnFilters, handleColumnChange: handleColumnsChange })] })));

@@ -15,6 +15,7 @@ export const PhoneNumberInput: FC<PhoneNumberInputProps> = ({ classNames, ...pro
         dropdownClass={`${classes.dropDown} ${classNames?.dropdown}`}
         containerClass={`${classes.root} ${classNames?.container}`}
         buttonClass={classNames?.button}
+        placeholder={props.placeholder}
         {...props}
       />
     </div>

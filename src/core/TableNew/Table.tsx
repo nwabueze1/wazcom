@@ -26,6 +26,7 @@ export const TableNew: FC<TableNewProps> = ({
   conditionFilters,
   showFilters,
   emptyState,
+  showSort = true,
 }) => {
   const [table, setTable] = useState<{
     data: any;
@@ -151,6 +152,7 @@ export const TableNew: FC<TableNewProps> = ({
         setCurrentActions={setActions}
         conditionFilters={conditionFilters}
         columns={columns}
+        showSort={showSort}
       />
       {showFilters && <TableFilters columns={columns} filters={filters} setFilters={setFilters} />}
       <table className={classes.root}>

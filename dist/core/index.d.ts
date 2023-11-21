@@ -29,6 +29,8 @@ export * from "./Progress";
 export * from "./Button";
 export * from "./Tab";
 export * from "./Spinner";
+export * from "./Alert";
 export * from "./MultiSelect";
 export * from "./Wrapper";
 export * from "./RegionSelector";
+export * from "./ViewHeader/ViewHeader";

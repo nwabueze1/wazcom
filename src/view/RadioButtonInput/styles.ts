@@ -20,4 +20,8 @@ export const useRadioButtonStyles = makeStyles((theme: Theme) => ({
       gap: theme.spacing(3),
     },
   },
+  radioContainer: {
+    display: "flex",
+    gap: theme.spacing(8),
+  },
 }));

@@ -9,6 +9,7 @@ export type TableNewProps = CommonProps & {
   query: TableQuery;
   showFilters?: boolean;
   emptyState?: { heading?: string; message?: string };
+  showSort?: boolean;
 };
 
 export type TableColumn = {
