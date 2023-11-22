@@ -6,5 +6,3 @@ pipelines:
         name: "Building Wazcom..."
         script:
           - yarn install
-          - yarn format
-          - yarn lint

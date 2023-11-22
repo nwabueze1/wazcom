@@ -13,9 +13,9 @@ export var useEditorStyles = makeStyles(function (theme) { return ({
         justifyContent: "flex-end",
         fontSize: theme.typography.fontSize * 0.83,
         background: theme.design.colors.waz_white,
-        border: "1px solid ".concat(theme.design.colors.primary700),
+        border: "1px solid ".concat(theme.design.colors.waz_primary700),
         padding: theme.spacing(0.75, 2, 0.75, 0),
-        height: theme.spacing(3.375),
+        height: theme.spacing(1.5),
         position: "absolute",
         bottom: 0,
         right: 0,
@@ -34,9 +34,6 @@ export var useEditorStyles = makeStyles(function (theme) { return ({
             position: "relative",
             width: "100%",
             objectFit: "cover",
-        },
-        "& .ql-snow .ql-tooltip": {
-            left: "0px !important",
         },
         "& .ql-container": {
             border: "0px solid ".concat(theme.design.colors.waz_primary700, " !important"),
