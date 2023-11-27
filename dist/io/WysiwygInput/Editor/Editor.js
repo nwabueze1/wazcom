@@ -30,6 +30,7 @@ import { useEffect, useRef, useState } from "react";
 import { modules, formats } from "../EditorToolbar";
 import "react-quill/dist/quill.snow.css";
 import { useEditorStyles } from "./styles";
+import { createImageSrcset, imageSizes } from "./helper";
 export var Editor = function (_a) {
     var content = _a.content, handleChange = _a.handleChange, embed = _a.embed;
     var quillRef = useRef(null);
@@ -53,6 +54,7 @@ export var Editor = function (_a) {
         var range = (_b = quillObj === null || quillObj === void 0 ? void 0 : quillObj.selection) === null || _b === void 0 ? void 0 : _b.savedRange;
         var editorParent = document.getElementById("editorParent");
         var scrollTop = editorParent === null || editorParent === void 0 ? void 0 : editorParent.scrollTop;
+        console.log(embed);
         var type = embed.type, value = embed.value;
         if (type === "link") {
             var _e = __read(value.split("||>>"), 2), text = _e[0], url = _e[1];
@@ -63,6 +65,10 @@ export var Editor = function (_a) {
             if (editorParent) {
                 editorParent.scrollTop = scrollTop;
             }
+        }
+        else if (type === "image") {
+            var imgTag = "<img src=\"".concat(value === null || value === void 0 ? void 0 : value.cropped, "\" srcset=\"").concat(createImageSrcset(value), "\" sizes=\"").concat(imageSizes, "\"/>");
+            quillObj.clipboard.dangerouslyPasteHTML(range.index, imgTag, "user");
         }
         else
             (_c = quillObj === null || quillObj === void 0 ? void 0 : quillObj.editor) === null || _c === void 0 ? void 0 : _c.insertEmbed(range.index, type, value);
