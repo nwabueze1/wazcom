@@ -3,6 +3,7 @@ import { modules, formats } from "../EditorToolbar";
 import "react-quill/dist/quill.snow.css";
 import { useEditorStyles } from "./styles";
 import { EditorProps } from "./types";
+import { createImageSrcset, imageSizes } from "./helper";
 
 export const Editor: React.FC<EditorProps> = ({ content, handleChange, embed }) => {
   const quillRef = useRef<any>(null);
@@ -23,11 +24,12 @@ export const Editor: React.FC<EditorProps> = ({ content, handleChange, embed }) 
     handleEmbed(embed);
   }, [embed]);
 
-  const handleEmbed = (embed: { type: string; value: string }) => {
+  const handleEmbed = (embed: { type: string; value: string | any }) => {
     const quillObj = quillRef?.current?.getEditor();
     const range = quillObj?.selection?.savedRange;
     const editorParent = document.getElementById("editorParent");
     const scrollTop = editorParent?.scrollTop;
+    console.log(embed);
 
     const { type, value } = embed;
     if (type === "link") {
@@ -39,6 +41,11 @@ export const Editor: React.FC<EditorProps> = ({ content, handleChange, embed }) 
       if (editorParent) {
         editorParent.scrollTop = scrollTop as number;
       }
+    } else if (type === "image") {
+      const imgTag = `<img src="${value?.cropped}" srcset="${createImageSrcset(
+        value,
+      )}" sizes="${imageSizes}"/>`;
+      quillObj.clipboard.dangerouslyPasteHTML(range.index, imgTag, "user");
     } else quillObj?.editor?.insertEmbed(range.index, type, value);
 
     handleChange(quillObj?.root?.innerHTML);
