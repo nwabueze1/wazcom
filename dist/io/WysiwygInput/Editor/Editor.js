@@ -54,7 +54,6 @@ export var Editor = function (_a) {
         var range = (_b = quillObj === null || quillObj === void 0 ? void 0 : quillObj.selection) === null || _b === void 0 ? void 0 : _b.savedRange;
         var editorParent = document.getElementById("editorParent");
         var scrollTop = editorParent === null || editorParent === void 0 ? void 0 : editorParent.scrollTop;
-        console.log(embed);
         var type = embed.type, value = embed.value;
         if (type === "link") {
             var _e = __read(value.split("||>>"), 2), text = _e[0], url = _e[1];
@@ -67,7 +66,7 @@ export var Editor = function (_a) {
             }
         }
         else if (type === "image") {
-            var imgTag = "<img src=\"".concat(value === null || value === void 0 ? void 0 : value.src, "\" srcset=\"").concat(createImageSrcset(value), "\" sizes=\"").concat(imageSizes, "\"/>");
+            var imgTag = "<p><img src=\"".concat(value === null || value === void 0 ? void 0 : value.src, "\" srcset=\"").concat(createImageSrcset(value), "\" alt=\"").concat(value === null || value === void 0 ? void 0 : value.alternative_text, "\" sizes=\"").concat(imageSizes, "\"/>\n      <em>").concat(value === null || value === void 0 ? void 0 : value.caption, "</em>\n      </p>");
             quillObj.clipboard.dangerouslyPasteHTML(range.index, imgTag, "user");
         }
         else

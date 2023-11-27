@@ -29,7 +29,6 @@ export const Editor: React.FC<EditorProps> = ({ content, handleChange, embed }) 
     const range = quillObj?.selection?.savedRange;
     const editorParent = document.getElementById("editorParent");
     const scrollTop = editorParent?.scrollTop;
-    console.log(embed);
 
     const { type, value } = embed;
     if (type === "link") {
@@ -42,9 +41,11 @@ export const Editor: React.FC<EditorProps> = ({ content, handleChange, embed }) 
         editorParent.scrollTop = scrollTop as number;
       }
     } else if (type === "image") {
-      const imgTag = `<img src="${value?.src}" srcset="${createImageSrcset(
-        value,
-      )}" sizes="${imageSizes}"/>`;
+      const imgTag = `<p><img src="${value?.src}" srcset="${createImageSrcset(value)}" alt="${
+        value?.alternative_text
+      }" sizes="${imageSizes}"/>
+      <em>${value?.caption}</em>
+      </p>`;
       quillObj.clipboard.dangerouslyPasteHTML(range.index, imgTag, "user");
     } else quillObj?.editor?.insertEmbed(range.index, type, value);
 
