@@ -15,9 +15,9 @@ export const useEditorStyles = makeStyles((theme: Theme) => ({
     justifyContent: "flex-end",
     fontSize: theme.typography.fontSize * 0.83,
     background: theme.design.colors.waz_white,
-    border: `1px solid ${theme.design.colors.primary700}`,
+    border: `1px solid ${theme.design.colors.waz_primary700}`,
     padding: theme.spacing(0.75, 2, 0.75, 0),
-    height: theme.spacing(3.375),
+    height: theme.spacing(1.5),
     position: "absolute",
     bottom: 0,
     right: 0,
@@ -34,14 +34,8 @@ export const useEditorStyles = makeStyles((theme: Theme) => ({
   quillEditor: {
     "& img": {
       position: "relative",
-      left: "20%",
-      width: "60%",
-      height: 400,
+      width: "100%",
       objectFit: "cover",
-    },
-
-    "& .ql-snow .ql-tooltip": {
-      left: "0px !important",
     },
 
     "& .ql-container": {
