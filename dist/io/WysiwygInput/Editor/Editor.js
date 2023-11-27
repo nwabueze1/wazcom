@@ -67,7 +67,7 @@ export var Editor = function (_a) {
             }
         }
         else if (type === "image") {
-            var imgTag = "<img src=\"".concat(value === null || value === void 0 ? void 0 : value.cropped, "\" srcset=\"").concat(createImageSrcset(value), "\" sizes=\"").concat(imageSizes, "\"/>");
+            var imgTag = "<img src=\"".concat(value === null || value === void 0 ? void 0 : value.src, "\" srcset=\"").concat(createImageSrcset(value), "\" sizes=\"").concat(imageSizes, "\"/>");
             quillObj.clipboard.dangerouslyPasteHTML(range.index, imgTag, "user");
         }
         else

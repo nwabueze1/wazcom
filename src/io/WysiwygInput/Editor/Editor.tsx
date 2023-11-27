@@ -42,7 +42,7 @@ export const Editor: React.FC<EditorProps> = ({ content, handleChange, embed }) 
         editorParent.scrollTop = scrollTop as number;
       }
     } else if (type === "image") {
-      const imgTag = `<img src="${value?.cropped}" srcset="${createImageSrcset(
+      const imgTag = `<img src="${value?.src}" srcset="${createImageSrcset(
         value,
       )}" sizes="${imageSizes}"/>`;
       quillObj.clipboard.dangerouslyPasteHTML(range.index, imgTag, "user");
