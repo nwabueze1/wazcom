@@ -66,7 +66,9 @@ export var Editor = function (_a) {
             }
         }
         else if (type === "image") {
-            var imgTag = "<p><img src=\"".concat(value === null || value === void 0 ? void 0 : value.src, "\" srcset=\"").concat(createImageSrcset(value), "\" alt=\"").concat(value === null || value === void 0 ? void 0 : value.alternative_text, "\" sizes=\"").concat(imageSizes, "\"/>\n      <em>").concat(value === null || value === void 0 ? void 0 : value.caption, "</em>\n      </p>");
+            var imgTag = (value === null || value === void 0 ? void 0 : value.caption)
+                ? "<div><img src=\"".concat(value === null || value === void 0 ? void 0 : value.src, "\" srcset=\"").concat(createImageSrcset(value), "\" alt=\"").concat(value === null || value === void 0 ? void 0 : value.alternative_text, "\" sizes=\"").concat(imageSizes, "\"/>\n      <em>").concat(value === null || value === void 0 ? void 0 : value.caption, "</em>\n      </div>")
+                : "<img src=\"".concat(value === null || value === void 0 ? void 0 : value.src, "\" srcset=\"").concat(createImageSrcset(value), "\" alt=\"").concat(value === null || value === void 0 ? void 0 : value.alternative_text, "\" sizes=\"").concat(imageSizes, "\"/>\n      ");
             quillObj.clipboard.dangerouslyPasteHTML(range.index, imgTag, "user");
         }
         else
