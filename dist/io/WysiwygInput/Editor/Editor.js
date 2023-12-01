@@ -49,14 +49,14 @@ export var Editor = function (_a) {
         handleEmbed(embed);
     }, [embed]);
     var handleEmbed = function (embed) {
-        var _a, _b, _c, _d;
+        var _a, _b, _c, _d, _e;
         var quillObj = (_a = quillRef === null || quillRef === void 0 ? void 0 : quillRef.current) === null || _a === void 0 ? void 0 : _a.getEditor();
         var range = (_b = quillObj === null || quillObj === void 0 ? void 0 : quillObj.selection) === null || _b === void 0 ? void 0 : _b.savedRange;
         var editorParent = document.getElementById("editorParent");
         var scrollTop = editorParent === null || editorParent === void 0 ? void 0 : editorParent.scrollTop;
         var type = embed.type, value = embed.value;
         if (type === "link") {
-            var _e = __read(value.split("||>>"), 2), text = _e[0], url = _e[1];
+            var _f = __read(value.split("||>>"), 2), text = _f[0], url = _f[1];
             quillObj.insertText(range.index, text, "user");
             quillObj.setSelection(range.index, text.length);
             quillObj.theme.tooltip.edit("link", url);
@@ -66,14 +66,12 @@ export var Editor = function (_a) {
             }
         }
         else if (type === "image") {
-            var imgTag = (value === null || value === void 0 ? void 0 : value.caption)
-                ? "<div><img src=\"".concat(value === null || value === void 0 ? void 0 : value.src, "\" srcset=\"").concat(createImageSrcset(value), "\" alt=\"").concat(value === null || value === void 0 ? void 0 : value.alternative_text, "\" sizes=\"").concat(imageSizes, "\"/>\n      <em>").concat(value === null || value === void 0 ? void 0 : value.caption, "</em>\n      </div>")
-                : "<img src=\"".concat(value === null || value === void 0 ? void 0 : value.src, "\" srcset=\"").concat(createImageSrcset(value), "\" alt=\"").concat(value === null || value === void 0 ? void 0 : value.alternative_text, "\" sizes=\"").concat(imageSizes, "\"/>\n      ");
+            var imgTag = "<div><img src=\"".concat(value === null || value === void 0 ? void 0 : value.src, "\" srcset=\"").concat(createImageSrcset(value), "\" alt=\"").concat(value === null || value === void 0 ? void 0 : value.alternative_text, "\" sizes=\"").concat(imageSizes, "\"/>\n      <em>").concat((_c = value === null || value === void 0 ? void 0 : value.caption) !== null && _c !== void 0 ? _c : "", "</em>\n      </div>");
             quillObj.clipboard.dangerouslyPasteHTML(range.index, imgTag, "user");
         }
         else
-            (_c = quillObj === null || quillObj === void 0 ? void 0 : quillObj.editor) === null || _c === void 0 ? void 0 : _c.insertEmbed(range.index, type, value);
-        handleChange((_d = quillObj === null || quillObj === void 0 ? void 0 : quillObj.root) === null || _d === void 0 ? void 0 : _d.innerHTML);
+            (_d = quillObj === null || quillObj === void 0 ? void 0 : quillObj.editor) === null || _d === void 0 ? void 0 : _d.insertEmbed(range.index, type, value);
+        handleChange((_e = quillObj === null || quillObj === void 0 ? void 0 : quillObj.root) === null || _e === void 0 ? void 0 : _e.innerHTML);
     };
     return (_jsxs("div", __assign({ className: classes.root }, { children: [_jsx("div", __assign({ className: classes.editor, id: "editorParent" }, { children: reactQuill && (_jsx(reactQuill.default, { id: "editor", ref: quillRef, theme: "snow", value: content, onChange: handleChange, placeholder: "Add content", modules: modules, formats: formats, className: classes.quillEditor, scrollingContainer: "#editorParent" })) })), _jsxs("div", __assign({ className: classes.wordCount }, { children: [content.trim().length === 0 ? 0 : content.split(" ").length, " words"] }))] })));
 };
