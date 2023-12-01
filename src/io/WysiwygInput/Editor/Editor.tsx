@@ -3,7 +3,7 @@ import { modules, formats } from "../EditorToolbar";
 import "react-quill/dist/quill.snow.css";
 import { useEditorStyles } from "./styles";
 import { EditorProps } from "./types";
-// import { createImageSrcset, imageSizes } from "./helper";
+import { createImageSrcset, imageSizes } from "./helper";
 
 export const Editor: React.FC<EditorProps> = ({ content, handleChange, embed }) => {
   const quillRef = useRef<any>(null);
@@ -43,7 +43,7 @@ export const Editor: React.FC<EditorProps> = ({ content, handleChange, embed }) 
     } else if (type === "image") {
       const imgTag = `<div><img src="${value?.src}" alt="${
         value?.alternative_text
-      }" />
+      }" srcset="${createImageSrcset(value)}" sizes="${imageSizes}" />
       <em>${value?.caption ?? ""}</em>
       </div>`;
       quillObj.clipboard.dangerouslyPasteHTML(range.index, imgTag, "user");
