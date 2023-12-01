@@ -30,7 +30,7 @@ import { useEffect, useRef, useState } from "react";
 import { modules, formats } from "../EditorToolbar";
 import "react-quill/dist/quill.snow.css";
 import { useEditorStyles } from "./styles";
-import { createImageSrcset, imageSizes } from "./helper";
+// import { createImageSrcset, imageSizes } from "./helper";
 export var Editor = function (_a) {
     var content = _a.content, handleChange = _a.handleChange, embed = _a.embed;
     var quillRef = useRef(null);
@@ -66,7 +66,7 @@ export var Editor = function (_a) {
             }
         }
         else if (type === "image") {
-            var imgTag = "<div><img src=\"".concat(value === null || value === void 0 ? void 0 : value.src, "\" srcset=\"").concat(createImageSrcset(value), "\" alt=\"").concat(value === null || value === void 0 ? void 0 : value.alternative_text, "\" sizes=\"").concat(imageSizes, "\"/>\n      <em>").concat((_c = value === null || value === void 0 ? void 0 : value.caption) !== null && _c !== void 0 ? _c : "", "</em>\n      </div>");
+            var imgTag = "<div><img src=\"".concat(value === null || value === void 0 ? void 0 : value.src, "\" alt=\"").concat(value === null || value === void 0 ? void 0 : value.alternative_text, "\" />\n      <em>").concat((_c = value === null || value === void 0 ? void 0 : value.caption) !== null && _c !== void 0 ? _c : "", "</em>\n      </div>");
             quillObj.clipboard.dangerouslyPasteHTML(range.index, imgTag, "user");
         }
         else
