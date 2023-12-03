@@ -66,7 +66,7 @@ export var Editor = function (_a) {
             }
         }
         else if (type === "image") {
-            var imgTag = "<div><img src=\"".concat(value === null || value === void 0 ? void 0 : value.src, "\" alt=\"").concat(value === null || value === void 0 ? void 0 : value.alternative_text, "\" srcset=\"").concat(createImageSrcset(value), "\" sizes=\"").concat(imageSizes, "\" />\n      <em>").concat((_c = value === null || value === void 0 ? void 0 : value.caption) !== null && _c !== void 0 ? _c : "", "</em>\n      </div>");
+            var imgTag = "<p><img src=\"".concat(value === null || value === void 0 ? void 0 : value.src, "\" alt=\"").concat(value === null || value === void 0 ? void 0 : value.alternative_text, "\" srcset=\"").concat(createImageSrcset(value), "\" sizes=\"").concat(imageSizes, "\" />\n      <em>").concat((_c = value === null || value === void 0 ? void 0 : value.caption) !== null && _c !== void 0 ? _c : "", "</em>\n      </p>");
             quillObj.clipboard.dangerouslyPasteHTML(range.index, imgTag, "user");
         }
         else
