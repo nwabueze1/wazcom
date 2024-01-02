@@ -6,7 +6,6 @@ import {
   FormikTextArea,
   FormikTextInput,
   FormikMultiChoice,
-  FormikPhoneNumber,
   FormikOpinionScale,
   FormikRatingInput,
 } from "../formik_io";
@@ -38,6 +37,7 @@ export const QuestionsInput: FC<
       case "EMAIL_ADDRESS":
       case "DOC":
       case "VIDEO":
+      case "PHONE_NUMBER":
         return <FormikTextInput {...commonInputProps} />;
 
       case "MULTILINE":
@@ -117,15 +117,6 @@ export const QuestionsInput: FC<
           />
         );
 
-      case "PHONE_NUMBER":
-        return (
-          <FormikPhoneNumber
-            name={name}
-            formikProps={formikProps}
-            default_country={(fields?.default_country_code as string).toUpperCase()}
-            classNames={classNames?.phoneNumberInput}
-          />
-        );
       case "OPINION":
         return (
           <FormikOpinionScale
