@@ -74,6 +74,8 @@ export const QuestionsInput: FC<
         );
 
       case "PHONE_NUMBER":
+        console.log(commonInputProps);
+
         return null;
 
       case "DATE_FORMAT":
