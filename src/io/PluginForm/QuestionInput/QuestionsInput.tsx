@@ -116,16 +116,7 @@ export const QuestionsInput: FC<
             options={options}
           />
         );
-      //FIXME: create a custom phone number input void of package;
-      // case "PHONE_NUMBER":
-      //   return (
-      //     <FormikPhoneNumber
-      //       name={name}
-      //       formikProps={formikProps}
-      //       default_country={(fields?.default_country_code as string).toUpperCase()}
-      //       classNames={classNames?.phoneNumberInput}
-      //     />
-      //   );
+
       case "OPINION":
         return (
           <FormikOpinionScale

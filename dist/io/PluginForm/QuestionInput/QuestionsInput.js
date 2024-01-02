@@ -64,16 +64,6 @@ export var QuestionsInput = function (_a) {
                     value: choice,
                 }); });
                 return (_jsx(FormikSelect, { classNames: classNames === null || classNames === void 0 ? void 0 : classNames.selectInput, formikProps: formikProps, name: name, options: options }));
-            //FIXME: create a custom phone number input void of package;
-            // case "PHONE_NUMBER":
-            //   return (
-            //     <FormikPhoneNumber
-            //       name={name}
-            //       formikProps={formikProps}
-            //       default_country={(fields?.default_country_code as string).toUpperCase()}
-            //       classNames={classNames?.phoneNumberInput}
-            //     />
-            //   );
             case "OPINION":
                 return (_jsx(FormikOpinionScale, __assign({}, commonInputProps, { label: commonInputProps.placeholder, classNames: __assign(__assign({}, classNames === null || classNames === void 0 ? void 0 : classNames.opinionScale), { label: clx(classes === null || classes === void 0 ? void 0 : classes.ratingLabel, (_d = classNames === null || classNames === void 0 ? void 0 : classNames.opinionScale) === null || _d === void 0 ? void 0 : _d.label) }), variant: (_f = (_e = mscProperties === null || mscProperties === void 0 ? void 0 : mscProperties.opinionScale) === null || _e === void 0 ? void 0 : _e.variant) !== null && _f !== void 0 ? _f : "contained" })));
             case "RATING":
