@@ -12,7 +12,7 @@ var __assign = (this && this.__assign) || function () {
 import { createElement as _createElement } from "react";
 import { jsx as _jsx, jsxs as _jsxs } from "react/jsx-runtime";
 import clx from "classnames";
-import { FormikSingleChoice, FormikSelect, FormikTextArea, FormikTextInput, FormikMultiChoice, FormikPhoneNumber, FormikOpinionScale, FormikRatingInput, } from "../formik_io";
+import { FormikSingleChoice, FormikSelect, FormikTextArea, FormikTextInput, FormikMultiChoice, FormikOpinionScale, FormikRatingInput, } from "../formik_io";
 import { useQuestionInputStyles } from "./style";
 import { capitalizeFirstChar } from "../helpers";
 export var QuestionsInput = function (_a) {
@@ -36,6 +36,7 @@ export var QuestionsInput = function (_a) {
             case "EMAIL_ADDRESS":
             case "DOC":
             case "VIDEO":
+            case "PHONE_NUMBER":
                 return _jsx(FormikTextInput, __assign({}, commonInputProps));
             case "MULTILINE":
                 return _jsx(FormikTextArea, __assign({}, commonInputProps, { classNames: classNames === null || classNames === void 0 ? void 0 : classNames.textArea }));
@@ -63,8 +64,16 @@ export var QuestionsInput = function (_a) {
                     value: choice,
                 }); });
                 return (_jsx(FormikSelect, { classNames: classNames === null || classNames === void 0 ? void 0 : classNames.selectInput, formikProps: formikProps, name: name, options: options }));
-            case "PHONE_NUMBER":
-                return (_jsx(FormikPhoneNumber, { name: name, formikProps: formikProps, default_country: (fields === null || fields === void 0 ? void 0 : fields.default_country_code).toUpperCase(), classNames: classNames === null || classNames === void 0 ? void 0 : classNames.phoneNumberInput }));
+            //FIXME: create a custom phone number input void of package;
+            // case "PHONE_NUMBER":
+            //   return (
+            //     <FormikPhoneNumber
+            //       name={name}
+            //       formikProps={formikProps}
+            //       default_country={(fields?.default_country_code as string).toUpperCase()}
+            //       classNames={classNames?.phoneNumberInput}
+            //     />
+            //   );
             case "OPINION":
                 return (_jsx(FormikOpinionScale, __assign({}, commonInputProps, { label: commonInputProps.placeholder, classNames: __assign(__assign({}, classNames === null || classNames === void 0 ? void 0 : classNames.opinionScale), { label: clx(classes === null || classes === void 0 ? void 0 : classes.ratingLabel, (_d = classNames === null || classNames === void 0 ? void 0 : classNames.opinionScale) === null || _d === void 0 ? void 0 : _d.label) }), variant: (_f = (_e = mscProperties === null || mscProperties === void 0 ? void 0 : mscProperties.opinionScale) === null || _e === void 0 ? void 0 : _e.variant) !== null && _f !== void 0 ? _f : "contained" })));
             case "RATING":
