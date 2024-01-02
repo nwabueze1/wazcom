@@ -8,7 +8,6 @@ import {
   FormikMultiChoice,
   FormikOpinionScale,
   FormikRatingInput,
-  FormikPhoneNumber,
 } from "../formik_io";
 import { useQuestionInputStyles } from "./style";
 import { QuestionInputPropsType } from "./type";
@@ -75,15 +74,7 @@ export const QuestionsInput: FC<
         );
 
       case "PHONE_NUMBER":
-        console.log(commonInputProps);
-        return (
-          <FormikPhoneNumber
-            name={name}
-            formikProps={formikProps}
-            default_country={fields?.["default_country_code"] || "NG"}
-            classNames={classNames?.phoneNumberInput}
-          />
-        );
+        return <FormikTextInput {...commonInputProps} />;
 
       case "DATE_FORMAT":
         return (
