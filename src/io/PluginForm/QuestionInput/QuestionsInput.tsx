@@ -37,7 +37,6 @@ export const QuestionsInput: FC<
       case "EMAIL_ADDRESS":
       case "DOC":
       case "VIDEO":
-      case "PHONE_NUMBER":
         return <FormikTextInput {...commonInputProps} />;
 
       case "MULTILINE":
@@ -73,6 +72,9 @@ export const QuestionsInput: FC<
             formikProps={formikProps}
           />
         );
+
+      case "PHONE_NUMBER":
+        return <FormikTextInput {...commonInputProps} />;
 
       case "DATE_FORMAT":
         return (

@@ -36,7 +36,6 @@ export var QuestionsInput = function (_a) {
             case "EMAIL_ADDRESS":
             case "DOC":
             case "VIDEO":
-            case "PHONE_NUMBER":
                 return _jsx(FormikTextInput, __assign({}, commonInputProps));
             case "MULTILINE":
                 return _jsx(FormikTextArea, __assign({}, commonInputProps, { classNames: classNames === null || classNames === void 0 ? void 0 : classNames.textArea }));
@@ -53,6 +52,8 @@ export var QuestionsInput = function (_a) {
                     value: field,
                 }); });
                 return (_jsx(FormikMultiChoice, { options: options, name: name, multiple: options.length > 1, classNames: classNames === null || classNames === void 0 ? void 0 : classNames.checkBoxInput, formikProps: formikProps }));
+            case "PHONE_NUMBER":
+                return _jsx(FormikTextInput, __assign({}, commonInputProps));
             case "DATE_FORMAT":
                 return (_jsxs("div", { children: [_jsx("label", __assign({ className: clx(classes.legend, classes.label, (_a = classNames === null || classNames === void 0 ? void 0 : classNames.textField) === null || _a === void 0 ? void 0 : _a.label) }, { children: capitalizeFirstChar(name) })), _jsx(FormikTextInput, __assign({}, commonInputProps, { type: "date" }))] }));
             case "ADDRESS":
