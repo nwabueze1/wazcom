@@ -41,16 +41,11 @@ export const Editor: React.FC<EditorProps> = ({ content, handleChange, embed }) 
         editorParent.scrollTop = scrollTop as number;
       }
     } else if (type === "image") {
-      const imgTag = value?.caption
-        ? `<div><img src="${value?.src}" srcset="${createImageSrcset(value)}" alt="${
-            value?.alternative_text
-          }" sizes="${imageSizes}"/>
-      <em>${value?.caption}</em>
-      </div>`
-        : `<img src="${value?.src}" srcset="${createImageSrcset(value)}" alt="${
-            value?.alternative_text
-          }" sizes="${imageSizes}"/>
-      `;
+      const imgTag = `<p><img src="${value?.src}" alt="${
+        value?.alternative_text
+      }" srcset="${createImageSrcset(value)}" sizes="${imageSizes}" />
+      <em>${value?.caption ?? ""}</em>
+      </p>`;
       quillObj?.clipboard?.dangerouslyPasteHTML(range.index, imgTag, "user");
     } else quillObj?.editor?.insertEmbed(range.index, type, value);
 
