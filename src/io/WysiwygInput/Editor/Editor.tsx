@@ -46,7 +46,7 @@ export const Editor: React.FC<EditorProps> = ({ content, handleChange, embed }) 
       }" srcset="${createImageSrcset(value)}" sizes="${imageSizes}" />
       <em>${value?.caption ?? ""}</em>
       </p>`;
-      quillObj.clipboard.dangerouslyPasteHTML(range.index, imgTag, "user");
+      quillObj?.clipboard?.dangerouslyPasteHTML(range.index, imgTag, "user");
     } else quillObj?.editor?.insertEmbed(range.index, type, value);
 
     handleChange(quillObj?.root?.innerHTML);
