@@ -51,7 +51,7 @@ export const Editor: React.FC<EditorProps> = ({ content, handleChange, embed }) 
             value?.alternative_text
           }" sizes="${imageSizes}"/>
       `;
-      quillObj.clipboard.dangerouslyPasteHTML(range.index, imgTag, "user");
+      quillObj?.clipboard?.dangerouslyPasteHTML(range.index, imgTag, "user");
     } else quillObj?.editor?.insertEmbed(range.index, type, value);
 
     handleChange(quillObj?.root?.innerHTML);

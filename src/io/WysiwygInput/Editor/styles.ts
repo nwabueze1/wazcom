@@ -54,6 +54,11 @@ export const useEditorStyles = makeStyles((theme: Theme) => ({
         lineHeight: 1.7,
         fontSize: "15px",
       },
+      "& li": {
+        marginBottom: "15px",
+        lineHeight: 1.7,
+        fontSize: "15px",
+      },
     },
   },
 }));
