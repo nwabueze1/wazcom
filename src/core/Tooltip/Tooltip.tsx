@@ -5,7 +5,7 @@ import { RiErrorWarningLine } from "react-icons/ri";
 import { TootipProps } from "./types";
 import { useTootipStyles } from "./style";
 
-export const Tooltip: FC<TootipProps> = ({ children, content, position }) => {
+export const Tooltip: FC<TootipProps> = ({ children, content, position, classNames }) => {
   const classes = useTootipStyles();
 
   const arrowRef = useRef(null);
@@ -56,7 +56,7 @@ export const Tooltip: FC<TootipProps> = ({ children, content, position }) => {
             left: x ?? "",
           }}
         >
-          <div className={classes.tooltip}>{content}</div>
+          <div className={clx(classes.tooltip, classNames?.content)}>{content}</div>
           <div className={clx(classes.tooltipArrow, toolTipArrowClass)} ref={arrowRef} />
         </div>
       )}

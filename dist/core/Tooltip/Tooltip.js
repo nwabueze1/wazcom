@@ -32,7 +32,7 @@ import { useFloating, shift, offset, flip, arrow } from "@floating-ui/react-dom"
 import { RiErrorWarningLine } from "react-icons/ri";
 import { useTootipStyles } from "./style";
 export var Tooltip = function (_a) {
-    var children = _a.children, content = _a.content, position = _a.position;
+    var children = _a.children, content = _a.content, position = _a.position, classNames = _a.classNames;
     var classes = useTootipStyles();
     var arrowRef = useRef(null);
     var _b = __read(useState(false), 2), isOpen = _b[0], setIsOpen = _b[1];
@@ -61,5 +61,5 @@ export var Tooltip = function (_a) {
                     position: strategy,
                     top: y !== null && y !== void 0 ? y : "",
                     left: x !== null && x !== void 0 ? x : "",
-                } }, { children: [_jsx("div", __assign({ className: classes.tooltip }, { children: content })), _jsx("div", { className: clx(classes.tooltipArrow, toolTipArrowClass), ref: arrowRef })] })))] }));
+                } }, { children: [_jsx("div", __assign({ className: clx(classes.tooltip, classNames === null || classNames === void 0 ? void 0 : classNames.content) }, { children: content })), _jsx("div", { className: clx(classes.tooltipArrow, toolTipArrowClass), ref: arrowRef })] })))] }));
 };
