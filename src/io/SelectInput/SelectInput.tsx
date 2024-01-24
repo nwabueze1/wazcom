@@ -40,9 +40,6 @@ export const SelectInput: React.FC<SelectInputProps> = ({
   const selectValue = useMemo(() => options?.find((option) => option.value == value), [value]);
   const labelElement = isValidElement(label) ? cloneElement(label, {}) : label;
 
-  console.log(value);
-  console.log(selectValue);
-
   const DropdownIndicator = (props: any) => (
     <components.DropdownIndicator {...props}>
       <AiFillCaretDown />
