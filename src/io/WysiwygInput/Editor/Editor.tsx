@@ -2,7 +2,8 @@ import React, { useEffect, useRef, useState } from "react";
 import { modules, formats } from "../EditorToolbar";
 import "react-quill/dist/quill.snow.css";
 import { useEditorStyles } from "./styles";
-import { EditorProps } from "./types";
+import { EditorProps, MediaValue } from "./types";
+import { createImageSrcset, imageSizes } from "./helpers";
 
 export const Editor: React.FC<EditorProps> = ({ content, handleChange, embed }) => {
   const quillRef = useRef<any>(null);
@@ -23,7 +24,7 @@ export const Editor: React.FC<EditorProps> = ({ content, handleChange, embed }) 
     handleEmbed(embed);
   }, [embed]);
 
-  const handleEmbed = (embed: { type: string; value: string }) => {
+  const handleEmbed = (embed: { type: string; value: string | Record<string, any> }) => {
     const quillObj = quillRef?.current?.getEditor();
     const range = quillObj?.selection?.savedRange;
     const editorParent = document.getElementById("editorParent");
@@ -31,7 +32,7 @@ export const Editor: React.FC<EditorProps> = ({ content, handleChange, embed }) 
 
     const { type, value } = embed;
     if (type === "link") {
-      const [text, url] = value.split("||>>");
+      const [text, url] = (value as string).split("||>>");
       quillObj.insertText(range.index, text, "user");
       quillObj.setSelection(range.index, text.length);
       quillObj.theme.tooltip.edit("link", url);
@@ -39,6 +40,24 @@ export const Editor: React.FC<EditorProps> = ({ content, handleChange, embed }) 
       if (editorParent) {
         editorParent.scrollTop = scrollTop as number;
       }
+    } else if (type === "image") {
+      const parsedValue = value as Record<string, any>;
+      const source = parsedValue?.source?.includes?.("unsplash") ? "Unsplash" : "Pexels";
+      const caption =
+        parsedValue?.photographer && parsedValue?.source
+          ? `<em>Photo by 
+      <a href=${parsedValue?.photographer?.url} style="color: inherit;">${parsedValue?.photographer?.name}</a> on 
+      <a href=${parsedValue?.source} style="color: inherit;">${source}</a></em>`
+          : ``;
+
+      const imgTag = `<p><img src="${parsedValue?.src}" alt="${
+        parsedValue?.alternative_text
+      }" srcset="${createImageSrcset(
+        parsedValue as unknown as MediaValue,
+      )}" sizes="${imageSizes}" />
+      <em>${caption}</em>
+      </p>`;
+      quillObj?.clipboard?.dangerouslyPasteHTML(range.index, imgTag, "user");
     } else quillObj?.editor?.insertEmbed(range.index, type, value);
 
     handleChange(quillObj?.root?.innerHTML);
