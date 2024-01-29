@@ -25,7 +25,7 @@ export var useEditorStyles = makeStyles(function (theme) { return ({
         color: theme.design.colors.waz_grey1,
         fontSize: theme.typography.fontSize + 2,
         overflow: "auto",
-        height: "100vh",
+        height: "100%",
         position: "relative",
         paddingBottom: theme.spacing(3),
     },
@@ -46,8 +46,13 @@ export var useEditorStyles = makeStyles(function (theme) { return ({
         },
         "& .ql-editor": {
             paddingLeft: theme.spacing(2),
+            minHeight: "50vh",
             "& p": {
                 marginBottom: "15px",
+                lineHeight: 1.7,
+                fontSize: "15px",
+            },
+            "& li": {
                 lineHeight: 1.7,
                 fontSize: "15px",
             },
