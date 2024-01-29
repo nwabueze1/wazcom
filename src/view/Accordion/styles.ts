@@ -8,4 +8,8 @@ export const AccordionStyles = makeStyles((theme: Theme) => ({
   container: {
     width: 426,
   },
+  accordionStatesContainer: {
+    display: "flex",
+    gap: 40,
+  },
 }));

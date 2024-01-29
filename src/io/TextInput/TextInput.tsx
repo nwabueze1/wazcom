@@ -147,6 +147,7 @@ export const TextInput: FC<TextFieldProps> = ({
           isSuccess && classes.successInput,
           (isError || errors) && classes.errorInput,
           isFocused && classes.focusedInput,
+          isError && "error"
         )}
       >
         {leftIcon && (

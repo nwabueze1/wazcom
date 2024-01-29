@@ -5,4 +5,8 @@ export const useToggleInputStyles = makeStyles((theme: Theme) => ({
   root: {
     padding: theme.spacing(2),
   },
+  toggleContainer: {
+    display: "flex",
+    gap: 40,
+  },
 }));

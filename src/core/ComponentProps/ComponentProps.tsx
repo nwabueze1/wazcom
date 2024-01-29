@@ -5,6 +5,7 @@ import { ComponentPropsProp, PropsControlType } from "./types";
 import { Button } from "../../core";
 import { BiRefresh } from "react-icons/bi";
 import { TextInput, CheckBoxInput, EmailInput, NumberInput, PhoneNumberInput } from "../../io";
+import { colors } from "@mui/material";
 
 export const ComponentProps: FC<ComponentPropsProp> = ({ body, onReset }) => {
   const classes = useComponentPropsStyles();
@@ -55,13 +56,13 @@ const getControlInput = (content: PropsControlType) => {
   if (!content || !content.type) return null;
   switch (content.type) {
     case "text":
-      return <TextInput name={content.name} onChange={content.onChange} />;
+      return <TextInput {...content} />;
     case "email":
-      return <EmailInput name={content.name} onChange={content.onChange} />;
+      return <EmailInput {...content} />;
     case "checkbox":
-      return <CheckBoxInput name={content.name} onChange={content.onChange} />;
+      return <CheckBoxInput {...content} />;
     case "number":
-      return <NumberInput name={content.name} onChange={content.onChange} />;
+      return <NumberInput {...content} />;
     case "tel":
       return <PhoneNumberInput name={content.name} country="ng" onChange={content.onChange} />;
 

@@ -5,7 +5,7 @@ const initialTextInputState = {
   isSuccess: false,
   isError: false,
   helperText: "",
-  name: "",
+  value: "",
   hideLabel: false,
   required: false,
   showCC: false,
@@ -15,6 +15,8 @@ const initialTextInputState = {
   iconSpacing: 5,
   background: "",
   color: "",
+  label: "Label",
+  placeholder: "Placeholder",
 };
 
 export const useTextInputProps = () => {
@@ -24,15 +26,32 @@ export const useTextInputProps = () => {
 
   const data: Partial<ComponentPropsType>[] = [
     {
-      name: "name",
-      description: "The name of the input component",
-      default: "empty string",
-      control: { name: "name", type: "text", onChange },
-    },
-    {
       name: "value",
       description: "The value of the input component",
       default: "undefined",
+      control: { name: "value", type: "text", onChange, placeholder: "change value" },
+    },
+    {
+      name: "Label",
+      description: "The label of the text input component. eg First Name, Last Name etc.",
+      default: "undefined",
+      control: { name: "label", type: "text", onChange, placeholder: "Edit label" },
+    },
+    {
+      name: "name",
+      description: "The name of the input component",
+      default: "undefined",
+    },
+    {
+      name: "Placeholder",
+      description: "The placeholder of the text-input component.",
+      default: "undefined",
+      control: {
+        name: "placeholder",
+        type: "text",
+        onChange,
+        placeholder: "Edit placeholder value",
+      },
     },
     {
       name: "isError",
@@ -54,7 +73,7 @@ export const useTextInputProps = () => {
       name: "helperText",
       description: "This provides additional information about the field the component represents",
       default: "undefined",
-      control: { name: "helperText", type: "checkbox", onChange },
+      control: { name: "helperText", type: "text", onChange },
     },
 
     {

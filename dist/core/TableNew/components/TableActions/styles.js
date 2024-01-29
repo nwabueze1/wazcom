@@ -39,6 +39,7 @@ export var useTableActionStyles = makeStyles(function (theme) { return ({
     },
     selectControl: {
         height: "40px !important",
+        background: theme.design.colors.waz_white,
         "&:hover": {
             borderColor: theme.design.colors.primary700,
         },

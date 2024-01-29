@@ -5,8 +5,6 @@ export const useTextInputStyles = makeStyles((theme: Theme) => ({
   root: {
     padding: theme.spacing(2),
     margin: 0,
-    height: "100vh",
-    overflow: "scroll",
   },
   container: {
     display: "flex",
@@ -81,5 +79,12 @@ export const useTextInputStyles = makeStyles((theme: Theme) => ({
     justifyContent: "space-between",
     alignItems: "center",
     padding: "0 10px",
+  },
+  textArea: {
+    width: "max-content",
+  },
+  statesContainer: {
+    display: "grid",
+    gap: theme.spacing(4),
   },
 }));

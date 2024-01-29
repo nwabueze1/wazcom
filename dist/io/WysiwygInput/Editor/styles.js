@@ -52,6 +52,10 @@ export var useEditorStyles = makeStyles(function (theme) { return ({
                 lineHeight: 1.7,
                 fontSize: "15px",
             },
+            "& li": {
+                lineHeight: 1.7,
+                fontSize: "15px",
+            },
         },
     },
 }); });

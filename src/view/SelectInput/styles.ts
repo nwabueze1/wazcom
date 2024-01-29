@@ -67,4 +67,8 @@ export const useSelectInputStyles = makeStyles((theme: Theme) => ({
     alignItems: "center",
     padding: "0 10px",
   },
+  selectInputContainer: {
+    display: "flex",
+    gap: 30,
+  },
 }));

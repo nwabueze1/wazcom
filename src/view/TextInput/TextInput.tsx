@@ -2,12 +2,13 @@ import { FC } from "react";
 import { BsEye } from "react-icons/bs";
 import CssBaseline from "@mui/material/CssBaseline";
 import { TextInput } from "../../io";
-import { Wrapper } from "../../core";
+import { ViewHeader, Wrapper } from "../../core";
 import { useTextInputStyles } from "./styles";
 import { TextInputViewProps, InputDataProps } from "./types";
 import { ComponentProps } from "../../core/ComponentProps";
 import { useTextInputProps } from "./utils/useTextInputProps";
 import { Paper } from "../../core/Paper";
+import { ComponentPropsType } from "../../core/ComponentProps/types";
 
 export const TextInputView: FC<TextInputViewProps> = () => {
   const { data, onReset, state } = useTextInputProps();
@@ -27,8 +28,12 @@ export const TextInputView: FC<TextInputViewProps> = () => {
   const inputData: { default: InputDataProps[]; validation: InputDataProps[] } = {
     default: [
       { name: "TextInput", label: "Default", placeholder: "Placeholder", helperText: "" },
-
-      { name: "TextInput", label: "Hover", placeholder: "Placeholder", helperText: "" },
+      {
+        name: "TextInput",
+        label: "Hover",
+        placeholder: "Placeholder",
+        helperText: "",
+      },
       {
         name: "TextInput",
         label: "Active",
@@ -55,6 +60,63 @@ export const TextInputView: FC<TextInputViewProps> = () => {
     ],
   };
 
+  const renderConfig = () => (
+    <>
+      <Paper>
+        <TextInput
+          className={classes.input}
+          label={state.label}
+          placeholder={state.placeholder}
+          isError={state.isError}
+          isSuccess={state.isSuccess}
+          required={state.required}
+          helperText={state.helperText}
+          value={state.value ? state.value : undefined}
+          leftIcon={state.leftIcon && <BsEye />}
+          rightIcon={state.rightIcon && <BsEye />}
+        />
+      </Paper>
+      <ComponentProps body={data as ComponentPropsType[]} onReset={onReset} />
+    </>
+  );
+
+  const renderValidations = () =>
+    inputData.validation.map((validationConfig, index) => (
+      <TextInput className={classes.input} key={index} {...validationConfig} errors={[]} />
+    ));
+
+  const renderDefaultState = () =>
+    inputData.default.map((item: InputDataProps, index) => (
+      <TextInput
+        key={item.name}
+        id={`${item.label}-${index + Math.random()}`}
+        className={classes.input}
+        label={item.label}
+        placeholder={item.placeholder}
+        isError={item.isError}
+        isSuccess={item.isSuccess}
+        helperText={item.helperText}
+        onEnter={handleEnter}
+        onFocus={handleFocus}
+        onBlur={handleBlur}
+      />
+    ));
+
+  const renderStates = () => (
+    <>
+      <Paper>
+        <h4 className={classes.cardTitle}> Basic </h4>
+        <div className={classes.inputs}>{renderDefaultState()}</div>
+      </Paper>
+      <Wrapper className={classes.wrapper}>
+        <Paper>
+          <h4 className={classes.cardTitle}>Validation </h4>
+          <div className={classes.inputs}>{renderValidations()}</div>
+        </Paper>
+      </Wrapper>
+    </>
+  );
+
   return (
     <div className={classes.root}>
       <CssBaseline />
@@ -65,56 +127,8 @@ export const TextInputView: FC<TextInputViewProps> = () => {
               text input is for short, one-line content, whereas text area is for longer, multi-line
               entries."
         className={classes.wrapper}
-      >
-        <Paper>
-          <h4 className={classes.cardTitle}> Basic </h4>
-          <div className={classes.inputs}>
-            {inputData.default.map((item: InputDataProps, index) => (
-              <TextInput
-                key={item.name}
-                id={`${item.label}-${index + Math.random()}`}
-                className={classes.input}
-                label={item.label}
-                placeholder={item.placeholder}
-                isError={item.isError}
-                isSuccess={item.isSuccess}
-                helperText={item.helperText}
-                onEnter={handleEnter}
-                onFocus={handleFocus}
-                onBlur={handleBlur}
-              />
-            ))}
-          </div>
-        </Paper>
-      </Wrapper>
-
-      <Wrapper className={classes.wrapper}>
-        <Paper>
-          <h4 className={classes.cardTitle}>Validation </h4>
-          <div className={classes.inputs}>
-            {inputData.validation.map((item: InputDataProps, index) => (
-              <TextInput
-                key={item.name}
-                id={`${item.label}-${index + Math.random()}`}
-                className={classes.input}
-                label={item.label}
-                placeholder={item.placeholder}
-                helperText={state.helperText}
-                isError={state.isError}
-                isSuccess={state.isSuccess}
-                onEnter={handleEnter}
-                onFocus={handleFocus}
-                onBlur={handleBlur}
-                rightIcon={state.rightIcon ? <BsEye width={16} /> : undefined}
-                leftIcon={state.leftIcon ? <BsEye width={16} /> : undefined}
-                value={state.name}
-                required={state.required}
-              />
-            ))}
-          </div>
-        </Paper>
-      </Wrapper>
-      <ComponentProps body={data as any} onReset={onReset} />
+      />
+      <ViewHeader configChildren={renderConfig()} statesChildren={renderStates()} />
     </div>
   );
 };

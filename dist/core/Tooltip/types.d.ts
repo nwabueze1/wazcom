@@ -10,4 +10,5 @@ export type TootipProps = {
     status?: string;
     message?: string;
     title?: string;
+    classNames?: Partial<Record<string, string>>;
 };

@@ -13,6 +13,7 @@ export type TableNewProps = CommonProps & {
         heading?: string;
         message?: string;
     };
+    showSort?: boolean;
 };
 export type TableColumn = {
     name: string | JSX.Element;
