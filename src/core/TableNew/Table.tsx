@@ -64,7 +64,7 @@ export const TableNew: FC<TableNewProps> = ({
       parseQueryVariables(
         actions.search as string,
         (actions?.sort as TableSort[]) ?? [],
-        table?.pagination,
+        { ...table?.pagination, currentPage: 1 },
       ),
     );
   }, [actions.search, JSON.stringify(actions.sort), JSON.stringify(variables)]);
