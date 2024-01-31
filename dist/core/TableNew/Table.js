@@ -91,7 +91,7 @@ export var TableNew = function (_a) {
     var externalClasses = useExternalTableStyles();
     useEffect(function () {
         var _a;
-        queryApi(parseQueryVariables(actions.search, (_a = actions === null || actions === void 0 ? void 0 : actions.sort) !== null && _a !== void 0 ? _a : [], table === null || table === void 0 ? void 0 : table.pagination));
+        queryApi(parseQueryVariables(actions.search, (_a = actions === null || actions === void 0 ? void 0 : actions.sort) !== null && _a !== void 0 ? _a : [], __assign(__assign({}, table === null || table === void 0 ? void 0 : table.pagination), { currentPage: 1 })));
     }, [actions.search, JSON.stringify(actions.sort), JSON.stringify(variables)]);
     useEffect(function () {
         var _a;
