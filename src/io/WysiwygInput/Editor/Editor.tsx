@@ -58,6 +58,8 @@ export const Editor: React.FC<EditorProps> = ({ content, handleChange, embed }) 
       <em>${caption}</em>
       </p>`;
       quillObj?.clipboard?.dangerouslyPasteHTML(range.index, imgTag, "user");
+    } else if (type == "htmlembed") {
+      quillObj?.clipboard?.dangerouslyPasteHTML(range.index, value, "user");
     } else quillObj?.editor?.insertEmbed(range.index, type, value);
 
     handleChange(quillObj?.root?.innerHTML);
