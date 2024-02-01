@@ -48,7 +48,7 @@ export const Editor: React.FC<EditorProps> = ({ content, handleChange, embed }) 
           ? `<em>Photo by 
       <a href=${parsedValue?.photographer?.url} style="color: inherit;">${parsedValue?.photographer?.name}</a> on 
       <a href=${parsedValue?.source} style="color: inherit;">${source}</a></em>`
-          : ``;
+          : parsedValue?.caption ?? "";
 
       const imgTag = `<p><img src="${parsedValue?.src}" alt="${
         parsedValue?.alternative_text
@@ -58,6 +58,8 @@ export const Editor: React.FC<EditorProps> = ({ content, handleChange, embed }) 
       <em>${caption}</em>
       </p>`;
       quillObj?.clipboard?.dangerouslyPasteHTML(range.index, imgTag, "user");
+    } else if (type == "htmlembed") {
+      quillObj?.clipboard?.dangerouslyPasteHTML(range.index, value, "user");
     } else quillObj?.editor?.insertEmbed(range.index, type, value);
 
     handleChange(quillObj?.root?.innerHTML);
