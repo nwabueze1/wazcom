@@ -11,6 +11,7 @@ export const WysiwygInput: React.FC<WysiwygInputProps> = ({
   value,
   embed,
   initiateEmbed,
+  hasTitle = true,
 }) => {
   const classes = useCreatePostInputStyles();
 
@@ -26,12 +27,14 @@ export const WysiwygInput: React.FC<WysiwygInputProps> = ({
     <div className={clx(className, classes.root)}>
       <div className={classes.postTitleInputParent}>
         <EditorToolbar initiateEmbed={initiateEmbed} />
-        <input
-          placeholder={"Add post title"}
-          className={classes.postTitleInput}
-          value={value?.title ?? ""}
-          onChange={handleTitleChange}
-        />
+        {hasTitle && (
+          <input
+            placeholder={"Add post title"}
+            className={classes.postTitleInput}
+            value={value?.title ?? ""}
+            onChange={handleTitleChange}
+          />
+        )}
         <Editor content={value?.content ?? ""} handleChange={handleContentChange} embed={embed} />
       </div>
     </div>

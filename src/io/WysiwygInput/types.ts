@@ -5,4 +5,5 @@ export type WysiwygInputProps = CommonProps & {
   embed?: { type: string; value: string };
   initiateEmbed?: (type: string) => void;
   error?: boolean;
+  hasTitle?: boolean;
 };
