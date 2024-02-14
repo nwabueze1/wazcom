@@ -70,7 +70,7 @@ import { useTableStyles as useExternalTableStyles } from "../../stories/table-st
 import { parseQueryVariables } from "./helpers";
 export var TableNew = function (_a) {
     var _b, _c, _d, _e, _f, _g;
-    var columns = _a.columns, _h = _a.query, client = _h.client, QUERY = _h.name, variables = _h.variables, dataKey = _h.dataKey, getRows = _a.getRows, conditionFilters = _a.conditionFilters, showFilters = _a.showFilters, emptyState = _a.emptyState, _j = _a.showSort, showSort = _j === void 0 ? true : _j;
+    var columns = _a.columns, _h = _a.query, client = _h.client, QUERY = _h.name, variables = _h.variables, dataKey = _h.dataKey, getRows = _a.getRows, conditionFilters = _a.conditionFilters, showFilters = _a.showFilters, emptyState = _a.emptyState, _j = _a.showSort, showSort = _j === void 0 ? true : _j, hasStickyActions = _a.hasStickyActions;
     var _k = __read(useState({
         data: null,
         pagination: {
@@ -143,7 +143,7 @@ export var TableNew = function (_a) {
             return (_jsx("tr", __assign({ className: classes.tRow }, { children: ((_a = actions === null || actions === void 0 ? void 0 : actions.columnFilters) !== null && _a !== void 0 ? _a : columns).map(function (_a, index) {
                     var _b;
                     var key = _a.key, actions = _a.actions;
-                    return (_jsxs("td", __assign({ className: classes.tRowData, valign: "top" }, { children: [row[key], actions && (_jsx(TableColumnActions, { actions: actions, identifier: (_b = row["identifier"]) !== null && _b !== void 0 ? _b : "" }))] }), index));
+                    return (_jsx("td", __assign({ className: classes.tRowData, valign: "top" }, { children: _jsxs("p", __assign({ className: hasStickyActions ? classes.tableRowText : undefined }, { children: [row[key], actions && (_jsx("div", __assign({ className: hasStickyActions ? classes.tableRowActionsContainer : undefined }, { children: _jsx(TableColumnActions, { actions: actions, identifier: (_b = row["identifier"]) !== null && _b !== void 0 ? _b : "" }) })))] })) }), index));
                 }) }), index));
         });
     };

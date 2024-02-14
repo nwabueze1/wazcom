@@ -27,6 +27,7 @@ export const TableNew: FC<TableNewProps> = ({
   showFilters,
   emptyState,
   showSort = true,
+  hasStickyActions,
 }) => {
   const [table, setTable] = useState<{
     data: any;
@@ -61,11 +62,10 @@ export const TableNew: FC<TableNewProps> = ({
 
   useEffect(() => {
     queryApi(
-      parseQueryVariables(
-        actions.search as string,
-        (actions?.sort as TableSort[]) ?? [],
-        { ...table?.pagination, currentPage: 1 },
-      ),
+      parseQueryVariables(actions.search as string, (actions?.sort as TableSort[]) ?? [], {
+        ...table?.pagination,
+        currentPage: 1,
+      }),
     );
   }, [actions.search, JSON.stringify(actions.sort), JSON.stringify(variables)]);
 
@@ -130,13 +130,17 @@ export const TableNew: FC<TableNewProps> = ({
       <tr className={classes.tRow} key={index}>
         {((actions?.columnFilters as TableColumn[]) ?? columns).map(({ key, actions }, index) => (
           <td className={classes.tRowData} key={index} valign="top">
-            {row[key]}
-            {actions && (
-              <TableColumnActions
-                actions={actions}
-                identifier={(row["identifier"] as string) ?? ""}
-              />
-            )}
+            <p className={hasStickyActions ? classes.tableRowText : undefined}>
+              {row[key]}
+              {actions && (
+                <div className={hasStickyActions ? classes.tableRowActionsContainer : undefined}>
+                  <TableColumnActions
+                    actions={actions}
+                    identifier={(row["identifier"] as string) ?? ""}
+                  />
+                </div>
+              )}
+            </p>
           </td>
         ))}
       </tr>

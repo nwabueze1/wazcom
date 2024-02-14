@@ -37,4 +37,12 @@ export var useTableStyles = makeStyles(function (theme) { return ({
         margin: theme.spacing(0, 0, 0.5, 0),
         background: theme.design.colors.waz_white,
     },
+    tableRowText: {
+        position: "relative",
+    },
+    tableRowActionsContainer: {
+        position: "absolute",
+        left: 0,
+        bottom: 0,
+    },
 }); });
