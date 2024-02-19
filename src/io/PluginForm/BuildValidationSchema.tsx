@@ -4,7 +4,7 @@ import { QuestionType } from "./type";
 export const buildValidationSchema = (questions: QuestionType[]) => {
   const schemaObject: Record<any, any> = {};
   const phoneNumberRegExp =
-    /^((\\+[1-9]{1,4}[ \\-]*)|(\\([0-9]{2,3}\\)[ \\-]*)|([0-9]{2,4})[ \\-]*)*?[0-9]{3,4}?[ \\-]*[0-9]{3,4}?$/;
+    /(\+\d{1,3}\s?)?((\(\d{3}\)\s?)|(\d{3})(\s|-?))(\d{3}(\s|-?))(\d{4})(\s?(([E|e]xt[:|.|]?)|x|X)(\s?\d+))?/g;
 
   const addressSchema: Record<string, any> = {};
   questions.forEach(({ question, type, is_required, fields }) => {
