@@ -51,9 +51,12 @@ export const PlugInForm = forwardRef<PluginFormRef, PluginFormPropsType>((props,
         return onNotify?.("error", errorMessage);
       }
 
-      const submission_text = data?.createResponse?.submission_text;
+      const submission_text:string = data?.createResponse?.submission_text;
 
-      onNotify?.("success", submission_text);
+      const successMessage =
+        submission_text?.length > 0 ? submission_text : "Form has been submitted successfully.";
+
+      onNotify?.("success", successMessage);
       formikHelpers.resetForm();
       onFormSubmitted?.(data?.createResponse?.data);
     } catch (ex) {
