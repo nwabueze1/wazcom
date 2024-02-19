@@ -37,15 +37,8 @@ export var FormikTextInput = function (_a) {
         : ((_h = formikProps === null || formikProps === void 0 ? void 0 : formikProps.touched) === null || _h === void 0 ? void 0 : _h[name]) && ((_j = formikProps === null || formikProps === void 0 ? void 0 : formikProps.errors) === null || _j === void 0 ? void 0 : _j[name]);
     var handleChange = function (_a) {
         var value = _a.value;
-        if (type === "tel") {
-            // phone number
-            var valueRegExp = value.length > 1 ? /[^0-9]/g : /[^0-9+]/g;
-            value = value.replace(valueRegExp, ""); //allow only numbers and +
-            //check it value starts with + and if it doesn't add + at the beginning
-            if (value.length > 0 && !value.startsWith("+")) {
-                value = "+" + value;
-            }
-        }
+        if (type === "tel")
+            value = value.replace(/[^0-9+]/g, ""); //allow only numbers and +
         formikProps === null || formikProps === void 0 ? void 0 : formikProps.setFieldValue(name, value);
     };
     return (_jsx(TextInput, __assign({}, props, { name: name, onChange: handleChange, onBlur: function () { return formikProps === null || formikProps === void 0 ? void 0 : formikProps.setFieldTouched(name, true); }, isError: isError, helperText: errorMessage ? errorMessage : undefined, placeholder: "".concat(placeholder, " ").concat(isRequired ? "*" : "", " ").concat(type === "tel" ? "(eg: +2349032432432)" : ""), value: (_k = formikProps === null || formikProps === void 0 ? void 0 : formikProps.values) === null || _k === void 0 ? void 0 : _k[name], className: className, classNames: {
