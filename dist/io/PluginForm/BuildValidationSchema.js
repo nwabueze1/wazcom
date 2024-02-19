@@ -1,7 +1,7 @@
 import * as Yup from "yup";
 export var buildValidationSchema = function (questions) {
     var schemaObject = {};
-    var phoneNumberRegExp = /^((\\+[1-9]{1,4}[ \\-]*)|(\\([0-9]{2,3}\\)[ \\-]*)|([0-9]{2,4})[ \\-]*)*?[0-9]{3,4}?[ \\-]*[0-9]{3,4}?$/;
+    var phoneNumberRegExp = /(\+\d{1,3}\s?)?((\(\d{3}\)\s?)|(\d{3})(\s|-?))(\d{3}(\s|-?))(\d{4})(\s?(([E|e]xt[:|.|]?)|x|X)(\s?\d+))?/g;
     var addressSchema = {};
     questions.forEach(function (_a) {
         var question = _a.question, type = _a.type, is_required = _a.is_required, fields = _a.fields;

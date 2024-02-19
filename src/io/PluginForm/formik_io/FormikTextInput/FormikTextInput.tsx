@@ -29,15 +29,31 @@ export const FormikTextInput: FC<FormikTextInputPropsType & { is_address?: boole
     ? isAddressTouched && addressError
     : formikProps?.touched?.[name] && formikProps?.errors?.[name];
 
+  const handleChange = ({ value }: { name: string; value: string }) => {
+    if (type === "tel") {
+      // phone number
+      const valueRegExp = value.length > 1 ? /[^0-9]/g : /[^0-9+]/g;
+      value = value.replace(valueRegExp, ""); //allow only numbers and +
+
+      //check it value starts with + and if it doesn't add + at the beginning
+      if (value.length > 0 && !value.startsWith("+")) {
+        value = "+" + value;
+      }
+    }
+    formikProps?.setFieldValue(name, value);
+  };
+
   return (
     <TextInput
       {...props}
       name={name}
-      onChange={({ value }) => formikProps?.setFieldValue(name, value)}
+      onChange={handleChange}
       onBlur={() => formikProps?.setFieldTouched(name, true)}
       isError={isError}
       helperText={errorMessage ? (errorMessage as string) : undefined}
-      placeholder={`${placeholder} ${isRequired ? "*" : ""}`}
+      placeholder={`${placeholder} ${isRequired ? "*" : ""} ${
+        type === "tel" ? "(eg: +2349032432432)" : ""
+      }`}
       value={formikProps?.values?.[name]}
       className={className}
       classNames={{
