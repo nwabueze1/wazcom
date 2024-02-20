@@ -70,7 +70,7 @@ import { useTableStyles as useExternalTableStyles } from "../../stories/table-st
 import { parseQueryVariables } from "./helpers";
 export var TableNew = function (_a) {
     var _b, _c, _d, _e, _f, _g, _h;
-    var columns = _a.columns, _j = _a.query, client = _j.client, QUERY = _j.name, variables = _j.variables, dataKey = _j.dataKey, getRows = _a.getRows, conditionFilters = _a.conditionFilters, showFilters = _a.showFilters, emptyState = _a.emptyState, _k = _a.showSort, showSort = _k === void 0 ? true : _k;
+    var columns = _a.columns, _j = _a.query, client = _j.client, QUERY = _j.name, variables = _j.variables, dataKey = _j.dataKey, getRows = _a.getRows, conditionFilters = _a.conditionFilters, showFilters = _a.showFilters, emptyState = _a.emptyState, _k = _a.showSort, showSort = _k === void 0 ? true : _k, hasStickyActions = _a.hasStickyActions;
     var _l = __read(useState({
         data: null,
         pagination: {
