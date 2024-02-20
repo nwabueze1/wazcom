@@ -1,9 +1,10 @@
-import { TablePagination, TableSort } from "./types";
+import { TableFilter, TablePagination, TableSort } from "./types";
 
 export const parseQueryVariables = (
   search: string,
   sort: TableSort[],
   pagination: TablePagination,
+  filter: TableFilter[],
 ) => {
   const parsedSort: { column: string; order: string }[] = [];
 
@@ -11,5 +12,5 @@ export const parseQueryVariables = (
     parsedSort.push({ column, order: order.toUpperCase() });
   });
 
-  return { search, sort: parsedSort, page: pagination.currentPage, first: pagination.count };
+  return { search, sort: parsedSort, page: pagination.currentPage, first: pagination.count, filter };
 };

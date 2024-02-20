@@ -64,10 +64,14 @@ export const TableNew: FC<TableNewProps> = ({
       parseQueryVariables(
         actions.search as string,
         (actions?.sort as TableSort[]) ?? [],
-        { ...table?.pagination, currentPage: 1 },
+        {
+          ...table?.pagination,
+          currentPage: 1,
+        },
+        (actions.conditionFilter as TableConditionFilter).filter ?? [],
       ),
     );
-  }, [actions.search, JSON.stringify(actions.sort), JSON.stringify(variables)]);
+  }, [actions.search, JSON.stringify(actions.sort), JSON.stringify(variables), JSON.stringify(actions.conditionFilter)]);
 
   useEffect(() => {
     if (!table?.data) return;
@@ -76,6 +80,7 @@ export const TableNew: FC<TableNewProps> = ({
         actions.search as string,
         (actions?.sort as TableSort[]) ?? [],
         table?.pagination,
+        (actions.conditionFilter as TableConditionFilter).filter ?? [],
       ),
     );
   }, [table?.pagination?.count, table?.pagination?.currentPage]);
@@ -120,7 +125,9 @@ export const TableNew: FC<TableNewProps> = ({
 
   const rows = getRows(
     actions?.conditionFilter
-      ? (actions.conditionFilter as TableConditionFilter).condition(table?.data ?? [])
+      ? !(actions.conditionFilter as TableConditionFilter).filter
+        ? (actions.conditionFilter as TableConditionFilter).condition(table?.data ?? [])
+        : table?.data ?? []
       : table?.data ?? [],
     externalClasses,
   );
