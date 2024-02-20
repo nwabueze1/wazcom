@@ -65,7 +65,7 @@ export var PlugInForm = forwardRef(function (props, ref) {
         };
     });
     var handleSubmit = function (values, formikHelpers) { return __awaiter(void 0, void 0, void 0, function () {
-        var errorMessage, _a, errors, data, submission_text, ex_1;
+        var errorMessage, _a, errors, data, submission_text, successMessage, ex_1;
         var _b, _c;
         return __generator(this, function (_d) {
             switch (_d.label) {
@@ -86,7 +86,8 @@ export var PlugInForm = forwardRef(function (props, ref) {
                         return [2 /*return*/, onNotify === null || onNotify === void 0 ? void 0 : onNotify("error", errorMessage)];
                     }
                     submission_text = (_b = data === null || data === void 0 ? void 0 : data.createResponse) === null || _b === void 0 ? void 0 : _b.submission_text;
-                    onNotify === null || onNotify === void 0 ? void 0 : onNotify("success", submission_text);
+                    successMessage = (submission_text === null || submission_text === void 0 ? void 0 : submission_text.length) > 0 ? submission_text : "Form has been submitted successfully.";
+                    onNotify === null || onNotify === void 0 ? void 0 : onNotify("success", successMessage);
                     formikHelpers.resetForm();
                     onFormSubmitted === null || onFormSubmitted === void 0 ? void 0 : onFormSubmitted((_c = data === null || data === void 0 ? void 0 : data.createResponse) === null || _c === void 0 ? void 0 : _c.data);
                     return [3 /*break*/, 5];

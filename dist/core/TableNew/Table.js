@@ -145,7 +145,7 @@ export var TableNew = function (_a) {
             return (_jsx("tr", __assign({ className: classes.tRow }, { children: ((_a = actions === null || actions === void 0 ? void 0 : actions.columnFilters) !== null && _a !== void 0 ? _a : columns).map(function (_a, index) {
                     var _b;
                     var key = _a.key, actions = _a.actions;
-                    return (_jsxs("td", __assign({ className: classes.tRowData, valign: "top" }, { children: [row[key], actions && (_jsx(TableColumnActions, { actions: actions, identifier: (_b = row["identifier"]) !== null && _b !== void 0 ? _b : "" }))] }), index));
+                    return (_jsx("td", __assign({ className: classes.tRowData, valign: "top" }, { children: _jsxs("p", __assign({ className: hasStickyActions ? classes.tableRowText : undefined }, { children: [row[key], actions && (_jsx("div", __assign({ className: hasStickyActions ? classes.tableRowActionsContainer : undefined }, { children: _jsx(TableColumnActions, { actions: actions, identifier: (_b = row["identifier"]) !== null && _b !== void 0 ? _b : "" }) })))] })) }), index));
                 }) }), index));
         });
     };

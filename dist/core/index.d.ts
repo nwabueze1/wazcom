@@ -35,3 +35,4 @@ export * from "./Wrapper";
 export * from "./RegionSelector";
 export * from "./ViewHeader";
 export * from "./Splash";
+export * from "../utilities";

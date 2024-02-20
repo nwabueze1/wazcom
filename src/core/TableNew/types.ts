@@ -10,6 +10,7 @@ export type TableNewProps = CommonProps & {
   showFilters?: boolean;
   emptyState?: { heading?: string; message?: string };
   showSort?: boolean;
+  hasStickyActions?:boolean
 };
 
 export type TableColumn = {

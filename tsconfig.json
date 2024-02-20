@@ -18,7 +18,7 @@
     "baseUrl": "src",
     "typeRoots": ["./src/@types", "./node_modules/@types"],
     "downlevelIteration": true,
-    "types": ["vite/client"]
+    "types": ["vite/client", "jest"]
   },
   "include": ["src"],
   "exclude": [

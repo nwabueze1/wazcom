@@ -14,6 +14,7 @@ export type TableNewProps = CommonProps & {
         message?: string;
     };
     showSort?: boolean;
+    hasStickyActions?: boolean;
 };
 export type TableColumn = {
     name: string | JSX.Element;

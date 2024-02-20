@@ -74,7 +74,7 @@ export const QuestionsInput: FC<
         );
 
       case "PHONE_NUMBER":
-        return <FormikTextInput {...commonInputProps} />;
+        return <FormikTextInput {...commonInputProps} type="tel" />;
 
       case "DATE_FORMAT":
         return (

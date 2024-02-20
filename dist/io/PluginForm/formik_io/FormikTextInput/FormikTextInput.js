@@ -35,10 +35,13 @@ export var FormikTextInput = function (_a) {
     var errorMessage = is_address
         ? isAddressTouched && addressError
         : ((_h = formikProps === null || formikProps === void 0 ? void 0 : formikProps.touched) === null || _h === void 0 ? void 0 : _h[name]) && ((_j = formikProps === null || formikProps === void 0 ? void 0 : formikProps.errors) === null || _j === void 0 ? void 0 : _j[name]);
-    return (_jsx(TextInput, __assign({}, props, { name: name, onChange: function (_a) {
-            var value = _a.value;
-            return formikProps === null || formikProps === void 0 ? void 0 : formikProps.setFieldValue(name, value);
-        }, onBlur: function () { return formikProps === null || formikProps === void 0 ? void 0 : formikProps.setFieldTouched(name, true); }, isError: isError, helperText: errorMessage ? errorMessage : undefined, placeholder: "".concat(placeholder, " ").concat(isRequired ? "*" : ""), value: (_k = formikProps === null || formikProps === void 0 ? void 0 : formikProps.values) === null || _k === void 0 ? void 0 : _k[name], className: className, classNames: {
+    var handleChange = function (_a) {
+        var value = _a.value;
+        if (type === "tel")
+            value = value.replace(/[^0-9+]/g, ""); //allow only numbers and +
+        formikProps === null || formikProps === void 0 ? void 0 : formikProps.setFieldValue(name, value);
+    };
+    return (_jsx(TextInput, __assign({}, props, { name: name, onChange: handleChange, onBlur: function () { return formikProps === null || formikProps === void 0 ? void 0 : formikProps.setFieldTouched(name, true); }, isError: isError, helperText: errorMessage ? errorMessage : undefined, placeholder: "".concat(placeholder, " ").concat(isRequired ? "*" : "", " ").concat(type === "tel" ? "(eg: +2349032432432)" : ""), value: (_k = formikProps === null || formikProps === void 0 ? void 0 : formikProps.values) === null || _k === void 0 ? void 0 : _k[name], className: className, classNames: {
             input: (_l = clx(classNames === null || classNames === void 0 ? void 0 : classNames.inputContainer, isError && "error")) !== null && _l !== void 0 ? _l : "",
             inputField: (_m = clx(classNames === null || classNames === void 0 ? void 0 : classNames.input, isError && "error")) !== null && _m !== void 0 ? _m : "",
             label: (_o = classNames === null || classNames === void 0 ? void 0 : classNames.label) !== null && _o !== void 0 ? _o : "",
