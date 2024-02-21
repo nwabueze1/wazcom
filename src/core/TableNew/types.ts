@@ -36,6 +36,7 @@ export type TableFilter = {
 export type TableConditionFilter = {
   name: string;
   condition: (element: any) => any[];
+  filter?: TableFilter[]
 };
 
 export type TableSort = {
