@@ -29,8 +29,24 @@ export type QuestionType = {
   description: string | null;
   fields: any;
   type: QuestionTypes;
+  uuid: string;
 };
 export type PluginFormClassNamesPropsType = Partial<QuestionInputClassNamesPropsType>;
+
+export type ColorPallette = {
+  main?: string;
+  hover?: string;
+  error?: string;
+};
+
+export type FontPallette = {
+  main?: string;
+};
+
+export type Pallette = {
+  color?: ColorPallette;
+  font?: FontPallette;
+};
 
 export type PluginFormPropsType = {
   form_uuid: string;
@@ -46,6 +62,7 @@ export type PluginFormPropsType = {
   style?: React.CSSProperties;
   onFormSubmitted?: (uuid: string) => void;
   apolloClient: CreateResponseClientType;
+  pallette?: Pallette;
 };
 
 export type PluginFormRef = {

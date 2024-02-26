@@ -16,13 +16,13 @@ import { capitalizeFirstChar } from "../helpers";
 
 export const QuestionsInput: FC<
   QuestionInputPropsType & { formikProps?: FormikProps<Record<string, any>> }
-> = ({ name, type, fields, is_required, classNames, formikProps, mscProperties }) => {
+> = ({ name, type, fields, is_required, classNames, formikProps, mscProperties, label }) => {
   const classes = useQuestionInputStyles();
 
   const commonInputProps = {
     name,
     isRequired: is_required,
-    placeholder: name,
+    placeholder: label,
     classNames: classNames?.textField,
     formikProps,
   };

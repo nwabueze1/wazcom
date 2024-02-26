@@ -53,4 +53,6 @@ export type QuestionInputPropsType = {
   is_required?: boolean;
   classNames?: Partial<QuestionInputClassNamesPropsType>;
   mscProperties?: QuestionInputMiscProps;
+  label?: string;
+  placeholder?: string;
 };
