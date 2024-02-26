@@ -47,7 +47,10 @@ export type TypographyPallette = {
 
 export type FormPallette = {
   colors?: ColorPallette;
-  typography?: TypographyPallette;
+  typography?: {
+    input?: TypographyPallette;
+    label?: TypographyPallette;
+  };
 };
 
 export type PluginFormPropsType = {

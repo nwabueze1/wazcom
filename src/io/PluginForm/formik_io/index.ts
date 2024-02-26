@@ -7,3 +7,4 @@ export * from "./FormikRatingInput";
 export * from "./FormikPhoneNumber";
 export * from "./FormikTextArea";
 export * from "./FormikSelect";
+export * from "./usePalletteStyles";

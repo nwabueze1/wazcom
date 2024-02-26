@@ -2,26 +2,8 @@ import { FC } from "react";
 import { TextInput } from "../../../TextInput";
 import { FormikTextInputPropsType } from "./type";
 import clx from "classnames";
-import { makeStyles } from "@mui/styles";
-import { Theme } from "@mui/material";
+import { usePalletteStyles } from "../";
 import { FormPallette } from "../../type";
-
-const usePalletteStyles = makeStyles<Theme, FormPallette>((theme) => ({
-  baseInput: {
-    borderColor: (props) => props?.colors?.main,
-    "&:hover": {
-      borderColor: (props) => props?.colors?.hover,
-    },
-    "&.error": {
-      borderColor: (props) => props?.colors?.error,
-    },
-  },
-  field: (props) => ({
-    fontFamily: props?.typography?.fontFamily,
-    fontSize: props?.typography?.fontSize,
-    color: props?.typography?.color,
-  }),
-}));
 
 export const FormikTextInput: FC<FormikTextInputPropsType & { is_address?: boolean }> = ({
   className,
@@ -71,7 +53,7 @@ export const FormikTextInput: FC<FormikTextInputPropsType & { is_address?: boole
       classNames={{
         input: clx(palletteStyles?.baseInput, classNames?.inputContainer, isError && "error") ?? "",
         inputField: clx(palletteStyles?.field, classNames?.input, isError && "error") ?? "",
-        label: classNames?.label ?? "",
+        label: clx(palletteStyles?.label, classNames?.label ?? ""),
         errorMessage: classNames?.errorMessage ?? "",
       }}
       type={type}

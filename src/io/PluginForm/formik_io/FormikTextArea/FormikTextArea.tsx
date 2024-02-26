@@ -2,6 +2,8 @@ import { FC } from "react";
 import { TextArea } from "../../../TextArea";
 import { FormikTextInputPropsType } from "../FormikTextInput";
 import clx from "classnames";
+import { usePalletteStyles } from "../";
+import { FormPallette } from "../../type";
 
 export const FormikTextArea: FC<Omit<FormikTextInputPropsType, "type">> = ({
   className,
@@ -11,8 +13,10 @@ export const FormikTextArea: FC<Omit<FormikTextInputPropsType, "type">> = ({
   formikProps,
   rows,
   placeholder,
+  pallette,
 }) => {
   const isError = formikProps?.touched?.[name] && formikProps?.errors?.[name];
+  const palletteStyles = usePalletteStyles(pallette as FormPallette);
 
   return (
     <TextArea
@@ -26,7 +30,13 @@ export const FormikTextArea: FC<Omit<FormikTextInputPropsType, "type">> = ({
       helperText={isError ? (isError as string) : undefined}
       classNames={{
         textAreaContainer: clx(classNames?.inputContainer, isError && "error") ?? "",
-        input: clx(classNames?.input, isError && "error") ?? "",
+        input:
+          clx(
+            palletteStyles?.baseInput,
+            palletteStyles?.field,
+            classNames?.input,
+            isError && "error",
+          ) ?? "",
         helperTextError: classNames?.errorMessage ?? "",
       }}
     />
