@@ -16,12 +16,12 @@ import { FormikSingleChoice, FormikSelect, FormikTextArea, FormikTextInput, Form
 import { useQuestionInputStyles } from "./style";
 import { capitalizeFirstChar } from "../helpers";
 export var QuestionsInput = function (_a) {
-    var name = _a.name, type = _a.type, fields = _a.fields, is_required = _a.is_required, classNames = _a.classNames, formikProps = _a.formikProps, mscProperties = _a.mscProperties;
+    var name = _a.name, type = _a.type, fields = _a.fields, is_required = _a.is_required, classNames = _a.classNames, formikProps = _a.formikProps, mscProperties = _a.mscProperties, label = _a.label;
     var classes = useQuestionInputStyles();
     var commonInputProps = {
         name: name,
         isRequired: is_required,
-        placeholder: name,
+        placeholder: label,
         classNames: classNames === null || classNames === void 0 ? void 0 : classNames.textField,
         formikProps: formikProps,
     };

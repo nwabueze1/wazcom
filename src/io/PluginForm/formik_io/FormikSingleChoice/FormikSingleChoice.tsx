@@ -45,12 +45,12 @@ export const FormikSingleChoice: FC<Omit<FormikRadioOrCheckBoxPropsType, "childr
 
   return (
     <div className={className}>
-      <fieldset className={clx(classes.fieldSet, isError && "error", classNames?.fieldset)}>
-        <legend className={clx(classes.legend, classNames?.legend)}>
-          {props.name} {isRequired && <sup>*</sup>}
-        </legend>
+      <div className={clx(classes.fieldSet, isError && "error", classNames?.fieldset)}>
+        <p className={clx(classes.legend, classNames?.legend)}>
+          {props?.placeholder} {isRequired && <sup>*</sup>}
+        </p>
         {renderOptions()}
-      </fieldset>
+      </div>
       {isError && errorMessage && (
         <span className={clx(classes.errorMessage, classNames?.errorMessage)}>
           {errorMessage as string}

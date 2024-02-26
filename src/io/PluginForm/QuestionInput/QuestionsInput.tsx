@@ -16,7 +16,17 @@ import { capitalizeFirstChar } from "../helpers";
 
 export const QuestionsInput: FC<
   QuestionInputPropsType & { formikProps?: FormikProps<Record<string, any>> }
-> = ({ name, type, fields, is_required, classNames, formikProps, mscProperties, label }) => {
+> = ({
+  name,
+  type,
+  fields,
+  is_required,
+  classNames,
+  formikProps,
+  mscProperties,
+  label,
+  pallette,
+}) => {
   const classes = useQuestionInputStyles();
 
   const commonInputProps = {
@@ -25,6 +35,7 @@ export const QuestionsInput: FC<
     placeholder: label,
     classNames: classNames?.textField,
     formikProps,
+    pallette,
   };
   const renderFields = () => {
     let addressKeys: string[] = [];
@@ -55,6 +66,7 @@ export const QuestionsInput: FC<
             control={"radio"}
             classNames={classNames?.radioButtonInput}
             formikProps={formikProps}
+            placeholder={label}
           />
         );
 
@@ -70,6 +82,7 @@ export const QuestionsInput: FC<
             multiple={options.length > 1}
             classNames={classNames?.checkBoxInput}
             formikProps={formikProps}
+            placeholder={label}
           />
         );
 
@@ -80,7 +93,7 @@ export const QuestionsInput: FC<
         return (
           <div>
             <label className={clx(classes.legend, classes.label, classNames?.textField?.label)}>
-              {capitalizeFirstChar(name)}
+              {capitalizeFirstChar(label ?? "")}
             </label>
             <FormikTextInput {...commonInputProps} type={"date"} />
           </div>
@@ -89,10 +102,8 @@ export const QuestionsInput: FC<
       case "ADDRESS":
         addressKeys = Object.keys(fields as Record<string, string>);
         return (
-          <fieldset className={clx(classes.fieldSet, classNames?.addressInput?.fieldset)}>
-            <legend className={clx(classes.legend, classNames?.addressInput?.legend)}>
-              {name}
-            </legend>
+          <div className={clx(classes.fieldSet, classNames?.addressInput?.fieldset)}>
+            <label className={clx(classes.legend, classNames?.addressInput?.legend)}>{label}</label>
             {addressKeys.map((key, index) => (
               <FormikTextInput
                 is_address={true}
@@ -102,7 +113,7 @@ export const QuestionsInput: FC<
                 placeholder={index === addressKeys.length - 1 ? "Country" : fields?.[key]}
               />
             ))}
-          </fieldset>
+          </div>
         );
 
       case "DROP_DOWN":

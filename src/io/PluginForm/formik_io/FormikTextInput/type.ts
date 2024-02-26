@@ -1,6 +1,7 @@
 import { TextInputProps } from "../../../TextInput";
 import { FormikProps } from "formik";
 import { TextInputClassNamesPropsType } from "../type";
+import {FormPallette} from "../../type"
 
 export type FormikTextInputPropsType = Partial<
   Omit<TextInputProps, "label" | "errorMessage" | "isError">
@@ -9,4 +10,6 @@ export type FormikTextInputPropsType = Partial<
   isRequired?: boolean;
   name: string;
   classNames?: Partial<TextInputClassNamesPropsType>;
+  pallette?: FormPallette;
+  label?:string
 };

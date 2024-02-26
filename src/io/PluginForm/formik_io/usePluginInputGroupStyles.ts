@@ -11,10 +11,7 @@ export const usePluginInputGroup = makeStyles((theme: Theme) => ({
   fieldSet: {
     margin: 0,
     borderRadius: 4,
-    border: `1px solid ${theme.design.colors.waz_primary700}`,
-    "&.error": {
-      borderColor: theme.design.colors.error,
-    },
+   
   },
   legend: {
     color: theme.design.colors.waz_grey,

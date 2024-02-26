@@ -1,5 +1,6 @@
 import { RatingPropsType } from "../../../RatingInput";
 import { FormikProps } from "formik";
+import {FormPallette} from "../../type"
 
 export type FormikRatingInputPropsType = Omit<
   RatingPropsType,
@@ -7,4 +8,5 @@ export type FormikRatingInputPropsType = Omit<
 > & {
   isRequired?: boolean;
   formikProps?: FormikProps<Record<string, any>>;
+  pallette?: FormPallette;
 };

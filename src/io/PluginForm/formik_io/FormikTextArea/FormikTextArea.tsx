@@ -10,6 +10,7 @@ export const FormikTextArea: FC<Omit<FormikTextInputPropsType, "type">> = ({
   name,
   formikProps,
   rows,
+  placeholder,
 }) => {
   const isError = formikProps?.touched?.[name] && formikProps?.errors?.[name];
 
@@ -17,7 +18,7 @@ export const FormikTextArea: FC<Omit<FormikTextInputPropsType, "type">> = ({
     <TextArea
       rows={Number(rows)}
       className={className}
-      placeholder={`${name} ${isRequired ? "*" : ""}`}
+      placeholder={`${placeholder} ${isRequired ? "*" : ""}`}
       value={formikProps?.values?.[name]}
       onChange={({ value }) => formikProps?.setFieldValue(name, value)}
       onBlur={() => formikProps?.setFieldTouched(name, true)}

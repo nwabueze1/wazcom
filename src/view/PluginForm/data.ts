@@ -15,6 +15,7 @@ export const pluginFormData = {
         is_required: true,
         type: "SHORT_TEXT",
         description: null,
+        uuid: "139180e6-d4ca-11ee-b5dd-325096b39f47",
       },
       {
         fields: {
@@ -24,6 +25,7 @@ export const pluginFormData = {
         is_required: true,
         type: "MULTILINE",
         description: null,
+        uuid: "139183a2-d4ca-11ee-96ca-325096b39f47",
       },
       {
         fields: {
@@ -33,6 +35,7 @@ export const pluginFormData = {
         is_required: true,
         type: "MULTI_CHOICE",
         description: null,
+        uuid: "1391841a-d4ca-11ee-92d0-325096b39f47",
       },
       {
         fields: {
@@ -42,6 +45,7 @@ export const pluginFormData = {
         is_required: true,
         type: "SINGLE_CHOICE",
         description: null,
+        uuid: "1391846a-d4ca-11ee-a74f-325096b39f47",
       },
       {
         fields: {
@@ -51,6 +55,7 @@ export const pluginFormData = {
         is_required: true,
         type: "YES_OR_NO",
         description: null,
+        uuid: "1391846a-d4ca-11ee-a74f-325096b39f49",
       },
       {
         fields: {
@@ -61,6 +66,7 @@ export const pluginFormData = {
         is_required: true,
         type: "RATING",
         description: null,
+        uuid: "1391846a-d4ca-11ee-a74f-325096b39f48",
       },
       {
         fields: {
@@ -71,6 +77,7 @@ export const pluginFormData = {
         is_required: true,
         type: "OPINION",
         description: null,
+        uuid: "1391846a-d4ca-11ee-a74f-325096b39f46",
       },
       {
         fields: {
@@ -80,6 +87,7 @@ export const pluginFormData = {
         is_required: true,
         type: "PHONE_NUMBER",
         description: null,
+        uuid: "1391846a-d4ca-11ee-a74f-325096b39f45",
       },
       {
         fields: [],
@@ -87,6 +95,7 @@ export const pluginFormData = {
         is_required: true,
         type: "EMAIL_ADDRESS",
         description: null,
+        uuid: "13918546-d4ca-11ee-9f7f-325096b39f47",
       },
       {
         fields: {
@@ -96,6 +105,7 @@ export const pluginFormData = {
         is_required: true,
         type: "WEB_URL",
         description: null,
+        uuid: "13918546-d4ca-11ee-9f7f-325096b39f45",
       },
       {
         fields: {
@@ -110,6 +120,7 @@ export const pluginFormData = {
         is_required: true,
         type: "ADDRESS",
         description: null,
+        uuid: "13918546-d4ca-11ee-9f7f-325096b39f43",
       },
       {
         fields: [],
@@ -117,6 +128,7 @@ export const pluginFormData = {
         is_required: true,
         type: "DATE_FORMAT",
         description: null,
+        uuid: "13918546-d4ca-11ee-9f7f-325096b39f41",
       },
       {
         fields: [],
@@ -124,6 +136,7 @@ export const pluginFormData = {
         is_required: true,
         type: "DATE_FORMAT",
         description: null,
+        uuid: "1391860e-d4ca-11ee-866c-325096b39f47",
       },
     ],
     setting: {

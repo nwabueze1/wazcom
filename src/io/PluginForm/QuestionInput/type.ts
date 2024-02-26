@@ -1,4 +1,5 @@
 import {
+  Pallette,
   PhoneNumberInputClassNamesPropsType,
   QuestionTypes,
   SelectInputClassNamesPropsType,
@@ -55,4 +56,5 @@ export type QuestionInputPropsType = {
   mscProperties?: QuestionInputMiscProps;
   label?: string;
   placeholder?: string;
+  pallette?:Pallette
 };

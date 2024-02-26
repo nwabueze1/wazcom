@@ -25,8 +25,9 @@ export const PluginFormView = () => {
                 apolloClient={{}}
                 className={classes.form}
                 form_uuid={pluginFormData.form_uuid}
-                form={pluginFormData.form as { uuid: string; questions: QuestionType[] }}
+                form={pluginFormData?.form}
                 ref={submitRef}
+                pallette={{ colors: {}, typography: {} }}
               />
             </Paper>
           </Wrapper>

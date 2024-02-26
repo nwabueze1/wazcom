@@ -8,6 +8,7 @@ export const FormikSelect: FC<FormikSelectPropsType> = ({
   options,
   name,
   formikProps,
+  placeholder
 }) => {
   const isInvalid = formikProps?.touched?.[name] && formikProps?.["errors"]?.[name];
 
@@ -19,7 +20,7 @@ export const FormikSelect: FC<FormikSelectPropsType> = ({
       helperText={isInvalid as string}
       onChange={({ value }) => formikProps?.setFieldValue(name, value)}
       onBlur={() => formikProps?.setFieldTouched(name, true)}
-      label={name}
+      label={placeholder}
       containerClass={className}
       classNames={classNames}
     />

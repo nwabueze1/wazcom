@@ -20,7 +20,7 @@ export const FormikOpinionScale: FC<FormikOpinionInputPropsType> = ({
       {...props}
       onChange={handleChange}
       value={formikProps?.values?.[name]}
-      label={`${name} ${isRequired && "*"}`}
+      label={`${props?.placeholder} ${isRequired && "*"}`}
       isError={error as boolean}
       helperText={error as string}
     />
