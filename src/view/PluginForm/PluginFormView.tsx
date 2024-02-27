@@ -1,7 +1,7 @@
 import CssBaseline from "@mui/material/CssBaseline";
 import { Wrapper } from "../../core";
 import { Paper } from "../../core/Paper";
-import { PlugInForm, QuestionType, PluginFormRef } from "../../io";
+import { PlugInForm, PluginFormRef } from "../../io";
 import { pluginFormData } from "./data";
 import { usePluginFormStyles } from "./usePluginFormStyles";
 import { useRef } from "react";
@@ -25,9 +25,20 @@ export const PluginFormView = () => {
                 apolloClient={{}}
                 className={classes.form}
                 form_uuid={pluginFormData.form_uuid}
-                form={pluginFormData?.form}
+                form={pluginFormData?.form as any}
                 ref={submitRef}
-                pallette={{ colors: { main: "red" }, typography: {} }}
+                pallette={{
+                  colors: { main: "rgb(0,0,0)", hover: "red" },
+                  typography: {
+                    input: {
+                      color: "green",
+                      fontSize: 12,
+                    },
+                    label: {
+                      color: "red",
+                    },
+                  },
+                }}
               />
             </Paper>
           </Wrapper>

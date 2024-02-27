@@ -68,8 +68,6 @@ export const PlugInForm = forwardRef<PluginFormRef, PluginFormPropsType>((props,
     }
   };
 
-  console.log(questions);
-
   return (
     <>
       <Formik

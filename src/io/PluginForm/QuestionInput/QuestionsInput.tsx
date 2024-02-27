@@ -67,6 +67,7 @@ export const QuestionsInput: FC<
             classNames={classNames?.radioButtonInput}
             formikProps={formikProps}
             placeholder={label}
+            pallette={pallette}
           />
         );
 
@@ -83,6 +84,7 @@ export const QuestionsInput: FC<
             classNames={classNames?.checkBoxInput}
             formikProps={formikProps}
             placeholder={label}
+            pallette={pallette}
           />
         );
 

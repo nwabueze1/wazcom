@@ -18,7 +18,7 @@ export const useOpinionScaleStyles = makeStyles((theme: Theme) => ({
   },
   boxContainer: {
     display: "flex",
-    gap: theme.spacing(2),
+    gap: theme.spacing(0.6),
     flexWrap: "wrap",
     [theme.breakpoints.down("lg")]: {
       gap: theme.spacing(0.8),

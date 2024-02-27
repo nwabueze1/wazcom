@@ -3,6 +3,8 @@ import { usePluginInputGroup } from "../usePluginInputGroupStyles";
 import clx from "classnames";
 import { RadioButtonInput } from "../../../RadioButtonInput";
 import { FormikRadioOrCheckBoxPropsType } from "./type";
+import { usePalletteStyles } from "./usePalletteStyles";
+import { FormPallette } from "../../type";
 
 export const FormikSingleChoice: FC<Omit<FormikRadioOrCheckBoxPropsType, "children">> = ({
   className,
@@ -15,10 +17,12 @@ export const FormikSingleChoice: FC<Omit<FormikRadioOrCheckBoxPropsType, "childr
   const classes = usePluginInputGroup();
   const isError = formikProps?.touched?.[props.name] && formikProps?.errors?.[props.name];
   const errorMessage = formikProps?.errors?.[props.name];
+  const palletteStyles = usePalletteStyles(props?.pallette as FormPallette);
   const radioInputClass = {
     radioButtonInput: classNames?.radioButtonInput,
-    label: clx(classes.checkBoxLabel, classNames?.label),
+    label: clx(classes.checkBoxLabel, palletteStyles?.input, classNames?.label),
     input: classNames?.input,
+    root: clx(palletteStyles?.root, (classNames as any)?.root),
   };
 
   const renderOptions = () =>
@@ -46,7 +50,7 @@ export const FormikSingleChoice: FC<Omit<FormikRadioOrCheckBoxPropsType, "childr
   return (
     <div className={className}>
       <div className={clx(classes.fieldSet, isError && "error", classNames?.fieldset)}>
-        <p className={clx(classes.legend, classNames?.legend)}>
+        <p className={clx(classes.legend, classNames?.legend, palletteStyles?.label)}>
           {props?.placeholder} {isRequired && <sup>*</sup>}
         </p>
         {renderOptions()}
