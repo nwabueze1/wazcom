@@ -2,7 +2,7 @@ import { makeStyles } from "@mui/styles";
 import { Theme } from "@mui/material";
 import { FormPallette } from "../type";
 
-export const usePalletteStyles = makeStyles<Theme, FormPallette>((theme) => ({
+export const usePalletteStyles = makeStyles<Theme, FormPallette>(() => ({
   baseInput: {
     borderColor: (props) => props?.colors?.main,
     "&:hover": {

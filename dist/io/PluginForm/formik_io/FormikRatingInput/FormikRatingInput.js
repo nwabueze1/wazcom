@@ -22,12 +22,15 @@ var __rest = (this && this.__rest) || function (s, e) {
 };
 import { jsx as _jsx } from "react/jsx-runtime";
 import { RatingInput } from "../../../RatingInput";
+import clx from "classnames";
+import { usePallette } from "./usePallette";
 export var FormikRatingInput = function (_a) {
-    var _b, _c, _d;
+    var _b, _c, _d, _e, _f;
     var isRequired = _a.isRequired, name = _a.name, formikProps = _a.formikProps, variant = _a.variant, label = _a.label, props = __rest(_a, ["isRequired", "name", "formikProps", "variant", "label"]);
     var isInvalid = ((_b = formikProps === null || formikProps === void 0 ? void 0 : formikProps.touched) === null || _b === void 0 ? void 0 : _b[name]) && ((_c = formikProps === null || formikProps === void 0 ? void 0 : formikProps.errors) === null || _c === void 0 ? void 0 : _c[name]);
+    var palletteStyles = usePallette(props === null || props === void 0 ? void 0 : props.pallette);
     var handleChange = function (e) {
         formikProps === null || formikProps === void 0 ? void 0 : formikProps.setFieldValue(name, Number(e.value));
     };
-    return (_jsx(RatingInput, __assign({}, props, { variant: variant, name: name, value: (_d = formikProps === null || formikProps === void 0 ? void 0 : formikProps.values) === null || _d === void 0 ? void 0 : _d[name], onChange: handleChange, isError: isInvalid, helperText: isInvalid, label: "".concat(label, " ").concat(isRequired && "*") })));
+    return (_jsx(RatingInput, __assign({}, props, { variant: variant, name: name, value: (_d = formikProps === null || formikProps === void 0 ? void 0 : formikProps.values) === null || _d === void 0 ? void 0 : _d[name], onChange: handleChange, isError: isInvalid, helperText: isInvalid, label: "".concat(label, " ").concat(isRequired && "*"), classNames: __assign(__assign({}, props === null || props === void 0 ? void 0 : props.classNames), { label: clx(palletteStyles === null || palletteStyles === void 0 ? void 0 : palletteStyles.label, (_e = props === null || props === void 0 ? void 0 : props.classNames) === null || _e === void 0 ? void 0 : _e.label), rating: clx(palletteStyles === null || palletteStyles === void 0 ? void 0 : palletteStyles.rating, (_f = props === null || props === void 0 ? void 0 : props.classNames) === null || _f === void 0 ? void 0 : _f.rating) }) })));
 };

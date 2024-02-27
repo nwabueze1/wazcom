@@ -22,12 +22,15 @@ var __rest = (this && this.__rest) || function (s, e) {
 };
 import { jsx as _jsx } from "react/jsx-runtime";
 import { OpinionScale } from "../../../OpinionScale";
+import { usePalletteStyles } from "./usePalletteStyles";
+import clx from "classnames";
 export var FormikOpinionScale = function (_a) {
-    var _b, _c, _d;
+    var _b, _c, _d, _e, _f, _g, _h;
     var formikProps = _a.formikProps, isRequired = _a.isRequired, name = _a.name, props = __rest(_a, ["formikProps", "isRequired", "name"]);
     var error = ((_b = formikProps === null || formikProps === void 0 ? void 0 : formikProps.touched) === null || _b === void 0 ? void 0 : _b[name]) && ((_c = formikProps === null || formikProps === void 0 ? void 0 : formikProps["errors"]) === null || _c === void 0 ? void 0 : _c[name]);
+    var pallettStyles = usePalletteStyles(props === null || props === void 0 ? void 0 : props.pallette);
     var handleChange = function (e) {
         formikProps === null || formikProps === void 0 ? void 0 : formikProps.setFieldValue(name, Number(e.value));
     };
-    return (_jsx(OpinionScale, __assign({ name: name }, props, { onChange: handleChange, value: (_d = formikProps === null || formikProps === void 0 ? void 0 : formikProps.values) === null || _d === void 0 ? void 0 : _d[name], label: "".concat(name, " ").concat(isRequired && "*"), isError: error, helperText: error })));
+    return (_jsx(OpinionScale, __assign({ name: name }, props, { onChange: handleChange, value: (_d = formikProps === null || formikProps === void 0 ? void 0 : formikProps.values) === null || _d === void 0 ? void 0 : _d[name], label: "".concat(props === null || props === void 0 ? void 0 : props.placeholder, " ").concat(isRequired && "*"), isError: error, helperText: error, classNames: __assign(__assign({}, props === null || props === void 0 ? void 0 : props.classNames), { containedBox: clx(pallettStyles === null || pallettStyles === void 0 ? void 0 : pallettStyles.container, (_e = props === null || props === void 0 ? void 0 : props.classNames) === null || _e === void 0 ? void 0 : _e.containedBox), outlinedBox: clx(pallettStyles === null || pallettStyles === void 0 ? void 0 : pallettStyles.container, (_f = props === null || props === void 0 ? void 0 : props.classNames) === null || _f === void 0 ? void 0 : _f.outlinedBox), boxText: clx(pallettStyles === null || pallettStyles === void 0 ? void 0 : pallettStyles.text, (_g = props === null || props === void 0 ? void 0 : props.classNames) === null || _g === void 0 ? void 0 : _g.boxText), label: clx(pallettStyles === null || pallettStyles === void 0 ? void 0 : pallettStyles.label, (_h = props === null || props === void 0 ? void 0 : props.classNames) === null || _h === void 0 ? void 0 : _h.label) }) })));
 };

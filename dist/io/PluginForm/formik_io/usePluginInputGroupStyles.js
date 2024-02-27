@@ -9,10 +9,6 @@ export var usePluginInputGroup = makeStyles(function (theme) { return ({
     fieldSet: {
         margin: 0,
         borderRadius: 4,
-        border: "1px solid ".concat(theme.design.colors.waz_primary700),
-        "&.error": {
-            borderColor: theme.design.colors.error,
-        },
     },
     legend: {
         color: theme.design.colors.waz_grey,

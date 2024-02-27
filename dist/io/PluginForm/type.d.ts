@@ -19,12 +19,17 @@ export type ColorPallette = {
     hover?: string;
     error?: string;
 };
-export type FontPallette = {
-    main?: string;
+export type TypographyPallette = {
+    fontFamily?: string;
+    fontSize?: string | number;
+    color?: string;
 };
-export type Pallette = {
-    color?: ColorPallette;
-    font?: FontPallette;
+export type FormPallette = {
+    colors?: ColorPallette;
+    typography?: {
+        input?: TypographyPallette;
+        label?: TypographyPallette;
+    };
 };
 export type PluginFormPropsType = {
     form_uuid: string;
@@ -40,7 +45,7 @@ export type PluginFormPropsType = {
     style?: React.CSSProperties;
     onFormSubmitted?: (uuid: string) => void;
     apolloClient: CreateResponseClientType;
-    pallette?: Pallette;
+    palette?: FormPallette;
 };
 export type PluginFormRef = {
     submit?: () => void;
@@ -55,6 +60,7 @@ export type FormikSelectPropsType = Partial<Omit<TextFieldPropsType, "isError" |
     name: string;
     formikProps?: FormikProps<Record<string, any>>;
     classNames?: SelectInputClassNamesPropsType;
+    pallette?: FormPallette;
 };
 export type CreateResponseClientType = {
     client?: ApolloClient<NormalizedCacheObject>;

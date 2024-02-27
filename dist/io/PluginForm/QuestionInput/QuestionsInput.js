@@ -16,7 +16,7 @@ import { FormikSingleChoice, FormikSelect, FormikTextArea, FormikTextInput, Form
 import { useQuestionInputStyles } from "./style";
 import { capitalizeFirstChar } from "../helpers";
 export var QuestionsInput = function (_a) {
-    var name = _a.name, type = _a.type, fields = _a.fields, is_required = _a.is_required, classNames = _a.classNames, formikProps = _a.formikProps, mscProperties = _a.mscProperties, label = _a.label;
+    var name = _a.name, type = _a.type, fields = _a.fields, is_required = _a.is_required, classNames = _a.classNames, formikProps = _a.formikProps, mscProperties = _a.mscProperties, label = _a.label, palette = _a.palette;
     var classes = useQuestionInputStyles();
     var commonInputProps = {
         name: name,
@@ -24,6 +24,7 @@ export var QuestionsInput = function (_a) {
         placeholder: label,
         classNames: classNames === null || classNames === void 0 ? void 0 : classNames.textField,
         formikProps: formikProps,
+        palette: palette,
     };
     var renderFields = function () {
         var _a, _b, _c, _d, _e, _f, _g, _h, _j, _k, _l;
@@ -45,20 +46,20 @@ export var QuestionsInput = function (_a) {
                     label: field,
                     value: field,
                 }); });
-                return (_jsx(FormikSingleChoice, { options: options, name: name, control: "radio", classNames: classNames === null || classNames === void 0 ? void 0 : classNames.radioButtonInput, formikProps: formikProps }));
+                return (_jsx(FormikSingleChoice, { options: options, name: name, control: "radio", classNames: classNames === null || classNames === void 0 ? void 0 : classNames.radioButtonInput, formikProps: formikProps, placeholder: label, pallette: palette }));
             case "MULTI_CHOICE":
                 options = (fields === null || fields === void 0 ? void 0 : fields.choices).map(function (field) { return ({
                     label: field,
                     value: field,
                 }); });
-                return (_jsx(FormikMultiChoice, { options: options, name: name, multiple: options.length > 1, classNames: classNames === null || classNames === void 0 ? void 0 : classNames.checkBoxInput, formikProps: formikProps }));
+                return (_jsx(FormikMultiChoice, { options: options, name: name, multiple: options.length > 1, classNames: classNames === null || classNames === void 0 ? void 0 : classNames.checkBoxInput, formikProps: formikProps, placeholder: label, pallette: palette }));
             case "PHONE_NUMBER":
                 return _jsx(FormikTextInput, __assign({}, commonInputProps, { type: "tel" }));
             case "DATE_FORMAT":
-                return (_jsxs("div", { children: [_jsx("label", __assign({ className: clx(classes.legend, classes.label, (_a = classNames === null || classNames === void 0 ? void 0 : classNames.textField) === null || _a === void 0 ? void 0 : _a.label) }, { children: capitalizeFirstChar(name) })), _jsx(FormikTextInput, __assign({}, commonInputProps, { type: "date" }))] }));
+                return (_jsxs("div", { children: [_jsx("label", __assign({ className: clx(classes.legend, classes.label, (_a = classNames === null || classNames === void 0 ? void 0 : classNames.textField) === null || _a === void 0 ? void 0 : _a.label) }, { children: capitalizeFirstChar(label !== null && label !== void 0 ? label : "") })), _jsx(FormikTextInput, __assign({}, commonInputProps, { type: "date" }))] }));
             case "ADDRESS":
                 addressKeys = Object.keys(fields);
-                return (_jsxs("fieldset", __assign({ className: clx(classes.fieldSet, (_b = classNames === null || classNames === void 0 ? void 0 : classNames.addressInput) === null || _b === void 0 ? void 0 : _b.fieldset) }, { children: [_jsx("legend", __assign({ className: clx(classes.legend, (_c = classNames === null || classNames === void 0 ? void 0 : classNames.addressInput) === null || _c === void 0 ? void 0 : _c.legend) }, { children: name })), addressKeys.map(function (key, index) { return (_createElement(FormikTextInput, __assign({ is_address: true }, commonInputProps, { name: "".concat(name, ".").concat(fields === null || fields === void 0 ? void 0 : fields[key]), key: index, placeholder: index === addressKeys.length - 1 ? "Country" : fields === null || fields === void 0 ? void 0 : fields[key] }))); })] })));
+                return (_jsxs("div", __assign({ className: clx(classes.fieldSet, (_b = classNames === null || classNames === void 0 ? void 0 : classNames.addressInput) === null || _b === void 0 ? void 0 : _b.fieldset) }, { children: [_jsx("label", __assign({ className: clx(classes.legend, (_c = classNames === null || classNames === void 0 ? void 0 : classNames.addressInput) === null || _c === void 0 ? void 0 : _c.legend) }, { children: label })), addressKeys.map(function (key, index) { return (_createElement(FormikTextInput, __assign({ is_address: true }, commonInputProps, { name: "".concat(name, ".").concat(fields === null || fields === void 0 ? void 0 : fields[key]), key: index, placeholder: index === addressKeys.length - 1 ? "Country" : fields === null || fields === void 0 ? void 0 : fields[key] }))); })] })));
             case "DROP_DOWN":
                 options = (fields === null || fields === void 0 ? void 0 : fields.choices).map(function (choice) { return ({
                     label: choice.toLocaleUpperCase(),

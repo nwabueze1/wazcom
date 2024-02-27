@@ -35,7 +35,7 @@ export const QuestionsInput: FC<
     placeholder: label,
     classNames: classNames?.textField,
     formikProps,
-    palette: pallette,
+    palette,
   };
   const renderFields = () => {
     let addressKeys: string[] = [];

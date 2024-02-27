@@ -16,7 +16,6 @@ export var useQuestionInputStyles = makeStyles(function (theme) {
             margin: 0,
             borderRadius: 4,
             display: "grid",
-            border: "1px solid ".concat(theme.design.colors.waz_primary700),
             gap: theme.spacing(1),
             "&.error": {
                 borderColor: theme.design.colors.error,
