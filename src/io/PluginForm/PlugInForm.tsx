@@ -20,7 +20,7 @@ export const PlugInForm = forwardRef<PluginFormRef, PluginFormPropsType>((props,
     onNotify,
     onFormSubmitted,
     apolloClient,
-    pallette,
+    palette,
   } = props;
   const initialFormState = getInitialFormValues((questions ?? []) as QuestionType[]);
   const validationSchema = buildValidationSchema((questions ?? []) as QuestionType[]);
@@ -89,7 +89,7 @@ export const PlugInForm = forwardRef<PluginFormRef, PluginFormPropsType>((props,
                     classNames={classNames}
                     formikProps={props}
                     label={question}
-                    pallette={pallette}
+                    palette={palette}
                   />
                 ),
               )}

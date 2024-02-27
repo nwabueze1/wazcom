@@ -67,7 +67,7 @@ export type PluginFormPropsType = {
   style?: React.CSSProperties;
   onFormSubmitted?: (uuid: string) => void;
   apolloClient: CreateResponseClientType;
-  pallette?: FormPallette;
+  palette?: FormPallette;
 };
 
 export type PluginFormRef = {

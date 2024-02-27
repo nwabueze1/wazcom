@@ -27,7 +27,7 @@ export const PluginFormView = () => {
                 form_uuid={pluginFormData.form_uuid}
                 form={pluginFormData?.form as any}
                 ref={submitRef}
-                pallette={{
+                palette={{
                   colors: { main: "rgb(0,0,0)", hover: "red" },
                   typography: {
                     input: {

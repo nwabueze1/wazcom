@@ -25,7 +25,7 @@ export const QuestionsInput: FC<
   formikProps,
   mscProperties,
   label,
-  pallette,
+  palette,
 }) => {
   const classes = useQuestionInputStyles();
 
@@ -35,7 +35,7 @@ export const QuestionsInput: FC<
     placeholder: label,
     classNames: classNames?.textField,
     formikProps,
-    pallette,
+    palette: pallette,
   };
   const renderFields = () => {
     let addressKeys: string[] = [];
@@ -67,7 +67,7 @@ export const QuestionsInput: FC<
             classNames={classNames?.radioButtonInput}
             formikProps={formikProps}
             placeholder={label}
-            pallette={pallette}
+            pallette={palette}
           />
         );
 
@@ -84,7 +84,7 @@ export const QuestionsInput: FC<
             classNames={classNames?.checkBoxInput}
             formikProps={formikProps}
             placeholder={label}
-            pallette={pallette}
+            pallette={palette}
           />
         );
 

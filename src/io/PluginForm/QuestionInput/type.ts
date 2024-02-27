@@ -56,5 +56,5 @@ export type QuestionInputPropsType = {
   mscProperties?: QuestionInputMiscProps;
   label?: string;
   placeholder?: string;
-  pallette?:Pallette
+  palette?: Pallette;
 };
