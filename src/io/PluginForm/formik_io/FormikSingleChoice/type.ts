@@ -19,6 +19,6 @@ export type FormikRadioOrCheckBoxPropsType = Omit<
     | "input",
     string
   >;
-  pallette?: FormPallette;
+  palette?: FormPallette;
   placeholder?: string;
 };

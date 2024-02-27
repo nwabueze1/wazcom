@@ -19,7 +19,7 @@ export const usePalletteStyles = makeStyles<Theme, FormPallette>(() => ({
   }),
   label: (props) => ({
     fontFamily: props?.typography?.label?.fontFamily,
-    fontSize: props?.typography?.label?.fontFamily,
+    fontSize: props?.typography?.label?.fontSize,
     color: props?.typography?.label?.color,
   }),
 }));

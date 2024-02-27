@@ -13,10 +13,10 @@ export const FormikTextArea: FC<Omit<FormikTextInputPropsType, "type">> = ({
   formikProps,
   rows,
   placeholder,
-  pallette,
+  palette,
 }) => {
   const isError = formikProps?.touched?.[name] && formikProps?.errors?.[name];
-  const palletteStyles = usePalletteStyles(pallette as FormPallette);
+  const palletteStyles = usePalletteStyles(palette as FormPallette);
 
   return (
     <TextArea

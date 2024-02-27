@@ -3,7 +3,7 @@ export var usePalletteStyles = makeStyles(function () { return ({
     container: {
         border: function (props) { var _a; return (_a = props === null || props === void 0 ? void 0 : props.colors) === null || _a === void 0 ? void 0 : _a.main; },
         background: function (props) { var _a, _b; return (_b = (_a = props === null || props === void 0 ? void 0 : props.colors) === null || _a === void 0 ? void 0 : _a.main) !== null && _b !== void 0 ? _b : ""; },
-        opacity: 0.8,
+        opacity: 0.6,
         "&:hover": {
             border: function (props) { var _a; return (_a = props === null || props === void 0 ? void 0 : props.colors) === null || _a === void 0 ? void 0 : _a.hover; },
             background: function (props) { var _a; return (_a = props === null || props === void 0 ? void 0 : props.colors) === null || _a === void 0 ? void 0 : _a.hover; },

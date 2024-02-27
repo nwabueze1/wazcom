@@ -28,14 +28,15 @@ export const PluginFormView = () => {
                 form={pluginFormData?.form as any}
                 ref={submitRef}
                 palette={{
-                  colors: { main: "rgb(0,0,0)", hover: "red" },
+                  colors: { main: "gold", hover: "red" },
                   typography: {
                     input: {
                       color: "green",
                       fontSize: 12,
                     },
                     label: {
-                      color: "red",
+                      color: "blue",
+                      fontSize: 12,
                     },
                   },
                 }}

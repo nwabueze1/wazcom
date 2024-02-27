@@ -28,7 +28,7 @@ export var FormikRatingInput = function (_a) {
     var _b, _c, _d, _e, _f;
     var isRequired = _a.isRequired, name = _a.name, formikProps = _a.formikProps, variant = _a.variant, label = _a.label, props = __rest(_a, ["isRequired", "name", "formikProps", "variant", "label"]);
     var isInvalid = ((_b = formikProps === null || formikProps === void 0 ? void 0 : formikProps.touched) === null || _b === void 0 ? void 0 : _b[name]) && ((_c = formikProps === null || formikProps === void 0 ? void 0 : formikProps.errors) === null || _c === void 0 ? void 0 : _c[name]);
-    var palletteStyles = usePallette(props === null || props === void 0 ? void 0 : props.pallette);
+    var palletteStyles = usePallette(props === null || props === void 0 ? void 0 : props.palette);
     var handleChange = function (e) {
         formikProps === null || formikProps === void 0 ? void 0 : formikProps.setFieldValue(name, Number(e.value));
     };

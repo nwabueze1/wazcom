@@ -5,7 +5,7 @@ export var usePallette = makeStyles(function () { return ({
         return ({
             "& > svg": {
                 fill: (_a = pallette === null || pallette === void 0 ? void 0 : pallette.colors) === null || _a === void 0 ? void 0 : _a.main,
-                opacity: 0.2,
+                opacity: 0.4,
                 "&.filled": {
                     opacity: 1,
                     fill: (_b = pallette === null || pallette === void 0 ? void 0 : pallette.colors) === null || _b === void 0 ? void 0 : _b.main,

@@ -12,7 +12,7 @@ export const FormikOpinionScale: FC<FormikOpinionInputPropsType> = ({
   ...props
 }) => {
   const error = formikProps?.touched?.[name] && formikProps?.["errors"]?.[name];
-  const pallettStyles = usePalletteStyles(props?.pallette as FormPallette);
+  const pallettStyles = usePalletteStyles(props?.palette as FormPallette);
   const handleChange = (e: { name: string; value: number }) => {
     formikProps?.setFieldValue(name, Number(e.value));
   };

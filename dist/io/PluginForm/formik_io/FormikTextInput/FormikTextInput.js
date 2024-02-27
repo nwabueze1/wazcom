@@ -30,7 +30,7 @@ export var FormikTextInput = function (_a) {
     var names = name.split(".");
     var isAddressTouched = (_c = (_b = formikProps === null || formikProps === void 0 ? void 0 : formikProps.touched) === null || _b === void 0 ? void 0 : _b[names[0]]) === null || _c === void 0 ? void 0 : _c[names[1]];
     var addressError = (_e = (_d = formikProps === null || formikProps === void 0 ? void 0 : formikProps.errors) === null || _d === void 0 ? void 0 : _d[names[0]]) === null || _e === void 0 ? void 0 : _e[names[1]];
-    var palletteStyles = usePalletteStyles(props === null || props === void 0 ? void 0 : props.pallette);
+    var paletteStyles = usePalletteStyles(props === null || props === void 0 ? void 0 : props.palette);
     var isError = is_address
         ? (isAddressTouched && addressError)
         : (((_f = formikProps === null || formikProps === void 0 ? void 0 : formikProps.touched) === null || _f === void 0 ? void 0 : _f[name]) && ((_g = formikProps === null || formikProps === void 0 ? void 0 : formikProps.errors) === null || _g === void 0 ? void 0 : _g[name]));
@@ -44,9 +44,9 @@ export var FormikTextInput = function (_a) {
         formikProps === null || formikProps === void 0 ? void 0 : formikProps.setFieldValue(name, value);
     };
     return (_jsx(TextInput, __assign({}, props, { name: name, onChange: handleChange, onBlur: function () { return formikProps === null || formikProps === void 0 ? void 0 : formikProps.setFieldTouched(name, true); }, isError: isError, helperText: errorMessage ? errorMessage : undefined, placeholder: "".concat(placeholder, " ").concat(isRequired ? "*" : "", " ").concat(type === "tel" ? "(eg: +2349032432432)" : ""), value: (_k = formikProps === null || formikProps === void 0 ? void 0 : formikProps.values) === null || _k === void 0 ? void 0 : _k[name], className: className, classNames: {
-            input: (_l = clx(palletteStyles === null || palletteStyles === void 0 ? void 0 : palletteStyles.baseInput, classNames === null || classNames === void 0 ? void 0 : classNames.inputContainer, isError && "error")) !== null && _l !== void 0 ? _l : "",
-            inputField: (_m = clx(palletteStyles === null || palletteStyles === void 0 ? void 0 : palletteStyles.field, classNames === null || classNames === void 0 ? void 0 : classNames.input, isError && "error")) !== null && _m !== void 0 ? _m : "",
-            label: clx(palletteStyles === null || palletteStyles === void 0 ? void 0 : palletteStyles.label, (_o = classNames === null || classNames === void 0 ? void 0 : classNames.label) !== null && _o !== void 0 ? _o : ""),
+            input: (_l = clx(paletteStyles === null || paletteStyles === void 0 ? void 0 : paletteStyles.baseInput, classNames === null || classNames === void 0 ? void 0 : classNames.inputContainer, isError && "error")) !== null && _l !== void 0 ? _l : "",
+            inputField: (_m = clx(paletteStyles === null || paletteStyles === void 0 ? void 0 : paletteStyles.field, classNames === null || classNames === void 0 ? void 0 : classNames.input, isError && "error")) !== null && _m !== void 0 ? _m : "",
+            label: clx(paletteStyles === null || paletteStyles === void 0 ? void 0 : paletteStyles.label, (_o = classNames === null || classNames === void 0 ? void 0 : classNames.label) !== null && _o !== void 0 ? _o : ""),
             errorMessage: (_p = classNames === null || classNames === void 0 ? void 0 : classNames.errorMessage) !== null && _p !== void 0 ? _p : "",
         }, type: type, required: isRequired })));
 };

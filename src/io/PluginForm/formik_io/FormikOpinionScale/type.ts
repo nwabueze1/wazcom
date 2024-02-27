@@ -1,6 +1,6 @@
 import { OpinionScalePropsType } from "../../../OpinionScale";
 import { FormikProps } from "formik";
-import {FormPallette} from "../../type"
+import { FormPallette } from "../../type";
 
 export type FormikOpinionInputPropsType = Omit<
   OpinionScalePropsType,
@@ -8,6 +8,6 @@ export type FormikOpinionInputPropsType = Omit<
 > & {
   isRequired?: boolean;
   formikProps?: FormikProps<Record<string, any>>;
-  pallette?: FormPallette;
-  placeholder?:string
+  palette?: FormPallette;
+  placeholder?: string;
 };

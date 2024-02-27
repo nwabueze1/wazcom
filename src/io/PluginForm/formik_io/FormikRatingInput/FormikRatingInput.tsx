@@ -14,7 +14,7 @@ export const FormikRatingInput: FC<FormikRatingInputPropsType> = ({
   ...props
 }) => {
   const isInvalid = formikProps?.touched?.[name] && formikProps?.errors?.[name];
-  const palletteStyles = usePallette(props?.pallette as FormPallette);
+  const palletteStyles = usePallette(props?.palette as FormPallette);
 
   const handleChange = (e: { name: string; value: number }) => {
     formikProps?.setFieldValue(name, Number(e.value));

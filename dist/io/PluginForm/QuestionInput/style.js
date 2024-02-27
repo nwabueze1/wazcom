@@ -22,10 +22,10 @@ export var useQuestionInputStyles = makeStyles(function (theme) {
             },
         },
         legend: {
-            color: theme.design.colors.waz_grey,
             marginTop: theme.spacing(0.5),
             fontSize: theme.typography.fontSize,
             textTransform: "uppercase",
+            color: theme.design.colors.waz_grey,
         },
         label: {
             marginLeft: theme.spacing(1),

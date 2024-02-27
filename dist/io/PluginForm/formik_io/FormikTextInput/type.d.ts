@@ -7,6 +7,6 @@ export type FormikTextInputPropsType = Partial<Omit<TextInputProps, "label" | "e
     isRequired?: boolean;
     name: string;
     classNames?: Partial<TextInputClassNamesPropsType>;
-    pallette?: FormPallette;
+    palette?: FormPallette;
     label?: string;
 };

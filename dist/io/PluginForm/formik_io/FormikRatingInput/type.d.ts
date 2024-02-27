@@ -4,5 +4,5 @@ import { FormPallette } from "../../type";
 export type FormikRatingInputPropsType = Omit<RatingPropsType, "onChange" | "isError" | "helperText" | "value"> & {
     isRequired?: boolean;
     formikProps?: FormikProps<Record<string, any>>;
-    pallette?: FormPallette;
+    palette?: FormPallette;
 };

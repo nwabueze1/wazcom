@@ -9,6 +9,6 @@ export type FormikRadioOrCheckBoxPropsType = Omit<RadioButtonInputPropsType, "is
     }[];
     formikProps?: FormikProps<Record<string, any>>;
     classNames?: Record<"radioButtonInput" | "optionContainer" | "label" | "errorMessage" | "legend" | "fieldset" | "input", string>;
-    pallette?: FormPallette;
+    palette?: FormPallette;
     placeholder?: string;
 };

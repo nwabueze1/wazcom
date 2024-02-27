@@ -8,11 +8,12 @@ import {
   FormikMultiChoice,
   FormikOpinionScale,
   FormikRatingInput,
+  usePalletteStyles,
 } from "../formik_io";
 import { useQuestionInputStyles } from "./style";
 import { QuestionInputPropsType } from "./type";
 import { FormikProps } from "formik";
-import { capitalizeFirstChar } from "../helpers";
+import { FormPallette } from "../type";
 
 export const QuestionsInput: FC<
   QuestionInputPropsType & { formikProps?: FormikProps<Record<string, any>> }
@@ -28,6 +29,7 @@ export const QuestionsInput: FC<
   palette,
 }) => {
   const classes = useQuestionInputStyles();
+  const paletteStyles = usePalletteStyles(palette as FormPallette);
 
   const commonInputProps = {
     name,
@@ -67,7 +69,7 @@ export const QuestionsInput: FC<
             classNames={classNames?.radioButtonInput}
             formikProps={formikProps}
             placeholder={label}
-            pallette={palette}
+            palette={palette}
           />
         );
 
@@ -93,19 +95,27 @@ export const QuestionsInput: FC<
 
       case "DATE_FORMAT":
         return (
-          <div>
-            <label className={clx(classes.legend, classes.label, classNames?.textField?.label)}>
-              {capitalizeFirstChar(label ?? "")}
-            </label>
-            <FormikTextInput {...commonInputProps} type={"date"} />
-          </div>
+          <FormikTextInput
+            {...commonInputProps}
+            type={"date"}
+            placeholder={""}
+            label={commonInputProps.placeholder}
+          />
         );
 
       case "ADDRESS":
         addressKeys = Object.keys(fields as Record<string, string>);
         return (
           <div className={clx(classes.fieldSet, classNames?.addressInput?.fieldset)}>
-            <label className={clx(classes.legend, classNames?.addressInput?.legend)}>{label}</label>
+            <label
+              className={clx(
+                classes.legend,
+                paletteStyles?.label,
+                classNames?.addressInput?.legend,
+              )}
+            >
+              {label}
+            </label>
             {addressKeys.map((key, index) => (
               <FormikTextInput
                 is_address={true}

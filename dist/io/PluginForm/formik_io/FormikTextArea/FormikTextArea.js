@@ -4,9 +4,9 @@ import clx from "classnames";
 import { usePalletteStyles } from "../";
 export var FormikTextArea = function (_a) {
     var _b, _c, _d, _e, _f, _g;
-    var className = _a.className, isRequired = _a.isRequired, classNames = _a.classNames, name = _a.name, formikProps = _a.formikProps, rows = _a.rows, placeholder = _a.placeholder, pallette = _a.pallette;
+    var className = _a.className, isRequired = _a.isRequired, classNames = _a.classNames, name = _a.name, formikProps = _a.formikProps, rows = _a.rows, placeholder = _a.placeholder, palette = _a.palette;
     var isError = ((_b = formikProps === null || formikProps === void 0 ? void 0 : formikProps.touched) === null || _b === void 0 ? void 0 : _b[name]) && ((_c = formikProps === null || formikProps === void 0 ? void 0 : formikProps.errors) === null || _c === void 0 ? void 0 : _c[name]);
-    var palletteStyles = usePalletteStyles(pallette);
+    var palletteStyles = usePalletteStyles(palette);
     return (_jsx(TextArea, { rows: Number(rows), className: className, placeholder: "".concat(placeholder, " ").concat(isRequired ? "*" : ""), value: (_d = formikProps === null || formikProps === void 0 ? void 0 : formikProps.values) === null || _d === void 0 ? void 0 : _d[name], onChange: function (_a) {
             var value = _a.value;
             return formikProps === null || formikProps === void 0 ? void 0 : formikProps.setFieldValue(name, value);

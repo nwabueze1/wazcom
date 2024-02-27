@@ -6,7 +6,7 @@ export const usePalletteStyles = makeStyles<Theme, FormPallette>(() => ({
   container: {
     border: (props) => props?.colors?.main,
     background: (props) => props?.colors?.main ?? "",
-    opacity: 0.8,
+    opacity: 0.6,
     "&:hover": {
       border: (props) => props?.colors?.hover,
       background: (props) => props?.colors?.hover,

@@ -6,7 +6,7 @@ export const usePallette = makeStyles<Theme, FormPallette>(() => ({
   rating: (pallette) => ({
     "& > svg": {
       fill: pallette?.colors?.main,
-      opacity: 0.2,
+      opacity: 0.4,
       "&.filled": {
         opacity: 1,
         fill: pallette?.colors?.main,
