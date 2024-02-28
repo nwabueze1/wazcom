@@ -20,6 +20,7 @@ export const PlugInForm = forwardRef<PluginFormRef, PluginFormPropsType>((props,
     onNotify,
     onFormSubmitted,
     apolloClient,
+    palette,
   } = props;
   const initialFormState = getInitialFormValues((questions ?? []) as QuestionType[]);
   const validationSchema = buildValidationSchema((questions ?? []) as QuestionType[]);
@@ -51,7 +52,7 @@ export const PlugInForm = forwardRef<PluginFormRef, PluginFormPropsType>((props,
         return onNotify?.("error", errorMessage);
       }
 
-      const submission_text:string = data?.createResponse?.submission_text;
+      const submission_text: string = data?.createResponse?.submission_text;
 
       const successMessage =
         submission_text?.length > 0 ? submission_text : "Form has been submitted successfully.";
@@ -78,15 +79,17 @@ export const PlugInForm = forwardRef<PluginFormRef, PluginFormPropsType>((props,
           <Form style={style}>
             <div className={className}>
               {((questions ?? []) as QuestionType[]).map(
-                ({ question, fields, type, is_required }, index) => (
+                ({ question, fields, type, is_required, uuid }, index) => (
                   <QuestionsInput
-                    name={question}
+                    name={uuid}
                     fields={fields}
                     type={type}
                     is_required={is_required}
                     key={index}
                     classNames={classNames}
                     formikProps={props}
+                    label={question}
+                    palette={palette}
                   />
                 ),
               )}

@@ -1,4 +1,4 @@
-import { PhoneNumberInputClassNamesPropsType, QuestionTypes, SelectInputClassNamesPropsType } from "../type";
+import { FormPallette, PhoneNumberInputClassNamesPropsType, QuestionTypes, SelectInputClassNamesPropsType } from "../type";
 import { TextInputClassNamesPropsType } from "../formik_io";
 import { RatingClassNamesType } from "../../RatingInput";
 import { OpinionScaleClassNamesType } from "../../OpinionScale";
@@ -28,5 +28,8 @@ export type QuestionInputPropsType = {
     is_required?: boolean;
     classNames?: Partial<QuestionInputClassNamesPropsType>;
     mscProperties?: QuestionInputMiscProps;
+    label?: string;
+    placeholder?: string;
+    palette?: FormPallette;
 };
 export {};

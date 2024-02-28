@@ -1,4 +1,5 @@
 import {
+  FormPallette,
   PhoneNumberInputClassNamesPropsType,
   QuestionTypes,
   SelectInputClassNamesPropsType,
@@ -53,4 +54,7 @@ export type QuestionInputPropsType = {
   is_required?: boolean;
   classNames?: Partial<QuestionInputClassNamesPropsType>;
   mscProperties?: QuestionInputMiscProps;
+  label?: string;
+  placeholder?: string;
+  palette?: FormPallette;
 };

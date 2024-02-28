@@ -54,7 +54,7 @@ import { createResponse } from "./gql/actions/createResponse";
 import { QuestionsInput } from "./QuestionInput";
 import { usePluginFormStyles } from "./usePluginFormStyles";
 export var PlugInForm = forwardRef(function (props, ref) {
-    var questions = props.form.questions, form_uuid = props.form_uuid, setLoading = props.setLoading, className = props.className, submitButton = props.submitButton, classNames = props.classNames, _a = props.style, style = _a === void 0 ? { display: "grid" } : _a, onNotify = props.onNotify, onFormSubmitted = props.onFormSubmitted, apolloClient = props.apolloClient;
+    var questions = props.form.questions, form_uuid = props.form_uuid, setLoading = props.setLoading, className = props.className, submitButton = props.submitButton, classNames = props.classNames, _a = props.style, style = _a === void 0 ? { display: "grid" } : _a, onNotify = props.onNotify, onFormSubmitted = props.onFormSubmitted, apolloClient = props.apolloClient, palette = props.palette;
     var initialFormState = getInitialFormValues((questions !== null && questions !== void 0 ? questions : []));
     var validationSchema = buildValidationSchema((questions !== null && questions !== void 0 ? questions : []));
     var classes = usePluginFormStyles();
@@ -103,8 +103,8 @@ export var PlugInForm = forwardRef(function (props, ref) {
         });
     }); };
     return (_jsx(_Fragment, { children: _jsx(Formik, __assign({ validationSchema: validationSchema, initialValues: initialFormState, onSubmit: handleSubmit }, { children: function (props) { return (_jsxs(Form, __assign({ style: style }, { children: [_jsx("div", __assign({ className: className }, { children: (questions !== null && questions !== void 0 ? questions : []).map(function (_a, index) {
-                            var question = _a.question, fields = _a.fields, type = _a.type, is_required = _a.is_required;
-                            return (_jsx(QuestionsInput, { name: question, fields: fields, type: type, is_required: is_required, classNames: classNames, formikProps: props }, index));
+                            var question = _a.question, fields = _a.fields, type = _a.type, is_required = _a.is_required, uuid = _a.uuid;
+                            return (_jsx(QuestionsInput, { name: uuid, fields: fields, type: type, is_required: is_required, classNames: classNames, formikProps: props, label: question, palette: palette }, index));
                         }) })), !submitButton ? (_jsx("button", { className: classes.submitButton, type: "submit", ref: submitButtonRef })) : (submitButton)] }))); } })) }));
 });
 PlugInForm.displayName = "PluginForm";

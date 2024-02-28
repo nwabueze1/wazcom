@@ -3,6 +3,8 @@ import { usePluginInputGroup } from "../usePluginInputGroupStyles";
 import { CheckBoxInput } from "../../../CheckBoxInput";
 import clx from "classnames";
 import { FormikCheckBoxInputPropsType } from "./types";
+import { usePalletteStyles } from "./usePalletteStyles";
+import { FormPallette } from "../../type";
 
 export const FormikMultiChoice: FC<FormikCheckBoxInputPropsType> = ({
   className,
@@ -15,6 +17,7 @@ export const FormikMultiChoice: FC<FormikCheckBoxInputPropsType> = ({
   const classes = usePluginInputGroup();
   const isError = formikProps?.touched?.[props.name] && formikProps?.errors?.[props.name];
   const errorMessage = formikProps?.errors?.[props.name];
+  const palletteStyles = usePalletteStyles(props?.pallette as FormPallette);
 
   const renderOptions = () =>
     options.map((option, index) => {
@@ -44,9 +47,11 @@ export const FormikMultiChoice: FC<FormikCheckBoxInputPropsType> = ({
           id={id}
           onBlur={formikProps?.handleBlur}
           classNames={{
+            ...classNames,
             checkBoxInput: clx(classes.checkBox, classNames?.checkboxInput),
-            label: clx(classes.checkBoxLabel, classNames?.label),
-            input: classNames?.input,
+            label: clx(classes.checkBoxLabel, palletteStyles?.input, classNames?.label),
+            input: clx(palletteStyles?.input, classNames?.input),
+            root: clx(palletteStyles?.root, (classNames as any)?.root),
           }}
           label={option.label}
           className={clx(classes.checkboxInputOptionContainer, classNames?.optionContainer)}
@@ -56,12 +61,12 @@ export const FormikMultiChoice: FC<FormikCheckBoxInputPropsType> = ({
 
   return (
     <div className={className}>
-      <fieldset className={clx(classes.fieldSet, isError && "error", classNames?.fieldset)}>
-        <legend className={clx(classes.legend, classNames?.legend)}>
-          {props.name} {isRequired && <sup>*</sup>}
-        </legend>
+      <div className={clx(classes.fieldSet, isError && "error", classNames?.fieldset)}>
+        <p className={clx(classes.legend, palletteStyles?.label, classNames?.legend)}>
+          {props.placeholder} {isRequired && <sup>*</sup>}
+        </p>
         {renderOptions()}
-      </fieldset>
+      </div>
       {isError && errorMessage && (
         <span className={clx(classes.errorMessage, classNames?.errorMessage)}>
           {errorMessage as string}

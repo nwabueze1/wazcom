@@ -2,6 +2,8 @@ import { FC } from "react";
 import { TextInput } from "../../../TextInput";
 import { FormikTextInputPropsType } from "./type";
 import clx from "classnames";
+import { usePalletteStyles } from "../";
+import { FormPallette } from "../../type";
 
 export const FormikTextInput: FC<FormikTextInputPropsType & { is_address?: boolean }> = ({
   className,
@@ -20,7 +22,7 @@ export const FormikTextInput: FC<FormikTextInputPropsType & { is_address?: boole
   ];
 
   const addressError = (formikProps?.errors?.[names[0]] as Record<string, string>)?.[names[1]];
-
+  const paletteStyles = usePalletteStyles(props?.palette as FormPallette);
   const isError = is_address
     ? ((isAddressTouched && addressError) as boolean)
     : ((formikProps?.touched?.[name] && formikProps?.errors?.[name]) as boolean);
@@ -49,9 +51,9 @@ export const FormikTextInput: FC<FormikTextInputPropsType & { is_address?: boole
       value={formikProps?.values?.[name]}
       className={className}
       classNames={{
-        input: clx(classNames?.inputContainer, isError && "error") ?? "",
-        inputField: clx(classNames?.input, isError && "error") ?? "",
-        label: classNames?.label ?? "",
+        input: clx(paletteStyles?.baseInput, classNames?.inputContainer, isError && "error") ?? "",
+        inputField: clx(paletteStyles?.field, classNames?.input, isError && "error") ?? "",
+        label: clx(paletteStyles?.label, classNames?.label ?? ""),
         errorMessage: classNames?.errorMessage ?? "",
       }}
       type={type}

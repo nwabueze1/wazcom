@@ -8,23 +8,36 @@ import {
   FormikMultiChoice,
   FormikOpinionScale,
   FormikRatingInput,
+  usePalletteStyles,
 } from "../formik_io";
 import { useQuestionInputStyles } from "./style";
 import { QuestionInputPropsType } from "./type";
 import { FormikProps } from "formik";
-import { capitalizeFirstChar } from "../helpers";
+import { FormPallette } from "../type";
 
 export const QuestionsInput: FC<
   QuestionInputPropsType & { formikProps?: FormikProps<Record<string, any>> }
-> = ({ name, type, fields, is_required, classNames, formikProps, mscProperties }) => {
+> = ({
+  name,
+  type,
+  fields,
+  is_required,
+  classNames,
+  formikProps,
+  mscProperties,
+  label,
+  palette,
+}) => {
   const classes = useQuestionInputStyles();
+  const paletteStyles = usePalletteStyles(palette as FormPallette);
 
   const commonInputProps = {
     name,
     isRequired: is_required,
-    placeholder: name,
+    placeholder: label,
     classNames: classNames?.textField,
     formikProps,
+    palette,
   };
   const renderFields = () => {
     let addressKeys: string[] = [];
@@ -55,6 +68,8 @@ export const QuestionsInput: FC<
             control={"radio"}
             classNames={classNames?.radioButtonInput}
             formikProps={formikProps}
+            placeholder={label}
+            palette={palette}
           />
         );
 
@@ -70,6 +85,8 @@ export const QuestionsInput: FC<
             multiple={options.length > 1}
             classNames={classNames?.checkBoxInput}
             formikProps={formikProps}
+            placeholder={label}
+            pallette={palette}
           />
         );
 
@@ -78,21 +95,27 @@ export const QuestionsInput: FC<
 
       case "DATE_FORMAT":
         return (
-          <div>
-            <label className={clx(classes.legend, classes.label, classNames?.textField?.label)}>
-              {capitalizeFirstChar(name)}
-            </label>
-            <FormikTextInput {...commonInputProps} type={"date"} />
-          </div>
+          <FormikTextInput
+            {...commonInputProps}
+            type={"date"}
+            placeholder={""}
+            label={commonInputProps.placeholder}
+          />
         );
 
       case "ADDRESS":
         addressKeys = Object.keys(fields as Record<string, string>);
         return (
-          <fieldset className={clx(classes.fieldSet, classNames?.addressInput?.fieldset)}>
-            <legend className={clx(classes.legend, classNames?.addressInput?.legend)}>
-              {name}
-            </legend>
+          <div className={clx(classes.fieldSet, classNames?.addressInput?.fieldset)}>
+            <label
+              className={clx(
+                classes.legend,
+                paletteStyles?.label,
+                classNames?.addressInput?.legend,
+              )}
+            >
+              {label}
+            </label>
             {addressKeys.map((key, index) => (
               <FormikTextInput
                 is_address={true}
@@ -102,7 +125,7 @@ export const QuestionsInput: FC<
                 placeholder={index === addressKeys.length - 1 ? "Country" : fields?.[key]}
               />
             ))}
-          </fieldset>
+          </div>
         );
 
       case "DROP_DOWN":

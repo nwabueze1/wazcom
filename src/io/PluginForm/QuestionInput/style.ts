@@ -16,17 +16,16 @@ export const useQuestionInputStyles = makeStyles((theme: Theme) => ({
     margin: 0,
     borderRadius: 4,
     display: "grid",
-    border: `1px solid ${theme.design.colors.waz_primary700}`,
     gap: theme.spacing(1),
     "&.error": {
       borderColor: theme.design.colors.error,
     },
   },
   legend: {
-    color: theme.design.colors.waz_grey,
     marginTop: theme.spacing(0.5),
     fontSize: theme.typography.fontSize,
     textTransform: "uppercase",
+    color: theme.design.colors.waz_grey,
   },
   label: {
     marginLeft: theme.spacing(1),

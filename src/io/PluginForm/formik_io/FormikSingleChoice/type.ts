@@ -1,5 +1,6 @@
 import { FormikProps } from "formik";
 import { RadioButtonInputPropsType } from "../type";
+import { FormPallette } from "../../type";
 
 export type FormikRadioOrCheckBoxPropsType = Omit<
   RadioButtonInputPropsType,
@@ -18,4 +19,6 @@ export type FormikRadioOrCheckBoxPropsType = Omit<
     | "input",
     string
   >;
+  palette?: FormPallette;
+  placeholder?: string;
 };
