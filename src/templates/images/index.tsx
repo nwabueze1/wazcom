@@ -72,7 +72,7 @@ export const createResponsiveImage = (
   const { desktop, tablet, mobile } = getImagesBasedOnScreenSizes(image, options?.imageCropper);
 
   return (
-    <picture>
+    <picture className={options?.className}>
       <source srcSet={mobile} className={options?.className} media={"(max-width:769px)"} />
       <source srcSet={tablet} media={"(max-width: 1025px)"} className={options?.className} />
       <source srcSet={desktop} media={"(min-width: 1025px)"} className={options?.className} />
