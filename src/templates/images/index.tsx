@@ -66,7 +66,7 @@ export const createResponsiveImage = (
     imageCropper?: TImageCropper;
     className?: string;
     imageProps?: Omit<
-      React.HTMLAttributes<HTMLImageElement> & { key: string | number },
+      React.HTMLAttributes<HTMLImageElement> & { key?: string | number },
       "src" | "className" | "srcset"
     >;
   },

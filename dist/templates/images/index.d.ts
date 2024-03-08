@@ -15,6 +15,6 @@ export declare const createResponsiveImage: (image: MediaValue, options?: {
     imageCropper?: TImageCropper;
     className?: string;
     imageProps?: Omit<React.HTMLAttributes<HTMLImageElement> & {
-        key: string | number;
+        key?: string | number;
     }, "src" | "className" | "srcset">;
 }) => import("react/jsx-runtime").JSX.Element;
