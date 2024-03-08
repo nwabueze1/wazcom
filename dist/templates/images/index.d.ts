@@ -13,7 +13,5 @@ export type MediaValue = {
 export declare const createResponsiveImage: (image: MediaValue, options?: {
     imageCropper?: TImageCropper;
     className?: string;
-    imageProps?: Omit<React.HTMLAttributes<HTMLImageElement> & {
-        key?: string | number;
-    }, "src" | "className" | "srcset">;
+    imageProps?: Record<string, any>;
 }) => import("react/jsx-runtime").JSX.Element;
