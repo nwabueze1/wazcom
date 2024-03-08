@@ -1,0 +1,87 @@
+export type TCropperConfig = Record<"height" | "width" | "defaultSize", number>;
+
+export type TImageCropper = Record<"desktop" | "tablet" | "mobile", TCropperConfig>;
+
+export type TScreen = "desktop" | "tablet" | "mobile";
+
+export type TCoordinates = Record<TScreen, any>;
+
+export type MediaValue = {
+  name?: string;
+  description?: string;
+  alternative_text?: string;
+  caption?: string;
+  src: string;
+  coordinates?: TCoordinates;
+};
+
+const calculateCropCoordinates = (
+  imageWidth: number,
+  coordinates?: Record<"left" | "top" | "right" | "bottom", number>,
+) => {
+  if (!coordinates) return "";
+
+  const left = Math.round(imageWidth * coordinates["left"]);
+  const top = Math.round(imageWidth * coordinates["top"]);
+  const right = Math.round(imageWidth * coordinates["right"]);
+  const bottom = Math.round(imageWidth * coordinates["bottom"]);
+
+  return `,cr-${left}.${top}.${right}.${bottom}`;
+};
+
+const getImagesBasedOnScreenSizes = (image: MediaValue, imageCropper?: TImageCropper) => {
+  const dolosUrl = "https://img.wazobia.tech";
+  const isAmpersand = image?.src?.includes("?");
+
+  const [desktopWidth, tabletWidth, mobileWidth] = [
+    imageCropper?.desktop?.width ?? 1100,
+    imageCropper?.tablet?.width ?? 750,
+    imageCropper?.mobile?.width ?? 450,
+  ];
+
+  const desktopImage = `${dolosUrl}/${image?.src}${
+    isAmpersand ? "&tr" : "?tr"
+  }=w-${desktopWidth}${calculateCropCoordinates(desktopWidth, image?.coordinates?.desktop)}`;
+
+  const tabletImage = `${dolosUrl}/${image?.src}${
+    isAmpersand ? "&tr" : "?tr"
+  }=w-${tabletWidth}${calculateCropCoordinates(tabletWidth, image?.coordinates?.tablet)}`;
+
+  const mobileImage = `${dolosUrl}/${image?.src}${
+    isAmpersand ? "&tr" : "?tr"
+  }=w-${mobileWidth}${calculateCropCoordinates(mobileWidth, image?.coordinates?.mobile)}`;
+
+  return {
+    desktop: desktopImage,
+    tablet: tabletImage,
+    mobile: mobileImage,
+  };
+};
+
+export const createResponsiveImage = (
+  image: MediaValue,
+  options?: {
+    imageCropper?: TImageCropper;
+    className?: string;
+    imageProps?: Record<string, any>;
+  },
+) => {
+  if (!image || !image?.src)
+    return <img src={""} alt={"empty image"} className={options?.className} />;
+
+  const { desktop, tablet, mobile } = getImagesBasedOnScreenSizes(image, options?.imageCropper);
+
+  return (
+    <picture>
+      <source srcSet={mobile} className={options?.className} media={"(max-width:769px)"} />
+      <source srcSet={tablet} media={"(max-width: 1025px)"} className={options?.className} />
+      <source srcSet={desktop} media={"(min-width: 1025px)"} className={options?.className} />
+      <img
+        src={image?.src}
+        className={options?.className}
+        alt={image.alternative_text}
+        {...options?.imageProps}
+      />
+    </picture>
+  );
+};
