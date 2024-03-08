@@ -21,6 +21,8 @@ export const useTootipStyles = makeStyles((theme: BaseTheme) => ({
     backgroundColor: theme.design.colors.waz_white,
     fontSize: theme.typography.fontSize,
     border: `1px solid ${theme.design.colors.waz_primary500}`,
+    display: 'flex',
+    justifyContent: 'center',
   },
   tooltipIcon: {
     color: theme.design.colors.waz_mercury,
