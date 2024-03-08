@@ -1,3 +1,4 @@
+import React from "react";
 export type TCropperConfig = Record<"height" | "width" | "defaultSize", number>;
 export type TImageCropper = Record<"desktop" | "tablet" | "mobile", TCropperConfig>;
 export type TScreen = "desktop" | "tablet" | "mobile";
@@ -13,5 +14,7 @@ export type MediaValue = {
 export declare const createResponsiveImage: (image: MediaValue, options?: {
     imageCropper?: TImageCropper;
     className?: string;
-    imageProps?: Record<string, any>;
+    imageProps?: Omit<React.HTMLAttributes<HTMLImageElement> & {
+        key?: string | number;
+    }, "src" | "className" | "srcset">;
 }) => import("react/jsx-runtime").JSX.Element;

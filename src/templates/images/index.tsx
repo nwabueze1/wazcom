@@ -1,3 +1,5 @@
+import React from "react";
+
 export type TCropperConfig = Record<"height" | "width" | "defaultSize", number>;
 
 export type TImageCropper = Record<"desktop" | "tablet" | "mobile", TCropperConfig>;
@@ -63,7 +65,10 @@ export const createResponsiveImage = (
   options?: {
     imageCropper?: TImageCropper;
     className?: string;
-    imageProps?: Record<string, any>;
+    imageProps?: Omit<
+      React.HTMLAttributes<HTMLImageElement> & { key?: string | number },
+      "src" | "className" | "srcset"
+    >;
   },
 ) => {
   if (!image || !image?.src)
