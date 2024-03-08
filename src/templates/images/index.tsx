@@ -1,5 +1,3 @@
-import React from "react";
-
 export type TCropperConfig = Record<"height" | "width" | "defaultSize", number>;
 
 export type TImageCropper = Record<"desktop" | "tablet" | "mobile", TCropperConfig>;
@@ -22,7 +20,6 @@ const calculateCropCoordinates = (
   coordinates?: Record<"left" | "top" | "right" | "bottom", number>,
 ) => {
   if (!coordinates) return "";
-
   const left = Math.round(imageWidth * coordinates["left"]);
   const top = Math.round(imageWidth * coordinates["top"]);
   const right = Math.round(imageWidth * coordinates["right"]);
@@ -66,7 +63,7 @@ export const createResponsiveImage = (
     imageCropper?: TImageCropper;
     className?: string;
     imageProps?: Omit<
-      React.HTMLAttributes<HTMLImageElement> & { key: string | number },
+      React.HTMLAttributes<HTMLImageElement> & { key?: string | number },
       "src" | "className" | "srcset"
     >;
   },
