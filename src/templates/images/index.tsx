@@ -1,3 +1,5 @@
+import React from "react";
+
 export type TCropperConfig = Record<"height" | "width" | "defaultSize", number>;
 
 export type TImageCropper = Record<"desktop" | "tablet" | "mobile", TCropperConfig>;
@@ -63,16 +65,21 @@ export const createResponsiveImage = (
   options?: {
     imageCropper?: TImageCropper;
     className?: string;
-    imageProps?: Record<string, any>;
+    imageProps?: Omit<
+      React.HTMLAttributes<HTMLImageElement> & { key: string | number },
+      "src" | "className" | "srcset"
+    >;
   },
 ) => {
   if (!image || !image?.src)
-    return <img src={""} alt={"empty image"} className={options?.className} />;
+    return (
+      <img src={""} alt={"empty image"} className={options?.className} {...options?.imageProps} />
+    );
 
   const { desktop, tablet, mobile } = getImagesBasedOnScreenSizes(image, options?.imageCropper);
 
   return (
-    <picture className={options?.className}>
+    <picture className={options?.className} {...options?.imageProps}>
       <source srcSet={mobile} className={options?.className} media={"(max-width:769px)"} />
       <source srcSet={tablet} media={"(max-width: 1025px)"} className={options?.className} />
       <source srcSet={desktop} media={"(min-width: 1025px)"} className={options?.className} />
