@@ -41,6 +41,23 @@ const getImagesBasedOnScreenSizes = (image: MediaValue, imageCropper?: TImageCro
     imageCropper?.mobile?.width ?? 450,
   ];
 
+  const x1DesktopScreens = calculateNewWidthOfLargeScreens(desktopWidth, 1770);
+  const x2DesktopScreens = calculateNewWidthOfLargeScreens(desktopWidth, 1990);
+
+  const desktop2xImage = `${dolosUrl}/${image?.src}${
+    isAmpersand ? "&tr" : "?tr"
+  }=w-${x2DesktopScreens}${calculateCropCoordinates(
+    x2DesktopScreens,
+    image?.coordinates?.desktop,
+  )}`;
+
+  const desktop1xImage = `${dolosUrl}/${image?.src}${
+    isAmpersand ? "&tr" : "?tr"
+  }=w-${x1DesktopScreens}${calculateCropCoordinates(
+    x1DesktopScreens,
+    image?.coordinates?.desktop,
+  )}`;
+
   const desktopImage = `${dolosUrl}/${image?.src}${
     isAmpersand ? "&tr" : "?tr"
   }=w-${desktopWidth}${calculateCropCoordinates(desktopWidth, image?.coordinates?.desktop)}`;
@@ -54,6 +71,8 @@ const getImagesBasedOnScreenSizes = (image: MediaValue, imageCropper?: TImageCro
   }=w-${mobileWidth}${calculateCropCoordinates(mobileWidth, image?.coordinates?.mobile)}`;
 
   return {
+    desktop2x: desktop2xImage,
+    desktop1x: desktop1xImage,
     desktop: desktopImage,
     tablet: tabletImage,
     mobile: mobileImage,
@@ -76,13 +95,18 @@ export const createResponsiveImage = (
       <img src={""} alt={"empty image"} className={options?.className} {...options?.imageProps} />
     );
 
-  const { desktop, tablet, mobile } = getImagesBasedOnScreenSizes(image, options?.imageCropper);
+  const { desktop2x, desktop1x, desktop, tablet, mobile } = getImagesBasedOnScreenSizes(
+    image,
+    options?.imageCropper,
+  );
 
   return (
     <picture className={options?.className} {...options?.imageProps}>
       <source srcSet={mobile} className={options?.className} media={"(max-width:769px)"} />
       <source srcSet={tablet} media={"(max-width: 1025px)"} className={options?.className} />
-      <source srcSet={desktop} media={"(min-width: 1025px)"} className={options?.className} />
+      <source srcSet={desktop} media={"(max-width: 1440px)"} className={options?.className} />
+      <source srcSet={desktop1x} media={"(max-width: 1772px)"} className={options?.className} />
+      <source srcSet={desktop2x} media={"(min-width: 1772px)"} className={options?.className} />
       <img
         src={image?.src}
         className={options?.className}
@@ -91,4 +115,8 @@ export const createResponsiveImage = (
       />
     </picture>
   );
+};
+
+const calculateNewWidthOfLargeScreens = (originalWidth: number, screenSize: number) => {
+  return Math.floor((screenSize / 1440) * originalWidth);
 };

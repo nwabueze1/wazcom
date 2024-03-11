@@ -36,18 +36,24 @@ var calculateCropCoordinates = function (imageWidth, coordinates) {
     return ",cr-".concat(left, ".").concat(top, ".").concat(right, ".").concat(bottom);
 };
 var getImagesBasedOnScreenSizes = function (image, imageCropper) {
-    var _a, _b, _c, _d, _e, _f, _g, _h, _j, _k;
+    var _a, _b, _c, _d, _e, _f, _g, _h, _j, _k, _l, _m;
     var dolosUrl = "https://img.wazobia.tech";
     var isAmpersand = (_a = image === null || image === void 0 ? void 0 : image.src) === null || _a === void 0 ? void 0 : _a.includes("?");
-    var _l = __read([
+    var _o = __read([
         (_c = (_b = imageCropper === null || imageCropper === void 0 ? void 0 : imageCropper.desktop) === null || _b === void 0 ? void 0 : _b.width) !== null && _c !== void 0 ? _c : 1100,
         (_e = (_d = imageCropper === null || imageCropper === void 0 ? void 0 : imageCropper.tablet) === null || _d === void 0 ? void 0 : _d.width) !== null && _e !== void 0 ? _e : 750,
         (_g = (_f = imageCropper === null || imageCropper === void 0 ? void 0 : imageCropper.mobile) === null || _f === void 0 ? void 0 : _f.width) !== null && _g !== void 0 ? _g : 450,
-    ], 3), desktopWidth = _l[0], tabletWidth = _l[1], mobileWidth = _l[2];
-    var desktopImage = "".concat(dolosUrl, "/").concat(image === null || image === void 0 ? void 0 : image.src).concat(isAmpersand ? "&tr" : "?tr", "=w-").concat(desktopWidth).concat(calculateCropCoordinates(desktopWidth, (_h = image === null || image === void 0 ? void 0 : image.coordinates) === null || _h === void 0 ? void 0 : _h.desktop));
-    var tabletImage = "".concat(dolosUrl, "/").concat(image === null || image === void 0 ? void 0 : image.src).concat(isAmpersand ? "&tr" : "?tr", "=w-").concat(tabletWidth).concat(calculateCropCoordinates(tabletWidth, (_j = image === null || image === void 0 ? void 0 : image.coordinates) === null || _j === void 0 ? void 0 : _j.tablet));
-    var mobileImage = "".concat(dolosUrl, "/").concat(image === null || image === void 0 ? void 0 : image.src).concat(isAmpersand ? "&tr" : "?tr", "=w-").concat(mobileWidth).concat(calculateCropCoordinates(mobileWidth, (_k = image === null || image === void 0 ? void 0 : image.coordinates) === null || _k === void 0 ? void 0 : _k.mobile));
+    ], 3), desktopWidth = _o[0], tabletWidth = _o[1], mobileWidth = _o[2];
+    var x1DesktopScreens = calculateNewWidthOfLargeScreens(desktopWidth, 1770);
+    var x2DesktopScreens = calculateNewWidthOfLargeScreens(desktopWidth, 1990);
+    var desktop2xImage = "".concat(dolosUrl, "/").concat(image === null || image === void 0 ? void 0 : image.src).concat(isAmpersand ? "&tr" : "?tr", "=w-").concat(x2DesktopScreens).concat(calculateCropCoordinates(x2DesktopScreens, (_h = image === null || image === void 0 ? void 0 : image.coordinates) === null || _h === void 0 ? void 0 : _h.desktop));
+    var desktop1xImage = "".concat(dolosUrl, "/").concat(image === null || image === void 0 ? void 0 : image.src).concat(isAmpersand ? "&tr" : "?tr", "=w-").concat(x1DesktopScreens).concat(calculateCropCoordinates(x1DesktopScreens, (_j = image === null || image === void 0 ? void 0 : image.coordinates) === null || _j === void 0 ? void 0 : _j.desktop));
+    var desktopImage = "".concat(dolosUrl, "/").concat(image === null || image === void 0 ? void 0 : image.src).concat(isAmpersand ? "&tr" : "?tr", "=w-").concat(desktopWidth).concat(calculateCropCoordinates(desktopWidth, (_k = image === null || image === void 0 ? void 0 : image.coordinates) === null || _k === void 0 ? void 0 : _k.desktop));
+    var tabletImage = "".concat(dolosUrl, "/").concat(image === null || image === void 0 ? void 0 : image.src).concat(isAmpersand ? "&tr" : "?tr", "=w-").concat(tabletWidth).concat(calculateCropCoordinates(tabletWidth, (_l = image === null || image === void 0 ? void 0 : image.coordinates) === null || _l === void 0 ? void 0 : _l.tablet));
+    var mobileImage = "".concat(dolosUrl, "/").concat(image === null || image === void 0 ? void 0 : image.src).concat(isAmpersand ? "&tr" : "?tr", "=w-").concat(mobileWidth).concat(calculateCropCoordinates(mobileWidth, (_m = image === null || image === void 0 ? void 0 : image.coordinates) === null || _m === void 0 ? void 0 : _m.mobile));
     return {
+        desktop2x: desktop2xImage,
+        desktop1x: desktop1xImage,
         desktop: desktopImage,
         tablet: tabletImage,
         mobile: mobileImage,
@@ -56,6 +62,9 @@ var getImagesBasedOnScreenSizes = function (image, imageCropper) {
 export var createResponsiveImage = function (image, options) {
     if (!image || !(image === null || image === void 0 ? void 0 : image.src))
         return (_jsx("img", __assign({ src: "", alt: "empty image", className: options === null || options === void 0 ? void 0 : options.className }, options === null || options === void 0 ? void 0 : options.imageProps)));
-    var _a = getImagesBasedOnScreenSizes(image, options === null || options === void 0 ? void 0 : options.imageCropper), desktop = _a.desktop, tablet = _a.tablet, mobile = _a.mobile;
-    return (_jsxs("picture", __assign({ className: options === null || options === void 0 ? void 0 : options.className }, options === null || options === void 0 ? void 0 : options.imageProps, { children: [_jsx("source", { srcSet: mobile, className: options === null || options === void 0 ? void 0 : options.className, media: "(max-width:769px)" }), _jsx("source", { srcSet: tablet, media: "(max-width: 1025px)", className: options === null || options === void 0 ? void 0 : options.className }), _jsx("source", { srcSet: desktop, media: "(min-width: 1025px)", className: options === null || options === void 0 ? void 0 : options.className }), _jsx("img", __assign({ src: image === null || image === void 0 ? void 0 : image.src, className: options === null || options === void 0 ? void 0 : options.className, alt: image.alternative_text }, options === null || options === void 0 ? void 0 : options.imageProps))] })));
+    var _a = getImagesBasedOnScreenSizes(image, options === null || options === void 0 ? void 0 : options.imageCropper), desktop2x = _a.desktop2x, desktop1x = _a.desktop1x, desktop = _a.desktop, tablet = _a.tablet, mobile = _a.mobile;
+    return (_jsxs("picture", __assign({ className: options === null || options === void 0 ? void 0 : options.className }, options === null || options === void 0 ? void 0 : options.imageProps, { children: [_jsx("source", { srcSet: mobile, className: options === null || options === void 0 ? void 0 : options.className, media: "(max-width:769px)" }), _jsx("source", { srcSet: tablet, media: "(max-width: 1025px)", className: options === null || options === void 0 ? void 0 : options.className }), _jsx("source", { srcSet: desktop, media: "(max-width: 1440px)", className: options === null || options === void 0 ? void 0 : options.className }), _jsx("source", { srcSet: desktop1x, media: "(max-width: 1772px)", className: options === null || options === void 0 ? void 0 : options.className }), _jsx("source", { srcSet: desktop2x, media: "(min-width: 1772px)", className: options === null || options === void 0 ? void 0 : options.className }), _jsx("img", __assign({ src: image === null || image === void 0 ? void 0 : image.src, className: options === null || options === void 0 ? void 0 : options.className, alt: image.alternative_text }, options === null || options === void 0 ? void 0 : options.imageProps))] })));
+};
+var calculateNewWidthOfLargeScreens = function (originalWidth, screenSize) {
+    return Math.floor((screenSize / 1440) * originalWidth);
 };
