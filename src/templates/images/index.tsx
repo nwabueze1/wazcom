@@ -95,18 +95,15 @@ export const createResponsiveImage = (
       <img src={""} alt={"empty image"} className={options?.className} {...options?.imageProps} />
     );
 
-  const { desktop2x, desktop1x, desktop, tablet, mobile } = getImagesBasedOnScreenSizes(
-    image,
-    options?.imageCropper,
-  );
+  const { desktop, tablet, mobile } = getImagesBasedOnScreenSizes(image, options?.imageCropper);
 
   return (
     <picture className={options?.className} {...options?.imageProps}>
       <source srcSet={mobile} className={options?.className} media={"(max-width:769px)"} />
       <source srcSet={tablet} media={"(max-width: 1025px)"} className={options?.className} />
-      <source srcSet={desktop} media={"(max-width: 1440px)"} className={options?.className} />
-      <source srcSet={desktop1x} media={"(max-width: 1772px)"} className={options?.className} />
-      <source srcSet={desktop2x} media={"(min-width: 1772px)"} className={options?.className} />
+      <source srcSet={desktop} media={"(min-width: 1025px)"} className={options?.className} />
+      {/* <source srcSet={desktop1x} media={"(max-width: 1772px)"} className={options?.className} />
+      <source srcSet={desktop2x} media={"(min-width: 1772px)"} className={options?.className} /> */}
       <img
         src={image?.src}
         className={options?.className}
