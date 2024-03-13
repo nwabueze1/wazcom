@@ -34,54 +34,100 @@ const calculateCropCoordinates = (
   return `,cr-${left}.${top}.${right}.${bottom}`;
 };
 
-const getImagesBasedOnScreenSizes = (image: MediaValue, imageCropper?: TImageCropper) => {
+const getImagesBasedOnScreenSizes2 = (image: MediaValue, imageCropper?: TImageCropper) => {
   const dolosUrl = "https://img.wazobia.tech";
   const isAmpersand = image?.src?.includes("?");
 
-  const [xtraLargeScreen, desktopWidth, tabletWidth, mobileWidth] = [
-    imageCropper?.extraLargeScreens?.width ?? 1200,
+  const [desktop1992, desktop1772, desktop1442, desktop1280, tabletWidth, mobileWidth] = [
+    calculateNewWidthOfLargeScreens(imageCropper?.desktop?.width ?? 1100, 1992),
+    calculateNewWidthOfLargeScreens(imageCropper?.desktop?.width ?? 1100, 1772),
+    calculateNewWidthOfLargeScreens(imageCropper?.desktop?.width ?? 1100, 1442),
     imageCropper?.desktop?.width ?? 1100,
     imageCropper?.tablet?.width ?? 750,
     imageCropper?.mobile?.width ?? 450,
   ];
 
-  const x1DesktopScreens = calculateNewWidthOfLargeScreens(xtraLargeScreen, 1770);
-  const x2DesktopScreens = calculateNewWidthOfLargeScreens(desktopWidth, 1990);
-
-  const desktop2xImage = `${dolosUrl}/${image?.src}${
+  const desktop1992Image = `${dolosUrl}/${image?.src}${
     isAmpersand ? "&tr" : "?tr"
-  }=w-${x2DesktopScreens}${calculateCropCoordinates(
-    x2DesktopScreens,
-    image?.coordinates?.desktop,
-  )}`;
-
-  const desktop1xImage = `${dolosUrl}/${image?.src}${
+  }=w-${desktop1992}${calculateCropCoordinates(desktop1992, image?.coordinates?.desktop)}`;
+  const desktop1772Image = `${dolosUrl}/${image?.src}${
     isAmpersand ? "&tr" : "?tr"
-  }=w-${x1DesktopScreens}${calculateCropCoordinates(
-    x1DesktopScreens,
-    image?.coordinates?.desktop,
-  )}`;
-
-  const desktopImage = `${dolosUrl}/${image?.src}${
+  }=w-${desktop1772}${calculateCropCoordinates(desktop1772, image?.coordinates?.desktop)}`;
+  const desktop1442Image = `${dolosUrl}/${image?.src}${
     isAmpersand ? "&tr" : "?tr"
-  }=w-${desktopWidth}${calculateCropCoordinates(desktopWidth, image?.coordinates?.desktop)}`;
-
+  }=w-${desktop1442}${calculateCropCoordinates(desktop1442, image?.coordinates?.desktop)}`;
+  const desktop1280Image = `${dolosUrl}/${image?.src}${
+    isAmpersand ? "&tr" : "?tr"
+  }=w-${desktop1280}${calculateCropCoordinates(desktop1280, image?.coordinates?.desktop)}`;
   const tabletImage = `${dolosUrl}/${image?.src}${
     isAmpersand ? "&tr" : "?tr"
   }=w-${tabletWidth}${calculateCropCoordinates(tabletWidth, image?.coordinates?.tablet)}`;
-
   const mobileImage = `${dolosUrl}/${image?.src}${
     isAmpersand ? "&tr" : "?tr"
   }=w-${mobileWidth}${calculateCropCoordinates(mobileWidth, image?.coordinates?.mobile)}`;
 
   return {
-    desktop2x: desktop2xImage,
-    desktop1x: desktop1xImage,
-    desktop: desktopImage,
-    tablet: tabletImage,
-    mobile: mobileImage,
+    mobileImage,
+    tabletImage,
+    desktop1280Image,
+    desktop1442Image,
+    desktop1772Image,
+    desktop1992Image,
   };
 };
+
+// const getImagesBasedOnScreenSizes = (image: MediaValue, imageCropper?: TImageCropper) => {
+//   const dolosUrl = "https://img.wazobia.tech";
+//   const isAmpersand = image?.src?.includes("?");
+
+//   const [xtraLargeScreen, desktopWidth, tabletWidth, mobileWidth] = [
+//     imageCropper?.extraLargeScreens?.width ?? 1200,
+//     imageCropper?.desktop?.width ?? 1100,
+//     imageCropper?.tablet?.width ?? 750,
+//     imageCropper?.mobile?.width ?? 450,
+//   ];
+
+//   const x1DesktopScreens = calculateNewWidthOfLargeScreens(xtraLargeScreen, 1770);
+//   const x2DesktopScreens = calculateNewWidthOfLargeScreens(desktopWidth, 1990);
+
+//   const desktop2xImage = `${dolosUrl}/${image?.src}${
+//     isAmpersand ? "&tr" : "?tr"
+//   }=w-${x2DesktopScreens}${calculateCropCoordinates(
+//     x2DesktopScreens,
+//     image?.coordinates?.desktop,
+//   )}`;
+
+//   const desktop1xImage = `${dolosUrl}/${image?.src}${
+//     isAmpersand ? "&tr" : "?tr"
+//   }=w-${x1DesktopScreens}${calculateCropCoordinates(
+//     x1DesktopScreens,
+//     image?.coordinates?.desktop,
+//   )}`;
+
+//   const desktopImage = `${dolosUrl}/${image?.src}${
+//     isAmpersand ? "&tr" : "?tr"
+//   }=w-${desktopWidth}${calculateCropCoordinates(desktopWidth, image?.coordinates?.desktop)}`;
+
+//   const smallLaptop = `${dolosUrl}/${image?.src}${
+//     isAmpersand ? "&tr" : "?tr"
+//   }=w-${desktopWidth}${calculateCropCoordinates(desktopWidth, image?.coordinates?.desktop)}`;
+
+//   const tabletImage = `${dolosUrl}/${image?.src}${
+//     isAmpersand ? "&tr" : "?tr"
+//   }=w-${tabletWidth}${calculateCropCoordinates(tabletWidth, image?.coordinates?.tablet)}`;
+
+//   const mobileImage = `${dolosUrl}/${image?.src}${
+//     isAmpersand ? "&tr" : "?tr"
+//   }=w-${mobileWidth}${calculateCropCoordinates(mobileWidth, image?.coordinates?.mobile)}`;
+
+//   return {
+//     desktop2x: desktop2xImage,
+//     desktop1x: desktop1xImage,
+//     desktop: 0,
+//     tablet: 0,
+//     mobile: 0,
+//   };
+// };
 
 export const createResponsiveImage = (
   image: MediaValue,
@@ -99,15 +145,16 @@ export const createResponsiveImage = (
       <img src={""} alt={"empty image"} className={options?.className} {...options?.imageProps} />
     );
 
-  const { desktop, tablet, mobile } = getImagesBasedOnScreenSizes(image, options?.imageCropper);
+  const { desktop1772Image, desktop1442Image, desktop1280Image, tabletImage, mobileImage } =
+    getImagesBasedOnScreenSizes2(image, options?.imageCropper);
 
   return (
     <picture className={options?.className} {...options?.imageProps}>
-      <source srcSet={mobile} className={options?.className} media={"(max-width:769px)"} />
-      <source srcSet={tablet} media={"(max-width: 1025px)"} className={options?.className} />
-      <source srcSet={desktop} media={"(min-width: 1025px)"} className={options?.className} />
-      {/* <source srcSet={desktop1x} media={"(max-width: 1772px)"} className={options?.className} />
-      <source srcSet={desktop2x} media={"(min-width: 1772px)"} className={options?.className} /> */}
+      <source srcSet={mobileImage} media={"(max-width:769px)"} />
+      <source srcSet={tabletImage} media={"(max-width: 1025px)"} />
+      <source srcSet={desktop1280Image} media={"(max-width: 1440px)"} />
+      <source srcSet={desktop1442Image} media={"(max-width: 1772px)"} />
+      <source srcSet={desktop1772Image} media={"(max-width: 19920px)"} />
       <img
         src={image?.src}
         className={options?.className}
@@ -119,5 +166,5 @@ export const createResponsiveImage = (
 };
 
 const calculateNewWidthOfLargeScreens = (originalWidth: number, screenSize: number) => {
-  return Math.floor((screenSize / 1440) * originalWidth);
+  return Math.floor((screenSize / 1280) * originalWidth);
 };
