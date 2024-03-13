@@ -76,59 +76,6 @@ const getImagesBasedOnScreenSizes2 = (image: MediaValue, imageCropper?: TImageCr
   };
 };
 
-// const getImagesBasedOnScreenSizes = (image: MediaValue, imageCropper?: TImageCropper) => {
-//   const dolosUrl = "https://img.wazobia.tech";
-//   const isAmpersand = image?.src?.includes("?");
-
-//   const [xtraLargeScreen, desktopWidth, tabletWidth, mobileWidth] = [
-//     imageCropper?.extraLargeScreens?.width ?? 1200,
-//     imageCropper?.desktop?.width ?? 1100,
-//     imageCropper?.tablet?.width ?? 750,
-//     imageCropper?.mobile?.width ?? 450,
-//   ];
-
-//   const x1DesktopScreens = calculateNewWidthOfLargeScreens(xtraLargeScreen, 1770);
-//   const x2DesktopScreens = calculateNewWidthOfLargeScreens(desktopWidth, 1990);
-
-//   const desktop2xImage = `${dolosUrl}/${image?.src}${
-//     isAmpersand ? "&tr" : "?tr"
-//   }=w-${x2DesktopScreens}${calculateCropCoordinates(
-//     x2DesktopScreens,
-//     image?.coordinates?.desktop,
-//   )}`;
-
-//   const desktop1xImage = `${dolosUrl}/${image?.src}${
-//     isAmpersand ? "&tr" : "?tr"
-//   }=w-${x1DesktopScreens}${calculateCropCoordinates(
-//     x1DesktopScreens,
-//     image?.coordinates?.desktop,
-//   )}`;
-
-//   const desktopImage = `${dolosUrl}/${image?.src}${
-//     isAmpersand ? "&tr" : "?tr"
-//   }=w-${desktopWidth}${calculateCropCoordinates(desktopWidth, image?.coordinates?.desktop)}`;
-
-//   const smallLaptop = `${dolosUrl}/${image?.src}${
-//     isAmpersand ? "&tr" : "?tr"
-//   }=w-${desktopWidth}${calculateCropCoordinates(desktopWidth, image?.coordinates?.desktop)}`;
-
-//   const tabletImage = `${dolosUrl}/${image?.src}${
-//     isAmpersand ? "&tr" : "?tr"
-//   }=w-${tabletWidth}${calculateCropCoordinates(tabletWidth, image?.coordinates?.tablet)}`;
-
-//   const mobileImage = `${dolosUrl}/${image?.src}${
-//     isAmpersand ? "&tr" : "?tr"
-//   }=w-${mobileWidth}${calculateCropCoordinates(mobileWidth, image?.coordinates?.mobile)}`;
-
-//   return {
-//     desktop2x: desktop2xImage,
-//     desktop1x: desktop1xImage,
-//     desktop: 0,
-//     tablet: 0,
-//     mobile: 0,
-//   };
-// };
-
 export const createResponsiveImage = (
   image: MediaValue,
   options?: {
@@ -145,16 +92,23 @@ export const createResponsiveImage = (
       <img src={""} alt={"empty image"} className={options?.className} {...options?.imageProps} />
     );
 
-  const { desktop1772Image, desktop1442Image, desktop1280Image, tabletImage, mobileImage } =
-    getImagesBasedOnScreenSizes2(image, options?.imageCropper);
+  const {
+    desktop1992Image,
+    desktop1772Image,
+    desktop1442Image,
+    desktop1280Image,
+    tabletImage,
+    mobileImage,
+  } = getImagesBasedOnScreenSizes2(image, options?.imageCropper);
 
   return (
     <picture className={options?.className} {...options?.imageProps}>
       <source srcSet={mobileImage} media={"(max-width:769px)"} />
       <source srcSet={tabletImage} media={"(max-width: 1025px)"} />
       <source srcSet={desktop1280Image} media={"(max-width: 1440px)"} />
-      <source srcSet={desktop1442Image} media={"(max-width: 1772px)"} />
-      <source srcSet={desktop1772Image} media={"(max-width: 19920px)"} />
+      <source srcSet={desktop1442Image} media={"(max-width: 1660px)"} />
+      <source srcSet={desktop1772Image} media={"(max-width: 1772px)"} />
+      <source srcSet={desktop1992Image} media={"(min-width: 1772px)"} />
       <img
         src={image?.src}
         className={options?.className}

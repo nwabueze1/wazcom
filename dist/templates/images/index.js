@@ -62,54 +62,11 @@ var getImagesBasedOnScreenSizes2 = function (image, imageCropper) {
         desktop1992Image: desktop1992Image,
     };
 };
-// const getImagesBasedOnScreenSizes = (image: MediaValue, imageCropper?: TImageCropper) => {
-//   const dolosUrl = "https://img.wazobia.tech";
-//   const isAmpersand = image?.src?.includes("?");
-//   const [xtraLargeScreen, desktopWidth, tabletWidth, mobileWidth] = [
-//     imageCropper?.extraLargeScreens?.width ?? 1200,
-//     imageCropper?.desktop?.width ?? 1100,
-//     imageCropper?.tablet?.width ?? 750,
-//     imageCropper?.mobile?.width ?? 450,
-//   ];
-//   const x1DesktopScreens = calculateNewWidthOfLargeScreens(xtraLargeScreen, 1770);
-//   const x2DesktopScreens = calculateNewWidthOfLargeScreens(desktopWidth, 1990);
-//   const desktop2xImage = `${dolosUrl}/${image?.src}${
-//     isAmpersand ? "&tr" : "?tr"
-//   }=w-${x2DesktopScreens}${calculateCropCoordinates(
-//     x2DesktopScreens,
-//     image?.coordinates?.desktop,
-//   )}`;
-//   const desktop1xImage = `${dolosUrl}/${image?.src}${
-//     isAmpersand ? "&tr" : "?tr"
-//   }=w-${x1DesktopScreens}${calculateCropCoordinates(
-//     x1DesktopScreens,
-//     image?.coordinates?.desktop,
-//   )}`;
-//   const desktopImage = `${dolosUrl}/${image?.src}${
-//     isAmpersand ? "&tr" : "?tr"
-//   }=w-${desktopWidth}${calculateCropCoordinates(desktopWidth, image?.coordinates?.desktop)}`;
-//   const smallLaptop = `${dolosUrl}/${image?.src}${
-//     isAmpersand ? "&tr" : "?tr"
-//   }=w-${desktopWidth}${calculateCropCoordinates(desktopWidth, image?.coordinates?.desktop)}`;
-//   const tabletImage = `${dolosUrl}/${image?.src}${
-//     isAmpersand ? "&tr" : "?tr"
-//   }=w-${tabletWidth}${calculateCropCoordinates(tabletWidth, image?.coordinates?.tablet)}`;
-//   const mobileImage = `${dolosUrl}/${image?.src}${
-//     isAmpersand ? "&tr" : "?tr"
-//   }=w-${mobileWidth}${calculateCropCoordinates(mobileWidth, image?.coordinates?.mobile)}`;
-//   return {
-//     desktop2x: desktop2xImage,
-//     desktop1x: desktop1xImage,
-//     desktop: 0,
-//     tablet: 0,
-//     mobile: 0,
-//   };
-// };
 export var createResponsiveImage = function (image, options) {
     if (!image || !(image === null || image === void 0 ? void 0 : image.src))
         return (_jsx("img", __assign({ src: "", alt: "empty image", className: options === null || options === void 0 ? void 0 : options.className }, options === null || options === void 0 ? void 0 : options.imageProps)));
-    var _a = getImagesBasedOnScreenSizes2(image, options === null || options === void 0 ? void 0 : options.imageCropper), desktop1772Image = _a.desktop1772Image, desktop1442Image = _a.desktop1442Image, desktop1280Image = _a.desktop1280Image, tabletImage = _a.tabletImage, mobileImage = _a.mobileImage;
-    return (_jsxs("picture", __assign({ className: options === null || options === void 0 ? void 0 : options.className }, options === null || options === void 0 ? void 0 : options.imageProps, { children: [_jsx("source", { srcSet: mobileImage, media: "(max-width:769px)" }), _jsx("source", { srcSet: tabletImage, media: "(max-width: 1025px)" }), _jsx("source", { srcSet: desktop1280Image, media: "(max-width: 1440px)" }), _jsx("source", { srcSet: desktop1442Image, media: "(max-width: 1772px)" }), _jsx("source", { srcSet: desktop1772Image, media: "(max-width: 19920px)" }), _jsx("img", __assign({ src: image === null || image === void 0 ? void 0 : image.src, className: options === null || options === void 0 ? void 0 : options.className, alt: image.alternative_text }, options === null || options === void 0 ? void 0 : options.imageProps))] })));
+    var _a = getImagesBasedOnScreenSizes2(image, options === null || options === void 0 ? void 0 : options.imageCropper), desktop1992Image = _a.desktop1992Image, desktop1772Image = _a.desktop1772Image, desktop1442Image = _a.desktop1442Image, desktop1280Image = _a.desktop1280Image, tabletImage = _a.tabletImage, mobileImage = _a.mobileImage;
+    return (_jsxs("picture", __assign({ className: options === null || options === void 0 ? void 0 : options.className }, options === null || options === void 0 ? void 0 : options.imageProps, { children: [_jsx("source", { srcSet: mobileImage, media: "(max-width:769px)" }), _jsx("source", { srcSet: tabletImage, media: "(max-width: 1025px)" }), _jsx("source", { srcSet: desktop1280Image, media: "(max-width: 1440px)" }), _jsx("source", { srcSet: desktop1442Image, media: "(max-width: 1660px)" }), _jsx("source", { srcSet: desktop1772Image, media: "(max-width: 1772px)" }), _jsx("source", { srcSet: desktop1992Image, media: "(min-width: 1772px)" }), _jsx("img", __assign({ src: image === null || image === void 0 ? void 0 : image.src, className: options === null || options === void 0 ? void 0 : options.className, alt: image.alternative_text }, options === null || options === void 0 ? void 0 : options.imageProps))] })));
 };
 var calculateNewWidthOfLargeScreens = function (originalWidth, screenSize) {
     return Math.floor((screenSize / 1280) * originalWidth);
