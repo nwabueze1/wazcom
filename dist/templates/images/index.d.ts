@@ -1,6 +1,6 @@
 import React from "react";
-export type TCropperConfig = Record<"height" | "width" | "defaultSize", number>;
-export type TImageCropper = Record<"desktop" | "tablet" | "mobile", TCropperConfig>;
+export type TCropperConfig = Record<"height" | "width" | "defaultSize" | "aspectRatio", number>;
+export type TImageCropper = Record<"desktop" | "tablet" | "mobile", TCropperConfig> & Partial<Record<"extraLargeScreens", TCropperConfig>>;
 export type TScreen = "desktop" | "tablet" | "mobile";
 export type TCoordinates = Record<TScreen, any>;
 export type MediaValue = {

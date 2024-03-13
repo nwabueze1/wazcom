@@ -1,8 +1,9 @@
 import React from "react";
 
-export type TCropperConfig = Record<"height" | "width" | "defaultSize", number>;
+export type TCropperConfig = Record<"height" | "width" | "defaultSize" | "aspectRatio", number>;
 
-export type TImageCropper = Record<"desktop" | "tablet" | "mobile", TCropperConfig>;
+export type TImageCropper = Record<"desktop" | "tablet" | "mobile", TCropperConfig> &
+  Partial<Record<"extraLargeScreens", TCropperConfig>>;
 
 export type TScreen = "desktop" | "tablet" | "mobile";
 
@@ -35,13 +36,14 @@ const getImagesBasedOnScreenSizes = (image: MediaValue, imageCropper?: TImageCro
   const dolosUrl = "https://img.wazobia.tech";
   const isAmpersand = image?.src?.includes("?");
 
-  const [desktopWidth, tabletWidth, mobileWidth] = [
+  const [xtraLargeScreen, desktopWidth, tabletWidth, mobileWidth] = [
+    imageCropper?.extraLargeScreens?.width ?? 1200,
     imageCropper?.desktop?.width ?? 1100,
     imageCropper?.tablet?.width ?? 750,
     imageCropper?.mobile?.width ?? 450,
   ];
 
-  const x1DesktopScreens = calculateNewWidthOfLargeScreens(desktopWidth, 1770);
+  const x1DesktopScreens = calculateNewWidthOfLargeScreens(xtraLargeScreen, 1770);
   const x2DesktopScreens = calculateNewWidthOfLargeScreens(desktopWidth, 1990);
 
   const desktop2xImage = `${dolosUrl}/${image?.src}${
