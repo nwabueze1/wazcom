@@ -4,6 +4,7 @@ export default [
     components: [
       { name: "Buttons", slug: "buttons" },
       { name: "Cards", slug: "cards" },
+      { name: "Content Form", slug: "content-form" },
     ],
   },
   {

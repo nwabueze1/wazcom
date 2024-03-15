@@ -25,6 +25,7 @@ import { FileUpload } from "../view/FileUpload";
 import { Rating } from "../view/Rating";
 import { PluginFormView } from "../view/PluginForm/PluginFormView";
 import { WysiwygInputView } from "../view/WysiwygInput/WysiwygInputView";
+import { ContentFormLayoutView } from "view/ContentFormLayout";
 
 export default [
   {
@@ -194,5 +195,11 @@ export default [
     path: "/plugin-form",
     exact: true,
     component: PluginFormView,
+  },
+  {
+    key: "ContentFormLayout",
+    path: "/content-form",
+    exact: true,
+    component: ContentFormLayoutView,
   },
 ];

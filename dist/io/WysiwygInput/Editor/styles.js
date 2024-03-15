@@ -3,7 +3,7 @@ export var useEditorStyles = makeStyles(function (theme) { return ({
     root: {
         display: "flex",
         flexDirection: "column",
-        height: "50vh",
+        height: "60vh",
         position: "relative",
         overflowY: "auto",
     },
@@ -46,7 +46,7 @@ export var useEditorStyles = makeStyles(function (theme) { return ({
         },
         "& .ql-editor": {
             paddingLeft: theme.spacing(2),
-            minHeight: "50vh",
+            minHeight: "60vh",
             "& p": {
                 marginBottom: "15px",
                 lineHeight: 1.7,
