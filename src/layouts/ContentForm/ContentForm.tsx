@@ -1,7 +1,6 @@
-import FullScreenLoader from "components/FullScreenLoader/FullScreenLoader";
 import useStyles from "./styles";
 import { useLazyQuery } from "@apollo/client";
-import React, { useContext, useEffect, useState } from "react";
+import React, { useEffect, useState } from "react";
 import clx from "classnames";
 import { ContentFormLayoutProps } from "./types";
 import { useLocation } from "react-router-dom";
@@ -10,7 +9,6 @@ import { get } from "lodash";
 import { FaTimes } from "react-icons/fa";
 import { WysiwygInput } from "../../io";
 import { Button } from "../../core";
-import { IoEyeSharp } from "react-icons/io5";
 
 const CreateContentLayout: React.FC<ContentFormLayoutProps> = ({
   getContentConfig: {
@@ -38,7 +36,7 @@ const CreateContentLayout: React.FC<ContentFormLayoutProps> = ({
   const [activeTab, setActiveTab] = useState<string | undefined>("details");
   // const { user } = useContext(AppStateContext);
 
-  const [getContent, { loading: contentLoading }] = useLazyQuery(GET_CONTENT, {
+  const [getContent] = useLazyQuery(GET_CONTENT, {
     variables: {
       ...getContentVariables,
     },
