@@ -72,6 +72,14 @@ export const TextInput: FC<TextFieldProps> = ({
       }
     }
 
+    if (type === "tel") {
+      const phoneNumberRegexp = /^\+?[0-9]*$/; //validate if value can pass as a phone number
+      if (!phoneNumberRegexp.test(e.target?.value)) {
+        //invalid
+        return;
+      }
+    }
+
     if (onChange) {
       onChange?.({
         name: (e.target as HTMLInputElement).name ?? "",
@@ -147,7 +155,7 @@ export const TextInput: FC<TextFieldProps> = ({
           isSuccess && classes.successInput,
           (isError || errors) && classes.errorInput,
           isFocused && classes.focusedInput,
-          isError && "error"
+          isError && "error",
         )}
       >
         {leftIcon && (
