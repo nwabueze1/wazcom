@@ -87,7 +87,6 @@ export var TextInput = function (_a) {
         if (type === "tel") {
             var phoneNumberRegexp = /^\+?[0-9]*$/; //validate if value can pass as a phone number
             if (!phoneNumberRegexp.test((_a = e.target) === null || _a === void 0 ? void 0 : _a.value)) {
-                //invalid
                 return;
             }
         }
