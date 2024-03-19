@@ -78,6 +78,12 @@ export var TextInput = function (_a) {
     var slideUpLabelClass = useInputWithSlideUpLabelStyles();
     var handleChange = function (e) {
         var _a, _b, _c;
+        if (type === "number") {
+            var regex = /^[0-9+-]*$/;
+            console.log("number");
+            if (!regex.test(e.target.value))
+                return;
+        }
         if (noNegativeValue) {
             var inputValue = e.target.value;
             if (type === "number" && parseFloat(inputValue) < 0) {
@@ -99,6 +105,9 @@ export var TextInput = function (_a) {
     };
     var handleOnKeyDown = function (e) {
         var _a, _b;
+        if (type === "number" && ["e", "E"].includes(e.key)) {
+            e.preventDefault();
+        }
         if (onEnter && e.key === "Enter") {
             onEnter === null || onEnter === void 0 ? void 0 : onEnter({
                 name: (_a = e.target.name) !== null && _a !== void 0 ? _a : "",
