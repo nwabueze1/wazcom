@@ -80,7 +80,6 @@ export var TextInput = function (_a) {
         var _a, _b, _c;
         if (type === "number") {
             var regex = /^[0-9+-]*$/;
-            console.log("number");
             if (!regex.test(e.target.value))
                 return;
         }

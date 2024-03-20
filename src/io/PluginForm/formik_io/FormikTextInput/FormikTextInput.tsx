@@ -32,7 +32,18 @@ export const FormikTextInput: FC<FormikTextInputPropsType & { is_address?: boole
     : formikProps?.touched?.[name] && formikProps?.errors?.[name];
 
   const handleChange = ({ value }: { name: string; value: string }) => {
-    if (type === "tel") value = value.replace(/[^0-9+]/g, ""); //allow only numbers and +
+    if (type === "number") {
+      const regex = /^[0-9+-]*$/;
+
+      if (!regex.test(value)) return;
+    }
+
+    if (type === "tel") {
+      const phoneNumberRegexp = /^\+?[0-9]*$/; //validate if value can pass as a phone number
+      if (!phoneNumberRegexp.test(value)) {
+        return;
+      }
+    }
 
     formikProps?.setFieldValue(name, value);
   };

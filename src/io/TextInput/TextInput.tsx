@@ -67,7 +67,6 @@ export const TextInput: FC<TextFieldProps> = ({
   const handleChange = (e: ChangeEvent<HTMLInputElement>) => {
     if (type === "number") {
       const regex = /^[0-9+-]*$/;
-      console.log("number");
 
       if (!regex.test(e.target.value)) return;
     }
