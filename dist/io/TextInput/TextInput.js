@@ -103,14 +103,14 @@ export var TextInput = function (_a) {
         }
     };
     var handleOnKeyDown = function (e) {
-        var _a, _b;
+        var _a, _b, _c;
         if (type === "number" && ["e", "E"].includes(e.key)) {
-            e.preventDefault();
+            (_a = e === null || e === void 0 ? void 0 : e.preventDefault) === null || _a === void 0 ? void 0 : _a.call(e);
         }
         if (onEnter && e.key === "Enter") {
             onEnter === null || onEnter === void 0 ? void 0 : onEnter({
-                name: (_a = e.target.name) !== null && _a !== void 0 ? _a : "",
-                value: (_b = e.target.value) !== null && _b !== void 0 ? _b : "",
+                name: (_b = e.target.name) !== null && _b !== void 0 ? _b : "",
+                value: (_c = e.target.value) !== null && _c !== void 0 ? _c : "",
             });
         }
     };

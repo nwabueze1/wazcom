@@ -94,7 +94,7 @@ export const TextInput: FC<TextFieldProps> = ({
   };
   const handleOnKeyDown = (e: KeyboardEvent<HTMLInputElement>) => {
     if (type === "number" && ["e", "E"].includes(e.key)) {
-      e.preventDefault();
+      e?.preventDefault?.();
     }
 
     if (onEnter && e.key === "Enter") {
