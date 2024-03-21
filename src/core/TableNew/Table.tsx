@@ -28,6 +28,7 @@ export const TableNew: FC<TableNewProps> = ({
   emptyState,
   showSort = true,
   hasStickyActions,
+  EmptyStateComponent,
 }) => {
   const [table, setTable] = useState<{
     data: any;
@@ -72,7 +73,12 @@ export const TableNew: FC<TableNewProps> = ({
         (actions.conditionFilter as TableConditionFilter).filter ?? [],
       ),
     );
-  }, [actions.search, JSON.stringify(actions.sort), JSON.stringify(variables), JSON.stringify(actions.conditionFilter)]);
+  }, [
+    actions.search,
+    JSON.stringify(actions.sort),
+    JSON.stringify(variables),
+    JSON.stringify(actions.conditionFilter),
+  ]);
 
   useEffect(() => {
     if (!table?.data) return;
@@ -156,6 +162,14 @@ export const TableNew: FC<TableNewProps> = ({
   };
 
   if (!table.data) return <Loader />;
+
+  if (rows.length === 0 && EmptyStateComponent)
+    return (
+      <>
+        <EmptyStateComponent />
+        {loading && <Loader className={classes.tableLoader} />}
+      </>
+    );
 
   return (
     <div style={{ position: "relative" }}>

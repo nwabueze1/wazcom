@@ -1,6 +1,7 @@
 import { ApolloClient, NormalizedCacheObject } from "@apollo/client";
 import { DocumentNode } from "graphql";
 import { CommonProps } from "../../types";
+import { FC } from "react";
 
 export type TableNewProps = CommonProps & {
   columns: TableColumn[];
@@ -10,7 +11,8 @@ export type TableNewProps = CommonProps & {
   showFilters?: boolean;
   emptyState?: { heading?: string; message?: string };
   showSort?: boolean;
-  hasStickyActions?:boolean
+  hasStickyActions?: boolean;
+  EmptyStateComponent?: FC;
 };
 
 export type TableColumn = {
@@ -36,7 +38,7 @@ export type TableFilter = {
 export type TableConditionFilter = {
   name: string;
   condition: (element: any) => any[];
-  filter?: TableFilter[]
+  filter?: TableFilter[];
 };
 
 export type TableSort = {
