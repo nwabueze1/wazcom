@@ -80,5 +80,5 @@ export var SelectInput = function (_a) {
                         var isDisabled = _a.isDisabled, isFocused = _a.isFocused;
                         return clx(!isDisabled && isFocused && classes.option);
                     },
-                }, value: selectValue, options: options, onChange: handleChange }, props)), helperText && (_jsx("span", __assign({ className: clx(classes.helperTextDefault, isSuccess && classes.helperTextSuccess, isError && classes.helperTextError) }, { children: helperText })))] })));
+                }, value: selectValue, options: options, onChange: handleChange, isSearchable: false }, props)), helperText && (_jsx("span", __assign({ className: clx(classes.helperTextDefault, isSuccess && classes.helperTextSuccess, isError && classes.helperTextError) }, { children: helperText })))] })));
 };
