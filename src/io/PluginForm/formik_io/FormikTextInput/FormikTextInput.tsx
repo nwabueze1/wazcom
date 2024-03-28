@@ -16,10 +16,10 @@ export const FormikTextInput: FC<FormikTextInputPropsType & { is_address?: boole
   is_address = false,
   ...props
 }) => {
-  const names = name.split(".");
-  const isAddressTouched = (formikProps?.touched?.[names[0]] as Record<string, boolean>)?.[
-    names[1]
-  ];
+  const names = is_address ? name?.split?.(".") : [name];
+
+  const isAddressTouched =
+    is_address && (formikProps?.touched?.[names?.[0]] as Record<string, boolean>)?.[names?.[1]];
 
   const addressError = (formikProps?.errors?.[names[0]] as Record<string, string>)?.[names[1]];
   const paletteStyles = usePalletteStyles(props?.palette as FormPallette);
