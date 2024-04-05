@@ -4,7 +4,6 @@ export default [
     components: [
       { name: "Buttons", slug: "buttons" },
       { name: "Cards", slug: "cards" },
-      { name: "Content Form", slug: "content-form" },
     ],
   },
   {
@@ -54,6 +53,10 @@ export default [
       { name: "Tabs", slug: "tabs" },
       { name: "Top Layer", slug: "top-layer" },
     ],
+  },
+  {
+    label: "Layouts",
+    components: [{ name: "Content Form", slug: "content-form" }],
   },
   {
     label: "Complex",

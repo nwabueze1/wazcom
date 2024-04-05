@@ -21,34 +21,21 @@ const useStyles = makeStyles((theme: BaseTheme) => ({
     gap: "16px",
     position: "relative",
     flex: 1,
-    // overflow: "hidden",
+    maxHeight: "100vh",
 
     "&::-webkit-scrollbar": {
       width: 0,
     },
-
-    
   },
   tabParent: {
     height: "100%",
     width: "118px",
     background: theme.design.colors.waz_white,
-    // position: "absolute",
+    boxSizing: "border-box",
     top: 0,
     right: 0,
     padding: theme.spacing(2, 0, 0, 0),
     borderLeft: `1px solid ${theme.design.colors.waz_primary700}`,
-  },
-  content__input: {
-    display: "flex",
-    gap: theme.spacing(3),
-  },
-  content__title: {
-    fontSize: theme.typography?.fontSize + 6,
-    color: theme.design.colors.grey100,
-    lineHeight: "1.75rem",
-    fontWeight: theme.typography.fontWeightMedium,
-    marginBottom: theme.spacing(3),
   },
   content__form_section: {
     display: "flex",
@@ -228,6 +215,24 @@ const useStyles = makeStyles((theme: BaseTheme) => ({
     alignItems: "center",
     background: theme.design.colors.white,
     border: `1px solid ${theme.design.colors.lidGrey}`,
+  },
+  fullScreen: {
+    position: "absolute",
+    top: 0,
+    left: 0,
+    width: "100%",
+    height: "100%",
+    display: "flex",
+    justifyContent: "center",
+    alignItems: "center",
+    zIndex: -9999,
+    opacity: 0,
+    color: theme.design.colors.black,
+    background: 'rgba(0,0,0,0.2)',
+  },
+  fullScreen_active: {
+    zIndex: 9999,
+    opacity: 1,
   },
 }));
 

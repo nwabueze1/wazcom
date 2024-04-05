@@ -4,7 +4,7 @@ import { ContentFormLayout } from "../../layouts";
 import { GET_BLOG_POSTS, createApolloClient } from "helpers/graphQL";
 import { WysiwygInput } from "../../io";
 import { MdOutlineSort } from "react-icons/md";
-import clx from "classnames"
+import clx from "classnames";
 
 const ContentFormLayoutView = () => {
   const classes = useContentFormLayoutStyles();
@@ -14,15 +14,8 @@ const ContentFormLayoutView = () => {
     type: "image",
   });
 
-  let val: any;
-
   const handleContent = (value: any) => {
     console.log(value);
-    val = value;
-  };
-
-  const handleClick = () => {
-    console.log(val);
   };
 
   return (
@@ -41,20 +34,13 @@ const ContentFormLayoutView = () => {
         }}
         tabControls={{
           details: {
-            form: <>form</>,
-            icon: <MdOutlineSort className={clx(classes.tabIcon)} />
-          },
-          categories: {
-            form: <>categories</>,
-            icon: <MdOutlineSort className={clx(classes.tabIcon)} />
+            form: <></>,
+            icon: <MdOutlineSort className={clx(classes.tabIcon)} />,
           },
         }}
-        onDataFetchCompleted={(data) => {}}
-        formData={{}}
-        handleChange={(data) => {}}
+        onDataFetchCompleted={() => {}}
       >
-        {/* <WysiwygInput embed={embedUrl} name="postData" onChange={(value) => handleContent(value)} /> */}
-        {/* <button onClick={handleClick}>click</button> */}
+        <WysiwygInput embed={embedUrl} name="postData" onChange={(value) => handleContent(value)} />
       </ContentFormLayout>
     </div>
   );
