@@ -1,6 +1,7 @@
 import { ApolloClient, NormalizedCacheObject } from "@apollo/client";
 import { DocumentNode } from "graphql";
 import { CommonProps } from "../../types";
+import { FC } from "react";
 export type TableNewProps = CommonProps & {
     columns: TableColumn[];
     conditionFilters?: TableConditionFilter[];
@@ -15,6 +16,7 @@ export type TableNewProps = CommonProps & {
     };
     showSort?: boolean;
     hasStickyActions?: boolean;
+    EmptyStateComponent?: FC;
 };
 export type TableColumn = {
     name: string | JSX.Element;

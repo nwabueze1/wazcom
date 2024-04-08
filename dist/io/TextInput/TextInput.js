@@ -77,26 +77,40 @@ export var TextInput = function (_a) {
     });
     var slideUpLabelClass = useInputWithSlideUpLabelStyles();
     var handleChange = function (e) {
-        var _a, _b;
+        var _a, _b, _c;
+        if (type === "number") {
+            var regex = /^[0-9+-]*$/;
+            if (!regex.test(e.target.value))
+                return;
+        }
         if (noNegativeValue) {
             var inputValue = e.target.value;
             if (type === "number" && parseFloat(inputValue) < 0) {
                 e.target.value = "0"; // Set value to 0 if it's negative
             }
         }
+        if (type === "tel") {
+            var phoneNumberRegexp = /^\+?[0-9]*$/; //validate if value can pass as a phone number
+            if (!phoneNumberRegexp.test((_a = e.target) === null || _a === void 0 ? void 0 : _a.value)) {
+                return;
+            }
+        }
         if (onChange) {
             onChange === null || onChange === void 0 ? void 0 : onChange({
-                name: (_a = e.target.name) !== null && _a !== void 0 ? _a : "",
-                value: (_b = e.target.value) !== null && _b !== void 0 ? _b : "",
+                name: (_b = e.target.name) !== null && _b !== void 0 ? _b : "",
+                value: (_c = e.target.value) !== null && _c !== void 0 ? _c : "",
             });
         }
     };
     var handleOnKeyDown = function (e) {
-        var _a, _b;
+        var _a, _b, _c;
+        if (type === "number" && ["e", "E"].includes(e.key)) {
+            (_a = e === null || e === void 0 ? void 0 : e.preventDefault) === null || _a === void 0 ? void 0 : _a.call(e);
+        }
         if (onEnter && e.key === "Enter") {
             onEnter === null || onEnter === void 0 ? void 0 : onEnter({
-                name: (_a = e.target.name) !== null && _a !== void 0 ? _a : "",
-                value: (_b = e.target.value) !== null && _b !== void 0 ? _b : "",
+                name: (_b = e.target.name) !== null && _b !== void 0 ? _b : "",
+                value: (_c = e.target.value) !== null && _c !== void 0 ? _c : "",
             });
         }
     };

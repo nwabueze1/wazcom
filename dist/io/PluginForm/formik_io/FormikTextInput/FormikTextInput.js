@@ -39,8 +39,17 @@ export var FormikTextInput = function (_a) {
         : ((_h = formikProps === null || formikProps === void 0 ? void 0 : formikProps.touched) === null || _h === void 0 ? void 0 : _h[name]) && ((_j = formikProps === null || formikProps === void 0 ? void 0 : formikProps.errors) === null || _j === void 0 ? void 0 : _j[name]);
     var handleChange = function (_a) {
         var value = _a.value;
-        if (type === "tel")
-            value = value.replace(/[^0-9+]/g, ""); //allow only numbers and +
+        if (type === "number") {
+            var regex = /^[0-9+-]*$/;
+            if (!regex.test(value))
+                return;
+        }
+        if (type === "tel") {
+            var phoneNumberRegexp = /^\+?[0-9]*$/; //validate if value can pass as a phone number
+            if (!phoneNumberRegexp.test(value)) {
+                return;
+            }
+        }
         formikProps === null || formikProps === void 0 ? void 0 : formikProps.setFieldValue(name, value);
     };
     return (_jsx(TextInput, __assign({}, props, { name: name, onChange: handleChange, onBlur: function () { return formikProps === null || formikProps === void 0 ? void 0 : formikProps.setFieldTouched(name, true); }, isError: isError, helperText: errorMessage ? errorMessage : undefined, placeholder: "".concat(placeholder, " ").concat(isRequired ? "*" : "", " ").concat(type === "tel" ? "(eg: +2349032432432)" : ""), value: (_k = formikProps === null || formikProps === void 0 ? void 0 : formikProps.values) === null || _k === void 0 ? void 0 : _k[name], className: className, classNames: {

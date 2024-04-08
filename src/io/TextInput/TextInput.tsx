@@ -65,10 +65,23 @@ export const TextInput: FC<TextFieldProps> = ({
   const slideUpLabelClass = useInputWithSlideUpLabelStyles();
 
   const handleChange = (e: ChangeEvent<HTMLInputElement>) => {
+    if (type === "number") {
+      const regex = /^[0-9+-]*$/;
+
+      if (!regex.test(e.target.value)) return;
+    }
+
     if (noNegativeValue) {
       const inputValue = (e.target as HTMLInputElement).value;
       if (type === "number" && parseFloat(inputValue) < 0) {
         (e.target as HTMLInputElement).value = "0"; // Set value to 0 if it's negative
+      }
+    }
+
+    if (type === "tel") {
+      const phoneNumberRegexp = /^\+?[0-9]*$/; //validate if value can pass as a phone number
+      if (!phoneNumberRegexp.test(e.target?.value)) {
+        return;
       }
     }
 
@@ -80,6 +93,10 @@ export const TextInput: FC<TextFieldProps> = ({
     }
   };
   const handleOnKeyDown = (e: KeyboardEvent<HTMLInputElement>) => {
+    if (type === "number" && ["e", "E"].includes(e.key)) {
+      e?.preventDefault?.();
+    }
+
     if (onEnter && e.key === "Enter") {
       onEnter?.({
         name: (e.target as HTMLInputElement).name ?? "",
@@ -147,7 +164,7 @@ export const TextInput: FC<TextFieldProps> = ({
           isSuccess && classes.successInput,
           (isError || errors) && classes.errorInput,
           isFocused && classes.focusedInput,
-          isError && "error"
+          isError && "error",
         )}
       >
         {leftIcon && (
