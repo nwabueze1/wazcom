@@ -9,4 +9,8 @@ export const useContentFormLayoutStyles = makeStyles((theme: Theme) => ({
     fontSize: theme.typography.fontSize + 2,
     opacity: 0.8,
   },
+  wrapper: { paddingBottom: theme.spacing(2) },
+  cardTitle: {
+    margin: theme.spacing(0, 0, 1, 0),
+  },
 }));
