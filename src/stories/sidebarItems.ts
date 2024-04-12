@@ -55,6 +55,10 @@ export default [
     ],
   },
   {
+    label: "Layouts",
+    components: [{ name: "Content Form", slug: "content-form" }],
+  },
+  {
     label: "Complex",
     components: [
       { name: "Editor Nav", slug: "editor-nav" },

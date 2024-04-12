@@ -5,7 +5,7 @@ export const useEditorStyles = makeStyles((theme: Theme) => ({
   root: {
     display: "flex",
     flexDirection: "column",
-    height: "50vh",
+    height: "60vh",
     position: "relative",
     overflowY: "auto",
   },
@@ -49,7 +49,7 @@ export const useEditorStyles = makeStyles((theme: Theme) => ({
     },
     "& .ql-editor": {
       paddingLeft: theme.spacing(2),
-      minHeight: "50vh",
+      minHeight: "60vh",
       "& p": {
         marginBottom: "15px",
         lineHeight: 1.7,
