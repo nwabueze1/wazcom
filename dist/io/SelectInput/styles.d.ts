@@ -1,1 +1,0 @@
-export declare const useSelectStyles: (props?: any) => import("@mui/styles").ClassNameMap<"root" | "container" | "error" | "label" | "option" | "select" | "required" | "defaultInput" | "errorInput" | "successInput" | "labelWrapper" | "helperTextDefault" | "helperTextSuccess" | "helperTextError" | "control">;

@@ -1,1 +1,0 @@
-export declare const useOpinionScaleStyles: (props?: any) => import("@mui/styles").ClassNameMap<"root" | "label" | "helperTextDefault" | "helperTextSuccess" | "helperTextError" | "labelContainer" | "boxContainer" | "labelText" | "box" | "boxOutlined" | "boxContained" | "innerText" | "outlinedActiveText" | "containedActiveText">;

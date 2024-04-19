@@ -1,1 +1,0 @@
-export declare const useSplashScreenStyles: (props?: any) => import("@mui/styles").ClassNameMap<"root" | "button" | "body" | "header" | "track" | "image" | "heading" | "subheading" | "bodyTextContainer" | "bodySubtitle" | "trackLoader" | "@keyframes trackLoading">;

@@ -1,29 +1,38 @@
-import { FC } from "react";
+import React, { FC } from "react";
 import { useAddMediaStyles } from "./styles";
 import { Button } from "../../../../core";
 import { Modal } from "@mui/material";
 import { AddMediaProps } from "./types";
-import { UploadDialogue } from "./UploadDialogue";
+import { UploadDialog } from "./UploadDialog";
+import clx from "classnames";
 
 export const AddMedia: FC<AddMediaProps> = ({
-  handleFilesSelection,
-  handleOpenMedia,
-  handleCloseMedia,
-  viewOnly,
+    handleFilesSelection,
+    handleOpenMedia,
+    handleCloseMedia,
+    viewOnly,
+    handleMediaAction,
+    className,
+    buttonText,
 }) => {
-  const classes = useAddMediaStyles();
-  const handleOpen = () => handleCloseMedia(true);
-  const handleClose = () => handleCloseMedia(false);
+    const classes = useAddMediaStyles();
+    const handleOpen = () => handleCloseMedia(true);
+    const handleClose = () => handleCloseMedia(false);
 
-  return (
-    <div>
-      {!viewOnly && <Button onClick={handleOpen}>Add New</Button>}
-      <Modal className={classes.modalBox} open={handleOpenMedia} onClose={handleClose}>
-        <UploadDialogue
-          handleCloseMedia={handleCloseMedia}
-          handleFilesSelection={handleFilesSelection}
-        />
-      </Modal>
-    </div>
-  );
+    return (
+        <div>
+            {!viewOnly && (
+                <Button onClick={handleOpen} className={clx(classes.btn, className)}>
+                    {buttonText}
+                </Button>
+            )}
+            <Modal className={classes.modalBox} open={handleOpenMedia} onClose={handleClose}>
+                <UploadDialog
+                    handleCloseMedia={handleCloseMedia}
+                    handleFilesSelection={handleFilesSelection}
+                    handleMediaAction={handleMediaAction}
+                />
+            </Modal>
+        </div>
+    );
 };

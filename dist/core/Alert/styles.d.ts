@@ -1,1 +1,0 @@
-export declare const useAlertStyles: (props?: any) => import("@mui/styles").ClassNameMap<"button" | "header" | "alert" | "@keyframes toast-in-right" | "@keyframes toast-in-left" | "alertContainer" | "alertIcon" | "alertTitle" | "alertMessage">;

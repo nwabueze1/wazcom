@@ -1,71 +1,92 @@
-import React from "react";
-import { ApolloClient, DocumentNode, NormalizedCacheObject } from "@apollo/client";
-import { Grow } from "@mui/material";
+import React, { useState } from "react";
+import { ApolloClient, ApolloError, DocumentNode, NormalizedCacheObject } from "@apollo/client";
+import { Grow, Skeleton } from "@mui/material";
 import { useMediaLibraryStyles } from "./styles";
 import { Image, ImageUpdate } from "./types";
 import { FaPencilAlt } from "react-icons/fa";
 import { IoMdTrash } from "react-icons/io";
 import clx from "classnames";
+import { errorHandler } from "../../helpers";
+import { AddMedia } from "./components/AddMedia/AddMedia";
+import { splashData } from "./splashData";
+import { MediaSplashScreen } from "../../core";
 
 export const useDisplayImages = () => {
   const classes = useMediaLibraryStyles();
+  const [loaded, setLoaded] = useState<number[]>([]);
 
   return (
     images: Image[],
     selectImage: (image: Image) => void,
     handleMediaAction: (type: string, media?: Image) => void,
-    viewOnly: boolean,
+    showOptions: boolean,
     activeLayout: number,
   ) =>
-    split(images, 4).map((_, columnIndex) => (
-      <div
-        key={columnIndex}
-        className={clx(
-          classes.column,
-          activeLayout === 0 && classes.twoColumn,
-          activeLayout === 2 && classes.fourColumn,
-        )}
-      >
-        {_.map((theImage, index) => {
-          return (
-            <Grow in={true} key={index}>
-              <div
-                onClick={() => {
-                  selectImage?.(theImage);
-                }}
-                className={clx(classes.thumbnail)}
-              >
-                <img src={theImage?.url} className={classes.image} />
-                <div className={classes.thumbnailOverlay}>
-                  {!viewOnly && (
-                    <div className={classes.thumbnailActions}>
-                      <p
-                        onClick={(e) => {
-                          e.stopPropagation();
-                          handleMediaAction("edit", theImage);
-                        }}
-                        className={classes.thumbnailAction}
-                      >
-                        <FaPencilAlt className={classes.thumbnailActionIcon} />
-                      </p>
-                      <p
-                        onClick={(e) => {
-                          e.stopPropagation();
-                          handleMediaAction("delete", theImage);
-                        }}
-                        className={classes.thumbnailAction}
-                      >
-                        <IoMdTrash className={classes.thumbnailActionIcon} />
-                      </p>
+    split(images, activeLayout + 2).map((_, columnIndex) => {
+      return (
+        <div
+          key={columnIndex}
+          className={clx(
+            classes.column,
+            activeLayout === 0 && classes.twoColumn,
+            activeLayout === 2 && classes.fourColumn,
+          )}
+        >
+          {_.map((theImage, index) => {
+            const handleMediaActions = (
+              e: React.MouseEvent<HTMLElement>,
+              type: string,
+              theImage: any,
+            ) => {
+              e.stopPropagation();
+              handleMediaAction(type, theImage);
+            };
+            return (
+              <Grow in={true} key={index}>
+                <div
+                  onClick={() => {
+                    selectImage?.(theImage);
+                  }}
+                  className={clx(classes.thumbnail)}
+                >
+                  <img
+                    src={theImage?.url}
+                    className={classes.image}
+                    onLoad={() => setLoaded((prev) => [...prev, theImage.uuid])}
+                  />
+                  {!loaded.some((uuid) => uuid === theImage.uuid) && (
+                    <Skeleton
+                      className={classes.image}
+                      animation="wave"
+                      variant="rectangular"
+                      height="240px"
+                    />
+                  )}
+                  {showOptions && (
+                    <div className={classes.thumbnailOverlay}>
+                      <div className={classes.thumbnailActions}>
+                        <p
+                          onClick={(e) => handleMediaActions(e, "edit", theImage)}
+                          className={classes.thumbnailAction}
+                        >
+                          <FaPencilAlt className={classes.thumbnailActionIcon} />
+                        </p>
+                        <p
+                          onClick={(e) => handleMediaActions(e, "delete", theImage)}
+                          className={classes.thumbnailAction}
+                        >
+                          <IoMdTrash className={classes.thumbnailActionIcon} />
+                        </p>
+                      </div>
                     </div>
                   )}
                 </div>
-              </div>
-            </Grow>
-          );
-        })}
-      </div>
-    ));
+              </Grow>
+            );
+          })}
+        </div>
+      );
+    });
 };
 
 export const useFileSelect = () => {
@@ -81,7 +102,7 @@ export const useMediaUpload = () => {
   return async (
     client: ApolloClient<NormalizedCacheObject>,
     mutation: DocumentNode,
-    variables: ImageUpdate & { image: File },
+    variables: ImageUpdate & { image: File; library_uuid: string },
     setLoading: (loading: { [key: string]: boolean }) => void,
     updateMediaLibrary: (image: Image) => void,
   ) => {
@@ -89,13 +110,15 @@ export const useMediaUpload = () => {
     try {
       const response = await client.mutate({
         mutation,
-        variables: { input: { ...variables } },
+        variables: {
+          ...variables,
+        },
       });
       if (response?.data?.uploadImage) {
         updateMediaLibrary(response?.data?.uploadImage);
       }
     } catch (error) {
-      //
+      errorHandler(error as ApolloError);
     } finally {
       setLoading({ loading: false, mutate: false });
     }
@@ -118,11 +141,11 @@ export const useUpdateMediaLibrary = () => {
         break;
       case "update":
         newImages = [...images];
-        index = newImages.findIndex((img) => img.id.toString() === image.id.toString());
+        index = newImages.findIndex((img) => img.uuid.toString() === image.uuid.toString());
         newImages[index] = { ...newImages[index], ...update };
         break;
       case "delete":
-        newImages = images.filter((img) => img.id.toString() !== image.id.toString());
+        newImages = images.filter((img) => img.uuid.toString() !== image.uuid.toString());
         setMediaIndex(Math.random() * 5000);
         break;
       default:
@@ -136,7 +159,7 @@ export const useOnScroll = () => {
   return (ref: React.MutableRefObject<any>, setMediaIndex: (index: number) => void) => {
     if (ref.current) {
       const { scrollTop, scrollHeight, clientHeight } = ref.current;
-      if (scrollTop + clientHeight > scrollHeight - 5 && scrollHeight > 540) {
+      if (scrollHeight - (scrollTop + clientHeight) < 1) {
         setMediaIndex(Math.random() * 5000);
       }
     }
@@ -162,7 +185,6 @@ export const split = (array: any[], count: number) => {
     const row = collection[index % count] ?? [];
     collection[index % count] = [...row, item];
   });
-
   return collection;
 };
 
@@ -178,15 +200,52 @@ export const mutateMedia = async (
   mutation: DocumentNode,
   media: Image,
   updateMediaLibrary: () => void,
-  variables?: { [key: string]: string },
+  variables?: ImageUpdate,
 ) => {
   try {
     await client.mutate({
       mutation,
-      variables: variables ? { ...variables } : { id: media.id },
+      variables: variables ? { ...variables } : { uuid: media.uuid },
     });
     updateMediaLibrary();
   } catch (error) {
-    //
+    errorHandler(error as ApolloError);
   }
+};
+
+export const useDisplayEmptyMediaLibrary = () => {
+  const classes = useMediaLibraryStyles();
+
+  const emptyMedia = (
+    handleFileSelection: () => void,
+    open: boolean,
+    setOpen: React.Dispatch<React.SetStateAction<boolean>>,
+    handleMediaAction: (type: string, media?: Image | File | undefined) => void,
+    title?: string,
+    subtitle?: string,
+  ) => {
+    return (
+      <div className={classes.emptyContainer}>
+        <MediaSplashScreen
+          {...splashData}
+          body={{
+            ...splashData["body"],
+            title: title ?? (splashData?.body?.title as string),
+            subtitle: subtitle ?? (splashData?.body?.subtitle as string),
+          }}
+          cta={title ? undefined : { title: "Add image", onClick: () => setOpen(true) }}
+        />
+        <AddMedia
+          className={classes.addMedia}
+          handleFilesSelection={handleFileSelection}
+          handleOpenMedia={open}
+          handleCloseMedia={setOpen}
+          handleMediaAction={handleMediaAction}
+          buttonText={"Add Image"}
+          viewOnly
+        />
+      </div>
+    );
+  };
+  return emptyMedia;
 };
