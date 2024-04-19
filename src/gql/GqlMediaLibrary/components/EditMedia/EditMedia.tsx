@@ -85,6 +85,8 @@ export const EditMedia: React.FC<EditMediaProps> = ({
             }
         };
         reader.readAsDataURL(image);
+
+        return undefined
     }, [image]);
 
     return (

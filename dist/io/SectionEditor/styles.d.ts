@@ -1,0 +1,1 @@
+export declare const useSectionEditorStyles: (props?: any) => import("@mui/styles").ClassNameMap<"root" | "sectionTitle" | "editableTextInput" | "selectInputContainer" | "questionContainer" | "questionSection" | "questionIcon" | "questionButton" | "questionPoint" | "questionOptionContiner" | "questionOptionIcon">;

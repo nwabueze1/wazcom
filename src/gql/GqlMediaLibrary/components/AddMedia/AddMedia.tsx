@@ -1,4 +1,4 @@
-import React, { FC } from "react";
+import { FC } from "react";
 import { useAddMediaStyles } from "./styles";
 import { Button } from "../../../../core";
 import { Modal } from "@mui/material";

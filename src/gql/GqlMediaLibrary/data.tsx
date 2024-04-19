@@ -1,4 +1,3 @@
-import React from "react";
 import { FaInstagramSquare, FaUnsplash } from "react-icons/fa";
 import { SiPexels } from "react-icons/si";
 import { IoPerson } from "react-icons/io5";

@@ -13,6 +13,7 @@ export const errorHandler = (error: ApolloError, key?: string) => {
                 Object.entries(extensions.validation).map(([, messages]: any) =>
                     messages.map((message: string) => notify("error", message)),
                 );
+                return null;
             } else if (extensions?.reason) {
                 return notify("error", (extensions as any)?.reason ?? "");
             } else {
