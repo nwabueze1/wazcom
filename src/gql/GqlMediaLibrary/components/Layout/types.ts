@@ -1,6 +1,7 @@
-import { CommonProps } from "types";
+import { CommonProps } from "../../../../types";
 
 export type LayoutProps = CommonProps & {
-  count: number;
-  onclick: () => void;
+    count: number;
+    active: boolean;
+    onclick: () => void;
 };

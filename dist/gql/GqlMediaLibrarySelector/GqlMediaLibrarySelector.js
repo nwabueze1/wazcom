@@ -37,44 +37,77 @@ var __read = (this && this.__read) || function (o, n) {
     return ar;
 };
 import { jsx as _jsx, jsxs as _jsxs } from "react/jsx-runtime";
-import { useState } from "react";
-import { Modal, Fade, Backdrop, InputLabel } from "@mui/material";
-import clx from "classnames";
-import { useImageSelectorStyles } from "./styles";
-import { GqlMediaLibrary } from "../GqlMediaLibrary";
-import { getSizeVariants } from "../../helpers/size";
-import { displayFeedback } from "../../helpers/io";
+import { Backdrop, Fade, IconButton, InputLabel, Modal } from "@mui/material";
 import { Button } from "../../core";
-import { MdCameraAlt as CameraAlt } from "react-icons/md";
+import clx from "classnames";
+import { useState } from "react";
+import { GqlMediaLibrary } from "../GqlMediaLibrary/GqlMediaLibrary";
+import { getSizeVariants } from "../../helpers/size";
+import { useImageSelectorStyles } from "./styles";
+import { GqlImageCropper } from "../GqlImageCropper";
+import { FaPlus } from "react-icons/fa";
+import { createImageSrcset, imageSizes } from "../../io/WysiwygInput/Editor/helpers";
+import { useDownloadImage } from "./hooks/download";
 export var GqlMediaLibrarySelector = function (_a) {
-    var _b;
-    var _c = _a.displayLibrary, displayLibrary = _c === void 0 ? false : _c, _d = _a.variant, variant = _d === void 0 ? "square" : _d, _e = _a.size, size = _e === void 0 ? "full" : _e, verbose = _a.verbose, iconType = _a.iconType, width = _a.width, height = _a.height, className = _a.className, classNames = _a.classNames, onChange = _a.onChange, name = _a.name, label = _a.label, value = _a.value, feedback = _a.feedback, error = _a.error, props = __rest(_a, ["displayLibrary", "variant", "size", "verbose", "iconType", "width", "height", "className", "classNames", "onChange", "name", "label", "value", "feedback", "error"]);
+    var _b, _c, _d, _e;
+    var _f = _a.variant, variant = _f === void 0 ? "square" : _f, _g = _a.size, size = _g === void 0 ? "full" : _g, iconType = _a.iconType, width = _a.width, height = _a.height, className = _a.className, classNames = _a.classNames, onChange = _a.onChange, name = _a.name, label = _a.label, _h = _a.showIcons, showIcons = _h === void 0 ? true : _h, _j = _a.showActionsButton, showActionsButton = _j === void 0 ? false : _j, value = _a.value, helperText = _a.helperText, isError = _a.isError, props = __rest(_a, ["variant", "size", "iconType", "width", "height", "className", "classNames", "onChange", "name", "label", "showIcons", "showActionsButton", "value", "helperText", "isError"]);
     var classes = useImageSelectorStyles();
-    var _f = __read(useState(false), 2), setShowIcon = _f[1];
-    var _g = __read(useState(value || ""), 2), placeholder = _g[0], setPlaceholder = _g[1];
-    var _h = __read(useState(false), 2), open = _h[0], setOpen = _h[1];
-    var handleOpen = function () {
-        setOpen(true);
+    var _k = __read(useState(false), 2), setShowIcon = _k[1];
+    var _l = __read(useState(), 2), cropImage = _l[0], setCropImage = _l[1];
+    var _m = __read(useState({ library: false, cropper: false }), 2), tabs = _m[0], setTabs = _m[1];
+    var isOpen = Object.values(tabs).includes(true);
+    var downloadImage = useDownloadImage();
+    var handleOpen = function (tab) {
+        var _a;
+        setTabs((_a = { library: false, cropper: false }, _a[tab] = true, _a));
     };
-    var handleClose = function () {
-        setOpen(false);
+    var handleClose = function (tab) {
+        var tabs = tab === "all" || tab === "library"
+            ? { library: false, cropper: false }
+            : { library: true, cropper: false };
+        setTabs(__assign({}, tabs));
     };
     var handleSelectImage = function (_a) {
-        var name = _a.name, value = _a.value;
-        setOpen(false);
-        setPlaceholder(value.url);
-        onChange === null || onChange === void 0 ? void 0 : onChange({ name: name !== null && name !== void 0 ? name : "image", value: verbose ? value : value.url });
+        var value = _a.value;
+        setCropImage(value);
+        handleOpen("cropper");
+    };
+    var handleGenerateImage = function (_a) {
+        var _b;
+        var value = _a.value;
+        if ((_b = value === null || value === void 0 ? void 0 : value.src) === null || _b === void 0 ? void 0 : _b.includes("unsplash"))
+            downloadImage(props.config.client, props.config.download.name, "unsplash", value === null || value === void 0 ? void 0 : value.download_url);
+        value === null || value === void 0 ? true : delete value.download_url;
+        setCropImage(undefined);
+        onChange === null || onChange === void 0 ? void 0 : onChange({ name: name !== null && name !== void 0 ? name : "image", value: value });
+        handleClose("all");
+    };
+    var handleEditImage = function () {
+        setCropImage(undefined);
+        handleOpen("cropper");
     };
     var handleRemoveImage = function () {
-        setPlaceholder("");
         onChange === null || onChange === void 0 ? void 0 : onChange({ name: name !== null && name !== void 0 ? name : "image", value: null });
     };
     var variants = getSizeVariants(classes, size);
-    return (_jsxs("div", __assign({ className: clx(className, classes.root) }, { children: [label && (_jsx(InputLabel, __assign({ className: (_b = classNames === null || classNames === void 0 ? void 0 : classNames.label) !== null && _b !== void 0 ? _b : "", htmlFor: name }, { children: label }))), _jsxs("div", __assign({ className: classes.imgUploadContainer }, { children: [_jsxs("div", __assign({ className: clx(classes.container, variant === "circle" && classes.circle, variants[0], error && classes.error), style: { backgroundImage: "url(".concat(placeholder, ")"), width: width, height: height }, onMouseEnter: function () { return setShowIcon(true); }, onMouseLeave: function () { return setShowIcon(false); }, onClick: function () {
-                            if (displayLibrary)
-                                return;
-                            handleOpen();
-                        } }, { children: [_jsx(Modal, __assign({ open: open, BackdropProps: {
-                                    timeout: 500,
-                                }, closeAfterTransition: true, onClose: handleClose, onBackdropClick: function (e) { return e.stopPropagation(); }, className: classes.modal, BackdropComponent: Backdrop, "aria-labelledby": "transition-modal-title", "aria-describedby": "transition-modal-description" }, { children: _jsx(Fade, __assign({ in: open }, { children: _jsx("div", __assign({ className: classes.wrapper }, { children: _jsx(GqlMediaLibrary, { config: __assign({}, props.config), onChange: handleSelectImage, name: name, handleClose: handleClose }) })) })) })), iconType === "button" ? (_jsx(Button, __assign({ className: clx(classes.icon), variant: "outlined", onClick: handleOpen }, { children: "Upload Image" }))) : (_jsx(CameraAlt, { className: clx(classes.cameraIcon, variants[1]), onClick: handleOpen }))] })), placeholder && variant == "circle" && (_jsx(Button, __assign({ className: clx(classes.removeBtn, classNames === null || classNames === void 0 ? void 0 : classNames.removeBtn), variant: "outlined", onClick: handleRemoveImage }, { children: "Remove" })))] })), feedback && displayFeedback(feedback)] })));
+    return (_jsxs("div", __assign({ className: clx(className, classes.root) }, { children: [label && (_jsxs(InputLabel, __assign({ className: clx(classes.label, classNames === null || classNames === void 0 ? void 0 : classNames.label), htmlFor: name }, { children: [label, " ", (props === null || props === void 0 ? void 0 : props.required) && _jsx("span", __assign({ className: classes.requiredStar }, { children: "*" }))] }))), _jsxs("div", __assign({ className: clx(showActionsButton && classes.container) }, { children: [_jsxs("div", __assign({ className: clx(classes.imgUploadContainer, classNames === null || classNames === void 0 ? void 0 : classNames.mediaLibrary, classNames === null || classNames === void 0 ? void 0 : classNames.flexDirection, variants[0]) }, { children: [_jsxs("div", __assign({ className: clx(((_c = String((_b = value === null || value === void 0 ? void 0 : value.src) !== null && _b !== void 0 ? _b : "")) === null || _c === void 0 ? void 0 : _c.trim()) === ""
+                                    ? classes.emptyContainer
+                                    : classes.imageContainer, variant === "circle" && classes.circle, variants[0], classNames === null || classNames === void 0 ? void 0 : classNames.mediaLibrary, isError && classes.imgUploadContainerError), style: {
+                                    width: width,
+                                    height: height,
+                                    backgroundRepeat: "no-repeat",
+                                    backgroundSize: "cover",
+                                }, onMouseEnter: function () { return setShowIcon(true); }, onMouseLeave: function () { return setShowIcon(false); } }, { children: [(value === null || value === void 0 ? void 0 : value.src) && (_jsx("img", { className: "selector__".concat(variant), src: value === null || value === void 0 ? void 0 : value.src, srcSet: createImageSrcset(value), sizes: imageSizes, width: "100%" })), iconType === "button" && !(value === null || value === void 0 ? void 0 : value.src) ? (_jsx(Button, __assign({ className: clx(classes.icon, isError && classes.imgUploadContainerError), variant: "outlined", onClick: function () {
+                                            handleOpen("library");
+                                        } }, { children: "Select Image" }))) : (showIcons && (_jsxs("div", __assign({ className: classes.tools }, { children: [_jsx("div", __assign({ className: classes.optionIconContainer }, { children: _jsx(IconButton, __assign({ onClick: function () {
+                                                        handleOpen("library");
+                                                    } }, { children: _jsx(FaPlus, { className: classes.plusIcon }) })) })), (value === null || value === void 0 ? void 0 : value.src) && (_jsx("div", __assign({ className: classes.optionIconContainer }, { children: _jsx(IconButton, __assign({ onClick: handleEditImage }, { children: _jsx("img", { src: "https://sytbuildr.s3.eu-west-2.amazonaws.com/edit-2.svg" }) })) }))), _jsx("div", __assign({ className: classes.optionIconContainer }, { children: _jsx(IconButton, __assign({ onClick: handleRemoveImage }, { children: _jsx("img", { src: "https://sytbuildr.s3.eu-west-2.amazonaws.com/trash.svg" }) })) }))] }))))] })), helperText && _jsx("p", __assign({ className: classes.helperText }, { children: helperText }))] })), showActionsButton && (_jsxs("div", __assign({ className: classes.actionsButton }, { children: [_jsx(Button, __assign({ className: classes.changeBtn, onClick: handleOpen }, { children: value && ((_d = value.src) === null || _d === void 0 ? void 0 : _d.length) > 0 ? "Change" : "Upload" })), value && ((_e = value.src) === null || _e === void 0 ? void 0 : _e.length) > 0 && (_jsx(Button, __assign({ onClick: handleRemoveImage, className: classes.actionRemoveBtn }, { children: "Remove" })))] })))] })), _jsx(Modal, __assign({ open: isOpen, BackdropProps: {
+                    timeout: 500,
+                }, closeAfterTransition: true, onClose: function () {
+                    handleClose("all");
+                }, onBackdropClick: function (e) { return e.stopPropagation(); }, className: classes.modal, BackdropComponent: Backdrop, "aria-labelledby": "transition-modal-title", "aria-describedby": "transition-modal-description" }, { children: _jsx(Fade, __assign({ in: isOpen }, { children: _jsxs("div", __assign({ className: classes.wrapper }, { children: [_jsx(GqlMediaLibrary, { config: __assign({}, props.config), onChange: handleSelectImage, name: name, handleClose: function () {
+                                    handleClose("all");
+                                }, isSelector: true, library_uuid: props.library_uuid }), tabs.cropper && (_jsx(GqlImageCropper, { open: true, handleClose: function () {
+                                    handleClose("cropper");
+                                }, value: __assign(__assign({}, (cropImage !== null && cropImage !== void 0 ? cropImage : value)), { src: cropImage ? cropImage === null || cropImage === void 0 ? void 0 : cropImage.url : value === null || value === void 0 ? void 0 : value.src }), onChange: handleGenerateImage }))] })) })) }))] })));
 };

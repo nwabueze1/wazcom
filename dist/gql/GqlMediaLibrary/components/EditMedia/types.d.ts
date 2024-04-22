@@ -1,7 +1,7 @@
-import { Image, ImageUpdate } from "gql/GqlMediaLibrary/types";
+import { Image, ImageUpdate } from "../../types";
 export interface EditMediaProps {
     loading?: boolean;
     image: Image | File;
-    handleEdit: (update: ImageUpdate) => void;
+    handleEdit: (update: ImageUpdate, uuid?: string) => void;
     handleClose: () => void;
 }

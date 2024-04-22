@@ -54,16 +54,24 @@ export const createNewCategory = async (category: string) => {
   return { label: name, value: id, status: true };
 };
 
+export const CORE_IMAGE_FIELDS = gql`
+  fragment CoreImageFields on Image {
+    title
+    uuid
+    url
+    caption
+    alternative_text
+    created_at
+    updated_at
+  }
+`;
+
 export const GET_IMAGES = gql`
-  query GetImages($count: Int!, $page: Int!) {
-    images(count: $count, page: $page) {
+  ${CORE_IMAGE_FIELDS}
+  query GqlGetImages($library_uuid: String!, $page: Int, $count: Int) {
+    getImagesByLibraryUuid(input: { library_uuid: $library_uuid, page: $page, count: $count }) {
       images {
-        id
-        title
-        alternative_text
-        caption
-        url
-        created_at
+        ...CoreImageFields
       }
       paginatorInfo {
         currentPage
@@ -168,6 +176,55 @@ export const GET_BLOG_POSTS = gql`
       paginatorInfo {
         currentPage
         lastPage
+      }
+    }
+  }
+`;
+
+export const DOWNLOAD_IMAGE = gql`
+  mutation downloadImage($platform: String!, $url: String!) {
+    downloadImage(input: { platform: $platform, url: $url })
+  }
+`;
+
+export const CONNECT_INSTAGRAM_ACCOUNT = gql`
+  mutation connectInstagramAccount($library_uuid: String!) {
+    connectInstagramAccount(library_uuid: $library_uuid) {
+      redirect_url
+    }
+  }
+`;
+
+export const INTEGRATE_INSTAGRAM_ACCOUNT = gql`
+  mutation integrateInstagramAccount($code: String!, $library_uuid: String!) {
+    integrateInstagramAccount(input: { code: $code, library_uuid: $library_uuid })
+  }
+`;
+
+export const GET_UNSPLASH_IMAGES = gql`
+  query GqlGetUnsplashImages($search: String, $page: Int, $limit: Int) {
+    getUnsplashImages(input: { search: $search, page: $page, limit: $limit }) {
+      images {
+        url
+        photographer
+        download_url
+      }
+    }
+  }
+`;
+
+export const GET_INSTAGRAM_IMAGES = gql`
+  query GqlGetInstagramImages($library_uuid: String!) {
+    getInstagramImages(library_uuid: $library_uuid)
+  }
+`;
+
+export const GET_PEXELS_IMAGES = gql`
+  query GqlGetPexelsImages($search: String, $page: Int, $limit: Int) {
+    getPexelsImages(input: { search: $search, page: $page, limit: $limit }) {
+      images {
+        url
+        photographer
       }
     }
   }

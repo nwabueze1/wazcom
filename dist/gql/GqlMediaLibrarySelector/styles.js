@@ -2,38 +2,73 @@ import makeStyles from "@mui/styles/makeStyles";
 export var useImageSelectorStyles = makeStyles(function (theme) { return ({
     root: {
         marginBottom: theme.spacing(2),
+        "& img.selector__square": {
+            height: 200,
+            borderRadius: 5,
+            objectFit: "cover",
+        },
+        "& img.selector__circle": {
+            height: "100%",
+            borderRadius: "50%",
+            objectFit: "cover",
+        },
     },
     container: {
+        display: "flex",
+        gap: theme.spacing(3),
+    },
+    emptyContainer: {
         height: "100%",
-        backgroundColor: theme.design.colors.lightGrey,
-        border: "1px dashed ".concat(theme.design.colors.waz_mercury),
+        border: "2px dashed ".concat(theme.design.colors.primary100),
         borderRadius: 5,
         backgroundSize: "cover",
         display: "flex",
         justifyContent: "center",
         alignItems: "center",
-        cursor: "pointer",
-        "&:hover": {
-            "& .cameraIcon": {
-                visibility: "visible",
-            },
-        },
+        backgroundColor: theme.design.colors.grey98,
+        flexShrink: 0,
+    },
+    imageContainer: {
+        height: "100%",
+        backgroundColor: theme.design.colors.lightGrey,
+        border: "none",
+        borderRadius: 5,
+        backgroundSize: "cover",
+        display: "flex",
+        justifyContent: "center",
+        alignItems: "center",
     },
     circle: {
         borderRadius: "50%",
-        border: "3px solid ".concat(theme.design.colors.waz_white),
+        border: "1px dashed",
+    },
+    label: {
+        textTransform: "uppercase",
+        marginBottom: theme.spacing(1),
+        fontSize: theme.typography.fontSize - 2,
     },
     icon: {
         cursor: "pointer",
-        color: theme.design.colors.waz_primaryColor100,
+        color: theme.design.colors.grey100,
         zIndex: 5,
-        border: "1px solid ".concat(theme.design.colors.waz_primaryColor100),
-        fontSize: theme.typography.fontSize + 4,
-        fontWeight: theme.typography.fontWeightBold,
-        background: theme.design.colors.waz_white,
+        border: "1px solid ".concat(theme.design.colors.primary400),
+        fontWeight: theme.typography.fontWeightRegular,
+        fontSize: theme.typography.fontSize,
+        background: theme.design.colors.white,
         "&:hover": {
-            background: theme.design.colors.waz_successColor300,
-            border: "1px solid ".concat(theme.design.colors.waz_primaryColor100),
+            background: theme.design.colors.white,
+            border: "1px solid ".concat(theme.design.colors.primary400),
+            color: theme.design.colors.grey100,
+        },
+        "&:focus": {
+            background: theme.design.colors.waz_white,
+            border: "1px solid ".concat(theme.design.colors.primary400),
+            color: theme.design.colors.grey100,
+        },
+        "&:hover:focus": {
+            background: theme.design.colors.waz_white,
+            border: "1px solid ".concat(theme.design.colors.primary400),
+            color: theme.design.colors.grey100,
         },
     },
     cameraIcon: {
@@ -46,19 +81,48 @@ export var useImageSelectorStyles = makeStyles(function (theme) { return ({
     removeBtn: {
         cursor: "pointer",
         marginLeft: theme.spacing(5),
-        color: theme.design.colors.waz_greyColor300,
+        color: theme.design.colors.greyColor300,
         border: "1px solid ".concat(theme.design.colors.waz_mercury),
         fontSize: theme.typography.fontSize + 4,
         fontWeight: theme.typography.fontWeightMedium,
         background: theme.design.colors.waz_white,
         "&:hover": {
-            background: theme.design.colors.waz_white,
+            background: theme.design.colors.white,
             border: "1px solid ".concat(theme.design.colors.waz_mercury),
         },
     },
+    actionRemoveBtn: {
+        fontSize: theme.typography.fontSize + 2,
+        fontWeight: theme.typography.fontWeightRegular,
+        lineHeight: "22px",
+        background: theme.design.colors.white,
+        color: theme.design.colors.grey100,
+        border: "1px solid ".concat(theme.design.colors.grey300),
+        "&:hover": {
+            background: theme.design.colors.white,
+        },
+        "&:hover:focus": {
+            background: theme.design.colors.white,
+        },
+    },
+    changeBtn: {
+        fontSize: theme.typography.fontSize + 2,
+        fontWeight: theme.typography.fontWeightRegular,
+        lineHeight: "22px",
+    },
+    actionsButton: {
+        display: "flex",
+        gap: theme.spacing(2),
+        alignItems: "center",
+    },
     imgUploadContainer: {
         display: "flex",
-        alignItems: "center",
+        alignItems: "flex-start",
+        background: theme.design.colors.white,
+        position: "relative",
+    },
+    imgUploadContainerError: {
+        border: "1px solid ".concat(theme.design.colors.red500, " !important"),
     },
     modal: {
         display: "flex",
@@ -102,9 +166,46 @@ export var useImageSelectorStyles = makeStyles(function (theme) { return ({
     },
     full: {
         width: "100%",
+        minHeight: "183px",
+        maxHeight: "200px",
         height: "200px",
     },
     error: {
         border: "2px solid ".concat(theme.design.colors.waz_dangerColor100),
+    },
+    tools: {
+        position: "absolute",
+        top: "5px",
+        right: "5px",
+        display: "flex",
+        flexDirection: "row",
+        gap: theme.spacing(2),
+    },
+    optionIconContainer: {
+        width: "32px",
+        height: "32px",
+        borderRadius: "16px",
+        backgroundColor: theme.design.colors.grey200,
+        display: "flex",
+        justifyContent: "center",
+    },
+    toolIcon: {
+        color: theme.design.colors.white,
+        margin: "0 auto",
+    },
+    helperText: {
+        color: theme.design.colors.red500,
+        textAlign: "left",
+        background: "transparent",
+        fontSize: theme.typography.fontSize - 1,
+        marginTop: theme.spacing(0.5),
+    },
+    plusIcon: {
+        color: theme.design.colors.white,
+        fontSize: theme.typography.fontSize + 3,
+    },
+    requiredStar: {
+        color: theme.design.colors.error100,
+        margin: theme.spacing(-0.5, 0.5, 0),
     },
 }); });

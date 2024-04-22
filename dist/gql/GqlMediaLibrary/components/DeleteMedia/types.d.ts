@@ -1,4 +1,4 @@
-import { Image } from "gql/GqlMediaLibrary/types";
+import { Image } from "../../types";
 export interface DeleteMediaProps {
     display: boolean;
     loading?: boolean;
