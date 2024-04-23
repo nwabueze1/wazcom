@@ -1,8 +1,14 @@
 import { useState } from "react";
 import { ComponentPropsType } from "../../core/ComponentProps/types";
 import { MdOutlineSort } from "react-icons/md";
-import { GET_BLOG_POSTS, createApolloClient } from "helpers/graphQL";
+import {
+  GET_BLOG_POSTS,
+  GET_BLOG_TAGS,
+  createApolloClient,
+  createNewCategory,
+} from "helpers/graphQL";
 import { useContentFormLayoutStyles } from "./styles";
+import { GqlComboBox } from "gql";
 
 // const classes = useContentFormLayoutStyles();
 const initialContentFormLayoutState = {
@@ -19,7 +25,32 @@ const initialContentFormLayoutState = {
   },
   tabControls: {
     details: {
-      form: <></>,
+      form: (
+        <>
+          <GqlComboBox
+            {...{
+              name: "gqlcomboboxinput",
+              config: {
+                client: createApolloClient("http://127.0.0.1:8000/graphql"),
+                name: GET_BLOG_TAGS,
+                type: "query",
+                labelKey: "name",
+                valueKey: "uuid",
+                key: ["getTagsByBlogUuid", "data"],
+              },
+              variables: {
+                blog_uuid: "38692f1e-1c74-4e8d-ad9c-9da3902431b4",
+                first: 10,
+                all: false,
+                page: 1,
+              },
+              addOption: createNewCategory,
+              error: true,
+              feedback: { text: "Tariq is a weirdo", status: "error" },
+            }}
+          />
+        </>
+      ),
       icon: <MdOutlineSort />,
     },
   },

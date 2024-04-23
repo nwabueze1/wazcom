@@ -12,6 +12,7 @@ export type ComboBoxInputProps = {
   placeholder?: string;
   onChange?: (...args: any[]) => void;
   handleAdd?: (value: string) => void;
+  isLoading?: boolean;
 };
 
 export type ComboBoxInputOptionProps = {
