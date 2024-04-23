@@ -1,6 +1,4 @@
-import { CircularProgress } from "@mui/material";
 import { memo, useCallback, useEffect, useState } from "react";
-import { useGqlComboBoxStyles } from "./styles";
 import { GqlComboBoxProps } from "./types";
 import { ComboBoxInput, ComboBoxInputOptionProps } from "../../io";
 import { get } from "lodash";
@@ -16,7 +14,6 @@ export const GqlComboBox = memo(
     variables,
     ...props
   }: GqlComboBoxProps) => {
-    const classes = useGqlComboBoxStyles();
     const [options, setOptions] = useState<ComboBoxInputOptionProps[]>([]);
     const [fetching, setFetching] = useState<boolean>(true);
     const [value, setValue] = useState(initialValue);
@@ -25,17 +22,21 @@ export const GqlComboBox = memo(
       setValue(initialValue);
     }, [initialValue]);
 
-    const fetchData = async () => {
+    const fetchData = async (search: string = "") => {
       return await client.query({
         query,
         fetchPolicy: "network-only",
-        variables,
+        variables: {
+          ...variables,
+          search,
+        },
       });
     };
 
-    useEffect(() => {
-      const getData = async () => {
-        const { data } = await fetchData();
+    const getData = async (search: string = "") => {
+      try {
+        setFetching(true);
+        const { data } = await fetchData(search);
         if (data) {
           const options = get(data, key?.join("."));
           const formattedOptions = options.map((option: any) => ({
@@ -46,8 +47,15 @@ export const GqlComboBox = memo(
           postFetchHook?.(formattedOptions);
           setOptions(formattedOptions);
         }
+      } catch (e) {
+        postFetchHook?.([]);
+        setOptions([]);
+      } finally {
         setFetching(false);
-      };
+      }
+    };
+
+    useEffect(() => {
       getData();
     }, [query]);
 
@@ -95,23 +103,20 @@ export const GqlComboBox = memo(
       [options],
     );
 
-    if (fetching) {
-      return (
-        <div className={classes.loader}>
-          <CircularProgress size={14} color="success" />
-        </div>
-      );
-    }
-
     return (
       <ComboBoxInput
         label={label}
         options={options}
         value={value ?? ""}
-        onChange={({ value }) => {
-          handleChange(value);
+        onChange={(data) => {
+          if (data.type && data.type == "search" && !variables?.all) {
+            getData(data.value);
+          } else {
+            handleChange(data.value);
+          }
         }}
         handleAdd={handleChange}
+        isLoading={fetching}
         {...props}
       />
     );

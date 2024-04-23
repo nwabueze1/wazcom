@@ -26,14 +26,22 @@ var __read = (this && this.__read) || function (o, n) {
     return ar;
 };
 import { jsx as _jsx, jsxs as _jsxs } from "react/jsx-runtime";
-import { useEffect, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import { useComboBoxStyles } from "./styles";
 import { ClickAwayListener } from "@mui/base";
 import { TextInput } from "../TextInput";
 import clx from "classnames";
+import { debounce } from "lodash";
+import { CircularProgress } from "@mui/material";
 export var ComboBoxInput = function (_a) {
-    var name = _a.name, _b = _a.isAdd, isAdd = _b === void 0 ? true : _b, onChange = _a.onChange, handleAdd = _a.handleAdd, initialOptions = _a.options, label = _a.label, isError = _a.isError, isSuccess = _a.isSuccess, helperText = _a.helperText, required = _a.required, placeholder = _a.placeholder, value = _a.value, className = _a.className;
+    var name = _a.name, _b = _a.isAdd, isAdd = _b === void 0 ? true : _b, onChange = _a.onChange, handleAdd = _a.handleAdd, initialOptions = _a.options, label = _a.label, isError = _a.isError, isSuccess = _a.isSuccess, helperText = _a.helperText, required = _a.required, placeholder = _a.placeholder, value = _a.value, className = _a.className, isLoading = _a.isLoading;
     var classes = useComboBoxStyles();
+    var updateSearchValue = useRef(debounce(function (search) {
+        return onChange === null || onChange === void 0 ? void 0 : onChange({
+            value: search,
+            type: "search",
+        });
+    }, 400));
     var _c = __read(useState(""), 2), filter = _c[0], setFilter = _c[1];
     var _d = __read(useState(initialOptions), 2), options = _d[0], setOptions = _d[1];
     var _e = __read(useState(false), 2), showOptions = _e[0], setShowOptions = _e[1];
@@ -56,6 +64,7 @@ export var ComboBoxInput = function (_a) {
     var handleFilterChange = function (_a) {
         var filter = _a.value;
         setFilter(filter);
+        updateSearchValue.current(filter);
         setIsFocused(false);
     };
     var handleFocus = function () {
@@ -70,9 +79,9 @@ export var ComboBoxInput = function (_a) {
         var displayedOptions = isFocused
             ? options
             : options.filter(function (option) { var _a, _b; return (_b = (_a = option === null || option === void 0 ? void 0 : option.label) === null || _a === void 0 ? void 0 : _a.toLowerCase()) === null || _b === void 0 ? void 0 : _b.includes(filter.toLowerCase()); });
-        displayedOptions.length === 0 &&
-            isAdd &&
+        if (!isLoading && displayedOptions.length === 0 && isAdd) {
             displayedOptions.push({ label: "Add " + filter, value: filter });
+        }
         return displayedOptions.map(function (_a, index) {
             var label = _a.label, value = _a.value, subText = _a.subText;
             return (_jsxs("div", __assign({ className: classes.comboBoxOption, onClick: function () {
@@ -87,5 +96,5 @@ export var ComboBoxInput = function (_a) {
                         var value = _a.value;
                         if (handleAdd)
                             handleAdd(value);
-                    }, placeholder: placeholder, isError: isError, isSuccess: isSuccess, helperText: helperText }), showOptions && _jsx("div", __assign({ className: classes.comboBoxOptions }, { children: renderOptions() }))] })) })));
+                    }, placeholder: placeholder, isError: isError, isSuccess: isSuccess, helperText: helperText, rightIcon: isLoading && _jsx(CircularProgress, { size: 14, color: "success" }) }), showOptions && _jsx("div", __assign({ className: classes.comboBoxOptions }, { children: renderOptions() }))] })) })));
 };

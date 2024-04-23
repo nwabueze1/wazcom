@@ -229,3 +229,37 @@ export const GET_PEXELS_IMAGES = gql`
     }
   }
 `;
+
+export const CORE_TAG_FIELDS = gql`
+  fragment CoreTagFields on BlogTag {
+    name
+    uuid
+  }
+`;
+
+export const GET_BLOG_TAGS = gql`
+  ${CORE_TAG_FIELDS}
+  query GqlGetTags(
+    $blog_uuid: ID
+    $first: Int
+    $page: Int
+    $search: String
+    $sort: [SortInput]
+    $filter: [FilterInput]
+  ) {
+    getTagsByBlogUuid(
+      input: {
+        blog_uuid: $blog_uuid
+        page: $page
+        first: $first
+        search: $search
+        sort: $sort
+        filter: $filter
+      }
+    ) {
+      data {
+        ...CoreTagFields
+      }
+    }
+  }
+`;
