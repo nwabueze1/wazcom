@@ -44,8 +44,8 @@ export const GqlComboBox = memo(
             value: option[valueKey],
           }));
 
-          postFetchHook?.(formattedOptions);
-          setOptions(formattedOptions);
+          postFetchHook?.([...options, ...formattedOptions]);
+          setOptions([...options, ...formattedOptions]);
         }
       } catch (e) {
         postFetchHook?.([]);

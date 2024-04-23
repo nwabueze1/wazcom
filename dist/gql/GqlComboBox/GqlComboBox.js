@@ -126,8 +126,8 @@ export var GqlComboBox = memo(function (_a) {
                                 label: option[labelKey],
                                 value: option[valueKey],
                             }); });
-                            postFetchHook === null || postFetchHook === void 0 ? void 0 : postFetchHook(formattedOptions);
-                            setOptions(formattedOptions);
+                            postFetchHook === null || postFetchHook === void 0 ? void 0 : postFetchHook(__spreadArray(__spreadArray([], __read(options_1), false), __read(formattedOptions), false));
+                            setOptions(__spreadArray(__spreadArray([], __read(options_1), false), __read(formattedOptions), false));
                         }
                         return [3 /*break*/, 4];
                     case 2:

@@ -40,9 +40,8 @@ const initialContentFormLayoutState = {
               },
               variables: {
                 blog_uuid: "38692f1e-1c74-4e8d-ad9c-9da3902431b4",
-                first: 10,
-                all: false,
                 page: 1,
+                first: 20
               },
               addOption: createNewCategory,
               error: true,

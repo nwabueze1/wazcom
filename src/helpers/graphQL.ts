@@ -246,6 +246,7 @@ export const GET_BLOG_TAGS = gql`
     $search: String
     $sort: [SortInput]
     $filter: [FilterInput]
+    $all: Boolean
   ) {
     getTagsByBlogUuid(
       input: {
@@ -255,10 +256,15 @@ export const GET_BLOG_TAGS = gql`
         search: $search
         sort: $sort
         filter: $filter
+        all: $all
       }
     ) {
       data {
         ...CoreTagFields
+      }
+      paginatorInfo {
+        lastPage
+        perPage
       }
     }
   }
