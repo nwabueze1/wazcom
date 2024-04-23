@@ -20,3 +20,5 @@ export declare const INTEGRATE_INSTAGRAM_ACCOUNT: import("@apollo/client").Docum
 export declare const GET_UNSPLASH_IMAGES: import("@apollo/client").DocumentNode;
 export declare const GET_INSTAGRAM_IMAGES: import("@apollo/client").DocumentNode;
 export declare const GET_PEXELS_IMAGES: import("@apollo/client").DocumentNode;
+export declare const CORE_TAG_FIELDS: import("@apollo/client").DocumentNode;
+export declare const GET_BLOG_TAGS: import("@apollo/client").DocumentNode;

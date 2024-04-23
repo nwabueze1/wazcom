@@ -648,7 +648,7 @@ export const stories: ComponentPropType[] = [
     props: {
       name: "gqlcomboboxinput",
       config: {
-        client: createApolloClient("http://127.0.0.1:8000/graphql"),
+        client: createApolloClient("https://ploutonion.sytbuilder.com/graphql"),
         name: GET_BLOG_TAGS,
         type: "query",
         labelKey: "name",

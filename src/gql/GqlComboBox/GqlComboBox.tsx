@@ -1,6 +1,4 @@
-import { CircularProgress } from "@mui/material";
 import { memo, useCallback, useEffect, useState } from "react";
-import { useGqlComboBoxStyles } from "./styles";
 import { GqlComboBoxProps } from "./types";
 import { ComboBoxInput, ComboBoxInputOptionProps } from "../../io";
 import { get } from "lodash";
@@ -16,7 +14,6 @@ export const GqlComboBox = memo(
     variables,
     ...props
   }: GqlComboBoxProps) => {
-    const classes = useGqlComboBoxStyles();
     const [options, setOptions] = useState<ComboBoxInputOptionProps[]>([]);
     const [fetching, setFetching] = useState<boolean>(true);
     const [value, setValue] = useState(initialValue);
@@ -37,19 +34,25 @@ export const GqlComboBox = memo(
     };
 
     const getData = async (search: string = "") => {
-      setFetching(true);
-      const { data } = await fetchData(search);
-      if (data) {
-        const options = get(data, key?.join("."));
-        const formattedOptions = options.map((option: any) => ({
-          label: option[labelKey],
-          value: option[valueKey],
-        }));
+      try {
+        setFetching(true);
+        const { data } = await fetchData(search);
+        if (data) {
+          const options = get(data, key?.join("."));
+          const formattedOptions = options.map((option: any) => ({
+            label: option[labelKey],
+            value: option[valueKey],
+          }));
 
-        postFetchHook?.(formattedOptions);
-        setOptions(formattedOptions);
+          postFetchHook?.(formattedOptions);
+          setOptions(formattedOptions);
+        }
+      } catch (e) {
+        postFetchHook?.([]);
+        setOptions([]);
+      } finally {
+        setFetching(false);
       }
-      setFetching(false);
     };
 
     useEffect(() => {
