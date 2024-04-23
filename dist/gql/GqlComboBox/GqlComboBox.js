@@ -111,7 +111,7 @@ export var GqlComboBox = memo(function (_a) {
     var getData = function (search) {
         if (search === void 0) { search = ""; }
         return __awaiter(void 0, void 0, void 0, function () {
-            var data, r_options, formattedOptions, e_1;
+            var data, r_options, formattedOptions_1, e_1;
             return __generator(this, function (_a) {
                 switch (_a.label) {
                     case 0:
@@ -122,19 +122,20 @@ export var GqlComboBox = memo(function (_a) {
                         data = (_a.sent()).data;
                         if (data) {
                             r_options = get(data, key === null || key === void 0 ? void 0 : key.join("."));
-                            formattedOptions = r_options.map(function (option) { return ({
+                            formattedOptions_1 = r_options.map(function (option) { return ({
                                 label: option[labelKey],
                                 value: option[valueKey],
                             }); });
-                            console.log("=========> old options", options);
-                            console.log("===========> combines", __spreadArray(__spreadArray([], __read(options), false), __read(formattedOptions), false));
-                            postFetchHook === null || postFetchHook === void 0 ? void 0 : postFetchHook(__spreadArray(__spreadArray([], __read(options), false), __read(formattedOptions), false));
-                            setOptions(__spreadArray(__spreadArray([], __read(options), false), __read(formattedOptions), false));
+                            setOptions(function (options) {
+                                console.log("==========> options", options);
+                                return __spreadArray(__spreadArray([], __read(options), false), __read(formattedOptions_1), false);
+                            });
+                            postFetchHook === null || postFetchHook === void 0 ? void 0 : postFetchHook(__spreadArray(__spreadArray([], __read(options), false), __read(formattedOptions_1), false));
                         }
                         return [3 /*break*/, 4];
                     case 2:
                         e_1 = _a.sent();
-                        console.log("===============>", e_1);
+                        console.log("===============> error", e_1);
                         postFetchHook === null || postFetchHook === void 0 ? void 0 : postFetchHook([]);
                         setOptions([]);
                         return [3 /*break*/, 4];
