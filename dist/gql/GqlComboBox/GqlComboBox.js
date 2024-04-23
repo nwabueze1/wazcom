@@ -111,7 +111,7 @@ export var GqlComboBox = memo(function (_a) {
     var getData = function (search) {
         if (search === void 0) { search = ""; }
         return __awaiter(void 0, void 0, void 0, function () {
-            var data, options_1, formattedOptions, e_1;
+            var data, r_options, formattedOptions, e_1;
             return __generator(this, function (_a) {
                 switch (_a.label) {
                     case 0:
@@ -121,13 +121,13 @@ export var GqlComboBox = memo(function (_a) {
                     case 1:
                         data = (_a.sent()).data;
                         if (data) {
-                            options_1 = get(data, key === null || key === void 0 ? void 0 : key.join("."));
-                            formattedOptions = options_1.map(function (option) { return ({
+                            r_options = get(data, key === null || key === void 0 ? void 0 : key.join("."));
+                            formattedOptions = r_options.map(function (option) { return ({
                                 label: option[labelKey],
                                 value: option[valueKey],
                             }); });
-                            postFetchHook === null || postFetchHook === void 0 ? void 0 : postFetchHook(__spreadArray(__spreadArray([], __read(options_1), false), __read(formattedOptions), false));
-                            setOptions(__spreadArray(__spreadArray([], __read(options_1), false), __read(formattedOptions), false));
+                            postFetchHook === null || postFetchHook === void 0 ? void 0 : postFetchHook(__spreadArray(__spreadArray([], __read(options), false), __read(formattedOptions), false));
+                            setOptions(__spreadArray(__spreadArray([], __read(options), false), __read(formattedOptions), false));
                         }
                         return [3 /*break*/, 4];
                     case 2:

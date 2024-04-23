@@ -38,8 +38,8 @@ export const GqlComboBox = memo(
         setFetching(true);
         const { data } = await fetchData(search);
         if (data) {
-          const options = get(data, key?.join("."));
-          const formattedOptions = options.map((option: any) => ({
+          const r_options = get(data, key?.join("."));
+          const formattedOptions = r_options.map((option: any) => ({
             label: option[labelKey],
             value: option[valueKey],
           }));
