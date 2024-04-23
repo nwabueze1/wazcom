@@ -44,10 +44,14 @@ export const GqlComboBox = memo(
             value: option[valueKey],
           }));
 
+          console.log("=========> old options", options)
+          console.log("===========> combines", [...options, ...formattedOptions])
+
           postFetchHook?.([...options, ...formattedOptions]);
           setOptions([...options, ...formattedOptions]);
         }
       } catch (e) {
+        console.log("===============>", e)
         postFetchHook?.([]);
         setOptions([]);
       } finally {

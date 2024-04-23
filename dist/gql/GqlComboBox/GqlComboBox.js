@@ -126,12 +126,15 @@ export var GqlComboBox = memo(function (_a) {
                                 label: option[labelKey],
                                 value: option[valueKey],
                             }); });
+                            console.log("=========> old options", options);
+                            console.log("===========> combines", __spreadArray(__spreadArray([], __read(options), false), __read(formattedOptions), false));
                             postFetchHook === null || postFetchHook === void 0 ? void 0 : postFetchHook(__spreadArray(__spreadArray([], __read(options), false), __read(formattedOptions), false));
                             setOptions(__spreadArray(__spreadArray([], __read(options), false), __read(formattedOptions), false));
                         }
                         return [3 /*break*/, 4];
                     case 2:
                         e_1 = _a.sent();
+                        console.log("===============>", e_1);
                         postFetchHook === null || postFetchHook === void 0 ? void 0 : postFetchHook([]);
                         setOptions([]);
                         return [3 /*break*/, 4];
