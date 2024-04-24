@@ -129,14 +129,12 @@ export var GqlComboBox = memo(function (_a) {
                             setOptions(function (options) {
                                 var newOptions = __spreadArray(__spreadArray([], __read(options), false), __read(formattedOptions_1), false);
                                 var arrayUniqueByKey = __spreadArray([], __read(new Map(newOptions.map(function (item) { return [item["value"], item]; })).values()), false);
-                                postFetchHook === null || postFetchHook === void 0 ? void 0 : postFetchHook(arrayUniqueByKey);
                                 return arrayUniqueByKey;
                             });
                         }
                         return [3 /*break*/, 4];
                     case 2:
                         e_1 = _a.sent();
-                        postFetchHook === null || postFetchHook === void 0 ? void 0 : postFetchHook([]);
                         setOptions([]);
                         return [3 /*break*/, 4];
                     case 3:
@@ -147,6 +145,11 @@ export var GqlComboBox = memo(function (_a) {
             });
         });
     };
+    useEffect(function () {
+        if (typeof postFetchHook === 'function') {
+            postFetchHook(options);
+        }
+    }, [options, postFetchHook]);
     useEffect(function () {
         getData();
     }, [query]);

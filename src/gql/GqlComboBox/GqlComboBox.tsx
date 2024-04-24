@@ -48,17 +48,21 @@ export const GqlComboBox = memo(
             const arrayUniqueByKey = [
               ...new Map(newOptions.map((item) => [item["value"], item])).values(),
             ];
-            postFetchHook?.(arrayUniqueByKey);
             return arrayUniqueByKey;
           });
         }
       } catch (e) {
-        postFetchHook?.([]);
         setOptions([]);
       } finally {
         setFetching(false);
       }
     };
+
+    useEffect(() => {
+      if (typeof postFetchHook === 'function') {
+        postFetchHook(options);
+      }
+    }, [options, postFetchHook]);
 
     useEffect(() => {
       getData();
