@@ -44,17 +44,15 @@ export const GqlComboBox = memo(
             value: option[valueKey],
           }));
           setOptions((options) => {
-            console.log("==========> options", options);
             const newOptions = [...options, ...formattedOptions];
-            console.log("==========> new options", newOptions);
-
-            postFetchHook?.(newOptions);
-
-            return newOptions;
+            const arrayUniqueByKey = [
+              ...new Map(newOptions.map((item) => [item["value"], item])).values(),
+            ];
+            postFetchHook?.(arrayUniqueByKey);
+            return arrayUniqueByKey;
           });
         }
       } catch (e) {
-        console.log("===============> error", e);
         postFetchHook?.([]);
         setOptions([]);
       } finally {
@@ -64,7 +62,6 @@ export const GqlComboBox = memo(
 
     useEffect(() => {
       getData();
-      console.log("===============> inside query called");
     }, [query]);
 
     const handleChange = useCallback(

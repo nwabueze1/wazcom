@@ -127,17 +127,15 @@ export var GqlComboBox = memo(function (_a) {
                                 value: option[valueKey],
                             }); });
                             setOptions(function (options) {
-                                console.log("==========> options", options);
                                 var newOptions = __spreadArray(__spreadArray([], __read(options), false), __read(formattedOptions_1), false);
-                                console.log("==========> new options", newOptions);
-                                postFetchHook === null || postFetchHook === void 0 ? void 0 : postFetchHook(newOptions);
-                                return newOptions;
+                                var arrayUniqueByKey = __spreadArray([], __read(new Map(newOptions.map(function (item) { return [item["value"], item]; })).values()), false);
+                                postFetchHook === null || postFetchHook === void 0 ? void 0 : postFetchHook(arrayUniqueByKey);
+                                return arrayUniqueByKey;
                             });
                         }
                         return [3 /*break*/, 4];
                     case 2:
                         e_1 = _a.sent();
-                        console.log("===============> error", e_1);
                         postFetchHook === null || postFetchHook === void 0 ? void 0 : postFetchHook([]);
                         setOptions([]);
                         return [3 /*break*/, 4];
@@ -151,7 +149,6 @@ export var GqlComboBox = memo(function (_a) {
     };
     useEffect(function () {
         getData();
-        console.log("===============> inside query called");
     }, [query]);
     var handleChange = useCallback(function (selectedValue) { return __awaiter(void 0, void 0, void 0, function () {
         var label, value, response;
