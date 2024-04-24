@@ -128,8 +128,10 @@ export var GqlComboBox = memo(function (_a) {
                             }); });
                             setOptions(function (options) {
                                 console.log("==========> options", options);
-                                postFetchHook === null || postFetchHook === void 0 ? void 0 : postFetchHook(__spreadArray(__spreadArray([], __read(options), false), __read(formattedOptions_1), false));
-                                return __spreadArray(__spreadArray([], __read(options), false), __read(formattedOptions_1), false);
+                                var newOptions = __spreadArray(__spreadArray([], __read(options), false), __read(formattedOptions_1), false);
+                                console.log("==========> new options", newOptions);
+                                postFetchHook === null || postFetchHook === void 0 ? void 0 : postFetchHook(newOptions);
+                                return newOptions;
                             });
                         }
                         return [3 /*break*/, 4];

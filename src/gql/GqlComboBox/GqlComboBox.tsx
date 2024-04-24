@@ -45,9 +45,12 @@ export const GqlComboBox = memo(
           }));
           setOptions((options) => {
             console.log("==========> options", options);
-            postFetchHook?.([...options, ...formattedOptions]);
+            const newOptions = [...options, ...formattedOptions];
+            console.log("==========> new options", newOptions);
 
-            return [...options, ...formattedOptions];
+            postFetchHook?.(newOptions);
+
+            return newOptions;
           });
         }
       } catch (e) {
