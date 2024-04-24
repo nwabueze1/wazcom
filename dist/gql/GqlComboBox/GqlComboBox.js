@@ -128,9 +128,9 @@ export var GqlComboBox = memo(function (_a) {
                             }); });
                             setOptions(function (options) {
                                 console.log("==========> options", options);
+                                postFetchHook === null || postFetchHook === void 0 ? void 0 : postFetchHook(__spreadArray(__spreadArray([], __read(options), false), __read(formattedOptions_1), false));
                                 return __spreadArray(__spreadArray([], __read(options), false), __read(formattedOptions_1), false);
                             });
-                            postFetchHook === null || postFetchHook === void 0 ? void 0 : postFetchHook(__spreadArray(__spreadArray([], __read(options), false), __read(formattedOptions_1), false));
                         }
                         return [3 /*break*/, 4];
                     case 2:
@@ -149,6 +149,7 @@ export var GqlComboBox = memo(function (_a) {
     };
     useEffect(function () {
         getData();
+        console.log("===============> inside query called");
     }, [query]);
     var handleChange = useCallback(function (selectedValue) { return __awaiter(void 0, void 0, void 0, function () {
         var label, value, response;

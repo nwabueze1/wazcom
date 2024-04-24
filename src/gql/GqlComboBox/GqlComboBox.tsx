@@ -22,7 +22,6 @@ export const GqlComboBox = memo(
       setValue(initialValue);
     }, [initialValue]);
 
-
     const fetchData = async (search: string = "") => {
       return await client.query({
         query,
@@ -45,14 +44,14 @@ export const GqlComboBox = memo(
             value: option[valueKey],
           }));
           setOptions((options) => {
-    console.log("==========> options", options)
+            console.log("==========> options", options);
+            postFetchHook?.([...options, ...formattedOptions]);
 
-            return [...options, ...formattedOptions]
+            return [...options, ...formattedOptions];
           });
-          postFetchHook?.([...options, ...formattedOptions]);
         }
       } catch (e) {
-        console.log("===============> error", e)
+        console.log("===============> error", e);
         postFetchHook?.([]);
         setOptions([]);
       } finally {
@@ -62,6 +61,7 @@ export const GqlComboBox = memo(
 
     useEffect(() => {
       getData();
+      console.log("===============> inside query called");
     }, [query]);
 
     const handleChange = useCallback(
