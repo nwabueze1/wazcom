@@ -38,22 +38,31 @@ export const GqlComboBox = memo(
         setFetching(true);
         const { data } = await fetchData(search);
         if (data) {
-          const options = get(data, key?.join("."));
-          const formattedOptions = options.map((option: any) => ({
+          const r_options = get(data, key?.join("."));
+          const formattedOptions = r_options.map((option: any) => ({
             label: option[labelKey],
             value: option[valueKey],
           }));
-
-          postFetchHook?.(formattedOptions);
-          setOptions(formattedOptions);
+          setOptions((options) => {
+            const newOptions = [...options, ...formattedOptions];
+            const arrayUniqueByKey = [
+              ...new Map(newOptions.map((item) => [item["value"], item])).values(),
+            ];
+            return arrayUniqueByKey;
+          });
         }
       } catch (e) {
-        postFetchHook?.([]);
         setOptions([]);
       } finally {
         setFetching(false);
       }
     };
+
+    useEffect(() => {
+      if (typeof postFetchHook === 'function') {
+        postFetchHook(options);
+      }
+    }, [options, postFetchHook]);
 
     useEffect(() => {
       getData();
