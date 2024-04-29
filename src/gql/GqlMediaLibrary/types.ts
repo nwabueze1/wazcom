@@ -10,7 +10,7 @@ export type GqlMediaSelectorConfigProps = {
         client: ApolloClient<NormalizedCacheObject>;
         query: {
             name: DocumentNode;
-            variables: { [key: string]: any };
+            variables: { [key: string]: any, library_uuid: string };
         };
         upload: {
             name: DocumentNode;

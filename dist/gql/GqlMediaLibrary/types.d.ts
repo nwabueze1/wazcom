@@ -12,6 +12,7 @@ export type GqlMediaSelectorConfigProps = {
             name: DocumentNode;
             variables: {
                 [key: string]: any;
+                library_uuid: string;
             };
         };
         upload: {
