@@ -71,92 +71,255 @@ var __spreadArray = (this && this.__spreadArray) || function (to, from, pack) {
     return to.concat(ar || Array.prototype.slice.call(from));
 };
 import { jsx as _jsx, jsxs as _jsxs, Fragment as _Fragment } from "react/jsx-runtime";
-import { useCallback, useEffect, useRef, useState } from "react";
+import { Loader } from "../../core";
+import { TextInput } from "../../io";
 import clx from "classnames";
-import { Loader } from "../../core/Loader/Loader";
-import { useMediaLibraryStyles } from "./styles";
-import { EditMedia, DeleteMedia } from "./components";
-import { fetchData, mutateMedia, getUniqueImages, useFileSelect, useOnScroll, useDisplayImages, useUpdateMediaLibrary, useMediaUpload, } from "./hooks";
+import { useGetInstagramImages, useGetLibraryImages, useGetPexelsImages, useGetUnsplashImages, } from "../GqlMediaLibrarySelector/hooks/get";
+import { useCallback, useEffect, useRef, useState } from "react";
 import { FaTimes } from "react-icons/fa";
-import { MdSearch as Search, MdSort as Sort } from "react-icons/md";
-import { TextInput, RadioButtonInput } from "../../io";
-import { Button } from "../../core";
+import { DeleteMedia, EditMedia } from "./components";
 import { AddMedia } from "./components/AddMedia/AddMedia";
+import { Instagram } from "./components/Instagram";
 import { Layout } from "./components/Layout/Layout";
 import { layoutData } from "./components/Layout/data";
-import { ClickAwayListener } from "@mui/base";
-import { UploadDialogue } from "./components/AddMedia/UploadDialogue";
+import { medialibraryTabs, selectorTabs } from "./data";
+import { getUniqueImages, mutateMedia, useDisplayEmptyMediaLibrary, useDisplayImages, useFileSelect, useMediaUpload, useOnScroll, useUpdateMediaLibrary, } from "./hooks";
+import { useMediaLibraryStyles } from "./styles";
+import { useIntegrateInstagramAccount } from "../GqlMediaLibrarySelector/hooks/connect";
+import { validateImg } from "../../helpers/imageValidator";
+import { notify, getCodeFromUrl } from "../../helpers";
 export var GqlMediaLibrary = function (_a) {
-    var className = _a.className, _b = _a.config, client = _b.client, _c = _b.query, query = _c.name, queryVariables = _c.variables, upload = _b.upload, update = _b.update, remove = _b.remove, _d = _b.viewOnly, viewOnly = _d === void 0 ? false : _d, onChange = _a.onChange, name = _a.name, handleClose = _a.handleClose;
+    var className = _a.className, _b = _a.config, client = _b.client, upload = _b.upload, update = _b.update, remove = _b.remove, query = _b.query, unsplash = _b.unsplash, instagram = _b.instagram, pexels = _b.pexels, onChange = _a.onChange, name = _a.name, handleClose = _a.handleClose, _c = _a.isSelector, isSelector = _c === void 0 ? false : _c, showAddMedia = _a.showAddMedia, header = _a.header, library_uuid = _a.library_uuid;
     var refs = { fileRef: useRef(), listInnerRef: useRef() };
     var handleFileSelect = useFileSelect();
     var handleOnScroll = useOnScroll();
     var handleDisplayImages = useDisplayImages();
     var handleMediaUpload = useMediaUpload();
     var handleUpdateMediaLibrary = useUpdateMediaLibrary();
+    var handleEmptymediaLibrary = useDisplayEmptyMediaLibrary();
     var classes = useMediaLibraryStyles();
-    var _e = __read(useState([]), 2), images = _e[0], setImages = _e[1];
-    var _f = __read(useState({ currentPage: 1, lastPage: 1 }), 2), paginatorInfo = _f[0], setPaginatorInfo = _f[1];
-    var _g = __read(useState({
+    var _d = __read(useState({ currentPage: 1, lastPage: 2, pexelsPage: 0, unsplashPage: 0 }), 2), paginatorInfo = _d[0], setPaginatorInfo = _d[1];
+    var _e = __read(useState({
         media: false,
         mutate: false,
-    }), 2), loading = _g[0], setLoading = _g[1];
-    var _h = __read(useState({ type: "" }), 2), activeMedia = _h[0], setActiveMedia = _h[1];
-    var _j = __read(useState(false), 2), open = _j[0], setOpen = _j[1];
-    var _k = __read(useState(images), 2), displayedImages = _k[0], setDisplayedImages = _k[1];
-    var _l = __read(useState(false), 2), showSort = _l[0], setShowSort = _l[1];
-    var _m = __read(useState("Newest"), 2), selected = _m[0], setSelected = _m[1];
-    var _o = __read(useState(1), 2), activeLayout = _o[0], setActiveLayout = _o[1];
-    var _p = __read(useState(1), 2), activeTab = _p[0], setActiveTab = _p[1];
+    }), 2), loading = _e[0], setLoading = _e[1];
+    var _f = __read(useState({ type: "" }), 2), activeMedia = _f[0], setActiveMedia = _f[1];
+    var _g = __read(useState(false), 2), open = _g[0], setOpen = _g[1];
+    var _h = __read(useState([]), 2), displayedImages = _h[0], setDisplayedImages = _h[1];
+    var _j = __read(useState(1), 2), activeLayout = _j[0], setActiveLayout = _j[1];
+    var _k = __read(useState({
+        selectorTab: 0,
+        mediaTab: 0,
+        sort: 0,
+    }), 2), activeTab = _k[0], setActiveTab = _k[1];
+    var _l = __read(useState(), 2), libraryImages = _l[0], setLibraryImages = _l[1];
+    var _m = __read(useState(), 2), splash = _m[0], setUnsplash = _m[1];
+    var _o = __read(useState(), 2), instagramImages = _o[0], setInstagramImages = _o[1];
+    var _p = __read(useState(), 2), pexelsImages = _p[0], setPexelsImages = _p[1];
+    var _q = __read(useState(""), 2), search = _q[0], setSearch = _q[1];
+    var getLibraryImages = useGetLibraryImages();
+    var getUnsplashImages = useGetUnsplashImages();
+    var getPexelsImages = useGetPexelsImages();
+    var getInstagramImages = useGetInstagramImages();
+    var integrateInstagram = useIntegrateInstagramAccount();
+    var imageSignal;
     useEffect(function () {
-        setLoading(__assign(__assign({}, loading), { media: true }));
-        fetchData(client, query, __assign({}, queryVariables))
-            .then(function (res) {
-            setLoading(__assign(__assign({}, loading), { media: false }));
-            setImages(function (images) { return getUniqueImages(__spreadArray(__spreadArray([], __read(images), false), __read(res.data.images.images), false)); });
-            setDisplayedImages(function (images) {
-                return getUniqueImages(__spreadArray(__spreadArray([], __read(images), false), __read(res.data.images.images), false));
+        var instagramCode = getCodeFromUrl();
+        if (instagramCode) {
+            integrateInstagram(client, instagram.integrate, {
+                code: instagramCode,
+                library_uuid: library_uuid,
             });
-            setPaginatorInfo(res.data.images.paginatorInfo);
-        })
-            .catch(function () {
-            setLoading(__assign(__assign({}, loading), { media: false }));
-        });
+        }
+        var params = new URLSearchParams(window.location.search);
+        var tab = params.get("instagram_integrated");
+        if (tab)
+            setActiveTab(__assign(__assign({}, activeTab), { mediaTab: 2 }));
     }, []);
     useEffect(function () {
-        if (activeMedia.index && activeMedia.index > 0) {
-            var currentPage = paginatorInfo.currentPage, lastPage = paginatorInfo.lastPage;
-            if (currentPage !== lastPage) {
-                setLoading(__assign(__assign({}, loading), { media: true }));
-                fetchData(client, query, {
-                    page: currentPage + 1,
-                    count: queryVariables.count,
-                }).then(function (res) {
-                    setImages(function (images) {
-                        return getUniqueImages(__spreadArray(__spreadArray([], __read(images), false), __read(res.data.images.images), false));
-                    });
-                    setLoading(__assign(__assign({}, loading), { media: false }));
-                    setPaginatorInfo(res.data.images.paginatorInfo);
-                });
-            }
+        setDisplayedImages([]);
+        if (showAddMedia) {
+            showAddMedia({
+                isSelector: isSelector,
+                mediaTab: activeTab.mediaTab,
+                fileRef: refs.fileRef,
+                handleMediaAction: handleMediaAction,
+                addBtn: classes.addBtn,
+            });
         }
+        fetchImages();
+    }, [activeTab.mediaTab, activeTab.selectorTab]);
+    useEffect(function () {
+        if (activeMedia.index && activeMedia.index > 0)
+            fetchImages(true);
     }, [activeMedia.index]);
-    var handleClickAway = function () {
-        setShowSort(false);
+    useEffect(function () {
+        if (!search) {
+            if (activeTab.mediaTab ||
+                activeTab.selectorTab === 1 ||
+                activeTab.mediaTab === 1 ||
+                activeTab.selectorTab) {
+                splash && setUnsplash(undefined);
+            }
+            if (activeTab.mediaTab ||
+                activeTab.selectorTab === 3 ||
+                activeTab.mediaTab === 3 ||
+                activeTab.selectorTab) {
+                pexelsImages && setPexelsImages(undefined);
+            }
+            return;
+        }
+        var getSearchData = setTimeout(function () {
+            fetchImages();
+        }, 1000);
+        return function () { return clearTimeout(getSearchData); };
+    }, [search]);
+    var fetchImages = function (isPagination) {
+        if (isPagination === void 0) { isPagination = false; }
+        var type;
+        if (activeTab.mediaTab === 0 || activeTab.selectorTab === 0)
+            type = "library";
+        if (activeTab.mediaTab === 1 || activeTab.selectorTab === 1)
+            type = "unsplash";
+        if (activeTab.mediaTab === 2 || activeTab.selectorTab === 2)
+            type = "instagram";
+        if (activeTab.mediaTab === 3 || activeTab.selectorTab === 3)
+            type = "pexels";
+        var loadImages = function () { return __awaiter(void 0, void 0, void 0, function () {
+            return __generator(this, function (_a) {
+                switch (_a.label) {
+                    case 0: return [4 /*yield*/, getImages(type, isPagination)];
+                    case 1:
+                        _a.sent();
+                        return [2 /*return*/];
+                }
+            });
+        }); };
+        loadImages();
+    };
+    var getImages = function (type, isPagination) {
+        if (isPagination === void 0) { isPagination = false; }
+        return __awaiter(void 0, void 0, void 0, function () {
+            var setState, images, callback, onError;
+            var _a, _b, _c;
+            return __generator(this, function (_d) {
+                switch (_d.label) {
+                    case 0:
+                        switch (type) {
+                            case "library":
+                                setState = setLibraryImages;
+                                images = libraryImages;
+                                break;
+                            case "unsplash":
+                                setState = setUnsplash;
+                                images = splash;
+                                break;
+                            case "pexels":
+                                setState = setPexelsImages;
+                                images = pexelsImages;
+                                break;
+                            case "instagram":
+                                setState = setInstagramImages;
+                                images = instagramImages;
+                                break;
+                            default:
+                                setState = setLibraryImages;
+                                images = libraryImages;
+                        }
+                        if (type === "instagram" && images === null)
+                            return [2 /*return*/];
+                        else if (images && !isPagination && !search) {
+                            setDisplayedImages(function () { return getUniqueImages(images); });
+                            return [2 /*return*/];
+                        }
+                        if (type === "library" && (paginatorInfo === null || paginatorInfo === void 0 ? void 0 : paginatorInfo.currentPage) === (paginatorInfo === null || paginatorInfo === void 0 ? void 0 : paginatorInfo.lastPage))
+                            return [2 /*return*/];
+                        if (type === "instagram" && isPagination)
+                            return [2 /*return*/];
+                        setLoading(__assign(__assign({}, loading), { media: true }));
+                        imageSignal = (Math.random() * 5000).toString(2);
+                        localStorage.setItem("imageSignal", String(imageSignal));
+                        callback = function (response) {
+                            var callbackImageSignal = imageSignal;
+                            if (localStorage.getItem("imageSignal") !== callbackImageSignal)
+                                return;
+                            var fetchedImages = response.images, fetchedPaginatorInfo = response.paginatorInfo;
+                            var allImages = isPagination ? __spreadArray(__spreadArray([], __read((images !== null && images !== void 0 ? images : [])), false), __read(fetchedImages), false) : __spreadArray([], __read(fetchedImages), false);
+                            setState(getUniqueImages(__spreadArray([], __read(allImages), false)));
+                            setDisplayedImages(getUniqueImages(__spreadArray([], __read(allImages), false)));
+                            if (type === "library")
+                                setPaginatorInfo(__assign(__assign({}, paginatorInfo), fetchedPaginatorInfo));
+                            else if (type === "unsplash")
+                                setPaginatorInfo(__assign(__assign({}, paginatorInfo), { unsplashPage: isPagination ? (paginatorInfo === null || paginatorInfo === void 0 ? void 0 : paginatorInfo.unsplashPage) + 1 : 1 }));
+                            else if (type === "pexels")
+                                setPaginatorInfo(__assign(__assign({}, paginatorInfo), { pexelsPage: isPagination ? (paginatorInfo === null || paginatorInfo === void 0 ? void 0 : paginatorInfo.pexelsPage) + 1 : 1 }));
+                            setLoading(__assign(__assign({}, loading), { media: false }));
+                        };
+                        onError = function () {
+                            setLoading(__assign(__assign({}, loading), { media: false }));
+                        };
+                        if (!(type === "library")) return [3 /*break*/, 2];
+                        return [4 /*yield*/, getLibraryImages(client, query.name, isPagination
+                                ? { page: ((_a = paginatorInfo === null || paginatorInfo === void 0 ? void 0 : paginatorInfo.currentPage) !== null && _a !== void 0 ? _a : 0) + 1, count: 10, library_uuid: library_uuid }
+                                : { count: 10, library_uuid: library_uuid }, callback, onError)];
+                    case 1:
+                        _d.sent();
+                        _d.label = 2;
+                    case 2:
+                        if (!(type === "unsplash")) return [3 /*break*/, 4];
+                        return [4 /*yield*/, getUnsplashImages(client, unsplash.name, isPagination
+                                ? { page: ((_b = paginatorInfo === null || paginatorInfo === void 0 ? void 0 : paginatorInfo.unsplashPage) !== null && _b !== void 0 ? _b : 0) + 1, limit: 10, search: search }
+                                : { limit: 10, search: search }, callback, onError)];
+                    case 3:
+                        _d.sent();
+                        _d.label = 4;
+                    case 4:
+                        if (!(type === "pexels")) return [3 /*break*/, 6];
+                        return [4 /*yield*/, getPexelsImages(client, pexels.name, isPagination
+                                ? { page: ((_c = paginatorInfo === null || paginatorInfo === void 0 ? void 0 : paginatorInfo.pexelsPage) !== null && _c !== void 0 ? _c : 0) + 1, limit: 10, search: search }
+                                : { limit: 10, search: search }, callback, onError)];
+                    case 5:
+                        _d.sent();
+                        _d.label = 6;
+                    case 6:
+                        if (!(type === "instagram")) return [3 /*break*/, 8];
+                        return [4 /*yield*/, getInstagramImages(client, instagram.name, library_uuid, callback, function () {
+                                onError();
+                                setInstagramImages(null);
+                            })];
+                    case 7:
+                        _d.sent();
+                        _d.label = 8;
+                    case 8: return [2 /*return*/];
+                }
+            });
+        });
+    };
+    var renderPage = function () {
+        if (loading.media && !activeMedia.index)
+            return displayMediaLibraryImages();
+        if (activeTab.mediaTab === 2 || activeTab.selectorTab === 2)
+            return (_jsx(Instagram, { connected: Boolean(instagramImages), displayImages: displayMediaLibraryImages, onChange: onChange, library_uuid: library_uuid, client: client, mutation: instagram.connect }));
+        return displayMediaLibraryImages();
     };
     var updateMediaLibrary = useCallback(function (image, type, variables) {
         if (type === void 0) { type = "add"; }
-        handleUpdateMediaLibrary(image, images, setImages, function (index) {
+        handleUpdateMediaLibrary(image, displayedImages, function (images) {
+            setDisplayedImages(images);
+            setLibraryImages(images);
+        }, function (index) {
             setActiveMedia(__assign(__assign({}, activeMedia), { index: index }));
         }, type, variables);
         handleMediaAction("", undefined);
-    }, [images, activeMedia]);
+    }, [activeMedia]);
     var handleFileChange = function (event) {
         if (!event.target.files || event.target.files === 0)
             return;
         var file = event.target.files[0];
+        if (!validateImg(file, 5000000))
+            return;
         handleMediaAction("add", file);
-        setActiveTab(1);
+        setActiveTab({ selectorTab: 0 });
     };
     var handleMediaAction = function (type, media) {
         if (type === "add" || type === "edit") {
@@ -167,16 +330,23 @@ export var GqlMediaLibrary = function (_a) {
         setActiveMedia({ type: type, media: media });
     };
     var handleSearchChange = useCallback(function (data) {
-        var search = data.value;
-        var filteredResult = images.filter(function (image) { var _a; return (_a = image.title) === null || _a === void 0 ? void 0 : _a.toLowerCase().includes(search.toLowerCase()); });
-        setDisplayedImages(filteredResult);
-    }, [displayedImages]);
+        if (activeTab.mediaTab === 1 ||
+            activeTab.selectorTab === 1 ||
+            activeTab.mediaTab === 3 ||
+            activeTab.selectorTab === 3) {
+            return setSearch(data.value);
+        }
+    }, [displayedImages, activeTab.mediaTab, activeTab.selectorTab]);
     var handleMediaAdd = useCallback(function (variables) { return __awaiter(void 0, void 0, void 0, function () {
         return __generator(this, function (_a) {
             switch (_a.label) {
-                case 0: return [4 /*yield*/, handleMediaUpload(client, upload === null || upload === void 0 ? void 0 : upload.name, __assign(__assign({}, variables), { image: activeMedia.media }), setLoading, function (image) {
-                        updateMediaLibrary(image, "add");
-                    })];
+                case 0:
+                    if (!validateImg(activeMedia.media, 5000000))
+                        return [2 /*return*/];
+                    return [4 /*yield*/, handleMediaUpload(client, upload === null || upload === void 0 ? void 0 : upload.name, __assign(__assign({}, variables), { image: activeMedia.media, library_uuid: library_uuid }), setLoading, function (image) {
+                            updateMediaLibrary(image, "add");
+                            notify("success", "Image added successfully");
+                        })];
                 case 1:
                     _a.sent();
                     return [2 /*return*/];
@@ -188,13 +358,15 @@ export var GqlMediaLibrary = function (_a) {
         return __generator(this, function (_a) {
             switch (_a.label) {
                 case 0:
-                    if (!variables.id) {
+                    if (!variables.uuid) {
                         return [2 /*return*/, handleMediaAdd(__assign({}, variables))];
                     }
                     media = activeMedia.media;
                     setLoading(__assign(__assign({}, loading), { mutate: true }));
                     return [4 /*yield*/, mutateMedia(client, update === null || update === void 0 ? void 0 : update.name, media, function () {
                             updateMediaLibrary(media, "update", variables);
+                            handleMediaAction("", undefined);
+                            notify("success", "Image updated successfully");
                         }, variables)];
                 case 1:
                     _a.sent();
@@ -213,6 +385,7 @@ export var GqlMediaLibrary = function (_a) {
                     return [4 /*yield*/, mutateMedia(client, remove === null || remove === void 0 ? void 0 : remove.name, media, function () {
                             updateMediaLibrary(media, "delete");
                             handleMediaAction("", undefined);
+                            notify("success", "Image deleted successfully");
                         })];
                 case 1:
                     _a.sent();
@@ -225,39 +398,60 @@ export var GqlMediaLibrary = function (_a) {
         handleFileSelect(refs.fileRef);
         setOpen(false);
     };
-    var handleChange = function (data) {
-        setSelected(data.name);
-        if (selected === "Newest") {
-            var sortByNewest = images.sort(function (a, b) { return new Date(a.created_at).getTime() - new Date(b.created_at).getTime(); });
-            setDisplayedImages(sortByNewest);
-            return;
-        }
-        var sortedByOldest = images.sort(function (a, b) { return new Date(b.created_at).getTime() - new Date(a.created_at).getTime(); });
-        setDisplayedImages(sortedByOldest);
-    };
     var displayLayoutData = function () {
-        return layoutData.map(function (count, index) { return (_jsx(Layout, { count: count, onclick: function () { return setActiveLayout(index); }, className: clx(activeLayout === index ? classes.activeLayout : "") }, index)); });
+        return layoutData.map(function (count, index) { return (_jsx(Layout, { count: count, onclick: function () { return setActiveLayout(index); }, className: clx(activeLayout === index ? classes.activeLayout : ""), active: Boolean(activeLayout === index) }, index)); });
     };
-    var sortType = ["Newest", "Oldest"];
-    var displaySortType = function () {
-        return sortType.map(function (type, index) { return (_jsxs("p", __assign({ className: classes.sortType }, { children: [_jsx(RadioButtonInput, { name: type, value: selected === type, classNames: { radioButtonInput: classes.radioButton }, onChange: handleChange }), type] }), index)); });
+    var displaySelectorTabs = function () {
+        return selectorTabs.map(function (tab, index) { return (_jsx("p", __assign({ className: clx(classes.selectorTab, activeTab.selectorTab !== index && classes.inActive), onClick: function () {
+                setSearch("");
+                setActiveMedia(__assign(__assign({}, activeMedia), { index: undefined }));
+                setActiveTab(__assign(__assign({}, activeTab), { selectorTab: index }));
+            } }, { children: tab }), index)); });
     };
-    var tabs = ["Upload Media", "Media Library"];
-    var displayTabs = function () {
-        return tabs.map(function (tab, index) { return (_jsx("p", __assign({ className: clx(classes.selectorTab, activeTab !== index && classes.inActive), onClick: function () { return setActiveTab(index); } }, { children: tab }), index)); });
+    var displayMediaTabs = function () {
+        return medialibraryTabs.map(function (tab, index) {
+            var isActive = activeTab.mediaTab === index;
+            return (_jsxs("div", __assign({ className: clx(classes.mediaTab, isActive && "active"), onClick: function () {
+                    setSearch("");
+                    setActiveMedia(__assign(__assign({}, activeMedia), { index: undefined }));
+                    setActiveTab(__assign(__assign({}, activeTab), { mediaTab: index }));
+                } }, { children: [tab.icon && (_jsx("p", __assign({ className: clx(classes.mediaTabIcon, isActive && "active") }, { children: tab.icon }))), _jsx("p", __assign({ className: clx(classes.tabName, isActive && "active") }, { children: tab.name }))] }), index));
+        });
     };
-    return (_jsx("div", __assign({ className: clx(classes.wrapper, className, viewOnly && classes.wrapperDialog), ref: refs.listInnerRef, onScroll: function () {
+    var displayMediaLibraryImages = function () { return (_jsx("div", __assign({ className: clx(classes.wrapper), ref: refs.listInnerRef, onScroll: function () {
             handleOnScroll(refs.listInnerRef, function (index) {
                 setActiveMedia(__assign(__assign({}, activeMedia), { index: index }));
             });
-        } }, { children: _jsxs(_Fragment, { children: [_jsx("input", { name: "image_url", accept: "image/*", hidden: true, type: "file", ref: refs.fileRef, onChange: handleFileChange }), _jsx("div", __assign({ className: clx(classes.actions, viewOnly && classes.viewOnlyActions) }, { children: viewOnly ? (_jsxs(_Fragment, { children: [_jsx("div", __assign({ className: classes.tabs }, { children: displayTabs() })), _jsx("div", __assign({ className: classes.iconContainer }, { children: _jsx(FaTimes, { className: classes.timesIcon, onClick: handleClose }) }))] })) : (_jsxs(_Fragment, { children: [_jsx("p", __assign({ className: classes.tab }, { children: "All Media" })), _jsx(AddMedia, { handleFilesSelection: handleFileSelection, handleOpenMedia: open, handleCloseMedia: setOpen })] })) })), _jsxs("div", __assign({ className: clx(classes.searchParent, activeTab === 0 && classes.dialogueView) }, { children: [_jsxs("div", __assign({ className: clx(classes.actionsContainer, activeTab === 0 && classes.noDisplay) }, { children: [!viewOnly && (_jsx("div", __assign({ className: classes.btnContainer }, { children: _jsx(ClickAwayListener, __assign({ onClickAway: handleClickAway }, { children: _jsxs("div", __assign({ className: classes.filter }, { children: [_jsxs(Button, __assign({ className: classes.button, variant: "outlined", onClick: function () { return setShowSort(!showSort); } }, { children: ["sort", _jsx(Sort, {})] })), _jsxs("div", __assign({ className: clx(classes.sortParent, showSort && classes.showSort) }, { children: [_jsx("p", __assign({ className: classes.sort }, { children: "sort by:" })), displaySortType()] }))] })) })) }))), !viewOnly && _jsx("div", __assign({ className: classes.layouts }, { children: displayLayoutData() })), activeTab !== 0 && (_jsxs("div", __assign({ className: classes.searchContainer }, { children: [_jsx(TextInput, { name: "search", type: "text", placeholder: "Search", onChange: handleSearchChange, className: classes.search }), _jsx(Search, { className: classes.searchIcon })] })))] })), _jsxs("div", __assign({ className: clx(classes.collection, activeTab === 0 && classes.uploadViewWidth) }, { children: [activeTab === 0 && (_jsx(UploadDialogue, { className: classes.dialogue, handleCloseMedia: setOpen, handleFilesSelection: handleFileSelection, showHeader: false, handleMediaAction: handleMediaAction, setActiveTab: setActiveTab })), activeTab === 1 ? (images.length === 0 && loading.media ? (_jsx(Loader, {})) : (_jsxs(_Fragment, { children: [(activeMedia.type === "add" || activeMedia.type === "edit") && (_jsx(EditMedia, { loading: loading.mutate, handleEdit: function (variables) {
+        } }, { children: _jsxs(_Fragment, { children: [_jsx("input", { name: "image_url", accept: "image/*", hidden: true, type: "file", ref: refs.fileRef, onChange: handleFileChange }), isSelector && (_jsxs("div", __assign({ className: classes.selectorSearchBox }, { children: [[1, 3].includes(activeTab.selectorTab) && (_jsx(TextInput, { name: "search", type: "text", placeholder: "Search images here", value: search, onChange: handleSearchChange, className: classes.selectorSearch })), activeTab.selectorTab === 0 && (_jsx(AddMedia, { handleFilesSelection: handleFileSelection, handleOpenMedia: open, handleCloseMedia: setOpen, handleMediaAction: handleMediaAction, buttonText: "Upload" }))] }))), _jsxs("div", __assign({ className: clx(activeTab.selectorTab === 0 && classes.dialogueView) }, { children: [_jsxs("div", __assign({ className: clx(classes.collection, activeTab.selectorTab === 0 && classes.uploadViewWidth) }, { children: [loading.media && !activeMedia.index ? (_jsx(Loader, {})) : (_jsxs(_Fragment, { children: [(activeMedia.type === "add" || activeMedia.type === "edit") && (_jsx(EditMedia, { loading: loading.mutate, handleEdit: function (variables) {
                                                 handleMediaUpdate(variables);
                                             }, handleClose: function () {
                                                 handleMediaAction("", undefined);
-                                            }, image: activeMedia.media })), images &&
+                                            }, image: activeMedia.media })), displayedImages.length > 0
+                                            ? handleDisplayImages(displayedImages, function (image) {
+                                                onChange === null || onChange === void 0 ? void 0 : onChange({
+                                                    name: name !== null && name !== void 0 ? name : "",
+                                                    value: image,
+                                                });
+                                            }, handleMediaAction, isSelector ? false : activeTab.mediaTab === 0, activeLayout)
+                                            : handleEmptymediaLibrary(handleFileSelection, open, setOpen, handleMediaAction, activeTab.mediaTab > 0 || activeTab.selectorTab > 0
+                                                ? "Search Results"
+                                                : undefined, activeTab.mediaTab > 0 || activeTab.selectorTab > 0
+                                                ? search
+                                                    ? "There are no results for " + "\"".concat(search, "\"")
+                                                    : "There are no search results"
+                                                : undefined)] })), activeTab.selectorTab === 1 && loading.media && !activeMedia.index && (_jsxs(_Fragment, { children: [(activeMedia.type === "add" || activeMedia.type === "edit") && (_jsx(EditMedia, { loading: loading.mutate, handleEdit: function (variables) {
+                                                handleMediaUpdate(variables);
+                                            }, handleClose: function () {
+                                                handleMediaAction("", undefined);
+                                            }, image: activeMedia.media })), displayedImages.length > 0 &&
                                             handleDisplayImages(displayedImages, function (image) {
-                                                onChange === null || onChange === void 0 ? void 0 : onChange({ name: name !== null && name !== void 0 ? name : "", value: image });
-                                            }, handleMediaAction, viewOnly, activeLayout)] }))) : null] })), images.length > 0 && loading.media && (_jsx("div", __assign({ className: classes.loaderParent }, { children: _jsx(Loader, { className: classes.loader }) })))] })), _jsx(DeleteMedia, { display: activeMedia.type === "delete", loading: loading.mutate, media: activeMedia.media, handleClose: function () {
+                                                onChange === null || onChange === void 0 ? void 0 : onChange({
+                                                    name: name !== null && name !== void 0 ? name : "",
+                                                    value: image,
+                                                });
+                                            }, handleMediaAction, isSelector, activeLayout)] }))] })), displayedImages.length > 0 && loading.media && activeMedia.index && (_jsx("div", __assign({ className: classes.loaderParent }, { children: _jsx(Loader, { className: classes.loader }) })))] })), _jsx(DeleteMedia, { display: activeMedia.type === "delete", loading: loading.mutate, media: activeMedia.media, handleClose: function () {
                         handleMediaAction("", undefined);
-                    }, handleDelete: handleMediaDelete })] }) })));
+                    }, handleDelete: handleMediaDelete })] }) }))); };
+    var displayMediaLibrary = function () { return (_jsxs("div", __assign({ className: clx(classes.container, className) }, { children: [_jsx("div", __assign({ className: clx(classes.actions, isSelector && classes.viewOnlyActions) }, { children: isSelector ? (_jsxs(_Fragment, { children: [_jsx("div", __assign({ className: classes.tabs }, { children: displaySelectorTabs() })), _jsx("div", __assign({ className: classes.iconContainer }, { children: _jsx(FaTimes, { className: classes.timesIcon, onClick: handleClose }) }))] })) : (_jsx("div", __assign({ className: clx(classes.actionsContainer) }, { children: !isSelector && (_jsxs("div", __assign({ className: clx(classes.selectorContainer, activeTab.mediaTab == 2 && "instagram") }, { children: [activeTab.mediaTab !== 2 && activeTab.mediaTab !== 0 && (_jsx("div", __assign({ className: classes.searchContainer }, { children: _jsx(TextInput, { name: "search", type: "text", placeholder: "Search images here", value: search, onChange: handleSearchChange, className: classes.search, classNames: { textInput: classes.textInput } }) }))), _jsx("div", __assign({ className: clx(classes.layouts, activeTab.mediaTab === 2 && "instagram") }, { children: displayLayoutData() }))] }))) }))) })), renderPage()] }))); };
+    return (_jsxs("div", __assign({ className: classes.base }, { children: [_jsxs("header", __assign({ className: classes.header }, { children: [header, !isSelector && _jsx("div", __assign({ className: clx(classes.mediaTabs) }, { children: displayMediaTabs() }))] })), displayMediaLibrary()] })));
 };

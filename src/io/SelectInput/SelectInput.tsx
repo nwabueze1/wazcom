@@ -138,6 +138,7 @@ export const SelectInput: React.FC<SelectInputProps> = ({
         value={selectValue}
         options={options}
         onChange={handleChange}
+        isSearchable={false}
         {...props}
       />
       {helperText && (

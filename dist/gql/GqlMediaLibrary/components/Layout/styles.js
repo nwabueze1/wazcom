@@ -1,18 +1,20 @@
 import makeStyles from "@mui/styles/makeStyles";
 export var useLayoutStyles = makeStyles(function (theme) { return ({
     root: {
-        height: 38,
+        height: 28,
         display: "flex",
         padding: theme.spacing(0, 2),
         justifyContent: "center",
         alignItems: "center",
-        gap: "2px",
+        gap: 2,
         cursor: "pointer",
-        border: "1px solid ".concat(theme.design.colors.waz_grey5),
     },
     innerBox: {
-        width: 12,
-        height: 12,
-        background: theme.design.colors.waz_grey1,
+        width: 10,
+        height: 8,
+        background: theme.design.colors.primary800,
+    },
+    active: {
+        background: theme.design.colors.primary100,
     },
 }); });

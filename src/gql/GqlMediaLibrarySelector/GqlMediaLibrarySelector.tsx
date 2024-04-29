@@ -1,19 +1,19 @@
-import { FC, useState } from "react";
-import { Modal, Fade, Backdrop, InputLabel } from "@mui/material";
+import { Backdrop, Fade, IconButton, InputLabel, Modal } from "@mui/material";
+import { Button } from "../../core";
 import clx from "classnames";
+import { FC, useState } from "react";
+import { GqlMediaLibrary } from "../GqlMediaLibrary/GqlMediaLibrary";
+import { getSizeVariants } from "../../helpers/size";
 import { useImageSelectorStyles } from "./styles";
 import { GqlMediaLibrarySelectorProps } from "./types";
-import { GqlMediaLibrary } from "../GqlMediaLibrary";
-import { getSizeVariants } from "../../helpers/size";
-import { displayFeedback } from "../../helpers/io";
-import { Button } from "../../core";
-import { MdCameraAlt as CameraAlt } from "react-icons/md";
+import { GqlImageCropper } from "../GqlImageCropper";
+import { FaPlus } from "react-icons/fa";
+import { createImageSrcset, imageSizes } from "../../io/WysiwygInput/Editor/helpers";
+import { useDownloadImage } from "./hooks/download";
 
 export const GqlMediaLibrarySelector: FC<GqlMediaLibrarySelectorProps> = ({
-  displayLibrary = false,
   variant = "square",
   size = "full",
-  verbose,
   iconType,
   width,
   height,
@@ -22,33 +22,58 @@ export const GqlMediaLibrarySelector: FC<GqlMediaLibrarySelectorProps> = ({
   onChange,
   name,
   label,
+  showIcons = true,
+  showActionsButton = false,
   value,
-  feedback,
-  error,
+  helperText,
+  isError,
   ...props
 }) => {
   const classes = useImageSelectorStyles();
   const [, setShowIcon] = useState<boolean>(false);
+  const [cropImage, setCropImage] = useState<Record<string, string>>();
+  const [tabs, setTabs] = useState({ library: false, cropper: false });
+  const isOpen = Object.values(tabs).includes(true);
+  const downloadImage = useDownloadImage();
 
-  const [placeholder, setPlaceholder] = useState<string>(value || "");
-  const [open, setOpen] = useState(false);
-
-  const handleOpen = () => {
-    setOpen(true);
+  const handleOpen = (tab: string) => {
+    setTabs({ library: false, cropper: false, [tab]: true });
   };
 
-  const handleClose = () => {
-    setOpen(false);
+  const handleClose = (tab: string) => {
+    const tabs =
+      tab === "all" || tab === "library"
+        ? { library: false, cropper: false }
+        : { library: true, cropper: false };
+    setTabs({ ...tabs });
   };
 
-  const handleSelectImage = ({ name, value }: { name: string; value: any }) => {
-    setOpen(false);
-    setPlaceholder(value.url);
-    onChange?.({ name: name ?? "image", value: verbose ? value : value.url });
+  const handleSelectImage = ({ value }: { name: string; value: any }) => {
+    setCropImage(value);
+    handleOpen("cropper");
+  };
+
+  const handleGenerateImage = ({ value }: { name: string; value: any }) => {
+    if (value?.src?.includes("unsplash"))
+      downloadImage(
+        props.config.client,
+        props.config.download.name,
+        "unsplash",
+        value?.download_url,
+      );
+
+    delete value?.download_url;
+    setCropImage(undefined);
+    onChange?.({ name: name ?? "image", value });
+    handleClose("all");
+  };
+
+  const handleEditImage = () => {
+    setCropImage(undefined);
+    handleOpen("cropper");
   };
 
   const handleRemoveImage = () => {
-    setPlaceholder("");
     onChange?.({ name: name ?? "image", value: null });
   };
 
@@ -57,69 +82,146 @@ export const GqlMediaLibrarySelector: FC<GqlMediaLibrarySelectorProps> = ({
   return (
     <div className={clx(className, classes.root)}>
       {label && (
-        <InputLabel className={(classNames?.label as string) ?? ""} htmlFor={name as string}>
-          {label}
+        <InputLabel
+          className={clx(classes.label, classNames?.label as string)}
+          htmlFor={name as string}
+        >
+          {label} {props?.required && <span className={classes.requiredStar}>*</span>}
         </InputLabel>
       )}
-      <div className={classes.imgUploadContainer}>
+      <div className={clx(showActionsButton && classes.container)}>
         <div
           className={clx(
-            classes.container,
-            variant === "circle" && classes.circle,
+            classes.imgUploadContainer,
+            classNames?.mediaLibrary,
+            classNames?.flexDirection,
             variants[0],
-            error && classes.error,
           )}
-          style={{ backgroundImage: `url(${placeholder})`, width, height }}
-          onMouseEnter={() => setShowIcon(true)}
-          onMouseLeave={() => setShowIcon(false)}
-          onClick={() => {
-            if (displayLibrary) return;
-            handleOpen();
-          }}
         >
-          <Modal
-            open={open}
-            BackdropProps={{
-              timeout: 500,
+          <div
+            className={clx(
+              String(value?.src ?? "")?.trim() === ""
+                ? classes.emptyContainer
+                : classes.imageContainer,
+              variant === "circle" && classes.circle,
+              variants[0],
+              classNames?.mediaLibrary,
+              isError && classes.imgUploadContainerError,
+            )}
+            style={{
+              width,
+              height,
+              backgroundRepeat: "no-repeat",
+              backgroundSize: "cover",
             }}
-            closeAfterTransition
-            onClose={handleClose}
-            onBackdropClick={(e) => e.stopPropagation()}
-            className={classes.modal}
-            BackdropComponent={Backdrop}
-            aria-labelledby="transition-modal-title"
-            aria-describedby="transition-modal-description"
+            onMouseEnter={() => setShowIcon(true)}
+            onMouseLeave={() => setShowIcon(false)}
           >
-            <Fade in={open}>
-              <div className={classes.wrapper}>
-                <GqlMediaLibrary
-                  config={{ ...props.config }}
-                  onChange={handleSelectImage}
-                  name={name}
-                  handleClose={handleClose}
-                />
-              </div>
-            </Fade>
-          </Modal>
-          {iconType === "button" ? (
-            <Button className={clx(classes.icon)} variant="outlined" onClick={handleOpen}>
-              Upload Image
-            </Button>
-          ) : (
-            <CameraAlt className={clx(classes.cameraIcon, variants[1])} onClick={handleOpen} />
-          )}
+            {value?.src && (
+              <img
+                className={`selector__${variant}`}
+                src={value?.src}
+                srcSet={createImageSrcset(value)}
+                sizes={imageSizes}
+                width="100%"
+              />
+            )}
+            {iconType === "button" && !value?.src ? (
+              <Button
+                className={clx(classes.icon, isError && classes.imgUploadContainerError)}
+                variant="outlined"
+                onClick={() => {
+                  handleOpen("library");
+                }}
+              >
+                Select Image
+              </Button>
+            ) : (
+              showIcons && (
+                <div className={classes.tools}>
+                  <div className={classes.optionIconContainer}>
+                    <IconButton
+                      onClick={() => {
+                        handleOpen("library");
+                      }}
+                    >
+                      <FaPlus className={classes.plusIcon} />
+                    </IconButton>
+                  </div>
+                  {value?.src && (
+                    <div className={classes.optionIconContainer}>
+                      <IconButton onClick={handleEditImage}>
+                        <img src="https://sytbuildr.s3.eu-west-2.amazonaws.com/edit-2.svg" />
+                      </IconButton>
+                    </div>
+                  )}
+                  <div className={classes.optionIconContainer}>
+                    <IconButton onClick={handleRemoveImage}>
+                      <img src="https://sytbuildr.s3.eu-west-2.amazonaws.com/trash.svg" />
+                    </IconButton>
+                  </div>
+                </div>
+              )
+            )}
+          </div>
+          {helperText && <p className={classes.helperText}>{helperText}</p>}
         </div>
-        {placeholder && variant == "circle" && (
-          <Button
-            className={clx(classes.removeBtn, classNames?.removeBtn)}
-            variant="outlined"
-            onClick={handleRemoveImage}
-          >
-            Remove
-          </Button>
+        {showActionsButton && (
+          <div className={classes.actionsButton}>
+            <Button className={classes.changeBtn} onClick={handleOpen}>
+              {value && value.src?.length > 0 ? "Change" : "Upload"}
+            </Button>
+            {value && value.src?.length > 0 && (
+              <Button onClick={handleRemoveImage} className={classes.actionRemoveBtn}>
+                Remove
+              </Button>
+            )}
+          </div>
         )}
       </div>
-      {feedback && displayFeedback(feedback)}
+      <Modal
+        open={isOpen}
+        BackdropProps={{
+          timeout: 500,
+        }}
+        closeAfterTransition
+        onClose={() => {
+          handleClose("all");
+        }}
+        onBackdropClick={(e) => e.stopPropagation()}
+        className={classes.modal}
+        BackdropComponent={Backdrop}
+        aria-labelledby="transition-modal-title"
+        aria-describedby="transition-modal-description"
+      >
+        <Fade in={isOpen}>
+          <div className={classes.wrapper}>
+            <GqlMediaLibrary
+              config={{ ...props.config }}
+              onChange={handleSelectImage}
+              name={name}
+              handleClose={() => {
+                handleClose("all");
+              }}
+              isSelector={true}
+              library_uuid={props.library_uuid}
+            />
+            {tabs.cropper && (
+              <GqlImageCropper
+                open={true}
+                handleClose={() => {
+                  handleClose("cropper");
+                }}
+                value={{
+                  ...(cropImage ?? value),
+                  src: cropImage ? cropImage?.url : (value?.src as string),
+                }}
+                onChange={handleGenerateImage}
+              />
+            )}
+          </div>
+        </Fade>
+      </Modal>
     </div>
   );
 };

@@ -47,6 +47,12 @@ import {
   DELETE_IMAGE,
   UPDATE_IMAGE,
   GET_BLOG_POSTS,
+  GET_UNSPLASH_IMAGES,
+  GET_INSTAGRAM_IMAGES,
+  GET_PEXELS_IMAGES,
+  CONNECT_INSTAGRAM_ACCOUNT,
+  INTEGRATE_INSTAGRAM_ACCOUNT,
+  GET_BLOG_TAGS,
 } from "../helpers/graphQL";
 import { Valour, Taurant, Nour } from "templates/Navs";
 
@@ -190,12 +196,13 @@ export const stories: ComponentPropType[] = [
     props: {
       label: "Avatar",
       config: {
-        client: createApolloClient("https://nicodemus.sytbuilder.com/graphql"),
+        client: createApolloClient("https://ploutonion.sytbuilder.com/graphql"),
         query: {
           name: GET_IMAGES,
           variables: {
             page: 1,
             count: 7,
+            library_uuid: "08b1d7d4-fb7f-4046-869a-590f242a93aa",
           },
         },
         upload: {
@@ -203,6 +210,23 @@ export const stories: ComponentPropType[] = [
           variables: {},
         },
         viewOnly: true,
+        update: {
+          name: UPDATE_IMAGE,
+        },
+        remove: {
+          name: DELETE_IMAGE,
+        },
+        unsplash: {
+          name: GET_UNSPLASH_IMAGES,
+        },
+        instagram: {
+          name: GET_INSTAGRAM_IMAGES,
+          connect: CONNECT_INSTAGRAM_ACCOUNT,
+          integrate: INTEGRATE_INSTAGRAM_ACCOUNT,
+        },
+        pexels: {
+          name: GET_PEXELS_IMAGES,
+        },
       },
       src: "https://sytbuildr.s3.eu-west-2.amazonaws.com/wbAJD5oi83HUWjLuZhqTiXwlW6LO9Xdxfxr2K4TI.jpg",
       feedback: {
@@ -211,6 +235,7 @@ export const stories: ComponentPropType[] = [
       },
       error: true,
       iconType: "button",
+      library_uuid: "08b1d7d4-fb7f-4046-869a-590f242a93aa",
     },
   },
   {
@@ -218,12 +243,13 @@ export const stories: ComponentPropType[] = [
     component: GqlMediaLibrary,
     props: {
       config: {
-        client: createApolloClient("https://nicodemus.sytbuilder.com/graphql"),
+        client: createApolloClient("https://ploutonion.sytbuilder.com/graphql"),
         query: {
           name: GET_IMAGES,
           variables: {
             page: 1,
             count: 7,
+            library_uuid: "08b1d7d4-fb7f-4046-869a-590f242a93aa",
           },
         },
         upload: {
@@ -236,7 +262,19 @@ export const stories: ComponentPropType[] = [
         remove: {
           name: DELETE_IMAGE,
         },
+        unsplash: {
+          name: GET_UNSPLASH_IMAGES,
+        },
+        instagram: {
+          name: GET_INSTAGRAM_IMAGES,
+          connect: CONNECT_INSTAGRAM_ACCOUNT,
+          integrate: INTEGRATE_INSTAGRAM_ACCOUNT,
+        },
+        pexels: {
+          name: GET_PEXELS_IMAGES,
+        },
       },
+      library_uuid: "08b1d7d4-fb7f-4046-869a-590f242a93aa",
     },
   },
   {
@@ -598,6 +636,31 @@ export const stories: ComponentPropType[] = [
         key: ["categoriesByBlogID"],
       },
       variables: { blog_id: 34 },
+      value: { label: "entertainment", value: 5 },
+      addOption: createNewCategory,
+      error: true,
+      feedback: { text: "Tariq is a weirdo", status: "error" },
+    },
+  },
+  {
+    name: "GqlComboBox",
+    component: GqlComboBox,
+    props: {
+      name: "gqlcomboboxinput",
+      config: {
+        client: createApolloClient("https://ploutonion.sytbuilder.com/graphql"),
+        name: GET_BLOG_TAGS,
+        type: "query",
+        labelKey: "name",
+        valueKey: "uuid",
+        key: ["getTagsByBlogUuid", "data"],
+      },
+      variables: {
+        blog_uuid: "38692f1e-1c74-4e8d-ad9c-9da3902431b4",
+        first: 10,
+        all: false,
+        page: 1,
+      },
       value: { label: "entertainment", value: 5 },
       addOption: createNewCategory,
       error: true,

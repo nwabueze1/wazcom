@@ -1,9 +1,11 @@
-import { FC, useEffect, useState } from "react";
+import { FC, useEffect, useRef, useState } from "react";
 import { useComboBoxStyles } from "./styles";
 import { ClickAwayListener } from "@mui/base";
 import { ComboBoxInputProps, ComboBoxInputOptionProps } from "./types";
 import { TextInput } from "../TextInput";
 import clx from "classnames";
+import { debounce } from "lodash";
+import { CircularProgress } from "@mui/material";
 
 export const ComboBoxInput: FC<ComboBoxInputProps> = ({
   name,
@@ -19,8 +21,20 @@ export const ComboBoxInput: FC<ComboBoxInputProps> = ({
   placeholder,
   value,
   className,
+  isLoading,
 }) => {
   const classes = useComboBoxStyles();
+  const updateSearchValue = useRef(
+    debounce(
+      (search: string) =>
+        onChange?.({
+          value: search,
+          type: "search",
+        }),
+      400,
+    ),
+  );
+
   const [filter, setFilter] = useState("");
   const [options, setOptions] = useState(initialOptions);
   const [showOptions, setShowOptions] = useState(false);
@@ -44,6 +58,7 @@ export const ComboBoxInput: FC<ComboBoxInputProps> = ({
 
   const handleFilterChange = ({ value: filter }: { name: string; value: string }) => {
     setFilter(filter);
+    updateSearchValue.current(filter);
     setIsFocused(false);
   };
 
@@ -57,9 +72,10 @@ export const ComboBoxInput: FC<ComboBoxInputProps> = ({
     const displayedOptions = isFocused
       ? options
       : options.filter((option) => option?.label?.toLowerCase()?.includes(filter.toLowerCase()));
-    displayedOptions.length === 0 &&
-      isAdd &&
+
+    if (!isLoading && displayedOptions.length === 0 && isAdd) {
       displayedOptions.push({ label: "Add " + filter, value: filter });
+    }
 
     return displayedOptions.map(({ label, value, subText }, index) => (
       <div
@@ -100,6 +116,7 @@ export const ComboBoxInput: FC<ComboBoxInputProps> = ({
           isError={isError}
           isSuccess={isSuccess}
           helperText={helperText}
+          rightIcon={isLoading && <CircularProgress size={14} color="success" />}
         />
         {showOptions && <div className={classes.comboBoxOptions}>{renderOptions()}</div>}
       </div>

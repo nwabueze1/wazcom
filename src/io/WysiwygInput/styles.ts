@@ -48,7 +48,7 @@ export const useCreatePostInputStyles = makeStyles((theme: Theme) => ({
   postTitleInput: {
     height: 73,
     padding: theme.spacing(0, 0, 0, 2),
-    background: `${theme.design.colors.waz_white100} 0% 0% no-repeat padding-box`,
+    background: theme.design.colors.waz_white,
     border: `1px solid ${theme.design.colors.waz_primary700}`,
     outline: "none",
     margin: theme.spacing(0.5),

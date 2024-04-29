@@ -82,54 +82,75 @@ var __spreadArray = (this && this.__spreadArray) || function (to, from, pack) {
     return to.concat(ar || Array.prototype.slice.call(from));
 };
 import { jsx as _jsx } from "react/jsx-runtime";
-import { CircularProgress } from "@mui/material";
 import { memo, useCallback, useEffect, useState } from "react";
-import { useGqlComboBoxStyles } from "./styles";
 import { ComboBoxInput } from "../../io";
 import { get } from "lodash";
 export var GqlComboBox = memo(function (_a) {
     var initialValue = _a.value, _b = _a.config, client = _b.client, key = _b.key, labelKey = _b.labelKey, valueKey = _b.valueKey, query = _b.name, postFetchHook = _a.postFetchHook, addOption = _a.addOption, onChange = _a.onChange, label = _a.label, variables = _a.variables, props = __rest(_a, ["value", "config", "postFetchHook", "addOption", "onChange", "label", "variables"]);
-    var classes = useGqlComboBoxStyles();
     var _c = __read(useState([]), 2), options = _c[0], setOptions = _c[1];
     var _d = __read(useState(true), 2), fetching = _d[0], setFetching = _d[1];
     var _e = __read(useState(initialValue), 2), value = _e[0], setValue = _e[1];
     useEffect(function () {
         setValue(initialValue);
     }, [initialValue]);
-    var fetchData = function () { return __awaiter(void 0, void 0, void 0, function () {
-        return __generator(this, function (_a) {
-            switch (_a.label) {
-                case 0: return [4 /*yield*/, client.query({
-                        query: query,
-                        fetchPolicy: "network-only",
-                        variables: variables,
-                    })];
-                case 1: return [2 /*return*/, _a.sent()];
-            }
-        });
-    }); };
-    useEffect(function () {
-        var getData = function () { return __awaiter(void 0, void 0, void 0, function () {
-            var data, options_1, formattedOptions;
+    var fetchData = function (search) {
+        if (search === void 0) { search = ""; }
+        return __awaiter(void 0, void 0, void 0, function () {
             return __generator(this, function (_a) {
                 switch (_a.label) {
-                    case 0: return [4 /*yield*/, fetchData()];
+                    case 0: return [4 /*yield*/, client.query({
+                            query: query,
+                            fetchPolicy: "network-only",
+                            variables: __assign(__assign({}, variables), { search: search }),
+                        })];
+                    case 1: return [2 /*return*/, _a.sent()];
+                }
+            });
+        });
+    };
+    var getData = function (search) {
+        if (search === void 0) { search = ""; }
+        return __awaiter(void 0, void 0, void 0, function () {
+            var data, r_options, formattedOptions_1, e_1;
+            return __generator(this, function (_a) {
+                switch (_a.label) {
+                    case 0:
+                        _a.trys.push([0, 2, 3, 4]);
+                        setFetching(true);
+                        return [4 /*yield*/, fetchData(search)];
                     case 1:
                         data = (_a.sent()).data;
                         if (data) {
-                            options_1 = get(data, key === null || key === void 0 ? void 0 : key.join("."));
-                            formattedOptions = options_1.map(function (option) { return ({
+                            r_options = get(data, key === null || key === void 0 ? void 0 : key.join("."));
+                            formattedOptions_1 = r_options.map(function (option) { return ({
                                 label: option[labelKey],
                                 value: option[valueKey],
                             }); });
-                            postFetchHook === null || postFetchHook === void 0 ? void 0 : postFetchHook(formattedOptions);
-                            setOptions(formattedOptions);
+                            setOptions(function (options) {
+                                var newOptions = __spreadArray(__spreadArray([], __read(options), false), __read(formattedOptions_1), false);
+                                var arrayUniqueByKey = __spreadArray([], __read(new Map(newOptions.map(function (item) { return [item["value"], item]; })).values()), false);
+                                return arrayUniqueByKey;
+                            });
                         }
+                        return [3 /*break*/, 4];
+                    case 2:
+                        e_1 = _a.sent();
+                        setOptions([]);
+                        return [3 /*break*/, 4];
+                    case 3:
                         setFetching(false);
-                        return [2 /*return*/];
+                        return [7 /*endfinally*/];
+                    case 4: return [2 /*return*/];
                 }
             });
-        }); };
+        });
+    };
+    useEffect(function () {
+        if (typeof postFetchHook === 'function') {
+            postFetchHook(options);
+        }
+    }, [options, postFetchHook]);
+    useEffect(function () {
         getData();
     }, [query]);
     var handleChange = useCallback(function (selectedValue) { return __awaiter(void 0, void 0, void 0, function () {
@@ -182,12 +203,13 @@ export var GqlComboBox = memo(function (_a) {
             }
         });
     }); }, [options]);
-    if (fetching) {
-        return (_jsx("div", __assign({ className: classes.loader }, { children: _jsx(CircularProgress, { size: 14, color: "success" }) })));
-    }
-    return (_jsx(ComboBoxInput, __assign({ label: label, options: options, value: value !== null && value !== void 0 ? value : "", onChange: function (_a) {
-            var value = _a.value;
-            handleChange(value);
-        }, handleAdd: handleChange }, props)));
+    return (_jsx(ComboBoxInput, __assign({ label: label, options: options, value: value !== null && value !== void 0 ? value : "", onChange: function (data) {
+            if (data.type && data.type == "search" && !(variables === null || variables === void 0 ? void 0 : variables.all)) {
+                getData(data.value);
+            }
+            else {
+                handleChange(data.value);
+            }
+        }, handleAdd: handleChange, isLoading: fetching }, props)));
 });
 GqlComboBox.displayName = "GqlComboBox";
