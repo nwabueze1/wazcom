@@ -78,11 +78,9 @@ export var TextInput = function (_a) {
     var slideUpLabelClass = useInputWithSlideUpLabelStyles();
     var handleChange = function (e) {
         var _a, _b, _c;
-        if (type === "number") {
-            var regex = /^[0-9+-]*$/;
-            if (!regex.test(e.target.value))
-                return;
-        }
+        var numberRegex = /^[0-9+-]*$/;
+        if ((type === "number" || noNegativeValue) && !numberRegex.test(e.target.value))
+            return;
         if (noNegativeValue) {
             var inputValue = e.target.value;
             if (type === "number" && parseFloat(inputValue) < 0) {

@@ -65,11 +65,9 @@ export const TextInput: FC<TextFieldProps> = ({
   const slideUpLabelClass = useInputWithSlideUpLabelStyles();
 
   const handleChange = (e: ChangeEvent<HTMLInputElement>) => {
-    if (type === "number") {
-      const regex = /^[0-9+-]*$/;
+    const numberRegex = /^[0-9+-]*$/;
 
-      if (!regex.test(e.target.value)) return;
-    }
+    if ((type === "number" || noNegativeValue) && !numberRegex.test(e.target.value)) return;
 
     if (noNegativeValue) {
       const inputValue = (e.target as HTMLInputElement).value;
