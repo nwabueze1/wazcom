@@ -15,6 +15,7 @@ export const GqlImageCropper: FC<ImageCropperProps> = ({
     value: initialValue,
     onChange,
     handleClose,
+    activeScreenConfig
 }) => {
     const classes = useImageCropperStyles();
     const [activeTab, setActiveTab] = useState(0);
@@ -102,6 +103,7 @@ export const GqlImageCropper: FC<ImageCropperProps> = ({
                                 setCoordinates={setCoordinates}
                                 setDimensions={setDimensions}
                                 isEdit={Object.keys(initialValue).length > 1}
+                                activeScreenConfig={activeScreenConfig}
                             />
                         </div>
                         <div className={classes.imageDialogConfigSection}>

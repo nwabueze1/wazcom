@@ -21,12 +21,12 @@ export const Navigator: FC<NavigatorProps> = ({ className, onZoom, onDragZoom, z
 
   return (
     <div className={cx(classes.navigation, className)}>
-      <button className={classes.navigationButton} onClick={onZoomIn}>
-        <img src="https://sytbuildr.s3.eu-west-2.amazonaws.com/plus.svg" alt="zoom in" />
-      </button>
-      <Slider value={zoom} onChange={onDragZoom} />
       <button className={classes.navigationButton} onClick={onZoomOut}>
         <img src="https://sytbuildr.s3.eu-west-2.amazonaws.com/minus.svg" alt="zoom out" />
+      </button>
+      <Slider value={zoom} onChange={onDragZoom} />
+      <button className={classes.navigationButton} onClick={onZoomIn}>
+        <img src="https://sytbuildr.s3.eu-west-2.amazonaws.com/plus.svg" alt="zoom in" />
       </button>
     </div>
   );

@@ -84,7 +84,7 @@ export const Slider: FC<SliderProps> = ({ value, className, onChange }) => {
         <div
           className={cx(classes.sliderCircle, focus && classes.sliderCircleFocus)}
           style={{
-            right: `${(value || 0) * 100}%`,
+            left: `${(value || 0) * 100}%`,
           }}
         >
           <div className={cx(classes.sliderInnerCircle, focus && classes.sliderInnerCircleFocus)} />

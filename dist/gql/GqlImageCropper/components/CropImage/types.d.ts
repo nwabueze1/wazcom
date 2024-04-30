@@ -1,12 +1,10 @@
 import { ReactNode, CSSProperties } from "react";
 import { CropperRef, Coordinates, CropperProps } from "react-advanced-cropper";
 export interface CropImageWrapperProps {
-    cropper: CropperRef;
-    loading: boolean;
-    children: ReactNode;
-    loaded: boolean;
-    className?: string;
-    style?: CSSProperties;
+    cropper: any;
+    className?: string | undefined;
+    style?: CSSProperties | undefined;
+    children?: ReactNode;
 }
 export interface NavigatorProps {
     zoom?: number;

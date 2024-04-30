@@ -1,3 +1,4 @@
+import { CropperConfig } from "./components/CropImage/types";
 
 export type TScreen = "desktop" | "tablet" | "mobile";
 
@@ -19,6 +20,7 @@ export type ImageCropperProps = {
   value: ImageCropperValue;
   handleClose: () => void;
   onChange?: (data: { name: string; value: any }) => void;
+  activeScreenConfig?: CropperConfig;
 };
 
 export type OrientationProps = {

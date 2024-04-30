@@ -14,6 +14,7 @@ import { useRef, forwardRef, useEffect, Ref } from "react";
 import { useCropImageStyles } from "./styles";
 import cx from "classnames";
 import { CustomCropperProps, CustomCropperRef } from "./types";
+import { CropImageWrapper } from "./CropImageWrapper";
 
 export const CropImage = forwardRef<CustomCropperRef | FixedCropperRef, CustomCropperProps>(
   (
@@ -92,6 +93,7 @@ export const CropImage = forwardRef<CustomCropperRef | FixedCropperRef, CustomCr
           resizable: false,
           handlers: false,
         }}
+        wrapperComponent={CropImageWrapper}
       />
     );
 
