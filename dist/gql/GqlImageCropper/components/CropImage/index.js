@@ -17,6 +17,7 @@ import "react-advanced-cropper/dist/themes/corners.css";
 import { useRef, forwardRef, useEffect } from "react";
 import { useCropImageStyles } from "./styles";
 import cx from "classnames";
+import { CropImageWrapper } from "./CropImageWrapper";
 export var CropImage = forwardRef(function (_a, ref) {
     var coordinates = _a.coordinates, setCoordinates = _a.setCoordinates, src = _a.src, _b = _a.isEdit, isEdit = _b === void 0 ? false : _b, screenType = _a.screenType, setDimensions = _a.setDimensions, activeScreenConfig = _a.activeScreenConfig;
     var classes = useCropImageStyles();
@@ -69,7 +70,7 @@ export var CropImage = forwardRef(function (_a, ref) {
                 movable: true,
                 resizable: false,
                 handlers: false,
-            } })));
+            }, wrapperComponent: CropImageWrapper })));
     };
     var renderCropper = function () { return (_jsx(Cropper, __assign({}, commonCropperProps, { stencilProps: {
             handlerClassNames: {

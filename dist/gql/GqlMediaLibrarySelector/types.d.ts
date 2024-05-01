@@ -1,5 +1,6 @@
 import { GqlMediaSelectorConfigProps } from "../GqlMediaLibrary/types";
 import { CommonProps } from "../../types";
+import { CropperConfig } from "../GqlImageCropper/components/CropImage/types";
 export type GqlMediaLibrarySelectorProps = CommonProps & GqlMediaSelectorConfigProps & {
     label?: string;
     displayLibrary?: boolean;
@@ -15,6 +16,7 @@ export type GqlMediaLibrarySelectorProps = CommonProps & GqlMediaSelectorConfigP
     showIcons?: boolean;
     showActionsButton?: boolean;
     library_uuid: string;
+    activeScreenConfig?: CropperConfig;
 };
 export type TOrientation = "portrait" | "landscape";
 export type TScreen = "desktop" | "tablet" | "mobile";

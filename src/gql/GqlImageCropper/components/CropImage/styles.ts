@@ -26,7 +26,7 @@ export const useCropImageStyles = makeStyles((theme: Theme) => ({
     padding: theme.spacing(1, 2),
   },
   handler: {
-    color: theme.design.colors.primary100,
+    color: theme.design.colors.waz_primary100,
   },
   slider: {
     width: "100%",
@@ -46,17 +46,17 @@ export const useCropImageStyles = makeStyles((theme: Theme) => ({
     width: "100%",
   },
   sliderLine: {
-    background: theme.design.colors.grey300,
+    background: theme.design.colors.waz_greenishGrey,
     width: "163px",
     height: "4px",
     borderRadius: "5px",
     display: "flex",
     position: "relative",
     alignItems: "center",
-    justifyContent: "flex-end",
+    justifyContent: "flex-start",
   },
   sliderFill: {
-    background: theme.design.colors.primary200,
+    background: theme.design.colors.waz_primary200,
     alignSelf: "stretch",
     flexBasis: "auto",
     flexDirection: "column",
@@ -66,7 +66,7 @@ export const useCropImageStyles = makeStyles((theme: Theme) => ({
   sliderCircle: {
     width: "30px",
     height: "30px",
-    marginRight: "-15px",
+    marginLeft: "-15px",
     borderRadius: "50%",
     display: "flex",
     alignItems: "center",
@@ -77,13 +77,13 @@ export const useCropImageStyles = makeStyles((theme: Theme) => ({
     backgroundColor: "transparent",
   },
   sliderCircleFocus: {
-    backgroundColor: theme.design.colors.primary200,
+    backgroundColor: theme.design.colors.waz_primary200,
   },
   sliderInnerCircle: {
     width: "15px",
     height: "15px",
     borderRadius: "50%",
-    backgroundColor: theme.design.colors.primary200,
+    backgroundColor: theme.design.colors.waz_primary200,
     transform: "scale(1)",
     transitionDuration: "0.1s",
     transitionProperty: "transform",
@@ -96,6 +96,7 @@ export const useCropImageStyles = makeStyles((theme: Theme) => ({
     display: "flex",
     justifyContent: "flex-start",
     alignItems: "flex-end",
+    margin: "0 auto",
   },
   navigationButton: {
     willChange: "transform",

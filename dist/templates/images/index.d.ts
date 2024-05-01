@@ -1,7 +1,7 @@
 import { MediaValue } from "../../gql";
 import React from "react";
-export type TCropperConfig = Record<"height" | "width" | "defaultSize", number>;
-export type TImageCropper = Record<"desktop" | "tablet" | "mobile", TCropperConfig>;
+export type TCropperConfig = Partial<Record<"height" | "width" | "defaultSize" | "aspectRatio", number>>;
+export type TImageCropper = Record<"desktop" | "tablet" | "mobile", TCropperConfig> & Partial<Record<"extraLargeScreens", Partial<TCropperConfig>>>;
 export declare const createResponsiveImage: (image: MediaValue, options?: {
     imageCropper?: TImageCropper;
     className?: string;

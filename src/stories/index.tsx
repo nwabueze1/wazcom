@@ -236,6 +236,10 @@ export const stories: ComponentPropType[] = [
       error: true,
       iconType: "button",
       library_uuid: "08b1d7d4-fb7f-4046-869a-590f242a93aa",
+      activeScreenConfig: {
+        height: 200,
+        width: 300,
+      }
     },
   },
   {

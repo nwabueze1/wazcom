@@ -9,7 +9,6 @@ import { Navigator } from "./Navigator";
 export const CropImageWrapper: FC<CropImageWrapperProps> = ({
   cropper,
   children,
-  loaded,
   className,
 }) => {
   const classes = useCropImageStyles();
@@ -28,7 +27,7 @@ export const CropImageWrapper: FC<CropImageWrapperProps> = ({
   };
 
   return (
-    <CropperFade className={cx(classes.wrapper, className)} visible={state && loaded}>
+    <CropperFade className={cx(classes.wrapper, className)} visible={state}>
       {children}
       <Navigator
         className={classes.wrapperNavigation}

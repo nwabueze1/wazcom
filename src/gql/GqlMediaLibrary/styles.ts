@@ -72,13 +72,13 @@ export const useMediaLibraryStyles = makeStyles((theme: BaseTheme) => ({
         width: 30,
         height: 30,
         borderRadius: "50%",
-        background: theme.design.colors.grey200,
+        background: theme.design.colors.waz_greenishGrey2,
         marginRight: theme.spacing(1),
         cursor: "pointer",
     },
     thumbnailActionIcon: {
         fontSize: 14,
-        color: theme.design.colors.white,
+        color: theme.design.colors.waz_white,
     },
     image: {
         objectFit: "cover",
@@ -213,8 +213,8 @@ export const useMediaLibraryStyles = makeStyles((theme: BaseTheme) => ({
         flexDirection: "column",
     },
     button: {
-        background: theme.design.colors.white,
-        border: `1px solid ${theme.design.colors.primary100}`,
+        background: theme.design.colors.waz_white,
+        border: `1px solid ${theme.design.colors.waz_primary100}`,
         color: theme.design.colors.grey100,
         display: "flex",
         gap: theme.spacing(0.5),
@@ -223,7 +223,7 @@ export const useMediaLibraryStyles = makeStyles((theme: BaseTheme) => ({
         fontSize: theme.typography.fontSize + 4,
         lineHeight: "21px",
         "&:hover": {
-            border: `1px solid ${theme.design.colors.primary100}`,
+            border: `1px solid ${theme.design.colors.waz_primary100}`,
             background: theme.design.colors.primary700,
         },
     },
@@ -243,7 +243,7 @@ export const useMediaLibraryStyles = makeStyles((theme: BaseTheme) => ({
         width: "80%",
         margin: theme.spacing(5, "auto"),
         padding: theme.spacing(8, 0),
-        border: `1px dashed ${theme.design.colors.grey40}`,
+        border: `1px dashed ${theme.design.colors.waz_mercury}`,
     },
     search: {
         background: theme.design.colors.shainGrey,
@@ -251,7 +251,7 @@ export const useMediaLibraryStyles = makeStyles((theme: BaseTheme) => ({
         width: "100%",
     },
     actionsContainer: {
-        background: theme.design.colors.white,
+        background: theme.design.colors.waz_white,
         width: "100%",
         margin: "auto",
         padding: theme.spacing(3),
@@ -297,7 +297,7 @@ export const useMediaLibraryStyles = makeStyles((theme: BaseTheme) => ({
     selectorContainer: {
         padding: theme.spacing(1, 2),
         borderRadius: theme.spacing(0.5),
-        border: `1px solid ${theme.design.colors.primary1000}`,
+        border: `1px solid ${theme.design.colors.waz_primary1000}`,
         display: "flex",
         justifyContent: "space-between",
         marginTop: theme.spacing(2),
@@ -343,7 +343,7 @@ export const useMediaLibraryStyles = makeStyles((theme: BaseTheme) => ({
         fontSize: theme.typography.fontSize,
         fontFamily: theme.typography.fontFamily,
         display: "flex",
-        color: theme.design.colors.black200,
+        color: theme.design.colors.waz_primaryBlack,
         gap: theme.spacing(1),
         cursor: "pointer",
         justifyContent: "space-between",
@@ -364,7 +364,7 @@ export const useMediaLibraryStyles = makeStyles((theme: BaseTheme) => ({
         display: "flex",
         alignItems: "center",
         cursor: "pointer",
-        color: theme.design.colors.grey700,
+        color: theme.design.colors.waz_grey600,
         gap: theme.spacing(1),
         padding: theme.spacing(1, 2),
     },
@@ -376,8 +376,8 @@ export const useMediaLibraryStyles = makeStyles((theme: BaseTheme) => ({
         display: "flex",
         gap: theme.spacing(4),
         borderRadius: 4,
-        border: `1px solid ${theme.design.colors.primary700}`,
-        background: theme.design.colors.grey98,
+        border: `1px solid ${theme.design.colors.waz_primary700}`,
+        background: theme.design.colors.waz_white100,
         width: 187,
         height: 34,
         alignItems: "center",
@@ -410,7 +410,7 @@ export const useMediaLibraryStyles = makeStyles((theme: BaseTheme) => ({
         },
     },
     activeLayout: {
-        backgroundColor: theme.design.colors.primary800,
+        backgroundColor: theme.design.colors.waz_primary800,
         borderRadius: 2,
     },
     twoColumn: {
@@ -426,17 +426,17 @@ export const useMediaLibraryStyles = makeStyles((theme: BaseTheme) => ({
         cursor: "pointer",
         padding: theme.spacing(1, 2),
         borderRadius: 300,
-        border: `1px solid ${theme.design.colors.primary600}`,
+        border: `1px solid ${theme.design.colors.waz_primary600}`,
         width: "max-content",
         "&.active": {
-            background: theme.design.colors.green1000,
+            background: theme.design.colors.waz_primaryColor700,
         },
     },
     mediaTabIcon: {
         fontSize: theme.typography.fontSize + 8,
         display: "flex",
         "&.active>.pexel": {
-            fill: theme.design.colors.white,
+            fill: theme.design.colors.waz_white,
         },
     },
     mediaTabs: {
@@ -444,25 +444,25 @@ export const useMediaLibraryStyles = makeStyles((theme: BaseTheme) => ({
         padding: theme.spacing(1),
         gap: theme.spacing(1.2),
         borderRadius: theme.spacing(0.5),
-        background: theme.design.colors.grey600,
-        border: `1px solid ${theme.design.colors.primary600}`,
+        background: theme.design.colors.waz_grey6,
+        border: `1px solid ${theme.design.colors.waz_primary600}`,
         width: "max-content",
     },
     tabName: {
-        color: theme.design.colors.grey800,
+        color: theme.design.colors.waz_grey500,
         fontSize: theme.typography.fontSize,
         fontWeight: theme.typography.fontWeightMedium,
         fontFamily: theme.typography.fontFamily,
         "&.active": {
-            color: theme.design.colors.white,
+            color: theme.design.colors.waz_white,
         },
     },
     activeMediaTab: {
-        borderBottom: `2px solid ${theme.design.colors.primary100}`,
+        borderBottom: `2px solid ${theme.design.colors.waz_primary100}`,
     },
     searchIcon: {
         fontSize: theme.typography.fontSize + 8,
-        color: theme.design.colors.black200,
+        color: theme.design.colors.waz_primaryBlack,
     },
     emptyContainer: {
         display: "flex",
@@ -486,7 +486,7 @@ export const useMediaLibraryStyles = makeStyles((theme: BaseTheme) => ({
         margin: theme.spacing(1.5, 0),
     },
     header: {
-        background: theme.design.colors.white,
+        background: theme.design.colors.waz_white,
         padding: theme.spacing(2),
         marginBottom: theme.spacing(1),
     },

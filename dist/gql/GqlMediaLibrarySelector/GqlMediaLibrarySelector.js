@@ -109,5 +109,5 @@ export var GqlMediaLibrarySelector = function (_a) {
                                     handleClose("all");
                                 }, isSelector: true, library_uuid: props.library_uuid }), tabs.cropper && (_jsx(GqlImageCropper, { open: true, handleClose: function () {
                                     handleClose("cropper");
-                                }, value: __assign(__assign({}, (cropImage !== null && cropImage !== void 0 ? cropImage : value)), { src: cropImage ? cropImage === null || cropImage === void 0 ? void 0 : cropImage.url : value === null || value === void 0 ? void 0 : value.src }), onChange: handleGenerateImage }))] })) })) }))] })));
+                                }, value: __assign(__assign({}, (cropImage !== null && cropImage !== void 0 ? cropImage : value)), { src: cropImage ? cropImage === null || cropImage === void 0 ? void 0 : cropImage.url : value === null || value === void 0 ? void 0 : value.src }), onChange: handleGenerateImage, activeScreenConfig: props.activeScreenConfig }))] })) })) }))] })));
 };

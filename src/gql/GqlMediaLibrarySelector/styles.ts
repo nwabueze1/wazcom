@@ -23,13 +23,13 @@ export const useImageSelectorStyles = makeStyles((theme: Theme) => ({
     },
     emptyContainer: {
         height: "100%",
-        border: `2px dashed ${theme.design.colors.primary100}`,
+        border: `2px dashed ${theme.design.colors.waz_primary100}`,
         borderRadius: 5,
         backgroundSize: "cover",
         display: "flex",
         justifyContent: "center",
         alignItems: "center",
-        backgroundColor: theme.design.colors.grey98,
+        backgroundColor: theme.design.colors.waz_white100,
         flexShrink: 0,
     },
     imageContainer: {
@@ -53,28 +53,28 @@ export const useImageSelectorStyles = makeStyles((theme: Theme) => ({
     },
     icon: {
         cursor: "pointer",
-        color: theme.design.colors.grey100,
+        color: theme.design.colors.waz_grey1,
         zIndex: 5,
-        border: `1px solid ${theme.design.colors.primary400}`,
+        border: `1px solid ${theme.design.colors.waz_primary400}`,
         fontWeight: theme.typography.fontWeightRegular,
         fontSize: theme.typography.fontSize,
         background: theme.design.colors.white,
 
         "&:hover": {
             background: theme.design.colors.white,
-            border: `1px solid ${theme.design.colors.primary400}`,
+            border: `1px solid ${theme.design.colors.waz_primary400}`,
             color: theme.design.colors.grey100,
         },
 
         "&:focus": {
             background: theme.design.colors.waz_white,
-            border: `1px solid ${theme.design.colors.primary400}`,
+            border: `1px solid ${theme.design.colors.waz_primary400}`,
             color: theme.design.colors.grey100,
         },
 
         "&:hover:focus": {
             background: theme.design.colors.waz_white,
-            border: `1px solid ${theme.design.colors.primary400}`,
+            border: `1px solid ${theme.design.colors.waz_primary400}`,
             color: theme.design.colors.grey100,
         },
     },
@@ -94,7 +94,7 @@ export const useImageSelectorStyles = makeStyles((theme: Theme) => ({
         fontWeight: theme.typography.fontWeightMedium,
         background: theme.design.colors.waz_white,
         "&:hover": {
-            background: theme.design.colors.white,
+            background: theme.design.colors.waz_white,
             border: `1px solid ${theme.design.colors.waz_mercury}`,
         },
     },
@@ -102,15 +102,15 @@ export const useImageSelectorStyles = makeStyles((theme: Theme) => ({
         fontSize: theme.typography.fontSize + 2,
         fontWeight: theme.typography.fontWeightRegular,
         lineHeight: "22px",
-        background: theme.design.colors.white,
-        color: theme.design.colors.grey100,
-        border: `1px solid ${theme.design.colors.grey300}`,
+        background: theme.design.colors.waz_white,
+        color: theme.design.colors.waz_grey1,
+        border: `1px solid ${theme.design.colors.waz_grey200}`,
 
         "&:hover": {
-            background: theme.design.colors.white,
+            background: theme.design.colors.waz_white,
         },
         "&:hover:focus": {
-            background: theme.design.colors.white,
+            background: theme.design.colors.waz_white,
         },
     },
     changeBtn: {
@@ -126,11 +126,11 @@ export const useImageSelectorStyles = makeStyles((theme: Theme) => ({
     imgUploadContainer: {
         display: "flex",
         alignItems: "flex-start",
-        background: theme.design.colors.white,
+        background: theme.design.colors.waz_white,
         position: "relative",
     },
     imgUploadContainerError: {
-        border: `1px solid ${theme.design.colors.red500} !important`,
+        border: `1px solid ${theme.design.colors.error} !important`,
     },
     modal: {
         display: "flex",
@@ -193,12 +193,12 @@ export const useImageSelectorStyles = makeStyles((theme: Theme) => ({
         width: "32px",
         height: "32px",
         borderRadius: "16px",
-        backgroundColor: theme.design.colors.grey200,
+        backgroundColor: theme.design.colors.waz_greenishGrey2,
         display: "flex",
         justifyContent: "center",
     },
     toolIcon: {
-        color: theme.design.colors.white,
+        color: theme.design.colors.waz_white,
         margin: "0 auto",
     },
     helperText: {
@@ -209,7 +209,7 @@ export const useImageSelectorStyles = makeStyles((theme: Theme) => ({
         marginTop: theme.spacing(0.5),
     },
     plusIcon: {
-        color: theme.design.colors.white,
+        color: theme.design.colors.waz_white,
         fontSize: theme.typography.fontSize + 3,
     },
     requiredStar: {

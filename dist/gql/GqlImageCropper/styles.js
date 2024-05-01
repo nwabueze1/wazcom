@@ -2,9 +2,9 @@ import makeStyles from "@mui/styles/makeStyles";
 export var useImageCropperStyles = makeStyles(function (theme) { return ({
     imageDialog: {
         position: "relative",
-        background: theme.design.colors.white,
+        background: theme.design.colors.waz_white,
         borderRadius: 8,
-        boxShadow: "0px 3px 6px ".concat(theme.design.colors.black99),
+        boxShadow: "0px 3px 6px ".concat(theme.design.colors.waz_black99),
         width: "100%",
         maxWidth: 1128,
         height: "max-content",
@@ -23,7 +23,7 @@ export var useImageCropperStyles = makeStyles(function (theme) { return ({
         width: "100%",
     },
     imageDialogTitle: {
-        color: theme.design.colors.black,
+        color: theme.design.colors.waz_black,
         fontSize: theme.typography.fontSize + 4,
         fontWeight: theme.typography.fontWeightMedium,
     },
@@ -40,9 +40,9 @@ export var useImageCropperStyles = makeStyles(function (theme) { return ({
     },
     imageDialogCropSection: {
         width: "60%",
-        borderTop: "1px solid ".concat(theme.design.colors.grey900),
-        borderRight: "1px solid ".concat(theme.design.colors.grey900),
-        background: theme.design.colors.grey600,
+        borderTop: "1px solid ".concat(theme.design.colors.waz_grey300),
+        borderRight: "1px solid ".concat(theme.design.colors.waz_grey300),
+        background: theme.design.colors.waz_grey6,
         borderRadius: "0 0 0 8px",
         padding: theme.spacing(2, 5.5),
         boxSizing: "border-box",
@@ -52,7 +52,7 @@ export var useImageCropperStyles = makeStyles(function (theme) { return ({
     },
     imageDialogConfigSection: {
         width: "40%",
-        borderTop: "1px solid ".concat(theme.design.colors.grey900),
+        borderTop: "1px solid ".concat(theme.design.colors.waz_grey300),
         position: "relative",
     },
     image: {
@@ -65,7 +65,7 @@ export var useImageCropperStyles = makeStyles(function (theme) { return ({
         justifyContent: "space-evenly",
         padding: theme.spacing(0, 3),
         gap: theme.spacing(4),
-        borderBottom: "1px solid ".concat(theme.design.colors.grey900),
+        borderBottom: "1px solid ".concat(theme.design.colors.waz_grey300),
     },
     configTab: {
         display: "flex",
@@ -76,17 +76,17 @@ export var useImageCropperStyles = makeStyles(function (theme) { return ({
         width: "100%",
     },
     activeConfigTab: {
-        borderBottom: "2px solid ".concat(theme.design.colors.primary100),
+        borderBottom: "2px solid ".concat(theme.design.colors.waz_primary100),
     },
     tabName: {
-        color: theme.design.colors.grey50,
+        color: theme.design.colors.waz_grey100,
         fontSize: theme.typography.fontSize + 2,
         fontWeight: theme.typography.fontWeightMedium,
         lineHeight: "22px",
         textTransform: "uppercase",
     },
     activeTabName: {
-        color: theme.design.colors.primary100,
+        color: theme.design.colors.waz_primary100,
     },
     btn: {
         position: "absolute",
@@ -103,9 +103,9 @@ export var useImageCropperStyles = makeStyles(function (theme) { return ({
         flexDirection: "column",
         alignItems: "center",
         position: "relative",
-        background: theme.design.colors.white,
+        background: theme.design.colors.waz_white,
         borderRadius: 8,
-        boxShadow: "0px 3px 6px ".concat(theme.design.colors.black99),
+        boxShadow: "0px 3px 6px ".concat(theme.design.colors.waz_black99),
         width: "100%",
         maxWidth: 746,
         height: "max-content",
@@ -115,7 +115,7 @@ export var useImageCropperStyles = makeStyles(function (theme) { return ({
         display: "flex",
         width: "100%",
         flexFlow: "column nowrap",
-        borderTop: "1px solid ".concat(theme.design.colors.grey900),
+        borderTop: "1px solid ".concat(theme.design.colors.waz_grey300),
         justifyContent: "flex-start",
         alignItems: "center",
         paddingTop: theme.spacing(3),
