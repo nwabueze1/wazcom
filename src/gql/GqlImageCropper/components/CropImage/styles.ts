@@ -12,6 +12,18 @@ export const useCropImageStyles = makeStyles((theme: Theme) => ({
     objectFit: "cover",
     maxHeight: 500,
     height: "100%",
+
+    "& .advanced-cropper__background-wrapper": {
+      background: theme.design.colors.waz_white,
+    },
+
+    "& .advanced-cropper-stencil-overlay": {
+      color: "rgba(255, 255, 255, 0.6)"
+    },
+
+    "& .advanced-cropper-simple-line": {
+      borderColor: theme.design.colors.waz_primary500,
+    }
   },
   wrapper: {
     flexGrow: 1,
@@ -111,6 +123,10 @@ export const useCropImageStyles = makeStyles((theme: Theme) => ({
     outline: "none",
     transition: "transform 0.5s",
     padding: 0,
+    
+    "& > img": {
+      filter: "invert(1)",
+    },
 
     "&:hover": {
       transform: "scale(1.1)",

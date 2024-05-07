@@ -217,7 +217,7 @@ export const GqlMediaLibrarySelector: FC<GqlMediaLibrarySelectorProps> = ({
                   src: cropImage ? cropImage?.url : (value?.src as string),
                 }}
                 onChange={handleGenerateImage}
-                activeScreenConfig={props.activeScreenConfig}
+                screenConfig={props.screenConfig}
               />
             )}
           </div>
