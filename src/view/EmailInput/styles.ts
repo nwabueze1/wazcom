@@ -56,4 +56,8 @@ export const useEmailInputStyles = makeStyles((theme: Theme) => ({
     alignItems: "center",
     padding: "0 10px",
   },
+  paymentRoot: {
+    fontFamily: "Open sans",
+    color: "#2B2C33",
+  }
 }));
