@@ -7,7 +7,7 @@ import { EmailInputViewProps } from "./types";
 import { useEmailInputProps } from "./utils/useEmailInputProps";
 import { ComponentProps } from "../../core/ComponentProps";
 import { Paper } from "../../core/Paper";
-import { PaymentDialog } from "core/PaymentDialog";
+import { PaymentUI } from "core/PaymentUI";
 import { legacy_createStore } from "redux";
 
 export const EmailInputView: FC<EmailInputViewProps> = () => {
@@ -37,7 +37,7 @@ export const EmailInputView: FC<EmailInputViewProps> = () => {
                 gatewayUrl: "https://ploutonion.sytbuilder.com/graphql",
               })}
             >
-              <PaymentDialog block_uuid="sksksk" isOpen={true} />
+              <PaymentUI block_uuid="sksksk" />
             </Provider>
           </div>
         </Paper>
