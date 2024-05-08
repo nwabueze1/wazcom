@@ -19,7 +19,7 @@ export type ImageCropperProps = {
         name: string;
         value: any;
     }) => void;
-    activeScreenConfig?: CropperConfig;
+    screenConfig?: Record<TScreen, CropperConfig>;
 };
 export type OrientationProps = {
     [key: string]: string;

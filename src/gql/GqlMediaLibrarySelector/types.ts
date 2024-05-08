@@ -18,7 +18,7 @@ export type GqlMediaLibrarySelectorProps = CommonProps &
     showIcons?: boolean;
     showActionsButton?: boolean;
     library_uuid: string;
-    activeScreenConfig?: CropperConfig;
+    screenConfig?: Record<TScreen, CropperConfig>;
   };
 
 export type TOrientation = "portrait" | "landscape";
