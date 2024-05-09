@@ -1,6 +1,5 @@
 export * from "./Accordion";
 export * from "./BreadCrumb";
-// export * from "./Button";
 export * from "./Card";
 export * from "./Carousel";
 export * from "./ConfirmationDialog";
@@ -36,4 +35,5 @@ export * from "./Wrapper";
 export * from "./RegionSelector";
 export * from "./ViewHeader";
 export * from "./Splash";
+export * from "./PaymentUI";
 export * from "../utilities";
