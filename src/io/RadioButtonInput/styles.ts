@@ -68,7 +68,7 @@ export const useRadioButtonInputStyles = makeStyles((theme: BaseTheme) => ({
     borderRadius: theme.spacing(8),
     outline: `1px solid ${theme.design.colors.grey700}`,
     outlineOffset: "3px",
-    opacity: 0.6,
+
     "&.disabled": {
       opacity: 0.1,
     },

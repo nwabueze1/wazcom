@@ -211,7 +211,7 @@ export const PaymentUI: FC<PaymentProviderProps> = ({
           width={"100%"}
           className={classNames?.button}
         >
-          Order now
+          Pay now
         </Button>
       )}
       {sitePaymentMethodList.length === 0 && (

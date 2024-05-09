@@ -3,7 +3,6 @@ export var usePaymentStyles = makeStyles(function (theme) { return ({
     root: {
         fontFamily: "inherit",
         color: "#5C5D66",
-        paddingBottom: theme.spacing(5),
     },
     paymentHeading: {
         display: "flex",
