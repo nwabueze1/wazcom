@@ -41,6 +41,16 @@ export const PaymentUI: FC<PaymentProviderProps> = ({
     : 0;
   const total = subTotal + deliveryFee;
   const currency = restaurant?.cart?.restaurant?.bank_info?.currency ?? "";
+  const [selectedMethod, setSelectedMethod] = useState("");
+  const [sitePaymentMethodList, setSitePaymentMethodList] = useState<SitePaymentType[]>([]);
+  const createOrder = useCreateOrder();
+  const makeGlobalPayments = useMakeGlobalPayments();
+
+  const activePaymentMethods = useMemo(() => {
+    if (!sitePaymentMethodList) return [];
+
+    return sitePaymentMethodList?.filter(({ is_active }: { is_active: boolean }) => is_active);
+  }, [sitePaymentMethodList]);
 
   console.log(restaurant);
 
@@ -66,11 +76,6 @@ export const PaymentUI: FC<PaymentProviderProps> = ({
     },
   );
 
-  const [selectedMethod, setSelectedMethod] = useState("");
-  const [sitePaymentMethodList, setSitePaymentMethodList] = useState<SitePaymentType[]>([]);
-  const createOrder = useCreateOrder();
-  const makeGlobalPayments = useMakeGlobalPayments();
-
   useEffect(() => {
     if (gatewayProcessorsData) {
       const { getGatewayProcessorsBySiteUuid } = gatewayProcessorsData;
@@ -93,8 +98,11 @@ export const PaymentUI: FC<PaymentProviderProps> = ({
 
         setSitePaymentMethodList(paymentMethods);
 
-        if (paymentMethods.length === 1) {
-          const paymentMethod = paymentMethods[0];
+        const activePaymentMethods = paymentMethods.filter(
+          ({ is_active }: { is_active: boolean }) => is_active,
+        );
+        if (activePaymentMethods.length === 1) {
+          const paymentMethod = activePaymentMethods[0];
           setSelectedMethod(paymentMethod?.payment_type?.name);
         }
       }
@@ -137,42 +145,37 @@ export const PaymentUI: FC<PaymentProviderProps> = ({
   const displayPaymentMethods = () => {
     return (
       <>
-        {sitePaymentMethodList &&
-          sitePaymentMethodList.length > 0 &&
-          sitePaymentMethodList
-            .filter((paymentMethod: SitePaymentType) => paymentMethod?.is_active)
-            .map((paymentMethod: SitePaymentType, index) => {
-              let title = paymentMethod?.payment_type?.name ?? "";
-              if (title === "paypal") {
-                title = "PayPal";
-              } else if (title === "Cash_On_Delivery") {
-                title = "Cash On Delivery";
-              } else if (title === "Hivedeck_Payment") {
-                title = "Hivedeck Payment";
-              } else {
-                title =
-                  title.trim().charAt(0).toUpperCase() + title.trim().substring(1).toLowerCase();
-              }
-              const props = {
-                img:
-                  paymentImages[paymentMethod?.payment_type?.name.toLowerCase()] ??
-                  paymentImages.default,
-                name: paymentMethod?.payment_type?.name,
-                title: title,
-                value: paymentMethod?.payment_type?.name,
-              };
-              return (
-                <PaymentOption
-                  key={index}
-                  {...props}
-                  value={String(selectedMethod ?? "")}
-                  className={classNames?.paymentOption}
-                  handleChange={(method: any) => {
-                    setSelectedMethod(method);
-                  }}
-                />
-              );
-            })}
+        {activePaymentMethods.map((paymentMethod: SitePaymentType, index) => {
+          let title = paymentMethod?.payment_type?.name ?? "";
+          if (title === "paypal") {
+            title = "PayPal";
+          } else if (title === "Cash_On_Delivery") {
+            title = "Cash On Delivery";
+          } else if (title === "Hivedeck_Payment") {
+            title = "Hivedeck Payment";
+          } else {
+            title = title.trim().charAt(0).toUpperCase() + title.trim().substring(1).toLowerCase();
+          }
+          const props = {
+            img:
+              paymentImages[paymentMethod?.payment_type?.name.toLowerCase()] ??
+              paymentImages.default,
+            name: paymentMethod?.payment_type?.name,
+            title: title,
+            value: paymentMethod?.payment_type?.name,
+          };
+          return (
+            <PaymentOption
+              key={index}
+              {...props}
+              value={String(selectedMethod ?? "")}
+              className={classNames?.paymentOption}
+              handleChange={(method: any) => {
+                setSelectedMethod(method);
+              }}
+            />
+          );
+        })}
       </>
     );
   };
@@ -194,7 +197,7 @@ export const PaymentUI: FC<PaymentProviderProps> = ({
         </p>
       </div>
 
-      {sitePaymentMethodList.length > 0 && (
+      {activePaymentMethods.length > 0 && (
         <div className={clx(classes.paymentSubheading, classNames?.paymentSubheading)}>
           <p className="heading">Make Payment</p>
           <p className="description">Select your preferred payment method below</p>
@@ -202,7 +205,7 @@ export const PaymentUI: FC<PaymentProviderProps> = ({
       )}
 
       {displayPaymentMethods()}
-      {displayButton && sitePaymentMethodList.length > 0 && (
+      {displayButton && activePaymentMethods.length > 0 && (
         <Button
           size="medium"
           variant="contained"
@@ -214,7 +217,7 @@ export const PaymentUI: FC<PaymentProviderProps> = ({
           Pay now
         </Button>
       )}
-      {sitePaymentMethodList.length === 0 && (
+      {activePaymentMethods.length === 0 && (
         <p className={classes.paymentEmptyText}>There are no configured payment methods</p>
       )}
     </div>

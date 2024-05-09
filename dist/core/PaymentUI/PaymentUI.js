@@ -102,25 +102,33 @@ export var PaymentUI = function (_a) {
             : 0;
     var total = subTotal + deliveryFee;
     var currency = (_m = (_l = (_k = (_j = restaurant === null || restaurant === void 0 ? void 0 : restaurant.cart) === null || _j === void 0 ? void 0 : _j.restaurant) === null || _k === void 0 ? void 0 : _k.bank_info) === null || _l === void 0 ? void 0 : _l.currency) !== null && _m !== void 0 ? _m : "";
+    var _p = __read(useState(""), 2), selectedMethod = _p[0], setSelectedMethod = _p[1];
+    var _q = __read(useState([]), 2), sitePaymentMethodList = _q[0], setSitePaymentMethodList = _q[1];
+    var createOrder = useCreateOrder();
+    var makeGlobalPayments = useMakeGlobalPayments();
+    var activePaymentMethods = useMemo(function () {
+        if (!sitePaymentMethodList)
+            return [];
+        return sitePaymentMethodList === null || sitePaymentMethodList === void 0 ? void 0 : sitePaymentMethodList.filter(function (_a) {
+            var is_active = _a.is_active;
+            return is_active;
+        });
+    }, [sitePaymentMethodList]);
     console.log(restaurant);
-    var _p = useQuery(GET_PAYMENT_TYPE_BY_SITE, {
+    var _r = useQuery(GET_PAYMENT_TYPE_BY_SITE, {
         client: plutusClient,
         variables: {
             site_uuid: cart === null || cart === void 0 ? void 0 : cart.restaurant.site.uuid,
         },
-    }), sitePaymentMethodListData = _p.data, sitePaymentMethodError = _p.error, loading = _p.loading;
-    var _q = useQuery(GET_GATEWAY_PROCESSORS_BY_SITE, {
+    }), sitePaymentMethodListData = _r.data, sitePaymentMethodError = _r.error, loading = _r.loading;
+    var _s = useQuery(GET_GATEWAY_PROCESSORS_BY_SITE, {
         client: plutusClient,
         variables: {
             input: {
                 site_uuid: cart === null || cart === void 0 ? void 0 : cart.restaurant.site.uuid,
             },
         },
-    }), gatewayProcessorsData = _q.data, gatewayProcessorsError = _q.error;
-    var _r = __read(useState(""), 2), selectedMethod = _r[0], setSelectedMethod = _r[1];
-    var _s = __read(useState([]), 2), sitePaymentMethodList = _s[0], setSitePaymentMethodList = _s[1];
-    var createOrder = useCreateOrder();
-    var makeGlobalPayments = useMakeGlobalPayments();
+    }), gatewayProcessorsData = _s.data, gatewayProcessorsError = _s.error;
     useEffect(function () {
         var _a;
         if (gatewayProcessorsData) {
@@ -139,8 +147,12 @@ export var PaymentUI = function (_a) {
                         }
                     ], __read(sitePaymentMethodList), false) : sitePaymentMethodList;
                 setSitePaymentMethodList(paymentMethods);
-                if (paymentMethods.length === 1) {
-                    var paymentMethod = paymentMethods[0];
+                var activePaymentMethods_1 = paymentMethods.filter(function (_a) {
+                    var is_active = _a.is_active;
+                    return is_active;
+                });
+                if (activePaymentMethods_1.length === 1) {
+                    var paymentMethod = activePaymentMethods_1[0];
                     setSelectedMethod((_a = paymentMethod === null || paymentMethod === void 0 ? void 0 : paymentMethod.payment_type) === null || _a === void 0 ? void 0 : _a.name);
                 }
             }
@@ -182,38 +194,33 @@ export var PaymentUI = function (_a) {
         });
     }); };
     var displayPaymentMethods = function () {
-        return (_jsx(_Fragment, { children: sitePaymentMethodList &&
-                sitePaymentMethodList.length > 0 &&
-                sitePaymentMethodList
-                    .filter(function (paymentMethod) { return paymentMethod === null || paymentMethod === void 0 ? void 0 : paymentMethod.is_active; })
-                    .map(function (paymentMethod, index) {
-                    var _a, _b, _c, _d, _e, _f;
-                    var title = (_b = (_a = paymentMethod === null || paymentMethod === void 0 ? void 0 : paymentMethod.payment_type) === null || _a === void 0 ? void 0 : _a.name) !== null && _b !== void 0 ? _b : "";
-                    if (title === "paypal") {
-                        title = "PayPal";
-                    }
-                    else if (title === "Cash_On_Delivery") {
-                        title = "Cash On Delivery";
-                    }
-                    else if (title === "Hivedeck_Payment") {
-                        title = "Hivedeck Payment";
-                    }
-                    else {
-                        title =
-                            title.trim().charAt(0).toUpperCase() + title.trim().substring(1).toLowerCase();
-                    }
-                    var props = {
-                        img: (_d = paymentImages[(_c = paymentMethod === null || paymentMethod === void 0 ? void 0 : paymentMethod.payment_type) === null || _c === void 0 ? void 0 : _c.name.toLowerCase()]) !== null && _d !== void 0 ? _d : paymentImages.default,
-                        name: (_e = paymentMethod === null || paymentMethod === void 0 ? void 0 : paymentMethod.payment_type) === null || _e === void 0 ? void 0 : _e.name,
-                        title: title,
-                        value: (_f = paymentMethod === null || paymentMethod === void 0 ? void 0 : paymentMethod.payment_type) === null || _f === void 0 ? void 0 : _f.name,
-                    };
-                    return (_jsx(PaymentOption, __assign({}, props, { value: String(selectedMethod !== null && selectedMethod !== void 0 ? selectedMethod : ""), className: classNames === null || classNames === void 0 ? void 0 : classNames.paymentOption, handleChange: function (method) {
-                            setSelectedMethod(method);
-                        } }), index));
-                }) }));
+        return (_jsx(_Fragment, { children: activePaymentMethods.map(function (paymentMethod, index) {
+                var _a, _b, _c, _d, _e, _f;
+                var title = (_b = (_a = paymentMethod === null || paymentMethod === void 0 ? void 0 : paymentMethod.payment_type) === null || _a === void 0 ? void 0 : _a.name) !== null && _b !== void 0 ? _b : "";
+                if (title === "paypal") {
+                    title = "PayPal";
+                }
+                else if (title === "Cash_On_Delivery") {
+                    title = "Cash On Delivery";
+                }
+                else if (title === "Hivedeck_Payment") {
+                    title = "Hivedeck Payment";
+                }
+                else {
+                    title = title.trim().charAt(0).toUpperCase() + title.trim().substring(1).toLowerCase();
+                }
+                var props = {
+                    img: (_d = paymentImages[(_c = paymentMethod === null || paymentMethod === void 0 ? void 0 : paymentMethod.payment_type) === null || _c === void 0 ? void 0 : _c.name.toLowerCase()]) !== null && _d !== void 0 ? _d : paymentImages.default,
+                    name: (_e = paymentMethod === null || paymentMethod === void 0 ? void 0 : paymentMethod.payment_type) === null || _e === void 0 ? void 0 : _e.name,
+                    title: title,
+                    value: (_f = paymentMethod === null || paymentMethod === void 0 ? void 0 : paymentMethod.payment_type) === null || _f === void 0 ? void 0 : _f.name,
+                };
+                return (_jsx(PaymentOption, __assign({}, props, { value: String(selectedMethod !== null && selectedMethod !== void 0 ? selectedMethod : ""), className: classNames === null || classNames === void 0 ? void 0 : classNames.paymentOption, handleChange: function (method) {
+                        setSelectedMethod(method);
+                    } }), index));
+            }) }));
     };
     if (loading)
         return (_jsx("div", { children: _jsx(CircularProgress, { color: "success", size: "14px" }) }));
-    return (_jsxs("div", __assign({ className: clx(classes.root, classNames === null || classNames === void 0 ? void 0 : classNames.root) }, { children: [_jsxs("div", __assign({ className: clx(classes.paymentHeading, classNames === null || classNames === void 0 ? void 0 : classNames.paymentHeading) }, { children: [_jsx("p", { children: "Total" }), _jsxs("p", { children: [getCurrency(currency), total] })] })), sitePaymentMethodList.length > 0 && (_jsxs("div", __assign({ className: clx(classes.paymentSubheading, classNames === null || classNames === void 0 ? void 0 : classNames.paymentSubheading) }, { children: [_jsx("p", __assign({ className: "heading" }, { children: "Make Payment" })), _jsx("p", __assign({ className: "description" }, { children: "Select your preferred payment method below" }))] }))), displayPaymentMethods(), displayButton && sitePaymentMethodList.length > 0 && (_jsx(Button, __assign({ size: "medium", variant: "contained", isLoading: ctxtLoading && networkOperation === "create.order", onClick: handleCreateOrder, width: "100%", className: classNames === null || classNames === void 0 ? void 0 : classNames.button }, { children: "Pay now" }))), sitePaymentMethodList.length === 0 && (_jsx("p", __assign({ className: classes.paymentEmptyText }, { children: "There are no configured payment methods" })))] })));
+    return (_jsxs("div", __assign({ className: clx(classes.root, classNames === null || classNames === void 0 ? void 0 : classNames.root) }, { children: [_jsxs("div", __assign({ className: clx(classes.paymentHeading, classNames === null || classNames === void 0 ? void 0 : classNames.paymentHeading) }, { children: [_jsx("p", { children: "Total" }), _jsxs("p", { children: [getCurrency(currency), total] })] })), activePaymentMethods.length > 0 && (_jsxs("div", __assign({ className: clx(classes.paymentSubheading, classNames === null || classNames === void 0 ? void 0 : classNames.paymentSubheading) }, { children: [_jsx("p", __assign({ className: "heading" }, { children: "Make Payment" })), _jsx("p", __assign({ className: "description" }, { children: "Select your preferred payment method below" }))] }))), displayPaymentMethods(), displayButton && activePaymentMethods.length > 0 && (_jsx(Button, __assign({ size: "medium", variant: "contained", isLoading: ctxtLoading && networkOperation === "create.order", onClick: handleCreateOrder, width: "100%", className: classNames === null || classNames === void 0 ? void 0 : classNames.button }, { children: "Pay now" }))), activePaymentMethods.length === 0 && (_jsx("p", __assign({ className: classes.paymentEmptyText }, { children: "There are no configured payment methods" })))] })));
 };
