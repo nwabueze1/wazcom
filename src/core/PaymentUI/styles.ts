@@ -37,8 +37,8 @@ export const usePaymentStyles = makeStyles(
       width: "100% !important",
     },
     paymentEmptyText: {
-      marginTop: theme.spacing(3),
       fontSize: theme.typography.fontSize + 4,
+      fontFamily: "inherit",
     },
   })
 );

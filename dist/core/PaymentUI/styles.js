@@ -31,7 +31,7 @@ export var usePaymentStyles = makeStyles(function (theme) { return ({
         width: "100% !important",
     },
     paymentEmptyText: {
-        marginTop: theme.spacing(3),
         fontSize: theme.typography.fontSize + 4,
+        fontFamily: "inherit",
     },
 }); });
