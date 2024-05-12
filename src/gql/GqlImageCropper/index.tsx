@@ -156,7 +156,7 @@ export const GqlImageCropper: FC<ImageCropperProps> = ({
     }
 
     onChange?.({ name, value: image_data });
-    handleClose?.()
+    // handleClose?.()
   };
 
   return (
