@@ -108,6 +108,9 @@ export var GqlMediaLibrarySelector = function (_a) {
                 }, onBackdropClick: function (e) { return e.stopPropagation(); }, className: classes.modal, BackdropComponent: Backdrop, "aria-labelledby": "transition-modal-title", "aria-describedby": "transition-modal-description" }, { children: _jsx(Fade, __assign({ in: isOpen }, { children: _jsxs("div", __assign({ className: classes.wrapper }, { children: [_jsx(GqlMediaLibrary, { config: __assign({}, props.config), onChange: onChange, name: name, handleClose: function () {
                                     handleClose("all");
                                 }, isSelector: true, library_uuid: props.library_uuid, onSelect: handleSelectImage }), tabs.cropper && (_jsx(GqlImageCropper, { name: name, config: props.config, open: true, handleClose: function () {
+                                    handleClose("cropper");
+                                }, value: __assign(__assign({}, (cropImage !== null && cropImage !== void 0 ? cropImage : value)), { src: cropImage ? cropImage === null || cropImage === void 0 ? void 0 : cropImage.url : value === null || value === void 0 ? void 0 : value.src }), onChange: function (data) {
+                                    handleGenerateImage(data);
                                     handleClose("all");
-                                }, value: __assign(__assign({}, (cropImage !== null && cropImage !== void 0 ? cropImage : value)), { src: cropImage ? cropImage === null || cropImage === void 0 ? void 0 : cropImage.url : value === null || value === void 0 ? void 0 : value.src }), onChange: handleGenerateImage, screenConfig: props.screenConfig, imageServiceDomain: imageServiceDomain }))] })) })) }))] })));
+                                }, screenConfig: props.screenConfig, imageServiceDomain: imageServiceDomain }))] })) })) }))] })));
 };

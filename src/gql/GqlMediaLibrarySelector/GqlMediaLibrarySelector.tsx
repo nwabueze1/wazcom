@@ -214,13 +214,16 @@ export const GqlMediaLibrarySelector: FC<GqlMediaLibrarySelectorProps> = ({
                 config={props.config}
                 open={true}
                 handleClose={() => {
-                  handleClose("all");
+                  handleClose("cropper");
                 }}
                 value={{
                   ...(cropImage ?? value),
                   src: cropImage ? cropImage?.url : (value?.src as string),
                 }}
-                onChange={handleGenerateImage}
+                onChange={(data) => {
+                  handleGenerateImage(data);
+                  handleClose("all");
+                }}
                 screenConfig={props.screenConfig}
                 imageServiceDomain={imageServiceDomain}
               />

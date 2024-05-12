@@ -22,7 +22,7 @@ export type ImageCropperProps = {
     }) => void;
     screenConfig?: Record<TScreen, CropperConfig>;
     fileMedia?: File;
-    config: GqlMediaSelectorConfigProps["config"];
+    config: Pick<GqlMediaSelectorConfigProps["config"], "client" | "update" | "query" | "upload">;
     name: string;
     imageServiceDomain: string;
 };
