@@ -4,6 +4,8 @@ import { ReactNode } from "react";
 export type GqlMediaLibraryProps = CommonProps & GqlMediaSelectorConfigProps & {
     header?: ReactNode;
     library_uuid: string;
+    imageServiceDomain?: string;
+    onSelect: CommonProps["onChange"];
 };
 export type GqlMediaSelectorConfigProps = {
     config: {
@@ -64,5 +66,6 @@ export type Image = {
     alternative_text?: string;
     created_at: string;
     uuid: string;
+    library_uuid: string;
 };
-export type ImageUpdate = Partial<Pick<Image, "id" | "title" | "alternative_text" | "caption" | "uuid">>;
+export type ImageUpdate = Partial<Pick<Image, "id" | "title" | "alternative_text" | "caption" | "uuid" | "library_uuid">>;

@@ -9,6 +9,10 @@ export declare const useMediaUpload: () => (client: ApolloClient<NormalizedCache
 }, setLoading: (loading: {
     [key: string]: boolean;
 }) => void, updateMediaLibrary: (image: Image) => void) => Promise<void>;
+export declare const createMediaUpload: () => (client: ApolloClient<NormalizedCacheObject>, mutation: DocumentNode, variables: ImageUpdate & {
+    image: File;
+}) => Promise<any>;
+export declare const updateMediaUpload: () => (client: ApolloClient<NormalizedCacheObject>, mutation: DocumentNode, variables: ImageUpdate) => Promise<any>;
 export declare const useUpdateMediaLibrary: () => (image: Image, images: Image[], setImages: (images: Image[]) => void, setMediaIndex: (index: number) => void, type?: string, update?: Pick<Image, "title" | "alternative_text" | "caption">) => void;
 export declare const useOnScroll: () => (ref: React.MutableRefObject<any>, setMediaIndex: (index: number) => void) => void;
 export declare const fetchData: (client: ApolloClient<NormalizedCacheObject>, query: DocumentNode, variables?: {

@@ -32,18 +32,22 @@ import { GqlMediaLibraryProps, Image, ImageUpdate } from "./types";
 import { useIntegrateInstagramAccount } from "../GqlMediaLibrarySelector/hooks/connect";
 import { validateImg } from "../../helpers/imageValidator";
 import { notify, getCodeFromUrl } from "../../helpers";
+import { GqlImageCropper } from "../GqlImageCropper";
 
 export const GqlMediaLibrary: FC<GqlMediaLibraryProps> = ({
   className,
-  config: { client, upload, update, remove, query, unsplash, instagram, pexels },
+  config,
   onChange,
-  name,
+  name = "image",
   handleClose,
   isSelector = false,
   showAddMedia,
   header,
   library_uuid,
+  imageServiceDomain = "img.wazobia.tech",
+  onSelect
 }) => {
+  const { client, upload, update, remove, query, unsplash, instagram, pexels } = config;
   const refs = { fileRef: useRef<any>(), listInnerRef: useRef<any>() };
   const handleFileSelect = useFileSelect();
   const handleOnScroll = useOnScroll();
@@ -77,6 +81,15 @@ export const GqlMediaLibrary: FC<GqlMediaLibraryProps> = ({
   const [instagramImages, setInstagramImages] = useState<any[] | undefined | null>();
   const [pexelsImages, setPexelsImages] = useState();
   const [search, setSearch] = useState("");
+  const [showCropper, setShowCropper] = useState(false);
+  const [imageUrl, setImageUrl] = useState({
+    caption: "",
+    name: "",
+    description: "",
+    alternative_text: "",
+    src: "",
+  });
+  const [fileMedia, setFileMedia] = useState<File>();
   const getLibraryImages = useGetLibraryImages();
   const getUnsplashImages = useGetUnsplashImages();
   const getPexelsImages = useGetPexelsImages();
@@ -320,7 +333,8 @@ export const GqlMediaLibrary: FC<GqlMediaLibraryProps> = ({
       const { listInnerRef } = refs;
       if (listInnerRef.current) listInnerRef.current.scrollTop = 0;
     }
-    setActiveMedia({ type, media });
+    displayImage(media);
+    if (media instanceof File) setFileMedia(media);
   };
 
   const handleSearchChange = useCallback(
@@ -509,7 +523,7 @@ export const GqlMediaLibrary: FC<GqlMediaLibraryProps> = ({
                   ? handleDisplayImages(
                       displayedImages,
                       (image: Image) => {
-                        onChange?.({
+                        onSelect?.({
                           name: name ?? "",
                           value: image,
                         });
@@ -625,13 +639,52 @@ export const GqlMediaLibrary: FC<GqlMediaLibraryProps> = ({
     </div>
   );
 
+  const displayImage = (media: File | any) => {
+    if (!(media instanceof File)) return media?.url;
+
+    const reader = new FileReader();
+    reader.onload = () => {
+      setImageUrl({
+        src: reader.result as any,
+        name: media?.name,
+        description: media?.name,
+        alternative_text: media?.name,
+        caption: "",
+      });
+      setShowCropper(true);
+    };
+
+    reader.readAsDataURL(media);
+  };
+
   return (
     <div className={classes.base}>
-      <header className={classes.header}>
+      {header && <header className={classes.header}>
         {header}
         {!isSelector && <div className={clx(classes.mediaTabs)}>{displayMediaTabs()}</div>}
-      </header>
+      </header>}
       {displayMediaLibrary()}
+      {showCropper && imageUrl && (
+        <GqlImageCropper
+          name={name}
+          config={config}
+          open={true}
+          value={{
+            src: imageUrl?.src,
+            name: imageUrl?.name,
+            description: imageUrl?.caption,
+            alternative_text: imageUrl?.alternative_text,
+            caption: imageUrl?.caption,
+          }}
+          fileMedia={fileMedia}
+          handleClose={() => {
+            handleClose?.()
+            setShowCropper(false)
+          }}
+          onChange={onChange}
+          imageServiceDomain={imageServiceDomain}
+        />
+      )}
     </div>
   );
 };

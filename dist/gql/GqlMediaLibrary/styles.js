@@ -151,7 +151,7 @@ export var useMediaLibraryStyles = makeStyles(function (theme) {
             width: "100%",
             backgroundColor: theme.design.colors.waz_white,
             borderRadius: theme.spacing(1),
-            maxHeight: "70vh",
+            maxHeight: "80vh",
             overflowY: "auto",
             "&::-webkit-scrollbar": {
                 width: 10,
@@ -297,7 +297,7 @@ export var useMediaLibraryStyles = makeStyles(function (theme) {
         selectorContainer: {
             padding: theme.spacing(1, 2),
             borderRadius: theme.spacing(0.5),
-            border: "1px solid ".concat(theme.design.colors.waz_primary1000),
+            border: "1px solid ".concat(theme.design.colors.waz_primary100),
             display: "flex",
             justifyContent: "space-between",
             marginTop: theme.spacing(2),

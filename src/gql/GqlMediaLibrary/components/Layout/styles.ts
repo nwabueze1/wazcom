@@ -15,9 +15,9 @@ export const useLayoutStyles = makeStyles((theme: Theme) => ({
     innerBox: {
         width: 10,
         height: 8,
-        background: theme.design.colors.primary800,
+        background: theme.design.colors.waz_primary800,
     },
     active: {
-        background: theme.design.colors.primary100,
+        background: theme.design.colors.waz_primary100,
     },
 }));
