@@ -184,6 +184,7 @@ export var GqlImageCropper = function (_a) {
                         }
                     }
                     onChange === null || onChange === void 0 ? void 0 : onChange({ name: name, value: image_data });
+                    handleClose === null || handleClose === void 0 ? void 0 : handleClose();
                     return [2 /*return*/];
             }
         });
