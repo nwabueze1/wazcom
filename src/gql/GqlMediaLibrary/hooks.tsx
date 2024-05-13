@@ -125,6 +125,46 @@ export const useMediaUpload = () => {
   };
 };
 
+export const createMediaUpload = () => {
+  return async (
+    client: ApolloClient<NormalizedCacheObject>,
+    mutation: DocumentNode,
+    variables: ImageUpdate & { image: File }
+  ) => {
+    try {
+      const response = await client.mutate({
+        mutation,
+        variables: { ...variables },
+      });
+      if (response?.data?.uploadImage) {
+        return response?.data?.uploadImage;
+      }
+    } catch (error) {
+      errorHandler(error as ApolloError);
+    }
+  };
+};
+
+export const updateMediaUpload = () => {
+  return async (
+    client: ApolloClient<NormalizedCacheObject>,
+    mutation: DocumentNode,
+    variables: ImageUpdate
+  ) => {
+    try {
+      const response = await client.mutate({
+        mutation,
+        variables: { ...variables },
+      });
+      if (response?.data?.updateImage) {
+        return response?.data?.updateImage;
+      }
+    } catch (error) {
+      errorHandler(error as ApolloError);
+    }
+  };
+};
+
 export const useUpdateMediaLibrary = () => {
   return (
     image: Image,

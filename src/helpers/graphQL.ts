@@ -92,39 +92,51 @@ export const GET_S3_IMAGES = gql`
 `;
 
 export const UPLOAD_IMAGE = gql`
-  mutation uploadImage($input: ImageUploadInput!) {
-    uploadImage(input: $input) {
-      id
-      title
-      alternative_text
-      caption
-      url
-      created_at
+  ${CORE_IMAGE_FIELDS}
+  mutation uploadImage(
+    $library_uuid: String!
+    $image: Upload!
+    $folder: String
+    $title: String
+    $caption: String
+    $alternative_text: String
+    $metadata: JSON
+  ) {
+    uploadImage(
+      input: {
+        library_uuid: $library_uuid
+        image: $image
+        folder: $folder
+        title: $title
+        caption: $caption
+        alternative_text: $alternative_text
+        metadata: $metadata
+      }
+    ) {
+      ...CoreImageFields
     }
   }
 `;
 
 export const UPDATE_IMAGE = gql`
+  ${CORE_IMAGE_FIELDS}
   mutation UpdateImage(
-    $id: ID!
+    $uuid: String!
     $title: String
     $caption: String
     $alternative_text: String
-    $url: String
+    $metadata: JSON
   ) {
     updateImage(
-      id: $id
-      title: $title
-      caption: $caption
-      alternative_text: $alternative_text
-      url: $url
+      input: {
+        uuid: $uuid
+        title: $title
+        caption: $caption
+        alternative_text: $alternative_text
+        metadata: $metadata
+      }
     ) {
-      id
-      title
-      alternative_text
-      caption
-      url
-      created_at
+      ...CoreImageFields
     }
   }
 `;

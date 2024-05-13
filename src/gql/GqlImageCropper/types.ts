@@ -1,3 +1,4 @@
+import { GqlMediaSelectorConfigProps } from "../GqlMediaLibrary";
 import { CropperConfig } from "./components/CropImage/types";
 
 export type TScreen = "desktop" | "tablet" | "mobile";
@@ -21,6 +22,10 @@ export type ImageCropperProps = {
   handleClose: () => void;
   onChange?: (data: { name: string; value: any }) => void;
   screenConfig?: Record<TScreen, CropperConfig>;
+  fileMedia?: File;
+  config: Pick<GqlMediaSelectorConfigProps["config"], "client" | "update" | "query" | "upload">;
+  name: string;
+  imageServiceDomain: string;
 };
 
 export type OrientationProps = {

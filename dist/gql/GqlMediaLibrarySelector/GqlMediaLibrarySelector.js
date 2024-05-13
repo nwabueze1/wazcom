@@ -50,11 +50,11 @@ import { createImageSrcset, imageSizes } from "../../io/WysiwygInput/Editor/help
 import { useDownloadImage } from "./hooks/download";
 export var GqlMediaLibrarySelector = function (_a) {
     var _b, _c, _d, _e;
-    var _f = _a.variant, variant = _f === void 0 ? "square" : _f, _g = _a.size, size = _g === void 0 ? "full" : _g, iconType = _a.iconType, width = _a.width, height = _a.height, className = _a.className, classNames = _a.classNames, onChange = _a.onChange, name = _a.name, label = _a.label, _h = _a.showIcons, showIcons = _h === void 0 ? true : _h, _j = _a.showActionsButton, showActionsButton = _j === void 0 ? false : _j, value = _a.value, helperText = _a.helperText, isError = _a.isError, props = __rest(_a, ["variant", "size", "iconType", "width", "height", "className", "classNames", "onChange", "name", "label", "showIcons", "showActionsButton", "value", "helperText", "isError"]);
+    var _f = _a.variant, variant = _f === void 0 ? "square" : _f, _g = _a.size, size = _g === void 0 ? "full" : _g, iconType = _a.iconType, width = _a.width, height = _a.height, className = _a.className, classNames = _a.classNames, onChange = _a.onChange, _h = _a.name, name = _h === void 0 ? "image" : _h, label = _a.label, _j = _a.showIcons, showIcons = _j === void 0 ? true : _j, _k = _a.showActionsButton, showActionsButton = _k === void 0 ? false : _k, value = _a.value, helperText = _a.helperText, isError = _a.isError, _l = _a.imageServiceDomain, imageServiceDomain = _l === void 0 ? "img.wazobia.tech" : _l, props = __rest(_a, ["variant", "size", "iconType", "width", "height", "className", "classNames", "onChange", "name", "label", "showIcons", "showActionsButton", "value", "helperText", "isError", "imageServiceDomain"]);
     var classes = useImageSelectorStyles();
-    var _k = __read(useState(false), 2), setShowIcon = _k[1];
-    var _l = __read(useState(), 2), cropImage = _l[0], setCropImage = _l[1];
-    var _m = __read(useState({ library: false, cropper: false }), 2), tabs = _m[0], setTabs = _m[1];
+    var _m = __read(useState(false), 2), setShowIcon = _m[1];
+    var _o = __read(useState(), 2), cropImage = _o[0], setCropImage = _o[1];
+    var _p = __read(useState({ library: false, cropper: false }), 2), tabs = _p[0], setTabs = _p[1];
     var isOpen = Object.values(tabs).includes(true);
     var downloadImage = useDownloadImage();
     var handleOpen = function (tab) {
@@ -97,7 +97,7 @@ export var GqlMediaLibrarySelector = function (_a) {
                                     height: height,
                                     backgroundRepeat: "no-repeat",
                                     backgroundSize: "cover",
-                                }, onMouseEnter: function () { return setShowIcon(true); }, onMouseLeave: function () { return setShowIcon(false); } }, { children: [(value === null || value === void 0 ? void 0 : value.src) && (_jsx("img", { className: "selector__".concat(variant), src: value === null || value === void 0 ? void 0 : value.src, srcSet: createImageSrcset(value), sizes: imageSizes, width: "100%" })), iconType === "button" && !(value === null || value === void 0 ? void 0 : value.src) ? (_jsx(Button, __assign({ className: clx(classes.icon, isError && classes.imgUploadContainerError), variant: "outlined", onClick: function () {
+                                }, onMouseEnter: function () { return setShowIcon(true); }, onMouseLeave: function () { return setShowIcon(false); } }, { children: [(value === null || value === void 0 ? void 0 : value.src) && (_jsx("img", { className: "selector__".concat(variant), src: value === null || value === void 0 ? void 0 : value.src, srcSet: createImageSrcset(value, false, imageServiceDomain), sizes: imageSizes, width: "100%" })), iconType === "button" && !(value === null || value === void 0 ? void 0 : value.src) ? (_jsx(Button, __assign({ className: clx(classes.icon, isError && classes.imgUploadContainerError), variant: "outlined", onClick: function () {
                                             handleOpen("library");
                                         } }, { children: "Select Image" }))) : (showIcons && (_jsxs("div", __assign({ className: classes.tools }, { children: [_jsx("div", __assign({ className: classes.optionIconContainer }, { children: _jsx(IconButton, __assign({ onClick: function () {
                                                         handleOpen("library");
@@ -105,9 +105,9 @@ export var GqlMediaLibrarySelector = function (_a) {
                     timeout: 500,
                 }, closeAfterTransition: true, onClose: function () {
                     handleClose("all");
-                }, onBackdropClick: function (e) { return e.stopPropagation(); }, className: classes.modal, BackdropComponent: Backdrop, "aria-labelledby": "transition-modal-title", "aria-describedby": "transition-modal-description" }, { children: _jsx(Fade, __assign({ in: isOpen }, { children: _jsxs("div", __assign({ className: classes.wrapper }, { children: [_jsx(GqlMediaLibrary, { config: __assign({}, props.config), onChange: handleSelectImage, name: name, handleClose: function () {
+                }, onBackdropClick: function (e) { return e.stopPropagation(); }, className: classes.modal, BackdropComponent: Backdrop, "aria-labelledby": "transition-modal-title", "aria-describedby": "transition-modal-description" }, { children: _jsx(Fade, __assign({ in: isOpen }, { children: _jsxs("div", __assign({ className: classes.wrapper }, { children: [_jsx(GqlMediaLibrary, { config: __assign({}, props.config), onChange: onChange, name: name, handleClose: function () {
                                     handleClose("all");
-                                }, isSelector: true, library_uuid: props.library_uuid }), tabs.cropper && (_jsx(GqlImageCropper, { open: true, handleClose: function () {
-                                    handleClose("cropper");
-                                }, value: __assign(__assign({}, (cropImage !== null && cropImage !== void 0 ? cropImage : value)), { src: cropImage ? cropImage === null || cropImage === void 0 ? void 0 : cropImage.url : value === null || value === void 0 ? void 0 : value.src }), onChange: handleGenerateImage, screenConfig: props.screenConfig }))] })) })) }))] })));
+                                }, isSelector: true, library_uuid: props.library_uuid, onSelect: handleSelectImage }), tabs.cropper && (_jsx(GqlImageCropper, { name: name, config: props.config, open: true, handleClose: function () {
+                                    handleClose("all");
+                                }, value: __assign(__assign({}, (cropImage !== null && cropImage !== void 0 ? cropImage : value)), { src: cropImage ? cropImage === null || cropImage === void 0 ? void 0 : cropImage.url : value === null || value === void 0 ? void 0 : value.src }), onChange: handleGenerateImage, screenConfig: props.screenConfig, imageServiceDomain: imageServiceDomain }))] })) })) }))] })));
 };

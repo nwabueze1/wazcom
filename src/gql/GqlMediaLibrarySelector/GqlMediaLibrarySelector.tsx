@@ -20,13 +20,14 @@ export const GqlMediaLibrarySelector: FC<GqlMediaLibrarySelectorProps> = ({
   className,
   classNames,
   onChange,
-  name,
+  name = "image",
   label,
   showIcons = true,
   showActionsButton = false,
   value,
   helperText,
   isError,
+  imageServiceDomain = "img.wazobia.tech",
   ...props
 }) => {
   const classes = useImageSelectorStyles();
@@ -121,7 +122,7 @@ export const GqlMediaLibrarySelector: FC<GqlMediaLibrarySelectorProps> = ({
               <img
                 className={`selector__${variant}`}
                 src={value?.src}
-                srcSet={createImageSrcset(value)}
+                srcSet={createImageSrcset(value, false, imageServiceDomain)}
                 sizes={imageSizes}
                 width="100%"
               />
@@ -198,19 +199,22 @@ export const GqlMediaLibrarySelector: FC<GqlMediaLibrarySelectorProps> = ({
           <div className={classes.wrapper}>
             <GqlMediaLibrary
               config={{ ...props.config }}
-              onChange={handleSelectImage}
+              onChange={onChange}
               name={name}
               handleClose={() => {
                 handleClose("all");
               }}
               isSelector={true}
               library_uuid={props.library_uuid}
+              onSelect={handleSelectImage}
             />
             {tabs.cropper && (
               <GqlImageCropper
+                name={name}
+                config={props.config}
                 open={true}
                 handleClose={() => {
-                  handleClose("cropper");
+                  handleClose("all");
                 }}
                 value={{
                   ...(cropImage ?? value),
@@ -218,6 +222,7 @@ export const GqlMediaLibrarySelector: FC<GqlMediaLibrarySelectorProps> = ({
                 }}
                 onChange={handleGenerateImage}
                 screenConfig={props.screenConfig}
+                imageServiceDomain={imageServiceDomain}
               />
             )}
           </div>

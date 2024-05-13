@@ -139,6 +139,60 @@ export var useMediaUpload = function () {
         });
     }); };
 };
+export var createMediaUpload = function () {
+    return function (client, mutation, variables) { return __awaiter(void 0, void 0, void 0, function () {
+        var response, error_2;
+        var _a, _b;
+        return __generator(this, function (_c) {
+            switch (_c.label) {
+                case 0:
+                    _c.trys.push([0, 2, , 3]);
+                    return [4 /*yield*/, client.mutate({
+                            mutation: mutation,
+                            variables: __assign({}, variables),
+                        })];
+                case 1:
+                    response = _c.sent();
+                    if ((_a = response === null || response === void 0 ? void 0 : response.data) === null || _a === void 0 ? void 0 : _a.uploadImage) {
+                        return [2 /*return*/, (_b = response === null || response === void 0 ? void 0 : response.data) === null || _b === void 0 ? void 0 : _b.uploadImage];
+                    }
+                    return [3 /*break*/, 3];
+                case 2:
+                    error_2 = _c.sent();
+                    errorHandler(error_2);
+                    return [3 /*break*/, 3];
+                case 3: return [2 /*return*/];
+            }
+        });
+    }); };
+};
+export var updateMediaUpload = function () {
+    return function (client, mutation, variables) { return __awaiter(void 0, void 0, void 0, function () {
+        var response, error_3;
+        var _a, _b;
+        return __generator(this, function (_c) {
+            switch (_c.label) {
+                case 0:
+                    _c.trys.push([0, 2, , 3]);
+                    return [4 /*yield*/, client.mutate({
+                            mutation: mutation,
+                            variables: __assign({}, variables),
+                        })];
+                case 1:
+                    response = _c.sent();
+                    if ((_a = response === null || response === void 0 ? void 0 : response.data) === null || _a === void 0 ? void 0 : _a.updateImage) {
+                        return [2 /*return*/, (_b = response === null || response === void 0 ? void 0 : response.data) === null || _b === void 0 ? void 0 : _b.updateImage];
+                    }
+                    return [3 /*break*/, 3];
+                case 2:
+                    error_3 = _c.sent();
+                    errorHandler(error_3);
+                    return [3 /*break*/, 3];
+                case 3: return [2 /*return*/];
+            }
+        });
+    }); };
+};
 export var useUpdateMediaLibrary = function () {
     return function (image, images, setImages, setMediaIndex, type, update) {
         if (type === void 0) { type = "add"; }
@@ -200,7 +254,7 @@ export var getUniqueImages = function (images) {
     return newImages;
 };
 export var mutateMedia = function (client, mutation, media, updateMediaLibrary, variables) { return __awaiter(void 0, void 0, void 0, function () {
-    var error_2;
+    var error_4;
     return __generator(this, function (_a) {
         switch (_a.label) {
             case 0:
@@ -214,8 +268,8 @@ export var mutateMedia = function (client, mutation, media, updateMediaLibrary, 
                 updateMediaLibrary();
                 return [3 /*break*/, 3];
             case 2:
-                error_2 = _a.sent();
-                errorHandler(error_2);
+                error_4 = _a.sent();
+                errorHandler(error_4);
                 return [3 /*break*/, 3];
             case 3: return [2 /*return*/];
         }

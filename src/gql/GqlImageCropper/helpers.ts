@@ -1,3 +1,4 @@
+import { calculateCropCoordinates } from "../../io/WysiwygInput/Editor/helpers";
 import { ImageCropperValue, TScreen } from "./types";
 
 export const parseImageCropperValue = (
@@ -50,3 +51,50 @@ const parseStoredCoordinates = (
 };
 
 export const tabs = ["Image Properties", "Crop & Resize"];
+
+export const hasImageServiceUrl = (src: string = '') => {
+    if (
+      src.includes('img.wazobia.tech') ||
+      src.includes('images.twistedfood.co.uk') ||
+      src.includes("images.vt.co") || 
+      src.includes("dolos.hivedeck.com")
+    ) {
+      return true;
+    }
+    return false;
+  };
+
+export const generateModifiedSrc = (
+    src: string,
+    width: number,
+    coordinates: { desktop: Record<'left' | 'top' | 'right' | 'bottom', number> },
+    imageServiceDomain: string
+  ) => {
+    let imageUrl = src;
+  
+    if (src.includes('unsplash')) {
+      const indexOfQuestionMark = src.indexOf('?');
+      if (indexOfQuestionMark !== -1) {
+        imageUrl = src.substring(0, indexOfQuestionMark);
+      }
+    }
+  
+    const dolosUrl =
+      hasImageServiceUrl(imageUrl) || src.includes('unsplash')
+        ? ''
+        : `https://${imageServiceDomain}/`;
+  
+    const validWidth = width === 0 ? 1024 : width;
+    const queryParams = `tr=w-${Math.min(
+      validWidth,
+      1024
+    )}${calculateCropCoordinates(Math.min(validWidth, 1024), coordinates.desktop)}`;
+  
+    let finalUrl = `${dolosUrl}${imageUrl}`;
+    if (!imageUrl.includes('tr=w-')) {
+      finalUrl += imageUrl.includes('?') ? '&' : '?';
+      finalUrl += queryParams;
+    }
+  
+    return finalUrl;
+  };

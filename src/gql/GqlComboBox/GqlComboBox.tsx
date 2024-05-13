@@ -62,7 +62,7 @@ export const GqlComboBox = memo(
       if (typeof postFetchHook === 'function') {
         postFetchHook(options);
       }
-    }, [options, postFetchHook]);
+    }, [options]);
 
     useEffect(() => {
       getData();

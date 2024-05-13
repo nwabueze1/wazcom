@@ -149,7 +149,7 @@ export var GqlComboBox = memo(function (_a) {
         if (typeof postFetchHook === 'function') {
             postFetchHook(options);
         }
-    }, [options, postFetchHook]);
+    }, [options]);
     useEffect(function () {
         getData();
     }, [query]);
