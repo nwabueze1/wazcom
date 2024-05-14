@@ -110,5 +110,5 @@ export var Scheduler = function (_a) {
                         } }), _jsx("p", __assign({ className: classes.timeDivider }, { children: "TO" })), _jsx(TimeInput, { name: "end_time", value: dayDelimiter + " " + schedule.end_time, className: classes.timeInput, onChange: function (_a) {
                             var value = _a.value;
                             return handleScheduleChange("end_time", value);
-                        } })] })), _jsx(Button, __assign({ className: classes.scheduleButton, onClick: handleAdd }, { children: "Add" }))] })));
+                        } })] })), _jsx(Button, __assign({ className: classes.scheduleButton, onClick: handleAdd, type: "button" }, { children: "Add" }))] })));
 };

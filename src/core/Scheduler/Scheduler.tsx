@@ -118,7 +118,7 @@ export const Scheduler: React.FC<SchedulerProps> = ({
         />
       </div>
 
-      <Button className={classes.scheduleButton} onClick={handleAdd}>
+      <Button className={classes.scheduleButton} onClick={handleAdd} type={"button"}>
         Add
       </Button>
     </div>
