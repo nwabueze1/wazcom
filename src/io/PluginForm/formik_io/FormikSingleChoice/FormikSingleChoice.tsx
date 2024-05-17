@@ -19,8 +19,13 @@ export const FormikSingleChoice: FC<Omit<FormikRadioOrCheckBoxPropsType, "childr
   const errorMessage = formikProps?.errors?.[props.name];
   const paletteStyles = usePalletteStyles(props?.palette as FormPallette);
   const radioInputClass = {
-    radioButtonInput: classNames?.radioButtonInput,
-    label: clx(classes.checkBoxLabel, paletteStyles?.input, classNames?.label),
+    radioButtonInput: clx(classes.radioButtonInput, classNames?.radioButtonInput),
+    label: clx(
+      classes.checkBoxLabel,
+      classes.radioInputLabel,
+      paletteStyles?.input,
+      classNames?.label,
+    ),
     input: classNames?.input,
     root: clx(paletteStyles?.root, (classNames as any)?.root),
   };

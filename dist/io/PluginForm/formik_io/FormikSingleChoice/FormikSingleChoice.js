@@ -33,8 +33,8 @@ export var FormikSingleChoice = function (_a) {
     var errorMessage = (_d = formikProps === null || formikProps === void 0 ? void 0 : formikProps.errors) === null || _d === void 0 ? void 0 : _d[props.name];
     var paletteStyles = usePalletteStyles(props === null || props === void 0 ? void 0 : props.palette);
     var radioInputClass = {
-        radioButtonInput: classNames === null || classNames === void 0 ? void 0 : classNames.radioButtonInput,
-        label: clx(classes.checkBoxLabel, paletteStyles === null || paletteStyles === void 0 ? void 0 : paletteStyles.input, classNames === null || classNames === void 0 ? void 0 : classNames.label),
+        radioButtonInput: clx(classes.radioButtonInput, classNames === null || classNames === void 0 ? void 0 : classNames.radioButtonInput),
+        label: clx(classes.checkBoxLabel, classes.radioInputLabel, paletteStyles === null || paletteStyles === void 0 ? void 0 : paletteStyles.input, classNames === null || classNames === void 0 ? void 0 : classNames.label),
         input: classNames === null || classNames === void 0 ? void 0 : classNames.input,
         root: clx(paletteStyles === null || paletteStyles === void 0 ? void 0 : paletteStyles.root, classNames === null || classNames === void 0 ? void 0 : classNames.root),
     };
