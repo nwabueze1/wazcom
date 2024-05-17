@@ -19,7 +19,7 @@ export type ImageCropperValue = {
 export type ImageCropperProps = {
   open: boolean;
   value: ImageCropperValue;
-  handleClose: () => void;
+  handleClose: (args?: string) => void;
   onChange?: (data: { name: string; value: any }) => void;
   screenConfig?: Record<TScreen, CropperConfig>;
   fileMedia?: File;

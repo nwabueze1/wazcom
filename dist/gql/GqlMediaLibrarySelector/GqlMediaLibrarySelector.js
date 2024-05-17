@@ -73,10 +73,10 @@ export var GqlMediaLibrarySelector = function (_a) {
         handleOpen("cropper");
     };
     var handleGenerateImage = function (_a) {
-        var _b;
+        var _b, _c, _d, _e;
         var value = _a.value;
         if ((_b = value === null || value === void 0 ? void 0 : value.src) === null || _b === void 0 ? void 0 : _b.includes("unsplash"))
-            downloadImage(props.config.client, props.config.download.name, "unsplash", value === null || value === void 0 ? void 0 : value.download_url);
+            downloadImage((_c = props === null || props === void 0 ? void 0 : props.config) === null || _c === void 0 ? void 0 : _c.client, (_e = (_d = props === null || props === void 0 ? void 0 : props.config) === null || _d === void 0 ? void 0 : _d.download) === null || _e === void 0 ? void 0 : _e.name, "unsplash", value === null || value === void 0 ? void 0 : value.download_url);
         value === null || value === void 0 ? true : delete value.download_url;
         setCropImage(undefined);
         onChange === null || onChange === void 0 ? void 0 : onChange({ name: name !== null && name !== void 0 ? name : "image", value: value });
@@ -107,7 +107,7 @@ export var GqlMediaLibrarySelector = function (_a) {
                     handleClose("all");
                 }, onBackdropClick: function (e) { return e.stopPropagation(); }, className: classes.modal, BackdropComponent: Backdrop, "aria-labelledby": "transition-modal-title", "aria-describedby": "transition-modal-description" }, { children: _jsx(Fade, __assign({ in: isOpen }, { children: _jsxs("div", __assign({ className: classes.wrapper }, { children: [_jsx(GqlMediaLibrary, { config: __assign({}, props.config), onChange: onChange, name: name, handleClose: function () {
                                     handleClose("all");
-                                }, isSelector: true, library_uuid: props.library_uuid, onSelect: handleSelectImage }), tabs.cropper && (_jsx(GqlImageCropper, { name: name, config: props.config, open: true, handleClose: function () {
-                                    handleClose("all");
+                                }, isSelector: true, library_uuid: props.library_uuid, onSelect: handleSelectImage }), tabs.cropper && (_jsx(GqlImageCropper, { name: name, config: props.config, open: true, handleClose: function (arg) {
+                                    handleClose(arg !== null && arg !== void 0 ? arg : "all");
                                 }, value: __assign(__assign({}, (cropImage !== null && cropImage !== void 0 ? cropImage : value)), { src: cropImage ? cropImage === null || cropImage === void 0 ? void 0 : cropImage.url : value === null || value === void 0 ? void 0 : value.src }), onChange: handleGenerateImage, screenConfig: props.screenConfig, imageServiceDomain: imageServiceDomain }))] })) })) }))] })));
 };
