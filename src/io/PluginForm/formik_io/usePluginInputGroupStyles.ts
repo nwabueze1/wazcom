@@ -11,13 +11,13 @@ export const usePluginInputGroup = makeStyles((theme: Theme) => ({
   fieldSet: {
     margin: 0,
     borderRadius: 4,
-   
   },
   legend: {
     color: theme.design.colors.waz_grey,
     marginTop: theme.spacing(0.5),
     fontSize: theme.typography.fontSize,
     textTransform: "uppercase",
+    marginBottom: theme.spacing(1),
   },
   radioButton: {
     accentColor: theme.design.colors.waz_primary500,
@@ -120,5 +120,15 @@ export const usePluginInputGroup = makeStyles((theme: Theme) => ({
   radioButtonLabel: {
     cursor: "pointer",
     marginBottom: 4,
+  },
+  radioButtonInput: {
+    left: 5,
+  },
+  radioInputLabel: {
+    marginLeft: 7.4,
+    marginTop: 4,
+  },
+  ratingLabel: {
+    marginTop: "0px !important",
   },
 }));

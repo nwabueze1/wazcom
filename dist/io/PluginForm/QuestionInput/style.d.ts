@@ -1,1 +1,1 @@
-export declare const useQuestionInputStyles: (props?: any) => import("@mui/styles").ClassNameMap<"label" | "legend" | "inputContainer" | "fieldSet" | "addressFieldSet" | "errorBorder" | "ratingLabel">;
+export declare const useQuestionInputStyles: (props?: any) => import("@mui/styles").ClassNameMap<"label" | "legend" | "inputContainer" | "fieldSet" | "ratingLabel" | "addressFieldSet" | "errorBorder">;

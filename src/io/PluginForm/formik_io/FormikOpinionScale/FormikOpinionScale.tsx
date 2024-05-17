@@ -4,6 +4,7 @@ import { FormikOpinionInputPropsType } from "./type";
 import { usePalletteStyles } from "./usePalletteStyles";
 import { FormPallette } from "../../type";
 import clx from "classnames";
+import { usePluginInputGroup } from "../usePluginInputGroupStyles";
 
 export const FormikOpinionScale: FC<FormikOpinionInputPropsType> = ({
   formikProps,
@@ -16,6 +17,7 @@ export const FormikOpinionScale: FC<FormikOpinionInputPropsType> = ({
   const handleChange = (e: { name: string; value: number }) => {
     formikProps?.setFieldValue(name, Number(e.value));
   };
+  const classes = usePluginInputGroup();
 
   return (
     <OpinionScale
@@ -23,7 +25,7 @@ export const FormikOpinionScale: FC<FormikOpinionInputPropsType> = ({
       {...props}
       onChange={handleChange}
       value={formikProps?.values?.[name]}
-      label={`${props?.placeholder} ${isRequired && "*"}`}
+      label={`${props?.placeholder} ${isRequired ? "*" : ""}`}
       isError={error as boolean}
       helperText={error as string}
       classNames={{
@@ -31,7 +33,7 @@ export const FormikOpinionScale: FC<FormikOpinionInputPropsType> = ({
         containedBox: clx(pallettStyles?.container, props?.classNames?.containedBox),
         outlinedBox: clx(pallettStyles?.container, props?.classNames?.outlinedBox),
         boxText: clx(pallettStyles?.text, props?.classNames?.boxText),
-        label: clx(pallettStyles?.label, props?.classNames?.label),
+        label: clx(classes.ratingLabel, pallettStyles?.label, props?.classNames?.label),
       }}
     />
   );

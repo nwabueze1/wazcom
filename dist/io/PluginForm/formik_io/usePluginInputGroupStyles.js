@@ -15,6 +15,7 @@ export var usePluginInputGroup = makeStyles(function (theme) { return ({
         marginTop: theme.spacing(0.5),
         fontSize: theme.typography.fontSize,
         textTransform: "uppercase",
+        marginBottom: theme.spacing(1),
     },
     radioButton: {
         accentColor: theme.design.colors.waz_primary500,
@@ -117,5 +118,15 @@ export var usePluginInputGroup = makeStyles(function (theme) { return ({
     radioButtonLabel: {
         cursor: "pointer",
         marginBottom: 4,
+    },
+    radioButtonInput: {
+        left: 5,
+    },
+    radioInputLabel: {
+        marginLeft: 7.4,
+        marginTop: 4,
+    },
+    ratingLabel: {
+        marginTop: "0px !important",
     },
 }); });

@@ -4,6 +4,7 @@ import { FormikRatingInputPropsType } from "./type";
 import { FormPallette } from "../../type";
 import clx from "classnames";
 import { usePallette } from "./usePallette";
+import { usePluginInputGroup } from "../usePluginInputGroupStyles";
 
 export const FormikRatingInput: FC<FormikRatingInputPropsType> = ({
   isRequired,
@@ -15,6 +16,7 @@ export const FormikRatingInput: FC<FormikRatingInputPropsType> = ({
 }) => {
   const isInvalid = formikProps?.touched?.[name] && formikProps?.errors?.[name];
   const palletteStyles = usePallette(props?.palette as FormPallette);
+  const classes = usePluginInputGroup();
 
   const handleChange = (e: { name: string; value: number }) => {
     formikProps?.setFieldValue(name, Number(e.value));
@@ -29,10 +31,10 @@ export const FormikRatingInput: FC<FormikRatingInputPropsType> = ({
       onChange={handleChange}
       isError={isInvalid as boolean}
       helperText={isInvalid as string}
-      label={`${label} ${isRequired && "*"}`}
+      label={`${label} ${isRequired ? "*" : ""}`}
       classNames={{
         ...props?.classNames,
-        label: clx(palletteStyles?.label, props?.classNames?.label),
+        label: clx(classes.ratingLabel, palletteStyles?.label, props?.classNames?.label),
         rating: clx(palletteStyles?.rating, props?.classNames?.rating),
       }}
     />
