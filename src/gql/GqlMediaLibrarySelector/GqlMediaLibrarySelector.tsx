@@ -57,8 +57,8 @@ export const GqlMediaLibrarySelector: FC<GqlMediaLibrarySelectorProps> = ({
   const handleGenerateImage = ({ value }: { name: string; value: any }) => {
     if (value?.src?.includes("unsplash"))
       downloadImage(
-        props.config.client,
-        props.config.download.name,
+        props?.config?.client,
+        props?.config?.download?.name,
         "unsplash",
         value?.download_url,
       );
@@ -213,8 +213,8 @@ export const GqlMediaLibrarySelector: FC<GqlMediaLibrarySelectorProps> = ({
                 name={name}
                 config={props.config}
                 open={true}
-                handleClose={() => {
-                  handleClose("all");
+                handleClose={(arg) => {
+                  handleClose(arg ?? "all");
                 }}
                 value={{
                   ...(cropImage ?? value),
