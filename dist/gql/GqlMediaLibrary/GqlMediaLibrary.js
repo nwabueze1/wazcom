@@ -365,7 +365,7 @@ export var GqlMediaLibrary = function (_a) {
                     return [2 /*return*/];
             }
         });
-    }); }, [activeMedia, loading, library_uuid]);
+    }); }, [activeMedia, loading]);
     var handleMediaUpdate = useCallback(function (variables) { return __awaiter(void 0, void 0, void 0, function () {
         var media;
         return __generator(this, function (_a) {

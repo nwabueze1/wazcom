@@ -365,7 +365,7 @@ export const GqlMediaLibrary: FC<GqlMediaLibraryProps> = ({
         },
       );
     },
-    [activeMedia, loading, library_uuid],
+    [activeMedia, loading],
   );
 
   const handleMediaUpdate = useCallback(
