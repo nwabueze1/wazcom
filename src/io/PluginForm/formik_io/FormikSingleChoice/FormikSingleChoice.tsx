@@ -15,8 +15,8 @@ export const FormikSingleChoice: FC<Omit<FormikRadioOrCheckBoxPropsType, "childr
   ...props
 }) => {
   const classes = usePluginInputGroup();
-  const isError = formikProps?.touched?.[props.name] && formikProps?.errors?.[props.name];
-  const errorMessage = formikProps?.errors?.[props.name];
+  const isError = formikProps?.touched?.[props?.name] && formikProps?.errors?.[props?.name];
+  const errorMessage = formikProps?.errors?.[props?.name];
   const paletteStyles = usePalletteStyles(props?.palette as FormPallette);
   const radioInputClass = {
     radioButtonInput: clx(classes.radioButtonInput, classNames?.radioButtonInput),
@@ -31,7 +31,7 @@ export const FormikSingleChoice: FC<Omit<FormikRadioOrCheckBoxPropsType, "childr
   };
 
   const renderOptions = () =>
-    options.map(({ label, value }, index) => {
+    options?.map(({ label, value }, index) => {
       const handleChange = (e: { name: string; value: any }) => {
         formikProps?.setFieldValue(props.name, e.value);
       };

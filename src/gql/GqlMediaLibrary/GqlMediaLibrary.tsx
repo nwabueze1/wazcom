@@ -45,7 +45,7 @@ export const GqlMediaLibrary: FC<GqlMediaLibraryProps> = ({
   header,
   library_uuid,
   imageServiceDomain = "img.wazobia.tech",
-  onSelect
+  onSelect,
 }) => {
   const { client, upload, update, remove, query, unsplash, instagram, pexels } = config;
   const refs = { fileRef: useRef<any>(), listInnerRef: useRef<any>() };
@@ -659,10 +659,12 @@ export const GqlMediaLibrary: FC<GqlMediaLibraryProps> = ({
 
   return (
     <div className={classes.base}>
-      {header && <header className={classes.header}>
-        {header}
-        {!isSelector && <div className={clx(classes.mediaTabs)}>{displayMediaTabs()}</div>}
-      </header>}
+      {header && (
+        <header className={classes.header}>
+          {header}
+          {!isSelector && <div className={clx(classes.mediaTabs)}>{displayMediaTabs()}</div>}
+        </header>
+      )}
       {displayMediaLibrary()}
       {showCropper && imageUrl && (
         <GqlImageCropper
@@ -678,8 +680,8 @@ export const GqlMediaLibrary: FC<GqlMediaLibraryProps> = ({
           }}
           fileMedia={fileMedia}
           handleClose={() => {
-            handleClose?.()
-            setShowCropper(false)
+            handleClose?.();
+            setShowCropper(false);
           }}
           onChange={onChange}
           imageServiceDomain={imageServiceDomain}

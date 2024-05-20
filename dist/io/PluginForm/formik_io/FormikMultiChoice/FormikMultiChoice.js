@@ -54,15 +54,15 @@ export var FormikMultiChoice = function (_a) {
     var _b, _c, _d;
     var className = _a.className, classNames = _a.classNames, isRequired = _a.isRequired, options = _a.options, formikProps = _a.formikProps, props = __rest(_a, ["className", "classNames", "isRequired", "options", "formikProps"]);
     var classes = usePluginInputGroup();
-    var isError = ((_b = formikProps === null || formikProps === void 0 ? void 0 : formikProps.touched) === null || _b === void 0 ? void 0 : _b[props.name]) && ((_c = formikProps === null || formikProps === void 0 ? void 0 : formikProps.errors) === null || _c === void 0 ? void 0 : _c[props.name]);
-    var errorMessage = (_d = formikProps === null || formikProps === void 0 ? void 0 : formikProps.errors) === null || _d === void 0 ? void 0 : _d[props.name];
+    var isError = ((_b = formikProps === null || formikProps === void 0 ? void 0 : formikProps.touched) === null || _b === void 0 ? void 0 : _b[props === null || props === void 0 ? void 0 : props.name]) && ((_c = formikProps === null || formikProps === void 0 ? void 0 : formikProps.errors) === null || _c === void 0 ? void 0 : _c[props === null || props === void 0 ? void 0 : props.name]);
+    var errorMessage = (_d = formikProps === null || formikProps === void 0 ? void 0 : formikProps.errors) === null || _d === void 0 ? void 0 : _d[props === null || props === void 0 ? void 0 : props.name];
     var palletteStyles = usePalletteStyles(props === null || props === void 0 ? void 0 : props.pallette);
     var renderOptions = function () {
-        return options.map(function (option, index) {
+        return options === null || options === void 0 ? void 0 : options.map(function (option, index) {
             var _a, _b, _c;
-            var id = props.name + option.value;
-            var hasValue = props.multiple
-                ? (_b = (_a = formikProps === null || formikProps === void 0 ? void 0 : formikProps.values) === null || _a === void 0 ? void 0 : _a[props === null || props === void 0 ? void 0 : props.name]) === null || _b === void 0 ? void 0 : _b.includes(option.value)
+            var id = (props === null || props === void 0 ? void 0 : props.name) + (option === null || option === void 0 ? void 0 : option.value);
+            var hasValue = (props === null || props === void 0 ? void 0 : props.multiple)
+                ? (_b = (_a = formikProps === null || formikProps === void 0 ? void 0 : formikProps.values) === null || _a === void 0 ? void 0 : _a[props === null || props === void 0 ? void 0 : props.name]) === null || _b === void 0 ? void 0 : _b.includes(option === null || option === void 0 ? void 0 : option.value)
                 : (_c = formikProps === null || formikProps === void 0 ? void 0 : formikProps.values) === null || _c === void 0 ? void 0 : _c[props === null || props === void 0 ? void 0 : props.name];
             var handleChange = function (e) {
                 var _a, _b;
@@ -76,7 +76,7 @@ export var FormikMultiChoice = function (_a) {
                     formikProps === null || formikProps === void 0 ? void 0 : formikProps.setFieldValue(props.name, values);
                 }
             };
-            return (_jsx(CheckBoxInput, { onChange: handleChange, name: props.name, value: hasValue, id: id, onBlur: formikProps === null || formikProps === void 0 ? void 0 : formikProps.handleBlur, classNames: __assign(__assign({}, classNames), { checkBoxInput: clx(classes.checkBox, classNames === null || classNames === void 0 ? void 0 : classNames.checkboxInput), label: clx(classes.checkBoxLabel, palletteStyles === null || palletteStyles === void 0 ? void 0 : palletteStyles.input, classNames === null || classNames === void 0 ? void 0 : classNames.label), input: clx(palletteStyles === null || palletteStyles === void 0 ? void 0 : palletteStyles.input, classNames === null || classNames === void 0 ? void 0 : classNames.input), root: clx(palletteStyles === null || palletteStyles === void 0 ? void 0 : palletteStyles.root, classNames === null || classNames === void 0 ? void 0 : classNames.root) }), label: option.label, className: clx(classes.checkboxInputOptionContainer, classNames === null || classNames === void 0 ? void 0 : classNames.optionContainer) }, index));
+            return (_jsx(CheckBoxInput, { onChange: handleChange, name: props === null || props === void 0 ? void 0 : props.name, value: hasValue, id: id, onBlur: formikProps === null || formikProps === void 0 ? void 0 : formikProps.handleBlur, classNames: __assign(__assign({}, classNames), { checkBoxInput: clx(classes.checkBox, classNames === null || classNames === void 0 ? void 0 : classNames.checkboxInput), label: clx(classes.checkBoxLabel, palletteStyles === null || palletteStyles === void 0 ? void 0 : palletteStyles.input, classNames === null || classNames === void 0 ? void 0 : classNames.label), input: clx(palletteStyles === null || palletteStyles === void 0 ? void 0 : palletteStyles.input, classNames === null || classNames === void 0 ? void 0 : classNames.input), root: clx(palletteStyles === null || palletteStyles === void 0 ? void 0 : palletteStyles.root, classNames === null || classNames === void 0 ? void 0 : classNames.root) }), label: option.label, className: clx(classes.checkboxInputOptionContainer, classNames === null || classNames === void 0 ? void 0 : classNames.optionContainer) }, index));
         });
     };
     return (_jsxs("div", __assign({ className: className }, { children: [_jsxs("div", __assign({ className: clx(classes.fieldSet, isError && "error", classNames === null || classNames === void 0 ? void 0 : classNames.fieldset) }, { children: [_jsxs("p", __assign({ className: clx(classes.legend, palletteStyles === null || palletteStyles === void 0 ? void 0 : palletteStyles.label, classNames === null || classNames === void 0 ? void 0 : classNames.legend) }, { children: [props.placeholder, " ", isRequired && _jsx("sup", { children: "*" })] })), renderOptions()] })), isError && errorMessage && (_jsx("span", __assign({ className: clx(classes.errorMessage, classNames === null || classNames === void 0 ? void 0 : classNames.errorMessage) }, { children: errorMessage })))] })));

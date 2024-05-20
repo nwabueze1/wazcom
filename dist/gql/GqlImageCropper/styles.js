@@ -97,6 +97,8 @@ export var useImageCropperStyles = makeStyles(function (theme) { return ({
         fontSize: theme.typography.fontSize + 2,
         fontWeight: "".concat(theme.typography.fontWeightRegular, " !important"),
         lineHeight: "24px",
+        width: "auto",
+        flexWrap: "nowrap",
     },
     featureImageDialog: {
         display: "inline-flex",

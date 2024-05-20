@@ -99,6 +99,8 @@ export const useImageCropperStyles = makeStyles((theme: Theme) => ({
     fontSize: theme.typography.fontSize + 2,
     fontWeight: `${theme.typography.fontWeightRegular} !important`,
     lineHeight: "24px",
+    width: "auto",
+    flexWrap: "nowrap",
   },
   featureImageDialog: {
     display: "inline-flex",

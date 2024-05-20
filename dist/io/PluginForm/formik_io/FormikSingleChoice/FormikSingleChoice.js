@@ -29,8 +29,8 @@ export var FormikSingleChoice = function (_a) {
     var _b, _c, _d;
     var className = _a.className, classNames = _a.classNames, isRequired = _a.isRequired, options = _a.options, formikProps = _a.formikProps, props = __rest(_a, ["className", "classNames", "isRequired", "options", "formikProps"]);
     var classes = usePluginInputGroup();
-    var isError = ((_b = formikProps === null || formikProps === void 0 ? void 0 : formikProps.touched) === null || _b === void 0 ? void 0 : _b[props.name]) && ((_c = formikProps === null || formikProps === void 0 ? void 0 : formikProps.errors) === null || _c === void 0 ? void 0 : _c[props.name]);
-    var errorMessage = (_d = formikProps === null || formikProps === void 0 ? void 0 : formikProps.errors) === null || _d === void 0 ? void 0 : _d[props.name];
+    var isError = ((_b = formikProps === null || formikProps === void 0 ? void 0 : formikProps.touched) === null || _b === void 0 ? void 0 : _b[props === null || props === void 0 ? void 0 : props.name]) && ((_c = formikProps === null || formikProps === void 0 ? void 0 : formikProps.errors) === null || _c === void 0 ? void 0 : _c[props === null || props === void 0 ? void 0 : props.name]);
+    var errorMessage = (_d = formikProps === null || formikProps === void 0 ? void 0 : formikProps.errors) === null || _d === void 0 ? void 0 : _d[props === null || props === void 0 ? void 0 : props.name];
     var paletteStyles = usePalletteStyles(props === null || props === void 0 ? void 0 : props.palette);
     var radioInputClass = {
         radioButtonInput: clx(classes.radioButtonInput, classNames === null || classNames === void 0 ? void 0 : classNames.radioButtonInput),
@@ -39,7 +39,7 @@ export var FormikSingleChoice = function (_a) {
         root: clx(paletteStyles === null || paletteStyles === void 0 ? void 0 : paletteStyles.root, classNames === null || classNames === void 0 ? void 0 : classNames.root),
     };
     var renderOptions = function () {
-        return options.map(function (_a, index) {
+        return options === null || options === void 0 ? void 0 : options.map(function (_a, index) {
             var _b;
             var label = _a.label, value = _a.value;
             var handleChange = function (e) {
