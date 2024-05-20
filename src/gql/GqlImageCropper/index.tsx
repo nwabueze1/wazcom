@@ -22,7 +22,7 @@ export const GqlImageCropper: FC<ImageCropperProps> = ({
   fileMedia,
   config,
   name,
-  imageServiceDomain
+  imageServiceDomain,
 }) => {
   const classes = useImageCropperStyles();
   const [activeTab, setActiveTab] = useState(0);
@@ -132,7 +132,12 @@ export const GqlImageCropper: FC<ImageCropperProps> = ({
 
     const image_data = {
       ...generatedValue,
-      src: generateModifiedSrc(imageUrl, dimensions.width, generatedValue.coordinates, imageServiceDomain),
+      src: generateModifiedSrc(
+        imageUrl,
+        dimensions.width,
+        generatedValue.coordinates,
+        imageServiceDomain,
+      ),
       original: imageUrl,
     };
 
@@ -156,7 +161,7 @@ export const GqlImageCropper: FC<ImageCropperProps> = ({
     }
 
     onChange?.({ name, value: image_data });
-    handleClose?.()
+    handleClose?.("all");
   };
 
   return (
@@ -166,7 +171,10 @@ export const GqlImageCropper: FC<ImageCropperProps> = ({
           <div className={classes.imageDialogHeadingContainer}>
             <div className={classes.imageDialogHeading}>
               <p className={classes.imageDialogTitle}>Edit Image</p>
-              <FaTimes className={classes.imageDialogIcon} onClick={handleClose} />
+              <FaTimes
+                className={classes.imageDialogIcon}
+                onClick={() => handleClose?.("cropper")}
+              />
             </div>
           </div>
 
@@ -222,7 +230,12 @@ export const GqlImageCropper: FC<ImageCropperProps> = ({
               {activeTab === 1 && (
                 <CropAndSize screenType={value.screenType} handleChange={handleValueChange} />
               )}
-              <Button onClick={handleGenerate} className={clx(classes.btn)} isLoading={loading}>
+              <Button
+                onClick={handleGenerate}
+                className={clx(classes.btn)}
+                isLoading={loading}
+                type={"button"}
+              >
                 Apply Changes
               </Button>
             </div>
