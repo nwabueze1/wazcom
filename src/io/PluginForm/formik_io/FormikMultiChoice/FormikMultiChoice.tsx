@@ -15,15 +15,15 @@ export const FormikMultiChoice: FC<FormikCheckBoxInputPropsType> = ({
   ...props
 }) => {
   const classes = usePluginInputGroup();
-  const isError = formikProps?.touched?.[props.name] && formikProps?.errors?.[props.name];
-  const errorMessage = formikProps?.errors?.[props.name];
+  const isError = formikProps?.touched?.[props?.name] && formikProps?.errors?.[props?.name];
+  const errorMessage = formikProps?.errors?.[props?.name];
   const palletteStyles = usePalletteStyles(props?.pallette as FormPallette);
 
   const renderOptions = () =>
-    options.map((option, index) => {
-      const id = props.name + option.value;
-      const hasValue: boolean = props.multiple
-        ? formikProps?.values?.[props?.name]?.includes(option.value)
+    options?.map((option, index) => {
+      const id = props?.name + option?.value;
+      const hasValue: boolean = props?.multiple
+        ? formikProps?.values?.[props?.name]?.includes(option?.value)
         : formikProps?.values?.[props?.name];
 
       const handleChange = (e: { name: string; value: boolean }) => {
@@ -42,7 +42,7 @@ export const FormikMultiChoice: FC<FormikCheckBoxInputPropsType> = ({
         <CheckBoxInput
           key={index}
           onChange={handleChange}
-          name={props.name}
+          name={props?.name}
           value={hasValue}
           id={id}
           onBlur={formikProps?.handleBlur}

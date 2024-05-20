@@ -365,7 +365,7 @@ export var GqlMediaLibrary = function (_a) {
                     return [2 /*return*/];
             }
         });
-    }); }, [activeMedia, loading]);
+    }); }, [activeMedia, loading, library_uuid]);
     var handleMediaUpdate = useCallback(function (variables) { return __awaiter(void 0, void 0, void 0, function () {
         var media;
         return __generator(this, function (_a) {
@@ -482,7 +482,7 @@ export var GqlMediaLibrary = function (_a) {
         };
         reader.readAsDataURL(media);
     };
-    return (_jsxs("div", __assign({ className: classes.base }, { children: [header && _jsxs("header", __assign({ className: classes.header }, { children: [header, !isSelector && _jsx("div", __assign({ className: clx(classes.mediaTabs) }, { children: displayMediaTabs() }))] })), displayMediaLibrary(), showCropper && imageUrl && (_jsx(GqlImageCropper, { name: name, config: config, open: true, value: {
+    return (_jsxs("div", __assign({ className: classes.base }, { children: [header && (_jsxs("header", __assign({ className: classes.header }, { children: [header, !isSelector && _jsx("div", __assign({ className: clx(classes.mediaTabs) }, { children: displayMediaTabs() }))] }))), displayMediaLibrary(), showCropper && imageUrl && (_jsx(GqlImageCropper, { name: name, config: config, open: true, value: {
                     src: imageUrl === null || imageUrl === void 0 ? void 0 : imageUrl.src,
                     name: imageUrl === null || imageUrl === void 0 ? void 0 : imageUrl.name,
                     description: imageUrl === null || imageUrl === void 0 ? void 0 : imageUrl.caption,
