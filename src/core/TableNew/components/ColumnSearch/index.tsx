@@ -1,32 +1,16 @@
 import { FC } from "react";
-import { TableColumn, TableFilter } from "../../types";
 import { useColumnSearchStyles } from "./styles";
 import { SelectInput, TextInput } from "../../../../io";
-import { Button } from "../../../Button";
 import { useTheme } from "@mui/material";
+import { ColumnSearchProps } from "./type";
 
-type ColumnSearchProps = {
-  columns: TableColumn[];
-  onChange?: (e: { name: string; value: any }) => void;
-  onSearchBtnClick?: () => void;
-  search: TableFilter;
-  loading: boolean;
-};
-
-export const ColumnSearch: FC<ColumnSearchProps> = ({
-  columns,
-  search,
-  loading,
-  onChange,
-  onSearchBtnClick,
-}) => {
+export const ColumnSearch: FC<ColumnSearchProps> = ({ columns, search, onChange }) => {
   const classes = useColumnSearchStyles();
   const theme = useTheme();
-  const isColumnSearchParamsValid = search?.column && search?.value;
 
   const options: any = columns?.map((column) => ({
     label: column.name,
-    value: column?.unique_identifier ?? column?.name ?? "",
+    value: column?.key ?? column?.name ?? "",
   }));
 
   return (
@@ -52,13 +36,6 @@ export const ColumnSearch: FC<ColumnSearchProps> = ({
         value={search?.value}
         onChange={onChange}
       />
-      <Button
-        className={classes.searchBtn}
-        isDisabled={!isColumnSearchParamsValid || loading}
-        onClick={onSearchBtnClick}
-      >
-        Search
-      </Button>
     </div>
   );
 };

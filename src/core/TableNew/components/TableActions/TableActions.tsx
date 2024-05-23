@@ -15,9 +15,7 @@ export const TableActions: FC<TableActionsProps> = ({
   conditionFilters,
   columns,
   showSort,
-  columnSearch = true,
-  loading = false,
-  onSearchBtnClick,
+  columnSearch = false,
 }) => {
   const classes = useTableActionStyles();
   const updateSearchValue = useRef(
@@ -46,7 +44,6 @@ export const TableActions: FC<TableActionsProps> = ({
       <ColumnSearch
         {...{
           columns,
-          loading,
           search: currentActions.search as TableFilter,
           onChange: (e) =>
             setCurrentActions({
@@ -56,7 +53,6 @@ export const TableActions: FC<TableActionsProps> = ({
                 [e.name]: e.value,
               },
             }),
-          onSearchBtnClick,
         }}
       />
     ) : (

@@ -29,7 +29,7 @@ export const TableNew: FC<TableNewProps> = ({
   showSort = true,
   hasStickyActions,
   EmptyStateComponent,
-  isColumnSearch = false,
+  search = "single",
 }) => {
   const [table, setTable] = useState<{
     data: any;
@@ -42,7 +42,7 @@ export const TableNew: FC<TableNewProps> = ({
       count: variables?.first ?? 10,
     },
   });
-
+  const isColumnSearch = search === "multiple";
   const [actions, setActions] = useState<{
     [key in "search" | "sort" | "conditionFilter" | "columnFilters"]:
       | string
@@ -112,7 +112,7 @@ export const TableNew: FC<TableNewProps> = ({
     }
   }, [getAllData]);
 
-  const handleColumnSearch = () => {
+  useEffect(() => {
     if (!isColumnSearchParamsValid) return;
     queryApi(
       parseQueryVariables(
@@ -125,7 +125,11 @@ export const TableNew: FC<TableNewProps> = ({
         (actions.conditionFilter as TableConditionFilter).filter ?? [],
       ),
     );
-  };
+  }, [
+    (actions?.search as TableFilter)?.column,
+    (actions?.search as TableFilter)?.value,
+    getAllData,
+  ]);
 
   const queryApi = async (queryVariables?: any) => {
     setLoading(true);
@@ -215,8 +219,6 @@ export const TableNew: FC<TableNewProps> = ({
         columns={columns}
         showSort={showSort}
         columnSearch={isColumnSearch}
-        loading={loading}
-        onSearchBtnClick={handleColumnSearch}
       />
       {showFilters && <TableFilters columns={columns} filters={filters} setFilters={setFilters} />}
       <table className={classes.root}>

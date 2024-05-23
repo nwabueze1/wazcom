@@ -19,7 +19,7 @@ import { SortSelector } from "../SortSelector";
 import { debounce } from "lodash";
 import { ColumnSearch } from "../ColumnSearch";
 export var TableActions = function (_a) {
-    var currentActions = _a.currentActions, setCurrentActions = _a.setCurrentActions, conditionFilters = _a.conditionFilters, columns = _a.columns, showSort = _a.showSort, _b = _a.columnSearch, columnSearch = _b === void 0 ? true : _b, _c = _a.loading, loading = _c === void 0 ? false : _c, onSearchBtnClick = _a.onSearchBtnClick;
+    var currentActions = _a.currentActions, setCurrentActions = _a.setCurrentActions, conditionFilters = _a.conditionFilters, columns = _a.columns, showSort = _a.showSort, _b = _a.columnSearch, columnSearch = _b === void 0 ? false : _b;
     var classes = useTableActionStyles();
     var updateSearchValue = useRef(debounce(function (search) { return setCurrentActions(__assign(__assign({}, currentActions), { search: search })); }, 500));
     var handleConditionChange = function (_a) {
@@ -40,13 +40,11 @@ export var TableActions = function (_a) {
     var renderSearch = function () {
         return columnSearch ? (_jsx(ColumnSearch, __assign({}, {
             columns: columns,
-            loading: loading,
             search: currentActions.search,
             onChange: function (e) {
                 var _a;
                 return setCurrentActions(__assign(__assign({}, currentActions), { search: __assign(__assign({}, currentActions.search), (_a = {}, _a[e.name] = e.value, _a)) }));
             },
-            onSearchBtnClick: onSearchBtnClick,
         }))) : (_jsx(TextInput, { className: classes.searchInputElement, classNames: { input: classes.searchInput }, leftIcon: _jsx(BiSearch, {}), iconSpacing: 8, onChange: handleSearchChange, placeholder: "Search table" }));
     };
     return (_jsxs("div", __assign({ className: classes.root }, { children: [renderSearch(), showSort && _jsx(SortSelector, { columns: columns, handleSelectSort: handleSortChange }), conditionFilters && (_jsx(SelectInput, { className: classes.selectInputElement, classNames: { container: classes.selectContainer, control: classes.selectControl }, options: conditionFilters.map(function (_a) {

@@ -17,7 +17,7 @@ export type TableNewProps = CommonProps & {
     showSort?: boolean;
     hasStickyActions?: boolean;
     EmptyStateComponent?: FC;
-    isColumnSearch?: boolean;
+    search?: "single" | "multiple";
 };
 export type TableColumn = {
     name: string | JSX.Element;

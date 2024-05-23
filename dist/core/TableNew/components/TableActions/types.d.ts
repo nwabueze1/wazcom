@@ -10,6 +10,4 @@ export type TableActionsProps = {
     columns: TableColumn[];
     showSort?: boolean;
     columnSearch?: boolean;
-    loading?: boolean;
-    onSearchBtnClick?: () => void;
 };
