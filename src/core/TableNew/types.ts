@@ -20,7 +20,6 @@ export type TableColumn = {
   name: string | JSX.Element;
   key: string;
   type: "string" | "number" | "date";
-  unique_identifier?: string;
   actions?: TableColumnAction[];
 };
 
