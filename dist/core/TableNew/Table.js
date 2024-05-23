@@ -79,7 +79,7 @@ export var TableNew = function (_a) {
             count: (_b = variables === null || variables === void 0 ? void 0 : variables.first) !== null && _b !== void 0 ? _b : 10,
         },
     }), 2), table = _v[0], setTable = _v[1];
-    var isColumnSearch = search === "multiple";
+    var isColumnSearch = search === "dynamic";
     var _w = __read(useState({
         search: isColumnSearch ? initialColumnSearch : "",
         sort: [],

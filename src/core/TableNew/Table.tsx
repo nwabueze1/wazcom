@@ -42,7 +42,7 @@ export const TableNew: FC<TableNewProps> = ({
       count: variables?.first ?? 10,
     },
   });
-  const isColumnSearch = search === "multiple";
+  const isColumnSearch = search === "dynamic";
   const [actions, setActions] = useState<{
     [key in "search" | "sort" | "conditionFilter" | "columnFilters"]:
       | string
