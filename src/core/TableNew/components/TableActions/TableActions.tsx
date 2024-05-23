@@ -3,10 +3,11 @@ import { BiSearch } from "react-icons/bi";
 import { TableActionsProps } from "./types";
 import { TextInput, SelectInput } from "../../../../io";
 import { useTableActionStyles } from "./styles";
-import { TableColumn, TableConditionFilter } from "../../types";
+import { TableColumn, TableConditionFilter, TableFilter } from "../../types";
 import { ColumnSelector } from "../ColumnSelector";
 import { SortSelector } from "../SortSelector";
 import { debounce } from "lodash";
+import { ColumnSearch } from "../ColumnSearch";
 
 export const TableActions: FC<TableActionsProps> = ({
   currentActions,
@@ -14,6 +15,9 @@ export const TableActions: FC<TableActionsProps> = ({
   conditionFilters,
   columns,
   showSort,
+  columnSearch = true,
+  loading = false,
+  onSearchBtnClick,
 }) => {
   const classes = useTableActionStyles();
   const updateSearchValue = useRef(
@@ -37,8 +41,25 @@ export const TableActions: FC<TableActionsProps> = ({
     setCurrentActions({ ...currentActions, sort: [{ order, column: columnKey }] });
   };
 
-  return (
-    <div className={classes.root}>
+  const renderSearch = () =>
+    columnSearch ? (
+      <ColumnSearch
+        {...{
+          columns,
+          loading,
+          search: currentActions.search as TableFilter,
+          onChange: (e) =>
+            setCurrentActions({
+              ...currentActions,
+              search: {
+                ...(currentActions.search as TableFilter),
+                [e.name]: e.value,
+              },
+            }),
+          onSearchBtnClick,
+        }}
+      />
+    ) : (
       <TextInput
         className={classes.searchInputElement}
         classNames={{ input: classes.searchInput }}
@@ -47,6 +68,11 @@ export const TableActions: FC<TableActionsProps> = ({
         onChange={handleSearchChange}
         placeholder={"Search table"}
       />
+    );
+
+  return (
+    <div className={classes.root}>
+      {renderSearch()}
       {showSort && <SortSelector columns={columns} handleSelectSort={handleSortChange} />}
       {conditionFilters && (
         <SelectInput

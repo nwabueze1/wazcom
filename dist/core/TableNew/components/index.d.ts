@@ -7,3 +7,4 @@ export * from "./TableActions";
 export * from "./TableColumnActions";
 export * from "./TableFilters";
 export * from "./TablePagination";
+export * from "./ColumnSearch";

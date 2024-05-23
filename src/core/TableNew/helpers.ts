@@ -12,5 +12,17 @@ export const parseQueryVariables = (
     parsedSort.push({ column, order: order.toUpperCase() });
   });
 
-  return { search, sort: parsedSort, page: pagination.currentPage, first: pagination.count, filter };
+  return {
+    search,
+    sort: parsedSort,
+    page: pagination.currentPage,
+    first: pagination.count,
+    filter,
+  };
+};
+
+export const initialColumnSearch = {
+  column: "",
+  value: "",
+  operator: "like",
 };

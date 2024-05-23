@@ -7,6 +7,7 @@ export const useTableActionStyles = makeStyles((theme: Theme) => ({
     gap: theme.spacing(1.5),
     color: theme.design.colors.waz_grey1,
     marginBottom: theme.spacing(1),
+    alignItems: "end",
   },
   searchInputElement: {
     width: "59%",
