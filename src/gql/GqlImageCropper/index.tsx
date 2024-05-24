@@ -7,7 +7,7 @@ import clx from "classnames";
 import { ImageProperty } from "./components/ImageProperty/ImageProperty";
 import { CropAndSize } from "./components/CropAndSize/CropAndSize";
 import { CropImage } from "./components/CropImage";
-import { generateModifiedSrc, parseImageCropperValue, tabs } from "./helpers";
+import { parseImageCropperValue, tabs } from "./helpers";
 import { Coordinates } from "react-advanced-cropper";
 import { createMediaUpload, updateMediaUpload } from "../GqlMediaLibrary/hooks";
 import { ImageUpdate } from "../GqlMediaLibrary";
@@ -22,7 +22,6 @@ export const GqlImageCropper: FC<ImageCropperProps> = ({
   fileMedia,
   config,
   name,
-  imageServiceDomain,
 }) => {
   const classes = useImageCropperStyles();
   const [activeTab, setActiveTab] = useState(0);
@@ -132,12 +131,7 @@ export const GqlImageCropper: FC<ImageCropperProps> = ({
 
     const image_data = {
       ...generatedValue,
-      src: generateModifiedSrc(
-        imageUrl,
-        dimensions.width,
-        generatedValue.coordinates,
-        imageServiceDomain,
-      ),
+      src: imageUrl,
       original: imageUrl,
     };
 
@@ -181,13 +175,7 @@ export const GqlImageCropper: FC<ImageCropperProps> = ({
           <div className={classes.imageDialogComponentsContainer}>
             <div className={classes.imageDialogCropSection}>
               <CropImage
-                src={
-                  value?.url
-                    ? value?.url
-                    : typeof value?.src === "string"
-                    ? value.src?.split("?")[0].replace(`https://${imageServiceDomain}`, "")
-                    : value?.src
-                }
+                src={value?.src}
                 screenType={value.screenType}
                 coordinates={(value.coordinates as TCoordinates)[value.screenType]}
                 setCoordinates={setCoordinates}
