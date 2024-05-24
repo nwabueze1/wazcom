@@ -70,12 +70,12 @@ import clx from "classnames";
 import { ImageProperty } from "./components/ImageProperty/ImageProperty";
 import { CropAndSize } from "./components/CropAndSize/CropAndSize";
 import { CropImage } from "./components/CropImage";
-import { generateModifiedSrc, parseImageCropperValue, tabs } from "./helpers";
+import { parseImageCropperValue, tabs } from "./helpers";
 import { createMediaUpload, updateMediaUpload } from "../GqlMediaLibrary/hooks";
 import { isEqual } from "lodash";
 export var GqlImageCropper = function (_a) {
     var _b, _c, _d, _e, _f, _g;
-    var open = _a.open, initialValue = _a.value, onChange = _a.onChange, handleClose = _a.handleClose, screenConfig = _a.screenConfig, fileMedia = _a.fileMedia, config = _a.config, name = _a.name, imageServiceDomain = _a.imageServiceDomain;
+    var open = _a.open, initialValue = _a.value, onChange = _a.onChange, handleClose = _a.handleClose, screenConfig = _a.screenConfig, fileMedia = _a.fileMedia, config = _a.config, name = _a.name;
     var classes = useImageCropperStyles();
     var _h = __read(useState(0), 2), activeTab = _h[0], setActiveTab = _h[1];
     var _j = __read(useState({
@@ -165,7 +165,7 @@ export var GqlImageCropper = function (_a) {
                     imageUrl = imageResponse === null || imageResponse === void 0 ? void 0 : imageResponse.url;
                     _a.label = 2;
                 case 2:
-                    image_data = __assign(__assign({}, generatedValue), { src: generateModifiedSrc(imageUrl, dimensions.width, generatedValue.coordinates, imageServiceDomain), original: imageUrl });
+                    image_data = __assign(__assign({}, generatedValue), { src: imageUrl, original: imageUrl });
                     if (!fileMedia && (image_data === null || image_data === void 0 ? void 0 : image_data.uuid)) {
                         initialImageInfo = {
                             title: initialValue === null || initialValue === void 0 ? void 0 : initialValue.name,
@@ -189,7 +189,7 @@ export var GqlImageCropper = function (_a) {
             }
         });
     }); };
-    return (_jsx(_Fragment, { children: _jsx(Dialog, __assign({ open: open, handleClose: handleClose }, { children: _jsxs("div", __assign({ className: classes.imageDialog }, { children: [_jsx("div", __assign({ className: classes.imageDialogHeadingContainer }, { children: _jsxs("div", __assign({ className: classes.imageDialogHeading }, { children: [_jsx("p", __assign({ className: classes.imageDialogTitle }, { children: "Edit Image" })), _jsx(FaTimes, { className: classes.imageDialogIcon, onClick: function () { return handleClose === null || handleClose === void 0 ? void 0 : handleClose("cropper"); } })] })) })), _jsxs("div", __assign({ className: classes.imageDialogComponentsContainer }, { children: [_jsx("div", __assign({ className: classes.imageDialogCropSection }, { children: _jsx(CropImage, { src: value.src, screenType: value.screenType, coordinates: value.coordinates[value.screenType], setCoordinates: setCoordinates, setDimensions: setDimensions, isEdit: Object.keys(initialValue).length > 1, activeScreenConfig: screenConfig === null || screenConfig === void 0 ? void 0 : screenConfig[value.screenType] }) })), _jsxs("div", __assign({ className: classes.imageDialogConfigSection }, { children: [_jsx("div", __assign({ className: classes.configTabs }, { children: tabs.map(function (tab, index) { return (_jsx(_Fragment, { children: _jsx("div", __assign({ className: clx(classes.configTab, activeTab === index && classes.activeConfigTab), onClick: function () {
+    return (_jsx(_Fragment, { children: _jsx(Dialog, __assign({ open: open, handleClose: handleClose }, { children: _jsxs("div", __assign({ className: classes.imageDialog }, { children: [_jsx("div", __assign({ className: classes.imageDialogHeadingContainer }, { children: _jsxs("div", __assign({ className: classes.imageDialogHeading }, { children: [_jsx("p", __assign({ className: classes.imageDialogTitle }, { children: "Edit Image" })), _jsx(FaTimes, { className: classes.imageDialogIcon, onClick: function () { return handleClose === null || handleClose === void 0 ? void 0 : handleClose("cropper"); } })] })) })), _jsxs("div", __assign({ className: classes.imageDialogComponentsContainer }, { children: [_jsx("div", __assign({ className: classes.imageDialogCropSection }, { children: _jsx(CropImage, { src: value === null || value === void 0 ? void 0 : value.src, screenType: value.screenType, coordinates: value.coordinates[value.screenType], setCoordinates: setCoordinates, setDimensions: setDimensions, isEdit: Object.keys(initialValue).length > 1, activeScreenConfig: screenConfig === null || screenConfig === void 0 ? void 0 : screenConfig[value.screenType] }) })), _jsxs("div", __assign({ className: classes.imageDialogConfigSection }, { children: [_jsx("div", __assign({ className: classes.configTabs }, { children: tabs.map(function (tab, index) { return (_jsx(_Fragment, { children: _jsx("div", __assign({ className: clx(classes.configTab, activeTab === index && classes.activeConfigTab), onClick: function () {
                                                     setActiveTab(index);
                                                 } }, { children: _jsx("p", __assign({ className: clx(classes.tabName, activeTab === index && classes.activeTabName) }, { children: tab })) }), index) })); }) })), activeTab === 0 && (_jsx(ImageProperty, { form: {
                                             name: (_d = value.name) !== null && _d !== void 0 ? _d : "",
