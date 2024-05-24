@@ -11,6 +11,7 @@ export type ImageCropperValue = {
     coordinates?: TCoordinates;
     width?: number;
     height?: number;
+    url?: string;
 };
 export type ImageCropperProps = {
     open: boolean;

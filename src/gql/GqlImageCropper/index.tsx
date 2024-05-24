@@ -181,7 +181,13 @@ export const GqlImageCropper: FC<ImageCropperProps> = ({
           <div className={classes.imageDialogComponentsContainer}>
             <div className={classes.imageDialogCropSection}>
               <CropImage
-                src={value.src}
+                src={
+                  value?.url
+                    ? value?.url
+                    : typeof value?.src === "string"
+                    ? value.src?.split("?")[0].replace(`https://${imageServiceDomain}`, "")
+                    : value?.src
+                }
                 screenType={value.screenType}
                 coordinates={(value.coordinates as TCoordinates)[value.screenType]}
                 setCoordinates={setCoordinates}
