@@ -9,3 +9,8 @@ export declare const parseQueryVariables: (search: string, sort: TableSort[], pa
     first: number;
     filter: TableFilter[];
 };
+export declare const initialColumnSearch: {
+    column: string;
+    value: string;
+    operator: string;
+};

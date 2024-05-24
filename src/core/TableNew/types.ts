@@ -13,6 +13,7 @@ export type TableNewProps = CommonProps & {
   showSort?: boolean;
   hasStickyActions?: boolean;
   EmptyStateComponent?: FC;
+  search?: "single" | "dynamic";
 };
 
 export type TableColumn = {

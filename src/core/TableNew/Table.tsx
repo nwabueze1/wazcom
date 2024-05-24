@@ -17,7 +17,7 @@ import {
 import { useTableStyles } from "./styles";
 import { Loader } from "../../core";
 import { useTableStyles as useExternalTableStyles } from "../../stories/table-styles";
-import { parseQueryVariables } from "./helpers";
+import { parseQueryVariables, initialColumnSearch } from "./helpers";
 
 export const TableNew: FC<TableNewProps> = ({
   columns,
@@ -29,6 +29,7 @@ export const TableNew: FC<TableNewProps> = ({
   showSort = true,
   hasStickyActions,
   EmptyStateComponent,
+  search = "single",
 }) => {
   const [table, setTable] = useState<{
     data: any;
@@ -41,15 +42,16 @@ export const TableNew: FC<TableNewProps> = ({
       count: variables?.first ?? 10,
     },
   });
-
+  const isColumnSearch = search === "dynamic";
   const [actions, setActions] = useState<{
     [key in "search" | "sort" | "conditionFilter" | "columnFilters"]:
       | string
       | (TableSort[] | undefined)
       | (TableConditionFilter | undefined)
-      | TableColumn[];
+      | TableColumn[]
+      | TableFilter;
   }>({
-    search: "",
+    search: isColumnSearch ? initialColumnSearch : "",
     sort: [],
     conditionFilter: conditionFilters ? conditionFilters[0] : undefined,
     columnFilters: columns,
@@ -57,7 +59,10 @@ export const TableNew: FC<TableNewProps> = ({
 
   const [filters, setFilters] = useState<TableFilter[]>([]);
   const [loading, setLoading] = useState(false);
-
+  const getAllData = (actions?.search as TableFilter)?.value?.length === 0;
+  const isColumnSearchParamsValid =
+    (actions?.search as TableFilter)?.column?.length > 0 &&
+    (actions?.search as TableFilter)?.value?.length > 0;
   const classes = useTableStyles();
   const externalClasses: any = useExternalTableStyles();
 
@@ -74,7 +79,7 @@ export const TableNew: FC<TableNewProps> = ({
       ),
     );
   }, [
-    actions.search,
+    isColumnSearch ? "" : actions.search,
     JSON.stringify(actions.sort),
     JSON.stringify(variables),
     JSON.stringify(actions.conditionFilter),
@@ -91,6 +96,40 @@ export const TableNew: FC<TableNewProps> = ({
       ),
     );
   }, [table?.pagination?.count, table?.pagination?.currentPage]);
+
+  useEffect(() => {
+    if (isColumnSearch) {
+      if (!(actions.search as TableFilter)?.value) {
+        queryApi(
+          parseQueryVariables(
+            actions.search as string,
+            (actions?.sort as TableSort[]) ?? [],
+            table?.pagination,
+            (actions.conditionFilter as TableConditionFilter).filter ?? [],
+          ),
+        );
+      }
+    }
+  }, [getAllData]);
+
+  useEffect(() => {
+    if (!isColumnSearchParamsValid) return;
+    queryApi(
+      parseQueryVariables(
+        { ...(actions.search as any), operator: "like" } as any,
+        (actions?.sort as TableSort[]) ?? [],
+        {
+          ...table?.pagination,
+          currentPage: 1,
+        },
+        (actions.conditionFilter as TableConditionFilter).filter ?? [],
+      ),
+    );
+  }, [
+    (actions?.search as TableFilter)?.column,
+    (actions?.search as TableFilter)?.value,
+    getAllData,
+  ]);
 
   const queryApi = async (queryVariables?: any) => {
     setLoading(true);
@@ -179,6 +218,7 @@ export const TableNew: FC<TableNewProps> = ({
         conditionFilters={conditionFilters}
         columns={columns}
         showSort={showSort}
+        columnSearch={isColumnSearch}
       />
       {showFilters && <TableFilters columns={columns} filters={filters} setFilters={setFilters} />}
       <table className={classes.root}>
