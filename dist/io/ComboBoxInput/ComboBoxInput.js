@@ -34,7 +34,7 @@ import clx from "classnames";
 import { debounce } from "lodash";
 import { CircularProgress } from "@mui/material";
 export var ComboBoxInput = function (_a) {
-    var name = _a.name, _b = _a.isAdd, isAdd = _b === void 0 ? true : _b, onChange = _a.onChange, handleAdd = _a.handleAdd, initialOptions = _a.options, label = _a.label, isError = _a.isError, isSuccess = _a.isSuccess, helperText = _a.helperText, required = _a.required, placeholder = _a.placeholder, value = _a.value, className = _a.className, isLoading = _a.isLoading;
+    var name = _a.name, _b = _a.isAdd, isAdd = _b === void 0 ? true : _b, onChange = _a.onChange, handleAdd = _a.handleAdd, initialOptions = _a.options, label = _a.label, isError = _a.isError, isSuccess = _a.isSuccess, helperText = _a.helperText, required = _a.required, placeholder = _a.placeholder, value = _a.value, className = _a.className, isLoading = _a.isLoading, _c = _a.hasSearch, hasSearch = _c === void 0 ? false : _c;
     var classes = useComboBoxStyles();
     var updateSearchValue = useRef(debounce(function (search) {
         return onChange === null || onChange === void 0 ? void 0 : onChange({
@@ -42,19 +42,19 @@ export var ComboBoxInput = function (_a) {
             type: "search",
         });
     }, 400));
-    var _c = __read(useState(""), 2), filter = _c[0], setFilter = _c[1];
-    var _d = __read(useState(initialOptions), 2), options = _d[0], setOptions = _d[1];
-    var _e = __read(useState(false), 2), showOptions = _e[0], setShowOptions = _e[1];
-    var _f = __read(useState(false), 2), isFocused = _f[0], setIsFocused = _f[1];
+    var _d = __read(useState(""), 2), filter = _d[0], setFilter = _d[1];
+    var _e = __read(useState(initialOptions), 2), options = _e[0], setOptions = _e[1];
+    var _f = __read(useState(false), 2), showOptions = _f[0], setShowOptions = _f[1];
+    var _g = __read(useState(false), 2), isFocused = _g[0], setIsFocused = _g[1];
     useEffect(function () {
         setOptions(initialOptions);
     }, [initialOptions]);
     useEffect(function () {
         var _a, _b;
-        if (!value)
+        if (!value || value === filter)
             return;
-        var filter = (_b = (_a = options === null || options === void 0 ? void 0 : options.find(function (option) { return option.value === value; })) === null || _a === void 0 ? void 0 : _a.label) !== null && _b !== void 0 ? _b : "";
-        setFilter(filter);
+        var filteredOptions = (_b = (_a = options === null || options === void 0 ? void 0 : options.find(function (option) { return option.value === value; })) === null || _a === void 0 ? void 0 : _a.label) !== null && _b !== void 0 ? _b : "";
+        setFilter(filteredOptions);
     }, [value]);
     var handleSelect = function (option) {
         setFilter(option === null || option === void 0 ? void 0 : option.label);
@@ -64,7 +64,8 @@ export var ComboBoxInput = function (_a) {
     var handleFilterChange = function (_a) {
         var filter = _a.value;
         setFilter(filter);
-        updateSearchValue.current(filter);
+        if (hasSearch)
+            updateSearchValue.current(filter);
         setIsFocused(false);
     };
     var handleFocus = function () {
