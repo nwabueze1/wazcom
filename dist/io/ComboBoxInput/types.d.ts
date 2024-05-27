@@ -13,6 +13,7 @@ export type ComboBoxInputProps = {
     onChange?: (...args: any[]) => void;
     handleAdd?: (value: string) => void;
     isLoading?: boolean;
+    hasSearch?: boolean;
 };
 export type ComboBoxInputOptionProps = {
     label: string;
