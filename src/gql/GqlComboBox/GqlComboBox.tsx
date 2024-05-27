@@ -59,7 +59,7 @@ export const GqlComboBox = memo(
     };
 
     useEffect(() => {
-      if (typeof postFetchHook === 'function') {
+      if (typeof postFetchHook === "function") {
         postFetchHook(options);
       }
     }, [options]);
@@ -126,6 +126,7 @@ export const GqlComboBox = memo(
         }}
         handleAdd={handleChange}
         isLoading={fetching}
+        hasSearch
         {...props}
       />
     );

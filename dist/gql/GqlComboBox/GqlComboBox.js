@@ -146,7 +146,7 @@ export var GqlComboBox = memo(function (_a) {
         });
     };
     useEffect(function () {
-        if (typeof postFetchHook === 'function') {
+        if (typeof postFetchHook === "function") {
             postFetchHook(options);
         }
     }, [options]);
@@ -210,6 +210,6 @@ export var GqlComboBox = memo(function (_a) {
             else {
                 handleChange(data.value);
             }
-        }, handleAdd: handleChange, isLoading: fetching }, props)));
+        }, handleAdd: handleChange, isLoading: fetching, hasSearch: true }, props)));
 });
 GqlComboBox.displayName = "GqlComboBox";

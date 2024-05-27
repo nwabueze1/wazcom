@@ -22,6 +22,7 @@ export const ComboBoxInput: FC<ComboBoxInputProps> = ({
   value,
   className,
   isLoading,
+  hasSearch = false,
 }) => {
   const classes = useComboBoxStyles();
   const updateSearchValue = useRef(
@@ -45,9 +46,9 @@ export const ComboBoxInput: FC<ComboBoxInputProps> = ({
   }, [initialOptions]);
 
   useEffect(() => {
-    if (!value) return;
-    const filter = options?.find((option) => option.value === value)?.label ?? "";
-    setFilter(filter);
+    if (!value || value === filter) return;
+    const filteredOptions = options?.find((option) => option.value === value)?.label ?? "";
+    setFilter(filteredOptions);
   }, [value]);
 
   const handleSelect = (option: ComboBoxInputOptionProps) => {
@@ -58,7 +59,7 @@ export const ComboBoxInput: FC<ComboBoxInputProps> = ({
 
   const handleFilterChange = ({ value: filter }: { name: string; value: string }) => {
     setFilter(filter);
-    updateSearchValue.current(filter);
+    if (hasSearch) updateSearchValue.current(filter);
     setIsFocused(false);
   };
 

@@ -202,7 +202,7 @@ export const TableNew: FC<TableNewProps> = ({
 
   if (!table.data) return <Loader />;
 
-  if (rows.length === 0 && EmptyStateComponent)
+  if (rows.length === 0 && EmptyStateComponent && !actions.search)
     return (
       <>
         <EmptyStateComponent />
