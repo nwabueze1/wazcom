@@ -49,8 +49,14 @@ export const useFileSelectorInputStyles = makeStyles((theme: Theme) => ({
     textTransform: "uppercase",
     fontFamily: "inherit",
     marginBottom: theme.spacing(1.2),
+    display: "block",
   },
   selectedFileName: {
     fontSize: theme.typography.fontSize,
+  },
+  fileNameContainer: {
+    display: "flex",
+    gap: theme.spacing(1),
+    alignItems: "center",
   },
 }));

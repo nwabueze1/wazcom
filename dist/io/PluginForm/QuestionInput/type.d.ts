@@ -2,6 +2,8 @@ import { FormPallette, PhoneNumberInputClassNamesPropsType, QuestionTypes, Selec
 import { TextInputClassNamesPropsType } from "../formik_io";
 import { RatingClassNamesType } from "../../RatingInput";
 import { OpinionScaleClassNamesType } from "../../OpinionScale";
+import { ApolloClient, NormalizedCacheObject } from "@apollo/client";
+import { UploadClassNames } from "../../ImageSelectorInput";
 export type QuestionInputClassNamesPropsType = {
     textField: Partial<TextInputClassNamesPropsType>;
     phoneNumberInput: Partial<PhoneNumberInputClassNamesPropsType>;
@@ -12,6 +14,8 @@ export type QuestionInputClassNamesPropsType = {
     radioButtonInput: Record<"radioButtonInput" | "optionContainer" | "label" | "errorMessage" | "legend" | "fieldset" | "input", string>;
     ratingInput: RatingClassNamesType;
     opinionScale: OpinionScaleClassNamesType;
+    imageUpload: Partial<UploadClassNames>;
+    fileUpload: Partial<UploadClassNames>;
 };
 type QuestionInputMiscProps = {
     opinionScale?: {
@@ -31,5 +35,7 @@ export type QuestionInputPropsType = {
     label?: string;
     placeholder?: string;
     palette?: FormPallette;
+    client?: ApolloClient<NormalizedCacheObject>;
+    form_uuid?: string;
 };
 export {};

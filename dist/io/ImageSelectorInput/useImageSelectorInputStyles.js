@@ -38,8 +38,10 @@ export var useImageSelectorInputStyles = makeStyles(function (theme) { return ({
         height: 50,
     },
     selectedImage: {
-        height: 50,
+        height: "auto",
         width: 116,
+        maxHeight: 80,
+        objectFit: "contain",
     },
     button: {
         marginTop: theme.spacing(0.5),

@@ -1,1 +1,1 @@
-export declare const useFileSelectorInputStyles: (props?: any) => import("@mui/styles").ClassNameMap<"root" | "button" | "label" | "helperTextError" | "selectButton" | "selectInput" | "errorContainer" | "selectedFileName">;
+export declare const useFileSelectorInputStyles: (props?: any) => import("@mui/styles").ClassNameMap<"root" | "button" | "label" | "helperTextError" | "selectButton" | "selectInput" | "errorContainer" | "selectedFileName" | "fileNameContainer">;
