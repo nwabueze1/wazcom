@@ -81,6 +81,7 @@ export const ImageSelectorInput: FC<ImageSelectorInputPropsType> = ({
       <button
         className={clx(classes.selectButton, classNames?.selectButton)}
         onClick={handlePickImage}
+        type="button"
       >
         Select Image
       </button>
@@ -129,6 +130,7 @@ export const ImageSelectorInput: FC<ImageSelectorInputPropsType> = ({
             variant={"contained"}
             className={clx(classes.button, classNames?.changeFileButton)}
             onClick={handlePickImage}
+            type="button"
           >
             Change Image
           </Button>

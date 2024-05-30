@@ -28,19 +28,24 @@ export const PluginFormView = () => {
                 form={pluginFormData?.form as any}
                 ref={submitRef}
                 palette={{
-                  colors: { main: "gold", hover: "red" },
+                  colors: { main: "black", hover: "black" },
                   typography: {
                     input: {
                       color: "green",
                       fontSize: 12,
+                      fontFamily: "inherit",
                     },
                     label: {
-                      color: "blue",
-                      fontSize: 12,
+                      color: "black",
+                      fontSize: 10,
+                      fontFamily: "inherit",
                     },
                   },
                 }}
               />
+              <button type="button" onSubmit={() => submitRef?.current?.submit?.()}>
+                Submit
+              </button>
             </Paper>
           </Wrapper>
         </div>

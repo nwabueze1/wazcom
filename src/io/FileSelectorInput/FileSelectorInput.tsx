@@ -75,6 +75,7 @@ export const FileSelectorInput: FC<FileSelectorInputPropsType> = ({
               classNames?.selectButton,
             )}
             onClick={!hasSelectedFile ? handlePickFile : undefined}
+            type="button"
           >
             Select a file
           </button>
@@ -89,6 +90,7 @@ export const FileSelectorInput: FC<FileSelectorInputPropsType> = ({
               variant={"contained"}
               className={clx(classes.button, classNames?.changeFileButton)}
               onClick={handlePickFile}
+              type={"button"}
             >
               Change file
             </Button>
