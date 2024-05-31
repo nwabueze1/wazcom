@@ -7,6 +7,8 @@ import {
 import { TextInputClassNamesPropsType } from "../formik_io";
 import { RatingClassNamesType } from "../../RatingInput";
 import { OpinionScaleClassNamesType } from "../../OpinionScale";
+import { ApolloClient, NormalizedCacheObject } from "@apollo/client";
+import { UploadClassNames } from "../../ImageSelectorInput";
 
 export type QuestionInputClassNamesPropsType = {
   textField: Partial<TextInputClassNamesPropsType>;
@@ -36,6 +38,8 @@ export type QuestionInputClassNamesPropsType = {
   >;
   ratingInput: RatingClassNamesType;
   opinionScale: OpinionScaleClassNamesType;
+  imageUpload: Partial<UploadClassNames>;
+  fileUpload: Partial<UploadClassNames>;
 };
 
 type QuestionInputMiscProps = {
@@ -57,4 +61,6 @@ export type QuestionInputPropsType = {
   label?: string;
   placeholder?: string;
   palette?: FormPallette;
+  client?: ApolloClient<NormalizedCacheObject>;
+  form_uuid?: string;
 };

@@ -4,6 +4,7 @@ import { useImageSelectorInputStyles } from "./useImageSelectorInputStyles";
 import clx from "classnames";
 import { Button } from "../../core";
 import { validateFileBySize } from "./ValidateFileBySize";
+import { CircularProgress } from "@mui/material";
 
 export const ImageSelectorInput: FC<ImageSelectorInputPropsType> = ({
   isError,
@@ -14,6 +15,10 @@ export const ImageSelectorInput: FC<ImageSelectorInputPropsType> = ({
   min_size_kb,
   max_size_mb,
   name,
+  uploadFn,
+  loading,
+  accept,
+  classNames,
 }) => {
   const classes = useImageSelectorInputStyles();
   const fileInputRef = useRef<HTMLInputElement>(null);
@@ -27,7 +32,7 @@ export const ImageSelectorInput: FC<ImageSelectorInputPropsType> = ({
     fileInputRef.current?.click();
   };
 
-  const handleSelectImage = (e: ChangeEvent<HTMLInputElement>) => {
+  const handleSelectImage = async (e: ChangeEvent<HTMLInputElement>) => {
     const selectedFile = e.target.files?.[0];
     if (!selectedFile) return;
 
@@ -38,45 +43,95 @@ export const ImageSelectorInput: FC<ImageSelectorInputPropsType> = ({
     }
     setFileError(undefined);
 
-    onChange?.({ name, value: selectedFile });
+    if (uploadFn) {
+      const isUploaded = await uploadFn({ name, file: selectedFile });
+      if (isUploaded) {
+        onChange?.({ name, value: selectedFile });
 
-    const imageUrl = URL.createObjectURL(selectedFile);
-    setFileSource(imageUrl);
+        const imageUrl = URL.createObjectURL(selectedFile);
+        setFileSource(imageUrl);
+        return;
+      }
+      setFileSource("");
+    } else {
+      onChange?.({ name, value: selectedFile });
+
+      const imageUrl = URL.createObjectURL(selectedFile);
+      setFileSource(imageUrl);
+    }
+  };
+
+  const renderMedia = () => {
+    if (loading)
+      return (
+        <div
+          className={clx(classes.selectedImageContainer)}
+          style={{
+            display: "flex",
+            alignItems: "center",
+            justifyContent: "center",
+            width: 112,
+          }}
+        >
+          <CircularProgress color="inherit" size={18} />;
+        </div>
+      );
+
+    return !hasSelectedImage ? (
+      <button
+        className={clx(classes.selectButton, classNames?.selectButton)}
+        onClick={handlePickImage}
+        type="button"
+      >
+        Select Image
+      </button>
+    ) : (
+      <div className={classes.selectedImageContainer}>
+        <img src={fileSource} alt={"selected image"} className={classes.selectedImage} />
+      </div>
+    );
   };
 
   return (
     <div className={classes.root}>
-      {label && <label className={classes.label}>{label}</label>}
+      {label && <label className={clx(classes.label, classNames?.label)}>{label}</label>}
       <article
         className={clx(
           classes.container,
+          classNames?.container,
           hasSelectedImage && classes.selectedImageContainer,
           (isError || fileError) && classes.errorContainer,
+          (isError || fileError) && "error",
         )}
       >
-        {!hasSelectedImage ? (
-          <button className={classes.selectButton} onClick={handlePickImage}>
-            Select Image
-          </button>
-        ) : (
-          <div className={classes.selectedImageContainer}>
-            <img src={fileSource} alt={"selected image"} className={classes.selectedImage} />
-          </div>
-        )}
+        {renderMedia()}
         <input
           type={"file"}
-          accept={".png,.jpeg,.svg,.webp,.gif,.tiff,.x-icon,.pjpeg,.bmp,.apng"}
+          accept={accept ?? ".png,.jpeg,.svg,.webp,.gif,.tiff,.x-icon,.pjpeg,.bmp,.apng"}
           className={classes.selectInput}
           ref={fileInputRef}
           onChange={handleSelectImage}
         />
       </article>
-      {helperText && <span className={clx(isError && classes.helperTextError)}>{helperText}</span>}
-      {fileError && <span className={clx(isError && classes.helperTextError)}>{fileError}</span>}
+      {helperText && (
+        <span className={clx(isError && classes.helperTextError, classNames?.helperText)}>
+          {helperText}
+        </span>
+      )}
+      {fileError && (
+        <span className={clx(isError && classes.helperTextError, classNames?.helperText)}>
+          {fileError}
+        </span>
+      )}
       {hasSelectedImage && (
         <>
-          <p>{value?.name}</p>
-          <Button variant={"contained"} className={classes.button} onClick={handlePickImage}>
+          <p className={classNames?.text}>{value?.name}</p>
+          <Button
+            variant={"contained"}
+            className={clx(classes.button, classNames?.changeFileButton)}
+            onClick={handlePickImage}
+            type="button"
+          >
             Change Image
           </Button>
         </>

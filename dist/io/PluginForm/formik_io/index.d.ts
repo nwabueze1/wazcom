@@ -8,3 +8,5 @@ export * from "./FormikPhoneNumber";
 export * from "./FormikTextArea";
 export * from "./FormikSelect";
 export * from "./usePalletteStyles";
+export * from "./FormikPhotoUpload";
+export * from "./FormikDocumentUpload";

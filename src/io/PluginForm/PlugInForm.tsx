@@ -90,6 +90,8 @@ export const PlugInForm = forwardRef<PluginFormRef, PluginFormPropsType>((props,
                     formikProps={props}
                     label={question}
                     palette={palette}
+                    client={apolloClient?.client}
+                    form_uuid={form_uuid}
                   />
                 ),
               )}

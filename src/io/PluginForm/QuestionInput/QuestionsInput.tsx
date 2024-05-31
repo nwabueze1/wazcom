@@ -9,6 +9,8 @@ import {
   FormikOpinionScale,
   FormikRatingInput,
   usePalletteStyles,
+  FormikDocumentUpload,
+  FormikPhotoUpload,
 } from "../formik_io";
 import { useQuestionInputStyles } from "./style";
 import { QuestionInputPropsType } from "./type";
@@ -27,6 +29,8 @@ export const QuestionsInput: FC<
   mscProperties,
   label,
   palette,
+  client,
+  form_uuid,
 }) => {
   const classes = useQuestionInputStyles();
   const paletteStyles = usePalletteStyles(palette as FormPallette);
@@ -42,15 +46,51 @@ export const QuestionsInput: FC<
   const renderFields = () => {
     let addressKeys: string[] = [];
     let options: { label: string; value: string }[] = [];
+    const format: string = fields?.["format"] ?? "*";
+    const max_size: string = fields?.["max_size"] ?? "20MB"; //eg:10MB
+
+    const max_size_mb = Number(max_size?.split("MB")?.[0] ?? 0);
+
+    const getFormat = () => {
+      return format?.includes(".") ? format : ".".concat(format);
+    };
 
     switch (type) {
       case "SHORT_TEXT":
-      case "PHOTO":
       case "WEB_URL":
       case "EMAIL_ADDRESS":
+        return <FormikTextInput {...commonInputProps} />;
+
+      case "PHOTO":
+        return (
+          <FormikPhotoUpload
+            {...{
+              ...commonInputProps,
+              classNames: classNames?.imageUpload,
+              label,
+              form_uuid,
+              client,
+              accept: getFormat(),
+              max_size_mb,
+            }}
+          />
+        );
+
       case "DOC":
       case "VIDEO":
-        return <FormikTextInput {...commonInputProps} />;
+        return (
+          <FormikDocumentUpload
+            {...{
+              ...commonInputProps,
+              classNames: classNames?.fileUpload,
+              label,
+              form_uuid,
+              client,
+              accept: getFormat(),
+              max_size_mb,
+            }}
+          />
+        );
 
       case "MULTILINE":
         return <FormikTextArea {...commonInputProps} classNames={classNames?.textArea} />;
