@@ -75,7 +75,7 @@ export const TextInput: FC<TextFieldProps> = ({
     }
 
     if (type === "tel") {
-      const phoneNumberRegexp = /^\+?[0-9]*$/; //validate if value can pass as a phone number
+      const phoneNumberRegexp = /^\+?[0-9-]*$/; //validate if value can pass as a phone number
       if (!phoneNumberRegexp.test(e.target?.value)) {
         return;
       }
