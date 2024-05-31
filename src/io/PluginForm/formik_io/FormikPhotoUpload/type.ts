@@ -1,6 +1,6 @@
 import { FormikProps } from "formik";
 import { ImageSelectorInputPropsType } from "../../../ImageSelectorInput";
-import { FormPallette } from "build";
+import { FormPallette } from "../../type";
 import { ApolloClient, NormalizedCacheObject } from "@apollo/client";
 
 export type FormikPhotoUploadType = ImageSelectorInputPropsType & {
