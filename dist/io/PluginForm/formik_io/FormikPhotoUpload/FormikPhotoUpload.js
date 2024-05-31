@@ -39,7 +39,7 @@ var __read = (this && this.__read) || function (o, n) {
 import { jsx as _jsx } from "react/jsx-runtime";
 import { useMemo, useState } from "react";
 import { ImageSelectorInput } from "../../../ImageSelectorInput";
-import { createApolloClient } from "helpers/graphQL";
+import { createApolloClient } from "../../../../helpers/graphQL";
 import { useCustomStyles } from "./useCustomStyles";
 import { handleUploadFile } from "../helper";
 import clx from "classnames";

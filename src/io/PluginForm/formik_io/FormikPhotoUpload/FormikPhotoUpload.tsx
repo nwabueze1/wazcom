@@ -1,7 +1,7 @@
 import { FC, useMemo, useState } from "react";
 import { FormikPhotoUploadType } from "./type";
 import { ImageSelectorInput } from "../../../ImageSelectorInput";
-import { createApolloClient } from "helpers/graphQL";
+import { createApolloClient } from "../../../../helpers/graphQL";
 import { useCustomStyles } from "./useCustomStyles";
 import { FormPallette } from "../../type";
 import { handleUploadFile } from "../helper";
