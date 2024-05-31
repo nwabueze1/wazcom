@@ -11,13 +11,14 @@ export const useFormikDocumentsUploadStyles = makeStyles<Theme, FormPallette>(()
   selectFileButton: (props) => ({
     borderColor: props?.colors?.main,
     color: props?.colors?.main,
+    fontFamily: props?.typography?.input?.fontFamily,
     "&:hover": {
       color: props?.colors?.main,
       borderColor: props?.colors?.hover,
     },
   }),
   label: (props) => ({
-    fontFamily: props?.typography?.label?.color,
+    fontFamily: props?.typography?.label?.fontFamily,
     color: props?.typography?.label?.color,
     fontSize: props?.typography?.label?.fontSize,
   }),

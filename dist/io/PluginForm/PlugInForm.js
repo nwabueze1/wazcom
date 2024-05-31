@@ -105,6 +105,6 @@ export var PlugInForm = forwardRef(function (props, ref) {
     return (_jsx(_Fragment, { children: _jsx(Formik, __assign({ validationSchema: validationSchema, initialValues: initialFormState, onSubmit: handleSubmit }, { children: function (props) { return (_jsxs(Form, __assign({ style: style }, { children: [_jsx("div", __assign({ className: className }, { children: (questions !== null && questions !== void 0 ? questions : []).map(function (_a, index) {
                             var question = _a.question, fields = _a.fields, type = _a.type, is_required = _a.is_required, uuid = _a.uuid;
                             return (_jsx(QuestionsInput, { name: uuid, fields: fields, type: type, is_required: is_required, classNames: classNames, formikProps: props, label: question, palette: palette, client: apolloClient === null || apolloClient === void 0 ? void 0 : apolloClient.client, form_uuid: form_uuid }, index));
-                        }) })), _jsx("button", __assign({ type: "submit" }, { children: "Submit" })), !submitButton ? (_jsx("button", { className: classes.submitButton, type: "submit", ref: submitButtonRef })) : (submitButton)] }))); } })) }));
+                        }) })), !submitButton ? (_jsx("button", { className: classes.submitButton, type: "submit", ref: submitButtonRef })) : (submitButton)] }))); } })) }));
 });
 PlugInForm.displayName = "PluginForm";

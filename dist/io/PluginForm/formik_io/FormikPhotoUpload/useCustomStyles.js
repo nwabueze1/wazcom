@@ -13,13 +13,14 @@ export var useCustomStyles = makeStyles(function () { return ({
         });
     },
     selectFileButton: function (props) {
-        var _a, _b, _c, _d;
+        var _a, _b, _c, _d, _e, _f;
         return ({
             borderColor: (_a = props === null || props === void 0 ? void 0 : props.colors) === null || _a === void 0 ? void 0 : _a.main,
             color: (_b = props === null || props === void 0 ? void 0 : props.colors) === null || _b === void 0 ? void 0 : _b.main,
+            fontFamily: (_d = (_c = props === null || props === void 0 ? void 0 : props.typography) === null || _c === void 0 ? void 0 : _c.input) === null || _d === void 0 ? void 0 : _d.fontFamily,
             "&:hover": {
-                color: (_c = props === null || props === void 0 ? void 0 : props.colors) === null || _c === void 0 ? void 0 : _c.main,
-                borderColor: (_d = props === null || props === void 0 ? void 0 : props.colors) === null || _d === void 0 ? void 0 : _d.hover,
+                color: (_e = props === null || props === void 0 ? void 0 : props.colors) === null || _e === void 0 ? void 0 : _e.main,
+                borderColor: (_f = props === null || props === void 0 ? void 0 : props.colors) === null || _f === void 0 ? void 0 : _f.hover,
             },
         });
     },
@@ -34,7 +35,7 @@ export var useCustomStyles = makeStyles(function () { return ({
     label: function (props) {
         var _a, _b, _c, _d, _e, _f;
         return ({
-            fontFamily: (_b = (_a = props === null || props === void 0 ? void 0 : props.typography) === null || _a === void 0 ? void 0 : _a.label) === null || _b === void 0 ? void 0 : _b.color,
+            fontFamily: (_b = (_a = props === null || props === void 0 ? void 0 : props.typography) === null || _a === void 0 ? void 0 : _a.label) === null || _b === void 0 ? void 0 : _b.fontFamily,
             color: (_d = (_c = props === null || props === void 0 ? void 0 : props.typography) === null || _c === void 0 ? void 0 : _c.label) === null || _d === void 0 ? void 0 : _d.color,
             fontSize: (_f = (_e = props === null || props === void 0 ? void 0 : props.typography) === null || _e === void 0 ? void 0 : _e.label) === null || _f === void 0 ? void 0 : _f.fontSize,
         });
