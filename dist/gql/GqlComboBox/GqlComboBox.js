@@ -85,11 +85,13 @@ import { jsx as _jsx } from "react/jsx-runtime";
 import { memo, useCallback, useEffect, useState } from "react";
 import { ComboBoxInput } from "../../io";
 import { get } from "lodash";
+import { CircularProgress } from "@mui/material";
 export var GqlComboBox = memo(function (_a) {
     var initialValue = _a.value, _b = _a.config, client = _b.client, key = _b.key, labelKey = _b.labelKey, valueKey = _b.valueKey, query = _b.name, postFetchHook = _a.postFetchHook, addOption = _a.addOption, onChange = _a.onChange, label = _a.label, variables = _a.variables, props = __rest(_a, ["value", "config", "postFetchHook", "addOption", "onChange", "label", "variables"]);
     var _c = __read(useState([]), 2), options = _c[0], setOptions = _c[1];
     var _d = __read(useState(true), 2), fetching = _d[0], setFetching = _d[1];
-    var _e = __read(useState(initialValue), 2), value = _e[0], setValue = _e[1];
+    var _e = __read(useState(false), 2), isRender = _e[0], setIsRender = _e[1];
+    var _f = __read(useState(initialValue), 2), value = _f[0], setValue = _f[1];
     useEffect(function () {
         setValue(initialValue);
     }, [initialValue]);
@@ -126,8 +128,8 @@ export var GqlComboBox = memo(function (_a) {
                                 label: option[labelKey],
                                 value: option[valueKey],
                             }); });
-                            setOptions(function (options) {
-                                var newOptions = __spreadArray(__spreadArray([], __read(options), false), __read(formattedOptions_1), false);
+                            setOptions(function () {
+                                var newOptions = __spreadArray(__spreadArray([], [], false), __read(formattedOptions_1), false);
                                 var arrayUniqueByKey = __spreadArray([], __read(new Map(newOptions.map(function (item) { return [item["value"], item]; })).values()), false);
                                 return arrayUniqueByKey;
                             });
@@ -151,8 +153,24 @@ export var GqlComboBox = memo(function (_a) {
         }
     }, [options]);
     useEffect(function () {
-        getData();
+        getCmsData();
     }, [query]);
+    // Just a wrapper function used to call getData. Its needed for the
+    // isRender state variable so that the child ComboBoxInput can re-render
+    // with the new state values
+    var getCmsData = function () { return __awaiter(void 0, void 0, void 0, function () {
+        return __generator(this, function (_a) {
+            switch (_a.label) {
+                case 0:
+                    setIsRender(false);
+                    return [4 /*yield*/, getData()];
+                case 1:
+                    _a.sent();
+                    setIsRender(true);
+                    return [2 /*return*/];
+            }
+        });
+    }); };
     var handleChange = useCallback(function (selectedValue) { return __awaiter(void 0, void 0, void 0, function () {
         var label, value, response;
         var _a;
@@ -203,6 +221,8 @@ export var GqlComboBox = memo(function (_a) {
             }
         });
     }); }, [options]);
+    if (!isRender)
+        return _jsx(CircularProgress, { size: "16px", color: "success" });
     return (_jsx(ComboBoxInput, __assign({ label: label, options: options, value: value !== null && value !== void 0 ? value : "", onChange: function (data) {
             if (data.type && data.type == "search" && !(variables === null || variables === void 0 ? void 0 : variables.all)) {
                 getData(data.value);

@@ -42,13 +42,13 @@ export const ComboBoxInput: FC<ComboBoxInputProps> = ({
   const [isFocused, setIsFocused] = useState(false);
 
   useEffect(() => {
+    console.log("inside the combobox with the options change", initialOptions);
     setOptions(initialOptions);
   }, [initialOptions]);
 
   useEffect(() => {
     if (!value || value === filter) return;
-    const filteredOptions = options?.find((option) => option.value === value)?.label ?? "";
-    setFilter(filteredOptions);
+    setFilter("");
   }, [value]);
 
   const handleSelect = (option: ComboBoxInputOptionProps) => {
@@ -74,8 +74,10 @@ export const ComboBoxInput: FC<ComboBoxInputProps> = ({
       ? options
       : options.filter((option) => option?.label?.toLowerCase()?.includes(filter.toLowerCase()));
 
-    if (!isLoading && displayedOptions.length === 0 && isAdd) {
-      displayedOptions.push({ label: "Add " + filter, value: filter });
+    const isAddCondition = isAdd && filter.trim() !== "" && !(displayedOptions.find(({ label }) => label.toLowerCase() === filter.toLowerCase()));
+
+    if (!isLoading && isAddCondition) {
+      displayedOptions.unshift({ label: "Add " + filter, value: filter });
     }
 
     return displayedOptions.map(({ label, value, subText }, index) => (
