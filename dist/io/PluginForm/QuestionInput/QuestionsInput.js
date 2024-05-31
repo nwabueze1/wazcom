@@ -27,7 +27,7 @@ export var QuestionsInput = function (_a) {
         palette: palette,
     };
     var renderFields = function () {
-        var _a, _b, _c, _d, _e, _f, _g, _h, _j, _k, _l, _m, _o, _p;
+        var _a, _b, _c, _d, _e, _f, _g, _h, _j, _k, _l, _m, _o, _p, _q, _r, _s, _t, _u, _v;
         var addressKeys = [];
         var options = [];
         var format = (_a = fields === null || fields === void 0 ? void 0 : fields["format"]) !== null && _a !== void 0 ? _a : "*";
@@ -50,13 +50,13 @@ export var QuestionsInput = function (_a) {
                 return _jsx(FormikTextArea, __assign({}, commonInputProps, { classNames: classNames === null || classNames === void 0 ? void 0 : classNames.textArea }));
             case "YES_OR_NO":
             case "SINGLE_CHOICE":
-                options = (fields === null || fields === void 0 ? void 0 : fields.choices).map(function (field) { return ({
+                options = (_f = ((_e = fields === null || fields === void 0 ? void 0 : fields.choices) !== null && _e !== void 0 ? _e : [])) === null || _f === void 0 ? void 0 : _f.map(function (field) { return ({
                     label: field,
                     value: field,
                 }); });
                 return (_jsx(FormikSingleChoice, { options: options, name: name, control: "radio", classNames: classNames === null || classNames === void 0 ? void 0 : classNames.radioButtonInput, formikProps: formikProps, placeholder: label, palette: palette }));
             case "MULTI_CHOICE":
-                options = (fields === null || fields === void 0 ? void 0 : fields.choices).map(function (field) { return ({
+                options = (_h = ((_g = fields === null || fields === void 0 ? void 0 : fields.choices) !== null && _g !== void 0 ? _g : [])) === null || _h === void 0 ? void 0 : _h.map(function (field) { return ({
                     label: field,
                     value: field,
                 }); });
@@ -67,17 +67,17 @@ export var QuestionsInput = function (_a) {
                 return (_jsx(FormikTextInput, __assign({}, commonInputProps, { type: "date", placeholder: "", label: commonInputProps.placeholder })));
             case "ADDRESS":
                 addressKeys = Object.keys(fields);
-                return (_jsxs("div", __assign({ className: clx(classes.fieldSet, (_e = classNames === null || classNames === void 0 ? void 0 : classNames.addressInput) === null || _e === void 0 ? void 0 : _e.fieldset) }, { children: [_jsx("label", __assign({ className: clx(classes.legend, paletteStyles === null || paletteStyles === void 0 ? void 0 : paletteStyles.label, (_f = classNames === null || classNames === void 0 ? void 0 : classNames.addressInput) === null || _f === void 0 ? void 0 : _f.legend) }, { children: label })), addressKeys.map(function (key, index) { return (_createElement(FormikTextInput, __assign({ is_address: true }, commonInputProps, { name: "".concat(name, ".").concat(fields === null || fields === void 0 ? void 0 : fields[key]), key: index, placeholder: index === addressKeys.length - 1 ? "Country" : fields === null || fields === void 0 ? void 0 : fields[key] }))); })] })));
+                return (_jsxs("div", __assign({ className: clx(classes.fieldSet, (_j = classNames === null || classNames === void 0 ? void 0 : classNames.addressInput) === null || _j === void 0 ? void 0 : _j.fieldset) }, { children: [_jsx("label", __assign({ className: clx(classes.legend, paletteStyles === null || paletteStyles === void 0 ? void 0 : paletteStyles.label, (_k = classNames === null || classNames === void 0 ? void 0 : classNames.addressInput) === null || _k === void 0 ? void 0 : _k.legend) }, { children: label })), addressKeys === null || addressKeys === void 0 ? void 0 : addressKeys.map(function (key, index) { return (_createElement(FormikTextInput, __assign({ is_address: true }, commonInputProps, { name: "".concat(name, ".").concat(fields === null || fields === void 0 ? void 0 : fields[key]), key: index, placeholder: index === addressKeys.length - 1 ? "Country" : fields === null || fields === void 0 ? void 0 : fields[key] }))); })] })));
             case "DROP_DOWN":
-                options = (fields === null || fields === void 0 ? void 0 : fields.choices).map(function (choice) { return ({
+                options = (_m = ((_l = fields === null || fields === void 0 ? void 0 : fields.choices) !== null && _l !== void 0 ? _l : [])) === null || _m === void 0 ? void 0 : _m.map(function (choice) { return ({
                     label: choice.toLocaleUpperCase(),
                     value: choice,
                 }); });
                 return (_jsx(FormikSelect, { classNames: classNames === null || classNames === void 0 ? void 0 : classNames.selectInput, formikProps: formikProps, name: name, options: options }));
             case "OPINION":
-                return (_jsx(FormikOpinionScale, __assign({}, commonInputProps, { label: commonInputProps.placeholder, classNames: __assign(__assign({}, classNames === null || classNames === void 0 ? void 0 : classNames.opinionScale), { label: clx(classes === null || classes === void 0 ? void 0 : classes.ratingLabel, (_g = classNames === null || classNames === void 0 ? void 0 : classNames.opinionScale) === null || _g === void 0 ? void 0 : _g.label) }), variant: (_j = (_h = mscProperties === null || mscProperties === void 0 ? void 0 : mscProperties.opinionScale) === null || _h === void 0 ? void 0 : _h.variant) !== null && _j !== void 0 ? _j : "contained" })));
+                return (_jsx(FormikOpinionScale, __assign({}, commonInputProps, { label: commonInputProps.placeholder, classNames: __assign(__assign({}, classNames === null || classNames === void 0 ? void 0 : classNames.opinionScale), { label: clx(classes === null || classes === void 0 ? void 0 : classes.ratingLabel, (_o = classNames === null || classNames === void 0 ? void 0 : classNames.opinionScale) === null || _o === void 0 ? void 0 : _o.label) }), variant: (_q = (_p = mscProperties === null || mscProperties === void 0 ? void 0 : mscProperties.opinionScale) === null || _p === void 0 ? void 0 : _p.variant) !== null && _q !== void 0 ? _q : "contained" })));
             case "RATING":
-                return (_jsx(FormikRatingInput, __assign({}, commonInputProps, { label: commonInputProps.placeholder, classNames: __assign(__assign({}, classNames === null || classNames === void 0 ? void 0 : classNames.ratingInput), { label: clx(classes === null || classes === void 0 ? void 0 : classes.ratingLabel, (_k = classNames === null || classNames === void 0 ? void 0 : classNames.ratingInput) === null || _k === void 0 ? void 0 : _k.label) }), variant: (_m = (_l = mscProperties === null || mscProperties === void 0 ? void 0 : mscProperties.rating) === null || _l === void 0 ? void 0 : _l.variant) !== null && _m !== void 0 ? _m : "contained", min: (_o = Number(fields === null || fields === void 0 ? void 0 : fields["from"])) !== null && _o !== void 0 ? _o : 1, max: (_p = Number(fields === null || fields === void 0 ? void 0 : fields["to"])) !== null && _p !== void 0 ? _p : 5 })));
+                return (_jsx(FormikRatingInput, __assign({}, commonInputProps, { label: commonInputProps.placeholder, classNames: __assign(__assign({}, classNames === null || classNames === void 0 ? void 0 : classNames.ratingInput), { label: clx(classes === null || classes === void 0 ? void 0 : classes.ratingLabel, (_r = classNames === null || classNames === void 0 ? void 0 : classNames.ratingInput) === null || _r === void 0 ? void 0 : _r.label) }), variant: (_t = (_s = mscProperties === null || mscProperties === void 0 ? void 0 : mscProperties.rating) === null || _s === void 0 ? void 0 : _s.variant) !== null && _t !== void 0 ? _t : "contained", min: (_u = Number(fields === null || fields === void 0 ? void 0 : fields["from"])) !== null && _u !== void 0 ? _u : 1, max: (_v = Number(fields === null || fields === void 0 ? void 0 : fields["to"])) !== null && _v !== void 0 ? _v : 5 })));
             default:
                 return null;
         }

@@ -78,7 +78,7 @@ export const PlugInForm = forwardRef<PluginFormRef, PluginFormPropsType>((props,
         {(props) => (
           <Form style={style}>
             <div className={className}>
-              {((questions ?? []) as QuestionType[]).map(
+              {((questions ?? []) as QuestionType[])?.map(
                 ({ question, fields, type, is_required, uuid }, index) => (
                   <QuestionsInput
                     name={uuid}

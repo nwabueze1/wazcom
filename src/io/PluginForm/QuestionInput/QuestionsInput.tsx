@@ -97,7 +97,7 @@ export const QuestionsInput: FC<
 
       case "YES_OR_NO":
       case "SINGLE_CHOICE":
-        options = (fields?.choices as string[]).map((field) => ({
+        options = ((fields?.choices as string[]) ?? [])?.map((field) => ({
           label: field,
           value: field,
         }));
@@ -114,7 +114,7 @@ export const QuestionsInput: FC<
         );
 
       case "MULTI_CHOICE":
-        options = (fields?.choices as string[]).map((field) => ({
+        options = ((fields?.choices as string[]) ?? [])?.map((field) => ({
           label: field,
           value: field,
         }));
@@ -156,7 +156,7 @@ export const QuestionsInput: FC<
             >
               {label}
             </label>
-            {addressKeys.map((key, index) => (
+            {addressKeys?.map((key, index) => (
               <FormikTextInput
                 is_address={true}
                 {...commonInputProps}
@@ -169,7 +169,7 @@ export const QuestionsInput: FC<
         );
 
       case "DROP_DOWN":
-        options = (fields?.choices as string[]).map((choice) => ({
+        options = ((fields?.choices as string[]) ?? [])?.map((choice) => ({
           label: choice.toLocaleUpperCase(),
           value: choice,
         }));
