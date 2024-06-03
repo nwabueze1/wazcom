@@ -20,12 +20,13 @@ export const FileSelectorInput: FC<FileSelectorInputPropsType> = ({
   loading,
   uploadFn,
   classNames,
+  url,
 }) => {
   const classes = useFileSelectorInputStyles();
   const fileInputRef = useRef<HTMLInputElement>(null);
   const [fileError, setFileError] = useState<string | undefined>(undefined);
   const [file, setFile] = useState<File | null>(null);
-  const hasSelectedFile = file !== null;
+  const hasSelectedFile = uploadFn ? url && url?.length > 0 : file !== null;
 
   const handlePickFile = () => {
     fileInputRef.current?.click();

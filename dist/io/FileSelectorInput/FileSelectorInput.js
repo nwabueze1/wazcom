@@ -70,12 +70,12 @@ import { Button } from "../../core";
 import { shortenFileName } from "./helper";
 import { CircularProgress } from "@mui/material";
 export var FileSelectorInput = function (_a) {
-    var name = _a.name, value = _a.value, isError = _a.isError, onChange = _a.onChange, helperText = _a.helperText, _b = _a.accept, accept = _b === void 0 ? "*" : _b, label = _a.label, min_size_kb = _a.min_size_kb, max_size_mb = _a.max_size_mb, loading = _a.loading, uploadFn = _a.uploadFn, classNames = _a.classNames;
+    var name = _a.name, value = _a.value, isError = _a.isError, onChange = _a.onChange, helperText = _a.helperText, _b = _a.accept, accept = _b === void 0 ? "*" : _b, label = _a.label, min_size_kb = _a.min_size_kb, max_size_mb = _a.max_size_mb, loading = _a.loading, uploadFn = _a.uploadFn, classNames = _a.classNames, url = _a.url;
     var classes = useFileSelectorInputStyles();
     var fileInputRef = useRef(null);
     var _c = __read(useState(undefined), 2), fileError = _c[0], setFileError = _c[1];
     var _d = __read(useState(null), 2), file = _d[0], setFile = _d[1];
-    var hasSelectedFile = file !== null;
+    var hasSelectedFile = uploadFn ? url && (url === null || url === void 0 ? void 0 : url.length) > 0 : file !== null;
     var handlePickFile = function () {
         var _a;
         (_a = fileInputRef.current) === null || _a === void 0 ? void 0 : _a.click();

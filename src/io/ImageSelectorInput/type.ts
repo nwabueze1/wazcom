@@ -11,6 +11,7 @@ export type ImageSelectorInputPropsType = {
   loading?: boolean;
   uploadFn?: (data: { name: string; file: File | null }) => Promise<boolean>;
   classNames?: UploadClassNames;
+  url?: string;
 };
 
 export type UploadClassNames = {

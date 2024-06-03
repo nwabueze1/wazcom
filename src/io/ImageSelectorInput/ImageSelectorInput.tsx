@@ -19,6 +19,7 @@ export const ImageSelectorInput: FC<ImageSelectorInputPropsType> = ({
   loading,
   accept,
   classNames,
+  url,
 }) => {
   const classes = useImageSelectorInputStyles();
   const fileInputRef = useRef<HTMLInputElement>(null);
@@ -27,7 +28,7 @@ export const ImageSelectorInput: FC<ImageSelectorInputPropsType> = ({
     if (!value) return "";
     return URL.createObjectURL(value);
   });
-  const hasSelectedImage = fileSource.length > 0;
+  const hasSelectedImage = uploadFn ? url && url?.length : fileSource.length > 0;
   const handlePickImage = () => {
     fileInputRef.current?.click();
   };

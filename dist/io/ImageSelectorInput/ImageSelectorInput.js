@@ -69,7 +69,7 @@ import { Button } from "../../core";
 import { validateFileBySize } from "./ValidateFileBySize";
 import { CircularProgress } from "@mui/material";
 export var ImageSelectorInput = function (_a) {
-    var isError = _a.isError, label = _a.label, value = _a.value, onChange = _a.onChange, helperText = _a.helperText, min_size_kb = _a.min_size_kb, max_size_mb = _a.max_size_mb, name = _a.name, uploadFn = _a.uploadFn, loading = _a.loading, accept = _a.accept, classNames = _a.classNames;
+    var isError = _a.isError, label = _a.label, value = _a.value, onChange = _a.onChange, helperText = _a.helperText, min_size_kb = _a.min_size_kb, max_size_mb = _a.max_size_mb, name = _a.name, uploadFn = _a.uploadFn, loading = _a.loading, accept = _a.accept, classNames = _a.classNames, url = _a.url;
     var classes = useImageSelectorInputStyles();
     var fileInputRef = useRef(null);
     var _b = __read(useState(undefined), 2), fileError = _b[0], setFileError = _b[1];
@@ -78,7 +78,7 @@ export var ImageSelectorInput = function (_a) {
             return "";
         return URL.createObjectURL(value);
     }), 2), fileSource = _c[0], setFileSource = _c[1];
-    var hasSelectedImage = fileSource.length > 0;
+    var hasSelectedImage = uploadFn ? url && (url === null || url === void 0 ? void 0 : url.length) : fileSource.length > 0;
     var handlePickImage = function () {
         var _a;
         (_a = fileInputRef.current) === null || _a === void 0 ? void 0 : _a.click();

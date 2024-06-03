@@ -44,9 +44,9 @@ import { useCustomStyles } from "./useCustomStyles";
 import { handleUploadFile } from "../helper";
 import clx from "classnames";
 export var FormikPhotoUpload = function (_a) {
-    var _b, _c, _d, _e;
+    var _b, _c, _d, _e, _f;
     var name = _a.name, label = _a.label, formikProps = _a.formikProps, isRequired = _a.isRequired, client = _a.client, form_uuid = _a.form_uuid, classNames = _a.classNames, props = __rest(_a, ["name", "label", "formikProps", "isRequired", "client", "form_uuid", "classNames"]);
-    var _f = __read(useState(false), 2), loading = _f[0], setLoading = _f[1];
+    var _g = __read(useState(false), 2), loading = _g[0], setLoading = _g[1];
     var gqlClient = useMemo(function () { return client !== null && client !== void 0 ? client : createApolloClient("http://localhost:8000/graphql"); }, [client]);
     var isError = ((_b = formikProps === null || formikProps === void 0 ? void 0 : formikProps.touched) === null || _b === void 0 ? void 0 : _b[name]) && ((_c = formikProps === null || formikProps === void 0 ? void 0 : formikProps.errors) === null || _c === void 0 ? void 0 : _c[name]);
     var classes = useCustomStyles(props === null || props === void 0 ? void 0 : props.palette);
@@ -59,5 +59,5 @@ export var FormikPhotoUpload = function (_a) {
             label: clx(classes.label, classNames === null || classNames === void 0 ? void 0 : classNames.label),
             changeFileButton: clx(classes.changeFileButton, classNames === null || classNames === void 0 ? void 0 : classNames.changeFileButton),
             text: clx(classes.label, classNames === null || classNames === void 0 ? void 0 : classNames.text),
-        } }, props)));
+        }, url: (_f = formikProps === null || formikProps === void 0 ? void 0 : formikProps.values) === null || _f === void 0 ? void 0 : _f[name] }, props)));
 };

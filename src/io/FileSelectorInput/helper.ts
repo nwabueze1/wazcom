@@ -1,4 +1,4 @@
-export const shortenFileName = (filename: string) => {
+export const shortenFileName = (filename = "") => {
   const maxSize = 10;
   const concatSize = maxSize - 5;
 

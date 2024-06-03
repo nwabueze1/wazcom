@@ -43,6 +43,7 @@ export const FormikPhotoUpload: FC<FormikPhotoUploadType> = ({
         changeFileButton: clx(classes.changeFileButton, classNames?.changeFileButton),
         text: clx(classes.label, classNames?.text),
       }}
+      url={formikProps?.values?.[name]}
       {...props}
     />
   );
