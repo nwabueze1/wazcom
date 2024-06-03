@@ -1,1 +1,1 @@
-export declare const shortenFileName: (filename: string) => string;
+export declare const shortenFileName: (filename?: string) => string;

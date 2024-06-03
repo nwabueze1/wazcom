@@ -31,9 +31,7 @@ export var buildValidationSchema = function (questions) {
                 case "DOC":
                 case "VIDEO":
                 case "PHOTO":
-                    schemaObject[uuid] = Yup.string()
-                        .url("This field must be a valid url")
-                        .required(requiredMessage);
+                    schemaObject[uuid] = Yup.string().required(requiredMessage);
                     break;
                 case "OPINION":
                 case "RATING":

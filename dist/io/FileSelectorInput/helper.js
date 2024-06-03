@@ -1,4 +1,5 @@
 export var shortenFileName = function (filename) {
+    if (filename === void 0) { filename = ""; }
     var maxSize = 10;
     var concatSize = maxSize - 5;
     if (filename.length <= maxSize)

@@ -17,6 +17,7 @@ export type ImageSelectorInputPropsType = {
         file: File | null;
     }) => Promise<boolean>;
     classNames?: UploadClassNames;
+    url?: string;
 };
 export type UploadClassNames = {
     label?: string;
