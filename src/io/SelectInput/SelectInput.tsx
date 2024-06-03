@@ -37,7 +37,9 @@ export const SelectInput: React.FC<SelectInputProps> = ({
     }
   };
 
-  const selectValue = useMemo(() => options?.find((option) => option.value == value), [value]);
+  const selectValue = useMemo(() => {
+    return options?.filter((option) => option.value === value)
+  }, [value]);
   const labelElement = isValidElement(label) ? cloneElement(label, {}) : label;
 
   const DropdownIndicator = (props: any) => (
