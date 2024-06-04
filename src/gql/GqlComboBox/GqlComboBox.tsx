@@ -2,6 +2,7 @@ import { memo, useCallback, useEffect, useState } from "react";
 import { GqlComboBoxProps } from "./types";
 import { ComboBoxInput, ComboBoxInputOptionProps } from "../../io";
 import { get } from "lodash";
+import { CircularProgress } from "@mui/material";
 
 export const GqlComboBox = memo(
   ({
@@ -16,6 +17,7 @@ export const GqlComboBox = memo(
   }: GqlComboBoxProps) => {
     const [options, setOptions] = useState<ComboBoxInputOptionProps[]>([]);
     const [fetching, setFetching] = useState<boolean>(true);
+    const [isRender, setIsRender] = useState(false);
     const [value, setValue] = useState(initialValue);
 
     useEffect(() => {
@@ -43,8 +45,8 @@ export const GqlComboBox = memo(
             label: option[labelKey],
             value: option[valueKey],
           }));
-          setOptions((options) => {
-            const newOptions = [...options, ...formattedOptions];
+          setOptions(() => {
+            const newOptions = [...[], ...formattedOptions];
             const arrayUniqueByKey = [
               ...new Map(newOptions.map((item) => [item["value"], item])).values(),
             ];
@@ -65,8 +67,17 @@ export const GqlComboBox = memo(
     }, [options]);
 
     useEffect(() => {
-      getData();
+      getCmsData();
     }, [query]);
+
+    // Just a wrapper function used to call getData. Its needed for the
+    // isRender state variable so that the child ComboBoxInput can re-render
+    // with the new state values
+    const getCmsData = async () => {
+      setIsRender(false);
+      await getData();
+      setIsRender(true);
+    };
 
     const handleChange = useCallback(
       async (selectedValue: string) => {
@@ -111,6 +122,8 @@ export const GqlComboBox = memo(
       },
       [options],
     );
+
+    if (!isRender) return <CircularProgress size="16px" color="success" />;
 
     return (
       <ComboBoxInput
