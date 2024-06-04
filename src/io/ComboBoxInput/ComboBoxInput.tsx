@@ -42,7 +42,6 @@ export const ComboBoxInput: FC<ComboBoxInputProps> = ({
   const [isFocused, setIsFocused] = useState(false);
 
   useEffect(() => {
-    console.log("inside the combobox with the options change", initialOptions);
     setOptions(initialOptions);
   }, [initialOptions]);
 

@@ -47,12 +47,13 @@ export var ComboBoxInput = function (_a) {
     var _f = __read(useState(false), 2), showOptions = _f[0], setShowOptions = _f[1];
     var _g = __read(useState(false), 2), isFocused = _g[0], setIsFocused = _g[1];
     useEffect(function () {
-        console.log("inside the combobox with the options change", initialOptions);
         setOptions(initialOptions);
     }, [initialOptions]);
     useEffect(function () {
+        console.log("Here is the value", value);
         if (!value || value === filter)
             return;
+        console.log("Here is where the issue is coming from");
         setFilter("");
     }, [value]);
     var handleSelect = function (option) {
