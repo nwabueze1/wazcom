@@ -53,8 +53,12 @@ export var ComboBoxInput = function (_a) {
         var _a, _b;
         if (!value || value === filter)
             return;
-        var filteredOptions = (_b = (_a = options === null || options === void 0 ? void 0 : options.find(function (option) { return option.value === value; })) === null || _a === void 0 ? void 0 : _a.label) !== null && _b !== void 0 ? _b : "";
-        setFilter(filteredOptions);
+        if (isAdd)
+            setFilter("");
+        else {
+            var filteredOptions = (_b = (_a = options === null || options === void 0 ? void 0 : options.find(function (option) { return option.value === value; })) === null || _a === void 0 ? void 0 : _a.label) !== null && _b !== void 0 ? _b : "";
+            setFilter(filteredOptions);
+        }
     }, [value]);
     var handleSelect = function (option) {
         setFilter(option === null || option === void 0 ? void 0 : option.label);
@@ -80,8 +84,12 @@ export var ComboBoxInput = function (_a) {
         var displayedOptions = isFocused
             ? options
             : options.filter(function (option) { var _a, _b; return (_b = (_a = option === null || option === void 0 ? void 0 : option.label) === null || _a === void 0 ? void 0 : _a.toLowerCase()) === null || _b === void 0 ? void 0 : _b.includes(filter.toLowerCase()); });
-        if (!isLoading && displayedOptions.length === 0 && isAdd) {
-            displayedOptions.push({ label: "Add " + filter, value: filter });
+        var isAddCondition = isAdd && filter.trim() !== "" && !(displayedOptions.find(function (_a) {
+            var label = _a.label;
+            return label.toLowerCase() === filter.toLowerCase();
+        }));
+        if (!isLoading && isAddCondition) {
+            displayedOptions.unshift({ label: "Add " + filter, value: filter });
         }
         return displayedOptions.map(function (_a, index) {
             var label = _a.label, value = _a.value, subText = _a.subText;
