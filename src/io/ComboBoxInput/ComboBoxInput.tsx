@@ -47,7 +47,13 @@ export const ComboBoxInput: FC<ComboBoxInputProps> = ({
 
   useEffect(() => {
     if (!value || value === filter) return;
-    isAdd && setFilter("");
+
+    if (isAdd) 
+        setFilter("")
+    else {
+      const filteredOptions = options?.find((option) => option.value === value)?.label ?? "";
+      setFilter(filteredOptions);
+    }
   }, [value]);
 
   const handleSelect = (option: ComboBoxInputOptionProps) => {

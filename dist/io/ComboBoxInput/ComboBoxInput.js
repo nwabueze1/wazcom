@@ -50,9 +50,15 @@ export var ComboBoxInput = function (_a) {
         setOptions(initialOptions);
     }, [initialOptions]);
     useEffect(function () {
+        var _a, _b;
         if (!value || value === filter)
             return;
-        isAdd && setFilter("");
+        if (isAdd)
+            setFilter("");
+        else {
+            var filteredOptions = (_b = (_a = options === null || options === void 0 ? void 0 : options.find(function (option) { return option.value === value; })) === null || _a === void 0 ? void 0 : _a.label) !== null && _b !== void 0 ? _b : "";
+            setFilter(filteredOptions);
+        }
     }, [value]);
     var handleSelect = function (option) {
         setFilter(option === null || option === void 0 ? void 0 : option.label);
