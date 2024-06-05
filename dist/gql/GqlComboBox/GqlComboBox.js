@@ -93,7 +93,6 @@ export var GqlComboBox = memo(function (_a) {
     var _e = __read(useState(false), 2), isRender = _e[0], setIsRender = _e[1];
     var _f = __read(useState(initialValue), 2), value = _f[0], setValue = _f[1];
     useEffect(function () {
-        console.log("Here is the initialValue", initialValue);
         setValue(initialValue);
     }, [initialValue]);
     var fetchData = function (search) {

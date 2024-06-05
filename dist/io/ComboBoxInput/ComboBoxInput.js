@@ -50,11 +50,9 @@ export var ComboBoxInput = function (_a) {
         setOptions(initialOptions);
     }, [initialOptions]);
     useEffect(function () {
-        console.log("Here is the value", value);
         if (!value || value === filter)
             return;
-        console.log("Here is where the issue is coming from");
-        setFilter("");
+        isAdd && setFilter("");
     }, [value]);
     var handleSelect = function (option) {
         setFilter(option === null || option === void 0 ? void 0 : option.label);
