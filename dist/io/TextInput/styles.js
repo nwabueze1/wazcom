@@ -30,7 +30,7 @@ export var useTextStyles = makeStyles(function (theme) { return ({
             borderStyle: (_f = props === null || props === void 0 ? void 0 : props.borderStyle) !== null && _f !== void 0 ? _f : "solid",
             borderRadius: (_g = props === null || props === void 0 ? void 0 : props.borderRadius) !== null && _g !== void 0 ? _g : 4,
             fontWeight: theme.typography.fontWeightRegular,
-            fontSize: theme.typography.fontSize,
+            fontSize: theme.typography.fontSize + 1,
             borderColor: (_h = props === null || props === void 0 ? void 0 : props.borderColor) !== null && _h !== void 0 ? _h : theme.design.colors.waz_primary700,
             "&:hover": {
                 borderColor: theme.design.colors.waz_primary500,

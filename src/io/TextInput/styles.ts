@@ -31,7 +31,7 @@ export const useTextStyles = makeStyles((theme: Theme) => ({
     borderStyle: props?.borderStyle ?? "solid",
     borderRadius: props?.borderRadius ?? 4,
     fontWeight: theme.typography.fontWeightRegular,
-    fontSize: theme.typography.fontSize,
+    fontSize: theme.typography.fontSize + 1,
     borderColor: props?.borderColor ?? theme.design.colors.waz_primary700,
 
     "&:hover": {
