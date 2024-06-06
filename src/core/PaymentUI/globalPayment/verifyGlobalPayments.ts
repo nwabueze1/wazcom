@@ -34,16 +34,23 @@ export const useVerifyGlobalPayments = () => {
   const recordCartAction = useRecordCartAction();
   const updateOrder = useUpdateOrder();
 
-  return async (block_uuid: string, onCompletion?: () => void) => {
+  return async (block_uuid: string, onCompletion?: () => void, onError?: () => void) => {
     const urlParams = new URLSearchParams(window.location.search);
     const paymentType = urlParams.get("hivedeck_payment_type") ?? "";
 
     switch (paymentType) {
-      case "Hivedeck Payment":
+      case "Hivedeck Payment": 
         {
           const status = urlParams.get("status") ?? "";
           const tx_ref = urlParams.get("tx_ref") ?? "";
           const transaction_id = urlParams.get("transaction_id") ?? "";
+
+          if (status.toLowerCase() === "cancelled") {
+            notify("error", "There was a problem completing payment");
+            onError?.();
+            return;
+          }
+
           verifyPayment({
             site_uuid: cart.restaurant.site.uuid,
             status: status == "successful" ? "success" : status,
@@ -53,8 +60,12 @@ export const useVerifyGlobalPayments = () => {
             .then(async () => {
               await updateOrder(paymentType);
               recordCartAction(block_uuid ?? "", "payment_confirmed");
+              onCompletion?.();
             })
-            .finally(() => onCompletion?.());
+            .catch(() => {
+              notify("error", "There was a problem completing payment");
+              onError?.();
+            })
         }
         break;
       case "flutterwave":
@@ -62,6 +73,14 @@ export const useVerifyGlobalPayments = () => {
           const site_payment_uuid =
             urlParams.get("hivedeck_site_payment_uuid") ?? "";
           const transaction_id = urlParams.get("transaction_id") ?? "";
+          const status = urlParams.get("status") ?? "";
+
+          if (status.toLowerCase() === "cancelled") {
+            notify("error", "There was a problem completing payment");
+            onError?.();
+            return;
+          }
+
           verifyFlutterwavePayment({
             site_payment_uuid: site_payment_uuid,
             transaction_id: transaction_id,
@@ -70,11 +89,13 @@ export const useVerifyGlobalPayments = () => {
               if (res.status) {
                 await updateOrder(paymentType);
                 recordCartAction(block_uuid ?? "", "payment_confirmed");
-              } else {
-                notify("error", "Payment not completed");
+                onCompletion?.();
               }
             })
-            .finally(() => onCompletion?.());
+            .catch(() => {
+              notify("error", "There was a problem completing payment");
+              onError?.();
+            })
         }
         break;
       case "noda":
@@ -90,11 +111,13 @@ export const useVerifyGlobalPayments = () => {
               if (res.status) {
                 await updateOrder(paymentType);
                 recordCartAction(block_uuid ?? "", "payment_confirmed");
-              } else {
-                notify("error", "Payment not completed");
+                onCompletion?.();
               }
             })
-            .finally(() => onCompletion?.());
+            .catch(() => {
+              notify("error", "There was a problem completing payment");
+              onError?.();
+            })
         }
         break;
       case "paystack":
@@ -110,11 +133,13 @@ export const useVerifyGlobalPayments = () => {
               if (res.status) {
                 await updateOrder(paymentType);
                 recordCartAction(block_uuid ?? "", "payment_confirmed");
-              } else {
-                notify("error", "Payment not completed");
+                onCompletion?.();
               }
             })
-            .finally(() => onCompletion?.());
+            .catch(() => {
+              notify("error", "There was a problem completing payment");
+              onError?.();
+            })
         }
         break;
       case "fincra":
@@ -132,11 +157,13 @@ export const useVerifyGlobalPayments = () => {
               if (res.status) {
                 await updateOrder(paymentType);
                 recordCartAction(block_uuid ?? "", "payment_confirmed");
-              } else {
-                notify("error", "Payment not completed");
+                onCompletion?.();
               }
             })
-            .finally(() => onCompletion?.());
+            .catch(() => {
+              notify("error", "There was a problem completing payment");
+              onError?.();
+            })
         }
         break;
       case "seerbit":
@@ -144,6 +171,14 @@ export const useVerifyGlobalPayments = () => {
           const site_payment_uuid =
             urlParams.get("hivedeck_site_payment_uuid") ?? "";
           const paymentReference = urlParams.get("reference") ?? "";
+          const message = urlParams.get("message") ?? "";
+
+          if (message.toLowerCase().includes("cancelled")) {
+            notify("error", "There was a problem completing payment");
+            onError?.();
+            return;
+          }
+
           verifySeerBitPayment({
             site_payment_uuid: site_payment_uuid,
             paymentReference: paymentReference,
@@ -152,11 +187,13 @@ export const useVerifyGlobalPayments = () => {
               if (res.status) {
                 await updateOrder(paymentType);
                 recordCartAction(block_uuid ?? "", "payment_confirmed");
-              } else {
-                notify("error", "Payment not completed");
+                onCompletion?.();
               }
             })
-            .finally(() => onCompletion?.());
+            .catch(() => {
+              notify("error", "There was a problem completing payment");
+              onError?.();
+            })
         }
         break;
       case "stripe":
@@ -164,6 +201,14 @@ export const useVerifyGlobalPayments = () => {
           const site_payment_uuid =
             urlParams.get("hivedeck_site_payment_uuid") ?? "";
           const session_uuid = urlParams.get("session_uuid") ?? "";
+          const hivedeck_status = urlParams.get("hivedeck_status") ?? "";
+
+          if (hivedeck_status.toLowerCase() === "canceled") {
+            notify("error", "There was a problem completing payment");
+            onError?.();
+            return;
+          }
+
           verifyStripePayment({
             site_payment_uuid: site_payment_uuid,
             session_uuid: session_uuid,
@@ -172,11 +217,13 @@ export const useVerifyGlobalPayments = () => {
               if (res.status) {
                 await updateOrder(paymentType);
                 recordCartAction(block_uuid ?? "", "payment_confirmed");
-              } else {
-                notify("error", "Payment not completed");
+                onCompletion?.();
               }
             })
-            .finally(() => onCompletion?.());
+            .catch(() => {
+              notify("error", "There was a problem completing payment");
+              onError?.();
+            })
         }
         break;
       case "paypal":
@@ -185,6 +232,14 @@ export const useVerifyGlobalPayments = () => {
             urlParams.get("hivedeck_site_payment_uuid") ?? "";
           const paymentId = urlParams.get("paymentId") ?? "";
           const payerId = urlParams.get("PayerID") ?? "";
+          const hivedeck_status = urlParams.get("hivedeck_status") ?? "";
+
+          if (hivedeck_status.toLowerCase() === "canceled") {
+            notify("error", "There was a problem completing payment");
+            onError?.();
+            return;
+          }
+
           verifyPaypalPayment({
             site_payment_uuid: site_payment_uuid,
             paymentId: paymentId,
@@ -194,11 +249,13 @@ export const useVerifyGlobalPayments = () => {
               if (res.status) {
                 await updateOrder(paymentType);
                 recordCartAction(block_uuid ?? "", "payment_confirmed");
-              } else {
-                notify("error", "Payment not completed");
+                onCompletion?.();
               }
             })
-            .finally(() => onCompletion?.());
+            .catch(() => {
+              notify("error", "There was a problem completing payment");
+              onError?.();
+            })
         }
         break;
       case "adyen":
@@ -214,11 +271,13 @@ export const useVerifyGlobalPayments = () => {
               if (res.status) {
                 await updateOrder(paymentType);
                 recordCartAction(block_uuid ?? "", "payment_confirmed");
-              } else {
-                notify("error", "Payment not completed");
+                onCompletion?.();
               }
             })
-            .finally(() => onCompletion?.());
+            .catch(() => {
+              notify("error", "There was a problem completing payment");
+              onError?.();
+            })
         }
         break;
       case "mollie":
@@ -236,11 +295,13 @@ export const useVerifyGlobalPayments = () => {
               if (res.status) {
                 await updateOrder(paymentType);
                 recordCartAction(block_uuid ?? "", "payment_confirmed");
-              } else {
-                notify("error", "Payment not completed");
+                onCompletion?.();
               }
             })
-            .finally(() => onCompletion?.());
+            .catch(() => {
+              notify("error", "There was a problem completing payment");
+              onError?.();
+            })
         }
         break;
     }
