@@ -53,10 +53,10 @@ export var useVerifyGlobalPayments = function () {
     var verifyMolliePayment = useVerifyMolliePayment();
     var recordCartAction = useRecordCartAction();
     var updateOrder = useUpdateOrder();
-    return function (block_uuid, onCompletion) { return __awaiter(void 0, void 0, void 0, function () {
-        var urlParams, paymentType, status_1, tx_ref, transaction_id, site_payment_uuid, transaction_id, site_payment_uuid, paymentId, site_payment_uuid, reference, site_payment_uuid_concat, split_fincra, site_payment_uuid, referenceId, site_payment_uuid, paymentReference, site_payment_uuid, session_uuid, site_payment_uuid, paymentId, payerId, site_payment_uuid, paymentSession, site_payment_uuid_concat, split_mollie, site_payment_uuid, paymentId;
-        var _a, _b, _c, _d, _e, _f, _g, _h, _j, _k, _l, _m, _o, _p, _q, _r, _s, _t, _u, _v, _w, _x, _y, _z, _0;
-        return __generator(this, function (_1) {
+    return function (block_uuid, onCompletion, onError) { return __awaiter(void 0, void 0, void 0, function () {
+        var urlParams, paymentType, status_1, tx_ref, transaction_id, site_payment_uuid, transaction_id, status_2, site_payment_uuid, paymentId, site_payment_uuid, reference, site_payment_uuid_concat, split_fincra, site_payment_uuid, referenceId, site_payment_uuid, paymentReference, message, site_payment_uuid, session_uuid, hivedeck_status, site_payment_uuid, paymentId, payerId, hivedeck_status, site_payment_uuid, paymentSession, site_payment_uuid_concat, split_mollie, site_payment_uuid, paymentId;
+        var _a, _b, _c, _d, _e, _f, _g, _h, _j, _k, _l, _m, _o, _p, _q, _r, _s, _t, _u, _v, _w, _x, _y, _z, _0, _1, _2, _3, _4;
+        return __generator(this, function (_5) {
             urlParams = new URLSearchParams(window.location.search);
             paymentType = (_a = urlParams.get("hivedeck_payment_type")) !== null && _a !== void 0 ? _a : "";
             switch (paymentType) {
@@ -65,6 +65,11 @@ export var useVerifyGlobalPayments = function () {
                         status_1 = (_b = urlParams.get("status")) !== null && _b !== void 0 ? _b : "";
                         tx_ref = (_c = urlParams.get("tx_ref")) !== null && _c !== void 0 ? _c : "";
                         transaction_id = (_d = urlParams.get("transaction_id")) !== null && _d !== void 0 ? _d : "";
+                        if (status_1.toLowerCase() === "cancelled") {
+                            notify("error", "There was a problem completing payment");
+                            onError === null || onError === void 0 ? void 0 : onError();
+                            return [2 /*return*/];
+                        }
                         verifyPayment({
                             site_uuid: cart.restaurant.site.uuid,
                             status: status_1 == "successful" ? "success" : status_1,
@@ -78,17 +83,27 @@ export var useVerifyGlobalPayments = function () {
                                     case 1:
                                         _a.sent();
                                         recordCartAction(block_uuid !== null && block_uuid !== void 0 ? block_uuid : "", "payment_confirmed");
+                                        onCompletion === null || onCompletion === void 0 ? void 0 : onCompletion();
                                         return [2 /*return*/];
                                 }
                             });
                         }); })
-                            .finally(function () { return onCompletion === null || onCompletion === void 0 ? void 0 : onCompletion(); });
+                            .catch(function () {
+                            notify("error", "There was a problem completing payment");
+                            onError === null || onError === void 0 ? void 0 : onError();
+                        });
                     }
                     break;
                 case "flutterwave":
                     {
                         site_payment_uuid = (_e = urlParams.get("hivedeck_site_payment_uuid")) !== null && _e !== void 0 ? _e : "";
                         transaction_id = (_f = urlParams.get("transaction_id")) !== null && _f !== void 0 ? _f : "";
+                        status_2 = (_g = urlParams.get("status")) !== null && _g !== void 0 ? _g : "";
+                        if (status_2.toLowerCase() === "cancelled") {
+                            notify("error", "There was a problem completing payment");
+                            onError === null || onError === void 0 ? void 0 : onError();
+                            return [2 /*return*/];
+                        }
                         verifyFlutterwavePayment({
                             site_payment_uuid: site_payment_uuid,
                             transaction_id: transaction_id,
@@ -102,21 +117,22 @@ export var useVerifyGlobalPayments = function () {
                                     case 1:
                                         _a.sent();
                                         recordCartAction(block_uuid !== null && block_uuid !== void 0 ? block_uuid : "", "payment_confirmed");
-                                        return [3 /*break*/, 3];
-                                    case 2:
-                                        notify("error", "Payment not completed");
-                                        _a.label = 3;
-                                    case 3: return [2 /*return*/];
+                                        onCompletion === null || onCompletion === void 0 ? void 0 : onCompletion();
+                                        _a.label = 2;
+                                    case 2: return [2 /*return*/];
                                 }
                             });
                         }); })
-                            .finally(function () { return onCompletion === null || onCompletion === void 0 ? void 0 : onCompletion(); });
+                            .catch(function () {
+                            notify("error", "There was a problem completing payment");
+                            onError === null || onError === void 0 ? void 0 : onError();
+                        });
                     }
                     break;
                 case "noda":
                     {
-                        site_payment_uuid = (_g = urlParams.get("hivedeck_site_payment_uuid")) !== null && _g !== void 0 ? _g : "";
-                        paymentId = (_h = urlParams.get("id")) !== null && _h !== void 0 ? _h : "";
+                        site_payment_uuid = (_h = urlParams.get("hivedeck_site_payment_uuid")) !== null && _h !== void 0 ? _h : "";
+                        paymentId = (_j = urlParams.get("id")) !== null && _j !== void 0 ? _j : "";
                         verifyNodaPayment({
                             site_payment_uuid: site_payment_uuid,
                             paymentId: paymentId,
@@ -130,21 +146,22 @@ export var useVerifyGlobalPayments = function () {
                                     case 1:
                                         _a.sent();
                                         recordCartAction(block_uuid !== null && block_uuid !== void 0 ? block_uuid : "", "payment_confirmed");
-                                        return [3 /*break*/, 3];
-                                    case 2:
-                                        notify("error", "Payment not completed");
-                                        _a.label = 3;
-                                    case 3: return [2 /*return*/];
+                                        onCompletion === null || onCompletion === void 0 ? void 0 : onCompletion();
+                                        _a.label = 2;
+                                    case 2: return [2 /*return*/];
                                 }
                             });
                         }); })
-                            .finally(function () { return onCompletion === null || onCompletion === void 0 ? void 0 : onCompletion(); });
+                            .catch(function () {
+                            notify("error", "There was a problem completing payment");
+                            onError === null || onError === void 0 ? void 0 : onError();
+                        });
                     }
                     break;
                 case "paystack":
                     {
-                        site_payment_uuid = (_j = urlParams.get("hivedeck_site_payment_uuid")) !== null && _j !== void 0 ? _j : "";
-                        reference = (_k = urlParams.get("reference")) !== null && _k !== void 0 ? _k : "";
+                        site_payment_uuid = (_k = urlParams.get("hivedeck_site_payment_uuid")) !== null && _k !== void 0 ? _k : "";
+                        reference = (_l = urlParams.get("reference")) !== null && _l !== void 0 ? _l : "";
                         verifyPaystackPayment({
                             site_payment_uuid: site_payment_uuid,
                             reference: reference,
@@ -158,23 +175,24 @@ export var useVerifyGlobalPayments = function () {
                                     case 1:
                                         _a.sent();
                                         recordCartAction(block_uuid !== null && block_uuid !== void 0 ? block_uuid : "", "payment_confirmed");
-                                        return [3 /*break*/, 3];
-                                    case 2:
-                                        notify("error", "Payment not completed");
-                                        _a.label = 3;
-                                    case 3: return [2 /*return*/];
+                                        onCompletion === null || onCompletion === void 0 ? void 0 : onCompletion();
+                                        _a.label = 2;
+                                    case 2: return [2 /*return*/];
                                 }
                             });
                         }); })
-                            .finally(function () { return onCompletion === null || onCompletion === void 0 ? void 0 : onCompletion(); });
+                            .catch(function () {
+                            notify("error", "There was a problem completing payment");
+                            onError === null || onError === void 0 ? void 0 : onError();
+                        });
                     }
                     break;
                 case "fincra":
                     {
-                        site_payment_uuid_concat = (_l = urlParams.get("hivedeck_site_payment_uuid")) !== null && _l !== void 0 ? _l : "";
+                        site_payment_uuid_concat = (_m = urlParams.get("hivedeck_site_payment_uuid")) !== null && _m !== void 0 ? _m : "";
                         split_fincra = site_payment_uuid_concat.split("?reference=");
-                        site_payment_uuid = (_m = split_fincra[0]) !== null && _m !== void 0 ? _m : "";
-                        referenceId = (_o = split_fincra[1]) !== null && _o !== void 0 ? _o : "";
+                        site_payment_uuid = (_o = split_fincra[0]) !== null && _o !== void 0 ? _o : "";
+                        referenceId = (_p = split_fincra[1]) !== null && _p !== void 0 ? _p : "";
                         verifyFincraPayment({
                             site_payment_uuid: site_payment_uuid,
                             referenceId: referenceId,
@@ -188,21 +206,28 @@ export var useVerifyGlobalPayments = function () {
                                     case 1:
                                         _a.sent();
                                         recordCartAction(block_uuid !== null && block_uuid !== void 0 ? block_uuid : "", "payment_confirmed");
-                                        return [3 /*break*/, 3];
-                                    case 2:
-                                        notify("error", "Payment not completed");
-                                        _a.label = 3;
-                                    case 3: return [2 /*return*/];
+                                        onCompletion === null || onCompletion === void 0 ? void 0 : onCompletion();
+                                        _a.label = 2;
+                                    case 2: return [2 /*return*/];
                                 }
                             });
                         }); })
-                            .finally(function () { return onCompletion === null || onCompletion === void 0 ? void 0 : onCompletion(); });
+                            .catch(function () {
+                            notify("error", "There was a problem completing payment");
+                            onError === null || onError === void 0 ? void 0 : onError();
+                        });
                     }
                     break;
                 case "seerbit":
                     {
-                        site_payment_uuid = (_p = urlParams.get("hivedeck_site_payment_uuid")) !== null && _p !== void 0 ? _p : "";
-                        paymentReference = (_q = urlParams.get("reference")) !== null && _q !== void 0 ? _q : "";
+                        site_payment_uuid = (_q = urlParams.get("hivedeck_site_payment_uuid")) !== null && _q !== void 0 ? _q : "";
+                        paymentReference = (_r = urlParams.get("reference")) !== null && _r !== void 0 ? _r : "";
+                        message = (_s = urlParams.get("message")) !== null && _s !== void 0 ? _s : "";
+                        if (message.toLowerCase().includes("cancelled")) {
+                            notify("error", "There was a problem completing payment");
+                            onError === null || onError === void 0 ? void 0 : onError();
+                            return [2 /*return*/];
+                        }
                         verifySeerBitPayment({
                             site_payment_uuid: site_payment_uuid,
                             paymentReference: paymentReference,
@@ -216,21 +241,28 @@ export var useVerifyGlobalPayments = function () {
                                     case 1:
                                         _a.sent();
                                         recordCartAction(block_uuid !== null && block_uuid !== void 0 ? block_uuid : "", "payment_confirmed");
-                                        return [3 /*break*/, 3];
-                                    case 2:
-                                        notify("error", "Payment not completed");
-                                        _a.label = 3;
-                                    case 3: return [2 /*return*/];
+                                        onCompletion === null || onCompletion === void 0 ? void 0 : onCompletion();
+                                        _a.label = 2;
+                                    case 2: return [2 /*return*/];
                                 }
                             });
                         }); })
-                            .finally(function () { return onCompletion === null || onCompletion === void 0 ? void 0 : onCompletion(); });
+                            .catch(function () {
+                            notify("error", "There was a problem completing payment");
+                            onError === null || onError === void 0 ? void 0 : onError();
+                        });
                     }
                     break;
                 case "stripe":
                     {
-                        site_payment_uuid = (_r = urlParams.get("hivedeck_site_payment_uuid")) !== null && _r !== void 0 ? _r : "";
-                        session_uuid = (_s = urlParams.get("session_uuid")) !== null && _s !== void 0 ? _s : "";
+                        site_payment_uuid = (_t = urlParams.get("hivedeck_site_payment_uuid")) !== null && _t !== void 0 ? _t : "";
+                        session_uuid = (_u = urlParams.get("session_uuid")) !== null && _u !== void 0 ? _u : "";
+                        hivedeck_status = (_v = urlParams.get("hivedeck_status")) !== null && _v !== void 0 ? _v : "";
+                        if (hivedeck_status.toLowerCase() === "canceled") {
+                            notify("error", "There was a problem completing payment");
+                            onError === null || onError === void 0 ? void 0 : onError();
+                            return [2 /*return*/];
+                        }
                         verifyStripePayment({
                             site_payment_uuid: site_payment_uuid,
                             session_uuid: session_uuid,
@@ -244,22 +276,29 @@ export var useVerifyGlobalPayments = function () {
                                     case 1:
                                         _a.sent();
                                         recordCartAction(block_uuid !== null && block_uuid !== void 0 ? block_uuid : "", "payment_confirmed");
-                                        return [3 /*break*/, 3];
-                                    case 2:
-                                        notify("error", "Payment not completed");
-                                        _a.label = 3;
-                                    case 3: return [2 /*return*/];
+                                        onCompletion === null || onCompletion === void 0 ? void 0 : onCompletion();
+                                        _a.label = 2;
+                                    case 2: return [2 /*return*/];
                                 }
                             });
                         }); })
-                            .finally(function () { return onCompletion === null || onCompletion === void 0 ? void 0 : onCompletion(); });
+                            .catch(function () {
+                            notify("error", "There was a problem completing payment");
+                            onError === null || onError === void 0 ? void 0 : onError();
+                        });
                     }
                     break;
                 case "paypal":
                     {
-                        site_payment_uuid = (_t = urlParams.get("hivedeck_site_payment_uuid")) !== null && _t !== void 0 ? _t : "";
-                        paymentId = (_u = urlParams.get("paymentId")) !== null && _u !== void 0 ? _u : "";
-                        payerId = (_v = urlParams.get("PayerID")) !== null && _v !== void 0 ? _v : "";
+                        site_payment_uuid = (_w = urlParams.get("hivedeck_site_payment_uuid")) !== null && _w !== void 0 ? _w : "";
+                        paymentId = (_x = urlParams.get("paymentId")) !== null && _x !== void 0 ? _x : "";
+                        payerId = (_y = urlParams.get("PayerID")) !== null && _y !== void 0 ? _y : "";
+                        hivedeck_status = (_z = urlParams.get("hivedeck_status")) !== null && _z !== void 0 ? _z : "";
+                        if (hivedeck_status.toLowerCase() === "canceled") {
+                            notify("error", "There was a problem completing payment");
+                            onError === null || onError === void 0 ? void 0 : onError();
+                            return [2 /*return*/];
+                        }
                         verifyPaypalPayment({
                             site_payment_uuid: site_payment_uuid,
                             paymentId: paymentId,
@@ -274,21 +313,22 @@ export var useVerifyGlobalPayments = function () {
                                     case 1:
                                         _a.sent();
                                         recordCartAction(block_uuid !== null && block_uuid !== void 0 ? block_uuid : "", "payment_confirmed");
-                                        return [3 /*break*/, 3];
-                                    case 2:
-                                        notify("error", "Payment not completed");
-                                        _a.label = 3;
-                                    case 3: return [2 /*return*/];
+                                        onCompletion === null || onCompletion === void 0 ? void 0 : onCompletion();
+                                        _a.label = 2;
+                                    case 2: return [2 /*return*/];
                                 }
                             });
                         }); })
-                            .finally(function () { return onCompletion === null || onCompletion === void 0 ? void 0 : onCompletion(); });
+                            .catch(function () {
+                            notify("error", "There was a problem completing payment");
+                            onError === null || onError === void 0 ? void 0 : onError();
+                        });
                     }
                     break;
                 case "adyen":
                     {
-                        site_payment_uuid = (_w = urlParams.get("hivedeck_site_payment_uuid")) !== null && _w !== void 0 ? _w : "";
-                        paymentSession = (_x = urlParams.get("paymentSession")) !== null && _x !== void 0 ? _x : "";
+                        site_payment_uuid = (_0 = urlParams.get("hivedeck_site_payment_uuid")) !== null && _0 !== void 0 ? _0 : "";
+                        paymentSession = (_1 = urlParams.get("paymentSession")) !== null && _1 !== void 0 ? _1 : "";
                         verifyAdyenPayment({
                             site_payment_uuid: site_payment_uuid,
                             paymentSession: paymentSession,
@@ -302,23 +342,24 @@ export var useVerifyGlobalPayments = function () {
                                     case 1:
                                         _a.sent();
                                         recordCartAction(block_uuid !== null && block_uuid !== void 0 ? block_uuid : "", "payment_confirmed");
-                                        return [3 /*break*/, 3];
-                                    case 2:
-                                        notify("error", "Payment not completed");
-                                        _a.label = 3;
-                                    case 3: return [2 /*return*/];
+                                        onCompletion === null || onCompletion === void 0 ? void 0 : onCompletion();
+                                        _a.label = 2;
+                                    case 2: return [2 /*return*/];
                                 }
                             });
                         }); })
-                            .finally(function () { return onCompletion === null || onCompletion === void 0 ? void 0 : onCompletion(); });
+                            .catch(function () {
+                            notify("error", "There was a problem completing payment");
+                            onError === null || onError === void 0 ? void 0 : onError();
+                        });
                     }
                     break;
                 case "mollie":
                     {
-                        site_payment_uuid_concat = (_y = urlParams.get("hivedeck_site_payment_uuid")) !== null && _y !== void 0 ? _y : "";
+                        site_payment_uuid_concat = (_2 = urlParams.get("hivedeck_site_payment_uuid")) !== null && _2 !== void 0 ? _2 : "";
                         split_mollie = site_payment_uuid_concat.split("?id=");
-                        site_payment_uuid = (_z = split_mollie[0]) !== null && _z !== void 0 ? _z : "";
-                        paymentId = (_0 = split_mollie[1]) !== null && _0 !== void 0 ? _0 : "";
+                        site_payment_uuid = (_3 = split_mollie[0]) !== null && _3 !== void 0 ? _3 : "";
+                        paymentId = (_4 = split_mollie[1]) !== null && _4 !== void 0 ? _4 : "";
                         verifyMolliePayment({
                             site_payment_uuid: site_payment_uuid,
                             paymentId: paymentId,
@@ -332,15 +373,16 @@ export var useVerifyGlobalPayments = function () {
                                     case 1:
                                         _a.sent();
                                         recordCartAction(block_uuid !== null && block_uuid !== void 0 ? block_uuid : "", "payment_confirmed");
-                                        return [3 /*break*/, 3];
-                                    case 2:
-                                        notify("error", "Payment not completed");
-                                        _a.label = 3;
-                                    case 3: return [2 /*return*/];
+                                        onCompletion === null || onCompletion === void 0 ? void 0 : onCompletion();
+                                        _a.label = 2;
+                                    case 2: return [2 /*return*/];
                                 }
                             });
                         }); })
-                            .finally(function () { return onCompletion === null || onCompletion === void 0 ? void 0 : onCompletion(); });
+                            .catch(function () {
+                            notify("error", "There was a problem completing payment");
+                            onError === null || onError === void 0 ? void 0 : onError();
+                        });
                     }
                     break;
             }
