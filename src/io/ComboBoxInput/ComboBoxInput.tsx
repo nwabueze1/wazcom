@@ -99,6 +99,17 @@ export const ComboBoxInput: FC<ComboBoxInputProps> = ({
     ));
   };
 
+  const handleEnterClick = (label: string) => {
+    if (!handleAdd || label.trim() === "")
+        return;
+
+    const option = options.find(({ label: optionLabel }) => label === optionLabel);
+
+    if (option)
+        handleAdd(option.value);
+    else handleAdd(label);
+  }
+
   return (
     <ClickAwayListener
       onClickAway={() => {
@@ -118,7 +129,7 @@ export const ComboBoxInput: FC<ComboBoxInputProps> = ({
           onChange={handleFilterChange}
           onFocus={handleFocus}
           onEnter={({ value }) => {
-            if (handleAdd) handleAdd(value);
+            handleEnterClick(value);
           }}
           placeholder={placeholder}
           isError={isError}

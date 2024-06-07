@@ -98,12 +98,23 @@ export var ComboBoxInput = function (_a) {
                 } }, { children: [_jsx("p", __assign({ className: "label" }, { children: label })), subText && _jsx("p", __assign({ className: "subText" }, { children: subText }))] }), index));
         });
     };
+    var handleEnterClick = function (label) {
+        if (!handleAdd || label.trim() === "")
+            return;
+        var option = options.find(function (_a) {
+            var optionLabel = _a.label;
+            return label === optionLabel;
+        });
+        if (option)
+            handleAdd(option.value);
+        else
+            handleAdd(label);
+    };
     return (_jsx(ClickAwayListener, __assign({ onClickAway: function () {
             setShowOptions(false);
             setIsFocused(false);
         } }, { children: _jsxs("div", __assign({ className: clx(classes.root, className) }, { children: [label && (_jsxs("label", __assign({ htmlFor: name, className: classes.comboBoxLabel }, { children: [label, required && _jsx("span", __assign({ className: classes.comboBoxRequired }, { children: "*" }))] }))), _jsx(TextInput, { value: filter, onChange: handleFilterChange, onFocus: handleFocus, onEnter: function (_a) {
                         var value = _a.value;
-                        if (handleAdd)
-                            handleAdd(value);
+                        handleEnterClick(value);
                     }, placeholder: placeholder, isError: isError, isSuccess: isSuccess, helperText: helperText, rightIcon: isLoading && _jsx(CircularProgress, { size: 14, color: "success" }) }), showOptions && _jsx("div", __assign({ className: classes.comboBoxOptions }, { children: renderOptions() }))] })) })));
 };
