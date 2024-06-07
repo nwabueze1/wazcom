@@ -6,3 +6,4 @@ export * from "./calculateCartItemOptionsTotal";
 export * from "./calculateCartItemTotal";
 export * from "./calculateCartItemsSumTotal";
 export * from "./convertNumberTo2DecimalPlace";
+export * from "./decodeText";
