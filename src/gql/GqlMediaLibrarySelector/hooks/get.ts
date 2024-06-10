@@ -51,11 +51,11 @@ export const useGetLibraryImages = () => {
     callback?: (response: TImageResponse) => void,
     onError?: () => void,
   ) => {
-    console.log(variables)
     try {
       const { data } = await client.query({
         query,
         variables,
+        fetchPolicy: "network-only",
       });
 
       data?.getImagesByLibraryUuid && callback?.(data?.getImagesByLibraryUuid);

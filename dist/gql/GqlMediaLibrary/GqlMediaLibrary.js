@@ -126,8 +126,8 @@ export var GqlMediaLibrary = function (_a) {
         description: "",
         alternative_text: "",
         src: "",
-    }), 2), imageUrl = _t[0], setImageUrl = _t[1];
-    var _u = __read(useState(), 2), fileMedia = _u[0], setFileMedia = _u[1];
+    }), 1), imageUrl = _t[0];
+    var _u = __read(useState(), 1), fileMedia = _u[0];
     var getLibraryImages = useGetLibraryImages();
     var getUnsplashImages = useGetUnsplashImages();
     var getPexelsImages = useGetPexelsImages();
@@ -338,9 +338,7 @@ export var GqlMediaLibrary = function (_a) {
             if (listInnerRef.current)
                 listInnerRef.current.scrollTop = 0;
         }
-        displayImage(media);
-        if (media instanceof File)
-            setFileMedia(media);
+        setActiveMedia({ type: type, media: media });
     };
     var handleSearchChange = useCallback(function (data) {
         if (activeTab.mediaTab === 1 ||
@@ -466,22 +464,6 @@ export var GqlMediaLibrary = function (_a) {
                         handleMediaAction("", undefined);
                     }, handleDelete: handleMediaDelete })] }) }))); };
     var displayMediaLibrary = function () { return (_jsxs("div", __assign({ className: clx(classes.container, className) }, { children: [_jsx("div", __assign({ className: clx(classes.actions, isSelector && classes.viewOnlyActions) }, { children: isSelector ? (_jsxs(_Fragment, { children: [_jsx("div", __assign({ className: classes.tabs }, { children: displaySelectorTabs() })), _jsx("div", __assign({ className: classes.iconContainer }, { children: _jsx(FaTimes, { className: classes.timesIcon, onClick: handleClose }) }))] })) : (_jsx("div", __assign({ className: clx(classes.actionsContainer) }, { children: !isSelector && (_jsxs("div", __assign({ className: clx(classes.selectorContainer, activeTab.mediaTab == 2 && "instagram") }, { children: [activeTab.mediaTab !== 2 && activeTab.mediaTab !== 0 && (_jsx("div", __assign({ className: classes.searchContainer }, { children: _jsx(TextInput, { name: "search", type: "text", placeholder: "Search images here", value: search, onChange: handleSearchChange, className: classes.search, classNames: { textInput: classes.textInput } }) }))), _jsx("div", __assign({ className: clx(classes.layouts, activeTab.mediaTab === 2 && "instagram") }, { children: displayLayoutData() }))] }))) }))) })), renderPage()] }))); };
-    var displayImage = function (media) {
-        if (!(media instanceof File))
-            return media === null || media === void 0 ? void 0 : media.url;
-        var reader = new FileReader();
-        reader.onload = function () {
-            setImageUrl({
-                src: reader.result,
-                name: media === null || media === void 0 ? void 0 : media.name,
-                description: media === null || media === void 0 ? void 0 : media.name,
-                alternative_text: media === null || media === void 0 ? void 0 : media.name,
-                caption: "",
-            });
-            setShowCropper(true);
-        };
-        reader.readAsDataURL(media);
-    };
     return (_jsxs("div", __assign({ className: classes.base }, { children: [header && (_jsxs("header", __assign({ className: classes.header }, { children: [header, !isSelector && _jsx("div", __assign({ className: clx(classes.mediaTabs) }, { children: displayMediaTabs() }))] }))), displayMediaLibrary(), showCropper && imageUrl && (_jsx(GqlImageCropper, { name: name, config: config, open: true, value: {
                     src: imageUrl === null || imageUrl === void 0 ? void 0 : imageUrl.src,
                     name: imageUrl === null || imageUrl === void 0 ? void 0 : imageUrl.name,
