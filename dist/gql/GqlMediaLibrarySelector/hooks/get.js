@@ -82,24 +82,22 @@ export var useGetLibraryImages = function () {
         return __generator(this, function (_a) {
             switch (_a.label) {
                 case 0:
-                    console.log(variables);
-                    _a.label = 1;
-                case 1:
-                    _a.trys.push([1, 3, , 4]);
+                    _a.trys.push([0, 2, , 3]);
                     return [4 /*yield*/, client.query({
                             query: query,
                             variables: variables,
+                            fetchPolicy: "network-only",
                         })];
-                case 2:
+                case 1:
                     data = (_a.sent()).data;
                     (data === null || data === void 0 ? void 0 : data.getImagesByLibraryUuid) && (callback === null || callback === void 0 ? void 0 : callback(data === null || data === void 0 ? void 0 : data.getImagesByLibraryUuid));
-                    return [3 /*break*/, 4];
-                case 3:
+                    return [3 /*break*/, 3];
+                case 2:
                     error_2 = _a.sent();
                     errorHandler(error_2);
                     onError === null || onError === void 0 ? void 0 : onError();
-                    return [3 /*break*/, 4];
-                case 4: return [2 /*return*/];
+                    return [3 /*break*/, 3];
+                case 3: return [2 /*return*/];
             }
         });
     }); };

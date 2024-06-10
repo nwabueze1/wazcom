@@ -82,14 +82,14 @@ export const GqlMediaLibrary: FC<GqlMediaLibraryProps> = ({
   const [pexelsImages, setPexelsImages] = useState();
   const [search, setSearch] = useState("");
   const [showCropper, setShowCropper] = useState(false);
-  const [imageUrl, setImageUrl] = useState({
+  const [imageUrl] = useState({
     caption: "",
     name: "",
     description: "",
     alternative_text: "",
     src: "",
   });
-  const [fileMedia, setFileMedia] = useState<File>();
+  const [fileMedia] = useState<File>();
   const getLibraryImages = useGetLibraryImages();
   const getUnsplashImages = useGetUnsplashImages();
   const getPexelsImages = useGetPexelsImages();
@@ -329,12 +329,11 @@ export const GqlMediaLibrary: FC<GqlMediaLibraryProps> = ({
   };
 
   const handleMediaAction = (type: string, media?: Image | File) => {
-    if (type === "add" || type === "edit") {
+    if (type === "add" || type === "edit") { 
       const { listInnerRef } = refs;
       if (listInnerRef.current) listInnerRef.current.scrollTop = 0;
     }
-    displayImage(media);
-    if (media instanceof File) setFileMedia(media);
+    setActiveMedia({ type, media });
   };
 
   const handleSearchChange = useCallback(
@@ -638,24 +637,6 @@ export const GqlMediaLibrary: FC<GqlMediaLibraryProps> = ({
       {renderPage()}
     </div>
   );
-
-  const displayImage = (media: File | any) => {
-    if (!(media instanceof File)) return media?.url;
-
-    const reader = new FileReader();
-    reader.onload = () => {
-      setImageUrl({
-        src: reader.result as any,
-        name: media?.name,
-        description: media?.name,
-        alternative_text: media?.name,
-        caption: "",
-      });
-      setShowCropper(true);
-    };
-
-    reader.readAsDataURL(media);
-  };
 
   return (
     <div className={classes.base}>
