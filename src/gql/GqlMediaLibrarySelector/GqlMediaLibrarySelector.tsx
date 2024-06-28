@@ -48,7 +48,6 @@ export const GqlMediaLibrarySelector: FC<GqlMediaLibrarySelectorProps> = ({
         ? { library: false, cropper: false }
         : { library: true, cropper: false };
     setTabs({ ...tabs });
-    console.log(tab);
     if (tab === "all") props?.onButtonClick?.("close-modal");
   };
 

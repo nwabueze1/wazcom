@@ -70,7 +70,6 @@ export var GqlMediaLibrarySelector = function (_a) {
             ? { library: false, cropper: false }
             : { library: true, cropper: false };
         setTabs(__assign({}, tabs));
-        console.log(tab);
         if (tab === "all")
             (_a = props === null || props === void 0 ? void 0 : props.onButtonClick) === null || _a === void 0 ? void 0 : _a.call(props, "close-modal");
     };
