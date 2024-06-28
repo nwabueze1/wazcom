@@ -59,13 +59,19 @@ export var GqlMediaLibrarySelector = function (_a) {
     var downloadImage = useDownloadImage();
     var handleOpen = function (tab) {
         var _a;
+        var _b;
         setTabs((_a = { library: false, cropper: false }, _a[tab] = true, _a));
+        if (tab !== "cropper")
+            (_b = props === null || props === void 0 ? void 0 : props.onButtonClick) === null || _b === void 0 ? void 0 : _b.call(props, "open-modal");
     };
     var handleClose = function (tab) {
+        var _a;
         var tabs = tab === "all" || tab === "library"
             ? { library: false, cropper: false }
             : { library: true, cropper: false };
         setTabs(__assign({}, tabs));
+        if (tab === "all")
+            (_a = props === null || props === void 0 ? void 0 : props.onButtonClick) === null || _a === void 0 ? void 0 : _a.call(props, "close-modal");
     };
     var handleSelectImage = function (_a) {
         var value = _a.value;

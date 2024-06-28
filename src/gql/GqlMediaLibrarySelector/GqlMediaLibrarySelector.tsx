@@ -39,6 +39,7 @@ export const GqlMediaLibrarySelector: FC<GqlMediaLibrarySelectorProps> = ({
 
   const handleOpen = (tab: string) => {
     setTabs({ library: false, cropper: false, [tab]: true });
+    if (tab !== "cropper") props?.onButtonClick?.("open-modal");
   };
 
   const handleClose = (tab: string) => {
@@ -47,6 +48,7 @@ export const GqlMediaLibrarySelector: FC<GqlMediaLibrarySelectorProps> = ({
         ? { library: false, cropper: false }
         : { library: true, cropper: false };
     setTabs({ ...tabs });
+    if (tab === "all") props?.onButtonClick?.("close-modal");
   };
 
   const handleSelectImage = ({ value }: { name: string; value: any }) => {

@@ -14,7 +14,7 @@ export const SplashScreen: FC<SplashScreenPropsType> = ({
   const classes = useSplashScreenStyles();
 
   return (
-    <section className={clx(classes.root, classNames?.root)}>
+    <section className={clx(classes.root, classNames?.root)} id="splash-screen">
       {header && (
         <header className={clx(classes.header, classNames?.header)}>
           <h2 className={clx(classes.heading, classNames?.heading)}>{header.title}</h2>
