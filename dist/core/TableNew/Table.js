@@ -70,7 +70,7 @@ import { useTableStyles as useExternalTableStyles } from "../../stories/table-st
 import { parseQueryVariables, initialColumnSearch } from "./helpers";
 export var TableNew = function (_a) {
     var _b, _c, _d, _e, _f, _g, _h, _j, _k, _l, _m, _o, _p, _q, _r;
-    var columns = _a.columns, _s = _a.query, client = _s.client, QUERY = _s.name, variables = _s.variables, dataKey = _s.dataKey, getRows = _a.getRows, conditionFilters = _a.conditionFilters, showFilters = _a.showFilters, emptyState = _a.emptyState, _t = _a.showSort, showSort = _t === void 0 ? true : _t, hasStickyActions = _a.hasStickyActions, EmptyStateComponent = _a.EmptyStateComponent, _u = _a.search, search = _u === void 0 ? "single" : _u;
+    var columns = _a.columns, _s = _a.query, client = _s.client, QUERY = _s.name, variables = _s.variables, dataKey = _s.dataKey, getRows = _a.getRows, conditionFilters = _a.conditionFilters, showFilters = _a.showFilters, emptyState = _a.emptyState, _t = _a.showSort, showSort = _t === void 0 ? true : _t, hasStickyActions = _a.hasStickyActions, EmptyStateComponent = _a.EmptyStateComponent, _u = _a.search, search = _u === void 0 ? "single" : _u, dispatch = _a.dispatch;
     var _v = __read(useState({
         data: null,
         pagination: {
@@ -133,6 +133,7 @@ export var TableNew = function (_a) {
             switch (_f.label) {
                 case 0:
                     setLoading(true);
+                    dispatch === null || dispatch === void 0 ? void 0 : dispatch({ type: "SET_NETWORK_OPERATION", payload: "fetching.table.data" });
                     propVariables = __assign({}, variables);
                     propVariables === null || propVariables === void 0 ? true : delete propVariables.refreshToken;
                     return [4 /*yield*/, client.query({
@@ -143,6 +144,7 @@ export var TableNew = function (_a) {
                 case 1:
                     _a = _f.sent(), data = _a.data, error = _a.error;
                     setLoading(false);
+                    dispatch === null || dispatch === void 0 ? void 0 : dispatch({ type: "SET_NETWORK_OPERATION", payload: "" });
                     if (data && !error) {
                         _b = data[dataKey], tableData = _b.data, pagination = _b.paginatorInfo;
                         setTable({

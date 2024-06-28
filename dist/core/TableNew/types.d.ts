@@ -1,7 +1,8 @@
 import { ApolloClient, NormalizedCacheObject } from "@apollo/client";
 import { DocumentNode } from "graphql";
 import { CommonProps } from "../../types";
-import { FC } from "react";
+import React, { FC } from "react";
+import { AnyAction } from "redux";
 export type TableNewProps = CommonProps & {
     columns: TableColumn[];
     conditionFilters?: TableConditionFilter[];
@@ -18,6 +19,7 @@ export type TableNewProps = CommonProps & {
     hasStickyActions?: boolean;
     EmptyStateComponent?: FC;
     search?: "single" | "dynamic";
+    dispatch?: React.Dispatch<AnyAction>;
 };
 export type TableColumn = {
     name: string | JSX.Element;
