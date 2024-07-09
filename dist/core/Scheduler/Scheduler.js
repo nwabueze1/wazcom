@@ -101,7 +101,13 @@ export var Scheduler = function (_a) {
                         } })] }), index));
         });
     };
-    return (_jsxs("div", __assign({ className: clx(classes.root, className) }, { children: [_jsx(SelectInput, { name: "day", label: label, value: schedule.day, options: dayOptions, className: classes.selectInput, onChange: function (_a) {
+    return (_jsxs("div", __assign({ className: clx(classes.root, className) }, { children: [_jsx(SelectInput, { name: "day", label: label, value: schedule.day, options: dayOptions.filter(function (_a) {
+                    var dayIndex = _a.value;
+                    return !value.map(function (_a) {
+                        var day = _a.day;
+                        return day;
+                    }).includes(dayIndex);
+                }), className: classes.selectInput, onChange: function (_a) {
                     var value = _a.value;
                     return handleScheduleChange("day", value);
                 } }), value.length > 0 && _jsx("div", __assign({ className: classes.scheduleContainer }, { children: renderSchedules() })), _jsxs("div", __assign({ className: classes.timeContainer }, { children: [_jsx(TimeInput, { name: "start_time", label: "SET TIME", value: dayDelimiter + " " + schedule.start_time, className: classes.timeInput, onChange: function (_a) {

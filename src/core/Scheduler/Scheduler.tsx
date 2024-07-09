@@ -90,7 +90,9 @@ export const Scheduler: React.FC<SchedulerProps> = ({
         name={"day"}
         label={label}
         value={schedule.day}
-        options={dayOptions}
+        options={dayOptions.filter(
+          ({ value: dayIndex }) => !value.map(({ day }) => day).includes(dayIndex),
+        )}
         className={classes.selectInput}
         onChange={({ value }: { name: string; value: string }) =>
           handleScheduleChange("day", value)
