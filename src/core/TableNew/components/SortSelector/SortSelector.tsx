@@ -12,7 +12,7 @@ export const SortSelector: FC<SortSelectorProps> = ({ columns, handleSelectSort 
   const [activeColumnKey, setActiveColumnKey] = useState<string>();
 
   const renderColumns = () => {
-    return columns.map(({ name, key }, index) => (
+    return columns.map(({ name, key, sortKey }, index) => (
       <div
         className={classes.sortColumn}
         key={index}
@@ -27,7 +27,7 @@ export const SortSelector: FC<SortSelectorProps> = ({ columns, handleSelectSort 
               setActiveColumnKey(undefined);
             }}
             handleSort={(order: "asc" | "desc") => {
-              handleSelectSort(order, key);
+              handleSelectSort(order, sortKey ?? key);
             }}
           />
         )}

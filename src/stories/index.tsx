@@ -162,7 +162,7 @@ export const stories: ComponentPropType[] = [
     component: TableNew,
     props: {
       columns: [
-        { name: "Title", key: "title", type: "string" },
+        { name: "Title", key: "title", type: "string", sortKey: "title.raw" },
         { name: "Author", key: "author.name", type: "string" },
         { name: "Likes", key: "likes", type: "number" },
         { name: "Category", key: "category.name", type: "string" },

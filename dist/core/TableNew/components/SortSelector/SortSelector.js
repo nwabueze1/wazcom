@@ -39,13 +39,13 @@ export var SortSelector = function (_a) {
     var _c = __read(useState(), 2), activeColumnKey = _c[0], setActiveColumnKey = _c[1];
     var renderColumns = function () {
         return columns.map(function (_a, index) {
-            var name = _a.name, key = _a.key;
+            var name = _a.name, key = _a.key, sortKey = _a.sortKey;
             return (_jsxs("div", __assign({ className: classes.sortColumn, onMouseEnter: function () {
                     setActiveColumnKey(key);
                 } }, { children: [typeof name === "string" ? name : key.replace(/./g, " "), activeColumnKey === key && (_jsx(SortOptions, { handleClose: function () {
                             setActiveColumnKey(undefined);
                         }, handleSort: function (order) {
-                            handleSelectSort(order, key);
+                            handleSelectSort(order, sortKey !== null && sortKey !== void 0 ? sortKey : key);
                         } }))] }), index));
         });
     };

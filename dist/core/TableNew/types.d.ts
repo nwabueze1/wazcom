@@ -24,6 +24,7 @@ export type TableColumn = {
     key: string;
     type: "string" | "number" | "date";
     actions?: TableColumnAction[];
+    sortKey?: string;
 };
 export type TableQuery = {
     name: DocumentNode;
