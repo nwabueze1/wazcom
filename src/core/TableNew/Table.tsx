@@ -132,33 +132,37 @@ export const TableNew: FC<TableNewProps> = ({
   ]);
 
   const queryApi = async (queryVariables?: any) => {
-    setLoading(true);
-    const propVariables = { ...variables };
-    delete propVariables?.refreshToken;
+    try {
+      setLoading(true);
+      const propVariables = { ...variables };
+      delete propVariables?.refreshToken;
 
-    const { data, error } = await client.query({
-      query: QUERY,
-      variables: {
-        ...(propVariables ?? {}),
-        ...(queryVariables ?? {}),
-        page: table?.data ? queryVariables?.page : variables?.page ?? 1,
-        first: table?.data ? queryVariables?.first : variables?.first ?? 10,
-      },
-      fetchPolicy: "network-only",
-    });
-
-    setLoading(false);
-
-    if (data && !error) {
-      const { data: tableData, paginatorInfo: pagination } = data[dataKey];
-      setTable({
-        data: tableData,
-        pagination: {
-          ...(table?.pagination ?? {}),
-          currentPage: pagination?.currentPage,
-          lastPage: pagination?.lastPage,
+      const { data, error } = await client.query({
+        query: QUERY,
+        variables: {
+          ...(propVariables ?? {}),
+          ...(queryVariables ?? {}),
+          page: table?.data ? queryVariables?.page : variables?.page ?? 1,
+          first: table?.data ? queryVariables?.first : variables?.first ?? 10,
         },
+        fetchPolicy: "network-only",
       });
+      
+      if (data && !error) {
+        const { data: tableData, paginatorInfo: pagination } = data[dataKey];
+        setTable({
+          data: tableData,
+          pagination: {
+            ...(table?.pagination ?? {}),
+            currentPage: pagination?.currentPage,
+            lastPage: pagination?.lastPage,
+          },
+        });
+      }
+    } catch (e) {
+      setLoading(false);
+    } finally {
+      setLoading(false);
     }
   };
 
