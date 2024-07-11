@@ -127,11 +127,12 @@ export var TableNew = function (_a) {
         getAllData,
     ]);
     var queryApi = function (queryVariables) { return __awaiter(void 0, void 0, void 0, function () {
-        var propVariables, _a, data, error, _b, tableData, pagination;
+        var propVariables, _a, data, error, _b, tableData, pagination, e_1;
         var _c, _d, _e;
         return __generator(this, function (_f) {
             switch (_f.label) {
                 case 0:
+                    _f.trys.push([0, 2, 3, 4]);
                     setLoading(true);
                     propVariables = __assign({}, variables);
                     propVariables === null || propVariables === void 0 ? true : delete propVariables.refreshToken;
@@ -142,7 +143,6 @@ export var TableNew = function (_a) {
                         })];
                 case 1:
                     _a = _f.sent(), data = _a.data, error = _a.error;
-                    setLoading(false);
                     if (data && !error) {
                         _b = data[dataKey], tableData = _b.data, pagination = _b.paginatorInfo;
                         setTable({
@@ -150,7 +150,15 @@ export var TableNew = function (_a) {
                             pagination: __assign(__assign({}, ((_e = table === null || table === void 0 ? void 0 : table.pagination) !== null && _e !== void 0 ? _e : {})), { currentPage: pagination === null || pagination === void 0 ? void 0 : pagination.currentPage, lastPage: pagination === null || pagination === void 0 ? void 0 : pagination.lastPage }),
                         });
                     }
-                    return [2 /*return*/];
+                    return [3 /*break*/, 4];
+                case 2:
+                    e_1 = _f.sent();
+                    setLoading(false);
+                    return [3 /*break*/, 4];
+                case 3:
+                    setLoading(false);
+                    return [7 /*endfinally*/];
+                case 4: return [2 /*return*/];
             }
         });
     }); };

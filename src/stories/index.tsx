@@ -171,9 +171,9 @@ export const stories: ComponentPropType[] = [
       getRows: getTableRows,
       query: {
         name: GET_BLOG_POSTS,
-        client: createApolloClient("https://ofambegbe-ploutonion.wazobia.uk/graphql"),
-        variables: { blog_uuid: "a5ad9bed-679c-4190-a1a8-8b2d14bbb3c9" },
-        dataKey: "postsByBlogUuid",
+        client: createApolloClient("https://ploutonion.sytbuilder.com/graphql"),
+        variables: { blog_uuid: "f6be313e-b96b-4d12-a0a2-9b3d9c461820" },
+        dataKey: "getPostsByBlogUuid",
       },
       conditionFilters: [
         { name: "All Posts", condition: (posts: any) => posts },
