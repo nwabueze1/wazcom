@@ -12,6 +12,7 @@ export declare const useGetLibraryImages: () => (client: ApolloClient<Normalized
     page?: number;
     count?: number;
     library_uuid: string;
+    search: string;
 }, callback?: ((response: TImageResponse) => void) | undefined, onError?: () => void) => Promise<void>;
 export declare const useGetUnsplashImages: () => (client: ApolloClient<NormalizedCacheObject>, query: DocumentNode, variables: {
     search?: string;

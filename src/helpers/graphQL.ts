@@ -68,8 +68,8 @@ export const CORE_IMAGE_FIELDS = gql`
 
 export const GET_IMAGES = gql`
   ${CORE_IMAGE_FIELDS}
-  query GqlGetImages($library_uuid: String!, $page: Int, $count: Int) {
-    getImagesByLibraryUuid(input: { library_uuid: $library_uuid, page: $page, count: $count }) {
+  query GqlGetImages($library_uuid: String!, $page: Int, $count: Int, $search: String) {
+    getImagesByLibraryUuid(input: { library_uuid: $library_uuid, page: $page, count: $count, search: $search }) {
       images {
         ...CoreImageFields
       }

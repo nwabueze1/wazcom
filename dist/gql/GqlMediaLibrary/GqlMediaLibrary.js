@@ -77,7 +77,7 @@ import clx from "classnames";
 import { useGetInstagramImages, useGetLibraryImages, useGetPexelsImages, useGetUnsplashImages, } from "../GqlMediaLibrarySelector/hooks/get";
 import { useCallback, useEffect, useRef, useState } from "react";
 import { FaTimes } from "react-icons/fa";
-import { DeleteMedia, EditMedia } from "./components";
+import { DeleteMedia, EditMedia, MediaUploader } from "./components";
 import { AddMedia } from "./components/AddMedia/AddMedia";
 import { Instagram } from "./components/Instagram";
 import { Layout } from "./components/Layout/Layout";
@@ -90,7 +90,7 @@ import { validateImg } from "../../helpers/imageValidator";
 import { notify, getCodeFromUrl } from "../../helpers";
 import { GqlImageCropper } from "../GqlImageCropper";
 export var GqlMediaLibrary = function (_a) {
-    var className = _a.className, config = _a.config, onChange = _a.onChange, _b = _a.name, name = _b === void 0 ? "image" : _b, handleClose = _a.handleClose, _c = _a.isSelector, isSelector = _c === void 0 ? false : _c, showAddMedia = _a.showAddMedia, header = _a.header, library_uuid = _a.library_uuid, _d = _a.imageServiceDomain, imageServiceDomain = _d === void 0 ? "img.wazobia.tech" : _d, onSelect = _a.onSelect;
+    var className = _a.className, config = _a.config, onChange = _a.onChange, _b = _a.name, name = _b === void 0 ? "image" : _b, handleClose = _a.handleClose, _c = _a.isSelector, isSelector = _c === void 0 ? false : _c, showAddMedia = _a.showAddMedia, header = _a.header, library_uuid = _a.library_uuid, _d = _a.imageServiceDomain, imageServiceDomain = _d === void 0 ? "img.wazobia.tech" : _d, onSelect = _a.onSelect, _e = _a.useCropperOnUpload, useCropperOnUpload = _e === void 0 ? false : _e, _f = _a.useServiceDomainOnUpload, useServiceDomainOnUpload = _f === void 0 ? false : _f;
     var client = config.client, upload = config.upload, update = config.update, remove = config.remove, query = config.query, unsplash = config.unsplash, instagram = config.instagram, pexels = config.pexels;
     var refs = { fileRef: useRef(), listInnerRef: useRef() };
     var handleFileSelect = useFileSelect();
@@ -100,34 +100,39 @@ export var GqlMediaLibrary = function (_a) {
     var handleUpdateMediaLibrary = useUpdateMediaLibrary();
     var handleEmptymediaLibrary = useDisplayEmptyMediaLibrary();
     var classes = useMediaLibraryStyles();
-    var _e = __read(useState({ currentPage: 1, lastPage: 2, pexelsPage: 0, unsplashPage: 0 }), 2), paginatorInfo = _e[0], setPaginatorInfo = _e[1];
-    var _f = __read(useState({
+    var _g = __read(useState({ currentPage: 1, lastPage: 2, pexelsPage: 0, unsplashPage: 0 }), 2), paginatorInfo = _g[0], setPaginatorInfo = _g[1];
+    var _h = __read(useState({
         media: false,
         mutate: false,
-    }), 2), loading = _f[0], setLoading = _f[1];
-    var _g = __read(useState({ type: "" }), 2), activeMedia = _g[0], setActiveMedia = _g[1];
-    var _h = __read(useState(false), 2), open = _h[0], setOpen = _h[1];
-    var _j = __read(useState([]), 2), displayedImages = _j[0], setDisplayedImages = _j[1];
-    var _k = __read(useState(1), 2), activeLayout = _k[0], setActiveLayout = _k[1];
-    var _l = __read(useState({
+    }), 2), loading = _h[0], setLoading = _h[1];
+    var _j = __read(useState({ type: "" }), 2), activeMedia = _j[0], setActiveMedia = _j[1];
+    var _k = __read(useState(false), 2), open = _k[0], setOpen = _k[1];
+    var _l = __read(useState([]), 2), displayedImages = _l[0], setDisplayedImages = _l[1];
+    var _m = __read(useState(1), 2), activeLayout = _m[0], setActiveLayout = _m[1];
+    var _o = __read(useState({
         selectorTab: 0,
         mediaTab: 0,
         sort: 0,
-    }), 2), activeTab = _l[0], setActiveTab = _l[1];
-    var _m = __read(useState(), 2), libraryImages = _m[0], setLibraryImages = _m[1];
-    var _o = __read(useState(), 2), splash = _o[0], setUnsplash = _o[1];
-    var _p = __read(useState(), 2), instagramImages = _p[0], setInstagramImages = _p[1];
-    var _q = __read(useState(), 2), pexelsImages = _q[0], setPexelsImages = _q[1];
-    var _r = __read(useState(""), 2), search = _r[0], setSearch = _r[1];
-    var _s = __read(useState(false), 2), showCropper = _s[0], setShowCropper = _s[1];
-    var _t = __read(useState({
-        caption: "",
-        name: "",
-        description: "",
-        alternative_text: "",
-        src: "",
-    }), 1), imageUrl = _t[0];
-    var _u = __read(useState(), 1), fileMedia = _u[0];
+    }), 2), activeTab = _o[0], setActiveTab = _o[1];
+    var _p = __read(useState(), 2), libraryImages = _p[0], setLibraryImages = _p[1];
+    var _q = __read(useState(), 2), splash = _q[0], setUnsplash = _q[1];
+    var _r = __read(useState(), 2), instagramImages = _r[0], setInstagramImages = _r[1];
+    var _s = __read(useState(), 2), pexelsImages = _s[0], setPexelsImages = _s[1];
+    var _t = __read(useState(""), 2), search = _t[0], setSearch = _t[1];
+    var _u = __read(useState({
+        active: false,
+        type: "cropper",
+    }), 2), showMediaModal = _u[0], setShowMediaModal = _u[1];
+    var _v = __read(useState([
+        {
+            caption: "",
+            name: "",
+            description: "",
+            alternative_text: "",
+            src: "",
+            file: undefined,
+        },
+    ]), 2), mediaFilesDetails = _v[0], setMediaFilesDetails = _v[1];
     var getLibraryImages = useGetLibraryImages();
     var getUnsplashImages = useGetUnsplashImages();
     var getPexelsImages = useGetPexelsImages();
@@ -171,14 +176,15 @@ export var GqlMediaLibrary = function (_a) {
                 activeTab.mediaTab === 1 ||
                 activeTab.selectorTab) {
                 splash && setUnsplash(undefined);
+                return;
             }
             if (activeTab.mediaTab ||
                 activeTab.selectorTab === 3 ||
                 activeTab.mediaTab === 3 ||
                 activeTab.selectorTab) {
                 pexelsImages && setPexelsImages(undefined);
+                return;
             }
-            return;
         }
         var getSearchData = setTimeout(function () {
             fetchImages();
@@ -239,12 +245,10 @@ export var GqlMediaLibrary = function (_a) {
                         }
                         if (type === "instagram" && images === null)
                             return [2 /*return*/];
-                        else if (images && !isPagination && !search) {
+                        else if (images && !isPagination && search == undefined) {
                             setDisplayedImages(function () { return getUniqueImages(images); });
                             return [2 /*return*/];
                         }
-                        if (type === "library" && (paginatorInfo === null || paginatorInfo === void 0 ? void 0 : paginatorInfo.currentPage) === (paginatorInfo === null || paginatorInfo === void 0 ? void 0 : paginatorInfo.lastPage))
-                            return [2 /*return*/];
                         if (type === "instagram" && isPagination)
                             return [2 /*return*/];
                         setLoading(__assign(__assign({}, loading), { media: true }));
@@ -271,8 +275,8 @@ export var GqlMediaLibrary = function (_a) {
                         };
                         if (!(type === "library")) return [3 /*break*/, 2];
                         return [4 /*yield*/, getLibraryImages(client, query.name, isPagination
-                                ? { page: ((_a = paginatorInfo === null || paginatorInfo === void 0 ? void 0 : paginatorInfo.currentPage) !== null && _a !== void 0 ? _a : 0) + 1, count: 10, library_uuid: library_uuid }
-                                : { count: 10, library_uuid: library_uuid }, callback, onError)];
+                                ? { page: ((_a = paginatorInfo === null || paginatorInfo === void 0 ? void 0 : paginatorInfo.currentPage) !== null && _a !== void 0 ? _a : 0) + 1, count: 10, library_uuid: library_uuid, search: search }
+                                : { count: 10, library_uuid: library_uuid, search: search }, callback, onError)];
                     case 1:
                         _d.sent();
                         _d.label = 2;
@@ -313,16 +317,16 @@ export var GqlMediaLibrary = function (_a) {
             return (_jsx(Instagram, { connected: Boolean(instagramImages), displayImages: displayMediaLibraryImages, onChange: onChange, library_uuid: library_uuid, client: client, mutation: instagram.connect }));
         return displayMediaLibraryImages();
     };
-    var updateMediaLibrary = useCallback(function (image, type, variables) {
+    var updateMediaLibrary = useCallback(function (images, type, variables) {
         if (type === void 0) { type = "add"; }
-        handleUpdateMediaLibrary(image, displayedImages, function (images) {
+        handleUpdateMediaLibrary(Array.isArray(images) ? images : [images], displayedImages, function (images) {
             setDisplayedImages(images);
             setLibraryImages(images);
         }, function (index) {
             setActiveMedia(__assign(__assign({}, activeMedia), { index: index }));
         }, type, variables);
         handleMediaAction("", undefined);
-    }, [activeMedia]);
+    }, [activeMedia, displayedImages]);
     var handleFileChange = function (event) {
         if (!event.target.files || event.target.files === 0)
             return;
@@ -338,13 +342,32 @@ export var GqlMediaLibrary = function (_a) {
             if (listInnerRef.current)
                 listInnerRef.current.scrollTop = 0;
         }
-        setActiveMedia({ type: type, media: media });
+        if (!media)
+            return;
+        if (Array.isArray(media)) {
+            if (media.length === 1 && !useCropperOnUpload) {
+                setActiveMedia({ type: type, media: media[0] });
+            }
+            else {
+                handleMediaCropperUploader(media);
+            }
+        }
+        else {
+            if (!useCropperOnUpload) {
+                setActiveMedia({ type: type, media: media });
+            }
+            else {
+                handleMediaCropperUploader([media]);
+            }
+        }
     };
     var handleSearchChange = useCallback(function (data) {
         if (activeTab.mediaTab === 1 ||
             activeTab.selectorTab === 1 ||
             activeTab.mediaTab === 3 ||
-            activeTab.selectorTab === 3) {
+            activeTab.selectorTab === 3 ||
+            activeTab.mediaTab === 0 ||
+            activeTab.selectorTab === 0) {
             return setSearch(data.value);
         }
     }, [displayedImages, activeTab.mediaTab, activeTab.selectorTab]);
@@ -433,7 +456,7 @@ export var GqlMediaLibrary = function (_a) {
             handleOnScroll(refs.listInnerRef, function (index) {
                 setActiveMedia(__assign(__assign({}, activeMedia), { index: index }));
             });
-        } }, { children: _jsxs(_Fragment, { children: [_jsx("input", { name: "image_url", accept: "image/*", hidden: true, type: "file", ref: refs.fileRef, onChange: handleFileChange }), isSelector && (_jsxs("div", __assign({ className: classes.selectorSearchBox }, { children: [[1, 3].includes(activeTab.selectorTab) && (_jsx(TextInput, { name: "search", type: "text", placeholder: "Search images here", value: search, onChange: handleSearchChange, className: classes.selectorSearch })), activeTab.selectorTab === 0 && (_jsx(AddMedia, { handleFilesSelection: handleFileSelection, handleOpenMedia: open, handleCloseMedia: setOpen, handleMediaAction: handleMediaAction, buttonText: "Upload" }))] }))), _jsxs("div", __assign({ className: clx(activeTab.selectorTab === 0 && classes.dialogueView) }, { children: [_jsxs("div", __assign({ className: clx(classes.collection, activeTab.selectorTab === 0 && classes.uploadViewWidth) }, { children: [loading.media && !activeMedia.index ? (_jsx(Loader, {})) : (_jsxs(_Fragment, { children: [(activeMedia.type === "add" || activeMedia.type === "edit") && (_jsx(EditMedia, { loading: loading.mutate, handleEdit: function (variables) {
+        } }, { children: _jsxs(_Fragment, { children: [_jsx("input", { name: "image_url", accept: "image/*", hidden: true, type: "file", ref: refs.fileRef, onChange: handleFileChange }), isSelector && (_jsxs("div", __assign({ className: classes.selectorSearchBox }, { children: [[0, 1, 3].includes(activeTab.selectorTab) && (_jsx(TextInput, { name: "search", type: "text", placeholder: "Search images here", value: search, onChange: handleSearchChange, className: classes.selectorSearch })), activeTab.selectorTab === 0 && (_jsx(AddMedia, { handleFilesSelection: handleFileSelection, handleOpenMedia: open, handleCloseMedia: setOpen, handleMediaAction: handleMediaAction, buttonText: "Upload" }))] }))), _jsxs("div", __assign({ className: clx(activeTab.selectorTab === 0 && classes.dialogueView) }, { children: [_jsxs("div", __assign({ className: clx(classes.collection, activeTab.selectorTab === 0 && classes.uploadViewWidth) }, { children: [loading.media && !activeMedia.index ? (_jsx(Loader, {})) : (_jsxs(_Fragment, { children: [(activeMedia.type === "add" || activeMedia.type === "edit") && (_jsx(EditMedia, { loading: loading.mutate, handleEdit: function (variables) {
                                                 handleMediaUpdate(variables);
                                             }, handleClose: function () {
                                                 handleMediaAction("", undefined);
@@ -463,15 +486,80 @@ export var GqlMediaLibrary = function (_a) {
                                             }, handleMediaAction, isSelector, activeLayout)] }))] })), displayedImages.length > 0 && loading.media && activeMedia.index && (_jsx("div", __assign({ className: classes.loaderParent }, { children: _jsx(Loader, { className: classes.loader }) })))] })), _jsx(DeleteMedia, { display: activeMedia.type === "delete", loading: loading.mutate, media: activeMedia.media, handleClose: function () {
                         handleMediaAction("", undefined);
                     }, handleDelete: handleMediaDelete })] }) }))); };
-    var displayMediaLibrary = function () { return (_jsxs("div", __assign({ className: clx(classes.container, className) }, { children: [_jsx("div", __assign({ className: clx(classes.actions, isSelector && classes.viewOnlyActions) }, { children: isSelector ? (_jsxs(_Fragment, { children: [_jsx("div", __assign({ className: classes.tabs }, { children: displaySelectorTabs() })), _jsx("div", __assign({ className: classes.iconContainer }, { children: _jsx(FaTimes, { className: classes.timesIcon, onClick: handleClose }) }))] })) : (_jsx("div", __assign({ className: clx(classes.actionsContainer) }, { children: !isSelector && (_jsxs("div", __assign({ className: clx(classes.selectorContainer, activeTab.mediaTab == 2 && "instagram") }, { children: [activeTab.mediaTab !== 2 && activeTab.mediaTab !== 0 && (_jsx("div", __assign({ className: classes.searchContainer }, { children: _jsx(TextInput, { name: "search", type: "text", placeholder: "Search images here", value: search, onChange: handleSearchChange, className: classes.search, classNames: { textInput: classes.textInput } }) }))), _jsx("div", __assign({ className: clx(classes.layouts, activeTab.mediaTab === 2 && "instagram") }, { children: displayLayoutData() }))] }))) }))) })), renderPage()] }))); };
-    return (_jsxs("div", __assign({ className: classes.base }, { children: [header && (_jsxs("header", __assign({ className: classes.header }, { children: [header, !isSelector && _jsx("div", __assign({ className: clx(classes.mediaTabs) }, { children: displayMediaTabs() }))] }))), displayMediaLibrary(), showCropper && imageUrl && (_jsx(GqlImageCropper, { name: name, config: config, open: true, value: {
-                    src: imageUrl === null || imageUrl === void 0 ? void 0 : imageUrl.src,
-                    name: imageUrl === null || imageUrl === void 0 ? void 0 : imageUrl.name,
-                    description: imageUrl === null || imageUrl === void 0 ? void 0 : imageUrl.caption,
-                    alternative_text: imageUrl === null || imageUrl === void 0 ? void 0 : imageUrl.alternative_text,
-                    caption: imageUrl === null || imageUrl === void 0 ? void 0 : imageUrl.caption,
-                }, fileMedia: fileMedia, handleClose: function () {
-                    handleClose === null || handleClose === void 0 ? void 0 : handleClose();
-                    setShowCropper(false);
-                }, onChange: onChange, imageServiceDomain: imageServiceDomain }))] })));
+    var displayMediaLibrary = function () { return (_jsxs("div", __assign({ className: clx(classes.container, className) }, { children: [_jsx("div", __assign({ className: clx(classes.actions, isSelector && classes.viewOnlyActions) }, { children: isSelector ? (_jsxs(_Fragment, { children: [_jsx("div", __assign({ className: classes.tabs }, { children: displaySelectorTabs() })), _jsx("div", __assign({ className: classes.iconContainer }, { children: _jsx(FaTimes, { className: classes.timesIcon, onClick: function () {
+                                    handleClose();
+                                } }) }))] })) : (_jsx("div", __assign({ className: clx(classes.actionsContainer) }, { children: !isSelector && (_jsxs("div", __assign({ className: clx(classes.selectorContainer, activeTab.mediaTab == 2 && "instagram") }, { children: [activeTab.mediaTab !== 2 && activeTab.mediaTab !== 0 && (_jsx("div", __assign({ className: classes.searchContainer }, { children: _jsx(TextInput, { name: "search", type: "text", placeholder: "Search images here", value: search, onChange: handleSearchChange, className: classes.search, classNames: { textInput: classes.textInput } }) }))), _jsx("div", __assign({ className: clx(classes.layouts, activeTab.mediaTab === 2 && "instagram") }, { children: displayLayoutData() }))] }))) }))) })), renderPage()] }))); };
+    var handleMediaCropperUploader = function (mediaFiles) {
+        var filesArray = Array.from(mediaFiles);
+        var fileReaders = filesArray.map(function (file) {
+            return new Promise(function (resolve, reject) {
+                if (!(file instanceof File))
+                    return;
+                var reader = new FileReader();
+                reader.onload = function () {
+                    resolve({ file: file, src: reader.result });
+                };
+                reader.onerror = reject;
+                reader.readAsDataURL(file);
+            });
+        });
+        Promise.all(fileReaders)
+            .then(function (fileDetails) {
+            var newImageFilesDetails = fileDetails.map(function (_a) {
+                var file = _a.file, src = _a.src;
+                return ({
+                    src: src,
+                    name: file.name,
+                    description: file.name,
+                    alternative_text: file.name,
+                    caption: "",
+                    file: file,
+                });
+            });
+            setMediaFilesDetails(newImageFilesDetails);
+            setShowMediaModal({
+                active: true,
+                type: mediaFiles.length === 1 ? "cropper" : "uploader",
+            });
+        })
+            .catch(function (error) {
+            console.error("Error reading files: ", error);
+        });
+    };
+    var renderMediaCropperUploader = function () {
+        var _a, _b, _c, _d, _e;
+        if (mediaFilesDetails.length === 1 &&
+            showMediaModal.active &&
+            showMediaModal.type === "cropper") {
+            return (_jsx(GqlImageCropper, { name: name, config: config, open: true, value: {
+                    src: (_a = mediaFilesDetails === null || mediaFilesDetails === void 0 ? void 0 : mediaFilesDetails[0]) === null || _a === void 0 ? void 0 : _a.src,
+                    name: (_b = mediaFilesDetails === null || mediaFilesDetails === void 0 ? void 0 : mediaFilesDetails[0]) === null || _b === void 0 ? void 0 : _b.name,
+                    description: (_c = mediaFilesDetails === null || mediaFilesDetails === void 0 ? void 0 : mediaFilesDetails[0]) === null || _c === void 0 ? void 0 : _c.caption,
+                    alternative_text: (_d = mediaFilesDetails === null || mediaFilesDetails === void 0 ? void 0 : mediaFilesDetails[0]) === null || _d === void 0 ? void 0 : _d.alternative_text,
+                    caption: (_e = mediaFilesDetails === null || mediaFilesDetails === void 0 ? void 0 : mediaFilesDetails[0]) === null || _e === void 0 ? void 0 : _e.caption,
+                }, fileMedia: mediaFilesDetails[0].file, handleClose: function (args) {
+                    handleClose === null || handleClose === void 0 ? void 0 : handleClose(args);
+                    setShowMediaModal({
+                        active: false,
+                        type: "cropper",
+                    });
+                }, onChange: function (data) {
+                    onChange === null || onChange === void 0 ? void 0 : onChange(data);
+                    updateMediaLibrary(__assign(__assign({}, data.value), { url: data.value.src }), "add");
+                }, imageServiceDomain: imageServiceDomain, useServiceDomainOnUpload: useServiceDomainOnUpload }));
+        }
+        if (showMediaModal.active && showMediaModal.type === "uploader") {
+            return (_jsx(MediaUploader, { name: name, config: config, open: true, handleClose: function (args) {
+                    handleClose === null || handleClose === void 0 ? void 0 : handleClose(args);
+                    setShowMediaModal({
+                        active: false,
+                        type: "uploader",
+                    });
+                }, onChange: function (data) {
+                    updateMediaLibrary(data.value, "add");
+                }, mediaFiles: mediaFilesDetails }));
+        }
+        return null;
+    };
+    return (_jsxs("div", __assign({ className: classes.base }, { children: [header && (_jsxs("header", __assign({ className: classes.header }, { children: [header, !isSelector && _jsx("div", __assign({ className: clx(classes.mediaTabs) }, { children: displayMediaTabs() }))] }))), displayMediaLibrary(), renderMediaCropperUploader()] })));
 };

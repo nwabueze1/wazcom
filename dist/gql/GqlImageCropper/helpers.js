@@ -43,23 +43,25 @@ var parseStoredCoordinates = function (coordinates, imageWidth) {
 export var tabs = ["Image Properties", "Crop & Resize"];
 export var hasImageServiceUrl = function (src) {
     if (src === void 0) { src = ''; }
-    if (src.includes('img.wazobia.tech') ||
-        src.includes('images.twistedfood.co.uk') ||
-        src.includes("images.vt.co") ||
-        src.includes("dolos.hivedeck.com")) {
-        return true;
-    }
-    return false;
+    var domains = [
+        'img.wazobia.tech',
+        'images.twistedfood.co.uk',
+        'images.vt.co',
+        'dolos.hivedeck.com',
+        'images.fournine.net',
+        'images.craftfactory.com'
+    ];
+    return domains.some(function (domain) { return src.includes(domain); });
 };
 export var generateModifiedSrc = function (src, width, coordinates, imageServiceDomain) {
     var imageUrl = src;
-    if (src.includes('unsplash')) {
+    if (src && src.includes('unsplash')) {
         var indexOfQuestionMark = src.indexOf('?');
         if (indexOfQuestionMark !== -1) {
             imageUrl = src.substring(0, indexOfQuestionMark);
         }
     }
-    var dolosUrl = hasImageServiceUrl(imageUrl) || src.includes('unsplash')
+    var dolosUrl = hasImageServiceUrl(imageUrl) || (src && src.includes('unsplash'))
         ? ''
         : "https://".concat(imageServiceDomain, "/");
     var validWidth = width === 0 ? 1024 : width;

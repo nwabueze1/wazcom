@@ -47,7 +47,7 @@ export const useGetLibraryImages = () => {
   return async (
     client: ApolloClient<NormalizedCacheObject>,
     query: DocumentNode,
-    variables: { page?: number; count?: number; library_uuid: string },
+    variables: { page?: number; count?: number; library_uuid: string, search: string },
     callback?: (response: TImageResponse) => void,
     onError?: () => void,
   ) => {
@@ -55,7 +55,7 @@ export const useGetLibraryImages = () => {
       const { data } = await client.query({
         query,
         variables,
-        fetchPolicy: "network-only",
+        fetchPolicy: "network-only"
       });
 
       data?.getImagesByLibraryUuid && callback?.(data?.getImagesByLibraryUuid);

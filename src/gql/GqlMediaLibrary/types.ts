@@ -7,7 +7,9 @@ export type GqlMediaLibraryProps = CommonProps &
     header?: ReactNode;
     library_uuid: string;
     imageServiceDomain?: string;
-    onSelect: CommonProps["onChange"]
+    onSelect: CommonProps["onChange"],
+    useCropperOnUpload?: boolean;
+    useServiceDomainOnUpload?: boolean;
   };
 
 export type GqlMediaSelectorConfigProps = {
@@ -46,7 +48,7 @@ export type GqlMediaSelectorConfigProps = {
     };
   };
   isSelector?: boolean;
-  handleClose?: () => void;
+  handleClose: (args?: string) => void;
   showAddMedia?: (media: any) => void;
 };
 
@@ -65,3 +67,12 @@ export type Image = {
 export type ImageUpdate = Partial<
   Pick<Image, "id" | "title" | "alternative_text" | "caption" | "uuid" | "library_uuid">
 >;
+
+export type MediaFilesDetails = {
+  caption: string;
+  name: string;
+  description: string;
+  alternative_text: string;
+  src: string;
+  file: File | undefined;
+}

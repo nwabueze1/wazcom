@@ -86,7 +86,7 @@ export var useGetLibraryImages = function () {
                     return [4 /*yield*/, client.query({
                             query: query,
                             variables: variables,
-                            fetchPolicy: "network-only",
+                            fetchPolicy: "network-only"
                         })];
                 case 1:
                     data = (_a.sent()).data;

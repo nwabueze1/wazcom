@@ -19,6 +19,8 @@ export type GqlMediaLibrarySelectorProps = CommonProps & GqlMediaSelectorConfigP
     screenConfig?: Record<TScreen, CropperConfig>;
     imageServiceDomain?: string;
     onButtonClick?: (action: "open-modal" | "close-modal") => void;
+    useServiceDomainOnUpload?: boolean;
+    useCropperOnUpload?: boolean;
 };
 export type TOrientation = "portrait" | "landscape";
 export type TScreen = "desktop" | "tablet" | "mobile";

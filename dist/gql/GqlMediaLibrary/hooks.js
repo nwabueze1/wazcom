@@ -194,24 +194,28 @@ export var updateMediaUpload = function () {
     }); };
 };
 export var useUpdateMediaLibrary = function () {
-    return function (image, images, setImages, setMediaIndex, type, update) {
+    return function (images, displayedImages, setImages, setMediaIndex, type, update) {
         if (type === void 0) { type = "add"; }
         var newImages, index;
         switch (type) {
             case "add":
-                newImages = __spreadArray([image], __read(images), false);
+                newImages = __spreadArray(__spreadArray([], __read(images), false), __read(displayedImages), false);
                 break;
-            case "update":
-                newImages = __spreadArray([], __read(images), false);
-                index = newImages.findIndex(function (img) { return img.uuid.toString() === image.uuid.toString(); });
+            case "update": {
+                var image_1 = images[0];
+                newImages = __spreadArray([], __read(displayedImages), false);
+                index = newImages.findIndex(function (img) { return img.uuid.toString() === image_1.uuid.toString(); });
                 newImages[index] = __assign(__assign({}, newImages[index]), update);
                 break;
-            case "delete":
-                newImages = images.filter(function (img) { return img.uuid.toString() !== image.uuid.toString(); });
+            }
+            case "delete": {
+                var image_2 = images[0];
+                newImages = displayedImages.filter(function (img) { return img.uuid.toString() !== image_2.uuid.toString(); });
                 setMediaIndex(Math.random() * 5000);
                 break;
+            }
             default:
-                newImages = images;
+                newImages = displayedImages;
         }
         setImages(newImages);
     };

@@ -24,7 +24,8 @@ export type ImageCropperProps = {
     fileMedia?: File;
     config: Pick<GqlMediaSelectorConfigProps["config"], "client" | "update" | "query" | "upload">;
     name: string;
-    imageServiceDomain: string;
+    imageServiceDomain?: string;
+    useServiceDomainOnUpload?: boolean;
 };
 export type OrientationProps = {
     [key: string]: string;

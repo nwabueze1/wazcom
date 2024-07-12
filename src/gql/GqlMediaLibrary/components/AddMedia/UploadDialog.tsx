@@ -17,8 +17,7 @@ export const UploadDialog: React.FC<DialogProps> = ({
 
     const handleFileChange = (event: React.ChangeEvent<any>) => {
         if (!event.target.files || event.target.files === 0) return;
-        const file = event.target.files[0];
-        handleMediaAction?.("add", file);
+        handleMediaAction?.("add", Array.from(event.target.files));
         handleCloseMedia(false);
     };
 
@@ -51,6 +50,7 @@ export const UploadDialog: React.FC<DialogProps> = ({
                             accept="image/*"
                             className={classes.uploader}
                             onChange={handleFileChange}
+                            multiple
                         />
                     </div>
                 </div>
