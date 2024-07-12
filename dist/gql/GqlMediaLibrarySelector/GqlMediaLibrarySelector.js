@@ -50,11 +50,11 @@ import { createImageSrcset, imageSizes } from "../../io/WysiwygInput/Editor/help
 import { useDownloadImage } from "./hooks/download";
 export var GqlMediaLibrarySelector = function (_a) {
     var _b, _c, _d, _e;
-    var _f = _a.variant, variant = _f === void 0 ? "square" : _f, _g = _a.size, size = _g === void 0 ? "full" : _g, iconType = _a.iconType, width = _a.width, height = _a.height, className = _a.className, classNames = _a.classNames, onChange = _a.onChange, _h = _a.name, name = _h === void 0 ? "image" : _h, label = _a.label, _j = _a.showIcons, showIcons = _j === void 0 ? true : _j, _k = _a.showActionsButton, showActionsButton = _k === void 0 ? false : _k, value = _a.value, helperText = _a.helperText, isError = _a.isError, _l = _a.imageServiceDomain, imageServiceDomain = _l === void 0 ? "img.wazobia.tech" : _l, props = __rest(_a, ["variant", "size", "iconType", "width", "height", "className", "classNames", "onChange", "name", "label", "showIcons", "showActionsButton", "value", "helperText", "isError", "imageServiceDomain"]);
+    var _f = _a.variant, variant = _f === void 0 ? "square" : _f, _g = _a.size, size = _g === void 0 ? "full" : _g, iconType = _a.iconType, width = _a.width, height = _a.height, className = _a.className, classNames = _a.classNames, onChange = _a.onChange, _h = _a.name, name = _h === void 0 ? "image" : _h, label = _a.label, _j = _a.showIcons, showIcons = _j === void 0 ? true : _j, _k = _a.showActionsButton, showActionsButton = _k === void 0 ? false : _k, value = _a.value, helperText = _a.helperText, isError = _a.isError, _l = _a.imageServiceDomain, imageServiceDomain = _l === void 0 ? "img.wazobia.tech" : _l, _m = _a.useServiceDomainOnUpload, useServiceDomainOnUpload = _m === void 0 ? false : _m, _o = _a.useCropperOnUpload, useCropperOnUpload = _o === void 0 ? false : _o, props = __rest(_a, ["variant", "size", "iconType", "width", "height", "className", "classNames", "onChange", "name", "label", "showIcons", "showActionsButton", "value", "helperText", "isError", "imageServiceDomain", "useServiceDomainOnUpload", "useCropperOnUpload"]);
     var classes = useImageSelectorStyles();
-    var _m = __read(useState(false), 2), setShowIcon = _m[1];
-    var _o = __read(useState(), 2), cropImage = _o[0], setCropImage = _o[1];
-    var _p = __read(useState({ library: false, cropper: false }), 2), tabs = _p[0], setTabs = _p[1];
+    var _p = __read(useState(false), 2), setShowIcon = _p[1];
+    var _q = __read(useState(), 2), cropImage = _q[0], setCropImage = _q[1];
+    var _r = __read(useState({ library: false, cropper: false }), 2), tabs = _r[0], setTabs = _r[1];
     var isOpen = Object.values(tabs).includes(true);
     var downloadImage = useDownloadImage();
     var handleOpen = function (tab) {
@@ -111,9 +111,10 @@ export var GqlMediaLibrarySelector = function (_a) {
                     timeout: 500,
                 }, closeAfterTransition: true, onClose: function () {
                     handleClose("all");
-                }, onBackdropClick: function (e) { return e.stopPropagation(); }, className: classes.modal, BackdropComponent: Backdrop, "aria-labelledby": "transition-modal-title", "aria-describedby": "transition-modal-description" }, { children: _jsx(Fade, __assign({ in: isOpen }, { children: _jsxs("div", __assign({ className: classes.wrapper }, { children: [_jsx(GqlMediaLibrary, { config: __assign({}, props.config), onChange: onChange, name: name, handleClose: function () {
-                                    handleClose("all");
-                                }, isSelector: true, library_uuid: props.library_uuid, onSelect: handleSelectImage }), tabs.cropper && (_jsx(GqlImageCropper, { name: name, config: props.config, open: true, handleClose: function (arg) {
-                                    handleClose(arg !== null && arg !== void 0 ? arg : "all");
-                                }, value: __assign(__assign({}, (cropImage !== null && cropImage !== void 0 ? cropImage : value)), { src: cropImage ? cropImage === null || cropImage === void 0 ? void 0 : cropImage.url : value === null || value === void 0 ? void 0 : value.src }), onChange: handleGenerateImage, screenConfig: props.screenConfig, imageServiceDomain: imageServiceDomain }))] })) })) }))] })));
+                }, onBackdropClick: function (e) { return e.stopPropagation(); }, className: classes.modal, BackdropComponent: Backdrop, "aria-labelledby": "transition-modal-title", "aria-describedby": "transition-modal-description" }, { children: _jsx(Fade, __assign({ in: isOpen }, { children: _jsxs("div", __assign({ className: classes.wrapper }, { children: [_jsx(GqlMediaLibrary, { config: __assign({}, props.config), onChange: onChange, name: name, handleClose: function (args) {
+                                    if (args === void 0) { args = "all"; }
+                                    handleClose(args);
+                                }, isSelector: true, library_uuid: props.library_uuid, onSelect: handleSelectImage, useServiceDomainOnUpload: useServiceDomainOnUpload, useCropperOnUpload: useCropperOnUpload }), tabs.cropper && (_jsx(GqlImageCropper, { name: name, config: props.config, open: true, handleClose: function (args) {
+                                    handleClose(args !== null && args !== void 0 ? args : "cropper");
+                                }, value: __assign(__assign({}, (cropImage !== null && cropImage !== void 0 ? cropImage : value)), { src: cropImage ? cropImage === null || cropImage === void 0 ? void 0 : cropImage.url : value === null || value === void 0 ? void 0 : value.src }), onChange: handleGenerateImage, screenConfig: props.screenConfig, imageServiceDomain: imageServiceDomain, useServiceDomainOnUpload: useServiceDomainOnUpload }))] })) })) }))] })));
 };

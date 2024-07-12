@@ -18,7 +18,7 @@ export const useDisplayImages = () => {
   return (
     images: Image[],
     selectImage: (image: Image) => void,
-    handleMediaAction: (type: string, media?: Image) => void,
+    handleMediaAction: (type: string, media?: Image | File | Array<Image | File>) => void,
     showOptions: boolean,
     activeLayout: number,
   ) =>
@@ -129,7 +129,7 @@ export const createMediaUpload = () => {
   return async (
     client: ApolloClient<NormalizedCacheObject>,
     mutation: DocumentNode,
-    variables: ImageUpdate & { image: File }
+    variables: ImageUpdate & { image: File },
   ) => {
     try {
       const response = await client.mutate({
@@ -149,7 +149,7 @@ export const updateMediaUpload = () => {
   return async (
     client: ApolloClient<NormalizedCacheObject>,
     mutation: DocumentNode,
-    variables: ImageUpdate
+    variables: ImageUpdate,
   ) => {
     try {
       const response = await client.mutate({
@@ -167,8 +167,8 @@ export const updateMediaUpload = () => {
 
 export const useUpdateMediaLibrary = () => {
   return (
-    image: Image,
     images: Image[],
+    displayedImages: Image[],
     setImages: (images: Image[]) => void,
     setMediaIndex: (index: number) => void,
     type = "add",
@@ -177,19 +177,23 @@ export const useUpdateMediaLibrary = () => {
     let newImages: Image[], index: number;
     switch (type) {
       case "add":
-        newImages = [image, ...images];
+        newImages = [...images, ...displayedImages];
         break;
-      case "update":
-        newImages = [...images];
+      case "update": {
+        const image = images[0];
+        newImages = [...displayedImages];
         index = newImages.findIndex((img) => img.uuid.toString() === image.uuid.toString());
         newImages[index] = { ...newImages[index], ...update };
         break;
-      case "delete":
-        newImages = images.filter((img) => img.uuid.toString() !== image.uuid.toString());
+      }
+      case "delete": {
+        const image = images[0];
+        newImages = displayedImages.filter((img) => img.uuid.toString() !== image.uuid.toString());
         setMediaIndex(Math.random() * 5000);
         break;
+      }
       default:
-        newImages = images;
+        newImages = displayedImages;
     }
     setImages(newImages);
   };
@@ -260,7 +264,7 @@ export const useDisplayEmptyMediaLibrary = () => {
     handleFileSelection: () => void,
     open: boolean,
     setOpen: React.Dispatch<React.SetStateAction<boolean>>,
-    handleMediaAction: (type: string, media?: Image | File | undefined) => void,
+    handleMediaAction: (type: string, media?: Image | File | Array<Image | File>) => void,
     title?: string,
     subtitle?: string,
   ) => {

@@ -196,13 +196,13 @@ export const stories: ComponentPropType[] = [
     props: {
       label: "Avatar",
       config: {
-        client: createApolloClient("https://ploutonion.sytbuilder.com/graphql"),
+        client: createApolloClient("https://dolos.hogfort.com/graphql"),
         query: {
           name: GET_IMAGES,
           variables: {
             page: 1,
             count: 7,
-            library_uuid: "08b1d7d4-fb7f-4046-869a-590f242a93aa",
+            library_uuid: "22902281-cd75-4288-93c0-6fe12a18ccf0",
           },
         },
         upload: {
@@ -235,7 +235,7 @@ export const stories: ComponentPropType[] = [
       },
       error: true,
       iconType: "button",
-      library_uuid: "08b1d7d4-fb7f-4046-869a-590f242a93aa",
+      library_uuid: "22902281-cd75-4288-93c0-6fe12a18ccf0",
       screenConfig: {
         desktop: {
           height: 200,
@@ -249,13 +249,13 @@ export const stories: ComponentPropType[] = [
     component: GqlMediaLibrary,
     props: {
       config: {
-        client: createApolloClient("https://ploutonion.sytbuilder.com/graphql"),
+        client: createApolloClient("https://dolos.hogfort.com/graphql"),
         query: {
           name: GET_IMAGES,
           variables: {
             page: 1,
             count: 7,
-            library_uuid: "08b1d7d4-fb7f-4046-869a-590f242a93aa",
+            library_uuid: "22902281-cd75-4288-93c0-6fe12a18ccf0",
           },
         },
         upload: {
@@ -280,7 +280,7 @@ export const stories: ComponentPropType[] = [
           name: GET_PEXELS_IMAGES,
         },
       },
-      library_uuid: "08b1d7d4-fb7f-4046-869a-590f242a93aa",
+      library_uuid: "22902281-cd75-4288-93c0-6fe12a18ccf0",
     },
   },
   {

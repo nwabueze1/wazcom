@@ -11,7 +11,7 @@ import {
 } from "../GqlMediaLibrarySelector/hooks/get";
 import React, { FC, useCallback, useEffect, useRef, useState } from "react";
 import { FaTimes } from "react-icons/fa";
-import { DeleteMedia, EditMedia } from "./components";
+import { DeleteMedia, EditMedia, MediaUploader } from "./components";
 import { AddMedia } from "./components/AddMedia/AddMedia";
 import { Instagram } from "./components/Instagram";
 import { Layout } from "./components/Layout/Layout";
@@ -46,6 +46,8 @@ export const GqlMediaLibrary: FC<GqlMediaLibraryProps> = ({
   library_uuid,
   imageServiceDomain = "img.wazobia.tech",
   onSelect,
+  useCropperOnUpload = false,
+  useServiceDomainOnUpload = false,
 }) => {
   const { client, upload, update, remove, query, unsplash, instagram, pexels } = config;
   const refs = { fileRef: useRef<any>(), listInnerRef: useRef<any>() };
@@ -81,15 +83,20 @@ export const GqlMediaLibrary: FC<GqlMediaLibraryProps> = ({
   const [instagramImages, setInstagramImages] = useState<any[] | undefined | null>();
   const [pexelsImages, setPexelsImages] = useState();
   const [search, setSearch] = useState("");
-  const [showCropper, setShowCropper] = useState(false);
-  const [imageUrl] = useState({
-    caption: "",
-    name: "",
-    description: "",
-    alternative_text: "",
-    src: "",
+  const [showMediaModal, setShowMediaModal] = useState({
+    active: false,
+    type: "cropper",
   });
-  const [fileMedia] = useState<File>();
+  const [mediaFilesDetails, setMediaFilesDetails] = useState([
+    {
+      caption: "",
+      name: "",
+      description: "",
+      alternative_text: "",
+      src: "",
+      file: undefined as File | undefined,
+    },
+  ]);
   const getLibraryImages = useGetLibraryImages();
   const getUnsplashImages = useGetUnsplashImages();
   const getPexelsImages = useGetPexelsImages();
@@ -139,6 +146,7 @@ export const GqlMediaLibrary: FC<GqlMediaLibraryProps> = ({
         activeTab.selectorTab
       ) {
         splash && setUnsplash(undefined);
+        return;
       }
 
       if (
@@ -148,9 +156,8 @@ export const GqlMediaLibrary: FC<GqlMediaLibraryProps> = ({
         activeTab.selectorTab
       ) {
         pexelsImages && setPexelsImages(undefined);
+        return;
       }
-
-      return;
     }
 
     const getSearchData = setTimeout(() => {
@@ -204,12 +211,10 @@ export const GqlMediaLibrary: FC<GqlMediaLibraryProps> = ({
     }
 
     if (type === "instagram" && images === null) return;
-    else if (images && !isPagination && !search) {
+    else if (images && !isPagination && search == undefined) {
       setDisplayedImages(() => getUniqueImages(images));
       return;
     }
-
-    if (type === "library" && paginatorInfo?.currentPage === paginatorInfo?.lastPage) return;
 
     if (type === "instagram" && isPagination) return;
 
@@ -251,8 +256,8 @@ export const GqlMediaLibrary: FC<GqlMediaLibraryProps> = ({
         client,
         query.name,
         isPagination
-          ? { page: (paginatorInfo?.currentPage ?? 0) + 1, count: 10, library_uuid }
-          : { count: 10, library_uuid },
+          ? { page: (paginatorInfo?.currentPage ?? 0) + 1, count: 10, library_uuid, search }
+          : { count: 10, library_uuid, search },
         callback,
         onError,
       );
@@ -301,9 +306,9 @@ export const GqlMediaLibrary: FC<GqlMediaLibraryProps> = ({
   };
 
   const updateMediaLibrary = useCallback(
-    (image: Image, type = "add", variables?: ImageUpdate) => {
+    (images: Image | Image[], type = "add", variables?: ImageUpdate) => {
       handleUpdateMediaLibrary(
-        image,
+        Array.isArray(images) ? images : [images],
         displayedImages,
         (images: Image[]) => {
           setDisplayedImages(images);
@@ -317,7 +322,7 @@ export const GqlMediaLibrary: FC<GqlMediaLibraryProps> = ({
       );
       handleMediaAction("", undefined);
     },
-    [activeMedia],
+    [activeMedia, displayedImages],
   );
 
   const handleFileChange = (event: React.ChangeEvent<any>) => {
@@ -328,12 +333,26 @@ export const GqlMediaLibrary: FC<GqlMediaLibraryProps> = ({
     setActiveTab({ selectorTab: 0 });
   };
 
-  const handleMediaAction = (type: string, media?: Image | File) => {
-    if (type === "add" || type === "edit") { 
+  const handleMediaAction = (type: string, media?: Image | File | Array<Image | File>) => {
+    if (type === "add" || type === "edit") {
       const { listInnerRef } = refs;
       if (listInnerRef.current) listInnerRef.current.scrollTop = 0;
     }
-    setActiveMedia({ type, media });
+    if (!media) return;
+
+    if (Array.isArray(media)) {
+      if (media.length === 1 && !useCropperOnUpload) {
+        setActiveMedia({ type, media: media[0] });
+      } else {
+        handleMediaCropperUploader(media);
+      }
+    } else {
+      if (!useCropperOnUpload) {
+        setActiveMedia({ type, media });
+      } else {
+        handleMediaCropperUploader([media]);
+      }
+    }
   };
 
   const handleSearchChange = useCallback(
@@ -342,7 +361,9 @@ export const GqlMediaLibrary: FC<GqlMediaLibraryProps> = ({
         activeTab.mediaTab === 1 ||
         activeTab.selectorTab === 1 ||
         activeTab.mediaTab === 3 ||
-        activeTab.selectorTab === 3
+        activeTab.selectorTab === 3 ||
+        activeTab.mediaTab === 0 ||
+        activeTab.selectorTab === 0
       ) {
         return setSearch(data.value);
       }
@@ -474,7 +495,7 @@ export const GqlMediaLibrary: FC<GqlMediaLibraryProps> = ({
         />
         {isSelector && (
           <div className={classes.selectorSearchBox}>
-            {[1, 3].includes(activeTab.selectorTab) && (
+            {[0, 1, 3].includes(activeTab.selectorTab) && (
               <TextInput
                 name="search"
                 type="text"
@@ -604,7 +625,12 @@ export const GqlMediaLibrary: FC<GqlMediaLibraryProps> = ({
           <>
             <div className={classes.tabs}>{displaySelectorTabs()}</div>
             <div className={classes.iconContainer}>
-              <FaTimes className={classes.timesIcon} onClick={handleClose} />
+              <FaTimes
+                className={classes.timesIcon}
+                onClick={() => {
+                  handleClose();
+                }}
+              />
             </div>
           </>
         ) : (
@@ -638,6 +664,102 @@ export const GqlMediaLibrary: FC<GqlMediaLibraryProps> = ({
     </div>
   );
 
+  const handleMediaCropperUploader = (mediaFiles: Array<Image | File>) => {
+    const filesArray = Array.from(mediaFiles);
+
+    const fileReaders = filesArray.map((file) => {
+      return new Promise<{ file: File; src: string }>((resolve, reject) => {
+        if (!(file instanceof File)) return;
+
+        const reader = new FileReader();
+        reader.onload = () => {
+          resolve({ file, src: reader.result as string });
+        };
+        reader.onerror = reject;
+        reader.readAsDataURL(file);
+      });
+    });
+
+    Promise.all(fileReaders)
+      .then((fileDetails) => {
+        const newImageFilesDetails = fileDetails.map(({ file, src }) => ({
+          src,
+          name: file.name,
+          description: file.name,
+          alternative_text: file.name,
+          caption: "",
+          file,
+        }));
+
+        setMediaFilesDetails(newImageFilesDetails);
+        setShowMediaModal({
+          active: true,
+          type: mediaFiles.length === 1 ? "cropper" : "uploader",
+        });
+      })
+      .catch((error) => {
+        console.error("Error reading files: ", error);
+      });
+  };
+
+  const renderMediaCropperUploader = () => {
+    if (
+      mediaFilesDetails.length === 1 &&
+      showMediaModal.active &&
+      showMediaModal.type === "cropper"
+    ) {
+      return (
+        <GqlImageCropper
+          name={name}
+          config={config}
+          open={true}
+          value={{
+            src: mediaFilesDetails?.[0]?.src,
+            name: mediaFilesDetails?.[0]?.name,
+            description: mediaFilesDetails?.[0]?.caption,
+            alternative_text: mediaFilesDetails?.[0]?.alternative_text,
+            caption: mediaFilesDetails?.[0]?.caption,
+          }}
+          fileMedia={mediaFilesDetails[0].file}
+          handleClose={(args) => {
+            handleClose?.(args);
+            setShowMediaModal({
+              active: false,
+              type: "cropper",
+            });
+          }}
+          onChange={(data) => {
+            onChange?.(data);
+            updateMediaLibrary({ ...data.value, url: data.value.src }, "add");
+          }}
+          imageServiceDomain={imageServiceDomain}
+          useServiceDomainOnUpload={useServiceDomainOnUpload}
+        />
+      );
+    }
+    if (showMediaModal.active && showMediaModal.type === "uploader") {
+      return (
+        <MediaUploader
+          name={name}
+          config={config}
+          open={true}
+          handleClose={(args) => {
+            handleClose?.(args);
+            setShowMediaModal({
+              active: false,
+              type: "uploader",
+            });
+          }}
+          onChange={(data) => {
+            updateMediaLibrary(data.value, "add");
+          }}
+          mediaFiles={mediaFilesDetails}
+        />
+      );
+    }
+    return null;
+  };
+
   return (
     <div className={classes.base}>
       {header && (
@@ -647,27 +769,7 @@ export const GqlMediaLibrary: FC<GqlMediaLibraryProps> = ({
         </header>
       )}
       {displayMediaLibrary()}
-      {showCropper && imageUrl && (
-        <GqlImageCropper
-          name={name}
-          config={config}
-          open={true}
-          value={{
-            src: imageUrl?.src,
-            name: imageUrl?.name,
-            description: imageUrl?.caption,
-            alternative_text: imageUrl?.alternative_text,
-            caption: imageUrl?.caption,
-          }}
-          fileMedia={fileMedia}
-          handleClose={() => {
-            handleClose?.();
-            setShowCropper(false);
-          }}
-          onChange={onChange}
-          imageServiceDomain={imageServiceDomain}
-        />
-      )}
+      {renderMediaCropperUploader()}
     </div>
   );
 };

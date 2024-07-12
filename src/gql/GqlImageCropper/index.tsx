@@ -7,7 +7,7 @@ import clx from "classnames";
 import { ImageProperty } from "./components/ImageProperty/ImageProperty";
 import { CropAndSize } from "./components/CropAndSize/CropAndSize";
 import { CropImage } from "./components/CropImage";
-import { parseImageCropperValue, tabs } from "./helpers";
+import { generateModifiedSrc, parseImageCropperValue, tabs } from "./helpers";
 import { Coordinates } from "react-advanced-cropper";
 import { createMediaUpload, updateMediaUpload } from "../GqlMediaLibrary/hooks";
 import { ImageUpdate } from "../GqlMediaLibrary";
@@ -22,6 +22,8 @@ export const GqlImageCropper: FC<ImageCropperProps> = ({
   fileMedia,
   config,
   name,
+  imageServiceDomain,
+  useServiceDomainOnUpload = false,
 }) => {
   const classes = useImageCropperStyles();
   const [activeTab, setActiveTab] = useState(0);
@@ -131,7 +133,16 @@ export const GqlImageCropper: FC<ImageCropperProps> = ({
 
     const image_data = {
       ...generatedValue,
-      src: imageUrl,
+      ...(imageServiceDomain && useServiceDomainOnUpload
+        ? {
+            src: generateModifiedSrc(
+              imageUrl,
+              dimensions.width,
+              generatedValue.coordinates,
+              imageServiceDomain,
+            ),
+          }
+        : {}),
       original: imageUrl,
     };
 
@@ -160,14 +171,21 @@ export const GqlImageCropper: FC<ImageCropperProps> = ({
 
   return (
     <>
-      <Dialog open={open} handleClose={handleClose}>
+      <Dialog
+        open={open}
+        handleClose={() => {
+          handleClose("cropper");
+        }}
+      >
         <div className={classes.imageDialog}>
           <div className={classes.imageDialogHeadingContainer}>
             <div className={classes.imageDialogHeading}>
               <p className={classes.imageDialogTitle}>Edit Image</p>
               <FaTimes
                 className={classes.imageDialogIcon}
-                onClick={() => handleClose?.("cropper")}
+                onClick={() => {
+                  handleClose("cropper");
+                }}
               />
             </div>
           </div>
@@ -175,7 +193,7 @@ export const GqlImageCropper: FC<ImageCropperProps> = ({
           <div className={classes.imageDialogComponentsContainer}>
             <div className={classes.imageDialogCropSection}>
               <CropImage
-                src={value?.src}
+                src={value.src}
                 screenType={value.screenType}
                 coordinates={(value.coordinates as TCoordinates)[value.screenType]}
                 setCoordinates={setCoordinates}
@@ -224,12 +242,7 @@ export const GqlImageCropper: FC<ImageCropperProps> = ({
               {activeTab === 1 && (
                 <CropAndSize screenType={value.screenType} handleChange={handleValueChange} />
               )}
-              <Button
-                onClick={handleGenerate}
-                className={clx(classes.btn)}
-                isLoading={loading}
-                type={"button"}
-              >
+              <Button onClick={handleGenerate} className={clx(classes.btn)} isLoading={loading}>
                 Apply Changes
               </Button>
             </div>

@@ -53,15 +53,16 @@ const parseStoredCoordinates = (
 export const tabs = ["Image Properties", "Crop & Resize"];
 
 export const hasImageServiceUrl = (src: string = '') => {
-    if (
-      src.includes('img.wazobia.tech') ||
-      src.includes('images.twistedfood.co.uk') ||
-      src.includes("images.vt.co") || 
-      src.includes("dolos.hivedeck.com")
-    ) {
-      return true;
-    }
-    return false;
+  const domains = [
+      'img.wazobia.tech',
+      'images.twistedfood.co.uk',
+      'images.vt.co',
+      'dolos.hivedeck.com',
+      'images.fournine.net',
+      'images.craftfactory.com'
+  ];
+
+  return domains.some(domain => src.includes(domain));
   };
 
 export const generateModifiedSrc = (
@@ -72,7 +73,7 @@ export const generateModifiedSrc = (
   ) => {
     let imageUrl = src;
   
-    if (src.includes('unsplash')) {
+    if (src && src.includes('unsplash')) {
       const indexOfQuestionMark = src.indexOf('?');
       if (indexOfQuestionMark !== -1) {
         imageUrl = src.substring(0, indexOfQuestionMark);
@@ -80,7 +81,7 @@ export const generateModifiedSrc = (
     }
   
     const dolosUrl =
-      hasImageServiceUrl(imageUrl) || src.includes('unsplash')
+      hasImageServiceUrl(imageUrl) || (src && src.includes('unsplash'))
         ? ''
         : `https://${imageServiceDomain}/`;
   
