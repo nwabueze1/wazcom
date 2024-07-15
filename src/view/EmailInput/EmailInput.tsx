@@ -1,5 +1,4 @@
 import { FC } from "react";
-import { Provider } from "react-redux";
 import CssBaseline from "@mui/material/CssBaseline";
 import { EmailInput } from "../../io";
 import { useEmailInputStyles } from "./styles";
@@ -7,8 +6,6 @@ import { EmailInputViewProps } from "./types";
 import { useEmailInputProps } from "./utils/useEmailInputProps";
 import { ComponentProps } from "../../core/ComponentProps";
 import { Paper } from "../../core/Paper";
-import { PaymentUI } from "core/PaymentUI";
-import { legacy_createStore } from "redux";
 
 export const EmailInputView: FC<EmailInputViewProps> = () => {
   const { data, state, onReset } = useEmailInputProps();
@@ -30,15 +27,7 @@ export const EmailInputView: FC<EmailInputViewProps> = () => {
         </div>
         <Paper padding={10}>
           <div className={classes.inputContainer}>
-            <Provider
-              store={legacy_createStore(() => ({
-                gatewayUrl: "https://ploutonion.sytbuilder.com/graphql",
-              } as any), {
-                gatewayUrl: "https://ploutonion.sytbuilder.com/graphql",
-              })}
-            >
-              <PaymentUI block_uuid="sksksk" />
-            </Provider>
+            <EmailInput />
           </div>
         </Paper>
 

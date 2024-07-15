@@ -1,1 +1,0 @@
-export declare const useTableFiltersStyles: (props?: any) => import("@mui/styles").ClassNameMap<"root" | "filterColumn" | "filterAddIconParent" | "filterAddIcon" | "filterColumns" | "filterColumnsActive" | "filterSelector">;

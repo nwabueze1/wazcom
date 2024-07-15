@@ -1,1 +1,0 @@
-export declare const useLabelStyles: (props?: any) => import("@mui/styles").ClassNameMap<"labelz">;

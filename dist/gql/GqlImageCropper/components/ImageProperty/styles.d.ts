@@ -1,1 +1,0 @@
-export declare const useImagePropertyStyles: (props?: any) => import("@mui/styles").ClassNameMap<"form" | "textArea" | "tooltipIcon" | "formControl" | "formButtons" | "placeholderContainer" | "formLabel" | "tooltipContent">;

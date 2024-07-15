@@ -1,1 +1,0 @@
-export declare const useDateInputStyles: (props?: any) => import("@mui/styles").ClassNameMap<"root" | "input" | "label" | "required" | "baseInput" | "errorInput" | "successInput" | "labelWrapper" | "helperTextDefault" | "helperTextSuccess" | "helperTextError" | "timeRangeSeperator" | "timeRangeDiv">;

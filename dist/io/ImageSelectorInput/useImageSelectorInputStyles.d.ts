@@ -1,1 +1,0 @@
-export declare const useImageSelectorInputStyles: (props?: any) => import("@mui/styles").ClassNameMap<"root" | "container" | "button" | "label" | "helperTextError" | "selectButton" | "selectInput" | "selectedImageContainer" | "imageContainer" | "selectedImage" | "errorContainer">;
