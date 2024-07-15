@@ -1,0 +1,1 @@
+export declare const useAddMediaStyles: (props?: any) => import("@mui/styles").ClassNameMap<"root" | "content" | "outline" | "text" | "line" | "loading" | "close" | "drop" | "box" | "modal" | "btn" | "wrapperDialog" | "dialogueHeader" | "or" | "modalBox" | "uploader" | "dropBox" | "uploadBtn">;

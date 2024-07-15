@@ -1,0 +1,131 @@
+import makeStyles from "@mui/styles/makeStyles";
+export var useCropImageStyles = makeStyles(function (theme) { return ({
+    root: {
+        width: "100%",
+        height: "100%",
+        margin: 0,
+    },
+    cropper: {
+        width: "100%",
+        objectFit: "cover",
+        maxHeight: 500,
+        height: "100%",
+        "& .advanced-cropper__background-wrapper": {
+            background: theme.design.colors.waz_white,
+        },
+        "& .advanced-cropper-stencil-overlay": {
+            color: "rgba(255, 255, 255, 0.6)"
+        },
+        "& .advanced-cropper-simple-line": {
+            borderColor: theme.design.colors.waz_primary500,
+        }
+    },
+    wrapper: {
+        flexGrow: 1,
+        minHeight: 0,
+    },
+    wrapperNavigation: {
+        width: "max-content",
+        position: "absolute",
+        bottom: 0,
+        left: 0,
+        right: 0,
+        padding: theme.spacing(1, 2),
+    },
+    handler: {
+        color: theme.design.colors.waz_primary100,
+    },
+    slider: {
+        width: "100%",
+        height: "20px",
+        display: "flex",
+        alignItems: "center",
+        flexDirection: "column",
+        justifyContent: "center",
+        borderRadius: "5px",
+        cursor: "pointer",
+        padding: theme.spacing(0, 2),
+    },
+    sliderWrapper: {
+        display: "flex",
+        alignItems: "center",
+        maxWidth: "400px",
+        width: "100%",
+    },
+    sliderLine: {
+        background: theme.design.colors.waz_greenishGrey,
+        width: "163px",
+        height: "4px",
+        borderRadius: "5px",
+        display: "flex",
+        position: "relative",
+        alignItems: "center",
+        justifyContent: "flex-start",
+    },
+    sliderFill: {
+        background: theme.design.colors.waz_primary200,
+        alignSelf: "stretch",
+        flexBasis: "auto",
+        flexDirection: "column",
+        flexShrink: 0,
+        borderRadius: "5px",
+    },
+    sliderCircle: {
+        width: "30px",
+        height: "30px",
+        marginLeft: "-15px",
+        borderRadius: "50%",
+        display: "flex",
+        alignItems: "center",
+        justifyContent: "center",
+        position: "absolute",
+        transitionDuration: "0.2s",
+        transitionProperty: "background-color, box-shadow",
+        backgroundColor: "transparent",
+    },
+    sliderCircleFocus: {
+        backgroundColor: theme.design.colors.waz_primary200,
+    },
+    sliderInnerCircle: {
+        width: "15px",
+        height: "15px",
+        borderRadius: "50%",
+        backgroundColor: theme.design.colors.waz_primary200,
+        transform: "scale(1)",
+        transitionDuration: "0.1s",
+        transitionProperty: "transform",
+    },
+    sliderInnerCircleFocus: {
+        transform: "scale(1.2)",
+    },
+    navigation: {
+        height: "50px",
+        display: "flex",
+        justifyContent: "flex-start",
+        alignItems: "flex-end",
+        margin: "0 auto",
+    },
+    navigationButton: {
+        willChange: "transform",
+        cursor: "pointer",
+        width: "24px",
+        height: "24px",
+        display: "flex",
+        alignItems: "center",
+        justifyContent: "center",
+        background: "none",
+        border: "none",
+        outline: "none",
+        transition: "transform 0.5s",
+        padding: 0,
+        "& > img": {
+            filter: "invert(1)",
+        },
+        "&:hover": {
+            transform: "scale(1.1)",
+        },
+        "&:focus": {
+            transform: "scale(1.1)",
+        },
+    },
+}); });
