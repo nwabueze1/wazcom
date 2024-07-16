@@ -487,7 +487,7 @@ export var GqlMediaLibrary = function (_a) {
                         handleMediaAction("", undefined);
                     }, handleDelete: handleMediaDelete })] }) }))); };
     var displayMediaLibrary = function () { return (_jsxs("div", __assign({ className: clx(classes.container, className) }, { children: [_jsx("div", __assign({ className: clx(classes.actions, isSelector && classes.viewOnlyActions) }, { children: isSelector ? (_jsxs(_Fragment, { children: [_jsx("div", __assign({ className: classes.tabs }, { children: displaySelectorTabs() })), _jsx("div", __assign({ className: classes.iconContainer }, { children: _jsx(FaTimes, { className: classes.timesIcon, onClick: function () {
-                                    handleClose();
+                                    handleClose === null || handleClose === void 0 ? void 0 : handleClose();
                                 } }) }))] })) : (_jsx("div", __assign({ className: clx(classes.actionsContainer) }, { children: !isSelector && (_jsxs("div", __assign({ className: clx(classes.selectorContainer, activeTab.mediaTab == 2 && "instagram") }, { children: [activeTab.mediaTab !== 2 && activeTab.mediaTab !== 0 && (_jsx("div", __assign({ className: classes.searchContainer }, { children: _jsx(TextInput, { name: "search", type: "text", placeholder: "Search images here", value: search, onChange: handleSearchChange, className: classes.search, classNames: { textInput: classes.textInput } }) }))), _jsx("div", __assign({ className: clx(classes.layouts, activeTab.mediaTab === 2 && "instagram") }, { children: displayLayoutData() }))] }))) }))) })), renderPage()] }))); };
     var handleMediaCropperUploader = function (mediaFiles) {
         var filesArray = Array.from(mediaFiles);
