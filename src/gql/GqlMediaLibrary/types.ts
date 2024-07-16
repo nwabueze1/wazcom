@@ -48,7 +48,7 @@ export type GqlMediaSelectorConfigProps = {
     };
   };
   isSelector?: boolean;
-  handleClose: (args?: string) => void;
+  handleClose?: (args?: string) => void;
   showAddMedia?: (media: any) => void;
 };
 

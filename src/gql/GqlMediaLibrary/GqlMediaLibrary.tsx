@@ -628,7 +628,7 @@ export const GqlMediaLibrary: FC<GqlMediaLibraryProps> = ({
               <FaTimes
                 className={classes.timesIcon}
                 onClick={() => {
-                  handleClose();
+                  handleClose?.();
                 }}
               />
             </div>
