@@ -1,14 +1,3 @@
-var __assign = (this && this.__assign) || function () {
-    __assign = Object.assign || function(t) {
-        for (var s, i = 1, n = arguments.length; i < n; i++) {
-            s = arguments[i];
-            for (var p in s) if (Object.prototype.hasOwnProperty.call(s, p))
-                t[p] = s[p];
-        }
-        return t;
-    };
-    return __assign.apply(this, arguments);
-};
 import { jsx as _jsx, jsxs as _jsxs, Fragment as _Fragment } from "react/jsx-runtime";
 import { useAddMediaStyles } from "./styles";
 import { Button } from "../../../../core";
@@ -24,5 +13,5 @@ export var UploadDialog = function (_a) {
         handleMediaAction === null || handleMediaAction === void 0 ? void 0 : handleMediaAction("add", Array.from(event.target.files));
         handleCloseMedia(false);
     };
-    return (_jsx(_Fragment, { children: _jsxs(Box, __assign({ className: clx(className, classes.box) }, { children: [showHeader && (_jsxs(_Fragment, { children: [_jsxs("div", __assign({ className: classes.dialogueHeader }, { children: [_jsx("p", { children: "Upload your files" }), _jsx(MdClose, { onClick: function () { return handleCloseMedia(false); }, className: classes.close })] })), _jsx("hr", {})] })), _jsx("div", __assign({ className: classes.dropBox }, { children: _jsxs("div", __assign({ className: classes.outline }, { children: [_jsxs("div", __assign({ className: classes.content }, { children: [_jsx("p", __assign({ className: classes.text }, { children: "Drop file to add to media library" })), _jsx("p", __assign({ className: classes.or }, { children: "or" })), _jsx(Button, __assign({ className: clx(classes.btn, classes.uploadBtn), onClick: handleFilesSelection }, { children: "Choose file" }))] })), _jsx("input", { type: "file", accept: "image/*", className: classes.uploader, onChange: handleFileChange, multiple: true })] })) }))] })) }));
+    return (_jsx(_Fragment, { children: _jsxs(Box, { className: clx(className, classes.box), children: [showHeader && (_jsxs(_Fragment, { children: [_jsxs("div", { className: classes.dialogueHeader, children: [_jsx("p", { children: "Upload your files" }), _jsx(MdClose, { onClick: function () { return handleCloseMedia(false); }, className: classes.close })] }), _jsx("hr", {})] })), _jsx("div", { className: classes.dropBox, children: _jsxs("div", { className: classes.outline, children: [_jsxs("div", { className: classes.content, children: [_jsx("p", { className: classes.text, children: "Drop file to add to media library" }), _jsx("p", { className: classes.or, children: "or" }), _jsx(Button, { className: clx(classes.btn, classes.uploadBtn), onClick: handleFilesSelection, children: "Choose file" })] }), _jsx("input", { type: "file", accept: "image/*", className: classes.uploader, onChange: handleFileChange, multiple: true })] }) })] }) }));
 };

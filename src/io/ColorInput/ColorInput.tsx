@@ -1,6 +1,6 @@
 import { FC, useState } from "react";
 import { ColorInputProps } from "./types";
-import { ChromePicker } from "react-color";
+import { ChromePicker as ColorChromePicker } from "react-color";
 import { useColorInputStyles } from "./styles";
 import { RGBColor, HSLColor } from "react-color";
 import { ClickAwayListener } from "@mui/base";
@@ -20,6 +20,8 @@ export const ColorInput: FC<ColorInputProps> = ({ name, value, onChange }) => {
   const handleChange = (color: { hex: string; rgb: RGBColor; hsl: HSLColor }) => {
     onChange?.({ name, value: color.hex });
   };
+
+  const ChromePicker = ColorChromePicker as any;
 
   return (
     <ClickAwayListener onClickAway={handleClosePicker}>

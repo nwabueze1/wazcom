@@ -1,14 +1,3 @@
-var __assign = (this && this.__assign) || function () {
-    __assign = Object.assign || function(t) {
-        for (var s, i = 1, n = arguments.length; i < n; i++) {
-            s = arguments[i];
-            for (var p in s) if (Object.prototype.hasOwnProperty.call(s, p))
-                t[p] = s[p];
-        }
-        return t;
-    };
-    return __assign.apply(this, arguments);
-};
 var __read = (this && this.__read) || function (o, n) {
     var m = typeof Symbol === "function" && o[Symbol.iterator];
     if (!m) return o;
@@ -44,7 +33,7 @@ export var EmbedButton = function (_a) {
     var handleClick = function (type) {
         initiateEmbed === null || initiateEmbed === void 0 ? void 0 : initiateEmbed(type);
     };
-    return (_jsx(ClickAwayListener, __assign({ onClickAway: function () {
+    return (_jsx(ClickAwayListener, { onClickAway: function () {
             setOpen(false);
-        } }, { children: _jsxs("div", __assign({ className: classes.root }, { children: [_jsx("button", __assign({ className: classes.insertButton, onClick: handleInsertOptions }, { children: "+" })), _jsxs("div", __assign({ className: clx(classes.selectOption, open ? classes.showOptions : classes.hideOptions) }, { children: [_jsx("span", __assign({ className: classes.optionTitleSpan }, { children: "EMBEDS" })), _jsxs("div", __assign({ className: classes.options }, { children: [_jsx(EmbedOption, { icon: _jsx(PictureIcon, {}), title: "Picture", description: "jpeg, png", handleClick: function () { return handleClick("image"); } }), _jsx(EmbedOption, { icon: _jsx(VideoIcon, {}), title: "Video", description: "JW player, Youtube, Vimeo", handleClick: function () { return handleClick("video"); } }), _jsx(EmbedOption, { icon: _jsx(TbSocial, { className: classes.linkIcon }), title: "Social", description: "Instagram, Twitter, Tiktok, Snapchat, Facebook", handleClick: function () { return handleClick("link"); } })] }))] }))] })) })));
+        }, children: _jsxs("div", { className: classes.root, children: [_jsx("button", { className: classes.insertButton, onClick: handleInsertOptions, children: "+" }), _jsxs("div", { className: clx(classes.selectOption, open ? classes.showOptions : classes.hideOptions), children: [_jsx("span", { className: classes.optionTitleSpan, children: "EMBEDS" }), _jsxs("div", { className: classes.options, children: [_jsx(EmbedOption, { icon: _jsx(PictureIcon, {}), title: "Picture", description: "jpeg, png", handleClick: function () { return handleClick("image"); } }), _jsx(EmbedOption, { icon: _jsx(VideoIcon, {}), title: "Video", description: "JW player, Youtube, Vimeo", handleClick: function () { return handleClick("video"); } }), _jsx(EmbedOption, { icon: _jsx(TbSocial, { className: classes.linkIcon }), title: "Social", description: "Instagram, Twitter, Tiktok, Snapchat, Facebook", handleClick: function () { return handleClick("link"); } })] })] })] }) }));
 };

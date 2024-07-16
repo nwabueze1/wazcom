@@ -1,14 +1,3 @@
-var __assign = (this && this.__assign) || function () {
-    __assign = Object.assign || function(t) {
-        for (var s, i = 1, n = arguments.length; i < n; i++) {
-            s = arguments[i];
-            for (var p in s) if (Object.prototype.hasOwnProperty.call(s, p))
-                t[p] = s[p];
-        }
-        return t;
-    };
-    return __assign.apply(this, arguments);
-};
 var __rest = (this && this.__rest) || function (s, e) {
     var t = {};
     for (var p in s) if (Object.prototype.hasOwnProperty.call(s, p) && e.indexOf(p) < 0)
@@ -51,9 +40,9 @@ export var InputGroup = function (_a) {
     useEffect(function () {
         setInputText(text !== null && text !== void 0 ? text : "");
     }, [text]);
-    return (_jsxs("div", __assign({ className: clx(classes.root, className) }, { children: [label && (_jsxs(InputLabel, __assign({ className: (classNames === null || classNames === void 0 ? void 0 : classNames.label) ? classNames === null || classNames === void 0 ? void 0 : classNames.label : undefined, htmlFor: props.name }, { children: [label, _jsx("p", __assign({ className: classes.required }, { children: props.required ? "*" : "" }))] }))), _jsxs("div", __assign({ className: clx(classes.inputGroup, classNames === null || classNames === void 0 ? void 0 : classNames.inputGroup) }, { children: [_jsx(TextInput
+    return (_jsxs("div", { className: clx(classes.root, className), children: [label && (_jsxs(InputLabel, { className: (classNames === null || classNames === void 0 ? void 0 : classNames.label) ? classNames === null || classNames === void 0 ? void 0 : classNames.label : undefined, htmlFor: props.name, children: [label, _jsx("p", { className: classes.required, children: props.required ? "*" : "" })] })), _jsxs("div", { className: clx(classes.inputGroup, classNames === null || classNames === void 0 ? void 0 : classNames.inputGroup), children: [_jsx(TextInput
                     // {...props}
                     , { 
                         // {...props}
-                        value: "", className: clx(classes.textInput, classNames === null || classNames === void 0 ? void 0 : classNames.textInput) }), _jsxs("div", __assign({ className: clx(classes.text, classNames === null || classNames === void 0 ? void 0 : classNames.text, !icon && classes.textPosition) }, { children: [icon && _jsx("div", __assign({ className: clx(classes.icon, classNames === null || classNames === void 0 ? void 0 : classNames.groupIcon) }, { children: icon })), _jsx("p", { children: truncate(inputText) })] }))] })), feedback && displayFeedback(feedback)] })));
+                        value: "", className: clx(classes.textInput, classNames === null || classNames === void 0 ? void 0 : classNames.textInput) }), _jsxs("div", { className: clx(classes.text, classNames === null || classNames === void 0 ? void 0 : classNames.text, !icon && classes.textPosition), children: [icon && _jsx("div", { className: clx(classes.icon, classNames === null || classNames === void 0 ? void 0 : classNames.groupIcon), children: icon }), _jsx("p", { children: truncate(inputText) })] })] }), feedback && displayFeedback(feedback)] }));
 };

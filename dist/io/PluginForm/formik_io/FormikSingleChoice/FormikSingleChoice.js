@@ -1,14 +1,3 @@
-var __assign = (this && this.__assign) || function () {
-    __assign = Object.assign || function(t) {
-        for (var s, i = 1, n = arguments.length; i < n; i++) {
-            s = arguments[i];
-            for (var p in s) if (Object.prototype.hasOwnProperty.call(s, p))
-                t[p] = s[p];
-        }
-        return t;
-    };
-    return __assign.apply(this, arguments);
-};
 var __rest = (this && this.__rest) || function (s, e) {
     var t = {};
     for (var p in s) if (Object.prototype.hasOwnProperty.call(s, p) && e.indexOf(p) < 0)
@@ -48,5 +37,5 @@ export var FormikSingleChoice = function (_a) {
             return (_jsx(RadioButtonInput, { label: label, onChange: handleChange, name: props.name, isBooleanValue: false, value: value, checked: ((_b = formikProps === null || formikProps === void 0 ? void 0 : formikProps.values) === null || _b === void 0 ? void 0 : _b[props.name]) === value, classNames: radioInputClass, onBlur: function () { return formikProps === null || formikProps === void 0 ? void 0 : formikProps.setFieldTouched(props === null || props === void 0 ? void 0 : props.name, true); }, className: clx(classes.radioButtonOptionContainer, classNames === null || classNames === void 0 ? void 0 : classNames.optionContainer) }, index));
         });
     };
-    return (_jsxs("div", __assign({ className: className }, { children: [_jsxs("div", __assign({ className: clx(classes.fieldSet, isError && "error", classNames === null || classNames === void 0 ? void 0 : classNames.fieldset) }, { children: [_jsxs("p", __assign({ className: clx(classes.legend, classNames === null || classNames === void 0 ? void 0 : classNames.legend, paletteStyles === null || paletteStyles === void 0 ? void 0 : paletteStyles.label) }, { children: [props === null || props === void 0 ? void 0 : props.placeholder, " ", isRequired && _jsx("sup", { children: "*" })] })), renderOptions()] })), isError && errorMessage && (_jsx("span", __assign({ className: clx(classes.errorMessage, classNames === null || classNames === void 0 ? void 0 : classNames.errorMessage) }, { children: errorMessage })))] })));
+    return (_jsxs("div", { className: className, children: [_jsxs("div", { className: clx(classes.fieldSet, isError && "error", classNames === null || classNames === void 0 ? void 0 : classNames.fieldset), children: [_jsxs("p", { className: clx(classes.legend, classNames === null || classNames === void 0 ? void 0 : classNames.legend, paletteStyles === null || paletteStyles === void 0 ? void 0 : paletteStyles.label), children: [props === null || props === void 0 ? void 0 : props.placeholder, " ", isRequired && _jsx("sup", { children: "*" })] }), renderOptions()] }), isError && errorMessage && (_jsx("span", { className: clx(classes.errorMessage, classNames === null || classNames === void 0 ? void 0 : classNames.errorMessage), children: errorMessage }))] }));
 };

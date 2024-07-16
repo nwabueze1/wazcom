@@ -52,11 +52,11 @@ export var TableFilters = function (_a) {
         return columns.map(function (_a, index) {
             var name = _a.name, key = _a.key;
             var columnName = typeof name === "string" ? name : key.replace(/./g, " ");
-            return (_jsxs("div", __assign({ className: classes.filterColumn, onMouseEnter: function () {
+            return (_jsxs("div", { className: classes.filterColumn, onMouseEnter: function () {
                     setActiveColumnKey(key);
-                } }, { children: [columnName, activeColumnKey === key && (_jsx(FilterSelector, { className: classes.filterSelector, column: columns.find(function (column) { return column.key === activeColumnKey; }), handleSelectFilter: handleSelectFilter, handleClose: function () {
+                }, children: [columnName, activeColumnKey === key && (_jsx(FilterSelector, { className: classes.filterSelector, column: columns.find(function (column) { return column.key === activeColumnKey; }), handleSelectFilter: handleSelectFilter, handleClose: function () {
                             setActiveColumnKey(undefined);
-                        } }))] }), index));
+                        } }))] }, index));
         });
     };
     var handleSelectFilter = function (filter) {
@@ -79,11 +79,11 @@ export var TableFilters = function (_a) {
                 }, key: index })));
         });
     };
-    return (_jsxs("div", __assign({ className: classes.root }, { children: [renderFilters(), _jsx(ClickAwayListener, __assign({ onClickAway: function () {
+    return (_jsxs("div", { className: classes.root, children: [renderFilters(), _jsx(ClickAwayListener, { onClickAway: function () {
                     setShowFilters(false);
                     setActiveColumnKey(undefined);
-                } }, { children: _jsxs("div", __assign({ className: classes.filterAddIconParent }, { children: [_jsx("span", __assign({ className: classes.filterAddIcon, onClick: function () {
+                }, children: _jsxs("div", { className: classes.filterAddIconParent, children: [_jsx("span", { className: classes.filterAddIcon, onClick: function () {
                                 showFilters && setActiveColumnKey(undefined);
                                 setShowFilters(!showFilters);
-                            } }, { children: _jsx(AiOutlinePlus, {}) })), _jsx("div", __assign({ className: clx(classes.filterColumns, showFilters && classes.filterColumnsActive) }, { children: renderColumns() }))] })) }))] })));
+                            }, children: _jsx(AiOutlinePlus, {}) }), _jsx("div", { className: clx(classes.filterColumns, showFilters && classes.filterColumnsActive), children: renderColumns() })] }) })] }));
 };

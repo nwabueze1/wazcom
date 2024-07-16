@@ -36,20 +36,18 @@ var __generator = (this && this.__generator) || function (thisArg, body) {
 };
 import { responseClient } from "../../responseClient";
 import { Create_Response } from "../Create_Response";
-export var createResponse = function (_a, form_uuid, answers) {
-    var client = _a.client, mutation = _a.mutation;
-    return __awaiter(void 0, void 0, void 0, function () {
-        return __generator(this, function (_b) {
-            switch (_b.label) {
-                case 0: return [4 /*yield*/, (client !== null && client !== void 0 ? client : responseClient).mutate({
-                        mutation: mutation !== null && mutation !== void 0 ? mutation : Create_Response,
-                        variables: {
-                            form_uuid: form_uuid,
-                            response: answers,
-                        },
-                    })];
-                case 1: return [2 /*return*/, _b.sent()];
-            }
-        });
+export var createResponse = function (_a, form_uuid_1, answers_1) { return __awaiter(void 0, [_a, form_uuid_1, answers_1], void 0, function (_b, form_uuid, answers) {
+    var client = _b.client, mutation = _b.mutation;
+    return __generator(this, function (_c) {
+        switch (_c.label) {
+            case 0: return [4 /*yield*/, (client !== null && client !== void 0 ? client : responseClient).mutate({
+                    mutation: mutation !== null && mutation !== void 0 ? mutation : Create_Response,
+                    variables: {
+                        form_uuid: form_uuid,
+                        response: answers,
+                    },
+                })];
+            case 1: return [2 /*return*/, _c.sent()];
+        }
     });
-};
+}); };

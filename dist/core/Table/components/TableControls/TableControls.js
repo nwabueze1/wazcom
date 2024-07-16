@@ -1,14 +1,3 @@
-var __assign = (this && this.__assign) || function () {
-    __assign = Object.assign || function(t) {
-        for (var s, i = 1, n = arguments.length; i < n; i++) {
-            s = arguments[i];
-            for (var p in s) if (Object.prototype.hasOwnProperty.call(s, p))
-                t[p] = s[p];
-        }
-        return t;
-    };
-    return __assign.apply(this, arguments);
-};
 var __read = (this && this.__read) || function (o, n) {
     var m = typeof Symbol === "function" && o[Symbol.iterator];
     if (!m) return o;
@@ -46,7 +35,7 @@ export var TableControls = function (_a) {
     var handleClose = function () {
         setAnchorEl(null);
     };
-    return (_jsxs(Box, __assign({ className: classes.controls }, { children: [_jsx(SearchInput, { name: "search", type: "text", placeholder: "Search", value: controlsFormData.search, onChange: function (e) { return handleControlsChange(e); }, className: classes.controlsInput }), (controls === null || controls === void 0 ? void 0 : controls.filter) && (_jsx(Box, __assign({ className: classes.filterControls }, { children: _jsx(TableFilter, { showFilter: showFilter, setShowFilter: setShowFilter, fields: fields, values: values, filters: filters, setFilters: setFilters }) }))), _jsxs(Box, __assign({ className: classes.rightControls }, { children: [(controls === null || controls === void 0 ? void 0 : controls.canPrint) && (_jsxs(Button, __assign({ className: classes.printButton, variant: "outlined", onClick: function () { return window.print(); } }, { children: [_jsx(Print, { fontSize: "small" }), _jsx("span", __assign({ className: classes.controlButtonText }, { children: "Print" }))] }))), (controls === null || controls === void 0 ? void 0 : controls.canExport) && (_jsxs(_Fragment, { children: [_jsxs(Button, __assign({ className: classes.exportButton, variant: "outlined", onClick: handleClick, "aria-controls": open ? "account-menu" : undefined, "aria-haspopup": "true", "aria-expanded": open ? "true" : undefined }, { children: [_jsx(SendToMobileOutlined, { fontSize: "small" }), _jsx("span", __assign({ className: classes.controlButtonText }, { children: "Export" }))] })), _jsxs(Menu, __assign({ anchorEl: anchorEl, id: "account-menu", open: open, onClose: handleClose, onClick: handleClose, PaperProps: {
+    return (_jsxs(Box, { className: classes.controls, children: [_jsx(SearchInput, { name: "search", type: "text", placeholder: "Search", value: controlsFormData.search, onChange: function (e) { return handleControlsChange(e); }, className: classes.controlsInput }), (controls === null || controls === void 0 ? void 0 : controls.filter) && (_jsx(Box, { className: classes.filterControls, children: _jsx(TableFilter, { showFilter: showFilter, setShowFilter: setShowFilter, fields: fields, values: values, filters: filters, setFilters: setFilters }) })), _jsxs(Box, { className: classes.rightControls, children: [(controls === null || controls === void 0 ? void 0 : controls.canPrint) && (_jsxs(Button, { className: classes.printButton, variant: "outlined", onClick: function () { return window.print(); }, children: [_jsx(Print, { fontSize: "small" }), _jsx("span", { className: classes.controlButtonText, children: "Print" })] })), (controls === null || controls === void 0 ? void 0 : controls.canExport) && (_jsxs(_Fragment, { children: [_jsxs(Button, { className: classes.exportButton, variant: "outlined", onClick: handleClick, "aria-controls": open ? "account-menu" : undefined, "aria-haspopup": "true", "aria-expanded": open ? "true" : undefined, children: [_jsx(SendToMobileOutlined, { fontSize: "small" }), _jsx("span", { className: classes.controlButtonText, children: "Export" })] }), _jsxs(Menu, { anchorEl: anchorEl, id: "account-menu", open: open, onClose: handleClose, onClick: handleClose, PaperProps: {
                                     elevation: 0,
                                     sx: {
                                         overflow: "visible",
@@ -71,5 +60,5 @@ export var TableControls = function (_a) {
                                             zIndex: 0,
                                         },
                                     },
-                                }, transformOrigin: { horizontal: "right", vertical: "top" }, anchorOrigin: { horizontal: "right", vertical: "bottom" } }, { children: [_jsxs(MenuItem, __assign({ onClick: function () { return exportToCSV("all_data", tableValues); } }, { children: [_jsx(ListItemIcon, { children: _jsx(Settings, { fontSize: "small" }) }), "Export as .csv"] })), _jsxs(MenuItem, __assign({ onClick: function () { return exportToXlsx("all_data", tableValues); } }, { children: [_jsx(ListItemIcon, { children: _jsx(Logout, { fontSize: "small" }) }), "Export as .xlsx"] }))] }))] }))] }))] })));
+                                }, transformOrigin: { horizontal: "right", vertical: "top" }, anchorOrigin: { horizontal: "right", vertical: "bottom" }, children: [_jsxs(MenuItem, { onClick: function () { return exportToCSV("all_data", tableValues); }, children: [_jsx(ListItemIcon, { children: _jsx(Settings, { fontSize: "small" }) }), "Export as .csv"] }), _jsxs(MenuItem, { onClick: function () { return exportToXlsx("all_data", tableValues); }, children: [_jsx(ListItemIcon, { children: _jsx(Logout, { fontSize: "small" }) }), "Export as .xlsx"] })] })] }))] })] }));
 };

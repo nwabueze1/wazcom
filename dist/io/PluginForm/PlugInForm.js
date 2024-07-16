@@ -1,14 +1,3 @@
-var __assign = (this && this.__assign) || function () {
-    __assign = Object.assign || function(t) {
-        for (var s, i = 1, n = arguments.length; i < n; i++) {
-            s = arguments[i];
-            for (var p in s) if (Object.prototype.hasOwnProperty.call(s, p))
-                t[p] = s[p];
-        }
-        return t;
-    };
-    return __assign.apply(this, arguments);
-};
 var __awaiter = (this && this.__awaiter) || function (thisArg, _arguments, P, generator) {
     function adopt(value) { return value instanceof P ? value : new P(function (resolve) { resolve(value); }); }
     return new (P || (P = Promise))(function (resolve, reject) {
@@ -102,12 +91,12 @@ export var PlugInForm = forwardRef(function (props, ref) {
             }
         });
     }); };
-    return (_jsx(_Fragment, { children: _jsx(Formik, __assign({ validationSchema: validationSchema, initialValues: initialFormState, onSubmit: handleSubmit }, { children: function (props) {
+    return (_jsx(_Fragment, { children: _jsx(Formik, { validationSchema: validationSchema, initialValues: initialFormState, onSubmit: handleSubmit, children: function (props) {
                 var _a;
-                return (_jsxs(Form, __assign({ style: style }, { children: [_jsx("div", __assign({ className: className }, { children: (_a = ((questions !== null && questions !== void 0 ? questions : []))) === null || _a === void 0 ? void 0 : _a.map(function (_a, index) {
+                return (_jsxs(Form, { style: style, children: [_jsx("div", { className: className, children: (_a = ((questions !== null && questions !== void 0 ? questions : []))) === null || _a === void 0 ? void 0 : _a.map(function (_a, index) {
                                 var question = _a.question, fields = _a.fields, type = _a.type, is_required = _a.is_required, uuid = _a.uuid;
                                 return (_jsx(QuestionsInput, { name: uuid, fields: fields, type: type, is_required: is_required, classNames: classNames, formikProps: props, label: question, palette: palette, client: apolloClient === null || apolloClient === void 0 ? void 0 : apolloClient.client, form_uuid: form_uuid }, index));
-                            }) })), !submitButton ? (_jsx("button", { className: classes.submitButton, type: "submit", ref: submitButtonRef })) : (submitButton)] })));
-            } })) }));
+                            }) }), !submitButton ? (_jsx("button", { className: classes.submitButton, type: "submit", ref: submitButtonRef })) : (submitButton)] }));
+            } }) }));
 });
 PlugInForm.displayName = "PluginForm";

@@ -214,11 +214,15 @@ export var GqlMediaLibrary = function (_a) {
         }); };
         loadImages();
     };
-    var getImages = function (type, isPagination) {
-        if (isPagination === void 0) { isPagination = false; }
-        return __awaiter(void 0, void 0, void 0, function () {
+    var getImages = function (type_1) {
+        var args_1 = [];
+        for (var _i = 1; _i < arguments.length; _i++) {
+            args_1[_i - 1] = arguments[_i];
+        }
+        return __awaiter(void 0, __spreadArray([type_1], __read(args_1), false), void 0, function (type, isPagination) {
             var setState, images, callback, onError;
             var _a, _b, _c;
+            if (isPagination === void 0) { isPagination = false; }
             return __generator(this, function (_d) {
                 switch (_d.label) {
                     case 0:
@@ -436,27 +440,27 @@ export var GqlMediaLibrary = function (_a) {
         return layoutData.map(function (count, index) { return (_jsx(Layout, { count: count, onclick: function () { return setActiveLayout(index); }, className: clx(activeLayout === index ? classes.activeLayout : ""), active: Boolean(activeLayout === index) }, index)); });
     };
     var displaySelectorTabs = function () {
-        return selectorTabs.map(function (tab, index) { return (_jsx("p", __assign({ className: clx(classes.selectorTab, activeTab.selectorTab !== index && classes.inActive), onClick: function () {
+        return selectorTabs.map(function (tab, index) { return (_jsx("p", { className: clx(classes.selectorTab, activeTab.selectorTab !== index && classes.inActive), onClick: function () {
                 setSearch("");
                 setActiveMedia(__assign(__assign({}, activeMedia), { index: undefined }));
                 setActiveTab(__assign(__assign({}, activeTab), { selectorTab: index }));
-            } }, { children: tab }), index)); });
+            }, children: tab }, index)); });
     };
     var displayMediaTabs = function () {
         return medialibraryTabs.map(function (tab, index) {
             var isActive = activeTab.mediaTab === index;
-            return (_jsxs("div", __assign({ className: clx(classes.mediaTab, isActive && "active"), onClick: function () {
+            return (_jsxs("div", { className: clx(classes.mediaTab, isActive && "active"), onClick: function () {
                     setSearch("");
                     setActiveMedia(__assign(__assign({}, activeMedia), { index: undefined }));
                     setActiveTab(__assign(__assign({}, activeTab), { mediaTab: index }));
-                } }, { children: [tab.icon && (_jsx("p", __assign({ className: clx(classes.mediaTabIcon, isActive && "active") }, { children: tab.icon }))), _jsx("p", __assign({ className: clx(classes.tabName, isActive && "active") }, { children: tab.name }))] }), index));
+                }, children: [tab.icon && (_jsx("p", { className: clx(classes.mediaTabIcon, isActive && "active"), children: tab.icon })), _jsx("p", { className: clx(classes.tabName, isActive && "active"), children: tab.name })] }, index));
         });
     };
-    var displayMediaLibraryImages = function () { return (_jsx("div", __assign({ className: clx(classes.wrapper), ref: refs.listInnerRef, onScroll: function () {
+    var displayMediaLibraryImages = function () { return (_jsx("div", { className: clx(classes.wrapper), ref: refs.listInnerRef, onScroll: function () {
             handleOnScroll(refs.listInnerRef, function (index) {
                 setActiveMedia(__assign(__assign({}, activeMedia), { index: index }));
             });
-        } }, { children: _jsxs(_Fragment, { children: [_jsx("input", { name: "image_url", accept: "image/*", hidden: true, type: "file", ref: refs.fileRef, onChange: handleFileChange }), isSelector && (_jsxs("div", __assign({ className: classes.selectorSearchBox }, { children: [[0, 1, 3].includes(activeTab.selectorTab) && (_jsx(TextInput, { name: "search", type: "text", placeholder: "Search images here", value: search, onChange: handleSearchChange, className: classes.selectorSearch })), activeTab.selectorTab === 0 && (_jsx(AddMedia, { handleFilesSelection: handleFileSelection, handleOpenMedia: open, handleCloseMedia: setOpen, handleMediaAction: handleMediaAction, buttonText: "Upload" }))] }))), _jsxs("div", __assign({ className: clx(activeTab.selectorTab === 0 && classes.dialogueView) }, { children: [_jsxs("div", __assign({ className: clx(classes.collection, activeTab.selectorTab === 0 && classes.uploadViewWidth) }, { children: [loading.media && !activeMedia.index ? (_jsx(Loader, {})) : (_jsxs(_Fragment, { children: [(activeMedia.type === "add" || activeMedia.type === "edit") && (_jsx(EditMedia, { loading: loading.mutate, handleEdit: function (variables) {
+        }, children: _jsxs(_Fragment, { children: [_jsx("input", { name: "image_url", accept: "image/*", hidden: true, type: "file", ref: refs.fileRef, onChange: handleFileChange }), isSelector && (_jsxs("div", { className: classes.selectorSearchBox, children: [[0, 1, 3].includes(activeTab.selectorTab) && (_jsx(TextInput, { name: "search", type: "text", placeholder: "Search images here", value: search, onChange: handleSearchChange, className: classes.selectorSearch })), activeTab.selectorTab === 0 && (_jsx(AddMedia, { handleFilesSelection: handleFileSelection, handleOpenMedia: open, handleCloseMedia: setOpen, handleMediaAction: handleMediaAction, buttonText: "Upload" }))] })), _jsxs("div", { className: clx(activeTab.selectorTab === 0 && classes.dialogueView), children: [_jsxs("div", { className: clx(classes.collection, activeTab.selectorTab === 0 && classes.uploadViewWidth), children: [loading.media && !activeMedia.index ? (_jsx(Loader, {})) : (_jsxs(_Fragment, { children: [(activeMedia.type === "add" || activeMedia.type === "edit") && (_jsx(EditMedia, { loading: loading.mutate, handleEdit: function (variables) {
                                                 handleMediaUpdate(variables);
                                             }, handleClose: function () {
                                                 handleMediaAction("", undefined);
@@ -483,12 +487,12 @@ export var GqlMediaLibrary = function (_a) {
                                                     name: name !== null && name !== void 0 ? name : "",
                                                     value: image,
                                                 });
-                                            }, handleMediaAction, isSelector, activeLayout)] }))] })), displayedImages.length > 0 && loading.media && activeMedia.index && (_jsx("div", __assign({ className: classes.loaderParent }, { children: _jsx(Loader, { className: classes.loader }) })))] })), _jsx(DeleteMedia, { display: activeMedia.type === "delete", loading: loading.mutate, media: activeMedia.media, handleClose: function () {
+                                            }, handleMediaAction, isSelector, activeLayout)] }))] }), displayedImages.length > 0 && loading.media && activeMedia.index && (_jsx("div", { className: classes.loaderParent, children: _jsx(Loader, { className: classes.loader }) }))] }), _jsx(DeleteMedia, { display: activeMedia.type === "delete", loading: loading.mutate, media: activeMedia.media, handleClose: function () {
                         handleMediaAction("", undefined);
-                    }, handleDelete: handleMediaDelete })] }) }))); };
-    var displayMediaLibrary = function () { return (_jsxs("div", __assign({ className: clx(classes.container, className) }, { children: [_jsx("div", __assign({ className: clx(classes.actions, isSelector && classes.viewOnlyActions) }, { children: isSelector ? (_jsxs(_Fragment, { children: [_jsx("div", __assign({ className: classes.tabs }, { children: displaySelectorTabs() })), _jsx("div", __assign({ className: classes.iconContainer }, { children: _jsx(FaTimes, { className: classes.timesIcon, onClick: function () {
+                    }, handleDelete: handleMediaDelete })] }) })); };
+    var displayMediaLibrary = function () { return (_jsxs("div", { className: clx(classes.container, className), children: [_jsx("div", { className: clx(classes.actions, isSelector && classes.viewOnlyActions), children: isSelector ? (_jsxs(_Fragment, { children: [_jsx("div", { className: classes.tabs, children: displaySelectorTabs() }), _jsx("div", { className: classes.iconContainer, children: _jsx(FaTimes, { className: classes.timesIcon, onClick: function () {
                                     handleClose === null || handleClose === void 0 ? void 0 : handleClose();
-                                } }) }))] })) : (_jsx("div", __assign({ className: clx(classes.actionsContainer) }, { children: !isSelector && (_jsxs("div", __assign({ className: clx(classes.selectorContainer, activeTab.mediaTab == 2 && "instagram") }, { children: [activeTab.mediaTab !== 2 && activeTab.mediaTab !== 0 && (_jsx("div", __assign({ className: classes.searchContainer }, { children: _jsx(TextInput, { name: "search", type: "text", placeholder: "Search images here", value: search, onChange: handleSearchChange, className: classes.search, classNames: { textInput: classes.textInput } }) }))), _jsx("div", __assign({ className: clx(classes.layouts, activeTab.mediaTab === 2 && "instagram") }, { children: displayLayoutData() }))] }))) }))) })), renderPage()] }))); };
+                                } }) })] })) : (_jsx("div", { className: clx(classes.actionsContainer), children: !isSelector && (_jsxs("div", { className: clx(classes.selectorContainer, activeTab.mediaTab == 2 && "instagram"), children: [activeTab.mediaTab !== 2 && activeTab.mediaTab !== 0 && (_jsx("div", { className: classes.searchContainer, children: _jsx(TextInput, { name: "search", type: "text", placeholder: "Search images here", value: search, onChange: handleSearchChange, className: classes.search, classNames: { textInput: classes.textInput } }) })), _jsx("div", { className: clx(classes.layouts, activeTab.mediaTab === 2 && "instagram"), children: displayLayoutData() })] })) })) }), renderPage()] })); };
     var handleMediaCropperUploader = function (mediaFiles) {
         var filesArray = Array.from(mediaFiles);
         var fileReaders = filesArray.map(function (file) {
@@ -561,5 +565,5 @@ export var GqlMediaLibrary = function (_a) {
         }
         return null;
     };
-    return (_jsxs("div", __assign({ className: classes.base }, { children: [header && (_jsxs("header", __assign({ className: classes.header }, { children: [header, !isSelector && _jsx("div", __assign({ className: clx(classes.mediaTabs) }, { children: displayMediaTabs() }))] }))), displayMediaLibrary(), renderMediaCropperUploader()] })));
+    return (_jsxs("div", { className: classes.base, children: [header && (_jsxs("header", { className: classes.header, children: [header, !isSelector && _jsx("div", { className: clx(classes.mediaTabs), children: displayMediaTabs() })] })), displayMediaLibrary(), renderMediaCropperUploader()] }));
 };

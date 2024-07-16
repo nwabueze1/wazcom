@@ -1,14 +1,3 @@
-var __assign = (this && this.__assign) || function () {
-    __assign = Object.assign || function(t) {
-        for (var s, i = 1, n = arguments.length; i < n; i++) {
-            s = arguments[i];
-            for (var p in s) if (Object.prototype.hasOwnProperty.call(s, p))
-                t[p] = s[p];
-        }
-        return t;
-    };
-    return __assign.apply(this, arguments);
-};
 var __awaiter = (this && this.__awaiter) || function (thisArg, _arguments, P, generator) {
     function adopt(value) { return value instanceof P ? value : new P(function (resolve) { resolve(value); }); }
     return new (P || (P = Promise))(function (resolve, reject) {
@@ -115,8 +104,8 @@ export var FileSelectorInput = function (_a) {
     }); };
     var renderBlock = function () {
         if (loading)
-            return (_jsxs("div", __assign({ className: classes.fileNameContainer }, { children: [_jsx("p", __assign({ className: classNames === null || classNames === void 0 ? void 0 : classNames.text }, { children: "Saving file ..." })), _jsx(CircularProgress, { size: 14, color: "inherit" })] })));
-        return (_jsxs(_Fragment, { children: [!hasSelectedFile && (_jsx("button", __assign({ className: clx(classes.selectButton, hasSelectedFile && "active", classNames === null || classNames === void 0 ? void 0 : classNames.selectButton), onClick: !hasSelectedFile ? handlePickFile : undefined, type: "button" }, { children: "Select a file" }))), hasSelectedFile && (_jsx("p", __assign({ className: classNames === null || classNames === void 0 ? void 0 : classNames.text }, { children: shortenFileName((value === null || value === void 0 ? void 0 : value.name) || (file === null || file === void 0 ? void 0 : file.name)) }))), hasSelectedFile && (_jsxs(_Fragment, { children: [_jsx("p", __assign({ className: (classes.selectedFileName, classNames === null || classNames === void 0 ? void 0 : classNames.text) }, { children: value === null || value === void 0 ? void 0 : value.name })), _jsx(Button, __assign({ variant: "contained", className: clx(classes.button, classNames === null || classNames === void 0 ? void 0 : classNames.changeFileButton), onClick: handlePickFile, type: "button" }, { children: "Change file" }))] }))] }));
+            return (_jsxs("div", { className: classes.fileNameContainer, children: [_jsx("p", { className: classNames === null || classNames === void 0 ? void 0 : classNames.text, children: "Saving file ..." }), _jsx(CircularProgress, { size: 14, color: "inherit" })] }));
+        return (_jsxs(_Fragment, { children: [!hasSelectedFile && (_jsx("button", { className: clx(classes.selectButton, hasSelectedFile && "active", classNames === null || classNames === void 0 ? void 0 : classNames.selectButton), onClick: !hasSelectedFile ? handlePickFile : undefined, type: "button", children: "Select a file" })), hasSelectedFile && (_jsx("p", { className: classNames === null || classNames === void 0 ? void 0 : classNames.text, children: shortenFileName((value === null || value === void 0 ? void 0 : value.name) || (file === null || file === void 0 ? void 0 : file.name)) })), hasSelectedFile && (_jsxs(_Fragment, { children: [_jsx("p", { className: (classes.selectedFileName, classNames === null || classNames === void 0 ? void 0 : classNames.text), children: value === null || value === void 0 ? void 0 : value.name }), _jsx(Button, { variant: "contained", className: clx(classes.button, classNames === null || classNames === void 0 ? void 0 : classNames.changeFileButton), onClick: handlePickFile, type: "button", children: "Change file" })] }))] }));
     };
-    return (_jsxs("div", __assign({ className: classes.root }, { children: [label && _jsx("label", __assign({ className: clx(classes.label, classNames === null || classNames === void 0 ? void 0 : classNames.label) }, { children: label })), _jsx("div", __assign({ className: classes.fileNameContainer }, { children: renderBlock() })), _jsx("input", { type: "file", accept: accept, className: classes.selectInput, ref: fileInputRef, onChange: handleSelectFile }), helperText && (_jsx("span", __assign({ className: clx(isError && classes.helperTextError, classNames === null || classNames === void 0 ? void 0 : classNames.helperText, isError && "error") }, { children: helperText }))), fileError && (_jsx("span", __assign({ className: clx(isError && classes.helperTextError, classNames === null || classNames === void 0 ? void 0 : classNames.helperText, isError && "error") }, { children: fileError })))] })));
+    return (_jsxs("div", { className: classes.root, children: [label && _jsx("label", { className: clx(classes.label, classNames === null || classNames === void 0 ? void 0 : classNames.label), children: label }), _jsx("div", { className: classes.fileNameContainer, children: renderBlock() }), _jsx("input", { type: "file", accept: accept, className: classes.selectInput, ref: fileInputRef, onChange: handleSelectFile }), helperText && (_jsx("span", { className: clx(isError && classes.helperTextError, classNames === null || classNames === void 0 ? void 0 : classNames.helperText, isError && "error"), children: helperText })), fileError && (_jsx("span", { className: clx(isError && classes.helperTextError, classNames === null || classNames === void 0 ? void 0 : classNames.helperText, isError && "error"), children: fileError }))] }));
 };

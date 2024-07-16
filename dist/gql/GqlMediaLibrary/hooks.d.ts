@@ -17,7 +17,7 @@ export declare const useUpdateMediaLibrary: () => (images: Image[], displayedIma
 export declare const useOnScroll: () => (ref: React.MutableRefObject<any>, setMediaIndex: (index: number) => void) => void;
 export declare const fetchData: (client: ApolloClient<NormalizedCacheObject>, query: DocumentNode, variables?: {
     [key: string]: string | number;
-} | undefined) => Promise<import("@apollo/client").ApolloQueryResult<any>>;
+}) => Promise<import("@apollo/client").ApolloQueryResult<any>>;
 export declare const split: (array: any[], count: number) => any[][];
 export declare const getUniqueImages: (images: Image[]) => Image[];
 export declare const mutateMedia: (client: ApolloClient<NormalizedCacheObject>, mutation: DocumentNode, media: Image, updateMediaLibrary: () => void, variables?: ImageUpdate) => Promise<void>;

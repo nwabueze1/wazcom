@@ -93,15 +93,15 @@ export var Scheduler = function (_a) {
         return value.map(function (_a, index) {
             var _b;
             var day = _a.day, start_time = _a.start_time, end_time = _a.end_time;
-            return (_jsxs("p", __assign({ className: classes.schedule }, { children: [_jsxs("span", { children: [(_b = dayOptions.find(function (_a) {
+            return (_jsxs("p", { className: classes.schedule, children: [_jsxs("span", { children: [(_b = dayOptions.find(function (_a) {
                                 var value = _a.value;
                                 return value === day;
                             })) === null || _b === void 0 ? void 0 : _b.label, " (", parseTime(start_time), " ", getTimeExtension(start_time), " - ", parseTime(end_time), " ", getTimeExtension(end_time), ")", " "] }), _jsx(FaTimes, { className: classes.scheduleIcon, onClick: function () {
                             handleRemove(index);
-                        } })] }), index));
+                        } })] }, index));
         });
     };
-    return (_jsxs("div", __assign({ className: clx(classes.root, className) }, { children: [_jsx(SelectInput, { name: "day", label: label, value: schedule.day, options: dayOptions.filter(function (_a) {
+    return (_jsxs("div", { className: clx(classes.root, className), children: [_jsx(SelectInput, { name: "day", label: label, value: schedule.day, options: dayOptions.filter(function (_a) {
                     var dayIndex = _a.value;
                     return !value.map(function (_a) {
                         var day = _a.day;
@@ -110,11 +110,11 @@ export var Scheduler = function (_a) {
                 }), className: classes.selectInput, onChange: function (_a) {
                     var value = _a.value;
                     return handleScheduleChange("day", value);
-                } }), value.length > 0 && _jsx("div", __assign({ className: classes.scheduleContainer }, { children: renderSchedules() })), _jsxs("div", __assign({ className: classes.timeContainer }, { children: [_jsx(TimeInput, { name: "start_time", label: "SET TIME", value: dayDelimiter + " " + schedule.start_time, className: classes.timeInput, onChange: function (_a) {
+                } }), value.length > 0 && _jsx("div", { className: classes.scheduleContainer, children: renderSchedules() }), _jsxs("div", { className: classes.timeContainer, children: [_jsx(TimeInput, { name: "start_time", label: "SET TIME", value: dayDelimiter + " " + schedule.start_time, className: classes.timeInput, onChange: function (_a) {
                             var value = _a.value;
                             return handleScheduleChange("start_time", value);
-                        } }), _jsx("p", __assign({ className: classes.timeDivider }, { children: "TO" })), _jsx(TimeInput, { name: "end_time", value: dayDelimiter + " " + schedule.end_time, className: classes.timeInput, onChange: function (_a) {
+                        } }), _jsx("p", { className: classes.timeDivider, children: "TO" }), _jsx(TimeInput, { name: "end_time", value: dayDelimiter + " " + schedule.end_time, className: classes.timeInput, onChange: function (_a) {
                             var value = _a.value;
                             return handleScheduleChange("end_time", value);
-                        } })] })), _jsx(Button, __assign({ className: classes.scheduleButton, onClick: handleAdd, type: "button" }, { children: "Add" }))] })));
+                        } })] }), _jsx(Button, { className: classes.scheduleButton, onClick: handleAdd, type: "button", children: "Add" })] }));
 };

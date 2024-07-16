@@ -55,7 +55,7 @@ export var DisplayInput = function (_a) {
                 return _jsxs("p", { children: [index + 1, "."] });
         }
     };
-    return (_jsxs("div", __assign({ className: classes.root }, { children: [displayLabel(), _jsx(TextInput
+    return (_jsxs("div", { className: classes.root, children: [displayLabel(), _jsx(TextInput
             // className={{
             //     textInput: classes.displayInput,
             //     newRoot: classes.newRoot,
@@ -65,5 +65,5 @@ export var DisplayInput = function (_a) {
                 //     textInput: classes.displayInput,
                 //     newRoot: classes.newRoot,
                 // }}
-                value: value === null || value === void 0 ? void 0 : value.text, onChange: handleInputChange, id: "standard-basic", onFocus: onFocus }), _jsx(FiImage, { className: clx(classes.displayIcon, classes.mediaIcon), onClick: handleOptionMedia }), _jsx(CloseIcon, { className: classes.displayIcon, onClick: handleRemove })] })));
+                value: value === null || value === void 0 ? void 0 : value.text, onChange: handleInputChange, id: "standard-basic", onFocus: onFocus }), _jsx(FiImage, { className: clx(classes.displayIcon, classes.mediaIcon), onClick: handleOptionMedia }), _jsx(CloseIcon, { className: classes.displayIcon, onClick: handleRemove })] }));
 };

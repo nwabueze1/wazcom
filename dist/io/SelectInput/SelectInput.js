@@ -40,7 +40,7 @@ export var SelectInput = function (_a) {
     }, [value]);
     var labelElement = isValidElement(label) ? cloneElement(label, {}) : label;
     var DropdownIndicator = function (props) { return (_jsx(components.DropdownIndicator, __assign({}, props, { children: _jsx(AiFillCaretDown, {}) }))); };
-    return (_jsxs("div", __assign({ className: clx(classes.root, className) }, { children: [_jsx("span", __assign({ className: classes.labelWrapper }, { children: !hideLabel && labelElement && (_jsxs("label", __assign({ htmlFor: name, className: classes.label }, { children: [labelElement, required && _jsx("span", __assign({ className: classes.required }, { children: "*" }))] }))) })), _jsx(Select, __assign({ menuIsOpen: menuIsOpen, components: {
+    return (_jsxs("div", { className: clx(classes.root, className), children: [_jsx("span", { className: classes.labelWrapper, children: !hideLabel && labelElement && (_jsxs("label", { htmlFor: name, className: classes.label, children: [labelElement, required && _jsx("span", { className: classes.required, children: "*" })] })) }), _jsx(Select, __assign({ menuIsOpen: menuIsOpen, components: {
                     DropdownIndicator: DropdownIndicator,
                     IndicatorSeparator: function () { return null; },
                 }, styles: {
@@ -82,5 +82,5 @@ export var SelectInput = function (_a) {
                         var isDisabled = _a.isDisabled, isFocused = _a.isFocused;
                         return clx(!isDisabled && isFocused && classes.option);
                     },
-                }, value: selectValue, options: options, onChange: handleChange, isSearchable: false }, props)), helperText && (_jsx("span", __assign({ className: clx(classes.helperTextDefault, isSuccess && classes.helperTextSuccess, isError && classes.helperTextError) }, { children: helperText })))] })));
+                }, value: selectValue, options: options, onChange: handleChange, isSearchable: false }, props)), helperText && (_jsx("span", { className: clx(classes.helperTextDefault, isSuccess && classes.helperTextSuccess, isError && classes.helperTextError), children: helperText }))] }));
 };

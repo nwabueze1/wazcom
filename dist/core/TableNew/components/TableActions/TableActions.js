@@ -38,17 +38,14 @@ export var TableActions = function (_a) {
         setCurrentActions(__assign(__assign({}, currentActions), { sort: [{ order: order, column: columnKey }] }));
     };
     var renderSearch = function () {
-        return columnSearch ? (_jsx(ColumnSearch, __assign({}, {
-            columns: columns,
-            search: currentActions.search,
+        return columnSearch ? (_jsx(ColumnSearch, { columns: columns, search: currentActions.search,
             onChange: function (e) {
                 var _a;
                 return setCurrentActions(__assign(__assign({}, currentActions), { search: __assign(__assign({}, currentActions.search), (_a = {}, _a[e.name] = e.value, _a)) }));
-            },
-        }))) : (_jsx(TextInput, { className: classes.searchInputElement, classNames: { input: classes.searchInput }, leftIcon: _jsx(BiSearch, {}), iconSpacing: 8, onChange: handleSearchChange, placeholder: "Search table" }));
+            } })) : (_jsx(TextInput, { className: classes.searchInputElement, classNames: { input: classes.searchInput }, leftIcon: _jsx(BiSearch, {}), iconSpacing: 8, onChange: handleSearchChange, placeholder: "Search table" }));
     };
-    return (_jsxs("div", __assign({ className: classes.root }, { children: [renderSearch(), showSort && _jsx(SortSelector, { columns: columns, handleSelectSort: handleSortChange }), conditionFilters && (_jsx(SelectInput, { className: classes.selectInputElement, classNames: { container: classes.selectContainer, control: classes.selectControl }, options: conditionFilters.map(function (_a) {
+    return (_jsxs("div", { className: classes.root, children: [renderSearch(), showSort && _jsx(SortSelector, { columns: columns, handleSelectSort: handleSortChange }), conditionFilters && (_jsx(SelectInput, { className: classes.selectInputElement, classNames: { container: classes.selectContainer, control: classes.selectControl }, options: conditionFilters.map(function (_a) {
                     var name = _a.name;
                     return ({ label: name, value: name });
-                }), value: currentActions.conditionFilter.name, onChange: handleConditionChange })), _jsx(ColumnSelector, { columns: columns, columnFilters: currentActions.columnFilters, handleColumnChange: handleColumnsChange })] })));
+                }), value: currentActions.conditionFilter.name, onChange: handleConditionChange })), _jsx(ColumnSelector, { columns: columns, columnFilters: currentActions.columnFilters, handleColumnChange: handleColumnsChange })] }));
 };

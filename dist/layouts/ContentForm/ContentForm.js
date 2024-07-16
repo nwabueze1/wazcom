@@ -72,19 +72,19 @@ var ContentFormLayout = function (_a) {
         })
             .map(function (tab, index) {
             var _a, _b;
-            return (_jsx("div", __assign({ className: clx(classes.tab, (activeTab === null || activeTab === void 0 ? void 0 : activeTab.toLowerCase()) === tab.name.toLowerCase() && classes.activeTab), onClick: function () { return setActiveTab(tab.name); } }, { children: _jsxs("div", __assign({ className: classes.tabContent }, { children: [tab.icon, _jsx("p", __assign({ className: classes.tabName, style: ((_b = (_a = tab === null || tab === void 0 ? void 0 : tab.name) === null || _a === void 0 ? void 0 : _a.toLowerCase()) === null || _b === void 0 ? void 0 : _b.includes("related")) ? { left: "10%", width: "80%" } : {} }, { children: tab.name }))] })) }), index));
+            return (_jsx("div", { className: clx(classes.tab, (activeTab === null || activeTab === void 0 ? void 0 : activeTab.toLowerCase()) === tab.name.toLowerCase() && classes.activeTab), onClick: function () { return setActiveTab(tab.name); }, children: _jsxs("div", { className: classes.tabContent, children: [tab.icon, _jsx("p", { className: classes.tabName, style: ((_b = (_a = tab === null || tab === void 0 ? void 0 : tab.name) === null || _a === void 0 ? void 0 : _a.toLowerCase()) === null || _b === void 0 ? void 0 : _b.includes("related")) ? { left: "10%", width: "80%" } : {}, children: tab.name })] }) }, index));
         });
     };
-    return (_jsx("div", __assign({ className: classes.contentRoot }, { children: contentLoading && !(state === null || state === void 0 ? void 0 : state.row) ? (_jsx("div", __assign({ className: "".concat(classes.fullScreen, " ").concat(classes.fullScreen_active) }, { children: _jsx(CircularProgress, { color: "inherit" }) }))) : (_jsxs("div", __assign({ className: classes.contentContainer }, { children: [_jsxs("div", __assign({ className: classes.formParent }, { children: [_jsxs("div", __assign({ className: clx(classes.formEditor, (_b = {},
+    return (_jsx("div", { className: classes.contentRoot, children: contentLoading && !(state === null || state === void 0 ? void 0 : state.row) ? (_jsx("div", { className: "".concat(classes.fullScreen, " ").concat(classes.fullScreen_active), children: _jsx(CircularProgress, { color: "inherit" }) })) : (_jsxs("div", { className: classes.contentContainer, children: [_jsxs("div", { className: classes.formParent, children: [_jsxs("div", { className: clx(classes.formEditor, (_b = {},
                                 _b[classes.formEditorActive] = !(activeTab && showRightSidebar),
-                                _b)) }, { children: [_jsxs("div", __assign({ className: classes.headerContainer }, { children: [_jsx(BsArrowLeft, { onClick: function () {
+                                _b)), children: [_jsxs("div", { className: classes.headerContainer, children: [_jsx(BsArrowLeft, { onClick: function () {
                                                 onGoBack();
-                                            } }), _jsx("p", __assign({ className: classes.headerTitle }, { children: isEdit ? "Edit ".concat(type) : "Create ".concat(type) })), _jsx("div", __assign({ className: clx(classes.postStatus, (_c = {},
+                                            } }), _jsx("p", { className: classes.headerTitle, children: isEdit ? "Edit ".concat(type) : "Create ".concat(type) }), _jsx("div", { className: clx(classes.postStatus, (_c = {},
                                                 _c[classes.postStatusPublished] = isPublished,
-                                                _c)) }, { children: _jsx("p", __assign({ className: classes.postStatusText }, { children: isPublished ? "Published" : "Draft" })) }))] })), children] })), _jsxs("div", __assign({ className: clx(classes.tabContainer, (_d = {},
+                                                _c)), children: _jsx("p", { className: classes.postStatusText, children: isPublished ? "Published" : "Draft" }) })] }), children] }), _jsxs("div", { className: clx(classes.tabContainer, (_d = {},
                                 _d[classes.tabContainerActive] = activeTab && showRightSidebar,
-                                _d)) }, { children: [_jsxs("div", __assign({ className: classes.titleHeader }, { children: [_jsx("p", __assign({ className: classes.activeTitle }, { children: activeTab })), _jsx("div", __assign({ className: classes.tabIconParent, onClick: function () {
+                                _d)), children: [_jsxs("div", { className: classes.titleHeader, children: [_jsx("p", { className: classes.activeTitle, children: activeTab }), _jsx("div", { className: classes.tabIconParent, onClick: function () {
                                                 setActiveTab(undefined);
-                                            } }, { children: _jsx(FaTimes, { className: "icon" }) }))] })), showRightSidebar && displayControls()] }))] })), _jsx("div", __assign({ className: classes.tabParent }, { children: displayTabs() }))] }))) })));
+                                            }, children: _jsx(FaTimes, { className: "icon" }) })] }), showRightSidebar && displayControls()] })] }), _jsx("div", { className: classes.tabParent, children: displayTabs() })] })) }));
 };
 export default ContentFormLayout;

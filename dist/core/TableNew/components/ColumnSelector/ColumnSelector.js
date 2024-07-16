@@ -1,14 +1,3 @@
-var __assign = (this && this.__assign) || function () {
-    __assign = Object.assign || function(t) {
-        for (var s, i = 1, n = arguments.length; i < n; i++) {
-            s = arguments[i];
-            for (var p in s) if (Object.prototype.hasOwnProperty.call(s, p))
-                t[p] = s[p];
-        }
-        return t;
-    };
-    return __assign.apply(this, arguments);
-};
 var __read = (this && this.__read) || function (o, n) {
     var m = typeof Symbol === "function" && o[Symbol.iterator];
     if (!m) return o;
@@ -73,20 +62,20 @@ export var ColumnSelector = function (_a) {
         handleColumnChange(updatedColumnFilters);
     };
     var renderColumns = function () {
-        return columns.map(function (column, index) { return (_jsxs("div", __assign({ className: classes.column }, { children: [_jsx(CheckBoxInput, { value: !columnFilters ? true : columnFilters.map(function (_a) {
+        return columns.map(function (column, index) { return (_jsxs("div", { className: classes.column, children: [_jsx(CheckBoxInput, { value: !columnFilters ? true : columnFilters.map(function (_a) {
                         var name = _a.name;
                         return name;
                     }).includes(column.name), color: "success", className: classes.columnCheckBox, classNames: { classes: { root: classes.columnCheckBoxRoot } }, onChange: function (_a) {
                         var checked = _a.value;
                         handleCheckChange(column.key, checked);
-                    } }), typeof column.name === "string" ? column.name : column.key] }), index)); });
+                    } }), typeof column.name === "string" ? column.name : column.key] }, index)); });
     };
-    return (_jsx(ClickAwayListener, __assign({ onClickAway: function () {
+    return (_jsx(ClickAwayListener, { onClickAway: function () {
             setShowColumns(false);
-        } }, { children: _jsxs("div", __assign({ className: classes.root }, { children: [_jsx("p", __assign({ onClick: function () {
+        }, children: _jsxs("div", { className: classes.root, children: [_jsx("p", { onClick: function () {
                         setShowColumns(!showColumns);
-                    }, className: classes.columnBoxText }, { children: "Table Columns" })), _jsx(AiOutlineCaretDown, { className: clx(classes.columnBoxIcon, showColumns && classes.columnBoxIconActive) }), _jsxs("div", __assign({ className: clx(classes.columnList, showColumns && classes.columnListActive) }, { children: [_jsxs("div", __assign({ className: classes.column }, { children: [_jsx(CheckBoxInput, { value: !columnFilters ? true : columns.length === columnFilters.length, className: classes.columnCheckBox, classNames: { classes: { root: classes.columnCheckBoxRoot } }, onChange: function (_a) {
+                    }, className: classes.columnBoxText, children: "Table Columns" }), _jsx(AiOutlineCaretDown, { className: clx(classes.columnBoxIcon, showColumns && classes.columnBoxIconActive) }), _jsxs("div", { className: clx(classes.columnList, showColumns && classes.columnListActive), children: [_jsxs("div", { className: classes.column, children: [_jsx(CheckBoxInput, { value: !columnFilters ? true : columns.length === columnFilters.length, className: classes.columnCheckBox, classNames: { classes: { root: classes.columnCheckBoxRoot } }, onChange: function (_a) {
                                         var checked = _a.value;
                                         handleCheckChange("", checked, true);
-                                    } }), "All Columns"] })), renderColumns()] }))] })) })));
+                                    } }), "All Columns"] }), renderColumns()] })] }) }));
 };

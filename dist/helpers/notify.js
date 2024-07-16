@@ -10,9 +10,7 @@ export var notify = function (status, title, text) {
         showCloseButton: true,
         autoclose: true,
         autotimeout: 3500,
-        gap: 20,
-        distance: 20,
-        type: 1,
+        type: "outline",
         position: "bottom right",
     });
 };

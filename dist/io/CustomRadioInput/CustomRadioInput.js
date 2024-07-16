@@ -1,14 +1,3 @@
-var __assign = (this && this.__assign) || function () {
-    __assign = Object.assign || function(t) {
-        for (var s, i = 1, n = arguments.length; i < n; i++) {
-            s = arguments[i];
-            for (var p in s) if (Object.prototype.hasOwnProperty.call(s, p))
-                t[p] = s[p];
-        }
-        return t;
-    };
-    return __assign.apply(this, arguments);
-};
 import { jsx as _jsx, jsxs as _jsxs } from "react/jsx-runtime";
 import { useCustomRadioInputStyles } from "./styles";
 import { RadioButtonInput } from "../RadioButtonInput";
@@ -23,5 +12,5 @@ export var CustomRadioInput = function (_a) {
     var handleComponentClick = function () {
         onChange === null || onChange === void 0 ? void 0 : onChange({ name: name !== null && name !== void 0 ? name : "", value: true });
     };
-    return (_jsxs("div", __assign({ className: clx(classes.root, className, value && classes.inputActive), onClick: handleComponentClick }, { children: [_jsx(RadioButtonInput, { className: classes.inputRadio, value: value, name: name, onChange: handleChange }), _jsx("p", __assign({ className: classes.inputLabel }, { children: label }))] })));
+    return (_jsxs("div", { className: clx(classes.root, className, value && classes.inputActive), onClick: handleComponentClick, children: [_jsx(RadioButtonInput, { className: classes.inputRadio, value: value, name: name, onChange: handleChange }), _jsx("p", { className: classes.inputLabel, children: label })] }));
 };

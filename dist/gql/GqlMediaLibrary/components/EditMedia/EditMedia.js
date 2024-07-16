@@ -72,8 +72,8 @@ export var EditMedia = function (_a) {
     var displayFields = function () {
         return Object.entries(formData).map(function (_a, index) {
             var _b = __read(_a, 2), key = _b[0], value = _b[1];
-            var label = (_jsxs("div", __assign({ className: classes.placeholderContainer }, { children: [key.charAt(0).toUpperCase() + key.slice(1).replace(/_/g, " "), index == 1 ? (_jsx(Tooltip, __assign({ content: "Describe the image" }, { children: _jsx("p", { children: _jsx(BsQuestionCircleFill, { className: classes.tooltipIcon }) }) }))) : ("")] })));
-            return (_jsx("div", __assign({ className: classes.formControl }, { children: _jsx(TextInput, { label: label, value: value, name: key, onChange: handleChange }) }), index));
+            var label = (_jsxs("div", { className: classes.placeholderContainer, children: [key.charAt(0).toUpperCase() + key.slice(1).replace(/_/g, " "), index == 1 ? (_jsx(Tooltip, { content: "Describe the image", children: _jsx("p", { children: _jsx(BsQuestionCircleFill, { className: classes.tooltipIcon }) }) })) : ("")] }));
+            return (_jsx("div", { className: classes.formControl, children: _jsx(TextInput, { label: label, value: value, name: key, onChange: handleChange }) }, index));
         });
     };
     var handleSubmit = useCallback(function () {
@@ -97,5 +97,5 @@ export var EditMedia = function (_a) {
         reader.readAsDataURL(image);
         return undefined;
     }, [image]);
-    return (_jsxs("div", __assign({ className: classes.root }, { children: [_jsx("img", { src: displayImage(), ref: ref, className: classes.image, alt: "" }), _jsxs("div", __assign({ className: classes.form }, { children: [_jsx("p", __assign({ className: classes.tab }, { children: "Image Properties" })), displayFields(), _jsxs("div", __assign({ className: classes.formButtons }, { children: [_jsx(Button, __assign({ onClick: handleClose, className: classes.buttonSecondary }, { children: "Cancel" })), _jsx(Button, __assign({ onClick: handleSubmit, isLoading: loading, className: classes.buttonPrimary }, { children: "Save" }))] }))] }))] })));
+    return (_jsxs("div", { className: classes.root, children: [_jsx("img", { src: displayImage(), ref: ref, className: classes.image, alt: "" }), _jsxs("div", { className: classes.form, children: [_jsx("p", { className: classes.tab, children: "Image Properties" }), displayFields(), _jsxs("div", { className: classes.formButtons, children: [_jsx(Button, { onClick: handleClose, className: classes.buttonSecondary, children: "Cancel" }), _jsx(Button, { onClick: handleSubmit, isLoading: loading, className: classes.buttonPrimary, children: "Save" })] })] })] }));
 };

@@ -1,14 +1,3 @@
-var __assign = (this && this.__assign) || function () {
-    __assign = Object.assign || function(t) {
-        for (var s, i = 1, n = arguments.length; i < n; i++) {
-            s = arguments[i];
-            for (var p in s) if (Object.prototype.hasOwnProperty.call(s, p))
-                t[p] = s[p];
-        }
-        return t;
-    };
-    return __assign.apply(this, arguments);
-};
 import { jsx as _jsx, jsxs as _jsxs, Fragment as _Fragment } from "react/jsx-runtime";
 import { uploadStyles } from "./styles";
 import { Typography } from "@mui/material";
@@ -18,5 +7,5 @@ export var Upload = function (_a) {
     var className = _a.className, width = _a.width;
     var classes = uploadStyles({ width: width });
     var loading = false;
-    return (_jsx("div", __assign({ className: clx(classes.root, className) }, { children: _jsxs("div", { children: [_jsx(Typography, __assign({ className: classes.upload, variant: "h5" }, { children: "Upload File" })), _jsx("div", __assign({ className: classes.child }, { children: loading ? (_jsx("div", __assign({ className: classes.bar }, { children: _jsx("div", __assign({ className: classes.outerbox }, { children: _jsx("div", __assign({ className: classes.innerbox }, { children: width })) })) }))) : (_jsxs(_Fragment, { children: [_jsx(FaRegFileAlt, { className: classes.uploadlogo }), _jsx("div", __assign({ className: classes.text }, { children: _jsxs(Typography, __assign({ variant: "h6" }, { children: ["Drag and drop here", _jsx("br", {}), " or ", _jsx("br", {}), _jsx("input", { type: "file", id: "fileInput", style: { display: "none" } }), _jsx("label", __assign({ htmlFor: "fileInput", className: classes.upload }, { children: "Browse" }))] })) }))] })) }))] }) })));
+    return (_jsx("div", { className: clx(classes.root, className), children: _jsxs("div", { children: [_jsx(Typography, { className: classes.upload, variant: "h5", children: "Upload File" }), _jsx("div", { className: classes.child, children: loading ? (_jsx("div", { className: classes.bar, children: _jsx("div", { className: classes.outerbox, children: _jsx("div", { className: classes.innerbox, children: width }) }) })) : (_jsxs(_Fragment, { children: [_jsx(FaRegFileAlt, { className: classes.uploadlogo }), _jsx("div", { className: classes.text, children: _jsxs(Typography, { variant: "h6", children: ["Drag and drop here", _jsx("br", {}), " or ", _jsx("br", {}), _jsx("input", { type: "file", id: "fileInput", style: { display: "none" } }), _jsx("label", { htmlFor: "fileInput", className: classes.upload, children: "Browse" })] }) })] })) })] }) }));
 };

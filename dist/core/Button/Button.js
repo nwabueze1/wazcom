@@ -39,26 +39,18 @@ export var Button = function (_a) {
         : variant === "outlined"
             ? classes.outlined
             : classes.default, isDisabled && !isLoading && classes.disabled, isLoading && classes.loading);
-    return (_jsx("button", __assign({ disabled: isDisabled || isLoading, className: _className }, props, { children: _jsx(ButtonContent, __assign({}, {
-            rightIcon: rightIcon,
-            leftIcon: leftIcon,
-            children: children,
-            className: className,
-            iconSpacing: iconSpacing,
-            variant: variant,
-            isLoading: isLoading,
-        })) })));
+    return (_jsx("button", __assign({ disabled: isDisabled || isLoading, className: _className }, props, { children: _jsx(ButtonContent, { rightIcon: rightIcon, leftIcon: leftIcon, children: children, className: className, iconSpacing: iconSpacing, variant: variant, isLoading: isLoading }) })));
 };
 var ButtonContent = function (_a) {
     var leftIcon = _a.leftIcon, rightIcon = _a.rightIcon, children = _a.children, iconSpacing = _a.iconSpacing, variant = _a.variant, isLoading = _a.isLoading;
-    return (_jsxs(_Fragment, { children: [leftIcon && _jsx(ButtonIcon, __assign({ marginRight: iconSpacing }, { children: leftIcon })), children, (rightIcon || isLoading) && (_jsx(ButtonIcon, __assign({ marginLeft: iconSpacing }, { children: isLoading ? _jsx(ButtonSpinner, { variant: variant }) : rightIcon })))] }));
+    return (_jsxs(_Fragment, { children: [leftIcon && _jsx(ButtonIcon, { marginRight: iconSpacing, children: leftIcon }), children, (rightIcon || isLoading) && (_jsx(ButtonIcon, { marginLeft: iconSpacing, children: isLoading ? _jsx(ButtonSpinner, { variant: variant }) : rightIcon }))] }));
 };
 var ButtonIcon = function (_a) {
     var children = _a.children, marginLeft = _a.marginLeft, marginRight = _a.marginRight, rest = __rest(_a, ["children", "marginLeft", "marginRight"]);
     var classes = useButtonIconStyles({ marginLeft: marginLeft, marginRight: marginRight });
     var _className = clx(classes.root, classes.iconSpacing);
     var _children = isValidElement(children) ? cloneElement(children, {}) : children;
-    return (_jsx("span", __assign({}, rest, { className: _className }, { children: _children })));
+    return (_jsx("span", __assign({}, rest, { className: _className, children: _children })));
 };
 var ButtonSpinner = function (_a) {
     var variant = _a.variant;
@@ -68,5 +60,5 @@ var ButtonSpinner = function (_a) {
         : variant === "outlined"
             ? classes.outlined
             : classes.default);
-    return (_jsx("div", __assign({ className: classes.root }, { children: _jsx(RiLoader4Line, { className: _className }) })));
+    return (_jsx("div", { className: classes.root, children: _jsx(RiLoader4Line, { className: _className }) }));
 };

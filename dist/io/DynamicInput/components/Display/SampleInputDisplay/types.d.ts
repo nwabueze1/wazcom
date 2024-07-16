@@ -1,4 +1,3 @@
-/// <reference types="react" />
 import { QuestionOption } from "../../../types";
 export type SampleInputDisplayProps = {
     defaultCount: number;

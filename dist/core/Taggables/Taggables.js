@@ -28,7 +28,7 @@ import { useTaggablesStyles } from "./styles";
 import clx from "classnames";
 export var Taggables = function (_a) {
     var _b;
-    var onChange = _a.onChange, name = _a.name, value = _a.value, placeholder = _a.placeholder, className = _a.className, classNames = _a.classNames, label = _a.label, feedback = _a.feedback, options = _a.options, externalChip = _a.externalChip, error = _a.error, props = __rest(_a, ["onChange", "name", "value", "placeholder", "className", "classNames", "label", "feedback", "options", "externalChip", "error"]);
+    var onChange = _a.onChange, name = _a.name, value = _a.value, className = _a.className, classNames = _a.classNames, label = _a.label, feedback = _a.feedback, options = _a.options, externalChip = _a.externalChip, error = _a.error, props = __rest(_a, ["onChange", "name", "value", "className", "classNames", "label", "feedback", "options", "externalChip", "error"]);
     var handleChange = function (tags) {
         onChange === null || onChange === void 0 ? void 0 : onChange({ name: name !== null && name !== void 0 ? name : "", value: tags });
     };
@@ -50,7 +50,7 @@ export var Taggables = function (_a) {
         }
         return feedbackVariant;
     };
-    return (_jsxs("div", __assign({ className: clx(className, classes.root) }, { children: [label && (_jsx(InputLabel, __assign({ className: (_b = classNames === null || classNames === void 0 ? void 0 : classNames.label) !== null && _b !== void 0 ? _b : "", htmlFor: name }, { children: label }))), _jsx(AutoComplete, __assign({ multiple: true, freeSolo: true, options: options, value: value !== null && value !== void 0 ? value : [], onChange: function (_, tags) {
+    return (_jsxs("div", { className: clx(className, classes.root), children: [label && (_jsx(InputLabel, { className: (_b = classNames === null || classNames === void 0 ? void 0 : classNames.label) !== null && _b !== void 0 ? _b : "", htmlFor: name, children: label })), _jsx(AutoComplete, __assign({ multiple: true, freeSolo: true, options: options, value: value !== null && value !== void 0 ? value : [], onChange: function (_, tags) {
                     handleChange(tags);
-                }, renderTags: function (value, getTagProps) { return (_jsx("div", __assign({ className: clx(externalChip && classes.renderChipOutside) }, { children: value.map(function (value, index) { return (_createElement(Chip, __assign({ variant: "filled", label: value }, getTagProps({ index: index }), { classes: { root: classes.chip, icon: classes.chipIcon }, key: index }))); }) }))); }, renderInput: function (params) { return (_jsx(TextField, __assign({}, params, { error: error, variant: "outlined", name: "tags", placeholder: placeholder !== null && placeholder !== void 0 ? placeholder : "" }))); } }, props)), feedback && (_jsx(Typography, __assign({ className: clx(classes.feedback, getFeedbackVariant(classes, feedback)) }, { children: feedback.text })))] })));
+                }, renderTags: function (value, getTagProps) { return (_jsx("div", { className: clx(externalChip && classes.renderChipOutside), children: value.map(function (value, index) { return (_createElement(Chip, __assign({ variant: "filled", label: value }, getTagProps({ index: index }), { classes: { root: classes.chip, icon: classes.chipIcon }, key: index }))); }) })); }, renderInput: function (params) { return (_jsx(TextField, __assign({}, params, { error: error, variant: "outlined", name: "tags", placeholder: "" }))); } }, props)), feedback && (_jsx(Typography, { className: clx(classes.feedback, getFeedbackVariant(classes, feedback)), children: feedback.text }))] }));
 };

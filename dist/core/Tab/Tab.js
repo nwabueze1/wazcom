@@ -1,14 +1,3 @@
-var __assign = (this && this.__assign) || function () {
-    __assign = Object.assign || function(t) {
-        for (var s, i = 1, n = arguments.length; i < n; i++) {
-            s = arguments[i];
-            for (var p in s) if (Object.prototype.hasOwnProperty.call(s, p))
-                t[p] = s[p];
-        }
-        return t;
-    };
-    return __assign.apply(this, arguments);
-};
 var __read = (this && this.__read) || function (o, n) {
     var m = typeof Symbol === "function" && o[Symbol.iterator];
     if (!m) return o;
@@ -52,11 +41,11 @@ export var Tab = function (_a) {
         query.set("tab", name !== null && name !== void 0 ? name : "");
         navigate({ pathname: pathname, search: query.toString() });
     }, [activeTab, query]);
-    return (_jsxs("div", __assign({ className: clx(classes.root, className) }, { children: [_jsx("div", __assign({ className: tabHeaderClassName }, { children: _jsx("div", __assign({ className: clx(classes.tabs, containerClassName) }, { children: controls.map(function (_a, index) {
+    return (_jsxs("div", { className: clx(classes.root, className), children: [_jsx("div", { className: tabHeaderClassName, children: _jsx("div", { className: clx(classes.tabs, containerClassName), children: controls.map(function (_a, index) {
                         var name = _a.name, title = _a.title, icon = _a.icon;
-                        return (_jsxs("div", __assign({ onClick: function () { return handleTabClick(name); }, className: clx(classes.tab, name == activeTab && classes.tabIsActive, name == activeTab && activeTabClassName, snakeCase(title), snakeCase(name)) }, { children: [icon && icon, " ", title] }), index));
-                    }) })) })), _jsx("div", __assign({ className: clx(classes.contentWrapper, snakeCase("".concat(activeTab, " content"))) }, { children: controls.map(function (_a, index) {
+                        return (_jsxs("div", { onClick: function () { return handleTabClick(name); }, className: clx(classes.tab, name == activeTab && classes.tabIsActive, name == activeTab && activeTabClassName, snakeCase(title), snakeCase(name)), children: [icon && icon, " ", title] }, index));
+                    }) }) }), _jsx("div", { className: clx(classes.contentWrapper, snakeCase("".concat(activeTab, " content"))), children: controls.map(function (_a, index) {
                     var name = _a.name, component = _a.component;
-                    return (_jsx("div", __assign({ className: clx(classes.content, name == activeTab && classes.contentIsActive) }, { children: component }), index));
-                }) }))] })));
+                    return (_jsx("div", { className: clx(classes.content, name == activeTab && classes.contentIsActive), children: component }, index));
+                }) })] }));
 };

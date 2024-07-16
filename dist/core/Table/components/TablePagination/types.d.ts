@@ -1,4 +1,3 @@
-/// <reference types="react" />
 import { TablePaginationProps as MuiTablePaginationProps } from "@mui/material";
 export type TablePaginationProps = MuiTablePaginationProps;
 export type PageNumbersProps = {

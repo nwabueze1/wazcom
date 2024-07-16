@@ -3,8 +3,8 @@ export declare const useHandleChangePage: (changePage?: ChangeFunctionType) => (
 export declare const useHandleChangeRowsPerPage: (changeRowsPerPage?: ChangeFunctionType, changePage?: ChangeFunctionType) => (event: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => void;
 export declare const useGetRowsPerPage: (paginatorInfo?: {
     [key: string]: number;
-} | undefined, rowsPerPage?: number) => number | undefined;
+}, rowsPerPage?: number) => number | undefined;
 export declare const useGetCurrentPage: (paginatorInfo?: {
     [key: string]: number;
-} | undefined) => number;
+}) => number;
 export {};

@@ -1,14 +1,3 @@
-var __assign = (this && this.__assign) || function () {
-    __assign = Object.assign || function(t) {
-        for (var s, i = 1, n = arguments.length; i < n; i++) {
-            s = arguments[i];
-            for (var p in s) if (Object.prototype.hasOwnProperty.call(s, p))
-                t[p] = s[p];
-        }
-        return t;
-    };
-    return __assign.apply(this, arguments);
-};
 var __awaiter = (this && this.__awaiter) || function (thisArg, _arguments, P, generator) {
     function adopt(value) { return value instanceof P ? value : new P(function (resolve) { resolve(value); }); }
     return new (P || (P = Promise))(function (resolve, reject) {
@@ -92,9 +81,9 @@ export var RegionSelector = function (_a) {
         var _a, _b;
         autoCompleteRef.current = new window.google.maps.places.Autocomplete(inputRef.current, options);
         (_a = autoCompleteRef.current) === null || _a === void 0 ? void 0 : _a.addListener("place_changed", function () {
-            var _a;
             return __awaiter(this, void 0, void 0, function () {
                 var place;
+                var _a;
                 return __generator(this, function (_b) {
                     switch (_b.label) {
                         case 0: return [4 /*yield*/, ((_a = autoCompleteRef.current) === null || _a === void 0 ? void 0 : _a.getPlace())];
@@ -127,9 +116,9 @@ export var RegionSelector = function (_a) {
     };
     var renderLocations = function () {
         var _a;
-        return (_a = (value !== null && value !== void 0 ? value : [])) === null || _a === void 0 ? void 0 : _a.map(function (location, index) { return (_jsxs("p", __assign({ className: classes.selectorValue }, { children: [location, _jsx(FaTimes, { className: "icon", onClick: function () {
+        return (_a = (value !== null && value !== void 0 ? value : [])) === null || _a === void 0 ? void 0 : _a.map(function (location, index) { return (_jsxs("p", { className: classes.selectorValue, children: [location, _jsx(FaTimes, { className: "icon", onClick: function () {
                         handleDeleteLocation(index);
-                    } })] }), index)); });
+                    } })] }, index)); });
     };
-    return (_jsxs("div", __assign({ className: classes.root }, { children: [_jsx("div", __assign({ className: classes.selectorHeader, id: id }, { children: _jsx(TextInput, { name: "location", inputRef: inputRef, className: classes.selectorInputParent, classNames: { input: classes.selectorInput } }) })), ((_b = (value !== null && value !== void 0 ? value : [])) === null || _b === void 0 ? void 0 : _b.length) > 0 && (_jsx("div", __assign({ className: classes.selectorValues }, { children: renderLocations() })))] })));
+    return (_jsxs("div", { className: classes.root, children: [_jsx("div", { className: classes.selectorHeader, id: id, children: _jsx(TextInput, { name: "location", inputRef: inputRef, className: classes.selectorInputParent, classNames: { input: classes.selectorInput } }) }), ((_b = (value !== null && value !== void 0 ? value : [])) === null || _b === void 0 ? void 0 : _b.length) > 0 && (_jsx("div", { className: classes.selectorValues, children: renderLocations() }))] }));
 };

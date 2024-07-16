@@ -4,6 +4,6 @@ export declare const useScheduleData: () => (scheduleData: DateTimePickerFields[
     value?: unknown;
 }>, index: number, remove?: boolean) => void, classNames?: {
     [key: string]: string;
-} | undefined) => {
+}) => {
     [key: string]: JSX.Element;
 }[];

@@ -95,9 +95,13 @@ export var GqlComboBox = memo(function (_a) {
     useEffect(function () {
         setValue(initialValue);
     }, [initialValue]);
-    var fetchData = function (search) {
-        if (search === void 0) { search = ""; }
-        return __awaiter(void 0, void 0, void 0, function () {
+    var fetchData = function () {
+        var args_1 = [];
+        for (var _i = 0; _i < arguments.length; _i++) {
+            args_1[_i] = arguments[_i];
+        }
+        return __awaiter(void 0, __spreadArray([], __read(args_1), false), void 0, function (search) {
+            if (search === void 0) { search = ""; }
             return __generator(this, function (_a) {
                 switch (_a.label) {
                     case 0: return [4 /*yield*/, client.query({
@@ -110,10 +114,14 @@ export var GqlComboBox = memo(function (_a) {
             });
         });
     };
-    var getData = function (search) {
-        if (search === void 0) { search = ""; }
-        return __awaiter(void 0, void 0, void 0, function () {
+    var getData = function () {
+        var args_1 = [];
+        for (var _i = 0; _i < arguments.length; _i++) {
+            args_1[_i] = arguments[_i];
+        }
+        return __awaiter(void 0, __spreadArray([], __read(args_1), false), void 0, function (search) {
             var data, r_options, formattedOptions_1, e_1;
+            if (search === void 0) { search = ""; }
             return __generator(this, function (_a) {
                 switch (_a.label) {
                     case 0:

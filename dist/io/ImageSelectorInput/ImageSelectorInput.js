@@ -1,14 +1,3 @@
-var __assign = (this && this.__assign) || function () {
-    __assign = Object.assign || function(t) {
-        for (var s, i = 1, n = arguments.length; i < n; i++) {
-            s = arguments[i];
-            for (var p in s) if (Object.prototype.hasOwnProperty.call(s, p))
-                t[p] = s[p];
-        }
-        return t;
-    };
-    return __assign.apply(this, arguments);
-};
 var __awaiter = (this && this.__awaiter) || function (thisArg, _arguments, P, generator) {
     function adopt(value) { return value instanceof P ? value : new P(function (resolve) { resolve(value); }); }
     return new (P || (P = Promise))(function (resolve, reject) {
@@ -121,13 +110,13 @@ export var ImageSelectorInput = function (_a) {
     }); };
     var renderMedia = function () {
         if (loading)
-            return (_jsxs("div", __assign({ className: clx(classes.selectedImageContainer), style: {
+            return (_jsxs("div", { className: clx(classes.selectedImageContainer), style: {
                     display: "flex",
                     alignItems: "center",
                     justifyContent: "center",
                     width: 112,
-                } }, { children: [_jsx(CircularProgress, { color: "inherit", size: 18 }), ";"] })));
-        return !hasSelectedImage ? (_jsx("button", __assign({ className: clx(classes.selectButton, classNames === null || classNames === void 0 ? void 0 : classNames.selectButton), onClick: handlePickImage, type: "button" }, { children: "Select Image" }))) : (_jsx("div", __assign({ className: classes.selectedImageContainer }, { children: _jsx("img", { src: fileSource, alt: "selected image", className: classes.selectedImage }) })));
+                }, children: [_jsx(CircularProgress, { color: "inherit", size: 18 }), ";"] }));
+        return !hasSelectedImage ? (_jsx("button", { className: clx(classes.selectButton, classNames === null || classNames === void 0 ? void 0 : classNames.selectButton), onClick: handlePickImage, type: "button", children: "Select Image" })) : (_jsx("div", { className: classes.selectedImageContainer, children: _jsx("img", { src: fileSource, alt: "selected image", className: classes.selectedImage }) }));
     };
-    return (_jsxs("div", __assign({ className: classes.root }, { children: [label && _jsx("label", __assign({ className: clx(classes.label, classNames === null || classNames === void 0 ? void 0 : classNames.label) }, { children: label })), _jsxs("article", __assign({ className: clx(classes.container, classNames === null || classNames === void 0 ? void 0 : classNames.container, hasSelectedImage && classes.selectedImageContainer, (isError || fileError) && classes.errorContainer, (isError || fileError) && "error") }, { children: [renderMedia(), _jsx("input", { type: "file", accept: accept !== null && accept !== void 0 ? accept : ".png,.jpeg,.svg,.webp,.gif,.tiff,.x-icon,.pjpeg,.bmp,.apng", className: classes.selectInput, ref: fileInputRef, onChange: handleSelectImage })] })), helperText && (_jsx("span", __assign({ className: clx(isError && classes.helperTextError, classNames === null || classNames === void 0 ? void 0 : classNames.helperText) }, { children: helperText }))), fileError && (_jsx("span", __assign({ className: clx(isError && classes.helperTextError, classNames === null || classNames === void 0 ? void 0 : classNames.helperText) }, { children: fileError }))), hasSelectedImage && (_jsxs(_Fragment, { children: [_jsx("p", __assign({ className: classNames === null || classNames === void 0 ? void 0 : classNames.text }, { children: value === null || value === void 0 ? void 0 : value.name })), _jsx(Button, __assign({ variant: "contained", className: clx(classes.button, classNames === null || classNames === void 0 ? void 0 : classNames.changeFileButton), onClick: handlePickImage, type: "button" }, { children: "Change Image" }))] }))] })));
+    return (_jsxs("div", { className: classes.root, children: [label && _jsx("label", { className: clx(classes.label, classNames === null || classNames === void 0 ? void 0 : classNames.label), children: label }), _jsxs("article", { className: clx(classes.container, classNames === null || classNames === void 0 ? void 0 : classNames.container, hasSelectedImage && classes.selectedImageContainer, (isError || fileError) && classes.errorContainer, (isError || fileError) && "error"), children: [renderMedia(), _jsx("input", { type: "file", accept: accept !== null && accept !== void 0 ? accept : ".png,.jpeg,.svg,.webp,.gif,.tiff,.x-icon,.pjpeg,.bmp,.apng", className: classes.selectInput, ref: fileInputRef, onChange: handleSelectImage })] }), helperText && (_jsx("span", { className: clx(isError && classes.helperTextError, classNames === null || classNames === void 0 ? void 0 : classNames.helperText), children: helperText })), fileError && (_jsx("span", { className: clx(isError && classes.helperTextError, classNames === null || classNames === void 0 ? void 0 : classNames.helperText), children: fileError })), hasSelectedImage && (_jsxs(_Fragment, { children: [_jsx("p", { className: classNames === null || classNames === void 0 ? void 0 : classNames.text, children: value === null || value === void 0 ? void 0 : value.name }), _jsx(Button, { variant: "contained", className: clx(classes.button, classNames === null || classNames === void 0 ? void 0 : classNames.changeFileButton), onClick: handlePickImage, type: "button", children: "Change Image" })] }))] }));
 };

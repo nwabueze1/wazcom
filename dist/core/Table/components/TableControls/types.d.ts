@@ -1,4 +1,3 @@
-/// <reference types="react" />
 import { OutlinedInputProps } from "@mui/material";
 import { CommonProps } from "types";
 import { Filter, TableDataProps, TableProps } from "../../types";

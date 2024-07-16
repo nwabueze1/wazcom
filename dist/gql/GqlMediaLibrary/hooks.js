@@ -86,15 +86,15 @@ export var useDisplayImages = function () {
     var _a = __read(useState([]), 2), loaded = _a[0], setLoaded = _a[1];
     return function (images, selectImage, handleMediaAction, showOptions, activeLayout) {
         return split(images, activeLayout + 2).map(function (_, columnIndex) {
-            return (_jsx("div", __assign({ className: clx(classes.column, activeLayout === 0 && classes.twoColumn, activeLayout === 2 && classes.fourColumn) }, { children: _.map(function (theImage, index) {
+            return (_jsx("div", { className: clx(classes.column, activeLayout === 0 && classes.twoColumn, activeLayout === 2 && classes.fourColumn), children: _.map(function (theImage, index) {
                     var handleMediaActions = function (e, type, theImage) {
                         e.stopPropagation();
                         handleMediaAction(type, theImage);
                     };
-                    return (_jsx(Grow, __assign({ in: true }, { children: _jsxs("div", __assign({ onClick: function () {
+                    return (_jsx(Grow, { in: true, children: _jsxs("div", { onClick: function () {
                                 selectImage === null || selectImage === void 0 ? void 0 : selectImage(theImage);
-                            }, className: clx(classes.thumbnail) }, { children: [_jsx("img", { src: theImage === null || theImage === void 0 ? void 0 : theImage.url, className: classes.image, onLoad: function () { return setLoaded(function (prev) { return __spreadArray(__spreadArray([], __read(prev), false), [theImage.uuid], false); }); } }), !loaded.some(function (uuid) { return uuid === theImage.uuid; }) && (_jsx(Skeleton, { className: classes.image, animation: "wave", variant: "rectangular", height: "240px" })), showOptions && (_jsx("div", __assign({ className: classes.thumbnailOverlay }, { children: _jsxs("div", __assign({ className: classes.thumbnailActions }, { children: [_jsx("p", __assign({ onClick: function (e) { return handleMediaActions(e, "edit", theImage); }, className: classes.thumbnailAction }, { children: _jsx(FaPencilAlt, { className: classes.thumbnailActionIcon }) })), _jsx("p", __assign({ onClick: function (e) { return handleMediaActions(e, "delete", theImage); }, className: classes.thumbnailAction }, { children: _jsx(IoMdTrash, { className: classes.thumbnailActionIcon }) }))] })) })))] })) }), index));
-                }) }), columnIndex));
+                            }, className: clx(classes.thumbnail), children: [_jsx("img", { src: theImage === null || theImage === void 0 ? void 0 : theImage.url, className: classes.image, onLoad: function () { return setLoaded(function (prev) { return __spreadArray(__spreadArray([], __read(prev), false), [theImage.uuid], false); }); } }), !loaded.some(function (uuid) { return uuid === theImage.uuid; }) && (_jsx(Skeleton, { className: classes.image, animation: "wave", variant: "rectangular", height: "240px" })), showOptions && (_jsx("div", { className: classes.thumbnailOverlay, children: _jsxs("div", { className: classes.thumbnailActions, children: [_jsx("p", { onClick: function (e) { return handleMediaActions(e, "edit", theImage); }, className: classes.thumbnailAction, children: _jsx(FaPencilAlt, { className: classes.thumbnailActionIcon }) }), _jsx("p", { onClick: function (e) { return handleMediaActions(e, "delete", theImage); }, className: classes.thumbnailAction, children: _jsx(IoMdTrash, { className: classes.thumbnailActionIcon }) })] }) }))] }) }, index));
+                }) }, columnIndex));
         });
     };
 };
@@ -283,7 +283,7 @@ export var useDisplayEmptyMediaLibrary = function () {
     var classes = useMediaLibraryStyles();
     var emptyMedia = function (handleFileSelection, open, setOpen, handleMediaAction, title, subtitle) {
         var _a, _b;
-        return (_jsxs("div", __assign({ className: classes.emptyContainer }, { children: [_jsx(MediaSplashScreen, __assign({}, splashData, { body: __assign(__assign({}, splashData["body"]), { title: title !== null && title !== void 0 ? title : (_a = splashData === null || splashData === void 0 ? void 0 : splashData.body) === null || _a === void 0 ? void 0 : _a.title, subtitle: subtitle !== null && subtitle !== void 0 ? subtitle : (_b = splashData === null || splashData === void 0 ? void 0 : splashData.body) === null || _b === void 0 ? void 0 : _b.subtitle }), cta: title ? undefined : { title: "Add image", onClick: function () { return setOpen(true); } } })), _jsx(AddMedia, { className: classes.addMedia, handleFilesSelection: handleFileSelection, handleOpenMedia: open, handleCloseMedia: setOpen, handleMediaAction: handleMediaAction, buttonText: "Add Image", viewOnly: true })] })));
+        return (_jsxs("div", { className: classes.emptyContainer, children: [_jsx(MediaSplashScreen, __assign({}, splashData, { body: __assign(__assign({}, splashData["body"]), { title: title !== null && title !== void 0 ? title : (_a = splashData === null || splashData === void 0 ? void 0 : splashData.body) === null || _a === void 0 ? void 0 : _a.title, subtitle: subtitle !== null && subtitle !== void 0 ? subtitle : (_b = splashData === null || splashData === void 0 ? void 0 : splashData.body) === null || _b === void 0 ? void 0 : _b.subtitle }), cta: title ? undefined : { title: "Add image", onClick: function () { return setOpen(true); } } })), _jsx(AddMedia, { className: classes.addMedia, handleFilesSelection: handleFileSelection, handleOpenMedia: open, handleCloseMedia: setOpen, handleMediaAction: handleMediaAction, buttonText: "Add Image", viewOnly: true })] }));
     };
     return emptyMedia;
 };

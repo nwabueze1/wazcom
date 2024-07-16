@@ -15,11 +15,12 @@ declare module "@mui/styles/defaultTheme" {
 const App: React.FC = () => {
   // const getMbmcBlocks = useGetMbmcBlocks();
 
+  console.log(theme);
+
   return (
     <StyledEngineProvider injectFirst>
       <ThemeProvider theme={theme}>
         <BrowserRouter>
-          <AlertContextProvider>
             <Layout>
               <Routes>
                 {routes.map(({ key, path, component: Component }) => (
@@ -27,7 +28,6 @@ const App: React.FC = () => {
                 ))}
               </Routes>
             </Layout>
-          </AlertContextProvider>
         </BrowserRouter>
       </ThemeProvider>
     </StyledEngineProvider>

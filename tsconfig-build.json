@@ -16,7 +16,8 @@
     "noEmit": false,
     "jsx": "react-jsx",
     "baseUrl": "src",
-    "typeRoots": ["./src/@types", "./node_modules/@types"],
+    "typeRoots": ["./src/@types", "./node_modules/@types", "./node_modules/moment"],
+    "types": [],
     "outDir": "dist",
     "declaration": true,
     "noUnusedLocals": true,
@@ -27,6 +28,7 @@
     "strictNullChecks": true,
     "suppressImplicitAnyIndexErrors": true,
     "downlevelIteration": true,
+    "ignoreDeprecations": "5.0",
     "paths": {
       "react": [ "./node_modules/@types/react" ]
     }

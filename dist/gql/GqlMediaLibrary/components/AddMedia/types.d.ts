@@ -1,4 +1,3 @@
-/// <reference types="react" />
 import { Image } from "../../types";
 import { CommonProps } from "../../../../types";
 export type AddMediaProps = CommonProps & {

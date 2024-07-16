@@ -1,4 +1,3 @@
-/// <reference types="react" />
 import { Filter, TableDataProps } from "../../types";
 export type TableFilterProps = {
     showFilter: boolean;

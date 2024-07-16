@@ -148,11 +148,11 @@ var MediaUploader = function (_a) {
             }
         });
     }); };
-    return (_jsx(Dialog, __assign({ open: open, handleClose: function () {
+    return (_jsx(Dialog, { open: open, handleClose: function () {
             handleClose("cropper");
-        } }, { children: _jsxs("div", __assign({ className: classes.mediaUploader }, { children: [_jsx("div", __assign({ className: classes.mediaUploaderHeadingContainer }, { children: _jsxs("div", __assign({ className: classes.mediaUploaderHeading }, { children: [_jsx("p", __assign({ className: classes.mediaUploaderTitle }, { children: "Upload Images" })), _jsx(FaTimes, { className: classes.mediaUploaderIcon, onClick: function () {
+        }, children: _jsxs("div", { className: classes.mediaUploader, children: [_jsx("div", { className: classes.mediaUploaderHeadingContainer, children: _jsxs("div", { className: classes.mediaUploaderHeading, children: [_jsx("p", { className: classes.mediaUploaderTitle, children: "Upload Images" }), _jsx(FaTimes, { className: classes.mediaUploaderIcon, onClick: function () {
                                     handleClose("cropper");
-                                } })] })) })), _jsx("div", __assign({ className: classes.mediaUploaderComponentsContainer }, { children: _jsx("div", __assign({ className: clx(classes.dialogueView) }, { children: _jsx("div", __assign({ className: clx(classes.collection, classes.uploadViewWidth) }, { children: handleDisplayImages(mediaFiles.map(function (mediaFile, index) { return ({
+                                } })] }) }), _jsx("div", { className: classes.mediaUploaderComponentsContainer, children: _jsx("div", { className: clx(classes.dialogueView), children: _jsx("div", { className: clx(classes.collection, classes.uploadViewWidth), children: handleDisplayImages(mediaFiles.map(function (mediaFile, index) { return ({
                                 __typename: "Image",
                                 id: "id_".concat(index),
                                 url: mediaFile.src,
@@ -162,6 +162,6 @@ var MediaUploader = function (_a) {
                                 created_at: new Date().toISOString(),
                                 uuid: "uuid_".concat(index),
                                 library_uuid: "library_uuid_".concat(index),
-                            }); }), function () { }, function () { }, false, 1) })) })) })), _jsx("div", __assign({ className: classes.mediaUploaderButtonContainer }, { children: _jsx("div", __assign({ className: classes.mediaUploaderButton }, { children: _jsxs(Button, __assign({ className: clx(classes.btn), onClick: handleUpload, isLoading: loading }, { children: ["Upload ", mediaFiles.length, " Images"] })) })) }))] })) })));
+                            }); }), function () { }, function () { }, false, 1) }) }) }), _jsx("div", { className: classes.mediaUploaderButtonContainer, children: _jsx("div", { className: classes.mediaUploaderButton, children: _jsxs(Button, { className: clx(classes.btn), onClick: handleUpload, isLoading: loading, children: ["Upload ", mediaFiles.length, " Images"] }) }) })] }) }));
 };
 export default MediaUploader;

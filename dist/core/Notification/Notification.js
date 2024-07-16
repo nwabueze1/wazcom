@@ -1,14 +1,3 @@
-var __assign = (this && this.__assign) || function () {
-    __assign = Object.assign || function(t) {
-        for (var s, i = 1, n = arguments.length; i < n; i++) {
-            s = arguments[i];
-            for (var p in s) if (Object.prototype.hasOwnProperty.call(s, p))
-                t[p] = s[p];
-        }
-        return t;
-    };
-    return __assign.apply(this, arguments);
-};
 var __read = (this && this.__read) || function (o, n) {
     var m = typeof Symbol === "function" && o[Symbol.iterator];
     if (!m) return o;
@@ -72,7 +61,7 @@ export function Notification(_a) {
         list.splice(toastListItem, 1);
         setToasts(__spreadArray([], __read(toasts), false));
     };
-    return (_jsx(_Fragment, { children: _jsx("div", __assign({ className: clx(classes.notificationContainer, _position) }, { children: toasts === null || toasts === void 0 ? void 0 : toasts.map(function (toast) { return (_jsx("div", __assign({ className: clx(classes.root, _position, toast.status === "success"
+    return (_jsx(_Fragment, { children: _jsx("div", { className: clx(classes.notificationContainer, _position), children: toasts === null || toasts === void 0 ? void 0 : toasts.map(function (toast) { return (_jsx("div", { className: clx(classes.root, _position, toast.status === "success"
                     ? classes.success
                     : toast.status === "warning"
                         ? classes.warning
@@ -80,7 +69,7 @@ export function Notification(_a) {
                             ? classes.info
                             : toast.status === "error"
                                 ? classes.error
-                                : "") }, { children: _jsxs("div", __assign({ className: classes.container }, { children: [_jsxs("div", __assign({ className: classes.main }, { children: [_jsxs("div", __assign({ className: classes.header }, { children: [_jsx(NotificationIcon, { status: toast.status }), _jsx("h3", __assign({ className: classes.title }, { children: toast.title }))] })), _jsx("div", __assign({ className: classes.closeContainer, onClick: function () { return onDeleteToast(toast.id); } }, { children: _jsx(GrFormClose, { width: 24, height: 24 }) }))] })), toast.message && _jsx("div", __assign({ className: classes.message }, { children: toast.message }))] })) }), toast.id)); }) })) }));
+                                : ""), children: _jsxs("div", { className: classes.container, children: [_jsxs("div", { className: classes.main, children: [_jsxs("div", { className: classes.header, children: [_jsx(NotificationIcon, { status: toast.status }), _jsx("h3", { className: classes.title, children: toast.title })] }), _jsx("div", { className: classes.closeContainer, onClick: function () { return onDeleteToast(toast.id); }, children: _jsx(GrFormClose, { width: 24, height: 24 }) })] }), toast.message && _jsx("div", { className: classes.message, children: toast.message })] }) }, toast.id)); }) }) }));
 }
 var NotificationIcon = function (_a) {
     var status = _a.status;

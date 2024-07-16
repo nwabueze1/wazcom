@@ -9,7 +9,6 @@ export const Taggables: FC<TaggablesProps> = ({
   onChange,
   name,
   value,
-  placeholder,
   className,
   classNames,
   label,
@@ -78,7 +77,7 @@ export const Taggables: FC<TaggablesProps> = ({
             error={error}
             variant="outlined"
             name="tags"
-            placeholder={placeholder ?? ""}
+            placeholder={""}
           />
         )}
         {...props}

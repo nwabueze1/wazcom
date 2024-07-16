@@ -166,7 +166,7 @@ export var TableNew = function (_a) {
         var _a;
         return ((_a = actions === null || actions === void 0 ? void 0 : actions.columnFilters) !== null && _a !== void 0 ? _a : columns).map(function (_a, index) {
             var name = _a.name;
-            return (_jsx("td", __assign({ className: classes.tHeadData }, { children: name }), index));
+            return (_jsx("td", { className: classes.tHeadData, children: name }, index));
         });
     };
     var rows = getRows((actions === null || actions === void 0 ? void 0 : actions.conditionFilter)
@@ -177,18 +177,18 @@ export var TableNew = function (_a) {
     var displayRows = function () {
         return rows.map(function (row, index) {
             var _a;
-            return (_jsx("tr", __assign({ className: classes.tRow }, { children: ((_a = actions === null || actions === void 0 ? void 0 : actions.columnFilters) !== null && _a !== void 0 ? _a : columns).map(function (_a, index) {
+            return (_jsx("tr", { className: classes.tRow, children: ((_a = actions === null || actions === void 0 ? void 0 : actions.columnFilters) !== null && _a !== void 0 ? _a : columns).map(function (_a, index) {
                     var _b;
                     var key = _a.key, actions = _a.actions;
-                    return (_jsx("td", __assign({ className: classes.tRowData, valign: "top" }, { children: _jsxs("p", __assign({ className: hasStickyActions ? classes.tableRowText : undefined }, { children: [row[key], actions && (_jsx("div", __assign({ className: hasStickyActions ? classes.tableRowActionsContainer : undefined }, { children: _jsx(TableColumnActions, { actions: actions, identifier: (_b = row["identifier"]) !== null && _b !== void 0 ? _b : "" }) })))] })) }), index));
-                }) }), index));
+                    return (_jsx("td", { className: classes.tRowData, valign: "top", children: _jsxs("p", { className: hasStickyActions ? classes.tableRowText : undefined, children: [row[key], actions && (_jsx("div", { className: hasStickyActions ? classes.tableRowActionsContainer : undefined, children: _jsx(TableColumnActions, { actions: actions, identifier: (_b = row["identifier"]) !== null && _b !== void 0 ? _b : "" }) }))] }) }, index));
+                }) }, index));
         });
     };
     if (!table.data)
         return _jsx(Loader, {});
     if (rows.length === 0 && EmptyStateComponent && !actions.search)
         return (_jsxs(_Fragment, { children: [_jsx(EmptyStateComponent, {}), loading && _jsx(Loader, { className: classes.tableLoader })] }));
-    return (_jsxs("div", __assign({ style: { position: "relative" } }, { children: [_jsx(TableActions, { currentActions: actions, setCurrentActions: setActions, conditionFilters: conditionFilters, columns: columns, showSort: showSort, columnSearch: isColumnSearch }), showFilters && _jsx(TableFilters, { columns: columns, filters: filters, setFilters: setFilters }), _jsxs("table", __assign({ className: classes.root }, { children: [_jsx("thead", __assign({ className: classes.tHead }, { children: _jsx("tr", __assign({ className: classes.tRow }, { children: displayColumns() })) })), rows.length > 0 && _jsx("tbody", { children: displayRows() })] })), rows.length === 0 && _jsx(EmptyState, __assign({}, emptyState)), rows.length > 0 && (_jsxs(_Fragment, { children: [_jsx("div", { className: classes.tableSeparator }), _jsx(TablePagination, __assign({}, ((_r = table.pagination) !== null && _r !== void 0 ? _r : { currentPage: 1, lastPage: 1, count: 10 }), { setTablePagination: function (pagination) {
+    return (_jsxs("div", { style: { position: "relative" }, children: [_jsx(TableActions, { currentActions: actions, setCurrentActions: setActions, conditionFilters: conditionFilters, columns: columns, showSort: showSort, columnSearch: isColumnSearch }), showFilters && _jsx(TableFilters, { columns: columns, filters: filters, setFilters: setFilters }), _jsxs("table", { className: classes.root, children: [_jsx("thead", { className: classes.tHead, children: _jsx("tr", { className: classes.tRow, children: displayColumns() }) }), rows.length > 0 && _jsx("tbody", { children: displayRows() })] }), rows.length === 0 && _jsx(EmptyState, __assign({}, emptyState)), rows.length > 0 && (_jsxs(_Fragment, { children: [_jsx("div", { className: classes.tableSeparator }), _jsx(TablePagination, __assign({}, ((_r = table.pagination) !== null && _r !== void 0 ? _r : { currentPage: 1, lastPage: 1, count: 10 }), { setTablePagination: function (pagination) {
                             setTable(__assign(__assign({}, table), { pagination: pagination }));
-                        } }))] })), loading && _jsx(Loader, { className: classes.tableLoader })] })));
+                        } }))] })), loading && _jsx(Loader, { className: classes.tableLoader })] }));
 };

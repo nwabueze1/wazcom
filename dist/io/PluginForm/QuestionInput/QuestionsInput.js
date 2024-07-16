@@ -42,10 +42,10 @@ export var QuestionsInput = function (_a) {
             case "EMAIL_ADDRESS":
                 return _jsx(FormikTextInput, __assign({}, commonInputProps));
             case "PHOTO":
-                return (_jsx(FormikPhotoUpload, __assign({}, __assign(__assign({}, commonInputProps), { classNames: classNames === null || classNames === void 0 ? void 0 : classNames.imageUpload, label: label, form_uuid: form_uuid, client: client, accept: getFormat(), max_size_mb: max_size_mb }))));
+                return (_jsx(FormikPhotoUpload, __assign({}, commonInputProps, { classNames: classNames === null || classNames === void 0 ? void 0 : classNames.imageUpload, label: label, form_uuid: form_uuid, client: client, accept: getFormat(), max_size_mb: max_size_mb })));
             case "DOC":
             case "VIDEO":
-                return (_jsx(FormikDocumentUpload, __assign({}, __assign(__assign({}, commonInputProps), { classNames: classNames === null || classNames === void 0 ? void 0 : classNames.fileUpload, label: label, form_uuid: form_uuid, client: client, accept: getFormat(), max_size_mb: max_size_mb }))));
+                return (_jsx(FormikDocumentUpload, __assign({}, commonInputProps, { classNames: classNames === null || classNames === void 0 ? void 0 : classNames.fileUpload, label: label, form_uuid: form_uuid, client: client, accept: getFormat(), max_size_mb: max_size_mb })));
             case "MULTILINE":
                 return _jsx(FormikTextArea, __assign({}, commonInputProps, { classNames: classNames === null || classNames === void 0 ? void 0 : classNames.textArea }));
             case "YES_OR_NO":
@@ -67,7 +67,7 @@ export var QuestionsInput = function (_a) {
                 return (_jsx(FormikTextInput, __assign({}, commonInputProps, { type: "date", placeholder: "", label: commonInputProps.placeholder })));
             case "ADDRESS":
                 addressKeys = Object.keys(fields);
-                return (_jsxs("div", __assign({ className: clx(classes.fieldSet, (_j = classNames === null || classNames === void 0 ? void 0 : classNames.addressInput) === null || _j === void 0 ? void 0 : _j.fieldset) }, { children: [_jsx("label", __assign({ className: clx(classes.legend, paletteStyles === null || paletteStyles === void 0 ? void 0 : paletteStyles.label, (_k = classNames === null || classNames === void 0 ? void 0 : classNames.addressInput) === null || _k === void 0 ? void 0 : _k.legend) }, { children: label })), addressKeys === null || addressKeys === void 0 ? void 0 : addressKeys.map(function (key, index) { return (_createElement(FormikTextInput, __assign({ is_address: true }, commonInputProps, { name: "".concat(name, ".").concat(fields === null || fields === void 0 ? void 0 : fields[key]), key: index, placeholder: index === addressKeys.length - 1 ? "Country" : fields === null || fields === void 0 ? void 0 : fields[key] }))); })] })));
+                return (_jsxs("div", { className: clx(classes.fieldSet, (_j = classNames === null || classNames === void 0 ? void 0 : classNames.addressInput) === null || _j === void 0 ? void 0 : _j.fieldset), children: [_jsx("label", { className: clx(classes.legend, paletteStyles === null || paletteStyles === void 0 ? void 0 : paletteStyles.label, (_k = classNames === null || classNames === void 0 ? void 0 : classNames.addressInput) === null || _k === void 0 ? void 0 : _k.legend), children: label }), addressKeys === null || addressKeys === void 0 ? void 0 : addressKeys.map(function (key, index) { return (_createElement(FormikTextInput, __assign({ is_address: true }, commonInputProps, { name: "".concat(name, ".").concat(fields === null || fields === void 0 ? void 0 : fields[key]), key: index, placeholder: index === addressKeys.length - 1 ? "Country" : fields === null || fields === void 0 ? void 0 : fields[key] }))); })] }));
             case "DROP_DOWN":
                 options = (_m = ((_l = fields === null || fields === void 0 ? void 0 : fields.choices) !== null && _l !== void 0 ? _l : [])) === null || _m === void 0 ? void 0 : _m.map(function (choice) { return ({
                     label: choice.toLocaleUpperCase(),
@@ -82,5 +82,5 @@ export var QuestionsInput = function (_a) {
                 return null;
         }
     };
-    return _jsx("div", __assign({ className: classes.inputContainer }, { children: renderFields() }));
+    return _jsx("div", { className: classes.inputContainer, children: renderFields() });
 };

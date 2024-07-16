@@ -1,14 +1,3 @@
-var __assign = (this && this.__assign) || function () {
-    __assign = Object.assign || function(t) {
-        for (var s, i = 1, n = arguments.length; i < n; i++) {
-            s = arguments[i];
-            for (var p in s) if (Object.prototype.hasOwnProperty.call(s, p))
-                t[p] = s[p];
-        }
-        return t;
-    };
-    return __assign.apply(this, arguments);
-};
 var __read = (this && this.__read) || function (o, n) {
     var m = typeof Symbol === "function" && o[Symbol.iterator];
     if (!m) return o;
@@ -68,7 +57,7 @@ export var ImageSelector = function (_a) {
         }
     };
     var variants = getSizeVariants(classes, size);
-    return (_jsx("div", __assign({ className: clx(classes.root, selected && classes.selectedRoot) }, { children: _jsxs("div", __assign({ className: classes.container }, { children: [_jsx("input", { type: "file", ref: inputRef, onChange: handleSelect, hidden: true }), (selected || src) && (_jsxs(_Fragment, { children: [_jsx("div", { className: classes.imgWrapper }), _jsx("img", { ref: imgRef, src: src, className: clx(classes.image, variant === "circle" && classes.circle) })] })), _jsx("span", __assign({ onClick: fileInputClick, className: classes.selector }, { children: "Select Image" })), error && _jsx("span", __assign({ className: classes.error }, { children: error }))] })) })));
-    return (_jsxs("div", __assign({ className: clx(classes.root, className, variant === "circle" && classes.circle, variants[0]), onClick: fileInputClick }, { children: [_jsx(CameraAltIcon, { className: clx(classes.cameraIcon, variants[1]) }), _jsx("input", { type: "file", ref: inputRef, onChange: handleSelect, hidden: true }), selected ||
-                (src && (_jsx("img", { ref: imgRef, src: src, className: clx(classes.image, variant === "circle" && classes.circle) })))] })));
+    return (_jsx("div", { className: clx(classes.root, selected && classes.selectedRoot), children: _jsxs("div", { className: classes.container, children: [_jsx("input", { type: "file", ref: inputRef, onChange: handleSelect, hidden: true }), (selected || src) && (_jsxs(_Fragment, { children: [_jsx("div", { className: classes.imgWrapper }), _jsx("img", { ref: imgRef, src: src, className: clx(classes.image, variant === "circle" && classes.circle) })] })), _jsx("span", { onClick: fileInputClick, className: classes.selector, children: "Select Image" }), error && _jsx("span", { className: classes.error, children: error })] }) }));
+    return (_jsxs("div", { className: clx(classes.root, className, variant === "circle" && classes.circle, variants[0]), onClick: fileInputClick, children: [_jsx(CameraAltIcon, { className: clx(classes.cameraIcon, variants[1]) }), _jsx("input", { type: "file", ref: inputRef, onChange: handleSelect, hidden: true }), selected ||
+                (src && (_jsx("img", { ref: imgRef, src: src, className: clx(classes.image, variant === "circle" && classes.circle) })))] }));
 };

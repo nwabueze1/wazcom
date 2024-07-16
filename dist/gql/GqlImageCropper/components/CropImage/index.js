@@ -79,6 +79,6 @@ export var CropImage = forwardRef(function (_a, ref) {
             movable: true,
             resizable: true,
         } }))); };
-    return (_jsx(Box, __assign({ className: classes.root }, { children: isFixedCropper ? renderFixedCropper() : renderCropper() })));
+    return (_jsx(Box, { className: classes.root, children: isFixedCropper ? renderFixedCropper() : renderCropper() }));
 });
 CropImage.displayName = "CropImage";

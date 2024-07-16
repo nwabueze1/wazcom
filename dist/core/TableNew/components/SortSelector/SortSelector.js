@@ -1,14 +1,3 @@
-var __assign = (this && this.__assign) || function () {
-    __assign = Object.assign || function(t) {
-        for (var s, i = 1, n = arguments.length; i < n; i++) {
-            s = arguments[i];
-            for (var p in s) if (Object.prototype.hasOwnProperty.call(s, p))
-                t[p] = s[p];
-        }
-        return t;
-    };
-    return __assign.apply(this, arguments);
-};
 var __read = (this && this.__read) || function (o, n) {
     var m = typeof Symbol === "function" && o[Symbol.iterator];
     if (!m) return o;
@@ -40,20 +29,20 @@ export var SortSelector = function (_a) {
     var renderColumns = function () {
         return columns.map(function (_a, index) {
             var name = _a.name, key = _a.key, sortKey = _a.sortKey;
-            return (_jsxs("div", __assign({ className: classes.sortColumn, onMouseEnter: function () {
+            return (_jsxs("div", { className: classes.sortColumn, onMouseEnter: function () {
                     setActiveColumnKey(key);
-                } }, { children: [typeof name === "string" ? name : key.replace(/./g, " "), activeColumnKey === key && (_jsx(SortOptions, { handleClose: function () {
+                }, children: [typeof name === "string" ? name : key.replace(/./g, " "), activeColumnKey === key && (_jsx(SortOptions, { handleClose: function () {
                             setActiveColumnKey(undefined);
                         }, handleSort: function (order) {
                             handleSelectSort(order, sortKey !== null && sortKey !== void 0 ? sortKey : key);
-                        } }))] }), index));
+                        } }))] }, index));
         });
     };
-    return (_jsx(ClickAwayListener, __assign({ onClickAway: function () {
+    return (_jsx(ClickAwayListener, { onClickAway: function () {
             setShowColumns(false);
             setActiveColumnKey(undefined);
-        } }, { children: _jsxs("div", __assign({ className: classes.root }, { children: [_jsxs("div", __assign({ className: classes.sortDetails, onClick: function () {
+        }, children: _jsxs("div", { className: classes.root, children: [_jsxs("div", { className: classes.sortDetails, onClick: function () {
                         setShowColumns(!showColumns);
                         setActiveColumnKey(undefined);
-                    } }, { children: [_jsx("p", __assign({ className: classes.sortText }, { children: "Sort" })), _jsx(CgSortAz, { className: classes.sortIcon })] })), _jsxs("div", __assign({ className: clx(classes.sortColumns, showColumns && classes.sortColumnsActive) }, { children: [_jsx("p", __assign({ className: classes.sortHeading }, { children: "Sort by" })), renderColumns()] }))] })) })));
+                    }, children: [_jsx("p", { className: classes.sortText, children: "Sort" }), _jsx(CgSortAz, { className: classes.sortIcon })] }), _jsxs("div", { className: clx(classes.sortColumns, showColumns && classes.sortColumnsActive), children: [_jsx("p", { className: classes.sortHeading, children: "Sort by" }), renderColumns()] })] }) }));
 };
