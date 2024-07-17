@@ -1,5 +1,4 @@
-import { ApolloClient, NormalizedCacheObject } from "@apollo/client";
-import { DocumentNode } from "graphql";
+import { ApolloClient, NormalizedCacheObject, DocumentNode } from "@apollo/client";
 import { CommonProps } from "../../types";
 import { FC } from "react";
 
