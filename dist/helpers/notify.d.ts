@@ -1,2 +1,3 @@
 import Notify from "simple-notify";
-export declare const notify: (status: "success" | "error" | "warning" | "info", title: string, text?: string) => Notify;
+import { notifyStatus } from "simple-notify/dist/types";
+export declare const notify: (status: notifyStatus, title: string, text?: string) => Notify;

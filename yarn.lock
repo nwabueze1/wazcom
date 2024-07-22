@@ -6575,10 +6575,10 @@ signal-exit@^3.0.3, signal-exit@^3.0.7:
   resolved "https://registry.yarnpkg.com/signal-exit/-/signal-exit-3.0.7.tgz#a9a1767f8af84155114eaabd73f99273c8f59ad9"
   integrity sha512-wnD2ZE+l+SPC/uoS0vXeE9L1+0wuaMqKlfz9AMUo38JsyLSBWSFcHR1Rri62LZc12vLr1gb3jl7iwQhgwpAbGQ==
 
-simple-notify@^1.0.4:
-  version "1.0.4"
-  resolved "https://registry.yarnpkg.com/simple-notify/-/simple-notify-1.0.4.tgz#438616b2a9a1fc17b07330b598bab78194ad3972"
-  integrity sha512-S7WJnsT+vjEzAf94ElXFveuawQN02P/lJsMCj5qHdq5wDHojGjjjZM+Og1xSyrryGXFjym0eeM3Izx9xvDWAlw==
+simple-notify@0.5.5:
+  version "0.5.5"
+  resolved "https://registry.yarnpkg.com/simple-notify/-/simple-notify-0.5.5.tgz#49db50bcc250c3225509340e4fbd849d2566e9bc"
+  integrity sha512-zsFPqTqoSOcAGdvT76NdxkceC0kKiRSLJLVD6fn2o2j17bwUMw3cl9f07aLmojAHeNzQRUeXNxYK4OCumIcC4g==
 
 sisteransi@^1.0.5:
   version "1.0.5"
