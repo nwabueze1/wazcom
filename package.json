@@ -48,7 +48,7 @@
     "react-swipeable-views": "^0.14.0",
     "react-toastify": "^9.1.2",
     "sanitize-html": "^2.7.2",
-    "simple-notify": "^1.0.4",
+    "simple-notify": "0.5.5",
     "tinymce": "^5.10.2",
     "typescript": "^5.0.4",
     "universal-cookie": "^7.1.4",
