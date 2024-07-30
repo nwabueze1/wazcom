@@ -1,0 +1,33 @@
+.wrapper {
+  height: 100%;
+  width: 100%;
+  position: relative;
+  display: flex;
+  align-items: center;
+  overflow: hidden;
+}
+
+.box {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: green;
+  height: 400px;
+  width: 50%;
+  margin: 0;
+  padding: 0;
+  position: relative;
+  flex-shrink: 0;
+  color: black;
+  font-size: 21px;
+  cursor: pointer;
+}
+button {
+  padding: 1rem 2rem 1rem 2rem;
+  border: none;
+  background: #555;
+  color: white;
+  text-transform: uppercase;
+  font-weight: bold;
+  cursor: pointer;
+}

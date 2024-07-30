@@ -15,19 +15,17 @@ declare module "@mui/styles/defaultTheme" {
 const App: React.FC = () => {
   // const getMbmcBlocks = useGetMbmcBlocks();
 
-  console.log(theme);
-
   return (
     <StyledEngineProvider injectFirst>
       <ThemeProvider theme={theme}>
         <BrowserRouter>
-            <Layout>
-              <Routes>
-                {routes.map(({ key, path, component: Component }) => (
-                  <Route key={key} path={path} element={<Component />} />
-                ))}
-              </Routes>
-            </Layout>
+          <Layout>
+            <Routes>
+              {routes.map(({ key, path, component: Component }) => {
+                return <Route key={key} path={path} element={<Component />} />;
+              })}
+            </Routes>
+          </Layout>
         </BrowserRouter>
       </ThemeProvider>
     </StyledEngineProvider>
