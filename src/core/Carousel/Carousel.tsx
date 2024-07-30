@@ -1,7 +1,6 @@
 import React, { useRef, useEffect, ReactNode, useState } from "react";
 import horizontalLoop from "./functions";
 import "./styles1.css";
-import { useDrag } from "@use-gesture/react";
 
 export const Carousel: React.FC<{
   children: ReactNode;
@@ -11,6 +10,31 @@ export const Carousel: React.FC<{
 }> = ({ children, spaceBetween = 1, itemsToShow = 1, itemPerslide = 1 }) => {
   const slidesRef = useRef<HTMLDivElement[]>([]);
   const loopRef = useRef<gsap.core.Timeline | null>(null);
+  const [touchStartX, setTouchStartX] = useState(null);
+  const [touchEndX, setTouchEndX] = useState(null);
+  const minSwipeDistance = 50;
+
+  const onTouchStart = (e: any) => {
+    setTouchEndX(null);
+    setTouchStartX(e.changedTouches[0].clientX);
+  };
+
+  const onTouchMove = (e: any) => {
+    setTouchEndX(e.changedTouches[0].clientX);
+  };
+
+  const onTouchEnd = () => {
+    if (touchStartX && touchEndX) {
+      const xDistance = touchStartX - touchEndX;
+      if (Math.abs(xDistance) >= minSwipeDistance) {
+        if (xDistance > 0) {
+          handleNext();
+        } else {
+          handlePrev();
+        }
+      }
+    }
+  };
 
   const renderSlides = () =>
     React.Children.map(children, (child, i) => (
@@ -18,7 +42,9 @@ export const Carousel: React.FC<{
         className="box"
         style={{ width: `calc(100% / ${itemsToShow})` }}
         key={i}
-        {...bind()}
+        onTouchStart={onTouchStart}
+        onTouchMove={onTouchMove}
+        onTouchEnd={onTouchEnd}
         ref={(el) => {
           if (el) {
             slidesRef.current[i] = el;
@@ -46,14 +72,6 @@ export const Carousel: React.FC<{
       spaceBetween,
     });
   }, []);
-
-  const bind = useDrag(({ swipe: [swipeX] }) => {
-    if (swipeX === -1) {
-      handleNext();
-    } else if (swipeX === 1) {
-      handlePrev();
-    }
-  });
 
   return (
     <div>

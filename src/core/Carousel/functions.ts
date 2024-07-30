@@ -57,43 +57,6 @@ export default function horizontalLoop({
 
   gsap.set(items, { x: 0 });
 
-  // swiper function;
-  // let beginX: number | null = null;
-  // let endX: number | null = null;
-
-  // const handleTouchStart = (event: TouchEvent) => {
-  //   beginX = event.touches[0].clientX;
-  // };
-
-  // const handleTouchMove = (event: TouchEvent) => {
-  //   endX = event.touches[0].clientX;
-  // };
-
-  // const handleTouchEnd = () => {
-  //   if (beginX !== null && endX !== null) {
-  //     const distance = Math.abs(beginX - endX);
-  //     const threshold = 50; // Minimum distance required to trigger swipe action
-  //     const direction = beginX! > endX! ? "left" : "right";
-
-  //     if (distance > threshold) {
-  //       if (direction === "left") {
-  //         timeline.next();
-  //       } else {
-  //         timeline.previous();
-  //       }
-  //     }
-
-  //     beginX = null;
-  //     endX = null;
-  //   }
-  // };
-
-  // items.forEach((item) => {
-  //   item.addEventListener("touchstart", handleTouchStart);
-  //   item.addEventListener("touchmove", handleTouchMove);
-  //   item.addEventListener("touchend", handleTouchEnd);
-  // });
-
   totalWidth =
     items[length - 1]?.offsetLeft +
     (xPercents[length - 1] / 100) * widths[length - 1] -
