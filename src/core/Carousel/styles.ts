@@ -16,10 +16,10 @@ export const useCarouselStyles = makeStyles((theme: BaseTheme) => ({
     justifyContent: "center",
     margin: 0,
     padding: 0,
-    height: "auto",
     position: "relative",
     flexShrink: 0,
     fontSize: theme.typography.fontSize * 2,
     cursor: "pointer",
+    height: "100%",
   },
 }));
