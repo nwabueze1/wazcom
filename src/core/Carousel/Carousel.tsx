@@ -1,18 +1,42 @@
-import React, { useRef, useEffect, ReactNode, useState } from "react";
+import React, {
+  useRef,
+  useEffect,
+  ReactNode,
+  useState,
+  useImperativeHandle,
+  forwardRef,
+} from "react";
 import horizontalLoop from "./functions";
 import "./styles1.css";
 
-export const Carousel: React.FC<{
+interface CarouselProps {
   children: ReactNode;
   spaceBetween?: number;
   itemsToShow?: number;
   itemPerslide?: number;
-}> = ({ children, spaceBetween = 1, itemsToShow = 1, itemPerslide = 1 }) => {
+}
+
+export const Carousel = forwardRef<
+  {
+    next: () => void;
+    prev: () => void;
+  },
+  CarouselProps
+>(({ children, spaceBetween = 1, itemsToShow = 1, itemPerslide = 1 }, ref) => {
   const slidesRef = useRef<HTMLDivElement[]>([]);
   const loopRef = useRef<gsap.core.Timeline | null>(null);
   const [touchStartX, setTouchStartX] = useState(null);
   const [touchEndX, setTouchEndX] = useState(null);
   const minSwipeDistance = 50;
+
+  useImperativeHandle(ref, () => ({
+    next: () => {
+      loopRef.current?.next({ duration: 0.4, ease: "power1.inOut" });
+    },
+    prev: () => {
+      loopRef.current?.previous({ duration: 0.4, ease: "power1.inOut" });
+    },
+  }));
 
   const onTouchStart = (e: any) => {
     setTouchEndX(null);
@@ -80,15 +104,6 @@ export const Carousel: React.FC<{
           {renderSlides()}
         </div>
       </div>
-
-      <div style={{ marginTop: 10 }}>
-        <button className="prev" onClick={handlePrev}>
-          prev
-        </button>
-        <button className="next" onClick={handleNext}>
-          next
-        </button>
-      </div>
     </div>
   );
-};
+});

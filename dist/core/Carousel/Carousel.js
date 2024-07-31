@@ -14,36 +14,70 @@ var __read = (this && this.__read) || function (o, n) {
     }
     return ar;
 };
-import { jsx as _jsx, jsxs as _jsxs } from "react/jsx-runtime";
-import * as React from "react";
-import { useTheme } from "@mui/material/styles";
-import Box from "@mui/material/Box";
-import MobileStepper from "@mui/material/MobileStepper";
-import Paper from "@mui/material/Paper";
-import Typography from "@mui/material/Typography";
-import Button from "@mui/material/Button";
-import { MdKeyboardArrowLeft as KeyboardArrowLeft } from "react-icons/md";
-import { MdKeyboardArrowRight as KeyboardArrowRight } from "react-icons/md";
-// const AutoPlaySwipeableViews = autoPlay<typeof SwipeableViews>(SwipeableViews);
-export var Carousel = function (_a) {
-    var className = _a.className, items = _a.items;
-    var theme = useTheme();
-    var _b = __read(React.useState(0), 2), activeStep = _b[0], setActiveStep = _b[1];
-    var maxSteps = items.length;
-    var handleNext = React.useCallback(function () {
-        setActiveStep(activeStep + 1);
-    }, [activeStep]);
-    var handleBack = React.useCallback(function () {
-        setActiveStep(activeStep - 1);
-    }, [activeStep]);
-    // const handleStepChange = (step: number) => {
-    //     setActiveStep(step);
-    // };
-    return (_jsxs(Box, { sx: { maxWidth: 400, flexGrow: 1 }, className: className, children: [_jsx(Paper, { square: true, elevation: 0, sx: {
-                    display: "flex",
-                    alignItems: "center",
-                    height: 50,
-                    pl: 2,
-                    bgcolor: "background.default",
-                }, children: _jsx(Typography, { children: items[activeStep].label }) }), _jsx(MobileStepper, { steps: maxSteps, position: "static", activeStep: activeStep, nextButton: _jsxs(Button, { size: "small", onClick: handleNext, disabled: activeStep === maxSteps - 1, children: ["Next", theme.direction === "rtl" ? _jsx(KeyboardArrowLeft, {}) : _jsx(KeyboardArrowRight, {})] }), backButton: _jsxs(Button, { size: "small", onClick: handleBack, disabled: activeStep === 0, children: [theme.direction === "rtl" ? _jsx(KeyboardArrowRight, {}) : _jsx(KeyboardArrowLeft, {}), "Back"] }) })] }));
-};
+import { jsx as _jsx } from "react/jsx-runtime";
+import React, { useRef, useEffect, useState, useImperativeHandle, forwardRef, } from "react";
+import horizontalLoop from "./functions";
+import "./styles1.css";
+export var Carousel = forwardRef(function (_a, ref) {
+    var children = _a.children, _b = _a.spaceBetween, spaceBetween = _b === void 0 ? 1 : _b, _c = _a.itemsToShow, itemsToShow = _c === void 0 ? 1 : _c, _d = _a.itemPerslide, itemPerslide = _d === void 0 ? 1 : _d;
+    var slidesRef = useRef([]);
+    var loopRef = useRef(null);
+    var _e = __read(useState(null), 2), touchStartX = _e[0], setTouchStartX = _e[1];
+    var _f = __read(useState(null), 2), touchEndX = _f[0], setTouchEndX = _f[1];
+    var minSwipeDistance = 50;
+    useImperativeHandle(ref, function () { return ({
+        next: function () {
+            var _a;
+            (_a = loopRef.current) === null || _a === void 0 ? void 0 : _a.next({ duration: 0.4, ease: "power1.inOut" });
+        },
+        prev: function () {
+            var _a;
+            (_a = loopRef.current) === null || _a === void 0 ? void 0 : _a.previous({ duration: 0.4, ease: "power1.inOut" });
+        },
+    }); });
+    var onTouchStart = function (e) {
+        setTouchEndX(null);
+        setTouchStartX(e.changedTouches[0].clientX);
+    };
+    var onTouchMove = function (e) {
+        setTouchEndX(e.changedTouches[0].clientX);
+    };
+    var onTouchEnd = function () {
+        if (touchStartX && touchEndX) {
+            var xDistance = touchStartX - touchEndX;
+            if (Math.abs(xDistance) >= minSwipeDistance) {
+                if (xDistance > 0) {
+                    handleNext();
+                }
+                else {
+                    handlePrev();
+                }
+            }
+        }
+    };
+    var renderSlides = function () {
+        return React.Children.map(children, function (child, i) { return (_jsx("div", { className: "box", style: { width: "calc(100% / ".concat(itemsToShow, ")") }, onTouchStart: onTouchStart, onTouchMove: onTouchMove, onTouchEnd: onTouchEnd, ref: function (el) {
+                if (el) {
+                    slidesRef.current[i] = el;
+                }
+            }, children: child }, i)); });
+    };
+    var handleNext = function () {
+        var _a;
+        (_a = loopRef.current) === null || _a === void 0 ? void 0 : _a.next({ duration: 0.4, ease: "power1.inOut" });
+    };
+    var handlePrev = function () {
+        var _a;
+        (_a = loopRef.current) === null || _a === void 0 ? void 0 : _a.previous({ duration: 0.4, ease: "power1.inOut" });
+    };
+    useEffect(function () {
+        var boxes = slidesRef.current;
+        loopRef.current = horizontalLoop({
+            items: boxes,
+            config: { paused: true },
+            itemPerslide: itemPerslide,
+            spaceBetween: spaceBetween,
+        });
+    }, []);
+    return (_jsx("div", { children: _jsx("div", { style: { position: "relative" }, children: _jsx("div", { className: "wrapper", style: { gap: "".concat(spaceBetween, "px") }, children: renderSlides() }) }) }));
+});
