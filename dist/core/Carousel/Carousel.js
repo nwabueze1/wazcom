@@ -17,7 +17,7 @@ var __read = (this && this.__read) || function (o, n) {
 import { jsx as _jsx } from "react/jsx-runtime";
 import React, { useRef, useEffect, useState, useImperativeHandle, forwardRef, } from "react";
 import horizontalLoop from "./functions";
-import "./styles1.css";
+import { useCarouselStyles } from "./styles";
 export var Carousel = forwardRef(function (_a, ref) {
     var children = _a.children, _b = _a.spaceBetween, spaceBetween = _b === void 0 ? 1 : _b, _c = _a.itemsToShow, itemsToShow = _c === void 0 ? 1 : _c, _d = _a.itemPerslide, itemPerslide = _d === void 0 ? 1 : _d;
     var slidesRef = useRef([]);
@@ -25,6 +25,7 @@ export var Carousel = forwardRef(function (_a, ref) {
     var _e = __read(useState(null), 2), touchStartX = _e[0], setTouchStartX = _e[1];
     var _f = __read(useState(null), 2), touchEndX = _f[0], setTouchEndX = _f[1];
     var minSwipeDistance = 50;
+    var classes = useCarouselStyles();
     useImperativeHandle(ref, function () { return ({
         next: function () {
             var _a;
@@ -56,7 +57,7 @@ export var Carousel = forwardRef(function (_a, ref) {
         }
     };
     var renderSlides = function () {
-        return React.Children.map(children, function (child, i) { return (_jsx("div", { className: "box", style: { width: "calc(100% / ".concat(itemsToShow, ")") }, onTouchStart: onTouchStart, onTouchMove: onTouchMove, onTouchEnd: onTouchEnd, ref: function (el) {
+        return React.Children.map(children, function (child, i) { return (_jsx("div", { className: classes.box, style: { width: "calc(100% / ".concat(itemsToShow, ")") }, onTouchStart: onTouchStart, onTouchMove: onTouchMove, onTouchEnd: onTouchEnd, ref: function (el) {
                 if (el) {
                     slidesRef.current[i] = el;
                 }
@@ -79,5 +80,5 @@ export var Carousel = forwardRef(function (_a, ref) {
             spaceBetween: spaceBetween,
         });
     }, []);
-    return (_jsx("div", { children: _jsx("div", { style: { position: "relative" }, children: _jsx("div", { className: "wrapper", style: { gap: "".concat(spaceBetween, "px") }, children: renderSlides() }) }) }));
+    return (_jsx("div", { className: classes.wrapper, style: { gap: "".concat(spaceBetween, "px") }, children: renderSlides() }));
 });

@@ -7,7 +7,7 @@ import React, {
   forwardRef,
 } from "react";
 import horizontalLoop from "./functions";
-import "./styles1.css";
+import { useCarouselStyles } from "./styles";
 
 interface CarouselProps {
   children: ReactNode;
@@ -28,6 +28,8 @@ export const Carousel = forwardRef<
   const [touchStartX, setTouchStartX] = useState(null);
   const [touchEndX, setTouchEndX] = useState(null);
   const minSwipeDistance = 50;
+
+  const classes = useCarouselStyles();
 
   useImperativeHandle(ref, () => ({
     next: () => {
@@ -63,7 +65,7 @@ export const Carousel = forwardRef<
   const renderSlides = () =>
     React.Children.map(children, (child, i) => (
       <div
-        className="box"
+        className={classes.box}
         style={{ width: `calc(100% / ${itemsToShow})` }}
         key={i}
         onTouchStart={onTouchStart}
@@ -98,12 +100,8 @@ export const Carousel = forwardRef<
   }, []);
 
   return (
-    <div>
-      <div style={{ position: "relative" }}>
-        <div className="wrapper" style={{ gap: `${spaceBetween}px` }}>
-          {renderSlides()}
-        </div>
-      </div>
+    <div className={classes.wrapper} style={{ gap: `${spaceBetween}px` }}>
+      {renderSlides()}
     </div>
   );
 });

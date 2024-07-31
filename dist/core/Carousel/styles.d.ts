@@ -1,1 +1,1 @@
-export declare const useCarouselStyles: (props?: any) => import("@mui/styles").ClassNameMap<"root">;
+export declare const useCarouselStyles: (props?: any) => import("@mui/styles").ClassNameMap<"wrapper" | "box">;

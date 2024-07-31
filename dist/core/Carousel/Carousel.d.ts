@@ -1,5 +1,4 @@
 import React, { ReactNode } from "react";
-import "./styles1.css";
 interface CarouselProps {
     children: ReactNode;
     spaceBetween?: number;
