@@ -1,5 +1,25 @@
 import makeStyles from "@mui/styles/makeStyles";
+import { BaseTheme } from "theme";
 
-export const useCarouselStyles = makeStyles(() => ({
-  root: {},
+export const useCarouselStyles = makeStyles((theme: BaseTheme) => ({
+  wrapper: {
+    height: "100%",
+    width: "100%",
+    position: "relative",
+    display: "flex",
+    alignItems: "center",
+    overflow: "hidden",
+  },
+  box: {
+    display: "flex",
+    alignItems: "center",
+    justifyContent: "center",
+    margin: 0,
+    padding: 0,
+    position: "relative",
+    flexShrink: 0,
+    fontSize: theme.typography.fontSize * 2,
+    cursor: "pointer",
+    height: "100%",
+  },
 }));

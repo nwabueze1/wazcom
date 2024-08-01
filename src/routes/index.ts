@@ -26,6 +26,7 @@ import { Rating } from "../view/Rating";
 import { PluginFormView } from "../view/PluginForm/PluginFormView";
 import { WysiwygInputView } from "../view/WysiwygInput/WysiwygInputView";
 import { ContentFormLayoutView } from "view/ContentFormLayout";
+import { CarouselView } from "view/Carousel";
 
 export default [
   {
@@ -159,6 +160,12 @@ export default [
     path: "/accordion",
     exact: true,
     component: AccordionView,
+  },
+  {
+    key: "CarouselView",
+    path: "/Carousel",
+    exact: true,
+    component: CarouselView,
   },
   {
     key: "TabsView",

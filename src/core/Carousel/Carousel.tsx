@@ -1,93 +1,107 @@
-import * as React from "react";
-import { useTheme } from "@mui/material/styles";
-import Box from "@mui/material/Box";
-import MobileStepper from "@mui/material/MobileStepper";
-import Paper from "@mui/material/Paper";
-import Typography from "@mui/material/Typography";
-import Button from "@mui/material/Button";
-import { MdKeyboardArrowLeft as KeyboardArrowLeft } from "react-icons/md";
-import { MdKeyboardArrowRight as KeyboardArrowRight } from "react-icons/md";
-// import SwipeableViews from "react-swipeable-views";
-// import { autoPlay } from "react-swipeable-views-utils";
-import { FC } from "react";
-import { CarouselProps } from "./types";
+import React, {
+  useRef,
+  useEffect,
+  ReactNode,
+  useState,
+  useImperativeHandle,
+  forwardRef,
+} from "react";
+import horizontalLoop from "./functions";
+import { useCarouselStyles } from "./styles";
 
-// const AutoPlaySwipeableViews = autoPlay<typeof SwipeableViews>(SwipeableViews);
+interface CarouselProps {
+  children: ReactNode;
+  spaceBetween?: number;
+  itemsToShow?: number;
+  itemPerslide?: number;
+}
 
-export const Carousel: FC<CarouselProps> = ({ className, items }) => {
-  const theme = useTheme();
-  const [activeStep, setActiveStep] = React.useState(0);
-  const maxSteps = items.length;
+export const Carousel = forwardRef<
+  {
+    next: () => void;
+    prev: () => void;
+  },
+  CarouselProps
+>(({ children, spaceBetween = 1, itemsToShow = 1, itemPerslide = 1 }, ref) => {
+  const slidesRef = useRef<HTMLDivElement[]>([]);
+  const loopRef = useRef<gsap.core.Timeline | null>(null);
+  const [touchStartX, setTouchStartX] = useState(null);
+  const [touchEndX, setTouchEndX] = useState(null);
+  const minSwipeDistance = 50;
 
-  const handleNext = React.useCallback(() => {
-    setActiveStep(activeStep + 1);
-  }, [activeStep]);
+  const classes = useCarouselStyles();
 
-  const handleBack = React.useCallback(() => {
-    setActiveStep(activeStep - 1);
-  }, [activeStep]);
+  useImperativeHandle(ref, () => ({
+    next: () => {
+      loopRef.current?.next({ duration: 0.4, ease: "power1.inOut" });
+    },
+    prev: () => {
+      loopRef.current?.previous({ duration: 0.4, ease: "power1.inOut" });
+    },
+  }));
 
-  // const handleStepChange = (step: number) => {
-  //     setActiveStep(step);
-  // };
+  const onTouchStart = (e: any) => {
+    setTouchEndX(null);
+    setTouchStartX(e.changedTouches[0].clientX);
+  };
 
-  return (
-    <Box sx={{ maxWidth: 400, flexGrow: 1 }} className={className}>
-      <Paper
-        square
-        elevation={0}
-        sx={{
-          display: "flex",
-          alignItems: "center",
-          height: 50,
-          pl: 2,
-          bgcolor: "background.default",
+  const onTouchMove = (e: any) => {
+    setTouchEndX(e.changedTouches[0].clientX);
+  };
+
+  const onTouchEnd = () => {
+    if (touchStartX && touchEndX) {
+      const xDistance = touchStartX - touchEndX;
+      if (Math.abs(xDistance) >= minSwipeDistance) {
+        if (xDistance > 0) {
+          handleNext();
+        } else {
+          handlePrev();
+        }
+      }
+    }
+  };
+
+  const renderSlides = () =>
+    React.Children.map(children, (child, i) => (
+      <div
+        className={classes.box}
+        style={{ width: `calc(100% / ${itemsToShow})` }}
+        key={i}
+        onTouchStart={onTouchStart}
+        onTouchMove={onTouchMove}
+        onTouchEnd={onTouchEnd}
+        ref={(el) => {
+          if (el) {
+            slidesRef.current[i] = el;
+          }
         }}
       >
-        <Typography>{items[activeStep].label}</Typography>
-      </Paper>
-      {/* <AutoPlaySwipeableViews
-                axis={theme.direction === "rtl" ? "x-reverse" : "x"}
-                index={activeStep}
-                onChangeIndex={handleStepChange}
-                enableMouseEvents
-            >
-                {items.map(({ image: { src, alt }, label }, index) => (
-                    <div key={index}>
-                        {Math.abs(activeStep - index) <= 2 ? (
-                            <Box
-                                component="img"
-                                sx={{
-                                    height: 255,
-                                    display: "block",
-                                    maxWidth: 400,
-                                    overflow: "hidden",
-                                    width: "100%",
-                                }}
-                                src={src}
-                                alt={alt ?? label}
-                            />
-                        ) : null}
-                    </div>
-                ))}
-            </AutoPlaySwipeableViews> */}
-      <MobileStepper
-        steps={maxSteps}
-        position="static"
-        activeStep={activeStep}
-        nextButton={
-          <Button size="small" onClick={handleNext} disabled={activeStep === maxSteps - 1}>
-            Next
-            {theme.direction === "rtl" ? <KeyboardArrowLeft /> : <KeyboardArrowRight />}
-          </Button>
-        }
-        backButton={
-          <Button size="small" onClick={handleBack} disabled={activeStep === 0}>
-            {theme.direction === "rtl" ? <KeyboardArrowRight /> : <KeyboardArrowLeft />}
-            Back
-          </Button>
-        }
-      />
-    </Box>
+        {child}
+      </div>
+    ));
+
+  const handleNext = () => {
+    loopRef.current?.next({ duration: 0.4, ease: "power1.inOut" });
+  };
+
+  const handlePrev = () => {
+    loopRef.current?.previous({ duration: 0.4, ease: "power1.inOut" });
+  };
+
+  useEffect(() => {
+    const boxes = slidesRef.current;
+    loopRef.current = horizontalLoop({
+      items: boxes,
+      config: { paused: true },
+      itemPerslide,
+      spaceBetween,
+    });
+  }, []);
+
+  return (
+    <div className={classes.wrapper} style={{ gap: `${spaceBetween}px` }}>
+      {renderSlides()}
+    </div>
   );
-};
+});
