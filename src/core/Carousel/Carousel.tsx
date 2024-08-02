@@ -27,6 +27,7 @@ export const Carousel = forwardRef<
   const loopRef = useRef<gsap.core.Timeline | null>(null);
   const [touchStartX, setTouchStartX] = useState(null);
   const [touchEndX, setTouchEndX] = useState(null);
+  const [isClient, setIsClient] = useState(false);
   const minSwipeDistance = 50;
 
   const classes = useCarouselStyles();
@@ -90,6 +91,7 @@ export const Carousel = forwardRef<
   };
 
   useEffect(() => {
+    setIsClient(true);
     const boxes = slidesRef.current;
     loopRef.current = horizontalLoop({
       items: boxes,
@@ -97,7 +99,21 @@ export const Carousel = forwardRef<
       itemPerslide,
       spaceBetween,
     });
-  }, []);
+  }, [isClient, children, itemsToShow, itemPerslide, spaceBetween]);
+
+  // useEffect(() => {
+  //   setIsClient(true); // Mark that the component has mounted on the client side
+
+  //   if (isClient) {
+  //     const boxes = slidesRef.current;
+  //     loopRef.current = horizontalLoop({
+  //       items: boxes,
+  //       config: { paused: true },
+  //       itemPerslide,
+  //       spaceBetween,
+  //     });
+  //   }
+  // }, [isClient, children, itemsToShow, itemPerslide, spaceBetween]);
 
   return (
     <div className={classes.wrapper} style={{ gap: `${spaceBetween}px` }}>
