@@ -101,20 +101,6 @@ export const Carousel = forwardRef<
     });
   }, [isClient, children, itemsToShow, itemPerslide, spaceBetween]);
 
-  // useEffect(() => {
-  //   setIsClient(true); // Mark that the component has mounted on the client side
-
-  //   if (isClient) {
-  //     const boxes = slidesRef.current;
-  //     loopRef.current = horizontalLoop({
-  //       items: boxes,
-  //       config: { paused: true },
-  //       itemPerslide,
-  //       spaceBetween,
-  //     });
-  //   }
-  // }, [isClient, children, itemsToShow, itemPerslide, spaceBetween]);
-
   return (
     <div className={classes.wrapper} style={{ gap: `${spaceBetween}px` }}>
       {renderSlides()}
