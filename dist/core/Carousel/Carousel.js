@@ -24,6 +24,7 @@ export var Carousel = forwardRef(function (_a, ref) {
     var loopRef = useRef(null);
     var _e = __read(useState(null), 2), touchStartX = _e[0], setTouchStartX = _e[1];
     var _f = __read(useState(null), 2), touchEndX = _f[0], setTouchEndX = _f[1];
+    var _g = __read(useState(false), 2), isClient = _g[0], setIsClient = _g[1];
     var minSwipeDistance = 50;
     var classes = useCarouselStyles();
     useImperativeHandle(ref, function () { return ({
@@ -72,6 +73,7 @@ export var Carousel = forwardRef(function (_a, ref) {
         (_a = loopRef.current) === null || _a === void 0 ? void 0 : _a.previous({ duration: 0.4, ease: "power1.inOut" });
     };
     useEffect(function () {
+        setIsClient(true);
         var boxes = slidesRef.current;
         loopRef.current = horizontalLoop({
             items: boxes,
@@ -79,6 +81,6 @@ export var Carousel = forwardRef(function (_a, ref) {
             itemPerslide: itemPerslide,
             spaceBetween: spaceBetween,
         });
-    }, []);
+    }, [isClient, children, itemsToShow, itemPerslide, spaceBetween]);
     return (_jsx("div", { className: classes.wrapper, style: { gap: "".concat(spaceBetween, "px") }, children: renderSlides() }));
 });
