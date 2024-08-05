@@ -10,6 +10,9 @@ export const usePluginFormStyles = makeStyles((theme: Theme) => ({
   submitButton: {
     display: "none",
   },
+  formBody: {
+    marginBottom: theme.spacing(1),
+  },
   error: {
     color: `${theme.palette.error.light} !important`,
     marginTop: theme.spacing(1),

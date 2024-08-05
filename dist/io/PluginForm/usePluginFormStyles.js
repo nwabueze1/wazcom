@@ -8,6 +8,9 @@ export var usePluginFormStyles = makeStyles(function (theme) { return ({
     submitButton: {
         display: "none",
     },
+    formBody: {
+        marginBottom: theme.spacing(1),
+    },
     error: {
         color: "".concat(theme.palette.error.light, " !important"),
         marginTop: theme.spacing(1),

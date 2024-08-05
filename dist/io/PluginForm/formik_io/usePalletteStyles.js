@@ -1,6 +1,7 @@
 import { makeStyles } from "@mui/styles";
 export var usePalletteStyles = makeStyles(function () { return ({
     baseInput: {
+        boxSizing: "border-box",
         borderColor: function (props) { var _a; return (_a = props === null || props === void 0 ? void 0 : props.colors) === null || _a === void 0 ? void 0 : _a.main; },
         "&:hover": {
             borderColor: function (props) { var _a; return (_a = props === null || props === void 0 ? void 0 : props.colors) === null || _a === void 0 ? void 0 : _a.hover; },
