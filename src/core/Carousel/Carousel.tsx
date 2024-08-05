@@ -8,7 +8,6 @@ import React, {
 } from "react";
 import horizontalLoop from "./functions";
 import { useCarouselStyles } from "./styles";
-import { useGSAP } from "@gsap/react";
 
 interface CarouselProps {
   children: ReactNode;
@@ -115,30 +114,27 @@ export const Carousel = forwardRef<
     updatePrev();
   };
 
-  useGSAP(
-    () => {
-      if (!isClient) return; // Ensure that animations only run when the client is ready
+  useEffect(() => {
+    setIsClient(true);
+    
+    const boxes = slidesRef.current;
+    
+    // Set up the loop with the given parameters
+    loopRef.current = horizontalLoop({
+      items: boxes,
+      config: { paused: true },
+      itemPerslide,
+      spaceBetween,
+    });
 
-      const boxes = slidesRef.current;
-      loopRef.current = horizontalLoop({
-        items: boxes,
-        config: { paused: true },
-        itemPerslide,
-        spaceBetween,
-      });
-
-      // Cleanup to avoid memory leaks
-      return () => {
-        if (loopRef.current) {
-          loopRef.current.kill(); // Assuming GSAP provides a kill or stop method
-        }
-      };
-    },
-    {
-      scope: slideRef,
-      dependencies: [isClient, children, itemsToShow, itemPerslide, spaceBetween], // Refined dependencies
-    },
-  );
+    // Cleanup function to run when the component unmounts or dependencies change
+    return () => {
+      if (loopRef.current) {
+        loopRef.current.kill();  // Assuming horizontalLoop provides a kill or similar method
+        loopRef.current = null;  // Clear the reference
+      }
+    };
+  }, [isClient, children, itemsToShow, itemPerslide, spaceBetween]);
 
   return (
     <div className={classes.wrapper} style={{ gap: `${spaceBetween}px` }} ref={slideRef}>

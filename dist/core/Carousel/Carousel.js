@@ -18,7 +18,6 @@ import { jsx as _jsx } from "react/jsx-runtime";
 import React, { useRef, useState, useImperativeHandle, forwardRef, useEffect, } from "react";
 import horizontalLoop from "./functions";
 import { useCarouselStyles } from "./styles";
-import { useGSAP } from "@gsap/react";
 export var Carousel = forwardRef(function (_a, ref) {
     var children = _a.children, _b = _a.spaceBetween, spaceBetween = _b === void 0 ? 1 : _b, _c = _a.itemsToShow, itemsToShow = _c === void 0 ? 1 : _c, _d = _a.itemPerslide, itemPerslide = _d === void 0 ? 1 : _d, onActiveIndexChange = _a.onActiveIndexChange;
     var slidesRef = useRef([]);
@@ -93,25 +92,23 @@ export var Carousel = forwardRef(function (_a, ref) {
         (_a = loopRef.current) === null || _a === void 0 ? void 0 : _a.previous({ duration: 0.4, ease: "power1.inOut" });
         updatePrev();
     };
-    useGSAP(function () {
-        if (!isClient)
-            return; // Ensure that animations only run when the client is ready
+    useEffect(function () {
+        setIsClient(true);
         var boxes = slidesRef.current;
+        // Set up the loop with the given parameters
         loopRef.current = horizontalLoop({
             items: boxes,
             config: { paused: true },
             itemPerslide: itemPerslide,
             spaceBetween: spaceBetween,
         });
-        // Cleanup to avoid memory leaks
+        // Cleanup function to run when the component unmounts or dependencies change
         return function () {
             if (loopRef.current) {
-                loopRef.current.kill(); // Assuming GSAP provides a kill or stop method
+                loopRef.current.kill(); // Assuming horizontalLoop provides a kill or similar method
+                loopRef.current = null; // Clear the reference
             }
         };
-    }, {
-        scope: slideRef,
-        dependencies: [isClient, children, itemsToShow, itemPerslide, spaceBetween], // Refined dependencies
-    });
+    }, [isClient, children, itemsToShow, itemPerslide, spaceBetween]);
     return (_jsx("div", { className: classes.wrapper, style: { gap: "".concat(spaceBetween, "px") }, ref: slideRef, children: renderSlides() }));
 });
