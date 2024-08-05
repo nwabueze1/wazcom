@@ -99,6 +99,11 @@ export var Carousel = forwardRef(function (_a, ref) {
             itemPerslide: itemPerslide,
             spaceBetween: spaceBetween,
         });
+        return function () {
+            if (loopRef.current) {
+                loopRef.current.kill();
+            }
+        };
     }, {
         scope: slideRef,
         dependencies: [isClient, children, itemsToShow, itemPerslide, spaceBetween],
