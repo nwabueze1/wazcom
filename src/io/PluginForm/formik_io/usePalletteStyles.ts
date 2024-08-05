@@ -4,6 +4,7 @@ import { FormPallette } from "../type";
 
 export const usePalletteStyles = makeStyles<Theme, FormPallette>(() => ({
   baseInput: {
+    boxSizing: "border-box",
     borderColor: (props) => props?.colors?.main,
     "&:hover": {
       borderColor: (props) => props?.colors?.hover,
