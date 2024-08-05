@@ -8,6 +8,7 @@ interface CarouselProps {
   spaceBetween?: number;
   itemsToShow?: number;
   itemPerslide?: number;
+  onActiveIndexChange?: (index: number) => void;
 }
 
 export const Carousel = forwardRef<
@@ -16,25 +17,41 @@ export const Carousel = forwardRef<
     prev: () => void;
   },
   CarouselProps
->(({ children, spaceBetween = 1, itemsToShow = 1, itemPerslide = 1 }, ref) => {
+>(({ children, spaceBetween = 1, itemsToShow = 1, itemPerslide = 1, onActiveIndexChange }, ref) => {
   const slidesRef = useRef<HTMLDivElement[]>([]);
   const loopRef = useRef<gsap.core.Timeline | null>(null);
   const [touchStartX, setTouchStartX] = useState(null);
   const [touchEndX, setTouchEndX] = useState(null);
+  const [currentIndex, setCurrentIndex] = useState(0);
   const [isClient, setIsClient] = useState(false);
   const minSwipeDistance = 50;
   const slideRef = useRef<HTMLDivElement>(null);
+  const items = React.Children.toArray(children);
 
   const classes = useCarouselStyles();
 
   useImperativeHandle(ref, () => ({
     next: () => {
+      updateNext();
       loopRef.current?.next({ duration: 0.4, ease: "power1.inOut" });
     },
     prev: () => {
+      updatePrev();
       loopRef.current?.previous({ duration: 0.4, ease: "power1.inOut" });
     },
   }));
+
+  const updateNext = () => {
+    const nextIndex = currentIndex + 1;
+    setCurrentIndex(nextIndex >= items.length ? 0 : nextIndex);
+    onActiveIndexChange?.(nextIndex);
+  };
+
+  const updatePrev = () => {
+    const nextIndex = currentIndex - 1;
+    setCurrentIndex(nextIndex < 0 ? items.length - 1 : nextIndex);
+    onActiveIndexChange?.(nextIndex);
+  };
 
   const onTouchStart = (e: any) => {
     setTouchEndX(null);
@@ -79,10 +96,12 @@ export const Carousel = forwardRef<
 
   const handleNext = () => {
     loopRef.current?.next({ duration: 0.4, ease: "power1.inOut" });
+    updateNext();
   };
 
   const handlePrev = () => {
     loopRef.current?.previous({ duration: 0.4, ease: "power1.inOut" });
+    updatePrev();
   };
 
   useGSAP(
