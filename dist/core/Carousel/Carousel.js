@@ -18,6 +18,7 @@ import { jsx as _jsx } from "react/jsx-runtime";
 import React, { useRef, useState, useImperativeHandle, forwardRef, useEffect, } from "react";
 import horizontalLoop from "./functions";
 import { useCarouselStyles } from "./styles";
+import { useGSAP } from "@gsap/react";
 export var Carousel = forwardRef(function (_a, ref) {
     var children = _a.children, _b = _a.spaceBetween, spaceBetween = _b === void 0 ? 1 : _b, _c = _a.itemsToShow, itemsToShow = _c === void 0 ? 1 : _c, _d = _a.itemPerslide, itemPerslide = _d === void 0 ? 1 : _d, onActiveIndexChange = _a.onActiveIndexChange;
     var slidesRef = useRef([]);
@@ -92,7 +93,7 @@ export var Carousel = forwardRef(function (_a, ref) {
         (_a = loopRef.current) === null || _a === void 0 ? void 0 : _a.previous({ duration: 0.4, ease: "power1.inOut" });
         updatePrev();
     };
-    useEffect(function () {
+    useGSAP(function () {
         setIsClient(true);
         var boxes = slidesRef.current;
         loopRef.current = horizontalLoop({
@@ -101,6 +102,9 @@ export var Carousel = forwardRef(function (_a, ref) {
             itemPerslide: itemPerslide,
             spaceBetween: spaceBetween,
         });
-    }, [isClient, children, itemsToShow, itemPerslide, spaceBetween]);
+    }, {
+        scope: slideRef,
+        dependencies: [isClient, children, itemsToShow, itemPerslide, spaceBetween],
+    });
     return (_jsx("div", { className: classes.wrapper, style: { gap: "".concat(spaceBetween, "px") }, ref: slideRef, children: renderSlides() }));
 });

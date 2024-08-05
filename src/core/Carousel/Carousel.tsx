@@ -8,6 +8,7 @@ import React, {
 } from "react";
 import horizontalLoop from "./functions";
 import { useCarouselStyles } from "./styles";
+import { useGSAP } from "@gsap/react";
 
 interface CarouselProps {
   children: ReactNode;
@@ -114,17 +115,22 @@ export const Carousel = forwardRef<
     updatePrev();
   };
 
-  
-  useEffect(() => {
-    setIsClient(true);
-    const boxes = slidesRef.current;
-    loopRef.current = horizontalLoop({
-      items: boxes,
-      config: { paused: true },
-      itemPerslide,
-      spaceBetween,
-    });
-  }, [isClient, children, itemsToShow, itemPerslide, spaceBetween]);
+  useGSAP(
+    () => {
+      setIsClient(true);
+      const boxes = slidesRef.current;
+      loopRef.current = horizontalLoop({
+        items: boxes,
+        config: { paused: true },
+        itemPerslide,
+        spaceBetween,
+      });
+    },
+    {
+      scope: slideRef,
+      dependencies: [isClient, children, itemsToShow, itemPerslide, spaceBetween],
+    },
+  );
 
   return (
     <div className={classes.wrapper} style={{ gap: `${spaceBetween}px` }} ref={slideRef}>
