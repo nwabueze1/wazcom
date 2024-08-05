@@ -20,25 +20,39 @@ import horizontalLoop from "./functions";
 import { useCarouselStyles } from "./styles";
 import { useGSAP } from "@gsap/react";
 export var Carousel = forwardRef(function (_a, ref) {
-    var children = _a.children, _b = _a.spaceBetween, spaceBetween = _b === void 0 ? 1 : _b, _c = _a.itemsToShow, itemsToShow = _c === void 0 ? 1 : _c, _d = _a.itemPerslide, itemPerslide = _d === void 0 ? 1 : _d;
+    var children = _a.children, _b = _a.spaceBetween, spaceBetween = _b === void 0 ? 1 : _b, _c = _a.itemsToShow, itemsToShow = _c === void 0 ? 1 : _c, _d = _a.itemPerslide, itemPerslide = _d === void 0 ? 1 : _d, onActiveIndexChange = _a.onActiveIndexChange;
     var slidesRef = useRef([]);
     var loopRef = useRef(null);
     var _e = __read(useState(null), 2), touchStartX = _e[0], setTouchStartX = _e[1];
     var _f = __read(useState(null), 2), touchEndX = _f[0], setTouchEndX = _f[1];
-    var _g = __read(useState(false), 2), isClient = _g[0], setIsClient = _g[1];
+    var _g = __read(useState(0), 2), currentIndex = _g[0], setCurrentIndex = _g[1];
+    var _h = __read(useState(false), 2), isClient = _h[0], setIsClient = _h[1];
     var minSwipeDistance = 50;
     var slideRef = useRef(null);
+    var items = React.Children.toArray(children);
     var classes = useCarouselStyles();
     useImperativeHandle(ref, function () { return ({
         next: function () {
             var _a;
+            updateNext();
             (_a = loopRef.current) === null || _a === void 0 ? void 0 : _a.next({ duration: 0.4, ease: "power1.inOut" });
         },
         prev: function () {
             var _a;
+            updatePrev();
             (_a = loopRef.current) === null || _a === void 0 ? void 0 : _a.previous({ duration: 0.4, ease: "power1.inOut" });
         },
     }); });
+    var updateNext = function () {
+        var nextIndex = currentIndex + 1;
+        setCurrentIndex(nextIndex >= items.length ? 0 : nextIndex);
+        onActiveIndexChange === null || onActiveIndexChange === void 0 ? void 0 : onActiveIndexChange(nextIndex);
+    };
+    var updatePrev = function () {
+        var nextIndex = currentIndex - 1;
+        setCurrentIndex(nextIndex < 0 ? items.length - 1 : nextIndex);
+        onActiveIndexChange === null || onActiveIndexChange === void 0 ? void 0 : onActiveIndexChange(nextIndex);
+    };
     var onTouchStart = function (e) {
         setTouchEndX(null);
         setTouchStartX(e.changedTouches[0].clientX);
@@ -69,10 +83,12 @@ export var Carousel = forwardRef(function (_a, ref) {
     var handleNext = function () {
         var _a;
         (_a = loopRef.current) === null || _a === void 0 ? void 0 : _a.next({ duration: 0.4, ease: "power1.inOut" });
+        updateNext();
     };
     var handlePrev = function () {
         var _a;
         (_a = loopRef.current) === null || _a === void 0 ? void 0 : _a.previous({ duration: 0.4, ease: "power1.inOut" });
+        updatePrev();
     };
     useGSAP(function () {
         setIsClient(true);
