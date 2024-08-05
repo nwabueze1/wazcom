@@ -90,7 +90,7 @@ export var Carousel = forwardRef(function (_a, ref) {
         (_a = loopRef.current) === null || _a === void 0 ? void 0 : _a.previous({ duration: 0.4, ease: "power1.inOut" });
         updatePrev();
     };
-    useGSAP(function () {
+    useGSAP(function (context) {
         setIsClient(true);
         var boxes = slidesRef.current;
         loopRef.current = horizontalLoop({
@@ -100,9 +100,7 @@ export var Carousel = forwardRef(function (_a, ref) {
             spaceBetween: spaceBetween,
         });
         return function () {
-            if (loopRef.current) {
-                loopRef.current.kill();
-            }
+            context === null || context === void 0 ? void 0 : context.revert();
         };
     }, {
         scope: slideRef,

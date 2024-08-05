@@ -105,9 +105,8 @@ export const Carousel = forwardRef<
   };
 
   useGSAP(
-    () => {
+    (context) => {
       setIsClient(true);
-
       const boxes = slidesRef.current;
       loopRef.current = horizontalLoop({
         items: boxes,
@@ -117,9 +116,7 @@ export const Carousel = forwardRef<
       });
 
       return () => {
-        if (loopRef.current) {
-          loopRef.current.kill();
-        }
+        context?.revert();
       };
     },
     {
