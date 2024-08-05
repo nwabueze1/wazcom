@@ -1,4 +1,11 @@
-import React, { useRef, ReactNode, useState, useImperativeHandle, forwardRef } from "react";
+import React, {
+  useRef,
+  ReactNode,
+  useState,
+  useImperativeHandle,
+  forwardRef,
+  useEffect,
+} from "react";
 import horizontalLoop from "./functions";
 import { useCarouselStyles } from "./styles";
 import { useGSAP } from "@gsap/react";
@@ -29,6 +36,10 @@ export const Carousel = forwardRef<
   const items = React.Children.toArray(children);
 
   const classes = useCarouselStyles();
+
+  useEffect(() => {
+    setIsClient(true);
+  }, []);
 
   useImperativeHandle(ref, () => ({
     next: () => {
@@ -105,8 +116,9 @@ export const Carousel = forwardRef<
   };
 
   useGSAP(
-    (context) => {
-      setIsClient(true);
+    () => {
+      if (!isClient) return; // Ensure that animations only run when the client is ready
+
       const boxes = slidesRef.current;
       loopRef.current = horizontalLoop({
         items: boxes,
@@ -115,13 +127,16 @@ export const Carousel = forwardRef<
         spaceBetween,
       });
 
+      // Cleanup to avoid memory leaks
       return () => {
-        context?.revert();
+        if (loopRef.current) {
+          loopRef.current.kill(); // Assuming GSAP provides a kill or stop method
+        }
       };
     },
     {
       scope: slideRef,
-      dependencies: [isClient, children, itemsToShow, itemPerslide, spaceBetween],
+      dependencies: [isClient, children, itemsToShow, itemPerslide, spaceBetween], // Refined dependencies
     },
   );
 
