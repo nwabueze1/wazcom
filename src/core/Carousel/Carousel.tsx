@@ -1,13 +1,7 @@
-import React, {
-  useRef,
-  useEffect,
-  ReactNode,
-  useState,
-  useImperativeHandle,
-  forwardRef,
-} from "react";
+import React, { useRef, ReactNode, useState, useImperativeHandle, forwardRef } from "react";
 import horizontalLoop from "./functions";
 import { useCarouselStyles } from "./styles";
+import { useGSAP } from "@gsap/react";
 
 interface CarouselProps {
   children: ReactNode;
@@ -29,6 +23,7 @@ export const Carousel = forwardRef<
   const [touchEndX, setTouchEndX] = useState(null);
   const [isClient, setIsClient] = useState(false);
   const minSwipeDistance = 50;
+  const slideRef = useRef<HTMLDivElement>(null);
 
   const classes = useCarouselStyles();
 
@@ -90,19 +85,25 @@ export const Carousel = forwardRef<
     loopRef.current?.previous({ duration: 0.4, ease: "power1.inOut" });
   };
 
-  useEffect(() => {
-    setIsClient(true);
-    const boxes = slidesRef.current;
-    loopRef.current = horizontalLoop({
-      items: boxes,
-      config: { paused: true },
-      itemPerslide,
-      spaceBetween,
-    });
-  }, [isClient, children, itemsToShow, itemPerslide, spaceBetween]);
+  useGSAP(
+    () => {
+      setIsClient(true);
+      const boxes = slidesRef.current;
+      loopRef.current = horizontalLoop({
+        items: boxes,
+        config: { paused: true },
+        itemPerslide,
+        spaceBetween,
+      });
+    },
+    {
+      scope: slideRef,
+      dependencies: [isClient, children, itemsToShow, itemPerslide, spaceBetween],
+    },
+  );
 
   return (
-    <div className={classes.wrapper} style={{ gap: `${spaceBetween}px` }}>
+    <div className={classes.wrapper} style={{ gap: `${spaceBetween}px` }} ref={slideRef}>
       {renderSlides()}
     </div>
   );

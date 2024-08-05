@@ -12,7 +12,7 @@ import { useCarouselStyles } from "./styles";
 
 const AutoPlaySwipeableViews = SwipeableViews;
 
-export const Carousel2: FC<Carousel2Props> = ({ className, items, classNames }) => {
+export const Carousel2: FC<Carousel2Props> = ({ className, items = [], classNames }) => {
   const theme = useTheme();
   const classes = useCarouselStyles();
   const [activeStep, setActiveStep] = React.useState(0);
