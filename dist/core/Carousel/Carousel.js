@@ -95,20 +95,12 @@ export var Carousel = forwardRef(function (_a, ref) {
     useEffect(function () {
         setIsClient(true);
         var boxes = slidesRef.current;
-        // Set up the loop with the given parameters
         loopRef.current = horizontalLoop({
             items: boxes,
             config: { paused: true },
             itemPerslide: itemPerslide,
             spaceBetween: spaceBetween,
         });
-        // Cleanup function to run when the component unmounts or dependencies change
-        return function () {
-            if (loopRef.current) {
-                loopRef.current.kill(); // Assuming horizontalLoop provides a kill or similar method
-                loopRef.current = null; // Clear the reference
-            }
-        };
     }, [isClient, children, itemsToShow, itemPerslide, spaceBetween]);
     return (_jsx("div", { className: classes.wrapper, style: { gap: "".concat(spaceBetween, "px") }, ref: slideRef, children: renderSlides() }));
 });

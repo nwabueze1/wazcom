@@ -114,26 +114,16 @@ export const Carousel = forwardRef<
     updatePrev();
   };
 
+  
   useEffect(() => {
     setIsClient(true);
-    
     const boxes = slidesRef.current;
-    
-    // Set up the loop with the given parameters
     loopRef.current = horizontalLoop({
       items: boxes,
       config: { paused: true },
       itemPerslide,
       spaceBetween,
     });
-
-    // Cleanup function to run when the component unmounts or dependencies change
-    return () => {
-      if (loopRef.current) {
-        loopRef.current.kill();  // Assuming horizontalLoop provides a kill or similar method
-        loopRef.current = null;  // Clear the reference
-      }
-    };
   }, [isClient, children, itemsToShow, itemPerslide, spaceBetween]);
 
   return (
