@@ -55,7 +55,6 @@ var getBoxStylesResponsive = function (props, theme) {
             }
         }
     });
-    console.log(styles);
     return styles;
 };
 var getPercentageWidth = function (itemToShow) {

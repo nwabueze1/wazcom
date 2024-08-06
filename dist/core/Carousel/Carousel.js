@@ -15,7 +15,7 @@ var __read = (this && this.__read) || function (o, n) {
     return ar;
 };
 import { jsx as _jsx } from "react/jsx-runtime";
-import React, { useRef, useState, useImperativeHandle, forwardRef, useEffect, } from "react";
+import React, { useRef, useState, useImperativeHandle, forwardRef } from "react";
 import horizontalLoop from "./functions";
 import { useCarouselStyles } from "./styles";
 import { useGSAP } from "@gsap/react";
@@ -30,7 +30,6 @@ export var Carousel = forwardRef(function (_a, ref) {
     var minSwipeDistance = 50;
     var slideRef = useRef(null);
     var items = React.Children.toArray(children);
-    var _j = __read(useState(0), 2), resizeTracker = _j[0], setResizeTracker = _j[1]; //track window resize
     var classes = useCarouselStyles({
         breakpoints: breakpoints,
         gap: spaceBetween,
@@ -95,30 +94,18 @@ export var Carousel = forwardRef(function (_a, ref) {
         (_a = loopRef.current) === null || _a === void 0 ? void 0 : _a.previous({ duration: 0.4, ease: "power1.inOut" });
         updatePrev();
     };
-    useEffect(function () {
-        window.addEventListener("resize", function () {
-            setResizeTracker(Date.now()); //enforce recalculation of the horizontal loop
-        });
-        return function () {
-            window.removeEventListener("resize", function () {
-                setResizeTracker(0);
-            });
-        };
-    }, []);
     useGSAP(function () {
         setIsClient(true);
-        if (slideRef.current) {
-            var boxes = slidesRef.current;
-            loopRef.current = horizontalLoop({
-                items: boxes,
-                config: { paused: true },
-                itemPerslide: itemPerslide,
-                container: slideRef === null || slideRef === void 0 ? void 0 : slideRef.current,
-            });
-        }
+        var boxes = slidesRef.current;
+        loopRef.current = horizontalLoop({
+            items: boxes,
+            config: { paused: true },
+            itemPerslide: itemPerslide,
+            container: slideRef === null || slideRef === void 0 ? void 0 : slideRef.current,
+        });
     }, {
         scope: slideRef,
-        dependencies: [isClient, children, itemsToShow, itemPerslide, spaceBetween, resizeTracker],
+        dependencies: [isClient, children, itemsToShow, itemPerslide, spaceBetween],
     });
     return (_jsx("div", { className: classes.wrapper, ref: slideRef, children: renderSlides() }));
 });

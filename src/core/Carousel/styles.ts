@@ -76,8 +76,6 @@ const getBoxStylesResponsive = (props: CustomThemeProps, theme: Theme) => {
     }
   });
 
-  console.log(styles);
-
   return styles;
 };
 
