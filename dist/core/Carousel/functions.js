@@ -1,7 +1,8 @@
 import { gsap } from "gsap";
 export default function horizontalLoop(_a) {
     var _b, _c, _d, _e, _f, _g;
-    var items = _a.items, _h = _a.config, config = _h === void 0 ? {} : _h, _j = _a.itemPerslide, itemPerslide = _j === void 0 ? 1 : _j, _k = _a.spaceBetween, spaceBetween = _k === void 0 ? 0 : _k;
+    var items = _a.items, _h = _a.config, config = _h === void 0 ? {} : _h, _j = _a.itemPerslide, itemPerslide = _j === void 0 ? 1 : _j, container = _a.container;
+    var spaceBetween = gsap.getProperty(container, "gap", "px");
     items = gsap.utils.toArray(items);
     var timeline = gsap.timeline({
         repeat: config.repeat,

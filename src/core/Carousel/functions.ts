@@ -13,13 +13,15 @@ export default function horizontalLoop({
   items,
   config = {},
   itemPerslide = 1,
-  spaceBetween = 0,
+  container,
 }: {
   items: HTMLElement[] | NodeListOf<HTMLElement>;
   config: LoopConfig;
   itemPerslide?: number;
   spaceBetween?: number;
+  container: HTMLDivElement;
 }) {
+  const spaceBetween = gsap.getProperty(container, "gap", "px") as number;
   items = gsap.utils.toArray(items) as HTMLElement[];
   let timeline = gsap.timeline({
       repeat: config.repeat,
