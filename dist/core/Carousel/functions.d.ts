@@ -10,7 +10,6 @@ export default function horizontalLoop({ items, config, itemPerslide, container,
     items: HTMLElement[] | NodeListOf<HTMLElement>;
     config: LoopConfig;
     itemPerslide?: number;
-    spaceBetween?: number;
     container: HTMLDivElement;
 }): gsap.core.Timeline;
 export {};

@@ -102,7 +102,6 @@ export var Carousel = forwardRef(function (_a, ref) {
                 items: boxes,
                 config: { paused: true },
                 itemPerslide: itemPerslide,
-                spaceBetween: spaceBetween,
                 container: slideRef === null || slideRef === void 0 ? void 0 : slideRef.current,
             });
         }

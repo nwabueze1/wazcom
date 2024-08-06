@@ -129,7 +129,6 @@ export const Carousel = forwardRef<
             items: boxes,
             config: { paused: true },
             itemPerslide,
-            spaceBetween,
             container: slideRef?.current,
           });
         }

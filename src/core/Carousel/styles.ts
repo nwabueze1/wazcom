@@ -71,5 +71,5 @@ const getBoxStylesResponsive = (props: CustomThemeProps, theme: Theme) => {
 };
 
 const getPercentageWidth = (itemToShow: number) => {
-  return `calc((100% / ${itemToShow}))%`;
+  return `calc((100% / ${itemToShow}))`;
 };
