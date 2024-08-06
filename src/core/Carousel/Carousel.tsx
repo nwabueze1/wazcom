@@ -1,4 +1,11 @@
-import React, { useRef, ReactNode, useState, useImperativeHandle, forwardRef } from "react";
+import React, {
+  useRef,
+  ReactNode,
+  useState,
+  useImperativeHandle,
+  forwardRef,
+  useEffect,
+} from "react";
 import horizontalLoop from "./functions";
 import { useCarouselStyles } from "./styles";
 import { useGSAP } from "@gsap/react";
@@ -40,6 +47,7 @@ export const Carousel = forwardRef<
     const minSwipeDistance = 50;
     const slideRef = useRef<HTMLDivElement>(null);
     const items = React.Children.toArray(children);
+    const [resizeTracker, setResizeTracker] = useState(0); //track window resize
 
     const classes = useCarouselStyles({
       breakpoints,
@@ -120,6 +128,18 @@ export const Carousel = forwardRef<
       updatePrev();
     };
 
+    useEffect(() => {
+      window.addEventListener("resize", () => {
+        setResizeTracker(Date.now()); //enforce recalculation of the horizontal loop
+      });
+
+      return () => {
+        window.removeEventListener("resize", () => {
+          setResizeTracker(0);
+        });
+      };
+    }, []);
+
     useGSAP(
       () => {
         setIsClient(true);
@@ -135,7 +155,7 @@ export const Carousel = forwardRef<
       },
       {
         scope: slideRef,
-        dependencies: [isClient, children, itemsToShow, itemPerslide, spaceBetween],
+        dependencies: [isClient, children, itemsToShow, itemPerslide, spaceBetween, resizeTracker],
       },
     );
 

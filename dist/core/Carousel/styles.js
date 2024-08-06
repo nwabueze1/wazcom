@@ -22,11 +22,16 @@ var getWrapperStylesResponsive = function (props, theme) {
         gap: props === null || props === void 0 ? void 0 : props.gap,
     };
     sortedBreakpoints.forEach(function (key) {
-        var _a, _b, _c;
+        var _a, _b, _c, _d, _e;
         if ((_a = props === null || props === void 0 ? void 0 : props.breakpoints) === null || _a === void 0 ? void 0 : _a[key]) {
-            styles[theme.breakpoints.up(key)] = {
-                gap: (_c = (_b = props === null || props === void 0 ? void 0 : props.breakpoints) === null || _b === void 0 ? void 0 : _b[key]) === null || _c === void 0 ? void 0 : _c.gap,
-            };
+            if (key === "sm") {
+                styles["gap"] = (_c = (_b = props === null || props === void 0 ? void 0 : props.breakpoints) === null || _b === void 0 ? void 0 : _b[key]) === null || _c === void 0 ? void 0 : _c.gap;
+            }
+            else {
+                styles[theme.breakpoints.up(key)] = {
+                    gap: (_e = (_d = props === null || props === void 0 ? void 0 : props.breakpoints) === null || _d === void 0 ? void 0 : _d[key]) === null || _e === void 0 ? void 0 : _e.gap,
+                };
+            }
         }
     });
     return styles;
@@ -39,11 +44,18 @@ var getBoxStylesResponsive = function (props, theme) {
     sortedBreakpoints.forEach(function (key) {
         var _a, _b, _c, _d, _e;
         if (((_a = props === null || props === void 0 ? void 0 : props.breakpoints) === null || _a === void 0 ? void 0 : _a[key]) && ((_c = (_b = props === null || props === void 0 ? void 0 : props.breakpoints) === null || _b === void 0 ? void 0 : _b[key]) === null || _c === void 0 ? void 0 : _c.itemsToShow)) {
-            styles[theme.breakpoints.up(key)] = {
-                width: getPercentageWidth((_e = (_d = props === null || props === void 0 ? void 0 : props.breakpoints) === null || _d === void 0 ? void 0 : _d[key]) === null || _e === void 0 ? void 0 : _e.itemsToShow),
-            };
+            var width = getPercentageWidth((_e = (_d = props === null || props === void 0 ? void 0 : props.breakpoints) === null || _d === void 0 ? void 0 : _d[key]) === null || _e === void 0 ? void 0 : _e.itemsToShow);
+            if (key === "sm") {
+                styles["width"] = width;
+            }
+            else {
+                styles[theme.breakpoints.up(key)] = {
+                    width: width,
+                };
+            }
         }
     });
+    console.log(styles);
     return styles;
 };
 var getPercentageWidth = function (itemToShow) {

@@ -43,9 +43,13 @@ const getWrapperStylesResponsive = (props: CustomThemeProps, theme: Theme) => {
 
   sortedBreakpoints.forEach((key) => {
     if (props?.breakpoints?.[key]) {
-      styles[theme.breakpoints.up(key)] = {
-        gap: props?.breakpoints?.[key]?.gap,
-      };
+      if (key === "sm") {
+        styles["gap"] = props?.breakpoints?.[key]?.gap;
+      } else {
+        styles[theme.breakpoints.up(key)] = {
+          gap: props?.breakpoints?.[key]?.gap,
+        };
+      }
     }
   });
 
@@ -61,11 +65,18 @@ const getBoxStylesResponsive = (props: CustomThemeProps, theme: Theme) => {
 
   sortedBreakpoints.forEach((key) => {
     if (props?.breakpoints?.[key] && props?.breakpoints?.[key]?.itemsToShow) {
-      styles[theme.breakpoints.up(key)] = {
-        width: getPercentageWidth(props?.breakpoints?.[key]?.itemsToShow),
-      };
+      const width = getPercentageWidth(props?.breakpoints?.[key]?.itemsToShow);
+      if (key === "sm") {
+        styles["width"] = width;
+      } else {
+        styles[theme.breakpoints.up(key)] = {
+          width,
+        };
+      }
     }
   });
+
+  console.log(styles);
 
   return styles;
 };
