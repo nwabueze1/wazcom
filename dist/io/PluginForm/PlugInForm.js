@@ -42,6 +42,7 @@ import { getInitialFormValues } from "./getInitialFormValues";
 import { createResponse } from "./gql/actions/createResponse";
 import { QuestionsInput } from "./QuestionInput";
 import { usePluginFormStyles } from "./usePluginFormStyles";
+import clx from "classnames";
 export var PlugInForm = forwardRef(function (props, ref) {
     var questions = props.form.questions, form_uuid = props.form_uuid, setLoading = props.setLoading, className = props.className, submitButton = props.submitButton, classNames = props.classNames, _a = props.style, style = _a === void 0 ? { display: "grid" } : _a, onNotify = props.onNotify, onFormSubmitted = props.onFormSubmitted, apolloClient = props.apolloClient, palette = props.palette;
     var initialFormState = getInitialFormValues((questions !== null && questions !== void 0 ? questions : []));
@@ -93,7 +94,7 @@ export var PlugInForm = forwardRef(function (props, ref) {
     }); };
     return (_jsx(_Fragment, { children: _jsx(Formik, { validationSchema: validationSchema, initialValues: initialFormState, onSubmit: handleSubmit, children: function (props) {
                 var _a;
-                return (_jsxs(Form, { style: style, children: [_jsx("div", { className: className, children: (_a = ((questions !== null && questions !== void 0 ? questions : []))) === null || _a === void 0 ? void 0 : _a.map(function (_a, index) {
+                return (_jsxs(Form, { style: style, children: [_jsx("div", { className: clx(classes.formBody, className), children: (_a = ((questions !== null && questions !== void 0 ? questions : []))) === null || _a === void 0 ? void 0 : _a.map(function (_a, index) {
                                 var question = _a.question, fields = _a.fields, type = _a.type, is_required = _a.is_required, uuid = _a.uuid;
                                 return (_jsx(QuestionsInput, { name: uuid, fields: fields, type: type, is_required: is_required, classNames: classNames, formikProps: props, label: question, palette: palette, client: apolloClient === null || apolloClient === void 0 ? void 0 : apolloClient.client, form_uuid: form_uuid }, index));
                             }) }), !submitButton ? (_jsx("button", { className: classes.submitButton, type: "submit", ref: submitButtonRef })) : (submitButton)] }));

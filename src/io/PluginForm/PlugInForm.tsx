@@ -7,6 +7,7 @@ import { createResponse } from "./gql/actions/createResponse";
 import { QuestionsInput } from "./QuestionInput";
 import { PluginFormPropsType, QuestionType } from "./type";
 import { usePluginFormStyles } from "./usePluginFormStyles";
+import clx from "classnames";
 
 export const PlugInForm = forwardRef<PluginFormRef, PluginFormPropsType>((props, ref) => {
   const {
@@ -77,7 +78,7 @@ export const PlugInForm = forwardRef<PluginFormRef, PluginFormPropsType>((props,
       >
         {(props) => (
           <Form style={style}>
-            <div className={className}>
+            <div className={clx(classes.formBody, className)}>
               {((questions ?? []) as QuestionType[])?.map(
                 ({ question, fields, type, is_required, uuid }, index) => (
                   <QuestionsInput

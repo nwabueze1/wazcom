@@ -46,6 +46,7 @@ export var usePluginInputGroup = makeStyles(function (theme) { return ({
         fontSize: theme.typography.fontSize,
         fontFamily: "inherit",
         borderColor: theme.design.colors.waz_primary700,
+        boxSizing: "border-box",
         "&:hover": {
             borderColor: theme.design.colors.waz_primary500,
         },
