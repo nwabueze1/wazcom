@@ -15,12 +15,12 @@ var __read = (this && this.__read) || function (o, n) {
     return ar;
 };
 import { jsx as _jsx } from "react/jsx-runtime";
-import React, { useRef, useState, useImperativeHandle, forwardRef, useEffect, } from "react";
+import React, { useRef, useState, useImperativeHandle, forwardRef } from "react";
 import horizontalLoop from "./functions";
 import { useCarouselStyles } from "./styles";
 import { useGSAP } from "@gsap/react";
 export var Carousel = forwardRef(function (_a, ref) {
-    var children = _a.children, _b = _a.spaceBetween, spaceBetween = _b === void 0 ? 1 : _b, _c = _a.itemsToShow, itemsToShow = _c === void 0 ? 1 : _c, _d = _a.itemPerslide, itemPerslide = _d === void 0 ? 1 : _d, onActiveIndexChange = _a.onActiveIndexChange;
+    var children = _a.children, _b = _a.spaceBetween, spaceBetween = _b === void 0 ? 1 : _b, _c = _a.itemsToShow, itemsToShow = _c === void 0 ? 1 : _c, _d = _a.itemPerslide, itemPerslide = _d === void 0 ? 1 : _d, onActiveIndexChange = _a.onActiveIndexChange, breakpoints = _a.breakpoints;
     var slidesRef = useRef([]);
     var loopRef = useRef(null);
     var _e = __read(useState(null), 2), touchStartX = _e[0], setTouchStartX = _e[1];
@@ -30,10 +30,11 @@ export var Carousel = forwardRef(function (_a, ref) {
     var minSwipeDistance = 50;
     var slideRef = useRef(null);
     var items = React.Children.toArray(children);
-    var classes = useCarouselStyles();
-    useEffect(function () {
-        setIsClient(true);
-    }, []);
+    var classes = useCarouselStyles({
+        breakpoints: breakpoints,
+        gap: spaceBetween,
+        itemsToShow: itemsToShow,
+    });
     useImperativeHandle(ref, function () { return ({
         next: function () {
             var _a;
@@ -77,7 +78,7 @@ export var Carousel = forwardRef(function (_a, ref) {
         }
     };
     var renderSlides = function () {
-        return React.Children.map(children, function (child, i) { return (_jsx("div", { className: classes.box, style: { width: "calc(100% / ".concat(itemsToShow, ")") }, onTouchStart: onTouchStart, onTouchMove: onTouchMove, onTouchEnd: onTouchEnd, ref: function (el) {
+        return React.Children.map(children, function (child, i) { return (_jsx("div", { className: classes.box, onTouchStart: onTouchStart, onTouchMove: onTouchMove, onTouchEnd: onTouchEnd, ref: function (el) {
                 if (el) {
                     slidesRef.current[i] = el;
                 }
@@ -100,11 +101,11 @@ export var Carousel = forwardRef(function (_a, ref) {
             items: boxes,
             config: { paused: true },
             itemPerslide: itemPerslide,
-            spaceBetween: spaceBetween,
+            container: slideRef === null || slideRef === void 0 ? void 0 : slideRef.current,
         });
     }, {
         scope: slideRef,
         dependencies: [isClient, children, itemsToShow, itemPerslide, spaceBetween],
     });
-    return (_jsx("div", { className: classes.wrapper, style: { gap: "".concat(spaceBetween, "px") }, ref: slideRef, children: renderSlides() }));
+    return (_jsx("div", { className: classes.wrapper, ref: slideRef, children: renderSlides() }));
 });

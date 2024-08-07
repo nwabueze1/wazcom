@@ -6,10 +6,10 @@ interface LoopConfig {
     paddingRight?: number;
     reversed?: boolean;
 }
-export default function horizontalLoop({ items, config, itemPerslide, spaceBetween, }: {
+export default function horizontalLoop({ items, config, itemPerslide, container, }: {
     items: HTMLElement[] | NodeListOf<HTMLElement>;
     config: LoopConfig;
     itemPerslide?: number;
-    spaceBetween?: number;
+    container: HTMLDivElement;
 }): gsap.core.Timeline;
 export {};
