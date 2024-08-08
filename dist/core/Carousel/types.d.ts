@@ -8,10 +8,3 @@ export type CarouselProps = CommonProps & {
         };
     }[];
 };
-export type Breakpoint = "xl" | "lg" | "md" | "sm";
-export type ResponsiveBreakPoints = {
-    [key in Partial<Breakpoint>]?: {
-        gap?: number;
-        itemsToShow?: number;
-    };
-};

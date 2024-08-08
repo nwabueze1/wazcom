@@ -1,8 +1,1 @@
-import { ResponsiveBreakPoints } from "./types";
-type CustomThemeProps = {
-    gap?: number;
-    itemsToShow?: number;
-    breakpoints?: ResponsiveBreakPoints;
-};
-export declare const useCarouselStyles: (props: CustomThemeProps) => import("@mui/styles").ClassNameMap<string>;
-export {};
+export declare const useCarouselStyles: (props?: any) => import("@mui/styles").ClassNameMap<"wrapper" | "box">;

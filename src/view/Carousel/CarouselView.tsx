@@ -15,30 +15,7 @@ export const CarouselView = () => {
 
   return (
     <>
-      <Carousel
-        ref={carouselRef}
-        spaceBetween={20}
-        itemsToShow={2}
-        itemPerslide={1}
-        breakpoints={{
-          sm: {
-            gap: 0,
-            itemsToShow: 1,
-          },
-          md: {
-            gap: 0,
-            itemsToShow: 2,
-          },
-          lg: {
-            gap: 2,
-            itemsToShow: 3,
-          },
-          xl: {
-            gap: 2,
-            itemsToShow: 5,
-          },
-        }}
-      >
+      <Carousel ref={carouselRef} spaceBetween={20} itemsToShow={2} itemPerslide={1}>
         <div
           style={{
             background:
