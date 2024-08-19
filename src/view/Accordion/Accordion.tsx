@@ -4,7 +4,6 @@ import { AccordionStyles } from "./styles";
 import { useAccordionData } from "./data";
 import { Paper } from "../../core/Paper";
 import { ComponentProps } from "../../core/ComponentProps";
-import { GqlMediaLibrarySelector } from "../../gql";
 
 export const AccordionView = () => {
   const classes = AccordionStyles();
@@ -46,14 +45,6 @@ export const AccordionView = () => {
         description="The accordion component delivers large amounts of content in a small space through progressive disclosure. The header title give the user a high level overview of the content allowing the user to decide which sections to read."
       >
         <ViewHeader configChildren={renderConfigurations()} statesChildren={renderStates()} />
-
-        <GqlMediaLibrarySelector
-          showIcons
-          value={{
-            src: "https://img.wazobia.tech/https://sytbuildr.s3.eu-west-2.amazonaws.com/kiamoni-template/image+15.svg?tr=w-1100",
-          }}
-          isNewLayout
-        />
       </Wrapper>
     </div>
   );

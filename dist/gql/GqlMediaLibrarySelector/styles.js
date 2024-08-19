@@ -249,6 +249,5 @@ export var useImageSelectorStyles = makeStyles(function (theme) { return ({
         position: "absolute",
         top: 10,
         right: 10,
-        "& svg": {},
     },
 }); });
