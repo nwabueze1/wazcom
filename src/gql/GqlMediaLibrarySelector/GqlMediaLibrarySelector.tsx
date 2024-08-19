@@ -22,7 +22,7 @@ export const GqlMediaLibrarySelector: FC<GqlMediaLibrarySelectorProps> = ({
   onChange,
   name = "image",
   label,
-  showIcons = true,
+  showIcons = false,
   showActionsButton = false,
   value,
   helperText,
@@ -30,6 +30,7 @@ export const GqlMediaLibrarySelector: FC<GqlMediaLibrarySelectorProps> = ({
   imageServiceDomain = "img.wazobia.tech",
   useServiceDomainOnUpload = false,
   useCropperOnUpload = false,
+  isNewLayout = false,
   ...props
 }) => {
   const classes = useImageSelectorStyles();
@@ -38,6 +39,7 @@ export const GqlMediaLibrarySelector: FC<GqlMediaLibrarySelectorProps> = ({
   const [tabs, setTabs] = useState({ library: false, cropper: false });
   const isOpen = Object.values(tabs).includes(true);
   const downloadImage = useDownloadImage();
+  const [isHover, setIsHover] = useState(false);
 
   const handleOpen = (tab: string) => {
     setTabs({ library: false, cropper: false, [tab]: true });
@@ -84,8 +86,69 @@ export const GqlMediaLibrarySelector: FC<GqlMediaLibrarySelectorProps> = ({
 
   const variants = getSizeVariants(classes, size);
 
+  const renderLayout = () =>
+    isNewLayout ? (
+      <div className={classes.layout2Container}>
+        <Button
+          className={classes.layout2Button}
+          onClick={() => {
+            !value?.src ? handleOpen("library") : handleEditImage();
+          }}
+        >
+          {!value?.src ? "Add image" : "Change image"}
+        </Button>
+        {value && value?.src && isHover && (
+          <div className={clx(classes.optionIconContainer, "right")}>
+            <IconButton onClick={handleRemoveImage}>
+              <img src="https://sytbuildr.s3.eu-west-2.amazonaws.com/trash.svg" />
+            </IconButton>
+          </div>
+        )}
+      </div>
+    ) : iconType === "button" && !value?.src ? (
+      <Button
+        className={clx(classes.icon, isError && classes.imgUploadContainerError)}
+        variant="outlined"
+        onClick={() => {
+          handleOpen("library");
+        }}
+      >
+        Select Image
+      </Button>
+    ) : (
+      showIcons && (
+        <div className={classes.tools}>
+          <div className={classes.optionIconContainer}>
+            <IconButton
+              onClick={() => {
+                handleOpen("library");
+              }}
+            >
+              <FaPlus className={classes.plusIcon} />
+            </IconButton>
+          </div>
+          {value?.src && (
+            <div className={classes.optionIconContainer}>
+              <IconButton onClick={handleEditImage}>
+                <img src="https://sytbuildr.s3.eu-west-2.amazonaws.com/edit-2.svg" />
+              </IconButton>
+            </div>
+          )}
+          <div className={classes.optionIconContainer}>
+            <IconButton onClick={handleRemoveImage}>
+              <img src="https://sytbuildr.s3.eu-west-2.amazonaws.com/trash.svg" />
+            </IconButton>
+          </div>
+        </div>
+      )
+    );
+
   return (
-    <div className={clx(className, classes.root)}>
+    <div
+      className={clx(className, classes.root)}
+      onMouseEnter={() => setIsHover(true)}
+      onMouseLeave={() => setIsHover(false)}
+    >
       {label && (
         <InputLabel
           className={clx(classes.label, classNames?.label as string)}
@@ -131,43 +194,7 @@ export const GqlMediaLibrarySelector: FC<GqlMediaLibrarySelectorProps> = ({
                 width="100%"
               />
             )}
-            {iconType === "button" && !value?.src ? (
-              <Button
-                className={clx(classes.icon, isError && classes.imgUploadContainerError)}
-                variant="outlined"
-                onClick={() => {
-                  handleOpen("library");
-                }}
-              >
-                Select Image
-              </Button>
-            ) : (
-              showIcons && (
-                <div className={classes.tools}>
-                  <div className={classes.optionIconContainer}>
-                    <IconButton
-                      onClick={() => {
-                        handleOpen("library");
-                      }}
-                    >
-                      <FaPlus className={classes.plusIcon} />
-                    </IconButton>
-                  </div>
-                  {value?.src && (
-                    <div className={classes.optionIconContainer}>
-                      <IconButton onClick={handleEditImage}>
-                        <img src="https://sytbuildr.s3.eu-west-2.amazonaws.com/edit-2.svg" />
-                      </IconButton>
-                    </div>
-                  )}
-                  <div className={classes.optionIconContainer}>
-                    <IconButton onClick={handleRemoveImage}>
-                      <img src="https://sytbuildr.s3.eu-west-2.amazonaws.com/trash.svg" />
-                    </IconButton>
-                  </div>
-                </div>
-              )
-            )}
+            {renderLayout()}
           </div>
           {helperText && <p className={classes.helperText}>{helperText}</p>}
         </div>

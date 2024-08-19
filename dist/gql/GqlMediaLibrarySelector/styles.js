@@ -27,6 +27,8 @@ export var useImageSelectorStyles = makeStyles(function (theme) { return ({
         alignItems: "center",
         backgroundColor: theme.design.colors.waz_white100,
         flexShrink: 0,
+        position: "relative",
+        overflow: "hidden",
     },
     imageContainer: {
         height: "100%",
@@ -188,6 +190,12 @@ export var useImageSelectorStyles = makeStyles(function (theme) { return ({
         backgroundColor: theme.design.colors.waz_greenishGrey2,
         display: "flex",
         justifyContent: "center",
+        "&.right": {
+            position: "absolute",
+            right: 10,
+            top: 10,
+            zIndex: 10,
+        },
     },
     toolIcon: {
         color: theme.design.colors.waz_white,
@@ -207,5 +215,40 @@ export var useImageSelectorStyles = makeStyles(function (theme) { return ({
     requiredStar: {
         color: theme.design.colors.error100,
         margin: theme.spacing(-0.5, 0.5, 0),
+    },
+    layout2Container: {
+        position: "absolute",
+        top: 0,
+        left: 0,
+        width: "100%",
+        height: "100%",
+        background: "rgba(0, 0, 0, 0.4)",
+        zIndex: 2,
+        display: "flex",
+        justifyContent: "center",
+        alignItems: "center",
+        "& img": {
+            display: "block",
+            width: "100%",
+            height: "auto",
+        },
+    },
+    layout2Button: {
+        fontSize: theme.typography.fontSize - 2,
+        color: "#596970",
+        background: theme.design.colors.waz_white,
+        textTransform: "none",
+        "&:hover": {
+            background: theme.design.colors.waz_white,
+        },
+    },
+    layout2TrashBtn: {
+        background: "none",
+        cursor: "pointer",
+        border: 0,
+        position: "absolute",
+        top: 10,
+        right: 10,
+        "& svg": {},
     },
 }); });
