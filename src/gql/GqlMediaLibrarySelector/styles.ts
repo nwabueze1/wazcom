@@ -257,6 +257,5 @@ export const useImageSelectorStyles = makeStyles((theme: Theme) => ({
     position: "absolute",
     top: 10,
     right: 10,
-    "& svg": {},
   },
 }));
