@@ -23,6 +23,7 @@ export type GqlMediaLibrarySelectorProps = CommonProps &
     onButtonClick?: (action: "open-modal" | "close-modal") => void;
     useServiceDomainOnUpload?: boolean;
     useCropperOnUpload?: boolean;
+    isNewLayout?: boolean;
   };
 
 export type TOrientation = "portrait" | "landscape";
