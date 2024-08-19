@@ -22,7 +22,7 @@ export const GqlMediaLibrarySelector: FC<GqlMediaLibrarySelectorProps> = ({
   onChange,
   name = "image",
   label,
-  showIcons = false,
+  showIcons = true,
   showActionsButton = false,
   value,
   helperText,
