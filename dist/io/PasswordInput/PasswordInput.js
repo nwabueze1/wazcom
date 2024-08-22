@@ -58,6 +58,8 @@ export var PasswordInput = function (_a) {
         var _a, _b;
         var target = e.target;
         setValue(target.value);
+        if (props.max && e.target.value >= props.max)
+            return;
         if (!isTouched) {
             setIsTouched(true);
         }

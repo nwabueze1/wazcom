@@ -67,6 +67,8 @@ export const TextInput: FC<TextFieldProps> = ({
   const handleChange = (e: ChangeEvent<HTMLInputElement>) => {
     if ((type === "number" || noNegativeValue) && isNaN(e.target.value as any)) return;  
 
+    if (props.max && e.target.value >= props.max) return;
+
     if (noNegativeValue) {
       const inputValue = (e.target as HTMLInputElement).value;
       if (type === "number" && parseFloat(inputValue) < 0) {

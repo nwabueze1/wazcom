@@ -80,6 +80,8 @@ export var TextInput = function (_a) {
         var _a, _b, _c;
         if ((type === "number" || noNegativeValue) && isNaN(e.target.value))
             return;
+        if (props.max && e.target.value >= props.max)
+            return;
         if (noNegativeValue) {
             var inputValue = e.target.value;
             if (type === "number" && parseFloat(inputValue) < 0) {
