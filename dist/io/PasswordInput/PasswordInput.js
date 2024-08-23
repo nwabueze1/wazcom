@@ -58,7 +58,7 @@ export var PasswordInput = function (_a) {
         var _a, _b;
         var target = e.target;
         setValue(target.value);
-        if (maxLength && Number(e.target.value) >= maxLength)
+        if (maxLength && Number(e.target.value.length) >= maxLength)
             return;
         if (!isTouched) {
             setIsTouched(true);

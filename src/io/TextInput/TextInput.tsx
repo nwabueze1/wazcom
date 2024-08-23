@@ -68,7 +68,7 @@ export const TextInput: FC<TextFieldProps> = ({
   const handleChange = (e: ChangeEvent<HTMLInputElement>) => {
     if ((type === "number" || noNegativeValue) && isNaN(e.target.value as any)) return;  
 
-    if (maxLength && Number(e.target.value) >= maxLength) return;
+    if (maxLength && Number(e.target.value.length) >= maxLength) return;
 
     if (noNegativeValue) {
       const inputValue = (e.target as HTMLInputElement).value;

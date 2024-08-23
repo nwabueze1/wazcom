@@ -42,7 +42,7 @@ export const PasswordInput: FC<TextFieldProps & { config?: Partial<ConfigProps> 
     const target = e.target as HTMLInputElement;
     setValue(target.value);
 
-    if (maxLength && Number(e.target.value) >= maxLength) return;
+    if (maxLength && Number(e.target.value.length) >= maxLength) return;
 
     if (!isTouched) {
       setIsTouched(true);

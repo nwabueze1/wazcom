@@ -80,7 +80,7 @@ export var TextInput = function (_a) {
         var _a, _b, _c;
         if ((type === "number" || noNegativeValue) && isNaN(e.target.value))
             return;
-        if (maxLength && Number(e.target.value) >= maxLength)
+        if (maxLength && Number(e.target.value.length) >= maxLength)
             return;
         if (noNegativeValue) {
             var inputValue = e.target.value;
