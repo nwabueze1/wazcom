@@ -44,7 +44,7 @@ import { usePasswordInputStyles, useTextInputIconStyles } from "./styles";
 import { BsEye, BsEyeSlash } from "react-icons/bs";
 import { initialConfig, PasswordValidation } from "./helper";
 export var PasswordInput = function (_a) {
-    var className = _a.className, label = _a.label, errors = _a.errors, isError = _a.isError, isSuccess = _a.isSuccess, helperText = _a.helperText, _b = _a.hideLabel, hideLabel = _b === void 0 ? false : _b, name = _a.name, onChange = _a.onChange, onFocus = _a.onFocus, onEnter = _a.onEnter, onBlur = _a.onBlur, _c = _a.required, required = _c === void 0 ? false : _c, classNames = _a.classNames, _d = _a.config, config = _d === void 0 ? initialConfig : _d, max = _a.max, props = __rest(_a, ["className", "label", "errors", "isError", "isSuccess", "helperText", "hideLabel", "name", "onChange", "onFocus", "onEnter", "onBlur", "required", "classNames", "config", "max"]);
+    var className = _a.className, label = _a.label, errors = _a.errors, isError = _a.isError, isSuccess = _a.isSuccess, helperText = _a.helperText, _b = _a.hideLabel, hideLabel = _b === void 0 ? false : _b, name = _a.name, onChange = _a.onChange, onFocus = _a.onFocus, onEnter = _a.onEnter, onBlur = _a.onBlur, _c = _a.required, required = _c === void 0 ? false : _c, classNames = _a.classNames, _d = _a.config, config = _d === void 0 ? initialConfig : _d, maxLength = _a.maxLength, props = __rest(_a, ["className", "label", "errors", "isError", "isSuccess", "helperText", "hideLabel", "name", "onChange", "onFocus", "onEnter", "onBlur", "required", "classNames", "config", "maxLength"]);
     var _e = __read(useState(""), 2), value = _e[0], setValue = _e[1];
     var _f = __read(useState(false), 2), isFocused = _f[0], setIsFocused = _f[1];
     var _g = __read(useState(false), 2), isTouched = _g[0], setIsTouched = _g[1];
@@ -58,7 +58,7 @@ export var PasswordInput = function (_a) {
         var _a, _b;
         var target = e.target;
         setValue(target.value);
-        if (max && e.target.value >= max)
+        if (maxLength && Number(e.target.value) >= maxLength)
             return;
         if (!isTouched) {
             setIsTouched(true);

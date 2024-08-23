@@ -22,7 +22,7 @@ export const PasswordInput: FC<TextFieldProps & { config?: Partial<ConfigProps> 
   required = false,
   classNames,
   config = initialConfig,
-  max,
+  maxLength,
   ...props
 }) => {
   const [value, setValue] = useState("");
@@ -42,7 +42,7 @@ export const PasswordInput: FC<TextFieldProps & { config?: Partial<ConfigProps> 
     const target = e.target as HTMLInputElement;
     setValue(target.value);
 
-    if (max && e.target.value >= max) return;
+    if (maxLength && Number(e.target.value) >= maxLength) return;
 
     if (!isTouched) {
       setIsTouched(true);

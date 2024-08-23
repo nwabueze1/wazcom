@@ -49,7 +49,7 @@ export const TextInput: FC<TextFieldProps> = ({
   classNames,
   placeholder,
   inputRef,
-  max,
+  maxLength,
   ...props
 }: TextFieldProps) => {
   const [isFocused, setIsFocused] = React.useState<boolean>(false);
@@ -68,7 +68,7 @@ export const TextInput: FC<TextFieldProps> = ({
   const handleChange = (e: ChangeEvent<HTMLInputElement>) => {
     if ((type === "number" || noNegativeValue) && isNaN(e.target.value as any)) return;  
 
-    if (max && e.target.value >= max) return;
+    if (maxLength && Number(e.target.value) >= maxLength) return;
 
     if (noNegativeValue) {
       const inputValue = (e.target as HTMLInputElement).value;
