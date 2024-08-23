@@ -63,7 +63,7 @@ import { useInputWithSlideUpLabelStyles } from "./useInputWithSlideUpLabelStyles
  * -- info
  */
 export var TextInput = function (_a) {
-    var className = _a.className, label = _a.label, errors = _a.errors, isError = _a.isError, isSuccess = _a.isSuccess, helperText = _a.helperText, _b = _a.hideLabel, hideLabel = _b === void 0 ? false : _b, name = _a.name, onChange = _a.onChange, onFocus = _a.onFocus, onEnter = _a.onEnter, onBlur = _a.onBlur, _c = _a.required, required = _c === void 0 ? false : _c, _d = _a.hasSlideUpLabel, hasSlideUpLabel = _d === void 0 ? false : _d, _e = _a.noNegativeValue, noNegativeValue = _e === void 0 ? false : _e, showCC = _a.showCC, _f = _a.type, type = _f === void 0 ? "text" : _f, leftIcon = _a.leftIcon, rightIcon = _a.rightIcon, iconSpacing = _a.iconSpacing, width = _a.width, height = _a.height, color = _a.color, background = _a.background, borderWidth = _a.borderWidth, borderColor = _a.borderColor, borderStyle = _a.borderStyle, borderRadius = _a.borderRadius, classNames = _a.classNames, placeholder = _a.placeholder, inputRef = _a.inputRef, props = __rest(_a, ["className", "label", "errors", "isError", "isSuccess", "helperText", "hideLabel", "name", "onChange", "onFocus", "onEnter", "onBlur", "required", "hasSlideUpLabel", "noNegativeValue", "showCC", "type", "leftIcon", "rightIcon", "iconSpacing", "width", "height", "color", "background", "borderWidth", "borderColor", "borderStyle", "borderRadius", "classNames", "placeholder", "inputRef"]);
+    var className = _a.className, label = _a.label, errors = _a.errors, isError = _a.isError, isSuccess = _a.isSuccess, helperText = _a.helperText, _b = _a.hideLabel, hideLabel = _b === void 0 ? false : _b, name = _a.name, onChange = _a.onChange, onFocus = _a.onFocus, onEnter = _a.onEnter, onBlur = _a.onBlur, _c = _a.required, required = _c === void 0 ? false : _c, _d = _a.hasSlideUpLabel, hasSlideUpLabel = _d === void 0 ? false : _d, _e = _a.noNegativeValue, noNegativeValue = _e === void 0 ? false : _e, showCC = _a.showCC, _f = _a.type, type = _f === void 0 ? "text" : _f, leftIcon = _a.leftIcon, rightIcon = _a.rightIcon, iconSpacing = _a.iconSpacing, width = _a.width, height = _a.height, color = _a.color, background = _a.background, borderWidth = _a.borderWidth, borderColor = _a.borderColor, borderStyle = _a.borderStyle, borderRadius = _a.borderRadius, classNames = _a.classNames, placeholder = _a.placeholder, inputRef = _a.inputRef, maxLength = _a.maxLength, props = __rest(_a, ["className", "label", "errors", "isError", "isSuccess", "helperText", "hideLabel", "name", "onChange", "onFocus", "onEnter", "onBlur", "required", "hasSlideUpLabel", "noNegativeValue", "showCC", "type", "leftIcon", "rightIcon", "iconSpacing", "width", "height", "color", "background", "borderWidth", "borderColor", "borderStyle", "borderRadius", "classNames", "placeholder", "inputRef", "maxLength"]);
     var _g = __read(React.useState(false), 2), isFocused = _g[0], setIsFocused = _g[1];
     var classes = useTextStyles({
         width: width,
@@ -79,6 +79,8 @@ export var TextInput = function (_a) {
     var handleChange = function (e) {
         var _a, _b, _c;
         if ((type === "number" || noNegativeValue) && isNaN(e.target.value))
+            return;
+        if (maxLength && Number(e.target.value.length) >= maxLength)
             return;
         if (noNegativeValue) {
             var inputValue = e.target.value;
