@@ -91,6 +91,7 @@ export var GqlMediaLibrarySelector = function (_a) {
     };
     var handleEditImage = function () {
         setCropImage(undefined);
+        (props === null || props === void 0 ? void 0 : props.onButtonClick) && handleOpen("library");
         handleOpen("cropper");
     };
     var handleRemoveImage = function () {
