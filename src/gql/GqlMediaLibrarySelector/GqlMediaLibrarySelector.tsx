@@ -77,6 +77,7 @@ export const GqlMediaLibrarySelector: FC<GqlMediaLibrarySelectorProps> = ({
 
   const handleEditImage = () => {
     setCropImage(undefined);
+    props?.onButtonClick && handleOpen("library");
     handleOpen("cropper");
   };
 
