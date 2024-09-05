@@ -334,6 +334,10 @@ export const GqlMediaLibrary: FC<GqlMediaLibraryProps> = ({
   };
 
   const handleMediaAction = (type: string, media?: Image | File | Array<Image | File>) => {
+    if (type === "" || null) {
+      setActiveMedia({ ...activeMedia, type: "" });
+      return;
+    }
     if (type === "add" || type === "edit") {
       const { listInnerRef } = refs;
       if (listInnerRef.current) listInnerRef.current.scrollTop = 0;
@@ -609,9 +613,7 @@ export const GqlMediaLibrary: FC<GqlMediaLibraryProps> = ({
           display={activeMedia.type === "delete"}
           loading={loading.mutate}
           media={activeMedia.media as Image}
-          handleClose={() => {
-            handleMediaAction("", undefined);
-          }}
+          handleClose={() => handleMediaAction("", undefined)}
           handleDelete={handleMediaDelete}
         />
       </>

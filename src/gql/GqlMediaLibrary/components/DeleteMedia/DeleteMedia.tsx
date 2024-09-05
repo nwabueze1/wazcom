@@ -22,7 +22,6 @@ export const DeleteMedia: React.FC<DeleteMediaProps> = ({
             }}
             closeAfterTransition
             onClose={handleClose}
-            onBackdropClick={(e) => e.stopPropagation()}
             className={classes.modal}
             BackdropComponent={Backdrop}
             aria-labelledby="transition-modal-title"

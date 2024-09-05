@@ -341,6 +341,10 @@ export var GqlMediaLibrary = function (_a) {
         setActiveTab({ selectorTab: 0 });
     };
     var handleMediaAction = function (type, media) {
+        if (type === "" || null) {
+            setActiveMedia(__assign(__assign({}, activeMedia), { type: "" }));
+            return;
+        }
         if (type === "add" || type === "edit") {
             var listInnerRef = refs.listInnerRef;
             if (listInnerRef.current)
@@ -487,9 +491,7 @@ export var GqlMediaLibrary = function (_a) {
                                                     name: name !== null && name !== void 0 ? name : "",
                                                     value: image,
                                                 });
-                                            }, handleMediaAction, isSelector, activeLayout)] }))] }), displayedImages.length > 0 && loading.media && activeMedia.index && (_jsx("div", { className: classes.loaderParent, children: _jsx(Loader, { className: classes.loader }) }))] }), _jsx(DeleteMedia, { display: activeMedia.type === "delete", loading: loading.mutate, media: activeMedia.media, handleClose: function () {
-                        handleMediaAction("", undefined);
-                    }, handleDelete: handleMediaDelete })] }) })); };
+                                            }, handleMediaAction, isSelector, activeLayout)] }))] }), displayedImages.length > 0 && loading.media && activeMedia.index && (_jsx("div", { className: classes.loaderParent, children: _jsx(Loader, { className: classes.loader }) }))] }), _jsx(DeleteMedia, { display: activeMedia.type === "delete", loading: loading.mutate, media: activeMedia.media, handleClose: function () { return handleMediaAction("", undefined); }, handleDelete: handleMediaDelete })] }) })); };
     var displayMediaLibrary = function () { return (_jsxs("div", { className: clx(classes.container, className), children: [_jsx("div", { className: clx(classes.actions, isSelector && classes.viewOnlyActions), children: isSelector ? (_jsxs(_Fragment, { children: [_jsx("div", { className: classes.tabs, children: displaySelectorTabs() }), _jsx("div", { className: classes.iconContainer, children: _jsx(FaTimes, { className: classes.timesIcon, onClick: function () {
                                     handleClose === null || handleClose === void 0 ? void 0 : handleClose();
                                 } }) })] })) : (_jsx("div", { className: clx(classes.actionsContainer), children: !isSelector && (_jsxs("div", { className: clx(classes.selectorContainer, activeTab.mediaTab == 2 && "instagram"), children: [activeTab.mediaTab !== 2 && activeTab.mediaTab !== 0 && (_jsx("div", { className: classes.searchContainer, children: _jsx(TextInput, { name: "search", type: "text", placeholder: "Search images here", value: search, onChange: handleSearchChange, className: classes.search, classNames: { textInput: classes.textInput } }) })), _jsx("div", { className: clx(classes.layouts, activeTab.mediaTab === 2 && "instagram"), children: displayLayoutData() })] })) })) }), renderPage()] })); };
