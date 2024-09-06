@@ -45,7 +45,24 @@ var __generator = (this && this.__generator) || function (thisArg, body) {
         if (op[0] & 5) throw op[1]; return { value: op[0] ? op[1] : void 0, done: true };
     }
 };
+var __read = (this && this.__read) || function (o, n) {
+    var m = typeof Symbol === "function" && o[Symbol.iterator];
+    if (!m) return o;
+    var i = m.call(o), r, ar = [], e;
+    try {
+        while ((n === void 0 || n-- > 0) && !(r = i.next()).done) ar.push(r.value);
+    }
+    catch (error) { e = { error: error }; }
+    finally {
+        try {
+            if (r && !r.done && (m = i["return"])) m.call(i);
+        }
+        finally { if (e) throw e.error; }
+    }
+    return ar;
+};
 import { errorHandler } from "../../../helpers";
+import { useState } from "react";
 export var useGetInstagramImages = function () {
     return function (client, query, library_uuid, callback, onError) { return __awaiter(void 0, void 0, void 0, function () {
         var data, images, response, error_1;
@@ -77,27 +94,37 @@ export var useGetInstagramImages = function () {
     }); };
 };
 export var useGetLibraryImages = function () {
+    var _a = __read(useState(null), 2), paginationInfo = _a[0], setPaginationInfo = _a[1];
     return function (client, query, variables, callback, onError) { return __awaiter(void 0, void 0, void 0, function () {
         var data, error_2;
-        return __generator(this, function (_a) {
-            switch (_a.label) {
+        var _a;
+        return __generator(this, function (_b) {
+            switch (_b.label) {
                 case 0:
-                    _a.trys.push([0, 2, , 3]);
+                    if (paginationInfo && (paginationInfo === null || paginationInfo === void 0 ? void 0 : paginationInfo.currentPage) >= (paginationInfo === null || paginationInfo === void 0 ? void 0 : paginationInfo.lastPage)) {
+                        return [2 /*return*/];
+                    }
+                    _b.label = 1;
+                case 1:
+                    _b.trys.push([1, 3, , 4]);
                     return [4 /*yield*/, client.query({
                             query: query,
                             variables: variables,
                             fetchPolicy: "network-only"
                         })];
-                case 1:
-                    data = (_a.sent()).data;
-                    (data === null || data === void 0 ? void 0 : data.getImagesByLibraryUuid) && (callback === null || callback === void 0 ? void 0 : callback(data === null || data === void 0 ? void 0 : data.getImagesByLibraryUuid));
-                    return [3 /*break*/, 3];
                 case 2:
-                    error_2 = _a.sent();
+                    data = (_b.sent()).data;
+                    (data === null || data === void 0 ? void 0 : data.getImagesByLibraryUuid) && (callback === null || callback === void 0 ? void 0 : callback(data === null || data === void 0 ? void 0 : data.getImagesByLibraryUuid));
+                    if (data === null || data === void 0 ? void 0 : data.getImagesByLibraryUuid) {
+                        setPaginationInfo((_a = data === null || data === void 0 ? void 0 : data.getImagesByLibraryUuid) === null || _a === void 0 ? void 0 : _a.paginatorInfo);
+                    }
+                    return [3 /*break*/, 4];
+                case 3:
+                    error_2 = _b.sent();
                     errorHandler(error_2);
                     onError === null || onError === void 0 ? void 0 : onError();
-                    return [3 /*break*/, 3];
-                case 3: return [2 /*return*/];
+                    return [3 /*break*/, 4];
+                case 4: return [2 /*return*/];
             }
         });
     }); };
