@@ -1,6 +1,7 @@
 import { errorHandler } from "../../../helpers";
 import { ApolloClient, ApolloError, DocumentNode, NormalizedCacheObject } from "@apollo/client";
 import { Image } from "../../GqlMediaLibrary";
+import { useState } from "react";
 
 export const useGetInstagramImages = () => {
   return async (
@@ -44,6 +45,7 @@ export type TImageResponse = {
 };
 
 export const useGetLibraryImages = () => {
+  const [paginationInfo, setPaginationInfo] = useState<any>(null);
   return async (
     client: ApolloClient<NormalizedCacheObject>,
     query: DocumentNode,
@@ -51,6 +53,9 @@ export const useGetLibraryImages = () => {
     callback?: (response: TImageResponse) => void,
     onError?: () => void,
   ) => {
+    if (paginationInfo && paginationInfo?.currentPage >= paginationInfo?.lastPage) {
+      return;
+    }
     try {
       const { data } = await client.query({
         query,
@@ -59,6 +64,9 @@ export const useGetLibraryImages = () => {
       });
 
       data?.getImagesByLibraryUuid && callback?.(data?.getImagesByLibraryUuid);
+      if (data?.getImagesByLibraryUuid) {
+        setPaginationInfo(data?.getImagesByLibraryUuid?.paginatorInfo);
+      }
     } catch (error) {
       errorHandler(error as ApolloError);
       onError?.();
