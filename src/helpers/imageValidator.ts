@@ -11,7 +11,8 @@ export const validateImg = (file: File, fileSize?: number) => {
   }
 
   if (size > (fileSize ?? 7000000)) {
-    notify("error", "Image cannot be larger than 2MB. Please try again");
+    const sizeInMB = size / (1024 * 1024);
+    notify("error", `Image cannot be larger than ${sizeInMB.toFixed(2)}MB. Please try again`);
     return false;
   }
 
