@@ -52,8 +52,6 @@ export const PaymentUI: FC<PaymentProviderProps> = ({
     return sitePaymentMethodList?.filter(({ is_active }: { is_active: boolean }) => is_active);
   }, [sitePaymentMethodList]);
 
-  console.log(restaurant);
-
   const {
     data: sitePaymentMethodListData,
     error: sitePaymentMethodError,

@@ -114,7 +114,6 @@ export var PaymentUI = function (_a) {
             return is_active;
         });
     }, [sitePaymentMethodList]);
-    console.log(restaurant);
     var _r = useQuery(GET_PAYMENT_TYPE_BY_SITE, {
         client: plutusClient,
         variables: {

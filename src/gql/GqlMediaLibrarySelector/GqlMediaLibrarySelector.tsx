@@ -3,6 +3,7 @@ import { Button } from "../../core";
 import clx from "classnames";
 import { FC, useState } from "react";
 import { GqlMediaLibrary } from "../GqlMediaLibrary/GqlMediaLibrary";
+import { GqlMediaLibraryProps } from "../GqlMediaLibrary/types";
 import { getSizeVariants } from "../../helpers/size";
 import { useImageSelectorStyles } from "./styles";
 import { GqlMediaLibrarySelectorProps } from "./types";
@@ -11,7 +12,10 @@ import { FaPlus } from "react-icons/fa";
 import { createImageSrcset, imageSizes } from "../../io/WysiwygInput/Editor/helpers";
 import { useDownloadImage } from "./hooks/download";
 
-export const GqlMediaLibrarySelector: FC<GqlMediaLibrarySelectorProps> = ({
+export const GqlMediaLibrarySelector: FC<
+  GqlMediaLibrarySelectorProps &
+    Partial<Pick<GqlMediaLibraryProps, "maxUploadImageSizeInMegabytes" | "checkUrlFormatOnUpload">>
+> = ({
   variant = "square",
   size = "full",
   iconType,
@@ -241,6 +245,8 @@ export const GqlMediaLibrarySelector: FC<GqlMediaLibrarySelectorProps> = ({
               onSelect={handleSelectImage}
               useServiceDomainOnUpload={useServiceDomainOnUpload}
               useCropperOnUpload={useCropperOnUpload}
+              maxUploadImageSizeInMegabytes={props.maxUploadImageSizeInMegabytes}
+              checkUrlFormatOnUpload={props.checkUrlFormatOnUpload}
             />
             {tabs.cropper && (
               <GqlImageCropper
