@@ -8,6 +8,8 @@ export type GqlMediaLibraryProps = CommonProps & GqlMediaSelectorConfigProps & {
     onSelect: CommonProps["onChange"];
     useCropperOnUpload?: boolean;
     useServiceDomainOnUpload?: boolean;
+    maxUploadImageSizeInMegabytes?: number;
+    checkUrlFormatOnUpload?: boolean;
 };
 export type GqlMediaSelectorConfigProps = {
     config: {

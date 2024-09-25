@@ -48,6 +48,8 @@ export const GqlMediaLibrary: FC<GqlMediaLibraryProps> = ({
   onSelect,
   useCropperOnUpload = false,
   useServiceDomainOnUpload = false,
+  maxUploadImageSizeInMegabytes = 4.8, // approximately 5 mb that was the limit before
+  checkUrlFormatOnUpload = false,
 }) => {
   const { client, upload, update, remove, query, unsplash, instagram, pexels } = config;
   const refs = { fileRef: useRef<any>(), listInnerRef: useRef<any>() };
@@ -103,7 +105,7 @@ export const GqlMediaLibrary: FC<GqlMediaLibraryProps> = ({
   const getInstagramImages = useGetInstagramImages();
   const integrateInstagram = useIntegrateInstagramAccount();
   let imageSignal: string;
-
+  const maxUploadImageSizeInBytes = maxUploadImageSizeInMegabytes * 1024 * 1024;
   useEffect(() => {
     const instagramCode = getCodeFromUrl();
     if (instagramCode) {
@@ -328,7 +330,7 @@ export const GqlMediaLibrary: FC<GqlMediaLibraryProps> = ({
   const handleFileChange = (event: React.ChangeEvent<any>) => {
     if (!event.target.files || event.target.files === 0) return;
     const file = event.target.files[0];
-    if (!validateImg(file, 5000000)) return;
+    if (!validateImg(file, maxUploadImageSizeInBytes)) return;
     handleMediaAction("add", file);
     setActiveTab({ selectorTab: 0 });
   };
@@ -377,14 +379,20 @@ export const GqlMediaLibrary: FC<GqlMediaLibraryProps> = ({
 
   const handleMediaAdd = useCallback(
     async (variables: ImageUpdate) => {
-      if (!validateImg(activeMedia.media as File, 5000000)) return;
+      if (!validateImg(activeMedia.media as File, maxUploadImageSizeInBytes)) return;
       await handleMediaUpload(
         client,
         upload?.name,
         { ...variables, image: activeMedia.media as File, library_uuid },
         setLoading,
         (image: Image) => {
-          updateMediaLibrary(image, "add");
+          // added this so that it uses the default behavior of the image
+          updateMediaLibrary(
+            checkUrlFormatOnUpload
+              ? { ...image, url: image.url.replace(/^(?!https?:\/\/)/, "https://") } // checks if the url has http or https and if not add https
+              : image,
+            "add",
+          );
           notify("success", "Image added successfully");
         },
       );

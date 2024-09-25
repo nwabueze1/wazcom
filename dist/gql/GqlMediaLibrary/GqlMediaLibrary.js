@@ -90,7 +90,9 @@ import { validateImg } from "../../helpers/imageValidator";
 import { notify, getCodeFromUrl } from "../../helpers";
 import { GqlImageCropper } from "../GqlImageCropper";
 export var GqlMediaLibrary = function (_a) {
-    var className = _a.className, config = _a.config, onChange = _a.onChange, _b = _a.name, name = _b === void 0 ? "image" : _b, handleClose = _a.handleClose, _c = _a.isSelector, isSelector = _c === void 0 ? false : _c, showAddMedia = _a.showAddMedia, header = _a.header, library_uuid = _a.library_uuid, _d = _a.imageServiceDomain, imageServiceDomain = _d === void 0 ? "img.wazobia.tech" : _d, onSelect = _a.onSelect, _e = _a.useCropperOnUpload, useCropperOnUpload = _e === void 0 ? false : _e, _f = _a.useServiceDomainOnUpload, useServiceDomainOnUpload = _f === void 0 ? false : _f;
+    var className = _a.className, config = _a.config, onChange = _a.onChange, _b = _a.name, name = _b === void 0 ? "image" : _b, handleClose = _a.handleClose, _c = _a.isSelector, isSelector = _c === void 0 ? false : _c, showAddMedia = _a.showAddMedia, header = _a.header, library_uuid = _a.library_uuid, _d = _a.imageServiceDomain, imageServiceDomain = _d === void 0 ? "img.wazobia.tech" : _d, onSelect = _a.onSelect, _e = _a.useCropperOnUpload, useCropperOnUpload = _e === void 0 ? false : _e, _f = _a.useServiceDomainOnUpload, useServiceDomainOnUpload = _f === void 0 ? false : _f, _g = _a.maxUploadImageSizeInMegabytes, maxUploadImageSizeInMegabytes = _g === void 0 ? 4.8 : _g, // approximately 5 mb that was the limit before
+    _h = _a.checkUrlFormatOnUpload, // approximately 5 mb that was the limit before
+    checkUrlFormatOnUpload = _h === void 0 ? false : _h;
     var client = config.client, upload = config.upload, update = config.update, remove = config.remove, query = config.query, unsplash = config.unsplash, instagram = config.instagram, pexels = config.pexels;
     var refs = { fileRef: useRef(), listInnerRef: useRef() };
     var handleFileSelect = useFileSelect();
@@ -100,30 +102,30 @@ export var GqlMediaLibrary = function (_a) {
     var handleUpdateMediaLibrary = useUpdateMediaLibrary();
     var handleEmptymediaLibrary = useDisplayEmptyMediaLibrary();
     var classes = useMediaLibraryStyles();
-    var _g = __read(useState({ currentPage: 1, lastPage: 2, pexelsPage: 0, unsplashPage: 0 }), 2), paginatorInfo = _g[0], setPaginatorInfo = _g[1];
-    var _h = __read(useState({
+    var _j = __read(useState({ currentPage: 1, lastPage: 2, pexelsPage: 0, unsplashPage: 0 }), 2), paginatorInfo = _j[0], setPaginatorInfo = _j[1];
+    var _k = __read(useState({
         media: false,
         mutate: false,
-    }), 2), loading = _h[0], setLoading = _h[1];
-    var _j = __read(useState({ type: "" }), 2), activeMedia = _j[0], setActiveMedia = _j[1];
-    var _k = __read(useState(false), 2), open = _k[0], setOpen = _k[1];
-    var _l = __read(useState([]), 2), displayedImages = _l[0], setDisplayedImages = _l[1];
-    var _m = __read(useState(1), 2), activeLayout = _m[0], setActiveLayout = _m[1];
-    var _o = __read(useState({
+    }), 2), loading = _k[0], setLoading = _k[1];
+    var _l = __read(useState({ type: "" }), 2), activeMedia = _l[0], setActiveMedia = _l[1];
+    var _m = __read(useState(false), 2), open = _m[0], setOpen = _m[1];
+    var _o = __read(useState([]), 2), displayedImages = _o[0], setDisplayedImages = _o[1];
+    var _p = __read(useState(1), 2), activeLayout = _p[0], setActiveLayout = _p[1];
+    var _q = __read(useState({
         selectorTab: 0,
         mediaTab: 0,
         sort: 0,
-    }), 2), activeTab = _o[0], setActiveTab = _o[1];
-    var _p = __read(useState(), 2), libraryImages = _p[0], setLibraryImages = _p[1];
-    var _q = __read(useState(), 2), splash = _q[0], setUnsplash = _q[1];
-    var _r = __read(useState(), 2), instagramImages = _r[0], setInstagramImages = _r[1];
-    var _s = __read(useState(), 2), pexelsImages = _s[0], setPexelsImages = _s[1];
-    var _t = __read(useState(""), 2), search = _t[0], setSearch = _t[1];
-    var _u = __read(useState({
+    }), 2), activeTab = _q[0], setActiveTab = _q[1];
+    var _r = __read(useState(), 2), libraryImages = _r[0], setLibraryImages = _r[1];
+    var _s = __read(useState(), 2), splash = _s[0], setUnsplash = _s[1];
+    var _t = __read(useState(), 2), instagramImages = _t[0], setInstagramImages = _t[1];
+    var _u = __read(useState(), 2), pexelsImages = _u[0], setPexelsImages = _u[1];
+    var _v = __read(useState(""), 2), search = _v[0], setSearch = _v[1];
+    var _w = __read(useState({
         active: false,
         type: "cropper",
-    }), 2), showMediaModal = _u[0], setShowMediaModal = _u[1];
-    var _v = __read(useState([
+    }), 2), showMediaModal = _w[0], setShowMediaModal = _w[1];
+    var _x = __read(useState([
         {
             caption: "",
             name: "",
@@ -132,13 +134,14 @@ export var GqlMediaLibrary = function (_a) {
             src: "",
             file: undefined,
         },
-    ]), 2), mediaFilesDetails = _v[0], setMediaFilesDetails = _v[1];
+    ]), 2), mediaFilesDetails = _x[0], setMediaFilesDetails = _x[1];
     var getLibraryImages = useGetLibraryImages();
     var getUnsplashImages = useGetUnsplashImages();
     var getPexelsImages = useGetPexelsImages();
     var getInstagramImages = useGetInstagramImages();
     var integrateInstagram = useIntegrateInstagramAccount();
     var imageSignal;
+    var maxUploadImageSizeInBytes = maxUploadImageSizeInMegabytes * 1024 * 1024;
     useEffect(function () {
         var instagramCode = getCodeFromUrl();
         if (instagramCode) {
@@ -335,7 +338,7 @@ export var GqlMediaLibrary = function (_a) {
         if (!event.target.files || event.target.files === 0)
             return;
         var file = event.target.files[0];
-        if (!validateImg(file, 5000000))
+        if (!validateImg(file, maxUploadImageSizeInBytes))
             return;
         handleMediaAction("add", file);
         setActiveTab({ selectorTab: 0 });
@@ -383,10 +386,12 @@ export var GqlMediaLibrary = function (_a) {
         return __generator(this, function (_a) {
             switch (_a.label) {
                 case 0:
-                    if (!validateImg(activeMedia.media, 5000000))
+                    if (!validateImg(activeMedia.media, maxUploadImageSizeInBytes))
                         return [2 /*return*/];
                     return [4 /*yield*/, handleMediaUpload(client, upload === null || upload === void 0 ? void 0 : upload.name, __assign(__assign({}, variables), { image: activeMedia.media, library_uuid: library_uuid }), setLoading, function (image) {
-                            updateMediaLibrary(image, "add");
+                            // added this so that it uses the default behavior of the image
+                            updateMediaLibrary(checkUrlFormatOnUpload
+                                ? __assign(__assign({}, image), { url: image.url.replace(/^(?!https?:\/\/)/, "https://") }) : image, "add");
                             notify("success", "Image added successfully");
                         })];
                 case 1:

@@ -7,9 +7,11 @@ export type GqlMediaLibraryProps = CommonProps &
     header?: ReactNode;
     library_uuid: string;
     imageServiceDomain?: string;
-    onSelect: CommonProps["onChange"],
+    onSelect: CommonProps["onChange"];
     useCropperOnUpload?: boolean;
     useServiceDomainOnUpload?: boolean;
+    maxUploadImageSizeInMegabytes?: number;
+    checkUrlFormatOnUpload?: boolean;
   };
 
 export type GqlMediaSelectorConfigProps = {
@@ -75,4 +77,4 @@ export type MediaFilesDetails = {
   alternative_text: string;
   src: string;
   file: File | undefined;
-}
+};
