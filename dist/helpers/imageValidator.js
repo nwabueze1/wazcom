@@ -7,8 +7,10 @@ export var validateImg = function (file, fileSize) {
         notify("error", "File type not supported");
         return false;
     }
-    if (size > (fileSize !== null && fileSize !== void 0 ? fileSize : 7000000)) {
-        notify("error", "Image cannot be larger than 2MB. Please try again");
+    var maxSize = fileSize !== null && fileSize !== void 0 ? fileSize : 7000000;
+    if (size > maxSize) {
+        var sizeInMB = maxSize / (1024 * 1024);
+        notify("error", "Image cannot be larger than ".concat(sizeInMB, "MB. Please try again"));
         return false;
     }
     return true;
