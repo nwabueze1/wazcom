@@ -3,7 +3,22 @@ import { createTheme, Theme as MuiTheme } from "@mui/material/styles";
 type ExtendedThemeOptions = {
   include: { [key: string]: any };
   design: {
-    font: { [key: string]: any };
+    font: {
+      garamond: string;
+      lato: string;
+      cookie: string;
+      raleway: string;
+      dmSans: string;
+      nunitoSans: string;
+      inter: string;
+      bitter: string;
+      merriweather: string;
+      openSans: string;
+      lostaMasta: string;
+      lostaMastaLight: string;
+      montserrat: string;
+      tomatoGrotesk: string;
+    };
     colors: { [key: string]: string };
     background: { [key: string]: string };
     border: { [key: string]: string };
@@ -118,6 +133,7 @@ export const theme: any = {
       lostaMasta: "Losta Masta",
       lostaMastaLight: "Losta Masta Regular",
       montserrat: "Montserrat",
+      tomatoGrotesk: "Tomato Grotesk",
     },
     colors: {
       grey: "#333333",
@@ -225,6 +241,14 @@ export const theme: any = {
       waz_red: "#C23434",
       waz_peach: "#FAF8F7",
       shadow100: "#00000014",
+      waz_brand50: "#F4FAF6",
+      waz_brand500: "#25A55A",
+      waz_brand600: "#869DA5",
+      waz_brand700: "#DFE5EB",
+      waz_brand800: "#596970",
+      waz_brand900: "#229954",
+      waz_brand1000: "#D7EEE1",
+      waz_brand1100: "#ECEFF3",
     },
     background: {
       waz_primaryWhite: "#FFFFFF",

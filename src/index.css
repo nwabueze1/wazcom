@@ -10,6 +10,11 @@
   src: url("fonts/LostaMasta/OTF/LostaMasta-Light.otf") format("opentype");
 }
 
+@font-face {
+  font-family: "Tomato Grotesk";
+  src: url("fonts/TomatoGrotesk/TomatoGrotesk-Regular.otf") format("opentype");
+}
+
 body,
 p {
   margin: 0;

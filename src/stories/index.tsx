@@ -8,6 +8,7 @@ import {
   ImageSelector,
   Table,
   TableNew,
+  TableNewV2,
   MenuCard,
   DisplayCard,
   Notification,
@@ -160,6 +161,39 @@ export const stories: ComponentPropType[] = [
   {
     name: "TableWithPagination",
     component: TableNew,
+    props: {
+      columns: [
+        { name: "Title", key: "title", type: "string", sortKey: "title.raw" },
+        { name: "Author", key: "author.name", type: "string" },
+        { name: "Likes", key: "likes", type: "number" },
+        { name: "Category", key: "category.name", type: "string" },
+        { name: "Last Modified", key: "updated_at", type: "date" },
+      ],
+      getRows: getTableRows,
+      query: {
+        name: GET_BLOG_POSTS,
+        client: createApolloClient("https://ploutonion.sytbuilder.com/graphql"),
+        variables: { blog_uuid: "f6be313e-b96b-4d12-a0a2-9b3d9c461820" },
+        dataKey: "getPostsByBlogUuid",
+      },
+      conditionFilters: [
+        { name: "All Posts", condition: (posts: any) => posts },
+        {
+          name: "Published",
+          condition: (posts: any) => posts.filter((post: any) => post.status),
+        },
+        {
+          name: "Drafted",
+          condition: (posts: any) => posts.filter((post: any) => !post.status),
+        },
+      ],
+      EmptyState: <p>Hahaha, no content</p>,
+      showFilters: true,
+    },
+  },
+  {
+    name: "TableWithPaginationV2",
+    component: TableNewV2,
     props: {
       columns: [
         { name: "Title", key: "title", type: "string", sortKey: "title.raw" },

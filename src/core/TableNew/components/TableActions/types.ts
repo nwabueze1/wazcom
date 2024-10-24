@@ -21,4 +21,6 @@ export type TableActionsProps = {
   columns: TableColumn[];
   showSort?: boolean;
   columnSearch?: boolean;
+  data: any[];
+  fontFamily?: string;
 };
