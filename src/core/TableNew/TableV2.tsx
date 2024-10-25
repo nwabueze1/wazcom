@@ -8,10 +8,10 @@ import {
   TableNewV2Props,
 } from "./types";
 import {
-  TableActions,
+  // TableActions,
   TableColumnActions,
-  TableFilters,
-  TablePagination,
+  // TableFilters,
+  // TablePagination,
   EmptyState,
 } from "./components";
 import { useTableStyles } from "./styles";
@@ -19,17 +19,16 @@ import { Loader } from "../../core";
 import { useTableStyles as useExternalTableStyles } from "../../stories/table-styles";
 import { parseQueryVariables, initialColumnSearch } from "./helpers";
 import clx from "classnames";
-import Pagination from "@mui/material/Pagination";
-import { PaginationItem } from "@mui/material";
 import { TablePaginationV2 } from "./components/TablePagination/TablePaginationV2";
 import { TableActionsV2 } from "./components/TableActions/TableActionsV2";
+import { FilterOptionsDisplay } from "./components/TableFilters/components";
 
 export const TableNewV2: FC<TableNewV2Props> = ({
   columns,
   query: { client, name: QUERY, variables, dataKey },
   getRows,
   conditionFilters,
-  showFilters,
+  // showFilters,
   emptyState,
   showSort = true,
   hasStickyActions,
@@ -290,23 +289,32 @@ export const TableNewV2: FC<TableNewV2Props> = ({
         columns={columns}
         showSort={showSort}
         columnSearch={isColumnSearch}
-        data={table.data ?? []}
+        filters={filters}
+        setFilters={setFilters}
+        data={table.data}
       />
-      {showFilters && <TableFilters columns={columns} filters={filters} setFilters={setFilters} />}
-      {renderTable()}
-      {rows.length === 0 && <EmptyState {...emptyState} />}
-      {rows.length > 0 && (
-        <>
-          <div className={classes.tableSeparator} />
-          <TablePaginationV2
-            {...(table.pagination ?? { currentPage: 1, lastPage: 1, count: 10 })}
-            setTablePagination={(pagination: TPagination) => {
-              setTable({ ...table, pagination });
-            }}
-            classNames={classNames?.pagination}
-          />
-        </>
-      )}
+      <div style={{ background: "white" }}>
+        {filters?.length > 0 && (
+          <FilterOptionsDisplay filters={filters} columns={columns} setFilters={setFilters} />
+        )}
+        {/* {showFilters && (
+          <TableFilters columns={columns} filters={filters} setFilters={setFilters} />
+        )} */}
+        {renderTable()}
+        {rows.length === 0 && <EmptyState {...emptyState} />}
+        {rows.length > 0 && (
+          <>
+            <div className={classes.tableSeparator} />
+            <TablePaginationV2
+              {...(table.pagination ?? { currentPage: 1, lastPage: 1, count: 10 })}
+              setTablePagination={(pagination: TPagination) => {
+                setTable({ ...table, pagination });
+              }}
+              classNames={classNames?.pagination}
+            />
+          </>
+        )}
+      </div>
       {loading && <Loader className={classes.tableLoader} />}
     </div>
   );

@@ -1,6 +1,7 @@
 import { ApolloClient, NormalizedCacheObject, DocumentNode } from "@apollo/client";
 import { CommonProps } from "../../types";
-import { FC } from "react";
+import { FC, PropsWithChildren, ReactNode } from "react";
+import { TablePaginationClassNames } from "./components/TablePagination/types";
 export type TableNewProps = CommonProps & {
     columns: TableColumn[];
     conditionFilters?: TableConditionFilter[];
@@ -24,6 +25,11 @@ export type TableColumn = {
     type: "string" | "number" | "date";
     actions?: TableColumnAction[];
     sortKey?: string;
+    icon?: ReactNode;
+    filterOperators?: {
+        label?: "contains" | "equals" | "greater than" | "less than" | "greater than or equals" | "less than or equals" | "before" | "after";
+        value?: "like" | "=" | ">" | "<" | ">=" | "<=";
+    }[];
 };
 export type TableQuery = {
     name: DocumentNode;
@@ -56,4 +62,19 @@ export type TableColumnAction = {
     name: string;
     func: (data?: any) => void;
     verify?: (data?: any) => boolean;
+};
+export type TableNewV2ClassNames = {
+    table?: string;
+    thead?: string;
+    tbody?: string;
+    th?: string;
+    td?: string;
+    pagination?: TablePaginationClassNames;
+};
+export type TableNewV2Props = TableNewProps & {
+    TableBodyRowComponent?: (props: PropsWithChildren) => JSX.Element;
+    classNames?: TableNewV2ClassNames;
+    renderRow?: <T = any>(data: T, index: number, columns: TableColumn[]) => JSX.Element;
+    renderColumn?: (column: TableColumn, index: number) => JSX.Element;
+    TableHeaderRowComponent?: (props: PropsWithChildren) => JSX.Element;
 };

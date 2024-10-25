@@ -1,14 +1,14 @@
 import { FC, useRef } from "react";
 import { BiSearch } from "react-icons/bi";
 import { TableActionsProps } from "./types";
-import { TextInput, SelectInput } from "../../../../io";
+import { TextInput } from "../../../../io";
 import { useTableActionStyles } from "./styles";
-import { TableColumn, TableConditionFilter, TableFilter } from "../../types";
-import { ColumnSelector } from "../ColumnSelector";
+import { TableConditionFilter, TableFilter } from "../../types";
 import { SortSelector } from "../SortSelector";
 import { debounce } from "lodash";
 import { ColumnSearch } from "../ColumnSearch";
 import clx from "classnames";
+import { TableFiltersV2 } from "../TableFilters/TableFiltersV2";
 
 export const TableActionsV2: FC<TableActionsProps> = ({
   currentActions,
@@ -18,7 +18,8 @@ export const TableActionsV2: FC<TableActionsProps> = ({
   showSort,
   columnSearch = false,
   data,
-  fontFamily,
+  filters,
+  setFilters,
 }) => {
   const classes = useTableActionStyles();
 
@@ -31,9 +32,9 @@ export const TableActionsV2: FC<TableActionsProps> = ({
     setCurrentActions({ ...currentActions, conditionFilter: newConditionFilter });
   };
 
-  const handleColumnsChange = (columnFilters: TableColumn[]) => {
-    setCurrentActions({ ...currentActions, columnFilters });
-  };
+  // const handleColumnsChange = (columnFilters: TableColumn[]) => {
+  //   setCurrentActions({ ...currentActions, columnFilters });
+  // };
 
   const handleSearchChange = ({ value: search }: { name: string; value: string }) => {
     updateSearchValue.current(search);
@@ -97,11 +98,16 @@ export const TableActionsV2: FC<TableActionsProps> = ({
         ))}
       </div>
       {renderSearch()}
-      {showSort && <SortSelector columns={columns} handleSelectSort={handleSortChange} />}
-      <ColumnSelector
+      {showSort && <SortSelector isV2 columns={columns} handleSelectSort={handleSortChange} />}
+      {/* <ColumnSelector
         columns={columns}
         columnFilters={currentActions.columnFilters as TableColumn[]}
         handleColumnChange={handleColumnsChange}
+      /> */}
+      <TableFiltersV2
+        columns={columns}
+        filters={filters ?? []}
+        setFilters={setFilters ? setFilters : undefined}
       />
     </div>
   );

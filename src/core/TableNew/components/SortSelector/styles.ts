@@ -14,6 +14,10 @@ export const useSortSelectorStyles = makeStyles((theme: Theme) => ({
     color: theme.design.colors.waz_grey1,
     border: `1px solid ${theme.design.colors.waz_primary700}`,
   },
+  rootv2: {
+    height: "auto",
+    width: "auto",
+  },
   sortDetails: {
     display: "flex",
     justifyContent: "space-between",

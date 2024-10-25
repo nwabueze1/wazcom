@@ -7,7 +7,6 @@ export const useTableActionStyles = makeStyles((theme: Theme) => ({
     gap: theme.spacing(1.5),
     color: theme.design.colors.waz_grey1,
     marginBottom: theme.spacing(1),
-    alignItems: "center",
     fontFamily: theme.design.font.tomatoGrotesk,
   },
   searchInputElement: {
@@ -16,8 +15,11 @@ export const useTableActionStyles = makeStyles((theme: Theme) => ({
   searchInput: {
     background: `${theme.design.colors.waz_white} !important`,
     fontSize: `${theme.typography.fontSize + 1}px !important`,
-    height: "40px !important",
+    flex: 1,
     padding: 0,
+    "& input": {
+      fontFamily: theme.design.font.tomatoGrotesk,
+    },
 
     "&:hover": {
       borderColor: theme.design.colors.primary700,

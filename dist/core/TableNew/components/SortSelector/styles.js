@@ -12,6 +12,10 @@ export var useSortSelectorStyles = makeStyles(function (theme) { return ({
         color: theme.design.colors.waz_grey1,
         border: "1px solid ".concat(theme.design.colors.waz_primary700),
     },
+    rootv2: {
+        height: "auto",
+        width: "auto",
+    },
     sortDetails: {
         display: "flex",
         justifyContent: "space-between",

@@ -104,4 +104,9 @@ export const useSelectStyles = makeStyles((theme: Theme) => ({
   helperTextError: {
     color: theme.design.colors.error,
   },
+  optionSelector: {
+    display: "flex",
+    alignItems: "center",
+    gap: 8,
+  },
 }));

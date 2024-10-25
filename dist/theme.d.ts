@@ -5,7 +5,20 @@ type ExtendedThemeOptions = {
     };
     design: {
         font: {
-            [key: string]: any;
+            garamond: string;
+            lato: string;
+            cookie: string;
+            raleway: string;
+            dmSans: string;
+            nunitoSans: string;
+            inter: string;
+            bitter: string;
+            merriweather: string;
+            openSans: string;
+            lostaMasta: string;
+            lostaMastaLight: string;
+            montserrat: string;
+            tomatoGrotesk: string;
         };
         colors: {
             [key: string]: string;

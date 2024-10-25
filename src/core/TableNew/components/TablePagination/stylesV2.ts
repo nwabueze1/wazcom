@@ -5,7 +5,6 @@ export const useTablePaginationV2Styles = makeStyles((theme: Theme) => ({
   root: {
     display: "flex",
     justifyContent: "space-between",
-    alignItems: "center",
     background: theme.design.colors.waz_white,
     padding: theme.spacing(2.5),
   },

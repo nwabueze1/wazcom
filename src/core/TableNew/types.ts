@@ -1,6 +1,6 @@
 import { ApolloClient, NormalizedCacheObject, DocumentNode } from "@apollo/client";
 import { CommonProps } from "../../types";
-import { FC, PropsWithChildren } from "react";
+import { FC, PropsWithChildren, ReactNode } from "react";
 import { TablePaginationClassNames } from "./components/TablePagination/types";
 
 export type TableNewProps = CommonProps & {
@@ -22,6 +22,19 @@ export type TableColumn = {
   type: "string" | "number" | "date";
   actions?: TableColumnAction[];
   sortKey?: string;
+  icon?: ReactNode;
+  filterOperators?: {
+    label?:
+      | "contains"
+      | "equals"
+      | "greater than"
+      | "less than"
+      | "greater than or equals"
+      | "less than or equals"
+      | "before"
+      | "after";
+    value?: "like" | "=" | ">" | "<" | ">=" | "<=";
+  }[];
 };
 
 export type TableQuery = {

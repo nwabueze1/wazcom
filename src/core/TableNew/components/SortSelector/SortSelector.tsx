@@ -6,7 +6,11 @@ import { SortSelectorProps } from "./types";
 import { SortOptions } from "../SortOptions";
 import clx from "classnames";
 
-export const SortSelector: FC<SortSelectorProps> = ({ columns, handleSelectSort }) => {
+export const SortSelector: FC<SortSelectorProps> = ({
+  columns,
+  handleSelectSort,
+  isV2 = false,
+}) => {
   const classes = useSortSelectorStyles();
   const [showColumns, setShowColumns] = useState(false);
   const [activeColumnKey, setActiveColumnKey] = useState<string>();
@@ -42,7 +46,7 @@ export const SortSelector: FC<SortSelectorProps> = ({ columns, handleSelectSort 
         setActiveColumnKey(undefined);
       }}
     >
-      <div className={classes.root}>
+      <div className={clx(classes.root, isV2 && classes.rootv2)}>
         <div
           className={classes.sortDetails}
           onClick={() => {

@@ -35,5 +35,7 @@ type SelectProps = CommonProps & {
     onFocus?: FocusEventHandler;
     onBlur?: FocusEventHandler;
 };
-export type SelectInputProps = Omit<StateManagedSelect, "onChange"> & SelectProps;
+export type SelectInputProps = Omit<StateManagedSelect, "onChange"> & SelectProps & {
+    placeholder?: string;
+};
 export {};

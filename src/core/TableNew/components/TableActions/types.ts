@@ -21,6 +21,8 @@ export type TableActionsProps = {
   columns: TableColumn[];
   showSort?: boolean;
   columnSearch?: boolean;
-  data: any[];
   fontFamily?: string;
+  filters?: TableFilter[];
+  setFilters?: (filters: TableFilter[]) => void;
+  data?: any[];
 };
