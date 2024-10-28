@@ -2,7 +2,7 @@ import { makeStyles } from "@mui/styles";
 export var useFilterOptionStyles = makeStyles(function (theme) { return ({
     root: {
         display: "grid",
-        gridTemplateColumns: "3fr 1.5fr  3fr ",
+        gridTemplateColumns: "repeat(3, 1fr)",
         gap: 12,
         flex: 1,
         "& *": {
@@ -10,7 +10,7 @@ export var useFilterOptionStyles = makeStyles(function (theme) { return ({
         },
     },
     rootSelectInput: {
-        gridTemplateColumns: "1fr 1fr 1fr",
+        gridTemplateColumns: "repeat(3, 1fr)",
     },
     control: {
         height: 46,
@@ -31,7 +31,8 @@ export var useFilterOptionStyles = makeStyles(function (theme) { return ({
         },
     },
     textInput: {
-        height: 23.5,
+        height: "auto",
+        flex: 1,
         width: "auto",
         borderRadius: 8,
         background: "#FFF !important",

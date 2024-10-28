@@ -1,13 +1,13 @@
 import { TableColumn, TableFilter } from "../../types";
 
-export type TableFiltersClassNames = {
+export type TableFiltersClassNames = Partial<{
   container?: string;
   title?: string;
   filter?: string;
   button: string;
   textInput: string;
   select: string;
-};
+}>;
 
 export type TableFiltersProps = {
   columns: TableColumn[];

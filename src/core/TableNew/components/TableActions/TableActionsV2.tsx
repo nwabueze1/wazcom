@@ -99,7 +99,9 @@ export const TableActionsV2: FC<TableActionsProps> = ({
         ))}
       </div>
       {renderSearch()}
-      {showSort && <SortSelector isV2 columns={columns} handleSelectSort={handleSortChange} />}
+      {showSort && (
+        <SortSelector isV2={true} columns={columns} handleSelectSort={handleSortChange} />
+      )}
       {/* <ColumnSelector
         columns={columns}
         columnFilters={currentActions.columnFilters as TableColumn[]}

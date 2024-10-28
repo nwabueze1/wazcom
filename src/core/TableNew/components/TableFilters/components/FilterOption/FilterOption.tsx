@@ -63,52 +63,49 @@ export const FilterOption: FC<FilterOptionProps> = ({
             onBlur={() => handleBlur({ name: "column" })}
           />
         </div>
-        <div>
-          {!value?.column ? (
-            <TextInput
-              value={value?.operator}
-              placeholder="Select operator"
-              disabled
-              classNames={{
-                input: clx(classes.textInput, classNames?.textInput),
-              }}
-              onBlur={() => handleBlur({ name: "value" })}
-            />
-          ) : (
-            <SelectInput
-              value={value?.operator}
-              options={(operators ?? [])?.map((operator) => ({
-                label: operator?.label ?? "",
-                value: operator?.value ?? "",
-              }))}
-              name="operator"
-              onChange={handleChange}
-              classNames={{
-                control: clx(classes.control, classNames?.select),
-                option: classes.option,
-              }}
-              onBlur={() => handleBlur({ name: "operator" })}
-              isError={getIsError("operator")}
-              helperText={getIsError("operator") ? "Please select an operator" : ""}
-            />
-          )}
-        </div>
-        <div>
+        {!value?.column ? (
           <TextInput
-            placeholder="Type your filter value..."
+            value={value?.operator}
+            placeholder="Select operator"
+            disabled
             classNames={{
               input: clx(classes.textInput, classNames?.textInput),
             }}
-            name="value"
-            value={value?.value}
-            onChange={handleChange}
             onBlur={() => handleBlur({ name: "value" })}
-            isError={getIsError("value")}
-            helperText={getIsError("value") ? "Please enter a filter value" : ""}
           />
-        </div>
+        ) : (
+          <SelectInput
+            value={value?.operator}
+            options={(operators ?? [])?.map((operator) => ({
+              label: operator?.label ?? "",
+              value: operator?.value ?? "",
+            }))}
+            name="operator"
+            onChange={handleChange}
+            classNames={{
+              control: clx(classes.control, classNames?.select),
+              option: classes.option,
+            }}
+            onBlur={() => handleBlur({ name: "operator" })}
+            isError={getIsError("operator")}
+            helperText={getIsError("operator") ? "Please select an operator" : ""}
+          />
+        )}
+        <TextInput
+          placeholder="Type your filter value..."
+          classNames={{
+            input: clx(classes.textInput, classNames?.textInput),
+          }}
+          name="value"
+          value={value?.value}
+          onChange={handleChange}
+          onBlur={() => handleBlur({ name: "value" })}
+          isError={getIsError("value")}
+          helperText={getIsError("value") ? "Please enter a filter value" : ""}
+        />
       </div>
       <button
+        title="delete"
         className={classes.trashButton}
         onClick={onDelete}
         disabled={!value?.column || !value?.operator || !value?.value}

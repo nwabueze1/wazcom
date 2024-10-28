@@ -4,7 +4,7 @@ import { makeStyles } from "@mui/styles";
 export const useFilterOptionStyles = makeStyles((theme: Theme) => ({
   root: {
     display: "grid",
-    gridTemplateColumns: "3fr 1.5fr  3fr ",
+    gridTemplateColumns: "repeat(3, 1fr)",
     gap: 12,
     flex: 1,
     "& *": {
@@ -12,7 +12,7 @@ export const useFilterOptionStyles = makeStyles((theme: Theme) => ({
     },
   },
   rootSelectInput: {
-    gridTemplateColumns: "1fr 1fr 1fr",
+    gridTemplateColumns: "repeat(3, 1fr)",
   },
   control: {
     height: 46,
@@ -33,7 +33,8 @@ export const useFilterOptionStyles = makeStyles((theme: Theme) => ({
     },
   },
   textInput: {
-    height: 23.5,
+    height: "auto",
+    flex: 1,
     width: "auto",
     borderRadius: 8,
     background: "#FFF !important",

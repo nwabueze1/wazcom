@@ -25,12 +25,18 @@ export const useSortSelectorStyles = makeStyles((theme: Theme) => ({
     padding: theme.spacing(0, 1.5, 0, 2),
     cursor: "pointer",
     width: "100%",
+    "&.v2": {
+      gap: 10,
+    },
   },
   sortText: {
     fontSize: theme.typography.fontSize,
   },
   sortIcon: {
     fontSize: theme.typography.fontSize + 12,
+  },
+  sortIconV2: {
+    fontSize: theme.typography.fontSize + 2,
   },
   sortColumns: {
     position: "absolute",

@@ -81,13 +81,13 @@ export type TableNewV2ClassNames = {
   th?: string;
   td?: string;
   pagination?: TablePaginationClassNames;
-  filterOptions?: TableFiltersClassNames;
+  filterOptions?: Partial<TableFiltersClassNames>;
 };
 
 export type TableNewV2Props = TableNewProps & {
   TableBodyRowComponent?: (props: PropsWithChildren) => JSX.Element;
   classNames?: TableNewV2ClassNames;
-  renderRow?: <T = any>(data: T, index: number, columns: TableColumn[]) => JSX.Element;
+  renderRow?: (data: any, index: number, columns: TableColumn[]) => JSX.Element;
   renderColumn?: (column: TableColumn, index: number) => JSX.Element;
   TableHeaderRowComponent?: (props: PropsWithChildren) => JSX.Element;
 };

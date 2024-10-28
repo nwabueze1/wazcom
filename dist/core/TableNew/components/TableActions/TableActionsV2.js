@@ -52,5 +52,5 @@ export var TableActionsV2 = function (_a) {
                             _a)), onClick: function () { return handleConditionChange({ name: filter.name, value: filter.name }); }, children: [filter.name, filter.condition && (_jsx("span", { className: clx(classes.conditionFilterCount, (_b = {},
                                     _b[classes.conditionFilterCountActive] = currentActions.conditionFilter.name === filter.name,
                                     _b)), children: filter.condition(data).length }))] }, index));
-                }) }), renderSearch(), showSort && _jsx(SortSelector, { isV2: true, columns: columns, handleSelectSort: handleSortChange }), _jsx(TableFiltersV2, { columns: columns, filters: filters !== null && filters !== void 0 ? filters : [], setFilters: setFilters ? setFilters : undefined, classNames: classNames === null || classNames === void 0 ? void 0 : classNames.filterOptions })] }));
+                }) }), renderSearch(), showSort && (_jsx(SortSelector, { isV2: true, columns: columns, handleSelectSort: handleSortChange })), _jsx(TableFiltersV2, { columns: columns, filters: filters !== null && filters !== void 0 ? filters : [], setFilters: setFilters ? setFilters : undefined, classNames: classNames === null || classNames === void 0 ? void 0 : classNames.filterOptions })] }));
 };

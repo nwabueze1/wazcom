@@ -20,6 +20,7 @@ import { useSortSelectorStyles } from "./styles";
 import { ClickAwayListener } from "@mui/base";
 import { CgSortAz } from "react-icons/cg";
 import { SortOptions } from "../SortOptions";
+import { FaSortAlphaDown } from "react-icons/fa";
 import clx from "classnames";
 export var SortSelector = function (_a) {
     var columns = _a.columns, handleSelectSort = _a.handleSelectSort, _b = _a.isV2, isV2 = _b === void 0 ? false : _b;
@@ -41,8 +42,8 @@ export var SortSelector = function (_a) {
     return (_jsx(ClickAwayListener, { onClickAway: function () {
             setShowColumns(false);
             setActiveColumnKey(undefined);
-        }, children: _jsxs("div", { className: clx(classes.root, isV2 && classes.rootv2), children: [_jsxs("div", { className: classes.sortDetails, onClick: function () {
+        }, children: _jsxs("div", { className: clx(classes.root, isV2 && classes.rootv2), children: [_jsxs("div", { className: clx(classes.sortDetails, isV2 && "v2"), onClick: function () {
                         setShowColumns(!showColumns);
                         setActiveColumnKey(undefined);
-                    }, children: [_jsx("p", { className: classes.sortText, children: "Sort" }), _jsx(CgSortAz, { className: classes.sortIcon })] }), _jsxs("div", { className: clx(classes.sortColumns, showColumns && classes.sortColumnsActive), children: [_jsx("p", { className: classes.sortHeading, children: "Sort by" }), renderColumns()] })] }) }));
+                    }, children: [_jsx("p", { className: classes.sortText, children: "Sort" }), isV2 ? (_jsx(FaSortAlphaDown, { className: classes.sortIconV2 })) : (_jsx(CgSortAz, { className: classes.sortIcon }))] }), _jsxs("div", { className: clx(classes.sortColumns, showColumns && classes.sortColumnsActive), children: [_jsx("p", { className: classes.sortHeading, children: "Sort by" }), renderColumns()] })] }) }));
 };

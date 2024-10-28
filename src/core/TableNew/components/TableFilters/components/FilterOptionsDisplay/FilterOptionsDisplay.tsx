@@ -17,6 +17,10 @@ export const FilterOptionsDisplay: FC<FilterOptionsDisplayProps> = ({
     setFilters?.(filtered);
   };
 
+  const handleClearFilters = () => {
+    setFilters?.([]);
+  };
+
   const renderFilter = (filter: TableFilter, index: number) => {
     const column = columns.find((c) => c.key === filter.column);
 
@@ -42,7 +46,12 @@ export const FilterOptionsDisplay: FC<FilterOptionsDisplayProps> = ({
   return (
     <div className={classes.root}>
       <p className={classes.title}>Result:</p>
-      {filters.map(renderFilter)}
+      {filters.slice(0, 3).map(renderFilter)}
+      {filters.length > 3 && <p className={classes.moreFilters}>+{filters.length - 3} more</p>}
+      <button className={classes.clearFilters} title="clear" onClick={handleClearFilters}>
+        Clear all filters
+        <MdClose />
+      </button>
     </div>
   );
 };
