@@ -43,7 +43,7 @@ export var TableActionsV2 = function (_a) {
             onChange: function (e) {
                 var _a;
                 return setCurrentActions(__assign(__assign({}, currentActions), { search: __assign(__assign({}, currentActions.search), (_a = {}, _a[e.name] = e.value, _a)) }));
-            } })) : (_jsx(TextInput, { className: classes.searchInputElement, classNames: { input: classes.searchInput }, leftIcon: _jsx(BiSearch, {}), iconSpacing: 8, onChange: handleSearchChange, placeholder: "Search table" }));
+            } })) : (_jsx(TextInput, { className: classes.searchInputElementV2, classNames: { input: classes.searchInput }, leftIcon: _jsx(BiSearch, {}), iconSpacing: 8, onChange: handleSearchChange, placeholder: "Search table" }));
     };
     return (_jsxs("div", { className: classes.root, children: [_jsx("div", { className: classes.conditionFiltersContainer, children: conditionFilters === null || conditionFilters === void 0 ? void 0 : conditionFilters.map(function (filter, index) {
                     var _a, _b;

@@ -10,6 +10,9 @@ export const useTableActionStyles = makeStyles((theme: Theme) => ({
     fontFamily: theme.design.font.tomatoGrotesk,
   },
   searchInputElement: {
+    flex: 1,
+  },
+  searchInputElementV2: {
     width: "24%",
   },
   searchInput: {

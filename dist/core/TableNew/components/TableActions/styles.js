@@ -8,6 +8,9 @@ export var useTableActionStyles = makeStyles(function (theme) { return ({
         fontFamily: theme.design.font.tomatoGrotesk,
     },
     searchInputElement: {
+        flex: 1,
+    },
+    searchInputElementV2: {
         width: "24%",
     },
     searchInput: {
