@@ -5,7 +5,7 @@ export const useSortOptionsStyles = makeStyles((theme: Theme) => ({
   root: {
     position: "absolute",
     top: 0,
-    left: "calc(100% + 5px)",
+    right: "calc(100% + 5px)",
     background: theme.design.colors.waz_white,
     borderRadius: 3,
     boxShadow: "0px 2px 12px #00000014",
