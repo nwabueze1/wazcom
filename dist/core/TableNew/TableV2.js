@@ -211,7 +211,7 @@ export var TableNewV2 = function (_a) {
         return _jsx("tr", { className: classes.tRow, children: displayColumns() });
     };
     var renderTHead = function () {
-        if (TableBodyRowComponent && typeof TableBodyRowComponent === "function") {
+        if (TableHeaderRowComponent && typeof TableHeaderRowComponent === "function") {
             return _jsx("div", { className: clx(classNames === null || classNames === void 0 ? void 0 : classNames.thead, "thead"), children: renderTableHeader() });
         }
         return _jsx("thead", { className: classes.tHead, children: renderTableHeader() });
@@ -223,7 +223,8 @@ export var TableNewV2 = function (_a) {
         return _jsx("tbody", { children: displayRows() });
     };
     var renderTable = function () {
-        if (TableBodyRowComponent && typeof TableBodyRowComponent === "function") {
+        if ((TableBodyRowComponent && typeof TableBodyRowComponent === "function") ||
+            (TableHeaderRowComponent && typeof TableHeaderRowComponent === "function")) {
             return (_jsxs("div", { className: clx(classNames === null || classNames === void 0 ? void 0 : classNames.table, "custom-table"), children: [renderTHead(), renderTBody()] }));
         }
         return (_jsxs("table", { className: classes.root, children: [renderTHead(), rows.length > 0 && renderTBody()] }));

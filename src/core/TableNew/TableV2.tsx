@@ -250,7 +250,7 @@ export const TableNewV2: FC<TableNewV2Props> = ({
   };
 
   const renderTHead = () => {
-    if (TableBodyRowComponent && typeof TableBodyRowComponent === "function") {
+    if (TableHeaderRowComponent && typeof TableHeaderRowComponent === "function") {
       return <div className={clx(classNames?.thead, "thead")}>{renderTableHeader()}</div>;
     }
     return <thead className={classes.tHead}>{renderTableHeader()}</thead>;
@@ -264,7 +264,10 @@ export const TableNewV2: FC<TableNewV2Props> = ({
   };
 
   const renderTable = () => {
-    if (TableBodyRowComponent && typeof TableBodyRowComponent === "function") {
+    if (
+      (TableBodyRowComponent && typeof TableBodyRowComponent === "function") ||
+      (TableHeaderRowComponent && typeof TableHeaderRowComponent === "function")
+    ) {
       return (
         <div className={clx(classNames?.table, "custom-table")}>
           {renderTHead()}
