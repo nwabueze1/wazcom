@@ -20,7 +20,7 @@ import { ColumnSearch } from "../ColumnSearch";
 import clx from "classnames";
 import { TableFiltersV2 } from "../TableFilters/TableFiltersV2";
 export var TableActionsV2 = function (_a) {
-    var currentActions = _a.currentActions, setCurrentActions = _a.setCurrentActions, conditionFilters = _a.conditionFilters, columns = _a.columns, showSort = _a.showSort, _b = _a.columnSearch, columnSearch = _b === void 0 ? false : _b, data = _a.data, filters = _a.filters, setFilters = _a.setFilters;
+    var currentActions = _a.currentActions, setCurrentActions = _a.setCurrentActions, conditionFilters = _a.conditionFilters, columns = _a.columns, showSort = _a.showSort, _b = _a.columnSearch, columnSearch = _b === void 0 ? false : _b, data = _a.data, filters = _a.filters, setFilters = _a.setFilters, classNames = _a.classNames;
     var classes = useTableActionStyles();
     var updateSearchValue = useRef(debounce(function (search) { return setCurrentActions(__assign(__assign({}, currentActions), { search: search })); }, 500));
     var handleConditionChange = function (_a) {
@@ -52,5 +52,5 @@ export var TableActionsV2 = function (_a) {
                             _a)), onClick: function () { return handleConditionChange({ name: filter.name, value: filter.name }); }, children: [filter.name, filter.condition && (_jsx("span", { className: clx(classes.conditionFilterCount, (_b = {},
                                     _b[classes.conditionFilterCountActive] = currentActions.conditionFilter.name === filter.name,
                                     _b)), children: filter.condition(data).length }))] }, index));
-                }) }), renderSearch(), showSort && _jsx(SortSelector, { isV2: true, columns: columns, handleSelectSort: handleSortChange }), _jsx(TableFiltersV2, { columns: columns, filters: filters !== null && filters !== void 0 ? filters : [], setFilters: setFilters ? setFilters : undefined })] }));
+                }) }), renderSearch(), showSort && _jsx(SortSelector, { isV2: true, columns: columns, handleSelectSort: handleSortChange }), _jsx(TableFiltersV2, { columns: columns, filters: filters !== null && filters !== void 0 ? filters : [], setFilters: setFilters ? setFilters : undefined, classNames: classNames === null || classNames === void 0 ? void 0 : classNames.filterOptions })] }));
 };

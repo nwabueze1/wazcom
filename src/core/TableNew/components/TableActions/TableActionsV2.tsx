@@ -20,6 +20,7 @@ export const TableActionsV2: FC<TableActionsProps> = ({
   data,
   filters,
   setFilters,
+  classNames,
 }) => {
   const classes = useTableActionStyles();
 
@@ -108,6 +109,7 @@ export const TableActionsV2: FC<TableActionsProps> = ({
         columns={columns}
         filters={filters ?? []}
         setFilters={setFilters ? setFilters : undefined}
+        classNames={classNames?.filterOptions}
       />
     </div>
   );

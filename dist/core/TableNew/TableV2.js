@@ -175,7 +175,7 @@ export var TableNewV2 = function (_a) {
     }); };
     var renderTableColumn = function (column, index) {
         var _a;
-        if (TableBodyRowComponent && typeof TableBodyRowComponent === "function") {
+        if (TableHeaderRowComponent && typeof TableHeaderRowComponent === "function") {
             return (_a = renderColumn === null || renderColumn === void 0 ? void 0 : renderColumn(column, index)) !== null && _a !== void 0 ? _a : null;
         }
         return (_jsx("td", { className: classes.tHeadData, children: column.name }, index));
@@ -228,7 +228,7 @@ export var TableNewV2 = function (_a) {
         }
         return (_jsxs("table", { className: classes.root, children: [renderTHead(), rows.length > 0 && renderTBody()] }));
     };
-    return (_jsxs("div", { style: { position: "relative" }, children: [_jsx(TableActionsV2, { currentActions: actions, setCurrentActions: setActions, conditionFilters: conditionFilters, columns: columns, showSort: showSort, columnSearch: isColumnSearch, filters: filters, setFilters: setFilters, data: table.data }), _jsxs("div", { style: { background: "white" }, children: [(filters === null || filters === void 0 ? void 0 : filters.length) > 0 && (_jsx(FilterOptionsDisplay, { filters: filters, columns: columns, setFilters: setFilters })), renderTable(), rows.length === 0 && _jsx(EmptyState, __assign({}, emptyState)), rows.length > 0 && (_jsxs(_Fragment, { children: [_jsx("div", { className: classes.tableSeparator }), _jsx(TablePaginationV2, __assign({}, ((_r = table.pagination) !== null && _r !== void 0 ? _r : { currentPage: 1, lastPage: 1, count: 10 }), { setTablePagination: function (pagination) {
+    return (_jsxs("div", { style: { position: "relative" }, children: [_jsx(TableActionsV2, { currentActions: actions, setCurrentActions: setActions, conditionFilters: conditionFilters, columns: columns, showSort: showSort, columnSearch: isColumnSearch, filters: filters, setFilters: setFilters, data: table.data, classNames: classNames }), _jsxs("div", { style: { background: "white" }, children: [(filters === null || filters === void 0 ? void 0 : filters.length) > 0 && (_jsx(FilterOptionsDisplay, { filters: filters, columns: columns, setFilters: setFilters })), renderTable(), rows.length === 0 && _jsx(EmptyState, __assign({}, emptyState)), rows.length > 0 && (_jsxs(_Fragment, { children: [_jsx("div", { className: classes.tableSeparator }), _jsx(TablePaginationV2, __assign({}, ((_r = table.pagination) !== null && _r !== void 0 ? _r : { currentPage: 1, lastPage: 1, count: 10 }), { setTablePagination: function (pagination) {
                                     setTable(__assign(__assign({}, table), { pagination: pagination }));
                                 }, classNames: classNames === null || classNames === void 0 ? void 0 : classNames.pagination }))] }))] }), loading && _jsx(Loader, { className: classes.tableLoader })] }));
 };

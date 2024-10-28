@@ -14,7 +14,12 @@ const initialFilters = new Array(3).fill({
   value: "",
 });
 
-export const TableFiltersV2: FC<TableFiltersProps> = ({ columns, filters, setFilters }) => {
+export const TableFiltersV2: FC<TableFiltersProps> = ({
+  columns,
+  filters,
+  setFilters,
+  classNames,
+}) => {
   const [open, setOpen] = useState(false);
   const classes = useTableFilterV2Styles();
   const [currentFilters, setCurrentFilters] = useState<TableFilter[]>([]);
@@ -114,10 +119,10 @@ export const TableFiltersV2: FC<TableFiltersProps> = ({ columns, filters, setFil
           <div className={classes.overlay} onClick={() => setOpen(false)} />
           <div className={clx(classes.content, { [classes.contentActive]: open })}>
             <header className={classes.header}>
-              <h6 className={classes.heading}>Filter Options</h6>
+              <h6 className={clx(classes.heading, classNames?.title)}>Filter Options</h6>
               <p className={classes.subHeading}>Select your preferred options below</p>
 
-              <button onClick={() => setOpen(false)} className={classes.closeButton}>
+              <button title="close" onClick={() => setOpen(false)} className={classes.closeButton}>
                 <IoCloseOutline />
               </button>
             </header>
@@ -133,20 +138,30 @@ export const TableFiltersV2: FC<TableFiltersProps> = ({ columns, filters, setFil
                     }}
                     onDelete={() => handleDeleteFilter(index)}
                     isSubmitting={isSubmitting}
+                    classNames={classNames}
                   />
                 ))}
-                <Button className={classes.button} onClick={handleAddNewColumnFilter}>
+                <Button
+                  variant="text"
+                  className={clx(classes.button, "text", classNames?.button)}
+                  onClick={handleAddNewColumnFilter}
+                >
                   <GoPlus />
                   Add a new filter
                 </Button>
               </div>
             </div>
             <div className={classes.footer}>
-              <Button className={clx(classes.footerButton, "outline")} onClick={handleClearFilters}>
+              <Button
+                variant="outline"
+                className={clx(classes.footerButton, "outline", classNames?.button)}
+                onClick={handleClearFilters}
+              >
                 Clear Filters
               </Button>
               <Button
-                className={clx(classes.footerButton, "contained")}
+                variant="contained"
+                className={clx(classes.footerButton, "contained", classNames?.button)}
                 onClick={handleApplyFilters}
               >
                 Apply Filters

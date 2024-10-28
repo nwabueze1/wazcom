@@ -1,4 +1,5 @@
 import { TableColumn } from "../../../../types";
+import { TableFiltersClassNames } from "../../types";
 export type FilterOperator = "like" | "=" | ">" | "<" | ">=" | "<=" | "before" | "after";
 export type FilterOptionProps = {
     columns: TableColumn[];
@@ -14,4 +15,5 @@ export type FilterOptionProps = {
     }) => void;
     onDelete: () => void;
     isSubmitting: boolean;
+    classNames?: TableFiltersClassNames;
 };

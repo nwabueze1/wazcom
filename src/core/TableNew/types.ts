@@ -2,6 +2,7 @@ import { ApolloClient, NormalizedCacheObject, DocumentNode } from "@apollo/clien
 import { CommonProps } from "../../types";
 import { FC, PropsWithChildren, ReactNode } from "react";
 import { TablePaginationClassNames } from "./components/TablePagination/types";
+import { TableFiltersClassNames } from "./components/TableFilters/types";
 
 export type TableNewProps = CommonProps & {
   columns: TableColumn[];
@@ -80,6 +81,7 @@ export type TableNewV2ClassNames = {
   th?: string;
   td?: string;
   pagination?: TablePaginationClassNames;
+  filterOptions?: TableFiltersClassNames;
 };
 
 export type TableNewV2Props = TableNewProps & {

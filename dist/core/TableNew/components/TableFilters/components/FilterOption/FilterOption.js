@@ -34,7 +34,7 @@ import clx from "classnames";
 export var FilterOption = function (_a) {
     var _b;
     var _c, _d, _e;
-    var columns = _a.columns, value = _a.value, onChange = _a.onChange, onDelete = _a.onDelete, _f = _a.isSubmitting, isSubmitting = _f === void 0 ? false : _f;
+    var columns = _a.columns, value = _a.value, onChange = _a.onChange, onDelete = _a.onDelete, _f = _a.isSubmitting, isSubmitting = _f === void 0 ? false : _f, classNames = _a.classNames;
     var classes = useFilterOptionStyles();
     var operators = (_c = columns === null || columns === void 0 ? void 0 : columns.find(function (column) { return column.key === (value === null || value === void 0 ? void 0 : value.column); })) === null || _c === void 0 ? void 0 : _c.filterOperators;
     var _g = __read(useState({}), 2), touched = _g[0], setTouched = _g[1];
@@ -42,7 +42,6 @@ export var FilterOption = function (_a) {
     var getIsError = function (name) {
         return submitting ? (value === null || value === void 0 ? void 0 : value.column) && !(value === null || value === void 0 ? void 0 : value[name]) : touched[name] && !(value === null || value === void 0 ? void 0 : value[name]);
     };
-    console.log(isSubmitting);
     var handleChange = function (e) {
         var _a;
         onChange(__assign(__assign({}, value), (_a = {}, _a[e.name] = e.value, _a)));
@@ -64,10 +63,10 @@ export var FilterOption = function (_a) {
                                     icon: column === null || column === void 0 ? void 0 : column.icon,
                                 });
                             })) || [], classNames: {
-                                control: classes.control,
+                                control: clx(classes.control, classNames === null || classNames === void 0 ? void 0 : classNames.select),
                                 option: classes.option,
                             }, name: "column", onChange: handleChange, placeholder: "Select column", isError: (touched === null || touched === void 0 ? void 0 : touched.column) && !(value === null || value === void 0 ? void 0 : value.column), helperText: (touched === null || touched === void 0 ? void 0 : touched.column) && !(value === null || value === void 0 ? void 0 : value.column) ? "Please select a column" : "", onBlur: function () { return handleBlur({ name: "column" }); } }) }), _jsx("div", { children: !(value === null || value === void 0 ? void 0 : value.column) ? (_jsx(TextInput, { value: value === null || value === void 0 ? void 0 : value.operator, placeholder: "Select operator", disabled: true, classNames: {
-                                input: classes.textInput,
+                                input: clx(classes.textInput, classNames === null || classNames === void 0 ? void 0 : classNames.textInput),
                             }, onBlur: function () { return handleBlur({ name: "value" }); } })) : (_jsx(SelectInput, { value: value === null || value === void 0 ? void 0 : value.operator, options: (_e = (operators !== null && operators !== void 0 ? operators : [])) === null || _e === void 0 ? void 0 : _e.map(function (operator) {
                                 var _a, _b;
                                 return ({
@@ -75,9 +74,9 @@ export var FilterOption = function (_a) {
                                     value: (_b = operator === null || operator === void 0 ? void 0 : operator.value) !== null && _b !== void 0 ? _b : "",
                                 });
                             }), name: "operator", onChange: handleChange, classNames: {
-                                control: classes.control,
+                                control: clx(classes.control, classNames === null || classNames === void 0 ? void 0 : classNames.select),
                                 option: classes.option,
                             }, onBlur: function () { return handleBlur({ name: "operator" }); }, isError: getIsError("operator"), helperText: getIsError("operator") ? "Please select an operator" : "" })) }), _jsx("div", { children: _jsx(TextInput, { placeholder: "Type your filter value...", classNames: {
-                                input: classes.textInput,
+                                input: clx(classes.textInput, classNames === null || classNames === void 0 ? void 0 : classNames.textInput),
                             }, name: "value", value: value === null || value === void 0 ? void 0 : value.value, onChange: handleChange, onBlur: function () { return handleBlur({ name: "value" }); }, isError: getIsError("value"), helperText: getIsError("value") ? "Please enter a filter value" : "" }) })] }), _jsx("button", { className: classes.trashButton, onClick: onDelete, disabled: !(value === null || value === void 0 ? void 0 : value.column) || !(value === null || value === void 0 ? void 0 : value.operator) || !(value === null || value === void 0 ? void 0 : value.value), children: _jsx(PiTrashLight, {}) })] }));
 };

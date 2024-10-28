@@ -176,7 +176,7 @@ export const TableNewV2: FC<TableNewV2Props> = ({
   };
 
   const renderTableColumn = (column: TableColumn, index: number) => {
-    if (TableBodyRowComponent && typeof TableBodyRowComponent === "function") {
+    if (TableHeaderRowComponent && typeof TableHeaderRowComponent === "function") {
       return renderColumn?.(column, index) ?? null;
     }
     return (
@@ -292,6 +292,7 @@ export const TableNewV2: FC<TableNewV2Props> = ({
         filters={filters}
         setFilters={setFilters}
         data={table.data}
+        classNames={classNames}
       />
       <div style={{ background: "white" }}>
         {filters?.length > 0 && (

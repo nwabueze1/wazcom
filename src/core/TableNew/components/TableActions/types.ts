@@ -1,4 +1,5 @@
 import { TableColumn, TableConditionFilter, TableFilter, TableSort } from "../../types";
+import { TableFiltersClassNames } from "../TableFilters/types";
 
 export type TableActionsProps = {
   currentActions: {
@@ -25,4 +26,7 @@ export type TableActionsProps = {
   filters?: TableFilter[];
   setFilters?: (filters: TableFilter[]) => void;
   data?: any[];
+  classNames?: {
+    filterOptions?: TableFiltersClassNames;
+  };
 };

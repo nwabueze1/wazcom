@@ -11,6 +11,7 @@ export const FilterOption: FC<FilterOptionProps> = ({
   onChange,
   onDelete,
   isSubmitting = false,
+  classNames,
 }) => {
   const classes = useFilterOptionStyles();
   const operators = columns?.find((column) => column.key === value?.column)?.filterOperators;
@@ -20,8 +21,6 @@ export const FilterOption: FC<FilterOptionProps> = ({
   const getIsError = (name: "column" | "operator" | "value") => {
     return submitting ? value?.column && !value?.[name] : touched[name] && !value?.[name];
   };
-
-  console.log(isSubmitting);
 
   const handleChange = (e: { name: string; value: string }) => {
     onChange({ ...value, [e.name]: e.value });
@@ -53,7 +52,7 @@ export const FilterOption: FC<FilterOptionProps> = ({
               })) || []
             }
             classNames={{
-              control: classes.control,
+              control: clx(classes.control, classNames?.select),
               option: classes.option,
             }}
             name="column"
@@ -71,7 +70,7 @@ export const FilterOption: FC<FilterOptionProps> = ({
               placeholder="Select operator"
               disabled
               classNames={{
-                input: classes.textInput,
+                input: clx(classes.textInput, classNames?.textInput),
               }}
               onBlur={() => handleBlur({ name: "value" })}
             />
@@ -85,7 +84,7 @@ export const FilterOption: FC<FilterOptionProps> = ({
               name="operator"
               onChange={handleChange}
               classNames={{
-                control: classes.control,
+                control: clx(classes.control, classNames?.select),
                 option: classes.option,
               }}
               onBlur={() => handleBlur({ name: "operator" })}
@@ -98,7 +97,7 @@ export const FilterOption: FC<FilterOptionProps> = ({
           <TextInput
             placeholder="Type your filter value..."
             classNames={{
-              input: classes.textInput,
+              input: clx(classes.textInput, classNames?.textInput),
             }}
             name="value"
             value={value?.value}

@@ -3,22 +3,7 @@ import { createTheme, Theme as MuiTheme } from "@mui/material/styles";
 type ExtendedThemeOptions = {
   include: { [key: string]: any };
   design: {
-    font: {
-      garamond: string;
-      lato: string;
-      cookie: string;
-      raleway: string;
-      dmSans: string;
-      nunitoSans: string;
-      inter: string;
-      bitter: string;
-      merriweather: string;
-      openSans: string;
-      lostaMasta: string;
-      lostaMastaLight: string;
-      montserrat: string;
-      tomatoGrotesk: string;
-    };
+    font: { [key: string]: string };
     colors: { [key: string]: string };
     background: { [key: string]: string };
     border: { [key: string]: string };

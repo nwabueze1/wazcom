@@ -1,14 +1,15 @@
 import { FC } from "react";
 import { useStyles } from "./useStyles";
-import { TableColumn, TableFilter } from "../../../../types";
+import { TableFilter } from "../../../../types";
 import clx from "classnames";
 import { MdClose } from "react-icons/md";
+import { FilterOptionsDisplayProps } from "./type";
 
-export const FilterOptionsDisplay: FC<{
-  filters: TableFilter[];
-  columns: TableColumn[];
-  setFilters: (filters: TableFilter[]) => void;
-}> = ({ filters, columns, setFilters }) => {
+export const FilterOptionsDisplay: FC<FilterOptionsDisplayProps> = ({
+  filters,
+  columns,
+  setFilters,
+}) => {
   const classes = useStyles();
 
   const handleRemoveFilter = (index: number) => {
@@ -27,7 +28,11 @@ export const FilterOptionsDisplay: FC<{
         <span className={classes.filterText}>{column?.name}</span>
         <span className={clx(classes.filterText, "label")}>{operatorLabel}</span>
         <span className={classes.filterText}>{filter.value}</span>
-        <button className={classes.filterRemove} onClick={() => handleRemoveFilter(index)}>
+        <button
+          className={classes.filterRemove}
+          onClick={() => handleRemoveFilter(index)}
+          title="close"
+        >
           <MdClose />
         </button>
       </div>

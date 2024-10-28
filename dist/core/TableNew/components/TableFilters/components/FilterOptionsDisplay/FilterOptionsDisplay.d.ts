@@ -1,7 +1,3 @@
 import { FC } from "react";
-import { TableColumn, TableFilter } from "../../../../types";
-export declare const FilterOptionsDisplay: FC<{
-    filters: TableFilter[];
-    columns: TableColumn[];
-    setFilters: (filters: TableFilter[]) => void;
-}>;
+import { FilterOptionsDisplayProps } from "./type";
+export declare const FilterOptionsDisplay: FC<FilterOptionsDisplayProps>;
