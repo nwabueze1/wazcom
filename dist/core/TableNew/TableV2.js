@@ -68,7 +68,7 @@ import {
 TableColumnActions, 
 // TableFilters,
 // TablePagination,
-EmptyState, } from "./components";
+EmptyStateV2, } from "./components";
 import { useTableStyles } from "./styles";
 import { Loader } from "../../core";
 import { useTableStyles as useExternalTableStyles } from "../../stories/table-styles";
@@ -104,34 +104,49 @@ export var TableNewV2 = function (_a) {
         ((_h = (_g = actions === null || actions === void 0 ? void 0 : actions.search) === null || _g === void 0 ? void 0 : _g.value) === null || _h === void 0 ? void 0 : _h.length) > 0;
     var classes = useTableStyles();
     var externalClasses = useExternalTableStyles();
+    var getFilters = function () {
+        var _a;
+        var parsedFilters = [];
+        filters.forEach(function (filter) {
+            var _a, _b, _c;
+            if (((_a = filter.value) === null || _a === void 0 ? void 0 : _a.length) && ((_b = filter.column) === null || _b === void 0 ? void 0 : _b.length) && ((_c = filter.operator) === null || _c === void 0 ? void 0 : _c.length)) {
+                parsedFilters.push(filter);
+            }
+        });
+        if (parsedFilters.length === 0) {
+            return (_a = actions.conditionFilter.filter) !== null && _a !== void 0 ? _a : [];
+        }
+        return parsedFilters;
+    };
     useEffect(function () {
-        var _a, _b;
-        queryApi(parseQueryVariables(actions.search, (_a = actions === null || actions === void 0 ? void 0 : actions.sort) !== null && _a !== void 0 ? _a : [], __assign(__assign({}, table === null || table === void 0 ? void 0 : table.pagination), { currentPage: 1 }), (_b = actions.conditionFilter.filter) !== null && _b !== void 0 ? _b : []));
+        var _a;
+        queryApi(parseQueryVariables(actions.search, (_a = actions === null || actions === void 0 ? void 0 : actions.sort) !== null && _a !== void 0 ? _a : [], __assign(__assign({}, table === null || table === void 0 ? void 0 : table.pagination), { currentPage: 1 }), getFilters()));
     }, [
         isColumnSearch ? "" : actions.search,
         JSON.stringify(actions.sort),
         JSON.stringify(variables),
         JSON.stringify(actions.conditionFilter),
+        JSON.stringify(filters),
     ]);
     useEffect(function () {
-        var _a, _b;
+        var _a;
         if (!(table === null || table === void 0 ? void 0 : table.data))
             return;
-        queryApi(parseQueryVariables(actions.search, (_a = actions === null || actions === void 0 ? void 0 : actions.sort) !== null && _a !== void 0 ? _a : [], table === null || table === void 0 ? void 0 : table.pagination, (_b = actions.conditionFilter.filter) !== null && _b !== void 0 ? _b : []));
+        queryApi(parseQueryVariables(actions.search, (_a = actions === null || actions === void 0 ? void 0 : actions.sort) !== null && _a !== void 0 ? _a : [], table === null || table === void 0 ? void 0 : table.pagination, getFilters()));
     }, [(_j = table === null || table === void 0 ? void 0 : table.pagination) === null || _j === void 0 ? void 0 : _j.count, (_k = table === null || table === void 0 ? void 0 : table.pagination) === null || _k === void 0 ? void 0 : _k.currentPage]);
     useEffect(function () {
-        var _a, _b, _c;
+        var _a, _b;
         if (isColumnSearch) {
             if (!((_a = actions.search) === null || _a === void 0 ? void 0 : _a.value)) {
-                queryApi(parseQueryVariables(actions.search, (_b = actions === null || actions === void 0 ? void 0 : actions.sort) !== null && _b !== void 0 ? _b : [], table === null || table === void 0 ? void 0 : table.pagination, (_c = actions.conditionFilter.filter) !== null && _c !== void 0 ? _c : []));
+                queryApi(parseQueryVariables(actions.search, (_b = actions === null || actions === void 0 ? void 0 : actions.sort) !== null && _b !== void 0 ? _b : [], table === null || table === void 0 ? void 0 : table.pagination, getFilters()));
             }
         }
     }, [getAllData]);
     useEffect(function () {
-        var _a, _b;
+        var _a;
         if (!isColumnSearchParamsValid)
             return;
-        queryApi(parseQueryVariables(__assign(__assign({}, actions.search), { operator: "like" }), (_a = actions === null || actions === void 0 ? void 0 : actions.sort) !== null && _a !== void 0 ? _a : [], __assign(__assign({}, table === null || table === void 0 ? void 0 : table.pagination), { currentPage: 1 }), (_b = actions.conditionFilter.filter) !== null && _b !== void 0 ? _b : []));
+        queryApi(parseQueryVariables(__assign(__assign({}, actions.search), { operator: "like" }), (_a = actions === null || actions === void 0 ? void 0 : actions.sort) !== null && _a !== void 0 ? _a : [], __assign(__assign({}, table === null || table === void 0 ? void 0 : table.pagination), { currentPage: 1 }), getFilters()));
     }, [
         (_l = actions === null || actions === void 0 ? void 0 : actions.search) === null || _l === void 0 ? void 0 : _l.column,
         (_m = actions === null || actions === void 0 ? void 0 : actions.search) === null || _m === void 0 ? void 0 : _m.value,
@@ -233,7 +248,7 @@ export var TableNewV2 = function (_a) {
         }
         return (_jsxs("table", { className: classes.root, children: [renderTHead(), rows.length > 0 && renderTBody()] }));
     };
-    return (_jsxs("div", { style: { position: "relative" }, children: [_jsx(TableActionsV2, { currentActions: actions, setCurrentActions: setActions, conditionFilters: conditionFilters, columns: columns, showSort: showSort, columnSearch: isColumnSearch, filters: filters, setFilters: setFilters, data: table.data, classNames: classNames }), _jsxs("div", { style: { background: "white" }, children: [(filters === null || filters === void 0 ? void 0 : filters.length) > 0 && (_jsx(FilterOptionsDisplay, { filters: filters, columns: columns, setFilters: setFilters })), renderTable(), rows.length === 0 && _jsx(EmptyState, __assign({}, emptyState)), rows.length > 0 && (_jsxs(_Fragment, { children: [_jsx("div", { className: classes.tableSeparator }), _jsx(TablePaginationV2, __assign({}, ((_r = table.pagination) !== null && _r !== void 0 ? _r : { currentPage: 1, lastPage: 1, count: 10 }), { setTablePagination: function (pagination) {
+    return (_jsxs("div", { style: { position: "relative" }, children: [_jsx(TableActionsV2, { currentActions: actions, setCurrentActions: setActions, conditionFilters: conditionFilters, columns: columns, showSort: showSort, columnSearch: isColumnSearch, filters: filters, setFilters: setFilters, data: table.data, classNames: classNames }), _jsxs("div", { style: { background: "white" }, children: [(filters === null || filters === void 0 ? void 0 : filters.length) > 0 && (_jsx(FilterOptionsDisplay, { filters: filters, columns: columns, setFilters: setFilters })), renderTable(), rows.length === 0 && _jsx(EmptyStateV2, __assign({}, emptyState)), rows.length > 0 && (_jsxs(_Fragment, { children: [_jsx("div", { className: classes.tableSeparator }), _jsx(TablePaginationV2, __assign({}, ((_r = table.pagination) !== null && _r !== void 0 ? _r : { currentPage: 1, lastPage: 1, count: 10 }), { setTablePagination: function (pagination) {
                                     setTable(__assign(__assign({}, table), { pagination: pagination }));
                                 }, classNames: classNames === null || classNames === void 0 ? void 0 : classNames.pagination }))] }))] }), loading && _jsx(Loader, { className: classes.tableLoader })] }));
 };

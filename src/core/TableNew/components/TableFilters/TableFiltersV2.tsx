@@ -91,6 +91,7 @@ export const TableFiltersV2: FC<TableFiltersProps> = ({
 
     return () => {
       setCurrentFilters([]);
+      setIsSubmitting(false);
     };
   }, [filters]);
 

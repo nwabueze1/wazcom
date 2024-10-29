@@ -109,6 +109,7 @@ export var TableFiltersV2 = function (_a) {
         setCurrentFilters(newFilter);
         return function () {
             setCurrentFilters([]);
+            setIsSubmitting(false);
         };
     }, [filters]);
     if (open) {

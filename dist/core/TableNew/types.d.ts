@@ -14,6 +14,7 @@ export type TableNewProps = CommonProps & {
     emptyState?: {
         heading?: string;
         message?: string;
+        image?: string;
     };
     showSort?: boolean;
     hasStickyActions?: boolean;

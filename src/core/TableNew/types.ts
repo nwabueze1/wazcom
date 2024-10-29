@@ -10,7 +10,7 @@ export type TableNewProps = CommonProps & {
   getRows: (data: any, classes?: any) => { [key: string]: JSX.Element | string | number }[];
   query: TableQuery;
   showFilters?: boolean;
-  emptyState?: { heading?: string; message?: string };
+  emptyState?: { heading?: string; message?: string; image?: string };
   showSort?: boolean;
   hasStickyActions?: boolean;
   EmptyStateComponent?: FC;

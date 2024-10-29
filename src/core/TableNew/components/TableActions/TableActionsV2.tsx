@@ -64,7 +64,7 @@ export const TableActionsV2: FC<TableActionsProps> = ({
     ) : (
       <TextInput
         className={classes.searchInputElementV2}
-        classNames={{ input: classes.searchInput }}
+        classNames={{ input: clx(classes.searchInput, "v2") }}
         leftIcon={<BiSearch />}
         iconSpacing={8}
         onChange={handleSearchChange}

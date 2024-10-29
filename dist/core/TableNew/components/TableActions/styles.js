@@ -29,6 +29,9 @@ export var useTableActionStyles = makeStyles(function (theme) { return ({
         "&:focus, &:hover:focus, &:active": {
             borderColor: theme.design.colors.primary700,
         },
+        "&.v2": {
+            borderRadius: 6,
+        },
     },
     searchInputAdornment: {
         background: theme.design.colors.waz_white,

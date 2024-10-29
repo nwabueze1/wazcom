@@ -12,7 +12,7 @@ import {
   TableColumnActions,
   // TableFilters,
   // TablePagination,
-  EmptyState,
+  EmptyStateV2,
 } from "./components";
 import { useTableStyles } from "./styles";
 import { Loader } from "../../core";
@@ -75,6 +75,21 @@ export const TableNewV2: FC<TableNewV2Props> = ({
   const classes = useTableStyles();
   const externalClasses: any = useExternalTableStyles();
 
+  const getFilters = () => {
+    const parsedFilters: { column: string; value: string; operator: string }[] = [];
+
+    filters.forEach((filter) => {
+      if (filter.value?.length && filter.column?.length && filter.operator?.length) {
+        parsedFilters.push(filter);
+      }
+    });
+
+    if (parsedFilters.length === 0) {
+      return (actions.conditionFilter as TableConditionFilter).filter ?? [];
+    }
+    return parsedFilters;
+  };
+
   useEffect(() => {
     queryApi(
       parseQueryVariables(
@@ -84,7 +99,7 @@ export const TableNewV2: FC<TableNewV2Props> = ({
           ...table?.pagination,
           currentPage: 1,
         },
-        (actions.conditionFilter as TableConditionFilter).filter ?? [],
+        getFilters(),
       ),
     );
   }, [
@@ -92,6 +107,7 @@ export const TableNewV2: FC<TableNewV2Props> = ({
     JSON.stringify(actions.sort),
     JSON.stringify(variables),
     JSON.stringify(actions.conditionFilter),
+    JSON.stringify(filters),
   ]);
 
   useEffect(() => {
@@ -101,7 +117,7 @@ export const TableNewV2: FC<TableNewV2Props> = ({
         actions.search as string,
         (actions?.sort as TableSort[]) ?? [],
         table?.pagination,
-        (actions.conditionFilter as TableConditionFilter).filter ?? [],
+        getFilters(),
       ),
     );
   }, [table?.pagination?.count, table?.pagination?.currentPage]);
@@ -114,7 +130,7 @@ export const TableNewV2: FC<TableNewV2Props> = ({
             actions.search as string,
             (actions?.sort as TableSort[]) ?? [],
             table?.pagination,
-            (actions.conditionFilter as TableConditionFilter).filter ?? [],
+            getFilters(),
           ),
         );
       }
@@ -131,7 +147,7 @@ export const TableNewV2: FC<TableNewV2Props> = ({
           ...table?.pagination,
           currentPage: 1,
         },
-        (actions.conditionFilter as TableConditionFilter).filter ?? [],
+        getFilters(),
       ),
     );
   }, [
@@ -311,7 +327,7 @@ export const TableNewV2: FC<TableNewV2Props> = ({
           <TableFilters columns={columns} filters={filters} setFilters={setFilters} />
         )} */}
         {renderTable()}
-        {rows.length === 0 && <EmptyState {...emptyState} />}
+        {rows.length === 0 && <EmptyStateV2 {...emptyState} />}
         {rows.length > 0 && (
           <>
             <div className={classes.tableSeparator} />
