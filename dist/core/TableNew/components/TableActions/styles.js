@@ -12,6 +12,8 @@ export var useTableActionStyles = makeStyles(function (theme) { return ({
     },
     searchInputElementV2: {
         width: "24%",
+        borderRadius: 6,
+        overflow: "hidden",
     },
     searchInput: {
         background: "".concat(theme.design.colors.waz_white, " !important"),

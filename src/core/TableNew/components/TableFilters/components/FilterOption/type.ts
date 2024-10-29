@@ -9,6 +9,7 @@ export type FilterOptionProps = {
     column: string;
     value: string;
     operator: FilterOperator;
+    type?: "text" | "date" | "select";
   };
   onChange: (value: { column: string; value: string; operator: FilterOperator }) => void;
   onDelete: () => void;

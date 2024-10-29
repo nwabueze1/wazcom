@@ -1,1 +1,1 @@
-export declare const useFilterOptionStyles: (props?: any) => import("@mui/styles").ClassNameMap<"root" | "base" | "option" | "control" | "textInput" | "rootSelectInput" | "rootTextInputContainer" | "trashButton">;
+export declare const useFilterOptionStyles: (props?: any) => import("@mui/styles").ClassNameMap<"root" | "base" | "label" | "option" | "control" | "textInput" | "rootSelectInput" | "rootTextInputContainer" | "trashButton">;

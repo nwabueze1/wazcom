@@ -15,6 +15,8 @@ export var useSortSelectorStyles = makeStyles(function (theme) { return ({
     rootv2: {
         height: "auto",
         width: "auto",
+        borderRadius: 6,
+        overflow: "hidden",
     },
     sortDetails: {
         display: "flex",

@@ -202,7 +202,11 @@ export var TableNewV2 = function (_a) {
     };
     if (!table.data)
         return _jsx(Loader, {});
-    if (rows.length === 0 && EmptyStateComponent && !actions.search)
+    if (rows.length === 0 &&
+        EmptyStateComponent &&
+        !actions.search &&
+        !filters.length &&
+        !isColumnSearch)
         return (_jsxs(_Fragment, { children: [_jsx(EmptyStateComponent, {}), loading && _jsx(Loader, { className: classes.tableLoader })] }));
     var renderTableHeader = function () {
         if (TableHeaderRowComponent && typeof TableHeaderRowComponent === "function") {

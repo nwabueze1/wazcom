@@ -234,7 +234,13 @@ export const TableNewV2: FC<TableNewV2Props> = ({
 
   if (!table.data) return <Loader />;
 
-  if (rows.length === 0 && EmptyStateComponent && !actions.search)
+  if (
+    rows.length === 0 &&
+    EmptyStateComponent &&
+    !actions.search &&
+    !filters.length &&
+    !isColumnSearch
+  )
     return (
       <>
         <EmptyStateComponent />

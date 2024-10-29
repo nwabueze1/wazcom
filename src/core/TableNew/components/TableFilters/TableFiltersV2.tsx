@@ -130,8 +130,9 @@ export const TableFiltersV2: FC<TableFiltersProps> = ({
               <div className={classes.filterOptionContainer}>
                 {currentFilters?.map((currentFilter, index) => (
                   <FilterOption
-                    key={index}
-                    columns={columns}
+                    columns={columns.filter(
+                      (column) => column?.filterOperators && column?.filterOperators?.length > 0, // only show columns with filter operators
+                    )}
                     value={currentFilter as any}
                     onChange={(args) => {
                       handleFilterChange(index, args);
@@ -139,6 +140,7 @@ export const TableFiltersV2: FC<TableFiltersProps> = ({
                     onDelete={() => handleDeleteFilter(index)}
                     isSubmitting={isSubmitting}
                     classNames={classNames}
+                    key={index}
                   />
                 ))}
                 <Button

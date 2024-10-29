@@ -70,4 +70,12 @@ export const useFilterOptionStyles = makeStyles((theme: Theme) => ({
     alignItems: "center",
     gap: 12,
   },
+  label: {
+    fontSize: 12,
+    fontWeight: 400,
+    lineHeight: "20px",
+    color: "#28434F",
+    marginBottom: 4,
+    marginTop: 8,
+  },
 }));

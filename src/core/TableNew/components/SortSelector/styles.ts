@@ -17,6 +17,8 @@ export const useSortSelectorStyles = makeStyles((theme: Theme) => ({
   rootv2: {
     height: "auto",
     width: "auto",
+    borderRadius: 6,
+    overflow: "hidden",
   },
   sortDetails: {
     display: "flex",
