@@ -237,18 +237,18 @@ export var TableNewV2 = function (_a) {
     };
     var renderTBody = function () {
         if (TableBodyRowComponent && typeof TableBodyRowComponent === "function") {
-            return _jsx("div", { className: clx(classNames === null || classNames === void 0 ? void 0 : classNames.tbody, "tbody"), children: displayRows() });
+            return (_jsx("div", { className: clx(classes.tableV2Body, classNames === null || classNames === void 0 ? void 0 : classNames.tbody, "tbody"), children: displayRows() }));
         }
         return _jsx("tbody", { children: displayRows() });
     };
     var renderTable = function () {
         if ((TableBodyRowComponent && typeof TableBodyRowComponent === "function") ||
             (TableHeaderRowComponent && typeof TableHeaderRowComponent === "function")) {
-            return (_jsxs("div", { className: clx(classNames === null || classNames === void 0 ? void 0 : classNames.table, "custom-table"), children: [renderTHead(), renderTBody()] }));
+            return (_jsxs("div", { className: clx(classes.tableV2, classNames === null || classNames === void 0 ? void 0 : classNames.table, "custom-table"), children: [renderTHead(), renderTBody()] }));
         }
         return (_jsxs("table", { className: classes.root, children: [renderTHead(), rows.length > 0 && renderTBody()] }));
     };
-    return (_jsxs("div", { style: { position: "relative" }, children: [_jsx(TableActionsV2, { currentActions: actions, setCurrentActions: setActions, conditionFilters: conditionFilters, columns: columns, showSort: showSort, columnSearch: isColumnSearch, filters: filters, setFilters: setFilters, data: table.data, classNames: classNames }), _jsxs("div", { style: { background: "white" }, children: [(filters === null || filters === void 0 ? void 0 : filters.length) > 0 && (_jsx(FilterOptionsDisplay, { filters: filters, columns: columns, setFilters: setFilters })), renderTable(), rows.length === 0 && _jsx(EmptyStateV2, __assign({}, emptyState)), rows.length > 0 && (_jsxs(_Fragment, { children: [_jsx("div", { className: classes.tableSeparator }), _jsx(TablePaginationV2, __assign({}, ((_r = table.pagination) !== null && _r !== void 0 ? _r : { currentPage: 1, lastPage: 1, count: 10 }), { setTablePagination: function (pagination) {
+    return (_jsxs("div", { className: classes.tableV2Root, children: [_jsx(TableActionsV2, { currentActions: actions, setCurrentActions: setActions, conditionFilters: conditionFilters, columns: columns, showSort: showSort, columnSearch: isColumnSearch, filters: filters, setFilters: setFilters, data: table.data, classNames: classNames }), _jsxs("div", { className: classes.tableContainer, children: [(filters === null || filters === void 0 ? void 0 : filters.length) > 0 && (_jsx(FilterOptionsDisplay, { filters: filters, columns: columns, setFilters: setFilters })), renderTable(), rows.length === 0 && _jsx(EmptyStateV2, __assign({}, emptyState)), rows.length > 0 && (_jsxs(_Fragment, { children: [_jsx("div", { className: classes.tableSeparator }), _jsx(TablePaginationV2, __assign({}, ((_r = table.pagination) !== null && _r !== void 0 ? _r : { currentPage: 1, lastPage: 1, count: 10 }), { setTablePagination: function (pagination) {
                                     setTable(__assign(__assign({}, table), { pagination: pagination }));
                                 }, classNames: classNames === null || classNames === void 0 ? void 0 : classNames.pagination }))] }))] }), loading && _jsx(Loader, { className: classes.tableLoader })] }));
 };

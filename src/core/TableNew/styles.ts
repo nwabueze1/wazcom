@@ -80,4 +80,24 @@ export const useTableStyles = makeStyles((theme: Theme) => ({
   paginationIconButton: {
     flex: 1,
   },
+  tableV2: {
+    display: "flex",
+    flexDirection: "column",
+    flex: 1,
+  },
+  tableV2Body: {
+    flex: 1,
+  },
+  tableV2Root: {
+    display: "flex",
+    flexDirection: "column",
+    flex: 1,
+    position: "relative",
+  },
+  tableContainer: {
+    flex: 1,
+    background: theme.design.colors.waz_white,
+    display: "flex",
+    flexDirection: "column",
+  },
 }));

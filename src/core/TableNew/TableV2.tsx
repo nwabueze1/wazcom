@@ -280,7 +280,9 @@ export const TableNewV2: FC<TableNewV2Props> = ({
 
   const renderTBody = () => {
     if (TableBodyRowComponent && typeof TableBodyRowComponent === "function") {
-      return <div className={clx(classNames?.tbody, "tbody")}>{displayRows()}</div>;
+      return (
+        <div className={clx(classes.tableV2Body, classNames?.tbody, "tbody")}>{displayRows()}</div>
+      );
     }
     return <tbody>{displayRows()}</tbody>;
   };
@@ -291,7 +293,7 @@ export const TableNewV2: FC<TableNewV2Props> = ({
       (TableHeaderRowComponent && typeof TableHeaderRowComponent === "function")
     ) {
       return (
-        <div className={clx(classNames?.table, "custom-table")}>
+        <div className={clx(classes.tableV2, classNames?.table, "custom-table")}>
           {renderTHead()}
           {renderTBody()}
         </div>
@@ -306,7 +308,7 @@ export const TableNewV2: FC<TableNewV2Props> = ({
   };
 
   return (
-    <div style={{ position: "relative" }}>
+    <div className={classes.tableV2Root}>
       <TableActionsV2
         currentActions={actions}
         setCurrentActions={setActions}
@@ -319,7 +321,7 @@ export const TableNewV2: FC<TableNewV2Props> = ({
         data={table.data}
         classNames={classNames}
       />
-      <div style={{ background: "white" }}>
+      <div className={classes.tableContainer}>
         {filters?.length > 0 && (
           <FilterOptionsDisplay filters={filters} columns={columns} setFilters={setFilters} />
         )}
