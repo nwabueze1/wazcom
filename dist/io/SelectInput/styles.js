@@ -102,4 +102,9 @@ export var useSelectStyles = makeStyles(function (theme) { return ({
     helperTextError: {
         color: theme.design.colors.error,
     },
+    optionSelector: {
+        display: "flex",
+        alignItems: "center",
+        gap: 8,
+    },
 }); });

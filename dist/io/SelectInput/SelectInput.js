@@ -43,7 +43,7 @@ export var SelectInput = function (_a) {
     return (_jsxs("div", { className: clx(classes.root, className), children: [_jsx("span", { className: classes.labelWrapper, children: !hideLabel && labelElement && (_jsxs("label", { htmlFor: name, className: classes.label, children: [labelElement, required && _jsx("span", { className: classes.required, children: "*" })] })) }), _jsx(Select, __assign({ menuIsOpen: menuIsOpen, components: {
                     DropdownIndicator: DropdownIndicator,
                     IndicatorSeparator: function () { return null; },
-                }, styles: {
+                }, getOptionLabel: function (option) { return option.label; }, formatOptionLabel: function (option) { return (_jsxs("span", { className: classes.optionSelector, children: [typeof option.icon === "function" ? option.icon({}) : option.icon, " ", option.label] })); }, styles: {
                     control: function (baseStyles) { return (__assign(__assign({}, baseStyles), { minHeight: 34, height: height || 34, width: width || "100%", backgroundColor: backgroundColor || theme.design.colors.waz_white100, borderWidth: borderWidth !== null && borderWidth !== void 0 ? borderWidth : 1, borderStyle: borderStyle !== null && borderStyle !== void 0 ? borderStyle : "solid", borderColor: borderColor !== null && borderColor !== void 0 ? borderColor : (isSuccess
                             ? theme.design.colors.waz_primary100
                             : isError
@@ -80,7 +80,7 @@ export var SelectInput = function (_a) {
                     },
                     option: function (_a) {
                         var isDisabled = _a.isDisabled, isFocused = _a.isFocused;
-                        return clx(!isDisabled && isFocused && classes.option);
+                        return clx(!isDisabled && isFocused && classes.option, classNames === null || classNames === void 0 ? void 0 : classNames.option);
                     },
                 }, value: selectValue, options: options, onChange: handleChange, isSearchable: false }, props)), helperText && (_jsx("span", { className: clx(classes.helperTextDefault, isSuccess && classes.helperTextSuccess, isError && classes.helperTextError), children: helperText }))] }));
 };

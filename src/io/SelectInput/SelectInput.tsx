@@ -38,7 +38,7 @@ export const SelectInput: React.FC<SelectInputProps> = ({
   };
 
   const selectValue = useMemo(() => {
-    return options?.filter((option) => option.value === value)
+    return options?.filter((option) => option.value === value);
   }, [value]);
   const labelElement = isValidElement(label) ? cloneElement(label, {}) : label;
 
@@ -64,6 +64,12 @@ export const SelectInput: React.FC<SelectInputProps> = ({
           DropdownIndicator,
           IndicatorSeparator: () => null,
         }}
+        getOptionLabel={(option) => option.label}
+        formatOptionLabel={(option) => (
+          <span className={classes.optionSelector}>
+            {typeof option.icon === "function" ? option.icon({}) : option.icon} {option.label}
+          </span>
+        )}
         styles={{
           control: (baseStyles) => ({
             ...baseStyles,
@@ -135,7 +141,8 @@ export const SelectInput: React.FC<SelectInputProps> = ({
           container: () => clx(classes.container, containerClass, classNames?.container),
           control: ({ isDisabled, isFocused }) =>
             clx(!isDisabled && isFocused && classes.control, classNames?.control),
-          option: ({ isDisabled, isFocused }) => clx(!isDisabled && isFocused && classes.option),
+          option: ({ isDisabled, isFocused }) =>
+            clx(!isDisabled && isFocused && classes.option, classNames?.option),
         }}
         value={selectValue}
         options={options}

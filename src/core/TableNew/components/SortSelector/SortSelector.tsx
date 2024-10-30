@@ -4,9 +4,14 @@ import { ClickAwayListener } from "@mui/base";
 import { CgSortAz } from "react-icons/cg";
 import { SortSelectorProps } from "./types";
 import { SortOptions } from "../SortOptions";
+import { FaSortAlphaDown } from "react-icons/fa";
 import clx from "classnames";
 
-export const SortSelector: FC<SortSelectorProps> = ({ columns, handleSelectSort }) => {
+export const SortSelector: FC<SortSelectorProps> = ({
+  columns,
+  handleSelectSort,
+  isV2 = false,
+}) => {
   const classes = useSortSelectorStyles();
   const [showColumns, setShowColumns] = useState(false);
   const [activeColumnKey, setActiveColumnKey] = useState<string>();
@@ -42,16 +47,20 @@ export const SortSelector: FC<SortSelectorProps> = ({ columns, handleSelectSort 
         setActiveColumnKey(undefined);
       }}
     >
-      <div className={classes.root}>
+      <div className={clx(classes.root, isV2 && classes.rootv2)}>
         <div
-          className={classes.sortDetails}
+          className={clx(classes.sortDetails, isV2 && "v2")}
           onClick={() => {
             setShowColumns(!showColumns);
             setActiveColumnKey(undefined);
           }}
         >
           <p className={classes.sortText}>Sort</p>
-          <CgSortAz className={classes.sortIcon} />
+          {isV2 ? (
+            <FaSortAlphaDown className={classes.sortIconV2} />
+          ) : (
+            <CgSortAz className={classes.sortIcon} />
+          )}
         </div>
         <div className={clx(classes.sortColumns, showColumns && classes.sortColumnsActive)}>
           <p className={classes.sortHeading}>Sort by</p>

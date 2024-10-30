@@ -23,11 +23,20 @@ export const useEmptyStateStyles = makeStyles((theme: Theme) => ({
     color: theme.design.colors.black200,
     fontWeight: theme.typography.fontWeightBold,
     fontFamily: theme.design.font.openSans,
+    "&.v2": {
+      fontFamily: theme.design.font.tomatoGrotesk,
+      fontSize: theme.typography.fontSize + 8,
+      color: "#001A24",
+    },
   },
   emptyMessage: {
     fontSize: theme.typography.fontSize + 2,
     color: theme.design.colors.grey100,
     margin: theme.spacing(1.5, 0, 0, 0),
+    "&.v2": {
+      fontFamily: theme.design.font.tomatoGrotesk,
+      color: theme.design.colors.waz_brand600,
+    },
   },
   emptyMessagePadded: {
     margin: theme.spacing(2, 0, 0, 0),

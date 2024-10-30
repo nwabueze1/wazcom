@@ -5,7 +5,7 @@ type ExtendedThemeOptions = {
     };
     design: {
         font: {
-            [key: string]: any;
+            [key: string]: string;
         };
         colors: {
             [key: string]: string;

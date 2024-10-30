@@ -4,7 +4,7 @@ export const getTableRows = (data: any[]) => {
   for (const row of data) {
     const parsedRow: { [key: string]: JSX.Element | string | number } = {};
     parsedRow["title"] = <p style={{ fontWeight: "bold", margin: 0 }}>{row["title"]}</p>;
-    parsedRow["author.name"] = row["author"]["name"];
+    parsedRow["author.name"] = row?.["author"]?.["name"] ?? "";
     parsedRow["slug"] = row?.slug ?? "None";
     parsedRow["category.name"] = row?.category?.name ?? "None";
     parsedRow["updated_at"] = row["updated_at"];
@@ -12,6 +12,5 @@ export const getTableRows = (data: any[]) => {
     parsedRows.push(parsedRow);
   }
 
-  console.log(parsedRows);
   return parsedRows;
 };

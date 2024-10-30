@@ -60,12 +60,12 @@ export var TableFilters = function (_a) {
         });
     };
     var handleSelectFilter = function (filter) {
-        setFilters(__spreadArray(__spreadArray([], __read(filters), false), [filter], false));
+        setFilters === null || setFilters === void 0 ? void 0 : setFilters(__spreadArray(__spreadArray([], __read(filters), false), [filter], false));
     };
     var handleDeleteFilter = function (index) {
         var newFilters = __spreadArray([], __read(filters), false);
         newFilters.splice(index, 1);
-        setFilters(newFilters);
+        setFilters === null || setFilters === void 0 ? void 0 : setFilters(newFilters);
     };
     var renderFilters = function () {
         return filters.map(function (filter, index) {

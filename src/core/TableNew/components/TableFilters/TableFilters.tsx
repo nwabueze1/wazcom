@@ -41,13 +41,13 @@ export const TableFilters: FC<TableFiltersProps> = ({ columns, filters, setFilte
   };
 
   const handleSelectFilter = (filter: TableFilter) => {
-    setFilters([...filters, filter]);
+    setFilters?.([...filters, filter]);
   };
 
   const handleDeleteFilter = (index: number) => {
     const newFilters = [...filters];
     newFilters.splice(index, 1);
-    setFilters(newFilters);
+    setFilters?.(newFilters);
   };
 
   const renderFilters = () => {

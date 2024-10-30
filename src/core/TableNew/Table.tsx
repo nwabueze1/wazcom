@@ -147,7 +147,7 @@ export const TableNew: FC<TableNewProps> = ({
         },
         fetchPolicy: "network-only",
       });
-      
+
       if (data && !error) {
         const { data: tableData, paginatorInfo: pagination } = data[dataKey];
         setTable({

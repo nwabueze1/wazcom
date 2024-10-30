@@ -49,4 +49,55 @@ export const useTableStyles = makeStyles((theme: Theme) => ({
     left: 0,
     bottom: 0,
   },
+  customTable: {
+    display: "grid",
+  },
+  tableFooter: {
+    display: "flex",
+    justifyContent: "center",
+    marginTop: theme.spacing(1),
+    background: theme.design.colors.waz_white,
+    "& button:has(.next), & button:has(.prev)": {
+      background: "none",
+      "&:hover": {
+        background: "none",
+      },
+    },
+    "& li > button": {
+      padding: 12,
+      background: theme.design.colors.waz_brand50.concat(" !important"),
+      color: theme.design.colors.waz_brand500.concat(" !important"),
+      borderRadius: 0,
+    },
+    "& nav, & ul, & li:has(.next), & li:has(.prev)": {
+      flex: 1,
+    },
+    "& li:has(.next)": {
+      display: "flex",
+      justifyContent: "flex-end",
+    },
+  },
+  paginationIconButton: {
+    flex: 1,
+  },
+  tableV2: {
+    display: "flex",
+    flexDirection: "column",
+    flex: 1,
+  },
+  tableV2Body: {
+    flex: 1,
+  },
+  tableV2Root: {
+    display: "flex",
+    flexDirection: "column",
+    flex: 1,
+    position: "relative",
+  },
+  tableContainer: {
+    flex: 1,
+    background: theme.design.colors.waz_white,
+    display: "flex",
+    flexDirection: "column",
+  },
 }));

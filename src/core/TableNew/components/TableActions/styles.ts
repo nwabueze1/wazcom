@@ -7,22 +7,33 @@ export const useTableActionStyles = makeStyles((theme: Theme) => ({
     gap: theme.spacing(1.5),
     color: theme.design.colors.waz_grey1,
     marginBottom: theme.spacing(1),
-    alignItems: "end",
+    fontFamily: theme.design.font.tomatoGrotesk,
   },
   searchInputElement: {
-    width: "59%",
+    flex: 1,
+  },
+  searchInputElementV2: {
+    width: "24%",
+    borderRadius: 6,
+    overflow: "hidden",
   },
   searchInput: {
     background: `${theme.design.colors.waz_white} !important`,
     fontSize: `${theme.typography.fontSize + 1}px !important`,
-    height: "40px !important",
+    flex: 1,
     padding: 0,
+    "& input": {
+      fontFamily: theme.design.font.tomatoGrotesk,
+    },
 
     "&:hover": {
       borderColor: theme.design.colors.primary700,
     },
     "&:focus, &:hover:focus, &:active": {
       borderColor: theme.design.colors.primary700,
+    },
+    "&.v2": {
+      borderRadius: 6,
     },
   },
   searchInputAdornment: {
@@ -51,5 +62,51 @@ export const useTableActionStyles = makeStyles((theme: Theme) => ({
     "&:focus, &:hover:focus, &:active": {
       borderColor: theme.design.colors.primary700,
     },
+  },
+  conditionFiltersContainer: {
+    display: "flex",
+    gap: theme.spacing(2),
+    background: theme.design.colors.waz_white,
+    flex: 1,
+    borderRadius: "6px 6px 6px 0px",
+    cursor: "pointer",
+    overflow: "hidden",
+  },
+  conditionFilter: {
+    position: "relative",
+    fontSize: theme.typography.fontSize,
+    padding: theme.spacing(0.9, 2.5),
+    whiteSpace: "nowrap",
+    display: "inline-flex",
+    alignItems: "center",
+    gap: 12,
+    background: "none",
+    border: "none",
+    color: theme.design.colors.waz_brand600,
+    textTransform: "capitalize",
+    fontWeight: 400,
+    fontFamily: theme.design.font.tomatoGrotesk,
+  },
+  conditionFilterActive: {
+    fontWeight: 600,
+    color: theme.design.colors.waz_brand900,
+    background: theme.design.colors.waz_brand50,
+    borderBottom: "2px solid #229954",
+  },
+  conditionFilterCount: {
+    fontWeight: 600,
+    fontSize: theme.typography.fontSize,
+    background: theme.design.colors.waz_brand1100,
+    padding: 8,
+    borderRadius: "50%",
+    height: 18,
+    width: 18,
+    display: "flex",
+    alignItems: "center",
+    justifyContent: "center",
+  },
+  conditionFilterCountActive: {
+    background: theme.design.colors.waz_brand1000,
+    color: theme.design.colors.waz_brand900,
   },
 }));
