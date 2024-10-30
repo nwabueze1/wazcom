@@ -36,6 +36,8 @@ export type TableColumn = {
       | "after";
     value?: "like" | "=" | ">" | "<" | ">=" | "<=";
   }[];
+  inputType?: "text" | "number" | "date" | "select";
+  options?: { label: string; value: string; isMultiple?: boolean }[];
 };
 
 export type TableQuery = {

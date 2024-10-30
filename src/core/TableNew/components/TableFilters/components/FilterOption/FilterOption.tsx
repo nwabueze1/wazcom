@@ -18,6 +18,7 @@ export const FilterOption: FC<FilterOptionProps> = ({
   const [touched, setTouched] = useState<Record<any, any>>({});
   const [submitting, setSubmitting] = useState(isSubmitting);
   const column = columns?.find((column) => column.key === value?.column);
+  const inputType = column?.inputType;
 
   const getIsError = (name: "column" | "operator" | "value") => {
     return submitting ? value?.column && !value?.[name] : touched[name] && !value?.[name];
@@ -35,6 +36,44 @@ export const FilterOption: FC<FilterOptionProps> = ({
     setSubmitting(isSubmitting);
   }, [isSubmitting]);
 
+  const renderFilterValueInput = () => {
+    switch (inputType) {
+      case "select":
+        return (
+          <SelectInput
+            value={value?.value}
+            options={column?.options}
+            onChange={handleChange}
+            onBlur={() => handleBlur({ name: "value" })}
+            classNames={{
+              control: clx(classes.control, classNames?.select),
+              option: classes.option,
+            }}
+            isError={getIsError("value")}
+            helperText={getIsError("value") ? "Please select a filter value" : ""}
+            name="value"
+            placeholder="Select filter value"
+          />
+        );
+      default:
+        return (
+          <TextInput
+            placeholder="Type your filter value..."
+            classNames={{
+              input: clx(classes.textInput, classNames?.textInput),
+            }}
+            name="value"
+            value={value?.value}
+            onChange={handleChange}
+            onBlur={() => handleBlur({ name: "value" })}
+            isError={getIsError("value")}
+            helperText={getIsError("value") ? "Please enter a filter value" : ""}
+            type={inputType}
+          />
+        );
+    }
+  };
+
   return (
     <div>
       <p className={classes.label}>Table Column</p>
@@ -48,7 +87,7 @@ export const FilterOption: FC<FilterOptionProps> = ({
             <SelectInput
               value={value?.column}
               options={
-                columns?.map((column) => ({
+                columns.map((column) => ({
                   label: column?.name as string,
                   value: column?.key ?? "",
                   icon: column?.icon as any,
@@ -94,19 +133,7 @@ export const FilterOption: FC<FilterOptionProps> = ({
               helperText={getIsError("operator") ? "Please select an operator" : ""}
             />
           )}
-          <TextInput
-            placeholder="Type your filter value..."
-            classNames={{
-              input: clx(classes.textInput, classNames?.textInput),
-            }}
-            name="value"
-            value={value?.value}
-            onChange={handleChange}
-            onBlur={() => handleBlur({ name: "value" })}
-            isError={getIsError("value")}
-            helperText={getIsError("value") ? "Please enter a filter value" : ""}
-            type={column?.type ?? "text"}
-          />
+          {renderFilterValueInput()}
         </div>
         <button
           title="delete"

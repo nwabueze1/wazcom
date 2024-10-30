@@ -32,6 +32,12 @@ export type TableColumn = {
         label?: "contains" | "equals" | "greater than" | "less than" | "greater than or equals" | "less than or equals" | "before" | "after";
         value?: "like" | "=" | ">" | "<" | ">=" | "<=";
     }[];
+    inputType?: "text" | "number" | "date" | "select";
+    options?: {
+        label: string;
+        value: string;
+        isMultiple?: boolean;
+    }[];
 };
 export type TableQuery = {
     name: DocumentNode;

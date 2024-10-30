@@ -196,8 +196,44 @@ export const stories: ComponentPropType[] = [
     component: TableNewV2,
     props: {
       columns: [
-        { name: "Title", key: "title", type: "string", sortKey: "title.raw" },
-        { name: "Author", key: "author.name", type: "string" },
+        {
+          name: "Title",
+          key: "title",
+          type: "string",
+          sortKey: "title.raw",
+          filterOperators: [
+            {
+              label: "contains",
+              value: "contains",
+            },
+            {
+              label: "does not contain",
+              value: "like",
+            },
+          ],
+          inputType: "select",
+          options: [
+            {
+              label: "contains",
+              value: "contains",
+            },
+            {
+              label: "does not contain",
+              value: "like",
+            },
+          ],
+        },
+        {
+          name: "Author",
+          key: "author.name",
+          type: "string",
+          filterOperators: [
+            {
+              label: "contains",
+              value: "contains",
+            },
+          ],
+        },
         { name: "Likes", key: "likes", type: "number" },
         { name: "Category", key: "category.name", type: "string" },
         { name: "Last Modified", key: "updated_at", type: "date" },

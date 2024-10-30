@@ -12,6 +12,5 @@ export const getTableRows = (data: any[]) => {
     parsedRows.push(parsedRow);
   }
 
-  console.log(parsedRows);
   return parsedRows;
 };

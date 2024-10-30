@@ -131,8 +131,9 @@ export const TableFiltersV2: FC<TableFiltersProps> = ({
               <div className={classes.filterOptionContainer}>
                 {currentFilters?.map((currentFilter, index) => (
                   <FilterOption
+                    filters={currentFilters}
                     columns={columns.filter(
-                      (column) => column?.filterOperators && column?.filterOperators?.length > 0, // only show columns with filter operators
+                      (column) => column?.filterOperators && column?.filterOperators?.length > 0,
                     )}
                     value={currentFilter as any}
                     onChange={(args) => {
