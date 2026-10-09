@@ -1,0 +1,33 @@
+@import url("https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&display=swap");
+
+@font-face {
+  font-family: "Losta Masta";
+  src: url("fonts/LostaMasta/OTF/LostaMasta-Regular.otf") format("opentype");
+}
+
+@font-face {
+  font-family: "Losta Masta Regular";
+  src: url("fonts/LostaMasta/OTF/LostaMasta-Light.otf") format("opentype");
+}
+
+@font-face {
+  font-family: "Tomato Grotesk";
+  src: url("fonts/TomatoGrotesk/TomatoGrotesk-Regular.otf") format("opentype");
+}
+
+body,
+p {
+  margin: 0;
+}
+
+body > iframe {
+  display: none;
+}
+
+.ql-container {
+  font-size: 14px;
+}
+
+.notify--type-1 .notify__text {
+  font-family: "Montserrat", sans-serif;
+}

@@ -1,0 +1,147 @@
+import { useState } from "react";
+import { ComponentPropsType } from "../../core/ComponentProps/types";
+
+const initialTextInputState = {
+  isSuccess: false,
+  isError: false,
+  helperText: "",
+  value: "",
+  hideLabel: false,
+  required: false,
+  showCC: false,
+  type: "text",
+  leftIcon: false,
+  rightIcon: false,
+  iconSpacing: 5,
+  background: "",
+  color: "",
+  label: "Label",
+  placeholder: "Placeholder",
+};
+
+export const useTextAreaProps = () => {
+  const [state, setState] = useState(initialTextInputState);
+
+  const onChange = (e: any) => setState({ ...state, [e.name]: e.value });
+
+  const data: Partial<ComponentPropsType>[] = [
+    {
+      name: "value",
+      description: "The value of the text-area component",
+      default: "undefined",
+      control: { name: "value", type: "text", onChange, placeholder: "change value" },
+    },
+    {
+      name: "Label",
+      description: "The label of the text area component. eg First Name, Last Name etc.",
+      default: "undefined",
+      control: { name: "label", type: "text", onChange, placeholder: "Edit label" },
+    },
+    {
+      name: "name",
+      description: "The name of the input component",
+      default: "undefined",
+    },
+    {
+      name: "Placeholder",
+      description: "The placeholder of the text-area component.",
+      default: "undefined",
+      control: {
+        name: "placeholder",
+        type: "text",
+        onChange,
+        placeholder: "Edit placeholder value",
+      },
+    },
+    {
+      name: "isError",
+      description: "This represents the error state of the component",
+      default: "false",
+      control: {
+        name: "isError",
+        type: "checkbox",
+        onChange,
+      },
+    },
+    {
+      name: "isSuccess",
+      description: "This represents the success state of the component",
+      default: "false",
+      control: { name: "isSuccess", type: "checkbox", onChange },
+    },
+    {
+      name: "helperText",
+      description: "This provides additional information about the field the component represents",
+      default: "undefined",
+      control: { name: "helperText", type: "text", onChange },
+    },
+
+    {
+      name: "onChange",
+      description:
+        "Change event handler for the component. Triggered when the user changes the component’s value",
+      default: "({name, value})=>void",
+    },
+    {
+      name: "onFocus",
+      description:
+        "TextInputFocus event handler for the component. Triggered when the component is focused.",
+      default: "({name,value})=>void",
+    },
+    {
+      name: "onBlur",
+      description:
+        "Blur event handler for the component. Triggered when the component is unfocused.",
+      default: "({name,value})=>void",
+    },
+    {
+      name: (
+        <>
+          Required <span style={{ color: "red" }}>*</span>
+        </>
+      ),
+      description: "Marks the component as required in a form",
+      default: "false",
+      control: { name: "required", type: "checkbox", onChange },
+    },
+    {
+      name: "type",
+      description: "The type of the Input component e.g text, tel, number",
+      default: "text",
+    },
+    {
+      name: "leftIcon",
+      description: "Left/start icon of the Input component.",
+      control: { name: "leftIcon", type: "checkbox", onChange },
+      default: "undefined",
+    },
+    {
+      name: "rightIcon",
+      description: "Right/end icon of the Input component.",
+      control: { name: "rightIcon", type: "checkbox", onChange },
+      default: "undefined",
+    },
+    {
+      name: "iconSpacing",
+      description: "This specifies the space between the icon and the Input’s value.",
+      default: "undefined",
+    },
+    {
+      name: "showCC",
+      description:
+        "This prop is usd to control whether to show text counter or not. when set to true, a counter will be shown which reflects the number of text the input has.",
+      default: "false",
+      control: {
+        name: "showCC",
+        type: "checkbox",
+        onChange,
+      },
+    },
+  ];
+
+  return {
+    data,
+    onReset: () => setState(initialTextInputState),
+    state,
+  };
+};

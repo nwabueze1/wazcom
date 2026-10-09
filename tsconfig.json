@@ -1,0 +1,31 @@
+{
+  "compilerOptions": {
+    "target": "es5",
+    "lib": ["dom", "dom.iterable", "es6", "es2017", "esnext.asynciterable"],
+    "allowJs": true,
+    "skipLibCheck": true,
+    "esModuleInterop": true,
+    "allowSyntheticDefaultImports": true,
+    "strict": true,
+    "forceConsistentCasingInFileNames": true,
+    "noFallthroughCasesInSwitch": true,
+    "module": "esnext",
+    "moduleResolution": "node",
+    "resolveJsonModule": true,
+    "isolatedModules": true,
+    "noEmit": true,
+    "jsx": "react-jsx",
+    "baseUrl": "src",
+    "typeRoots": ["./src/@types", "./node_modules/@types"],
+    "downlevelIteration": true,
+    "types": ["vite/client", "jest"]
+  },
+  "include": ["src"],
+  "exclude": [
+    "lib",
+    "./src/@types",
+    "./src/stories",
+    "./node_modules/@types",
+    "src/types/graphql-global-types.ts"
+  ]
+}

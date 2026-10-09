@@ -1,0 +1,185 @@
+import { Theme } from "@mui/material";
+import { makeStyles } from "@mui/styles";
+
+export const useTableFilterV2Styles = makeStyles((theme: Theme) => ({
+  root: {
+    position: "fixed",
+    top: 0,
+    left: 0,
+    width: "100%",
+    zIndex: -99999,
+    height: "100vh",
+    overflow: "hidden",
+  },
+  rootActive: {
+    zIndex: 99999,
+  },
+  container: {
+    position: "relative",
+    width: "100%",
+    height: "100%",
+  },
+  overlay: {
+    background: "rgba(0,0,0,0.3)",
+    position: "absolute",
+    top: 0,
+    left: 0,
+    width: "100%",
+    height: "100%",
+  },
+  content: {
+    position: "absolute",
+    top: 0,
+    right: "-650px",
+    width: 650,
+    height: "100%",
+    background: theme.design.colors.waz_white,
+    transition: "all 0.3s ease-in",
+    display: "flex",
+    flexDirection: "column",
+  },
+  contentActive: {
+    right: 0,
+  },
+  filterButton: {
+    display: "flex",
+    alignItems: "center",
+    gap: 13,
+    fontFamily: theme.design.font.tomatoGrotesk,
+    fontSize: theme.typography.fontSize,
+    border: "none",
+    background: theme.design.colors.waz_white,
+    color: theme.design.colors.waz_brand800,
+    cursor: "pointer",
+    padding: 16,
+    borderRadius: 6,
+    textTransform: "capitalize",
+    transition: "all 0.3s ease-in",
+
+    "& svg": {
+      height: 20,
+      width: 20,
+      flexShrink: 0,
+      fill: theme.design.colors.waz_brand800,
+    },
+  },
+  filterButtonActive: {
+    background: theme.design.colors.waz_brand1000,
+    color: theme.design.colors.waz_brand900,
+    position: "relative",
+
+    "& svg": {
+      fill: theme.design.colors.waz_brand900,
+    },
+    "&::after": {
+      content: "''",
+      display: "block",
+      width: 6.5,
+      height: 6.5,
+      borderRadius: "50%",
+      background: "#E61437",
+      position: "absolute",
+      top: 16,
+      right: 16,
+      zIndex: 999,
+    },
+  },
+  header: {
+    padding: 24,
+    position: "relative",
+    borderBottom: "0.3px solid rgba(179, 179, 179, 0.90)",
+    fontFamily: theme.design.font.tomatoGrotesk,
+    display: "grid",
+    gap: 8,
+  },
+  heading: {
+    fontSize: 20,
+    fontWeight: 500,
+    lineHeight: "24px",
+    margin: 0,
+  },
+  subHeading: {
+    fontSize: 14,
+    fontWeight: 400,
+    lineHeight: "18px",
+    margin: 0,
+    color: theme.design.colors.waz_brand600,
+  },
+  closeButton: {
+    background: "transparent",
+    border: "none",
+    cursor: "pointer",
+    position: "absolute",
+    top: 24,
+    right: 24,
+    padding: 0,
+    "& svg": {
+      height: 20,
+      width: 20,
+      stroke: theme.design.colors.waz_brand800,
+    },
+  },
+  body: {
+    padding: theme.spacing(3),
+    flex: 1,
+    maxHeight: "calc(100vh - 183px)",
+    overflowY: "scroll",
+    "&::-webkit-scrollbar": {
+      width: "8px",
+    },
+    "&::-webkit-scrollbar-track": {
+      background: theme.design.colors.waz_greyColor50,
+      borderRadius: "4px",
+    },
+    "&::-webkit-scrollbar-thumb": {
+      background: theme.design.colors.waz_greyColor200,
+      borderRadius: "4px",
+    },
+    "&::-webkit-scrollbar-thumb:hover": {
+      background: theme.design.colors.waz_greyColor300,
+    },
+  },
+  filterOptionContainer: {
+    display: "flex",
+    flexDirection: "column",
+    gap: theme.spacing(0.9),
+  },
+  button: {
+    textTransform: "none",
+    background: "none",
+    color: theme.design.colors.waz_brand500,
+    padding: 0,
+    margin: 0,
+    fontFamily: theme.design.font.tomatoGrotesk,
+    "& svg": {
+      width: 24,
+      height: 24,
+      color: theme.design.colors.waz_brand500,
+    },
+  },
+  footer: {
+    padding: theme.spacing(3),
+    borderTop: "0.3px solid rgba(179, 179, 179, 0.90)",
+    display: "flex",
+    gap: theme.spacing(3),
+  },
+  footerButton: {
+    flex: 1,
+    border: `1px solid ${theme.design.colors.waz_brand900}`,
+    background: "none",
+    color: theme.design.colors.waz_brand900,
+    textTransform: "capitalize",
+    fontWeight: 600,
+    fontFamily: theme.design.font.tomatoGrotesk,
+    fontSize: 12,
+    "&.contained": {
+      background: theme.design.colors.waz_brand900,
+      color: theme.design.colors.waz_white,
+    },
+    "&:hover": {
+      "&.contained": {
+        opacity: 0.9,
+      },
+    },
+  },
+}));

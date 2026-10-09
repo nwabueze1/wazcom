@@ -1,0 +1,1 @@
+export declare const useCropAndSizeStyles: (props?: any) => import("@mui/styles").ClassNameMap<"root" | "form" | "labelText" | "tooltipIcon" | "placeholderContainer" | "radioInputContainer" | "radioIcon" | "radioOption">;

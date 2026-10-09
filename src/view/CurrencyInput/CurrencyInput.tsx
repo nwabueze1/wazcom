@@ -1,0 +1,81 @@
+import { CssBaseline } from "@mui/material";
+import { FC, useState } from "react";
+import { CurrencyInputField } from "../../io";
+import { Wrapper } from "../../core";
+import { useCurrencyInputStyles } from "./styles";
+import { CurrencyInputViewProps } from "./type";
+import { Paper } from "../../core/Paper";
+import { ComponentProps } from "../../core/ComponentProps";
+import { useCurrencyInputData } from "./utils/useCurrencyInputData";
+
+export const CurrencyInputView: FC<CurrencyInputViewProps> = () => {
+  const [value] = useState(0);
+  const { data, state, handleReset } = useCurrencyInputData();
+
+  const classes = useCurrencyInputStyles();
+
+  const inputData = {
+    basic: {
+      title: "Basic currency input",
+      name: "basic",
+      label: "Default",
+      placeholder: "Placeholder",
+      helperText: "",
+    },
+    noDropdown: {
+      title: "Basic currency input(Without dropdown)",
+      name: "noDropdown",
+      label: "Default",
+      placeholder: "Placeholder",
+      helperText: "",
+    },
+    vertical: {
+      title: "Vertical arrangement input",
+      name: "vertical",
+      label: "Amount",
+      placeholder: "Placeholder",
+      helperText: "",
+    },
+    horizontal: {
+      title: "Horizontal arrangement input",
+      name: "vertical",
+      label: "Amount",
+      placeholder: "Placeholder",
+      helperText: "",
+    },
+  };
+
+  return (
+    <div className={classes.root}>
+      <CssBaseline />
+      <div className={classes.container}>
+        {/* Default */}
+        <Wrapper
+          title="Currency Input"
+          description="The  Currency Inputs is used to collect currency types and values from users."
+          classNames={{
+            innerContainer: classes.innerContainer,
+          }}
+        >
+          <Paper padding={10}>
+            <h4 className={classes.cardTitle}>{inputData.basic.title}</h4>
+            <div className={classes.wrapper}>
+              <CurrencyInputField
+                className={classes.input}
+                label={inputData.basic.label}
+                placeholder={inputData.basic.placeholder}
+                variant="basic"
+                value={value}
+                isError={state.isError}
+                isDisabled={state.isDisabled}
+                isSuccess={state.isSuccess}
+                showDropdownIcon={state.showDropdownIcon}
+              />
+            </div>
+          </Paper>
+        </Wrapper>
+        <ComponentProps body={data as any[]} onReset={handleReset} />
+      </div>
+    </div>
+  );
+};

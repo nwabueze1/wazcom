@@ -1,0 +1,1 @@
+export declare const useTableFilterV2Styles: (props?: any) => import("@mui/styles").ClassNameMap<"root" | "content" | "overlay" | "container" | "button" | "body" | "footer" | "header" | "heading" | "rootActive" | "contentActive" | "filterButton" | "filterButtonActive" | "subHeading" | "closeButton" | "filterOptionContainer" | "footerButton">;

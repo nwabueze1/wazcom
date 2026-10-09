@@ -1,0 +1,1 @@
+export declare const useCropImageStyles: (props?: any) => import("@mui/styles").ClassNameMap<"root" | "wrapper" | "navigation" | "slider" | "cropper" | "wrapperNavigation" | "handler" | "sliderWrapper" | "sliderLine" | "sliderFill" | "sliderCircle" | "sliderCircleFocus" | "sliderInnerCircle" | "sliderInnerCircleFocus" | "navigationButton">;

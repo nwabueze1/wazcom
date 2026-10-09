@@ -1,0 +1,1 @@
+export declare const useInstagramStyles: (props?: any) => import("@mui/styles").ClassNameMap<"content" | "body" | "btnContainer" | "inActiveContainer" | "contentImageContainer" | "contentImage" | "contentTitle" | "contentText" | "connectBtn">;

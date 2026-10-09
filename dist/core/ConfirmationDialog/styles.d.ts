@@ -1,0 +1,1 @@
+export declare const useConfirmationDialogStyles: (props?: any) => import("@mui/styles").ClassNameMap<"root" | "container" | "button" | "icon" | "body" | "header" | "title" | "description" | "buttons">;

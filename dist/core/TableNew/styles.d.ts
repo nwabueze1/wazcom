@@ -1,0 +1,1 @@
+export declare const useTableStyles: (props?: any) => import("@mui/styles").ClassNameMap<"root" | "tHead" | "tableContainer" | "tRow" | "tHeadData" | "tRowData" | "tableLoader" | "tableSeparator" | "tableRowText" | "tableRowActionsContainer" | "customTable" | "tableFooter" | "paginationIconButton" | "tableV2" | "tableV2Body" | "tableV2Root">;

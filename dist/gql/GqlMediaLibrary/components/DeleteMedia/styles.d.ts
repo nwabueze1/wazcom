@@ -1,0 +1,1 @@
+export declare const useDeleteMediaStyles: (props?: any) => import("@mui/styles").ClassNameMap<"wrapper" | "modal" | "deleteHeading" | "deleteHeadingText" | "deleteHeadingIcon" | "deleteContent" | "deleteContentText" | "deleteActions" | "cancelBtn" | "deleteBtn" | "thumbnailImg">;

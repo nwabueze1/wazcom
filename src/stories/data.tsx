@@ -1,0 +1,142 @@
+export const data = [
+  {
+    _id: (
+      <p>
+        <span>6204428786b5d81297b4e7f2</span>
+      </p>
+    ),
+    index: 0,
+    guid: "f044ecc1-6122-44d0-871c-9daf7ff8117c",
+    isActive: false,
+    balance: (
+      <div>
+        <div>&#9679;</div>
+        accepted
+      </div>
+    ),
+    picture: "http://placehold.it/32x32",
+    age: 20,
+  },
+  {
+    _id: "620442875b48784339d38234",
+    index: 1,
+    guid: "3045720e-f030-4828-afb7-eeb5693ca194",
+    isActive: false,
+    balance: (
+      <div>
+        <div>&#9679;</div>
+        decline
+      </div>
+    ),
+    picture: "http://placehold.it/32x32",
+    age: 40,
+  },
+  {
+    _id: "62044287fc8938dac2dcb7a5",
+    index: 2,
+    guid: "7b61789f-2a32-4448-8ee2-39ead0c569a1",
+    isActive: true,
+    balance: "$1,430.92",
+    picture: "http://placehold.it/32x32",
+    age: 34,
+  },
+  {
+    _id: "6204428755328f6bbe52422c",
+    index: 3,
+    guid: "cbbcfc2e-ddfe-49b2-94f5-eaa4dc6515f9",
+    isActive: false,
+    balance: "$2,127.79",
+    picture: "http://placehold.it/32x32",
+    age: 29,
+  },
+  {
+    _id: "620442876609de3442c61213",
+    index: 4,
+    guid: "fab27f10-555f-4a15-8786-a10bae622960",
+    isActive: false,
+    balance: "$3,282.77",
+    picture: "http://placehold.it/32x32",
+    age: 39,
+  },
+  {
+    _id: "6204428740069f3f7996c21d",
+    index: 5,
+    guid: "712a7260-3352-4a68-a9e2-da53b53f5cfe",
+    isActive: false,
+    balance: "$2,749.41",
+    picture: "http://placehold.it/32x32",
+    age: 29,
+  },
+  {
+    _id: "62044287d119781c4c343c2e",
+    index: 6,
+    guid: "78bd33a3-45cd-42c1-8537-df7887797e10",
+    isActive: false,
+    balance: "$1,482.12",
+    picture: "http://placehold.it/32x32",
+    age: 25,
+  },
+  {
+    _id: "6204428778b8bc05fa246cef",
+    index: 7,
+    guid: "23212848-2cca-4b6d-82b7-ec5a71fd2c59",
+    isActive: true,
+    balance: "$2,760.38",
+    picture: "http://placehold.it/32x32",
+    age: 26,
+  },
+  {
+    _id: "6204428728c2bf160dc98178",
+    index: 8,
+    guid: "d1fd2829-9cfd-412a-a101-f2903e39345d",
+    isActive: false,
+    balance: "$2,024.42",
+    picture: "http://placehold.it/32x32",
+    age: 20,
+  },
+  {
+    _id: "62044287b144483fca5c341f",
+    index: 9,
+    guid: "6f53c7c9-c82e-42cc-b7fd-d2ff4e0c45b4",
+    isActive: true,
+    balance: "$2,374.86",
+    picture: "http://placehold.it/32x32",
+    age: 20,
+  },
+  {
+    _id: "62044287bdcc895c63a6662f",
+    index: 10,
+    guid: "39e685a1-e35f-42d8-90de-7a602018d323",
+    isActive: false,
+    balance: "$2,427.92",
+    picture: "http://placehold.it/32x32",
+    age: 40,
+  },
+  {
+    _id: "620442875a1a2043eef24a49",
+    index: 11,
+    guid: "211b4710-5967-4afb-9776-eab69a028652",
+    isActive: true,
+    balance: "$2,753.73",
+    picture: "http://placehold.it/32x32",
+    age: 39,
+  },
+  {
+    _id: "6204428763d86a0b914128b5",
+    index: 12,
+    guid: "6c1889d6-52e5-4a2a-9469-d5f4e31a0622",
+    isActive: false,
+    balance: "$3,480.74",
+    picture: "http://placehold.it/32x32",
+    age: 34,
+  },
+  {
+    _id: "62044287bd4f42e951389607",
+    index: 13,
+    guid: "7f9deb52-f4ff-4567-835d-35671b2aa202",
+    isActive: false,
+    balance: "$1,624.47",
+    picture: "http://placehold.it/32x32",
+    age: 34,
+  },
+];
